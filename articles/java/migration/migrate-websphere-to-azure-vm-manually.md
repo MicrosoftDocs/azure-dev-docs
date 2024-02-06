@@ -62,7 +62,7 @@ export RESOURCE_GROUP_NAME=abc1110rg
 az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
 
-### [PowerShell](#tab/in-powershell)
+### [PowerShell](#tab/powershell)
 
 ```powershell
 $Env:RESOURCE_GROUP_NAME = "abc1110rg"
@@ -88,7 +88,7 @@ Use the following steps to create the virtual network. The example in this secti
 
 1. Create a virtual network by using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). The following example creates a network named `myVNet`:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    az network vnet create \
@@ -97,7 +97,7 @@ Use the following steps to create the virtual network. The example in this secti
        --address-prefixes 192.168.0.0/24
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    az network vnet create `
@@ -110,7 +110,7 @@ Use the following steps to create the virtual network. The example in this secti
 
 1. Create a subnet for the WAS cluster by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `mySubnet`:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    az network vnet subnet create \
@@ -120,7 +120,7 @@ Use the following steps to create the virtual network. The example in this secti
        --address-prefixes 192.168.0.0/25
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    az network vnet subnet create `
@@ -134,7 +134,7 @@ Use the following steps to create the virtual network. The example in this secti
 
 1. Create a subnet for Application Gateway by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `wasGateway`:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    az network vnet subnet create \
@@ -144,7 +144,7 @@ Use the following steps to create the virtual network. The example in this secti
        --address-prefixes 192.168.0.128/25
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    az network vnet subnet create `
@@ -215,7 +215,7 @@ Use the following steps to create a basic VM, ensure all the required tools are 
 
    The following example creates a Red Hat Enterprise Linux machine by using a username/password pair for the authentication. You can choose to use TLS/SSL authentication instead.
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    az vm create \
@@ -230,7 +230,7 @@ Use the following steps to create a basic VM, ensure all the required tools are 
           --nsg ""
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    # For `public-ip-address` and `nsg`, be sure to wrap the value "" in '' in PowerShell.
@@ -511,8 +511,8 @@ In this section, you use the X server on `myWindowsVM` to view the graphical ins
 
 1. After a while, the **Password Required** pane asks you to enter your IBMid. Fill in your username and password, and then select **Save password**.
 
-> [!NOTE]
-> The IBMid that you use must be entitled to run WebSphere 8.5.5. If you need help obtaining this entitlement, contact [IBM eCustomer Care](https://www-112.ibm.com/software/howtobuy/passportadvantage/homepage/ecarec).
+   > [!NOTE]
+   > The IBMid that you use must be entitled to run WebSphere 8.5.5. If you need help obtaining this entitlement, contact [IBM eCustomer Care](https://www-112.ibm.com/software/howtobuy/passportadvantage/homepage/ecarec).
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-username-password.png" alt-text="Screenshot of the Password Required pane for IBM WebSphere Application Server." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-username-password.png":::
 
@@ -520,7 +520,7 @@ In this section, you use the X server on `myWindowsVM` to view the graphical ins
 
 1. After the connection is complete, the product repository URL is in the **Repositories** list.
 
-    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-the-product-repository-added.png" alt-text="Screenshot of a product repository added to IBM WebSphere Application Server." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-the-product-repository-added.png":::
+   :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-the-product-repository-added.png" alt-text="Screenshot of a product repository added to IBM WebSphere Application Server." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-the-product-repository-added.png":::
 
 1. Select **OK** to close the **Preferences** pane. You're back on the landing page of IBM Installation Manager.
 
@@ -576,14 +576,14 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
 1. Use the following command to stop `adminVM`:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    # export RESOURCE_GROUP_NAME=abc1110rg
    az vm stop --resource-group $RESOURCE_GROUP_NAME --name adminVM
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    # $Env:RESOURCE_GROUP_NAME = "abc1110rg"
@@ -594,7 +594,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
 1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` OS disk:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    export ADMIN_OS_DISK_ID=$(az vm show \
@@ -608,7 +608,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
       --source $ADMIN_OS_DISK_ID
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    $Env:ADMIN_OS_DISK_ID=$(az vm show `
@@ -626,7 +626,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
 1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` data disk:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    export ADMIN_DATA_DISK_ID=$(az vm show \
@@ -640,7 +640,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
       --source $ADMIN_DATA_DISK_ID
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    $Env:ADMIN_DATA_DISK_ID=$(az vm show `
@@ -658,7 +658,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
 1. Use the following commands to query for the snapshot IDs that you'll use later:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    # Get the snapshot ID.
@@ -674,7 +674,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
       --output tsv)
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    # Get the snapshot ID.
@@ -700,7 +700,7 @@ Use the following steps to create `mspVM1`:
 
 1. Create an OS disk for `mspVM1` by using [az disk create](/cli/azure/disk#az-disk-create):
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    # Create a new managed disk by using the OS snapshot ID.
@@ -711,7 +711,7 @@ Use the following steps to create `mspVM1`:
       --source $OS_SNAPSHOT_ID
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    # Create a new managed disk by using the OS snapshot ID.
@@ -726,7 +726,7 @@ Use the following steps to create `mspVM1`:
 
 1. Use the following commands to create the `mspVM1` VM by attaching OS disk `mspVM1_OsDisk_1`:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    # Get the resource ID of the managed disk.
@@ -737,7 +737,7 @@ Use the following steps to create `mspVM1`:
       --output tsv)
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    # Get the resource ID of the managed disk.
@@ -781,7 +781,7 @@ Use the following steps to create `mspVM1`:
        --availability-set myAvailabilitySet `
        --public-ip-address '""' `
        --nsg '""'
-    ```
+   ```
 
    ### [WAS ND V85](#tab/was-nd-v85)
 
@@ -814,7 +814,7 @@ Use the following steps to create `mspVM1`:
 
 1. Create a managed disk from the data disk snapshot and attach it to `mspVM1`:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    az disk create \
@@ -834,7 +834,7 @@ Use the following steps to create `mspVM1`:
       --name $MSPVM1_DATA_DISK_ID
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    az disk create `
@@ -858,7 +858,7 @@ Use the following steps to create `mspVM1`:
 
 1. You created `mspVM1` with WAS installed. Because you created the VM from a snapshot of the `adminVM` disks, the two VMs have the same host name. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the host name to the value `mspVM1`:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    az vm run-command invoke \
@@ -868,7 +868,7 @@ Use the following steps to create `mspVM1`:
       --scripts "sudo hostnamectl set-hostname mspVM1"
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    az vm run-command invoke `
@@ -902,7 +902,7 @@ Use the following steps to create `mspVM2`:
 
 1. Create an OS disk for `mspVM2` by using [az disk create](/cli/azure/disk#az-disk-create):
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    # Create a new managed disk by using the OS snapshot ID.
@@ -913,7 +913,7 @@ Use the following steps to create `mspVM2`:
       --source $OS_SNAPSHOT_ID
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    # Create a new managed disk by using the OS snapshot ID.
@@ -928,7 +928,7 @@ Use the following steps to create `mspVM2`:
 
 1. Use the following commands to create the `mspVM2` VM by attaching OS disk `mspVM2_OsDisk_1`:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    # Get the resource ID of the managed disk.
@@ -952,7 +952,7 @@ Use the following steps to create `mspVM2`:
       --nsg ""
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    # Get the resource ID of the managed disk.
@@ -982,7 +982,7 @@ Use the following steps to create `mspVM2`:
 
 1. Create a managed disk from the data snapshot and attach it to `mspVM2`:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    az disk create \
@@ -1002,7 +1002,7 @@ Use the following steps to create `mspVM2`:
       --name $MSPVM2_DATA_DISK_ID
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    az disk create `
@@ -1026,7 +1026,7 @@ Use the following steps to create `mspVM2`:
 
 1. You created `mspVM2` with WAS installed. Because you created the VM from a snapshot of the `adminVM` disks, the two VMs have the same host name. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the host name to the value `mspVM2`:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    az vm run-command invoke \
@@ -1036,7 +1036,7 @@ Use the following steps to create `mspVM2`:
       --scripts "sudo hostnamectl set-hostname mspVM2"
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    az vm run-command invoke `
@@ -1068,13 +1068,13 @@ Make sure that you completed the previous steps for both `mspVM1` and `mspVM2`. 
 
 1. Use the [az vm start](/cli/azure/vm#az-vm-start) command to start `adminVM`, as shown in the following example:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    az vm start --resource-group $RESOURCE_GROUP_NAME --name adminVM
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    az vm start --resource-group $Env:RESOURCE_GROUP_NAME --name adminVM
@@ -1084,7 +1084,7 @@ Make sure that you completed the previous steps for both `mspVM1` and `mspVM2`. 
 
 1. Use the following commands to get and show the private IP addresses, which you'll use in later sections:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    export ADMINVM_NIC_ID=$(az vm show \
@@ -1118,7 +1118,7 @@ Make sure that you completed the previous steps for both `mspVM1` and `mspVM2`. 
    echo "Private IP of mspVM2: $MSPVM2_IP"
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    $Env:ADMINVM_NIC_ID=$(az vm show `
@@ -1672,7 +1672,7 @@ Use the following steps to create the application gateway:
 
 1. To expose WAS to the internet, you need a public IP address. In the shell with the Azure CLI installed, create the IP address by using [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create), as shown in the following example:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    az network public-ip create \
@@ -1688,7 +1688,7 @@ Use the following steps to create the application gateway:
      --output tsv)
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    az network public-ip create `
@@ -1708,7 +1708,7 @@ Use the following steps to create the application gateway:
 
 1. Create the application gateway to associate with the IP address. The following example creates an application gateway with the WebSphere managed servers in the default back-end pool:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    az network application-gateway create \
@@ -1727,7 +1727,7 @@ Use the following steps to create the application gateway:
        --servers ${MSPVM1_IP} ${MSPVM2_IP}
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    az network application-gateway create  `
@@ -1750,7 +1750,7 @@ Use the following steps to create the application gateway:
 
 1. The managed servers expose their workloads with port `9080`. Use the following commands to update `appGatewayBackendHttpSettings` by specifying back-end port `9080` and creating a probe for it:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    az network application-gateway probe create \
@@ -1771,7 +1771,7 @@ Use the following steps to create the application gateway:
        --probe clusterProbe
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    az network application-gateway probe create  `
@@ -1796,7 +1796,7 @@ Use the following steps to create the application gateway:
 
 1. Use the following commands to provision a rewrite rule for redirections:
 
-   ### [Bash](#tab/in-bash)
+   ### [Bash](#tab/bash)
 
    ```bash
    # Create a rewrite rule set.
@@ -1853,7 +1853,7 @@ Use the following steps to create the application gateway:
        --pattern "(https?):\/\/192.168.0.7:9080(.*)$"
    ```
 
-   ### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/powershell)
 
    ```powershell
    # Create a rewrite rule set.
@@ -1916,13 +1916,13 @@ Use the following steps to create the application gateway:
 
 You can now access the application by using the URL that the following command produces:
 
-### [Bash](#tab/in-bash)
+### [Bash](#tab/bash)
 
 ```bash
 echo "http://${APPGATEWAY_IP}/snoop/"
 ```
 
-### [PowerShell](#tab/in-powershell)
+### [PowerShell](#tab/powershell)
 
 ```powershell
 echo "http://${Env:APPGATEWAY_IP}/snoop/"
@@ -1937,7 +1937,7 @@ echo "http://${Env:APPGATEWAY_IP}/snoop/"
 
 If you don't want to use the jump box `myWindowsVM` to access the IBM console, but you want to expose it to a public network, use the following commands to assign a public IP address to `adminVM`:
 
-### [Bash](#tab/in-bash)
+### [Bash](#tab/bash)
 
 ```bash
 # Create a public IP address.
@@ -1986,7 +1986,7 @@ export ADMIN_PUBLIC_IP=$(az network public-ip show \
 echo "IBM Console public URL: https://${ADMIN_PUBLIC_IP}:9043/ibm/console/"
 ```
 
-### [PowerShell](#tab/in-powershell)
+### [PowerShell](#tab/powershell)
 
 ```powershell
 # Create a public IP address.
@@ -2055,13 +2055,13 @@ You can remove the Windows machine by using the following commands. Alternativel
 
 Delete `abc1110rg` by using the following command:
 
-### [Bash](#tab/in-bash)
+### [Bash](#tab/bash)
 
 ```azurecli
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
-### [PowerShell](#tab/in-powershell)
+### [PowerShell](#tab/powershell)
 
 ```powershell
 az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
