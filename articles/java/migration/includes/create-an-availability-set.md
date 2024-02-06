@@ -27,3 +27,5 @@ az vm availability-set create `
     --platform-fault-domain-count 2 `
     --platform-update-domain-count 2
 ```
+
+---
