@@ -14,7 +14,13 @@ adobe-target: true
 
 # Deploy your Java Tomcat web app to App Service
 
+This guidance assumes you have run through any of the Tomcat Web app examples for enabling security with Microsoft Entra ID. 
+
+## Prerequisites
+
 [!INCLUDE [deploy-tomcat-app-service-intro.md](includes/deploy-tomcat-app-service-intro.md)]
+
+You will also need the [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) tool.
 
 ## Configure the Maven plugin
 

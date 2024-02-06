@@ -7,7 +7,7 @@ ms.custom: devx-track-java
 
 #### [Deploy the sample to Azure App Service](#tab/appsvc)
 
-[!INCLUDE [deploy-tomcat-app-service-intro.md](./deploy-tomcat-app-service-intro.md)]
+[!INCLUDE [deploy-app-service-intro.md](./deploy-app-service-intro.md)]
 
 ##### Configure the Maven plugin
 
@@ -15,17 +15,17 @@ ms.custom: devx-track-java
 
 ##### Prepare the web app for deployment
 
-[!INCLUDE [deploy-tomcat-app-service-prepare-deploy.md](./deploy-tomcat-app-service-prepare-deploy.md)]
+[!INCLUDE [deploy-app-service-prepare-deploy.md](./deploy-app-service-prepare-deploy.md)]
 
 [!INCLUDE [deploy-tomcat-app-service-secret-note.md](./deploy-tomcat-app-service-secret-note.md)]
 
 ##### Update your Microsoft Entra ID App Registration
 
-[!INCLUDE [deploy-tomcat-app-service-update-registration.md](./deploy-tomcat-app-service-update-registration.md)]
+[!INCLUDE [deploy-app-service-update-registration.md](./deploy-app-service-update-registration.md)]
 
 ##### Deploy the app
 
-[!INCLUDE [deploy-tomcat-app-service-deploy.md](./deploy-tomcat-app-service-deploy.md)]
+[!INCLUDE [deploy-app-service-deploy.md](./deploy-app-service-deploy.md)]
 
 #### [Run the sample locally](#tab/local)
 
