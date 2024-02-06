@@ -1199,11 +1199,8 @@ Use the following steps to create and configure the management profile:
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png" alt-text="Screenshot of the Profile Name and Location pane in the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png":::
 
    ### [WAS ND V9](#tab/was-nd-v9)
-
    In WAS V9, the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Dmgr01*.
-
    ### [WAS ND V85](#tab/was-nd-v85)
-
    In WAS V8.5, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01*.
    ---
 
@@ -1417,11 +1414,8 @@ Use the following steps to configure a custom profile for `mspVM1`:
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png" alt-text="Screenshot of the Profile Name and Location pane of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png":::
 
    ### [WAS ND V9](#tab/was-nd-v9)
-
    In WAS V9, the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Custom01*.
-
    ### [WAS ND V85](#tab/was-nd-v85)
-
    In WAS V8.5, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Custom01*.
    ---
 
@@ -1515,11 +1509,8 @@ In this section, you use the IBM console to create a WAS cluster and start manag
 1. For **Step 2: Create first cluster member**, enter your member name and select the node `mspvm1Node01`. In this example, the member name is `msp1`.
 
    ### [WAS ND V9](#tab/was-nd-v9)
-
    The node is `mspvm1Node01 (ND 9.0.5.12)`.
-
    ### [WAS ND V85](#tab/was-nd-v85)
-
    The node is `mspvm1Node01 (ND 8.5.5.24)`.
    ---
 
@@ -1530,11 +1521,8 @@ In this section, you use the IBM console to create a WAS cluster and start manag
 1. For **Step 3: Create additional cluster members**, enter your second member name and select node `mspvm2Node01`. In this example, the member name is `msp2`.
 
    ### [WAS ND V9](#tab/was-nd-v9)
-
    The node is `mspvm2Node01 (ND 9.0.5.12)`.
-
    ### [WAS ND V85](#tab/was-nd-v85)
-
    The node is `mspvm2Node01 (ND 8.5.5.24)`.
    ---
 
