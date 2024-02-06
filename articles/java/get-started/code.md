@@ -21,7 +21,7 @@ An ideal IDE includes tools for editing source-code, compilation, local build au
 
 Visual Studio Code (VS Code) is a lightweight, agnostic operating system that runs on Windows, macOS, and Linux. A powerful IDE, it provides a comprehensive toolset for Java development. It supports any Java Development Kit (JDK), including the Microsoft Build of OpenJDK, Amazon Corretto, Eclipse Adoptium, and Oracle Java SE. VS Code also integrates well with all Java frameworks, application servers, and other popular tools, including Tomcat, Spring Boot, JBoss EAP, WildFly, Quarkus, Open Liberty, Maven, and Gradle. It also supports other programming languages that are frequently used by Java developers - like JavaScript and SQL.
 
-:::image type="content" source="media/visual-studio-code-deploy.png" alt-text="Screenshot of Visual Studio Code that shows a Java file and the Output window." lightbox="media/visual-studio-code-deploy.png":::
+:::image type="content" source="media/visual-studio-code-deploy.jpg" alt-text="Screenshot of Visual Studio Code that shows a Java file and the Output window." lightbox="media/visual-studio-code-deploy.jpg":::
 
 VS Code supports and streamlines Java development workflows through a broad range of [Java extensions for Visual Studio Code](https://code.visualstudio.com/docs/java/extensions). There are several hundred extensions for Java alone, which you can search for from within the IDE itself. We packaged key extensions for fundamental Java development into the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). This extension pack includes extensions for project management, Maven integration, code editing, code completion, code navigation, refactoring, linting, formatting, debugging, running and debugging JUnit/TestNG test cases, and more. There's also a [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack) for developing and deploying Spring Boot applications - including Spring Initializr support for integration with Azure Spring Apps, a fully managed service for running Spring Boot applications on Azure.
 
@@ -38,7 +38,7 @@ The [Azure Tools Extension Pack](https://marketplace.visualstudio.com/items?item
 
 If you're new to Java on VS Code, try out the "Java: Tips for Beginners" command in its main Command Palette.
 
-:::image type="content" source="media/visual-studio-code.png" alt-text="Screenshot of Visual Studio Code that shows a Java file and sidebar pane." lightbox="media/visual-studio-code.png":::
+:::image type="content" source="media/visual-studio-code.jpg" alt-text="Screenshot of Visual Studio Code that shows a Java file and sidebar pane." lightbox="media/visual-studio-code.jpg":::
 
 ## Azure Toolkit for IntelliJ
 
@@ -46,7 +46,7 @@ The [Azure Toolkit for IntelliJ](../toolkit-for-intellij/index.yml) lets Java de
 
 Microsoft is actively investing time and resources to provide more functionality for IntelliJ, including new experiences for cloud-native development and deeper integration with Azure services - including integrations with Azure Kubernetes Service and Application Insights.
 
-:::image type="content" source="media/azure-toolkit-for-intellij.png" alt-text="Screenshot of IntelliJ that shows a Java file and the Deploy to Azure dialog box." lightbox="media/azure-toolkit-for-intellij.png":::
+:::image type="content" source="media/azure-toolkit-for-intellij.jpg" alt-text="Screenshot of IntelliJ that shows a Java file and the Deploy to Azure dialog box." lightbox="media/azure-toolkit-for-intellij.jpg":::
 
 ## Azure Toolkit for Eclipse
 
