@@ -111,6 +111,8 @@ As a first step you'll need to:
    - The generated key value will be displayed when you select the **Add** button. Copy the generated value for use in the steps later.
    - You'll need this key later in your code's configuration files. This key value will not be displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
 
+---
+
 #### Configure the webApp app (java-spring-webapp-auth) to use your app registration
 
 Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure the code.

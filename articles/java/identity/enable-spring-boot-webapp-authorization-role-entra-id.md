@@ -148,6 +148,8 @@ As a first step you'll need to:
 
  To add users to the app role defined earlier, follow the guidelines here: [Assign users and groups to roles.](https://learn.microsoft.com/entra/identity-platform/howto-add-app-roles-in-apps#assign-users-and-groups-to-microsoft-entra-roles)
 
+---
+
 #### Configure the web app (java-spring-webapp-roles) to use your app registration
 
 Open the project in your IDE (like Visual Studio or Visual Studio Code) to configure the code.
@@ -169,7 +171,7 @@ To run the sample in Visual Studio Code, ensure that you have installed the [Jav
 1. In the same directory as this readme file, run `mvn clean compile spring-boot:run`.
 1. Open your browser and navigate to `http://localhost:8080`.
 
-![Experience](./ReadmeFiles/app.png)
+![Experience](./media/app-spring-group.png)
 
 ## Explore the sample
 

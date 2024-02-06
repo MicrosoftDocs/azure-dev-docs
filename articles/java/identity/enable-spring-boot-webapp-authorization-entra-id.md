@@ -120,6 +120,8 @@ As a first step you'll need to:
    - In the **Delegated permissions** section, select the **User.Read** in the list. Use the search box if necessary.
    - Click on the **Add permissions** button in the bottom.
 
+---
+
 #### Configure the webApp app (java-spring-webapp-call-graph) to use your app registration
 
 Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure the code.

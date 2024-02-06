@@ -187,6 +187,8 @@ You have two different options available to you on how you can further configure
 >
 > When you set **User assignment required?** to **Yes**, Microsoft Entra ID will check that only users assigned to your application in the **Users and groups** blade are able to sign-in to your app. You can assign users directly or by assigning security groups they belong to.
 
+---
+
 ### Configure your code sample to use your app registration and security groups (java-spring-webapp-groups)
 
 Open the project in your IDE (like Visual Studio or Visual Studio Code) to configure the code.
