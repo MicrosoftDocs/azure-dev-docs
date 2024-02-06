@@ -270,7 +270,6 @@ Use the following steps to create a basic VM, ensure that all the required tools
          --size-gb 100 `
          --sku StandardSSD_LRS
    ```
-
    ---
 
 ### Create a Windows VM and set up an X server
@@ -794,7 +793,6 @@ Use the following steps to create `mspVM1`:
        --public-ip-address '""' `
        --nsg '""'
    ```
-
    ---
 
 1. Create a managed disk from the data disk snapshot and attach it to `mspVM1`:
