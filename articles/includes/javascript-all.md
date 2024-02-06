@@ -521,7 +521,7 @@
 | Swagger Validation Common | npm [0.1.2](https://www.npmjs.com/package/@azure/swagger-validation-common/v/0.1.2) |  |  |
 | Tools - Azcopy Darwin | npm [10.23.0](https://www.npmjs.com/package/@azure-tools/azcopy-darwin/v/10.23.0) |  | GitHub [10.23.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Azcopy Linux | npm [10.23.0](https://www.npmjs.com/package/@azure-tools/azcopy-linux/v/10.23.0) |  | GitHub [10.23.0](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Node | npm [3.1.0](https://www.npmjs.com/package/@azure-tools/azcopy-node/v/3.1.0) |  | GitHub [3.1.0](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Node | npm [3.2.0](https://www.npmjs.com/package/@azure-tools/azcopy-node/v/3.2.0) |  | GitHub [3.2.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Azcopy Win32 | npm [10.23.0](https://www.npmjs.com/package/@azure-tools/azcopy-win32/v/10.23.0) |  | GitHub [10.23.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Azcopy Win64 | npm [10.23.0](https://www.npmjs.com/package/@azure-tools/azcopy-win64/v/10.23.0) |  | GitHub [10.23.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Data Store | npm [4.8.0](https://www.npmjs.com/package/@azure-tools/datastore/v/4.8.0) |  | GitHub [4.8.0](https://github.com/Azure/perks) |

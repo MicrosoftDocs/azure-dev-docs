@@ -184,6 +184,19 @@ productDirectory:
           text: Get started
         - url: ./dev-tunnels/index.yml
           text: See more in the dev tunnels developer center
+    - title: Dev Proxy
+      imageSrc: ./includes/media/dev-proxy/dev-proxy-icon.svg
+      links:
+        - url: /microsoft-cloud/dev/dev-proxy/overview
+          text: What is Dev Proxy?
+        - url: /microsoft-cloud/dev/dev-proxy/get-started
+          text: Get started
+        - url: /microsoft-cloud/dev/dev-proxy/tutorials/test-javascript-client-side-web-app
+          text: Test a JavaScript client-side web application
+        - url: /microsoft-cloud/dev/dev-proxy/tutorials/test-javascript-client-side-web-app-microsoft-graph
+          text: Test a JavaScript client-side web application that calls Microsoft Graph
+        - url: /microsoft-cloud/dev/dev-proxy/concepts/implement-rate-limiting-azure-api-management
+          text: How to implement rate limiting in Azure API Management
 #tools:
 #conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
