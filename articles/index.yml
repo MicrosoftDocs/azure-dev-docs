@@ -175,6 +175,19 @@ productDirectory:
           text: Get started
         - url: ./azure-developer-cli/index.yml
           text: See more in the Azure Developer CLI developer center
+    - title: DevContainers
+      imageSrc: includes/media/dev-containers/dev-container.svg
+      links:
+        - url: https://containers.dev/
+          text: What are development containers?
+        - url: https://code.visualstudio.com/docs/devcontainers/tutorial
+          text: Visual Studio Code Dev Containers
+        - url: https://code.visualstudio.com/docs/devcontainers/create-dev-container
+          text: Create your own Dev Container
+        - url: https://containers.dev/features
+          text: Available Features
+        - url: https://containers.dev/templates
+          text: Available Templates
     - title: Dev tunnels
       imageSrc: ./dev-tunnels/media/index/dev-tunnels-icon.svg
       links:
