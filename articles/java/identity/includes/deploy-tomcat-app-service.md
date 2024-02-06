@@ -88,7 +88,7 @@ Property | Required | Description | Version
 
 For the complete list of configurations, see the plugin reference documentation. All the Azure Maven Plugins share a common set of configurations. For these configurations see [Common Configurations](https://github.com/microsoft/azure-maven-plugins/wiki/Common-Configuration). For configurations specific to App Service, see [Azure Web App: Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details).
 
-Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-1690440759246` and `helloworld-1690440759246-rg` accordingly in the demo). They're used later.
+Be careful about the values of `<appName>` and `<resourceGroup>`. They're used later.
 
 ##### Prepare the web app for deployment
 
@@ -99,7 +99,7 @@ When you deploy your application to App Service, your redirect URL will change t
 ```ini
 # app.homePage is by default set to dev server address and app context path on the server
 # for apps deployed to azure, use https://your-sub-domain.azurewebsites.net
-app.homePage=https://msal4j-servlet-auth-1707140924941.azurewebsites.net
+app.homePage=https://<your-app-name>.azurewebsites.net
 ```
 
 > [!IMPORTANT]
@@ -114,7 +114,7 @@ Since the redirect URI will change to your deployed Web App to Azure App Service
 1. Open your app registration by clicking on its name. 
 1. Select **Authentication** from the menu.
 1. In the **Web** - **Redirect URIs** section, select **Add URI**.
-1. Fill out the URI of your web app, appending **/auth/redirect**, for example `https://msal4j-servlet-auth-1707140924941.azurewebsites.net/auth/redirect`.
+1. Fill out the URI of your web app, appending **/auth/redirect**, for example `https://<your-app-name>.azurewebsites.net/auth/redirect`.
 1. Select **Save**. 
 
 ##### Deploy the app
@@ -131,7 +131,7 @@ With all the configuration ready in your *pom.xml* file, you can now deploy your
 mvn package azure-webapp:deploy
 ```
 
-Once deployment is completed, your application is ready at `http://<appName>.azurewebsites.net/`. Open the url with your local web browser, you should see the start page of the `msal4j-servlet-auth` application.
+Once deployment is completed, your application is ready at `http://<your-app-name>.azurewebsites.net/`. Open the url with your local web browser, you should see the start page of the `msal4j-servlet-auth` application.
 
 #### [Run the sample locally](#tab/local)
 
