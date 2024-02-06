@@ -22,6 +22,10 @@
         "redirect_url": "/azure/app-service/tutorial-secure-domain-certificate"
       },
       {
+        "source_path":"articles/javascript/how-to/with-azure-cli/create-container-registry-resource.md",
+        "redirect_url": "/azure/container-registry/container-registry-get-started-azure-cli"
+      },      
+      {
         "source_path":"articles/javascript/composable-cloud-contoso-real-estate.md",
         "redirect_url": "/azure/developer/javascript/end-to-end/contoso-real-estate-get-started"
       },
