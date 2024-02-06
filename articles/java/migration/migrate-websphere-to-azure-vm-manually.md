@@ -89,29 +89,24 @@ Use the following steps to create the virtual network. The example in this secti
 1. Create a virtual network by using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). The following example creates a network named `myVNet`:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    az network vnet create \
        --resource-group $RESOURCE_GROUP_NAME \
        --name myVNet \
        --address-prefixes 192.168.0.0/24
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    az network vnet create `
       --resource-group $Env:RESOURCE_GROUP_NAME `
       --name myVNet `
       --address-prefixes 192.168.0.0/24
    ```
-
    ---
 
 1. Create a subnet for the WAS cluster by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `mySubnet`:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    az network vnet subnet create \
        --resource-group $RESOURCE_GROUP_NAME \
@@ -119,9 +114,7 @@ Use the following steps to create the virtual network. The example in this secti
        --vnet-name myVNet \
        --address-prefixes 192.168.0.0/25
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    az network vnet subnet create `
       --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -129,13 +122,11 @@ Use the following steps to create the virtual network. The example in this secti
       --vnet-name myVNet `
       --address-prefixes 192.168.0.0/25
    ```
-
    ---
 
 1. Create a subnet for Application Gateway by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `wasGateway`:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    az network vnet subnet create \
        --resource-group $RESOURCE_GROUP_NAME \
@@ -143,9 +134,7 @@ Use the following steps to create the virtual network. The example in this secti
        --vnet-name myVNet \
        --address-prefixes 192.168.0.128/25
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    az network vnet subnet create `
       --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -153,7 +142,6 @@ Use the following steps to create the virtual network. The example in this secti
       --vnet-name myVNet `
       --address-prefixes 192.168.0.128/25
    ```
-
    ---
 
 [!INCLUDE [create-an-availability-set](includes/create-an-availability-set.md)]
@@ -216,7 +204,6 @@ Use the following steps to create a basic VM, ensure all the required tools are 
    The following example creates a Red Hat Enterprise Linux machine by using a username/password pair for the authentication. You can choose to use TLS/SSL authentication instead.
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    az vm create \
           --resource-group $RESOURCE_GROUP_NAME \
@@ -229,9 +216,7 @@ Use the following steps to create a basic VM, ensure all the required tools are 
           --public-ip-address "" \
           --nsg ""
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    # For `public-ip-address` and `nsg`, be sure to wrap the value "" in '' in PowerShell.
    az vm create `
@@ -245,17 +230,13 @@ Use the following steps to create a basic VM, ensure all the required tools are 
        --public-ip-address '""' `
        --nsg '""' 
    ```
-
    ---
 
 1. Create and attach a new disk for WAS files by using the following command:
 
    ### [WAS ND V9](#tab/was-nd-v9)
-
    This step is already performed for you when you use the VM base image.
-
    ### [WAS ND V85](#tab/was-nd-v85)
-
    ```bash
    az vm disk attach \
          --resource-group $RESOURCE_GROUP_NAME \
@@ -275,7 +256,6 @@ Use the following steps to create a basic VM, ensure all the required tools are 
          --size-gb 100 `
          --sku StandardSSD_LRS
    ```
-
    ---
 
 ### Create a Windows VM and set up an X server
@@ -577,25 +557,20 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 1. Use the following command to stop `adminVM`:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    # export RESOURCE_GROUP_NAME=abc1110rg
    az vm stop --resource-group $RESOURCE_GROUP_NAME --name adminVM
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    # $Env:RESOURCE_GROUP_NAME = "abc1110rg"
    az vm stop --resource-group $Env:RESOURCE_GROUP_NAME --name adminVM
    ```
-
    ---
 
 1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` OS disk:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    export ADMIN_OS_DISK_ID=$(az vm show \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -607,9 +582,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
       --name myAdminOSDiskSnapshot \
       --source $ADMIN_OS_DISK_ID
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    $Env:ADMIN_OS_DISK_ID=$(az vm show `
        --resource-group $Env:RESOURCE_GROUP_NAME  `
@@ -621,13 +594,11 @@ This section introduces an approach to prepare machines with the snapshot of `ad
        --name myAdminOSDiskSnapshot  `
        --source $Env:ADMIN_OS_DISK_ID
    ```
-
    ---
 
 1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` data disk:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    export ADMIN_DATA_DISK_ID=$(az vm show \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -639,9 +610,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
       --name myAdminDataDiskSnapshot \
       --source $ADMIN_DATA_DISK_ID
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    $Env:ADMIN_DATA_DISK_ID=$(az vm show `
        --resource-group $Env:RESOURCE_GROUP_NAME  `
@@ -653,13 +622,11 @@ This section introduces an approach to prepare machines with the snapshot of `ad
        --name myAdminDataDiskSnapshot `
        --source $Env:ADMIN_DATA_DISK_ID
    ```
-
    ---
 
 1. Use the following commands to query for the snapshot IDs that you'll use later:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    # Get the snapshot ID.
    export OS_SNAPSHOT_ID=$(az snapshot show \
@@ -673,9 +640,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
       --query '[id]' \
       --output tsv)
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    # Get the snapshot ID.
    $Env:OS_SNAPSHOT_ID=$(az snapshot show `
@@ -689,7 +654,6 @@ This section introduces an approach to prepare machines with the snapshot of `ad
        --query '[id]' `
        --output tsv)
    ```
-
    ---
 
 Next, create `mspVM1` and `mspVM2`.
@@ -701,7 +665,6 @@ Use the following steps to create `mspVM1`:
 1. Create an OS disk for `mspVM1` by using [az disk create](/cli/azure/disk#az-disk-create):
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    # Create a new managed disk by using the OS snapshot ID.
    # Note that the managed disk is created in the same location as the snapshot.
@@ -710,9 +673,7 @@ Use the following steps to create `mspVM1`:
       --name mspVM1_OsDisk_1 \
       --source $OS_SNAPSHOT_ID
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    # Create a new managed disk by using the OS snapshot ID.
    # Note that the managed disk is created in the same location as the snapshot.
@@ -721,13 +682,11 @@ Use the following steps to create `mspVM1`:
        --name mspVM1_OsDisk_1 `
        --source $Env:OS_SNAPSHOT_ID
    ```
-
    ---
 
 1. Use the following commands to create the `mspVM1` VM by attaching OS disk `mspVM1_OsDisk_1`:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    # Get the resource ID of the managed disk.
    export MSPVM1_OS_DISK_ID=$(az disk show \
@@ -736,9 +695,7 @@ Use the following steps to create `mspVM1`:
       --query '[id]' \
       --output tsv)
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    # Get the resource ID of the managed disk.
    $Env:MSPVM1_OS_DISK_ID=$(az disk show `
@@ -747,11 +704,9 @@ Use the following steps to create `mspVM1`:
        --query '[id]' `
        --output tsv)
    ```
-
    ---
 
    ### [WAS ND V9](#tab/was-nd-v9)
-
    ```bash
    # Create the VM by attaching the existing managed disk as an OS.
    az vm create \
@@ -784,7 +739,6 @@ Use the following steps to create `mspVM1`:
     ```
 
    ### [WAS ND V85](#tab/was-nd-v85)
-
    ```bash
    # Create the VM by attaching the existing managed disk as an OS.
    az vm create \
@@ -815,7 +769,6 @@ Use the following steps to create `mspVM1`:
 1. Create a managed disk from the data disk snapshot and attach it to `mspVM1`:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    az disk create \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -833,9 +786,7 @@ Use the following steps to create `mspVM1`:
       --vm-name mspVM1 \
       --name $MSPVM1_DATA_DISK_ID
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    az disk create `
        --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -853,13 +804,11 @@ Use the following steps to create `mspVM1`:
        --vm-name mspVM1 `
        --name $Env:MSPVM1_DATA_DISK_ID
    ```
-
    ---
 
 1. You created `mspVM1` with WAS installed. Because you created the VM from a snapshot of the `adminVM` disks, the two VMs have the same host name. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the host name to the value `mspVM1`:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    az vm run-command invoke \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -867,9 +816,7 @@ Use the following steps to create `mspVM1`:
       --command-id RunShellScript \
       --scripts "sudo hostnamectl set-hostname mspVM1"
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    az vm run-command invoke `
        --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -877,7 +824,6 @@ Use the following steps to create `mspVM1`:
        --command-id RunShellScript `
        --scripts "sudo hostnamectl set-hostname mspVM1"
    ```
-
    ---
 
    When the command finishes successfully, you get output similar to the following example:
@@ -903,7 +849,6 @@ Use the following steps to create `mspVM2`:
 1. Create an OS disk for `mspVM2` by using [az disk create](/cli/azure/disk#az-disk-create):
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    # Create a new managed disk by using the OS snapshot ID.
    # Note that the managed disk is created in the same location as the snapshot.
@@ -912,9 +857,7 @@ Use the following steps to create `mspVM2`:
       --name mspVM2_OsDisk_1 \
       --source $OS_SNAPSHOT_ID
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    # Create a new managed disk by using the OS snapshot ID.
    # Note that the managed disk is created in the same location as the snapshot.
@@ -923,13 +866,11 @@ Use the following steps to create `mspVM2`:
        --name mspVM2_OsDisk_1 `
        --source $Env:OS_SNAPSHOT_ID
    ```
-
    ---
 
 1. Use the following commands to create the `mspVM2` VM by attaching OS disk `mspVM2_OsDisk_1`:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    # Get the resource ID of the managed disk.
    export MSPVM2_OS_DISK_ID=$(az disk show \
@@ -951,9 +892,7 @@ Use the following steps to create `mspVM2`:
       --public-ip-address "" \
       --nsg ""
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    # Get the resource ID of the managed disk.
    $Env:MSPVM2_OS_DISK_ID=$(az disk show `
@@ -977,13 +916,11 @@ Use the following steps to create `mspVM2`:
        --nsg '""' 
 
    ```
-
    ---
 
 1. Create a managed disk from the data snapshot and attach it to `mspVM2`:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    az disk create \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -1001,9 +938,7 @@ Use the following steps to create `mspVM2`:
       --vm-name mspVM2 \
       --name $MSPVM2_DATA_DISK_ID
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    az disk create `
        --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -1021,13 +956,11 @@ Use the following steps to create `mspVM2`:
        --vm-name mspVM2 `
        --name $Env:MSPVM2_DATA_DISK_ID
    ```
-
    ---
 
 1. You created `mspVM2` with WAS installed. Because you created the VM from a snapshot of the `adminVM` disks, the two VMs have the same host name. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the host name to the value `mspVM2`:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    az vm run-command invoke \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -1035,9 +968,7 @@ Use the following steps to create `mspVM2`:
       --command-id RunShellScript \
       --scripts "sudo hostnamectl set-hostname mspVM2"
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    az vm run-command invoke `
        --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -1045,7 +976,6 @@ Use the following steps to create `mspVM2`:
        --command-id RunShellScript `
        --scripts "sudo hostnamectl set-hostname mspVM2"
    ```
-
    ---
 
    When the command finishes successfully, you get output similar to the following example:
@@ -1069,23 +999,18 @@ Make sure that you completed the previous steps for both `mspVM1` and `mspVM2`. 
 1. Use the [az vm start](/cli/azure/vm#az-vm-start) command to start `adminVM`, as shown in the following example:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    az vm start --resource-group $RESOURCE_GROUP_NAME --name adminVM
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    az vm start --resource-group $Env:RESOURCE_GROUP_NAME --name adminVM
    ```
-
    ---
 
 1. Use the following commands to get and show the private IP addresses, which you'll use in later sections:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    export ADMINVM_NIC_ID=$(az vm show \
       --resource-group $RESOURCE_GROUP_NAME \
@@ -1117,9 +1042,7 @@ Make sure that you completed the previous steps for both `mspVM1` and `mspVM2`. 
    echo "Private IP of mspVM1: $MSPVM1_IP"
    echo "Private IP of mspVM2: $MSPVM2_IP"
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    $Env:ADMINVM_NIC_ID=$(az vm show `
        --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -1151,7 +1074,6 @@ Make sure that you completed the previous steps for both `mspVM1` and `mspVM2`. 
    echo "Private IP of mspVM1: $Env:MSPVM1_IP"
    echo "Private IP of mspVM2: $Env:MSPVM2_IP"
    ```
-
    ---
 
 Now, all three machines are ready. Next, you configure a WAS cluster.
@@ -1185,19 +1107,15 @@ Use the following steps to create and configure the management profile:
 1. Use the following commands to start the Profile Management Tool:
 
    ### [WAS ND V9](#tab/was-nd-v9)
-
    ```bash
    cd /datadrive/IBM/WebSphere/ND/V9/bin/ProfileManagement
    ./pmt.sh
    ```
-
    ### [WAS ND V85](#tab/was-nd-v85)
-
    ```bash
    cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
    ./pmt.sh
    ```
-
    ---
 
 1. After a while, the Profile Management Tool appears. If you don't see the user interface, check behind the command prompt. Select **Create**.
@@ -1225,13 +1143,9 @@ Use the following steps to create and configure the management profile:
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png" alt-text="Screenshot of the Profile Name and Location pane in the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png":::
 
    ### [WAS ND V9](#tab/was-nd-v9)
-
    In WAS V9, the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Dmgr01*.
-
    ### [WAS ND V85](#tab/was-nd-v85)
-
    In WAS V8.5, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01*.
-
    ---
 
    When you finish, select **Next**.
@@ -1300,7 +1214,6 @@ Use the following steps to create and configure the management profile:
 1. To start the deployment manager automatically at startup, create a Linux service for the process. Run the following commands to create a Linux service:
 
    ### [WAS ND V9](#tab/was-nd-v9)
-
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Dmgr01
 
@@ -1311,9 +1224,7 @@ Use the following steps to create and configure the management profile:
    # Add service.
    ${PROFILE_PATH}/bin/wasservice.sh -add adminvmCellManager01 -servername dmgr -profilePath ${PROFILE_PATH}
    ```
-
    ### [WAS ND V85](#tab/was-nd-v85)
-
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01
 
@@ -1324,7 +1235,6 @@ Use the following steps to create and configure the management profile:
    # Add service.
    ${PROFILE_PATH}/bin/wasservice.sh -add adminvmCellManager01 -servername dmgr -profilePath ${PROFILE_PATH}
    ```
-
    ---
 
 1. Confirm that the following output appears:
@@ -1420,19 +1330,15 @@ Use the following steps to configure a custom profile on `mspVM1`:
 1. Use the following commands to start the Profile Management Tool:
 
    ### [WAS ND V9](#tab/was-nd-v9)
-
    ```bash
    cd /datadrive/IBM/WebSphere/ND/V9/bin/ProfileManagement
    ./pmt.sh
    ```
-
    ### [WAS ND V85](#tab/was-nd-v85)
-
    ```bash
    cd /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement
    ./pmt.sh
    ```
-
    ---
 
 1. After a while, the Profile Management Tool appears. If you don't see the user interface, troubleshoot and resolve the problem before continuing. Select **Create**.
@@ -1450,13 +1356,9 @@ Use the following steps to configure a custom profile on `mspVM1`:
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png" alt-text="Screenshot of the Profile Name and Location pane of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png":::
 
    ### [WAS ND V9](#tab/was-nd-v9)
-
    In WAS V9, the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Custom01*.
-
    ### [WAS ND V85](#tab/was-nd-v85)
-
    In WAS V8.5, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Custom01*.
-
    ---
 
    When you finish, select **Next**.
@@ -1488,7 +1390,6 @@ Use the following steps to configure a custom profile on `mspVM1`:
 1. To start the server automatically at startup, create a Linux service for the process. The following commands create a Linux service to start `nodeagent`:
 
    ### [WAS ND V9](#tab/was-nd-v9)
-
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V9/profiles/Custom01
 
@@ -1499,9 +1400,7 @@ Use the following steps to configure a custom profile on `mspVM1`:
    # Add service to start nodeagent.
    ${PROFILE_PATH}/bin/wasservice.sh -add mspvm1Node01 -servername nodeagent -profilePath ${PROFILE_PATH}
    ```
-
    ### [WAS ND V85](#tab/was-nd-v85)
-
    ```bash
    export PROFILE_PATH=/datadrive/IBM/WebSphere/ND/V85/profiles/Custom01
 
@@ -1512,7 +1411,6 @@ Use the following steps to configure a custom profile on `mspVM1`:
    # Add service to start nodeagent.
    ${PROFILE_PATH}/bin/wasservice.sh -add mspvm1Node01 -servername nodeagent -profilePath ${PROFILE_PATH}
    ```
-
 ---
 
 1. Confirm that the following output appears:
@@ -1552,13 +1450,9 @@ In this section, you use the IBM console to create a WAS cluster and start manag
 1. For **Step 2: Create first cluster member**, enter your member name and select the node `mspvm1Node01`. In this example, the member name is `msp1`.
 
    ### [WAS ND V9](#tab/was-nd-v9)
-
    The node is `mspvm1Node01 (ND 9.0.5.12)`.
-
    ### [WAS ND V85](#tab/was-nd-v85)
-
    The node is `mspvm1Node01 (ND 8.5.5.24)`.
-
    ---
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp1.png" alt-text="Screenshot of the step for creating a first cluster member in the IBM Console." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp1.png":::
@@ -1568,13 +1462,9 @@ In this section, you use the IBM console to create a WAS cluster and start manag
 1. For **Step 3: Create additional cluster members**, enter your second member name and select node `mspvm2Node01`. In this example, the member name is `msp2`.
 
    ### [WAS ND V9](#tab/was-nd-v9)
-
    The node is `mspvm2Node01 (ND 9.0.5.12)`.
-
    ### [WAS ND V85](#tab/was-nd-v85)
-
    The node is `mspvm2Node01 (ND 8.5.5.24)`.
-
    ---
 
 1. Select **Add Member** to add the second node. Two members are listed in the table.
@@ -1673,7 +1563,6 @@ Use the following steps to create the application gateway:
 1. To expose WAS to the internet, you need a public IP address. In the shell with the Azure CLI installed, create the IP address by using [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create), as shown in the following example:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    az network public-ip create \
      --resource-group $RESOURCE_GROUP_NAME \
@@ -1687,9 +1576,7 @@ Use the following steps to create the application gateway:
      --query '[ipAddress]' \
      --output tsv)
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    az network public-ip create `
       --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -1703,13 +1590,11 @@ Use the following steps to create the application gateway:
       --query '[ipAddress]' `
       --output tsv)
    ```
-
    ---
 
 1. Create the application gateway to associate with the IP address. The following example creates an application gateway with the WebSphere managed servers in the default back-end pool:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    az network application-gateway create \
        --resource-group $RESOURCE_GROUP_NAME \
@@ -1726,9 +1611,7 @@ Use the following steps to create the application gateway:
        --priority 1001 \
        --servers ${MSPVM1_IP} ${MSPVM2_IP}
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    az network application-gateway create  `
       --resource-group $Env:RESOURCE_GROUP_NAME  `
@@ -1745,13 +1628,11 @@ Use the following steps to create the application gateway:
       --priority 1001 `
       --servers $Env:MSPVM1_IP $Env:MSPVM2_IP
    ```
-
    ---
 
 1. The managed servers expose their workloads with port `9080`. Use the following commands to update `appGatewayBackendHttpSettings` by specifying back-end port `9080` and creating a probe for it:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    az network application-gateway probe create \
        --resource-group $RESOURCE_GROUP_NAME \
@@ -1770,9 +1651,7 @@ Use the following steps to create the application gateway:
        --port 9080 \
        --probe clusterProbe
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    az network application-gateway probe create  `
         --resource-group $Env:RESOURCE_GROUP_NAME  `
@@ -1791,13 +1670,11 @@ Use the following steps to create the application gateway:
         --port 9080 `
         --probe clusterProbe
    ```
-
    ---
 
 1. Use the following commands to provision a rewrite rule for redirections:
 
    ### [Bash](#tab/in-bash)
-
    ```bash
    # Create a rewrite rule set.
    az network application-gateway rewrite-rule set create \
@@ -1852,9 +1729,7 @@ Use the following steps to create the application gateway:
        --negate false \
        --pattern "(https?):\/\/192.168.0.7:9080(.*)$"
    ```
-
    ### [PowerShell](#tab/in-powershell)
-
    ```powershell
    # Create a rewrite rule set.
    az network application-gateway rewrite-rule set create `
@@ -1911,7 +1786,6 @@ Use the following steps to create the application gateway:
        --pattern '"(https?):\/\/192.168.0.7:9080(.*)$"' 
        # Be sure to wrap the "" in ''
    ```
-
    ---
 
 You can now access the application by using the URL that the following command produces:
