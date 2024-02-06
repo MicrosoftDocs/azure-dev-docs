@@ -179,7 +179,7 @@ productDirectory:
       imageSrc: includes/media/dev-containers/devcontainer.svg
       links:
         - url: https://containers.dev/
-          text: What are Development Containers
+          text: What are development containers?
         - url: https://code.visualstudio.com/docs/devcontainers/tutorial
           text: Visual Studio Code Dev Containers
         - url: https://code.visualstudio.com/docs/devcontainers/create-dev-container
