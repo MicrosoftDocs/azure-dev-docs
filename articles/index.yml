@@ -185,7 +185,7 @@ productDirectory:
         - url: https://code.visualstudio.com/docs/devcontainers/create-dev-container
           text: Create your own Dev Container
         - url: https://containers.dev/features
-          text: Available features
+          text: Available Features
         - url: https://containers.dev/templates
           text: Available templates
     - title: Dev tunnels
