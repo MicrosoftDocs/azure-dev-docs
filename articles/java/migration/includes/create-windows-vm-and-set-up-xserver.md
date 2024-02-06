@@ -37,4 +37,4 @@ ms.date: 04/27/2023
    1. For extra settings, select **Clipboard and Primary Selection**, **Native opengl**, and **Disable access control**.
    1. Select **Next** and finish the process.
 
-   A **Windows Security Alert** dialog might appear with this message: `Allow VcXsrv windows X-server to communicate on these networks`. Select **Allow access**.
+   A **Windows Security Alert** dialog might appear with this message: "Allow VcXsrv windows X-server to communicate on these networks." Select **Allow access**.
