@@ -16,6 +16,24 @@ metadata:
 conceptualContent:
   items:
 
+    - title: Get started with Java on Azure
+      links:
+        - text: Code, deploy, and scale Java your way
+          itemType: overview
+          url: get-started/overview.md
+        - text: Code using the Java tools you know and love
+          itemType: get-started
+          url: get-started/code.md
+        - text: Deploy with confidence and ease
+          itemType: get-started
+          url: get-started/deploy.md
+        - text: Scale with end-to-end security, monitoring, and automation
+          itemType: get-started
+          url: get-started/scale.md
+      footerLink:
+        text: See more
+        url: get-started/index.yml
+
     - title: Java learning resources
       links:
         - text: Overview
