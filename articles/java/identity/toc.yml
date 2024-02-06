@@ -20,6 +20,8 @@ items:
         href: enable-java-jboss-eap-webapp-authorization-role-entra-id.md      
       - name: Use groups and group claims
         href: enable-java-jboss-eap-webapp-authorization-group-entra-id.md      
+      - name: Deploy to App Service
+        href: jboss-deploy-to-app-service.md
     - name: Secure your Java Tomcat web app
       expanded: true
       items:
