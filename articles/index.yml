@@ -187,7 +187,7 @@ productDirectory:
         - url: https://containers.dev/features
           text: Available Features
         - url: https://containers.dev/templates
-          text: Available templates
+          text: Available Templates
     - title: Dev tunnels
       imageSrc: ./dev-tunnels/media/index/dev-tunnels-icon.svg
       links:
