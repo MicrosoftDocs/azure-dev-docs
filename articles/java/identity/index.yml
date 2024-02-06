@@ -24,6 +24,8 @@ landingContent:
             url: enable-java-jboss-eap-webapp-authorization-role-entra-id.md      
           - text: Use groups and group claims
             url: enable-java-jboss-eap-webapp-authorization-group-entra-id.md 
+          - text: Deploy to App Service
+            url: jboss-deploy-to-app-service.md 
   - title: Secure your Java Tomcat web app
     linkLists:
       - linkListType: how-to-guide
@@ -38,6 +40,8 @@ landingContent:
             url: enable-java-tomcat-webapp-authorization-role-entra-id.md      
           - text: Use groups and group claims
             url: enable-java-tomcat-webapp-authorization-group-entra-id.md 
+          - text: Deploy to App Service
+            url: tomcat-deploy-to-app-service.md 
   - title: Secure your Java WebLogic web app
     linkLists:
       - linkListType: how-to-guide
