@@ -27,28 +27,27 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.12.0:config
 
 1. For **Create new run configuration**, type **Y**, then **Enter**.
 1. For **Define value for OS**, type **1** for Windows, or **2** for Linux, then **Enter**.
-1. For **Define value for javaVersion**, type **3** for Java 17, then **Enter**.
-1. For **Define value for webContainer**, type **1** for Tomcat 10.0, then **Enter**.
+1. For **Define value for javaVersion**, type **2** for Java 11, then **Enter**.
+1. For **Define value for webContainer**, type **4** for Tomcat 9.0, then **Enter**.
 1. For **Define value for pricingTier**, press **Enter** to select the default **P1v2** tier.
 1. For **Confirm**, type **Y**, then **Enter**.
 
     ```
     Please confirm webapp properties
-    AppName : helloworld-1690440759246
-    ResourceGroup : helloworld-1690440759246-rg
+    AppName : msal4j-servlet-auth-1707209552268
+    ResourceGroup : msal4j-servlet-auth-1707209552268-rg
     Region : centralus
     PricingTier : P1v2
     OS : Linux
-    Java Version: Java 17
-    Web server stack: Tomcat 10.0
+    Java Version: Java 11
+    Web server stack: Tomcat 9.0
     Deploy to slot : false
-    Confirm (Y/N) [Y]: 
-    [INFO] Saving configuration to pom.
+    Confirm (Y/N) [Y]: [INFO] Saving configuration to pom.
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
-    [INFO] Total time:  13.069 s
-    [INFO] Finished at: 2023-07-27T06:52:48Z
+    [INFO] Total time:  37.112 s
+    [INFO] Finished at: 2024-02-06T08:53:02Z
     [INFO] ------------------------------------------------------------------------
     ```
 
@@ -91,9 +90,36 @@ For the complete list of configurations, see the plugin reference documentation.
 
 Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-1690440759246` and `helloworld-1690440759246-rg` accordingly in the demo). They're used later.
 
-###### Deploy the app
+##### Prepare the web app for deployment
 
-Make sure you are logged into your Azure environment to execute the deployment. 
+When you deploy your application to App Service, your redirect URL will change to the redirect URL of your deployed Web App instance. You will need to change these settings in your `properties file`.
+
+1. Navigate to your app's `authentication.properties` file and change the value of `app.homePage` to your deployed app's domain name. For example, if you chose `example-domain` for your app name in the previous step, you must now use the value  `https://example-domain.azurewebsites.net`. Be sure that you have also changed the protocol from `http` to `https`.
+
+```ini
+# app.homePage is by default set to dev server address and app context path on the server
+# for apps deployed to azure, use https://your-sub-domain.azurewebsites.net
+app.homePage=https://msal4j-servlet-auth-1707140924941.azurewebsites.net
+```
+
+> [!IMPORTANT]
+> In this same `authentication.properties` file you have a setting for your `aad.secret`. It is not a good practice to deploy this value to App Service. Neither is it a good practice to leave this value in your code and potentially push it up to your git repository. For removing this secret value from your code, you can find more detailed guidance in the [Deploy to App Service - Remove secret](../tomcat-deploy-to-app-service.md) section. This guidance adds extra steps for pushing the secret value to [Key Vault](https://learn.microsoft.com/azure/key-vault/general/basic-concepts) and to use [Key Vault References](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references?tabs=azure-cli). 
+
+##### Update your Microsoft Entra ID App Registration
+
+Since the redirect URI will change to your deployed Web App to Azure App Service, you will also need to change the redirect URI in your Micorosft Entra ID App Registration. 
+
+1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page. 
+1. Use the serach box to search for you app registration, for example `java-servlet-webapp-authentication`.
+1. Open your app registration by clicking on its name. 
+1. Select **Authentication** from the menu.
+1. In the **Web** - **Redirect URIs** section, select **Add URI**.
+1. Fill out the URI of your web app, appending **/auth/redirect**, for example `https://msal4j-servlet-auth-1707140924941.azurewebsites.net/auth/redirect`.
+1. Select **Save**. 
+
+##### Deploy the app
+
+You are now ready to deploy your Web App to Azure App Service. Make sure you are logged into your Azure environment to execute the deployment. 
 
 ```cli
 az login
@@ -104,9 +130,8 @@ With all the configuration ready in your *pom.xml* file, you can now deploy your
 ```cli
 mvn package azure-webapp:deploy
 ```
-Once deployment is completed, your application is ready at `http://<appName>.azurewebsites.net/` (`http://helloworld-1690440759246.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
 
-**Congratulations!** You've deployed your Java app to App Service.
+Once deployment is completed, your application is ready at `http://<appName>.azurewebsites.net/`. Open the url with your local web browser, you should see the start page of the `msal4j-servlet-auth` application.
 
 #### [Run the sample locally](#tab/local)
 

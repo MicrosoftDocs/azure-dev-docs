@@ -33,6 +33,8 @@ items:
         href: enable-java-tomcat-webapp-authorization-role-entra-id.md      
       - name: Use groups and group claims
         href: enable-java-tomcat-webapp-authorization-group-entra-id.md
+      - name: Deploy to App Service
+        href: tomcat-deploy-to-app-service.md
     - name: Secure your Java WebLogic web app
       expanded: true
       items:
