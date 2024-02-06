@@ -1194,7 +1194,7 @@ Use the following steps to create and configure the management profile:
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-deploy-console.png" alt-text="Screenshot of the Optional Application Deployment pane in the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-deploy-console.png":::
 
-1. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Dmgr01`. The location depends on your WAS version.
+1. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Dmgr01`. The location depends on your WAS version. When you finish, select **Next**.
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png" alt-text="Screenshot of the Profile Name and Location pane in the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-advanced-profilename-location.png":::
 
@@ -1205,10 +1205,7 @@ Use the following steps to create and configure the management profile:
    ### [WAS ND V85](#tab/was-nd-v85)
 
    In WAS V8.5, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01*.
-
    ---
-
-   When you finish, select **Next**.
 
 1. On the **Node, Host, and Cell Names** pane, enter your node name, host name, and cell name. The host is the private IP address of `adminVM`. In this example, the node name is `adminvmCellManager01`, the host value is `192.168.0.4`, and the cell name is `adminvmCell01`. When you finish, select **Next**.
 
@@ -1415,7 +1412,7 @@ Use the following steps to configure a custom profile for `mspVM1`:
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-advanced-creation-1.png" alt-text="Screenshot of the Profile Creation Options pane of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-advanced-creation-1.png":::
 
-1. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Custom01`. The location depends on your WAS version.
+1. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Custom01`. The location depends on your WAS version. When you finish, select **Next**.
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png" alt-text="Screenshot of the Profile Name and Location pane of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-custom-profile-name-location.png":::
 
@@ -1426,10 +1423,7 @@ Use the following steps to configure a custom profile for `mspVM1`:
    ### [WAS ND V85](#tab/was-nd-v85)
 
    In WAS V8.5, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Custom01*.
-
    ---
-
-   When you finish, select **Next**.
 
 1. On the **Node and Host Names** pane, enter your node name and host. The value of host is the private IP address of `mspVM1`. In this example, the host is `192.168.0.6` and the node name is `mspvm1Node01`. When you finish, select **Next**.
 
@@ -1527,7 +1521,6 @@ In this section, you use the IBM console to create a WAS cluster and start manag
    ### [WAS ND V85](#tab/was-nd-v85)
 
    The node is `mspvm1Node01 (ND 8.5.5.24)`.
-
    ---
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp1.png" alt-text="Screenshot of the step for creating a first cluster member in the IBM Console." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp1.png":::
@@ -1543,7 +1536,6 @@ In this section, you use the IBM console to create a WAS cluster and start manag
    ### [WAS ND V85](#tab/was-nd-v85)
 
    The node is `mspvm2Node01 (ND 8.5.5.24)`.
-
    ---
 
 1. Select **Add Member** to add the second node. The table lists two members.
