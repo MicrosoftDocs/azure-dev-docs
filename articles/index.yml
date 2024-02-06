@@ -175,7 +175,7 @@ productDirectory:
           text: Get started
         - url: ./azure-developer-cli/index.yml
           text: See more in the Azure Developer CLI developer center
-    - title: DevContainers
+    - title: Dev Containers
       imageSrc: includes/media/dev-containers/devcontainer.svg
       links:
         - url: https://containers.dev/
