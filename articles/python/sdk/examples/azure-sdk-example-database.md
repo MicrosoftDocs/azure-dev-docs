@@ -1,6 +1,6 @@
 ---
 title: Create an Azure MySQL database using the Azure SDK libraries
-description: Use the management libraries in the Azure SDK libraries for Python to create an Azure MySQL, PostgreSQL, or MariaDB database.
+description: Use the management libraries in the Azure SDK libraries for Python to create an Azure MySQL or PostgreSQL database.
 ms.date: 02/02/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
@@ -8,17 +8,17 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Example: Use the Azure libraries to create a database
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to create an Azure MySQL database. It also provides a simple script to query the database using the mysql-connector library (not part of the Azure SDK). You can use similar code to create a PostgreSQL or MariaDB database.
+This example demonstrates how to use the Azure SDK management libraries in a Python script to create an Azure MySQL database. It also provides a simple script to query the database using the mysql-connector library (not part of the Azure SDK). You can use similar code to create a PostgreSQL database.
 
-[Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are at later in this article. If you prefer to use the Azure portal, see [Create a PostgreSQL server](/azure/postgresql/quickstart-create-server-database-portal) or [Create a MariaDB server](/azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal).
+[Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are at later in this article. If you prefer to use the Azure portal, see [Create a MySQL server](/azure/mysql/flexible-server/quickstart-create-server-portal) or [Create a PostgreSQL server](/azure/postgresql/flexible-server/quickstart-create-server-portal).
 
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
 ## 1: Set up your local development environment
 
-If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
+If you haven't already, set up an environment where you can run the code. Here are some options:
 
-Be sure to create and activate a virtual environment for this project.
+[!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
 
 ## 2: Install the needed Azure library packages
 
@@ -50,15 +50,13 @@ To use such code in a production script, you can set environment variables to us
 ### Reference links for classes used in the code
 
 - [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
-- [MySQLManagementClient (azure.mgmt.rdbms.mysql)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql.mysqlmanagementclient)
-- [ServerForCreate (azure.mgmt.rdbms.mysql.models)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql.models.serverforcreate)
-- [ServerPropertiesForDefaultCreate (azure.mgmt.rdbms.mysql.models)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql.models.serverpropertiesfordefaultcreate)
-- [ServerVersion (azure.mgmt.rdbms.mysql.models)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql.models.serverversion)
+- [MySQLManagementClient (azure.mgmt.rdbms.mysql_flexibleservers)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql_flexibleservers.mysqlmanagementclient)
+- [Server (azure.mgmt.rdbms.mysql_flexibleservers.models)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql_flexibleservers.models.server)
+- [ServerVersion (azure.mgmt.rdbms.mysql_flexibleservers.models)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mysql_flexibleservers.models.serverversion)
 
-For other database types, see:
+For PostreSQL database server, see:
 
-- [PostgreSQLManagementClient (azure.mgmt.rdbms.postgresql)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.postgresql.postgresqlmanagementclient)
-- [MariaDBManagementClient (azure.mgmt.rdbms.mariadb)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.mariadb.mariadbmanagementclient)
+- [PostgreSQLManagementClient (azure.mgmt.rdbms.postgresql_flexibleservers)](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.postgresql_flexibleservers.postgresqlmanagementclient)
 
 ## 4: Run the script
 
@@ -98,7 +96,7 @@ For other database types, see:
 
 Create a file named *use_db.py* with the following code. Note the dependencies on the `DB_SERVER_NAME`, `DB_ADMIN_NAME`, and `DB_ADMIN_PASSWORD` environment variables. You get these values from the output of running the previous code *provision_db.py* or in the code itself.
 
-This code works only for MySQL; you use different libraries for PostgreSQL and MariaDB.
+This code works only for MySQL; you use different libraries for PostgreSQL.
 
 :::code language="python" source="~/../python-sdk-docs-examples/db/use_db.py":::
 
@@ -116,19 +114,19 @@ If you see an error that your client IP address isn't allowed, check that you de
 
 ## 6: Clean up resources
 
+ Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group and storage resources created in this example.
+
+Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might continue to incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
+
 ```azurecli
 az group delete -n PythonAzureExample-DB-rg  --no-wait
 ```
-
-Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group (and resources in it) created in this example. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
-
-Run this command if you don't need to keep the resources provisioned in this example and would like to avoid ongoing charges in your subscription.
 
 [!INCLUDE [resource_group_begin_delete](../../includes/resource-group-begin-delete.md)]
 
 ### For reference: equivalent Azure CLI commands
 
-The following Azure CLI commands complete the same provisioning steps as the Python script. For a PostgreSQL database, use [`az postgres`](/cli/azure/postgres) commands; for MariaDB, use [`az mariadb`](/cli/azure/mariadb) commands.
+The following Azure CLI commands complete the same provisioning steps as the Python script. For a PostgreSQL database, use [`az postgres flexible-server`](/cli/azure/postgres/flexible-server) commands.
 
 # [cmd](#tab/cmd)
 
