@@ -42,6 +42,10 @@
         "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
       },
       {
+        "source_path":"articles/javascript/how-to/with-authentication/static-web-app-with-api/register-application-with-identity.md",
+        "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+      },
+      {
         "source_path":"articles/javascript/how-to/with-authentication/register-application-with-identity.md",
         "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
       },
