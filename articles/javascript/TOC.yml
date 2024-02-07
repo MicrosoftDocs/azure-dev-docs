@@ -256,9 +256,6 @@
         items: 
         - name: "List subscriptions"
           href: ./sdk/authentication/local-development-environment-service-principal.md?tabs=azure-sdk-for-javascript.md
-        - name: "View subscription history"
-          href: how-to/with-azure-sdk/list-resource-operation-history.md 
-
   - name: Training
     href: learn-azure-javascript.md  
   - name: Samples
