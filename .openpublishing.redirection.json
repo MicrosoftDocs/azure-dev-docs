@@ -18,8 +18,40 @@
         "redirect_url": "/cli/azure/vm"
       },
       {
+        "source_path": "articles/javascript/how-to/with-azure-sdk/list-resource-operation-history.md",
+        "redirect_url": "/cli/azure/monitor"
+      },      
+      {
         "source_path":"articles/javascript/how-to/add-custom-domain-to-web-app.md",
         "redirect_url": "/azure/app-service/tutorial-secure-domain-certificate"
+      },
+      {
+        "source_path":"articles/javascript/how-to/with-azure-cli/create-container-registry-resource.md",
+        "redirect_url": "/azure/container-registry/container-registry-get-started-azure-cli"
+      },
+      {
+        "source_path":"articles/javascript/how-to/with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md",
+        "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+      },
+      {
+        "source_path":"articles/javascript/how-to/with-authentication/static-web-app-with-api/configure-source-code-for-msal.md",
+        "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+      },
+      {
+        "source_path":"articles/javascript/how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md",
+        "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+      }, 
+      {
+        "source_path":"articles/javascript/how-to/with-authentication/static-web-app-with-api/introduction.md",
+        "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+      },
+      {
+        "source_path":"articles/javascript/how-to/with-authentication/static-web-app-with-api/register-application-with-identity.md",
+        "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+      },
+      {
+        "source_path":"articles/javascript/how-to/with-authentication/register-application-with-identity.md",
+        "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
       },
       {
         "source_path":"articles/javascript/composable-cloud-contoso-real-estate.md",

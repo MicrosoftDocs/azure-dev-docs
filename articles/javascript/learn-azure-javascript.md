@@ -116,10 +116,6 @@ Take one of these offerings from a [partner](/certifications/partners).
 * [MTA: Introduction to Programming Using JavaScript](/certifications/mta-introduction-to-programming-using-javascript)
 * [MCSA: Web Applications](/certifications/mcsa-web-applications-certification)
 
-## RSS Feed
-
-* [New releases](https://aka.ms/mslearn-rss)
-
 ## Next steps
 
 * Use [Microsoft training](/training/) to learn and improve your JavaScript skills on Azure.

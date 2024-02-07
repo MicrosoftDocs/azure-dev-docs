@@ -122,20 +122,6 @@
         href: /azure/active-directory/develop/tutorial-v2-javascript-auth-code?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
       - name: "Angular: Add a Login button for Microsoft Identity provider"
         href: /azure/active-directory/develop/tutorial-v2-angular-auth-code?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-      - name: Add custom auth with MSAL.js
-        items:
-        - name: Introduction
-          href: how-to/with-authentication/static-web-app-with-api/introduction.md
-        - name: Create app registration
-          href: how-to/with-authentication/static-web-app-with-api/register-application-with-identity.md
-        - name: Create local Static web app
-          href: how-to/with-authentication/static-web-app-with-api/configure-source-code-for-msal.md
-        - name: Add MongoDB to API
-          href: how-to/with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md
-        - name: Deploy to Azure
-          href: how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md
-
-                                  
   - name: Migrate to Serverless
     items: 
     - name: "Training: Migrate to Azure Functions"
@@ -175,8 +161,6 @@
       href: /azure/container-apps/communicate-between-microservices?tabs=bash&pivots=acr-remote&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Microservice with DAPR
       href: /azure/container-apps/microservices-dapr?tabs=bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-    - name: Create container registry
-      href: how-to/with-azure-cli/create-container-registry-resource.md
     - name: Create container from local project
       href: how-to/with-visual-studio-code/containerize-local-project.md              
   - name: Virtual machine web apps
@@ -258,9 +242,6 @@
         items: 
         - name: "List subscriptions"
           href: ./sdk/authentication/local-development-environment-service-principal.md?tabs=azure-sdk-for-javascript.md
-        - name: "View subscription history"
-          href: how-to/with-azure-sdk/list-resource-operation-history.md 
-
   - name: Training
     href: learn-azure-javascript.md  
   - name: Samples
