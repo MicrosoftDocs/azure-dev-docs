@@ -211,7 +211,7 @@ Learn more about [High-performance computing on Azure](/azure/architecture/topic
 | Service| Description| 
 |--|--|
 |[Azure DevOps][azure-devops]|Use Azure DevOps for tight integration with the Azure cloud including authentication and authorization to the hosted agents, which build and deploy your application.|
-|[GitHub Actions][github-actions]| Use GitHub Actions to build and deploy your GitHub repository applications. Use the Azure CLI to securely access Azure withing the action.|
+|[GitHub Actions][github-actions]| Use GitHub Actions to build and deploy your GitHub repository applications. Use the Azure CLI to securely access Azure within the action.|
 |[Azure Virtual Machines][azure-virtual-machines]|If you use another CI/CD system, you can use Azure Virtual Machines to host your CI/CD system.|
 
 ## Java resources
