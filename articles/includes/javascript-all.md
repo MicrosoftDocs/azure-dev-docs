@@ -56,7 +56,7 @@
 | Event Hubs | npm [5.11.3](https://www.npmjs.com/package/@azure/event-hubs/v/5.11.3) | [docs](/javascript/api/overview/azure/event-hubs-readme) | GitHub [5.11.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.11.3/sdk/eventhub/event-hubs/) |
 | farmbeats | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/agrifood-farming/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.2/sdk/agrifood/agrifood-farming-rest/) |
 | Form Recognizer | npm [5.0.0](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [docs](/javascript/api/overview/azure/ai-form-recognizer-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_5.0.0/sdk/formrecognizer/ai-form-recognizer/) |
-| Identity | npm [4.0.1](https://www.npmjs.com/package/@azure/identity/v/4.0.1) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [4.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.0.1/sdk/identity/identity/) |
+| Identity | npm [4.0.1](https://www.npmjs.com/package/@azure/identity/v/4.0.1)<br>npm [4.1.0-beta.1](https://www.npmjs.com/package/@azure/identity/v/4.1.0-beta.1) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [4.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.0.1/sdk/identity/identity/)<br>GitHub [4.1.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.1.0-beta.1/sdk/identity/identity/) |
 | Image Analysis | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-vision-image-analysis/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-image-analysis_1.0.0-beta.1/sdk/vision/ai-vision-image-analysis-rest/) |
 | IoT Device Update | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/iot-device-update/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/iot-device-update-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/iot-device-update_1.0.0-beta.1/sdk/deviceupdate/iot-device-update/) |
 | Key Vault - Administration | npm [4.4.0](https://www.npmjs.com/package/@azure/keyvault-admin/v/4.4.0)<br>npm [4.5.0-beta.1](https://www.npmjs.com/package/@azure/keyvault-admin/v/4.5.0-beta.1) | [docs](/javascript/api/overview/azure/keyvault-admin-readme) | GitHub [4.4.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.4.0/sdk/keyvault/keyvault-admin/)<br>GitHub [4.5.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.5.0-beta.1/sdk/keyvault/keyvault-admin/) |
@@ -87,7 +87,7 @@
 | Schema Registry | npm [1.2.0](https://www.npmjs.com/package/@azure/schema-registry/v/1.2.0)<br>npm [1.3.0-beta.1](https://www.npmjs.com/package/@azure/schema-registry/v/1.3.0-beta.1) | [docs](/javascript/api/overview/azure/schema-registry-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry_1.2.0/sdk/schemaregistry/schema-registry/)<br>GitHub [1.3.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry_1.3.0-beta.1/sdk/schemaregistry/schema-registry/) |
 | Schema Registry - Avro | npm [1.1.0](https://www.npmjs.com/package/@azure/schema-registry-avro/v/1.1.0) | [docs](/javascript/api/overview/azure/schema-registry-avro-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry-avro_1.1.0/sdk/schemaregistry/schema-registry-avro/) |
 | Schema Registry - JSON | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/schema-registry-json/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/schema-registry-json-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry-json_1.0.0-beta.1/sdk/schemaregistry/schema-registry-json/) |
-| Service Bus | npm [7.9.3](https://www.npmjs.com/package/@azure/service-bus/v/7.9.3) | [docs](/javascript/api/overview/azure/service-bus-readme) | GitHub [7.9.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.9.3/sdk/servicebus/service-bus/) |
+| Service Bus | npm [7.9.4](https://www.npmjs.com/package/@azure/service-bus/v/7.9.4) | [docs](/javascript/api/overview/azure/service-bus-readme) | GitHub [7.9.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.9.4/sdk/servicebus/service-bus/) |
 | Spark | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/synapse-spark/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/synapse-spark-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-spark_1.0.0-beta.4/sdk/synapse/synapse-spark/) |
 | Storage - Blobs | npm [12.17.0](https://www.npmjs.com/package/@azure/storage-blob/v/12.17.0)<br>npm [12.23.0-beta.1](https://www.npmjs.com/package/@azure/storage-blob/v/12.23.0-beta.1) | [docs](/javascript/api/overview/azure/storage-blob-readme) | GitHub [12.17.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.17.0/sdk/storage/storage-blob/)<br>GitHub [12.23.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.23.0-beta.1/sdk/storage/storage-blob/) |
 | Storage - Blobs Changefeed | npm [12.0.0-preview.4](https://www.npmjs.com/package/@azure/storage-blob-changefeed/v/12.0.0-preview.4) | [docs](/javascript/api/overview/azure/storage-blob-changefeed-readme) | GitHub [12.0.0-preview.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob-changefeed_12.0.0-preview.4/sdk/storage/storage-blob-changefeed/) |
@@ -335,8 +335,11 @@
 | Unknown Display Name | npm [0.6.0](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.6.0) |  |  |
 | Unknown Display Name | npm [0.4.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.4.0) |  |  |
 | Unknown Display Name | npm [1.0.0-preview.2](https://www.npmjs.com/package/@azure/app-configuration-provider/v/1.0.0-preview.2) |  |  |
+| Unknown Display Name | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/openai-assistants/v/1.0.0-beta.1) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.3) |  |  |
 | Unknown Display Name | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
+| Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/bundler/v/0.1.0) |  |  |
+| Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/playground/v/0.1.0) |  |  |
 | Unknown Display Name | npm [0.47.0-dev.0](https://www.npmjs.com/package/@typespec/tspd/v/0.47.0-dev.0) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
@@ -422,7 +425,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.0](https://www.npmjs.com/package/@autorest/configuration/v/1.12.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240203.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240203.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240205.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240205.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -432,7 +435,7 @@
 | @autorest/system-requirements | npm [1.1.0](https://www.npmjs.com/package/@autorest/system-requirements/v/1.1.0) |  |  |
 | @autorest/test-utils | npm [0.6.0](https://www.npmjs.com/package/@autorest/test-utils/v/0.6.0) |  |  |
 | @autorest/testmodeler | npm [2.6.1](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.1) |  |  |
-| @autorest/typescript | npm [6.0.14](https://www.npmjs.com/package/@autorest/typescript/v/6.0.14) |  |  |
+| @autorest/typescript | npm [6.0.15](https://www.npmjs.com/package/@autorest/typescript/v/6.0.15) |  |  |
 | @azure-tools/adl-openapi | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-openapi/v/0.3.2) |  |  |
 | @azure-tools/adl-rest | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-rest/v/0.3.2) |  |  |
 | @azure-tools/adl-rpaas | npm [0.4.2](https://www.npmjs.com/package/@azure-tools/adl-rpaas/v/0.4.2) |  |  |
@@ -469,7 +472,7 @@
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
 | @azure-tools/prettier-plugin-cadl | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/prettier-plugin-cadl/v/0.2.1) |  |  |
 | @azure-tools/python-generator-core | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/python-generator-core/v/0.1.0) |  |  |
-| @azure-tools/rlc-common | npm [0.21.0](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.21.0) |  |  |
+| @azure-tools/rlc-common | npm [0.22.0](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.22.0) |  |  |
 | @azure-tools/sdk-generation-lib | npm [1.0.5](https://www.npmjs.com/package/@azure-tools/sdk-generation-lib/v/1.0.5) |  |  |
 | @azure-tools/test-credential | npm [1.0.1](https://www.npmjs.com/package/@azure-tools/test-credential/v/1.0.1) |  |  |
 | @azure-tools/test-recorder | npm [3.0.0](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.0.0) |  |  |
@@ -500,7 +503,7 @@
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
-| AutoRest - Go | npm [4.0.0-preview.61](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.61) |  |  |
+| AutoRest - Go | npm [4.0.0-preview.62](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.62) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.674](https://www.npmjs.com/package/@autorest/powershell/v/4.0.674) |  | GitHub [4.0.674](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.12.4](https://www.npmjs.com/package/@autorest/python/v/6.12.4) |  | GitHub [6.12.4](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
