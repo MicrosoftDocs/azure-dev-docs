@@ -1,6 +1,6 @@
 ---
-title: Create an Azure MySQL database using the Azure SDK libraries
-description: Use the management libraries in the Azure SDK libraries for Python to create an Azure MySQL or PostgreSQL database.
+title: Create an Azure Database for MySQL - Flexible Server instance and database using the Azure SDK libraries
+description: Use the management libraries in the Azure SDK libraries for Python to create an Azure Database for MySQL or Azure Database for PostgreSQL database.
 ms.date: 02/02/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
@@ -8,7 +8,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 # Example: Use the Azure libraries to create a database
 
-This example demonstrates how to use the Azure SDK management libraries in a Python script to create an Azure MySQL database. It also provides a simple script to query the database using the mysql-connector library (not part of the Azure SDK). You can use similar code to create a PostgreSQL database.
+This example demonstrates how to use the Azure SDK management libraries in a Python script to create an Azure Database for MySQL flexible server instance and database. It also provides a simple script to query the database using the mysql-connector library (not part of the Azure SDK). You can use similar code to create an Azure Database for PostgreSQL flexible server instance and database.
 
 [Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are at later in this article. If you prefer to use the Azure portal, see [Create a MySQL server](/azure/mysql/flexible-server/quickstart-create-server-portal) or [Create a PostgreSQL server](/azure/postgresql/flexible-server/quickstart-create-server-portal).
 
@@ -102,7 +102,7 @@ This code works only for MySQL; you use different libraries for PostgreSQL.
 
 All of this code uses the mysql.connector API. The only Azure-specific part is the full host domain for MySQL server (mysql.database.azure.com).
 
-Next, Download the certificate needed to communicate over TSL/SSL with your Azure Database for MySQL server from https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem and save the certificate file to the same folder as the Python file. For more information, see [Obtain an SSL Certificate](/azure/mysql/howto-configure-ssl#step-1-obtain-ssl-certificate) in the Azure Database for MySQL documentation.
+Next, download the certificate needed to communicate over TSL/SSL with your Azure Database for MySQL server from https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem and save the certificate file to the same folder as the Python file. For more information, see [Obtain an SSL Certificate](/azure/mysql/howto-configure-ssl#step-1-obtain-ssl-certificate) in the Azure Database for MySQL documentation.
 
 Finally, run the code:
 
