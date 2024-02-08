@@ -149,8 +149,8 @@ Next, for any JavaScript code that creates an Azure SDK client object in your ap
 An example of this is shown in the following code segment.
 
 ```JavaScript
-const { BlobServiceClient } = require('@azure/storage-blob');
-const { DefaultAzureCredential } = require('@azure/identity');
+import { BlobServiceClient } from '@azure/storage-blob';
+import { DefaultAzureCredential } from '@azure/identity';
 
 // Acquire a credential object
 const tokenCredential = DefaultAzureCredential();
