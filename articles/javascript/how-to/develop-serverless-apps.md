@@ -58,7 +58,7 @@ The following common settings should be configured to keep your Azure Function s
 
 A function is an exported asynchronous function with request and context information. The following partial screenshot from the Azure portal shows the function code. 
 
-#### [v4 TypeScript (preview)](#tab/v4-ts)
+#### [v4 TypeScript](#tab/v4-ts)
 
 ```typescript
 import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
@@ -82,7 +82,7 @@ app.http('status', {
 });
 ```
 
-#### [v4 JavaScript (preview)](#tab/v4-js)
+#### [v4 JavaScrip](#tab/v4-js)
 
 ```javascript
 import { app } = from "@azure/functions";
@@ -108,90 +108,6 @@ app.http('status', {
 module.exports = status
 ```
 
-
-#### [v3 TypeScript](#tab/v3-ts)
-
-Azure function code file:
-
-```typescript
-import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-
-const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-    context.log('HTTP trigger function processed a request.');
-
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: process.env
-    };
-
-};
-
-export default httpTrigger;
-```
-
-Azure function definition file:
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "scriptFile": "../dist/status/index.js"
-}
-```
-
-#### [v3 JavaScript](#tab/v3-js)
-
-Azure function code file:
-
-```javascript
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: process.env
-    };
-}
-```
-
-Azure function definition file:
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ]
-}
-```
 
 ---
 
