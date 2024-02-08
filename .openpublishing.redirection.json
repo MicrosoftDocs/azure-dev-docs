@@ -54,6 +54,10 @@
         "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
       },
       {
+        "source_path":"articles/javascript/database-developer-guide.md",
+        "redidrect_url": "https://azure.microsoft.com/product-categories/databases/"
+      },
+      {
         "source_path":"articles/javascript/composable-cloud-contoso-real-estate.md",
         "redirect_url": "/azure/developer/javascript/end-to-end/contoso-real-estate-get-started"
       },

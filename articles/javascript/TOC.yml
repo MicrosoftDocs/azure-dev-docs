@@ -46,8 +46,6 @@
       href: /azure/azure-functions/functions-reference?tabs=blob&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Storage developer guide
       href: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-    - name: Database developer guide
-      href: database-developer-guide.md
     - name: Secrets
       items: 
       - name: Key Vault Keys
