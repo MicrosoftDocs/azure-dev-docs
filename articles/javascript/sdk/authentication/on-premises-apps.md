@@ -126,9 +126,9 @@ An example of this is shown in the following code segment.
 
 ```javascript
 // connect-with-default-azure-credential.js
-const { BlobServiceClient } = require('@azure/storage-blob');
-const { DefaultAzureCredential } = require('@azure/identity');
-require('dotenv').config()
+import { BlobServiceClient } from '@azure/storage-blob';
+import { DefaultAzureCredential } from '@azure/identity';
+import 'dotenv/config'
 
 const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
 if (!accountName) throw Error('Azure Storage accountName not found');
