@@ -48,8 +48,6 @@
       href: /azure/cosmos-db/nosql/how-to-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Cosmos DB for MongoDB developer guide
       href: /azure/cosmos-db/mongodb/how-to-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-    - name: Database developer guide
-      href: database-developer-guide.md
     - name: Secrets
       items: 
       - name: Key Vault Keys
