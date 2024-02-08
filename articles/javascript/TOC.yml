@@ -22,9 +22,7 @@
       - name: Configure app settings
         href: how-to/configure-web-app-settings.md
       - name: Configure domain name
-        href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json              
-      - name: Use Key Vault secrets
-        href: how-to/with-web-app/use-secret-environment-variables.md
+        href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
   - name: Azure AI apps 
     items: 
     - name: Develop with Azure AI Services
@@ -46,6 +44,10 @@
       href: /azure/azure-functions/functions-reference?tabs=blob&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Storage developer guide
       href: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+    - name: Cosmos DB for NoSQL developer guide
+      href: /azure/cosmos-db/nosql/how-to-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+    - name: Cosmos DB for MongoDB developer guide
+      href: /azure/cosmos-db/mongodb/how-to-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Secrets
       items: 
       - name: Key Vault Keys

@@ -53,6 +53,13 @@
         "source_path":"articles/javascript/how-to/with-authentication/register-application-with-identity.md",
         "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
       },
+
+      {
+        "source_path":"articles/javascript/how-to/with-web-app/use-secret-environment-variables.md",
+        "redirect_url": "/azure/cosmos-db/store-credentials-key-vault"
+
+      },
+
       {
         "source_path":"articles/javascript/database-developer-guide.md",
         "redirect_url": "https://azure.microsoft.com/product-categories/databases/"
