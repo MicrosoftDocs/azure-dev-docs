@@ -82,7 +82,7 @@ app.http('status', {
 });
 ```
 
-#### [v4 JavaScrip](#tab/v4-js)
+#### [v4 JavaScript](#tab/v4-js)
 
 ```javascript
 import { app } = from "@azure/functions";
