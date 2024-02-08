@@ -126,12 +126,15 @@ Serverless functions remove much of the server configuration and management so y
 
 ## Next steps
 
-The [Azure Functions developer guide for JavaScript](/azure/azure-functions/functions-reference-node) is a good starting point. 
+Use the following table to learn more about Azure Functions with Node.js
 
-Use the Learn module to learn how to [enable automatic updates in a web app using Azure functions and SignalR Service](/training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/).
+| To Learn | Sample |
+| -- | -- |
+|[What is Contoso Real Estate](../end-to-end/contoso-real-estate-get-started)|[Contoso Real Estate](https://github.com/azure-Samples/contoso-real-estate)|
+|[Build Serverless APIs with Azure Functions](/training/modules/build-api-azure-functions/)|[MicrosoftDocs/mslearn-build-api-azure-functions](https://github.com/MicrosoftDocs/mslearn-build-api-azure-functions)|
+|[Refactor Node.js Express APIs into serverless Azure Functions APIs](/training/modules/shift-nodejs-express-apis-serverless/)|[MicrosoftDocs/mslearn-module-shifting-nodejs-express-apis-to-serverless](https://github.com/MicrosoftDocs/mslearn-module-shifting-nodejs-express-apis-to-serverless)|
+|[ Upload and analyze a file with Azure Functions and Blob Storage](/azure/storage/blobs/blob-upload-function-trigger-javascript)|[Azure-Samples/msdocs-storage-bind-function-service](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/tree/main/javascript-v4)|
 
-* [Run code on a timer](/azure/azure-functions/functions-create-scheduled-function)
-* [Run code when files are uploaded or updated in Azure Blob storage](/azure/storage/blobs/storage-upload-process-images?tabs=nodejsv10)
-* [Run code when a message is written into Azure Queue Storage](/azure/azure-functions/functions-create-storage-queue-triggered-function)
+
 * [Store unstructured data using Azure Functions and Azure Cosmos DB](/azure/azure-functions/functions-integrate-store-unstructured-data-cosmosdb?tabs=javascript)
 * [Node.js + Azure Functions samples](/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions)
