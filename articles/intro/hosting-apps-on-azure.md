@@ -144,7 +144,7 @@ Cloud edge is a term to indicate if the Cloud service is located to benefit the 
 |--|--|
 |[Azure App Service][azure-app-service]|Use this service for typical web hosting. This supports a wide set of functionality API endpoints, full-stack applications, and background tasks. This service comes with many programming language runtimes as well as the ability to provide your own stack, language, or workload from a container.|
 |[Azure Functions][azure-functions]|Use this service to provide your own code in the supported languages for either HTTP endpoints or event-based triggers from Azure services.|
-|[Azure Spring Apps][azure-spring-apps]|Use to deploy String Boot applications without code changes.|
+|[Azure Spring Apps][azure-spring-apps]|Use to deploy Spring Boot applications without code changes.|
 |[Azure Container Apps][azure-container-apps]|Use to host managed microservices and containerized applications on a serverless platform.|
 |[Azure Container Instances][azure-container-instances]|Use this for simple container scenarios that don't need container orchestration.|
 |[Azure Kubernetes Service][azure-kubernetes]|Use this service when you need a Kubernetes cluster. The control plane to manage the cluster is created and provided for you at no extra cost.|
