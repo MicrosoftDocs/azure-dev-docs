@@ -194,7 +194,7 @@
         items: 
         - name: "List subscriptions"
           href: ./sdk/authentication/local-development-environment-service-principal.md?tabs=azure-sdk-for-javascript.md
-  - name: Training
+  - name: Training paths and modules
     href: learn-azure-javascript.md  
   - name: Samples
     items: 
