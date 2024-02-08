@@ -130,7 +130,7 @@ Use the following table to learn more about Azure Functions with Node.js
 
 | To Learn | Sample |
 | -- | -- |
-|[What is Contoso Real Estate](../end-to-end/contoso-real-estate-get-started)|[Contoso Real Estate](https://github.com/azure-Samples/contoso-real-estate)|
+|[What is Contoso Real Estate](../end-to-end/contoso-real-estate-get-started.md)|[Contoso Real Estate](https://github.com/azure-Samples/contoso-real-estate)|
 |[Build Serverless APIs with Azure Functions](/training/modules/build-api-azure-functions/)|[MicrosoftDocs/mslearn-build-api-azure-functions](https://github.com/MicrosoftDocs/mslearn-build-api-azure-functions)|
 |[Refactor Node.js Express APIs into serverless Azure Functions APIs](/training/modules/shift-nodejs-express-apis-serverless/)|[MicrosoftDocs/mslearn-module-shifting-nodejs-express-apis-to-serverless](https://github.com/MicrosoftDocs/mslearn-module-shifting-nodejs-express-apis-to-serverless)|
 |[ Upload and analyze a file with Azure Functions and Blob Storage](/azure/storage/blobs/blob-upload-function-trigger-javascript)|[Azure-Samples/msdocs-storage-bind-function-service](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/tree/main/javascript-v4)|
