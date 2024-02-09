@@ -23,7 +23,7 @@ Begin your journey with JavaScript and Azure by learning the basics.
 * [Path: Take your first steps with Vue.js](/training/paths/vue-first-steps/?source=docs&ns-enrollment-type=Collection&ns-enrollment-id=mo5qixg827ppy6)
 * [Path: Static Web App, JavaScript, CodeTour: Use basketball stats to optimize game play with Visual Studio Code, inspired by SPACE JAM: A NEW LEGACY](/training/paths/optimize-basketball-games-with-machine-learning/)
 
-### Video
+### Shows
 
 * [Beginner's Series to: JavaScript](/shows/beginners-series-to-javascript)
 * [Beginner's Series to: Vue.js](/shows/beginners-series-to-vuejs/)
