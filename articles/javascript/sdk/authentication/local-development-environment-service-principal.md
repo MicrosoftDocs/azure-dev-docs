@@ -188,7 +188,7 @@ AZURE_CLIENT_SECRET=abcdefghijklmnopqrstuvwxyz
 Finally, in the startup code for your application, use the `dotenv` library to read the environment variables from the `.env` file on startup.
 
 ```JavaScript
-require("dotenv").config();
+import 'dotenv/config'
 ```
 
 ## 5 - Implement DefaultAzureCredential in your application
@@ -211,10 +211,10 @@ An example of this is shown in the following code segment.
 
 ```JavaScript
 // Azure authentication dependency
-const { DefaultAzureCredential } = require('@azure/identity');
+import { DefaultAzureCredential } from '@azure/identity';
 
 // Azure resource management dependency
-const { SubscriptionClient } = require("@azure/arm-subscriptions");
+import { SubscriptionClient } from "@azure/arm-subscriptions";
 
 // Acquire credential
 const tokenCredential = new DefaultAzureCredential();
