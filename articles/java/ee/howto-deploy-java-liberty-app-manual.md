@@ -695,6 +695,9 @@ az group delete --name <db-resource-group> --yes --no-wait
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Use Azure Cache for Redis in Java with Redisson Redis client](/azure/azure-cache-for-redis/cache-java-redisson-get-started)
+
 You can learn more from references used in this guide:
 
 * [Azure Kubernetes Service](https://azure.microsoft.com/free/services/kubernetes-service/)
