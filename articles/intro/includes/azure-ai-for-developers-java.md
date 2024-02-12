@@ -52,6 +52,37 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 |[More Samples](https://aka.ms/oai/java/samples)|The Azure OpenAI service samples are a set of self-contained Java programs that demonstrate interacting with Azure OpenAI service using the client library. Each sample focuses on a specific scenario and can be executed independently.|
 |[More guidance](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
 
+## LangChain
+
+### Azure SDK for OpenAI LangChain
+
+The **langchain4j-azure-open-ai** package is a Java client library for the Azure OpenAI LangChain service. It provides a programming interface for interacting with the LangChain service. 
+
+|Link|Description|
+|---|---|
+|[Source code](https://github.com/langchain4j/langchain4j/tree/main/langchain4j-azure-open-ai)|The source code is part of the _langchain4j_ GitHub repository. |
+|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-open-ai/versions)|Links to all versions.|
+|[Maven package](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-open-ai)|The official Maven package.|
+
+### Azure SDK for AI Search LangChain
+
+The **langchain4j-azure-ai-search** package is a Java client library for the Azure AI Search LangChain service. It provides a programming interface for interacting with the LangChain service. 
+
+|Link|Description|
+|---|---|
+|[Source code](https://github.com/langchain4j/langchain4j/tree/main/langchain4j-azure-ai-search)|The source code is part of the _langchain4j_ GitHub repository. |
+|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-ai-search/versions)|Links to all versions.|
+|[Maven](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-ai-search)|The Maven package.|
+
+### LangChain + Azure Blob Storage document loader
+
+The **langchain4j-document-loader-azure-storage-blob** package is a Java client library for the Azure Blob Storage document loader. It provides a programming interface for interacting with the Azure Blob Storage service.
+
+|Link|Description|
+|---|---|
+|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-document-loader-azure-storage-blob/versions)|Links to all versions.|
+|[Maven](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-document-loader-azure-storage-blob/overview)|The Maven package.|
+
 ## Other Azure AI services
 
 ### End-to-end solutions
