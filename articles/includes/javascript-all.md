@@ -336,7 +336,7 @@
 | Unknown Display Name | npm [0.39.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.39.0) |  |  |
 | Unknown Display Name | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.4.1) |  |  |
 | Unknown Display Name | npm [1.0.0-preview.2](https://www.npmjs.com/package/@azure/app-configuration-provider/v/1.0.0-preview.2) |  |  |
-| Unknown Display Name | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/openai-assistants/v/1.0.0-beta.1) |  |  |
+| Unknown Display Name | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/openai-assistants/v/1.0.0-beta.3) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.3) |  |  |
 | Unknown Display Name | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/bundler/v/0.1.0) |  |  |

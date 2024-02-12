@@ -223,7 +223,7 @@ When creating your PAT, set the following scopes:
 
 
 ### `azd` as an Azure DevOps task
-Add [`azd` as an Azure DevOps task](https://aka.ms/azd-azdo-task). This task will install `azd`. To use it, you can add the following to `.github\workflows\azure-dev.yml`:
+Add [`azd` as an Azure DevOps task](https://aka.ms/azd-azdo-task). This task will install `azd`. To use it, you can add the following to `.azdo\pipelines\azure-dev.yml`:
    ```
    trigger:
       - main
