@@ -126,8 +126,8 @@ services:
       context: ../
       web:
       project: src/web
-  language: js
-  host: containerapp
+    language: js
+    host: containerapp
 ```
 
 ### AKS `deployment` properties
