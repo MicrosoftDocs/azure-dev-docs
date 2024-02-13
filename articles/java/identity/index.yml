@@ -70,7 +70,7 @@ landingContent:
             url: enable-java-websphere-webapp-authorization-role-entra-id.md      
           - text: Use groups and group claims
             url: enable-java-websphere-webapp-authorization-group-entra-id.md 
-  - title: Secure your Java Spring MVC web app web app
+  - title: Secure your Java Spring Boot web app
     linkLists:
       - linkListType: how-to-guide
         links:
