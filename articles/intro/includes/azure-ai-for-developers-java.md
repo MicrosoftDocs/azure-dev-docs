@@ -42,12 +42,6 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 |---|---|---|---|
 |**azure-ai-openai**|[Source code](https://aka.ms/oai/java/sdk)|[Releases](https://azure.github.io/azure-sdk/?search=openai)|[Maven package](https://aka.ms/oai/java/maven)|
 
-<!--
-|[Azure OpenAI SDK for Java](https://aka.ms/oai/java/sdk)|The GitHub source version of the Azure OpenAI client library for Java, an adaptation of OpenAI's REST APIs that provides an idiomatic interface and rich integration with the rest of the Azure SDK ecosystem.|
-|[Azure OpenAI SDK Releases](https://azure.github.io/azure-sdk/?search=openai)|Links to all Azure OpenAI SDK library packages, including links for .NET, Java, JavaScript and Go.|
-|[azure.ai.openai maven package](https://aka.ms/oai/java/maven)|The Maven package version of the Azure OpenAI client library for Java.|
--->
-
 ### Samples and guidance
 
 |Link|Description|
@@ -81,6 +75,8 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 ### SDKs 
 
+|Link|Description|
+|---|---|
 |[Azure AI Document Intelligence SDK](/azure/applied-ai-services/form-recognizer/sdk-preview)|Azure AI Document Intelligence (formerly Form Recognizer) is a cloud service that uses machine learning to analyze text and structured data from documents. The Document Intelligence software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Intelligence models and capabilities into your applications.|
 
 ### Samples and guidance
