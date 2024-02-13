@@ -76,7 +76,7 @@ items:
         href: enable-spring-boot-webapp-authorization-role-entra-id.md      
       - name: Use groups and group claims
         href: enable-spring-boot-webapp-authorization-group-entra-id.md    
-      - name: Deploy to Azure SPring apps
+      - name: Deploy to Azure Spring apps
         href: spring-boot-deploy-to-azure-spring-apps.md  
   - name: Release notes
     href: https://github.com/Azure-Samples/ms-identity-msal-java-samples/releases
