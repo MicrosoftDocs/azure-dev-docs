@@ -481,7 +481,11 @@ az containerapp create \
     --registry-username $ACR_USER_NAME \
     --registry-password $ACR_PASSWORD \
     --target-port 9080 \
-    --env-vars DB_SERVER_NAME=${DB_SERVER_NAME} DB_NAME=${DB_NAME} DB_USER=${DB_USER} DB_PASSWORD=${DB_PASSWORD} \
+    --env-vars \
+        DB_SERVER_NAME=${DB_SERVER_NAME} \
+        DB_NAME=${DB_NAME} \
+        DB_USER=${DB_USER} \
+        DB_PASSWORD=${DB_PASSWORD} \
     --ingress 'external'
 ```
 
@@ -498,7 +502,11 @@ az containerapp create `
     --registry-username $Env:ACR_USER_NAME `
     --registry-password $Env:ACR_PASSWORD `
     --target-port 9080 `
-    --env-vars DB_SERVER_NAME=$Env:DB_SERVER_NAME DB_NAME=$Env:DB_NAME DB_USER=$Env:DB_USER DB_PASSWORD=$Env:DB_PASSWORD `
+    --env-vars `
+        DB_SERVER_NAME=$Env:DB_SERVER_NAME `
+        DB_NAME=$Env:DB_NAME `
+        DB_USER=$Env:DB_USER `
+        DB_PASSWORD=$Env:DB_PASSWORD `
     --ingress 'external'
 ```
 
@@ -516,7 +524,8 @@ Use the following command to get a fully qualified url to access the application
 echo https://$(az containerapp show \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $ACA_NAME \
-    --query properties.configuration.ingress.fqdn -o tsv)
+    --query properties.configuration.ingress.fqdn \
+    --output tsv)
 ```
 
 #### [PowerShell](#tab/in-powershell)
@@ -525,7 +534,8 @@ echo https://$(az containerapp show \
 Write-Host https://$(az containerapp show `
     --resource-group $Env:RESOURCE_GROUP_NAME `
     --name $Env:ACA_NAME `
-    --query properties.configuration.ingress.fqdn -o tsv)
+    --query properties.configuration.ingress.fqdn `
+    --output tsv)
 ```
 
 ---

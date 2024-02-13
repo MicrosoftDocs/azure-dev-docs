@@ -8,7 +8,7 @@ ms.date: 04/27/2023
 
 Create an availability set by using [az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create), as shown in the following example. Creating an availability set is optional, but we recommend it. For more information, see [Example Azure infrastructure walkthrough for Windows VMs](/azure/virtual-machines/windows/infrastructure-example).
 
-### [Bash](#tab/bash)
+### [Bash](#tab/in-bash)
 
 ```bash
 az vm availability-set create \
@@ -18,7 +18,7 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/in-powershell)
 
 ```powershell
 az vm availability-set create `
