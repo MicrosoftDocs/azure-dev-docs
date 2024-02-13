@@ -41,6 +41,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 |Package|Source code|Releases|Maven|
 |---|---|---|---|
 |**azure-ai-openai**|[Source code](https://aka.ms/oai/java/sdk)|[Releases](https://azure.github.io/azure-sdk/?search=openai)|[Maven package](https://aka.ms/oai/java/maven)|
+|**azure-ai-openai-assistants**|[Source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai-assistants_1.0.0-beta.1/sdk/openai/azure-ai-openai-assistants/)|[Releases](https://central.sonatype.com/artifact/com.azure/azure-ai-openai-assistants/versions)|[Maven package](https://central.sonatype.com/artifact/com.azure/azure-ai-openai-assistants/)|
 
 ### Samples and guidance
 
