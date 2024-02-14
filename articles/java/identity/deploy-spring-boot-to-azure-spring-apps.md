@@ -16,7 +16,6 @@ adobe-target: true
 
 This guidance assumes you have run through any of the Spring Boot Web app examples for enabling security with Microsoft Entra ID. 
 
-
 ## Prerequisites
 
 [!INCLUDE [deploy-spring-apps-intro.md](includes/deploy-spring-apps-intro.md)]
@@ -25,7 +24,7 @@ This guidance assumes you have run through any of the Spring Boot Web app exampl
 
 [!INCLUDE [deploy-spring-apps-prepare.md](includes/deploy-spring-apps-prepare.md)]
 
- ## Configure the Maven plugin
+## Configure the Maven plugin
 
 [!INCLUDE [deploy-spring-apps-congigure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
 

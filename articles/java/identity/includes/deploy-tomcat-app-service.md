@@ -5,7 +5,7 @@ ms.date: 01/01/2024
 ms.custom: devx-track-java
 ---
 
-#### [Deploy the sample to Azure App Service](#tab/appsvc)
+#### [Deploy to Azure App Service](#tab/appsvc)
 
 [!INCLUDE [deploy-app-service-intro.md](./deploy-app-service-intro.md)]
 
@@ -27,7 +27,7 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deploy-app-service-deploy.md](./deploy-app-service-deploy.md)]
 
-#### [Run the sample locally](#tab/local)
+#### [Run locally](#tab/local)
 
 To run the sample on Tomcat:
 
