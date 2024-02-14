@@ -14,3 +14,9 @@ When you deploy your application to App Service, your redirect URL will change t
 # for apps deployed to azure, use https://your-sub-domain.azurewebsites.net
 app.homePage=https://<your-app-name>.azurewebsites.net
 ```
+
+1. After saving this file, you will need to rebuild your app.
+
+ ```
+ mvn clean package
+ ```

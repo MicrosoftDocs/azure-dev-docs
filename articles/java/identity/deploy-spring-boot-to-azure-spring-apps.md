@@ -19,10 +19,16 @@ This guidance assumes you have run through any of the Spring Boot Web app exampl
 
 ## Prerequisites
 
+You'll use the [Maven Plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy a Java Spring Boot application to an app [Azure Spring Apps](/azure/spring-apps/). Azure Spring Apps is a managed service for hosting Spring apps. 
+
+If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
++ [IntelliJ IDEA](/azure/spring-apps/enterprise/how-to-intellij-deploy-apps)
++ [Visual Studio Code](https://code.visualstudio.com/docs/java/java-spring-apps)
+
+For deployment you will need:
+
 - An Azure subscription. 
 - If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the Requirements section of Enterprise plan in Azure Marketplace.
-- [Git](https://git-scm.com/downloads).
-- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 
 ## Prepare the Spring project
 
@@ -40,45 +46,11 @@ Use the following steps to prepare the project:
        mvn spring-boot:run
    ```
 
-## Prepare the cloud environment
-
-This section describes how to create an Azure Spring Apps service instance and prepare the Azure cloud environment.
-
-### Sign in to the Azure portal
-
-Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
-
-### Create an Azure Spring Apps instance
-
-Use the following steps to create a service instance:
-
-1. Select **Create a resource** in the corner of the Azure portal.
-
-1. Select **Compute** > **Azure Spring Apps**.
-
-1. Fill out the **Basics** form with the following information:
-
-   | Setting        | Suggested Value                  | Description                                                                                                                                                                                                                                                                                        |
-   |----------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | Subscription   | Your subscription name           | The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                       |
-   | Resource group | *myresourcegroup*                | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
-   | Name           | *myasa*                          | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
-   | Plan           | *Standard*                       | The pricing plan that determines the resource and cost associated with your instance.                                                                                                                                                                                                              |
-   | Region         | The region closest to your users | The location that is closest to your users.                                                                                                                                                                                                                                                        |
-   | Zone Redundant | Unselected                       | Indicates whether to create your Azure Spring Apps service in an Azure availability zone. This feature isn't currently supported in all regions.                                                                                                                                                   |                                                                                                                                                 |
-
-1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
-
-1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page.
-
-
-1. Select **Go to resource** to go to the **Azure Spring Apps Overview** page.
-
- ## Deploy the app to Azure Spring Apps
+ ## Configure the Maven plugin
 
 Use the following steps to deploy using the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps):
 
-1. Navigate to the src directory, and then run the following command to configure the app in Azure Spring Apps:
+1. Run the following command in the root of the project to configure the app in Azure Spring Apps:
 
    ```bash
        mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.19.0:config
@@ -87,15 +59,123 @@ Use the following steps to deploy using the [Maven plugin for Azure Spring Apps]
    The following list describes the command interactions:
 
    - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
-   - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press <kbd>Enter</kbd> directly.
-   - **Use existing Azure Spring Apps in Azure**: Press <kbd>y</kbd> to use the existing Azure Spring Apps instance.
-   - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you created. If you use the default number, press <kbd>Enter</kbd> directly.
-   - **Use existing app in Azure Spring Apps \<your-instance-name\>**: Press <kbd>n</kbd> to create a new app.
+   - **Select subscription**: Select the subscription list number where you want to create your Azure Spring Apps instance, which defaults to the first subscription in the list. If you use the default number, press <kbd>Enter</kbd> directly.
+   - **Input the Azure Spring Apps name**: Enter the name for the spring apps instance you want to create. If you want to use the default name, press <kbd>Enter</kbd> directly.
+   - **Input the resource group name**: Enter the name for the resource group you want to create your spring apps instance in. If you want to use the default name, press <kbd>Enter</kbd> directly.
+   - **Skus**: Select the SKU you want to use for your spring apps instance. If you use the default number, press <kbd>Enter</kbd> directly.
    - **Input the app name (demo)**: Provide an app name. If you use the default project artifact ID, press <kbd>Enter</kbd> directly.
+   - **Runtimes**: Select the runtime you want to use for your spring apps instance. In this case you should use the default number, press <kbd>Enter</kbd> directly.
    - **Expose public access for this app (boot-for-azure)**: Press <kbd>y</kbd>.
    - **Confirm to save all the above configurations**: Press <kbd>y</kbd>. If you press <kbd>n</kbd>, the configuration isn't saved in the POM files.
 
-2. Use the following command to deploy the app:
+    ```
+    Summary of properties:
+    Subscription id   : 12345678-1234-1234-1234-123456789101
+    Resource group name : rg-ms-identity-spring-boot-webapp
+    Azure Spring Apps name : cluster-ms-identity-spring-boot-webapp
+    Runtime Java version : Java 11
+    Region            : eastus
+    Sku               : Standard
+    App name          : ms-identity-spring-boot-webapp
+    Public access     : true
+    Instance count/max replicas : 1
+    CPU count         : 1
+    Memory size(GB)   : 2
+    Confirm to save all the above configurations (Y/n):
+    [INFO] Configurations are saved to: /home/user/ms-identity-java-spring-tutorial/1-Authentication/sign-in/pom.    xml
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time:  01:57 min
+    [INFO] Finished at: 2024-02-14T13:50:44Z
+    [INFO] ------------------------------------------------------------------------
+    ```
+
+After you've confirmed your choices, the plugin adds the below plugin element and prerequisite settings to your project's `pom.xml` file that configure your app to run in Azure Spring Apps.
+
+The relevant portion of the `pom.xml` file should look similar to the following example.
+
+```xml-interactive
+<plugin>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-spring-apps-maven-plugin</artifactId>
+    <version>1.19.0</version>
+    <configuration>
+        <subscriptionId>12345678-1234-1234-1234-123456789101</subscriptionId>
+        <resourceGroup>rg-ms-identity-spring-boot-webapp</resourceGroup>
+        <clusterName>cluster-ms-identity-spring-boot-webapp</clusterName>
+        <region>eastus</region>
+        <sku>Standard</sku>
+        <appName>ms-identity-spring-boot-webapp</appName>
+        <isPublic>true</isPublic>
+        <deployment>
+            <cpu>1</cpu>
+            <memoryInGB>2</memoryInGB>
+            <instanceCount>1</instanceCount>
+            <runtimeVersion>Java 11</runtimeVersion>
+            <resources>
+                <resource>
+                    <directory>${project.basedir}/target</directory>
+                    <includes>
+                        <include>*.jar</include>
+                    </includes>
+                </resource>
+            </resources>
+        </deployment>
+    </configuration>
+</plugin>     
+```
+
+You can modify the configurations for Azure Spring Apps directly in your `pom.xml`. Some common configurations are listed in the following table:
+
+Property | Required | Description
+---|---|---
+`<subscriptionId>` | false | Specify the subscription ID.
+`<resourceGroup>` | true | Azure Resource Group for your Azure Spring Apps instance.
+`<clusterName>` | true | Specifies the Azure Spring Apps cluster name. In case you are using a subscription and resource group that already have an Azure Spring Apps instance deployed, you can also use this existing cluster to deploy to.
+`<appName>` | true | The name of your app in Azure Spring Apps. 
+`<region>` | false | Specifies the region to host your Azure Spring Apps; the default value is **eastus**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section.
+`<sku>` | false | The pricing tier for your Azure Spring Apps instance. The default value is **Basic** which is only suited for dev/test environments. 
+`<runtime>` | false | The runtime environment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps:-Configuration-Details).
+`<deployment>` | false | The deployment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps:-Configuration-Details). 
+
+For the complete list of configurations, see the plugin reference documentation. All the Azure Maven Plugins share a common set of configurations. For these configurations see [Common Configurations](https://github.com/microsoft/azure-maven-plugins/wiki/Common-Configuration). For configurations specific to Azure Spring Apps, see [Azure Spring Apps: Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps:-Configuration-Details).
+
+Be careful about the values of `<clusterName>` and `<appName>`. They're used later.
+
+## Prepare the web app for deployment
+
+When you deploy your application to Azure Spring Apps, your redirect URL will change to the redirect URL of your deployed app instance in Azure Spring Apps. You will need to change these settings in your `application.yml file`.
+
+1. Navigate to your app's `src\main\resources\application.yml` file and change the value of `post-logout-redirect-uri` to your deployed app's domain name, which is `https://<cluster-name>-<app-name>.azuremicroservices.io`. For example, if you chose `cluster-ms-identity-spring-boot-webapp` for your Azure Spring Apps instance in the previous step and `ms-identity-spring-boot-webapp` for your app name, you must now use the value `https://cluster-ms-identity-spring-boot-webapp-ms-identity-spring-boot-webapp.azuremicroservices.io`.
+
+```ini
+post-logout-redirect-uri: https://cluster-ms-identity-spring-boot-webapp-ms-identity-spring-boot-webapp.azuremicroservices.io
+```
+
+1. After saving this file, you will need to rebuild your app.
+
+ ```
+ mvn clean package
+ ```
+
+## Update your Microsoft Entra ID App Registration
+
+Since the redirect URI will change to your deployed app on Azure Spring Apps, you will also need to change the redirect URI in your Micorosft Entra ID App Registration. 
+
+1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page. 
+1. Use the serach box to search for you app registration, for example `java-servlet-webapp-authentication`.
+1. Open your app registration by clicking on its name. 
+1. Select **Authentication** from the menu.
+1. In the **Web** - **Redirect URIs** section, select **Add URI**.
+1. Fill out the URI of your web app, appending **/login/oauth2/code/**, for example `https://<cluster-name>-<app-name>.azuremicroservices.io/login/oauth2/code/`.
+1. Select **Save**. 
+
+## Deploy the app
+
+You are now ready to deploy your app to Azure Spring Apps. With all the configuration ready in your *pom.xml* file, you can now deploy your Java app to Azure with one single command.
+
+1. Use the following command to deploy the app:
 
    ```bash
        mvn azure-spring-apps:deploy
