@@ -110,11 +110,47 @@ Open the [navbar.html](src/main/resources/templates/navbar.html) file.
 
 ## Running the sample
 
+### [Deploy to Azure Spring Apps](#tab/asa)
+
+#### Prerequisites
+
+[!INCLUDE [deploy-spring-apps-intro.md](includes/deploy-spring-apps-intro.md)]
+
+#### Prepare the Spring project
+
+[!INCLUDE [deploy-spring-apps-prepare.md](includes/deploy-spring-apps-prepare.md)]
+
+#### Configure the Maven plugin
+
+[!INCLUDE [deploy-spring-apps-congigure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
+
+#### Prepare the web app for deployment
+
+[!INCLUDE [deploy-spring-apps-prepare-deploy.md](includes/deploy-spring-apps-prepare-deploy.md)]
+
+[!INCLUDE [deploy-spring-apps-secret-note.md](includes/deploy-spring-apps-secret-note.md)]
+
+#### Update your Microsoft Entra ID App Registration
+
+[!INCLUDE [deploy-spring-apps-update-registration.md](includes/deploy-spring-apps-update-registration.md)]
+
+#### Deploy the app
+
+[!INCLUDE [deploy-spring-apps-deploy.md](includes/deploy-spring-apps-deploy.md)]
+
+#### Validate the app
+
+[!INCLUDE [deploy-spring-apps-validate.md](includes/deploy-spring-apps-validate.md)]
+
+### [Run locally](#tab/local)
+
 1. Open a terminal or the integrated VSCode terminal.
 1. In the same directory as this readme file, run `mvn clean compile spring-boot:run`.
 1. Open your browser and navigate to `http://localhost:8080`.
 
 ![Experience](./media/app.png)
+
+---
 
 ## Explore the sample
 

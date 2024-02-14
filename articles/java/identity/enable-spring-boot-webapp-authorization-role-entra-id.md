@@ -142,6 +142,7 @@ As a first step you'll need to:
 
 Open the project in your IDE (like Visual Studio or Visual Studio Code) to configure the code.
 
+> [!Note]
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
 1. Open the `src\main\resources\application.yml` file.

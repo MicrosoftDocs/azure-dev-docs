@@ -182,8 +182,7 @@ You have two different options available to you on how you can further configure
     1. Your application will now receive these selected groups in the `groups` claim when a user signing in to your app is a member of  one or more these **assigned** groups.
 1. Select the **Properties** blade in the left to open the page that lists the basic properties of your application.Set the **User assignment required?** flag to **Yes**.
 
-> :bulb: **Important security tip**
->
+> [!IMPORTANT]
 > When you set **User assignment required?** to **Yes**, Microsoft Entra ID will check that only users assigned to your application in the **Users and groups** blade are able to sign-in to your app. You can assign users directly or by assigning security groups they belong to.
 
 ---
@@ -192,6 +191,7 @@ You have two different options available to you on how you can further configure
 
 Open the project in your IDE (like Visual Studio or Visual Studio Code) to configure the code.
 
+> [!Note]
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
 Open the `src\main\resources\application.yml` file.
