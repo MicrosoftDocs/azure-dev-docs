@@ -19,7 +19,7 @@ This guidance assumes you have run through any of the Spring Boot Web app exampl
 
 ## Prerequisites
 
-You'll use the [Maven Plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy a Java Spring Boot application to an app [Azure Spring Apps](/azure/spring-apps/). Azure Spring Apps is a managed service for hosting Spring apps. 
+You'll use the [Maven Plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy a Java Spring Boot application to an app on [Azure Spring Apps](/azure/spring-apps/). Azure Spring Apps is a managed service for hosting Spring apps. 
 
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
 + [IntelliJ IDEA](/azure/spring-apps/enterprise/how-to-intellij-deploy-apps)
@@ -37,13 +37,13 @@ Use the following steps to prepare the project:
 1. Use the following [Maven](https://maven.apache.org/what-is-maven.html) command to build the project:
 
    ```azurecli-interactive
-       mvn clean package
+   mvn clean package
    ```
 
 1. Run the sample project locally by using the following command:
 
    ```azurecli-interactive
-       mvn spring-boot:run
+   mvn spring-boot:run
    ```
 
  ## Configure the Maven plugin
@@ -53,7 +53,7 @@ Use the following steps to deploy using the [Maven plugin for Azure Spring Apps]
 1. Run the following command in the root of the project to configure the app in Azure Spring Apps:
 
    ```bash
-       mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.19.0:config
+   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.19.0:config
    ```
 
    The following list describes the command interactions:
