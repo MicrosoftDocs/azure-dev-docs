@@ -85,5 +85,4 @@ landingContent:
           - text: Use groups and group claims
             url: enable-spring-boot-webapp-authorization-group-entra-id.md
           - text: Deploy to Azure Spring Apps
-            url: spring-boot-deploy-to-azure-spring-apps.md                                          
-    
+            url: spring-boot-deploy-to-azure-spring-apps.md
