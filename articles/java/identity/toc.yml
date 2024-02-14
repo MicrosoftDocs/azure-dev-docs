@@ -63,6 +63,8 @@ items:
         href: enable-java-websphere-webapp-authorization-role-entra-id.md      
       - name: Use groups and group claims
         href: enable-java-websphere-webapp-authorization-group-entra-id.md    
+      - name: Deploy to a VM
+        href: deploy-websphere-to-vm.md    
     - name: Secure your Java Spring MVC web app web app
       expanded: true
       items:
