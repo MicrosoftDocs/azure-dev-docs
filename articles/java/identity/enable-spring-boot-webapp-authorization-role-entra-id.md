@@ -40,15 +40,7 @@ These application roles are defined in the [Azure portal](https://portal.azure.c
 
 ⚠️NOTE: Role claims will not be present for guest users in a tenant if the `https://login.microsoftonline.com/common/` endpoint is used as the authority to sign in users. You need to sign-in a user to a tenanted endpoint like 'https://login.microsoftonline.com/tenantid'
 
-## Prerequisites
-
-- [JDK Version 15](https://jdk.java.net/15/). This sample has been developed on a system with Java 15 but may be compatible with other versions.
-- [Maven 3](https://maven.apache.org/download.cgi)
-- [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) is recommended for running this sample in VSCode.
-- An **Microsoft Entra ID** tenant. For more information see: [How to get an Microsoft Entra ID tenant](https://learn.microsoft.com/entra/identity-platform/quickstart-create-new-tenant)
-- A user account in your **Microsoft Entra ID** tenant. This sample will not work with a **personal Microsoft account**. Therefore, if you signed in to the [Azure portal](https://portal.azure.com) with a personal account and have never created a user account in your directory before, you need to do that now.
-- [Visual Studio Code](https://code.visualstudio.com/download)
-- [VS Code Azure Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
+[!INCLUDE [spring-mvc-prereqs.md](includes/spring-mvc-prereqs.md)]
 
 [!INCLUDE [spring-mvc-overview-recommendation.md](includes/spring-mvc-overview-recommendation.md)]
 
@@ -121,7 +113,6 @@ As a first step you'll need to:
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
 1. Select **Register** to create the application.
 1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file(s) later in your code.
-1. Select **Save** to save your changes.
 1. In the app's registration screen, select the **Certificates & secrets** blade in the left to open the page where we can generate secrets and upload certificates.
 1. In the **Client secrets** section, select **New client secret**:
    - Type a key description (for instance `app secret`),

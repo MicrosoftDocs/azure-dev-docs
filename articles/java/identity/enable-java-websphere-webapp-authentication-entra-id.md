@@ -36,7 +36,7 @@ This sample demonstrates a Java Websphere web app that signs in users to your Mi
 1. In the above mentioned steps, changed references to localhost:8080 or localhost:8443 to the URL/port Websphere will run on, which by default should be localhost:9080
 1. You will also need to make the same change in the Azure app registration, where you set it as the 'Redirect URI' in the 'Authentication' tab
 
-Top deploy the sample using the Websphere's Integrated Solutions Console:
+To deploy the sample using the Websphere's Integrated Solutions Console:
 
 1. In the 'Applications' tab, select 'New Application', then 'New Enterprise Application'
 
