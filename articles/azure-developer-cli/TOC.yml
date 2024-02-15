@@ -13,14 +13,6 @@
       href: azd-templates.md
     - name: Deploy an azd template
       href: get-started.md
-  - name: Monitor and debug
-    items:
-    - name: Run and debug
-      href: debug.md
-    - name: Troubleshoot
-      href: troubleshoot.md
-    - name: Monitor your project
-      href: monitor-your-app.md
   - name: Deployment
     items:
     - name: Configure deployment pipeline
@@ -49,6 +41,14 @@
       href: /dotnet/aspire/deployment/azure/aca-deployment-azd-in-depth?toc=/azure/developer/azure-developer-cli/toc.json&bc=/azure/developer/azure-developer-cli/breadcrumb/toc.json
     - name: Deploy .NET Aspire apps using pipelines
       href: /dotnet/aspire/deployment/azure/aca-deployment-github-actions?toc=/azure/developer/azure-developer-cli/toc.json&bc=/azure/developer/azure-developer-cli/breadcrumb/toc.json
+  - name: Monitor and debug
+    items:
+    - name: Run and debug
+      href: debug.md
+    - name: Troubleshoot
+      href: troubleshoot.md
+    - name: Monitor your project
+      href: monitor-your-app.md
   - name: Feature versioning and release strategy
     href: feature-versioning.md
   - name: Frequently asked questions (FAQ)
