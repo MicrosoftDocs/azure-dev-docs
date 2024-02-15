@@ -30,10 +30,6 @@ You will also need the [Azure CLI](https://learn.microsoft.com/cli/azure/install
 
 [!INCLUDE [deploy-app-service-prepare-deploy.md](includes/deploy-app-service-prepare-deploy.md)]
 
-## Remove secret values
-
-TODO
-
 ## Update your Microsoft Entra ID App Registration
 
 [!INCLUDE [deploy-app-service-update-registration.md](includes/deploy-app-service-update-registration.md)]
@@ -41,3 +37,7 @@ TODO
 ## Deploy the app
 
 [!INCLUDE [deploy-app-service-deploy.md](includes/deploy-app-service-deploy.md)]
+
+## Remove secret values
+
+[!INCLUDE [deploy-app-service-remove-secret.md](includes/deploy-app-service-remove-secret.md)]
