@@ -387,7 +387,7 @@
 | azure-spring-apps-maven-plugin | Maven [1.19.0](https://search.maven.org/artifact/com.microsoft.azure/azure-spring-apps-maven-plugin/1.19.0/jar/) |  |  |
 | azure-xml | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-xml/1.0.0-beta.2/jar/) |  |  |
 | Core HTTP JDK Http Client | Maven [1.0.0-beta.10](https://search.maven.org/artifact/com.azure/azure-core-http-jdk-httpclient/1.0.0-beta.10/jar/) |  |  |
-| Java Library Redis | Maven [0.3.2-preview](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-redis/0.3.2-preview/jar/) |  |  |
+| Java Library Redis | Maven [0.5.0-preview](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-redis/0.5.0-preview/jar/) |  |  |
 | javamsalruntime | Maven [0.13.10](https://search.maven.org/artifact/com.microsoft.azure/javamsalruntime/0.13.10/jar/) |  |  |
 | JSON - GSON JSON | Maven [1.0.0-beta.3](https://search.maven.org/artifact/com.azure/azure-json-gson/1.0.0-beta.3/jar/) |  |  |
 | JSON - JSON Reflect | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-json-reflect/1.0.0-beta.2/jar/) |  |  |
