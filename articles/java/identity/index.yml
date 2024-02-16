@@ -56,7 +56,7 @@ landingContent:
             url: enable-java-weblogic-webapp-authorization-role-entra-id.md      
           - text: Use groups and group claims
             url: enable-java-weblogic-webapp-authorization-group-entra-id.md 
-          - text: Deploy to a VM
+          - text: Deploy to WebLogic on Azure VM
             url: deploy-weblogic-to-vm.md
   - title: Secure your Java Websphere web app
     linkLists:
@@ -72,7 +72,7 @@ landingContent:
             url: enable-java-websphere-webapp-authorization-role-entra-id.md      
           - text: Use groups and group claims
             url: enable-java-websphere-webapp-authorization-group-entra-id.md 
-          - text: Deploy to a VM
+          - text: Deploy to Websphere on Azure VM
             url: deploy-websphere-to-vm.md
   - title: Secure your Java Spring Boot web app
     linkLists:

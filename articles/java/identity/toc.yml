@@ -50,7 +50,7 @@ items:
         href: enable-java-weblogic-webapp-authorization-role-entra-id.md      
       - name: Use groups and group claims
         href: enable-java-weblogic-webapp-authorization-group-entra-id.md
-      - name: Deploy to a VM
+      - name: Deploy to WebLogic on Azure VM
         href: deploy-weblogic-to-vm.md   
     - name: Secure your Java Websphere web app
       expanded: true
@@ -65,7 +65,7 @@ items:
         href: enable-java-websphere-webapp-authorization-role-entra-id.md      
       - name: Use groups and group claims
         href: enable-java-websphere-webapp-authorization-group-entra-id.md    
-      - name: Deploy to a VM
+      - name: Deploy to Websphere on Azure VM
         href: deploy-websphere-to-vm.md    
     - name: Secure your Java Spring MVC web app web app
       expanded: true
