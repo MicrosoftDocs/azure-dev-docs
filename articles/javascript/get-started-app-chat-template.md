@@ -25,7 +25,7 @@ By following the instructions in this article, you will:
 
 Once you complete this article, you can start modifying the new project with your custom code and data.
 
-This article is part of a collection of articles that show you how to build a chat app using Azure Open AI Service and Azure AI Search. Other articles in the collection include: 
+This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Service and Azure AI Search. Other articles in the collection include: 
 
 * [.NET](/dotnet/azure/ai/get-started-app-chat-template)
 * [Java](../java/quickstarts/get-started-app-chat-template.md)
