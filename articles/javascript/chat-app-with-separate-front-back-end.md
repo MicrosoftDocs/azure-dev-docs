@@ -15,7 +15,7 @@ By mixing and matching the frontend and backend, you can create a multilanguage 
 
 * [Demo](https://aka.ms/azai/js.py/video) - Configure JavaScript frontend with Python backend video
 
-This article is part of a collection of articles that show you how to build a chat app using Azure Open AI Service and Azure AI Search. Other articles in the collection include: 
+This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Service and Azure AI Search. Other articles in the collection include: 
 
 * [.NET](/dotnet/azure/ai/get-started-app-chat-template)
 * [Java](../java/quickstarts/get-started-app-chat-template.md)
