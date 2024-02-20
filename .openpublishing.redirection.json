@@ -21,11 +21,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/mobile-apps/azure-mobile-apps/overview.md",
-      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/mobile-apps/data-storage.md",
       "redirect_url": "/previous-versions/azure/developer/mobile-apps/data-storage",
       "redirect_document_id": false
