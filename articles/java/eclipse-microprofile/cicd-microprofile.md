@@ -6,7 +6,7 @@ documentationcenter: MicroProfile
 manager: brunoborges
 author: KarlErickson
 ms.author: ruyakubu
-ms.date: 07/31/2019
+ms.date: 02/18/2024
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
