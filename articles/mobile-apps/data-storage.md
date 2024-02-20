@@ -5,7 +5,7 @@ author: codemillmatt
 ms.assetid: 12344321-0123-4678-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 06/08/2020
+ms.date: 02/18/2024
 ms.author: masoucou
 ms.custom: team=cloud_advocates
 ms.contributors: masoucou-06292020

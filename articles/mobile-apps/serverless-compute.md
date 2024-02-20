@@ -5,7 +5,7 @@ author: codemillmatt
 ms.service: mobile-services
 ms.assetid: 444f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 02/18/2024
 ms.author: masoucou
 ms.custom: team=cloud_advocates
 ms.contributors: masoucou-06082020
