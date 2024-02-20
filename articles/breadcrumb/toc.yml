@@ -31,9 +31,6 @@ items:
     - name: Python
       tocHref: /azure/developer/python
       topicHref: /azure/developer/python/index
-    - name: Mobile apps
-      tocHref: /azure/developer/mobile-apps
-      topicHref: /azure/developer/mobile-apps/index
     - name: Terraform
       tocHref: /azure/developer/terraform
       topicHref: /azure/developer/terraform/index
