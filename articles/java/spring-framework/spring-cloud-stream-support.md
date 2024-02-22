@@ -788,7 +788,7 @@ Consumer configurable properties of spring-cloud-azure-stream-binder-servicebus:
 > | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.auto-complete                | Boolean               | true      | Whether to settle messages automatically. If set as false, a message header of `Checkpointer` will be added to enable developers to settle messages manually.     |
 
 > [!IMPORTANT]
-> When using the [Azure Resource Manager](resource-manager.md), property of `spring.cloud.stream.servicebus.bindings.<binding-name>.consume.entity-type` is required to be configured. And here is a [sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-cloud-azure-stream-binder-servicebus/servicebus-queue-binder-arm) to use ARM.
+> When you use the [Azure Resource Manager](resource-manager.md) (ARM), you must configure the `spring.cloud.stream.servicebus.bindings.<binding-name>.consume.entity-type` property. For more information, see the [servicebus-queue-binder-arm](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-cloud-azure-stream-binder-servicebus/servicebus-queue-binder-arm) sample on GitHub.
 
 ##### Advanced consumer configuration
 
