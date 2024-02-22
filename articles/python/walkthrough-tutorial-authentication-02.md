@@ -1,7 +1,7 @@
 ---
 title: "Walkthrough, Part 2: Authenticate Python apps with Azure services"
 description: A discussion of the different authentication needs and challenges in the example scenario, and how those challenges are met with Azure integrated authentication.
-ms.date: 06/01/2022
+ms.date: 02/20/2024
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -28,7 +28,7 @@ Fortunately, integrated authentication with Microsoft Entra ID allows an app to 
 
 ## Integrated authentication with managed identity
 
-Many Azure services, like Storage and Key Vault, are integrated with Microsoft Entra such that when you authenticate the application with Microsoft Entra ID using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview), it's automatically authenticated with other connected resources. Authorization for the identity is handled through [role-based access control (RBAC)](/azure/role-based-access-control/role-assignments-steps) and occasionally through other access policies.
+Many Azure services, like Storage and Key Vault, are integrated with Microsoft Entra such that when an application authenticates with Microsoft Entra ID using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview), it's automatically authenticated with other connected resources. Authorization for the identity is handled through [role-based access control (RBAC)](/azure/role-based-access-control/role-assignments-steps) and occasionally through other access policies.
 
 This integration means that you never need to handle any Azure-related credentials in your app code and those credentials never appear on developer workstations or in source control. Furthermore, any handling of keys for third-party APIs and services is done entirely at run time, thus keeping those keys secure.
 

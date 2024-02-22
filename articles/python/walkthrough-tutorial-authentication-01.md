@@ -24,7 +24,7 @@ Fortunately, Azure provides two specific services to simplify the process and pr
 
 - Azure Key Vault provides secure cloud-based storage for access keys (along with cryptographic keys and certificates, which aren't covered in this article). By using Key Vault, the app accesses such keys only at run time so that they never appear directly in source code.
 
-- With Microsoft Entra managed identities, the app needs to authenticate only once with Microsoft Entra ID. The app is then automatically authenticated with other Azure services, including Key Vault. As a result, your code never needs to concern itself with keys or other credentials for those Azure services. Better still, you can run the same code both locally and in the cloud with minimal configuration requirements.
+- With Microsoft Entra managed identities, an app needs to authenticate only once with Microsoft Entra ID. The app is then automatically authenticated with other Azure services, including Key Vault. As a result, your code never needs to concern itself with keys or other credentials for those Azure services. Better still, you can run the same code both locally and in the cloud with minimal configuration requirements.
 
 This walkthrough shows how to use Microsoft Entra managed identity and Key Vault together in the same app. By using Microsoft Entra ID and Key Vault together, your app never needs to authenticate itself with individual Azure services, and can easily and securely access any keys necessary for third-party services.
 
