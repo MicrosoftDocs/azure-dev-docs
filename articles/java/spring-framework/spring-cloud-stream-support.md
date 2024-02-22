@@ -787,6 +787,9 @@ Consumer configurable properties of spring-cloud-azure-stream-binder-servicebus:
 > | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.receive-mode                 | ServiceBusReceiveMode | peek_lock | The receive mode of the Service Bus processor client.                                                       |
 > | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.auto-complete                | Boolean               | true      | Whether to settle messages automatically. If set as false, a message header of `Checkpointer` will be added to enable developers to settle messages manually.     |
 
+> [!IMPORTANT]
+> When you use the [Azure Resource Manager](resource-manager.md) (ARM), you must configure the `spring.cloud.stream.servicebus.bindings.<binding-name>.consume.entity-type` property. For more information, see the [servicebus-queue-binder-arm](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-cloud-azure-stream-binder-servicebus/servicebus-queue-binder-arm) sample on GitHub.
+
 ##### Advanced consumer configuration
 
 The above [connection](#connection-configuration-properties-1) and [common Azure SDK client](configuration.md) configuration support customization for each binder consumer, which you can configure with the prefix `spring.cloud.stream.servicebus.bindings.<binding-name>.consumer.`.
