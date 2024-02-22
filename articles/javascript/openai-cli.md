@@ -6,6 +6,7 @@ ms.date: 05/30/2023
 ms.custom: devx-track-js, devx-track-ts
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Using Azure OpenAI in a TypeScript CLI
