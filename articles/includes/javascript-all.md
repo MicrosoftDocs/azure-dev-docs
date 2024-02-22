@@ -18,7 +18,7 @@
 | Common | npm [1.0.0](https://www.npmjs.com/package/@azure/keyvault-common/v/1.0.0) | [docs](/javascript/api/overview/azure/keyvault-common-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-common_1.0.0/sdk/keyvault/keyvault-common/) |
 | Communication Call Automation | npm [1.1.0](https://www.npmjs.com/package/@azure/communication-call-automation/v/1.1.0) | [docs](/javascript/api/overview/azure/communication-call-automation-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.1.0/sdk/communication/communication-call-automation/) |
 | Communication Chat | npm [1.4.0](https://www.npmjs.com/package/@azure/communication-chat/v/1.4.0)<br>npm [1.5.0-beta.1](https://www.npmjs.com/package/@azure/communication-chat/v/1.5.0-beta.1) | [docs](/javascript/api/overview/azure/communication-chat-readme) | GitHub [1.4.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.4.0/sdk/communication/communication-chat/)<br>GitHub [1.5.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.5.0-beta.1/sdk/communication/communication-chat/) |
-| Communication Common | npm [2.3.0](https://www.npmjs.com/package/@azure/communication-common/v/2.3.0)<br>npm [3.0.0-beta.1](https://www.npmjs.com/package/@azure/communication-common/v/3.0.0-beta.1) | [docs](/javascript/api/overview/azure/communication-common-readme) | GitHub [2.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_2.3.0/sdk/communication/communication-common/)<br>GitHub [3.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_3.0.0-beta.1/sdk/communication/communication-common/) |
+| Communication Common | npm [2.3.1](https://www.npmjs.com/package/@azure/communication-common/v/2.3.1)<br>npm [3.0.0-beta.1](https://www.npmjs.com/package/@azure/communication-common/v/3.0.0-beta.1) | [docs](/javascript/api/overview/azure/communication-common-readme) | GitHub [2.3.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_2.3.1/sdk/communication/communication-common/)<br>GitHub [3.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_3.0.0-beta.1/sdk/communication/communication-common/) |
 | Communication Email | npm [1.0.0](https://www.npmjs.com/package/@azure/communication-email/v/1.0.0) | [docs](/javascript/api/overview/azure/communication-email-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-email_1.0.0/sdk/communication/communication-email/) |
 | Communication Identity | npm [1.3.0](https://www.npmjs.com/package/@azure/communication-identity/v/1.3.0) | [docs](/javascript/api/overview/azure/communication-identity-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-identity_1.3.0/sdk/communication/communication-identity/) |
 | Communication Job Router | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/communication-job-router/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/communication-job-router_1.0.0/sdk/communication/communication-job-router-rest/) |
@@ -335,7 +335,7 @@
 | tmlanguage-generator | npm [0.5.2](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.2) |  |  |
 | Unknown Display Name | npm [0.6.0](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.6.0) |  |  |
 | Unknown Display Name | npm [0.39.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.39.0) |  |  |
-| Unknown Display Name | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.4.1) |  |  |
+| Unknown Display Name | npm [0.5.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.5.0) |  |  |
 | Unknown Display Name | npm [1.0.0-preview.2](https://www.npmjs.com/package/@azure/app-configuration-provider/v/1.0.0-preview.2) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/openai-assistants/v/1.0.0-beta.3) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.3) |  |  |
@@ -427,7 +427,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.0](https://www.npmjs.com/package/@autorest/configuration/v/1.12.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240220.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240220.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240221.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240221.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -507,7 +507,7 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.63](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.63) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - PowerShell | npm [4.0.677](https://www.npmjs.com/package/@autorest/powershell/v/4.0.677) |  | GitHub [4.0.677](https://github.com/Azure/autorest.powershell) |
+| AutoRest - PowerShell | npm [3.0.515](https://www.npmjs.com/package/@autorest/powershell/v/3.0.515) |  | GitHub [3.0.515](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.13.1](https://www.npmjs.com/package/@autorest/python/v/6.13.1) |  | GitHub [6.13.1](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
