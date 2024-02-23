@@ -50,4 +50,4 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 
 
-[!INCLUDE [locust load tests](../intro/includes/scaling-load-balancer-solutions-for-py.md)]
+[!INCLUDE [locust load tests](../intro/includes/test-load-balancer-locust.md)]
