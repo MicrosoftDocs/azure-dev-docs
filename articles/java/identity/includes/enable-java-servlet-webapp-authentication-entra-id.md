@@ -1,6 +1,5 @@
 ---
 ms.author: bbanerjee
-ms.topic: include
 ms.date: 01/01/2024
 ms.custom: devx-track-java
 ---
@@ -54,13 +53,13 @@ There is one project in this sample. To register the app on the portal, you can:
 
 ### [Manual](#tab/Manual)
 
-[Register a new web app](https://learn.microsoft.com/entra/identity-platform/quickstart-register-app) in the [Azure Portal](https://portal.azure.com).
+[Register a new web app](/entra/identity-platform/quickstart-register-app) in the [Azure Portal](https://portal.azure.com).
 Following this guide, you must:
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 1. Select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
-   - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `java-servlet-webapp-authentication`.
+   - In the **Name** section, enter a meaningful application name for display to users of the app, for example `java-servlet-webapp-authentication`.
    - Under **Supported account types**, select an option.
      - Select **Accounts in this organizational directory only** if you're building an application for use only by users in your tenant (**single-tenant**).
      - Select **Accounts in any organizational directory** if you'd like users in any Microsoft Entra ID tenant to be able to use your application (**multi-tenant**).
@@ -73,8 +72,8 @@ Following this guide, you must:
 1. In the **Client secrets** section, click on **New client secret**:
    - Type a key description (for instance `app secret`),
    - Select one of the available key durations (**In 1 year**, **In 2 years**, or **Never Expires**) as per your security concerns.
-   - The generated key value will be displayed when you click the **Add** button. Copy the generated value for use in the steps later.
-   - You'll need this key later in your code's configuration files. This key value will not be displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - The generated key value is displayed when you click the **Add** button. Copy the generated value for use in the steps later.
+   - You'll need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
 
 ---
 
@@ -87,13 +86,15 @@ Open the project in your IDE to configure the code.
 
 1. Open the `./src/main/resources/authentication.properties` file
 1. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with:
-    - **Your Microsoft Entra ID tenant ID** if you registered your app with the **Accounts in this organizational directory only** option.
-    - The word `organizations` if you registered your app with the **Accounts in any organizational directory** option.
-    - The word `common` if you registered your app with the **Accounts in any organizational directory and personal Microsoft accounts** option.
-    - The word `consumers` if you registered your app with the **Personal Microsoft accounts** option
-1. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID (clientId) of the `java-servlet-webapp-authentication` application copied from the Azure portal.
-1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the key you saved during the creation of the `java-servlet-webapp-authentication` app, in the Azure portal.
 
+   - **Your Microsoft Entra ID tenant ID** if you registered your app with the **Accounts in this organizational directory only** option.
+   - The word `organizations` if you registered your app with the **Accounts in any organizational directory** option.
+   - The word `common` if you registered your app with the **Accounts in any organizational directory and personal Microsoft accounts** option.
+   - The word `consumers` if you registered your app with the **Personal Microsoft accounts** option
+
+1. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID (clientId) of the `java-servlet-webapp-authentication` application copied from the Azure portal.
+
+1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the key you saved during the creation of the `java-servlet-webapp-authentication` app, in the Azure portal.
 
 ## Running The Sample
 ### Build .war File Using Maven

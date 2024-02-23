@@ -2,20 +2,15 @@
 title: Add authorization using app roles & roles claims to Java WebLogic Web app that signs-in users with the Microsoft identity platform
 description: Shows you how to add authorization using app roles & roles claims to Java WebLogic Web app that signs-in users with the Microsoft identity platform
 services: active-directory
-documentationcenter: java
 ms.date: 01/01/2024
 ms.service: active-directory
-ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.workload: identity
 ms.custom: devx-track-java, devx-track-extended-java
-adobe-target: true
 ---
 
 # Add authorization using app roles & roles claims to Java WebLogic Web app that signs-in users with the Microsoft identity platform
 
-
-This article shows how a Java WebLogic web app that uses [OpenID Connect](https://learn.microsoft.com/entra/identity-platform/v2-protocols-oidc) to sign in users and use [**Microsoft Entra ID Application Roles (app roles)**](https://learn.microsoft.com/entra/identity-platform/howto-add-app-roles-in-apps) for authorization. App roles, along with Security groups are popular means to implement authorization.
+This article shows how a Java WebLogic web app that uses [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) to sign in users and use [**Microsoft Entra ID Application Roles (app roles)**](/entra/identity-platform/howto-add-app-roles-in-apps) for authorization. App roles, along with Security groups are popular means to implement authorization.
 
 This application implements RBAC using Microsoft Entra ID's Application Roles & Role Claims feature. Another approach is to use Microsoft Entra ID Groups and Group Claims. Microsoft Entra ID Groups and Application Roles are by no means mutually exclusive; they can be used in tandem to provide even finer grained access control.
 
@@ -23,7 +18,7 @@ Using RBAC with Application Roles and Role Claims, developers can securely enfor
 
 - A Microsoft Identity Platform Office Hours session covered Microsoft Entra ID App roles and security groups, featuring this scenario and this sample. A recording of the session is is provided in this video [Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0)
 
-For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](http://go.microsoft.com/fwlink/?LinkId=394414).
+For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](https://go.microsoft.com/fwlink/?LinkId=394414).
 
 [!INCLUDE [scenario-authz-roles.md](includes/scenario-authz-roles.md)]
 
@@ -38,13 +33,13 @@ For more information about how the protocols work in this scenario and other sce
 
 (These instructions assume you have installed WebLogic and set up some server domain)
 
-Before you can deploy to WebLogic, you will need to make some configuration changes in the sample itself and (re)build the package:
+Before you can deploy to WebLogic, you need to make some configuration changes in the sample itself and (re)build the package:
 
 1. In the sample there is likely an application.properties or authentication.properties file where you configured the client ID, tenant, redirect URL, etc.
 
-2. In the above mentioned file, changed references to localhost:8080 or localhost:8443 to the URL/port WebLogic will run on, which by default should be localhost:7001
+2. In the above mentioned file, changed references to localhost:8080 or localhost:8443 to the URL/port WebLogic runs on, which by default should be localhost:7001
 
-3. You will also need to make the same change in the Azure app registration, where you set it as the 'Redirect URI' in the 'Authentication' tab
+3. You also need to make the same change in the Azure app registration, where you set it as the 'Redirect URI' in the 'Authentication' tab
 
 To deploy the sample to WebLogic via the web console:
 

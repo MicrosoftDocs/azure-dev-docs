@@ -2,14 +2,11 @@
 title: Enable your Java Spring Boot Web App using MSAL4J to authenticate users into Azure Active Directory B2C
 description: Shows you how to develop a Java Spring Boot web app which supports sign-in by Azure Active Directory B2C.
 services: active-directory
-documentationcenter: java
 ms.date: 01/01/2024
-ms.service: active-directory-b2c
-ms.tgt_pltfrm: multiple
+ms.service: active-directory
+ms.subservice: B2C
 ms.topic: article
-ms.workload: identity
 ms.custom: devx-track-java, devx-track-extended-java
-adobe-target: true
 ---
 
 # Enable your Java Spring Boot web app to sign in users on your Azure Active Directory B2C tenant with the Microsoft identity platform (Azure AD B2C)
@@ -21,14 +18,14 @@ This article demonstrates a Java Spring MVC web app that signs in users on your 
 1. The client Java Spring web app leverages the Azure AD B2C Spring Boot Starter client library for Java to sign in a user and obtain an ID Token from **Azure AD B2C**.
 2. The **ID Token** proves that the user has successfully authenticated with **Azure AD B2C** and allows the user to access protected routes.
 
-![Overview](./media/topology-spring.png)
+:::image type="content" source="./media/topology-spring.png" alt-text="Overview":::
 
 ## Prerequisites
 
 - [JDK Version 15](https://jdk.java.net/15/). This sample has been developed on a system with Java 15 but may be compatible with other versions.
 - [Maven 3](https://maven.apache.org/download.cgi)
 - [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) is recommended for running this sample in VSCode.
-- An **Azure AD B2C** tenant. For more information see: [How to get an Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)
+- An **Azure AD B2C** tenant. For more information see: [How to get an Azure AD B2C tenant](/azure/active-directory-b2c/tutorial-create-tenant)
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [VS Code Azure Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
@@ -40,10 +37,10 @@ This article demonstrates a Java Spring MVC web app that signs in users on your 
 
 From your shell or command line:
 
-```console
-    git clone https://github.com/Azure-Samples/ms-identity-java-spring-tutorial.git
-    cd ms-identity-java-spring-tutorial
-    cd 1-Authentication/sign-in-b2c
+```bash
+git clone https://github.com/Azure-Samples/ms-identity-java-spring-tutorial.git
+cd ms-identity-java-spring-tutorial
+cd 1-Authentication/sign-in-b2c
 ```
 
 or download and extract the repository .zip file.
@@ -52,7 +49,6 @@ or download and extract the repository .zip file.
 > To avoid file path length limitations on Windows, clone the repository into a directory near the root of your hard drive.
 
 This sample comes with a pre-registered application for demo purposes. If you would like to use your own Azure AD B2C tenant and application, follow the steps below to register and configure the application on Azure portal. Otherwise, continue with the steps for Running the sample.
-
 
 ### Choose the Azure AD B2C tenant where you want to create your applications
 
@@ -63,20 +59,20 @@ As a first step you'll need to:
 
 ### Create User Flows and Custom Policies
 
-Please refer to [Tutorial: Create user flows in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) to create common user flows like sign up, sign in, edit profile, and password reset.
+Please refer to [Tutorial: Create user flows in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-create-user-flows) to create common user flows like sign up, sign in, edit profile, and password reset.
 
-You may consider creating [Custom policies in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview) as well, however, this is beyond the scope of this tutorial.
+You may consider creating [Custom policies in Azure Active Directory B2C](/azure/active-directory-b2c/custom-policy-overview) as well, however, this is beyond the scope of this tutorial.
 
 ### Add External Identity Providers
 
-Please refer to: [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers)
+Please refer to: [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-add-identity-providers)
 
 ### Register the web app (java-spring-webapp-auth-b2c)
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Azure AD B2C** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
-   - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `java-spring-webapp-auth-b2c`.
+   - In the **Name** section, enter a meaningful application name for display to users of the app, for example `java-spring-webapp-auth-b2c`.
    - Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
 1. Select **Register** to create the application.
@@ -87,8 +83,8 @@ Please refer to: [Tutorial: Add identity providers to your applications in Azure
 1. In the **Client secrets** section, click on **New client secret**:
    - Type a key description (for instance `app secret`),
    - Select one of the available key durations (e.g., **In 2 years**) as per your security concerns.
-   - The generated key value will be displayed when you click the **Add** button. Copy the generated value for use in the steps later.
-   - You'll need this key later in your code's configuration files. This key value will not be displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - The generated key value is displayed when you click the **Add** button. Copy the generated value for use in the steps later.
+   - You'll need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
 
 #### Configure the web app (java-spring-webapp-auth-b2c) to use your app registration
 
@@ -105,8 +101,8 @@ Open the [application.yml](src/main/resources/application.yml) file.
 1. Find the app key `password-reset` and replace it with the name of the edit profile user-flow policy you created in the AAD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
 
 Open the [navbar.html](src/main/resources/templates/navbar.html) file.
-1. Find the references to the references to `b2c_1_susi` and `b2c_1_edit_profile` flows and replace them with your `sign-up-sign-in` and `profile-edit` user-flows.
 
+1. Find the references to the references to `b2c_1_susi` and `b2c_1_edit_profile` flows and replace them with your `sign-up-sign-in` and `profile-edit` user-flows.
 
 ## Running the sample
 
@@ -148,14 +144,14 @@ Open the [navbar.html](src/main/resources/templates/navbar.html) file.
 1. In the same directory as this readme file, run `mvn clean compile spring-boot:run`.
 1. Open your browser and navigate to `http://localhost:8080`.
 
-![Experience](./media/app.png)
+:::image type="content" source="./media/app.png" alt-text="Experience":::
 
 ---
 
 ## Explore the sample
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
-- Click the context-sensitive button at the top right (it will read `Sign In` on first run)
+- Click the context-sensitive button at the top right (it reads `Sign In` on first run)
   - Alternatively, click the link to `token details`. Since this is a protected page that requires authentication, you'll be automatically redirected to the sign-in page.
 - Follow the instructions on the next page to sign in with an account of your chosen identity provider. You may also choose to sign up or sign in to a local account on the B2C tenant using an email address.
 <!-- - On the consent screen, note the scopes that are being requested. -->
@@ -163,7 +159,7 @@ Open the [navbar.html](src/main/resources/templates/navbar.html) file.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
 - If you are on the home page, you'll see an option to click **ID Token Details**: click it to see some of the ID token's decoded claims.
 - You also have the option to edit your profile. Click the `edit profile` link on the top-right of the navbar to change details like your display name, place of residence, and profession.
-- You can also use the button on the top right to sign out. The status page will reflect this.
+- You can also use the button on the top right to sign out. The status page reflects this.
 
 ## Contents
 
@@ -181,10 +177,9 @@ Open the [navbar.html](src/main/resources/templates/navbar.html) file.
 | `CONTRIBUTING.md`                                                                   | Guidelines for contributing to the sample.                                                  |
 | `LICENSE`                                                                           | The license for the sample.
 
-
 ## About the code
 
-This sample demonstrates how to use [Azure AD B2C Spring Boot Starter client library for Java](https://docs.microsoft.com/java/api/overview/azure/spring-boot-starter-active-directory-b2c-readme?view=azure-java-stable) to sign in users into your Azure AD tenant. It also makes use of **Spring Oauth2 Client** and **Spring Web** boot starters. It uses claims from **ID Token** obtained from Azure Active Directory to display details of the signed-in user.
+This sample demonstrates how to use [Azure AD B2C Spring Boot Starter client library for Java](/java/api/overview/azure/spring-boot-starter-active-directory-b2c-readme?view=azure-java-stable) to sign in users into your Azure AD tenant. It also makes use of **Spring Oauth2 Client** and **Spring Web** boot starters. It uses claims from **ID Token** obtained from Azure Active Directory to display details of the signed-in user.
 
 ### Project Initialization
 
@@ -271,26 +266,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             ;
         // @formatter:off
     }
-} 
+}
 ```
-
 
 ## More information
 
-- [Microsoft identity platform (Microsoft Entra ID for developers)](https://learn.microsoft.com/entra/identity-platform/)
-- [Overview of Microsoft Authentication Library (MSAL)](https://learn.microsoft.com/entra/identity-platform/msal-overview)
-- [Quickstart: Register an application with the Microsoft identity platform (Preview)](https://learn.microsoft.com/entra/identity-platform/quickstart-register-app)
-- [Quickstart: Configure a client application to access web APIs (Preview)](https://learn.microsoft.com/entra/identity-platform/quickstart-configure-app-access-web-apis)
-- [Understanding Microsoft Entra ID application consent experiences](https://learn.microsoft.com/entra/identity-platform/application-consent-experience)
-- [Understand user and admin consent](https://learn.microsoft.com/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
-- [Application and service principal objects in Microsoft Entra ID](https://learn.microsoft.com/entra/identity-platform/app-objects-and-service-principals)
-- [National Clouds](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#app-registration-endpoints)
-- [MSAL code samples](https://learn.microsoft.com/entra/identity-platform/sample-v2-code?tabs=framework#java)
+- [Microsoft identity platform (Microsoft Entra ID for developers)](/entra/identity-platform/)
+- [Overview of Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview)
+- [Quickstart: Register an application with the Microsoft identity platform (Preview)](/entra/identity-platform/quickstart-register-app)
+- [Quickstart: Configure a client application to access web APIs (Preview)](/entra/identity-platform/quickstart-configure-app-access-web-apis)
+- [Understanding Microsoft Entra ID application consent experiences](/entra/identity-platform/application-consent-experience)
+- [Understand user and admin consent](/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
+- [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals)
+- [National Clouds](/entra/identity-platform/authentication-national-cloud#app-registration-endpoints)
+- [MSAL code samples](/entra/identity-platform/sample-v2-code?tabs=framework#java)
 - [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory)
 - [Azure Active Directory B2C Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory-b2c)
 - [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - [MSAL4J Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
-- [ID Tokens](https://learn.microsoft.com/entra/identity-platform/id-tokens)
-- [Access Tokens](https://learn.microsoft.com/entra/identity-platform/access-tokens)
+- [ID Tokens](/entra/identity-platform/id-tokens)
+- [Access Tokens](/entra/identity-platform/access-tokens)
 
-For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](https://learn.microsoft.com/entra/identity-platform/authentication-flows-app-scenarios).
+For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](/entra/identity-platform/authentication-flows-app-scenarios).

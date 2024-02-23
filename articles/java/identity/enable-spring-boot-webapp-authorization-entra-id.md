@@ -2,27 +2,22 @@
 title: Enable your Java Spring Boot web app to sign in users and access resources on Microsoft Graph
 description: Shows you how to develop a Java Spring Boot web app to sign in users and call Microsoft Graph with the Microsoft identity platform.
 services: active-directory
-documentationcenter: java
 ms.date: 01/01/2024
 ms.service: active-directory
-ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.workload: identity
 ms.custom: devx-track-java, devx-track-extended-java
-adobe-target: true
 ---
 
 # Enable your Java Spring Boot web app to sign in users and access resources on Microsoft Graph
 
-This article demonstrates a Java Spring Boot web app that signs in users and obtains an access token for calling [Microsoft Graph](https://docs.microsoft.com/graph/overview). It uses the [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) for authentication, authorization, and token acquisition. It leverages [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain data from Graph.
+This article demonstrates a Java Spring Boot web app that signs in users and obtains an access token for calling [Microsoft Graph](/graph/overview). It uses the [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) for authentication, authorization, and token acquisition. It leverages [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain data from Graph.
 
-![Overview](./ReadmeFiles/topology.png)
+:::image type="content" source="./ReadmeFiles/topology.png" alt-text="Overview":::
 
 ## Scenario
 
-1. This Java Spring MVC web app leverages the **Microsoft Entra ID Spring Boot Starter client library for Java** to obtain an [Access Token](https://learn.microsoft.com/entra/identity-platform/access-tokens) for [Microsoft Graph](https://docs.microsoft.com/graph/overview) from **Microsoft Entra ID**.
+1. This Java Spring MVC web app leverages the **Microsoft Entra ID Spring Boot Starter client library for Java** to obtain an [Access Token](/entra/identity-platform/access-tokens) for [Microsoft Graph](/graph/overview) from **Microsoft Entra ID**.
 1. The **Access Token** proves that the user is authorized to access the Microsoft Graph API endpoint as defined in the scope.
-
 
 [!INCLUDE [spring-mvc-prereqs.md](includes/spring-mvc-prereqs.md)]
 
@@ -56,7 +51,6 @@ There is one project in this sample. To register it, you can:
 
 > [!IMPORTANT]
 > If you have never used **Azure AD Powershell** before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
-
 
 ### [Powershell](#tab/Powershell)
 
@@ -93,7 +87,7 @@ As a first step you'll need to:
 1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Microsoft Entra ID** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
-   - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `java-spring-webapp-call-graph`.
+   - In the **Name** section, enter a meaningful application name for display to users of the app, for example `java-spring-webapp-call-graph`.
    - Under **Supported account types**, select **Accounts in this organizational directory only**.
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
 1. Select **Register** to create the application.
@@ -102,8 +96,8 @@ As a first step you'll need to:
 1. In the **Client secrets** section, select **New client secret**:
    - Type a key description (for instance `app secret`),
    - Select one of the available key durations (**In 1 year**, **In 2 years**, or **Never Expires**) as per your security posture.
-   - The generated key value will be displayed when you select the **Add** button. Copy the generated value for use in the steps later.
-   - You'll need this key later in your code's configuration files. This key value will not be displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - The generated key value is displayed when you select the **Add** button. Copy the generated value for use in the steps later.
+   - You'll need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
 1. In the app's registration screen, click on the **API permissions** blade in the left to open the page where we add access to the Apis that your application needs.
    - Click the **Add permissions** button and then,
    - Ensure that the **Microsoft APIs** tab is selected.
@@ -165,22 +159,22 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 1. In the same directory as this readme file, run `mvn clean compile spring-boot:run`.
 1. Open your browser and navigate to `http://localhost:8080`.
 
-![Experience](./media/app.png)
+:::image type="content" source="./media/app.png" alt-text="Experience":::
 
 ---
 
 ## Explore the sample
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
-- Click the context-sensitive button at the top right (it will read `Sign In` on first run)
+- Click the context-sensitive button at the top right (it reads `Sign In` on first run)
   - Alternatively, click the link to `token details` or `call graph`. Since this is a protected page that requires authentication, you'll be automatically redirected to the sign-in page.
 - Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
 - Upon successful completion of the sign-in flow, you should be redirected to the home page (`sign in status`), or one of the other pages, depending on which button triggered your sign-in flow.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
 - If you are on the home page, you'll see an option to click **ID Token Details**: click it to see some of the ID token's decoded claims.
-- Click the **Call Graph** button to make a call to Microsoft Graph's [/me endpoint](https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=java#example-2-signed-in-user-request) endpoint and see a selection of user details obtained.
-- You can also use the button on the top right to sign out. The status page will reflect this.
+- Click the **Call Graph** button to make a call to Microsoft Graph's [/me endpoint](/graph/api/user-get?view=graph-rest-1.0&tabs=java#example-2-signed-in-user-request) endpoint and see a selection of user details obtained.
+- You can also use the button on the top right to sign out. The status page reflects this.
 
 ## Contents
 
@@ -310,7 +304,7 @@ authorization-clients:
 
 ### Scopes
 
-[Scopes](https://learn.microsoft.com/entra/identity-platform/v2-permissions-and-consent) tell Microsoft Entra ID the level of access that the application is requesting. Note the Microsoft Graph scopes requested by this application by referring to [application.yml](./src/main/resources/application.yml).
+[Scopes](/entra/identity-platform/v2-permissions-and-consent) tell Microsoft Entra ID the level of access that the application is requesting. Note the Microsoft Graph scopes requested by this application by referring to [application.yml](./src/main/resources/application.yml).
 
 - By default, this application sets the scopes value to `https://graph.microsoft.com/User.Read`.
 - The `User.Read` scope is for accessing the information of the currently-signed-in user from the [/me endpoint](https://graph.microsoft.com/v1.0/me).
@@ -328,20 +322,20 @@ Using `GraphServiceClient.me().buildRequest().get()`, a request built and made t
 
 ## More information
 
-- [Microsoft identity platform (Azure Active Directory for developers)](https://learn.microsoft.com/entra/identity-platform/)
-- [Overview of Microsoft Authentication Library (MSAL)](https://learn.microsoft.com/entra/identity-platform/msal-overview)
-- [Quickstart: Register an application with the Microsoft identity platform (Preview)](https://learn.microsoft.com/entra/identity-platform/quickstart-register-app)
-- [Quickstart: Configure a client application to access web APIs (Preview)](https://learn.microsoft.com/entra/identity-platform/quickstart-configure-app-access-web-apis)
-- [Understanding Microsoft Entra ID application consent experiences](https://learn.microsoft.com/entra/identity-platform/application-consent-experience)
-- [Understand user and admin consent](https://learn.microsoft.com/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
-- [Application and service principal objects in Azure Active Directory](https://learn.microsoft.com/entra/identity-platform/app-objects-and-service-principals)
-- [National Clouds](https://learn.microsoft.com/entra/identity-platform/authentication-national-cloud#app-registration-endpoints)
-- [MSAL code samples](https://learn.microsoft.com/entra/identity-platform/sample-v2-code?tabs=framework#java)
+- [Microsoft identity platform (Azure Active Directory for developers)](/entra/identity-platform/)
+- [Overview of Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview)
+- [Quickstart: Register an application with the Microsoft identity platform (Preview)](/entra/identity-platform/quickstart-register-app)
+- [Quickstart: Configure a client application to access web APIs (Preview)](/entra/identity-platform/quickstart-configure-app-access-web-apis)
+- [Understanding Microsoft Entra ID application consent experiences](/entra/identity-platform/application-consent-experience)
+- [Understand user and admin consent](/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
+- [Application and service principal objects in Azure Active Directory](/entra/identity-platform/app-objects-and-service-principals)
+- [National Clouds](/entra/identity-platform/authentication-national-cloud#app-registration-endpoints)
+- [MSAL code samples](/entra/identity-platform/sample-v2-code?tabs=framework#java)
 - [Azure Active Directory Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-active-directory)
 - [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - [MSAL4J Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
-- [ID Tokens](https://learn.microsoft.com/entra/identity-platform/id-tokens)
-- [Access Tokens](https://learn.microsoft.com/entra/identity-platform/access-tokens)
+- [ID Tokens](/entra/identity-platform/id-tokens)
+- [Access Tokens](/entra/identity-platform/access-tokens)
 
-For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](https://learn.microsoft.com/entra/identity-platform/authentication-flows-app-scenarios).
+For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](/entra/identity-platform/authentication-flows-app-scenarios).
 

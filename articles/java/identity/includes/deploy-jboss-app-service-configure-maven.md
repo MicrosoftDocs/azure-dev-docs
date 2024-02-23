@@ -1,6 +1,5 @@
 ---
 ms.author: givermei
-ms.topic: include
 ms.date: 01/01/2024
 ms.custom: devx-track-java
 ---
@@ -9,7 +8,7 @@ The deployment process to Azure App Service uses your Azure credentials from the
 
 Run the Maven command shown next to configure the deployment. This command helps you to set up the App Service operating system, Java version, and Tomcat version.
 
-```cli
+```bash
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.12.0:config
 ```
 
@@ -30,7 +29,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.12.0:config
     Java Version: Java 11
     Web server stack: Jbosseap 7
     Deploy to slot : false
-    Confirm (Y/N) [Y]: 
+    Confirm (Y/N) [Y]:
     [INFO] Saving configuration to pom.
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
@@ -59,7 +58,7 @@ The relevant portion of the `pom.xml` file should look similar to the following 
             </configuration>
         </plugin>
     </plugins>
-</build>           
+</build>
 ```
 
 You can modify the configurations for App Service directly in your `pom.xml`. Some common configurations are listed in the following table:

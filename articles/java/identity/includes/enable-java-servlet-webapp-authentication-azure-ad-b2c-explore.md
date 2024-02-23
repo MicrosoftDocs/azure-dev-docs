@@ -1,6 +1,5 @@
 ---
 ms.author: bbanerjee
-ms.topic: include
 ms.date: 01/01/2024
 ms.custom: devx-track-java
 ---
@@ -8,7 +7,7 @@ ms.custom: devx-track-java
 ## Explore the sample
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
-- Click the context-sensitive button at the top right (it will read `Sign In` on first run).
+- Click the context-sensitive button at the top right (it reads `Sign In` on first run).
 - Follow the instructions on the next page to sign in with an account of your chosen identity provider.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
 - The middle of the screen now has an option to click for ID Token Details: click it to see some of the ID token's decoded claims.
@@ -38,7 +37,7 @@ This sample demonstrates how to use **MSAL4J** to sign in users into your Azure 
 
 A **ConfidentialClientApplication** instance is created in the `AuthHelper.java` class. This object helps craft the AAD B2C authorization URL and also helps exchange the authentication token for an access token.
 
-```Java
+```java
 IClientSecret secret = ClientCredentialFactory.createFromSecret(SECRET);
 confClientInstance = ConfidentialClientApplication
                     .builder(CLIENT_ID, secret)
@@ -58,7 +57,7 @@ In this sample, these values are read from the `authentication.properties` file 
 
 1. The first step of the sign-in process is to send a request to the `/authorize` endpoint on for our Azure Active Directory B2C Tenant. Our MSAL4J ConfidentialClientApplication instance is leveraged to construct an authorization request URL, and our app redirects the browser to this URL.
 
-    ```Java
+    ```java
     final ConfidentialClientApplication client = getConfidentialClientInstance(policy);
     final AuthorizationRequestUrlParameters parameters = AuthorizationRequestUrlParameters
         .builder(REDIRECT_URI, Collections.singleton(SCOPES)).responseMode(ResponseMode.QUERY)
@@ -71,8 +70,8 @@ In this sample, these values are read from the `authentication.properties` file 
     ```
 
     - **AuthorizationRequestUrlParameters**: Parameters that must be set in order to build an AuthorizationRequestUrl.
-    - **REDIRECT_URI**: Where AAD B2C will redirect the browser (along with auth code) after collecting user credentials.
-    - **SCOPES**: [Scopes](https://docs.microsoft.com/en-us/azure/active-directory-b2c/access-tokens#scopes) are permissions requested by the application.
+    - **REDIRECT_URI**: Where AAD B2C redirects the browser (along with auth code) after collecting user credentials.
+    - **SCOPES**: [Scopes](/en-us/azure/active-directory-b2c/access-tokens#scopes) are permissions requested by the application.
       - Normally, the three scopes `openid profile offline_access` would suffice for receiving an ID Token response.
       - However, MSAL4J requires all responses from AAD B2C to also contain an Access Token.
       - In order for AAD B2C to dispense an access token as well as an ID Token, the request must include an additional resource scope.
@@ -83,10 +82,10 @@ In this sample, these values are read from the `authentication.properties` file 
     - **state**: a unique variable set by the app into the session on each token request, and destroyed after receiving the corresponding AAD redirect callback. The state variable ensures that AAD requests to the `/auth_redirect endpoint` are actually from AAD authorization requests originating from this app and this session, thereby preventing CSRF attacks. This is done in the `AADRedirectServlet.java` servlet.
     - **nonce**: a unique variable set by the app into the session on each token request, and destroyed after receiving the corresponding token. This nonce is transcribed to the resulting tokens dispensed AAD, thereby ensuring that there is no token-replay attack occurring.
 
-1. The user is presented with a sign-in prompt by Azure Active Directory B2C. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint will contain an [**authorization code**](https://docs.microsoft.com/en-us/azure/active-directory-b2c/authorization-code-flow).
+1. The user is presented with a sign-in prompt by Azure Active Directory B2C. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint contains an [authorization code](/en-us/azure/active-directory-b2c/authorization-code-flow).
 1. Our ConfidentialClientApplication instance then exchanges this authorization code for an ID Token and Access Token from Azure Active Directory B2C.
 
-    ```Java
+    ```java
     final AuthorizationCodeParameters authParams = AuthorizationCodeParameters
                         .builder(authCode, new URI(REDIRECT_URI))
                         .scopes(Collections.singleton(SCOPES)).build();
@@ -104,7 +103,7 @@ In this sample, these values are read from the `authentication.properties` file 
 
 1. If acquireToken is successful, the token claims are extracted and the nonce claim is validated against the nonce stored in the session.
 
-    ```Java
+    ```java
     parseJWTClaimsSetAndStoreResultInSession(msalAuth, result, serializedTokenCache);
     validateNonce(msalAuth)
     processSuccessfulAuthentication(msalAuth);
@@ -112,17 +111,17 @@ In this sample, these values are read from the `authentication.properties` file 
 
 1. If the nonce is successfully validated, authentication status is put into a server-side session, leveraging methods exposed by the class `MsalAuthSession.java`:
 
-    ```Java
+    ```java
     msalAuth.setAuthenticated(true);
     msalAuth.setUsername(msalAuth.getIdTokenClaims().get("name"));
     ```
 
 ## More information
 
-- [What is Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/overview)
-- [Application types that can be used in Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/application-types)
-- [Recommendations and best practices for Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/best-practices)
-- [Azure AD B2C session](https://docs.microsoft.com/azure/active-directory-b2c/session-overview)
-- [Microsoft Authentication Library \(MSAL\) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
+- [What is Azure Active Directory B2C?](/azure/active-directory-b2c/overview)
+- [Application types that can be used in Active Directory B2C](/azure/active-directory-b2c/application-types)
+- [Recommendations and best practices for Azure Active Directory B2C](/azure/active-directory-b2c/best-practices)
+- [Azure AD B2C session](/azure/active-directory-b2c/session-overview)
+- [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 
-For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](https://learn.microsoft.com/entra/identity-platform/authentication-flows-app-scenarios).
+For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](/entra/identity-platform/authentication-flows-app-scenarios).

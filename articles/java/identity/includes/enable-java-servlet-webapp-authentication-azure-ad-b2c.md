@@ -1,6 +1,5 @@
 ---
 ms.author: bbanerjee
-ms.topic: include
 ms.date: 01/01/2024
 ms.custom: devx-track-java
 ---
@@ -25,7 +24,6 @@ or download and extract the repository .zip file.
 
 This sample comes with a pre-registered application for testing purposes. If you would like to use your own **Azure AD B2C** tenant and application, follow the steps below to register and configure the application in the **Azure Portal**. Otherwise, continue with the steps for [Running the sample](#running-the-sample).
 
-
 ### Choose the Azure AD B2C tenant where you want to create your applications
 
 As a first step you'll need to:
@@ -35,20 +33,20 @@ As a first step you'll need to:
 
 ### Create User Flows and Custom Policies
 
-Please refer to [Tutorial: Create user flows in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) to create common user flows like sign up, sign in, edit profile, and password reset.
+Please refer to [Tutorial: Create user flows in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-create-user-flows) to create common user flows like sign up, sign in, edit profile, and password reset.
 
-You may consider creating [Custom policies in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview) as well, however, this is beyond the scope of this tutorial.
+You may consider creating [Custom policies in Azure Active Directory B2C](/azure/active-directory-b2c/custom-policy-overview) as well, however, this is beyond the scope of this tutorial.
 
 ### Add External Identity Providers
 
-Please refer to: [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers)
+Please refer to: [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-add-identity-providers)
 
 ### Register the WebApp app (ms-identity-b2c-java-servlet-webapp-authentication)
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Azure AD B2C** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
-   - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ms-identity-b2c-java-servlet-webapp-authentication`.
+   - In the **Name** section, enter a meaningful application name for display to users of the app, for example `ms-identity-b2c-java-servlet-webapp-authentication`.
    - Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**.
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/ms-identity-b2c-java-servlet-webapp-authentication/auth_redirect`.
 1. Select **Register** to create the application.
@@ -59,8 +57,8 @@ Please refer to: [Tutorial: Add identity providers to your applications in Azure
 1. In the **Client secrets** section, click on **New client secret**:
    - Type a key description (for instance `app secret`),
    - Select one of the available key durations (**In 1 year**, **In 2 years**, or **Never Expires**) as per your security concerns.
-   - The generated key value will be displayed when you click the **Add** button. Copy the generated value for use in the steps later.
-   - You'll need this key later in your code's configuration files. This key value will not be displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - The generated key value is displayed when you click the **Add** button. Copy the generated value for use in the steps later.
+   - You'll need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
 
 #### Configure the WebApp app (ms-identity-b2c-java-servlet-webapp-authentication) to use your app registration
 
@@ -79,16 +77,14 @@ Open the project in your IDE (like **Visual Studio Code**) to configure the code
 1. Find the app key `aad.passwordResetPolicy` and replace it with the name of the password reset userflow policy you created in the AAD B2C tenant in which you created the `ms-identity-b2c-java-servlet-webapp-authentication` application in the Azure portal.
 1. Find the app key `aad.editProfilePolicy` and replace it with the name of the edit profile userflow policy you created in the AAD B2C tenant in which you created the `ms-identity-b2c-java-servlet-webapp-authentication` application in the Azure portal.
 
-
-
 ## Running The Sample
 
 ### Build .war File Using Maven
 
 1. Navigate to the directory containing the pom.xml file for this sample (the same directory as this README), and run the following Maven command:
 
-    ```
-    mvn clean package
-    ```
+   ```bash
+   mvn clean package
+   ```
 
 1. This should generate a `.war` file which can be run on a variety of application servers

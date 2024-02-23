@@ -2,19 +2,15 @@
 title: Get started with securing java application with Microsoft Identity platform
 description: Shows you how to enable your Java web app to restrict access to routes using app roles with the Microsoft identity platform
 services: active-directory
-documentationcenter: java
 ms.date: 01/01/2024
 ms.service: active-directory
-ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.workload: identity
 ms.custom: devx-track-java, devx-track-extended-java
-adobe-target: true
 ---
 
 # Deploy your Java Spring Boot web app to Azure Spring Apps
 
-This guidance assumes you have run through any of the Spring Boot Web app examples for enabling security with Microsoft Entra ID. 
+This guidance assumes you have run through any of the Spring Boot Web app examples for enabling security with Microsoft Entra ID.
 
 ## Prerequisites
 
@@ -46,7 +42,7 @@ This guidance assumes you have run through any of the Spring Boot Web app exampl
 
 [!INCLUDE [deploy-spring-apps-validate.md](includes/deploy-spring-apps-validate.md)]
 
-## Next Steps
+## Next steps
 
 For more information and other deployment options, see the following articles:
 

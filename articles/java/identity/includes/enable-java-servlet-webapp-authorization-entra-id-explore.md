@@ -1,6 +1,5 @@
 ---
 ms.author: bbanerjee
-ms.topic: include
 ms.date: 01/01/2024
 ms.custom: devx-track-java
 ---
@@ -8,12 +7,12 @@ ms.custom: devx-track-java
 ## Explore the sample
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
-- Click the context-sensitive button at the top right (it will read `Sign In` on first run)
+- Click the context-sensitive button at the top right (it reads `Sign In` on first run)
 - Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
 - The middle of the screen now has an option to click for **ID Token Details**: click it to see some of the ID token's decoded claims.
-- Click the **Call Graph** button to make a call to Microsoft Graph's [/me endpoint](https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=java#example-2-signed-in-user-request) and see a selection of user details obtained.
+- Click the **Call Graph** button to make a call to Microsoft Graph's [/me endpoint](/graph/api/user-get?view=graph-rest-1.0&tabs=java#example-2-signed-in-user-request) and see a selection of user details obtained.
 - You can also use the button on the top right to sign out.
 
 ## Contents
@@ -34,14 +33,13 @@ The full code for this sample is available at [https://github.com/Azure-Samples/
 | `CONTRIBUTING.md`                                                  | Guidelines for contributing to the sample.                                             |
 | `LICENSE`                                                          | The license for the sample.                                                            |
 
-
 ## About the code
 
 This sample uses **MSAL for Java (MSAL4J)** to sign a user in and obtain a token for MS Graph API. It leverages [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain data from Graph. You must add these libraries to your projects using Maven. If you want to replicate this sample's behavior, you may choose to copy the `pom.xml` file, and the contents of the `helpers` and `authservlets` packages in the `src/main/java/com/microsoft/azuresamples/msal4j` package. You'll also need the `authentication.properties file`. These classes and files contain generic code that can be used in a wide array of applications. The rest of the sample may be copied as well, but the other classes and files are built specifically to address this sample's objective.
 
 A **ConfidentialClientApplication** instance is created in the `AuthHelper.java` class. This object helps craft the Microsoft Entra ID authorization URL and also helps exchange the authentication token for an access token.
 
-```Java
+```java
 // getConfidentialClientInstance method
 IClientSecret secret = ClientCredentialFactory.createFromSecret(SECRET);
 confClientInstance = ConfidentialClientApplication
@@ -60,9 +58,9 @@ In this sample, these values are read from the `authentication.properties` file 
 
 ### Step-by-step walkthrough
 
-1. The first step of the sign-in process is to send a request to the `/authorize` endpoint on for our Microsoft Entra ID Tenant. Our MSAL4J `ConfidentialClientApplication` instance is leveraged to construct an authorization request URL. Our app redirects the browser to this URL, which is where the user will sign in.
+1. The first step of the sign-in process is to send a request to the `/authorize` endpoint on for our Microsoft Entra ID Tenant. Our MSAL4J `ConfidentialClientApplication` instance is leveraged to construct an authorization request URL. Our app redirects the browser to this URL, which is where the user signs in.
 
-    ```Java
+    ```java
     final ConfidentialClientApplication client = getConfidentialClientInstance();
     AuthorizationRequestUrlParameters parameters = AuthorizationRequestUrlParameters.builder(Config.REDIRECT_URI, Collections.singleton(Config.SCOPES))
             .responseMode(ResponseMode.QUERY).prompt(Prompt.SELECT_ACCOUNT).state(state).nonce(nonce).build();
@@ -72,15 +70,15 @@ In this sample, these values are read from the `authentication.properties` file 
     ```
 
     - **AuthorizationRequestUrlParameters**: Parameters that must be set in order to build an AuthorizationRequestUrl.
-    - **REDIRECT_URI**: Where Microsoft Entra ID will redirect the browser (along with auth code) after collecting user credentials. It must match the redirect URI in the Microsoft Entra ID app registration on [Azure Portal](https://portal.azure.com)
-    - **SCOPES**: [Scopes](https://learn.microsoft.com/entra/identity-platform/access-tokens#scopes) are permissions requested by the application.
+    - **REDIRECT_URI**: Where Microsoft Entra ID redirects the browser (along with auth code) after collecting user credentials. It must match the redirect URI in the Microsoft Entra ID app registration on [Azure Portal](https://portal.azure.com)
+    - **SCOPES**: [Scopes](/entra/identity-platform/access-tokens#scopes) are permissions requested by the application.
       - Normally, the three scopes `openid profile offline_access` suffice for receiving an ID Token response.
       - Full list of scopes requested by the app can be found in the `authentication.properties` file. You can add more scopes like User.Read and so on.
 
-1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint will contain an [**authorization code**](https://learn.microsoft.com/entra/identity-platform/v2-oauth2-auth-code-flow).
+1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint contain an [authorization code](/entra/identity-platform/v2-oauth2-auth-code-flow).
 1. Our ConfidentialClientApplication instance then exchanges this authorization code for an ID Token and Access Token from Microsoft Entra ID.
 
-    ```Java
+    ```java
     // First, validate the state, then parse any error codes in response, then extract the authCode. Then:
     // build the auth code params:
     final AuthorizationCodeParameters authParams = AuthorizationCodeParameters
@@ -133,20 +131,19 @@ The following code is all that is required for an application developer to write
 
 ### Scopes
 
-- [Scopes](https://learn.microsoft.com/entra/identity-platform/permissions-consent-overview) tell Microsoft Entra ID the level of access that the application is requesting.
+- [Scopes](/entra/identity-platform/permissions-consent-overview) tell Microsoft Entra ID the level of access that the application is requesting.
 - Based on the requested scopes, Microsoft Entra ID presents a consent dialogue to the user upon signing in.
 - If the user consents to one or more scopes and obtains a token, the scopes-consented-to are encoded into the resulting `access_token`.
 - Note the scope requested by the application by referring to `authentication.properties`. By default, the application sets the scopes value to `User.Read`.
 - This particular MS Graph API scope is for accessing the information of the currently-signed-in user. The graph endpoint for accessing this info is `https://graph.microsoft.com/v1.0/me`
 - Any valid requests made to this endpoint must bear an `access_token` that contains the scope `User.Read` in the Authorization header.
 
-
 ## More information
 
-- [Microsoft Authentication Library \(MSAL\) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
-- [Microsoft identity platform (Microsoft Entra ID for developers)](https://learn.microsoft.com/entra/identity-platform/)
-- [Quickstart: Register an application with the Microsoft identity platform (Preview)](https://learn.microsoft.com/entra/identity-platform/quickstart-register-app)
+- [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
+- [Microsoft identity platform (Microsoft Entra ID for developers)](/entra/identity-platform/)
+- [Quickstart: Register an application with the Microsoft identity platform (Preview)](/entra/identity-platform/quickstart-register-app)
 
-- [Understanding Microsoft Entra ID application consent experiences](https://learn.microsoft.com/en-us/entra/identity-platform/application-consent-experience)
-- [Understand user and admin consent](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
-- [MSAL code samples](https://learn.microsoft.com/en-us/entra/identity-platform/sample-v2-code?tabs=framework#java)
+- [Understanding Microsoft Entra ID application consent experiences](/en-us/entra/identity-platform/application-consent-experience)
+- [Understand user and admin consent](/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
+- [MSAL code samples](/en-us/entra/identity-platform/sample-v2-code?tabs=framework#java)

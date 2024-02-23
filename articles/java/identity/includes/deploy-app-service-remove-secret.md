@@ -1,13 +1,12 @@
 ---
 ms.author: givermei
-ms.topic: include
 ms.date: 01/01/2024
 ms.custom: devx-track-java
 ---
 
-The `authentication.properties` file of the application currently holds the value of your client secret in the `aad.secret` parameter. It is not good practice to keep this value in this file. You might also risk committing it to a Git repository. Since this is a secret value it should be treated as such. 
+The `authentication.properties` file of the application currently holds the value of your client secret in the `aad.secret` parameter. It is not good practice to keep this value in this file. You might also risk committing it to a Git repository. Since this is a secret value it should be treated as such.
 
-As an extra step you can store this value in [Key Vault](/azure/key-vault/general/basic-concepts) and use [Key Vault References](/azure/app-service/app-service-key-vault-references?tabs=azure-cli) to make it available in your web application. You can follow the below steps to move the value of `aad.secret` to Key Vault and use it in your code. 
+As an extra step you can store this value in [Key Vault](/azure/key-vault/general/basic-concepts) and use [Key Vault References](/azure/app-service/app-service-key-vault-references?tabs=azure-cli) to make it available in your web application. You can follow the below steps to move the value of `aad.secret` to Key Vault and use it in your code.
 
 1. Create an Azure Key Vault instance.
 
@@ -46,15 +45,18 @@ As an extra step you can store this value in [Key Vault](/azure/key-vault/genera
       --object-id $IDENTITY
    ```
 
-1. You can now create an application setting in your web app that uses a Key Vault reference to the secret in your Key Vault. This will make the value of the secret available to your web app as an environment variable.
+1. You can now create an application setting in your web app that uses a Key Vault reference to the secret in your Key Vault. This setting makes the value of the secret available to your web app as an environment variable.
 
-   ```
-   az webapp config appsettings set -g $RESOURCE_GROUP -n $WEB_APP_NAME --settings AADSECRET='@Microsoft.KeyVault(VaultName=$KEY_VAULT;SecretName=AADSECRET)'
+   ```azurecli
+   az webapp config appsettings set \
+       --resource-group $RESOURCE_GROUP \
+       --name $WEB_APP_NAME \
+       --settings AADSECRET='@Microsoft.KeyVault(VaultName=$KEY_VAULT;SecretName=AADSECRET)'
    ```
 
-1. You can now load this value from the environment variables. In the `\src\main\java\com\microsoft\azuresamples\msal4j\helpers\Config.java` file, on line `41`, change the current statement to: 
+1. You can now load this value from the environment variables. In the `\src\main\java\com\microsoft\azuresamples\msal4j\helpers\Config.java` file, on line `41`, change the current statement to:
 
-   ```
+   ```java
    public static final String SECRET = System.getenv("AADSECRET");
    ```
 
@@ -62,12 +64,12 @@ As an extra step you can store this value in [Key Vault](/azure/key-vault/genera
 
 1. Rebuild the code
 
-   ```
+   ```bash
    mvn clean package
    ```
 
 1. Redeploy the application.
 
-   ```
+   ```bash
    mvn package azure-webapp:deploy
    ```

@@ -1,19 +1,18 @@
 ---
 ms.author: givermei
-ms.topic: include
 ms.date: 01/01/2024
 ms.custom: devx-track-java
 ---
 
-You are now ready to deploy your Web App to Azure App Service. Make sure you are logged into your Azure environment to execute the deployment. 
+You are now ready to deploy your Web App to Azure App Service. Make sure you are logged into your Azure environment to execute the deployment.
 
-```cli
+```azurecli
 az login
 ```
 
 With all the configuration ready in your *pom.xml* file, you can now deploy your Java app to Azure with one single command.
 
-```cli
+```bash
 mvn package azure-webapp:deploy
 ```
 

@@ -1,6 +1,5 @@
 ---
 ms.author: bbanerjee
-ms.topic: include
 ms.date: 01/01/2024
 ms.custom: devx-track-java
 ---
@@ -64,13 +63,13 @@ As a first step you'll need to:
 
 ### Register the web app (java-servlet-webapp-roles)
 
-[Register a new web app](https://learn.microsoft.com/entra/identity-platform/quickstart-register-app) in the [Azure Portal](https://portal.azure.com).
+[Register a new web app](/entra/identity-platform/quickstart-register-app) in the [Azure Portal](https://portal.azure.com).
 Following this guide, you must:
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 1. Select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
-   - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `java-servlet-webapp-roles`.
+   - In the **Name** section, enter a meaningful application name for display to users of the app, for example `java-servlet-webapp-roles`.
    - Under **Supported account types**, select an option.
      - Select **Accounts in this organizational directory only** if you're building an application for use only by users in your tenant (**single-tenant**).
    - In the **Redirect URI** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/msal4j-servlet-roles/auth/redirect`.
@@ -81,8 +80,8 @@ Following this guide, you must:
 1. In the **Client secrets** section, click on **New client secret**:
    - Type a key description (for instance `app secret`),
    - Select one of the available key durations (**In 1 year**, **In 2 years**, or **Never Expires**) as per your security concerns.
-   - The generated key value will be displayed when you click the **Add** button. Copy the generated value for use in the steps later.
-   - You'll need this key later in your code's configuration files. This key value will not be displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - The generated key value is displayed when you click the **Add** button. Copy the generated value for use in the steps later.
+   - You'll need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
 
 #### Define the Application Roles
 
@@ -101,7 +100,7 @@ Following this guide, you must:
 
 #### Assign users to the Application roles
 
- To add users to the app role defined earlier, follow the guidelines here: [Assign users and groups to roles.](https://learn.microsoft.com/entra/identity-platform/howto-add-app-roles-in-apps#assign-users-and-groups-to-microsoft-entra-roles)
+ To add users to the app role defined earlier, follow the guidelines here: [Assign users and groups to roles.](/entra/identity-platform/howto-add-app-roles-in-apps#assign-users-and-groups-to-microsoft-entra-roles)
 
 ### Configure the web app (java-servlet-webapp-roles) to use your app registration
 

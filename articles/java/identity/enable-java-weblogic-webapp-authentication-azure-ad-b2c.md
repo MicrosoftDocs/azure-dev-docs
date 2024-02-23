@@ -2,14 +2,11 @@
 title: Enable your Java WebLogic Web App using MSAL4J to authenticate users into Azure Active Directory B2C
 description: Shows you how to develop a Java WebLogic web app which supports sign-in by Azure Active Directory B2C.
 services: active-directory
-documentationcenter: java
 ms.date: 01/01/2024
-ms.service: active-directory-b2c
-ms.tgt_pltfrm: multiple
+ms.service: active-directory
+ms.subservice: B2C
 ms.topic: article
-ms.workload: identity
 ms.custom: devx-track-java, devx-track-extended-java
-adobe-target: true
 ---
 
 # Enable your Java WebLogic Web App using MSAL4J to authenticate users into Azure Active Directory B2C
@@ -25,18 +22,17 @@ This article demonstrates a Java Servlet web application that authenticates user
 
 [!INCLUDE [enable-java-servlet-webapp-authentication-azure-ad-b2c.md](includes/enable-java-servlet-webapp-authentication-azure-ad-b2c.md)]
 
-
 ## Deploying the Sample
 
 (These instructions assume you have installed WebLogic and set up some server domain)
 
-Before you can deploy to WebLogic, you will need to make some configuration changes in the sample itself and (re)build the package:
+Before you can deploy to WebLogic, you need to make some configuration changes in the sample itself and (re)build the package:
 
 1. In the sample there is likely an application.properties or authentication.properties file where you configured the client ID, tenant, redirect URL, etc.
 
-1. In the above mentioned steps, changed references to localhost:8080 or localhost:8443 to the URL/port WebLogic will run on, which by default should be localhost:7001
+1. In the above mentioned steps, changed references to localhost:8080 or localhost:8443 to the URL/port WebLogic runs on, which by default should be localhost:7001
 
-1. You will also need to make the same change in the Azure app registration, where you set it as the 'Redirect URI' in the 'Authentication' tab
+1. You also need to make the same change in the Azure app registration, where you set it as the 'Redirect URI' in the 'Authentication' tab
 
 To deploy the sample to WebLogic via the web console:
 

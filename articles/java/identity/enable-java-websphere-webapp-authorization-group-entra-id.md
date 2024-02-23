@@ -1,23 +1,18 @@
 ---
-title: Enable your Java Websphere web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
-description: Shows you how to develop a Java Websphere web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
+title: Enable your Java WebSphere web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
+description: Shows you how to develop a Java WebSphere web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
 services: active-directory
-documentationcenter: java
 ms.date: 01/01/2024
 ms.service: active-directory
-ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.workload: identity
 ms.custom: devx-track-java, devx-track-extended-java
-adobe-target: true
 ---
 
+# Enable your Java WebSphere web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
 
-# Enable your Java Websphere web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
+This article demonstrates how to create a Java WebSphere web app that signs in users with [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java) and restricts access to pages based on Microsoft Entra ID security group membership.
 
-This article demonstrates how to create a Java Websphere web app that signs in users with [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java) and restricts access to pages based on Microsoft Entra ID security group membership.
-
-![Overview](./media/topology.png)
+:::image type="content" source="./media/topology.png" alt-text="Overview":::
 
 An Identity Developer session covered Microsoft Entra ID App roles and security groups, featuring this scenario and how to handle the overage claim. [Watch the video Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0)
 

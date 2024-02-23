@@ -1,6 +1,5 @@
 ---
 ms.author: bbanerjee
-ms.topic: include
 ms.date: 01/01/2024
 ms.custom: devx-track-java
 ---
@@ -8,7 +7,7 @@ ms.custom: devx-track-java
 ## Explore the sample
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
-- Click the context-sensitive button at the top right (it will read `Sign In` on first run)
+- Click the context-sensitive button at the top right (it reads `Sign In` on first run)
 - Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
@@ -42,7 +41,7 @@ If you want to replicate this sample's behavior, you may choose to copy the `pom
 
 A **ConfidentialClientApplication** instance is created in the `AuthHelper.java` class. This object helps craft the Entra ID authorization URL and also helps exchange the authentication token for an access token.
 
-```Java
+```java
 // getConfidentialClientInstance method
 IClientSecret secret = ClientCredentialFactory.createFromSecret(SECRET);
 confClientInstance = ConfidentialClientApplication
@@ -61,9 +60,9 @@ In this sample, these values are read from the `authentication.properties` file 
 
 ### Step-by-step walkthrough
 
-1. The first step of the sign-in process is to send a request to the `/authorize` endpoint on for our Microsoft Entra ID Tenant. Our MSAL4J `ConfidentialClientApplication` instance is leveraged to construct an authorization request URL. Our app redirects the browser to this URL, which is where the user will sign in.
+1. The first step of the sign-in process is to send a request to the `/authorize` endpoint on for our Microsoft Entra ID Tenant. Our MSAL4J `ConfidentialClientApplication` instance is leveraged to construct an authorization request URL. Our app redirects the browser to this URL, which is where the user signs in.
 
-    ```Java
+    ```java
     final ConfidentialClientApplication client = getConfidentialClientInstance();
     AuthorizationRequestUrlParameters parameters = AuthorizationRequestUrlParameters.builder(Config.REDIRECT_URI, Collections.singleton(Config.SCOPES))
             .responseMode(ResponseMode.QUERY).prompt(Prompt.SELECT_ACCOUNT).state(state).nonce(nonce).build();
@@ -73,15 +72,15 @@ In this sample, these values are read from the `authentication.properties` file 
     ```
 
     - **AuthorizationRequestUrlParameters**: Parameters that must be set in order to build an AuthorizationRequestUrl.
-    - **REDIRECT_URI**: Where Entra ID will redirect the browser (along with auth code) after collecting user credentials. It must match the redirect URI in the  Microsoft Entra ID app registration on [Azure Portal](https://portal.azure.com)
-    - **SCOPES**: [Scopes](https://learn.microsoft.com/en-us/entra/identity-platform/access-tokens#scopes) are permissions requested by the application.
+    - **REDIRECT_URI**: Where Entra ID redirects the browser (along with auth code) after collecting user credentials. It must match the redirect URI in the  Microsoft Entra ID app registration on [Azure Portal](https://portal.azure.com)
+    - **SCOPES**: [Scopes](/en-us/entra/identity-platform/access-tokens#scopes) are permissions requested by the application.
       - Normally, the three scopes `openid profile offline_access` suffice for receiving an ID Token response.
       - Full list of scopes requested by the app can be found in the `authentication.properties file`. You can add more scopes like User.Read and so on.
 
-1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint will contain an [**authorization code**](https://learn.microsoft.com/entra/identity-platform/v2-oauth2-auth-code-flow).
+1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint contain an [authorization code](/entra/identity-platform/v2-oauth2-auth-code-flow).
 1. Our ConfidentialClientApplication instance then exchanges this authorization code for an ID Token and Access Token from Microsoft Entra ID.
 
-    ```Java
+    ```java
     // First, validate the state, then parse any error codes in response, then extract the authCode. Then:
     // build the auth code params:
     final AuthorizationCodeParameters authParams = AuthorizationCodeParameters
@@ -123,17 +122,17 @@ app.protect.authenticated=/token_details
 
 ### Scopes
 
-- [Scopes](https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview) tell Microsoft Entra ID the level of access that the application is requesting.
+- [Scopes](/en-us/entra/identity-platform/permissions-consent-overview) tell Microsoft Entra ID the level of access that the application is requesting.
 - Based on the requested scopes, Microsoft Entra ID presents a consent dialogue to the user upon signing in.
 - If the user consents to one or more scopes and obtains a token, the scopes-consented-to are encoded into the resulting `access_token`.
 - Note the scopes requested by the application by referring to `authentication.properties`. These three scopes are requested by MSAL and given by Microsoft Entra ID by default.
 
 ## More information
 
-- [Microsoft Authentication Library \(MSAL\) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
-- [MSAL Java Reference Documentation](http://javadoc.io/doc/com.microsoft.azure/msal4j)
-- [Microsoft identity platform (Microsoft Entra ID for developers)](https://learn.microsoft.com/entra/identity-platform/)
-- [Quickstart: Register an application with the Microsoft identity platform (Preview)](https://learn.microsoft.com/entra/identity-platform/quickstart-register-app)
-- [Understanding Microsoft Entra ID application consent experiences](https://learn.microsoft.com/en-us/entra/identity-platform/application-consent-experience)
-- [Understand user and admin consent](https://learn.microsoft.com/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent)
-- [MSAL code samples](https://learn.microsoft.com/en-us/entra/identity-platform/sample-v2-code?tabs=framework#java)
+- [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
+- [MSAL Java Reference Documentation](https://javadoc.io/doc/com.microsoft.azure/msal4j)
+- [Microsoft identity platform (Microsoft Entra ID for developers)](/entra/identity-platform/)
+- [Quickstart: Register an application with the Microsoft identity platform (Preview)](/entra/identity-platform/quickstart-register-app)
+- [Understanding Microsoft Entra ID application consent experiences](/en-us/entra/identity-platform/application-consent-experience)
+- [Understand user and admin consent](/en-us/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent)
+- [MSAL code samples](/en-us/entra/identity-platform/sample-v2-code?tabs=framework#java)

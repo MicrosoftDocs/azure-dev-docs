@@ -6,7 +6,7 @@ items:
     href: secure-java-apps-with-identity-platform-overview.md
   - name: Overview
     expanded: true
-    items: 
+    items:
     - name: Secure your Java Jboss EAP web app
       expanded: true
       items:
@@ -17,9 +17,9 @@ items:
       - name: Access user details
         href: enable-java-jboss-eap-webapp-authorization-entra-id.md
       - name: Use roles & role claims
-        href: enable-java-jboss-eap-webapp-authorization-role-entra-id.md      
+        href: enable-java-jboss-eap-webapp-authorization-role-entra-id.md
       - name: Use groups and group claims
-        href: enable-java-jboss-eap-webapp-authorization-group-entra-id.md      
+        href: enable-java-jboss-eap-webapp-authorization-group-entra-id.md
       - name: Deploy to App Service
         href: deploy-jboss-to-app-service.md
     - name: Secure your Java Tomcat web app
@@ -32,7 +32,7 @@ items:
       - name: Access user details
         href: enable-java-tomcat-webapp-authorization-entra-id.md
       - name: Use roles & role claims
-        href: enable-java-tomcat-webapp-authorization-role-entra-id.md      
+        href: enable-java-tomcat-webapp-authorization-role-entra-id.md
       - name: Use groups and group claims
         href: enable-java-tomcat-webapp-authorization-group-entra-id.md
       - name: Deploy to App Service
@@ -47,12 +47,12 @@ items:
       - name: Access user details
         href: enable-java-weblogic-webapp-authorization-entra-id.md
       - name: Use roles & role claims
-        href: enable-java-weblogic-webapp-authorization-role-entra-id.md      
+        href: enable-java-weblogic-webapp-authorization-role-entra-id.md
       - name: Use groups and group claims
         href: enable-java-weblogic-webapp-authorization-group-entra-id.md
       - name: Deploy to WebLogic on Azure VM
-        href: deploy-weblogic-to-vm.md   
-    - name: Secure your Java Websphere web app
+        href: deploy-weblogic-to-vm.md
+    - name: Secure your Java WebSphere web app
       expanded: true
       items:
       - name: Enable sign in with Entra ID
@@ -62,11 +62,11 @@ items:
       - name: Access user details
         href: enable-java-websphere-webapp-authorization-entra-id.md
       - name: Use roles & role claims
-        href: enable-java-websphere-webapp-authorization-role-entra-id.md      
+        href: enable-java-websphere-webapp-authorization-role-entra-id.md
       - name: Use groups and group claims
-        href: enable-java-websphere-webapp-authorization-group-entra-id.md    
-      - name: Deploy to Websphere on Azure VM
-        href: deploy-websphere-to-vm.md    
+        href: enable-java-websphere-webapp-authorization-group-entra-id.md
+      - name: Deploy to WebSphere on Azure VM
+        href: deploy-websphere-to-vm.md
     - name: Secure your Java Spring MVC web app web app
       expanded: true
       items:
@@ -77,7 +77,7 @@ items:
       - name: Access user details
         href: enable-spring-boot-webapp-authorization-entra-id.md
       - name: Use roles & role claims
-        href: enable-spring-boot-webapp-authorization-role-entra-id.md      
+        href: enable-spring-boot-webapp-authorization-role-entra-id.md
       - name: Use groups and group claims
         href: enable-spring-boot-webapp-authorization-group-entra-id.md
       - name: Deploy to Azure Spring apps
@@ -85,4 +85,4 @@ items:
   - name: Release notes
     href: https://github.com/Azure-Samples/ms-identity-msal-java-samples/releases
   - name: Overview of the Microsoft Authentication Library (MSAL)
-    href: https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview
+    href: /en-us/azure/active-directory/develop/msal-overview
