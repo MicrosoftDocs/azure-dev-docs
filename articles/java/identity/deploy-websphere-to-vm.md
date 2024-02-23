@@ -20,18 +20,17 @@ This guidance assumes you have run through any of the Java Websphere web app exa
 
 - Make sure you have followed the guidance of [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](/azure/developer/java/ee/traditional-websphere-application-server-virtual-machines?tabs=basic) to deploy a [IBM WebSphere Application Server Cluster](https://aka.ms/websphere-on-azure-portal). 
 
-## Prepare the web app for deployment
 
-TODO TODO TODO, the below is **NOT** correct. 
+## Prepare the web app for deployment
 
 When you deploy your application to WebSphere Application Server, your redirect URL will change to the redirect URL of your deployed WebSphere Application Server instance. You will need to change these settings in your `properties file`.
 
-1. Navigate to your app's `authentication.properties` file and change the value of `app.homePage` to your deployed app's domain name. For example, if you chose `example-domain` for your app name in the previous step, you must now use the value  `https://example-domain.azurewebsites.net`. Be sure that you have also changed the protocol from `http` to `https`.
+1. Navigate to your app's `authentication.properties` file and change the value of `app.homePage` to your server URL and port number you are planning to use. 
 
 ```ini
 # app.homePage is by default set to dev server address and app context path on the server
 # for apps deployed to azure, use https://your-sub-domain.azurewebsites.net
-app.homePage=https://<your-app-name>.azurewebsites.net
+app.homePage=https://<server-url>:<port-number>/msal4j-servlet-auth/
 ```
 
 1. After saving this file, you will need to rebuild your app.
@@ -40,9 +39,9 @@ app.homePage=https://<your-app-name>.azurewebsites.net
  mvn clean package
  ```
 
-## Update your Microsoft Entra ID App Registration
+1. Once the code has build, copy the .war file over to your target server's file system. 
 
-TODO TODO TODO, the below is **NOT** correct. 
+## Update your Microsoft Entra ID App Registration
 
 Since the redirect URI will change to your deployed App on WebSphere, you will also need to change the redirect URI in your Micorosft Entra ID App Registration. 
 
@@ -51,46 +50,28 @@ Since the redirect URI will change to your deployed App on WebSphere, you will a
 1. Open your app registration by clicking on its name. 
 1. Select **Authentication** from the menu.
 1. In the **Web** - **Redirect URIs** section, select **Add URI**.
-1. Fill out the URI of your web app, appending **/auth/redirect**, for example `https://<your-app-name>.azurewebsites.net/auth/redirect`.
+1. Fill out the URI of your web app, appending **/auth/redirect**, for example `https://<server-url>:<port-number>/auth/redirect`.
 1. Select **Save**. 
 
-## Deploy the app
+## Deploy the application
 
-TODO TODO TODO, the below is **NOT** correct. 
+To deploy the sample using the Websphere's Integrated Solutions Console:
 
-1. On the administrative console, select **Applications > New Application** and then select **New Enterprise Application**.
+1. In the 'Applications' tab, select 'New Application', then 'New Enterprise Application'
 
-1. On the next panel, select **Remote file system** and then select **Browse…**. You're given the option to browse the file systems of your installed servers.
+1. Choose the .war you built, then click 'next' until you get to the 'Map context roots for Web modules' installation step (the other default settings should be fine)
 
-1. Select the system that begins with **Dmgr**. You're shown the Deployment Manager’s file system. From there, select **V9** and then **installableApps**. In that directory, you should see many applications available to install. Select **DefaultApplication.ear** and then select **OK**.
+1. For the context root, set it to the same value as after the port number in the 'Redirect URI' you set in sample configuration/Azure app registration, i.e. if the redirect URI is http://<server-url>:9080/msal4j-servlet-auth/ then the context root should just be 'msal4j-servlet-auth'
 
-Then, you're taken back to the page for selecting the application, which should look like the following screenshot:
+1. Click 'Finish', and after the application finishes installing go to the 'Websphere enterprise applications' section of the 'Applications' tab
 
-:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/select-test-app-page.png" alt-text="Screenshot of IBM WebSphere 'Specify the EAR, WAR, JAR, or SAR module to upload and install' dialog.":::
+1. Select the .war you just installed from the list of applications and click 'Start' to deploy
 
-Select **Next** and then **Next** to go with the **Fast Path** deployment process.
+1. One it finishes deploying, navigate to http://<server-url>:9080/{whatever you set as the context root} and you should be able to see the application
 
-In the **Fast Path** wizard, use the defaults for everything except **Step 2: map modules to servers**. On that page, select the checkbox for the **Default Web Application Module** row, then hold Ctrl and select the options under **Clusters and servers**. Finally, select **Apply**.
+## Next Steps
 
-:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/map-modules-to-servers-configuration-page.png" alt-text="Screenshot of IBM WebSphere 'Install New Application' dialog with 'Step 2: Map modules to servers' pane." lightbox="media/traditional-websphere-application-server-virtual-machines/map-modules-to-servers-configuration-page.png":::
+For more information and other deployment options, see the following articles:
 
-You should see new entries in the table under the **Server** column. These entries should look similar to the ones in the following screenshot.
-
-:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/map-modules-to-servers-outcome-page.png" alt-text="Screenshot of IBM WebSphere 'Install New Application' dialog with 'Step 2: Map modules to servers' pane showing and 'Server' table column highlighted." lightbox="media/traditional-websphere-application-server-virtual-machines/map-modules-to-servers-outcome-page.png":::
-
-After you’ve completed all the steps, select **Finish**, and then on the next page select **Save**.
-
-Next, you need to start the application. Go to **Applications > All Applications**. Select the checkbox for **DefaultApplication.ear**, ensure the **Action** is set to **Start**, and then select **Submit Action**.
-
-You should see success messages that look similar to the ones in the following screenshot. If you see errors, it may be that you were too quick, and the app and configuration haven't reached the nodes yet.
-
-:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/start-app-message-page.png" alt-text="Screenshot of IBM WebSphere Messages pane." lightbox="media/traditional-websphere-application-server-virtual-machines/start-app-message-page.png":::
-
-When you see the success messages, you can try the app. In your browser, navigate to the DNS name of the IHS deployment and add `/snoop`. You should see information similar to the following about the server instance that processed the request.
-
-:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/test-app-running-page.png" alt-text="Screenshot of test application running in a browser.":::
-
-When you refresh the browser, the app cycles through the server instances using the **Round Robin load-balancing policy**, which is the default policy for the Static Cluster deployment.
-
-TODO TODO TODO, Add steps to navigate to the app??? 
-
+- [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](/azure/developer/java/ee/traditional-websphere-application-server-virtual-machines?tabs=basic)
+- [What are solutions to run the IBM WebSphere family of products on Azure?](/azure/developer/java/ee/websphere-family)
