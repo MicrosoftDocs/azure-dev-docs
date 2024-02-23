@@ -11,26 +11,12 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 [!INCLUDE [aca-load-balancer-intro](../intro/includes/scaling-load-balancer-aca-introduction.md)]
 
-
 ## Prerequisites
 
 * Azure subscription.  [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true) 
 * Access granted to Azure OpenAI in the desired Azure subscription.
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
-
-* Deploy at least 2 chat apps by completing the [previous chat App procedure](get-started-app-chat-template.md). Don't complete the **Clean up resources** section of the previous procedure.     
-
-    You'll need the following Azure resource information from that deployment for all chat apps:
-
-    * Web API URI: The URI of the deployed chat app API. 
-    * Azure AI Search. The following values are required:
-        * Resource name: The name of the Azure AI Search resource name.
-        * Index name: The name of the Azure AI Search index where your documents are stored.
-        * Query key: The key to query your Search index.
-    * If you experimented with the chat app authentication, you need to disable user authentication so the evaluation app can access the chat app.
-
-    Once you have this information collected, you shouldn't need to use the **chat app** development environment again. It's referred to later in this article several times to indicate how the **chat app** is used by the **Evaluations app**. Don't delete the **chat app** resources until you complete the entire procedure in this article.
 
 * A [development container](https://containers.dev/) environment is available with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
 
@@ -48,6 +34,6 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 [!INCLUDE [aca-load-balancer-procedure](../intro/includes/evaluations-procedure.md)]
 
-
+[!INCLUDE [py-deployment-procedure](../intro/includes/redeploy-procedure-py-chat.md)]
 
 [!INCLUDE [locust load tests](../intro/includes/test-load-balancer-locust.md)]
