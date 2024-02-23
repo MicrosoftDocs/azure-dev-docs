@@ -32,8 +32,6 @@ ms.custom: devx-track-python, devx-track-python-ai
     
     ---
 
-[!INCLUDE [aca-load-balancer-procedure](../intro/includes/evaluations-procedure.md)]
-
 [!INCLUDE [py-deployment-procedure](../intro/includes/redeploy-procedure-py-chat.md)]
 
 [!INCLUDE [locust load tests](../intro/includes/test-load-balancer-locust.md)]
