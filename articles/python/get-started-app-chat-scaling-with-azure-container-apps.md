@@ -47,3 +47,7 @@ ms.custom: devx-track-python, devx-track-python-ai
     ---
 
 [!INCLUDE [aca-load-balancer-procedure](../intro/includes/evaluations-procedure.md)]
+
+
+
+[!INCLUDE [locust load tests](../intro/includes/scaling-load-balancer-solutions-for-py.md)]
