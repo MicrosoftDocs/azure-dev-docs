@@ -24,6 +24,8 @@ This guidance assumes you have run through any of the Spring Boot Web app exampl
 
 [!INCLUDE [deploy-spring-apps-prepare.md](includes/deploy-spring-apps-prepare.md)]
 
+[!INCLUDE [deploy-spring-apps-secret-note.md](includes/deploy-spring-apps-secret-note.md)]
+
 ## Configure the Maven plugin
 
 [!INCLUDE [deploy-spring-apps-congigure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
@@ -31,10 +33,6 @@ This guidance assumes you have run through any of the Spring Boot Web app exampl
 ## Prepare the web app for deployment
 
 [!INCLUDE [deploy-spring-apps-prepare-deploy.md](includes/deploy-spring-apps-prepare-deploy.md)]
-
-## Remove secret values
-
-TODO
 
 ## Update your Microsoft Entra ID App Registration
 
