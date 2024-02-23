@@ -64,12 +64,12 @@ To deploy the sample using the Websphere's Integrated Solutions Console:
 
 1. Choose the .war you built, then click 'next' until you get to the 'Map context roots for Web modules' installation step (the other default settings should be fine)
 
-1. For the context root, set it to the same value as after the port number in the 'Redirect URI' you set in sample configuration/Azure app registration, i.e. if the redirect URI is http://<server-url>:9080/msal4j-servlet-auth/ then the context root should just be 'msal4j-servlet-auth'
+1. For the context root, set it to the same value as after the port number in the 'Redirect URI' you set in sample configuration/Azure app registration, i.e. if the redirect URI is `http://<server-url>:9080/msal4j-servlet-auth/` then the context root should just be 'msal4j-servlet-auth'
 
 1. Click 'Finish', and after the application finishes installing go to the 'Websphere enterprise applications' section of the 'Applications' tab
 
 1. Select the .war you just installed from the list of applications and click 'Start' to deploy
 
-1. One it finishes deploying, navigate to http://<server-url>:9080/{whatever you set as the context root} and you should be able to see the application
+1. One it finishes deploying, navigate to `http://<server-url>:9080/{whatever you set as the context root}` and you should be able to see the application
 
 [!INCLUDE [enable-java-servlet-webapp-authentication-azure-ad-b2c-explore.md](includes/enable-java-servlet-webapp-authentication-azure-ad-b2c-explore.md)]
