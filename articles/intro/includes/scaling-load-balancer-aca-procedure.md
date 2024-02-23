@@ -7,8 +7,23 @@ author: diberry
 ms.service: azure
 ---
 
-## Load testing the load balanced chat app
+## Deploy Azure Container Apps load balancer
 
-To test the loal balancer, use one of the following solutions:
+To deploy the Azure Container App, use the dev container:
 
-* Python Locust test available in the [Python]
+* With GitHub Codespaces in a browser
+* Clone the repo to your local machine and open dev container with Visual Studio Code
+
+1. Open the dev container for the load balancer.
+1. Sign in to Azure Developer CLI
+
+    ```bash
+    azd auth login --use-device-code
+    ```
+
+1. Finish the sign in instructions.
+1. Deploy the load balancer app.
+
+    ```bash
+    azd up
+    ```
