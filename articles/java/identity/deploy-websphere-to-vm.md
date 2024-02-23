@@ -27,17 +27,17 @@ When you deploy your application to WebSphere Application Server, your redirect 
 
 1. Navigate to your app's `authentication.properties` file and change the value of `app.homePage` to your server URL and port number you are planning to use. 
 
-```ini
-# app.homePage is by default set to dev server address and app context path on the server
-# for apps deployed to azure, use https://your-sub-domain.azurewebsites.net
-app.homePage=https://<server-url>:<port-number>/msal4j-servlet-auth/
-```
+    ```ini
+    # app.homePage is by default set to dev server address and app context path on the server
+    # for apps deployed to azure, use https://your-sub-domain.azurewebsites.net
+    app.homePage=https://<server-url>:<port-number>/msal4j-servlet-auth/
+    ```
 
 1. After saving this file, you will need to rebuild your app.
 
- ```
- mvn clean package
- ```
+    ```
+    mvn clean package
+    ```
 
 1. Once the code has build, copy the .war file over to your target server's file system. 
 
