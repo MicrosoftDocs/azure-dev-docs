@@ -19,31 +19,31 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.12.0:config
 1. For **Define value for pricingTier**, press **Enter** to select the default **P1v3** tier.
 1. For **Confirm**, type **Y**, then **Enter**.
 
-    ```
-    Please confirm webapp properties
-    AppName : msal4j-servlet-auth-1707220080695
-    ResourceGroup : msal4j-servlet-auth-1707220080695-rg
-    Region : centralus
-    PricingTier : P1v3
-    OS : Linux
-    Java Version: Java 11
-    Web server stack: Jbosseap 7
-    Deploy to slot : false
-    Confirm (Y/N) [Y]:
-    [INFO] Saving configuration to pom.
-    [INFO] ------------------------------------------------------------------------
-    [INFO] BUILD SUCCESS
-    [INFO] ------------------------------------------------------------------------
-    [INFO] Total time:  26.196 s
-    [INFO] Finished at: 2024-02-06T11:48:16Z
-    [INFO] ------------------------------------------------------------------------
-    ```
+```output
+Please confirm webapp properties
+AppName : msal4j-servlet-auth-1707220080695
+ResourceGroup : msal4j-servlet-auth-1707220080695-rg
+Region : centralus
+PricingTier : P1v3
+OS : Linux
+Java Version: Java 11
+Web server stack: Jbosseap 7
+Deploy to slot : false
+Confirm (Y/N) [Y]:
+[INFO] Saving configuration to pom.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  26.196 s
+[INFO] Finished at: 2024-02-06T11:48:16Z
+[INFO] ------------------------------------------------------------------------
+```
 
-After you've confirmed your choices, the plugin adds the above plugin element and requisite settings to your project's `pom.xml` file that configure your web app to run in Azure App Service.
+After you've confirmed your choices, the plugin adds the above plugin element and requisite settings to your project's *pom.xml* file that configure your web app to run in Azure App Service.
 
-The relevant portion of the `pom.xml` file should look similar to the following example.
+The relevant portion of the *pom.xml* file should look similar to the following example.
 
-```xml-interactive
+```xml
 <build>
     <plugins>
         <plugin>
@@ -61,7 +61,7 @@ The relevant portion of the `pom.xml` file should look similar to the following 
 </build>
 ```
 
-You can modify the configurations for App Service directly in your `pom.xml`. Some common configurations are listed in the following table:
+You can modify the configurations for App Service directly in your *pom.xml*. Some common configurations are listed in the following table:
 
 Property | Required | Description | Version
 ---|---|---|---

@@ -47,13 +47,13 @@ These application roles are defined in the [Azure portal](https://portal.azure.c
 
 From your shell or command line:
 
-```console
-    git clone https://github.com/Azure-Samples/ms-identity-java-spring-tutorial.git
-    cd ms-identity-java-spring-tutorial
-    cd 3-Authorization-II/roles
+```bash
+git clone https://github.com/Azure-Samples/ms-identity-java-spring-tutorial.git
+cd ms-identity-java-spring-tutorial
+cd 3-Authorization-II/roles
 ```
 
-or download and extract the repository .zip file.
+or download and extract the repository *.zip* file.
 
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone the repository into a directory near the root of your hard drive.
@@ -73,18 +73,18 @@ There is one project in this sample. To register it, you can:
 1. If you have never used Azure AD Powershell before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
 1. In PowerShell run:
 
-   ```PowerShell
+   ```powershell
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
    ```
 
 1. Run the script to create your Microsoft Entra ID application and configure the code of the sample application accordingly.
 1. In PowerShell run:
 
-   ```PowerShell
+   ```powershell
    cd .\AppCreationScripts\
    .\Configure.ps1
    ```
-   > [!Note]
+   > [!NOTE]
    > Other ways of running the scripts are described in [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md)
    > The scripts also provide a guide to automated application registration, configuration and removal which can help in your CI/CD scenarios.
 
@@ -139,14 +139,14 @@ As a first step you'll need to:
 
 Open the project in your IDE (like Visual Studio or Visual Studio Code) to configure the code.
 
-> [!Note]
+> [!NOTE]
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
-1. Open the `src\main\resources\application.yml` file.
+1. Open the *src\main\resources\application.yml* file.
 1. Find the key `Enter_Your_Tenant_ID_Here` and replace the existing value with your Microsoft Entra tenant ID.
 1. Find the key `Enter_Your_Client_ID_Here` and replace the existing value with the application ID (clientId) of `java-spring-webapp-roles` app copied from the Azure portal.
 1. Find the key `Enter_Your_Client_Secret_Here` and replace the existing value with the key you saved during the creation of `java-spring-webapp-roles` copied from the Azure portal.
-1. Open the `src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootapplication/Sample.Controller.java` file.
+1. Open the *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootapplication/Sample.Controller.java* file.
 1. Find the references to `PrivilegedAdmin` and `RegularUser` app roles in this file. If necessary, change them to reflect the app role names you chose in the previous steps.
 
 ## Running the sample
@@ -209,20 +209,20 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 
 ## Contents
 
-| File/folder       | Description                                |
-|-------------------|--------------------------------------------|
-| `AppCreationScripts/`                                                               | Scripts to automatically configure Microsoft Entra ID app registrations.                              |
-| `pom.xml`                                                                           | Application dependencies.                                                                   |
-| `src/main/resources/templates/`                                                     | Thymeleaf Templates for UI.                                                                 |
-| `src/main/resources/application.yml`                                                | Application and Microsoft Entra ID Boot Starter Library Configuration.                                |
-| `src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/`       | This directory contains the main application entry point, controller, and config classes.   |
-| `.../MsIdentitySpringBootWebappApplication.java`                                    | Main class.                                                                                 |
-| `.../SampleController.java`                                                         | Controller with endpoint mappings.                                                          |
-| `.../SecurityConfig.java`                                                           | Security Configuration (e.g., which routes require authentication?).                        |
-| `.../Utilities.java`                                                                | Utility Class (e.g., filter ID token claims)                                                |
-| `CHANGELOG.md`                                                                      | List of changes to the sample.                                                              |
-| `CONTRIBUTING.md`                                                                   | Guidelines for contributing to the sample.                                                  |
-| `LICENSE`                                                                           | The license for the sample.                                                                 |
+| File/folder                                                                   | Description                                                                               |
+|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| *AppCreationScripts/*                                                         | Scripts to automatically configure Microsoft Entra ID app registrations.                  |
+| *pom.xml*                                                                     | Application dependencies.                                                                 |
+| *src/main/resources/templates/*                                               | Thymeleaf Templates for UI.                                                               |
+| *src/main/resources/application.yml*                                          | Application and Microsoft Entra ID Boot Starter Library Configuration.                    |
+| *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/* | This directory contains the main application entry point, controller, and config classes. |
+| *.../MsIdentitySpringBootWebappApplication.java*                              | Main class.                                                                               |
+| *.../SampleController.java*                                                   | Controller with endpoint mappings.                                                        |
+| *.../SecurityConfig.java*                                                     | Security Configuration (e.g., which routes require authentication?).                      |
+| *.../Utilities.java*                                                          | Utility Class (e.g., filter ID token claims)                                              |
+| *CHANGELOG.md*                                                                | List of changes to the sample.                                                            |
+| *CONTRIBUTING.md*                                                             | Guidelines for contributing to the sample.                                                |
+| *LICENSE`*                                                                    | The license for the sample.                                                               |
 
 ## About the code
 
@@ -230,7 +230,7 @@ This sample demonstrates how to use [Microsoft Entra ID Spring Boot Starter clie
 
 ### Project Initialization
 
-Create a new Java Maven project and copy the `pom.xml` file from this project, and the `src` folder of this repository.
+Create a new Java Maven project and copy the *pom.xml* file from this project, and the *src* folder of this repository.
 
 If you'd like to create a project like this from scratch, you may use [Spring Initializer](https://start.spring.io):
 
@@ -240,7 +240,7 @@ If you'd like to create a project like this from scratch, you may use [Spring In
   - Azure Active Directory
   - Spring Oauth2 Client
   - Spring Web
-- Be sure that it comes with Azure SDK version 3.3 or higher. If not, please consider replacing the pre-configured `pom.xml` with the `pom.xml` from this repository.
+- Be sure that it comes with Azure SDK version 3.3 or higher. If not, please consider replacing the pre-configured *pom.xml* with the *pom.xml* from this repository.
 
 ### ID Token Claims
 
@@ -260,7 +260,7 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 The name of the the roles that the signed-in user is assigned to is returned in the `roles` claim of the token.
 
-```JSON
+```json
 {
   ...
   "roles": [
@@ -271,7 +271,7 @@ The name of the the roles that the signed-in user is assigned to is returned in 
 ```
 
 A common way to access them is documented in the **ID Token Claims** section above.
-Microsoft Entra ID Boot Starter (v3.3 and above) also parses the roles claim automatically and adds each role to the signed in user's **Authorities**, prefixing each with the string `APPROLE_`. This allows developers to make use of app roles with Spring **PrePost** condition annotations using the `hasAuthority` method. For example, you'll find the following `@PreAuthorize` conditions demonstrated in `SampleController.java`:
+Microsoft Entra ID Boot Starter (v3.3 and above) also parses the roles claim automatically and adds each role to the signed in user's **Authorities**, prefixing each with the string `APPROLE_`. This allows developers to make use of app roles with Spring **PrePost** condition annotations using the `hasAuthority` method. For example, you'll find the following `@PreAuthorize` conditions demonstrated in *SampleController.java*:
 
 ```java
 @GetMapping(path = "/admin_only")
@@ -305,7 +305,7 @@ To sign in, you must make a request to the Azure Active Directory sign-in endpoi
 
 To sign out, you must make POST request to the **logout** endpoint.
 
-```HTML
+```html
 <form action="#" th:action="@{/logout}" method="post">
   <input class="btn btn-warning" type="submit" value="Sign Out" />
 </form>
@@ -326,7 +326,7 @@ This app has some simple logic in the UI template pages for determining content 
 
 ### Protecting routes with AADWebSecurityConfigurerAdapter
 
-By default, this app protects the **ID Token Details**, **Admins Only** and **Regular Users** pages so that only logged-in users can access them. This app uses configures these routes from the `app.protect.authenticated` property from the `application.yml` file. To configure your app's specific requirements, extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](./src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class.
+By default, this app protects the **ID Token Details**, **Admins Only** and **Regular Users** pages so that only logged-in users can access them. This app uses configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](./src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class.
 
 ```java
 @EnableWebSecurity

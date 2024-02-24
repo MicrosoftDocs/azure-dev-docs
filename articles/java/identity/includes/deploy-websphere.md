@@ -8,7 +8,7 @@ ms.custom: devx-track-java
 
 These instructions assume you have installed WebSphere and set up some server. You can use the guidance at [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](/azure/developer/java/ee/traditional-websphere-application-server-virtual-machines?tabs=basic) for a basic server setup. Before you can deploy to WebSphere, you need to make some configuration changes in the sample itself and (re)build the package:
 
-1. Navigate to your app's `authentication.properties` file and change the value of `app.homePage` to your server URL and port number you are planning to use.
+1. Navigate to your app's *authentication.properties* file and change the value of `app.homePage` to your server URL and port number you are planning to use.
 
     ```ini
     # app.homePage is by default set to dev server address and app context path on the server
@@ -22,7 +22,7 @@ These instructions assume you have installed WebSphere and set up some server. Y
    mvn clean package
    ```
 
-1. Once the code has build, copy the .war file over to your target server's file system.
+1. Once the code has build, copy the *.war* file over to your target server's file system.
 
 You also need to make the same change in the Azure app registration, where you set it as the 'Redirect URI' in the 'Authentication' tab
 

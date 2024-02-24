@@ -24,34 +24,34 @@ Use the following steps to deploy using the [Maven plugin for Azure Spring Apps]
    - **Expose public access for this app (boot-for-azure)**: Press <kbd>y</kbd>.
    - **Confirm to save all the above configurations**: Press <kbd>y</kbd>. If you press <kbd>n</kbd>, the configuration isn't saved in the POM files.
 
-    ```
-    Summary of properties:
-    Subscription id   : 12345678-1234-1234-1234-123456789101
-    Resource group name : rg-ms-identity-spring-boot-webapp
-    Azure Spring Apps name : cluster-ms-identity-spring-boot-webapp
-    Runtime Java version : Java 11
-    Region            : eastus
-    Sku               : Standard
-    App name          : ms-identity-spring-boot-webapp
-    Public access     : true
-    Instance count/max replicas : 1
-    CPU count         : 1
-    Memory size(GB)   : 2
-    Confirm to save all the above configurations (Y/n):
-    [INFO] Configurations are saved to: /home/user/ms-identity-java-spring-tutorial/1-Authentication/sign-in/pom.    xml
-    [INFO] ------------------------------------------------------------------------
-    [INFO] BUILD SUCCESS
-    [INFO] ------------------------------------------------------------------------
-    [INFO] Total time:  01:57 min
-    [INFO] Finished at: 2024-02-14T13:50:44Z
-    [INFO] ------------------------------------------------------------------------
-    ```
+```output
+Summary of properties:
+Subscription id   : 12345678-1234-1234-1234-123456789101
+Resource group name : rg-ms-identity-spring-boot-webapp
+Azure Spring Apps name : cluster-ms-identity-spring-boot-webapp
+Runtime Java version : Java 11
+Region            : eastus
+Sku               : Standard
+App name          : ms-identity-spring-boot-webapp
+Public access     : true
+Instance count/max replicas : 1
+CPU count         : 1
+Memory size(GB)   : 2
+Confirm to save all the above configurations (Y/n):
+[INFO] Configurations are saved to: /home/user/ms-identity-java-spring-tutorial/1-Authentication/sign-in/pom.    xml
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:57 min
+[INFO] Finished at: 2024-02-14T13:50:44Z
+[INFO] ------------------------------------------------------------------------
+```
 
-After you've confirmed your choices, the plugin adds the below plugin element and prerequisite settings to your project's `pom.xml` file that configure your app to run in Azure Spring Apps.
+After you've confirmed your choices, the plugin adds the below plugin element and prerequisite settings to your project's *pom.xml* file that configure your app to run in Azure Spring Apps.
 
-The relevant portion of the `pom.xml` file should look similar to the following example.
+The relevant portion of the *pom.xml* file should look similar to the following example.
 
-```xml-interactive
+```xml
 <plugin>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-spring-apps-maven-plugin</artifactId>
@@ -82,7 +82,7 @@ The relevant portion of the `pom.xml` file should look similar to the following 
 </plugin>
 ```
 
-You can modify the configurations for Azure Spring Apps directly in your `pom.xml`. Some common configurations are listed in the following table:
+You can modify the configurations for Azure Spring Apps directly in your *pom.xml*. Some common configurations are listed in the following table:
 
 Property | Required | Description
 ---|---|---

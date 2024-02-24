@@ -18,9 +18,9 @@ This guidance assumes you have run through any of the Java WebLogic web app exam
 
 ## Prepare the web app for deployment
 
-When you deploy your application to Oracle WebLogic Server, your redirect URL changes to the redirect URL of the app on the Oracle WebLogic Server instance. You need to change these settings in your `properties file`.
+When you deploy your application to Oracle WebLogic Server, your redirect URL changes to the redirect URL of the app on the Oracle WebLogic Server instance. You need to change these settings in your properties file.
 
-1. Navigate to your app's `authentication.properties` file and change the value of `app.homePage` to your deployed app's domain name. This domain name has the form `http://<vm-host-name>:<port>/<your-app-path>`. You can get the host name and port from **adminConsoleURL** by removing `/console/`. If you're using the recommended sample app, the URL should be `http://<vm-host-name>:<port>/testwebapp/`, which should be similar to `http://wls-5b942e9f2a-admindomain.westus.cloudapp.azure.com:7001/testwebapp/`.
+1. Navigate to your app's *authentication.properties* file and change the value of `app.homePage` to your deployed app's domain name. This domain name has the form `http://<vm-host-name>:<port>/<your-app-path>`. You can get the host name and port from **adminConsoleURL** by removing `/console/`. If you're using the recommended sample app, the URL should be `http://<vm-host-name>:<port>/testwebapp/`, which should be similar to `http://wls-5b942e9f2a-admindomain.westus.cloudapp.azure.com:7001/testwebapp/`.
 
 ```ini
 # app.homePage is by default set to dev server address and app context path on the server
@@ -34,7 +34,7 @@ app.homePage=http://wls-5b942e9f2a-admindomain.westus.cloudapp.azure.com:7001/te
    mvn clean package
    ```
 
-1. After rebuilding the app, follow the steps of [Deploy a Java EE application from Administration Console portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine#deploy-a-java-ee-application-from-administration-console-portal) to redeploy the application with your current .war file.
+1. After rebuilding the app, follow the steps of [Deploy a Java EE application from Administration Console portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine#deploy-a-java-ee-application-from-administration-console-portal) to redeploy the application with your current *.war* file.
 
 ## Update your Microsoft Entra ID App Registration
 

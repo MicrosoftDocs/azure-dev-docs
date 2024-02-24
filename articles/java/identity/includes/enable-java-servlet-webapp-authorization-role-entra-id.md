@@ -10,12 +10,12 @@ ms.custom: devx-track-java
 
 From your shell or command line:
 
-```console
+```bash
 git clone https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication.git
 cd 3-Authorization-II/roles
 ```
 
-or download and extract the repository .zip file.
+or download and extract the repository *.zip* file.
 
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone the repository into a directory near the root of your hard drive.
@@ -35,14 +35,14 @@ There is one project in this sample. To register the app on the portal, you can:
 1. On Windows, run PowerShell and navigate to the root of the cloned directory
 1. In PowerShell run:
 
-   ```PowerShell
+   ```powershell
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
    ```
 
 1. Run the script to create your Microsoft Entra ID application and configure the code of the sample application accordingly.
 1. In PowerShell run:
 
-   ```PowerShell
+   ```powershell
    cd .\AppCreationScripts\
    .\Configure.ps1
    ```
@@ -87,15 +87,15 @@ Following this guide, you must:
 
 1. Still on the same app registration, select the **App roles** blade to the left.
 1. Select **Create app role**:
-    - For **Display name**, enter a suitable name, for instance **PrivilegedAdmin**.
-    - For **Allowed member types**, choose **User**.
-    - For **Value**, enter **PrivilegedAdmin**.
-    - For **Description**, enter **PrivilegedAdmins who can view the Admin Page**.
+   - For **Display name**, enter a suitable name, for instance **PrivilegedAdmin**.
+   - For **Allowed member types**, choose **User**.
+   - For **Value**, enter **PrivilegedAdmin**.
+   - For **Description**, enter **PrivilegedAdmins who can view the Admin Page**.
 1. Select **Create app role**:
-    - For **Display name**, enter a suitable name, for instance **RegularUser**.
-    - For **Allowed member types**, choose **User**.
-    - For **Value**, enter **RegularUser**.
-    - For **Description**, enter **RegularUsers who can view the User Page**.
+   - For **Display name**, enter a suitable name, for instance **RegularUser**.
+   - For **Allowed member types**, choose **User**.
+   - For **Value**, enter **RegularUser**.
+   - For **Description**, enter **RegularUsers who can view the User Page**.
 1. Select **Apply** to save your changes.
 
 #### Assign users to the Application roles
@@ -114,13 +114,14 @@ Open the project in your IDE to configure the code.
 1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the key you saved during the creation of the `java-servlet-webapp-roles` app, in the Azure portal.
 1. Find the key `app.roles` and make sure the value is set to `app.roles=admin PrivilegedAdmin, user RegularUser` (or substitute the names of your specific roles).
 
-## Running The Sample
-### Build .war File Using Maven
+## Running the sample
 
-1. Navigate to the directory containing the pom.xml file for this sample (the same directory as this README), and run the following Maven command:
+### Build .war file using Maven
 
-    ```
-    mvn clean package
-    ```
+1. Navigate to the directory containing the *pom.xml* file for this sample (the same directory as this README), and run the following Maven command:
 
-1. This should generate a `.war` file which can be run on a variety of application servers
+   ```bash
+   mvn clean package
+   ```
+
+1. This should generate a *.war* file which can be run on a variety of application servers

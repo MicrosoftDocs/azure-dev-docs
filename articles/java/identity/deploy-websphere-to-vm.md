@@ -18,9 +18,9 @@ This guidance assumes you have run through any of the Java WebSphere web app exa
 
 ## Prepare the web app for deployment
 
-When you deploy your application to WebSphere Application Server, your redirect URL changes to the redirect URL of your deployed WebSphere Application Server instance. You need to change these settings in your `properties file`.
+When you deploy your application to WebSphere Application Server, your redirect URL changes to the redirect URL of your deployed WebSphere Application Server instance. You need to change these settings in your properties file.
 
-1. Navigate to your app's `authentication.properties` file and change the value of `app.homePage` to your server URL and port number you are planning to use.
+1. Navigate to your app's *authentication.properties* file and change the value of `app.homePage` to your server URL and port number you are planning to use.
 
     ```ini
     # app.homePage is by default set to dev server address and app context path on the server
@@ -34,7 +34,7 @@ When you deploy your application to WebSphere Application Server, your redirect 
    mvn clean package
    ```
 
-1. Once the code has build, copy the .war file over to your target server's file system.
+1. Once the code has build, copy the *.war* file over to your target server's file system.
 
 ## Update your Microsoft Entra ID App Registration
 

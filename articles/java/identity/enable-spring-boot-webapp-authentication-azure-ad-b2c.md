@@ -43,7 +43,7 @@ cd ms-identity-java-spring-tutorial
 cd 1-Authentication/sign-in-b2c
 ```
 
-or download and extract the repository .zip file.
+or download and extract the repository *.zip* file.
 
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone the repository into a directory near the root of your hard drive.
@@ -92,7 +92,7 @@ Open the project in your IDE (like **Visual Studio Code**) to configure the code
 
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
-Open the [application.yml](src/main/resources/application.yml) file.
+Open the *src/main/resources/application.yml* file.
 1. Find the key `client-id` and replace the existing value with the application ID (clientId) of the `java-spring-webapp-auth-b2c` application from the Azure portal.
 1. Find the app key `client-secret` and replace the existing value with the key you saved during the creation of the `java-spring-webapp-auth-b2c` application from the Azure portal.
 1. Find the app key `base-uri` and replace the two instances of `fabrikamb2c` with the name of the AAD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
@@ -100,7 +100,7 @@ Open the [application.yml](src/main/resources/application.yml) file.
 1. Find the app key `profile-edit` and replace it with the name of the password reset user-flow policy you created in the AAD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
 1. Find the app key `password-reset` and replace it with the name of the edit profile user-flow policy you created in the AAD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
 
-Open the [navbar.html](src/main/resources/templates/navbar.html) file.
+Open the *src/main/resources/templates/navbar.html* file.
 
 1. Find the references to the references to `b2c_1_susi` and `b2c_1_edit_profile` flows and replace them with your `sign-up-sign-in` and `profile-edit` user-flows.
 
@@ -163,27 +163,27 @@ Open the [navbar.html](src/main/resources/templates/navbar.html) file.
 
 ## Contents
 
-| File/folder       | Description                                |
-|-------------------|--------------------------------------------|
-| `pom.xml`                                                                           | Application dependencies.                                                                   |
-| `src/main/resources/templates/`                                                     | Thymeleaf Templates for UI.                                                                 |
-| `src/main/resources/application.yml`                                                | Application and Azure AD Boot Starter Library Configuration.                                |
-| `src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/`       | This directory contains the main application entry point, controller, and config classes.   |
-| `.../MsIdentitySpringBootWebappApplication.java`                                    | Main class.                                                                                 |
-| `.../SampleController.java`                                                         | Controller with endpoint mappings.                                                          |
-| `.../SecurityConfig.java`                                                           | Security Configuration (e.g., which routes require authentication?).                        |
-| `.../Utilities.java`                                                                | Utility Class (e.g., filter ID token claims                                                 |
-| `CHANGELOG.md`                                                                      | List of changes to the sample.                                                              |
-| `CONTRIBUTING.md`                                                                   | Guidelines for contributing to the sample.                                                  |
-| `LICENSE`                                                                           | The license for the sample.
+| File/folder                                                                   | Description                                                                               |
+|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| *pom.xml*                                                                     | Application dependencies.                                                                 |
+| *src/main/resources/templates/`*                                              | Thymeleaf Templates for UI.                                                               |
+| *src/main/resources/application.yml*                                          | Application and Azure AD Boot Starter Library Configuration.                              |
+| *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/* | This directory contains the main application entry point, controller, and config classes. |
+| *.../MsIdentitySpringBootWebappApplication.java*                              | Main class.                                                                               |
+| *.../SampleController.java*                                                   | Controller with endpoint mappings.                                                        |
+| *.../SecurityConfig.java*                                                     | Security Configuration (e.g., which routes require authentication?).                      |
+| *.../Utilities.java*                                                          | Utility Class (e.g., filter ID token claims                                               |
+| *CHANGELOG.md*                                                                | List of changes to the sample.                                                            |
+| *CONTRIBUTING.md*                                                             | Guidelines for contributing to the sample.                                                |
+| *LICENSE*                                                                     | The license for the sample.                                                               |
 
 ## About the code
 
-This sample demonstrates how to use [Azure AD B2C Spring Boot Starter client library for Java](/java/api/overview/azure/spring-boot-starter-active-directory-b2c-readme?view=azure-java-stable) to sign in users into your Azure AD tenant. It also makes use of **Spring Oauth2 Client** and **Spring Web** boot starters. It uses claims from **ID Token** obtained from Azure Active Directory to display details of the signed-in user.
+This sample demonstrates how to use [Azure AD B2C Spring Boot Starter client library for Java](/java/api/overview/azure/spring-boot-starter-active-directory-b2c-readme) to sign in users into your Azure AD tenant. It also makes use of **Spring Oauth2 Client** and **Spring Web** boot starters. It uses claims from **ID Token** obtained from Azure Active Directory to display details of the signed-in user.
 
 ### Project Initialization
 
-Create a new Java Maven project and copy the `pom.xml` file from this project, and the `src` folder of this repository.
+Create a new Java Maven project and copy the *pom.xml* file from this project, and the *src* folder of this repository.
 
 If you'd like to create a project like this from scratch, you may use [Spring Initializer](https://start.spring.io):
 
@@ -193,7 +193,7 @@ If you'd like to create a project like this from scratch, you may use [Spring In
   - Azure Active Directory B2C
   - Spring Oauth2 Client
   - Spring Web
-- Be sure that it comes with Azure SDK version 3.3 or higher. If not, please consider replacing the pre-configured `pom.xml` with the `pom.xml` from this repository.
+- Be sure that it comes with Azure SDK version 3.3 or higher. If not, please consider replacing the pre-configured *pom.xml* with the *pom.xml* from this repository.
 
 ### ID Token Claims
 
@@ -219,7 +219,7 @@ To sign in, you must make a request to the Azure Active Directory sign-in endpoi
 
 To sign out, you must make POST request to the **logout** endpoint.
 
-```HTML
+```html
 <form action="#" th:action="@{/logout}" method="post">
   <input class="btn btn-warning" type="submit" value="Sign Out" />
 </form>
@@ -240,7 +240,7 @@ This app has some simple logic in the UI template pages for determining content 
 
 ### Protecting routes with WebSecurityConfigurerAdapter
 
-By default, this app protects the **ID Token Details** page so that only logged-in users can access it. This app uses configures these routes from the `app.protect.authenticated` property from the `application.yml` file. To configure your app's specific requirements, extend `WebSecurityConfigurerAdapter` in one of your classes. For an example, see this app's [SecurityConfig](./src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class.
+By default, this app protects the **ID Token Details** page so that only logged-in users can access it. This app uses configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, extend `WebSecurityConfigurerAdapter` in one of your classes. For an example, see this app's [SecurityConfig](./src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class.
 
 ```java
 @EnableWebSecurity

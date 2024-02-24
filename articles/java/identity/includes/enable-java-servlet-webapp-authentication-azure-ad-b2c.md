@@ -10,12 +10,12 @@ ms.custom: devx-track-java
 
 From your shell or command line:
 
-```console
+```bash
 git clone https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication.git
 cd 1-Authentication/sign-in-b2c
 ```
 
-or download and extract the repository .zip file.
+or download and extract the repository *.zip* file.
 
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone the repository into a directory near the root of your hard drive.
@@ -77,9 +77,9 @@ Open the project in your IDE (like **Visual Studio Code**) to configure the code
 1. Find the app key `aad.passwordResetPolicy` and replace it with the name of the password reset userflow policy you created in the AAD B2C tenant in which you created the `ms-identity-b2c-java-servlet-webapp-authentication` application in the Azure portal.
 1. Find the app key `aad.editProfilePolicy` and replace it with the name of the edit profile userflow policy you created in the AAD B2C tenant in which you created the `ms-identity-b2c-java-servlet-webapp-authentication` application in the Azure portal.
 
-## Running The Sample
+## Running the sample
 
-### Build .war File Using Maven
+### Build .war file using Maven
 
 1. Navigate to the directory containing the pom.xml file for this sample (the same directory as this README), and run the following Maven command:
 
@@ -87,4 +87,4 @@ Open the project in your IDE (like **Visual Studio Code**) to configure the code
    mvn clean package
    ```
 
-1. This should generate a `.war` file which can be run on a variety of application servers
+1. This should generate a *.war* file which can be run on a variety of application servers

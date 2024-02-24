@@ -10,12 +10,12 @@ ms.custom: devx-track-java
 
 From your shell or command line:
 
-```console
+```bash
 git clone https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication.git
 cd 3-Authorization-II/groups
 ```
 
-or download and extract the repository .zip file.
+or download and extract the repository *.zip* file.
 
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone the repository into a directory near the root of your hard drive.
@@ -35,14 +35,14 @@ There is one project in this sample. To register the app on the portal, you can:
 1. On Windows, run PowerShell and navigate to the root of the cloned directory
 1. In PowerShell run:
 
-   ```PowerShell
+   ```powershell
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
    ```
 
 1. Run the script to create your Microsoft Entra ID application and configure the code of the sample application accordingly.
 1. In PowerShell run:
 
-   ```PowerShell
+   ```powershell
    cd .\AppCreationScripts\
    .\Configure.ps1
    ```
@@ -95,7 +95,7 @@ Open the project in your IDE to configure the code.
 > [!NOTE]
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId". Remove the curly braces from the placeholder values as well.
 
-1. Open the `./src/main/resources/authentication.properties` file
+1. Open the *./src/main/resources/authentication.properties* file
 2. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with:
     - **Your Microsoft Entra tenant ID** if you registered your app with the **Accounts in this organizational directory only** option.
 3. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID (clientId) of the `java-servlet-webapp-groups` application copied from the Azure portal.
@@ -151,17 +151,17 @@ You have two different options available to you on how you can further configure
 > [!IMPORTANT]
 > During **Token Configuration**, if you have chosen any other option except **groupID** (e.g. like **DNSDomain\sAMAccountName**) you should enter the **group name** (for example `contoso.com\Test Group`) instead of the **object ID** below:
 
-1. Open the `./src/main/resources/authentication.properties` file.
+1. Open the *./src/main/resources/authentication.properties* file.
 1. Find the string `{enter-your-admins-group-id-here}` and replace the existing value with the **object ID** of the **GroupAdmin** group copied from the Azure portal. Remove the curly braces from the placeholder value as well.
 1. Find the string `{enter-your-users-group-id-here}` and replace the existing value with the **object ID** of the **GroupMember** group copied from the Azure portal. Remove the curly braces from the placeholder value as well.
 
-## Running The Sample
-### Build .war File Using Maven
+## Running the sample
+### Build .war file using Maven
 
-1. Navigate to the directory containing the pom.xml file for this sample (the same directory as this README), and run the following Maven command:
+1. Navigate to the directory containing the *pom.xml* file for this sample (the same directory as this README), and run the following Maven command:
 
-    ```
-    mvn clean package
-    ```
+   ```bash
+   mvn clean package
+   ```
 
-1. This should generate a `.war` file which can be run on a variety of application servers
+1. This should generate a *.war* file which can be run on a variety of application servers
