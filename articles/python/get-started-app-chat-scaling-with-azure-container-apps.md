@@ -38,3 +38,6 @@ ms.custom: devx-track-python, devx-track-python-ai
 ## Next step
 
 * Load test your chat app with [Azure Load Testing](/azure/load-testing/)
+* Samples: 
+    * [Python chat app with RAG](https://github.com/Azure-Samples/azure-search-openai-demo)
+    * [Load Balancer with Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)

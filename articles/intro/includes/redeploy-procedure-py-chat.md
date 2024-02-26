@@ -11,7 +11,7 @@ ms.service: azure
 
 #### [Initial deployment](#tab/initial-deployment)
 
-1. Open the chat app sample's dev container with [![GitHub Codespaces in a browser](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo) or [Visual Studio Code with your local computer](git-client://clone?repo=https%3A%2F%2Fgithub.com%2FAzure-Samples%2Fazure-search-openai-demo).
+1. Open the chat app sample's dev container with [![GitHub Codespaces in a browser](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo) or [Visual Studio Code with your local computer](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo).
 
 1. Sign in to Azure Developer CLI (AZD).
 
