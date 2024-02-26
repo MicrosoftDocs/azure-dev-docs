@@ -51,7 +51,7 @@ ms.service: azure
 
 #### [Redeployment](#tab/redeployment)
 
-1. [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo) or [Visual Studio Code](git-client://clone?repo=https%3A%2F%2Fgithub.com%2FAzure-Samples%2Fazure-search-openai-demo).
+1. [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo) or [Visual Studio Code](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo).
 
 1. To run the script to set the load balancer environment variables, sign in to the Azure CLI (AZ).
 
