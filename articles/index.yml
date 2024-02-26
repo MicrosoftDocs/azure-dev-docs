@@ -169,17 +169,17 @@ productDirectory:
     - title: Azure Developer CLI (azd)
       imageSrc: https://static.docs.com/ui/media/product/azure/azure-developer-cli.svg
       links:
-        - url: ./azure-developer-cli/overview.md
+        - url: /azure-developer-cli/overview
           text: What is Azure Developer CLI (azd)
-        - url: ./azure-developer-cli/install-azd.md
+        - url: /azure-developer-cli/install-azd
           text: Install the Azure Developer CLI
-        - url: ./azure-developer-cli/get-started
+        - url: /azure-developer-cli/get-started
           text: Deploy an azd template
-        - url: ./azure-developer-cli/make-azd-compatible
+        - url: /azure-developer-cli/make-azd-compatible
           text: Make your project compatible with azd
-        - url: ./azure-developer-cli/supported-languages-environments
+        - url: /azure-developer-cli/supported-languages-environments
           text: Supported languages and environments
-        - url: ./azure-developer-cli/index.yml
+        - url: /azure-developer-cli/index.yml
           text: See more in the Azure Developer CLI developer center
     - title: DevContainers
       imageSrc: includes/media/dev-containers/dev-container.svg
