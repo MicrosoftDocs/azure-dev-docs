@@ -170,9 +170,9 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/azure-developer-cli.svg
       links:
         - url: /azure/developer/azure-developer-cli/overview
-          text: What is Azure Developer CLI (azd)
+          text: What is the Azure Developer CLI? (azd)
         - url: /azure/developer/azure-developer-cli/install-azd
-          text: Install the Azure Developer CLI
+          text: Install azd
         - url: /azure/developer/azure-developer-cli/get-started
           text: Deploy an azd template
         - url: /azure/developer/azure-developer-cli/make-azd-compatible
