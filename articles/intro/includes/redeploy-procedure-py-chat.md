@@ -11,7 +11,15 @@ ms.service: azure
 
 #### [Initial deployment](#tab/initial-deployment)
 
-1. Open the chat app sample's dev container with [![GitHub Codespaces in a browser](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo) or [Visual Studio Code with your local computer](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo).
+This process uses two different CLIs:
+
+* Azure Developer CLI (AZD): 
+    * Create environment for deployment
+    * Deploy chat app 
+* Azure CLI (AZ):
+    * Run bash script to get Azure Container App ingress FQDN URL, which also uses AZD to set environment variables in deployment environment
+
+1. Open the chat app sample's dev container with [GitHub Codespaces](https://github.com/codespaces/badge.svg)(https://codespaces.new/Azure-Samples/azure-search-openai-demo) or [Visual Studio Code with your local computer](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo).
 
 1. Sign in to Azure Developer CLI (AZD).
 
@@ -27,7 +35,7 @@ ms.service: azure
     azd env new <name>
     ```
 
-1. To run the script to set the load balancer environment variables, sign in to the Azure CLI (AZ).
+1. To run [the bash script](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/scripts/load-balance-aca-setup.sh) to set the load balancer environment variables, sign in to the Azure CLI (AZ).
 
     ```bash
     az login --use-device-code
@@ -46,12 +54,18 @@ ms.service: azure
     ```bash
     azd up
     ```
-    
-    Wait until this process finishes before continuing.
 
 #### [Redeployment](#tab/redeployment)
 
-1. [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo) or [Visual Studio Code](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo).
+This process uses two different CLIs:
+
+* Azure Developer CLI (AZD): 
+    * Deploy chat app 
+* Azure CLI (AZ):
+    * Run bash script to get Azure Container App ingress FQDN URL, which also uses AZD to set environment variables in deployment environment
+
+
+1. Open the chat app sample's dev container with [GitHub Codespaces](https://github.com/codespaces/badge.svg)(https://codespaces.new/Azure-Samples/azure-search-openai-demo) or [Visual Studio Code](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo).
 
 1. To run the script to set the load balancer environment variables, sign in to the Azure CLI (AZ).
 
