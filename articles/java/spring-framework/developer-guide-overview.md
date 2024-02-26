@@ -42,7 +42,7 @@ The following list summarizes some of the changes that Spring Cloud Azure 4.0 pr
 * Continued support for authentication methods in the underlying Azure SDK from our Spring libraries, such as SAS token and token credential authentication with Service Bus and Event Hubs.
 * Credential chain is now enabled by default, enabling applications to obtain credentials from application properties, environment variables, managed identity, IDEs, and so on. For more information, see the [DefaultAzureCredential](/java/api/overview/azure/identity-readme#defaultazurecredential) section of [Azure Identity client library for Java](/java/api/overview/azure/identity-readme).
 * Granular access control at the resource level (such as Service Bus queue) to enable better security governance and adherence to IT policies.
-* More options exposed in a Spring-idiomatic way through significantly improved auto-configuration coverage of Azure SDK clients for both synchronous and asynchronous scenarios.
+* More options exposed in a Spring-idiomatic way through improved auto-configuration coverage of Azure SDK clients for both synchronous and asynchronous scenarios.
 * Added health indicators for Azure App Configuration, Event Hubs, Azure Cosmos DB, Key Vault, Storage Blob, Storage Queue, and Storage File.
 * Spring Cloud Sleuth support for all HTTP-based Azure SDKs.
 
@@ -56,7 +56,7 @@ For more information on migrating to 4.0, see [Migration guide for 4.0](migratio
 
 #### Bill of materials (BOM)
 
-If you’re a Maven user, add our BOM to your pom.xml `<dependencyManagement>` section. This will allow you to not specify versions for any of the Maven dependencies and instead delegate versioning to the BOM
+If you use Maven, use the following commands to add BOM to your pom.xml `dependencyManagement` section. This step allows you to not specify versions for any of the Maven dependencies and instead delegate versioning to the BOM.
 
 ```xml
 <dependencyManagement>
@@ -72,9 +72,10 @@ If you’re a Maven user, add our BOM to your pom.xml `<dependencyManagement>` s
 </dependencyManagement>
 ```
 
-With Gradle, you can import the `spring-cloud-azure-dependencies` BOM in [two ways](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/).
+With Gradle, you can import the `spring-cloud-azure-dependencies` BOM in the following two ways.
 
-You can use the Gradle’s native BOM support by adding dependencies:
+Use the following commands to use the Gradle’s native BOM support by adding dependencies:
+
 ```kotlin
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
@@ -89,8 +90,7 @@ dependencies {
 }
 ```
 
-
-You can also use the `io.spring.dependency-management` plugin and import the BOM in `dependencyManagement`:
+Use the following commands to use the `io.spring.dependency-management` plugin and import the BOM in `dependencyManagement`:
 
 ```kotlin
 plugins {
@@ -103,6 +103,8 @@ dependencyManagement {
     }
 }
 ```
+
+For more information, see [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/).
 
 > [!NOTE]
 > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.15.0`.
@@ -177,4 +179,4 @@ The following table lists starters for PostgreSQL support:
 
 ### Learning Spring Cloud Azure
 
-We've prepared a full list of samples to show usage. You can find these samples at [Spring Cloud Azure Samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main).
+For a full list of samples that show usage, see [Spring Cloud Azure Samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main).
