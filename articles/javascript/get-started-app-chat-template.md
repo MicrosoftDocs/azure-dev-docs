@@ -9,7 +9,7 @@ ms.custom: devx-track-javascript, devx-track-javascript-ai, devx-track-js
 
 # Get started with the JavaScript enterprise chat sample using RAG
 
-This article shows you how to deploy and run the [Enterprise chat app sample for JavaScript](https://github.com/Azure-Samples/azure-search-openai-javascript). This sample implements a chat app using JavaScript, Azure OpenAI Service, and Retrieval Augmented Generation (RAG) in Azure AI Search to get answers about rental properties. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
+This article shows you how to deploy and run the [Enterprise chat app sample for JavaScript](https://github.com/Azure-Samples/azure-search-openai-javascript). This sample implements a chat app using JavaScript, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about rental properties. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
 
 * [Demo JavaScript](https://aka.ms/azai/js/video) -  fullstack video
 * [Demo JavaScript](https://aka.ms/azai/js.py/video) - frontend with Python backend video
@@ -25,7 +25,7 @@ By following the instructions in this article, you will:
 
 Once you complete this article, you can start modifying the new project with your custom code and data.
 
-This article is part of a collection of articles that show you how to build a chat app using Azure Open AI Service and Azure AI Search. Other articles in the collection include: 
+This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Service and Azure AI Search. Other articles in the collection include: 
 
 * [.NET](/dotnet/azure/ai/get-started-app-chat-template)
 * [Java](../java/quickstarts/get-started-app-chat-template.md)
@@ -160,7 +160,7 @@ The sample repository contains all the code and configuration files you need to 
 ### Deploy chat app to Azure
 
 > [!IMPORTANT]
-> Azure resources created in this section immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
+> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
 
 1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
 

@@ -9,7 +9,7 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 # Get started with the Python enterprise chat sample using RAG
 
-This article shows you how to deploy and run the [Enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample implements a chat app using Python, Azure OpenAI Service, and Retrieval Augmented Generation (RAG) in Azure AI Search to get answers about employee benefits at a fictitious company. The app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. 
+This article shows you how to deploy and run the [Enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample implements a chat app using Python, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about employee benefits at a fictitious company. The app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. 
 
 * [Demo video](https://aka.ms/azai/py/video)
 
@@ -24,7 +24,7 @@ By following the instructions in this article, you will:
 
 Once you complete this procedure, you can start modifying the new project with your custom code.
 
-This article is part of a collection of articles that show you how to build a chat app using Azure Open AI Service and Azure AI Search. 
+This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Service and Azure AI Search. 
 
 Other articles in the collection include: 
 
@@ -162,7 +162,7 @@ The sample repository contains all the code and configuration files you need to 
 ### Deploy chat app to Azure
 
 > [!IMPORTANT]
-> Azure resources created in this section immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
+> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
 
 1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
 

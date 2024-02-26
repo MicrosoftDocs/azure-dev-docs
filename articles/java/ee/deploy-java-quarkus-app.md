@@ -6,7 +6,7 @@ ms.author: jiangma
 ms.service: container-apps
 ms.topic: quickstart
 ms.date: 09/29/2023
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus-aca, devx-track-extended-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-aca, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Deploy a Java application with Quarkus on an Azure Container Apps

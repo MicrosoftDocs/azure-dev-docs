@@ -1,22 +1,24 @@
 ---
 title: Create Azure Storage with the Azure libraries for Python
 description: Use the Azure SDK for Python libraries to create a blob container in an Azure Storage account and then upload a file to that container.
-ms.date: 01/20/2023
+ms.date: 01/16/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Example: Create Azure Storage using the Azure libraries for Python
 
-In this article, you learn how to use the Azure management libraries in a Python script to create a resource group that contains and Azure Storage account and a Blob storage container. ([Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are given later in this article. If you prefer to use the Azure portal, see [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) and [Create a blob container](/azure/storage/blobs/storage-quickstart-blobs-portal).)
+In this article, you learn how to use the Azure management libraries in a Python script to create a resource group that contains an Azure Storage account and a Blob storage container.
 
 After creating the resources, see [Example: Use Azure Storage](azure-sdk-example-storage-use.md) to use the Azure client libraries in Python application code to upload a file to the Blob storage container.
 
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
+The [Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are listed later in this article. If you prefer to use the Azure portal, see [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) and [Create a blob container](/azure/storage/blobs/storage-quickstart-blobs-portal).
+
 ## 1: Set up your local development environment
 
-If you haven't already, set up an environment where you can run this code. Here are some options:
+If you haven't already, set up an environment where you can run the code. Here are some options:
 
 [!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
 
@@ -28,31 +30,57 @@ If you haven't already, set up an environment where you can run this code. Here 
 
 1. In your terminal with the virtual environment activated, install the requirements:
 
-    ```cmd
+    ```console
     pip install -r requirements.txt
     ```
 
 ## 3: Write code to create storage resources
 
-This section describes how to create storage resources from Python code. If you prefer, you can also create resources through the Azure portal or through the [equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands).
-
-Create a Python file named *provision_blob.py* with the following code. The comments explain the details. In particular, you must define your subscription ID as an environment variable `AZURE_SUBSCRIPTION_ID`. The resource group name, location, storage account name, and container name are all defined as constants in the code.
+Create a Python file named *provision_blob.py* with the following code. The comments explain the details. The script reads your subscription ID from an environment variable, `AZURE_SUBSCRIPTION_ID`. You set this variable in a later step. The resource group name, location, storage account name, and container name are all defined as constants in the code.
 
 :::code language="python" source="~/../python-sdk-docs-examples/storage/provision_blob.py":::
 
-[!INCLUDE [cli-auth-note](../../includes/cli-auth-note.md)]
+### Authentication in the code
+
+Later in this article, you sign in to Azure with the Azure CLI to run the sample code. If your account has permissions to create resource groups and storage resources in your Azure subscription, the code will run successfully.
+
+To use such code in a production script, you can set environment variables to use a service principal-based method for authentication. To learn more, see [How to authenticate Python apps with Azure services](../authentication-overview.md). You need to ensure that the service principal has sufficient permissions to create resource groups and storage resources in your subscription by assigning it an appropriate [role in Azure](/azure/role-based-access-control/overview); for example, the *Contributor* role on your subscription.
 
 ### Reference links for classes used in the code
 
-- [AzureCliCredential (azure.identity)](/python/api/azure-identity/azure.identity.azureclicredential)
+- [DefaultAzureCredential (azure.identity)](/python/api/azure-identity/azure.identity.defaultazurecredential)
 - [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
 - [StorageManagementClient (azure.mgmt.storage)](/python/api/azure-mgmt-storage/azure.mgmt.storage.storagemanagementclient)
 
 ## 4. Run the script
 
-```cmd
-python provision_blob.py
-```
+1. If you haven't already, sign in to Azure using the Azure CLI:
+
+    ```azurecli
+    az login
+    ```
+
+1. Set the `AZURE_SUBSCRIPTION_ID` environment variable to your subscription ID. (You can run the [az account show](/cli/azure/account#az-account-show) command and get your subscription ID from the `id` property in the output):
+
+    # [cmd](#tab/cmd)
+
+    ```cmd
+    set AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    ```
+
+    # [bash](#tab/bash)
+
+    ```bash
+    AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    ```
+
+    ---
+
+1. Run the script:
+
+    ```console
+    python provision_blob.py
+    ```
 
 The script will take a minute or two to complete.
 
@@ -86,9 +114,9 @@ The following Azure CLI commands complete the same creation steps as the Python 
 
 ## 6: Clean up resources
 
-Leave the resources in place if you want to follow the article [Example: Use Azure Storage](azure-sdk-example-storage-use.md) to use these resources in app code. Otherwise, run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group created in this example.
+Leave the resources in place if you want to follow the article [Example: Use Azure Storage](azure-sdk-example-storage-use.md) to use these resources in app code. Otherwise, run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group and storage resources created in this example.
 
-Resource groups don't incur any ongoing charges in your subscription, but it's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
+Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
 ```azurecli
 az group delete -n PythonAzureExample-Storage-rg  --no-wait

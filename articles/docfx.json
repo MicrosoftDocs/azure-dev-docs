@@ -90,7 +90,8 @@
         "jenkins/**/*.md": "TomArcherMsft",
         "mobile-apps/**/*.md": "mikeparker104",
         "python/**/*.md": "bobtabor-msft",
-        "terraform/**/*.md": "TomArcherMsft"
+        "terraform/**/*.md": "TomArcherMsft",
+        "intro/**/*.md": "mcleanbyron"
       },
       "manager": {
         "**/*.md": "mcleans",
@@ -111,7 +112,8 @@
         "jenkins/**/*.md": "tarcher",
         "mobile-apps/**/*.md": "miparker",
         "python/**/*.md": "rotabor",
-        "terraform/**/*.md": "tarcher"
+        "terraform/**/*.md": "tarcher",
+        "intro/**/*.md": "mcleans",
       },
       "ms.devlang": {
         "java/**/*.md": "java",
@@ -129,7 +131,8 @@
         "terraform/**/*.md": "terraform",
         "python/**/*.md": "azure-python",
         "javascript/**/*.md": "azure-javascript",
-        "dev-tunnels/**/*.md": "dev-tunnels"
+        "dev-tunnels/**/*.md": "dev-tunnels",
+        "intro/**/*.md": "azure"
       },
       
       "titleSuffix": {

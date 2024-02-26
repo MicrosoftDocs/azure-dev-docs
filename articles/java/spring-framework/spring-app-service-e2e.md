@@ -11,6 +11,9 @@ ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java, devx-t
 
 # Deploy a Spring app to App Service with MySQL
 
+> [!NOTE]
+> For Spring applications, we recommend using Azure Spring Apps. However, you can still use Azure App Service as a destination. 
+
 This tutorial walks you through the process of building, configuring, deploying, troubleshooting and scaling Java web apps in App Service Linux.
 
 This tutorial builds on the popular Spring PetClinic sample app. In this topic, you'll test an HSQLDB version of the app locally, then deploy it to [Azure App Service](/azure/app-service/containers). After that, you'll configure and deploy a version that uses [Azure Database for MySQL](/azure/mysql). Finally, you'll learn how to access the app logs and scale out by increasing the number of workers running your app.

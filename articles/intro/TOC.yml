@@ -183,11 +183,11 @@ items:
               - name: Azure Spring Apps
                 href: ../java/spring-framework/deploy-passwordless-spring-database-app.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
               - name: Azure Spring Apps with SQL
-                href: /azure/spring-apps/connect-managed-identity-to-azure-sql?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
+                href: /azure/spring-apps/enterprise/connect-managed-identity-to-azure-sql?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
               - name: Azure Spring Apps with MySQL
-                href: /azure/spring-apps/how-to-bind-mysql?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
+                href: /azure/spring-apps/enterprise/how-to-bind-mysql?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
               - name: Azure Spring Apps with PostgreSQL
-                href: /azure/spring-apps/how-to-bind-postgres?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
+                href: /azure/spring-apps/enterprise/how-to-bind-postgres?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
               - name: App Service with MySQL
                 href: /azure/service-connector/tutorial-java-jboss-connect-managed-identity-mysql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
               - name: App Service with PostgreSQL

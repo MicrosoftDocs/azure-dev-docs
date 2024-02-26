@@ -179,12 +179,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-docs-pr",
-      "url": "https://github.com/MicrosoftDocs/azure-docs-pr",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "msdocs-python-flask-webapp-quickstart",
       "url": "https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart",
       "branch": "main",
