@@ -179,8 +179,6 @@ productDirectory:
           text: Make your project compatible with azd
         - url: /azure/developer/azure-developer-cli/supported-languages-environments
           text: Supported languages and environments
-        - url: /azure/developer/azure-developer-cli/index.yml
-          text: See more in the Azure Developer CLI developer center
     - title: DevContainers
       imageSrc: includes/media/dev-containers/dev-container.svg
       links:
