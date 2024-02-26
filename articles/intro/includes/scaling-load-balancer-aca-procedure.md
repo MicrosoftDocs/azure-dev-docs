@@ -11,7 +11,7 @@ ms.service: azure
 
 To deploy the Azure Container App, use the dev container:
 
-* Open in  [GitHub Codespaces](https://github.com/codespaces/badge.svg)(https://codespaces.new/Azure-Samples/openai-aca-lb) or [Visual Studio Code with your local computer](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/openai-aca-lb.git) repo to your local machine and open dev container with Visual Studio Code
+* Open in  [GitHub Codespaces](https://codespaces.new/Azure-Samples/openai-aca-lb) or [Visual Studio Code with your local computer](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/openai-aca-lb.git) repo to your local machine and open dev container with Visual Studio Code
 
 1. To deploy the load balancer to Azure, sign in to Azure Developer CLI (AZD).
 
