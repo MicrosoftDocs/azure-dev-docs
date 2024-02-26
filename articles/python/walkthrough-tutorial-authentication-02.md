@@ -1,7 +1,7 @@
 ---
 title: "Walkthrough, Part 2: Authenticate Python apps with Azure services"
 description: A discussion of the different authentication needs and challenges in the example scenario, and how those challenges are met with Azure integrated authentication.
-ms.date: 06/01/2022
+ms.date: 02/20/2024
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -28,13 +28,13 @@ Fortunately, integrated authentication with Microsoft Entra ID allows an app to 
 
 ## Integrated authentication with managed identity
 
-Many Azure services, like Storage and Key Vault, are integrated with Microsoft Entra such that when you authenticate the application with Microsoft Entra ID using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview), it's automatically authenticated with other connected resources. Authorization for the identity is handled through [role-based access control (RBAC)](/azure/role-based-access-control/role-assignments-steps) and occasionally through other access policies.
+Many Azure services, like Storage and Key Vault, are integrated with Microsoft Entra such that when an application authenticates with Microsoft Entra ID using a [managed identity](/entra/identity/managed-identities-azure-resources/overview), it's automatically authenticated with other connected resources. Authorization for the identity is handled through [role-based access control (RBAC)](/azure/role-based-access-control/role-assignments-steps) and occasionally through other access policies.
 
 This integration means that you never need to handle any Azure-related credentials in your app code and those credentials never appear on developer workstations or in source control. Furthermore, any handling of keys for third-party APIs and services is done entirely at run time, thus keeping those keys secure.
 
-Managed identity specifically works with apps that are deployed to Azure. For local development, you create a separate service principal to serve as the app identity when running locally. You make this service principal available to the Azure libraries using environment variables as described in [Authenticate Python apps to Azure services during local development using service principals](./sdk/authentication-local-development-service-principal.md). You also assign role permissions to this service principal alongside the managed identity used in the cloud.
+Managed identity only works with apps that are deployed to Azure. For local development, you create a separate service principal to serve as the app identity when running locally. You make this service principal available to the Azure libraries using environment variables as described in [Authenticate Python apps to Azure services during local development using service principals](./sdk/authentication-local-development-service-principal.md). You also assign role permissions to this service principal alongside the managed identity used in the cloud.
 
-Once you do these steps for the local service principal, the same code works both locally and in the cloud to authenticate the app with Azure resources. These details are discussed in [How to authenticate and authorize apps](./sdk/authentication-overview.md), but the short version is as follows:
+Once you configure and assign roles for the local service principal, the same code works both locally and in the cloud to authenticate the app with Azure resources. These details are discussed in [How to authenticate and authorize apps](./sdk/authentication-overview.md), but the short version is as follows:
 
 1. In your code, create a `DefaultAzureCredential` object that automatically uses your managed identity when running on Azure and your separate service principal when running locally.
 
@@ -42,7 +42,7 @@ Once you do these steps for the local service principal, the same code works bot
 
 1. Authentication then takes place when you call an operation method through the client object, which generates a REST API call to the resource.
 
-1. If the app identity is valid, then Azure also checks whether that identity is also authorized for the specific operation.
+1. If the app identity is valid, then Azure also checks whether that identity is authorized for the specific operation.
 
 The remainder of this tutorial demonstrates all the details of the process in the context of the example scenario and the accompanying sample code.
 
