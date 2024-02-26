@@ -11,11 +11,10 @@ ms.service: azure
 
 To deploy the Azure Container App, use the dev container:
 
-* With GitHub Codespaces in a browser
-* Clone the repo to your local machine and open dev container with Visual Studio Code
+* [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-aca-lb) in a browser
+* Clone the [Azure-Samples/openai-aca-lb](https://github.com/Azure-Samples/openai-aca-lb.git) repo to your local machine and open dev container with Visual Studio Code
 
-1. Open the dev container for the load balancer.
-1. Sign in to Azure Developer CLI
+1. To deploy the load balancer to Azure, sign in to Azure Developer CLI.
 
     ```bash
     azd auth login --use-device-code
@@ -27,3 +26,18 @@ To deploy the Azure Container App, use the dev container:
     ```bash
     azd up
     ```
+
+    You will need to select a subscription, and region for the deployment. These don't have to be the same subscription and region as the chat app. 
+
+1. Wait for the deployment to complete before continuing.
+
+## Get load balancer endpoint
+
+Get the load blancer endpoint, which is required when you redeploy the chat app. This procedure works whether you're deploying the chat app for the first time or have already deployed it.
+
+Collect the following information from the Load balancer sample's `.env` file found in the `.azure` folder, within the named environment subfolder.
+
+|Property|Example value|
+|---|---|
+|RESOURCE_GROUP_NAME| `<ENVIRONMENT-NAME>-rg`|
+|CONTAINER_APP_URL|`https://<ACA-URL>.<LOCATION>.azurecontainerapps.io`|

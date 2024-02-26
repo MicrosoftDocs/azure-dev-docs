@@ -7,15 +7,17 @@ author: diberry
 ms.service: azure
 ---
 
-Learn how to add load balancing to your application to extend the Chat app use beyond the Azure OpenAI token and model quota limits. To add load balancing with Azure Container Apps, use a sample repository provided for you to create three Azure OpenAI endpoints. The Azure Container app random uses one of the three endpoints for each request. 
+Learn how to add load balancing to your application to extend the Chat app beyond the Azure OpenAI token and model quota limits. To add load balancing with Azure Container Apps, use a sample repository provided for you to create three Azure OpenAI endpoints. The Azure Container app randomly uses one of the three endpoints for each request. 
 
 This article requires you to deploy 2 separate samples:
 
 * Chat app
     * If you haven't deployed the chat app yet, wait until after the load balancer sample is deployed. 
-    * If you have already deployed the chat app once, you will redeploy it with the load balancer settings. 
+    * If you have already deployed the chat app once, you will redeploy it again with the load balancer settings. 
 
 * Load balancer app
+
+Because this procedure uses two different samples, each appears in its own window or application.
 
 ## Architecture for load balancing with Azure Container Apps
 

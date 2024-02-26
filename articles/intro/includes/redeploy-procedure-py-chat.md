@@ -7,43 +7,75 @@ author: diberry
 ms.service: azure
 ---
 
-Use this procedure to deploy the chat app to use the load balanced resources. This procedure works whether you're deploying the chat app for the first time or have already deployed it.
+## Redeploy Chat app with load balancer endpoint
 
-1. Collect the following information from the Load balancer sample's `.env` file found in the `.azure` folder.
+#### [Initial deployment](#tab/initial-deployment)
 
-    |Property|Example value|
-    |---|---|
-    |RESOURCE_GROUP_NAME| `<ENVIRONMENT-NAME>-rg`|
-    |CONTAINER_APP_URL|`https://<ACA-URL>.<LOCATION>.azurecontainerapps.io`|
+1. Open the chat app sample's dev container with [![GitHub Codespaces in a browser](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo) or [Visual Studio Code with your local computer](git-client://clone?repo=https%3A%2F%2Fgithub.com%2FAzure-Samples%2Fazure-search-openai-demo).
 
-1. Open the dev container for the chat app. 
-1. Sign in to Azure CLI:
+1. Sign in to Azure Developer CLI (AZD).
+
+    ```bash
+    azd auth login --use-device-code
+    ```
+
+    Finish the sign in instructions.
+
+1. Create an AZD environment with a name such as `chat-app`.
+
+    ```bash
+    azd env new <name>
+    ```
+
+1. To run the script to set the load balancer environment variables, sign in to the Azure CLI (AZ).
 
     ```bash
     az login --use-device-code
     ```
 
-1. Finish the sign in instructions. 
 1. Run the following bash script to configure the chat app to use the load balancer.
 
     ```bash
     bash scripts/load-balance-aca-setup.sh <RESOURCE-GROUP-NAME> <CONTAINER-APP-URL>
     ```
 
-1. Sign in to Azure Developer CLI
+    This script adds environment variables to instruct the chat app where to send requests to Azure OpenAI. 
 
-    ```bash
-    azd auth login --use-device-code
-    ```
-
-1. Finish the sign in instructions.
 1. Deploy the chat app.
 
     ```bash
     azd up
     ```
+    
+    Wait until this process finishes before continuing.
 
-    If this is your first time deploying the chat app, you need to select the Azure subscription, and regions for the services.
+#### [Redeployment](#tab/redeployment)
+
+1. [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo) or [Visual Studio Code](git-client://clone?repo=https%3A%2F%2Fgithub.com%2FAzure-Samples%2Fazure-search-openai-demo).
+
+1. To run the script to set the load balancer environment variables, sign in to the Azure CLI (AZ).
+
+    ```bash
+    az login --use-device-code
+    ```
+
+1. Run the following bash script to configure the chat app to use the load balancer.
+
+    ```bash
+    bash scripts/load-balance-aca-setup.sh <RESOURCE-GROUP-NAME> <CONTAINER-APP-URL>
+    ```
+
+    This script adds environment variables to instruct the chat app where to send requests to Azure OpenAI. 
+
+1. Deploy the chat app.
+
+    ```bash
+    azd up
+    ```
     
-    
-    
+    Wait until this process finishes before continuing.
+
+---
+
+You can know use the chat app with the confidence that it is built to scale across many users without running out of quota. 
+

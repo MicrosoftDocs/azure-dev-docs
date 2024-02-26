@@ -9,16 +9,11 @@ ms.service: azure
 
 ## Load testing the load balanced chat app
 
-To test the load balancer with the Chat app, use the following procedure. The test is demonstrated in more detail in this [**YouTube demonstration**](https://www.youtube.com/live/-oMqb6kBdDw).
-
-The [Python Locust test](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/locustfile.py) is available from the [Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo) repository. The test works with any Chat apps which conforms to the [HTTP protocol for AI chat apps](https://github.com/Azure-Samples/ai-chat-app-protocol). 
-
-### Prerequisites
-
-* The Chat app (re)deployed to use Container App load balancer.
-* The Chat app URL: this is the URL for the client application.
+Now that both the chat app and the load balancer are deployed to the Azure Cloud, use a local locust load test to demonstrate the load balancer working. 
 
 ### Run the test
+
+Open the chat app sample's dev container with[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo) or [Visual Studio Code with your local computer](git-client://clone?repo=https%3A%2F%2Fgithub.com%2FAzure-Samples%2Fazure-search-openai-demo).
 
 1. If you don't have the [Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo) repository, clone it now or open its Codespace from GitHub. 
 
