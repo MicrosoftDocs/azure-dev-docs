@@ -102,6 +102,7 @@ dependencyManagement {
         mavenBom("com.azure.spring:spring-cloud-azure-dependencies:{version}")
     }
 }
+```
 
 > [!NOTE]
 > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.15.0`.
