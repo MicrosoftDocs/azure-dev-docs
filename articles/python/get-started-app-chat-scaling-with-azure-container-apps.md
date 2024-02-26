@@ -35,4 +35,8 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 [!INCLUDE [py-deployment-procedure](../intro/includes/redeploy-procedure-py-chat.md)]
 
-[!INCLUDE [locust load tests](../intro/includes/test-load-balancer-locust.md)]
+## Next step
+
+* Load test your chat app
+    * [Azure Load Testing](/azure/load-testing/)
+    * [Python Locust test](get-started-with-app-chat-load-testing.md)

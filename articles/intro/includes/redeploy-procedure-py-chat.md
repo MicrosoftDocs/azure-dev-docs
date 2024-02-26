@@ -77,5 +77,5 @@ ms.service: azure
 
 ---
 
-You can know use the chat app with the confidence that it is built to scale across many users without running out of quota. 
+You can know use the chat app with the confidence that it's built to scale across many users without running out of quota. 
 

@@ -33,7 +33,7 @@ To deploy the Azure Container App, use the dev container:
 
 ## Get load balancer endpoint
 
-Get the load blancer endpoint, which is required when you redeploy the chat app. This procedure works whether you're deploying the chat app for the first time or have already deployed it.
+Get the load balancer endpoint, which is required when you redeploy the chat app. This procedure works whether you're deploying the chat app for the first time or have already deployed it.
 
 Collect the following information from the Load balancer sample's `.env` file found in the `.azure` folder, within the named environment subfolder.
 
