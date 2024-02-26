@@ -56,7 +56,7 @@ For more information on migrating to 4.0, see [Migration guide for 4.0](migratio
 
 #### Bill of materials (BOM)
 
-If you use Maven, use the following commands to add BOM to your pom.xml `dependencyManagement` section. This step allows you to not specify versions for any of the Maven dependencies and instead delegate versioning to the BOM.
+If you use Maven, add the BOM to your *pom.xml* file in the `dependencyManagement` section, as shown in the following example. When you use the BOM, you don't have to specify versions for any of the Maven dependencies because versioning is delegated to the BOM.
 
 ```xml
 <dependencyManagement>
@@ -72,37 +72,37 @@ If you use Maven, use the following commands to add BOM to your pom.xml `depende
 </dependencyManagement>
 ```
 
-With Gradle, you can import the `spring-cloud-azure-dependencies` BOM in the following two ways.
+With Gradle, you can import the `spring-cloud-azure-dependencies` BOM in the following ways:
 
-Use the following commands to use the Gradle’s native BOM support by adding dependencies:
+* Use Gradle’s native BOM support by adding dependencies as shown in the following example:
 
-```kotlin
-import org.springframework.boot.gradle.plugin.SpringBootPlugin
+  ```kotlin
+  import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
-plugins {
-  id("java")
-  id("org.springframework.boot") version "3.2.O"
-}
+  plugins {
+    id("java")
+    id("org.springframework.boot") version "3.2.O"
+  }
 
-dependencies {
-    implementation(platform(SpringBootPlugin.BOM_COORDINATES))
-    implementation(platform("com.azure.spring:spring-cloud-azure-dependencies:{version}"))
-}
-```
+  dependencies {
+      implementation(platform(SpringBootPlugin.BOM_COORDINATES))
+      implementation(platform("com.azure.spring:spring-cloud-azure-dependencies:{version}"))
+  }
+  ```
 
-Use the following commands to use the `io.spring.dependency-management` plugin and import the BOM in `dependencyManagement`:
+* Use the `io.spring.dependency-management` plugin and import the BOM in `dependencyManagement`, as shown in the following example:
 
-```kotlin
-plugins {
-    id("io.spring.dependency-management") version "1.1.0"
-}
+  ```kotlin
+  plugins {
+      id("io.spring.dependency-management") version "1.1.0"
+  }
 
-dependencyManagement {
-    imports { 
-        mavenBom("com.azure.spring:spring-cloud-azure-dependencies:{version}")
-    }
-}
-```
+  dependencyManagement {
+      imports {
+          mavenBom("com.azure.spring:spring-cloud-azure-dependencies:{version}")
+      }
+  }
+  ```
 
 For more information, see [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/).
 
