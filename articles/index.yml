@@ -154,32 +154,32 @@ productDirectory:
     - title: Azure CLI
       imageSrc: /media/logos/logo_CLIgeneric.svg
       links:
-        - url: /azure/developer/cli/azure/get-started-with-azure-cli
+        - url: /cli/azure/get-started-with-azure-cli
           text: Get started
-        - url: /azure/developer/cli/azure/install-azure-cli
+        - url: /cli/azure/install-azure-cli
           text: Install
-        - url: /azure/developer/cli/azure/authenticate-azure-cli
+        - url: /cli/azure/authenticate-azure-cli
           text: Sign-in
-        - url: /azure/developer/cli/azure/query-azure-cli
+        - url: /cli/azure/query-azure-cli
           text: Run a query on the output of a CLI command
         - url: /cli/azure/azure-cli-vm-tutorial
           text: Create a virtual machine
-        - url: /azure/developer/cli/azure/
+        - url: /cli/azure/
           text: See more in the Azure CLI developer center
     - title: Azure Developer CLI (azd)
       imageSrc: https://static.docs.com/ui/media/product/azure/azure-developer-cli.svg
       links:
-        - url: /azure-developer-cli/overview
+        - url: /azure/developer/azure-developer-cli/overview
           text: What is Azure Developer CLI (azd)
-        - url: /azure-developer-cli/install-azd
+        - url: /azure/developer/azure-developer-cli/install-azd
           text: Install the Azure Developer CLI
-        - url: /azure-developer-cli/get-started
+        - url: /azure/developer/azure-developer-cli/get-started
           text: Deploy an azd template
-        - url: /azure-developer-cli/make-azd-compatible
+        - url: /azure/developer/azure-developer-cli/make-azd-compatible
           text: Make your project compatible with azd
-        - url: /azure-developer-cli/supported-languages-environments
+        - url: /azure/developer/azure-developer-cli/supported-languages-environments
           text: Supported languages and environments
-        - url: /azure-developer-cli/index.yml
+        - url: /azure/developer/azure-developer-cli/index.yml
           text: See more in the Azure Developer CLI developer center
     - title: DevContainers
       imageSrc: includes/media/dev-containers/dev-container.svg
