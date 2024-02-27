@@ -15,7 +15,7 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Terraform on Azure
+  - title: Getting started with Terraform on Azure
     linkLists:
       - linkListType: overview
         links:
@@ -23,22 +23,10 @@ landingContent:
             url: overview.md
           - text: Terraform AzAPI provider
             url: overview-azapi-provider.md
-      - linkListType: reference
-        links:
-          - text: AzureRM provider versions 
-            url: provider-version-history-azurerm.md
-      - linkListType: architecture
-        links:
-          - text: Terraform Azure Provider
-            url: https://aka.ms/terraform
       - linkListType: concept
         links:
           - text: Comparing features of Terraform and Bicep
             url: comparing-terraform-and-bicep.md
-
-  # Card
-  - title: Install and configure Terraform
-    linkLists:
       - linkListType: get-started
         links:
           - text: Install and configure Terraform
@@ -49,6 +37,18 @@ landingContent:
             url: authenticate-to-azure.md
           - text: Store Terraform state in Azure Storage
             url: store-state-in-azure-storage.md
+
+  # Card
+  - title: Top 10 most popular quickstarts 
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an AKS cluster
+            url: /azure/aks/learn/quick-kubernetes-deploy-terraform
+          - text: Create a Linux VM
+            url: /azure/virtual-machines/linux/quick-create-terraform
+          - text: Create a Windows VM
+            url: /azure/virtual-machines/windows/quick-create-terraform
 
   # Card
   - title: Azure Export for Terraform
@@ -75,28 +75,22 @@ landingContent:
             url: ./azure-export-for-terraform/export-advanced-scenarios.md
             
   # Card
-  - title: Testing Terraform projects
+  - title: Azure Terraform providers
     linkLists:
-      - linkListType: concept
+      - linkListType: reference
         links:
-          - text: Testing overview
-            url: best-practices-testing-overview.md
-      - linkListType: how-to-guide
+          - text: AzureRM provider versions 
+            url: provider-version-history-azurerm.md
+      - linkListType: architecture
         links:
-          - text: Integration testing
-            url: best-practices-integration-testing.md
-          - text: Compliance testing
-            url: best-practices-compliance-testing.md
-          - text: End-to-end testing
-            url: best-practices-end-to-end-testing.md
+          - text: Terraform Azure Provider
+            url: https://aka.ms/terraform
 
   # Card
   - title: Work with Containers (AKS, Application Gateway, ...)
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create an AKS cluster
-            url: /azure/aks/learn/quick-kubernetes-deploy-terraform
           - text: Create an ACI instance with a public IP address
             url: /azure/container-instances/container-instances-quickstart-terraform
           - text: Deploy Azure Application Gateway v2
@@ -111,12 +105,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a Linux VM
-            url: /azure/virtual-machines/linux/quick-create-terraform
           - text: Create a Linux VM cluster
             url: /azure/virtual-machines/linux/quick-cluster-create-terraform
-          - text: Create a Windows VM
-            url: /azure/virtual-machines/windows/quick-create-terraform
           - text: Create a Windows VM cluster
             url: /azure/virtual-machines/windows/quick-cluster-create-terraform
       - linkListType: how-to-guide
