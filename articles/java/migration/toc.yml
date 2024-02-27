@@ -56,6 +56,8 @@ items:
           href: migrate-websphere-to-virtual-machines.md
         - name: "Tutorial: WebSphere to Azure VMs manual guidance"
           href: migrate-websphere-to-azure-vm-manually.md
+        - name: "Tutorial: WebSphere to Azure VMs with high availability and disaster recovery"
+          href: migrate-websphere-to-vms-with-ha-dr.md
         - name: WebSphere to JBoss EAP on App Service
           href: migrate-websphere-to-jboss-eap-on-azure-app-service.md
         - name: WebSphere to WildFly on AKS
