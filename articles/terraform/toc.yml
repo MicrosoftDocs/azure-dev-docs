@@ -251,6 +251,10 @@
               items:
                 - name: Create a network and subnets
                   href: /azure/virtual-network/quick-create-terraform
+                - name: Create a NAT Gateway
+                  href: /azure/nat-gateway/quickstart-create-nat-gateway-terraform
+                - name: Create a private endpoint
+                  href: /azure/private-link/create-private-endpoint-terraform
         - name: Security
           items:
             - name: Application Gateway
