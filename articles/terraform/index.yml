@@ -97,6 +97,22 @@ landingContent:
             url: ./azure-export-for-terraform/export-advanced-scenarios.md
             
   # Card
+  - title: Networking
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy with IP Groups - Terraform
+            url: /azure/firewall/quick-create-ipgroup-terraform
+          - text: Deploy with multiple addresses - Terraform
+            url: /azure/firewall/quick-create-multiple-ip-terraform
+          - text: Deploy with Availability Zones - Terraform
+            url: /azure/firewall/deploy-terraform
+          - text: Create a NAT Gateway
+            url: /azure/nat-gateway/quickstart-create-nat-gateway-terraform
+          - text: Create a private endpoint
+            url: /azure/private-link/create-private-endpoint-terraform
+
+  # Card
   - title: Work with Containers (AKS, Application Gateway, ...)
     linkLists:
       - linkListType: quickstart
@@ -131,22 +147,6 @@ landingContent:
             url: create-vm-scaleset-network-disks-hcl.md
           - text: Provision VM scale set from a Packer custom image
             url: create-vm-scaleset-network-disks-using-packer-hcl.md
-
-  # Card
-  - title: Networking
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Deploy with IP Groups - Terraform
-            url: /azure/firewall/quick-create-ipgroup-terraform
-          - text: Deploy with multiple addresses - Terraform
-            url: /azure/firewall/quick-create-multiple-ip-terraform
-          - text: Deploy with Availability Zones - Terraform
-            url: /azure/firewall/deploy-terraform
-          - text: Create a NAT Gateway
-            url: /azure/nat-gateway/quickstart-create-nat-gateway-terraform
-          - text: Create a private endpoint
-            url: /azure/private-link/create-private-endpoint-terraform
 
   # Card
   - title: Manage databases
