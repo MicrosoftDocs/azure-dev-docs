@@ -47,6 +47,30 @@ landingContent:
             url: store-state-in-azure-storage.md
 
   # Card
+  - title: Azure Export for Terraform
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Export for Terraform overview
+            url: ./azure-export-for-terraform/export-terraform-overview.md
+      - linkListType: concept
+        links:
+          - text: Azure Export for Terraform concepts
+            url: ./azure-export-for-terraform/export-terraform-concepts.md
+      - linkListType: quickstart
+        links:
+          - text: Export your first resources
+            url: ./azure-export-for-terraform/export-first-resources.md
+          - text: Export resources to HCL code
+            url: ./azure-export-for-terraform/export-resources-hcl.md
+      - linkListType: how-to-guide
+        links:
+          - text: Select custom resources
+            url: ./azure-export-for-terraform/select-custom-resources.md
+          - text: Advanced scenarios
+            url: ./azure-export-for-terraform/export-advanced-scenarios.md
+            
+  # Card
   - title: Popular Terraform Azure service articles
     linkLists:
       - linkListType: quickstart
@@ -72,30 +96,6 @@ landingContent:
           - text: Create an Azure Container Instance with a public IP address using Terraform
             url:  /azure/container-instances/container-instances-quickstart-terraform
 
-  # Card
-  - title: Azure Export for Terraform
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Azure Export for Terraform overview
-            url: ./azure-export-for-terraform/export-terraform-overview.md
-      - linkListType: concept
-        links:
-          - text: Azure Export for Terraform concepts
-            url: ./azure-export-for-terraform/export-terraform-concepts.md
-      - linkListType: quickstart
-        links:
-          - text: Export your first resources
-            url: ./azure-export-for-terraform/export-first-resources.md
-          - text: Export resources to HCL code
-            url: ./azure-export-for-terraform/export-resources-hcl.md
-      - linkListType: how-to-guide
-        links:
-          - text: Select custom resources
-            url: ./azure-export-for-terraform/select-custom-resources.md
-          - text: Advanced scenarios
-            url: ./azure-export-for-terraform/export-advanced-scenarios.md
-            
   # Card
   - title: Networking
     linkLists:
@@ -147,17 +147,3 @@ landingContent:
             url: create-vm-scaleset-network-disks-hcl.md
           - text: Provision VM scale set from a Packer custom image
             url: create-vm-scaleset-network-disks-using-packer-hcl.md
-
-  # Card
-  - title: Manage databases
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Deploy a MySQL Flexible Server
-            url: /azure/mysql/flexible-server/quickstart-create-terraform
-      - linkListType: how-to-guide
-        links:
-          - text: Deploy an Azure Cosmos DB
-            url: deploy-azure-cosmos-db-to-azure-container-instances.md
-          - text: Deploy a PostgreSQL Flexible Server Database
-            url: deploy-postgresql-flexible-server-database.md
