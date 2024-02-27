@@ -427,7 +427,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.0](https://www.npmjs.com/package/@autorest/configuration/v/1.12.0) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240223.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240223.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240226.5](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240226.5) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -456,11 +456,11 @@
 | @azure-tools/cadl-providerhub | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.26.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.26.0) |  |  |
 | @azure-tools/cadl-python | npm [0.6.1](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.6.1) |  |  |
-| @azure-tools/cadl-ranch | npm [0.12.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.12.0) |  |  |
+| @azure-tools/cadl-ranch | npm [0.12.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.12.1) |  |  |
 | @azure-tools/cadl-ranch-api | npm [0.4.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.4.3) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.8.0) |  |  |
 | @azure-tools/cadl-ranch-expect | npm [0.13.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.13.0) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.30.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.30.0) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.30.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.30.1) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
