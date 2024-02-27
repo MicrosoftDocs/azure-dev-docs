@@ -143,6 +143,10 @@ landingContent:
             url: /azure/firewall/quick-create-multiple-ip-terraform
           - text: Deploy with Availability Zones - Terraform
             url: /azure/firewall/deploy-terraform
+          - text: Create a NAT Gateway
+            url: /azure/nat-gateway/quickstart-create-nat-gateway-terraform
+          - text: Create a private endpoint
+            url: /azure/private-link/create-private-endpoint-terraform
 
   # Card
   - title: Manage databases
