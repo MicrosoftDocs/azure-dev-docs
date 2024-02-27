@@ -89,7 +89,7 @@ Internally, `DefaultAzureCredential` implements a chain of credential providers 
 
 The order in which `DefaultAzureCredential` looks for credentials is shown in the following diagram and table:
 
-:::image type="content" source="./media/default-azure-credential-auth-flow-transparent.png" alt-text="A diagram that shows the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="./media/default-azure-credential-auth-flow-transparent.png":::
+:::image type="content" source="./media/default-azure-credential-auth-flow-transparent.png" alt-text="A diagram that shows the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="./media/default-azure-credential-auth-flow-transparent-big.png":::
 
 | Credential type               | Description |
 |-------------------------------|-------------|
