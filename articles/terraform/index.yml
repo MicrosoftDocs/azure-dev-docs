@@ -113,22 +113,6 @@ landingContent:
             url: /azure/private-link/create-private-endpoint-terraform
 
   # Card
-  - title: Work with Containers (AKS, Application Gateway, ...)
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Create an AKS cluster
-            url: /azure/aks/learn/quick-kubernetes-deploy-terraform
-          - text: Create an ACI instance with a public IP address
-            url: /azure/container-instances/container-instances-quickstart-terraform
-          - text: Deploy Azure Application Gateway v2
-            url: /azure/application-gateway/quick-create-terraform
-      - linkListType: how-to-guide
-        links:
-          - text: Create an Application Gateway ingress controller in AKS
-            url: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
-
-  # Card
   - title: Manage infrastructure
     linkLists:
       - linkListType: quickstart
@@ -147,3 +131,19 @@ landingContent:
             url: create-vm-scaleset-network-disks-hcl.md
           - text: Provision VM scale set from a Packer custom image
             url: create-vm-scaleset-network-disks-using-packer-hcl.md
+
+  # Card
+  - title: Work with Containers (AKS, Application Gateway, ...)
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an AKS cluster
+            url: /azure/aks/learn/quick-kubernetes-deploy-terraform
+          - text: Create an ACI instance with a public IP address
+            url: /azure/container-instances/container-instances-quickstart-terraform
+          - text: Deploy Azure Application Gateway v2
+            url: /azure/application-gateway/quick-create-terraform
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Application Gateway ingress controller in AKS
+            url: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
