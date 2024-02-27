@@ -15,7 +15,7 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Terraform on Azure
+  - title: Getting started
     linkLists:
       - linkListType: overview
         links:
