@@ -91,6 +91,8 @@ The order in which `DefaultAzureCredential` looks for credentials is shown in th
 
 :::image type="content" source="./media/default-azure-credential-auth-flow.svg" alt-text="A diagram that shows the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="./media/default-azure-credential-auth-flow-transparent-big.png":::
 
+:::image type="content" source="./media/default-azure-credential-auth-flow-new.svg" alt-text="A diagram that shows the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="./media/default-azure-credential-auth-flow-new-big.png":::
+
 | Credential type               | Description |
 |-------------------------------|-------------|
 | Environment | The `DefaultAzureCredential` object reads a set of environment variables to determine if an application service principal (application user) was set for the app. If so, `DefaultAzureCredential` uses these values to authenticate the app to Azure.<br><br>This method is most often used in server environments, but you can also use it when you develop locally.             |
