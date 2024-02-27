@@ -91,7 +91,7 @@ The order in which `DefaultAzureCredential` looks for credentials is shown in th
 
 :::image type="content" source="./media/default-azure-credential-auth-flow.svg" alt-text="A diagram that shows the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="./media/default-azure-credential-auth-flow-transparent-big.png":::
 
-:::image type="content" source="./media/default-azure-credential-auth-flow-new.svg" alt-text="A diagram that shows the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="./media/default-azure-credential-auth-flow-new-big.png":::
+:::image type="content" source="./media/default-azure-credential-auth-flow-new.svg" alt-text="A diagram that shows the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application rearranged." lightbox="./media/default-azure-credential-auth-flow-new-big.png":::
 
 | Credential type               | Description |
 |-------------------------------|-------------|
