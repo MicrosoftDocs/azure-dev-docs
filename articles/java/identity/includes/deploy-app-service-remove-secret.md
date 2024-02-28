@@ -1,10 +1,9 @@
 ---
 ms.author: givermei
 ms.date: 01/01/2024
-ms.custom: devx-track-java
 ---
 
-The *authentication.properties* file of the application currently holds the value of your client secret in the `aad.secret` parameter. It is not good practice to keep this value in this file. You might also risk committing it to a Git repository. Since this is a secret value it should be treated as such.
+The *authentication.properties* file of the application currently holds the value of your client secret in the `aad.secret` parameter. It isn't good practice to keep this value in this file. You might also risk committing it to a Git repository. Since this is a secret value it should be treated as such.
 
 As an extra step you can store this value in [Key Vault](/azure/key-vault/general/basic-concepts) and use [Key Vault References](/azure/app-service/app-service-key-vault-references?tabs=azure-cli) to make it available in your web application. You can follow the below steps to move the value of `aad.secret` to Key Vault and use it in your code.
 

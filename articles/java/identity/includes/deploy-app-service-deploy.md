@@ -1,7 +1,6 @@
 ---
 ms.author: givermei
 ms.date: 01/01/2024
-ms.custom: devx-track-java
 ---
 
 You're now ready to deploy your Web App to Azure App Service. Make sure you're logged into your Azure environment to execute the deployment.

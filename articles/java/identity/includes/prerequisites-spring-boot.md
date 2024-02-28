@@ -1,8 +1,8 @@
 ---
 ms.author: bbanerjee
 ms.date: 01/01/2024
-ms.custom: devx-track-java
 ---
+
 ## Prerequisites
 
 - [JDK Version 15](https://jdk.java.net/15/). This sample has been developed on a system with Java 15 but may be compatible with other versions.

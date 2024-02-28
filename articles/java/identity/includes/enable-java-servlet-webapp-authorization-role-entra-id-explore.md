@@ -1,7 +1,6 @@
 ---
 ms.author: bbanerjee
 ms.date: 01/01/2024
-ms.custom: devx-track-java
 ---
 
 ## Explore the sample
@@ -12,8 +11,8 @@ ms.custom: devx-track-java
 - On the consent screen, note the scopes that are being requested.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
 - The middle of the screen now has an option to click for **ID Token Details**: click it to see some of the ID token's decoded claims.
-- Click the **Admins Only** button to view the `/admin_only`. Only users with app role **PrivilegedAdmin** can view this page. Otherwise an authorization failure message is displayed.
-- Click the **Regular Users** button to view the `/regular_user` page. Only users with app role **RegularUser** or **PrivilegedAdmin** can view this page. Otherwise an authorization failure message is displayed.
+- Select **Admins Only** to view the `/admin_only`. Only users with app role **PrivilegedAdmin** can view this page. Otherwise an authorization failure message is displayed.
+- Select **Regular Users** to view the `/regular_user` page. Only users with app role **RegularUser** or **PrivilegedAdmin** can view this page. Otherwise an authorization failure message is displayed.
 - You can also use the button on the top right to sign out.
 
 ## Contents
@@ -36,7 +35,7 @@ The full code for this sample is available at [https://github.com/Azure-Samples/
 
 ## Process a Roles claim in the ID token
 
-The name of the the roles that the signed in user is assigned to is returned in the `roles` claim of the token.
+The name of the roles that the signed in user is assigned to is returned in the `roles` claim of the token.
 
 ```json
 {

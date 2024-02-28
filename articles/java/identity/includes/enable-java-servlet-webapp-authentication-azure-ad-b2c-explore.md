@@ -1,7 +1,6 @@
 ---
 ms.author: bbanerjee
 ms.date: 01/01/2024
-ms.custom: devx-track-java
 ---
 
 ## Explore the sample

@@ -1,7 +1,6 @@
 ---
 ms.author: givermei
 ms.date: 01/01/2024
-ms.custom: devx-track-java
 ---
 
 When you deploy your application to Azure Spring Apps, your redirect URL changes to the redirect URL of your deployed app instance in Azure Spring Apps. You need to change these settings in your *application.yml* file.

@@ -1,7 +1,6 @@
 ---
 ms.author: givermei
 ms.date: 01/01/2024
-ms.custom: devx-track-java
 ---
 
 #### [Deploy to Azure App Service](#tab/appsvc)
@@ -28,7 +27,7 @@ ms.custom: devx-track-java
 
 #### [Run locally](#tab/local)
 
-Before you can deploy to JBoss, you need to make some configuration changes in the sample itself and (re)build the package:
+Before you can deploy to JBoss, you need to make some configuration changes in the sample itself and build or rebuild the package:
 
 1. In the sample there is likely an *application.properties* or *authentication.properties* file where you configured the client ID, tenant, redirect URL, etc.
 
@@ -48,6 +47,6 @@ To deploy the sample to JBoss EAP via the web console:
 
 1. Select the *.war* file you uploaded, click En/Disable, and Confirm to start the application
 
-1. Once the application starts, navigate to http://localhost:9990/{whatever you named the application}/, and you should be able to access the application
+1. After the application starts, navigate to http://localhost:9990/{whatever you named the application}/, and you should be able to access the application
 
 ---

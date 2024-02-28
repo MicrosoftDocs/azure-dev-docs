@@ -29,7 +29,7 @@ This article demonstrates a Java Spring MVC web app that signs in users on your 
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [VS Code Azure Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
-[!INCLUDE [spring-boot-overview-recommendation.md](includes/spring-boot-overview-recommendation.md)]
+[!INCLUDE [spring-boot-overview-recommendations.md](includes/spring-boot-overview-recommendations.md)]
 
 ## Setup
 
@@ -57,13 +57,13 @@ As a first step, you need to:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If your account is present in more than one **Azure AD B2C** tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Azure AD B2C tenant.
 
-### Create User Flows and Custom Policies
+### Create user flows and custom policies
 
 Please refer to [Tutorial: Create user flows in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-create-user-flows) to create common user flows like sign up, sign in, edit profile, and password reset.
 
 You may consider creating [Custom policies in Azure Active Directory B2C](/azure/active-directory-b2c/custom-policy-overview) as well, however, this is beyond the scope of this tutorial.
 
-### Add External Identity Providers
+### Add external identity providers
 
 Please refer to: [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-add-identity-providers)
 
@@ -72,7 +72,7 @@ Please refer to: [Tutorial: Add identity providers to your applications in Azure
 1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Azure AD B2C** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
-   - In the **Name** section, enter a meaningful application name for display to users of the app, for example `java-spring-webapp-auth-b2c`.
+   - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-spring-webapp-auth-b2c`.
    - Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
 1. Select **Register** to create the application.
@@ -84,7 +84,7 @@ Please refer to: [Tutorial: Add identity providers to your applications in Azure
    - Type a key description - for example, `app secret`.
    - Select one of the available key durations as per your security concerns - for example, **In 2 years**.
    - The generated key value is displayed when you click the **Add** button. Copy the generated value for use in the steps later.
-   - You need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
 
 #### Configure the web app (java-spring-webapp-auth-b2c) to use your app registration
 

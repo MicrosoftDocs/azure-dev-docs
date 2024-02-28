@@ -1,7 +1,6 @@
 ---
 ms.author: givermei
 ms.date: 01/01/2024
-ms.custom: devx-track-java
 ---
 
 #### [Deploy to Azure App Service](#tab/appsvc)
@@ -36,6 +35,6 @@ To run the sample on Tomcat:
 
 1. Copy the *.war* file you generated with Maven to the /webapps/ directory in your Tomcat installation, and start the Tomcat server
 
-1. Once Tomcat starts, open your browser and navigate to whatever URL you defined in step 1, and you should be able to access the application
+1. After Tomcat starts, open your browser and navigate to whatever URL you defined in step 1, and you should be able to access the application
 
 ---

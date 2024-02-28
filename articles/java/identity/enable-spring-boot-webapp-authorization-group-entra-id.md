@@ -32,7 +32,7 @@ An Identity Developer session covered Microsoft Entra ID App roles and security 
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [VS Code Azure Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
-[!INCLUDE [spring-boot-overview-recommendation.md](includes/spring-boot-overview-recommendation.md)]
+[!INCLUDE [spring-boot-overview-recommendations.md](includes/spring-boot-overview-recommendations.md)]
 
 ## Setup
 
@@ -96,7 +96,7 @@ There is one project in this sample. To register it, you can:
 1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Microsoft Entra ID** service.
 1. Select the **App Registrations** blade on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
-   - In the **Name** section, enter a meaningful application name for display to users of the app, for example `java-spring-webapp-groups`.
+   - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-spring-webapp-groups`.
    - Under **Supported account types**, select **Accounts in this organizational directory only**.
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
 1. Select **Register** to create the application.
@@ -106,7 +106,7 @@ There is one project in this sample. To register it, you can:
    - Type a key description (for instance `app secret`),
    - Select one of the available key durations (**6 months**, **12 months** or **Custom**) as per your security posture.
    - The generated key value is displayed when you select the **Add** button. Copy and save the generated value for use in later steps.
-   - You need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
 1. In the app's registration screen, select the **API permissions** blade in the left to open the page where we add access to the APIs that your application needs.
    - Select the **Add a permission** button and then,
    - Ensure that the **Microsoft APIs** tab is selected.
@@ -154,9 +154,9 @@ You have two different options available to you on how you can further configure
 
 ##### Prerequisites, benefits and limitations of using this option
 
-1. This option is useful when your application is interested in a selected set of groups that a signing-in user may be assigned to and not every security group this user is assigned to in the tenant. This option also saves your application from running into the [overage](#groups-overage-claim) issue.
-1. This feature is not available in the [Microsoft Entra ID Free edition](https://www.microsoft.com/security/business/microsoft-entra-pricing).
-1. **Nested group assignments** are not available when this option is utilized.
+1. This option is useful when your application is interested in a selected set of groups that a signing-in user may be assigned to and not every security group this user is assigned to in the tenant. This option also saves your application from running into the [overage](#the-groups-overage-claim) issue.
+1. This feature isn't available in the [Microsoft Entra ID Free edition](https://www.microsoft.com/security/business/microsoft-entra-pricing).
+1. **Nested group assignments** aren't available when this option is utilized.
 
 ##### Steps to enable this option in your app
 
@@ -255,8 +255,8 @@ Open the *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwe
 - Upon successful completion of the sign-in flow, you should be redirected to the home page (`sign in status`), or one of the other pages, depending on which button triggered your sign-in flow.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
 - If you're on the home page, you can see an option to click **ID Token Details**: click it to see some of the ID token's decoded claims, including **groups**.
-- Click the **Admins Only** button to view the `/admin_only`. Only users belonging to the **AdminGroup** security group can view this page. Otherwise an authorization failure message is displayed.
-- Click the **Regular Users** button to view the `/regular_user` page. Only users belonging to the **UserGroup** security group can view this page. Otherwise an authorization failure message is displayed.
+- Select **Admins Only** to view the `/admin_only`. Only users belonging to the **AdminGroup** security group can view this page. Otherwise an authorization failure message is displayed.
+- Select **Regular Users** to view the `/regular_user` page. Only users belonging to the **UserGroup** security group can view this page. Otherwise an authorization failure message is displayed.
 - You can also use the button on the top right to sign out. The status page reflects this.
 
 ## Contents
@@ -310,7 +310,7 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Process a Groups claim in the ID token
 
-The name of the the roles that the signed-in user is assigned to is returned in the `groups` claim of the token.
+The name of the roles that the signed-in user is assigned to is returned in the `groups` claim of the token.
 
 ```json
 {
@@ -399,7 +399,7 @@ public class SecurityConfig extends AADWebSecurityConfigurerAdapter{
 }
 ```
 
-### The Groups Overage Claim
+### The groups overage claim
 
 To ensure that the token size doesn’t exceed HTTP header size limits, the Microsoft Identity Platform limits the number of object Ids that it includes in the **groups** claim.
 

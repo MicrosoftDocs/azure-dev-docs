@@ -27,7 +27,7 @@ This article demonstrates a Java WebLogic web app that signs in users to your Mi
 
 (These instructions assume you have installed WebLogic and set up some server domain)
 
-Before you can deploy to WebLogic, you need to make some configuration changes in the sample itself and (re)build the package:
+Before you can deploy to WebLogic, you need to make some configuration changes in the sample itself and build or rebuild the package:
 
 1. In the sample there is likely an *application.properties* or *authentication.properties* file where you configured the client ID, tenant, redirect URL, etc.
 
@@ -41,13 +41,13 @@ To deploy the sample to WebLogic via the web console:
 
 1. Navigate to the WebLogic web console in your browser, http://localhost:7001/console
 
-1. Go to Domain Structure > Deployments, click Install, click upload your files, and find the *.war* file you built with Maven
+1. Go to **Domain Structure** > **Deployments**, select **Install**, select **Upload your files**, and then find the *.war* file that you built by using Maven..
 
-1. Select Install this deployment as an application, click Next, click Finish, and then Save
+1. Select Install this deployment as an application, select **Next**, select **Finish**, and then select **Save**.
 
     - Most of the default settings should be fine except that you should name the application to match the 'Redirect URI' you set in sample configuration/Azure app registration, i.e. if the redirect URI is http://localhost:7001/msal4j-servlet-auth then you should name the application 'msal4j-servlet-auth'
 1. Go back to Domain Structure > Deployments, and Start your application
 
-1. Once the application starts, navigate to http://localhost:7001/{whatever you named the application}/, and you should be able to access the application
+1. After the application starts, navigate to http://localhost:7001/{whatever you named the application}/, and you should be able to access the application
 
 [!INCLUDE [enable-java-servlet-webapp-authentication-entra-id-explore.md](includes/enable-java-servlet-webapp-authentication-entra-id-explore.md)]

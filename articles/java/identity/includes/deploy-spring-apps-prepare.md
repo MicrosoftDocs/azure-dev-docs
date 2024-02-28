@@ -1,7 +1,6 @@
 ---
 ms.author: givermei
 ms.date: 01/01/2024
-ms.custom: devx-track-java
 ---
 
 Use the following steps to prepare the project:

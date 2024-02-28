@@ -1,7 +1,6 @@
 ---
 ms.author: bbanerjee
 ms.date: 01/01/2024
-ms.custom: devx-track-java
 ---
 
 ## Explore the sample
@@ -13,7 +12,7 @@ ms.custom: devx-track-java
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
 - The middle of the screen now has an option to click for **ID Token Details**: click it to see some of the ID token's decoded claims.
 - You can also use the button on the top right to sign out.
-- After signing out, click the link to `ID Token Details` to observe that the app displays a `401: unauthorized` error instead of the ID token claims when the user is not authorized.
+- After signing out, click the link to `ID Token Details` to observe that the app displays a `401: unauthorized` error instead of the ID token claims when the user isn't authorized.
 
 ## Contents
 

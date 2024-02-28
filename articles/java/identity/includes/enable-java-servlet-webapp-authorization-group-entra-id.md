@@ -1,7 +1,6 @@
 ---
 ms.author: bbanerjee
 ms.date: 01/01/2024
-ms.custom: devx-track-java
 ---
 
 ## Setup
@@ -68,7 +67,7 @@ Following this guide, you must:
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 1. Select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
-   - In the **Name** section, enter a meaningful application name for display to users of the app, for example `java-servlet-webapp-groups`.
+   - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-servlet-webapp-groups`.
    - Under **Supported account types**, select **Accounts in this organizational directory only**.
    - In the **Redirect URI** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/msal4j-servlet-groups/auth/redirect`.
 1. Select **Register** to create the application.
@@ -79,7 +78,7 @@ Following this guide, you must:
    - Type a key description (for instance `app secret`),
    - Select one of the available key durations (**In 1 year**, **In 2 years**, or **Never Expires**) as per your security concerns.
    - The generated key value is displayed when you click the **Add** button. Copy the generated value for use in the steps later.
-   - You need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
 1. In the app's registration screen, select the **API permissions** blade in the left to open the page where we add access to the APIs that your application needs.
    - Select the **Add a permission** button and then:
    - Ensure that the **Microsoft APIs** tab is selected.
@@ -122,8 +121,8 @@ You have two different options available to you on how you can further configure
 ##### Prerequisites, benefits and limitations of using this option
 
 1. This option is useful when your application is interested in a selected set of groups that a signing-in user may be assigned to and not every security group this user is assigned to in the tenant. This option also saves your application from running into the [overage](#the-groups-overage-claim) issue.
-1. This feature is not available in the [Microsoft Entra ID Free edition](https://www.microsoft.com/security/business/microsoft-entra-pricing).
-1. **Nested group assignments** are not available when this option is utilized.
+1. This feature isn't available in the [Microsoft Entra ID Free edition](https://www.microsoft.com/security/business/microsoft-entra-pricing).
+1. **Nested group assignments** aren't available when this option is utilized.
 
 ##### Steps to enable this option in your app
 

@@ -14,7 +14,7 @@ This guidance assumes you have run through any of the Java WebSphere web app exa
 
 ## Prerequisites
 
-- Make sure you have followed the guidance of [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](/azure/developer/java/ee/traditional-websphere-application-server-virtual-machines?tabs=basic) to deploy a [IBM WebSphere Application Server Cluster](https://aka.ms/websphere-on-azure-portal).
+- Make sure you have followed the guidance of [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](../ee/traditional-websphere-application-server-virtual-machines.md) to deploy a [IBM WebSphere Application Server Cluster](https://aka.ms/websphere-on-azure-portal).
 
 ## Prepare the web app for deployment
 
@@ -34,37 +34,39 @@ When you deploy your application to WebSphere Application Server, your redirect 
    mvn clean package
    ```
 
-1. Once the code has build, copy the *.war* file over to your target server's file system.
+1. After the code has finished building, copy the *.war* file over to your target server's file system.
 
 ## Update your Microsoft Entra ID App Registration
 
 Since the redirect URI changes to your deployed App on WebSphere, you also need to change the redirect URI in your Microsoft Entra ID App Registration.
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
-1. Use the search box to search for you app registration, for example `java-servlet-webapp-authentication`.
-1. Open your app registration by clicking on its name.
+1. Use the search box to search for you app registration - for example, `java-servlet-webapp-authentication`.
+1. Open your app registration by selecting its name.
 1. Select **Authentication** from the menu.
 1. In the **Web** - **Redirect URIs** section, select **Add URI**.
-1. Fill out the URI of your web app, appending **/auth/redirect**, for example `https://<server-url>:<port-number>/auth/redirect`.
+1. Fill out the URI of your web app, appending **/auth/redirect** - for example, `https://<server-url>:<port-number>/auth/redirect`.
 1. Select **Save**.
 
 ## Deploy the application
 
-1. In the 'Applications' tab, select 'New Application', then 'New Enterprise Application'
+1. On the **Applications** tab, select **New Application**, then **New Enterprise Application**.
 
-1. Choose the .war you built, then click 'next' until you get to the 'Map context roots for Web modules' installation step (the other default settings should be fine)
+1. Choose the *.war* file you built, then select **Next** until you get to the 'Map context roots for Web modules' installation step (the other default settings should be fine)
 
 1. For the context root, set it to the same value as after the port number in the 'Redirect URI' you set in sample configuration/Azure app registration, i.e. if the redirect URI is `http://<server-url>:9080/msal4j-servlet-auth/` then the context root should just be 'msal4j-servlet-auth'
 
-1. Click 'Finish', and after the application finishes installing go to the 'WebSphere enterprise applications' section of the 'Applications' tab
+1. Select **Finish**.
 
-1. Select the .war you just installed from the list of applications and click 'Start' to deploy
+1. After the application finishes installing, go to the **WebSphere enterprise applications** section of the **Applications** tab.
 
-1. One it finishes deploying, navigate to `http://<server-url>:9080/{whatever you set as the context root}` and you should be able to see the application
+1. Select the *.war* file you just installed from the list of applications and then select **Start** to deploy.
+
+1. After it finishes deploying, navigate to `http://<server-url>:9080/{whatever you set as the context root}` and you should be able to see the application
 
 ## Next steps
 
 For more information and other deployment options, see the following articles:
 
-- [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](/azure/developer/java/ee/traditional-websphere-application-server-virtual-machines?tabs=basic)
-- [What are solutions to run the IBM WebSphere family of products on Azure?](/azure/developer/java/ee/websphere-family)
+- [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](../ee/traditional-websphere-application-server-virtual-machines.md)
+- [What are solutions to run the IBM WebSphere family of products on Azure?](../ee/websphere-family.md)

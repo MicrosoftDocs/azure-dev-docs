@@ -1,7 +1,6 @@
 ---
 ms.author: bbanerjee
 ms.date: 01/01/2024
-ms.custom: devx-track-java
 ---
 
 ## Explore the sample
@@ -18,7 +17,7 @@ ms.custom: devx-track-java
   - If your signed in user is in the GroupMember group, the user can enter the Regular User page only.
   - If your signed in user is in neither group, the user can't access either of the two pages.
 - You can also use the button on the top right to sign out.
-- After signing out, click the link to `ID Token Details` to observe that the app displays a `401: unauthorized` error instead of the ID token claims when the user is not authorized.
+- After signing out, click the link to `ID Token Details` to observe that the app displays a `401: unauthorized` error instead of the ID token claims when the user isn't authorized.
 
 ## Contents
 
@@ -217,4 +216,3 @@ app.protect.groups=/admin_only admin, /regular_user admin user
 - [Understanding Microsoft Entra ID application consent experiences](/entra/identity-platform/application-consent-experience)
 - [Understand user and admin consent](/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
 - [MSAL code samples](/entra/identity-platform/sample-v2-code?tabs=framework#java)
-

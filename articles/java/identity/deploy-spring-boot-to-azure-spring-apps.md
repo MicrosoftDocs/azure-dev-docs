@@ -47,4 +47,4 @@ This guidance assumes you have run through any of the Spring Boot Web app exampl
 For more information and other deployment options, see the following articles:
 
 - [Quickstart: Deploy your first application to Azure Spring Apps](/azure/spring-apps/enterprise/quickstart?tabs=Azure-portal%2CAzure-portal-maven-plugin-ent%2CConsumption-workload&pivots=sc-enterprise)
-- [Spring Boot to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps)
+- [Spring Boot to Azure Spring Apps](../migration/migrate-spring-boot-to-azure-spring-apps.md)
