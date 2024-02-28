@@ -20,10 +20,10 @@ Using RBAC with Application Roles and Role Claims, developers can securely enfor
 
 For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](https://go.microsoft.com/fwlink/?LinkId=394414).
 
-[!INCLUDE [scenario-authz-roles.md](includes/scenario-authz-roles.md)]
+[!INCLUDE [scenario-authorization-roles.md](includes/scenario-authorization-roles.md)]
 
-[!INCLUDE [prereqs-authz-roles.md](includes/prereqs-authz-roles.md)]
-[!INCLUDE [prereqs-jboss.md](includes/prereqs-jboss.md)]
+[!INCLUDE [prerequisites-authorization-roles.md](includes/prerequisites-authorization-roles.md)]
+[!INCLUDE [prerequisites-jboss.md](includes/prerequisites-jboss.md)]
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

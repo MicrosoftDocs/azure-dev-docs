@@ -14,10 +14,10 @@ This article demonstrates a Java Tomcat web app that signs in users and obtains 
 
 :::image type="content" source="./media/topology.png" alt-text="Overview":::
 
-[!INCLUDE [scenario-authz-graph.md](includes/scenario-authz-graph.md)]
+[!INCLUDE [scenario-authorization-graph.md](includes/scenario-authorization-graph.md)]
 
-[!INCLUDE [prereqs-authz-graph.md](includes/prereqs-authz-graph.md)]
-[!INCLUDE [prereqs-tomcat.md](includes/prereqs-tomcat.md)]
+[!INCLUDE [prerequisites-authorization-graph.md](includes/prerequisites-authorization-graph.md)]
+[!INCLUDE [prerequisites-tomcat.md](includes/prerequisites-tomcat.md)]
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

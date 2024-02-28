@@ -37,9 +37,9 @@ These application roles are defined in the [Azure portal](https://portal.azure.c
 > [!NOTE]
 > Role claims aren't present for guest users in a tenant if the `https://login.microsoftonline.com/common/` endpoint is used as the authority to sign in users. You need to sign-in a user to a tenanted endpoint like `https://login.microsoftonline.com/tenantid`.
 
-[!INCLUDE [spring-mvc-prereqs.md](includes/spring-mvc-prereqs.md)]
+[!INCLUDE [prerequisites-spring-boot.md](includes/prerequisites-spring-boot.md)]
 
-[!INCLUDE [spring-mvc-overview-recommendation.md](includes/spring-mvc-overview-recommendation.md)]
+[!INCLUDE [spring-boot-overview-recommendation.md](includes/spring-boot-overview-recommendation.md)]
 
 ## Setup
 

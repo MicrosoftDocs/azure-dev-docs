@@ -16,8 +16,8 @@ This article demonstrates a Java WebLogic web app that signs in users to your Mi
 
 [!INCLUDE [scenario-sign-in-entra.md](includes/scenario-sign-in-entra.md)]
 
-[!INCLUDE [prereqs-sign-in-entra.md](includes/prereqs-sign-in-entra.md)]
-[!INCLUDE [prereqs-weblogic.md](includes/prereqs-weblogic.md)]
+[!INCLUDE [prerequisites-sign-in-entra.md](includes/prerequisites-sign-in-entra.md)]
+[!INCLUDE [prerequisites-weblogic.md](includes/prerequisites-weblogic.md)]
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

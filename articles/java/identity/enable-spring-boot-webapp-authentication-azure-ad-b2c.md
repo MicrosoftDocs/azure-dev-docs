@@ -29,7 +29,7 @@ This article demonstrates a Java Spring MVC web app that signs in users on your 
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [VS Code Azure Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
-[!INCLUDE [spring-mvc-overview-recommendation.md](includes/spring-mvc-overview-recommendation.md)]
+[!INCLUDE [spring-boot-overview-recommendation.md](includes/spring-boot-overview-recommendation.md)]
 
 ## Setup
 

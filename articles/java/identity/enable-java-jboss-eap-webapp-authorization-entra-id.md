@@ -14,10 +14,10 @@ This sample demonstrates a Java JBoss EAP web app that signs in users and obtain
 
 :::image type="content" source="./media/topology.png" alt-text="Overview":::
 
-[!INCLUDE [scenario-authz-graph.md](includes/scenario-authz-graph.md)]
+[!INCLUDE [scenario-authorization-graph.md](includes/scenario-authorization-graph.md)]
 
-[!INCLUDE [prereqs-authz-graph.md](includes/prereqs-authz-graph.md)]
-[!INCLUDE [prereqs-jboss.md](includes/prereqs-jboss.md)]
+[!INCLUDE [prerequisites-authorization-graph.md](includes/prerequisites-authorization-graph.md)]
+[!INCLUDE [prerequisites-jboss.md](includes/prerequisites-jboss.md)]
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

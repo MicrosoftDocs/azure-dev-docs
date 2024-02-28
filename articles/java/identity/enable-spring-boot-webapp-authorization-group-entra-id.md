@@ -32,7 +32,7 @@ An Identity Developer session covered Microsoft Entra ID App roles and security 
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [VS Code Azure Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
-[!INCLUDE [spring-mvc-overview-recommendation.md](includes/spring-mvc-overview-recommendation.md)]
+[!INCLUDE [spring-boot-overview-recommendation.md](includes/spring-boot-overview-recommendation.md)]
 
 ## Setup
 

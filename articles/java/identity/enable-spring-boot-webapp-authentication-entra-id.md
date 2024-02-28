@@ -19,9 +19,9 @@ This article demonstrates a Java Spring MVC web app that signs in users on your 
 1. The client Java Spring MVC web app leverages the Microsoft Entra ID Spring Boot Starter client library for Java to sign-in a user and obtain an ID Token from **Microsoft Entra ID**.
 2. The **ID Token** proves that the user has successfully authenticated with **Microsoft Entra ID** and allows the user to access protected routes.
 
-[!INCLUDE [spring-mvc-prereqs.md](includes/spring-mvc-prereqs.md)]
+[!INCLUDE [prerequisites-spring-boot.md](includes/prerequisites-spring-boot.md)]
 
-[!INCLUDE [spring-mvc-overview-recommendation.md](includes/spring-mvc-overview-recommendation.md)]
+[!INCLUDE [spring-boot-overview-recommendation.md](includes/spring-boot-overview-recommendation.md)]
 
 ## Setup
 

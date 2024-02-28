@@ -19,9 +19,9 @@ This article demonstrates a Java Spring Boot web app that signs in users and obt
 1. This Java Spring MVC web app leverages the **Microsoft Entra ID Spring Boot Starter client library for Java** to obtain an [Access Token](/entra/identity-platform/access-tokens) for [Microsoft Graph](/graph/overview) from **Microsoft Entra ID**.
 1. The **Access Token** proves that the user is authorized to access the Microsoft Graph API endpoint as defined in the scope.
 
-[!INCLUDE [spring-mvc-prereqs.md](includes/spring-mvc-prereqs.md)]
+[!INCLUDE [prerequisites-spring-boot.md](includes/prerequisites-spring-boot.md)]
 
-[!INCLUDE [spring-mvc-overview-recommendation.md](includes/spring-mvc-overview-recommendation.md)]
+[!INCLUDE [spring-boot-overview-recommendation.md](includes/spring-boot-overview-recommendation.md)]
 
 ## Setup
 

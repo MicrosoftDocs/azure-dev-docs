@@ -16,10 +16,10 @@ This article demonstrates how to create a Java WebSphere web app that signs in u
 
 An Identity Developer session covered Microsoft Entra ID App roles and security groups, featuring this scenario and how to handle the overage claim. [Watch the video Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0)
 
-[!INCLUDE [scenario-authz-groups.md](includes/scenario-authz-groups.md)]
+[!INCLUDE [scenario-authorization-groups.md](includes/scenario-authorization-groups.md)]
 
-[!INCLUDE [prereqs-authz-groups.md](includes/prereqs-authz-groups.md)]
-[!INCLUDE [prereqs-websphere.md](includes/prereqs-websphere.md)]
+[!INCLUDE [prerequisites-authorization-groups.md](includes/prerequisites-authorization-groups.md)]
+[!INCLUDE [prerequisites-websphere.md](includes/prerequisites-websphere.md)]
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

@@ -14,10 +14,10 @@ This article demonstrates a Java WebSphere web app that signs in users and obtai
 
 :::image type="content" source="./media/topology.png" alt-text="Overview":::
 
-[!INCLUDE [scenario-authz-graph.md](includes/scenario-authz-graph.md)]
+[!INCLUDE [scenario-authorization-graph.md](includes/scenario-authorization-graph.md)]
 
-[!INCLUDE [prereqs-authz-graph.md](includes/prereqs-authz-graph.md)]
-[!INCLUDE [prereqs-websphere.md](includes/prereqs-websphere.md)]
+[!INCLUDE [prerequisites-authorization-graph.md](includes/prerequisites-authorization-graph.md)]
+[!INCLUDE [prerequisites-websphere.md](includes/prerequisites-websphere.md)]
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 
