@@ -29,7 +29,7 @@ The following diagram illustrates the architecture you build:
 
 Azure Traffic Manager checks the health of your regions and routes the traffic accordingly to the application tier. The primary region has a full deployment of the WebSphere cluster. After the primary region is protected, the secondary region is restored during the failover using the Azure Site Recovery. As a result, the primary region is actively servicing network requests from the users. The secondary region is passive and activated to receive traffic only when the primary region experiences a service disruption. Azure Traffic Manager uses the health check feature of the Azure Application Gateway to implement this conditional routing. The geo-failover RTO of the application tier depends on the time for shutting down the primary cluster, restoring the secondary cluster, and starting VMs and running the secondary WebSphere cluster. The RPO depends on the replication policy of the Azure Site Recovery and Azure SQL Database because the cluster data is stored and replicated in the local storage of the VMs and application data is persisted and replicated in the Azure SQL Database failover group.
 
-The database tier consists of an Azure SQL Database failover group with a primary server and a secondary server. The read-write endpoint always points to the primary server and is connected to WebSphere cluster in each region. A geo-failover switches all secondary databases in the group to the primary role. For geo-failover RPO and RTO of Azure SQL Database, see [Overview of Business Continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql-db&preserve-view=true).
+The database tier consists of an Azure SQL Database failover group with a primary server and a secondary server. The read/write listener endpoint always points to the primary server and is connected to WebSphere cluster in each region. A geo-failover switches all secondary databases in the group to the primary role. For geo-failover RPO and RTO of Azure SQL Database, see [Overview of Business Continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql-db&preserve-view=true).
 
 This tutorial was written with the Azure Site Recovery and Azure SQL Database service because the tutorial relies on the HA features of these services. Other database choices are possible, but the HA features of whatever database you chose must be considered.
 
@@ -101,6 +101,67 @@ Then, create an Azure SQL Database failover group by following the Azure portal 
    1. In step 5 for configuring the **Databases within the group**, select the database you created in the primary server - for example, *mySampleDatabase*.
 
 1. After you complete all the steps in the section [Test planned failover](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#test-planned-failover), keep the failover group page open and use it for the failover test of the WebSphere clusters later.
+
+## Set up the primary WebSphere cluster on Azure VMs
+
+In this section, you create the primary WebSphere clusters on Azure VMs using the [IBM WebSphere Application Server Cluster on Azure VMs](https://aka.ms/twas-cluster-portal) offer. The secondary cluster is restored from the primary cluster during the failover using the Azure Site Recovery later.
+
+First, open the [IBM WebSphere Application Server Cluster on Azure VMs](https://aka.ms/twas-cluster-portal) offer in your browser and select **Create**. You should see the **Basics** pane of the offer.
+
+Use the following steps to fill out the **Basics** pane:
+
+1. Ensure that the value shown for **Subscription** is the same one that has the roles listed in the prerequisites section.
+1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, *was-cluster-eastus-mjg022624*.
+1. Under **Instance details**, for **Region**, select **East US**.
+1. For **Deploy with existing WebSphere entitlement or with evaluation license?**, select **Evaluation** for this tutorial. You can also select **Entitled** and provide your IBMid credential.
+1. Check **I have read and accept the IBM License Agreement.**.
+1. Leave the defaults for other fields.
+1. Select **Next** to go to the **Cluster configuration** pane.
+
+:::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/portal-basics.png" alt-text="Screenshot of the Azure portal that shows the IBM WebSphere Application Server Cluster on Azure VMs Basics pane." lightbox="media/migrate-websphere-to-vms-with-ha-dr/portal-basics.png":::
+
+Use the following steps to fill out the **Cluster configuration** pane:
+
+1. For **Password for VM administrator**, provide a password.
+1. For **Password for WebSphere administrator**, provide a password. Write down the username and password for **WebSphere administrator**.
+1. Leave the defaults for other fields.
+1. Select **Next** to go to the **Load balancer** pane.
+
+:::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/portal-cluster-config.png" alt-text="Screenshot of the Azure portal that shows the IBM WebSphere Application Server Cluster on Azure VMs Cluster configuration pane." lightbox="media/migrate-websphere-to-vms-with-ha-dr/portal-cluster-config.png":::
+
+Use the following steps to fill out the **Load balancer** pane:
+
+1. For **Password for VM administrator**, provide a password.
+1. For **Password for Password for IBM HTTP Server administrator**, provide a password.
+1. Leave the defaults for other fields.
+1. Select **Next** to go to the **Networking** pane.
+
+:::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/portal-load-balancer.png" alt-text="Screenshot of the Azure portal that shows the IBM WebSphere Application Server Cluster on Azure VMs Load balancer pane." lightbox="media/migrate-websphere-to-vms-with-ha-dr/portal-load-balancer.png":::
+
+You should see all fields pre-populated with the defaults in the **Networking** pane. Select **Next** to go to the **Database** pane.
+
+:::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/portal-networking.png" alt-text="Screenshot of the Azure portal that shows the IBM WebSphere Application Server Cluster on Azure VMs Networking pane." lightbox="media/migrate-websphere-to-vms-with-ha-dr/portal-networking.png":::
+
+The following steps show you how to fill out the **Database** pane:
+
+1. For **Connect to database?**, select **Yes**.
+1. For **Choose database type**, select **Microsoft SQL Server** .
+1. For **JNDI Name**, enter *jdbc/WebSphereCafeDB*.
+1. For **Data source connection string (jdbc:sqlserver://\<host\>:\<port\>;database=\<database\>)**, replace the placeholders with the values you wrote down from the preceding section for the failover group of Azure SQL Database - for example, *jdbc:sqlserver://failovergroup-mjg022624.database.windows.net:1433;database=mySampleDatabase*.
+1. For **Database username**, enter the server admin login name and the failover group name you wrote down from the preceding section - for example, *azureuser@failovergroup-mjg022624*.
+1. Enter the server admin sign-in password that you wrote down before for **Database Password**. Enter the same value for **Confirm password**.
+1. Leave the defaults for the other fields.
+1. Select **Review + create**.
+1. Wait until **Running final validation...** successfully completes, then select **Create**.
+
+:::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/portal-database.png" alt-text="Screenshot of the Azure portal that shows the IBM WebSphere Application Server Cluster on Azure VMs Database pane." lightbox="media/migrate-websphere-to-vms-with-ha-dr/portal-database.png":::
+
+After a while, you should see the **Deployment** page where **Deployment is in progress** is displayed.
+
+> [!NOTE]
+> If you see any problems during **Running final validation...**, fix them and try again.
+
+Depending on network conditions and other activity in your selected region, the deployment can take up to 25 minutes to complete. After that, you should see the text **Your deployment is complete** displayed on the deployment page.
 
 ## Next steps
 
