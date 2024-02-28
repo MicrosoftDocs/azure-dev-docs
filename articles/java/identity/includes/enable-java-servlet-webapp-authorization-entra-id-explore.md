@@ -35,9 +35,9 @@ The full code for this sample is available at [https://github.com/Azure-Samples/
 
 ## About the code
 
-This sample uses **MSAL for Java (MSAL4J)** to sign a user in and obtain a token for MS Graph API. It leverages [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain data from Graph. You must add these libraries to your projects using Maven. If you want to replicate this sample's behavior, you may choose to copy the *pom.xml* file, and the contents of the `helpers` and `authservlets` packages in the *src/main/java/com/microsoft/azuresamples/msal4j* package. You'll also need the *authentication.properties* file. These classes and files contain generic code that can be used in a wide array of applications. The rest of the sample may be copied as well, but the other classes and files are built specifically to address this sample's objective.
+This sample uses **MSAL for Java (MSAL4J)** to sign a user in and obtain a token for MS Graph API. It leverages [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain data from Graph. You must add these libraries to your projects using Maven. If you want to replicate this sample's behavior, you may choose to copy the *pom.xml* file, and the contents of the `helpers` and `authservlets` packages in the *src/main/java/com/microsoft/azuresamples/msal4j* package. You also need the *authentication.properties* file. These classes and files contain generic code that can be used in a wide array of applications. The rest of the sample may be copied as well, but the other classes and files are built specifically to address this sample's objective.
 
-A **ConfidentialClientApplication** instance is created in the *AuthHelper.java* file. This object helps craft the Microsoft Entra ID authorization URL and also helps exchange the authentication token for an access token.
+A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file. This object helps craft the Microsoft Entra ID authorization URL and also helps exchange the authentication token for an access token.
 
 ```java
 // getConfidentialClientInstance method
@@ -60,61 +60,61 @@ In this sample, these values are read from the *authentication.properties* file 
 
 1. The first step of the sign-in process is to send a request to the `/authorize` endpoint on for our Microsoft Entra ID Tenant. Our MSAL4J `ConfidentialClientApplication` instance is leveraged to construct an authorization request URL. Our app redirects the browser to this URL, which is where the user signs in.
 
-    ```java
-    final ConfidentialClientApplication client = getConfidentialClientInstance();
-    AuthorizationRequestUrlParameters parameters = AuthorizationRequestUrlParameters.builder(Config.REDIRECT_URI, Collections.singleton(Config.SCOPES))
-            .responseMode(ResponseMode.QUERY).prompt(Prompt.SELECT_ACCOUNT).state(state).nonce(nonce).build();
+   ```java
+   final ConfidentialClientApplication client = getConfidentialClientInstance();
+   AuthorizationRequestUrlParameters parameters = AuthorizationRequestUrlParameters.builder(Config.REDIRECT_URI, Collections.singleton(Config.SCOPES))
+           .responseMode(ResponseMode.QUERY).prompt(Prompt.SELECT_ACCOUNT).state(state).nonce(nonce).build();
 
-    final String authorizeUrl = client.getAuthorizationRequestUrl(parameters).toString();
-    contextAdapter.redirectUser(authorizeUrl);
-    ```
+   final String authorizeUrl = client.getAuthorizationRequestUrl(parameters).toString();
+   contextAdapter.redirectUser(authorizeUrl);
+   ```
 
-    - **AuthorizationRequestUrlParameters**: Parameters that must be set in order to build an AuthorizationRequestUrl.
-    - **REDIRECT_URI**: Where Microsoft Entra ID redirects the browser (along with auth code) after collecting user credentials. It must match the redirect URI in the Microsoft Entra ID app registration on [Azure Portal](https://portal.azure.com)
-    - **SCOPES**: [Scopes](/entra/identity-platform/access-tokens#scopes) are permissions requested by the application.
-      - Normally, the three scopes `openid profile offline_access` suffice for receiving an ID Token response.
-      - Full list of scopes requested by the app can be found in the *authentication.properties* file. You can add more scopes like User.Read and so on.
+   - **AuthorizationRequestUrlParameters**: Parameters that must be set in order to build an AuthorizationRequestUrl.
+   - **REDIRECT_URI**: Where Microsoft Entra ID redirects the browser (along with auth code) after collecting user credentials. It must match the redirect URI in the Microsoft Entra ID app registration on [Azure Portal](https://portal.azure.com)
+   - **SCOPES**: [Scopes](/entra/identity-platform/access-tokens#scopes) are permissions requested by the application.
+     - Normally, the three scopes `openid profile offline_access` suffice for receiving an ID Token response.
+     - Full list of scopes requested by the app can be found in the *authentication.properties* file. You can add more scopes like User.Read and so on.
 
 1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint contain an [authorization code](/entra/identity-platform/v2-oauth2-auth-code-flow).
 1. Our ConfidentialClientApplication instance then exchanges this authorization code for an ID Token and Access Token from Microsoft Entra ID.
 
-    ```java
-    // First, validate the state, then parse any error codes in response, then extract the authCode. Then:
-    // build the auth code params:
-    final AuthorizationCodeParameters authParams = AuthorizationCodeParameters
-            .builder(authCode, new URI(Config.REDIRECT_URI)).scopes(Collections.singleton(Config.SCOPES)).build();
+   ```java
+   // First, validate the state, then parse any error codes in response, then extract the authCode. Then:
+   // build the auth code params:
+   final AuthorizationCodeParameters authParams = AuthorizationCodeParameters
+           .builder(authCode, new URI(Config.REDIRECT_URI)).scopes(Collections.singleton(Config.SCOPES)).build();
 
-    // Get a client instance and leverage it to acquire the token:
-    final ConfidentialClientApplication client = AuthHelper.getConfidentialClientInstance();
-    final IAuthenticationResult result = client.acquireToken(authParams).get();
-    ```
+   // Get a client instance and leverage it to acquire the token:
+   final ConfidentialClientApplication client = AuthHelper.getConfidentialClientInstance();
+   final IAuthenticationResult result = client.acquireToken(authParams).get();
+   ```
 
-    - **AuthorizationCodeParameters**: Parameters that must be set in order to exchange the Authorization Code for an ID and/or access token.
-    - **authCode**: The authorization code that was received at the redirect endpoint.
-    - **REDIRECT_URI**: The redirect URI used in the previous step must be passed again.
-    - **SCOPES**: The scopes used in the previous step must be passed again.
+   - **AuthorizationCodeParameters**: Parameters that must be set in order to exchange the Authorization Code for an ID and/or access token.
+   - **authCode**: The authorization code that was received at the redirect endpoint.
+   - **REDIRECT_URI**: The redirect URI used in the previous step must be passed again.
+   - **SCOPES**: The scopes used in the previous step must be passed again.
 
 1. If `acquireToken` is successful, the token claims are extracted. If the nonce check passes, the results are placed in `context` (an instance of `IdentityContextData`) and saved to the session. The application can then instantiate this from the session (by way of an instance of `IdentityContextAdapterServlet`) whenever it needs access to it:
 
-    ```java
-    // parse IdToken claims from the IAuthenticationResult:
-    // (the next step - validateNonce - requires parsed claims)
-    context.setIdTokenClaims(result.idToken());
+   ```java
+   // parse IdToken claims from the IAuthenticationResult:
+   // (the next step - validateNonce - requires parsed claims)
+   context.setIdTokenClaims(result.idToken());
 
-    // if nonce is invalid, stop immediately! this could be a token replay!
-    // if validation fails, throws exception and cancels auth:
-    validateNonce(context);
+   // if nonce is invalid, stop immediately! this could be a token replay!
+   // if validation fails, throws exception and cancels auth:
+   validateNonce(context);
 
-    // set user to authenticated:
-    context.setAuthResult(result, client.tokenCache().serialize());
-    ```
+   // set user to authenticated:
+   context.setAuthResult(result, client.tokenCache().serialize());
+   ```
 
-### Protecting the routes
+### Protect the routes
 
 See *AuthenticationFilter.java* for how the sample app filters access to routes. In the *authentication.properties* file, the key `app.protect.authenticated` contains the comma-separated routes that are to be accessed by authenticated users only.
 
 ```ini
-# e.g., /token_details requires any user to be signed in and does not require special roles or groups claim(s)
+# for example, /token_details requires any user to be signed in and does not require special roles or groups claim(s)
 app.protect.authenticated=/token_details, /call_graph
 ```
 
@@ -124,10 +124,10 @@ When the user navigates to `/call_graph`, the application creates an instance of
 
 The following code is all that is required for an application developer to write for accessing the `/me` endpoint, provided that they already have a valid access token for Graph Service with the `User.Read` scope.
 
-  ```java
-  //CallGraphServlet.java
-  User user = GraphHelper.getGraphClient(contextAdapter).me().buildRequest().get();
-  ```
+```java
+//CallGraphServlet.java
+User user = GraphHelper.getGraphClient(contextAdapter).me().buildRequest().get();
+```
 
 ### Scopes
 

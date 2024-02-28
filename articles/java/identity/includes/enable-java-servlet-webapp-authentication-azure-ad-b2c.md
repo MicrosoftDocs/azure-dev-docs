@@ -26,7 +26,7 @@ This sample comes with a pre-registered application for testing purposes. If you
 
 ### Choose the Azure AD B2C tenant where you want to create your applications
 
-As a first step you'll need to:
+As a first step, you need to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If your account is present in more than one **Azure AD B2C** tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Azure AD B2C tenant.
@@ -58,7 +58,7 @@ Please refer to: [Tutorial: Add identity providers to your applications in Azure
    - Type a key description (for instance `app secret`),
    - Select one of the available key durations (**In 1 year**, **In 2 years**, or **Never Expires**) as per your security concerns.
    - The generated key value is displayed when you click the **Add** button. Copy the generated value for use in the steps later.
-   - You'll need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - You need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
 
 #### Configure the WebApp app (ms-identity-b2c-java-servlet-webapp-authentication) to use your app registration
 
@@ -77,7 +77,7 @@ Open the project in your IDE (like **Visual Studio Code**) to configure the code
 1. Find the app key `aad.passwordResetPolicy` and replace it with the name of the password reset userflow policy you created in the AAD B2C tenant in which you created the `ms-identity-b2c-java-servlet-webapp-authentication` application in the Azure portal.
 1. Find the app key `aad.editProfilePolicy` and replace it with the name of the edit profile userflow policy you created in the AAD B2C tenant in which you created the `ms-identity-b2c-java-servlet-webapp-authentication` application in the Azure portal.
 
-## Running the sample
+## Run the sample
 
 ### Build .war file using Maven
 

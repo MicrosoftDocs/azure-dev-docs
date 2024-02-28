@@ -1,6 +1,6 @@
 ---
-title: Enable your Java Jboss EAP web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
-description: Shows you how to develop a Java Jboss EAP web app which supports sign-in by Microsoft Entra account.
+title: Enable your Java JBoss EAP web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
+description: Shows you how to develop a Java JBoss EAP web app which supports sign-in by Microsoft Entra account.
 services: active-directory
 ms.date: 01/01/2024
 ms.service: active-directory
@@ -8,7 +8,7 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Enable your Java Jboss EAP web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
+# Enable your Java JBoss EAP web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
 
 This article demonstrates a Java JBoss EAP web app that signs in users to your Microsoft Entra ID tenant using the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 

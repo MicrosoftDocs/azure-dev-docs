@@ -15,7 +15,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.12.0:config
 1. For **Create new run configuration**, type **Y**, then **Enter**.
 1. For **Define value for OS**, type **2** for Linux, then **Enter**.
 1. For **Define value for javaVersion**, type **2** for Java 11, then **Enter**.
-1. For **Define value for webContainer**, type **1** for Jbosseap7, then **Enter**.
+1. For **Define value for webContainer**, type **1** for JBosseap7, then **Enter**.
 1. For **Define value for pricingTier**, press **Enter** to select the default **P1v3** tier.
 1. For **Confirm**, type **Y**, then **Enter**.
 
@@ -27,7 +27,7 @@ Region : centralus
 PricingTier : P1v3
 OS : Linux
 Java Version: Java 11
-Web server stack: Jbosseap 7
+Web server stack: JBosseap 7
 Deploy to slot : false
 Confirm (Y/N) [Y]:
 [INFO] Saving configuration to pom.

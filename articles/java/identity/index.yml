@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
 
 landingContent:
-  - title: Secure your Java Jboss EAP web app
+  - title: Secure your Java JBoss EAP web app
     linkLists:
       - linkListType: how-to-guide
         links:

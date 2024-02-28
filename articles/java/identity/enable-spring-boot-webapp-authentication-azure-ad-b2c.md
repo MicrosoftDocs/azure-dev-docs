@@ -52,7 +52,7 @@ This sample comes with a pre-registered application for demo purposes. If you wo
 
 ### Choose the Azure AD B2C tenant where you want to create your applications
 
-As a first step you'll need to:
+As a first step, you need to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If your account is present in more than one **Azure AD B2C** tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Azure AD B2C tenant.
@@ -81,10 +81,10 @@ Please refer to: [Tutorial: Add identity providers to your applications in Azure
 
 1. In the app's registration screen, click on the **Certificates & secrets** blade in the left to open the page where we can generate secrets and upload certificates.
 1. In the **Client secrets** section, click on **New client secret**:
-   - Type a key description (for instance `app secret`),
-   - Select one of the available key durations (e.g., **In 2 years**) as per your security concerns.
+   - Type a key description - for example, `app secret`.
+   - Select one of the available key durations as per your security concerns - for example, **In 2 years**.
    - The generated key value is displayed when you click the **Add** button. Copy the generated value for use in the steps later.
-   - You'll need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - You need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
 
 #### Configure the web app (java-spring-webapp-auth-b2c) to use your app registration
 
@@ -104,7 +104,7 @@ Open the *src/main/resources/templates/navbar.html* file.
 
 1. Find the references to the references to `b2c_1_susi` and `b2c_1_edit_profile` flows and replace them with your `sign-up-sign-in` and `profile-edit` user-flows.
 
-## Running the sample
+## Run the sample
 
 ### [Deploy to Azure Spring Apps](#tab/asa)
 
@@ -152,12 +152,12 @@ Open the *src/main/resources/templates/navbar.html* file.
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
 - Click the context-sensitive button at the top right (it reads `Sign In` on first run)
-  - Alternatively, click the link to `token details`. Since this is a protected page that requires authentication, you'll be automatically redirected to the sign-in page.
+  - Alternatively, click the link to `token details`. Since this is a protected page that requires authentication, you're automatically redirected to the sign-in page.
 - Follow the instructions on the next page to sign in with an account of your chosen identity provider. You may also choose to sign up or sign in to a local account on the B2C tenant using an email address.
 <!-- - On the consent screen, note the scopes that are being requested. -->
 - Upon successful completion of the sign-in flow, you should be redirected to the home page (`sign in status`) or `token details` page, depending on which button triggered your sign-in flow.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
-- If you are on the home page, you'll see an option to click **ID Token Details**: click it to see some of the ID token's decoded claims.
+- If you're on the home page, you can see an option to click **ID Token Details**: click it to see some of the ID token's decoded claims.
 - You also have the option to edit your profile. Click the `edit profile` link on the top-right of the navbar to change details like your display name, place of residence, and profession.
 - You can also use the button on the top right to sign out. The status page reflects this.
 
@@ -171,8 +171,8 @@ Open the *src/main/resources/templates/navbar.html* file.
 | *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/* | This directory contains the main application entry point, controller, and config classes. |
 | *.../MsIdentitySpringBootWebappApplication.java*                              | Main class.                                                                               |
 | *.../SampleController.java*                                                   | Controller with endpoint mappings.                                                        |
-| *.../SecurityConfig.java*                                                     | Security Configuration (e.g., which routes require authentication?).                      |
-| *.../Utilities.java*                                                          | Utility Class (e.g., filter ID token claims                                               |
+| *.../SecurityConfig.java*                                                     | Security Configuration - for example, which routes require authentication.                |
+| *.../Utilities.java*                                                          | Utility Class - for example, filter ID token claims.                                      |
 | *CHANGELOG.md*                                                                | List of changes to the sample.                                                            |
 | *CONTRIBUTING.md*                                                             | Guidelines for contributing to the sample.                                                |
 | *LICENSE*                                                                     | The license for the sample.                                                               |
@@ -238,7 +238,7 @@ This app has some simple logic in the UI template pages for determining content 
 </div>
 ```
 
-### Protecting routes with WebSecurityConfigurerAdapter
+### Protect routes with WebSecurityConfigurerAdapter
 
 By default, this app protects the **ID Token Details** page so that only logged-in users can access it. This app uses configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, extend `WebSecurityConfigurerAdapter` in one of your classes. For an example, see this app's [SecurityConfig](./src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class.
 

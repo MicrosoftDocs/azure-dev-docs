@@ -25,7 +25,7 @@ An Identity Developer session covered Microsoft Entra ID App roles and security 
 
 [!INCLUDE [enable-java-servlet-webapp-authorization-group-entra-id.md](includes/enable-java-servlet-webapp-authorization-group-entra-id.md)]
 
-#### Deploying the Sample
+#### Deploy the sample
 
 (These instructions assume you have installed WebLogic and set up some server domain)
 

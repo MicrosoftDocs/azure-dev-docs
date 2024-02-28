@@ -55,7 +55,7 @@ There is one project in this sample. To register the app on the portal, you can:
 
 ### Choose the Microsoft Entra ID tenant where you want to create your applications
 
-As a first step you'll need to:
+As a first step, you need to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If your account is present in more than one Microsoft Entra ID tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Microsoft Entra ID tenant.
@@ -79,7 +79,7 @@ Following this guide, you must:
    - Type a key description (for instance `app secret`),
    - Select one of the available key durations (**In 1 year**, **In 2 years**, or **Never Expires**) as per your security concerns.
    - The generated key value is displayed when you click the **Add** button. Copy the generated value for use in the steps later.
-   - You'll need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - You need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
 1. In the app's registration screen, select the **API permissions** blade in the left to open the page where we add access to the APIs that your application needs.
    - Select the **Add a permission** button and then:
    - Ensure that the **Microsoft APIs** tab is selected.
@@ -149,13 +149,13 @@ You have two different options available to you on how you can further configure
 ### Configure the web app (java-servlet-webapp-groups) to recognize Group IDs
 
 > [!IMPORTANT]
-> During **Token Configuration**, if you have chosen any other option except **groupID** (e.g. like **DNSDomain\sAMAccountName**) you should enter the **group name** (for example `contoso.com\Test Group`) instead of the **object ID** below:
+> During **Token Configuration**, if you have chosen any other option except **groupID** - such as **DNSDomain\sAMAccountName** - you should enter the **group name** - for example, `contoso.com\Test Group` - instead of the **object ID** below:
 
 1. Open the *./src/main/resources/authentication.properties* file.
 1. Find the string `{enter-your-admins-group-id-here}` and replace the existing value with the **object ID** of the **GroupAdmin** group copied from the Azure portal. Remove the curly braces from the placeholder value as well.
 1. Find the string `{enter-your-users-group-id-here}` and replace the existing value with the **object ID** of the **GroupMember** group copied from the Azure portal. Remove the curly braces from the placeholder value as well.
 
-## Running the sample
+## Run the sample
 ### Build .war file using Maven
 
 1. Navigate to the directory containing the *pom.xml* file for this sample (the same directory as this README), and run the following Maven command:
@@ -164,4 +164,4 @@ You have two different options available to you on how you can further configure
    mvn clean package
    ```
 
-1. This should generate a *.war* file which can be run on a variety of application servers
+1. This should generate a *.war* file which can be run on a variety of application servers.

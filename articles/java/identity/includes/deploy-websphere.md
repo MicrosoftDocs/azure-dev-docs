@@ -4,17 +4,17 @@ ms.date: 01/01/2024
 ms.custom: devx-track-java
 ---
 
-#### Deploying the Sample
+#### Deploy the sample
 
 These instructions assume you have installed WebSphere and set up some server. You can use the guidance at [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](/azure/developer/java/ee/traditional-websphere-application-server-virtual-machines?tabs=basic) for a basic server setup. Before you can deploy to WebSphere, you need to make some configuration changes in the sample itself and (re)build the package:
 
 1. Navigate to your app's *authentication.properties* file and change the value of `app.homePage` to your server URL and port number you are planning to use.
 
-    ```ini
-    # app.homePage is by default set to dev server address and app context path on the server
-    # for apps deployed to azure, use https://your-sub-domain.azurewebsites.net
-    app.homePage=https://<server-url>:<port-number>/msal4j-servlet-auth/
-    ```
+   ```ini
+   # app.homePage is by default set to dev server address and app context path on the server
+   # for apps deployed to azure, use https://your-sub-domain.azurewebsites.net
+   app.homePage=https://<server-url>:<port-number>/msal4j-servlet-auth/
+   ```
 
 1. After saving this file, you need to rebuild your app.
 

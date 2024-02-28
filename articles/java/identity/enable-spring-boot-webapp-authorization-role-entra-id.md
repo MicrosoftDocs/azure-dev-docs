@@ -32,7 +32,7 @@ This sample application defines the following two *Application Roles*:
 - `PrivilegedAdmin`: Authorized to access the `Admins Only` and the `Regular Users` pages.
 - `RegularUser`: Authorized to access the `Regular Users` page.
 
-These application roles are defined in the [Azure portal](https://portal.azure.com) in the application's registration manifest.  When a user signs into the application, Microsoft Entra ID emits a `roles` claim for each role that the user has been granted individually to the user in the from of role membership.  Assignment of users and groups to roles can be done through the portal's UI, or programmatically using the [Microsoft Graph](https://graph.microsoft.com) and [Azure AD PowerShell](/powershell/module/azuread/?view=azureadps-2.0). In this sample, application role management is done through the Azure portal or using PowerShell.
+These application roles are defined in the [Azure portal](https://portal.azure.com) in the application's registration manifest. When a user signs into the application, Microsoft Entra ID emits a `roles` claim for each role that the user has been granted individually to the user in the from of role membership. Assignment of users and groups to roles can be done through the portal's UI, or programmatically using the [Microsoft Graph](https://graph.microsoft.com) and [Azure AD PowerShell](/powershell/module/azuread/?view=azureadps-2.0). In this sample, application role management is done through the Azure portal or using PowerShell.
 
 > [!NOTE]
 > Role claims aren't present for guest users in a tenant if the `https://login.microsoftonline.com/common/` endpoint is used as the authority to sign in users. You need to sign-in a user to a tenanted endpoint like `https://login.microsoftonline.com/tenantid`.
@@ -92,7 +92,7 @@ There is one project in this sample. To register it, you can:
 
 ### Choose the Microsoft Entra ID tenant where you want to create your applications
 
-As a first step you'll need to:
+As a first step, you need to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If your account is present in more than one Microsoft Entra ID tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Microsoft Entra ID tenant.
@@ -112,7 +112,7 @@ As a first step you'll need to:
    - Type a key description (for instance `app secret`),
    - Select one of the available key durations (**In 1 year**, **In 2 years**, or **Never Expires**) as per your security posture.
    - The generated key value is displayed when you select the **Add** button. Copy the generated value for use in the steps later.
-   - You'll need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - You need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
 
 #### Define the app Roles
 
@@ -149,7 +149,7 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 1. Open the *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootapplication/Sample.Controller.java* file.
 1. Find the references to `PrivilegedAdmin` and `RegularUser` app roles in this file. If necessary, change them to reflect the app role names you chose in the previous steps.
 
-## Running the sample
+## Run the sample
 
 ### [Deploy to Azure Spring Apps](#tab/asa)
 
@@ -197,12 +197,12 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
 - Click the context-sensitive button at the top right (it reads `Sign In` on first run)
-- Alternatively, click the link to `token details`, `admins only` or `regular users`. Since these are protected pages that require authentication, you'll be automatically redirected to the sign-in page.
+- Alternatively, click the link to `token details`, `admins only` or `regular users`. Since these are protected pages that require authentication, you're automatically redirected to the sign-in page.
 - Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
 - Upon successful completion of the sign-in flow, you should be redirected to the home page (`sign in status`), or one of the other pages, depending on which button triggered your sign-in flow.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
-- If you are on the home page, you'll see an option to click **ID Token Details**: click it to see some of the ID token's decoded claims, including **roles**.
+- If you're on the home page, you can see an option to click **ID Token Details**: click it to see some of the ID token's decoded claims, including **roles**.
 - Click the **Admins Only** button to view the `/admin_only`. Only users with app role **PrivilegedAdmin** can view this page. Otherwise an authorization failure message is displayed.
 - Click the **Regular Users** button to view the `/regular_user` page. Only users with app role **RegularUser** or **PrivilegedAdmin** can view this page. Otherwise an authorization failure message is displayed.
 - You can also use the button on the top right to sign out. The status page reflects this.
@@ -218,8 +218,8 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 | *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/* | This directory contains the main application entry point, controller, and config classes. |
 | *.../MsIdentitySpringBootWebappApplication.java*                              | Main class.                                                                               |
 | *.../SampleController.java*                                                   | Controller with endpoint mappings.                                                        |
-| *.../SecurityConfig.java*                                                     | Security Configuration (e.g., which routes require authentication?).                      |
-| *.../Utilities.java*                                                          | Utility Class (e.g., filter ID token claims)                                              |
+| *.../SecurityConfig.java*                                                     | Security Configuration - for example, which routes require authentication.                |
+| *.../Utilities.java*                                                          | Utility Class - for example, filter ID token claims.                                      |
 | *CHANGELOG.md*                                                                | List of changes to the sample.                                                            |
 | *CONTRIBUTING.md*                                                             | Guidelines for contributing to the sample.                                                |
 | *LICENSE`*                                                                    | The license for the sample.                                                               |
@@ -256,7 +256,7 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 }
 ```
 
-### Processing Roles claim in the ID token
+### Process a Roles claim in the ID token
 
 The name of the the roles that the signed-in user is assigned to is returned in the `roles` claim of the token.
 
@@ -271,7 +271,7 @@ The name of the the roles that the signed-in user is assigned to is returned in 
 ```
 
 A common way to access them is documented in the **ID Token Claims** section above.
-Microsoft Entra ID Boot Starter (v3.3 and above) also parses the roles claim automatically and adds each role to the signed in user's **Authorities**, prefixing each with the string `APPROLE_`. This allows developers to make use of app roles with Spring **PrePost** condition annotations using the `hasAuthority` method. For example, you'll find the following `@PreAuthorize` conditions demonstrated in *SampleController.java*:
+Microsoft Entra ID Boot Starter (v3.3 and above) also parses the roles claim automatically and adds each role to the signed in user's **Authorities**, prefixing each with the string `APPROLE_`. This allows developers to make use of app roles with Spring **PrePost** condition annotations using the `hasAuthority` method. For example, you can find the following `@PreAuthorize` conditions demonstrated in *SampleController.java*:
 
 ```java
 @GetMapping(path = "/admin_only")
@@ -324,7 +324,7 @@ This app has some simple logic in the UI template pages for determining content 
 </div>
 ```
 
-### Protecting routes with AADWebSecurityConfigurerAdapter
+### Protect routes with AADWebSecurityConfigurerAdapter
 
 By default, this app protects the **ID Token Details**, **Admins Only** and **Regular Users** pages so that only logged-in users can access them. This app uses configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](./src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class.
 
@@ -380,7 +380,7 @@ If you find a bug in the sample, raise the issue on [GitHub Issues](../../../../
 
 To provide feedback on or suggest features for Azure Active Directory, visit [User Voice page](https://feedback.azure.com/forums/169401-azure-active-directory).
 
-## Contributing
+## Contribute
 
 If you'd like to contribute to this sample, see [CONTRIBUTING.MD](/CONTRIBUTING.md).
 

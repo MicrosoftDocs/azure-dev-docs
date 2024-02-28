@@ -106,7 +106,7 @@ There is one project in this sample. To register it, you can:
    - Type a key description (for instance `app secret`),
    - Select one of the available key durations (**6 months**, **12 months** or **Custom**) as per your security posture.
    - The generated key value is displayed when you select the **Add** button. Copy and save the generated value for use in later steps.
-   - You'll need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - You need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
 1. In the app's registration screen, select the **API permissions** blade in the left to open the page where we add access to the APIs that your application needs.
    - Select the **Add a permission** button and then,
    - Ensure that the **Microsoft APIs** tab is selected.
@@ -154,7 +154,7 @@ You have two different options available to you on how you can further configure
 
 ##### Prerequisites, benefits and limitations of using this option
 
-1. This option is useful when your application is interested in a selected set of groups that a signing-in user may be assigned to and not every security group this user is assigned to in the tenant.  This option also saves your application from running into the [overage](#groups-overage-claim) issue.
+1. This option is useful when your application is interested in a selected set of groups that a signing-in user may be assigned to and not every security group this user is assigned to in the tenant. This option also saves your application from running into the [overage](#groups-overage-claim) issue.
 1. This feature is not available in the [Microsoft Entra ID Free edition](https://www.microsoft.com/security/business/microsoft-entra-pricing).
 1. **Nested group assignments** are not available when this option is utilized.
 
@@ -201,7 +201,7 @@ Open the *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwe
 1. Find the key `Enter_Your_Admin_Group_ID_Here` and replace the existing value with objectId of your **AdminGroup**.
 1. Find the key `Enter_Your_User_Group_ID_Here` and replace the existing value with the objectId of your **UserGroup**
 
-## Running the sample
+## Run the sample
 
 ### [Deploy to Azure Spring Apps](#tab/asa)
 
@@ -249,12 +249,12 @@ Open the *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwe
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
 - Click the context-sensitive button at the top right (it reads `Sign In` on first run)
-- Alternatively, click the link to `token details`, `admins only` or `regular users`. Since these are protected pages that require authentication, you'll be automatically redirected to the sign-in page.
+- Alternatively, click the link to `token details`, `admins only` or `regular users`. Since these are protected pages that require authentication, you're automatically redirected to the sign-in page.
 - Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
 - Upon successful completion of the sign-in flow, you should be redirected to the home page (`sign in status`), or one of the other pages, depending on which button triggered your sign-in flow.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
-- If you are on the home page, you'll see an option to click **ID Token Details**: click it to see some of the ID token's decoded claims, including **groups**.
+- If you're on the home page, you can see an option to click **ID Token Details**: click it to see some of the ID token's decoded claims, including **groups**.
 - Click the **Admins Only** button to view the `/admin_only`. Only users belonging to the **AdminGroup** security group can view this page. Otherwise an authorization failure message is displayed.
 - Click the **Regular Users** button to view the `/regular_user` page. Only users belonging to the **UserGroup** security group can view this page. Otherwise an authorization failure message is displayed.
 - You can also use the button on the top right to sign out. The status page reflects this.
@@ -270,8 +270,8 @@ Open the *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwe
 | *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/* | This directory contains the main application entry point, controller, and config classes. |
 | *.../MsIdentitySpringBootWebappApplication.java*                              | Main class.                                                                               |
 | *.../SampleController.java*                                                   | Controller with endpoint mappings.                                                        |
-| *.../SecurityConfig.java*                                                     | Security Configuration (e.g., which routes require authentication?).                      |
-| *.../Utilities.java*                                                          | Utility Class (e.g., filter ID token claims)                                              |
+| *.../SecurityConfig.java*                                                     | Security Configuration - for example, which routes require authentication.                |
+| *.../Utilities.java*                                                          | Utility Class - for example, filter ID token claims.                                      |
 | *CHANGELOG.md*                                                                | List of changes to the sample.                                                            |
 | *CONTRIBUTING.md*                                                             | Guidelines for contributing to the sample.                                                |
 | *LICENSE*                                                                     | The license for the sample.                                                               |
@@ -308,7 +308,7 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 }
 ```
 
-### Processing Groups claim in the ID token
+### Process a Groups claim in the ID token
 
 The name of the the roles that the signed-in user is assigned to is returned in the `groups` claim of the token.
 
@@ -323,7 +323,7 @@ The name of the the roles that the signed-in user is assigned to is returned in 
 ```
 
 A common way to access them is documented in the **ID Token Claims** section above.
-Microsoft Entra ID Boot Starter (v3.5 and above) parses the groups claim automatically and adds each group to the signed in user's **Authorities**. This allows developers to make use of groups with Spring **PrePost** condition annotations using the `hasAuthority` method. For example, you'll find the following `@PreAuthorize` conditions demonstrated in *SampleController.java*:
+Microsoft Entra ID Boot Starter (v3.5 and above) parses the groups claim automatically and adds each group to the signed in user's **Authorities**. This allows developers to make use of groups with Spring **PrePost** condition annotations using the `hasAuthority` method. For example, you can find the following `@PreAuthorize` conditions demonstrated in *SampleController.java*:
 
 ```java
 @GetMapping(path = "/admin_only")
@@ -376,7 +376,7 @@ This app has some simple logic in the UI template pages for determining content 
 </div>
 ```
 
-### Protecting routes with AADWebSecurityConfigurerAdapter
+### Protect routes with AADWebSecurityConfigurerAdapter
 
 By default, this app protects the **ID Token Details**, **Admins Only** and **Regular Users** pages so that only logged-in users can access them. This app uses configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](./src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class.
 
@@ -444,4 +444,3 @@ In the left-hand navigation pane, select the **Azure Active Directory** service,
     // Add MSAL-java docs
 
 For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](/entra/identity-platform/authentication-flows-app-scenarios).
-

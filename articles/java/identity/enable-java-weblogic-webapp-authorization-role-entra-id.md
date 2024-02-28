@@ -29,7 +29,7 @@ For more information about how the protocols work in this scenario and other sce
 
 [!INCLUDE [enable-java-servlet-webapp-authorization-role-entra-id.md](includes/enable-java-servlet-webapp-authorization-role-entra-id.md)]
 
-#### Deploying the Sample
+#### Deploy the sample
 
 (These instructions assume you have installed WebLogic and set up some server domain)
 

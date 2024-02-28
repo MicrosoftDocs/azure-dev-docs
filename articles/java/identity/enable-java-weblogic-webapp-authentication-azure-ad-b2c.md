@@ -22,7 +22,7 @@ This article demonstrates a Java Servlet web application that authenticates user
 
 [!INCLUDE [enable-java-servlet-webapp-authentication-azure-ad-b2c.md](includes/enable-java-servlet-webapp-authentication-azure-ad-b2c.md)]
 
-## Deploying the Sample
+## Deploy the sample
 
 (These instructions assume you have installed WebLogic and set up some server domain)
 

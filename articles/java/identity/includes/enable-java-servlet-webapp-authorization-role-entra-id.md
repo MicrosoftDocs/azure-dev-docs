@@ -56,7 +56,7 @@ There is one project in this sample. To register the app on the portal, you can:
 
 ### Choose the Microsoft Entra ID tenant where you want to create your applications
 
-As a first step you'll need to:
+As a first step, you need to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If your account is present in more than one Microsoft Entra ID tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Microsoft Entra ID tenant.
@@ -81,7 +81,7 @@ Following this guide, you must:
    - Type a key description (for instance `app secret`),
    - Select one of the available key durations (**In 1 year**, **In 2 years**, or **Never Expires**) as per your security concerns.
    - The generated key value is displayed when you click the **Add** button. Copy the generated value for use in the steps later.
-   - You'll need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - You need this key later in your code's configuration files. This key value isn't displayed again, and is not retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
 
 #### Define the Application Roles
 
@@ -114,7 +114,7 @@ Open the project in your IDE to configure the code.
 1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the key you saved during the creation of the `java-servlet-webapp-roles` app, in the Azure portal.
 1. Find the key `app.roles` and make sure the value is set to `app.roles=admin PrivilegedAdmin, user RegularUser` (or substitute the names of your specific roles).
 
-## Running the sample
+## Run the sample
 
 ### Build .war file using Maven
 
@@ -124,4 +124,4 @@ Open the project in your IDE to configure the code.
    mvn clean package
    ```
 
-1. This should generate a *.war* file which can be run on a variety of application servers
+1. This should generate a *.war* file which can be run on a variety of application servers.
