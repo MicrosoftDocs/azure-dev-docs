@@ -106,6 +106,8 @@ Then, create an Azure SQL Database failover group by following the Azure portal 
 
 In this section, you create the primary WebSphere clusters on Azure VMs using the [IBM WebSphere Application Server Cluster on Azure VMs](https://aka.ms/twas-cluster-portal) offer. The secondary cluster is restored from the primary cluster during the failover using the Azure Site Recovery later.
 
+### Deploy the primary WebSphere cluster
+
 First, open the [IBM WebSphere Application Server Cluster on Azure VMs](https://aka.ms/twas-cluster-portal) offer in your browser and select **Create**. You should see the **Basics** pane of the offer.
 
 Use the following steps to fill out the **Basics** pane:
@@ -148,7 +150,7 @@ The following steps show you how to fill out the **Database** pane:
 1. For **Choose database type**, select **Microsoft SQL Server** .
 1. For **JNDI Name**, enter *jdbc/WebSphereCafeDB*.
 1. For **Data source connection string (jdbc:sqlserver://\<host\>:\<port\>;database=\<database\>)**, replace the placeholders with the values you wrote down from the preceding section for the failover group of Azure SQL Database - for example, *jdbc:sqlserver://failovergroup-mjg022624.database.windows.net:1433;database=mySampleDatabase*.
-1. For **Database username**, enter the server admin login name and the failover group name you wrote down from the preceding section - for example, *azureuser@failovergroup-mjg022624*.
+1. For **Database username**, enter the server admin sign-in name and the failover group name you wrote down from the preceding section - for example, *azureuser@failovergroup-mjg022624*.
 1. Enter the server admin sign-in password that you wrote down before for **Database Password**. Enter the same value for **Confirm password**.
 1. Leave the defaults for the other fields.
 1. Select **Review + create**.
@@ -162,6 +164,91 @@ After a while, you should see the **Deployment** page where **Deployment is in p
 > If you see any problems during **Running final validation...**, fix them and try again.
 
 Depending on network conditions and other activity in your selected region, the deployment can take up to 25 minutes to complete. After that, you should see the text **Your deployment is complete** displayed on the deployment page.
+
+### Verify the deployment of the cluster
+
+You deployed an IBM HTTP Server (IHS) and a WebSphere Deployment Manager (Dmgr) in the cluster. The IHS acts as load balancer for all application servers in the cluster. The Dmgr provides a web console for cluster configuration.
+
+Use the following steps to verify whether the IHS and Dmgr console work before moving to next step:
+
+1. Return to the **Deployment** page, then select **Outputs**.
+1. Copy the value of the property **ihsConsole**. Open that URL in a new browser tab. You should see a welcome page of the IHS without any error message. If you don't, you must troubleshoot and resolve the issue before you continue. Keep the console open and use it for verifying the app deployment of the cluster later.
+1. Copy and write down the value of the property **adminSecuredConsole**. Open it in a new browser tab. You should see the sign-in page of the **WebSphere Integrated Solutions Console**. Sign in to the console with the user name and password for WebSphere administrator you wrote down before. If you aren't able to sign in, you must troubleshoot and resolve the issue before you continue. Keep the console open and use it for further configuration of the WebSphere cluster later.
+
+<!-- TODO: May not need if we use can differentiate public IP addresses in two regions -->
+Use the following steps to write down the IP address of the IHS. You use it when you set up the Azure Traffic Manager later.
+
+1. Open the resource group where your cluster is deployed - for example, select **Overview** to switch back to the Overview pane of the deployment page. Then, select **Go to resource group**.
+1. Find the **Public IP address** resource prefixed with `ihs`, then select it to open it. Look for the **IP address** field and write down its value.
+
+### Configure the cluster
+
+First, enable the option **Synchronize changes with Nodes** so that any configuration can be automatically synchronized to all application servers.
+
+1. Swtich back to the WebSphere Integrated Solutions Console, sign-in again if you're logged out.
+1. Under navigation pane at the left side, select **System administration** > **Console Preferences**.
+1. In **Console Preferences** pane, check **Synchronize changes with Nodes**. Select **Apply**. You should see message **Your preferences have been changed.**
+
+Then, configure Database **Distributed sessions** for all application servers.
+
+1. Under navigation pane at the left side, select **Servers** > **Server Types** > **WebSphere application servers**.
+1. In **Application servers** pane, you should see 3 application servers listed. For each application server, follow instructions below to configure Database **Distributed sessions**:
+   1. Select the application server.
+   1. Under **Container Settings** section, select **Session management** .
+   1. Under **Additional Properties** section, select **Distributed environment settings**.
+   1. For **Distributed sessions**, select **Database (Supported for Web container only.)**.
+   1. Select **Database**.
+      1. Fill in *jdbc/WebSphereCafeDB* for **Datasource JNDI name**.
+      1. For **User ID**, enter the server admin sign-in name and the failover group name you wrote down from the preceding section - for example, *azureuser@failovergroup-mjg022624*.
+      1. Fill in the Azure SQL server admin sign-in password that you wrote down before for **Password**.
+      1. Fill in *sessions* for **Table space name**.
+      1. Check **Use multi row schema**. 
+      1. Select **OK**. You're returned to **Distributed environment settings** pane.
+   1. Under **Additional Properties** section, select **Custom tuning parameters**.
+   1. Select **Low (optimize for failover)** for **Tuning level**. 
+   1. Select **OK**.
+   1. Under **Messages**, select **Save**. Wait until completion.
+   1. Select **Application servers** from the top breadcrumb bar. You're return to **Application servers** pane.
+1. Under navigation pane at the left side, select **Servers** > **Clusters** > **WebSphere application server clusters**.
+1. In **WebSphere application server clusters** pane, you should see cluster *MyCluster* listed. Check *MyCluster*.
+1. Select **Ripplestart**.
+1. Wait until the cluster is restarted. You can select the **Status** icon and if the new window doesn't show *Started*, switch back to the console and refresh the web page after a while. Repeat the operation until you see *Started*.
+
+Keep the console open and use it for app deployment later.
+
+### Deploy a sample app
+
+Deploy and run a sample CRUD Java/Jakarta EE application on WebSphere cluster for disaster recovery failover test later.
+
+You configured applicatoin servers to use the datasource *jdbc/WebSphereCafeDB* to store session data before, which enables failover and load balancing across a cluster of WebSphere application servers. The sample app also configures [persistence schema](https://github.com/Azure-Samples/websphere-cafe/blob/main/websphere-cafe-web/src/main/resources/META-INF/persistence.xml#L7) to persist application data *coffee* in the same datasource *jdbc/WebLogicCafeDB*.
+
+First, use the following commands to download, build and package the sample:
+
+```bash
+git clone https://github.com/Azure-Samples/websphere-cafe
+cd websphere-cafe
+mvn clean package
+```
+
+The package should be successfully generated and located at *\<parent-path-to-your-local-clone>/websphere-cafe/websphere-cafe-application/target/websphere-cafe.ear*. If you don't see the package, you must troubleshoot and resolve the issue before you continue.
+
+Then, use the following steps to deploy the sample app to the cluster:
+
+1. Swtich back to the WebSphere Integrated Solutions Console, sign-in again if you're logged out.
+1. Under navigation pane at the left side, select **Applications** > **Application Types** > **WebSphere enterprise applications**.
+1. In **Enterprise Applications** pane, select **Install** > **Choose File** > find the package located at *\<parent-path-to-your-local-clone>/websphere-cafe/websphere-cafe-application/target/websphere-cafe.ear*, select **Open**. Select **Next** > **Next** > **Next**.
+1. In **Map modules to servers** pane, press <kbd>Ctrl</kbd> and select all items listed in **Clusters and servers**, select all modules, select **Apply**. Select **Next** until you see **Finish** button. 
+1. Select **Finish** > **Save**, wait until completion. Select **OK**.
+1. Check installed application *websphere-cafe*, select **Start**. Wait until you see messages indicating application successfully started. If you are not able to see the successful message, you must troubleshoot and resolve the reason why before continuing.
+
+Now, use the following steps to verify if the app is running as expected.
+
+1. Swtich back to the IHS console. Append the context root */websphere-cafe* of the deployed app to the address bar - for example, `http://ihs70685e.eastus.cloudapp.azure.com/websphere-cafe/`, and press <kbd>Enter</kbd>. You should see the welcome page of sample app.
+1. Create a new coffee with name and price (for example, *Coffee 1* with price *10*), which is persisted into both application data table and session table of the database. The UI that you see should be similar to the following screenshot:
+
+:::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui.png":::
+
+If your UI doesn't look similar, troubleshoot and resolve the problem before you continue.
 
 ## Next steps
 
