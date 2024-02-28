@@ -172,7 +172,7 @@ The sample repository contains all the code and configuration files you need to 
 1. When you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. It's used as part of the resource group name. 
 1. When prompted, select a subscription to create the resources in. 
 1. When you're prompted to select a location the first time, select a location near you. This location is used for most the resources including hosting.
-1. If you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
+1. If you're prompted for a location for the OpenAI model or for the Document Intelligence resource, select the location closest to you. If the same location is available as your first location, select that.
 1. Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
 1. Select that URL labeled `(✓) Done: Deploying service webapp` to open the chat application in a browser.
@@ -210,6 +210,7 @@ The intelligence of the chat is determined by the OpenAI model and the settings 
 |Setting|Description|
 |---|---|
 |Override prompt template|This is the prompt that is used to generate the answer.|
+|Temperature|The temperature used for the final Chat Completion API call, a number between 0 and 1 that controls the "creativity" of the model.|
 |Retrieve this many search results|This is the number of search results that are used to generate the answer. You can see these sources returned in the _Thought process_ and _Supporting content_ tabs of the citation. |
 |Exclude category|This is the category of documents that are excluded from the search results.|
 |Use semantic ranker for retrieval|This is a feature of [Azure AI Search](/azure/search/semantic-search-overview#what-is-semantic-search) that uses machine learning to improve the relevance of search results.|
