@@ -52,7 +52,7 @@ First, create the primary Azure SQL Database by following the Azure portal steps
    1. In step 4 for creating new resource group, write down the **Resource group name** value - for example, *myResourceGroup*.
    1. In step 5 for database name, write down the **Database name** value - for example, *mySampleDatabase*.
    1. In step 6 for creating the server, use the following steps:
-      1. Write down the unique server name - for example, *sqlserverprimary-mjg022624 *.
+      1. Fill in a unique server name - for example, *sqlserverprimary-mjg022624*.
       1. For **Location**, select **(US) East US**.
       1. For **Authentication method**, select **Use SQL authentication**.
       1. Write down the **Server admin login** value - for example, *azureuser*.
@@ -92,8 +92,9 @@ First, create the primary Azure SQL Database by following the Azure portal steps
 Then, create an Azure SQL Database failover group by following the Azure portal steps in [Configure a failover group for Azure SQL Database](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db). You just need the following sections: [Create failover group](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#create-failover-group) and [Test planned failover](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#test-planned-failover). Use the following steps as you go through the article, then return to this article after you create and configure the Azure SQL Database failover group:
 
 1. When you reach the section [Create failover group](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#create-failover-group), use the following steps:
-   1. In step 5 for creating the failover group, select the option to create a new secondary server and then use the following steps:
-      1. Enter and write down the unique server name - for example, *sqlserversecondary-mjg022624*.
+   1. In step 5 for creating the failover group, enter and write down the unique failover group name - for example, *failovergroup-mjg022624*. 
+   1. In step 5 for configuring the server, select the option to create a new secondary server and then use the following steps:
+      1. Enter a unique server name - for example, *sqlserversecondary-mjg022624*.
       1. Enter the same server admin and password as your primary server.
       1. For **Location**, select **(US) West US**.
       1. Make sure **Allow Azure services to access server** is selected.
