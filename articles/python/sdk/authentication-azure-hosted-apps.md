@@ -12,6 +12,9 @@ When you host an app in Azure using services like Azure App Service, Azure Virtu
 
 A managed identity provides an identity for your app such that it can connect to other Azure resources without the need to use a secret key or other application secret. Internally, Azure knows the identity of your app and what resources it's allowed to connect to. Azure uses this information to automatically obtain Microsoft Entra tokens for the app to allow it to connect to other Azure resources, all without you having to manage any application secrets.
 
+> [!NOTE]
+> Apps running on Azure Kubernetes Service (AKS) can use a workload identity to authenticate with Azure resources. In AKS, a workload identity represents a trust relationship between a user-assigned managed identity and a Kubernetes service account. If an application deployed to AKS is configured with a Kubernetes service account in such a relationship, `DefaultAzureCredential` authenticates the app to Azure by using the managed identity. Authentication by using a workload identity is discussed in  [Use Microsoft Entra Workload ID with Azure Kubernetes Service](/azure/aks/workload-identity-overview?tabs=python). For steps on how to configure workload identity, see [Deploy and configure workload identity on an Azure Kubernetes Service (AKS) cluster](/azure/aks/workload-identity-deploy-cluster).
+
 ## Managed identity types
 
 There are two types of managed identities:
