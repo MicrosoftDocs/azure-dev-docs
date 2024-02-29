@@ -258,8 +258,13 @@ The Azure resources created in this article are billed to your Azure subscriptio
 Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
 
 ```bash
-azd down --purge
+azd down --purge --force
 ```
+
+The switches provide: 
+
+* `purge`: Deleted resources are immediately purged. This allows you to reuse the Azure OpenAI TPM.
+* `force`: The deletion happens siliently, without requiring user consent. 
 
 ### Clean up GitHub Codespaces
 
