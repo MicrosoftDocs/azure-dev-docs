@@ -25,7 +25,7 @@ Because the Azure OpenAI resource has specific token and model quota limits, a c
 
 :::image type="content" source="../media/get-started-scaling-load-balancer-aca/chat-app-original-architecuture.png" alt-text="Diagram showing chat app architecture with Azure OpenAI resource highlighted.":::
 
-To use the chat app without hitting those limits use a load balanced solution with Azure Container Apps. This solution seamlessly exposes a single endpoint from Azure Container Apps to your Chat app server. 
+To use the chat app without hitting those limits, use a load balanced solution with Azure Container Apps. This solution seamlessly exposes a single endpoint from Azure Container Apps to your chat app server. 
 
 :::image type="content" source="../media/get-started-scaling-load-balancer-aca/chat-app-aca-architecuture.png" alt-text="Diagram showing chat app architecture with Azure Container Apps in front of three Azure OpenAI resources.":::
 
