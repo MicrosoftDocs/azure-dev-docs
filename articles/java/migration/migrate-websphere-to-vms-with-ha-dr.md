@@ -176,10 +176,10 @@ Use the following steps to verify whether the IHS and Dmgr console work before m
 1. Copy and write down the value of the property **adminSecuredConsole**. Open it in a new browser tab. You should see the sign-in page of the **WebSphere Integrated Solutions Console**. Sign in to the console with the user name and password for WebSphere administrator you wrote down before. If you aren't able to sign in, you must troubleshoot and resolve the issue before you continue. Keep the console open and use it for further configuration of the WebSphere cluster later.
 
 <!-- TODO: May not need if we use can differentiate public IP addresses in two regions -->
-Use the following steps to write down the IP address of the IHS. You use it when you set up the Azure Traffic Manager later.
+Use the following steps to write down the name of the public IP address of the IHS. You use it when you set up the Azure Traffic Manager later.
 
 1. Open the resource group where your cluster is deployed - for example, select **Overview** to switch back to the Overview pane of the deployment page. Then, select **Go to resource group**.
-1. Find the **Public IP address** resource prefixed with `ihs`, then select it to open it. Look for the **IP address** field and write down its value.
+1. Find the **Public IP address** resource prefixed with `ihs`, then copy and write down its name.
 
 ### Configure the cluster
 
@@ -246,7 +246,7 @@ Now, use the following steps to verify if the app is running as expected.
 1. Swtich back to the IHS console. Append the context root */websphere-cafe* of the deployed app to the address bar - for example, `http://ihs70685e.eastus.cloudapp.azure.com/websphere-cafe/`, and press <kbd>Enter</kbd>. You should see the welcome page of sample app.
 1. Create a new coffee with name and price (for example, *Coffee 1* with price *10*), which is persisted into both application data table and session table of the database. The UI that you see should be similar to the following screenshot:
 
-:::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui.png":::
+   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui.png":::
 
 If your UI doesn't look similar, troubleshoot and resolve the problem before you continue.
 
@@ -290,6 +290,12 @@ In this section, you set up disaster recovery for Azure VMs in the primary clust
 
          :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/replicated-items-protected.png" alt-text="Screenshot of VMs which are replicated and protected." lightbox="media/migrate-websphere-to-vms-with-ha-dr/replicated-items-protected.png":::
 
+Next, create a recovery plan to include all replicated items so that they can fail over together. Execute instructions in [Create a recovery plan](/azure/site-recovery/site-recovery-create-recovery-plans#create-a-recovery-plan), with the following customization:
+
+1. In step 2, enter a name for the plan - for example, *recovery-plan-mjg022624*.
+1. In step 3, select **East US** for **Source** and **West US** for **Target**.
+1. In step 4 for **Select items**, select all protected items - for example, there're 5 protected VMs for this tutorial.
+
 Additionally, you need further network configuration to enable and protect external access to the secondary region in a failover event.
 
 1. Create a public IP address for Dmgr in the secondary region by following instructions in [Create a Standard SKU public IP address](/azure/virtual-network/ip-services/create-public-ip-portal?tabs=option-1-create-public-ip-standard#create-a-standard-sku-public-ip-address), with the customization for some fields:
@@ -301,10 +307,10 @@ Additionally, you need further network configuration to enable and protect exter
 1. Create another public IP address for IHS in the secondary region by following the same guide above, with the customization for some fields:
    1. For **Resource group**, select the resource group where the service recovery vault is deployed - for example, *was-cluster-westus-mjg022624*.
    1. For **Region**, select **(US) West US**.
-   1. For **Name**, enter a value - for example, *ihs-public-ip-westus-mjg022624*.
+   1. For **Name**, enter a value - for example, *ihs-public-ip-westus-mjg022624*. Write it down.
    1. For **DNS name label**, enter a unique value - for example, *ihsmjg022624*.
 
-1. Create a network security group in the secondary region by following instructions in [Create a network security group](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal), with the customization for some fields:
+1. Create a network security group in the secondary region by following instructions in [Create a network security group](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#create-a-network-security-group), with the customization for some fields:
    1. For **Resource group**, select the resource group where the service recovery vault is deployed - for example, *was-cluster-westus-mjg022624*.
    1. For **Name**, enter a value - for example, *nsg-westus-mjg022624*.
    1. For **Region**, select **West US**.
@@ -322,6 +328,45 @@ Additionally, you need further network configuration to enable and protect exter
    1. Select **+ Associate** to associate the network security group to the failover subnet you noted down before.
 
 ## Set up an Azure Traffic Manager
+
+In this section, you create an Azure Traffic Manager for distributing traffic to your public facing applications across the global Azure regions. The primary endpoint points to the public IP address of the IHS in the primary region, and the secondary endpoint points to the public IP address of the IHS in the secondary region.
+
+Create an Azure Traffic Manager profile by following [Quickstart: Create a Traffic Manager profile using the Azure portal](/azure/traffic-manager/quickstart-create-traffic-manager-profile). You just need the following sections: **Create a Traffic Manager profile** and **Add Traffic Manager endpoints**. Use the following steps as you go through these sections, then return to this article after you create and configure the Azure Traffic Manager.
+
+1. When you reach the section [Create a Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile#create-a-traffic-manager-profile), use the following steps:
+   1. In step 2 **Create Traffic Manager profile**, use the following steps:
+      1. Write down the unique Traffic Manager profile name for **Name** - for example, *tmprofile-mjg022624*.
+      1. Write down the new resource group name for **Resource group** - for example, *myResourceGroupTM1*.
+
+1. When you reach the section [Add Traffic Manager endpoints](/azure/traffic-manager/quickstart-create-traffic-manager-profile#add-traffic-manager-endpoints), use the following steps:
+   1. After you open the Traffic Manager profile in step 2, in the **Configuration** page, use the following steps:
+      1. For **DNS time to live (TTL)**, enter *10*.
+      1. Under **Endpoint monitor settings**, for **Path**, enter */websphere-cafe/*. It's the context root of the deployed sample app.
+      1. Under **Fast endpoint failover settings**, use the following values:
+         * For **Probing internal**, select *10*.
+         * For **Tolerated number of failures**, enter *3*.
+         * For **Probe timeout**, *5*.
+      1. Select **Save**. Wait until it completes.
+   1. In step 4 for adding the primary endpoint *myPrimaryEndpoint*, use the following steps:
+      1. For **Target resource type**, select **Public IP address**.
+      1. Select the **Choose public IP address** dropdown and enter the name of the public IP address of the IHS in the **East US** region that you wrote down before. You should see one entry matched. Select it for **Public IP address**.
+   1. In step 6 for adding a failover/secondary endpoint *myFailoverEndpoint*, use the following steps:
+      1. For **Target resource type**, select **Public IP address**.
+      1. Select the **Choose public IP address** dropdown and enter the name of the public IP address of the IHS in the **West US** region that you wrote down before. You should see one entry matched. Select it for **Public IP address**.
+   1. Wait for a while. Select **Refresh** until the **Monitor status** for endpoint *myPrimaryEndpoint* is *Online* and **Monitor status** for endpoint *myFailoverEndpoint* is *Degraded*.
+
+Next, verify if the sample app deployed to the primary WebSphere cluster ca be accessed from the Traffic Manager profile:
+
+1. Select **Overview** of the Traffic Manager profile you created.
+1. Check and copy the DNS name of the Traffic Manager profile, append it with */websphere-cafe/*. For example, `http://tmprofile-mjg022624.trafficmanager.net/websphere-cafe/`.
+1. Open the URL in a new tab of the browser. You should see the coffee you created before is listed in the page.
+1. Create another coffee with a different name and price (for example, *Coffee 2* with price *20*), which is persisted into both application data table and session table of the database. The UI that you see should be similar to the following screenshot:
+
+   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui-2nd-coffee.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui-2nd-coffee.png":::
+
+If your UI doesn't look similar, troubleshoot and resolve the problem before you continue.
+
+Now you set up the Traffic Manager profile. Keep the page open and you use it for monitoring the endpoint status change in a failover event later.
 
 ## Test failover from primary to secondary
 
