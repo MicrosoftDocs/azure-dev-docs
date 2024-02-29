@@ -17,8 +17,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Use Azure optimized best practices to achieve high availability and disaster recovery.
 > * Set up a Microsoft Azure SQL Database failover group in paired regions.
-> * Set up the primary WebSphere clusters on Azure VMs.
-> * Configure Azure Site Recovery for high availability and disaster recovery.
+> * Set up the primary WebSphere cluster on Azure VMs.
+> * Set up disaster recovery for the cluster using Azure Site Recovery.
 > * Set up an Azure Traffic Manager.
 > * Test failover from primary to secondary.
 
@@ -249,6 +249,81 @@ Now, use the following steps to verify if the app is running as expected.
 :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui.png":::
 
 If your UI doesn't look similar, troubleshoot and resolve the problem before you continue.
+
+## Set up disaster recovery for the cluster using Azure Site Recovery
+
+In this section, you set up disaster recovery for Azure VMs in the primary cluster using Azure Site Recovery, by following the steps in [Tutorial: Set up disaster recovery for Azure VMs](/azure/site-recovery/azure-to-azure-tutorial-enable-replication). You just need the following sections: [Create a Recovery Services vault](/azure/site-recovery/azure-to-azure-tutorial-enable-replication#create-a-recovery-services-vault) and [Enable replication](/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication). Pay attention to the following steps as you go through the article, then return to this article after the primary cluster is protected:
+
+1. When you reach the section [Create a Recovery Services vault](/azure/site-recovery/azure-to-azure-tutorial-enable-replication#create-a-recovery-services-vault):
+   1. In step 5 for **Resource group**, creating a new resource group with a unique name in your subscription - for example, *was-cluster-westus-mjg022624*.
+   1. In step 6 for **Vault name**, provide a vault name - for example, *recovery-service-vault-westus-mjg022624*.
+   1. In step 7 for **Region**, select **West US**.
+   1. Before selecting **Review + create** in step 8, select **Next: Redundancy**. In **Redundancy** pane, select **Geo-redundant** for **Backup Storage Redundancy** and **Enable** for **Cross Region Restore**.
+
+      > [!NOTE]
+      > Make sure you select **Geo-redundant** for **Backup Storage Redundancy** and **Enable** for **Cross Region Restore** in **Redundancy** pane. Otherwise the storage of the primary cluster can't be replicated to the secondary region.
+
+   1. Enable Site Recovery by following steps in sub-section [Enable Site Recovery](/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-site-recovery).
+
+1. When you reach the section [Enable replication](/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication):
+   1. Select source settings:
+      1. For **Region**, select **East US**.
+      1. For **Resource group**, select the resource where the primary cluster is deployed - for example, *was-cluster-eastus-mjg022624*.
+         
+         > [!NOTE]
+         > If the desired resource group is not listed, you can select **West US** for Region first and then switch back to **East US**.
+
+      1. Leave the defaults for other fields.
+   1. Select the VMs:
+      1. In **Virtual machines**, select all VMs listed - for example, there're 5 VMs deployed in the primary cluster for this tutorial.
+   1. Review replication settings:
+      1. For **Target location**, select **West US**.
+      1. For **Target resource group**, select the resource group where the service recovery vault is deployed - for example, *was-cluster-westus-mjg022624*.
+      1. Note down the new failover virtual network and failover subnet which are mapped from ones in the primary region. 
+      1. Leave the defaults for other fields.
+   1. Manage:
+      1. For **Replication policy**, use the default policy *24-hour-retention-policy*. You can also create a new policy for your business.
+      1. Leave the defaults for other fields as well.
+   1. Review:
+      1. After selecting **Enable replication**, notice the message **Creating Azure resources. Don't close this blade.** displayed at the bottom of the page. Do nothing and wait until the blade is closed automatcially, you're redirected to **Site Recovery** page.
+      1. Under **Protected items**, select **Replicated items**. Initially there is no items listed because the replication is still in progress. The replication takes time to complete, it's about 1 hour for this tutorial. Refresh the page periodically until you see all VMs are **Protected**, for example:
+
+         :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/replicated-items-protected.png" alt-text="Screenshot of VMs which are replicated and protected." lightbox="media/migrate-websphere-to-vms-with-ha-dr/replicated-items-protected.png":::
+
+Additionally, you need further network configuration to enable and protect external access to the secondary region in a failover event.
+
+1. Create a public IP address for Dmgr in the secondary region by following instructions in [Create a Standard SKU public IP address](/azure/virtual-network/ip-services/create-public-ip-portal?tabs=option-1-create-public-ip-standard#create-a-standard-sku-public-ip-address), with the customization for some fields:
+   1. For **Resource group**, select the resource group where the service recovery vault is deployed - for example, *was-cluster-westus-mjg022624*.
+   1. For **Region**, select **(US) West US**.
+   1. For **Name**, enter a value - for example, *dmgr-public-ip-westus-mjg022624*.
+   1. For **DNS name label**, enter a unique value - for example, *dmgrmjg022624*.
+
+1. Create another public IP address for IHS in the secondary region by following the same guide above, with the customization for some fields:
+   1. For **Resource group**, select the resource group where the service recovery vault is deployed - for example, *was-cluster-westus-mjg022624*.
+   1. For **Region**, select **(US) West US**.
+   1. For **Name**, enter a value - for example, *ihs-public-ip-westus-mjg022624*.
+   1. For **DNS name label**, enter a unique value - for example, *ihsmjg022624*.
+
+1. Create a network security group in the secondary region by following instructions in [Create a network security group](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal), with the customization for some fields:
+   1. For **Resource group**, select the resource group where the service recovery vault is deployed - for example, *was-cluster-westus-mjg022624*.
+   1. For **Name**, enter a value - for example, *nsg-westus-mjg022624*.
+   1. For **Region**, select **West US**.
+
+1. Create an inbound security rule for the network security group by following instructions in [Create a security rule](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#create-a-security-rule), with the customization as below:
+   1. In step 2, select the network security group you just created - for example, *nsg-westus-mjg022624*.
+   1. In step 3, select **Inbound security rules**.
+   1. In step 4, customize the following settings:
+      1. For **Destination port ranges**, enter *9060,9080,9043,9443,80*.
+      1. For **Protocol**, select **TCP**.
+      1. For **Name**, enter *ALLOW_HTTP_ACCESS*.
+
+1. Associate the network security group to a subnet by following instructions in [Associate or dissociate a network security group to or from a subnet](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet), with the customization as below:
+   1. In step 2, select the network security group you just created - for example, *nsg-westus-mjg022624*.
+   1. Select **+ Associate** to associate the network security group to the failover subnet you noted down before.
+
+## Set up an Azure Traffic Manager
+
+## Test failover from primary to secondary
 
 ## Next steps
 
