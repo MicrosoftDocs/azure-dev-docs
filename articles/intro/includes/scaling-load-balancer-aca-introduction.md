@@ -35,5 +35,5 @@ The Azure Container app sits in front of a set of Azure OpenAI resources.
 
 The Container app has two uses:
 
-* During a **normal scenario** where token and model quota is available, the Azure OpenAI resource returns a 200 back through the Container App and App Server to the App UX. 
+* During a **normal scenario** where token and model quota is available, the Azure OpenAI resource returns a 200 back through the Container App and App Server.
 * When a resource is in a **throttled scenario** such as due to quota limits, the Azure Container app can retry a different Azure OpenAI resource immediately to fullful the original chat app request.
