@@ -26,7 +26,7 @@ To deploy the Azure Container App, use the dev container:
     azd up
     ```
 
-    You will need to select a subscription, and region for the deployment. These don't have to be the same subscription and region as the chat app. 
+    You will need to select a subscription and region for the deployment. These don't have to be the same subscription and region as the chat app. 
 
 1. Wait for the deployment to complete before continuing.
 
