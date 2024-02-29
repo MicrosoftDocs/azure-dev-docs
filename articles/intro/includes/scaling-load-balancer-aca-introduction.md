@@ -25,7 +25,7 @@ Because the Azure OpenAI resource has specific token and model quota limits, a c
 
 :::image type="content" source="../media/get-started-scaling-load-balancer-aca/chat-app-original-architecuture.png" alt-text="Diagram showing chat app architecture with Azure OpenAI resource highlighted.":::
 
-To use the chat app without hitting those limits use a load balanced solution with Azure Container Apps. This solution seamlessly exposes a single endpoint from Azure Container Apps to your Chat app server. 
+To use the chat app without hitting those limits, use a load balanced solution with Azure Container Apps. This solution seamlessly exposes a single endpoint from Azure Container Apps to your chat app server. 
 
 :::image type="content" source="../media/get-started-scaling-load-balancer-aca/chat-app-aca-architecuture.png" alt-text="Diagram showing chat app architecture with Azure Container Apps in front of three Azure OpenAI resources.":::
 
@@ -35,5 +35,5 @@ The Azure Container app sits in front of a set of Azure OpenAI resources.
 
 The Container app has two uses:
 
-* During a **normal scenario** where token and model quota is available, the Azure OpenAI resource returns a 200 back through the Container App and App Server to the App UX. 
-* When a resource is in a **throttled scenario** such as due to quota limits, the Azure Container app can retry a different Azure OpenAI resource immediately to fullful the original App UX request.
+* During a **normal scenario** where token and model quota is available, the Azure OpenAI resource returns a 200 back through the Container App and App Server.
+* When a resource is in a **throttled scenario** such as due to quota limits, the Azure Container app can retry a different Azure OpenAI resource immediately to fullful the original chat app request.
