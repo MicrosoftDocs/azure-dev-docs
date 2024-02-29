@@ -35,6 +35,8 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 [!INCLUDE [py-deployment-procedure](../intro/includes/redeploy-procedure-py-chat.md)]
 
+[!INCLUDE [py-aca-cleanup](../intro/scaling-load-balancer-aca-cleanup.md)]
+
 ## Next step
 
 * Load test your chat app with [Azure Load Testing](/azure/load-testing/)
