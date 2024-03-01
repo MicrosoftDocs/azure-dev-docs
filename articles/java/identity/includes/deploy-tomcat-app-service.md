@@ -17,7 +17,7 @@ ms.date: 01/01/2024
 
 [!INCLUDE [deploy-tomcat-app-service-secret-note.md](./deploy-tomcat-app-service-secret-note.md)]
 
-##### Update your Microsoft Entra ID App Registration
+##### Update your Microsoft Entra ID app registration
 
 [!INCLUDE [deploy-app-service-update-registration.md](./deploy-app-service-update-registration.md)]
 

@@ -36,7 +36,7 @@ When you deploy your application to WebSphere Application Server, your redirect 
 
 1. After the code has finished building, copy the *.war* file over to your target server's file system.
 
-## Update your Microsoft Entra ID App Registration
+## Update your Microsoft Entra ID app registration
 
 Since the redirect URI changes to your deployed App on WebSphere, you also need to change the redirect URI in your Microsoft Entra ID App Registration.
 

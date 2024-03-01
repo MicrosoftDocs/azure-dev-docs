@@ -133,7 +133,7 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 
 [!INCLUDE [deploy-spring-apps-secret-note.md](includes/deploy-spring-apps-secret-note.md)]
 
-#### Update your Microsoft Entra ID App Registration
+#### Update your Microsoft Entra ID app registration
 
 [!INCLUDE [deploy-spring-apps-update-registration.md](includes/deploy-spring-apps-update-registration.md)]
 

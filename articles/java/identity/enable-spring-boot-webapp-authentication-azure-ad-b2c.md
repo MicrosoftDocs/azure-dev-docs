@@ -126,7 +126,7 @@ Open the *src/main/resources/templates/navbar.html* file.
 
 [!INCLUDE [deploy-spring-apps-secret-note.md](includes/deploy-spring-apps-secret-note.md)]
 
-#### Update your Microsoft Entra ID App Registration
+#### Update your Microsoft Entra ID app registration
 
 [!INCLUDE [deploy-spring-apps-update-registration.md](includes/deploy-spring-apps-update-registration.md)]
 

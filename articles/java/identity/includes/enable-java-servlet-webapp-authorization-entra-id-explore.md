@@ -11,7 +11,7 @@ ms.date: 01/01/2024
 - On the consent screen, note the scopes that are being requested.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
 - The middle of the screen now has an option to click for **ID Token Details**: click it to see some of the ID token's decoded claims.
-- Click the **Call Graph** button to make a call to Microsoft Graph's [/me endpoint](/graph/api/user-get?view=graph-rest-1.0&tabs=java#example-2-signed-in-user-request) and see a selection of user details obtained.
+- Click the **Call Graph** button to make a call to Microsoft Graph's [/me endpoint](/graph/api/user-get?tabs=java#example-2-signed-in-user-request) and see a selection of user details obtained.
 - You can also use the button on the top right to sign out.
 
 ## Contents

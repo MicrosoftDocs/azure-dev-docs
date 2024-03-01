@@ -1,6 +1,6 @@
 ---
 title: Get started with securing java application with Microsoft Identity platform
-description: Shows you how to enable your Java web app to restrict access to routes using app roles with the Microsoft identity platform
+description: Shows you how to enable your Java web app to restrict access to routes using app roles with the Microsoft identity platform.
 services: active-directory
 ms.date: 01/01/2024
 ms.service: active-directory

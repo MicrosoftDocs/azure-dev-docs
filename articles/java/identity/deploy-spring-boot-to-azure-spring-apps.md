@@ -1,6 +1,6 @@
 ---
-title: Get started with securing java application with Microsoft Identity platform
-description: Shows you how to enable your Java web app to restrict access to routes using app roles with the Microsoft identity platform
+title: Deploy your Java Spring Boot web app to Azure Spring Apps
+description: Shows you how to deploy a Java Spring Boot web app with sign-in by Microsoft Entra account to Azure Spring Apps.
 services: active-directory
 ms.date: 01/01/2024
 ms.service: active-directory
@@ -30,7 +30,7 @@ This guidance assumes you have run through any of the Spring Boot Web app exampl
 
 [!INCLUDE [deploy-spring-apps-secret-note.md](includes/deploy-spring-apps-secret-note.md)]
 
-## Update your Microsoft Entra ID App Registration
+## Update your Microsoft Entra ID app registration
 
 [!INCLUDE [deploy-spring-apps-update-registration.md](includes/deploy-spring-apps-update-registration.md)]
 

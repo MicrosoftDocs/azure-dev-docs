@@ -32,7 +32,7 @@ This sample application defines the following two *Application Roles*:
 - `PrivilegedAdmin`: Authorized to access the `Admins Only` and the `Regular Users` pages.
 - `RegularUser`: Authorized to access the `Regular Users` page.
 
-These application roles are defined in the [Azure portal](https://portal.azure.com) in the application's registration manifest. When a user signs into the application, Microsoft Entra ID emits a `roles` claim for each role that the user has been granted individually to the user in the from of role membership. Assignment of users and groups to roles can be done through the portal's UI, or programmatically using the [Microsoft Graph](https://graph.microsoft.com) and [Azure AD PowerShell](/powershell/module/azuread/?view=azureadps-2.0). In this sample, application role management is done through the Azure portal or using PowerShell.
+These application roles are defined in the [Azure portal](https://portal.azure.com) in the application's registration manifest. When a user signs into the application, Microsoft Entra ID emits a `roles` claim for each role that the user has been granted individually to the user in the from of role membership. Assignment of users and groups to roles can be done through the portal's UI, or programmatically using the [Microsoft Graph](https://graph.microsoft.com) and [Azure AD PowerShell](/powershell/module/azuread/). In this sample, application role management is done through the Azure portal or using PowerShell.
 
 > [!NOTE]
 > Role claims aren't present for guest users in a tenant if the `https://login.microsoftonline.com/common/` endpoint is used as the authority to sign in users. You need to sign-in a user to a tenanted endpoint like `https://login.microsoftonline.com/tenantid`.
@@ -171,7 +171,7 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 
 [!INCLUDE [deploy-spring-apps-secret-note.md](includes/deploy-spring-apps-secret-note.md)]
 
-#### Update your Microsoft Entra ID App Registration
+#### Update your Microsoft Entra ID app registration
 
 [!INCLUDE [deploy-spring-apps-update-registration.md](includes/deploy-spring-apps-update-registration.md)]
 

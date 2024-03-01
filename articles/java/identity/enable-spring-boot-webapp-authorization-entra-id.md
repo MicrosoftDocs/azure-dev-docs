@@ -141,7 +141,7 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 
 [!INCLUDE [deploy-spring-apps-secret-note.md](includes/deploy-spring-apps-secret-note.md)]
 
-#### Update your Microsoft Entra ID App Registration
+#### Update your Microsoft Entra ID app registration
 
 [!INCLUDE [deploy-spring-apps-update-registration.md](includes/deploy-spring-apps-update-registration.md)]
 
@@ -173,7 +173,7 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 - Upon successful completion of the sign-in flow, you should be redirected to the home page (`sign in status`), or one of the other pages, depending on which button triggered your sign-in flow.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
 - If you're on the home page, you can see an option to click **ID Token Details**: click it to see some of the ID token's decoded claims.
-- Click the **Call Graph** button to make a call to Microsoft Graph's [/me endpoint](/graph/api/user-get?view=graph-rest-1.0&tabs=java#example-2-signed-in-user-request) endpoint and see a selection of user details obtained.
+- Click the **Call Graph** button to make a call to Microsoft Graph's [/me endpoint](/graph/api/user-get?tabs=java#example-2-signed-in-user-request) and see a selection of user details obtained.
 - You can also use the button on the top right to sign out. The status page reflects this.
 
 ## Contents

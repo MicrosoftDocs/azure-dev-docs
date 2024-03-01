@@ -36,7 +36,7 @@ app.homePage=http://wls-5b942e9f2a-admindomain.westus.cloudapp.azure.com:7001/te
 
 1. After rebuilding the app, follow the steps of [Deploy a Java EE application from Administration Console portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine#deploy-a-java-ee-application-from-administration-console-portal) to redeploy the application with your current *.war* file.
 
-## Update your Microsoft Entra ID App Registration
+## Update your Microsoft Entra ID app registration
 
 Since the redirect URI changes to your deployed App on Oracle WebLogic Server, you also need to change the redirect URI in your Microsoft Entra ID App Registration.
 

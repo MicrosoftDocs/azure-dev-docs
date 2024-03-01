@@ -1,5 +1,5 @@
 ---
-title: Deploy your Java Tomcat web app to App Service
+title: Deploy your Java Tomcat web app to Azure App Service
 description: Shows you how to deploy a Tomcat web app with sign-in by Microsoft Entra account to Azure App Service.
 services: active-directory
 ms.date: 01/01/2024
@@ -26,7 +26,7 @@ You also need the [Azure CLI](/cli/azure/install-azure-cli) tool.
 
 [!INCLUDE [deploy-app-service-prepare-deploy.md](includes/deploy-app-service-prepare-deploy.md)]
 
-## Update your Microsoft Entra ID App Registration
+## Update your Microsoft Entra ID app registration
 
 [!INCLUDE [deploy-app-service-update-registration.md](includes/deploy-app-service-update-registration.md)]
 
