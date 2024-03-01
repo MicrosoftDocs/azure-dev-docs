@@ -177,30 +177,31 @@ The following table lists starters for PostgreSQL support:
 > |----------------------------------------------|-----------------------------------------------------------------------------------|
 > | spring-cloud-azure-starter-jdbc-postgresql   | The starters for using Azure PostgreSQL and JDBC through Microsoft Entra authentication. |
 
+### Configure Spring Boot 3
 
-### Spring Boot 3
+Azure SDK JARs require signature verification. However, Spring Boot 3 doesn't support the JAR signature for AOT mode on a JVM and Native Images. For more information, see [Using Ahead-of-time Processing With the JVM](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#deployment.efficient.aot) and [GraalVM Native Image Support](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html).
 
-Azure SDK JARs are signed. However, [Spring Boot 3 does not support the JAR signature](https://github.com/Azure/azure-sdk-for-java/issues/30320) for [AOT mode on a JVM](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#deployment.efficient.aot) and [native images](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html).
+To solve this issue, use the following steps to disable the JAR signature verification.
 
-To solve this issue, you can disable the JAR signature verification:
-* Create a `custom.security file` in `src/main/resources`
-```
-jdk.jar.disabledAlgorithms=MD2, MD5, RSA, DSA
-```
+* Create a `custom.security` file in `src/main/resources`, as shown in the following example:
+
+  ```kotlin
+  jdk.jar.disabledAlgorithms=MD2, MD5, RSA, DSA
+  ```
 
 * Use the following configuration if you're using Maven:
 
-```xml
-<plugin>
-    <groupId>org.graalvm.buildtools</groupId>
-    <artifactId>native-maven-plugin</artifactId>
-    <configuration>
-        <buildArgs>
-            <arg>-Djava.security.properties=src/main/resources/custom.security</arg>
-        </buildArgs>
-    </configuration>
-</plugin>
-```
+  ```xml
+  <plugin>
+      <groupId>org.graalvm.buildtools</groupId>
+      <artifactId>native-maven-plugin</artifactId>
+      <configuration>
+          <buildArgs>
+              <arg>-Djava.security.properties=src/main/resources/custom.security</arg>
+          </buildArgs>
+      </configuration>
+  </plugin>
+  ```
 
 * Use the following configuration if you're using Gradle:
 
