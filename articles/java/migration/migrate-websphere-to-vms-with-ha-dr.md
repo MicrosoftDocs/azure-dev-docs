@@ -175,7 +175,6 @@ Use the following steps to verify whether the IHS and Dmgr console work before m
 1. Copy the value of the property **ihsConsole**. Open that URL in a new browser tab. You should see a welcome page of the IHS without any error message. If you don't, you must troubleshoot and resolve the issue before you continue. Keep the console open and use it for verifying the app deployment of the cluster later.
 1. Copy and write down the value of the property **adminSecuredConsole**. Open it in a new browser tab. You should see the sign-in page of the **WebSphere Integrated Solutions Console**. Sign in to the console with the user name and password for WebSphere administrator you wrote down before. If you aren't able to sign in, you must troubleshoot and resolve the issue before you continue. Keep the console open and use it for further configuration of the WebSphere cluster later.
 
-<!-- TODO: May not need if we use can differentiate public IP addresses in two regions -->
 Use the following steps to write down the name of the public IP address of the IHS. You use it when you set up the Azure Traffic Manager later.
 
 1. Open the resource group where your cluster is deployed - for example, select **Overview** to switch back to the Overview pane of the deployment page. Then, select **Go to resource group**.
@@ -296,6 +295,10 @@ Next, create a recovery plan to include all replicated items so that they can fa
 1. In step 3, select **East US** for **Source** and **West US** for **Target**.
 1. In step 4 for **Select items**, select all protected items - for example, there're 5 protected VMs for this tutorial.
 
+Now you create a recovery plan. Keep the page open and you use it for failover test later.
+
+### Further network configuration for the secondary region
+
 Additionally, you need further network configuration to enable and protect external access to the secondary region in a failover event.
 
 1. Create a public IP address for Dmgr in the secondary region by following instructions in [Create a Standard SKU public IP address](/azure/virtual-network/ip-services/create-public-ip-portal?tabs=option-1-create-public-ip-standard#create-a-standard-sku-public-ip-address), with the customization for some fields:
@@ -362,13 +365,89 @@ Next, verify if the sample app deployed to the primary WebSphere cluster ca be a
 1. Open the URL in a new tab of the browser. You should see the coffee you created before is listed in the page.
 1. Create another coffee with a different name and price (for example, *Coffee 2* with price *20*), which is persisted into both application data table and session table of the database. The UI that you see should be similar to the following screenshot:
 
-   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui-2nd-coffee.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui-2nd-coffee.png":::
+   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui-2nd-coffee.png" alt-text="Screenshot of the sample application UI with the 2nd coffee." lightbox="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui-2nd-coffee.png":::
 
-If your UI doesn't look similar, troubleshoot and resolve the problem before you continue.
+If your UI doesn't look similar, troubleshoot and resolve the problem before you continue. Keep the console open and use it for failover test later.
 
 Now you set up the Traffic Manager profile. Keep the page open and you use it for monitoring the endpoint status change in a failover event later.
 
 ## Test failover from primary to secondary
+
+To test failover, you manually failover your Azure SQL Database server and cluster, and then fail back using the Azure portal in this section.
+
+### Failover to the secondary site
+
+First, use the following steps to failover the Azure SQL Database from the primary server to the secondary server:
+
+1. Switch to the browser tab of your Azure SQL Database failover group - for example, *failovergroup-mjg022624*.
+1. Select **Failover** > **Yes**.
+1. Wait until it completes.
+
+Next, use the following steps to failover the WebSphere cluster with the recovery plan:
+
+1. In the search box at the top of the Azure portal, enter **Recovery Services vaults** and select **Recovery Services vaults** in the search results.
+1. Select the name of your Recovery Services vault - for example, *recovery-service-vault-westus-mjg022624*.
+1. Under **Manage**, select **Recovery Plans (Site Recovery)**. Selet the recovery plan you created - for example, *recovery-plan-mjg022624*. 
+1. Select **Failover**. Check **I understand the risk. Skip test failover.**. Leave the defaults for others, select **OK**.
+
+   > [!NOTE]
+   > Optinally you can execute **Test failover** and **Cleanup test failover** to make sure everything works as expected before **Failover**. Reference [Tutorial: Run a disaster recovery drill for Azure VMs](/azure/site-recovery/azure-to-azure-tutorial-dr-drill) for more information. This tutorial chose **Faiolver** directly to simplify the exercise.
+
+1. Monitor the failover in notifications, wait until it completes. It takes about 10 minutes for the exercise of this tutorial.
+
+   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-in-progress.png" alt-text="Screenshot of failover in progress." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-in-progress.png":::
+   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-completed.png" alt-text="Screenshot of failover completed." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-completed.png":::
+
+Then, use the following steps to enable the external access to the WebSphere Integrated Solutions Console and sample app in the secondary region, and verify if they work as expected.
+
+1. In the search box at the top of the Azure portal, enter **Resource groups** and select **Resource groups** in the search results.
+1. Select the name of resource group for your secondary region - for example, *was-cluster-westus-mjg022624*. Sort items by **Type** in the **Resource Group** page.
+1. Select **Network Interface** prefixed with *dmgr*. Select **IP configurations** > **ipconfig1**. Check **Associate public IP address**. For **Public IP address**, select public IP address you created for Dmgr before - for example, *dmgr-public-ip-westus-mjg022624*. Select **Save**, wait until it completes.
+1. Switch back to the resource group, and select **Network Interface** prefixed with *ihs*. Select **IP configurations** > **ipconfig1**. Check **Associate public IP address**. For **Public IP address**, select public IP address you created for IHS before - for example, *ihs-public-ip-westus-mjg022624*. Select **Save**, wait until it completes.
+1. Find the DNS name label for the public IP address of Dmgr you created before, open the URL of Dmgr WebSphere Integrated Solutions Console in a new browser tab - for example, `https://dmgrmjg022624.westus.cloudapp.azure.com:9043/ibm/console`. Refresh the page until you see the welcome page for sign in.
+1. Sign in to the console with the user name and password for WebSphere administrator you wrote down before, and check the followings:
+   1. Under navigation pane at the left side, select **Servers** > **All servers**. In **Middleware server** pane, you should see 4 servers listed, including 3 WebSphere application servers consisting of WebSphere cluster *MyCluster* and 1 Web server that is an IHS. Refresh the page until you see all servers are started.
+
+      :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/middleware-servers.png" alt-text="Screenshot of the middleware servers." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/middleware-servers.png":::
+
+   1. Under navigation pane at the left side, select **Applications** > **Application Types** > **WebSphere enterprise applications**. In **Enterprise Applications** pane, you should see 1 application *websphere-cafe* listed and started.
+
+      :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/enterprise-applications-deployed.png" alt-text="Screenshot of the Enterprise Applications deployed." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/enterprise-applications-deployed.png":::
+
+   1. Reference steps in [Configure the cluster](#configure-the-cluster) to you should see settings for **Synchronize changes with Nodes** and **Distributed sessions** are replicated to the failover cluster. 
+
+1. Find the DNS name label for the public IP address of IHS you created before, open the URL of IHS console appended with the root context */websphere-cafe/* of the deployed app in a new browser tab - for example, `https://ihsmjg022624.westus.cloudapp.azure.com/websphere-cafe/`. You should see 2 coffees you created before listed in the page.
+1. Switch to the browser tab of your Traffic Manager profile, then refresh the page until you see that the **Monitor status** value of the endpoint `myFailoverEndpoint` becomes *Online* and the **Monitor status** value of the endpoint `myPrimaryEndpoint` becomes *Degraded*.
+1. Switch to the browser tab with the DNS name of the Traffic Manager profile - for example, `http://tmprofile-mjg022624.trafficmanager.net/websphere-cafe/`. Refresh the page and you should see the same data persisted in the application data table and the session table displayed. The UI that you see should be similar to the following screenshot:
+
+   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui-after-failover.png" alt-text="Screenshot of the sample application UI after failover." lightbox="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui-after-failover.png":::
+
+   If you don't observe this behavior, it might be because the Traffic Manager is taking time to update DNS to point to the failover site. The problem could also be that your browser cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
+
+Finally, re-protect the active site after you're satisfied the failover result.
+
+1. Switch to the browser tab where your recovery plan is failed over - for example, *recovery-plan-mjg022624*.
+1. Select **Re-protect** > **OK**. Check **I understand the risk. Skip test failover.**. Leave the defaults for others, select **OK**.
+1. It starts validating and you should see the message **Creating Azure resources. Don't close this blade.** displayed at the bottom of the page. Do nothing and wait until the blade is closed automatcially, you're redirected to the recovery plan page.
+1. Monitor the re-protect in notifications, wait until it completes.
+
+   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/reprotect-in-progress.png" alt-text="Screenshot of re-protect in progress." lightbox="media/migrate-websphere-to-vms-with-ha-dr/reprotect-in-progress.png":::
+   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/reprotect-completed.png" alt-text="Screenshot of re-protect completed." lightbox="media/migrate-websphere-to-vms-with-ha-dr/reprotect-completed.png":::
+
+1. Select **Items in recovery plan**, you should see 5 items listed. Refresh the page periodically until you see status for all items becomes **Protected**.
+1. Optinally, you can view details of re-protect job by selecting any completed event **Reprotecting virtual machine** from notifications:
+
+   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/reprotect-job-details.png" alt-text="Screenshot of re-protect job details." lightbox="media/migrate-websphere-to-vms-with-ha-dr/reprotect-job-details.png":::
+
+Similar to **Enable replication** before, the whole process of re-protect takes time to complete, it's about 50 minutes for the exercise of this tutorial.
+
+### Fail back to the primary site
+
+Use the same steps in the [Failover to the secondary site](#failover-to-the-secondary-site) section to fail back to the primary site including database server and cluster, except for the following differences:
+
+1. You don't need to enable the external access to the WebSphere Integrated Solutions Console and sample app in the primary region, they have already been enabled in the deployment of the primary cluster.
+1. Revisit the browser tabs for WebSphere Integrated Solutions Console and sample app for the primary cluster you opened before, and verify if they work as expected.
+1. In the Traffic Manager profile, you should see that endpoint *myPrimaryEndpoint* becomes *Online* and endpoint *myFailoverEndpoint* becomes *Degraded*.
 
 ## Next steps
 
