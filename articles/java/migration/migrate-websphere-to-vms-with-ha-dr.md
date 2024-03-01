@@ -219,7 +219,7 @@ Keep the console open and use it for app deployment later.
 
 Deploy and run a sample CRUD Java/Jakarta EE application on WebSphere cluster for disaster recovery failover test later.
 
-You configured applicatoin servers to use the datasource *jdbc/WebSphereCafeDB* to store session data before, which enables failover and load balancing across a cluster of WebSphere application servers. The sample app also configures [persistence schema](https://github.com/Azure-Samples/websphere-cafe/blob/main/websphere-cafe-web/src/main/resources/META-INF/persistence.xml#L7) to persist application data *coffee* in the same datasource *jdbc/WebLogicCafeDB*.
+You configured applicatoin servers to use the datasource *jdbc/WebSphereCafeDB* to store session data before, which enables failover and load balancing across a cluster of WebSphere application servers. The sample app also configures [persistence schema](https://github.com/Azure-Samples/websphere-cafe/blob/main/websphere-cafe-web/src/main/resources/META-INF/persistence.xml#L7) to persist application data *coffee* in the same datasource *jdbc/WebSphereCafeDB*.
 
 First, use the following commands to download, build and package the sample:
 
@@ -408,11 +408,11 @@ Then, use the following steps to enable the external access to the WebSphere Int
 1. Sign in to the console with the user name and password for WebSphere administrator you wrote down before, and check the followings:
    1. Under navigation pane at the left side, select **Servers** > **All servers**. In **Middleware server** pane, you should see 4 servers listed, including 3 WebSphere application servers consisting of WebSphere cluster *MyCluster* and 1 Web server that is an IHS. Refresh the page until you see all servers are started.
 
-      :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/middleware-servers.png" alt-text="Screenshot of the middleware servers." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/middleware-servers.png":::
+      :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/middleware-servers.png" alt-text="Screenshot of the middleware servers." lightbox="media/migrate-websphere-to-vms-with-ha-dr/middleware-servers.png":::
 
    1. Under navigation pane at the left side, select **Applications** > **Application Types** > **WebSphere enterprise applications**. In **Enterprise Applications** pane, you should see 1 application *websphere-cafe* listed and started.
 
-      :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/enterprise-applications-deployed.png" alt-text="Screenshot of the Enterprise Applications deployed." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/enterprise-applications-deployed.png":::
+      :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/enterprise-applications-deployed.png" alt-text="Screenshot of the Enterprise Applications deployed." lightbox="media/migrate-websphere-to-vms-with-ha-dr/enterprise-applications-deployed.png":::
 
    1. Reference steps in [Configure the cluster](#configure-the-cluster) to you should see settings for **Synchronize changes with Nodes** and **Distributed sessions** are replicated to the failover cluster. 
 
