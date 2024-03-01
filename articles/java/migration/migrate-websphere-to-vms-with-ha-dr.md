@@ -393,10 +393,17 @@ Next, use the following steps to failover the WebSphere cluster with the recover
    > [!NOTE]
    > Optinally you can execute **Test failover** and **Cleanup test failover** to make sure everything works as expected before **Failover**. Reference [Tutorial: Run a disaster recovery drill for Azure VMs](/azure/site-recovery/azure-to-azure-tutorial-dr-drill) for more information. This tutorial chose **Faiolver** directly to simplify the exercise.
 
+   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-settings.png" alt-text="Screenshot of failover settings." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-settings.png":::
+
 1. Monitor the failover in notifications, wait until it completes. It takes about 10 minutes for the exercise of this tutorial.
 
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-in-progress.png" alt-text="Screenshot of failover in progress." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-in-progress.png":::
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-completed.png" alt-text="Screenshot of failover completed." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-completed.png":::
+
+1. Optinally, you can view details of failover job by selecting the completed event **Reprotecting virtual machine** from notifications:
+   
+   <!--TODO: capture the screenshot-->
+   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-job-details.png" alt-text="Screenshot of failover job details." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-job-details.png":::
 
 Then, use the following steps to enable the external access to the WebSphere Integrated Solutions Console and sample app in the secondary region, and verify if they work as expected.
 
@@ -448,6 +455,19 @@ Use the same steps in the [Failover to the secondary site](#failover-to-the-seco
 1. You don't need to enable the external access to the WebSphere Integrated Solutions Console and sample app in the primary region, they have already been enabled in the deployment of the primary cluster.
 1. Revisit the browser tabs for WebSphere Integrated Solutions Console and sample app for the primary cluster you opened before, and verify if they work as expected.
 1. In the Traffic Manager profile, you should see that endpoint *myPrimaryEndpoint* becomes *Online* and endpoint *myFailoverEndpoint* becomes *Degraded*.
+
+## Clean up resources
+
+If you're not going to continue to use the WebSphere clusters and other components, use the following steps to delete the resource groups to clean up the resources used in this tutorial:
+
+1. Enter the resource group name of Azure SQL Database servers (for example, `myResourceGroup`) in the search box at the top of the Azure portal, and select the matched resource group from the search results.
+1. Select **Delete resource group**.
+1. In **Enter resource group name to confirm deletion**, enter the resource group name.
+1. Select **Delete**.
+1. Repeat steps 1-4 for the resource group of the Traffic Manager - for example, `myResourceGroupTM1`.
+<!--TODO: add steps to disable replication-->
+1. Repeat steps 1-4 for the resource group of the primary WebSphere cluster - for example, `was-cluster-westus-mjg022624`.
+1. Repeat steps 1-4 for the resource group of the secondary WebSphere cluster - for example, `was-cluster-eastus-mjg022624`.
 
 ## Next steps
 
