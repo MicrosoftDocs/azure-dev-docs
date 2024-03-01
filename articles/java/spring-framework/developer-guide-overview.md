@@ -177,11 +177,11 @@ The following table lists starters for PostgreSQL support:
 > |----------------------------------------------|-----------------------------------------------------------------------------------|
 > | spring-cloud-azure-starter-jdbc-postgresql   | The starters for using Azure PostgreSQL and JDBC through Microsoft Entra authentication. |
 
-### Configure Spring Boot 3
+### Configuring Spring Boot 3
 
-Azure SDK JARs require signature verification. However, Spring Boot 3 doesn't support the JAR signature for AOT mode on a JVM and Native Images. For more information, see [Using Ahead-of-time Processing With the JVM](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#deployment.efficient.aot) and [GraalVM Native Image Support](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html).
+Azure SDK JARs require signature verification. However, Spring Boot 3 doesn't support the JAR signature verification for AOT mode on a JVM and for Native Images. For more information, see [Using Ahead-of-time Processing With the JVM](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#deployment.efficient.aot) and [GraalVM Native Image Support](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html).
 
-To solve this issue, use the following steps to disable the JAR signature verification.
+To solve this issue, disable the JAR signature verification.
 
 * Create a `custom.security` file in `src/main/resources`, as shown in the following example:
 
@@ -205,15 +205,15 @@ To solve this issue, use the following steps to disable the JAR signature verifi
 
 * Use the following configuration if you're using Gradle:
 
-```groovy
-graalvmNative {
-  binaries {
-    main {
-      buildArgs('-Djava.security.properties=' + file("$rootDir/custom.security").absolutePath)
+  ```groovy
+  graalvmNative {
+    binaries {
+      main {
+        buildArgs('-Djava.security.properties=' + file("$rootDir/custom.security").absolutePath)
+      }
     }
   }
-}
-```
+  ```
 
 ### Learning Spring Cloud Azure
 
