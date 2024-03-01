@@ -177,6 +177,43 @@ The following table lists starters for PostgreSQL support:
 > |----------------------------------------------|-----------------------------------------------------------------------------------|
 > | spring-cloud-azure-starter-jdbc-postgresql   | The starters for using Azure PostgreSQL and JDBC through Microsoft Entra authentication. |
 
+
+### Spring Boot 3
+
+Azure SDK JARs are signed. However, [Spring Boot 3 does not support the JAR signature](https://github.com/Azure/azure-sdk-for-java/issues/30320) for [AOT mode on a JVM](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#deployment.efficient.aot) and [native images](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html).
+
+To solve this issue, you can disable the JAR signature verification:
+* Create a `custom.security file` in `src/main/resources`
+```
+jdk.jar.disabledAlgorithms=MD2, MD5, RSA, DSA
+```
+
+* Use the following configuration if you're using Maven:
+
+```xml
+<plugin>
+    <groupId>org.graalvm.buildtools</groupId>
+    <artifactId>native-maven-plugin</artifactId>
+    <configuration>
+        <buildArgs>
+            <arg>-Djava.security.properties=src/main/resources/custom.security</arg>
+        </buildArgs>
+    </configuration>
+</plugin>
+```
+
+* Use the following configuration if you're using Gradle:
+
+```groovy
+graalvmNative {
+  binaries {
+    main {
+      buildArgs('-Djava.security.properties=' + file("$rootDir/custom.security").absolutePath)
+    }
+  }
+}
+```
+
 ### Learning Spring Cloud Azure
 
 For a full list of samples that show usage, see [Spring Cloud Azure Samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main).
