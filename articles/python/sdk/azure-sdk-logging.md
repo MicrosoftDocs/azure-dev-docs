@@ -77,7 +77,7 @@ This example registers a handler that directs log output to stdout. You can use 
 By default, logging within the Azure libraries doesn't include any HTTP information. To include HTTP information in log output (as DEBUG level), you must explicitly pass `logging_enable=True` to a client or credential object constructor or to a specific method.
 
 > [!CAUTION]
-> HTTP logging can reveal includes sensitive information such as account keys in headers and other credentials. Be sure to protect these logs to avoid compromising security.
+> HTTP logging can include sensitive information such as account keys in headers and other credentials. Be sure to protect these logs to avoid compromising security.
 
 ### Enable HTTP logging for a client object (DEBUG level)
 
