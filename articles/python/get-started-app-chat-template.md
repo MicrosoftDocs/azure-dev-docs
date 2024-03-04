@@ -3,7 +3,7 @@ title: Get started with the Python enterprise chat sample using RAG
 description: Get started with Python and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
 ms.date: 11/17/2023
 ms.topic: get-started
-ms.custom: devx-track-python, devx-track-python-ai
+ms.custom: devx-track-python, devx-track-python-ai, devx-track-extended-azdevcli
 # CustomerIntent: As a python developer new to Azure OpenAI, I want deploy and use sample code to interact with app infused with my own business data so that learn from the sample code.
 ---
 
@@ -258,8 +258,13 @@ The Azure resources created in this article are billed to your Azure subscriptio
 Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
 
 ```bash
-azd down --purge
+azd down --purge --force
 ```
+
+The switches provide: 
+
+* `purge`: Deleted resources are immediately purged. This allows you to reuse the Azure OpenAI TPM.
+* `force`: The deletion happens siliently, without requiring user consent. 
 
 ### Clean up GitHub Codespaces
 

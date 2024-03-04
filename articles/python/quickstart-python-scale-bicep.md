@@ -3,7 +3,7 @@ title: Scale your azd Python web app with Bicep
 description: Quickstart article featuring the modification of Bicep files and using azd provision to scale your azd Python web app.
 ms.date: 12/11/2023
 ms.topic: conceptual
-ms.custom: devx-track-python, devx-track-bicep
+ms.custom: devx-track-python, devx-track-bicep, devx-track-extended-azdevcli
 ---
 
 # Quickstart: Scaling services deployed with the azd Python web templates using Bicep
@@ -50,7 +50,7 @@ To begin, you need a working `azd` deployment. Once you have that in place, you'
 
 ## Scale a service by modifying its Bicep properties
 
-You can scale an existing resource in your deployment by changing its SKU. To demonstrate this, you'll change the App Service plan from the "Basic Service plan" (which is designed for apps with lower traffic requirements and don’t need advanced auto scale and traffic management features) to the "Standard Service plan", which is designed for running production workloads.
+You can scale an existing resource in your deployment by changing its SKU. To demonstrate this, you'll change the App Service plan from the "Basic Service plan" (which is designed for apps with lower traffic requirements and don't need advanced auto scale and traffic management features) to the "Standard Service plan", which is designed for running production workloads.
 
 > [!NOTE]
 > Not all SKU changes can be made after the fact. Some research may be necessary to better understand your scaling options.

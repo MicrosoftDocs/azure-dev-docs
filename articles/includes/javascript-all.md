@@ -228,6 +228,7 @@
 | Resource Management - Kubernetes Configuration | npm [6.1.0](https://www.npmjs.com/package/@azure/arm-kubernetesconfiguration/v/6.1.0) | [docs](/javascript/api/overview/azure/arm-kubernetesconfiguration-readme) | GitHub [6.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kubernetesconfiguration/arm-kubernetesconfiguration) |
 | Resource Management - Kusto | npm [8.1.0](https://www.npmjs.com/package/@azure/arm-kusto/v/8.1.0) | [docs](/javascript/api/overview/azure/arm-kusto-readme) | GitHub [8.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/kusto/arm-kusto) |
 | Resource Management - Lab Services | npm [3.1.0](https://www.npmjs.com/package/@azure/arm-labservices/v/3.1.0) | [docs](/javascript/api/overview/azure/arm-labservices-readme) | GitHub [3.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/labservices/arm-labservices) |
+| Resource Management - Largeinstance | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-largeinstance/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-largeinstance_1.0.0-beta.1/sdk/largeinstance/arm-largeinstance/) |
 | Resource Management - Links | npm [2.0.1](https://www.npmjs.com/package/@azure/arm-links/v/2.0.1) | [docs](/javascript/api/overview/azure/arm-links-readme) | GitHub [2.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/links/arm-links) |
 | Resource Management - Load Testing | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-loadtesting/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-loadtesting-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-loadtesting_1.0.0/sdk/loadtestservice/arm-loadtesting/) |
 | Resource Management - Locks | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-locks/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-locks-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/locks/arm-locks) |
@@ -340,7 +341,7 @@
 | Unknown Display Name | npm [0.39.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.39.0) |  |  |
 | Unknown Display Name | npm [0.5.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.5.0) |  |  |
 | Unknown Display Name | npm [1.0.0-preview.2](https://www.npmjs.com/package/@azure/app-configuration-provider/v/1.0.0-preview.2) |  |  |
-| Unknown Display Name | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/openai-assistants/v/1.0.0-beta.4) |  |  |
+| Unknown Display Name | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/openai-assistants/v/1.0.0-beta.5) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.3) |  |  |
 | Unknown Display Name | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/bundler/v/0.1.0) |  |  |
@@ -429,7 +430,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240228.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240228.3) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240302.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240302.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -509,7 +510,7 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.63](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.63) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - PowerShell | npm [4.0.680](https://www.npmjs.com/package/@autorest/powershell/v/4.0.680) |  | GitHub [4.0.680](https://github.com/Azure/autorest.powershell) |
+| AutoRest - PowerShell | npm [4.0.681](https://www.npmjs.com/package/@autorest/powershell/v/4.0.681) |  | GitHub [4.0.681](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.13.2](https://www.npmjs.com/package/@autorest/python/v/6.13.2) |  | GitHub [6.13.2](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
