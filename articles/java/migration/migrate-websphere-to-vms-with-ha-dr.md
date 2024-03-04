@@ -191,7 +191,7 @@ First, enable the option **Synchronize changes with Nodes** so that any configur
 Then, configure Database **Distributed sessions** for all application servers.
 
 1. Under navigation pane at the left side, select **Servers** > **Server Types** > **WebSphere application servers**.
-1. In **Application servers** pane, you should see 3 application servers listed. For each application server, follow instructions below to configure Database **Distributed sessions**:
+1. In **Application servers** pane, you should see 3 application servers listed. For each application server, follow instructions to configure Database **Distributed sessions**:
    1. Select the application server.
    1. Under **Container Settings** section, select **Session management** .
    1. Under **Additional Properties** section, select **Distributed environment settings**.
@@ -278,7 +278,7 @@ In this section, you set up disaster recovery for Azure VMs in the primary clust
    1. Review replication settings:
       1. For **Target location**, select **West US**.
       1. For **Target resource group**, select the resource group where the service recovery vault is deployed - for example, *was-cluster-westus-mjg022624*.
-      1. Note down the new failover virtual network and failover subnet which are mapped from ones in the primary region. 
+      1. Note down the new failover virtual network and failover subnet, which are mapped from ones in the primary region. 
       1. Leave the defaults for other fields.
    1. Manage:
       1. For **Replication policy**, use the default policy *24-hour-retention-policy*. You can also create a new policy for your business.
@@ -287,7 +287,7 @@ In this section, you set up disaster recovery for Azure VMs in the primary clust
       1. After selecting **Enable replication**, notice the message **Creating Azure resources. Don't close this blade.** displayed at the bottom of the page. Do nothing and wait until the blade is closed automatcially, you're redirected to **Site Recovery** page.
       1. Under **Protected items**, select **Replicated items**. Initially there is no items listed because the replication is still in progress. The replication takes time to complete, it's about 1 hour for this tutorial. Refresh the page periodically until you see all VMs are **Protected**, for example:
 
-         :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/replicated-items-protected.png" alt-text="Screenshot of VMs which are replicated and protected." lightbox="media/migrate-websphere-to-vms-with-ha-dr/replicated-items-protected.png":::
+         :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/replicated-items-protected.png" alt-text="Screenshot of VMs that are replicated and protected." lightbox="media/migrate-websphere-to-vms-with-ha-dr/replicated-items-protected.png":::
 
 Next, create a recovery plan to include all replicated items so that they can fail over together. Execute instructions in [Create a recovery plan](/azure/site-recovery/site-recovery-create-recovery-plans#create-a-recovery-plan), with the following customization:
 
@@ -307,7 +307,7 @@ Additionally, you need further network configuration to enable and protect exter
    1. For **Name**, enter a value - for example, *dmgr-public-ip-westus-mjg022624*.
    1. For **DNS name label**, enter a unique value - for example, *dmgrmjg022624*.
 
-1. Create another public IP address for IHS in the secondary region by following the same guide above, with the customization for some fields:
+1. Create another public IP address for IHS in the secondary region by following the same guide, with the customization for some fields:
    1. For **Resource group**, select the resource group where the service recovery vault is deployed - for example, *was-cluster-westus-mjg022624*.
    1. For **Region**, select **(US) West US**.
    1. For **Name**, enter a value - for example, *ihs-public-ip-westus-mjg022624*. Write it down.
@@ -318,16 +318,16 @@ Additionally, you need further network configuration to enable and protect exter
    1. For **Name**, enter a value - for example, *nsg-westus-mjg022624*.
    1. For **Region**, select **West US**.
 
-1. Create an inbound security rule for the network security group by following instructions in [Create a security rule](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#create-a-security-rule), with the customization as below:
-   1. In step 2, select the network security group you just created - for example, *nsg-westus-mjg022624*.
+1. Create an inbound security rule for the network security group by following instructions in [Create a security rule](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#create-a-security-rule), with the following customization:
+   1. In step 2, select the network security group you created - for example, *nsg-westus-mjg022624*.
    1. In step 3, select **Inbound security rules**.
    1. In step 4, customize the following settings:
       1. For **Destination port ranges**, enter *9060,9080,9043,9443,80*.
       1. For **Protocol**, select **TCP**.
       1. For **Name**, enter *ALLOW_HTTP_ACCESS*.
 
-1. Associate the network security group to a subnet by following instructions in [Associate or dissociate a network security group to or from a subnet](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet), with the customization as below:
-   1. In step 2, select the network security group you just created - for example, *nsg-westus-mjg022624*.
+1. Associate the network security group to a subnet by following instructions in [Associate or dissociate a network security group to or from a subnet](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet), with the following customization:
+   1. In step 2, select the network security group you created - for example, *nsg-westus-mjg022624*.
    1. Select **+ Associate** to associate the network security group to the failover subnet you noted down before.
 
 ## Set up an Azure Traffic Manager
@@ -395,7 +395,7 @@ Next, use the following steps to failover the WebSphere cluster with the recover
 
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-settings.png" alt-text="Screenshot of failover settings." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-settings.png":::
 
-1. Monitor the failover in notifications, wait until it completes. It takes about 10 minutes for the exercise of this tutorial.
+1. Monitor the failover in notifications until it completes. It takes about 10 minutes for the exercise of this tutorial.
 
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-in-progress.png" alt-text="Screenshot of failover in progress." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-in-progress.png":::
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-completed.png" alt-text="Screenshot of failover completed." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-completed.png":::
@@ -438,7 +438,7 @@ Commit the failover after you're satisfied the failover result.
 1. Select the name of your Recovery Services vault - for example, *recovery-service-vault-westus-mjg022624*.
 1. Under **Manage**, select **Recovery Plans (Site Recovery)**. Selet the recovery plan you created - for example, *recovery-plan-mjg022624*. 
 1. Select **Commit** > **OK**.
-1. Monitor the commit in notifications, wait until it completes.
+1. Monitor the commit in notifications until it completes.
 
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-commit-in-progress.png" alt-text="Screenshot of failover commit in progress." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-commit-in-progress.png":::
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-commit-completed.png" alt-text="Screenshot of failover commit completed." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-commit-completed.png":::
@@ -454,7 +454,7 @@ Disable the replication for items in recovery plan and delete the recovery plan.
 1. For each item in **Items in recovery plan**, right-click the item > select **Disable Replication**.
 1. If you're prompted to provide reason(s) for disabling protection for this virtual machine, select one you prefer - for example, **I completed migrating my application**. Select **OK**.
 1. Repeat step 1 until you disable replication for all items.
-1. Monitor the process in notifications, wait until it completes.
+1. Monitor the process in notifications until it completes.
 
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/remove-replicated-items-completed.png" alt-text="Screenshot of removing replicated items completed." lightbox="media/migrate-websphere-to-vms-with-ha-dr/remove-replicated-items-completed.png":::
 
@@ -464,15 +464,15 @@ Disable the replication for items in recovery plan and delete the recovery plan.
 
 Now the secondary region is the failover site and active, you should re-protect it in your primary region.
 
-First, clean up resources that will be replicated in your primary region later.
+First, clean up resources that are replicated in your primary region later.
 
 1. In the search box at the top of the Azure portal, enter **Resource groups** and select **Resource groups** in the search results.
 1. Select the name of resource group for your primary region - for example, *was-cluster-eastus-mjg022624*. Sort items by **Type** in the **Resource Group** page.
-1. Select **Type** filter > select *Virtual machine* from dropdown list of **Value** > **Apply**. Select all virtual machines > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications, wait until it completes.
+1. Select **Type** filter > select *Virtual machine* from dropdown list of **Value** > **Apply**. Select all virtual machines > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications until it completes.
 1. Select **Type** filter > select *Disks* from dropdown list of **Value** > **Apply**. Select all disks > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications, wait until it completes.
-1. Select **Type** filter > select *Private endpoint* from dropdown list of **Value** > **Apply**. Select all private endpoints > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications, wait until it completes. Ignore this step if type **Private endpoint** is not listed.
-1. Select **Type** filter > select *Network Interface* from dropdown list of **Value** > **Apply**. Select all network interfaces > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications, wait until it completes.
-1. Select **Type** filter > select *Storage account* from dropdown list of **Value** > **Apply**. Select all storage accounts > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications, wait until it completes.
+1. Select **Type** filter > select *Private endpoint* from dropdown list of **Value** > **Apply**. Select all private endpoints > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications until it completes. Ignore this step if type **Private endpoint** is not listed.
+1. Select **Type** filter > select *Network Interface* from dropdown list of **Value** > **Apply**. Select all network interfaces > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications until it completes.
+1. Select **Type** filter > select *Storage account* from dropdown list of **Value** > **Apply**. Select all storage accounts > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications until it completes.
 
 Next, use the same steps in the [Set up disaster recovery for the cluster using Azure Site Recovery](#set-up-disaster-recovery-for-the-cluster-using-azure-site-recovery) in the primary region, except for the following differences:
 
@@ -487,7 +487,7 @@ Next, use the same steps in the [Set up disaster recovery for the cluster using 
       1. Select existing virtual network in the primary region for **Failover virtual network**.
 1. For **Create a recovery plan**:
    1. Select **West US** for **Source** and **East US** for **Target**.
-1. Skip steps in section [Further network configuration for the secondary region](#further-network-configuration-for-the-secondary-region) as these resource are already created and configured before.
+1. Skip steps in section [Further network configuration for the secondary region](#further-network-configuration-for-the-secondary-region) as these resources are created and configured before.
 
 ### Fail back to the primary site
 
@@ -502,9 +502,9 @@ Use the same steps in the [Failover to the secondary site](#failover-to-the-seco
    1. The primary region is your failover site and active, you should you should re-protect it in your secondary region.
    1. Clean up resource deployed in your secondary region - for example, resources deployed in *was-cluster-westus-mjg022624*.
    1. Use the same steps in the [Set up disaster recovery for the cluster using Azure Site Recovery](#set-up-disaster-recovery-for-the-cluster-using-azure-site-recovery) for protecting the primary region in the secondary region, except:
-      1. Skipping steps in **Create a Recovery Services vault** as you've already created one before - for example, *recovery-service-vault-westus-mjg022624*.
+      1. Skipping steps in **Create a Recovery Services vault** as you created one before - for example, *recovery-service-vault-westus-mjg022624*.
       1. For **Enable replication** > **Replication settings**, select existing virtual network in the secondary region for **Failover virtual network**.
-      1. Skipping steps in section [Further network configuration for the secondary region](#further-network-configuration-for-the-secondary-region) as these resource are already created and configured before.
+      1. Skipping steps in section [Further network configuration for the secondary region](#further-network-configuration-for-the-secondary-region) as these resources are created and configured before.
 
 ## Clean up resources
 
