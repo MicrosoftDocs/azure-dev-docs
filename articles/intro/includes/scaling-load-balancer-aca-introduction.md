@@ -7,7 +7,7 @@ author: diberry
 ms.service: azure
 ---
 
-Learn how to add load balancing to your application to extend the Chat app beyond the Azure OpenAI token and model quota limits. This approach uses Azure Container Apps to create three Azure OpenAI endpoints, as well as a primary container to direct incoming traffic to one of the three endpoints.
+Learn how to add load balancing to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. This approach uses Azure Container Apps to create three Azure OpenAI endpoints, as well as a primary container to direct incoming traffic to one of the three endpoints.
 
 This article requires you to deploy 2 separate samples:
 
@@ -33,4 +33,4 @@ The Azure Container app sits in front of a set of Azure OpenAI resources. The Co
 
 When a resource is in a **throttled scenario** such as due to quota limits, the Azure Container app can retry a different Azure OpenAI resource immediately to fullful the original chat app request.
 
-:::image type="content" source="../media/get-started-scaling-load-balancer-aca/intro-load-balance-throttled-usage.png" alt-text="Diagram displaying a throttling scenario for load balancing for Azure OpenAI. The throttling scenario shows the same 3 groups of 2 endpoints with the first group failing with a response code of 429 and a response header indicating how many seconds the client has to wait in order for more request quota to be available.":::
+:::image type="content" source="../media/get-started-scaling-load-balancer-aca/intro-load-balance-throttled-usage.png" alt-text="Diagram displaying a throttling scenario with a 429 failing response code and a response header of how many seconds the client has to wait to retry.":::

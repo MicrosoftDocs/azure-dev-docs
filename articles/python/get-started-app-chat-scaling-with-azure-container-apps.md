@@ -1,6 +1,6 @@
 ---
-title: Scale Azure OpenAI for Python enterprise chat sample using RAG
-description: Learn how to add load balancing to your application to extend the Chat app beyond the Azure OpenAI token and model quota limits. 
+title: Scale Azure OpenAI for Python chat sample using RAG
+description: Learn how to add load balancing to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. 
 ms.date: 02/01/2024
 ms.topic: get-started
 ms.custom: devx-track-python, devx-track-python-ai
