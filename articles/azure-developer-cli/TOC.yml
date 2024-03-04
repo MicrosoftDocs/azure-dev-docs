@@ -1,6 +1,8 @@
 - name: Azure Developer CLI
   expanded: true
   items:
+  - name: Azure Developer CLI overview
+    href: index.yml
   - name: What is Azure Developer CLI?
     href: overview.md
   - name: Get started
