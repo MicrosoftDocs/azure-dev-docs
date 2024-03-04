@@ -7,7 +7,7 @@ ms.custom: devx-track-python, devx-track-python-ai
 # CustomerIntent: As a python developer new to Azure OpenAI, I want to scale my OpenAI capacity to avoid rate limit errors.
 ---
 
-# Scale Azure OpenAI for Python chat using RAG
+# Scale Azure OpenAI for Python chat using RAG with Azure Container Apps
 
 [!INCLUDE [aca-load-balancer-intro](../intro/includes/scaling-load-balancer-aca-introduction.md)]
 
