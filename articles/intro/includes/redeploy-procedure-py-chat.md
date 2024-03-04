@@ -93,5 +93,5 @@ This process uses two different CLIs:
 
 ---
 
-You can know use the chat app with the confidence that it's built to scale across many users without running out of quota. 
+You can now use the chat app with the confidence that it's built to scale across many users without running out of quota. 
 
