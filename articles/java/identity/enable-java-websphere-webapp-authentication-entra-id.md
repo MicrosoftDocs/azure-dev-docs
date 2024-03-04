@@ -1,6 +1,6 @@
 ---
 title: Enable your Java WebSphere web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
-description: Shows you how to develop a Java WebSphere web app which supports sign-in by Microsoft Entra account.
+description: Shows you how to develop a Java WebSphere web app that supports sign-in by Microsoft Entra account.
 services: active-directory
 ms.date: 01/01/2024
 ms.service: active-directory

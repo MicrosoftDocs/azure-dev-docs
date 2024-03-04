@@ -92,7 +92,7 @@ If a user is member of more groups than the overage limit (**150 for SAML tokens
 
 ## About the code
 
-This sample uses **MSAL for Java (MSAL4J)** to sign a user in and obtain an ID token that may contain the groups claim. If there are too many groups for emission in the ID token, the sample leverages [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain the group membership data from Microsoft Graph. Based on the groups the user belongs to, the signed in user can access either none, one, or both of the protected pages, `Admins Only` and `Regular Users`.
+This sample uses **MSAL for Java (MSAL4J)** to sign a user in and obtain an ID token that may contain the groups claim. If there are too many groups for emission in the ID token, the sample uses [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain the group membership data from Microsoft Graph. Based on the groups the user belongs to, the signed in user can access either none, one, or both of the protected pages, `Admins Only` and `Regular Users`.
 
 If you want to replicate this sample's behavior, you must add these libraries (MSAL4J and MS Graph SDK) your projects using Maven. As a developer, you may choose to copy the *pom.xml* file, and the contents of the `helpers` and `authservlets` packages in the `src/main/java/com/microsoft/azuresamples/msal4j` package. You also need the *authentication.properties* file. These classes and files contain generic code that can be used in a wide array of applications. The rest of the sample may be copied as well, but the other classes and files are built specifically to address this sample's objective.
 
@@ -172,7 +172,7 @@ In this sample, these values are read from the *authentication.properties* file 
    ```
 
 1. After previous step, group memberships may be extracted by calling `context.getGroups()` (an instance of `IdentityContextData`).
-1. If the user is a member of too many groups (>200), a call to `context.getGroups()` might have been empty if it weren't for the call to `handleGroupsOverage()`. Meanwhile, `context.getGroupsOverage()` returns `true`, signalling that an overage has occurred, and that getting the full list of groups requires a call to Microsoft Graph. See `handleGroupsOverage()` method in *AuthHelper.java* for this application uses `context.setGroups()` when there is an overage.
+1. If the user is a member of too many groups (>200), a call to `context.getGroups()` might have been empty if it weren't for the call to `handleGroupsOverage()`. Meanwhile, `context.getGroupsOverage()` returns `true`, signalling that an overage has occurred, and that getting the full list of groups requires a call to Microsoft Graph. See `handleGroupsOverage()` method in *AuthHelper.java* for this application uses `context.setGroups()` when there's an overage.
 
 ### Protect the routes
 

@@ -1,6 +1,6 @@
 ---
 title: Enable your Java WebLogic web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
-description: Shows you how to develop a Java WebLogic web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform
+description: Shows you how to develop a Java WebLogic web app to sign in users and restrict access to pages using security groups and groups claims with the Microsoft identity platform.
 services: active-directory
 ms.date: 01/01/2024
 ms.service: active-directory
@@ -14,7 +14,7 @@ This article demonstrates how to create a Java WebLogic web app that signs in us
 
 :::image type="content" source="./media/topology.png" alt-text="Overview":::
 
-An Identity Developer session covered Microsoft Entra ID App roles and security groups, featuring this scenario and how to handle the overage claim. [Watch the video Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0)
+An Identity Developer session covered Microsoft Entra ID App roles and security groups, featuring this scenario and how to handle the overage claim. [Watch the video Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0).
 
 [!INCLUDE [scenario-authorization-groups.md](includes/scenario-authorization-groups.md)]
 
@@ -27,11 +27,11 @@ An Identity Developer session covered Microsoft Entra ID App roles and security 
 
 #### Deploy the sample
 
-(These instructions assume you have installed WebLogic and set up some server domain)
+(These instructions assume you've installed WebLogic and set up some server domain)
 
 Before you can deploy to WebLogic, you need to make some configuration changes in the sample itself and build or rebuild the package:
 
-1. In the sample there is likely an *application.properties* or *authentication.properties* file where you configured the client ID, tenant, redirect URL, etc.
+1. In the sample, there's likely an *application.properties* or *authentication.properties* file where you configured the client ID, tenant, redirect URL, and so on.
 
 1. In the above mentioned steps, changed references to localhost:8080 or localhost:8443 to the URL/port WebLogic runs on, which by default should be localhost:7001
 
@@ -41,16 +41,16 @@ To deploy the sample to WebLogic via the web console:
 
 1. Start the WebLogic server with DOMAIN_NAME\bin\startWebLogic.cmd
 
-1. Navigate to the WebLogic web console in your browser, http://localhost:7001/console
+1. Navigate to the WebLogic web console in your browser at `http://localhost:7001/console`.
 
 1. Go to **Domain Structure** > **Deployments**, select **Install**, select **Upload your files**, and then find the *.war* file that you built using Maven.
 
 1. Select Install this deployment as an application, select **Next**, select **Finish**, and then select **Save**.
 
-   Most of the default settings should be fine except that you should name the application to match the 'Redirect URI' you set in sample configuration/Azure app registration, i.e. if the redirect URI is http://localhost:7001/msal4j-servlet-auth then you should name the application 'msal4j-servlet-auth'
+   Most of the default settings should be fine except that you should name the application to match the 'Redirect URI' you set in sample configuration/Azure app registration. That is, if the redirect URI is `http://localhost:7001/msal4j-servlet-auth`, then you should name the application `msal4j-servlet-auth`.
 
 1. Go back to Domain Structure > Deployments, and Start your application
 
-1. After the application starts, navigate to http://localhost:7001/{whatever you named the application}/, and you should be able to access the application
+1. After the application starts, navigate to `http://localhost:7001/<application-name>/`, and you should be able to access the application.
 
 [!INCLUDE [enable-java-servlet-webapp-authorization-group-entra-id-explore.md](includes/enable-java-servlet-webapp-authorization-group-entra-id-explore.md)]

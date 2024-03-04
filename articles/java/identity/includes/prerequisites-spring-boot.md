@@ -5,7 +5,7 @@ ms.date: 01/01/2024
 
 ## Prerequisites
 
-- [JDK Version 15](https://jdk.java.net/15/). This sample has been developed on a system with Java 15 but may be compatible with other versions.
+- [JDK Version 15](https://jdk.java.net/15/). This sample was developed on a system with Java 15 but may be compatible with other versions.
 - [Maven 3](https://maven.apache.org/download.cgi)
 - [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) is recommended for running this sample in VSCode.
 - An **Microsoft Entra ID** tenant. For more information see: [How to get an Microsoft Entra ID tenant](/entra/identity-platform/quickstart-create-new-tenant)

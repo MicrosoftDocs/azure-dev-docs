@@ -34,7 +34,7 @@ The full code for this sample is available at [https://github.com/Azure-Samples/
 
 ## About the code
 
-This sample uses **MSAL for Java (MSAL4J)** to sign a user in and obtain a token for MS Graph API. It leverages [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain data from Graph. You must add these libraries to your projects using Maven. If you want to replicate this sample's behavior, you may choose to copy the *pom.xml* file, and the contents of the `helpers` and `authservlets` packages in the *src/main/java/com/microsoft/azuresamples/msal4j* package. You also need the *authentication.properties* file. These classes and files contain generic code that can be used in a wide array of applications. The rest of the sample may be copied as well, but the other classes and files are built specifically to address this sample's objective.
+This sample uses **MSAL for Java (MSAL4J)** to sign a user in and obtain a token for MS Graph API. It uses [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain data from Graph. You must add these libraries to your projects using Maven. If you want to replicate this sample's behavior, you may choose to copy the *pom.xml* file, and the contents of the `helpers` and `authservlets` packages in the *src/main/java/com/microsoft/azuresamples/msal4j* package. You also need the *authentication.properties* file. These classes and files contain generic code that can be used in a wide array of applications. The rest of the sample may be copied as well, but the other classes and files are built specifically to address this sample's objective.
 
 A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file. This object helps craft the Microsoft Entra ID authorization URL and also helps exchange the authentication token for an access token.
 
@@ -121,7 +121,7 @@ app.protect.authenticated=/token_details, /call_graph
 
 When the user navigates to `/call_graph`, the application creates an instance of the IGraphServiceClient (Java Graph SDK), passing along the signed-in user's access token. The Graph client from hereon places the access token in the Authorization headers of its requests. The app then asks the Graph Client to call the  `/me` endpoint to yield details for the currently signed-in user.
 
-The following code is all that is required for an application developer to write for accessing the `/me` endpoint, provided that they already have a valid access token for Graph Service with the `User.Read` scope.
+The following code is all that's required for an application developer to write for accessing the `/me` endpoint, provided that they already have a valid access token for Graph Service with the `User.Read` scope.
 
 ```java
 //CallGraphServlet.java

@@ -1,6 +1,6 @@
 ---
 title: Enable your Java Spring Boot web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
-description: Shows you how to develop a Java Spring Boot web app which supports sign-in by Microsoft Entra account.
+description: Shows you how to develop a Java Spring Boot web app that supports sign-in by Microsoft Entra account.
 services: active-directory
 ms.date: 01/01/2024
 ms.service: active-directory
@@ -16,7 +16,7 @@ This article demonstrates a Java Spring MVC web app that signs in users on your 
 
 ## Scenario
 
-1. The client Java Spring MVC web app leverages the Microsoft Entra ID Spring Boot Starter client library for Java to sign-in a user and obtain an ID Token from **Microsoft Entra ID**.
+1. The client Java Spring MVC web app uses the Microsoft Entra ID Spring Boot Starter client library for Java to sign-in a user and obtain an ID Token from **Microsoft Entra ID**.
 2. The **ID Token** proves that the user has successfully authenticated with **Microsoft Entra ID** and allows the user to access protected routes.
 
 [!INCLUDE [prerequisites-spring-boot.md](includes/prerequisites-spring-boot.md)]
@@ -40,9 +40,9 @@ or download and extract the repository *.zip* file.
 > [!IMPORTANT]
 > To avoid path length limitations on Windows, we recommend cloning into a directory near the root of your drive.
 
-### Register the sample application(s) with your Microsoft Entra ID tenant
+### Register the sample applications with your Microsoft Entra ID tenant
 
-There is one project in this sample. To register the app on the portal, you can:
+There's one project in this sample. To register the app on the portal, you can:
 
 - either follow manual configuration steps below
 - or use PowerShell scripts that:
@@ -69,7 +69,7 @@ There is one project in this sample. To register the app on the portal, you can:
 
    > [!NOTE]
    > Other ways of running the scripts are described in [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md)
-   > The scripts also provide a guide to automated application registration, configuration and removal which can help in your CI/CD scenarios.
+   > The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
 
 ### [Manual](#tab/Manual)
 
@@ -89,7 +89,7 @@ As a first step, you need to:
    - Under **Supported account types**, select **Accounts in this organizational directory only**.
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
 1. Select **Register** to create the application.
-1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file(s) later in your code.
+1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
 1. In the app's registration screen, select the **Certificates & secrets** blade in the left to open the page where we can generate secrets and upload certificates.
 1. In the **Client secrets** section, select **New client secret**:
    - Type a key description (for instance `app secret`),
@@ -186,7 +186,7 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 
 ## About the code
 
-This sample demonstrates how to use [Microsoft Entra ID Spring Boot Starter client library for Java](/java/api/overview/azure/active-directory-spring-boot-starter-readme) to sign in users into your Microsoft Entra ID tenant. It also makes use of **Spring Oauth2 Client** and **Spring Web** boot starters. It uses claims from **ID Token** obtained from Microsoft Entra ID to display details of the signed-in user.
+This sample demonstrates how to use [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) to sign in users into your Microsoft Entra ID tenant. It also makes use of **Spring Oauth2 Client** and **Spring Web** boot starters. It uses claims from **ID Token** obtained from Microsoft Entra ID to display details of the signed-in user.
 
 ### Project Initialization
 
@@ -200,7 +200,7 @@ If you'd like to create a project like this from scratch, you may use [Spring In
   - Microsoft Entra ID
   - Spring Oauth2 Client
   - Spring Web
-- Be sure that it comes with Azure SDK version 3.3 or higher. If not, please consider replacing the pre-configured *pom.xml* with the *pom.xml* from this repository.
+- Be sure that it comes with Azure SDK version 3.3 or higher. If not, consider replacing the pre-configured *pom.xml* with the *pom.xml* from this repository.
 
 ### ID Token Claims
 
@@ -218,7 +218,7 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Sign-in and sign-out links
 
-To sign in, you must make a request to the Microsoft Entra ID sign-in endpoint that is automatically configured by **Microsoft Entra ID Spring Boot Starter client library for Java**.
+To sign in, you must make a request to the Microsoft Entra ID sign-in endpoint that's automatically configured by **Microsoft Entra ID Spring Boot Starter client library for Java**.
 
 ```html
 <a class="btn btn-success" href="/oauth2/authorization/azure">Sign In</a>

@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Deploy your Java Spring Boot web app to Azure Spring Apps
 
-This guidance assumes you have run through any of the Spring Boot Web app examples for enabling security with Microsoft Entra ID.
+This guidance assumes you've run through any of the Spring Boot Web app examples for enabling security with Microsoft Entra ID.
 
 ## Prerequisites
 

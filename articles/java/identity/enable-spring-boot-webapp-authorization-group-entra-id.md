@@ -14,7 +14,7 @@ This article demonstrates a Java Spring Boot web app that uses the [Microsoft En
 
 :::image type="content" source="./media/topology-spring.png" alt-text="Overview":::
 
-An Identity Developer session covered Microsoft Entra ID App roles and security groups, featuring this scenario and how to handle the overage claim. [Watch the video Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0)
+An Identity Developer session covered Microsoft Entra ID App roles and security groups, featuring this scenario and how to handle the overage claim. [Watch the video Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0).
 
 ## Scenario
 
@@ -23,12 +23,12 @@ An Identity Developer session covered Microsoft Entra ID App roles and security 
 
 ## Prerequisites
 
-- [JDK Version 15](https://jdk.java.net/15/). This sample has been developed on a system with Java 15 but may be compatible with other versions.
+- [JDK Version 15](https://jdk.java.net/15/). This sample was developed on a system with Java 15 but may be compatible with other versions.
 - [Maven 3](https://maven.apache.org/download.cgi)
 - [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) is recommended for running this sample in VSCode.
 - An **Microsoft Entra ID** tenant. For more information see: [How to get an Microsoft Entra ID tenant](/entra/identity-platform/quickstart-create-new-tenant)
 - A user account in your **Microsoft Entra ID** tenant. This sample doesn't work with a personal Microsoft account. Therefore, if you signed in to the [Azure portal](https://portal.azure.com) with a personal account and have never created a user account in your directory before, you need to do that now.
-- Two security groups, named **AdminGroup** and **UserGroup**, containing the user(s) with whom you want to sign and test this sample. Or, you may add the user to two existing security groups in your tenant. If you choose to use existing groups, be sure to modify the sample configuration to use your existing security groups' name and object ID.
+- Two security groups, named **AdminGroup** and **UserGroup**, containing the user or users that you want to sign and test this sample. Or, you may add the user to two existing security groups in your tenant. If you choose to use existing groups, be sure to modify the sample configuration to use your existing security groups' name and object ID.
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [VS Code Azure Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
@@ -53,7 +53,7 @@ or download and extract the repository *.zip* file.
 
 ### Register the sample application with your Azure Active Directory tenant
 
-There is one project in this sample. To register it, you can:
+There's one project in this sample. To register it, you can:
 
 - follow the steps below for manually register your apps
 - or use PowerShell scripts that:
@@ -61,12 +61,12 @@ There is one project in this sample. To register it, you can:
   - modify the projects' configuration files.
 
 > [!IMPORTANT]
-> If you have never used **Azure AD Powershell** before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
+> If you've never used **Azure AD Powershell** before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
 
 ### [Powershell](#tab/Powershell)
 
 1. On Windows, run PowerShell as **Administrator** and navigate to the root of the cloned directory
-1. If you have never used Azure AD Powershell before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
+1. If you've never used Azure AD Powershell before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
 1. In PowerShell run:
 
    ```powershell
@@ -82,7 +82,7 @@ There is one project in this sample. To register it, you can:
    ```
    > [!NOTE]
    > Other ways of running the scripts are described in [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md)
-   > The scripts also provide a guide to automated application registration, configuration and removal which can help in your CI/CD scenarios.
+   > The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
 
 ### [Manual](#tab/Manual)
 
@@ -100,7 +100,7 @@ There is one project in this sample. To register it, you can:
    - Under **Supported account types**, select **Accounts in this organizational directory only**.
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
 1. Select **Register** to create the application.
-1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file(s) later in your code.
+1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
 1. In the app's registration screen, select the **Certificates & secrets** blade in the left to open the page where you can generate secrets and upload certificates.
 1. In the **Client secrets** section, select **New client secret**:
    - Type a key description (for instance `app secret`),
@@ -141,7 +141,7 @@ You have two different options available to you on how you can further configure
 1. [Receive **all the groups** that the signed-in user is assigned to in an Microsoft Entra ID tenant, included nested groups](#configure-your-application-to-receive-all-the-groups-the-signed-in-user-is-assigned-to-including-nested-groups).
 2. [Receive the **groups** claim values from a **filtered set of groups** that your application is programmed to work with](#configure-your-application-to-receive-the-groups-claim-values-from-a-filtered-set-of-groups-a-user-may-be-assigned-to) (Not available in the [Microsoft Entra ID Free edition](https://www.microsoft.com/security/business/microsoft-entra-pricing)).
 
-> To get the on-premise group's `samAccountName` or `On Premises Group Security Identifier` instead of Group ID, please refer to the document [Configure group claims for applications with Azure Active Directory](/azure/active-directory/hybrid/how-to-connect-fed-group-claims#prerequisites-for-using-group-attributes-synchronized-from-active-directory).
+> To get the on-premise group's `samAccountName` or `On Premises Group Security Identifier` instead of Group ID, see [Configure group claims for applications with Azure Active Directory](/azure/active-directory/hybrid/how-to-connect-fed-group-claims#prerequisites-for-using-group-attributes-synchronized-from-active-directory).
 
 #### Configure your application to receive **all the groups** the signed-in user is assigned to, including nested groups
 
@@ -165,7 +165,7 @@ You have two different options available to you on how you can further configure
 1. Select `Groups assigned to the application`.
     1. Choosing additional options like `Security Groups` or `All groups (includes distribution lists but not groups assigned to the application)` negates the benefits your app derives from choosing to use this option.
 1. Under the **ID** section, select `Group ID`. This results in Microsoft Entra ID sending the object [id](/graph/api/resources/group) of the groups the user is assigned to in the `groups` claim of the [ID Token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
-1. If you are exposing a Web API using the **Expose an API** option, then you can also choose the `Group ID` option under the **Access** section. This results in Microsoft Entra ID sending the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the `groups` claim of the [Access Token](/entra/identity-platform/access-tokens) issued to the client applications of your API.
+1. If you're exposing a Web API using the **Expose an API** option, then you can also choose the `Group ID` option under the **Access** section. This results in Microsoft Entra ID sending the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the `groups` claim of the [Access Token](/entra/identity-platform/access-tokens) issued to the client applications of your API.
 1. In the app's registration screen, select on the **Overview** blade in the left to open the Application overview screen. Select the hyperlink with the name of your application in **Managed application in local directory** (note this field title can be truncated for instance `Managed application in ...`). When you select this link you navigate to the **Enterprise Application Overview** page associated with the service principal for your application in the tenant where you created it. You can navigate back to the app registration page by using the *back* button of your browser.
 1. Select the **Users and groups** blade in the left to open the page where you can assign users and groups to your application.
     1. Select the **Add user** button on the top row.
@@ -292,7 +292,7 @@ If you'd like to create a project like this from scratch, you may use [Spring In
   - Azure Active Directory
   - Spring Oauth2 Client
   - Spring Web
-- Be sure that it comes with Azure SDK version 3.5 or higher. If not, please consider replacing the pre-configured *pom.xml* with the *pom.xml* from this repository.
+- Be sure that it comes with Azure SDK version 3.5 or higher. If not, consider replacing the pre-configured *pom.xml* with the *pom.xml* from this repository.
 
 ### ID Token Claims
 
@@ -349,7 +349,7 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Sign-in and sign-out links
 
-To sign in, you must make a request to the Azure Active Directory sign-in endpoint that is automatically configured by **Microsoft Entra ID Spring Boot Starter client library for Java**.
+To sign in, you must make a request to the Azure Active Directory sign-in endpoint that's automatically configured by **Microsoft Entra ID Spring Boot Starter client library for Java**.
 
 ```html
 <a class="btn btn-success" href="/oauth2/authorization/azure">Sign In</a>
@@ -416,7 +416,7 @@ Microsoft Entra ID Boot Starter (v3.5 and above) parses the groups claim automat
 When attending to overage scenarios, which requires a call to [Microsoft Graph](https://graph.microsoft.com) to read the signed-in user's group memberships, your app needs to have the [User.Read](/graph/permissions-reference#user-permissions) and [GroupMember.Read.All](/graph/permissions-reference#group-permissions) for the [getMemberGroups](/graph/api/user-getmembergroups) function to execute successfully.
 
 > [!IMPORTANT]
-> For the overage scenario, make sure you have granted **Admin Consent** for the MS Graph API's **GroupMember.Read.All** scope for both the Client and the Service apps (see the **App Registration** steps above).
+> For the overage scenario, make sure you've granted **Admin Consent** for the MS Graph API's **GroupMember.Read.All** scope for both the Client and the Service apps (see the **App Registration** steps above).
 
 #### Update the Microsoft Entra ID app registration (java-spring-webapp-groups)
 

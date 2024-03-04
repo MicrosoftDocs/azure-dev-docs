@@ -1,6 +1,6 @@
 ---
 title: Enable your Java Spring Boot Web App using MSAL4J to authenticate users into Azure Active Directory B2C
-description: Shows you how to develop a Java Spring Boot web app which supports sign-in by Azure Active Directory B2C.
+description: Shows you how to develop a Java Spring Boot web app that supports sign-in by Azure Active Directory B2C.
 services: active-directory
 ms.date: 01/01/2024
 ms.service: active-directory
@@ -15,14 +15,14 @@ This article demonstrates a Java Spring MVC web app that signs in users on your 
 
 ## Scenario
 
-1. The client Java Spring web app leverages the Azure AD B2C Spring Boot Starter client library for Java to sign in a user and obtain an ID Token from **Azure AD B2C**.
+1. The client Java Spring web app uses the Azure AD B2C Spring Boot Starter client library for Java to sign in a user and obtain an ID Token from **Azure AD B2C**.
 2. The **ID Token** proves that the user has successfully authenticated with **Azure AD B2C** and allows the user to access protected routes.
 
 :::image type="content" source="./media/topology-spring.png" alt-text="Overview":::
 
 ## Prerequisites
 
-- [JDK Version 15](https://jdk.java.net/15/). This sample has been developed on a system with Java 15 but may be compatible with other versions.
+- [JDK Version 15](https://jdk.java.net/15/). This sample was developed on a system with Java 15 but may be compatible with other versions.
 - [Maven 3](https://maven.apache.org/download.cgi)
 - [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) is recommended for running this sample in VSCode.
 - An **Azure AD B2C** tenant. For more information see: [How to get an Azure AD B2C tenant](/azure/active-directory-b2c/tutorial-create-tenant)
@@ -59,13 +59,13 @@ As a first step, you need to:
 
 ### Create user flows and custom policies
 
-Please refer to [Tutorial: Create user flows in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-create-user-flows) to create common user flows like sign up, sign in, edit profile, and password reset.
+To create common user flows like sign up, sign in, edit profile, and password reset, see [Tutorial: Create user flows in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-create-user-flows).
 
 You may consider creating [Custom policies in Azure Active Directory B2C](/azure/active-directory-b2c/custom-policy-overview) as well, however, this is beyond the scope of this tutorial.
 
 ### Add external identity providers
 
-Please refer to: [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-add-identity-providers)
+See [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-add-identity-providers).
 
 ### Register the web app (java-spring-webapp-auth-b2c)
 
@@ -76,7 +76,7 @@ Please refer to: [Tutorial: Add identity providers to your applications in Azure
    - Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
 1. Select **Register** to create the application.
-1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file(s) later in your code.
+1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
 1. Select **Save** to save your changes.
 
 1. In the app's registration screen, click on the **Certificates & secrets** blade in the left to open the page where we can generate secrets and upload certificates.
@@ -179,7 +179,7 @@ Open the *src/main/resources/templates/navbar.html* file.
 
 ## About the code
 
-This sample demonstrates how to use [Azure AD B2C Spring Boot Starter client library for Java](/java/api/overview/azure/spring-boot-starter-active-directory-b2c-readme) to sign in users into your Azure AD tenant. It also makes use of **Spring Oauth2 Client** and **Spring Web** boot starters. It uses claims from **ID Token** obtained from Azure Active Directory to display details of the signed-in user.
+This sample demonstrates how to use [Azure AD B2C Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory-b2c) to sign in users into your Azure AD tenant. It also makes use of **Spring Oauth2 Client** and **Spring Web** boot starters. It uses claims from **ID Token** obtained from Azure Active Directory to display details of the signed-in user.
 
 ### Project Initialization
 
@@ -193,7 +193,7 @@ If you'd like to create a project like this from scratch, you may use [Spring In
   - Azure Active Directory B2C
   - Spring Oauth2 Client
   - Spring Web
-- Be sure that it comes with Azure SDK version 3.3 or higher. If not, please consider replacing the pre-configured *pom.xml* with the *pom.xml* from this repository.
+- Be sure that it comes with Azure SDK version 3.3 or higher. If not, consider replacing the pre-configured *pom.xml* with the *pom.xml* from this repository.
 
 ### ID Token Claims
 
@@ -211,7 +211,7 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Sign-in and sign-out links
 
-To sign in, you must make a request to the Azure Active Directory sign-in endpoint that is automatically configured by **Azure AD B2C Spring Boot Starter client library for Java**.
+To sign in, you must make a request to the Azure Active Directory sign-in endpoint that's automatically configured by **Azure AD B2C Spring Boot Starter client library for Java**.
 
 ```html
 <a class="btn btn-success" href="/oauth2/authorization/{your-sign-up-sign-in-user-flow}">Sign In</a>

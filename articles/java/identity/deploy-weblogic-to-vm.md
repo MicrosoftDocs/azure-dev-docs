@@ -10,11 +10,11 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Deploy your Java WebLogic web app to WebLogic on Azure VMs
 
-This guidance assumes you have run through any of the Java WebLogic web app examples for enabling security with Microsoft Entra ID.
+This guidance assumes you've run through any of the Java WebLogic web app examples for enabling security with Microsoft Entra ID.
 
 ## Prerequisites
 
-- Make sure you have followed the guidance of [Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine) to deploy a [Oracle WebLogic Server](https://www.oracle.com/java/weblogic/).
+- Make sure you've followed the guidance of [Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine) to deploy a [Oracle WebLogic Server](https://www.oracle.com/java/weblogic/).
 
 ## Prepare the web app for deployment
 
@@ -41,7 +41,7 @@ app.homePage=http://wls-5b942e9f2a-admindomain.westus.cloudapp.azure.com:7001/te
 Since the redirect URI changes to your deployed App on Oracle WebLogic Server, you also need to change the redirect URI in your Microsoft Entra ID App Registration.
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
-1. Use the search box to search for you app registration - for example, `java-servlet-webapp-authentication`.
+1. Use the search box to search for your app registration - for example, `java-servlet-webapp-authentication`.
 1. Open your app registration by selecting its name.
 1. Select **Authentication** from the menu.
 1. In the **Web** - **Redirect URIs** section, select **Add URI**.

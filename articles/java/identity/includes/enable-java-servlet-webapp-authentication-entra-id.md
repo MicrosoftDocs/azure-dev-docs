@@ -21,7 +21,7 @@ or download and extract the repository *.zip* file.
 
 ## Register the sample application with your Microsoft Entra ID tenant
 
-There is one project in this sample. To register the app on the portal, you can:
+There's one project in this sample. To register the app on the portal, you can:
 
 - either follow manual configuration steps below
 - or use PowerShell scripts that:
@@ -48,7 +48,7 @@ There is one project in this sample. To register the app on the portal, you can:
 
    > [!NOTE]
    > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in/AppCreationScripts/AppCreationScripts.md)
-   > The scripts also provide a guide to automated application registration, configuration and removal which can help in your CI/CD scenarios.
+   > The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
 
 ### [Manual](#tab/Manual)
 
@@ -66,7 +66,7 @@ Following this guide, you must:
      - Select **Personal Microsoft accounts** for use only by users of personal Microsoft accounts - for example, Hotmail, Live, Skype, and Xbox accounts.
    - In the **Redirect URI** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/msal4j-servlet-auth/auth/redirect`.
 1. Select **Register** to create the application.
-1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file(s) later in your code.
+1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
 1. In the app's registration screen, click on the **Certificates & secrets** blade in the left to open the page where we can generate secrets and upload certificates.
 1. In the **Client secrets** section, click on **New client secret**:
    - Type a key description (for instance `app secret`),
@@ -104,4 +104,4 @@ Open the project in your IDE to configure the code.
    mvn clean package
    ```
 
-1. This should generate a *.war* file which can be run on a variety of application servers
+1. This should generate a *.war* file that you can run on a variety of application servers.

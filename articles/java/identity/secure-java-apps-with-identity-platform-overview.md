@@ -22,7 +22,7 @@ The guidance is available for multiple server platforms: JBoss EAP, Tomcat, WebL
 
 We recommend following the chapters in successive order for your platform of choice. However, the code samples are self-contained, so feel free to pick samples by topics that you may need at the moment.
 
-For each platform there is guidance on:
+Each platform has guidance on the following tasks:
 
 - Sign your users in with **Entra ID** and learn to work with **ID Tokens**.
 - Sign your customers in with **Azure AD B2C**. Learn to integrate with **external social identity providers**. Learn how to use **user-flows** and **custom policies**.

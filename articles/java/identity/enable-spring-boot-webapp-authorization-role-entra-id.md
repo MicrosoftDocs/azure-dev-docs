@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Enable your Java Spring Boot web app to restrict access to routes using app roles with the Microsoft identity platform
 
-This sample demonstrates a Java Spring Boot web app that uses the [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) for authentication, authorization, and token acquisition with the [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) protocol to sign in users, and restricts access to some routes using [**Microsoft Entra ID Application Roles (app roles)**](/entra/identity-platform/howto-add-app-roles-in-apps) for authorization.
+This sample demonstrates a Java Spring Boot web app that uses the [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) for authentication, authorization, and token acquisition with the [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) protocol to sign in users, and restricts access to some routes using [Microsoft Entra ID Application Roles (app roles)](/entra/identity-platform/howto-add-app-roles-in-apps) for authorization.
 
 App roles, along with Security groups are popular means to implement authorization. Using Role-based Access Control (RBAC) with Application Roles and Role Claims, developers can securely enforce authorization policies with minimal effort on their part. Another approach is to use Microsoft Entra ID Groups and Group Claims. Microsoft Entra ID Groups and Application Roles are by no means mutually exclusive; they can be used in tandem to provide even finer grained access control.
 
@@ -22,7 +22,7 @@ For more information about how the protocols work in this scenario and other sce
 
 ## Scenario
 
-1. This Java Spring MVC web app leverages the **Microsoft Entra ID Spring Boot Starter client library for Java** to sign in a user and obtain an [ID Token](/entra/identity-platform/id-tokens) from **Microsoft Entra ID**.
+1. This Java Spring MVC web app uses the **Microsoft Entra ID Spring Boot Starter client library for Java** to sign in a user and obtain an [ID Token](/entra/identity-platform/id-tokens) from **Microsoft Entra ID**.
 1. The **ID Token** token contains the **roles** claim. The application inspects the value of this claim to determine which pages the user is authorized to access.
 
 This kind of authorization is implemented using role-based access control (RBAC). When using RBAC, an administrator grants permissions to roles, not to individual users or groups. The administrator can then assign roles to different users and groups to control who has then access to certain content and functionality.
@@ -32,7 +32,7 @@ This sample application defines the following two *Application Roles*:
 - `PrivilegedAdmin`: Authorized to access the `Admins Only` and the `Regular Users` pages.
 - `RegularUser`: Authorized to access the `Regular Users` page.
 
-These application roles are defined in the [Azure portal](https://portal.azure.com) in the application's registration manifest. When a user signs into the application, Microsoft Entra ID emits a `roles` claim for each role that the user has been granted individually to the user in the from of role membership. Assignment of users and groups to roles can be done through the portal's UI, or programmatically using the [Microsoft Graph](https://graph.microsoft.com) and [Azure AD PowerShell](/powershell/module/azuread/). In this sample, application role management is done through the Azure portal or using PowerShell.
+These application roles are defined in the [Azure portal](https://portal.azure.com) in the application's registration manifest. When a user signs into the application, Microsoft Entra ID emits a `roles` claim for each role that's been granted individually to the user in the form of role membership. Assignment of users and groups to roles can be done through the portal's UI, or programmatically using the [Microsoft Graph](https://graph.microsoft.com) and [Azure AD PowerShell](/powershell/module/azuread/). In this sample, application role management is done through the Azure portal or using PowerShell.
 
 > [!NOTE]
 > Role claims aren't present for guest users in a tenant if the `https://login.microsoftonline.com/common/` endpoint is used as the authority to sign in users. You need to sign-in a user to a tenanted endpoint like `https://login.microsoftonline.com/tenantid`.
@@ -60,7 +60,7 @@ or download and extract the repository *.zip* file.
 
 ### Register the sample application with your Azure Active Directory tenant
 
-There is one project in this sample. To register it, you can:
+There's one project in this sample. To register it, you can:
 
 - follow the steps below for manually register your apps
 - or use PowerShell scripts that:
@@ -70,7 +70,7 @@ There is one project in this sample. To register it, you can:
 ### [Powershell](#tab/Powershell)
 
 1. On Windows, run PowerShell as **Administrator** and navigate to the root of the cloned directory
-1. If you have never used Azure AD Powershell before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
+1. If you've never used Azure AD Powershell before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
 1. In PowerShell run:
 
    ```powershell
@@ -86,7 +86,7 @@ There is one project in this sample. To register it, you can:
    ```
    > [!NOTE]
    > Other ways of running the scripts are described in [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md)
-   > The scripts also provide a guide to automated application registration, configuration and removal which can help in your CI/CD scenarios.
+   > The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
 
 ### [Manual](#tab/Manual)
 
@@ -106,7 +106,7 @@ As a first step, you need to:
    - Under **Supported account types**, select **Accounts in this organizational directory only**.
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
 1. Select **Register** to create the application.
-1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file(s) later in your code.
+1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
 1. In the app's registration screen, select the **Certificates & secrets** blade in the left to open the page where we can generate secrets and upload certificates.
 1. In the **Client secrets** section, select **New client secret**:
    - Type a key description (for instance `app secret`),
@@ -240,7 +240,7 @@ If you'd like to create a project like this from scratch, you may use [Spring In
   - Azure Active Directory
   - Spring Oauth2 Client
   - Spring Web
-- Be sure that it comes with Azure SDK version 3.3 or higher. If not, please consider replacing the pre-configured *pom.xml* with the *pom.xml* from this repository.
+- Be sure that it comes with Azure SDK version 3.3 or higher. If not, consider replacing the pre-configured *pom.xml* with the *pom.xml* from this repository.
 
 ### ID Token Claims
 
@@ -297,7 +297,7 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Sign-in and sign-out links
 
-To sign in, you must make a request to the Azure Active Directory sign-in endpoint that is automatically configured by **Microsoft Entra ID Spring Boot Starter client library for Java**.
+To sign in, you must make a request to the Azure Active Directory sign-in endpoint that's automatically configured by **Microsoft Entra ID Spring Boot Starter client library for Java**.
 
 ```html
 <a class="btn btn-success" href="/oauth2/authorization/azure">Sign In</a>

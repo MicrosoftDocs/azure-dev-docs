@@ -14,7 +14,7 @@ This article demonstrates how to create a Java JBoss EAP web app that signs in u
 
 :::image type="content" source="./media/topology.png" alt-text="Overview":::
 
-An Identity Developer session covered Microsoft Entra ID App roles and security groups, featuring this scenario and how to handle the overage claim. [Watch the video Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0)
+An Identity Developer session covered Microsoft Entra ID App roles and security groups, featuring this scenario and how to handle the overage claim. [Watch the video Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0).
 
 [!INCLUDE [scenario-authorization-groups.md](includes/scenario-authorization-groups.md)]
 
