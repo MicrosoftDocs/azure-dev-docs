@@ -9,11 +9,11 @@ ms.service: azure
 
 ## Clean up resources
 
-When you're done with both the chat app and the load balancer, clean up the resources. 
+When you're done with both the chat app and the load balancer, clean up the resources. The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
 
 ### Clean up chat app resources
 
-Remove chat app resources:
+Return to the chat app article to clean up those resources. 
 
 * [.NET](/dotnet/azure/ai/get-started-app-chat-template#clean-up-resources)
 * [Java](../../java/quickstarts/get-started-app-chat-template.md#clean-up-resources)
@@ -21,8 +21,6 @@ Remove chat app resources:
 * [Python](../../python/get-started-app-chat-template.md#clean-up-resources)
 
 ### Clean upload balancer resources
-
-The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
 
 Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
 

@@ -13,10 +13,11 @@ ms.service: azure
 
 [GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-aca-lb)
+
 > [!IMPORTANT]
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
-1. [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-aca-lb)
 
 
 #### [Visual Studio Code](#tab/visual-studio-code)
@@ -49,7 +50,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     azd up
     ```
 
-    You will need to select a subscription and region for the deployment. These don't have to be the same subscription and region as the chat app. 
+    You'll need to select a subscription and region for the deployment. These don't have to be the same subscription and region as the chat app. 
 
 1. Wait for the deployment to complete before continuing.
 
