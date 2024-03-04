@@ -13,11 +13,10 @@ This article requires you to deploy 2 separate samples:
 
 * Chat app
     * If you haven't deployed the chat app yet, wait until after the load balancer sample is deployed. 
-    * If you have already deployed the chat app once, you will redeploy it again with the load balancer settings. 
-
+    * If you have already deployed the chat app once, you will redeploy it again after you deploy the load balancer. The chat app will be configured with the load balancer settings. 
 * Load balancer app
+    * [Load Balance with Container Apps sample](https://github.com/Azure-Samples/openai-aca-lb)
 
-Because this procedure uses two different samples, each appears in its own window or application.
 
 ## Architecture for load balancing with Azure Container Apps
 

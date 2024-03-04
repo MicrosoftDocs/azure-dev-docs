@@ -9,6 +9,8 @@ ms.service: azure
 
 ## Redeploy Chat app with load balancer endpoint
 
+These are are completed on the chat app sample. 
+
 #### [Initial deployment](#tab/initial-deployment)
 
 This process uses two different CLIs:
@@ -24,7 +26,7 @@ This process uses two different CLIs:
 1. Sign in to Azure Developer CLI (AZD).
 
     ```bash
-    azd auth login --use-device-code
+    azd auth login
     ```
 
     Finish the sign in instructions.
@@ -67,7 +69,7 @@ This process uses two different CLIs:
 
 1. Open the chat app sample's dev container with [GitHub Codespaces](https://codespaces.new/Azure-Samples/azure-search-openai-demo) or [Visual Studio Code](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo).
 
-1. To run the script to set the load balancer environment variables, sign in to the Azure CLI (AZ).
+1. Sign in to the Azure CLI (AZ).
 
     ```bash
     az login --use-device-code

@@ -35,11 +35,21 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 [!INCLUDE [py-deployment-procedure](../intro/includes/redeploy-procedure-py-chat.md)]
 
+[!INCLUDE [logs](../intro/includes/scaling-load-balance-aca-logs.md)]
+
+
+
+[!INCLUDE [capacity.md](../intro/includes/scaling-load-balancer-capacity.md)]
+
 [!INCLUDE [py-aca-cleanup](../intro/scaling-load-balancer-aca-cleanup.md)]
+
+## Sample code
+
+Samples used in this article include: 
+
+* [Python chat app with RAG](https://github.com/Azure-Samples/azure-search-openai-demo)
+* [Load Balancer with Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)
 
 ## Next step
 
-* Load test your chat app with [Azure Load Testing](/azure/load-testing/)
-* Samples: 
-    * [Python chat app with RAG](https://github.com/Azure-Samples/azure-search-openai-demo)
-    * [Load Balancer with Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)
+* Use [Azure Load Testing](/azure/load-testing/) to load test your chat app with 
