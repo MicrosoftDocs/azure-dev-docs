@@ -400,9 +400,8 @@ Next, use the following steps to failover the WebSphere cluster with the recover
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-in-progress.png" alt-text="Screenshot of failover in progress." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-in-progress.png":::
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-completed.png" alt-text="Screenshot of failover completed." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-completed.png":::
 
-1. Optinally, you can view details of failover job by selecting the completed event **Reprotecting virtual machine** from notifications:
+1. Optinally, you can view details of failover job by selecting the failover event (for example, *Failover of 'recovery-plan-mjg022624' is in progress...*) from notifications:
    
-   <!--TODO: capture the screenshot-->
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-job-details.png" alt-text="Screenshot of failover job details." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-job-details.png":::
 
 Then, use the following steps to enable the external access to the WebSphere Integrated Solutions Console and sample app in the secondary region, and verify if they work as expected.
@@ -466,6 +465,9 @@ If you're not going to continue to use the WebSphere clusters and other componen
 1. Select **Delete**.
 1. Repeat steps 1-4 for the resource group of the Traffic Manager - for example, `myResourceGroupTM1`.
 <!--TODO: add steps to disable replication-->
+1. In the search box at the top of the Azure portal, enter **Recovery Services vaults** and select **Recovery Services vaults** in the search results.
+1. Select the name of your Recovery Services vault - for example, *recovery-service-vault-westus-mjg022624*.
+1. Under **Manage**, select **Recovery Plans (Site Recovery)**. Selet the recovery plan you created - for example, *recovery-plan-mjg022624*.
 1. Repeat steps 1-4 for the resource group of the primary WebSphere cluster - for example, `was-cluster-westus-mjg022624`.
 1. Repeat steps 1-4 for the resource group of the secondary WebSphere cluster - for example, `was-cluster-eastus-mjg022624`.
 
