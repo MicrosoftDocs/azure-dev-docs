@@ -262,7 +262,7 @@ In this section, you set up disaster recovery for Azure VMs in the primary clust
       > [!NOTE]
       > Make sure you select **Geo-redundant** for **Backup Storage Redundancy** and **Enable** for **Cross Region Restore** in **Redundancy** pane. Otherwise the storage of the primary cluster can't be replicated to the secondary region.
 
-   1. Enable Site Recovery by following steps in sub-section [Enable Site Recovery](/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-site-recovery).
+   1. Enable Site Recovery by following steps in section [Enable Site Recovery](/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-site-recovery).
 
 1. When you reach the section [Enable replication](/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication):
    1. Select source settings:
@@ -358,7 +358,7 @@ Create an Azure Traffic Manager profile by following [Quickstart: Create a Traff
       1. Select the **Choose public IP address** dropdown and enter the name of the public IP address of the IHS in the **West US** region that you wrote down before. You should see one entry matched. Select it for **Public IP address**.
    1. Wait for a while. Select **Refresh** until the **Monitor status** for endpoint *myPrimaryEndpoint* is *Online* and **Monitor status** for endpoint *myFailoverEndpoint* is *Degraded*.
 
-Next, verify if the sample app deployed to the primary WebSphere cluster ca be accessed from the Traffic Manager profile:
+Next, verify if the sample app deployed to the primary WebSphere cluster can be accessed from the Traffic Manager profile:
 
 1. Select **Overview** of the Traffic Manager profile you created.
 1. Check and copy the DNS name of the Traffic Manager profile, append it with */websphere-cafe/*. For example, `http://tmprofile-mjg022624.trafficmanager.net/websphere-cafe/`.
@@ -408,8 +408,8 @@ Then, use the following steps to enable the external access to the WebSphere Int
 
 1. In the search box at the top of the Azure portal, enter **Resource groups** and select **Resource groups** in the search results.
 1. Select the name of resource group for your secondary region - for example, *was-cluster-westus-mjg022624*. Sort items by **Type** in the **Resource Group** page.
-1. Select **Network Interface** prefixed with *dmgr*. Select **IP configurations** > **ipconfig1**. Check **Associate public IP address**. For **Public IP address**, select public IP address you created for Dmgr before - for example, *dmgr-public-ip-westus-mjg022624*. Select **Save**, wait until it completes.
-1. Switch back to the resource group, and select **Network Interface** prefixed with *ihs*. Select **IP configurations** > **ipconfig1**. Check **Associate public IP address**. For **Public IP address**, select public IP address you created for IHS before - for example, *ihs-public-ip-westus-mjg022624*. Select **Save**, wait until it completes.
+1. Select **Network Interface** prefixed with *dmgr*. Select **IP configurations** > **ipconfig1**. Check **Associate public IP address**. For **Public IP address**, select public IP address prifixed with *dmgr*. Select **Save**, wait until it completes.
+1. Switch back to the resource group, and select **Network Interface** prefixed with *ihs*. Select **IP configurations** > **ipconfig1**. Check **Associate public IP address**. For **Public IP address**, select public IP address prefixed with *ihs*. Select **Save**, wait until it completes.
 1. Find the DNS name label for the public IP address of Dmgr you created before, open the URL of Dmgr WebSphere Integrated Solutions Console in a new browser tab - for example, `https://dmgrmjg022624.westus.cloudapp.azure.com:9043/ibm/console`. Refresh the page until you see the welcome page for sign in.
 1. Sign in to the console with the user name and password for WebSphere administrator you wrote down before, and check the followings:
    1. Under navigation pane at the left side, select **Servers** > **All servers**. In **Middleware server** pane, you should see 4 servers listed, including 3 WebSphere application servers consisting of WebSphere cluster *MyCluster* and 1 Web server that is an IHS. Refresh the page until you see all servers are started.
@@ -430,30 +430,81 @@ Then, use the following steps to enable the external access to the WebSphere Int
 
    If you don't observe this behavior, it might be because the Traffic Manager is taking time to update DNS to point to the failover site. The problem could also be that your browser cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again.
 
-Finally, re-protect the active site after you're satisfied the failover result.
+### Commit the failover
 
-1. Switch to the browser tab where your recovery plan is failed over - for example, *recovery-plan-mjg022624*.
-1. Select **Re-protect** > **OK**. Check **I understand the risk. Skip test failover.**. Leave the defaults for others, select **OK**.
-1. It starts validating and you should see the message **Creating Azure resources. Don't close this blade.** displayed at the bottom of the page. Do nothing and wait until the blade is closed automatcially, you're redirected to the recovery plan page.
-1. Monitor the re-protect in notifications, wait until it completes.
+Commit the failover after you're satisfied the failover result.
 
-   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/reprotect-in-progress.png" alt-text="Screenshot of re-protect in progress." lightbox="media/migrate-websphere-to-vms-with-ha-dr/reprotect-in-progress.png":::
-   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/reprotect-completed.png" alt-text="Screenshot of re-protect completed." lightbox="media/migrate-websphere-to-vms-with-ha-dr/reprotect-completed.png":::
+1. In the search box at the top of the Azure portal, enter **Recovery Services vaults** and select **Recovery Services vaults** in the search results.
+1. Select the name of your Recovery Services vault - for example, *recovery-service-vault-westus-mjg022624*.
+1. Under **Manage**, select **Recovery Plans (Site Recovery)**. Selet the recovery plan you created - for example, *recovery-plan-mjg022624*. 
+1. Select **Commit** > **OK**.
+1. Monitor the commit in notifications, wait until it completes.
 
-1. Select **Items in recovery plan**, you should see 5 items listed. Refresh the page periodically until you see status for all items becomes **Protected**.
-1. Optinally, you can view details of re-protect job by selecting any completed event **Reprotecting virtual machine** from notifications:
+   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-commit-in-progress.png" alt-text="Screenshot of failover commit in progress." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-commit-in-progress.png":::
+   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-commit-completed.png" alt-text="Screenshot of failover commit completed." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-commit-completed.png":::
 
-   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/reprotect-job-details.png" alt-text="Screenshot of re-protect job details." lightbox="media/migrate-websphere-to-vms-with-ha-dr/reprotect-job-details.png":::
+1. Select **Items in recovery plan**, you should see 5 items listed as **Failover committed**.
 
-Similar to **Enable replication** before, the whole process of re-protect takes time to complete, it's about 50 minutes for the exercise of this tutorial.
+   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/replicated-items-failover-committed.png" alt-text="Screenshot of replicated items failover committed." lightbox="media/migrate-websphere-to-vms-with-ha-dr/replicated-items-failover-committed.png":::
+
+### Disable the replication
+
+Disable the replication for items in recovery plan and delete the recovery plan.
+
+1. For each item in **Items in recovery plan**, right-click the item > select **Disable Replication**.
+1. If you're prompted to provide reason(s) for disabling protection for this virtual machine, select one you prefer - for example, **I completed migrating my application**. Select **OK**.
+1. Repeat step 1 until you disable replication for all items.
+1. Monitor the process in notifications, wait until it completes.
+
+   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/remove-replicated-items-completed.png" alt-text="Screenshot of removing replicated items completed." lightbox="media/migrate-websphere-to-vms-with-ha-dr/remove-replicated-items-completed.png":::
+
+1. Select **Overview** > **Delete**. Select **Yes** to confirm the **Delete**.
+
+### Re-protect the failover site
+
+Now the secondary region is the failover site and active, you should re-protect it in your primary region.
+
+First, clean up resources that will be replicated in your primary region later.
+
+1. In the search box at the top of the Azure portal, enter **Resource groups** and select **Resource groups** in the search results.
+1. Select the name of resource group for your primary region - for example, *was-cluster-eastus-mjg022624*. Sort items by **Type** in the **Resource Group** page.
+1. Select **Type** filter > select *Virtual machine* from dropdown list of **Value** > **Apply**. Select all virtual machines > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications, wait until it completes.
+1. Select **Type** filter > select *Disks* from dropdown list of **Value** > **Apply**. Select all disks > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications, wait until it completes.
+1. Select **Type** filter > select *Private endpoint* from dropdown list of **Value** > **Apply**. Select all private endpoints > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications, wait until it completes. Ignore this step if type **Private endpoint** is not listed.
+1. Select **Type** filter > select *Network Interface* from dropdown list of **Value** > **Apply**. Select all network interfaces > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications, wait until it completes.
+1. Select **Type** filter > select *Storage account* from dropdown list of **Value** > **Apply**. Select all storage accounts > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications, wait until it completes.
+
+Next, use the same steps in the [Set up disaster recovery for the cluster using Azure Site Recovery](#set-up-disaster-recovery-for-the-cluster-using-azure-site-recovery) in the primary region, except for the following differences:
+
+1. For **Create a Recovery Services vault**:
+   1. Select resource group depoloyed in the primary region - for example, *was-cluster-eastus-mjg022624*.
+   1. Enter a different name for service vault - for example, *recovery-service-vault-eastus-mjg022624*.
+   1. Select **East US** for **Region**.
+1. For **Enable replication**:
+   1. Select **West US** for **Region** in **Source**.
+   1. In **Replication settings**,
+      1. Select existing resource group deployed in the primary region for **Target resource group** - for example, *was-cluster-eastus-mjg022624*.
+      1. Select existing virtual network in the primary region for **Failover virtual network**.
+1. For **Create a recovery plan**:
+   1. Select **West US** for **Source** and **East US** for **Target**.
+1. Skip steps in section [Further network configuration for the secondary region](#further-network-configuration-for-the-secondary-region) as these resource are already created and configured before.
 
 ### Fail back to the primary site
 
 Use the same steps in the [Failover to the secondary site](#failover-to-the-secondary-site) section to fail back to the primary site including database server and cluster, except for the following differences:
 
-1. You don't need to enable the external access to the WebSphere Integrated Solutions Console and sample app in the primary region, they have already been enabled in the deployment of the primary cluster.
-1. Revisit the browser tabs for WebSphere Integrated Solutions Console and sample app for the primary cluster you opened before, and verify if they work as expected.
+1. Select recovery service vault deployed in the primary region - for example, *recovery-service-vault-eastus-mjg022624*.
+1. Select resource group deployed in the primary region - for example, *was-cluster-eastus-mjg022624*.
+1. After you enable the external access to the WebSphere Integrated Solutions Console and sample app in the primary region, revisit the browser tabs for WebSphere Integrated Solutions Console and sample app for the primary cluster you opened before, and verify if they work as expected. Depending on how much time it took to failback, you may not see session data displayed in the **New coffee** section of the sample app UI if it's expired over 1 hour.
+1. In section [Commit the failover](#commit-the-failover), select your Recovery Services vault deployed in the primary - for example, *recovery-service-vault-eastus-mjg022624*.
 1. In the Traffic Manager profile, you should see that endpoint *myPrimaryEndpoint* becomes *Online* and endpoint *myFailoverEndpoint* becomes *Degraded*.
+1. In section [Re-protect the failover site](#re-protect-the-failover-site):
+   1. The primary region is your failover site and active, you should you should re-protect it in your secondary region.
+   1. Clean up resource deployed in your secondary region - for example, resources deployed in *was-cluster-westus-mjg022624*.
+   1. Use the same steps in the [Set up disaster recovery for the cluster using Azure Site Recovery](#set-up-disaster-recovery-for-the-cluster-using-azure-site-recovery) for protecting the primary region in the secondary region, except:
+      1. Skipping steps in **Create a Recovery Services vault** as you've already created one before - for example, *recovery-service-vault-westus-mjg022624*.
+      1. For **Enable replication** > **Replication settings**, select existing virtual network in the secondary region for **Failover virtual network**.
+      1. Skipping steps in section [Further network configuration for the secondary region](#further-network-configuration-for-the-secondary-region) as these resource are already created and configured before.
 
 ## Clean up resources
 
@@ -464,10 +515,10 @@ If you're not going to continue to use the WebSphere clusters and other componen
 1. In **Enter resource group name to confirm deletion**, enter the resource group name.
 1. Select **Delete**.
 1. Repeat steps 1-4 for the resource group of the Traffic Manager - for example, `myResourceGroupTM1`.
-<!--TODO: add steps to disable replication-->
 1. In the search box at the top of the Azure portal, enter **Recovery Services vaults** and select **Recovery Services vaults** in the search results.
 1. Select the name of your Recovery Services vault - for example, *recovery-service-vault-westus-mjg022624*.
 1. Under **Manage**, select **Recovery Plans (Site Recovery)**. Selet the recovery plan you created - for example, *recovery-plan-mjg022624*.
+1. Use the same steps in section [Disable the replication](#disable-the-replication) to remove locks on replicated items.
 1. Repeat steps 1-4 for the resource group of the primary WebSphere cluster - for example, `was-cluster-westus-mjg022624`.
 1. Repeat steps 1-4 for the resource group of the secondary WebSphere cluster - for example, `was-cluster-eastus-mjg022624`.
 
