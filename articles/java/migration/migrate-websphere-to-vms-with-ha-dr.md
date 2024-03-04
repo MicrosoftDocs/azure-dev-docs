@@ -44,7 +44,7 @@ This tutorial was written with the Azure Site Recovery and Azure SQL Database se
 
 ## Set up an Azure SQL Database failover group in paired regions
 
-In this section, you create an Azure SQL Database failover group in paired regions for use with your WebSphere clusters and app. In a later section, you configure WebSphere to store its session data to this database. This practice referneces [Creating a table for session persistence](https://www.ibm.com/docs/en/was-nd/9.0.5?topic=persistence-creating-table-session).
+In this section, you create an Azure SQL Database failover group in paired regions for use with your WebSphere clusters and app. In a later section, you configure WebSphere to store its session data to this database. This practice references [Creating a table for session persistence](https://www.ibm.com/docs/en/was-nd/9.0.5?topic=persistence-creating-table-session).
 
 First, create the primary Azure SQL Database by following the Azure portal steps in [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal). Follow the steps up to, but not including **Clean up resources**. Use the following directions as you go through the article, then return to this article after you create and configure the Azure SQL Database:
 
@@ -87,7 +87,7 @@ First, create the primary Azure SQL Database by following the Azure portal steps
 
       After a successful run, you should see the message **Query succeeded: Affected rows: 0**.
 
-      The database table *sessions* is used for storing session data for your WebSphere app. The WebSphere cluster data including transaction logs is persisted to local storage of VMs where the cluser is deployed.
+      The database table *sessions* is used for storing session data for your WebSphere app. The WebSphere cluster data including transaction logs is persisted to local storage of VMs where the cluster is deployed.
 
 Then, create an Azure SQL Database failover group by following the Azure portal steps in [Configure a failover group for Azure SQL Database](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db). You just need the following sections: [Create failover group](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#create-failover-group) and [Test planned failover](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#test-planned-failover). Use the following steps as you go through the article, then return to this article after you create and configure the Azure SQL Database failover group:
 
@@ -184,7 +184,7 @@ Use the following steps to write down the name of the public IP address of the I
 
 First, enable the option **Synchronize changes with Nodes** so that any configuration can be automatically synchronized to all application servers.
 
-1. Swtich back to the WebSphere Integrated Solutions Console, sign-in again if you're logged out.
+1. Switch back to the WebSphere Integrated Solutions Console, sign-in again if you're logged out.
 1. Under navigation pane at the left side, select **System administration** > **Console Preferences**.
 1. In **Console Preferences** pane, check **Synchronize changes with Nodes**. Select **Apply**. You should see message **Your preferences have been changed.**
 
@@ -202,12 +202,12 @@ Then, configure Database **Distributed sessions** for all application servers.
       1. Fill in the Azure SQL server admin sign-in password that you wrote down before for **Password**.
       1. Fill in *sessions* for **Table space name**.
       1. Check **Use multi row schema**. 
-      1. Select **OK**. You're returned to **Distributed environment settings** pane.
+      1. Select **OK**. You're directed back to **Distributed environment settings** pane.
    1. Under **Additional Properties** section, select **Custom tuning parameters**.
    1. Select **Low (optimize for failover)** for **Tuning level**. 
    1. Select **OK**.
    1. Under **Messages**, select **Save**. Wait until completion.
-   1. Select **Application servers** from the top breadcrumb bar. You're return to **Application servers** pane.
+   1. Select **Application servers** from the top breadcrumb bar. You're directed back to **Application servers** pane.
 1. Under navigation pane at the left side, select **Servers** > **Clusters** > **WebSphere application server clusters**.
 1. In **WebSphere application server clusters** pane, you should see cluster *MyCluster* listed. Check *MyCluster*.
 1. Select **Ripplestart**.
@@ -219,7 +219,7 @@ Keep the console open and use it for app deployment later.
 
 Deploy and run a sample CRUD Java/Jakarta EE application on WebSphere cluster for disaster recovery failover test later.
 
-You configured applicatoin servers to use the datasource *jdbc/WebSphereCafeDB* to store session data before, which enables failover and load balancing across a cluster of WebSphere application servers. The sample app also configures [persistence schema](https://github.com/Azure-Samples/websphere-cafe/blob/main/websphere-cafe-web/src/main/resources/META-INF/persistence.xml#L7) to persist application data *coffee* in the same datasource *jdbc/WebSphereCafeDB*.
+You configured application servers to use the datasource *jdbc/WebSphereCafeDB* to store session data before, which enables failover and load balancing across a cluster of WebSphere application servers. The sample app also configures [persistence schema](https://github.com/Azure-Samples/websphere-cafe/blob/main/websphere-cafe-web/src/main/resources/META-INF/persistence.xml#L7) to persist application data *coffee* in the same datasource *jdbc/WebSphereCafeDB*.
 
 First, use the following commands to download, build and package the sample:
 
@@ -233,7 +233,7 @@ The package should be successfully generated and located at *\<parent-path-to-yo
 
 Then, use the following steps to deploy the sample app to the cluster:
 
-1. Swtich back to the WebSphere Integrated Solutions Console, sign-in again if you're logged out.
+1. Switch back to the WebSphere Integrated Solutions Console, sign-in again if you're logged out.
 1. Under navigation pane at the left side, select **Applications** > **Application Types** > **WebSphere enterprise applications**.
 1. In **Enterprise Applications** pane, select **Install** > **Choose File** > find the package located at *\<parent-path-to-your-local-clone>/websphere-cafe/websphere-cafe-application/target/websphere-cafe.ear*, select **Open**. Select **Next** > **Next** > **Next**.
 1. In **Map modules to servers** pane, press <kbd>Ctrl</kbd> and select all items listed in **Clusters and servers**, select all modules, select **Apply**. Select **Next** until you see **Finish** button. 
@@ -242,7 +242,7 @@ Then, use the following steps to deploy the sample app to the cluster:
 
 Now, use the following steps to verify if the app is running as expected.
 
-1. Swtich back to the IHS console. Append the context root */websphere-cafe* of the deployed app to the address bar - for example, `http://ihs70685e.eastus.cloudapp.azure.com/websphere-cafe/`, and press <kbd>Enter</kbd>. You should see the welcome page of sample app.
+1. Switch back to the IHS console. Append the context root */websphere-cafe* of the deployed app to the address bar - for example, `http://ihs70685e.eastus.cloudapp.azure.com/websphere-cafe/`, and press <kbd>Enter</kbd>. You should see the welcome page of sample app.
 1. Create a new coffee with name and price (for example, *Coffee 1* with price *10*), which is persisted into both application data table and session table of the database. The UI that you see should be similar to the following screenshot:
 
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui.png":::
@@ -284,8 +284,8 @@ In this section, you set up disaster recovery for Azure VMs in the primary clust
       1. For **Replication policy**, use the default policy *24-hour-retention-policy*. You can also create a new policy for your business.
       1. Leave the defaults for other fields as well.
    1. Review:
-      1. After selecting **Enable replication**, notice the message **Creating Azure resources. Don't close this blade.** displayed at the bottom of the page. Do nothing and wait until the blade is closed automatcially, you're redirected to **Site Recovery** page.
-      1. Under **Protected items**, select **Replicated items**. Initially there is no items listed because the replication is still in progress. The replication takes time to complete, it's about 1 hour for this tutorial. Refresh the page periodically until you see all VMs are **Protected**, for example:
+      1. After selecting **Enable replication**, notice the message **Creating Azure resources. Don't close this blade.** displayed at the bottom of the page. Do nothing and wait until the blade is closed automatically, you're redirected to **Site Recovery** page.
+      1. Under **Protected items**, select **Replicated items**. Initially there are no items listed because the replication is still in progress. The replication takes time to complete, it's about 1 hour for this tutorial. Refresh the page periodically until you see all VMs are **Protected**, for example:
 
          :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/replicated-items-protected.png" alt-text="Screenshot of VMs that are replicated and protected." lightbox="media/migrate-websphere-to-vms-with-ha-dr/replicated-items-protected.png":::
 
@@ -387,7 +387,7 @@ Next, use the following steps to failover the WebSphere cluster with the recover
 
 1. In the search box at the top of the Azure portal, enter **Recovery Services vaults** and select **Recovery Services vaults** in the search results.
 1. Select the name of your Recovery Services vault - for example, *recovery-service-vault-westus-mjg022624*.
-1. Under **Manage**, select **Recovery Plans (Site Recovery)**. Selet the recovery plan you created - for example, *recovery-plan-mjg022624*. 
+1. Under **Manage**, select **Recovery Plans (Site Recovery)**. Select the recovery plan you created - for example, *recovery-plan-mjg022624*. 
 1. Select **Failover**. Check **I understand the risk. Skip test failover.**. Leave the defaults for others, select **OK**.
 
    > [!NOTE]
@@ -408,7 +408,7 @@ Then, use the following steps to enable the external access to the WebSphere Int
 
 1. In the search box at the top of the Azure portal, enter **Resource groups** and select **Resource groups** in the search results.
 1. Select the name of resource group for your secondary region - for example, *was-cluster-westus-mjg022624*. Sort items by **Type** in the **Resource Group** page.
-1. Select **Network Interface** prefixed with *dmgr*. Select **IP configurations** > **ipconfig1**. Check **Associate public IP address**. For **Public IP address**, select public IP address prifixed with *dmgr*. Select **Save**, wait until it completes.
+1. Select **Network Interface** prefixed with *dmgr*. Select **IP configurations** > **ipconfig1**. Check **Associate public IP address**. For **Public IP address**, select public IP address prefixed with *dmgr*. Select **Save**, wait until it completes.
 1. Switch back to the resource group, and select **Network Interface** prefixed with *ihs*. Select **IP configurations** > **ipconfig1**. Check **Associate public IP address**. For **Public IP address**, select public IP address prefixed with *ihs*. Select **Save**, wait until it completes.
 1. Find the DNS name label for the public IP address of Dmgr you created before, open the URL of Dmgr WebSphere Integrated Solutions Console in a new browser tab - for example, `https://dmgrmjg022624.westus.cloudapp.azure.com:9043/ibm/console`. Refresh the page until you see the welcome page for sign in.
 1. Sign in to the console with the user name and password for WebSphere administrator you wrote down before, and check the followings:
@@ -436,7 +436,7 @@ Commit the failover after you're satisfied the failover result.
 
 1. In the search box at the top of the Azure portal, enter **Recovery Services vaults** and select **Recovery Services vaults** in the search results.
 1. Select the name of your Recovery Services vault - for example, *recovery-service-vault-westus-mjg022624*.
-1. Under **Manage**, select **Recovery Plans (Site Recovery)**. Selet the recovery plan you created - for example, *recovery-plan-mjg022624*. 
+1. Under **Manage**, select **Recovery Plans (Site Recovery)**. Select the recovery plan you created - for example, *recovery-plan-mjg022624*. 
 1. Select **Commit** > **OK**.
 1. Monitor the commit in notifications until it completes.
 
@@ -477,7 +477,7 @@ First, clean up resources that are replicated in your primary region later.
 Next, use the same steps in the [Set up disaster recovery for the cluster using Azure Site Recovery](#set-up-disaster-recovery-for-the-cluster-using-azure-site-recovery) in the primary region, except for the following differences:
 
 1. For **Create a Recovery Services vault**:
-   1. Select resource group depoloyed in the primary region - for example, *was-cluster-eastus-mjg022624*.
+   1. Select resource group deployed in the primary region - for example, *was-cluster-eastus-mjg022624*.
    1. Enter a different name for service vault - for example, *recovery-service-vault-eastus-mjg022624*.
    1. Select **East US** for **Region**.
 1. For **Enable replication**:
@@ -499,7 +499,7 @@ Use the same steps in the [Failover to the secondary site](#failover-to-the-seco
 1. In section [Commit the failover](#commit-the-failover), select your Recovery Services vault deployed in the primary - for example, *recovery-service-vault-eastus-mjg022624*.
 1. In the Traffic Manager profile, you should see that endpoint *myPrimaryEndpoint* becomes *Online* and endpoint *myFailoverEndpoint* becomes *Degraded*.
 1. In section [Re-protect the failover site](#re-protect-the-failover-site):
-   1. The primary region is your failover site and active, you should you should re-protect it in your secondary region.
+   1. The primary region is your failover site and active, you should re-protect it in your secondary region.
    1. Clean up resource deployed in your secondary region - for example, resources deployed in *was-cluster-westus-mjg022624*.
    1. Use the same steps in the [Set up disaster recovery for the cluster using Azure Site Recovery](#set-up-disaster-recovery-for-the-cluster-using-azure-site-recovery) for protecting the primary region in the secondary region, except:
       1. Skipping steps in **Create a Recovery Services vault** as you created one before - for example, *recovery-service-vault-westus-mjg022624*.
@@ -517,7 +517,7 @@ If you're not going to continue to use the WebSphere clusters and other componen
 1. Repeat steps 1-4 for the resource group of the Traffic Manager - for example, `myResourceGroupTM1`.
 1. In the search box at the top of the Azure portal, enter **Recovery Services vaults** and select **Recovery Services vaults** in the search results.
 1. Select the name of your Recovery Services vault - for example, *recovery-service-vault-westus-mjg022624*.
-1. Under **Manage**, select **Recovery Plans (Site Recovery)**. Selet the recovery plan you created - for example, *recovery-plan-mjg022624*.
+1. Under **Manage**, select **Recovery Plans (Site Recovery)**. Select the recovery plan you created - for example, *recovery-plan-mjg022624*.
 1. Use the same steps in section [Disable the replication](#disable-the-replication) to remove locks on replicated items.
 1. Repeat steps 1-4 for the resource group of the primary WebSphere cluster - for example, `was-cluster-westus-mjg022624`.
 1. Repeat steps 1-4 for the resource group of the secondary WebSphere cluster - for example, `was-cluster-eastus-mjg022624`.
