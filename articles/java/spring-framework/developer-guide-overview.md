@@ -179,41 +179,41 @@ The following table lists starters for PostgreSQL support:
 
 ### Configuring Spring Boot 3
 
-Azure SDK JARs require signature verification. However, Spring Boot 3 doesn't support the JAR signature verification for AOT mode on a JVM and for Native Images. For more information, see [Using Ahead-of-time Processing With the JVM](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#deployment.efficient.aot) and [GraalVM Native Image Support](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html).
+Azure SDK JARs require signature verification. However, Spring Boot 3 doesn't support the JAR signature verification for ahead-of-time (AOT) mode on a JVM and for native images. For more information, see [Using Ahead-of-time Processing With the JVM](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#deployment.efficient.aot) and [GraalVM Native Image Support](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html).
 
 To solve this issue, disable the JAR signature verification.
 
-* Create a `custom.security` file in `src/main/resources`, as shown in the following example:
+1. Create a *custom.security* file in *src/main/resources* with the following contents:
 
-  ```kotlin
-  jdk.jar.disabledAlgorithms=MD2, MD5, RSA, DSA
-  ```
+   ```
+   jdk.jar.disabledAlgorithms=MD2, MD5, RSA, DSA
+   ```
 
-* Use the following configuration if you're using Maven:
+1. If you're using Maven, add the following configuration:
 
-  ```xml
-  <plugin>
-      <groupId>org.graalvm.buildtools</groupId>
-      <artifactId>native-maven-plugin</artifactId>
-      <configuration>
-          <buildArgs>
-              <arg>-Djava.security.properties=src/main/resources/custom.security</arg>
-          </buildArgs>
-      </configuration>
-  </plugin>
-  ```
+   ```xml
+   <plugin>
+       <groupId>org.graalvm.buildtools</groupId>
+       <artifactId>native-maven-plugin</artifactId>
+       <configuration>
+           <buildArgs>
+               <arg>-Djava.security.properties=src/main/resources/custom.security</arg>
+           </buildArgs>
+       </configuration>
+   </plugin>
+   ```
 
-* Use the following configuration if you're using Gradle:
+   If you're using Gradle, add the following configuration:
 
-  ```groovy
-  graalvmNative {
-    binaries {
-      main {
-        buildArgs('-Djava.security.properties=' + file("$rootDir/custom.security").absolutePath)
-      }
-    }
-  }
-  ```
+   ```groovy
+   graalvmNative {
+     binaries {
+       main {
+         buildArgs('-Djava.security.properties=' + file("$rootDir/custom.security").absolutePath)
+       }
+     }
+   }
+   ```
 
 ### Learning Spring Cloud Azure
 
