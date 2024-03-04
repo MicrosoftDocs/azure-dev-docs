@@ -35,13 +35,11 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 [!INCLUDE [py-deployment-procedure](../intro/includes/redeploy-procedure-py-chat.md)]
 
-[!INCLUDE [logs](../intro/includes/scaling-load-balance-aca-logs.md)]
-
-
+[!INCLUDE [logs](../intro/includes/scaling-load-balancer-aca-logs.md)]
 
 [!INCLUDE [capacity.md](../intro/includes/scaling-load-balancer-capacity.md)]
 
-[!INCLUDE [py-aca-cleanup](../intro/scaling-load-balancer-aca-cleanup.md)]
+[!INCLUDE [py-aca-cleanup](../intro/includes/scaling-load-balancer-aca-cleanup.md)]
 
 ## Sample code
 
