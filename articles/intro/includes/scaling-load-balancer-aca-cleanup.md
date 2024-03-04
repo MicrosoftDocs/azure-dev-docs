@@ -9,7 +9,7 @@ ms.service: azure
 
 ## Clean up resources
 
-When you are done with both the chat app and the load balancer, clean up the resources. 
+When you're done with both the chat app and the load balancer, clean up the resources. 
 
 ### Clean up chat app resources
 
@@ -20,7 +20,7 @@ Remove chat app resources:
 * [JavaScript](../../javascript/get-started-app-chat-template.md#clean-up-resources)
 * [Python](../../python/get-started-app-chat-template.md#clean-up-resources)
 
-### Clean up load balancer resources
+### Clean upload balancer resources
 
 The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
 
@@ -33,7 +33,7 @@ azd down --purge --force
 The switches provide: 
 
 * `purge`: Deleted resources are immediately purged. This allows you to reuse the Azure OpenAI TPM.
-* `force`: The deletion happens siliently, without requiring user consent. 
+* `force`: The deletion happens silently, without requiring user consent. 
 
 ### Clean up GitHub Codespaces
 
@@ -46,9 +46,9 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 
-1. Locate your currently running codespaces sourced from the [`azure-samples/openai-aca-lb`](https://github.com/azure-samples/openai-aca-lb) GitHub repository.
+1. Locate your currently running Codespaces sourced from the [`azure-samples/openai-aca-lb`](https://github.com/azure-samples/openai-aca-lb) GitHub repository.
 
-    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running codespaces including their status and templates.":::
+    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
 1. Open the context menu for the codespace and then select **Delete**.
 
