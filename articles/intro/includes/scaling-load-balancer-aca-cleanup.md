@@ -13,7 +13,12 @@ When you are done with both the chat app and the load balancer, clean up the res
 
 ### Clean up chat app resources
 
-Remove [chat app resources](../python/get-started-app-chat-template.md#clean-up-resources)
+Remove chat app resources:
+
+* [.NET](/dotnet/azure/ai/get-started-app-chat-template#clean-up-resources)
+* [Java](../../java/quickstarts/get-started-app-chat-template.md#clean-up-resources)
+* [JavaScript](../../javascript/get-started-app-chat-template.md#clean-up-resources)
+* [Python](../../python/get-started-app-chat-template.md#clean-up-resources)
 
 ### Clean up load balancer resources
 
