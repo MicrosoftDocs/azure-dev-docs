@@ -1,6 +1,6 @@
 ---
-title: Add authorization using app roles & roles claims to Java Tomcat Web app that signs-in users with the Microsoft identity platform
-description: Shows you how to add authorization using app roles & roles claims to Java Tomcat Web app that signs-in users with the Microsoft identity platform
+title: Add authorization using app roles and roles claims to Java Tomcat Web app that signs-in users with the Microsoft identity platform
+description: Shows you how to add authorization using app roles and roles claims to Java Tomcat Web app that signs-in users with the Microsoft identity platform.
 services: active-directory
 ms.date: 01/01/2024
 ms.service: active-directory
@@ -8,7 +8,7 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Add authorization using app roles & roles claims to Java Tomcat Web app that signs-in users with the Microsoft identity platform
+# Add authorization using app roles and roles claims to Java Tomcat Web app that signs-in users with the Microsoft identity platform
 
 This article shows how a Java Tomcat web app that uses [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) to sign in users and use [Microsoft Entra ID Application Roles (app roles)](/entra/identity-platform/howto-add-app-roles-in-apps) for authorization. App roles, along with Security groups are popular means to implement authorization.
 

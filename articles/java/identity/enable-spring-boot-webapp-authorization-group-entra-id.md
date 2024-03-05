@@ -1,6 +1,6 @@
 ---
 title: Enable your Java Spring boot web app to restrict access to routes using security groups with the Microsoft identity platform
-description: Shows you how to develop a Java Spring boot web app to restrict access to routes using security groups with the Microsoft identity platform
+description: Shows you how to develop a Java Spring boot web app to restrict access to routes using security groups with the Microsoft identity platform.
 services: active-directory
 ms.date: 01/01/2024
 ms.service: active-directory

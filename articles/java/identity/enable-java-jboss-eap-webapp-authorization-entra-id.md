@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Enable your Java JBoss EAP web app to sign in users and access resources on Microsoft Graph
 
-This sample demonstrates a Java JBoss EAP web app that signs in users and obtains an access token for calling [Microsoft Graph](/graph/overview). It uses the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
+This article demonstrates a Java JBoss EAP web app that signs in users and obtains an access token for calling [Microsoft Graph](/graph/overview). It uses the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 
 :::image type="content" source="./media/topology.png" alt-text="Overview":::
 

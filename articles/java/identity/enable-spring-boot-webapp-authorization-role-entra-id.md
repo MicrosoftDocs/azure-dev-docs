@@ -1,6 +1,6 @@
 ---
 title: Enable your Java Spring Boot web app to restrict access to routes using app roles with the Microsoft identity platform
-description: Shows you how to enable your Java Spring Boot web app to restrict access to routes using app roles with the Microsoft identity platform
+description: Shows you how to enable your Java Spring Boot web app to restrict access to routes using app roles with the Microsoft identity platform.
 services: active-directory
 ms.date: 01/01/2024
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Enable your Java Spring Boot web app to restrict access to routes using app roles with the Microsoft identity platform
 
-This sample demonstrates a Java Spring Boot web app that uses the [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) for authentication, authorization, and token acquisition with the [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) protocol to sign in users, and restricts access to some routes using [Microsoft Entra ID Application Roles (app roles)](/entra/identity-platform/howto-add-app-roles-in-apps) for authorization.
+This article demonstrates a Java Spring Boot web app that uses the [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) for authentication, authorization, and token acquisition with the [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) protocol to sign in users, and restricts access to some routes using [Microsoft Entra ID Application Roles (app roles)](/entra/identity-platform/howto-add-app-roles-in-apps) for authorization.
 
 App roles, along with Security groups are popular means to implement authorization. Using Role-based Access Control (RBAC) with Application Roles and Role Claims, developers can securely enforce authorization policies with minimal effort on their part. Another approach is to use Microsoft Entra ID Groups and Group Claims. Microsoft Entra ID Groups and Application Roles are by no means mutually exclusive; they can be used in tandem to provide even finer grained access control.
 
