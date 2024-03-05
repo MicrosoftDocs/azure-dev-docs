@@ -20,7 +20,7 @@ landingContent:
             url: enable-java-jboss-eap-webapp-authentication-azure-ad-b2c.md
           - text: Access user details
             url: enable-java-jboss-eap-webapp-authorization-entra-id.md
-          - text: Use roles & role claims
+          - text: Use roles and role claims
             url: enable-java-jboss-eap-webapp-authorization-role-entra-id.md
           - text: Use groups and group claims
             url: enable-java-jboss-eap-webapp-authorization-group-entra-id.md
@@ -36,7 +36,7 @@ landingContent:
             url: enable-java-tomcat-webapp-authentication-azure-ad-b2c.md
           - text: Access user details
             url: enable-java-tomcat-webapp-authorization-entra-id.md
-          - text: Use roles & role claims
+          - text: Use roles and role claims
             url: enable-java-tomcat-webapp-authorization-role-entra-id.md
           - text: Use groups and group claims
             url: enable-java-tomcat-webapp-authorization-group-entra-id.md
@@ -52,7 +52,7 @@ landingContent:
             url: enable-java-weblogic-webapp-authentication-azure-ad-b2c.md
           - text: Access user details
             url: enable-java-weblogic-webapp-authorization-entra-id.md
-          - text: Use roles & role claims
+          - text: Use roles and role claims
             url: enable-java-weblogic-webapp-authorization-role-entra-id.md
           - text: Use groups and group claims
             url: enable-java-weblogic-webapp-authorization-group-entra-id.md
@@ -68,7 +68,7 @@ landingContent:
             url: enable-java-websphere-webapp-authentication-azure-ad-b2c.md
           - text: Access user details
             url: enable-java-websphere-webapp-authorization-entra-id.md
-          - text: Use roles & role claims
+          - text: Use roles and role claims
             url: enable-java-websphere-webapp-authorization-role-entra-id.md
           - text: Use groups and group claims
             url: enable-java-websphere-webapp-authorization-group-entra-id.md
@@ -84,7 +84,7 @@ landingContent:
             url: enable-spring-boot-webapp-authentication-azure-ad-b2c.md
           - text: Access user details
             url: enable-spring-boot-webapp-authorization-entra-id.md
-          - text: Use roles & role claims
+          - text: Use roles and role claims
             url: enable-spring-boot-webapp-authorization-role-entra-id.md
           - text: Use groups and group claims
             url: enable-spring-boot-webapp-authorization-group-entra-id.md
