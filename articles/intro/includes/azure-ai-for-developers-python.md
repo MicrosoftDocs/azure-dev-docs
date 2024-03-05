@@ -7,7 +7,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 |Link|Description|
 |---|---|
 |[Get started with the Python enterprise chat sample using RAG](../../python/get-started-app-chat-template.md)|An article that walks you through deploying and using the [Enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample is a complete end-to-end solution demonstrating the [Retrieval-Augmented Generation (RAG) pattern](/azure/search/retrieval-augmented-generation-overview) running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. |
-|[Build an AI assistant using RAG](https://github.com/Azure/Vector-Search-AI-Assistant-MongoDBvCore)| This sample is a complete end-to-end solution demonstrating how to design and implement a Q&A AI assistant, which uses the [Embeddings API](azure/ai-services/openai/tutorials/embeddings) and Completions API in Azure OpenAI Service, as well as the [vector database](/azure/cosmos-db/vector-database) extension in Azure Cosmos DB. |
+|[Build an AI assistant using RAG](https://github.com/Azure/Vector-Search-AI-Assistant-MongoDBvCore)| This sample is a complete end-to-end solution demonstrating how to design and implement a Q&A AI assistant, which uses the [Embeddings API](/azure/ai-services/openai/tutorials/embeddings) and Completions API in Azure OpenAI Service, as well as the [vector database](/azure/cosmos-db/vector-database) extension in Azure Cosmos DB. |
 
 * [Demo video](https://aka.ms/azai/py/video)
 
