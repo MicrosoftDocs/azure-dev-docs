@@ -17,6 +17,8 @@ items:
           href: azure-ai-for-java-developers.md
         - name: Get started with the Java enterprise chat sample
           href: get-started-app-chat-template.md
+        - name: Scale Azure OpenAI with Azure Container Apps
+          href: get-started-app-chat-scaling-with-azure-container-apps.md 
     - name: Compute services
       href: compute.md
     - name: Data
