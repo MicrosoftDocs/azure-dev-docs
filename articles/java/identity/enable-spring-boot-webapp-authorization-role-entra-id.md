@@ -347,10 +347,6 @@ public class SecurityConfig extends AADWebSecurityConfigurerAdapter{
 }
 ```
 
-## Deployment
-
-[Deploy to Azure App Service](../../4-Deployment/deploy-to-azure-app-service). Prepare your app for deployment to Azure App Service, configure authentication parameters and use various Azure services for managing your operations.
-
 ## More information
 
 - [Microsoft identity platform (Azure Active Directory for developers)](/entra/identity-platform/)
