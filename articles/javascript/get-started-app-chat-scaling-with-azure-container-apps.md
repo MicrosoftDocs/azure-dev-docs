@@ -1,6 +1,6 @@
 ---
 title: Scale Azure OpenAI for JavaScript chat sample using RAG
-description: Learn how to add load balancing to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. 
+description: Learn how to add load balancing to your JavaScript solution to extend the chat app beyond the Azure OpenAI token and model quota limits. 
 ms.date: 03/05/2024
 ms.topic: get-started
 ms.custom: devx-track-js, devx-track-js-ai
