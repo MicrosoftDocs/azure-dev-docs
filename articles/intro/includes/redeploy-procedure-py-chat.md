@@ -9,7 +9,7 @@ ms.service: azure
 
 ## Redeploy Chat app with load balancer endpoint
 
-These are are completed on the chat app sample. 
+These are completed on the chat app sample. 
 
 #### [Initial deployment](#tab/initial-deployment)
 
