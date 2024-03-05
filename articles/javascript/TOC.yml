@@ -36,7 +36,7 @@
     - name: Evaluate your chat app
       href: get-started-app-chat-evaluations.md
       display: Azure OpenAI
-    - name: Scale your chat app with Azure Container Apps
+    - name: Scale Azure OpenAI with Azure Container Apps
       href: get-started-app-chat-scaling-with-azure-container-apps.md
   - name: Developer Guides
     items: 
