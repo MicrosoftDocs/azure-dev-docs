@@ -1,6 +1,8 @@
 - name: Azure Developer CLI
   expanded: true
   items:
+  - name: Azure Developer CLI overview
+    href: index.yml
   - name: What is Azure Developer CLI?
     href: overview.md
   - name: Get started
@@ -13,34 +15,44 @@
       href: azd-templates.md
     - name: Deploy an azd template
       href: get-started.md
-  - name: How-to guides
+  - name: Deployment
     items:
-    - name: Switch to Terraform as IaC provider
-      href: use-terraform-for-azd.md
-    - name: Run and debug
-      href: debug.md
-    - name: Resource Group Scoped Deployments
-      href: resource-group-scoped-deployments.md
     - name: Configure deployment pipeline
       href: configure-devops-pipeline.md
-    - name: Customize workflows using command and event hooks
-      href: azd-extensibility.md
-    - name: Monitor your project
-      href: monitor-your-app.md
-    - name: Make your project azd-compatible
-      href: make-azd-compatible.md
+    - name: Resource Group Scoped Deployments
+      href: resource-group-scoped-deployments.md
+  - name: Configuration
+    items:
     - name: Manage environment variables
       href: manage-environment-variables.md
+    - name: Customize workflows using command and event hooks
+      href: azd-extensibility.md
+    - name: Switch to Terraform as IaC provider
+      href: use-terraform-for-azd.md
+  - name: Create templates
+    items:
+    - name: Make your project azd-compatible
+      href: make-azd-compatible.md
+  - name: Integration and remote environments
+    items:
     - name: Remote Environment Support
       href: remote-environments-support.md
     - name: Azure Deployment Environments integration
       href: ade-integration.md
     - name: .NET Aspire integration and deployment
       href: /dotnet/aspire/deployment/azure/aca-deployment-azd-in-depth?toc=/azure/developer/azure-developer-cli/toc.json&bc=/azure/developer/azure-developer-cli/breadcrumb/toc.json
+    - name: Deploy .NET Aspire apps using pipelines
+      href: /dotnet/aspire/deployment/azure/aca-deployment-github-actions?toc=/azure/developer/azure-developer-cli/toc.json&bc=/azure/developer/azure-developer-cli/breadcrumb/toc.json
     - name: Use azd in sovereign clouds
       href: sovereign-clouds.md
-  - name: Troubleshoot
-    href: troubleshoot.md
+  - name: Monitor and debug
+    items:
+    - name: Run and debug
+      href: debug.md
+    - name: Troubleshoot
+      href: troubleshoot.md
+    - name: Monitor your project
+      href: monitor-your-app.md
   - name: Feature versioning and release strategy
     href: feature-versioning.md
   - name: Frequently asked questions (FAQ)

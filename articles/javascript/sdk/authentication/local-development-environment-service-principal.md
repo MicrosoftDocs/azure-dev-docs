@@ -163,11 +163,11 @@ For information on assigning permissions at the resource or subscription level u
 
 ## 4 - Set local development environment variables
 
-The `DefaultAzureCredential` object will look for the service principal information in a set of environment variables at runtime.  Since most developers work on multiple applications, it's recommended to use a package like [dotenv](https://www.npmjs.com/package/dotnet) to access environment from a `.env` file stored in the application's directory during development.  This scopes the environment variables used to authenticate the application to Azure such that they can only be used by this application.
+The `DefaultAzureCredential` object will look for the service principal information in a set of environment variables at runtime.  Since most developers work on multiple applications, it's recommended to use a package like [dotenv](https://www.npmjs.com/package/dotenv) to access environment from a `.env` file stored in the application's directory during development.  This scopes the environment variables used to authenticate the application to Azure such that they can only be used by this application.
 
 The `.env` file is never checked into source control since it contains the application secret key for Azure.  The standard [.gitignore](https://github.com/github/gitignore/blob/main/Node.gitignore#L76) file for JavaScript automatically excludes the `.env` file from check-in.
 
-To use the `dotnet package`, first install the package in your application.
+To use the `dotenv` package, first install the package in your application.
 
 ```bash
 npm install dotenv
@@ -188,7 +188,7 @@ AZURE_CLIENT_SECRET=abcdefghijklmnopqrstuvwxyz
 Finally, in the startup code for your application, use the `dotenv` library to read the environment variables from the `.env` file on startup.
 
 ```JavaScript
-require("dotenv").config();
+import 'dotenv/config'
 ```
 
 ## 5 - Implement DefaultAzureCredential in your application
@@ -211,10 +211,10 @@ An example of this is shown in the following code segment.
 
 ```JavaScript
 // Azure authentication dependency
-const { DefaultAzureCredential } = require('@azure/identity');
+import { DefaultAzureCredential } from '@azure/identity';
 
 // Azure resource management dependency
-const { SubscriptionClient } = require("@azure/arm-subscriptions");
+import { SubscriptionClient } from "@azure/arm-subscriptions";
 
 // Acquire credential
 const tokenCredential = new DefaultAzureCredential();

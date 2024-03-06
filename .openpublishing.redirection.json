@@ -1,5 +1,125 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/mobile-apps/index.yml",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/choose-mobile-framework.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/choose-mobile-framework",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/mobile-cloud-development-stages.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/mobile-cloud-development-stages",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/authentication.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/data-storage.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/data-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-storage.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-content-delivery-network.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-content-delivery-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/serverless-compute.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/serverless-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/real-time-communication.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/real-time-communication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/code-hosting-services.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/code-hosting-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/devops.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/devops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/continuous-integration.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/continuous-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/test-mobile-apps.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/test-mobile-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/continuous-delivery.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/continuous-delivery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/analytics.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/diagnostics.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/diagnostics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/push-notifications.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/push-notifications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/notification-hubs-backend-service-xamarin-forms.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/notification-hubs-backend-service-xamarin-forms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/notification-hubs-backend-service-react-native.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/notification-hubs-backend-service-react-native",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/notification-hubs-backend-service-flutter.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/notification-hubs-backend-service-flutter",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/cognitive-services.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/cognitive-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-maps.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-maps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-search.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/java/migration/cloud-suitability-analyzer.md",
+      "redirect_url": "/previous-versions/azure/developer/java/migration/cloud-suitability-analyzer",
+      "redirect_document_id": false
+    },
       {
         "source_path": "articles/java/ee/jboss-eap-single-server-azure-vm.md",
         "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm"
@@ -9,8 +129,55 @@
         "redirect_url": "/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine"
       },
       {
+        "source_path": "articles/javascript/how-to/with-azure-sdk/stop-start-virtual-machine.md",
+        "redirect_url": "/cli/azure/vm"
+      },
+      {
+        "source_path": "articles/javascript/how-to/with-azure-sdk/list-resource-operation-history.md",
+        "redirect_url": "/cli/azure/monitor"
+      },      
+      {
         "source_path":"articles/javascript/how-to/add-custom-domain-to-web-app.md",
         "redirect_url": "/azure/app-service/tutorial-secure-domain-certificate"
+      },
+      {
+        "source_path":"articles/javascript/how-to/with-azure-cli/create-container-registry-resource.md",
+        "redirect_url": "/azure/container-registry/container-registry-get-started-azure-cli"
+      },
+      {
+        "source_path":"articles/javascript/how-to/with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md",
+        "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+      },
+      {
+        "source_path":"articles/javascript/how-to/with-authentication/static-web-app-with-api/configure-source-code-for-msal.md",
+        "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+      },
+      {
+        "source_path":"articles/javascript/how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md",
+        "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+      }, 
+      {
+        "source_path":"articles/javascript/how-to/with-authentication/static-web-app-with-api/introduction.md",
+        "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+      },
+      {
+        "source_path":"articles/javascript/how-to/with-authentication/static-web-app-with-api/register-application-with-identity.md",
+        "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+      },
+      {
+        "source_path":"articles/javascript/how-to/with-authentication/register-application-with-identity.md",
+        "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+      },
+
+      {
+        "source_path":"articles/javascript/how-to/with-web-app/use-secret-environment-variables.md",
+        "redirect_url": "/azure/cosmos-db/store-credentials-key-vault"
+
+      },
+
+      {
+        "source_path":"articles/javascript/database-developer-guide.md",
+        "redirect_url": "https://azure.microsoft.com/product-categories/databases/"
       },
       {
         "source_path":"articles/javascript/composable-cloud-contoso-real-estate.md",

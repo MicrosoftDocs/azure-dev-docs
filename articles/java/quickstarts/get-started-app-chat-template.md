@@ -3,7 +3,7 @@ title: Get started with the Java enterprise chat sample using RAG
 description: Get started with Java and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
 ms.date: 11/17/2023
 ms.topic: get-started
-ms.custom: devx-track-java, devx-track-java-ai, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-java-ai, devx-track-extended-java, devx-track-extended-azdevcli
 # CustomerIntent: As a Java developer new to Azure OpenAI, I want deploy and use sample code to interact with app infused with my own business data so that learn from the sample code.
 ---
 
@@ -24,7 +24,7 @@ By following the instructions in this article, you will:
 
 Once you complete this article, you can start modifying the new project with your custom code.
 
-This article is part of a collection of articles that show you how to build a chat app using Azure Open AI Service and Azure AI Search. Other articles in the collection include: 
+This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Service and Azure AI Search. Other articles in the collection include: 
 
 * [.Net](/dotnet/azure/ai/get-started-app-chat-template)
 * [JavaScript](../../javascript/get-started-app-chat-template.md)
@@ -144,7 +144,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 The sample repository contains all the code and configuration files you need to deploy a chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
 ### Deploy chat app to Azure
 > [!IMPORTANT]
-> Azure resources created in this section immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
+> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
 1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
     ```bash
     azd up

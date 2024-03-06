@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure support for Spring Cloud Stream
 
-**This article applies to:** ✔️ Version 4.14.0 ✔️ Version 5.8.0
+**This article applies to:** ✔️ Version 4.16.0 ✔️ Version 5.10.0
 
 Spring Cloud Stream is a framework for building highly scalable event-driven microservices connected with shared messaging systems.
 
@@ -786,6 +786,9 @@ Consumer configurable properties of spring-cloud-azure-stream-binder-servicebus:
 > | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.max-auto-lock-renew-duration | Duration              | 5m        | The amount of time to continue auto-renewing the lock.                                                      |
 > | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.receive-mode                 | ServiceBusReceiveMode | peek_lock | The receive mode of the Service Bus processor client.                                                       |
 > | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.auto-complete                | Boolean               | true      | Whether to settle messages automatically. If set as false, a message header of `Checkpointer` will be added to enable developers to settle messages manually.     |
+
+> [!IMPORTANT]
+> When you use the [Azure Resource Manager](resource-manager.md) (ARM), you must configure the `spring.cloud.stream.servicebus.bindings.<binding-name>.consume.entity-type` property. For more information, see the [servicebus-queue-binder-arm](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-cloud-azure-stream-binder-servicebus/servicebus-queue-binder-arm) sample on GitHub.
 
 ##### Advanced consumer configuration
 

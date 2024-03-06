@@ -3,7 +3,7 @@ title: "Tutorial: Contoso Real Estate run in Codespaces"
 description: In this tutorial, run the Contoso Real Estate in Codespaces for this enterprise-grade modern composable cloud-native application and its scenarios.aces
 ms.topic: tutorial
 ms.date: 08/31/2023
-ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
+ms.custom: devx-track-js, devx-track-ts, contoso-real-estate, devx-track-extended-azdevcli
 # CustomerIntent: As a senior developer new to Azure, I want to learn how to run the Contoso Real Estate in Codespaces so that I can learn how to develop modern cloud solutions.
 ---
 

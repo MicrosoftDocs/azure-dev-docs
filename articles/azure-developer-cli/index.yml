@@ -17,29 +17,76 @@ metadata:
 landingContent:
   - title:  Get started
     linkLists:
-      - linkListType: learn
-        links:
-          - text: What is Azure Developer CLI
-            url: /training/paths/azure-developer-cli
       - linkListType: get-started
         links:
-          - text: Get started
-            url: get-started.md 
-  - title: Next steps
+          - text: What is Azure Developer CLI (azd)?
+            url: /azure/developer/azure-developer-cli/overview
+          - text: Install azd
+            url: /azure/developer/azure-developer-cli/install-azd
+          - text: Deploy an azd template
+            url: /azure/developer/azure-developer-cli/get-started
+          - text: Supported languages and environments
+            url: /azure/developer/azure-developer-cli/supported-languages-environments
+          - text: Training - Introduction to Azure Developer CLI
+            url: /training/modules/introduction-to-azure-developer-cli
+  - title: Work with templates
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Use Terraform as IaC Provider
-            url: use-terraform-for-azd.md
-          - text: Run and debug
-            url: debug.md
+          - text: Explore azd templates
+            url: /azure/developer/azure-developer-cli/azd-templates
+          - text: Visit the template gallery
+            url: https://azure.github.io/awesome-azd
+          - text: Make your project azd compatiable
+            url: /azure/developer/azure-developer-cli/make-azd-compatible
+          - text: Training - Build and deploy azd templates
+            url: /training/paths/azure-developer-cli
           - text: Configure deployment pipeline
             url: configure-devops-pipeline.md
-          - text: Monitor your project
-            url: monitor-your-app.md
-          - text: Make your project azd-compatible
-            url: make-azd-compatible.md
-  - title: Get help & Provide feedback
+  - title: Customization and configuration
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Manage environment variables
+            url: /azure/developer/azure-developer-cli/manage-environment-variables
+          - text: Use terraform with azd
+            url: /azure/developer/azure-developer-cli/use-terraform-for-azd
+          - text: Customize workflows using hooks
+            url: /azure/developer/azure-developer-cli/azd-extensibility
+          - text: Remote environment support
+            url: /azure/developer/azure-developer-cli/remote-environments-support
+          - text: Troubleshooting
+            url: /azure/developer/azure-developer-cli/troubleshoot
+  - title: Popular templates
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: Visit the template gallery
+            url: https://azure.github.io/awesome-azd
+          - text: ToDo C# Azure Cosmos DB
+            url: https://github.com/Azure-Samples/todo-csharp-cosmos-sql
+          - text: ToDo C# Azure SQL Database
+            url: https://github.com/azure-samples/todo-csharp-sql
+          - text: ToDo Java Mongo 
+            url: https://github.com/azure-samples/todo-java-mongo
+          - text: ToDo NodeJs MongoDB
+            url: https://github.com/azure-samples/todo-nodejs-mongo
+          - text: ToDo Python MongoDB
+            url: https://github.com/azure-samples/todo-python-mongo
+
+  - title: Video content
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Introducing the Azure Developer CLI - Azure Friday
+            url: https://www.youtube.com/watch?v=VTk-FhJyo7s
+          - text: Azure Developer CLI - GitHub Universe presentation
+            url: https://www.youtube.com/watch?v=9z3PiHSCcYs
+          - text: Azure Developer CLI YouTube playlist
+            url: https://www.youtube.com/watch?v=_MNndbEPvYQ&list=PLq8oMtzrBmrhdtmthuGO9pOHRUqD-BmWh&index=1
+          - text: Community standups
+            url: https://www.youtube.com/watch?v=uhFXxHnhJts
+  - title: Get help & provide feedback
     linkLists:
       - linkListType: how-to-guide 
         links:
@@ -51,42 +98,3 @@ landingContent:
         links:
           - text: Azure Developer CLI Reference
             url: reference.md
-  - title: Azure App Service templates
-    linkLists:
-      - linkListType: sample
-        links:
-          - text: ToDo C# Azure Cosmos DB
-            url: https://github.com/Azure-Samples/todo-csharp-cosmos-sql
-          - text: ToDo C# Azure SQL Database
-            url: https://github.com/azure-samples/todo-csharp-sql
-          - text: ToDo Java Mongo 
-            url: https://github.com/azure-samples/todo-java-mongo
-          - text: ToDo NodeJs MongoDB
-            url: https://github.com/azure-samples/todo-nodejs-mongo
-          - text: ToDo NodeJs MongoDB (Terraform)
-            url: https://github.com/azure-samples/todo-nodejs-mongo-terraform
-          - text: ToDo Python MongoDB
-            url: https://github.com/azure-samples/todo-python-mongo
-          - text: ToDo Python MongoDB (Terraform)
-            url: https://github.com/Azure-Samples/todo-python-mongo-terraform
-
-  - title: Azure Container Apps templates
-    linkLists:
-      - linkListType: sample
-        links:
-          - text: ToDo Java Mongo ACA
-            url: https://github.com/azure-samples/todo-java-mongo-aca
-          - text: ToDo NodeJs MongoDB ACA
-            url: https://github.com/azure-samples/todo-nodejs-mongo-aca
-          - text: ToDo Python MongoDB ACA
-            url: https://github.com/azure-samples/todo-python-mongo-aca
-  - title: Azure Static Web Apps & Azure Functions templates
-    linkLists:
-      - linkListType: sample
-        links:
-          - text: ToDo C# Azure SQL + SWA + Functions
-            url: https://github.com/Azure-Samples/todo-csharp-sql-swa-func
-          - text: ToDo NodeJs MongoDB SWA + Function
-            url: https://github.com/azure-samples/todo-nodejs-mongo-swa-func
-          - text: ToDo Python MongoDB SWA + Function
-            url: https://github.com/azure-samples/todo-python-mongo-swa-func

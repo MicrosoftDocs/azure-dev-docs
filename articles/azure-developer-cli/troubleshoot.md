@@ -170,6 +170,12 @@ You are most likely to encounter this issue when `azd` is run from a GitHub acti
 
 The product team is working to resolve this issue.
 
+## GitHub Actions error - "Does not have secrets get permission on key vault"
+
+Sharing the same environment or resource group name when provisioning resources locally and in GitHub Actions can produce the error `Does not have secrets get permission on key vault..` from the Key Vault service. Key Vault does not support incremental permissions updates through Bicep, which effectively means the GitHub Actions workflow overwrites the Access Policy permissions of the local user.
+
+The recommended solution to this issue is to use separate environment names for local development and GitHub Actions workflows. Read more about [using multiple environments](/azure/developer/azure-developer-cli/faq#what-is-an-environment-name) with the `azd env` command on the FAQ page.
+
 ## Text-based browser support
 
 Text-based browsers are currently not supported by `azd monitor`.

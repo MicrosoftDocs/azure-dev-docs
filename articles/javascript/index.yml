@@ -32,8 +32,6 @@ landingContent:
             url: /azure/developer/javascript/sdk/authentication/local-development-environment-service-principal
           - text: Authenticate your web app users
             url: how-to/with-authentication/getting-started.md?tabs=no-code%2Cno-code-credential
-          - text: Databases for developers
-            url: database-developer-guide.md
           - text: Storage for developers
             url: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
           - text: Azure SDK Blog
@@ -74,8 +72,6 @@ landingContent:
         links:
           - text: Storage on Azure
             url: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-          - text: Databases on Azure
-            url: database-developer-guide.md
           - text: Full stack serverless with Mongoose
             url: /azure/static-web-apps/add-mongoose
           - text: Serverless API + DB
@@ -121,8 +117,6 @@ landingContent:
         links:
           - text: Azure Storage Dev Guide
             url: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-          - text: Azure Database Dev Guide
-            url: database-developer-guide.md
   - title: End to end development
     linkLists:
       - linkListType: get-started
