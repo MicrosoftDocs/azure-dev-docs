@@ -2,10 +2,10 @@
 title: Spring Cloud Stream with Azure Event Hubs
 description: Learn how to configure a Java-based Spring Cloud Stream Binder application created with the Spring Boot Initializr with Azure Event Hubs.
 services: event-hubs
-documentationcenter: java
+author: KarlErickson
+ms.author: xiada
 ms.date: 04/06/2023
 ms.service: event-hubs
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
