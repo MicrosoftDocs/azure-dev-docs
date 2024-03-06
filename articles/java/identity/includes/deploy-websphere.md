@@ -23,7 +23,7 @@ These instructions assume you've installed WebSphere and set up some server. You
 
 1. After the code finishes building, copy the *.war* file over to your target server's file system.
 
-You also need to make the same change in the Azure app registration, where you set it as the 'Redirect URI' in the 'Authentication' tab
+You also need to make the same change in the Azure app registration, where you set it as the **Redirect URI** in the **Authentication** tab.
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 1. Use the search box to search for your app registration - for example, `java-servlet-webapp-authentication`.

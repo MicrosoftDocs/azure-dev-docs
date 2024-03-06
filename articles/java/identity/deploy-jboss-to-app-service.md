@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article shows you how to deploy a JBoss web app with sign-in by Microsoft Entra account to Azure App Service.
 
-This guidance assumes you've run through any of the Tomcat Web app examples for enabling security with Microsoft Entra ID.
+This guidance assumes you have through any of the Tomcat Web app examples for enabling security with Microsoft Entra ID.
 
 ## Prerequisites
 

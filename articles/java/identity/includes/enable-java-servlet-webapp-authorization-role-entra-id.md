@@ -31,7 +31,7 @@ There's one project in this sample. To register the app on the portal, you can:
 
 ### [Powershell](#tab/Powershell)
 
-1. On Windows, run PowerShell and navigate to the root of the cloned directory
+1. On Windows, run PowerShell and navigate to the root of the cloned directory.
 1. In PowerShell run:
 
    ```powershell
@@ -107,7 +107,7 @@ Open the project in your IDE to configure the code.
 
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
-1. Open the [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/3-Authorization-II/roles/src/main/resources/authentication.properties) file
+1. Open the [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/3-Authorization-II/roles/src/main/resources/authentication.properties) file.
 1. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with your Microsoft Entra ID tenant ID.
 1. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID (clientId) of the `java-servlet-webapp-call-graph` application copied from the Azure portal.
 1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the key you saved during the creation of the `java-servlet-webapp-roles` app, in the Azure portal.

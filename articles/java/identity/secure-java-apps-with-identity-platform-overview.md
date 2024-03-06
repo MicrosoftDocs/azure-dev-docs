@@ -1,5 +1,5 @@
 ---
-title: Get started with securing java application with Microsoft Identity platform
+title: Get started with securing Java application with Microsoft Identity platform
 description: Shows you how to enable your Java web app to restrict access to routes using app roles with the Microsoft identity platform.
 services: active-directory
 ms.date: 01/01/2024
@@ -8,7 +8,7 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Get started with securing java application with Microsoft Identity platform
+# Get started with securing Java application with Microsoft Identity platform
 
 This series of articles provides an overview of recommended strategies for securing Java applications with Microsoft Identity Platform.
 

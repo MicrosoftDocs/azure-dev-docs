@@ -93,6 +93,7 @@ Open the project in your IDE (like **Visual Studio Code**) to configure the code
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
 Open the *src/main/resources/application.yml* file.
+
 1. Find the key `client-id` and replace the existing value with the application ID (clientId) of the `java-spring-webapp-auth-b2c` application from the Azure portal.
 1. Find the app key `client-secret` and replace the existing value with the key you saved during the creation of the `java-spring-webapp-auth-b2c` application from the Azure portal.
 1. Find the app key `base-uri` and replace the two instances of `fabrikamb2c` with the name of the AAD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
@@ -118,7 +119,7 @@ Open the *src/main/resources/templates/navbar.html* file.
 
 #### Configure the Maven plugin
 
-[!INCLUDE [deploy-spring-apps-congigure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
+[!INCLUDE [deploy-spring-apps-configure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
 
 #### Prepare the web app for deployment
 
@@ -166,7 +167,7 @@ Open the *src/main/resources/templates/navbar.html* file.
 | File/folder                                                                   | Description                                                                               |
 |-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
 | *pom.xml*                                                                     | Application dependencies.                                                                 |
-| *src/main/resources/templates/`*                                              | Thymeleaf Templates for UI.                                                               |
+| *src/main/resources/templates/*                                              | Thymeleaf Templates for UI.                                                               |
 | *src/main/resources/application.yml*                                          | Application and Azure AD Boot Starter Library Configuration.                              |
 | *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/* | This directory contains the main application entry point, controller, and config classes. |
 | *.../MsIdentitySpringBootWebappApplication.java*                              | Main class.                                                                               |

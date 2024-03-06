@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article shows you how to deploy a Java Spring Boot web app with sign-in by Microsoft Entra account to Azure Spring Apps.
 
-This guidance assumes you've run through any of the Spring Boot Web app examples for enabling security with Microsoft Entra ID.
+This guidance assumes you have through any of the Spring Boot Web app examples for enabling security with Microsoft Entra ID.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ This guidance assumes you've run through any of the Spring Boot Web app examples
 
 ## Configure the Maven plugin
 
-[!INCLUDE [deploy-spring-apps-congigure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
+[!INCLUDE [deploy-spring-apps-configure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
 
 ## Prepare the web app for deployment
 

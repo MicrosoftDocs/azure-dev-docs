@@ -31,7 +31,7 @@ There's one project in this sample. To register the app on the portal, you can:
 
 ### [Powershell](#tab/Powershell)
 
-1. On Windows, run PowerShell and navigate to the root of the cloned directory
+1. On Windows, run PowerShell and navigate to the root of the cloned directory.
 1. In PowerShell run:
 
    ```powershell
@@ -83,7 +83,7 @@ Open the project in your IDE to configure the code.
 > [!NOTE]
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
-1. Open the *./src/main/resources/authentication.properties* file
+1. Open the *./src/main/resources/authentication.properties* file.
 1. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with:
 
    - **Your Microsoft Entra ID tenant ID** if you registered your app with the **Accounts in this organizational directory only** option.
@@ -96,6 +96,7 @@ Open the project in your IDE to configure the code.
 1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the key you saved during the creation of the `java-servlet-webapp-authentication` app, in the Azure portal.
 
 ## Run the sample
+
 ### Build .war file using Maven
 
 1. Navigate to the directory containing the *pom.xml* file for this sample, and run the following Maven command:

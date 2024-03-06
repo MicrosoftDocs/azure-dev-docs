@@ -65,13 +65,13 @@ As an extra step you can store this value in [Key Vault](/azure/key-vault/genera
 
 1. You can now delete the `aad.secret` key and value from the *authentication.properties* file.
 
-1. Rebuild the code
+1. Rebuild the code by using the following command:
 
    ```bash
    mvn clean package
    ```
 
-1. Redeploy the application.
+1. Redeploy the application by using the following command:
 
    ```bash
    mvn package azure-webapp:deploy

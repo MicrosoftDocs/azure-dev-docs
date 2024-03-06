@@ -28,7 +28,7 @@ The full code for this sample is available at [https://github.com/Azure-Samples/
 | *src/main/java/com/microsoft/azuresamples/msal4j/helpers/*      | Helper classes for authentication.                                                     |
 | *AuthenticationFilter.java*                                     | Redirects unauthenticated requests to protected endpoints to a 401 page.               |
 | *src/main/resources/authentication.properties*                  | Microsoft Entra ID and program configuration.                                          |
-| *src/main/webapp/`*                                             | This directory contains the UI (JSP templates)                                         |
+| *src/main/webapp/*                                             | This directory contains the UI (JSP templates)                                         |
 | *CHANGELOG.md*                                                  | List of changes to the sample.                                                         |
 | *CONTRIBUTING.md*                                               | Guidelines for contributing to the sample.                                             |
 | *LICENSE*                                                       | The license for the sample.                                                            |

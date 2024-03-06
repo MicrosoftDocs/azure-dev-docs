@@ -76,7 +76,7 @@ In this sample, these values are read from the *authentication.properties* file 
      - In order for AAD B2C to dispense an access token as well as an ID Token, the request must include an additional resource scope.
      - Since this app doesn't actually require an external resource scope, it adds its own client ID as a fourth scope in order to receive an access token.
      - Full list of scopes requested by the app can be found in the *authentication.properties* file.
-   - **ResponseMode.QUERY**: AAD can return the response as form params in an HTTP POST request or as query string params in an HTTP GET request.
+   - **ResponseMode.QUERY**: AAD can return the response as form params in an HTTP     POST request or as query string params in an HTTP GET request.
    - **Prompt.SELECT_ACCOUNT**: AAD B2C should ask the user to select the account that they intend to authenticate against.
    - **state**: a unique variable set by the app into the session on each token request, and destroyed after receiving the corresponding AAD redirect callback. The state variable ensures that AAD requests to the `/auth_redirect endpoint` are actually from AAD authorization requests originating from this app and this session, thereby preventing CSRF attacks. This is done in the *AADRedirectServlet.java* file.
    - **nonce**: a unique variable set by the app into the session on each token request, and destroyed after receiving the corresponding token. This nonce is transcribed to the resulting tokens dispensed AAD, thereby ensuring that there's no token-replay attack occurring.

@@ -52,7 +52,7 @@ There's one project in this sample. To register the app on the portal, you can:
 
 ### [Powershell](#tab/Powershell)
 
-1. On Windows, run PowerShell and navigate to the root of the cloned directory
+1. On Windows, run PowerShell and navigate to the root of the cloned directory.
 1. In PowerShell run:
 
    ```powershell
@@ -125,7 +125,7 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 
 #### Configure the Maven plugin
 
-[!INCLUDE [deploy-spring-apps-congigure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
+[!INCLUDE [deploy-spring-apps-configure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
 
 #### Prepare the web app for deployment
 

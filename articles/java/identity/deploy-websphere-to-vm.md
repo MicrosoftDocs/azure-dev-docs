@@ -12,11 +12,11 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article shows you how to deploy a Java WebSphere web app with sign-in by Microsoft Entra account to Traditional WebSphere on VMs.
 
-This guidance assumes you've run through any of the Java WebSphere web app examples for enabling security with Microsoft Entra ID.
+This guidance assumes you have through any of the Java WebSphere web app examples for enabling security with Microsoft Entra ID.
 
 ## Prerequisites
 
-- Make sure you've followed the guidance of [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](../ee/traditional-websphere-application-server-virtual-machines.md) to deploy a [IBM WebSphere Application Server Cluster](https://aka.ms/websphere-on-azure-portal).
+- A deployed [IBM WebSphere Application Server Cluster](https://aka.ms/websphere-on-azure-portal). For more information, see [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](../ee/traditional-websphere-application-server-virtual-machines.md).
 
 ## Prepare the web app for deployment
 
@@ -54,7 +54,7 @@ Since the redirect URI changes to your deployed App on WebSphere, you also need 
 
 1. On the **Applications** tab, select **New Application**, then **New Enterprise Application**.
 
-1. Choose the *.war* file you built, then select **Next** until you get to the 'Map context roots for Web modules' installation step (the other default settings should be fine)
+1. Choose the *.war* file you built, then select **Next** until you get to the **Map context roots for Web modules** installation step.
 
 1. For the context root, set it to the same value as after the port number in the 'Redirect URI' you set in sample configuration/Azure app registration. That is, if the redirect URI is `http://<server-url>:9080/msal4j-servlet-auth/`, then the context root should just be `msal4j-servlet-auth`.
 
@@ -64,7 +64,7 @@ Since the redirect URI changes to your deployed App on WebSphere, you also need 
 
 1. Select the *.war* file you installed from the list of applications and then select **Start** to deploy.
 
-1. After it finishes deploying, navigate to `http://<server-url>:9080/{whatever you set as the context root}` and you should be able to see the application
+1. After it finishes deploying, navigate to `http://<server-url>:9080/{whatever you set as the context root}` and you should be able to see the application.
 
 ## Next steps
 

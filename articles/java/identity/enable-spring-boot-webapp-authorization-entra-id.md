@@ -54,7 +54,7 @@ There's one project in this sample. To register it, you can:
 
 ### [Powershell](#tab/Powershell)
 
-1. On Windows, run PowerShell as **Administrator** and navigate to the root of the cloned directory
+1. On Windows, run PowerShell as administrator and navigate to the root of the cloned directory.
 1. If you've never used Azure AD Powershell before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
 1. In PowerShell run:
 
@@ -69,6 +69,7 @@ There's one project in this sample. To register it, you can:
    cd .\AppCreationScripts\
    .\Configure.ps1
    ```
+
    > [!NOTE]
    > Other ways of running the scripts are described in [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md)
    > The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
@@ -133,7 +134,7 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 
 #### Configure the Maven plugin
 
-[!INCLUDE [deploy-spring-apps-congigure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
+[!INCLUDE [deploy-spring-apps-configure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
 
 #### Prepare the web app for deployment
 
