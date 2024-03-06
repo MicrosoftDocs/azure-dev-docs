@@ -19,9 +19,9 @@ The [Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands
 
 ## 1: Set up your local development environment
 
-If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
+If you haven't already, set up an environment where you can run this code. Here are some options:
 
-Be sure to create and activate a virtual environment for this project.
+[!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
 
 ## 2: Install the Azure library packages
 
