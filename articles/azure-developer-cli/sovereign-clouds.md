@@ -109,6 +109,24 @@ Configure cloud for specific environments by updating the environment configurat
 }
 ```
 
+## Supported commands and platforms
+
+Supported commands include
+
+* auth
+* config
+* deploy
+* down
+* env
+* provision
+* up
+* monitor
+* show
+
+`azd pipeline` is not supported in Sovereign Clouds.
+
+`devcenter` platform is not supported in Sovereign Clouds.
+
 ## Deploying with Terraform
 
 When deploying to a sovereign cloud using `azd` and Terraform, the `az` CLI must also be configured to use the desired cloud. See Terraform's [Authenticating using the Azure CLI](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/azure_cli) documentation.
@@ -117,7 +135,6 @@ Set the environment variable `ARM_ENVIRONMENT` to the desired environment. Commo
 
 * `public` (default)
 * `usgovernment`
-* `german`
 * `china`
 
 Select the appropriate cloud using the `az` CLI:
