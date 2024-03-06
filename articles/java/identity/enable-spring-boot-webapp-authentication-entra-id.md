@@ -68,7 +68,7 @@ There's one project in this sample. To register the app on the portal, you can:
    ```
 
    > [!NOTE]
-   > Other ways of running the scripts are described in [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md)
+   > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/1-Authentication/sign-in/AppCreationScripts/AppCreationScripts.md) in the source repository.
    > The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
 
 ### [Manual](#tab/Manual)

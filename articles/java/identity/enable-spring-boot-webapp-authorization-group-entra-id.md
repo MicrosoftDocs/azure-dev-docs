@@ -61,12 +61,12 @@ There's one project in this sample. To register it, you can:
   - modify the projects' configuration files.
 
 > [!IMPORTANT]
-> If you've never used **Azure AD Powershell** before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
+> If you've never used **Azure AD Powershell** before, we recommend you go through the [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/3-Authorization-II/groups/AppCreationScripts/AppCreationScripts.md) in the source repository once to ensure that your environment is prepared correctly for this step.
 
 ### [Powershell](#tab/Powershell)
 
 1. On Windows, run PowerShell as administrator and navigate to the root of the cloned directory.
-1. If you've never used Azure AD Powershell before, we recommend you go through the [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
+1. If you've never used Azure AD Powershell before, we recommend you go through the [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/3-Authorization-II/groups/AppCreationScripts/AppCreationScripts.md) in the source repository once to ensure that your environment is prepared correctly for this step.
 1. In PowerShell run:
 
    ```powershell
@@ -82,7 +82,7 @@ There's one project in this sample. To register it, you can:
    ```
 
    > [!NOTE]
-   > Other ways of running the scripts are described in [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md)
+   > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/3-Authorization-II/groups/AppCreationScripts/AppCreationScripts.md) in the source repository.
    > The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
 
 ### [Manual](#tab/Manual)
