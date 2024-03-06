@@ -12,7 +12,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 ### Building blocks
 
-|Link|Description|
+|Building Block|Description|
 |---|---|
 |[RAG (chat app for your data) using Azure services](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/blob/main/Python/CosmosDB-MongoDB-vCore/CosmosDB-MongoDB-vCore_AzureOpenAI_Tutorial.ipynb)| This sample demonstrates how to design and implement a chat app using the GPT-3.5 Completions model in Azure OpenAI Service, as well as the [vector database](/azure/cosmos-db/vector-database) extension in Azure Cosmos DB. |
 |[Build a chat app with Azure OpenAI in Python](https://github.com/Azure-Samples/chatgpt-quickstart/blob/main/README.md)|A simple Python Quart app that streams responses from ChatGPT to an HTML/JS frontend using JSON Lines over a ReadableStream.|
@@ -20,7 +20,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 |[Build a ChatGPT Plugin with Azure Container Apps in Python](https://github.com/Azure-Samples/openai-plugin-fastapi/blob/main/README.md)|A sample for creating ChatGPT Plugin using GitHub Codespaces, VS Code, and Azure. The sample includes templates to deploy the plugin to Azure Container Apps using the Azure Developer CLI.|
 |[Summarize Text using Azure AI Language with Azure Functions](https://github.com/Azure-Samples/function-python-ai-textsummarize)|Take text documents as input, summarize using Azure AI Language, and then output to another text document using Azure Functions.|
 |[Azure AI Python Template Gallery](https://aka.ms/azai/py/gallery)|For the full list of Azure AI templates, visit our gallery. All app templates in our gallery can be spun up and deployed using a single command: _azd up_.|
-|[Smart load balancing with Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)|This solution is built using the high-performance [YARP C# reverse-proxy framework](https://github.com/microsoft/reverse-proxy) from Microsoft. However, you don't need to understand C# to use it, you can just build the provided Docker image. This is an alternative solution to the [API Management OpenAI smart load balancer](https://github.com/Azure-Samples/openai-apim-lb/), with the same logic.|
+|[Smart load balancing with Azure Container Apps](../python/get-started-app-chat-scaling-with-azure-container-apps.md)|This [sample solution](https://github.com/Azure-Samples/openai-aca-lb) is built using the high-performance [YARP C# reverse-proxy framework](https://github.com/microsoft/reverse-proxy) from Microsoft. However, you don't need to understand C# to use it, you can just build the provided Docker image. This is an alternative solution to the [API Management OpenAI smart load balancer](https://github.com/Azure-Samples/openai-apim-lb/), with the same logic.|
 |[Smart load balancing with Azure API Management](https://github.com/Azure-Samples/openai-apim-lb/)|The enterprise solution shows how to create an Azure API Management Policy to seamlessly expose a single endpoint to your applications while keeping an efficient logic to consume two or more OpenAI or any API backends based on availability and priority.|
 |[Evaulate your chat app](../../python/get-started-app-chat-evaluations.md)|Evaluate a chat app's answers against a set of correct or ideal answers (known as ground truth). The [evaulation tools](https://github.com/Azure-Samples/ai-rag-chat-evaluator) can be used with any Chat API which conforms to the [Chat protocol](https://github.com/Azure-Samples/ai-chat-app-protocol).|
 
