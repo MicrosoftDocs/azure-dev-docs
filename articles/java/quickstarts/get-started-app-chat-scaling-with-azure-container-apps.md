@@ -1,6 +1,6 @@
 ---
 title: Scale Azure OpenAI for Java chat sample using RAG
-description: Learn how to add load balancing to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. 
+description: Learn how to add load balancing to your Java solution to extend the chat app beyond the Azure OpenAI token and model quota limits. 
 ms.date: 02/01/2024
 ms.topic: get-started
 ms.custom: devx-track-java, devx-track-java-ai
@@ -25,13 +25,13 @@ ms.custom: devx-track-java, devx-track-java-ai
     * GitHub account
     
     #### [Visual Studio Code](#tab/visual-studio-code)
-    * [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
+    * [Azure Developer CLI](../../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
     * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
     * [Visual Studio Code](https://code.visualstudio.com/) with [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
     
     ---
 
-[!INCLUDE [scaling-load-balancer-aca-procedure.md](../intro/includes/scaling-load-balancer-procedure-azure-container-apps.md)]
+[!INCLUDE [scaling-load-balancer-aca-procedure.md](../../intro/includes/scaling-load-balancer-procedure-azure-container-apps.md)]
 
 [!INCLUDE [py-deployment-procedure](../../intro/includes/redeploy-procedure-chat.md)]
 
