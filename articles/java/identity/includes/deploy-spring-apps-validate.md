@@ -1,6 +1,6 @@
 ---
 ms.author: givermei
-ms.date: 01/01/2024
+ms.date: 03/11/2024
 ---
 
 After the deployment finishes, access the application with the output application URL. Use the following steps to check the app's logs to investigate any deployment issue:

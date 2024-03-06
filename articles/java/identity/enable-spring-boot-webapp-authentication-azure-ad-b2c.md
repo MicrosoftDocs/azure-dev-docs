@@ -2,7 +2,7 @@
 title: Enable your Java Spring Boot Web App using MSAL4J to authenticate users into Azure Active Directory B2C
 description: Shows you how to develop a Java Spring Boot web app that supports sign-in by Azure Active Directory B2C.
 services: active-directory
-ms.date: 01/01/2024
+ms.date: 03/11/2024
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: article
@@ -15,8 +15,9 @@ This article demonstrates a Java Spring MVC web app that signs in users on your 
 
 ## Scenario
 
-1. The client Java Spring web app uses the Azure AD B2C Spring Boot Starter client library for Java to sign in a user and obtain an ID Token from **Azure AD B2C**.
-2. The **ID Token** proves that the user has successfully authenticated with **Azure AD B2C** and allows the user to access protected routes.
+1. The client Java Spring web app uses the Azure AD B2C Spring Boot Starter client library for Java to sign in a user and obtain an ID token from Azure AD B2C.
+
+1. The **ID token proves that the user has successfully authenticated with Azure AD B2C and allows the user to access protected routes.
 
 :::image type="content" source="./media/topology-spring.png" alt-text="Overview":::
 
@@ -25,7 +26,7 @@ This article demonstrates a Java Spring MVC web app that signs in users on your 
 - [JDK Version 15](https://jdk.java.net/15/). This sample was developed on a system with Java 15 but may be compatible with other versions.
 - [Maven 3](https://maven.apache.org/download.cgi)
 - [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) is recommended for running this sample in VSCode.
-- An **Azure AD B2C** tenant. For more information see: [How to get an Azure AD B2C tenant](/azure/active-directory-b2c/tutorial-create-tenant)
+- An Azure AD B2C tenant. For more information, see [Tutorial: Create an Azure Active Directory B2C tenant](/azure/active-directory-b2c/tutorial-create-tenant)
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [VS Code Azure Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
@@ -55,7 +56,7 @@ This sample comes with a pre-registered application for demo purposes. If you wo
 As a first step, you need to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If your account is present in more than one **Azure AD B2C** tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Azure AD B2C tenant.
+1. If your account is present in more than one Azure AD B2C tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Azure AD B2C tenant.
 
 ### Create user flows and custom policies
 
@@ -69,8 +70,8 @@ See [Tutorial: Add identity providers to your applications in Azure Active Direc
 
 ### Register the web app (java-spring-webapp-auth-b2c)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Azure AD B2C** service.
-1. Select the **App Registrations** blade on the left, then select **New registration**.
+1. Navigate to the [Azure portal](https://portal.azure.com) and select **Azure AD B2C**.
+1. Select the **App Registrations** pane on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-spring-webapp-auth-b2c`.
    - Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
@@ -79,12 +80,12 @@ See [Tutorial: Add identity providers to your applications in Azure Active Direc
 1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
 1. Select **Save** to save your changes.
 
-1. In the app's registration screen, click on the **Certificates & secrets** blade in the left to open the page where we can generate secrets and upload certificates.
-1. In the **Client secrets** section, click on **New client secret**:
+1. In the app's registration screen, select the **Certificates & secrets** pane in the navigation pane to open the page to generate secrets and upload certificates.
+1. In the **Client secrets** section, select **New client secret**:
    - Type a key description - for example, `app secret`.
    - Select one of the available key durations as per your security concerns - for example, **In 2 years**.
-   - The generated key value is displayed when you click the **Add** button. Copy the generated value for use in the steps later.
-   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - The generated key value is displayed when you select **Add**. Copy the generated value for use in the steps later.
+   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
 
 #### Configure the web app (java-spring-webapp-auth-b2c) to use your app registration
 
@@ -152,14 +153,13 @@ Open the *src/main/resources/templates/navbar.html* file.
 ## Explore the sample
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
-- Click the context-sensitive button at the top right (it reads `Sign In` on first run)
-  - Alternatively, click the link to `token details`. Since this is a protected page that requires authentication, you're automatically redirected to the sign-in page.
+- Select the context-sensitive button at the top right (it reads **Sign In** on first run).
+  - Alternatively, select the link to **token details**. Since this is a protected page that requires authentication, you're automatically redirected to the sign-in page.
 - Follow the instructions on the next page to sign in with an account of your chosen identity provider. You may also choose to sign up or sign in to a local account on the B2C tenant using an email address.
-<!-- - On the consent screen, note the scopes that are being requested. -->
 - Upon successful completion of the sign-in flow, you should be redirected to the home page (`sign in status`) or `token details` page, depending on which button triggered your sign-in flow.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
-- If you're on the home page, you can see an option to click **ID Token Details**: click it to see some of the ID token's decoded claims.
-- You also have the option to edit your profile. Click the `edit profile` link on the top-right of the navbar to change details like your display name, place of residence, and profession.
+- If you're on the home page, select **ID Token Details** to see some of the ID token's decoded claims.
+- You also have the option to edit your profile. Select **edit profile** to change details like your display name, place of residence, and profession.
 - You can also use the button on the top right to sign out. The status page reflects this.
 
 ## Contents
@@ -286,6 +286,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 - [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - [MSAL4J Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
 - [ID Tokens](/entra/identity-platform/id-tokens)
-- [Access Tokens](/entra/identity-platform/access-tokens)
+- [Access tokens in the Microsoft identity platform](/entra/identity-platform/access-tokens)
 
 For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](/entra/identity-platform/authentication-flows-app-scenarios).

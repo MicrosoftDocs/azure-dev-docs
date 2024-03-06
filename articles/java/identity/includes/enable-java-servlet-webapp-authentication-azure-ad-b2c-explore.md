@@ -1,12 +1,12 @@
 ---
 ms.author: bbanerjee
-ms.date: 01/01/2024
+ms.date: 03/11/2024
 ---
 
 ## Explore the sample
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
-- Click the context-sensitive button at the top right (it reads `Sign In` on first run).
+- Select the context-sensitive button at the top right (it reads **Sign In** on first run).
 - Follow the instructions on the next page to sign in with an account of your chosen identity provider.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
 - The middle of the screen now has an option to click for ID Token Details: click it to see some of the ID token's decoded claims.
@@ -70,9 +70,9 @@ In this sample, these values are read from the *authentication.properties* file 
 
    - **AuthorizationRequestUrlParameters**: Parameters that must be set in order to build an AuthorizationRequestUrl.
    - **REDIRECT_URI**: Where AAD B2C redirects the browser (along with auth code) after collecting user credentials.
-   - **SCOPES**: [Scopes](/en-us/azure/active-directory-b2c/access-tokens#scopes) are permissions requested by the application.
+   - **SCOPES**: [Scopes](/azure/active-directory-b2c/access-tokens#scopes) are permissions requested by the application.
      - Normally, the three scopes `openid profile offline_access` would suffice for receiving an ID Token response.
-     - However, MSAL4J requires all responses from AAD B2C to also contain an Access Token.
+     - However, MSAL4J requires all responses from AAD B2C to also contain an access token.
      - In order for AAD B2C to dispense an access token as well as an ID Token, the request must include an additional resource scope.
      - Since this app doesn't actually require an external resource scope, it adds its own client ID as a fourth scope in order to receive an access token.
      - Full list of scopes requested by the app can be found in the *authentication.properties* file.
@@ -81,8 +81,8 @@ In this sample, these values are read from the *authentication.properties* file 
    - **state**: a unique variable set by the app into the session on each token request, and destroyed after receiving the corresponding AAD redirect callback. The state variable ensures that AAD requests to the `/auth_redirect endpoint` are actually from AAD authorization requests originating from this app and this session, thereby preventing CSRF attacks. This is done in the *AADRedirectServlet.java* file.
    - **nonce**: a unique variable set by the app into the session on each token request, and destroyed after receiving the corresponding token. This nonce is transcribed to the resulting tokens dispensed AAD, thereby ensuring that there's no token-replay attack occurring.
 
-1. The user is presented with a sign-in prompt by Azure Active Directory B2C. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint contains an [authorization code](/en-us/azure/active-directory-b2c/authorization-code-flow).
-1. Our ConfidentialClientApplication instance then exchanges this authorization code for an ID Token and Access Token from Azure Active Directory B2C.
+1. The user is presented with a sign-in prompt by Azure Active Directory B2C. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint contains an [authorization code](/azure/active-directory-b2c/authorization-code-flow).
+1. Our ConfidentialClientApplication instance then exchanges this authorization code for an ID Token and access token from Azure Active Directory B2C.
 
    ```java
    final AuthorizationCodeParameters authParams = AuthorizationCodeParameters

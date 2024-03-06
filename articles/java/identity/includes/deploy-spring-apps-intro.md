@@ -1,6 +1,6 @@
 ---
 ms.author: givermei
-ms.date: 01/01/2024
+ms.date: 03/11/2024
 ---
 
 You use the [Maven Plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy a Java Spring Boot application to an app on [Azure Spring Apps](/azure/spring-apps/). Azure Spring Apps is a managed service for hosting Spring apps.

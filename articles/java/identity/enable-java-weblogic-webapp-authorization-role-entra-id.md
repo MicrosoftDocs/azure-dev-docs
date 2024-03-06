@@ -2,7 +2,7 @@
 title: Add authorization using app roles and roles claims to Java WebLogic Web app that signs-in users with the Microsoft identity platform
 description: Shows you how to add authorization using app roles and roles claims to Java WebLogic Web app that signs-in users with the Microsoft identity platform.
 services: active-directory
-ms.date: 01/01/2024
+ms.date: 03/11/2024
 ms.service: active-directory
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
@@ -10,9 +10,9 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Add authorization using app roles and roles claims to Java WebLogic Web app that signs-in users with the Microsoft identity platform
 
-This article shows how a Java WebLogic web app that uses [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) to sign in users and use [**Microsoft Entra ID Application Roles (app roles)**](/entra/identity-platform/howto-add-app-roles-in-apps) for authorization. App roles, along with Security groups are popular means to implement authorization.
+This article shows how a Java WebLogic web app that uses [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) to sign in users and use [Microsoft Entra ID Application Roles (app roles)](/entra/identity-platform/howto-add-app-roles-in-apps) for authorization. App roles, along with Security groups are popular means to implement authorization.
 
-This application implements RBAC using Microsoft Entra ID's Application Roles & Role Claims feature. Another approach is to use Microsoft Entra ID Groups and Group Claims. Microsoft Entra ID Groups and Application Roles are by no means mutually exclusive; they can be used in tandem to provide even finer grained access control.
+This application implements RBAC using Microsoft Entra ID's Application Roles and Role Claims feature. Another approach is to use Microsoft Entra ID Groups and Group Claims. Microsoft Entra ID Groups and Application Roles are by no means mutually exclusive. You can use them in tandem to provide even finer grained access control.
 
 Using RBAC with Application Roles and Role Claims, developers can securely enforce authorization policies with minimal effort on their part.
 
@@ -37,9 +37,9 @@ Before you can deploy to WebLogic, you need to make some configuration changes i
 
 1. In the sample, there's likely an *application.properties* or *authentication.properties* file where you configured the client ID, tenant, redirect URL, and so on.
 
-2. In the above mentioned file, change references to `localhost:8080` or `localhost:8443` to the URL/port WebLogic runs on, which by default should be `localhost:7001`.
+1. In the above mentioned file, change references to `localhost:8080` or `localhost:8443` to the URL/port WebLogic runs on, which by default should be `localhost:7001`.
 
-3. You also need to make the same change in the Azure app registration, where you set it as the **Redirect URI** in the **Authentication** tab.
+1. You also need to make the same change in the Azure app registration, where you set it as the **Redirect URI** in the **Authentication** tab.
 
 To deploy the sample to WebLogic via the web console:
 

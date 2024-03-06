@@ -1,12 +1,12 @@
 ---
 ms.author: bbanerjee
-ms.date: 01/01/2024
+ms.date: 03/11/2024
 ---
 
 ## Explore the sample
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
-- Click the context-sensitive button at the top right (it reads `Sign In` on first run)
+- Select the context-sensitive button at the top right (it reads **Sign In** on first run)
 - Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
@@ -39,9 +39,9 @@ The full code for this sample is available at [https://github.com/Azure-Samples/
 
 ## Process a Groups claim in tokens, including handling overage
 
-### The `groups` claim
+### The groups claim
 
-The object id of the security groups the signed in user is member of is returned in the `groups` claim of the token.
+The object id of the security groups the signed in user is member of is returned in the groups claim of the token.
 
 ```json
 {
@@ -57,7 +57,7 @@ The object id of the security groups the signed in user is member of is returned
 
 To ensure that the token size doesn’t exceed HTTP header size limits, the Microsoft Identity Platform limits the number of object Ids that it includes in the **groups** claim.
 
-If a user is member of more groups than the overage limit (**150 for SAML tokens, 200 for JWT tokens, 6 for Single Page applications**), then the Microsoft Identity Platform does not emit the group IDs in the `groups` claim in the token. Instead, it includes an **overage** claim in the token that indicates to the application to query the [MS Graph API](https://graph.microsoft.com) to retrieve the user’s group membership.
+If a user is member of more groups than the overage limit (**150 for SAML tokens, 200 for JWT tokens, 6 for Single Page applications**), then the Microsoft Identity Platform does not emit the group IDs in the groups claim in the token. Instead, it includes an **overage** claim in the token that indicates to the application to query the [MS Graph API](https://graph.microsoft.com) to retrieve the user’s group membership.
 
 ```json
 {
@@ -82,9 +82,9 @@ If a user is member of more groups than the overage limit (**150 for SAML tokens
 1. We strongly advise you use the [group filtering feature](#configure-your-application-to-receive-the-groups-claim-values-from-a-filtered-set-of-groups-a-user-may-be-assigned-to) (if possible) to avoid running into group overages.
 1. In case you cannot avoid running into group overage, we suggest you use the following logic to process groups claim in your token.
 
-   1. Check for the claim `_claim_names` with one of the values being `groups`. This indicates overage.
+   1. Check for the claim `_claim_names` with one of the values being *groups*. This indicates overage.
    1. If found, make a call to the endpoint specified in `_claim_sources` to fetch user’s groups.
-   1. If none found, look into the `groups`  claim for user’s groups.
+   1. If none found, look into the *groups*  claim for user’s groups.
 
 > When attending to overage scenarios, which requires a call to [Microsoft Graph](https://graph.microsoft.com) to read the signed-in user's group memberships, your app needs to have the [GroupMember.Read.All](/graph/permissions-reference#group-permissions) permission for the [getMemberObjects](/graph/api/user-getmemberobjects) function to execute successfully.
 
@@ -135,7 +135,7 @@ In this sample, these values are read from the *authentication.properties* file 
      - Full list of scopes requested by the app can be found in the *authentication.properties* file. You can add more scopes like User.Read and so on.
 
 1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint contain an [authorization code](/entra/identity-platform/v2-oauth2-auth-code-flow).
-1. Our ConfidentialClientApplication instance then exchanges this authorization code for an ID Token and Access Token from Microsoft Entra ID.
+1. Our ConfidentialClientApplication instance then exchanges this authorization code for an ID Token and access token from Microsoft Entra ID.
 
    ```java
    // First, validate the state, then parse any error codes in response, then extract the authCode. Then:

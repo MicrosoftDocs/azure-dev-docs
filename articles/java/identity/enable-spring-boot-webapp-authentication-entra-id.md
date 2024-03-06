@@ -2,7 +2,7 @@
 title: Enable your Java Spring Boot web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
 description: Shows you how to develop a Java Spring Boot web app that supports sign-in by Microsoft Entra account.
 services: active-directory
-ms.date: 01/01/2024
+ms.date: 03/11/2024
 ms.service: active-directory
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
@@ -16,8 +16,9 @@ This article demonstrates a Java Spring MVC web app that signs in users on your 
 
 ## Scenario
 
-1. The client Java Spring MVC web app uses the Microsoft Entra ID Spring Boot Starter client library for Java to sign-in a user and obtain an ID Token from **Microsoft Entra ID**.
-2. The **ID Token** proves that the user has successfully authenticated with **Microsoft Entra ID** and allows the user to access protected routes.
+1. The client Java Spring MVC web app uses the Microsoft Entra ID Spring Boot Starter client library for Java to sign-in a user and obtain an ID Token from Microsoft Entra ID.
+
+1. The ID token proves that the user has successfully authenticated with Microsoft Entra ID and allows the user to access protected routes.
 
 [!INCLUDE [prerequisites-spring-boot.md](includes/prerequisites-spring-boot.md)]
 
@@ -48,7 +49,7 @@ There's one project in this sample. To register the app on the portal, you can:
 - or use PowerShell scripts that:
   - **automatically** create the Microsoft Entra ID applications and related objects (passwords, permissions, dependencies) for you.
   - modify the projects' configuration files.
-  - by default, the automation scripts set up an application that works with **accounts in your organizational directory only**.
+  - by default, the automation scripts set up an application that works with accounts in your organizational directory only.
 
 ### [Powershell](#tab/Powershell)
 
@@ -78,24 +79,24 @@ There's one project in this sample. To register the app on the portal, you can:
 As a first step, you need to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If your account is present in more than one Microsoft Entra ID tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Microsoft Entra ID tenant.
+1. If your account is present in more than one Microsoft Entra ID tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Microsoft Entra ID tenant.
 
 ### Register the webApp app (java-spring-webapp-auth)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Microsoft Entra ID** service.
-1. Select the **App Registrations** blade on the left, then select **New registration**.
+1. Navigate to the [Azure portal](https://portal.azure.com) and select **Microsoft Entra ID**.
+1. Select the **App Registrations** pane on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-spring-webapp-auth`.
    - Under **Supported account types**, select **Accounts in this organizational directory only**.
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
 1. Select **Register** to create the application.
 1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
-1. In the app's registration screen, select the **Certificates & secrets** blade in the left to open the page where we can generate secrets and upload certificates.
+1. In the app's registration screen, select the **Certificates & secrets** pane in the left to open the page where we can generate secrets and upload certificates.
 1. In the **Client secrets** section, select **New client secret**:
    - Type a key description (for instance `app secret`),
    - Select one of the available key durations (**In 1 year**, **In 2 years**, or **Never Expires**) as per your security posture.
    - The generated key value is displayed when you select the **Add** button. Copy the generated value for use in the steps later.
-   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
 
 ---
 
@@ -158,13 +159,13 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 ## Explore the sample
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
-- Click the context-sensitive button at the top right (it reads `Sign In` on first run)
-  - Alternatively, click the link to `token details`. Since this is a protected page that requires authentication, you're automatically redirected to the sign-in page.
+- Select the context-sensitive button at the top right (it reads **Sign In** on first run)
+  - Alternatively, select **token details**. Since this is a protected page that requires authentication, you're automatically redirected to the sign-in page.
 - Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
-- Upon successful completion of the sign-in flow, you should be redirected to the home page (`sign in status`) or `token details` page, depending on which button triggered your sign-in flow.
+- Upon successful completion of the sign-in flow, you should be redirected to the home page (**sign in status**) or **token details** page, depending on which button triggered your sign-in flow.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
-- If you're on the home page, you can see an option to click **ID Token Details**: click it to see some of the ID token's decoded claims.
+- If you're on the home page, select **ID Token Details** to see some of the ID token's decoded claims.
 - You can also use the button on the top right to sign out. The status page reflects this.
 
 ## Contents
@@ -283,6 +284,6 @@ public class SecurityConfig extends AADWebSecurityConfigurerAdapter{
 - [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - [MSAL4J Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
 - [ID Tokens](/entra/identity-platform/id-tokens)
-- [Access Tokens](/entra/identity-platform/access-tokens)
+- [Access tokens in the Microsoft identity platform](/entra/identity-platform/access-tokens)
 
 For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](/entra/identity-platform/authentication-flows-app-scenarios).

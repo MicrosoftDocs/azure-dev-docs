@@ -1,6 +1,6 @@
 ---
 ms.author: givermei
-ms.date: 01/01/2024
+ms.date: 03/11/2024
 ---
 
 You're now ready to deploy your app to Azure Spring Apps. With all the configuration ready in your *pom.xml* file, you can now deploy your Java app to Azure with one single command.

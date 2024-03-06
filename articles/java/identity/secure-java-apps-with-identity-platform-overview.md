@@ -2,7 +2,7 @@
 title: Get started with securing Java application with Microsoft Identity platform
 description: Shows you how to enable your Java web app to restrict access to routes using app roles with the Microsoft identity platform.
 services: active-directory
-ms.date: 01/01/2024
+ms.date: 03/11/2024
 ms.service: active-directory
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
@@ -24,16 +24,16 @@ We recommend following the chapters in successive order for your platform of cho
 
 Each platform has guidance on the following tasks:
 
-- Sign your users in with **Entra ID** and learn to work with **ID Tokens**.
-- Sign your customers in with **Azure AD B2C**. Learn to integrate with **external social identity providers**. Learn how to use **user-flows** and **custom policies**.
-- Enable your web app to acquire an Access Token to Authorize it to call **Microsoft Graph API**. This can be used to get extra user details from the Microsoft Graph API.
-- Enable your web app to acquire an ID Token with the **Roles** claim. This can be used to filter access to routes based on the role membership.
-- Enable your web app to acquire an ID Token with a **Groups** claim. This can be used to filter access to routes based on the role membership. You also learn how to call Graph to handle edge cases where the user is a member of too many groups to fit into an ID Token.
+- Sign your users in with Microsoft Entra ID and learn to work with ID tokens.
+- Sign your customers in with Azure AD B2C. Learn to integrate with external social identity providers. Learn how to use user flows and custom policies.
+- Enable your web app to acquire an access token to Authorize it to call Microsoft Graph API. This can be used to get extra user details from the Microsoft Graph API.
+- Enable your web app to acquire an ID token with the roles claim. You can use this token to filter access to routes based on the role membership.
+- Enable your web app to acquire an ID token with a groups claim. This can be used to filter access to routes based on the role membership. You also learn how to call Graph to handle edge cases where the user is a member of too many groups to fit into an ID Token.
 - Deploy your app to the Azure platform.
 
 ## More information
 
-Learn more about the **Microsoft identity platform**:
+Learn more about the Microsoft identity platform from the following articles:
 
 - [Microsoft identity platform](/entra/identity-platform/)
 - [Azure Active Directory B2C](/azure/active-directory-b2c/)
@@ -44,7 +44,7 @@ Learn more about the **Microsoft identity platform**:
 - [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals)
 - [Microsoft identity platform best practices and recommendations](/entra/identity-platform/identity-platform-integration-checklist)
 
-See more code samples:
+See more code samples at the following locations:
 
 - [MSAL code samples](/entra/identity-platform/sample-v2-code?tabs=framework#java)
 - [MSAL B2C code samples](/azure/active-directory-b2c/code-samples)

@@ -1,6 +1,6 @@
 ---
 ms.author: bbanerjee
-ms.date: 01/01/2024
+ms.date: 03/11/2024
 ---
 
 ## Setup
@@ -27,7 +27,7 @@ There's one project in this sample. To register the app on the portal, you can:
 - or use PowerShell scripts that:
   - **automatically** creates the Microsoft Entra ID applications and related objects (passwords, permissions, dependencies) for you.
   - modify the projects' configuration files.
-  - by default, the automation scripts set up an application that works with **accounts in your organizational directory only**.
+  - by default, the automation scripts set up an application that works with accounts in your organizational directory only.
 
 ### [Powershell](#tab/Powershell)
 
@@ -58,7 +58,7 @@ There's one project in this sample. To register the app on the portal, you can:
 As a first step, you need to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If your account is present in more than one Microsoft Entra ID tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Microsoft Entra ID tenant.
+1. If your account is present in more than one Microsoft Entra ID tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Microsoft Entra ID tenant.
 
 ### Register the web app (java-servlet-webapp-roles)
 
@@ -75,16 +75,16 @@ Following this guide, you must:
 1. Select **Register** to create the application.
 1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
 1. Select **Save** to save your changes.
-1. In the app's registration screen, click on the **Certificates & secrets** blade in the left to open the page where we can generate secrets and upload certificates.
+1. In the app's registration screen, click on the **Certificates & secrets** pane in the left to open the page where we can generate secrets and upload certificates.
 1. In the **Client secrets** section, click on **New client secret**:
    - Type a key description (for instance `app secret`),
    - Select one of the available key durations (**In 1 year**, **In 2 years**, or **Never Expires**) as per your security concerns.
    - The generated key value is displayed when you click the **Add** button. Copy the generated value for use in the steps later.
-   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
 
 #### Define the Application Roles
 
-1. Still on the same app registration, select the **App roles** blade to the left.
+1. Still on the same app registration, select the **App roles** pane to the left.
 1. Select **Create app role**:
    - For **Display name**, enter a suitable name, for instance **PrivilegedAdmin**.
    - For **Allowed member types**, choose **User**.

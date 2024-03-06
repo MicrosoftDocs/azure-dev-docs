@@ -1,6 +1,6 @@
 ---
 ms.author: givermei
-ms.date: 01/01/2024
+ms.date: 03/11/2024
 ---
 
 Use the following steps to deploy using the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps):

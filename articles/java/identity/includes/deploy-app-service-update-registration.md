@@ -1,6 +1,6 @@
 ---
 ms.author: givermei
-ms.date: 01/01/2024
+ms.date: 03/11/2024
 ---
 
 Since the redirect URI changes to your deployed Web App to Azure App Service, you also need to change the redirect URI in your Microsoft Entra ID App Registration.

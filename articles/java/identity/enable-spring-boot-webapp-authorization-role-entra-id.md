@@ -2,7 +2,7 @@
 title: Enable your Java Spring Boot web app to restrict access to routes using app roles with the Microsoft identity platform
 description: Shows you how to enable your Java Spring Boot web app to restrict access to routes using app roles with the Microsoft identity platform.
 services: active-directory
-ms.date: 01/01/2024
+ms.date: 03/11/2024
 ms.service: active-directory
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article demonstrates a Java Spring Boot web app that uses the [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) for authentication, authorization, and token acquisition with the [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) protocol to sign in users, and restricts access to some routes using [Microsoft Entra ID Application Roles (app roles)](/entra/identity-platform/howto-add-app-roles-in-apps) for authorization.
 
-App roles, along with Security groups are popular means to implement authorization. Using Role-based Access Control (RBAC) with Application Roles and Role Claims, developers can securely enforce authorization policies with minimal effort on their part. Another approach is to use Microsoft Entra ID Groups and Group Claims. Microsoft Entra ID Groups and Application Roles are by no means mutually exclusive; they can be used in tandem to provide even finer grained access control.
+App roles, along with Security groups are popular means to implement authorization. Using Role-based Access Control (RBAC) with Application Roles and Role Claims, developers can securely enforce authorization policies with minimal effort on their part. Another approach is to use Microsoft Entra ID Groups and Group Claims. Microsoft Entra ID Groups and Application Roles are by no means mutually exclusive. You can use them in tandem to provide even finer grained access control.
 
 A Microsoft Identity Platform Office Hours session covered Microsoft Entra ID App roles and security groups, featuring a similar scenario. A recording of the session is provided in this video [Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0)
 
@@ -22,7 +22,7 @@ For more information about how the protocols work in this scenario and other sce
 
 ## Scenario
 
-1. This Java Spring MVC web app uses the **Microsoft Entra ID Spring Boot Starter client library for Java** to sign in a user and obtain an [ID Token](/entra/identity-platform/id-tokens) from **Microsoft Entra ID**.
+1. This Java Spring MVC web app uses the Microsoft Entra ID Spring Boot Starter client library for Java to sign in a user and obtain an [ID Token](/entra/identity-platform/id-tokens) from Microsoft Entra ID.
 1. The **ID Token** token contains the **roles** claim. The application inspects the value of this claim to determine which pages the user is authorized to access.
 
 This kind of authorization is implemented using role-based access control (RBAC). When using RBAC, an administrator grants permissions to roles, not to individual users or groups. The administrator can then assign roles to different users and groups to control who has then access to certain content and functionality.
@@ -96,28 +96,28 @@ There's one project in this sample. To register it, you can:
 As a first step, you need to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If your account is present in more than one Microsoft Entra ID tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Microsoft Entra ID tenant.
+1. If your account is present in more than one Microsoft Entra ID tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Microsoft Entra ID tenant.
 
 ### Register the web app (java-spring-webapp-roles)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Microsoft Entra ID** service.
-1. Select the **App Registrations** blade on the left, then select **New registration**.
+1. Navigate to the [Azure portal](https://portal.azure.com) and select **Microsoft Entra ID**.
+1. Select the **App Registrations** pane on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-spring-webapp-roles`.
    - Under **Supported account types**, select **Accounts in this organizational directory only**.
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
 1. Select **Register** to create the application.
 1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
-1. In the app's registration screen, select the **Certificates & secrets** blade in the left to open the page where we can generate secrets and upload certificates.
+1. In the app's registration screen, select the **Certificates & secrets** pane in the left to open the page where we can generate secrets and upload certificates.
 1. In the **Client secrets** section, select **New client secret**:
    - Type a key description (for instance `app secret`),
    - Select one of the available key durations (**In 1 year**, **In 2 years**, or **Never Expires**) as per your security posture.
    - The generated key value is displayed when you select the **Add** button. Copy the generated value for use in the steps later.
-   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
 
 #### Define the app Roles
 
-1. Still on the same app registration, select the **App roles** blade to the left.
+1. Still on the same app registration, select the **App roles** pane to the left.
 1. Select **Create app role**:
     - For **Display name**, enter a suitable name, for instance **PrivilegedAdmin**.
     - For **Allowed member types**, choose **User**.
@@ -197,13 +197,13 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 ## Explore the sample
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
-- Click the context-sensitive button at the top right (it reads `Sign In` on first run)
+- Select the context-sensitive button at the top right (it reads **Sign In** on first run)
 - Alternatively, click the link to `token details`, `admins only` or `regular users`. Since these are protected pages that require authentication, you're automatically redirected to the sign-in page.
 - Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
 - Upon successful completion of the sign-in flow, you should be redirected to the home page (`sign in status`), or one of the other pages, depending on which button triggered your sign-in flow.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
-- If you're on the home page, you can see an option to click **ID Token Details**: click it to see some of the ID token's decoded claims, including **roles**.
+- If you're on the home page, select **ID Token Details** to see some of the ID token's decoded claims, including **roles**.
 - Select **Admins Only** to view the `/admin_only`. Only users with app role **PrivilegedAdmin** can view this page. Otherwise an authorization failure message is displayed.
 - Select **Regular Users** to view the `/regular_user` page. Only users with app role **RegularUser** or **PrivilegedAdmin** can view this page. Otherwise an authorization failure message is displayed.
 - You can also use the button on the top right to sign out. The status page reflects this.
@@ -363,7 +363,7 @@ public class SecurityConfig extends AADWebSecurityConfigurerAdapter{
 - [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - [MSAL4J Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
 - [ID Tokens](/entra/identity-platform/id-tokens)
-- [Access Tokens](/entra/identity-platform/access-tokens)
+- [Access tokens in the Microsoft identity platform](/entra/identity-platform/access-tokens)
 
 For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](/entra/identity-platform/authentication-flows-app-scenarios).
 

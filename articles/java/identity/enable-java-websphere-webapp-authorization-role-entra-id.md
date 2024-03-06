@@ -2,7 +2,7 @@
 title: Add authorization using app roles and roles claims to Java WebSphere Web app that signs-in users with the Microsoft identity platform
 description: Shows you how to add authorization using app roles and roles claims to Java WebSphere Web app that signs-in users with the Microsoft identity platform.
 services: active-directory
-ms.date: 01/01/2024
+ms.date: 03/11/2024
 ms.service: active-directory
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
@@ -10,9 +10,9 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Add authorization using app roles and roles claims to Java WebSphere Web app that signs-in users with the Microsoft identity platform
 
-This article shows how a Java WebSphere web app that uses [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) to sign in users and use [**Microsoft Entra ID Application Roles (app roles)**](/entra/identity-platform/howto-add-app-roles-in-apps) for authorization. App roles, along with Security groups are popular means to implement authorization.
+This article shows how a Java WebSphere web app that uses [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) to sign in users and use [Microsoft Entra ID Application Roles (app roles)](/entra/identity-platform/howto-add-app-roles-in-apps) for authorization. App roles, along with Security groups are popular means to implement authorization.
 
-This application implements RBAC using Microsoft Entra ID's Application Roles & Role Claims feature. Another approach is to use Microsoft Entra ID Groups and Group Claims. Microsoft Entra ID Groups and Application Roles are by no means mutually exclusive; they can be used in tandem to provide even finer grained access control.
+This application implements RBAC using Microsoft Entra ID's Application Roles and Role Claims feature. Another approach is to use Microsoft Entra ID Groups and Group Claims. Microsoft Entra ID Groups and Application Roles are by no means mutually exclusive. You can use them in tandem to provide even finer grained access control.
 
 Using RBAC with Application Roles and Role Claims, developers can securely enforce authorization policies with minimal effort on their part.
 

@@ -2,7 +2,7 @@
 title: Enable your Java JBoss EAP Web App using MSAL4J to authenticate users into Azure Active Directory B2C
 description: Shows you how to develop a Java JBoss EAP web app that supports sign-in by Azure Active Directory B2C.
 services: active-directory
-ms.date: 01/01/2024
+ms.date: 03/11/2024
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: article

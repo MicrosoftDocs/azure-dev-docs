@@ -1,6 +1,6 @@
 ---
 ms.author: bbanerjee
-ms.date: 01/01/2024
+ms.date: 03/11/2024
 ---
 
 ## Setup
@@ -21,14 +21,14 @@ or download and extract the repository *.zip* file.
 
 ### Register the sample application with your Azure AD B2C tenant
 
-This sample comes with a pre-registered application for testing purposes. If you would like to use your own **Azure AD B2C** tenant and application, follow the steps below to register and configure the application in the **Azure Portal**. Otherwise, continue with the steps for [Run the sample](#run-the-sample).
+This sample comes with a pre-registered application for testing purposes. If you would like to use your own Azure AD B2C tenant and application, follow the steps below to register and configure the application in the **Azure Portal**. Otherwise, continue with the steps for [Run the sample](#run-the-sample).
 
 ### Choose the Azure AD B2C tenant where you want to create your applications
 
 As a first step, you need to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If your account is present in more than one **Azure AD B2C** tenant, select your profile at the top right corner in the menu on top of the page, and then **switch directory** to change your portal session to the desired Azure AD B2C tenant.
+1. If your account is present in more than one Azure AD B2C tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Azure AD B2C tenant.
 
 ### Create user flows and custom policies
 
@@ -42,8 +42,8 @@ See [Tutorial: Add identity providers to your applications in Azure Active Direc
 
 ### Register the WebApp app (ms-identity-b2c-java-servlet-webapp-authentication)
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select the **Azure AD B2C** service.
-1. Select the **App Registrations** blade on the left, then select **New registration**.
+1. Navigate to the [Azure portal](https://portal.azure.com) and select **Azure AD B2C**.
+1. Select the **App Registrations** pane on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `ms-identity-b2c-java-servlet-webapp-authentication`.
    - Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**.
@@ -52,12 +52,12 @@ See [Tutorial: Add identity providers to your applications in Azure Active Direc
 1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
 1. Select **Save** to save your changes.
 
-1. In the app's registration screen, click on the **Certificates & secrets** blade in the left to open the page where we can generate secrets and upload certificates.
+1. In the app's registration screen, click on the **Certificates & secrets** pane in the left to open the page where we can generate secrets and upload certificates.
 1. In the **Client secrets** section, click on **New client secret**:
    - Type a key description (for instance `app secret`),
    - Select one of the available key durations (**In 1 year**, **In 2 years**, or **Never Expires**) as per your security concerns.
    - The generated key value is displayed when you click the **Add** button. Copy the generated value for use in the steps later.
-   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or blade.
+   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
 
 #### Configure the WebApp app (ms-identity-b2c-java-servlet-webapp-authentication) to use your app registration
 

@@ -1,6 +1,6 @@
 ---
 ms.author: givermei
-ms.date: 01/01/2024
+ms.date: 03/11/2024
 ---
 
 The *authentication.properties* file of the application currently holds the value of your client secret in the `aad.secret` parameter. It isn't good practice to keep this value in this file. You might also risk committing it to a Git repository. Since this is a secret value it should be treated as such.
