@@ -1,6 +1,6 @@
 ---
-title: Enable your Java WebLogic web app to sign in users and restrict access to pages using security groups and group claims with the Microsoft identity platform
-description: Shows you how to develop a Java WebLogic web app to sign in users and restrict access to pages using security groups and group claims with the Microsoft identity platform.
+title: Secure Java WebLogic apps using groups and group claims
+description: Shows how to create a WebLogic app to sign in users and restrict access to pages using security groups and group claims with the Microsoft identity platform.
 services: active-directory
 ms.date: 03/11/2024
 ms.service: active-directory
@@ -8,7 +8,7 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Enable your Java WebLogic web app to sign in users and restrict access to pages using security groups and group claims with the Microsoft identity platform
+# Secure Java WebLogic apps using groups and group claims
 
 This article demonstrates how to create a Java WebLogic web app that signs in users with [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java) and restricts access to pages based on Microsoft Entra ID security group membership.
 

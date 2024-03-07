@@ -1,5 +1,5 @@
 items:
-- name: Secure Java apps using the Microsoft Identity platform
+- name: Secure Java apps using the Microsoft identity platform
   href: index.yml
   items:
   - name: Get started
@@ -7,9 +7,9 @@ items:
   - name: Secure your Java Spring boot app
     expanded: true
     items:
-    - name: Enable sign in with Entra ID
+    - name: Enable sign-in with Entra ID
       href: enable-spring-boot-webapp-authentication-entra-id.md
-    - name: Enable sign in with Azure AD B2C
+    - name: Enable sign-in with Azure AD B2C
       href: enable-spring-boot-webapp-authentication-azure-ad-b2c.md
     - name: Access user details
       href: enable-spring-boot-webapp-authorization-entra-id.md
@@ -22,9 +22,9 @@ items:
   - name: Secure your Java Tomcat web app
     expanded: true
     items:
-    - name: Enable sign in with Entra ID
+    - name: Enable sign-in with Entra ID
       href: enable-java-tomcat-webapp-authentication-entra-id.md
-    - name: Enable sign in with Azure AD B2C
+    - name: Enable sign-in with Azure AD B2C
       href: enable-java-tomcat-webapp-authentication-azure-ad-b2c.md
     - name: Access user details
       href: enable-java-tomcat-webapp-authorization-entra-id.md
@@ -37,9 +37,9 @@ items:
   - name: Secure your Java JBoss EAP web app
     expanded: true
     items:
-    - name: Enable sign in with Entra ID
+    - name: Enable sign-in with Entra ID
       href: enable-java-jboss-eap-webapp-authentication-entra-id.md
-    - name: Enable sign in with Azure AD B2C
+    - name: Enable sign-in with Azure AD B2C
       href: enable-java-jboss-eap-webapp-authentication-azure-ad-b2c.md
     - name: Access user details
       href: enable-java-jboss-eap-webapp-authorization-entra-id.md
@@ -52,9 +52,9 @@ items:
   - name: Secure your Java WebLogic web app
     expanded: true
     items:
-    - name: Enable sign in with Entra ID
+    - name: Enable sign-in with Entra ID
       href: enable-java-weblogic-webapp-authentication-entra-id.md
-    - name: Enable sign in with Azure AD B2C
+    - name: Enable sign-in with Azure AD B2C
       href: enable-java-weblogic-webapp-authentication-azure-ad-b2c.md
     - name: Access user details
       href: enable-java-weblogic-webapp-authorization-entra-id.md
@@ -67,9 +67,9 @@ items:
   - name: Secure your Java WebSphere web app
     expanded: true
     items:
-    - name: Enable sign in with Entra ID
+    - name: Enable sign-in with Entra ID
       href: enable-java-websphere-webapp-authentication-entra-id.md
-    - name: Enable sign in with Azure AD B2C
+    - name: Enable sign-in with Azure AD B2C
       href: enable-java-websphere-webapp-authentication-azure-ad-b2c.md
     - name: Access user details
       href: enable-java-websphere-webapp-authorization-entra-id.md

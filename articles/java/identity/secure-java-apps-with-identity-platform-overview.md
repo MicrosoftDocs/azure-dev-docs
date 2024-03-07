@@ -1,6 +1,6 @@
 ---
-title: Get started with securing Java application with Microsoft Identity platform
-description: Shows you how to enable your Java web app to restrict access to routes using app roles with the Microsoft identity platform.
+title: Secure Java apps using the Microsoft identity platform
+description: Provides an overview of recommended strategies for securing Java applications with the Microsoft identity platform.
 services: active-directory
 ms.date: 03/11/2024
 ms.service: active-directory
@@ -8,9 +8,9 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Get started with securing Java application with Microsoft Identity platform
+# Get started with securing Java application with the Microsoft identity platform
 
-This series of articles provides an overview of recommended strategies for securing Java applications with Microsoft Identity Platform.
+This series of articles provides an overview of recommended strategies for securing Java applications with the Microsoft identity platform.
 
 ## Get started
 
@@ -18,9 +18,9 @@ The [Microsoft identity platform](/entra/identity-platform/v2-overview), along w
 
 ## Next steps
 
-The guidance is available for multiple server platforms: JBoss EAP, Tomcat, WebLogic, WebSphere, and Java Spring MVC.
+The guidance is available for multiple server platforms: JBoss EAP, Tomcat, WebLogic, WebSphere, and Java Spring Boot.
 
-We recommend following the chapters in successive order for your platform of choice. However, the code samples are self-contained, so feel free to pick samples by topics that you may need at the moment.
+We recommend following the articles in successive order for your platform of choice. However, the code samples are self-contained, so feel free to pick samples by topics that you may need at the moment.
 
 Each platform has guidance on the following tasks:
 
@@ -38,7 +38,7 @@ Learn more about the Microsoft identity platform from the following articles:
 - [Microsoft identity platform](/entra/identity-platform/)
 - [Azure Active Directory B2C](/azure/active-directory-b2c/)
 - [Overview of Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview)
-- [Application types for Microsoft identity platform](/entra/identity-platform/v2-app-types)
+- [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types)
 - [Understanding Entra ID application consent experiences](/entra/identity-platform/application-consent-experience)
 - [Understand user and admin consent](/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
 - [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals)

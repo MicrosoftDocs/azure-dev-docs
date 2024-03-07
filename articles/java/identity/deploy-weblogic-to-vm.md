@@ -8,7 +8,7 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Deploy your Java WebLogic web app to WebLogic on Azure Virtual Machines
+# Deploy Java WebLogic apps to WebLogic on Azure Virtual Machines
 
 This article shows you how to deploy a Java WebLogic web app with sign-in by Microsoft Entra account to WebLogic on Azure Virtual Machines.
 

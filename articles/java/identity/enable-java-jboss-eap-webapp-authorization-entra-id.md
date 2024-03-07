@@ -1,5 +1,5 @@
 ---
-title: Enable your Java JBoss EAP web app to sign in users and access resources on Microsoft Graph
+title: Enable JBoss EAP app sign-in and access to Microsoft Graph
 description: Shows you how to develop a Java JBoss EAP web app to sign in users and call Microsoft Graph with the Microsoft identity platform.
 services: active-directory
 ms.date: 03/11/2024
@@ -8,7 +8,7 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Enable your Java JBoss EAP web app to sign in users and access resources on Microsoft Graph
+# Enable Java JBoss EAP apps to sign in users and access Microsoft Graph
 
 This article demonstrates a Java JBoss EAP web app that signs in users and obtains an access token for calling [Microsoft Graph](/graph/overview). It uses the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 

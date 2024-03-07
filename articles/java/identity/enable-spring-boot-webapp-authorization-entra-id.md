@@ -1,5 +1,5 @@
 ---
-title: Enable your Java Spring Boot web app to sign in users and access resources on Microsoft Graph
+title: Enable Spring Boot app sign-in & access to Microsoft Graph
 description: Shows you how to develop a Java Spring Boot web app to sign in users and call Microsoft Graph with the Microsoft identity platform.
 services: active-directory
 ms.date: 03/11/2024
@@ -8,7 +8,7 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Enable your Java Spring Boot web app to sign in users and access resources on Microsoft Graph
+# Enable Java Spring Boot apps to sign in users and access Microsoft Graph
 
 This article demonstrates a Java Spring Boot web app that signs in users and obtains an access token for calling [Microsoft Graph](/graph/overview). It uses the [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) for authentication, authorization, and token acquisition. It uses [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain data from Graph.
 
@@ -16,7 +16,7 @@ This article demonstrates a Java Spring Boot web app that signs in users and obt
 
 ## Scenario
 
-1. This Java Spring MVC web app uses the Microsoft Entra ID Spring Boot Starter client library for Java to obtain an [access token](/entra/identity-platform/access-tokens) for [Microsoft Graph](/graph/overview) from Microsoft Entra ID.
+1. This Java Spring Boot web app uses the Microsoft Entra ID Spring Boot Starter client library for Java to obtain an [access token](/entra/identity-platform/access-tokens) for [Microsoft Graph](/graph/overview) from Microsoft Entra ID.
 1. The access token proves that the user is authorized to access the Microsoft Graph API endpoint as defined in the scope.
 
 [!INCLUDE [prerequisites-spring-boot.md](includes/prerequisites-spring-boot.md)]

@@ -1,5 +1,5 @@
 ---
-title: Enable your Java Spring Boot web app to restrict access to routes using app roles with the Microsoft identity platform
+title: Secure Java Spring Boot apps using roles and role claims
 description: Shows you how to enable your Java Spring Boot web app to restrict access to routes using app roles with the Microsoft identity platform.
 services: active-directory
 ms.date: 03/11/2024
@@ -8,13 +8,13 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Enable your Java Spring Boot web app to restrict access to routes using app roles with the Microsoft identity platform
+# Secure Java Spring Boot apps using roles and role claims
 
 This article demonstrates a Java Spring Boot web app that uses the [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) for authentication, authorization, and token acquisition with the [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) protocol to sign in users, and restricts access to some routes using [Microsoft Entra ID Application Roles (app roles)](/entra/identity-platform/howto-add-app-roles-in-apps) for authorization.
 
-App roles, along with Security groups are popular means to implement authorization. Using Role-based Access Control (RBAC) with Application Roles and Role Claims, developers can securely enforce authorization policies with minimal effort on their part. Another approach is to use Microsoft Entra ID groups and group claims. Microsoft Entra ID Groups and Application Roles are by no means mutually exclusive. You can use them in tandem to provide even finer grained access control.
+App roles, along with Security groups are popular means to implement authorization. Using Role-based Access Control (RBAC) with application roles and role claims, developers can securely enforce authorization policies with minimal effort on their part. Another approach is to use Microsoft Entra ID groups and group claims. Microsoft Entra ID Groups and Application Roles are by no means mutually exclusive. You can use them in tandem to provide even finer grained access control.
 
-A Microsoft Identity Platform Office Hours session covered Microsoft Entra ID App roles and security groups, featuring a similar scenario. A recording of the session is provided in this video [Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0)
+A Microsoft identity platform Office Hours session covered Microsoft Entra ID App roles and security groups, featuring a similar scenario. A recording of the session is provided in this video [Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0)
 
 For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](https://go.microsoft.com/fwlink/?LinkId=394414).
 
@@ -22,7 +22,7 @@ For more information about how the protocols work in this scenario and other sce
 
 ## Scenario
 
-1. This Java Spring MVC web app uses the Microsoft Entra ID Spring Boot Starter client library for Java to sign in a user and obtain an [ID Token](/entra/identity-platform/id-tokens) from Microsoft Entra ID.
+1. This Java Spring Boot web app uses the Microsoft Entra ID Spring Boot Starter client library for Java to sign in a user and obtain an [ID Token](/entra/identity-platform/id-tokens) from Microsoft Entra ID.
 1. The **ID Token** token contains the **roles** claim. The application inspects the value of this claim to determine which pages the user is authorized to access.
 
 This kind of authorization is implemented using role-based access control (RBAC). When using RBAC, an administrator grants permissions to roles, not to individual users or groups. The administrator can then assign roles to different users and groups to control who has then access to certain content and functionality.

@@ -1,5 +1,5 @@
 ---
-title: Enable your Java Spring Boot web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
+title: Secure Java Spring Boot apps using Microsoft Entra ID
 description: Shows you how to develop a Java Spring Boot web app that supports sign-in by Microsoft Entra account.
 services: active-directory
 ms.date: 03/11/2024
@@ -8,15 +8,15 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Enable your Java Spring Boot web app to sign in users on your Microsoft Entra ID tenant with the Microsoft identity platform
+# Secure Java Spring Boot apps using Microsoft Entra ID
 
-This article demonstrates a Java Spring MVC web app that signs in users on your Microsoft Entra ID tenant using the [Microsoft Entra ID Spring Boot Starter client library for Java](https://mvnrepository.com/artifact/com.azure.spring/spring-cloud-azure-starter-active-directory). It uses the OpenID Connect protocol.
+This article demonstrates a Java Spring Boot web app that signs in users on your Microsoft Entra ID tenant using the [Microsoft Entra ID Spring Boot Starter client library for Java](https://mvnrepository.com/artifact/com.azure.spring/spring-cloud-azure-starter-active-directory). It uses the OpenID Connect protocol.
 
 :::image type="content" source="./media/topology-spring.png" alt-text="Overview":::
 
 ## Scenario
 
-1. The client Java Spring MVC web app uses the Microsoft Entra ID Spring Boot Starter client library for Java to sign-in a user and obtain an ID Token from Microsoft Entra ID.
+1. The client Java Spring Boot web app uses the Microsoft Entra ID Spring Boot Starter client library for Java to sign-in a user and obtain an ID Token from Microsoft Entra ID.
 
 1. The ID token proves that the user has successfully authenticated with Microsoft Entra ID and allows the user to access protected routes.
 

@@ -8,7 +8,7 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Deploy your Java WebSphere web app to Traditional WebSphere on Azure Virtual Machines
+# Deploy Java WebSphere apps to Traditional WebSphere on Azure Virtual Machines
 
 This article shows you how to deploy a Java WebSphere web app with sign-in by Microsoft Entra account to Traditional WebSphere on Azure Virtual Machines.
 

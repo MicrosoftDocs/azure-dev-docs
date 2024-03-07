@@ -1,6 +1,7 @@
 ---
-title: Enable your Java Tomcat Web App using MSAL4J to authenticate users into Azure Active Directory B2C
-description: Shows you how to develop a Java Tomcat web app that supports sign-in by Azure Active Directory B2C.
+title: Enable sign-in for Java Tomcat apps using MSAL4J
+titleSuffix: Azure Active Directory B2C
+description: Shows you how to develop a Java Tomcat web app that supports sign-in using Azure Active Directory B2C.
 services: active-directory
 ms.date: 03/11/2024
 ms.service: active-directory
@@ -9,7 +10,7 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Enable your  Java Tomcat Web App using MSAL4J to authenticate users into Azure Active Directory B2C
+# Enable sign-in for Java Tomcat apps using MSAL4J with Azure Active Directory B2C
 
 This article demonstrates a Java Tomcat web application that authenticates users against Azure Active Directory B2C (Azure AD B2C) using the [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 

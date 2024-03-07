@@ -1,6 +1,6 @@
 ---
-title: Enable your Java Tomcat web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
-description: Shows you how to develop a Tomcat web app that supports sign-in by Microsoft Entra account.
+title: Enable sign-in for Tomcat apps using Microsoft Entra ID
+description: Shows you how to develop a Java Tomcat web app that supports sign-in using a Microsoft Entra account.
 services: active-directory
 ms.date: 03/11/2024
 ms.service: active-directory
@@ -8,7 +8,7 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Enable your Java Tomcat web app to sign in users to your Microsoft Entra ID tenant with the Microsoft identity platform
+# Enable sign-in for Java Tomcat apps using Microsoft Entra ID
 
 This article demonstrates a Java Tomcat web app that signs in users to your Microsoft Entra ID tenant using the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 

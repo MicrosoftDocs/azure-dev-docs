@@ -1,5 +1,5 @@
 ---
-title: Enable your Java Spring boot web app to restrict access to routes using security groups with the Microsoft identity platform
+title: Secure Java Spring boot apps using groups and group claims
 description: Shows you how to develop a Java Spring boot web app to restrict access to routes using security groups with the Microsoft identity platform.
 services: active-directory
 ms.date: 03/11/2024
@@ -8,7 +8,7 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Enable your Java Spring boot web app to restrict access to routes using security groups with the Microsoft identity platform
+# Secure Java Spring boot apps using groups and group claims
 
 This article demonstrates a Java Spring Boot web app that uses the [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) for authentication, authorization, and token acquisition with the [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) protocol to sign in users, and restricts access to pages based on Azure Active Directory security group membership.
 
@@ -402,7 +402,7 @@ public class SecurityConfig extends AADWebSecurityConfigurerAdapter{
 
 ### The groups overage claim
 
-To ensure that the token size doesn’t exceed HTTP header size limits, the Microsoft Identity Platform limits the number of object Ids that it includes in the **groups** claim.
+To ensure that the token size doesn’t exceed HTTP header size limits, the Microsoft identity platform limits the number of object Ids that it includes in the **groups** claim.
 
 If a user is member of more groups than the overage limit (**150 for SAML tokens, 200 for JWT tokens, 6 for single-page applications**), then the Microsoft identity platform does not emit the group IDs in the groups claim in the token. Instead, it includes an **overage** claim in the token that indicates to the application to query the [MS Graph API](https://graph.microsoft.com) to retrieve the user’s group membership.
 
