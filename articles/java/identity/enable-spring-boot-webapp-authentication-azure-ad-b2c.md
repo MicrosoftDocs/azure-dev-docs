@@ -97,10 +97,10 @@ Open the *src/main/resources/application.yml* file.
 
 1. Find the key `client-id` and replace the existing value with the application ID (clientId) of the `java-spring-webapp-auth-b2c` application from the Azure portal.
 1. Find the app key `client-secret` and replace the existing value with the key you saved during the creation of the `java-spring-webapp-auth-b2c` application from the Azure portal.
-1. Find the app key `base-uri` and replace the two instances of `fabrikamb2c` with the name of the AAD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
-1. Find the app key `sign-up-or-sign-in` and replace it with the name of the sign-up/sign-in user-flow policy you created in the AAD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
-1. Find the app key `profile-edit` and replace it with the name of the password reset user-flow policy you created in the AAD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
-1. Find the app key `password-reset` and replace it with the name of the edit profile user-flow policy you created in the AAD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
+1. Find the app key `base-uri` and replace the two instances of `fabrikamb2c` with the name of the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
+1. Find the app key `sign-up-or-sign-in` and replace it with the name of the sign-up/sign-in user-flow policy you created in the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
+1. Find the app key `profile-edit` and replace it with the name of the password reset user-flow policy you created in the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
+1. Find the app key `password-reset` and replace it with the name of the edit profile user-flow policy you created in the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
 
 Open the *src/main/resources/templates/navbar.html* file.
 

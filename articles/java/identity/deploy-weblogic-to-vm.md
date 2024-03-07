@@ -1,6 +1,6 @@
 ---
-title: Deploy your Java WebLogic web app to WebLogic on Azure VMs
-description: Shows you how to deploy a Java WebLogic web app with sign-in by Microsoft Entra account to WebLogic on Azure VMs.
+title: Deploy Java WebLogic to WebLogic on Azure Virtual Machines
+description: Shows you how to deploy a Java WebLogic web app with sign-in by Microsoft Entra account to WebLogic on Azure Virtual Machines.
 services: active-directory
 ms.date: 03/11/2024
 ms.service: active-directory
@@ -8,9 +8,9 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Deploy your Java WebLogic web app to WebLogic on Azure VMs
+# Deploy your Java WebLogic web app to WebLogic on Azure Virtual Machines
 
-This article shows you how to deploy a Java WebLogic web app with sign-in by Microsoft Entra account to WebLogic on Azure VMs.
+This article shows you how to deploy a Java WebLogic web app with sign-in by Microsoft Entra account to WebLogic on Azure Virtual Machines.
 
 This guidance assumes you have through any of the Java WebLogic web app examples for enabling security with Microsoft Entra ID.
 

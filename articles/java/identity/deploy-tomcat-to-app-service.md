@@ -8,7 +8,7 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Deploy your Java Tomcat web app to App Service
+# Deploy your Java Tomcat web app to Azure App Service
 
 This article shows you how to deploy a Tomcat web app with sign-in by Microsoft Entra account to Azure App Service.
 

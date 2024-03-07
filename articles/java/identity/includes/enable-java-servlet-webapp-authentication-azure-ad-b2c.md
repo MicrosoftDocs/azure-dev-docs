@@ -70,11 +70,11 @@ Open the project in your IDE (like **Visual Studio Code**) to configure the code
 1. Find the key `aad.clientId` and replace the existing value with the application ID (clientId) of the `ms-identity-b2c-java-servlet-webapp-authentication` application from the Azure portal.
 1. Find the app key `aad.secret` and replace the existing value with the key you saved during the creation of the `ms-identity-b2c-java-servlet-webapp-authentication` application from the Azure portal.
 1. Find the app key `aad.scopes` and replace the existing application clientId with the value you placed into `aad.clientId` in step 1 of this section.
-1. Find the app key `aad.authority` and replace the first instance of `fabrikamb2c` with the name of the AAD B2C tenant in which you created the `ms-identity-b2c-java-servlet-webapp-authentication` application in the Azure portal.
-1. Find the app key `aad.authority` and replace the second instance of `fabrikamb2c` with the name of the AAD B2C tenant in which you created the `ms-identity-b2c-java-servlet-webapp-authentication` application in the Azure portal.
-1. Find the app key `aad.signInPolicy` and replace it with the name of the sign-up/sign-in userflow policy you created in the AAD B2C tenant in which you created the `ms-identity-b2c-java-servlet-webapp-authentication` application in the Azure portal.
-1. Find the app key `aad.passwordResetPolicy` and replace it with the name of the password reset userflow policy you created in the AAD B2C tenant in which you created the `ms-identity-b2c-java-servlet-webapp-authentication` application in the Azure portal.
-1. Find the app key `aad.editProfilePolicy` and replace it with the name of the edit profile userflow policy you created in the AAD B2C tenant in which you created the `ms-identity-b2c-java-servlet-webapp-authentication` application in the Azure portal.
+1. Find the app key `aad.authority` and replace the first instance of `fabrikamb2c` with the name of the Azure AD B2C tenant in which you created the `ms-identity-b2c-java-servlet-webapp-authentication` application in the Azure portal.
+1. Find the app key `aad.authority` and replace the second instance of `fabrikamb2c` with the name of the Azure AD B2C tenant in which you created the `ms-identity-b2c-java-servlet-webapp-authentication` application in the Azure portal.
+1. Find the app key `aad.signInPolicy` and replace it with the name of the sign-up/sign-in userflow policy you created in the Azure AD B2C tenant in which you created the `ms-identity-b2c-java-servlet-webapp-authentication` application in the Azure portal.
+1. Find the app key `aad.passwordResetPolicy` and replace it with the name of the password reset userflow policy you created in the Azure AD B2C tenant in which you created the `ms-identity-b2c-java-servlet-webapp-authentication` application in the Azure portal.
+1. Find the app key `aad.editProfilePolicy` and replace it with the name of the edit profile userflow policy you created in the Azure AD B2C tenant in which you created the `ms-identity-b2c-java-servlet-webapp-authentication` application in the Azure portal.
 
 ## Run the sample
 

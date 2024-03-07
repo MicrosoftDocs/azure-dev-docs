@@ -1,6 +1,6 @@
 ---
-title: Deploy your Java WebSphere web app to Traditional WebSphere on Azure VMs
-description: Shows you how to deploy a Java WebSphere web app with sign-in by Microsoft Entra account to Traditional WebSphere on VMs.
+title: Deploy WebSphere to Traditional WebSphere on Azure VMs
+description: Shows you how to deploy a Java WebSphere web app with sign-in by Microsoft Entra account to Traditional WebSphere on Azure Virtual Machines.
 services: active-directory
 ms.date: 03/11/2024
 ms.service: active-directory
@@ -8,9 +8,9 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Deploy your Java WebSphere web app to Traditional WebSphere on Azure VMs
+# Deploy your Java WebSphere web app to Traditional WebSphere on Azure Virtual Machines
 
-This article shows you how to deploy a Java WebSphere web app with sign-in by Microsoft Entra account to Traditional WebSphere on VMs.
+This article shows you how to deploy a Java WebSphere web app with sign-in by Microsoft Entra account to Traditional WebSphere on Azure Virtual Machines.
 
 This guidance assumes you have through any of the Java WebSphere web app examples for enabling security with Microsoft Entra ID.
 

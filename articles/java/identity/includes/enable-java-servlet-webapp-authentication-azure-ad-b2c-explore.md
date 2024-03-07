@@ -34,7 +34,7 @@ The full code for this sample is available at [https://github.com/Azure-Samples/
 
 This sample demonstrates how to use **MSAL4J** to sign in users into your Azure AD B2C tenant.
 
-A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file. This object helps craft the AAD B2C authorization URL and also helps exchange the authentication token for an access token.
+A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file. This object helps craft the Azure AD B2C authorization URL and also helps exchange the authentication token for an access token.
 
 ```java
 IClientSecret secret = ClientCredentialFactory.createFromSecret(SECRET);
@@ -69,15 +69,15 @@ In this sample, these values are read from the *authentication.properties* file 
    ```
 
    - **AuthorizationRequestUrlParameters**: Parameters that must be set in order to build an AuthorizationRequestUrl.
-   - **REDIRECT_URI**: Where AAD B2C redirects the browser (along with auth code) after collecting user credentials.
+   - **REDIRECT_URI**: Where Azure AD B2C redirects the browser (along with auth code) after collecting user credentials.
    - **SCOPES**: [Scopes](/azure/active-directory-b2c/access-tokens#scopes) are permissions requested by the application.
      - Normally, the three scopes `openid profile offline_access` would suffice for receiving an ID Token response.
-     - However, MSAL4J requires all responses from AAD B2C to also contain an access token.
-     - In order for AAD B2C to dispense an access token as well as an ID Token, the request must include an additional resource scope.
+     - However, MSAL4J requires all responses from Azure AD B2C to also contain an access token.
+     - In order for Azure AD B2C to dispense an access token as well as an ID Token, the request must include an additional resource scope.
      - Because this app doesn't actually require an external resource scope, it adds its own client ID as a fourth scope in order to receive an access token.
      - Full list of scopes requested by the app can be found in the *authentication.properties* file.
    - **ResponseMode.QUERY**: AAD can return the response as form params in an HTTP     POST request or as query string params in an HTTP GET request.
-   - **Prompt.SELECT_ACCOUNT**: AAD B2C should ask the user to select the account that they intend to authenticate against.
+   - **Prompt.SELECT_ACCOUNT**: Azure AD B2C should ask the user to select the account that they intend to authenticate against.
    - **state**: a unique variable set by the app into the session on each token request, and destroyed after receiving the corresponding AAD redirect callback. The state variable ensures that AAD requests to the `/auth_redirect endpoint` are actually from AAD authorization requests originating from this app and this session, thereby preventing CSRF attacks. This is done in the *AADRedirectServlet.java* file.
    - **nonce**: a unique variable set by the app into the session on each token request, and destroyed after receiving the corresponding token. This nonce is transcribed to the resulting tokens dispensed AAD, thereby ensuring that there's no token-replay attack occurring.
 
