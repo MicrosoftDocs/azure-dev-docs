@@ -37,6 +37,47 @@ The following example demonstrates using an [`InteractiveBrowserCredential`](/py
 
 For more exact control, such as setting redirect URIs, you can supply specific arguments to `InteractiveBrowserCredential` such as `redirect_uri`.
 
+## Interactive brokered authentication
+
+This method interactively authenticates an application through [`InteractiveBrowserBrokerCredential`](/python/api/azure-identity-broker/azure.identity.broker.interactivebrowserbrokercredential) by collecting user credentials using the system authentication broker.
+
+A system authentication broker is an app running on a user’s machine that manages the authentication handshakes and token maintenance for all connected accounts. Currently, only the Windows authentication broker, Web Account Manager (WAM), is supported. Users on macOS and Linux will be authenticated through a browser.
+
+Personal Microsoft accounts and work or school accounts are supported. If a supported version of Windows is used, the default browser-based UI is replaced with a smoother authentication experience, similar to Windows built-in apps.
+
+Interactive brokered authentication enables the application for all operations allowed by the interactive login credentials. As a result, if you're the owner or administrator of your subscription, your code has inherent access to most resources in that subscription without having to assign any specific permissions.
+
+### Enable applications for interactive brokered authentication
+
+Perform the following steps to enable the application to authenticate through the interactive broker flow.
+
+1. Follow the steps in [Enable applications for interactive browser authentication](#enable-applications-for-interactive-browser-authentication).
+1. Add the following WAM redirect URI to your Microsoft Entra app registration in the Azure portal:
+
+  ```text
+  ms-appx-web://microsoft.aad.brokerplugin/{client_id}
+  ```
+
+  The `{client_id}` placeholder must be replaced with the Application (client) ID listed on the Overview blade of the app registration.
+
+### Example using InteractiveBrowserBrokerCredential
+
+The following example demonstrates using an [`InteractiveBrowserBrokerCredential`](/python/api/azure-identity-broker/azure.identity.broker.interactivebrowserbrokercredential) to authenticate with the [`BlobServiceClient`](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient):
+
+```python
+import win32gui
+from azure.identity.broker import InteractiveBrowserBrokerCredential
+from azure.storage.blob import BlobServiceClient
+
+# Get the handle of the current window
+current_window_handle = win32gui.GetForegroundWindow()
+
+credential = InteractiveBrowserBrokerCredential(parent_window_handle=current_window_handle)
+client = BlobServiceClient(account_url, credential=credential)
+```
+
+For more exact control, such as setting a timeout, you can supply specific arguments to `InteractiveBrowserBrokerCredential` such as `timeout`.
+
 ## Device code authentication
 
 This method interactively authenticates a user on devices with limited UI (typically devices without a keyboard):
