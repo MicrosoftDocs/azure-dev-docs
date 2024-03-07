@@ -1,7 +1,7 @@
 ---
 title: Overview and resources for Azure identity and security features for Python apps
 description: Overview and links to resources about authentication, identity, and security for Python apps on Azure.
-ms.date: 01/24/2023
+ms.date: 03/05/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -52,6 +52,6 @@ Using a key management solution like [Azure Key Vault](/azure/key-vault/general/
 
 You can build Python applications that enable your users and customers to sign in using their Microsoft identities or social accounts. Your app authorizes access to your own APIs or Microsoft APIs like Microsoft Graph.
 
-* [Quickstart: Add sign-in with Microsoft to a web app](/azure/active-directory/develop/web-app-quickstart)
+* [Quickstart: Add sign-in with Microsoft to a web app](/entra/identity-platform/scenario-web-app-sign-user-app-registration?tabs=python)
 
-* [Quickstart: Acquire a token and call the Microsoft Graph API by using a console app's identity](/azure/active-directory/develop/console-app-quickstart?pivots=devlang-python)
+* [Quickstart: Acquire a token and call the Microsoft Graph API by using a console app's identity](/en-us/entra/identity-platform/quickstart-daemon-app-python-acquire-token)
