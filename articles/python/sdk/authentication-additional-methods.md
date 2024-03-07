@@ -51,14 +51,27 @@ Interactive brokered authentication enables the application for all operations a
 
 Perform the following steps to enable the application to authenticate through the interactive broker flow.
 
-1. Follow the steps in [Enable applications for interactive browser authentication](#enable-applications-for-interactive-browser-authentication).
-1. Add the following WAM redirect URI to your Microsoft Entra app registration in the Azure portal:
+1. On the [Azure portal](https://portal.azure.com), navigate to Microsoft Entra ID and select **App registrations** on the left-hand menu.
+1. Select the registration for your app, then select **Authentication**.
+1. Add the WAM redirect URI to your app registration via a platform configuration:
+    1. Under **Platform configurations**, select **+ Add a platform**.
+    1. Under **Configure platforms**, select the tile for your application type (platform) to configure its settings; For example, **mobile and desktop applications**.
+    1. In **Custom redirect URIs**, enter the WAM redirect URI:
 
-  ```text
-  ms-appx-web://microsoft.aad.brokerplugin/{client_id}
-  ```
+        ```text
+        ms-appx-web://microsoft.aad.brokerplugin/{client_id}
+        ```
 
-  The `{client_id}` placeholder must be replaced with the Application (client) ID listed on the Overview blade of the app registration.
+         The `{client_id}` placeholder must be replaced with the Application (client) ID listed on the Overview blade of the app registration.
+
+    1. Select **Configure**.
+
+    To learn more, see [Add a redirect URI to an app registration](/entra/identity-platform/quickstart-register-app#add-a-redirect-uri).
+
+1. Back on the **Authentication** pane, under **Advanced settings**, select **Yes** for **Allow public client flows**.
+1. Select **Save** to apply the changes.
+1. To authorize the application for specific resources, navigate to the resource in question, select **API Permissions**, and enable **Microsoft Graph** and other resources you want to access. Microsoft Graph is usually enabled by default.
+    1. You must also be the admin of your tenant to grant consent to your application when you sign in for the first time.
 
 ### Example using InteractiveBrowserBrokerCredential
 
