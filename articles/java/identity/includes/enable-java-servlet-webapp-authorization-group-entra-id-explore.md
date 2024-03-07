@@ -10,14 +10,14 @@ ms.date: 03/11/2024
 - Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
-- The middle of the screen now has an option to click for **ID Token Details**: click it to see some of the ID token's decoded claims.
-- Click the **Groups** button to see any information about security group membership for the signed in user.
-- Click the **Admin Only** or **Regular User** buttons to access the groups claim protected endpoints.
+- Select **ID Token Details** to see some of the ID token's decoded claims.
+- Select **Groups** to see any information about security group membership for the signed in user.
+- Select **Admin Only** or **Regular User** to access the groups claim protected endpoints.
   - If your signed in user is in the GroupAdmin group, the user can enter both pages.
   - If your signed in user is in the GroupMember group, the user can enter the Regular User page only.
   - If your signed in user is in neither group, the user can't access either of the two pages.
 - You can also use the button on the top right to sign out.
-- After signing out, click the link to `ID Token Details` to observe that the app displays a `401: unauthorized` error instead of the ID token claims when the user isn't authorized.
+- After signing out, select **ID Token Details** to observe that the app displays a `401: unauthorized` error instead of the ID token claims when the user isn't authorized.
 
 ## Contents
 

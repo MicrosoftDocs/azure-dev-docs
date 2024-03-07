@@ -104,17 +104,17 @@ There's one project in this sample. To register it, you can:
 1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
 1. In the app's registration screen, select the **Certificates & secrets** pane in the left to open the page where you can generate secrets and upload certificates.
 1. In the **Client secrets** section, select **New client secret**:
-   - Type a key description (for instance `app secret`),
-   - Select one of the available key durations (**6 months**, **12 months** or **Custom**) as per your security posture.
-   - The generated key value is displayed when you select the **Add** button. Copy and save the generated value for use in later steps.
-   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
+1. Type a key description - for example, *app secret*.
+1. Select one of the available key durations: **6 months**, **12 months** or **Custom**.
+1. Select **Add**. The generated key value is displayed.
+1. Copy and save the generated value for use in later steps. You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
 1. In the app's registration screen, select the **API permissions** pane in the left to open the page where we add access to the APIs that your application needs.
-   - Select the **Add a permission** button and then,
-   - Ensure that the **Microsoft APIs** tab is selected.
-   - In the *Commonly used Microsoft APIs* section, select **Microsoft Graph**
-   - In the **Delegated permissions** section, select the **GroupMember.Read.All** in the list. Use the search box if necessary. This permission is necessary for getting group memberships via Graph if the overage scenario occurs.
-   - Click the button to grant admin consent for GroupMember.Read.All.
-   - Select the **Add permissions** button at the bottom.
+1. Select **Add a permission**.
+1. Ensure that the **Microsoft APIs** tab is selected.
+1. In the **Commonly used Microsoft APIs** section, select **Microsoft Graph**.
+1. In the **Delegated permissions** section, select **GroupMember.Read.All** from the list. Use the search box if necessary. This permission is necessary for getting group memberships via Graph if the overage scenario occurs.
+1. Select the button to grant admin consent for `GroupMember.Read.All`.
+1. Select **Add permissions**.
 
 ### Create Security Groups
 
@@ -145,14 +145,14 @@ You have two different options available to you on how you can further configure
 
 > To get the on-premise group's `samAccountName` or `On Premises Group Security Identifier` instead of Group ID, see [Configure group claims for applications with Azure Active Directory](/azure/active-directory/hybrid/how-to-connect-fed-group-claims#prerequisites-for-using-group-attributes-synchronized-from-active-directory).
 
-#### Configure your application to receive **all the groups** the signed-in user is assigned to, including nested groups
+#### Configure your application to receive all the groups the signed-in user is assigned to, including nested groups
 
 1. In the app's registration screen, select the **Token Configuration** pane in the left to open the page where you can configure the claims provided tokens issued to your application.
-1. Select the **Add groups claim** button on top to open the **Edit Groups Claim** screen.
-1. Select `Security groups` **or** the `All groups (includes distribution lists but not groups assigned to the application)` option. Choosing both negates the effect of `Security Groups` option.
-1. Under the **ID** section, select `Group ID`. This results in Microsoft Entra ID sending the [object id](/graph/api/resources/group) of the groups the user is assigned to in the **groups** claim of the [ID Token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
+1. Select **Add groups claim** to open the **Edit Groups Claim** screen.
+1. Select **Security groups** OR **All groups (includes distribution lists but not groups assigned to the application)**. Choosing both negates the effect of the **Security Groups** option.
+1. Under the **ID** section, select **Group ID**. This selection causes Microsoft Entra ID to send the [object id](/graph/api/resources/group) of the groups the user is assigned to in the **groups** claim of the [ID Token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
 
-#### Configure your application to receive the groups claim values from a **filtered set of groups** a user may be assigned to
+#### Configure your application to receive the groups claim values from a filtered set of groups a user may be assigned to
 
 ##### Prerequisites, benefits and limitations of using this option
 
@@ -164,11 +164,10 @@ You have two different options available to you on how you can further configure
 
 1. In the app's registration screen, select the **Token Configuration** pane in the left to open the page where you can configure the claims provided tokens issued to your application.
 1. Select the **Add groups claim** button on top to open the **Edit Groups Claim** screen.
-1. Select `Groups assigned to the application`.
-    1. Choosing additional options like `Security Groups` or `All groups (includes distribution lists but not groups assigned to the application)` negates the benefits your app derives from choosing to use this option.
-1. Under the **ID** section, select `Group ID`. This results in Microsoft Entra ID sending the object [id](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID Token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
-1. If you're exposing a Web API using the **Expose an API** option, then you can also choose the `Group ID` option under the **Access** section. This results in Microsoft Entra ID sending the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [access token](/entra/identity-platform/access-tokens) issued to the client applications of your API.
-1. In the app's registration screen, select on the **Overview** pane in the left to open the Application overview screen. Select the hyperlink with the name of your application in **Managed application in local directory** (note this field title can be truncated for instance `Managed application in ...`). When you select this link you navigate to the **Enterprise Application Overview** page associated with the service principal for your application in the tenant where you created it. You can navigate back to the app registration page by using the *back* button of your browser.
+1. Select **Groups assigned to the application** and don't selection any other options. Choosing more options, such as **Security Groups** or **All groups (includes distribution lists but not groups assigned to the application)**, negates the effect of the **Groups assigned to the application** option.
+1. Under the **ID** section, select **Group ID**. This selection causes Microsoft Entra ID to send the object [id](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID Token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
+1. If you're exposing a Web API using the **Expose an API** option, then you can also choose the **Group ID** option under the **Access** section. This selection causes Microsoft Entra ID to send the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [access token](/entra/identity-platform/access-tokens) issued to the client applications of your API.
+1. In the app's registration screen, select on the **Overview** pane in the left to open the Application overview screen. Select the hyperlink with the name of your application in **Managed application in local directory**. This field title might be truncated - for example, **Managed application in ...**. When you select this link, you navigate to the **Enterprise Application Overview** page associated with the service principal for your application in the tenant where you created it. You can navigate back to the app registration page by using the back button of your browser.
 1. Select the **Users and groups** pane in the left to open the page where you can assign users and groups to your application.
     1. Select the **Add user** button on the top row.
     1. Select **User and Groups** from the resultant screen.
@@ -251,7 +250,7 @@ Open the *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwe
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
 - Select the context-sensitive button at the top right (it reads **Sign In** on first run)
-- Alternatively, click the link to `token details`, `admins only` or `regular users`. Since these are protected pages that require authentication, you're automatically redirected to the sign-in page.
+- Alternatively, select **token details**, **admins only**, or **regular users**. Because these are protected pages that require authentication, you're automatically redirected to the sign-in page.
 - Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
 - Upon successful completion of the sign-in flow, you should be redirected to the home page (`sign in status`), or one of the other pages, depending on which button triggered your sign-in flow.
@@ -288,8 +287,8 @@ Create a new Java Maven project and copy the *pom.xml* file from this project, a
 
 If you'd like to create a project like this from scratch, you may use [Spring Initializer](https://start.spring.io):
 
-- For **Packaging**, select `Jar`
-- For **Java** select version `11`
+- For **Packaging**, select **Jar**.
+- For **Java**, select version **11**.
 - For **Dependencies**, add the following:
   - Azure Active Directory
   - Spring Oauth2 Client

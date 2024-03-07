@@ -81,11 +81,11 @@ See [Tutorial: Add identity providers to your applications in Azure Active Direc
 1. Select **Save** to save your changes.
 
 1. In the app's registration screen, select the **Certificates & secrets** pane in the navigation pane to open the page to generate secrets and upload certificates.
-1. In the **Client secrets** section, select **New client secret**:
-   - Type a key description - for example, `app secret`.
-   - Select one of the available key durations as per your security concerns - for example, **In 2 years**.
-   - The generated key value is displayed when you select **Add**. Copy the generated value for use in the steps later.
-   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
+1. In the **Client secrets** section, select **New client secret**.
+1. Type a key description - for example, *app secret*.
+1. Select one of the available key durations as per your security concerns - for example, **In 2 years**.
+1. Select **Add**. The generated key value is displayed.
+1. Copy the generated value for use in the steps later. You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
 
 #### Configure the web app (java-spring-webapp-auth-b2c) to use your app registration
 
@@ -154,10 +154,10 @@ Open the *src/main/resources/templates/navbar.html* file.
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
 - Select the context-sensitive button at the top right (it reads **Sign In** on first run).
-  - Alternatively, select the link to **token details**. Since this is a protected page that requires authentication, you're automatically redirected to the sign-in page.
+  - Alternatively, select the link to **token details**. Because this is a protected page that requires authentication, you're automatically redirected to the sign-in page.
 - Follow the instructions on the next page to sign in with an account of your chosen identity provider. You may also choose to sign up or sign in to a local account on the B2C tenant using an email address.
 - Upon successful completion of the sign-in flow, you should be redirected to the home page (`sign in status`) or `token details` page, depending on which button triggered your sign-in flow.
-- Note the context-sensitive button now says `Sign out` and displays your username to its left.
+- Note the context-sensitive button now says **Sign out** and displays your username to its left.
 - If you're on the home page, select **ID Token Details** to see some of the ID token's decoded claims.
 - You also have the option to edit your profile. Select **edit profile** to change details like your display name, place of residence, and profession.
 - You can also use the button on the top right to sign out. The status page reflects this.
@@ -188,13 +188,13 @@ Create a new Java Maven project and copy the *pom.xml* file from this project, a
 
 If you'd like to create a project like this from scratch, you may use [Spring Initializer](https://start.spring.io):
 
-- For **Packaging**, select `Jar`
-- For **Java** select version `11`
-- For **Dependencies**, add the following:
-  - Azure Active Directory B2C
-  - Spring Oauth2 Client
-  - Spring Web
-- Be sure that it comes with Azure SDK version 3.3 or higher. If not, consider replacing the pre-configured *pom.xml* with the *pom.xml* from this repository.
+- For **Packaging**, select **Jar**.
+- For **Java**, select version **11**.
+- For **Dependencies**, add the following items:
+  - **Azure Active Directory B2C**
+  - **Spring Oauth2 Client**
+  - **Spring Web**
+- Be sure that it comes with Azure SDK version 3.3 or higher. If it doesn't, consider replacing the pre-configured *pom.xml* file with the *pom.xml* from this repository.
 
 ### ID Token Claims
 

@@ -92,11 +92,11 @@ As a first step, you need to:
 1. Select **Register** to create the application.
 1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
 1. In the app's registration screen, select the **Certificates & secrets** pane in the left to open the page where we can generate secrets and upload certificates.
-1. In the **Client secrets** section, select **New client secret**:
-   - Type a key description (for instance `app secret`),
-   - Select one of the available key durations (**In 1 year**, **In 2 years**, or **Never Expires**) as per your security posture.
-   - The generated key value is displayed when you select the **Add** button. Copy the generated value for use in the steps later.
-   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
+1. In the **Client secrets** section, select **New client secret**.
+1. Type a key description - for example, *app secret*.
+1. Select one of the available key durations: **In 1 year**, **In 2 years**, or **Never Expires**.
+1. Select **Add**. The generated key value is displayed.
+1. Copy the generated value for use in the steps later. You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
 
 ---
 
@@ -160,7 +160,7 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
 - Select the context-sensitive button at the top right (it reads **Sign In** on first run)
-  - Alternatively, select **token details**. Since this is a protected page that requires authentication, you're automatically redirected to the sign-in page.
+  - Alternatively, select **token details**. Because this is a protected page that requires authentication, you're automatically redirected to the sign-in page.
 - Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
 - Upon successful completion of the sign-in flow, you should be redirected to the home page (**sign in status**) or **token details** page, depending on which button triggered your sign-in flow.
@@ -195,8 +195,8 @@ Create a new Java Maven project and copy the *pom.xml* file from this project, a
 
 If you'd like to create a project like this from scratch, you may use [Spring Initializer](https://start.spring.io):
 
-- For **Packaging**, select `Jar`
-- For **Java** select version `11`
+- For **Packaging**, select **Jar**.
+- For **Java**, select version **11**.
 - For **Dependencies**, add the following:
   - Microsoft Entra ID
   - Spring Oauth2 Client

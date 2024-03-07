@@ -73,19 +73,19 @@ Following this guide, you must:
 1. Select **Register** to create the application.
 1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
 1. Select **Save** to save your changes.
-1. In the app's registration screen, click on the **Certificates & secrets** pane in the left to open the page where we can generate secrets and upload certificates.
-1. In the **Client secrets** section, click on **New client secret**:
-   - Type a key description (for instance `app secret`),
-   - Select one of the available key durations (**In 1 year**, **In 2 years**, or **Never Expires**) as per your security concerns.
-   - The generated key value is displayed when you click the **Add** button. Copy the generated value for use in the steps later.
-   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
-1. In the app's registration screen, select the **API permissions** pane in the left to open the page where we add access to the APIs that your application needs.
-   - Select the **Add a permission** button and then:
-   - Ensure that the **Microsoft APIs** tab is selected.
-       - In the *Commonly used Microsoft APIs* section, select **Microsoft Graph**
-       - In the **Delegated permissions** section, select **User.Read** and **GroupMember.Read.All** in the list. Use the search box if necessary.
-       - Select the **Add permissions** button at the bottom.
-   - **GroupMember.Read.All** requires admin consent. Select the **Grant/revoke admin consent for {tenant}** button, and then select **Yes** when you're asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a Microsoft Entra ID tenant admin to do this.
+1. In the app's registration screen, select **Certificates & secrets** in the navigation pane to open the page where we can generate secrets and upload certificates.
+1. In the **Client secrets** section, select **New client secret**.
+1. Type a key description - for example, *app secret*.
+1. Select one of the available key durations: **In 1 year**, **In 2 years**, or **Never Expires**.
+1. Select **Add**. The generated key value is displayed.
+1. Copy the generated value for use in the steps later. You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
+1. In the app's registration screen, select **API permissions** from the navigation pane to open the page to add access to the APIs that your application needs.
+1. Select **Add a permission**.
+1. Ensure that the **Microsoft APIs** tab is selected.
+1. In the **Commonly used Microsoft APIs** section, select **Microsoft Graph**.
+1. In the **Delegated permissions** section, select **User.Read** and **GroupMember.Read.All** from the list. Use the search box if necessary.
+1. Select **Add permissions**.
+1. `GroupMember.Read.All` requires admin consent, so select **Grant/revoke admin consent for {tenant}**, and then select **Yes** when you're asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a Microsoft Entra ID tenant admin to do this.
 
 #### Configure the web app (java-servlet-webapp-groups) to use your app registration
 
@@ -114,14 +114,14 @@ You have two different options available to you on how you can further configure
 
 > To get the on-premise group's `samAccountName` or `On Premises Group Security Identifier` instead of Group ID, see [Configure group claims for applications with Microsoft Entra ID](/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#prerequisites-for-using-group-attributes-synchronized-from-active-directory).
 
-#### Configure your application to receive **all the groups** the signed-in user is assigned to, including nested groups
+#### Configure your application to receive all the groups the signed-in user is assigned to, including nested groups
 
 1. In the app's registration screen, select the **Token Configuration** pane in the left to open the page where you can configure the claims provided tokens issued to your application.
 1. Select the **Add groups claim** button on top to open the **Edit Groups Claim** screen.
-1. Select `Security groups` **or** the `All groups (includes distribution lists but not groups assigned to the application)` option. Choosing both negates the effect of `Security Groups` option.
-1. Under the **ID** section, select `Group ID`. This results in Microsoft Entra ID sending the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the **groups** claim of the [ID Token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
+1. Select **Security groups** OR the **All groups (includes distribution lists but not groups assigned to the application)** option. Choosing both options negates the effect of the **Security Groups** option.
+1. Under the **ID** section, select **Group ID**. This selection causes Microsoft Entra ID to send the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the **groups** claim of the [ID Token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
 
-#### Configure your application to receive the groups claim values from a **filtered set of groups** a user may be assigned to
+#### Configure your application to receive the groups claim values from a filtered set of groups a user may be assigned to
 
 ##### Prerequisites, benefits and limitations of using this option
 
@@ -133,9 +133,9 @@ You have two different options available to you on how you can further configure
 
 1. In the app's registration screen, select the **Token Configuration** pane in the left to open the page where you can configure the claims provided tokens issued to your application.
 1. Select the **Add groups claim** button on top to open the **Edit Groups Claim** screen.
-1. Select `Groups assigned to the application`.
+1. Select **Groups assigned to the application**.
     1. Choosing additional options like `Security Groups` or `All groups (includes distribution lists but not groups assigned to the application)` negates the benefits your app derives from choosing to use this option.
-1. Under the **ID** section, select `Group ID`. This results in Microsoft Entra ID sending the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID Token](/entra/identity-platform/id-tokens).
+1. Under the **ID** section, select **Group ID**. This results in Microsoft Entra ID sending the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID Token](/entra/identity-platform/id-tokens).
 1. If you're exposing a web API using the **Expose an API** option, then you can also choose the `Group ID` option under the **Access** section. This results in Microsoft Entra ID sending the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [access token](/entra/identity-platform/access-tokens).
 1. In the app's registration screen, select on the **Overview** pane in the left to open the Application overview screen. Select the hyperlink with the name of your application in **Managed application in local directory** (note this field title can be truncated for instance `Managed application in ...`). When you select this link, you navigate to the **Enterprise Application Overview** page associated with the service principal for your application in the tenant where you created it. You can navigate back to the app registration page by using the *back* button of your browser.
 1. Select the **Users and groups** pane in the left to open the page where you can assign users and groups to your application.

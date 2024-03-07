@@ -10,8 +10,8 @@ ms.date: 03/11/2024
 - Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
-- The middle of the screen now has an option to click for **ID Token Details**: click it to see some of the ID token's decoded claims.
-- Select **Admins Only** to view the `/admin_only`. Only users with app role **PrivilegedAdmin** can view this page. Otherwise an authorization failure message is displayed.
+- Select **ID Token Details** to see some of the ID token's decoded claims.
+- Select **Admins Only** to view the `/admin_only` page. Only users with app role **PrivilegedAdmin** can view this page. Otherwise an authorization failure message is displayed.
 - Select **Regular Users** to view the `/regular_user` page. Only users with app role **RegularUser** or **PrivilegedAdmin** can view this page. Otherwise an authorization failure message is displayed.
 - You can also use the button on the top right to sign out.
 

@@ -40,7 +40,7 @@ app.homePage=http://wls-5b942e9f2a-admindomain.westus.cloudapp.azure.com:7001/te
 
 ## Update your Microsoft Entra ID app registration
 
-Since the redirect URI changes to your deployed App on Oracle WebLogic Server, you also need to change the redirect URI in your Microsoft Entra ID App Registration.
+Because the redirect URI changes to your deployed App on Oracle WebLogic Server, you also need to change the redirect URI in your Microsoft Entra ID App Registration.
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 1. Use the search box to search for your app registration - for example, `java-servlet-webapp-authentication`.

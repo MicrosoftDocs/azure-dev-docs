@@ -9,10 +9,10 @@ ms.date: 03/11/2024
 - Select the context-sensitive button at the top right (it reads **Sign In** on first run).
 - Follow the instructions on the next page to sign in with an account of your chosen identity provider.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
-- The middle of the screen now has an option to click for ID Token Details: click it to see some of the ID token's decoded claims.
-- You also have the option of editing your profile. Click the link to edit details like your display name, place of residence, and profession.
+- Select **ID Token Details** to see some of the ID token's decoded claims.
+- You also have the option of editing your profile. Select the link to edit details like your display name, place of residence, and profession.
 - You can also use the button on the top right to sign out.
-- After signing out, click this link to the token details page: `http://localhost:8080/ms-identity-b2c-java-servlet-webapp-authentication/auth_token_details` to observe how the app displays a `401: unauthorized` error instead of the ID token claims.
+- After signing out, select the following link to the token details page: <http://localhost:8080/ms-identity-b2c-java-servlet-webapp-authentication/auth_token_details> to observe how the app displays a `401: unauthorized` error instead of the ID token claims.
 
 ## Contents
 
@@ -74,7 +74,7 @@ In this sample, these values are read from the *authentication.properties* file 
      - Normally, the three scopes `openid profile offline_access` would suffice for receiving an ID Token response.
      - However, MSAL4J requires all responses from AAD B2C to also contain an access token.
      - In order for AAD B2C to dispense an access token as well as an ID Token, the request must include an additional resource scope.
-     - Since this app doesn't actually require an external resource scope, it adds its own client ID as a fourth scope in order to receive an access token.
+     - Because this app doesn't actually require an external resource scope, it adds its own client ID as a fourth scope in order to receive an access token.
      - Full list of scopes requested by the app can be found in the *authentication.properties* file.
    - **ResponseMode.QUERY**: AAD can return the response as form params in an HTTP     POST request or as query string params in an HTTP GET request.
    - **Prompt.SELECT_ACCOUNT**: AAD B2C should ask the user to select the account that they intend to authenticate against.

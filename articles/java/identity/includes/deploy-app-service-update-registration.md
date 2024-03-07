@@ -3,7 +3,7 @@ ms.author: givermei
 ms.date: 03/11/2024
 ---
 
-Since the redirect URI changes to your deployed Web App to Azure App Service, you also need to change the redirect URI in your Microsoft Entra ID App Registration.
+Because the redirect URI changes to your deployed Web App to Azure App Service, you also need to change the redirect URI in your Microsoft Entra ID App Registration.
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 1. Use the search box to search for your app registration - for example, `java-servlet-webapp-authentication`.

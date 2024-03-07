@@ -76,19 +76,18 @@ Following this guide, you must:
 1. Select **Register** to create the application.
 1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
 1. Select **Save** to save your changes.
-1. In the app's registration screen, click on the **Certificates & secrets** pane in the left to open the page where we can generate secrets and upload certificates.
-1. In the **Client secrets** section, click on **New client secret**:
-   - Type a key description (for instance `app secret`),
-   - Select one of the available key durations (**In 1 year**, **In 2 years**, or **Never Expires**) as per your security concerns.
-   - The generated key value is displayed when you click the **Add** button. Copy the generated value for use in the steps later.
-   - You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
-
-1. In the app's registration screen, click on the **API permissions** pane in the left to open the page where we add access to the Apis that your application needs.
-   - Select **Add permissions** and then,
-   - Ensure that the **Microsoft APIs** tab is selected.
-   - In the *Commonly used Microsoft APIs* section, click on **Microsoft Graph**
-   - In the **Delegated permissions** section, select the **User.Read** in the list. Use the search box if necessary.
-   - Click on the **Add permissions** button in the bottom.
+1. In the app's registration screen, select **Certificates & secrets** in the navigation pane to open the page where we can generate secrets and upload certificates.
+1. In the **Client secrets** section, select **New client secret**.
+1. Type a key description - for example, *app secret*.
+1. Select one of the available key durations: **In 1 year**, **In 2 years**, or **Never Expires**.
+1. Select **Add**. The generated key value is displayed.
+1. Copy the generated value for use in the steps later. You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
+1. In the app's registration screen, select **API permissions** from the navigation pane to open the page to add access to the APIs that your application needs.
+1. Select **Add permissions**.
+1. Ensure that the **Microsoft APIs** tab is selected.
+1. In the **Commonly used Microsoft APIs** section, select **Microsoft Graph**.
+1. In the **Delegated permissions** section, select **User.Read** from the list. Use the search box if necessary.
+1. Select **Add permissions**.
 
 ### Configure the web app (java-servlet-webapp-call-graph) to use your app registration
 
