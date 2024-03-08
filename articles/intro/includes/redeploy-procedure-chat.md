@@ -1,7 +1,7 @@
 ---
 ms.custom: overview, devx-track-python
 ms.topic: include
-ms.date: 01/31/2024
+ms.date: 03/08/2024
 ms.author: diberry
 author: diberry
 ms.service: azure
@@ -44,12 +44,6 @@ This process uses two different CLIs:
     azd env new <name>
     ```
 
-1. To run [the bash script](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/scripts/load-balance-aca-setup.sh) to set the load balancer environment variables, sign in to the Azure CLI (AZ).
-
-    ```bash
-    az login --use-device-code
-    ```
-
 1. Add the following environment variable, which tells the Chat app's backend to use a custom URL for the OpenAI requests.
 
     ```bash
@@ -86,12 +80,6 @@ This process uses two different CLIs:
     |Java|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo-java)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo-java)|
     |JavaScript|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-javascript)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-javascript)|
     |Python|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo)|
-
-1. Sign in to the Azure CLI (AZ).
-
-    ```bash
-    az login --use-device-code
-    ```
 
 1. Add the following environment variable, which tells the Chat app's backend to use a custom URL for the OpenAI requests.
 
