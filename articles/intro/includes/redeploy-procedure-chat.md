@@ -1,7 +1,7 @@
 ---
 ms.custom: overview, devx-track-python
 ms.topic: include
-ms.date: 01/31/2024
+ms.date: 03/08/2024
 ms.author: diberry
 author: diberry
 ms.service: azure
@@ -51,13 +51,17 @@ This process uses two different CLIs:
     az login --use-device-code
     ```
 
-1. Run the following bash script to configure the chat app to use the load balancer.
+1. Add the following environment variable which tells the Chat app's backend to use a custom URL for the OpenAI requests.
 
     ```bash
-    bash scripts/load-balance-aca-setup.sh <RESOURCE-GROUP-NAME> <CONTAINER-APP-URL>
+    azd env set OPENAI_HOST azure_custom
     ```
 
-    This script adds environment variables to instruct the chat app where to send requests to Azure OpenAI. 
+1. Add the following environment variable which tells the Chat app's backend what the value is of the custom URL for the OpenAI request.
+
+    ```bash
+    azd env set CONTAINER_APP_URL <CONTAINER_APP_URL>
+    ```
 
 1. Deploy the chat app.
 

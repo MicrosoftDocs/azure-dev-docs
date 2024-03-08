@@ -1,7 +1,7 @@
 ---
 ms.custom: overview, devx-track-python
 ms.topic: include
-ms.date: 01/31/2024
+ms.date: 03/08/2024
 ms.author: diberry
 author: diberry
 ms.service: azure
@@ -55,5 +55,4 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 |Property|Example value|
 |---|---|
-|RESOURCE_GROUP_NAME| `<ENVIRONMENT-NAME>-rg`|
 |CONTAINER_APP_URL|`https://<ACA-URL>.<LOCATION>.azurecontainerapps.io`|
