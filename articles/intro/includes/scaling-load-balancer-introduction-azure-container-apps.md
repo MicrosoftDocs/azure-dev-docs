@@ -17,9 +17,9 @@ This article requires you to deploy 2 separate samples:
     * Chat app available in these languages:
 
         * [.NET](/dotnet/azure/ai/get-started-app-chat-template)
-        * [Java](../../java/quickstarts/get-started-app-chat-template.md)
-        * [JavaScript](../../javascript/get-started-app-chat-template.md)
-        * [Python](../../python/get-started-app-chat-template.md)
+        * [Java](/azure/developer/java/quickstarts/get-started-app-chat-template)
+        * [JavaScript](/azure/developer//javascript/get-started-app-chat-template)
+        * [Python](/azure/developer/python/get-started-app-chat-template)
 
 * Load balancer app
 
