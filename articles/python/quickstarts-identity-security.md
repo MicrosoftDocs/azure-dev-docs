@@ -1,14 +1,14 @@
 ---
-title: Overview and resources for Azure identity and security features for Python apps
-description: Overview and links to resources about authentication, identity, and security for Python apps on Azure.
+title: Overview and resources for Azure identity and access management features for Python apps
+description: Overview and links to resources about authentication, identity, and access management for Python apps on Azure.
 ms.date: 03/08/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
-# Identity and security for Python apps on Azure
+# Identity and access management for Python apps on Azure
 
-Identity and security for Python apps on Azure are fundamentally about the *authentication* of the identity of a user, group, application, or service and *authorization* of that identity to perform requested actions on Azure resources. There are different identity and security options you can choose from depending on your application and security needs. This article provides links to resources to help you get started.
+Identity and access management for Python apps on Azure are fundamentally about the *authentication* of the identity of a user, group, application, or service and *authorization* of that identity to perform requested actions on Azure resources. There are different identity and access management options you can choose from depending on your application and security needs. This article provides links to resources to help you get started.
 
 For an overview of authentication and authorization in Azure, see [Recommendations for identity and access management](/azure/well-architected/security/identity-access).
 
