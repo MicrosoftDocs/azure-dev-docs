@@ -1,14 +1,14 @@
 ---
 title: Overview and resources for Azure identity and security features for Python apps
 description: Overview and links to resources about authentication, identity, and security for Python apps on Azure.
-ms.date: 03/05/2024
+ms.date: 03/08/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Identity and security for Python apps on Azure
 
-Identity and security for Python apps on Azure are fundamentally about the [*authentication*](/azure/architecture/framework/security/design-identity-authentication) of the identity of a user, group, application, or service and [*authorization*](/azure/architecture/framework/security/design-identity-authorization) of that identity to perform requested actions on Azure resources. There are different identity and security options you can choose from depending on your application and security needs. This article provides links to resources to help you get started.
+Identity and security for Python apps on Azure are fundamentally about the *authentication* of the identity of a user, group, application, or service and *authorization* of that identity to perform requested actions on Azure resources. There are different identity and security options you can choose from depending on your application and security needs. This article provides links to resources to help you get started. For an overview of authentication and authorization in Azure, see [Recommendations for identity and access management](/azure/well-architected/security/identity-access).
 
 ## Passwordless connections
 
@@ -52,6 +52,10 @@ Using a key management solution like [Azure Key Vault](/azure/key-vault/general/
 
 You can build Python applications that enable your users and customers to sign in using their Microsoft identities or social accounts. Your app authorizes access to your own APIs or Microsoft APIs like Microsoft Graph.
 
-* [Quickstart: Add sign-in with Microsoft to a web app](/entra/identity-platform/scenario-web-app-sign-user-app-registration?tabs=python)
+* [Quickstart: Sign in users and call the Microsoft Graph API from a Python web app](/entra/identity-platform/quickstart-web-app-python-sign-in)
 
-* [Quickstart: Acquire a token and call the Microsoft Graph API by using a console app's identity](/en-us/entra/identity-platform/quickstart-daemon-app-python-acquire-token)
+* [Web app authentication topics](/entra/identity-platform/index-web-app)
+
+* [Quickstart: Acquire a token and call Microsoft Graph from a Python daemon app](/entra/identity-platform/quickstart-daemon-app-python-acquire-token)
+
+* [Back-end service, daemon, and script authentication topics](/entra/identity-platform/index-service?pivots=devlang-python)
