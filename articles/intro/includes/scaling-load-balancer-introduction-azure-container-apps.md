@@ -14,6 +14,13 @@ This article requires you to deploy 2 separate samples:
 * Chat app
     * If you haven't deployed the chat app yet, wait until after the load balancer sample is deployed. 
     * If you have already deployed the chat app once, you'll change the environment variable to support a custom endpoint for the load balancer and redeploy it again.
+    * Chat app available in these languages:
+
+        * [.NET](/dotnet/azure/ai/get-started-app-chat-template)
+        * [Java](../../java/quickstarts/get-started-app-chat-template.md)
+        * [JavaScript](../../javascript/get-started-app-chat-template.md)
+        * [Python](../../python/get-started-app-chat-template.md)
+
 * Load balancer app
 
 
