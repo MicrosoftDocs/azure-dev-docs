@@ -57,7 +57,7 @@
 | Event Hubs | npm [5.11.3](https://www.npmjs.com/package/@azure/event-hubs/v/5.11.3) | [docs](/javascript/api/overview/azure/event-hubs-readme) | GitHub [5.11.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.11.3/sdk/eventhub/event-hubs/) |
 | farmbeats | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/agrifood-farming/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.2/sdk/agrifood/agrifood-farming-rest/) |
 | Form Recognizer | npm [5.0.0](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [docs](/javascript/api/overview/azure/ai-form-recognizer-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_5.0.0/sdk/formrecognizer/ai-form-recognizer/) |
-| Health Insights | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-radiologyinsights/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-radiologyinsights_1.0.0-beta.1/sdk/NA/health-insights-radiologyinsights-rest/) |
+| Health Insights | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-radiologyinsights/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-radiologyinsights_1.0.0-beta.1/sdk/healthinsights/health-insights-radiologyinsights-rest/) |
 | Identity | npm [4.0.1](https://www.npmjs.com/package/@azure/identity/v/4.0.1)<br>npm [4.1.0-beta.1](https://www.npmjs.com/package/@azure/identity/v/4.1.0-beta.1) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [4.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.0.1/sdk/identity/identity/)<br>GitHub [4.1.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.1.0-beta.1/sdk/identity/identity/) |
 | Image Analysis | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/ai-vision-image-analysis/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-image-analysis_1.0.0-beta.2/sdk/vision/ai-vision-image-analysis-rest/) |
 | IoT Device Update | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/iot-device-update/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/iot-device-update-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/iot-device-update_1.0.0-beta.1/sdk/deviceupdate/iot-device-update/) |
@@ -346,8 +346,8 @@
 | Unknown Display Name | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/openai-assistants/v/1.0.0-beta.5) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.4) |  |  |
 | Unknown Display Name | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
-| Unknown Display Name | npm [0.2.0-dev.2](https://www.npmjs.com/package/@typespec/bundler/v/0.2.0-dev.2) |  |  |
-| Unknown Display Name | npm [0.3.0-dev.1](https://www.npmjs.com/package/@typespec/playground/v/0.3.0-dev.1) |  |  |
+| Unknown Display Name | npm [0.1.1](https://www.npmjs.com/package/@typespec/bundler/v/0.1.1) |  |  |
+| Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@typespec/playground/v/0.2.0) |  |  |
 | Unknown Display Name | npm [0.47.0-dev.0](https://www.npmjs.com/package/@typespec/tspd/v/0.47.0-dev.0) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
