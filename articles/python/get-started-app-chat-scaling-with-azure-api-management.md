@@ -22,7 +22,7 @@ ms.custom: devx-track-python, devx-track-python-ai
 
     #### [Codespaces (recommended)](#tab/github-codespaces)
     
-    * GitHub account
+    * Only a [GitHub account](https://www.github.com/login) is required to use CodeSpaces
     
     #### [Visual Studio Code](#tab/visual-studio-code)
     * [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
@@ -31,23 +31,22 @@ ms.custom: devx-track-python, devx-track-python-ai
     
     ---
 
-[!INCLUDE [scaling-load-balancer-aca-procedure.md](../intro/includes/scaling-load-balancer-procedure-azure-container-apps.md)]
+[!INCLUDE [scaling-load-balancer-aca-procedure.md](../intro/includes/scaling-load-balancer-procedure-azure-api-management.md)]
 
-[!INCLUDE [py-deployment-procedure](../intro/includes/redeploy-procedure-chat.md)]
-
-[!INCLUDE [logs](../intro/includes/scaling-load-balancer-logs-azure-container-apps.md)]
+[!INCLUDE [py-deployment-procedure](../intro/includes/redeploy-procedure-chat-azure-api-management.md)]
 
 [!INCLUDE [capacity.md](../intro/includes/scaling-load-balancer-capacity.md)]
 
-[!INCLUDE [py-aca-cleanup](../intro/includes/scaling-load-balancer-cleanup-azure-container-apps.md)]
+[!INCLUDE [py-apim-cleanup](../intro/includes/scaling-load-balancer-cleanup-azure-api-management.md)]
 
 ## Sample code
 
 Samples used in this article include: 
 
 * [Python chat app with RAG](https://github.com/Azure-Samples/azure-search-openai-demo)
-* [Load Balancer with Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)
+* [Load Balancer with Azure API Management](https://github.com/Azure-Samples/openai-apim-lb)
 
 ## Next step
 
+* [View Azure API Management diagnostic data in Azure Monitor](/azure/api-management/api-management-howto-use-azure-monitor#view-diagnostic-data-in-azure-monitor)
 * Use [Azure Load Testing](/azure/load-testing/) to load test your chat app with 

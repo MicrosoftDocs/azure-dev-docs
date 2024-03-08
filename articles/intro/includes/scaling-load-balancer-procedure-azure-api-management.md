@@ -46,7 +46,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
     You'll need to select a subscription and region for the deployment. These don't have to be the same subscription and region as the chat app. 
 
-1. Wait for the deployment to complete before continuing.
+1. Wait for the deployment to complete before continuing. This may take up to 30 minutes. 
 
 ## Get load balancer endpoint
 
@@ -55,5 +55,4 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 |Property|Example value|
 |---|---|
-|RESOURCE_GROUP_NAME| `<ENVIRONMENT-NAME>-rg`|
-|APIM_GATEWAY_URL|`https://<ACA-URL>.<LOCATION>.azurecontainerapps.io`|
+|APIM_GATEWAY_URL|`https://<ENVIRONMENT-NAME>.azure-api.net`|

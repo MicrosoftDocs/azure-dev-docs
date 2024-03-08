@@ -44,7 +44,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 
-1. Locate your currently running Codespaces sourced from the [`azure-samples/openai-aca-lb`](https://github.com/azure-samples/openai-aca-lb) GitHub repository.
+1. Locate your currently running Codespaces sourced from the [`azure-samples/openai-apim-lb`](https://github.com/azure-samples/openai-apim-lb) GitHub repository.
 
     :::image type="content" source="../media/get-started-scaling-load-balancer-azure-api-management/codespace-clean-up-repository.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
