@@ -1,5 +1,6 @@
 ---
 title: Enable sign-in for WebLogic apps using Microsoft Entra ID
+titleSuffix: Azure
 description: Shows you how to develop a Java WebLogic web app that supports sign-in by using a Microsoft Entra account.
 services: active-directory
 ms.date: 03/11/2024

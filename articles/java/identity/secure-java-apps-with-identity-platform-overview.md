@@ -1,5 +1,6 @@
 ---
 title: Secure Java apps using the Microsoft identity platform
+titleSuffix: Azure
 description: Provides an overview of recommended strategies for securing Java applications with the Microsoft identity platform.
 services: active-directory
 ms.date: 03/11/2024

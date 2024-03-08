@@ -1,5 +1,6 @@
 ---
 title: Secure Java JBoss EAP apps using groups and group claims
+titleSuffix: Azure
 description: Shows how to enable sign-in for Java JBoss EAP apps and restrict access to pages using security groups and group claims with the Microsoft identity platform.
 services: active-directory
 ms.date: 03/11/2024

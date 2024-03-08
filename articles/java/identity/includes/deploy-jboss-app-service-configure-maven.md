@@ -11,12 +11,12 @@ Run the Maven command shown next to configure the deployment. This command helps
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.12.0:config
 ```
 
-1. For **Create new run configuration**, type **Y**, then **Enter**.
-1. For **Define value for OS**, type **2** for Linux, then **Enter**.
-1. For **Define value for javaVersion**, type **2** for Java 11, then **Enter**.
-1. For **Define value for webContainer**, type **1** for JBosseap7, then **Enter**.
+1. For **Create new run configuration**, press <kbd>Y</kbd>, then press <kbd>Enter</kbd>.
+1. For **Define value for OS**, press <kbd>2</kbd> for Linux, then press <kbd>Enter</kbd>.
+1. For **Define value for javaVersion**, press <kbd>2</kbd> for Java 11, then press <kbd>Enter</kbd>.
+1. For **Define value for webContainer**, press <kbd>1</kbd> for JBosseap7, then press <kbd>Enter</kbd>.
 1. For **Define value for pricingTier**, press **Enter** to select the default **P1v3** tier.
-1. For **Confirm**, type **Y**, then **Enter**.
+1. For **Confirm**, press <kbd>Y</kbd>, then press <kbd>Enter</kbd>.
 
 ```output
 Please confirm webapp properties

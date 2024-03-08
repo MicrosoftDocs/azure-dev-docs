@@ -1,5 +1,6 @@
 ---
 title: Enable sign-in for JBoss EAP apps using Microsoft Entra ID
+titleSuffix: Azure
 description: Shows you how to develop a Java JBoss EAP web app that supports sign-in using a Microsoft Entra account.
 services: active-directory
 ms.date: 03/11/2024

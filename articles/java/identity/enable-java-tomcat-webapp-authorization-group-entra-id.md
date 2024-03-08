@@ -1,5 +1,6 @@
 ---
 title: Secure Java Tomcat apps using groups and group claims
+titleSuffix: Azure
 description: Shows how to create a Java Tomcat app to sign in users and restrict access to pages using security groups and group claims with the Microsoft identity platform.
 services: active-directory
 ms.date: 03/11/2024
