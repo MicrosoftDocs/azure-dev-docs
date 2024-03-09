@@ -53,7 +53,7 @@ This process uses two different CLIs:
 1. Add the following environment variable, which tells the Chat app's backend what the value is of the custom URL for the OpenAI request.
 
     ```bash
-    azd env set CONTAINER_APP_URL <CONTAINER_APP_URL>
+    azd env set AZURE_OPENAI_CUSTOM_URL <CONTAINER_APP_URL>
     ```
 
 1. Deploy the chat app.
