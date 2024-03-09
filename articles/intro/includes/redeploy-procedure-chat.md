@@ -50,7 +50,7 @@ This process uses two different CLIs:
     azd env set OPENAI_HOST azure_custom
     ```
 
-1. Add the following environment variable, which tells the Chat app's backend what the value is of the custom URL for the OpenAI request.
+1. Add the following environment variable, substituting `<CONTAINER_APP_URL>` for the URL from the previous section. This action  tells the Chat app's backend what the value is of the custom URL for the OpenAI request.
 
     ```bash
     azd env set AZURE_OPENAI_CUSTOM_URL <CONTAINER_APP_URL>
