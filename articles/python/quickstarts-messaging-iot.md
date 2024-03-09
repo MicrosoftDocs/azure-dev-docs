@@ -58,4 +58,4 @@ Internet of Things or IoT refers to a collection of managed and platform service
 
 - **IoT Central/IoT Edge**
   - [Tutorial: Create and connect a client application to your Azure IoT Central application](/azure/iot-central/core/tutorial-connect-device?pivots=programming-language-python)
-  - [Tutorial: Develop IoT Edge modules using Visual Studio Code](/azure/iot-edge/tutorial-develop-for-linux?view=iotedge-1.4&tabs=python&pivots=iotedge-dev-cli)
+  - [Tutorial: Develop IoT Edge modules using Visual Studio Code](/azure/iot-edge/tutorial-develop-for-linux?tabs=python&pivots=iotedge-dev-cli)
