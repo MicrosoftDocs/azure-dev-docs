@@ -109,7 +109,7 @@ Use another host to perform tasks that require the docker daemon. One option is 
 
 ### Solution
 
-Upgrade Bicep CLI by running `az bicep upgrade`.
+Previously, Bicep was a preqrequisite for installing and using `azd `. `azd` now automatically installs Bicep within the local `azd` scope (not globally) and this issue should now be resolved. However, if you want to use a different version, you can set the environment variable: `AZD_BICEP_TOOL_PATH` to point to the location of the version you need.
 
 ## `azd up` or `azd provision` fails
 
