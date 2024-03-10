@@ -38,8 +38,8 @@ Automated machine learning, also referred to as automated ML or AutoML, is the p
 With Azure Machine Learning, you can bring data from a local machine or an existing cloud-based storage.
 
 - [Create and manage data assets](/azure/machine-learning/how-to-create-data-assets)
-- [Tutorial: Upload, access and explore your data in Azure Machine Learning](/azure/tutorial-explore-data)
-- [Access data in a job](/azure/how-to-read-write-data-v2)
+- [Tutorial: Upload, access and explore your data in Azure Machine Learning](/azure/machine-learning/tutorial-explore-data)
+- [Access data in a job](/azure/machine-learning/how-to-read-write-data-v2)
 
 ## Machine learning pipelines
 
