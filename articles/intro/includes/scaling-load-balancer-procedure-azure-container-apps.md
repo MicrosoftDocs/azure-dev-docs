@@ -47,13 +47,4 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     You'll need to select a subscription and region for the deployment. These don't have to be the same subscription and region as the chat app. 
 
 1. Wait for the deployment to complete before continuing.
-
-## Get load balancer endpoint
-
-1. Open the `.env` file in the `.azure/<ENVIRONMENT-NAME>/` folder and subfolder in the root of the load balancer sample.
-1. Collect the following information from the Load balancer sample's `.env` file found in the `.azure` folder, within the named environment subfolder. You need this information later.
-
-|Property|Example value|
-|---|---|
-|RESOURCE_GROUP_NAME| `<ENVIRONMENT-NAME>-rg`|
-|CONTAINER_APP_URL|`https://<ACA-URL>.<LOCATION>.azurecontainerapps.io`|
+1. Get the URL at the end of the deployment named Endpoint. This is the APIM_GATEWAY_URL used in the next section.

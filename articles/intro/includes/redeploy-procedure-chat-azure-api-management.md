@@ -54,9 +54,8 @@ This process uses two different CLIs:
 1. Add the following environment variable, which tells the Chat app's backend what the value is of the custom URL for the OpenAI request.
 
     ```bash
-    azd env set set APIM_GATEWAY_URL <set APIM_GATEWAY_URL>
+    azd env set set APIM_GATEWAY_URL <APIM_GATEWAY_URL>
     ```
-
 
 1. Deploy the chat app.
 
@@ -93,7 +92,7 @@ This process uses two different CLIs:
 1. Add the following environment variable, which tells the Chat app's backend what the value is of the custom URL for the OpenAI request.
 
     ```bash
-    azd env set set APIM_GATEWAY_URL <set APIM_GATEWAY_URL>
+    azd env set set APIM_GATEWAY_URL <APIM_GATEWAY_URL>
     ```
 
 1. Deploy the chat app.

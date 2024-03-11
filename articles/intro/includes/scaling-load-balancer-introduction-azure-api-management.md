@@ -7,7 +7,7 @@ author: diberry
 ms.service: azure
 ---
 
-Learn how to add enterprise-grade load balancing to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. This approach uses Azure API Management to create three Azure OpenAI endpoints, as well as a primary container to direct incoming traffic to one of the three endpoints.
+Learn how to add enterprise-grade load balancing to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. This approach uses Azure API Management to intelligently direct traffic between three Azure OpenAI resources.
 
 This article requires you to deploy 2 separate samples:
 
@@ -21,7 +21,7 @@ This article requires you to deploy 2 separate samples:
         * [JavaScript](/azure/developer/javascript/get-started-app-chat-template)
         * [Python](/azure/developer/python/get-started-app-chat-template)
 
-* Load balancer app with Azure API Management
+* Load balancer with Azure API Management
 
 
 ## Architecture for load balancing Azure OpenAI with Azure API Management
