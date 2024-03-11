@@ -1,7 +1,7 @@
 ---
-title: Secure Java Spring boot apps using groups and group claims
+title: Secure Java Spring Boot apps using groups and group claims
 titleSuffix: Azure
-description: Shows you how to develop a Java Spring boot web app to restrict access to routes using security groups with the Microsoft identity platform.
+description: Shows you how to develop a Java Spring Boot web app to restrict access to routes using security groups with the Microsoft identity platform.
 services: active-directory
 ms.date: 03/11/2024
 ms.service: active-directory
@@ -9,7 +9,7 @@ ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Secure Java Spring boot apps using groups and group claims
+# Secure Java Spring Boot apps using groups and group claims
 
 This article demonstrates a Java Spring Boot web app that uses the [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) for authentication, authorization, and token acquisition with the [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) protocol to sign in users, and restricts access to pages based on Azure Active Directory security group membership.
 
@@ -21,7 +21,7 @@ An Identity Developer session covered Microsoft Entra ID App roles and security 
 
 ## Scenario
 
-1. This web application uses Microsoft Entra ID Spring Boot Starter client library for Java to sign in users in a Microsoft Entra ID tenant and obtain an [ID Token](/entra/identity-platform/id-tokens) from Microsoft Entra ID.
+1. This web application uses Microsoft Entra ID Spring Boot Starter client library for Java to sign in users in a Microsoft Entra ID tenant and obtain an [ID token](/entra/identity-platform/id-tokens) from Microsoft Entra ID.
 1. The ID token contains the groups claim. The application loads these claims into Spring GrantedAuthorities list for the signed-in user. These values determine which pages the user is authorized to access.
 
 ## Prerequisites
@@ -63,21 +63,18 @@ There's one project in this sample. To register it, you can:
   - **automatically** creates the Microsoft Entra ID applications and related objects (passwords, permissions, dependencies) for you.
   - modify the projects' configuration files.
 
-> [!IMPORTANT]
-> If you've never used Azure AD Powershell before, we recommend you go through the [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/3-Authorization-II/groups/AppCreationScripts/AppCreationScripts.md) in the source repository once to ensure that your environment is prepared correctly for this step.
-
 ### [Powershell](#tab/Powershell)
 
 1. On Windows, run PowerShell as administrator and navigate to the root of the cloned directory.
-1. If you've never used Azure AD Powershell before, we recommend you go through the [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/3-Authorization-II/groups/AppCreationScripts/AppCreationScripts.md) in the source repository once to ensure that your environment is prepared correctly for this step.
-1. In PowerShell run:
+1. If you haven't used Azure AD Powershell before, we recommend that you go through the [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/3-Authorization-II/groups/AppCreationScripts/AppCreationScripts.md) in the source repository to ensure that your environment is prepared correctly.
+1. In PowerShell, run the following command:
 
    ```powershell
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
    ```
 
 1. Run the script to create your Microsoft Entra ID application and configure the code of the sample application accordingly.
-1. In PowerShell run:
+1. In PowerShell, run the following commands:
 
    ```powershell
    cd .\AppCreationScripts\
@@ -158,7 +155,7 @@ You have two different options available to you on how you can further configure
 1. In the app's registration screen, select the **Token Configuration** pane in the left to open the page where you can configure the claims provided tokens issued to your application.
 1. Select **Add groups claim** to open the **Edit Groups Claim** screen.
 1. Select **Security groups** OR **All groups (includes distribution lists but not groups assigned to the application)**. Choosing both negates the effect of the **Security Groups** option.
-1. Under the **ID** section, select **Group ID**. This selection causes Microsoft Entra ID to send the [object id](/graph/api/resources/group) of the groups the user is assigned to in the **groups** claim of the [ID Token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
+1. Under the **ID** section, select **Group ID**. This selection causes Microsoft Entra ID to send the [object id](/graph/api/resources/group) of the groups the user is assigned to in the **groups** claim of the [ID token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
 
 #### Configure your application to receive the groups claim values from a filtered set of groups a user may be assigned to
 
@@ -173,7 +170,7 @@ You have two different options available to you on how you can further configure
 1. In the app's registration screen, select the **Token Configuration** pane in the left to open the page where you can configure the claims provided tokens issued to your application.
 1. Select the **Add groups claim** button on top to open the **Edit Groups Claim** screen.
 1. Select **Groups assigned to the application** and don't selection any other options. Choosing more options, such as **Security Groups** or **All groups (includes distribution lists but not groups assigned to the application)**, negates the effect of the **Groups assigned to the application** option.
-1. Under the **ID** section, select **Group ID**. This selection causes Microsoft Entra ID to send the object [id](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID Token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
+1. Under the **ID** section, select **Group ID**. This selection causes Microsoft Entra ID to send the object [id](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
 1. If you're exposing a Web API using the **Expose an API** option, then you can also choose the **Group ID** option under the **Access** section. This selection causes Microsoft Entra ID to send the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [access token](/entra/identity-platform/access-tokens) issued to the client applications of your API.
 1. In the app's registration screen, select on the **Overview** pane in the left to open the Application overview screen. Select the hyperlink with the name of your application in **Managed application in local directory**. This field title might be truncated - for example, **Managed application in ...**. When you select this link, you navigate to the **Enterprise Application Overview** page associated with the service principal for your application in the tenant where you created it. You can navigate back to the app registration page by using the back button of your browser.
 1. Select the **Users and groups** pane in the left to open the page where you can assign users and groups to your application.
@@ -305,9 +302,9 @@ If you'd like to create a project like this from scratch, you may use [Spring In
   - Spring Web
 - Be sure that it comes with Azure SDK version 3.5 or higher. If not, consider replacing the pre-configured *pom.xml* with the *pom.xml* from this repository.
 
-### ID Token Claims
+### ID token claims
 
-To extract token details, make use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/3-Authorization-II/roles/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for an example of this app making use of ID Token claims.
+To extract token details, make use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/3-Authorization-II/roles/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for an example of this app making use of ID token claims.
 
 ```java
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;

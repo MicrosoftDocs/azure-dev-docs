@@ -19,7 +19,7 @@ The following diagram shows the topology of the app:
 
 ## Scenario
 
-1. The client Java Spring Boot web app uses the Microsoft Entra ID Spring Boot Starter client library for Java to sign-in a user and obtain an ID Token from Microsoft Entra ID.
+1. The client Java Spring Boot web app uses the Microsoft Entra ID Spring Boot Starter client library for Java to sign-in a user and obtain an ID token from Microsoft Entra ID.
 
 1. The ID token proves that the user has successfully authenticated with Microsoft Entra ID and allows the user to access protected routes.
 
@@ -57,14 +57,14 @@ There's one project in this sample. To register the app on the portal, you can:
 ### [Powershell](#tab/Powershell)
 
 1. On Windows, run PowerShell and navigate to the root of the cloned directory.
-1. In PowerShell run:
+1. In PowerShell, run the following command:
 
    ```powershell
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
    ```
 
 1. Run the script to create your Microsoft Entra ID application and configure the code of the sample application accordingly.
-1. In PowerShell run:
+1. In PowerShell, run the following commands:
 
    ```powershell
    cd .\AppCreationScripts\
@@ -206,9 +206,9 @@ If you'd like to create a project like this from scratch, you may use [Spring In
   - Spring Web
 - Be sure that it comes with Azure SDK version 3.3 or higher. If not, consider replacing the pre-configured *pom.xml* with the *pom.xml* from this repository.
 
-### ID Token Claims
+### ID token claims
 
-To extract token details, make use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for an example of this app making use of ID Token claims.
+To extract token details, make use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for an example of this app making use of ID token claims.
 
 ```java
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
@@ -286,7 +286,7 @@ public class SecurityConfig extends AADWebSecurityConfigurerAdapter{
 - [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-active-directory)
 - [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - [MSAL4J Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
-- [ID Tokens](/entra/identity-platform/id-tokens)
+- [ID tokens](/entra/identity-platform/id-tokens)
 - [Access tokens in the Microsoft identity platform](/entra/identity-platform/access-tokens)
 
 For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](/entra/identity-platform/authentication-flows-app-scenarios).

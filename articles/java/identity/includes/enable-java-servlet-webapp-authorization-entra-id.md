@@ -32,14 +32,14 @@ There's one project in this sample. To register the app on the portal, you can:
 ### [Powershell](#tab/Powershell)
 
 1. On Windows, run PowerShell and navigate to the root of the cloned directory.
-1. In PowerShell run:
+1. In PowerShell, run the following command:
 
    ```powershell
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
    ```
 
 1. Run the script to create your Microsoft Entra ID application and configure the code of the sample application accordingly.
-1. In PowerShell run:
+1. In PowerShell, run the following commands:
 
    ```powershell
    cd .\AppCreationScripts\

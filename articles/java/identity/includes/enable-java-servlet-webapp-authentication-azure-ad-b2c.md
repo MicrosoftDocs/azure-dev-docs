@@ -21,7 +21,7 @@ or download and extract the repository *.zip* file.
 
 ### Register the sample application with your Azure AD B2C tenant
 
-This sample comes with a pre-registered application for testing purposes. If you would like to use your own Azure AD B2C tenant and application, follow the steps below to register and configure the application in the **Azure Portal**. Otherwise, continue with the steps for [Run the sample](#run-the-sample).
+This sample comes with a pre-registered application for testing purposes. If you would like to use your own Azure AD B2C tenant and application, follow the steps below to register and configure the application in the Azure portal. Otherwise, continue with the steps for [Run the sample](#run-the-sample).
 
 ### Choose the Azure AD B2C tenant where you want to create your applications
 

@@ -5,7 +5,9 @@ ms.date: 03/11/2024
 
 #### Deploy the sample
 
-These instructions assume you've installed WebSphere and set up some server. You can use the guidance at [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](../../ee/traditional-websphere-application-server-virtual-machines.md) for a basic server setup. Before you can deploy to WebSphere, you need to make some configuration changes in the sample itself and build or rebuild the package:
+These instructions assume that you installed WebSphere and set up a server. You can use the guidance at [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](../../ee/traditional-websphere-application-server-virtual-machines.md) for a basic server setup.
+
+Before you can deploy to WebSphere, use the following steps to make some configuration changes in the sample itself and then build or rebuild the package:
 
 1. Navigate to your app's *authentication.properties* file and change the value of `app.homePage` to your server URL and port number you're planning to use.
 
@@ -23,7 +25,7 @@ These instructions assume you've installed WebSphere and set up some server. You
 
 1. After the code finishes building, copy the *.war* file over to your target server's file system.
 
-You also need to make the same change in the Azure app registration, where you set it as the **Redirect URI** value on the **Authentication** tab.
+You also need to make the same change in the Azure app registration, where you set it in the Azure portal as the **Redirect URI** value on the **Authentication** tab.
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 1. Use the search box to search for your app registration - for example, `java-servlet-webapp-authentication`.
@@ -33,7 +35,7 @@ You also need to make the same change in the Azure app registration, where you s
 1. Fill out the URI of your web app, appending **/auth/redirect** - for example, `https://<server-url>:<port-number>/auth/redirect`.
 1. Select **Save**.
 
-To deploy the sample using the WebSphere's Integrated Solutions Console:
+Use the following steps to deploy the sample using the WebSphere's Integrated Solutions Console:
 
 1. On the **Applications** tab, select **New Application**, then **New Enterprise Application**.
 

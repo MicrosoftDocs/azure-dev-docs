@@ -33,15 +33,15 @@ An Identity Developer session covered Microsoft Entra ID App roles and security 
 
 These instructions assume that you installed WebLogic and set up some server domain.
 
-Before you can deploy to WebLogic, you need to make some configuration changes in the sample itself and build or rebuild the package:
+Before you can deploy to WebLogic, use the following steps to make some configuration changes in the sample itself and then build or rebuild the package:
 
-1. In the sample, there's likely an *application.properties* or *authentication.properties* file where you configured the client ID, tenant, redirect URL, and so on.
+1. In the sample, find the *application.properties* or *authentication.properties* file where you configured the client ID, tenant, redirect URL, and so on.
 
-1. In the above mentioned steps, change references to `localhost:8080` or `localhost:8443` to the URL and port that WebLogic runs on, which by default should be `localhost:7001`.
+1. In this file, change references to `localhost:8080` or `localhost:8443` to the URL and port that WebLogic runs on, which by default should be `localhost:7001`.
 
-1. You also need to make the same change in the Azure app registration, where you set it as the **Redirect URI** value on the **Authentication** tab.
+1. You also need to make the same change in the Azure app registration, where you set it in the Azure portal as the **Redirect URI** value on the **Authentication** tab.
 
-To deploy the sample to WebLogic via the web console:
+Use the following steps to deploy the sample to WebLogic via the web console:
 
 1. Start the WebLogic server with *DOMAIN_NAME\bin\startWebLogic.cmd*.
 

@@ -52,21 +52,18 @@ There's one project in this sample. To register it, you can:
   - **automatically** creates the Microsoft Entra ID applications and related objects (passwords, permissions, dependencies) for you.
   - modify the projects' configuration files.
 
-> [!IMPORTANT]
-> If you've never used Azure AD Powershell before, we recommend you go through the [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/AppCreationScripts/AppCreationScripts.md) in the source repository once to ensure that your environment is prepared correctly for this step.
-
 ### [Powershell](#tab/Powershell)
 
 1. On Windows, run PowerShell as administrator and navigate to the root of the cloned directory.
-1. If you've never used Azure AD Powershell before, we recommend you go through the [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/AppCreationScripts/AppCreationScripts.md) in the source repository once to ensure that your environment is prepared correctly for this step.
-1. In PowerShell run:
+1. If you haven't used Azure AD Powershell before, we recommend that you go through the [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/AppCreationScripts/AppCreationScripts.md) in the source repository to ensure that your environment is prepared correctly.
+1. In PowerShell, run the following command:
 
    ```powershell
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
    ```
 
 1. Run the script to create your Microsoft Entra ID application and configure the code of the sample application accordingly.
-1. In PowerShell run:
+1. In PowerShell, run the following commands:
 
    ```powershell
    cd .\AppCreationScripts\
@@ -215,9 +212,9 @@ If you'd like to create a project like this from scratch, you may use [Spring In
   - Spring Web
 - Be sure that it comes with Azure SDK version 3.3 or higher. If not, consider replacing the pre-configured *pom.xml* with the *pom.xml* from this repository.
 
-### ID Token Claims
+### ID token claims
 
-To extract token details, make use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for an example of this app making use of ID Token claims.
+To extract token details, make use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for an example of this app making use of ID token claims.
 
 ```java
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
@@ -334,7 +331,7 @@ Using `GraphServiceClient.me().buildRequest().get()`, a request built and made t
 - [Azure Active Directory Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-active-directory)
 - [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - [MSAL4J Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
-- [ID Tokens](/entra/identity-platform/id-tokens)
+- [ID tokens](/entra/identity-platform/id-tokens)
 - [Access tokens in the Microsoft identity platform](/entra/identity-platform/access-tokens)
 
 For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](/entra/identity-platform/authentication-flows-app-scenarios).

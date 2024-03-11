@@ -2,9 +2,9 @@ items:
 - name: Secure Java apps using the Microsoft identity platform
   href: index.yml
   items:
-  - name: Get started
+  - name: Overview
     href: secure-java-apps-with-identity-platform-overview.md
-  - name: Secure your Java Spring boot app
+  - name: Secure your Java Spring Boot app
     expanded: true
     items:
     - name: Enable sign-in with Entra ID

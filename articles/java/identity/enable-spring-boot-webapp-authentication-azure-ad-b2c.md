@@ -200,9 +200,9 @@ If you'd like to create a project like this from scratch, you may use [Spring In
   - **Spring Web**
 - Be sure that it comes with Azure SDK version 3.3 or higher. If it doesn't, consider replacing the pre-configured *pom.xml* file with the *pom.xml* from this repository.
 
-### ID Token Claims
+### ID token claims
 
-To extract token details, make use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for an example of this app making use of ID Token claims.
+To extract token details, make use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for an example of this app making use of ID token claims.
 
 ```java
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
@@ -289,7 +289,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 - [Azure Active Directory B2C Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory-b2c)
 - [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - [MSAL4J Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
-- [ID Tokens](/entra/identity-platform/id-tokens)
+- [ID tokens](/entra/identity-platform/id-tokens)
 - [Access tokens in the Microsoft identity platform](/entra/identity-platform/access-tokens)
 
 For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](/entra/identity-platform/authentication-flows-app-scenarios).

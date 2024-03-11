@@ -32,14 +32,14 @@ There's one project in this sample. To register the app on the portal, you can:
 ### [Powershell](#tab/Powershell)
 
 1. On Windows, run PowerShell and navigate to the root of the cloned directory.
-1. In PowerShell run:
+1. In PowerShell, run the following command:
 
    ```powershell
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
    ```
 
 1. Run the script to create your Microsoft Entra ID application and configure the code of the sample application accordingly.
-1. In PowerShell run:
+1. In PowerShell, run the following commands:
 
    ```powershell
    cd .\AppCreationScripts\
@@ -119,7 +119,7 @@ You have two different options available to you on how you can further configure
 1. In the app's registration screen, select the **Token Configuration** pane in the left to open the page where you can configure the claims provided tokens issued to your application.
 1. Select the **Add groups claim** button on top to open the **Edit Groups Claim** screen.
 1. Select **Security groups** OR the **All groups (includes distribution lists but not groups assigned to the application)** option. Choosing both options negates the effect of the **Security Groups** option.
-1. Under the **ID** section, select **Group ID**. This selection causes Microsoft Entra ID to send the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the **groups** claim of the [ID Token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
+1. Under the **ID** section, select **Group ID**. This selection causes Microsoft Entra ID to send the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the **groups** claim of the [ID token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
 
 #### Configure your application to receive the groups claim values from a filtered set of groups a user may be assigned to
 
@@ -137,7 +137,7 @@ You have two different options available to you on how you can further configure
 
    1. Choosing additional options like `Security Groups` or `All groups (includes distribution lists but not groups assigned to the application)` negates the benefits your app derives from choosing to use this option.
 
-1. Under the **ID** section, select **Group ID**. This results in Microsoft Entra ID sending the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID Token](/entra/identity-platform/id-tokens).
+1. Under the **ID** section, select **Group ID**. This results in Microsoft Entra ID sending the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID token](/entra/identity-platform/id-tokens).
 1. If you're exposing a web API using the **Expose an API** option, then you can also choose the `Group ID` option under the **Access** section. This results in Microsoft Entra ID sending the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [access token](/entra/identity-platform/access-tokens).
 1. In the app's registration screen, select on the **Overview** pane in the left to open the Application overview screen. Select the hyperlink with the name of your application in **Managed application in local directory** (note this field title can be truncated for instance `Managed application in ...`). When you select this link, you navigate to the **Enterprise Application Overview** page associated with the service principal for your application in the tenant where you created it. You can navigate back to the app registration page by using the *back* button of your browser.
 1. Select the **Users and groups** pane in the left to open the page where you can assign users and groups to your application.
