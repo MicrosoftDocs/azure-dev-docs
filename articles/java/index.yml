@@ -61,19 +61,6 @@ conceptualContent:
           text: See more
           url: fundamentals/index.yml
 
-    - title: Secure apps using the Microsoft identity platform
-      links:
-        - text: Overview
-          itemType: overview
-          url: secure-java-apps-with-identity-platform-overview.md
-        - text: Secure Spring Boot apps
-          url: enable-spring-boot-webapp-authentication-entra-id.md
-        - text: Secure Tomcat apps
-          url: enable-java-tomcat-webapp-authentication-entra-id.md
-      footerLink:
-          text: See more
-          url: identity/index.yml
-
     - title: Migrate to Azure
       links:
         - text: Spring to Azure Spring Apps
@@ -88,21 +75,6 @@ conceptualContent:
       footerLink:
         text: See more
         url: migration/index.yml
-
-    - title: Azure SDK for Java
-      links:
-        - text: Libraries, drivers, and Spring modules
-          itemType: reference
-          url: sdk/libraries-drivers-modules.md
-        - text: Azure development using Java
-          itemType: get-started
-          url: sdk/get-started.md
-        - text: Introducing Azure SDK for Java
-          itemType: learn
-          url: sdk/overview.md
-      footerLink:
-          text: See more
-          url: sdk/index.yml
 
     - title: Azure App Service
       links:
@@ -133,6 +105,34 @@ conceptualContent:
       footerLink:
           text: See more
           url: /azure/spring-apps
+
+    - title: Secure apps using the Microsoft identity platform
+      links:
+        - text: Overview
+          itemType: overview
+          url: secure-java-apps-with-identity-platform-overview.md
+        - text: Secure Spring Boot apps
+          url: enable-spring-boot-webapp-authentication-entra-id.md
+        - text: Secure Tomcat apps
+          url: enable-java-tomcat-webapp-authentication-entra-id.md
+      footerLink:
+          text: See more
+          url: identity/index.yml
+
+    - title: Azure SDK for Java
+      links:
+        - text: Libraries, drivers, and Spring modules
+          itemType: reference
+          url: sdk/libraries-drivers-modules.md
+        - text: Azure development using Java
+          itemType: get-started
+          url: sdk/get-started.md
+        - text: Introducing Azure SDK for Java
+          itemType: learn
+          url: sdk/overview.md
+      footerLink:
+          text: See more
+          url: sdk/index.yml
 
     - title: Spring on Azure integration
       links:
