@@ -10,12 +10,28 @@ ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-
 
 # Tutorial: Migrate Oracle WebLogic Server to AKS with KEDA scaler based on Prometheus Metrics
 
+This tutorial shows you how to migrate Oracle WebLogic Server and configure automatic horizontal scaling based on Prometheus Metrics.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> - What WebLogic application metrics can be exported using WebLogic Monitoring Exporter?
+> - Deploy and run WebLogic applciation on AKS using Azure marketplace offer.
+> - Enable Prometheus Metrics.
+> - Enable Kubernetes Event-driven Autoscaling (KEDA).
+> - Create KEDA scaler that is based on Prometheus Metrics.
+> - Validate the scaler configuration.
+
 ## Overview
 
 ## Prerequisites
 
-## Prepare test application
+## Prepare sample application
 
+### Sample application
+
+### Create an Azure Storage account and upload the application
 
 ## Deploy WLS on AKS using Azure Marketplace Offer
 
@@ -27,6 +43,7 @@ UI
 
 UI
 
+---
 
 ## Enable Prometheus Metrics
 
