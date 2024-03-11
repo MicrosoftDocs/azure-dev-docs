@@ -13,14 +13,6 @@ These are completed on the chat app sample.
 
 #### [Initial deployment](#tab/initial-deployment)
 
-This process uses two different CLIs:
-
-* Azure Developer CLI (AZD): 
-    * Create environment for deployment
-    * Deploy chat app 
-* Azure CLI (AZ):
-    * Run bash script to get Azure Container App ingress FQDN URL, which also uses AZD to set environment variables in deployment environment
-
 1. Open the chat app sample's dev container using one of the following choices.
 
     |Language|Codespaces|Visual Studio Code|
@@ -63,14 +55,6 @@ This process uses two different CLIs:
     ```
 
 #### [Redeployment](#tab/redeployment)
-
-This process uses two different CLIs:
-
-* Azure Developer CLI (AZD): 
-    * Deploy chat app 
-* Azure CLI (AZ):
-    * Run bash script to get Azure Container App ingress FQDN URL, which also uses AZD to set environment variables in deployment environment
-
 
 1. Reopen the chat app sample's dev container using one of the following choices.
 
