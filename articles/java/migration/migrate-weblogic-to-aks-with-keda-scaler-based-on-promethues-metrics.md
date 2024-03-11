@@ -4,7 +4,7 @@ description: Shows how to deploy WebLogic Server to AKS and enable autoscaling w
 author: KarlErickson
 ms.author: haiche
 ms.topic: tutorial
-ms.date: 11/03/2024
+ms.date: 03/11/2024
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, migration-java
 ---
 
@@ -21,7 +21,11 @@ ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-
 
 ### [Enable KEDA using Marketplace Offer](#tab/offer)
 
+UI
+
 ### [Enable KEDA Manually](#tab/manual)
+
+UI
 
 
 ## Enable Prometheus Metrics
@@ -32,6 +36,8 @@ This step is already performed for you when you use the VM base image.
 
 ### [Enable KEDA Manually](#tab/manual)
 
+Steps.
+
 ## Enable KEDA
 
 ### [Enable KEDA using Marketplace Offer](#tab/offer)
@@ -40,6 +46,8 @@ This step is already performed for you when you use the VM base image.
 
 ### [Enable KEDA Manually](#tab/manual)
 
+Steps.
+
 ## Create KEDA scaler
 
 ### [Enable KEDA using Marketplace Offer](#tab/offer)
@@ -47,6 +55,8 @@ This step is already performed for you when you use the VM base image.
 This step is already performed for you when you use the VM base image.
 
 ### [Enable KEDA Manually](#tab/manual)
+
+Steps
 
 ---
 
