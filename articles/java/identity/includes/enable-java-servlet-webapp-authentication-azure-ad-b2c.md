@@ -45,13 +45,14 @@ See [Tutorial: Add identity providers to your applications in Azure Active Direc
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Azure AD B2C**.
 1. Select the **App Registrations** pane on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
+
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `ms-identity-b2c-java-servlet-webapp-authentication`.
    - Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**.
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/ms-identity-b2c-java-servlet-webapp-authentication/auth_redirect`.
+
 1. Select **Register** to create the application.
 1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
 1. Select **Save** to save your changes.
-
 1. In the app's registration screen, select **Certificates & secrets** in the navigation pane to open the page where we can generate secrets and upload certificates.
 1. In the **Client secrets** section, select **New client secret**.
 1. Type a key description - for example, *app secret*.

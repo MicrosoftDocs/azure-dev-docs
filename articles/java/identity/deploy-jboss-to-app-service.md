@@ -12,13 +12,16 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article shows you how to deploy a JBoss web app with sign-in by Microsoft Entra account to Azure App Service.
 
-This guidance assumes you have through any of the Tomcat Web app examples for enabling security with Microsoft Entra ID.
-
 ## Prerequisites
 
+- Completion of one of the following JBoss articles for enabling security with Microsoft Entra ID:
+  - [Enable sign-in for Java JBoss EAP apps using Microsoft Entra ID](enable-java-jboss-eap-webapp-authentication-entra-id.md)
+  - [Enable sign-in for Java JBoss EAP apps using MSAL4J with Azure Active Directory B2C](enable-java-jboss-eap-webapp-authentication-azure-ad-b2c.md)
+  - [Enable Java JBoss EAP apps to sign in users and access Microsoft Graph](enable-java-jboss-eap-webapp-authorization-entra-id.md)
+  - [Secure Java JBoss EAP apps using roles and role claims](enable-java-jboss-eap-webapp-authorization-role-entra-id.md)
+  - [Secure Java JBoss EAP apps using groups and group claims](enable-java-jboss-eap-webapp-authorization-group-entra-id.md)
 [!INCLUDE [deploy-app-service-intro.md](includes/deploy-app-service-intro.md)]
-
-You also need the [Azure CLI](/cli/azure/install-azure-cli) tool.
+- [Azure CLI](/cli/azure/install-azure-cli)
 
 ## Configure the Maven plugin
 

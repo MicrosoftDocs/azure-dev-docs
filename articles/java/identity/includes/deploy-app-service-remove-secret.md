@@ -36,7 +36,7 @@ As an extra step you can store this value in [Key Vault](/azure/key-vault/genera
 1. You can now give this identity get and list permission on the secrets in your Key Vault.
 
    ```azurecli
-   IDENTITY=$(az webapp identity show \
+   export IDENTITY=$(az webapp identity show \
        --resource-group $RESOURCE_GROUP \
        --name $WEB_APP_NAME \
        --query principalId \

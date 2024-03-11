@@ -98,10 +98,12 @@ Open the project in your IDE to configure the code.
 
 1. Open the *./src/main/resources/authentication.properties* file.
 1. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with:
-    - **Your Microsoft Entra ID tenant ID** if you registered your app with the **Accounts in this organizational directory only** option.
-    - The word `organizations` if you registered your app with the **Accounts in any organizational directory** option.
-    - The word `common` if you registered your app with the **Accounts in any organizational directory and personal Microsoft accounts** option.
-    - The word `consumers` if you registered your app with the **Personal Microsoft accounts** option
+
+   - **Your Microsoft Entra ID tenant ID** if you registered your app with the **Accounts in this organizational directory only** option.
+   - The word `organizations` if you registered your app with the **Accounts in any organizational directory** option.
+   - The word `common` if you registered your app with the **Accounts in any organizational directory and personal Microsoft accounts** option.
+   - The word `consumers` if you registered your app with the **Personal Microsoft accounts** option
+
 1. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID (clientId) of the `java-servlet-webapp-call-graph` application copied from the Azure portal.
 1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the key you saved during the creation of the `java-servlet-webapp-call-graph` app, in the Azure portal.
 

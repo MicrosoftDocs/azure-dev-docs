@@ -13,7 +13,9 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article demonstrates a Java JBoss EAP web app that signs in users to your Microsoft Entra ID tenant using the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 
-:::image type="content" source="./media/topology-sign-in.png" alt-text="Overview":::
+The following diagram shows the topology of the app:
+
+:::image type="content" source="media/topology-sign-in.png" alt-text="Diagram that shows the topology of the app.":::
 
 [!INCLUDE [scenario-sign-in-entra.md](includes/scenario-sign-in-entra.md)]
 

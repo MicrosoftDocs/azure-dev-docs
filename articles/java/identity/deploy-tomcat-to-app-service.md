@@ -12,13 +12,16 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article shows you how to deploy a Tomcat web app with sign-in by Microsoft Entra account to Azure App Service.
 
-This guidance assumes you have through any of the Tomcat Web app examples for enabling security with Microsoft Entra ID.
-
 ## Prerequisites
 
+- Completion of one of the following Tomcat articles for enabling security with Microsoft Entra ID:
+  - [Enable sign-in for Java Tomcat apps using Microsoft Entra ID](enable-java-tomcat-webapp-authentication-entra-id.md)
+  - [Enable sign-in for Java Tomcat apps using MSAL4J with Azure Active Directory B2C](enable-java-tomcat-webapp-authentication-azure-ad-b2c.md)
+  - [Enable Java Tomcat apps to sign in users and access Microsoft Graph](enable-java-tomcat-webapp-authorization-entra-id.md)
+  - [Secure Java Tomcat apps using roles and role claims](enable-java-tomcat-webapp-authorization-role-entra-id.md)
+  - [Secure Java Tomcat apps using groups and group claims](enable-java-tomcat-webapp-authorization-group-entra-id.md)
 [!INCLUDE [deploy-app-service-intro.md](includes/deploy-app-service-intro.md)]
-
-You also need the [Azure CLI](/cli/azure/install-azure-cli) tool.
+- [Azure CLI](/cli/azure/install-azure-cli)
 
 ## Configure the Maven plugin
 

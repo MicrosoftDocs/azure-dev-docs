@@ -12,10 +12,14 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article shows you how to deploy a Java WebLogic web app with sign-in by Microsoft Entra account to WebLogic on Azure Virtual Machines.
 
-This guidance assumes you have through any of the Java WebLogic web app examples for enabling security with Microsoft Entra ID.
-
 ## Prerequisites
 
+- Completion of one of the following WebLogic articles for enabling security with Microsoft Entra ID:
+  - [Enable sign-in for Java WebLogic apps using Microsoft Entra ID](enable-java-weblogic-webapp-authentication-entra-id.md)
+  - [Enable sign-in for Java WebLogic apps using MSAL4J with Azure Active Directory B2C](enable-java-weblogic-webapp-authentication-azure-ad-b2c.md)
+  - [Enable Java WebLogic apps to sign in users and access Microsoft Graph](enable-java-weblogic-webapp-authorization-entra-id.md)
+  - [Secure Java WebLogic apps using roles and role claims](enable-java-weblogic-webapp-authorization-role-entra-id.md)
+  - [Secure Java WebLogic apps using groups and group claims](enable-java-weblogic-webapp-authorization-group-entra-id.md)
 - A deployed [Oracle WebLogic Server](https://www.oracle.com/java/weblogic/). For more information, see [Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine).
 
 ## Prepare the web app for deployment

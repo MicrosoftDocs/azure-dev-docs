@@ -62,16 +62,16 @@ The relevant portion of the *pom.xml* file should look similar to the following 
 
 You can modify the configurations for App Service directly in your *pom.xml*. Some common configurations are listed in the following table:
 
-Property | Required | Description | Version
----|---|---|---
-`<schemaVersion>` | false | Specify the version of the configuration schema. Supported values are: `v1`, `v2`. | 1.5.2
-`<subscriptionId>` | false | Specify the subscription ID. | 0.1.0+
-`<resourceGroup>` | true | Azure Resource Group for your Web App. | 0.1.0+
-`<appName>` | true | The name of your Web App. | 0.1.0+
-`<region>` | false | Specifies the region to host your Web App; the default value is **centralus**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section. | 0.1.0+
-`<pricingTier>` | false | The pricing tier for your Web App. The default value is **P1v2** for production workload, while **B2** is the recommended minimum for Java dev/test. For more information, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
-`<runtime>` | false | The runtime environment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
-`<deployment>` | false | The deployment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
+| Property           | Required | Description                                                                                                                                                                                                                                                          | Version |
+|--------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `<schemaVersion>`  | false    | Specify the version of the configuration schema. Supported values are: `v1`, `v2`.                                                                                                                                                                                   | 1.5.2   |
+| `<subscriptionId>` | false    | Specify the subscription ID.                                                                                                                                                                                                                                         | 0.1.0+  |
+| `<resourceGroup>`  | true     | Azure Resource Group for your Web App.                                                                                                                                                                                                                               | 0.1.0+  |
+| `<appName>`        | true     | The name of your Web App.                                                                                                                                                                                                                                            | 0.1.0+  |
+| `<region>`         | false    | Specifies the region to host your Web App; the default value is **centralus**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section.                                                   | 0.1.0+  |
+| `<pricingTier>`    | false    | The pricing tier for your Web App. The default value is **P1v2** for production workload, while **B2** is the recommended minimum for Java dev/test. For more information, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) | 0.1.0+  |
+| `<runtime>`        | false    | The runtime environment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details).                                                                                | 0.1.0+  |
+| `<deployment>`     | false    | The deployment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details).                                                                                         | 0.1.0+  |
 
 For the complete list of configurations, see the plugin reference documentation. All the Azure Maven Plugins share a common set of configurations. For these configurations see [Common Configurations](https://github.com/microsoft/azure-maven-plugins/wiki/Common-Configuration). For configurations specific to App Service, see [Azure Web App: Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details).
 

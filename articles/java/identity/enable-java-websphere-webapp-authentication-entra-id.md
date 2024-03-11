@@ -13,11 +13,14 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This sample demonstrates a Java WebSphere web app that signs in users to your Microsoft Entra ID tenant using the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 
-:::image type="content" source="./media/topology-sign-in.png" alt-text="Overview":::
+The following diagram shows the topology of the app:
+
+:::image type="content" source="media/topology-sign-in.png" alt-text="Diagram that shows the topology of the app.":::
 
 [!INCLUDE [scenario-sign-in-entra.md](includes/scenario-sign-in-entra.md)]
 
 [!INCLUDE [prerequisites-sign-in-entra.md](includes/prerequisites-sign-in-entra.md)]
+
 [!INCLUDE [prerequisites-websphere.md](includes/prerequisites-websphere.md)]
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]

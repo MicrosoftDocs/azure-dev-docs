@@ -31,9 +31,9 @@ Before you can deploy to JBoss, you need to make some configuration changes in t
 
 1. In the sample, there's likely an *application.properties* or *authentication.properties* file where you configured the client ID, tenant, redirect URL, and so on.
 
-1. In the above mentioned steps, change references to `localhost:8080` or `localhost:8443` to the URL/port JBoss runs on, which by default should be `localhost:9990`.
+1. In the above mentioned steps, change references to `localhost:8080` or `localhost:8443` to the URL and port that JBoss runs on, which by default should be `localhost:9990`.
 
-1. You also need to make the same change in the Azure app registration, where you set it as the **Redirect URI** in the **Authentication** tab.
+1. You also need to make the same change in the Azure app registration, where you set it as the **Redirect URI** value on the **Authentication** tab.
 
 To deploy the sample to JBoss EAP via the web console:
 
@@ -43,7 +43,7 @@ To deploy the sample to JBoss EAP via the web console:
 
 1. Go to **Deployments**, select **Add**, and then upload the *.war* you built.
 
-1. Most of the default settings should be fine except that you should name the application to match the 'Redirect URI' you set in sample configuration/Azure app registration. That is, if the redirect URI is `http://localhost:9990/msal4j-servlet-auth/`, then you should name the application `msal4j-servlet-auth`.
+1. Most of the default settings should be fine except that you should name the application to match the redirect URI you set in the sample configuration or Azure app registration. That is, if the redirect URI is `http://localhost:9990/msal4j-servlet-auth/`, then you should name the application `msal4j-servlet-auth`.
 
 1. Select the *.war* file you uploaded, select **En/Disable** and **Confirm** to start the application.
 

@@ -17,6 +17,7 @@ This article demonstrates a Java Servlet web application that authenticates user
 [!INCLUDE [scenario-sign-in-azure-ad-b2c.md](includes/scenario-sign-in-azure-ad-b2c.md)]
 
 [!INCLUDE [prerequisites-sign-in-azure-ad-b2c.md](includes/prerequisites-sign-in-azure-ad-b2c.md)]
+
 [!INCLUDE [prerequisites-websphere.md](includes/prerequisites-websphere.md)]
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]

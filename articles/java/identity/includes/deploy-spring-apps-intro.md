@@ -3,14 +3,11 @@ ms.author: givermei
 ms.date: 03/11/2024
 ---
 
-You use the [Maven Plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) to deploy a Java Spring Boot application to an app on [Azure Spring Apps](/azure/spring-apps/). Azure Spring Apps is a managed service for hosting Spring apps.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](/azure/spring-apps/enterprise/how-to-enterprise-marketplace-offer#requirements) section of [Enterprise plan in Azure Marketplace](/azure/spring-apps/enterprise/how-to-enterprise-marketplace-offer).
+- [Maven Plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps)
 
-If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
+  If Maven isn't your preferred development tool, see the following similar tutorials that use other tools:
 
-- [IntelliJ IDEA](/azure/spring-apps/enterprise/how-to-intellij-deploy-apps)
-- [Visual Studio Code](https://code.visualstudio.com/docs/java/java-spring-apps)
-
-For deployment, you need:
-
-- An Azure subscription.
-- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the Requirements section of Enterprise plan in Azure Marketplace.
+  - [IntelliJ IDEA](/azure/spring-apps/enterprise/how-to-intellij-deploy-apps)
+  - [Visual Studio Code](https://code.visualstudio.com/docs/java/java-spring-apps)

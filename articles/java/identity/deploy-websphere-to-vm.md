@@ -12,10 +12,14 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article shows you how to deploy a Java WebSphere web app with sign-in by Microsoft Entra account to Traditional WebSphere on Azure Virtual Machines.
 
-This guidance assumes you have through any of the Java WebSphere web app examples for enabling security with Microsoft Entra ID.
-
 ## Prerequisites
 
+- Completion of one of the following WebSphere articles for enabling security with Microsoft Entra ID:
+  - [Enable sign-in for Java WebSphere apps using Microsoft Entra ID](enable-java-websphere-webapp-authentication-entra-id.md)
+  - [Enable sign-in for Java WebSphere apps using MSAL4J with Azure Active Directory B2C](enable-java-websphere-webapp-authentication-azure-ad-b2c.md)
+  - [Enable Java WebSphere apps to sign in users and access Microsoft Graph](enable-java-websphere-webapp-authorization-entra-id.md)
+  - [Secure Java WebSphere apps using app roles and role claims](enable-java-websphere-webapp-authorization-role-entra-id.md)
+  - [Secure Java WebSphere apps using groups and group claims](enable-java-websphere-webapp-authorization-group-entra-id.md)
 - A deployed [IBM WebSphere Application Server Cluster](https://aka.ms/websphere-on-azure-portal). For more information, see [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](../ee/traditional-websphere-application-server-virtual-machines.md).
 
 ## Prepare the web app for deployment

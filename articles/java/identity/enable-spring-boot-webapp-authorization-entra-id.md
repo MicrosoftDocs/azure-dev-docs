@@ -13,7 +13,9 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article demonstrates a Java Spring Boot web app that signs in users and obtains an access token for calling [Microsoft Graph](/graph/overview). It uses the [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) for authentication, authorization, and token acquisition. It uses [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain data from Graph.
 
-:::image type="content" source="./media/topology.png" alt-text="Overview":::
+The following diagram shows the topology of the app:
+
+:::image type="content" source="media/topology.png" alt-text="Diagram that shows the topology of the app.":::
 
 ## Scenario
 
@@ -159,9 +161,9 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 
 1. Open a terminal or the integrated VSCode terminal.
 1. In the same directory as this readme file, run `mvn clean compile spring-boot:run`.
-1. Open your browser and navigate to `http://localhost:8080`.
+1. Open your browser and navigate to `http://localhost:8080`. You should see a screen with the text `You're signed in! Click here to get your ID Token Details`.
 
-:::image type="content" source="./media/app.png" alt-text="Experience":::
+:::image type="content" source="media/app.png" alt-text="Screenshot of the sample app.":::
 
 ---
 

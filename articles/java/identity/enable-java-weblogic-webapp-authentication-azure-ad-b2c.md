@@ -17,6 +17,7 @@ This article demonstrates a Java Servlet web application that authenticates user
 [!INCLUDE [scenario-sign-in-azure-ad-b2c.md](includes/scenario-sign-in-azure-ad-b2c.md)]
 
 [!INCLUDE [prerequisites-sign-in-azure-ad-b2c.md](includes/prerequisites-sign-in-azure-ad-b2c.md)]
+
 [!INCLUDE [prerequisites-weblogic.md](includes/prerequisites-weblogic.md)]
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
@@ -25,15 +26,15 @@ This article demonstrates a Java Servlet web application that authenticates user
 
 ## Deploy the sample
 
-(These instructions assume you've installed WebLogic and set up some server domain.)
+These instructions assume that you installed WebLogic and set up some server domain.
 
 Before you can deploy to WebLogic, you need to make some configuration changes in the sample itself and build or rebuild the package:
 
 1. In the sample, there's likely an *application.properties* or *authentication.properties* file where you configured the client ID, tenant, redirect URL, and so on.
 
-1. In the above mentioned steps, change references to `localhost:8080` or `localhost:8443` to the URL/port WebLogic runs on, which by default should be `localhost:7001`.
+1. In the above mentioned steps, change references to `localhost:8080` or `localhost:8443` to the URL and port that WebLogic runs on, which by default should be `localhost:7001`.
 
-1. You also need to make the same change in the Azure app registration, where you set it as the **Redirect URI** in the **Authentication** tab.
+1. You also need to make the same change in the Azure app registration, where you set it as the **Redirect URI** value on the **Authentication** tab.
 
 To deploy the sample to WebLogic via the web console:
 
@@ -45,7 +46,8 @@ To deploy the sample to WebLogic via the web console:
 
 1. Select Install this deployment as an application, select **Next**, select **Finish**, and then select **Save**.
 
-    - Most of the default settings should be fine except that you should name the application to match the 'Redirect URI' you set in sample configuration/Azure app registration. That is, if the redirect URI is `http://localhost:7001/msal4j-servlet-auth`, then you should name the application `msal4j-servlet-auth`.
+1. Most of the default settings should be fine except that you should name the application to match the redirect URI you set in the sample configuration or Azure app registration. That is, if the redirect URI is `http://localhost:7001/msal4j-servlet-auth`, then you should name the application `msal4j-servlet-auth`.
+
 1. Go back to **Domain Structure** > **Deployments**, and start your application.
 
 1. After the application starts, navigate to `http://localhost:7001/<application-name>/`, and you should be able to access the application.

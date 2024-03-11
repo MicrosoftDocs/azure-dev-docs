@@ -13,7 +13,9 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article demonstrates a Java Spring Boot web app that uses the [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) for authentication, authorization, and token acquisition with the [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) protocol to sign in users, and restricts access to pages based on Azure Active Directory security group membership.
 
-:::image type="content" source="./media/topology-spring.png" alt-text="Overview":::
+The following diagram shows the topology of the app:
+
+:::image type="content" source="media/topology-spring.png" alt-text="Diagram that shows the topology of the app.":::
 
 An Identity Developer session covered Microsoft Entra ID App roles and security groups, featuring this scenario and how to handle the overage claim. [Watch the video Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0).
 
@@ -98,9 +100,11 @@ There's one project in this sample. To register it, you can:
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Microsoft Entra ID**.
 1. Select the **App Registrations** pane on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
+
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-spring-webapp-groups`.
    - Under **Supported account types**, select **Accounts in this organizational directory only**.
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
+
 1. Select **Register** to create the application.
 1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
 1. In the app's registration screen, select the **Certificates & secrets** pane in the left to open the page where you can generate secrets and upload certificates.
@@ -122,17 +126,20 @@ There's one project in this sample. To register it, you can:
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Microsoft Entra ID**.
 1. Select **Groups** pane on the left.
 1. In the **Groups** pane, select **New Group**.
-    - For **Group Type**, select **Security**
-    - For **Group Name**, enter **AdminGroup**
-    - For **Group Description**, enter **Admin Security Group**
-    - Add **Group Owners** and **Group Members** that you want to use and test in this sample.
-    - Select **Create**.
+
+   - For **Group Type**, select **Security**
+   - For **Group Name**, enter **AdminGroup**
+   - For **Group Description**, enter **Admin Security Group**
+   - Add **Group Owners** and **Group Members** that you want to use and test in this sample.
+   - Select **Create**.
+
 1. In the **Groups** pane, select **New Group**.
-    - For **Group Type**, select **Security**
-    - For **Group Name**, enter **UserGroup**
-    - For **Group Description**, enter **User Security Group**
-    - Add **Group Owners** and **Group Members** that you want to use and test in this sample.
-    - Select **Create**.
+
+   - For **Group Type**, select **Security**
+   - For **Group Name**, enter **UserGroup**
+   - For **Group Description**, enter **User Security Group**
+   - Add **Group Owners** and **Group Members** that you want to use and test in this sample.
+   - Select **Create**.
 
 For more information, visit: [Create a basic group and add members using Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)
 
@@ -170,12 +177,14 @@ You have two different options available to you on how you can further configure
 1. If you're exposing a Web API using the **Expose an API** option, then you can also choose the **Group ID** option under the **Access** section. This selection causes Microsoft Entra ID to send the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [access token](/entra/identity-platform/access-tokens) issued to the client applications of your API.
 1. In the app's registration screen, select on the **Overview** pane in the left to open the Application overview screen. Select the hyperlink with the name of your application in **Managed application in local directory**. This field title might be truncated - for example, **Managed application in ...**. When you select this link, you navigate to the **Enterprise Application Overview** page associated with the service principal for your application in the tenant where you created it. You can navigate back to the app registration page by using the back button of your browser.
 1. Select the **Users and groups** pane in the left to open the page where you can assign users and groups to your application.
-    1. Select the **Add user** button on the top row.
-    1. Select **User and Groups** from the resultant screen.
-    1. Choose the groups that you want to assign to this application.
-    1. Select **Select** to finish selecting the groups.
-    1. Select **Assign** to finish the group assignment process.
-    1. Your application now receives these selected groups in the groups claim when a user signing in to your app is a member of  one or more these **assigned** groups.
+
+   1. Select the **Add user** button on the top row.
+   1. Select **User and Groups** from the resultant screen.
+   1. Choose the groups that you want to assign to this application.
+   1. Select **Select** to finish selecting the groups.
+   1. Select **Assign** to finish the group assignment process.
+   1. Your application now receives these selected groups in the groups claim when a user signing in to your app is a member of  one or more these **assigned** groups.
+
 1. Select the **Properties** pane in the left to open the page that lists the basic properties of your application.Set the **User assignment required?** flag to **Yes**.
 
 > [!IMPORTANT]
@@ -241,9 +250,9 @@ Open the *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwe
 
 1. Open a terminal or the integrated VSCode terminal.
 1. In the same directory as this readme file, run `mvn clean compile spring-boot:run`.
-1. Open your browser and navigate to `http://localhost:8080`.
+1. Open your browser and navigate to `http://localhost:8080`. You should see a screen with the text `You're signed in! Click here to get your ID Token Details`.
 
-:::image type="content" source="./media/app.png" alt-text="Experience":::
+:::image type="content" source="media/app.png" alt-text="Screenshot of the sample app.":::
 
 ---
 
@@ -426,8 +435,7 @@ When attending to overage scenarios, which requires a call to [Microsoft Graph](
 In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview)**.
 1. In the resulting screen, select the `java-spring-webapp-groups` application.
 1. In the app's registration screen, select **Authentication** in the menu.
-   - In the **Redirect URIs** section, update the reply URLs to match the site URL of your Azure deployment. For example:
-      - `https://java-spring-webapp-groups.azurewebsites.net/login/oauth2/code/`
+1. In the **Redirect URIs** section, update the reply URLs to match the site URL of your Azure deployment - for example, `https://java-spring-webapp-groups.azurewebsites.net/login/oauth2/code/`.
 
 > [!IMPORTANT]
 > If your app is using an *in-memory* storage, Azure App Services spins down your web site if it is inactive, and any records that your app was keeping are emptied. In addition, if you increase the instance count of your website, requests are distributed among the instances. Your apps records, therefore, aren't the same on each instance.

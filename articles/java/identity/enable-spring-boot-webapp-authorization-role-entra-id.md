@@ -15,11 +15,13 @@ This article demonstrates a Java Spring Boot web app that uses the [Microsoft En
 
 App roles, along with Security groups are popular means to implement authorization. Using Role-based Access Control (RBAC) with application roles and role claims, developers can securely enforce authorization policies with minimal effort on their part. Another approach is to use Microsoft Entra ID groups and group claims. Microsoft Entra ID Groups and Application Roles are by no means mutually exclusive. You can use them in tandem to provide even finer grained access control.
 
-A Microsoft identity platform Office Hours session covered Microsoft Entra ID App roles and security groups, featuring a similar scenario. A recording of the session is provided in this video [Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0)
+A Microsoft identity platform Office Hours session covered Microsoft Entra ID App roles and security groups, featuring a similar scenario. A recording of the session is provided in this video [Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0).
 
 For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](https://go.microsoft.com/fwlink/?LinkId=394414).
 
-:::image type="content" source="./media/topology-spring.png" alt-text="Overview":::
+The following diagram shows the topology of the app:
+
+:::image type="content" source="media/topology-spring.png" alt-text="Diagram that shows the topology of the app.":::
 
 ## Scenario
 
@@ -120,15 +122,19 @@ As a first step, you need to:
 
 1. Still on the same app registration, select the **App roles** pane to the left.
 1. Select **Create app role**:
-    - For **Display name**, enter a suitable name, for instance **PrivilegedAdmin**.
-    - For **Allowed member types**, choose **User**.
-    - For **Value**, enter **PrivilegedAdmin**.
-    - For **Description**, enter **PrivilegedAdmins who can view the Admin Page**.
+
+   - For **Display name**, enter a suitable name, for instance **PrivilegedAdmin**.
+   - For **Allowed member types**, choose **User**.
+   - For **Value**, enter **PrivilegedAdmin**.
+   - For **Description**, enter **PrivilegedAdmins who can view the Admin Page**.
+
 1. Select **Create app role**:
-    - For **Display name**, enter a suitable name, for instance **RegularUser**.
-    - For **Allowed member types**, choose **User**.
-    - For **Value**, enter **RegularUser**.
-    - For **Description**, enter **RegularUsers who can view the User Page**.
+
+   - For **Display name**, enter a suitable name, for instance **RegularUser**.
+   - For **Allowed member types**, choose **User**.
+   - For **Value**, enter **RegularUser**.
+   - For **Description**, enter **RegularUsers who can view the User Page**.
+
 1. Select **Apply** to save your changes.
 
 #### Assign users to app roles
@@ -189,9 +195,9 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 
 1. Open a terminal or the integrated VSCode terminal.
 1. In the same directory as this readme file, run `mvn clean compile spring-boot:run`.
-1. Open your browser and navigate to `http://localhost:8080`.
+1. Open your browser and navigate to `http://localhost:8080`. You should see a screen with the text `You're signed in! Click here to get your ID Token Details`.
 
-:::image type="content" source="./media/app.png" alt-text="Experience":::
+:::image type="content" source="media/app.png" alt-text="Screenshot of the sample app.":::
 
 ---
 

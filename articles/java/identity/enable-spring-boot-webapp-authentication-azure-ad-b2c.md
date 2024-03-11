@@ -17,9 +17,11 @@ This article demonstrates a Java Spring Boot web app that signs in users on your
 
 1. The client Java Spring web app uses the Azure AD B2C Spring Boot Starter client library for Java to sign in a user and obtain an ID token from Azure AD B2C.
 
-1. The **ID token proves that the user has successfully authenticated with Azure AD B2C and allows the user to access protected routes.
+1. The ID token proves that the user has successfully authenticated with Azure AD B2C and allows the user to access protected routes.
 
-:::image type="content" source="./media/topology-spring.png" alt-text="Overview":::
+The following diagram shows the topology of the app:
+
+:::image type="content" source="media/topology-spring.png" alt-text="Diagram that shows the topology of the app.":::
 
 ## Prerequisites
 
@@ -73,9 +75,11 @@ See [Tutorial: Add identity providers to your applications in Azure Active Direc
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Azure AD B2C**.
 1. Select the **App Registrations** pane on the left, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
+
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-spring-webapp-auth-b2c`.
    - Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
+
 1. Select **Register** to create the application.
 1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
 1. Select **Save** to save your changes.
@@ -144,9 +148,9 @@ Open the *src/main/resources/templates/navbar.html* file.
 
 1. Open a terminal or the integrated VSCode terminal.
 1. In the same directory as this readme file, run `mvn clean compile spring-boot:run`.
-1. Open your browser and navigate to `http://localhost:8080`.
+1. Open your browser and navigate to `http://localhost:8080`. You should see a screen with the text `You're signed in! Click here to get your ID Token Details`.
 
-:::image type="content" source="./media/app.png" alt-text="Experience":::
+:::image type="content" source="media/app.png" alt-text="Screenshot of the sample app.":::
 
 ---
 
@@ -156,7 +160,7 @@ Open the *src/main/resources/templates/navbar.html* file.
 - Select the context-sensitive button at the top right (it reads **Sign In** on first run).
   - Alternatively, select the link to **token details**. Because this is a protected page that requires authentication, you're automatically redirected to the sign-in page.
 - Follow the instructions on the next page to sign in with an account of your chosen identity provider. You may also choose to sign up or sign in to a local account on the B2C tenant using an email address.
-- Upon successful completion of the sign-in flow, you should be redirected to the home page (`sign in status`) or `token details` page, depending on which button triggered your sign-in flow.
+- Upon successful completion of the sign-in flow, you should be redirected to the home page (**sign in status**) or **token details** page, depending on which button triggered your sign-in flow.
 - Note the context-sensitive button now says **Sign out** and displays your username to its left.
 - If you're on the home page, select **ID Token Details** to see some of the ID token's decoded claims.
 - You also have the option to edit your profile. Select **edit profile** to change details like your display name, place of residence, and profession.

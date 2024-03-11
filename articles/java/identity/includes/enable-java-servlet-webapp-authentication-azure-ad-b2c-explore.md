@@ -39,9 +39,9 @@ A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* f
 ```java
 IClientSecret secret = ClientCredentialFactory.createFromSecret(SECRET);
 confClientInstance = ConfidentialClientApplication
-                    .builder(CLIENT_ID, secret)
-                    .b2cAuthority(AUTHORITY + policy)
-                    .build();
+                     .builder(CLIENT_ID, secret)
+                     .b2cAuthority(AUTHORITY + policy)
+                     .build();
 ```
 
 The following parameters need to be provided upon instantiation:

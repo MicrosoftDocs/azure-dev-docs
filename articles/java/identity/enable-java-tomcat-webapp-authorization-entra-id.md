@@ -13,11 +13,14 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article demonstrates a Java Tomcat web app that signs in users and obtains an access token for calling [Microsoft Graph](/graph/overview). It uses the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 
-:::image type="content" source="./media/topology.png" alt-text="Overview":::
+The following diagram shows the topology of the app:
+
+:::image type="content" source="media/topology.png" alt-text="Diagram that shows the topology of the app.":::
 
 [!INCLUDE [scenario-authorization-graph.md](includes/scenario-authorization-graph.md)]
 
 [!INCLUDE [prerequisites-authorization-graph.md](includes/prerequisites-authorization-graph.md)]
+
 [!INCLUDE [prerequisites-tomcat.md](includes/prerequisites-tomcat.md)]
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]

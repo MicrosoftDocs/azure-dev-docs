@@ -83,16 +83,16 @@ The relevant portion of the *pom.xml* file should look similar to the following 
 
 You can modify the configurations for Azure Spring Apps directly in your *pom.xml*. Some common configurations are listed in the following table:
 
-Property | Required | Description
----|---|---
-`<subscriptionId>` | false | Specify the subscription ID.
-`<resourceGroup>` | true | Azure Resource Group for your Azure Spring Apps instance.
-`<clusterName>` | true | Specifies the Azure Spring Apps cluster name. In case you're using a subscription and resource group that already have an Azure Spring Apps instance deployed, you can also use this existing cluster to deploy to.
-`<appName>` | true | The name of your app in Azure Spring Apps.
-`<region>` | false | Specifies the region to host your Azure Spring Apps; the default value is **eastus**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section.
-`<sku>` | false | The pricing tier for your Azure Spring Apps instance. The default value is **Basic**, which is only suited for dev/test environments.
-`<runtime>` | false | The runtime environment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps:-Configuration-Details).
-`<deployment>` | false | The deployment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps:-Configuration-Details).
+| Property           | Required | Description                                                                                                                                                                                                               |
+|--------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `<subscriptionId>` | false    | Specify the subscription ID.                                                                                                                                                                                              |
+| `<resourceGroup>`  | true     | Azure Resource Group for your Azure Spring Apps instance.                                                                                                                                                                 |
+| `<clusterName>`    | true     | Specifies the Azure Spring Apps cluster name. In case you're using a subscription and resource group that already have an Azure Spring Apps instance deployed, you can also use this existing cluster to deploy to.       |
+| `<appName>`        | true     | The name of your app in Azure Spring Apps.                                                                                                                                                                                |
+| `<region>`         | false    | Specifies the region to host your Azure Spring Apps; the default value is **eastus**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section. |
+| `<sku>`            | false    | The pricing tier for your Azure Spring Apps instance. The default value is **Basic**, which is only suited for dev/test environments.                                                                                     |
+| `<runtime>`        | false    | The runtime environment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps:-Configuration-Details).                                 |
+| `<deployment>`     | false    | The deployment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps:-Configuration-Details).                                          |
 
 For the complete list of configurations, see the plugin reference documentation. All the Azure Maven Plugins share a common set of configurations. For these configurations see [Common Configurations](https://github.com/microsoft/azure-maven-plugins/wiki/Common-Configuration). For configurations specific to Azure Spring Apps, see [Azure Spring Apps: Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps:-Configuration-Details).
 

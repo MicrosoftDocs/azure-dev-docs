@@ -13,7 +13,9 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article demonstrates a Java Spring Boot web app that signs in users on your Microsoft Entra ID tenant using the [Microsoft Entra ID Spring Boot Starter client library for Java](https://mvnrepository.com/artifact/com.azure.spring/spring-cloud-azure-starter-active-directory). It uses the OpenID Connect protocol.
 
-:::image type="content" source="./media/topology-spring.png" alt-text="Overview":::
+The following diagram shows the topology of the app:
+
+:::image type="content" source="media/topology-spring.png" alt-text="Diagram that shows the topology of the app.":::
 
 ## Scenario
 
@@ -151,9 +153,9 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 
 1. Open a terminal or the integrated VSCode terminal.
 1. In the same directory as this readme file, run `mvn clean compile spring-boot:run`.
-1. Open your browser and navigate to `http://localhost:8080`.
+1. Open your browser and navigate to `http://localhost:8080`. You should see a screen with the text `You're signed in! Click here to get your ID Token Details`.
 
-:::image type="content" source="./media/app.png" alt-text="Experience":::
+:::image type="content" source="media/app.png" alt-text="Screenshot of the sample app.":::
 
 ---
 

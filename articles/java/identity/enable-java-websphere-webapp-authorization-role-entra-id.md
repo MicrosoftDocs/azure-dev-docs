@@ -15,15 +15,16 @@ This article shows how a Java WebSphere web app that uses [OpenID Connect](/entr
 
 This application implements RBAC using Microsoft Entra ID's application roles and role claims feature. Another approach is to use Microsoft Entra ID groups and group claims. Microsoft Entra ID Groups and Application Roles are by no means mutually exclusive. You can use them in tandem to provide even finer grained access control.
 
-Using RBAC with application roles and role claims, developers can securely enforce authorization policies with minimal effort on their part.
+You can use RBAC with application roles and role claims to securely enforce authorization policies.
 
-A Microsoft identity platform Office Hours session covered Microsoft Entra ID App roles and security groups, featuring this scenario and this sample. A recording of the session is provided in this video [Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0)
+A Microsoft identity platform Office Hours session covered Microsoft Entra ID App roles and security groups, featuring this scenario and this sample. A recording of the session is provided in this video [Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0).
 
 For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](https://go.microsoft.com/fwlink/?LinkId=394414).
 
 [!INCLUDE [scenario-authorization-roles.md](includes/scenario-authorization-roles.md)]
 
 [!INCLUDE [prerequisites-authorization-roles.md](includes/prerequisites-authorization-roles.md)]
+
 [!INCLUDE [prerequisites-websphere.md](includes/prerequisites-websphere.md)]
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]

@@ -13,13 +13,16 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article demonstrates how to create a Java WebLogic web app that signs in users with [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java) and restricts access to pages based on Microsoft Entra ID security group membership.
 
-:::image type="content" source="./media/topology.png" alt-text="Overview":::
+The following diagram shows the topology of the app:
+
+:::image type="content" source="media/topology.png" alt-text="Diagram that shows the topology of the app.":::
 
 An Identity Developer session covered Microsoft Entra ID App roles and security groups, featuring this scenario and how to handle the overage claim. [Watch the video Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0).
 
 [!INCLUDE [scenario-authorization-groups.md](includes/scenario-authorization-groups.md)]
 
 [!INCLUDE [prerequisites-authorization-groups.md](includes/prerequisites-authorization-groups.md)]
+
 [!INCLUDE [prerequisites-weblogic.md](includes/prerequisites-weblogic.md)]
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
@@ -28,15 +31,15 @@ An Identity Developer session covered Microsoft Entra ID App roles and security 
 
 #### Deploy the sample
 
-(These instructions assume you've installed WebLogic and set up some server domain.)
+These instructions assume that you installed WebLogic and set up some server domain.
 
 Before you can deploy to WebLogic, you need to make some configuration changes in the sample itself and build or rebuild the package:
 
 1. In the sample, there's likely an *application.properties* or *authentication.properties* file where you configured the client ID, tenant, redirect URL, and so on.
 
-1. In the above mentioned steps, change references to `localhost:8080` or `localhost:8443` to the URL/port WebLogic runs on, which by default should be `localhost:7001`.
+1. In the above mentioned steps, change references to `localhost:8080` or `localhost:8443` to the URL and port that WebLogic runs on, which by default should be `localhost:7001`.
 
-1. You also need to make the same change in the Azure app registration, where you set it as the **Redirect URI** in the **Authentication** tab.
+1. You also need to make the same change in the Azure app registration, where you set it as the **Redirect URI** value on the **Authentication** tab.
 
 To deploy the sample to WebLogic via the web console:
 
@@ -48,7 +51,7 @@ To deploy the sample to WebLogic via the web console:
 
 1. Select Install this deployment as an application, select **Next**, select **Finish**, and then select **Save**.
 
-   Most of the default settings should be fine except that you should name the application to match the 'Redirect URI' you set in sample configuration/Azure app registration. That is, if the redirect URI is `http://localhost:7001/msal4j-servlet-auth`, then you should name the application `msal4j-servlet-auth`.
+1. Most of the default settings should be fine except that you should name the application to match the redirect URI you set in the sample configuration or Azure app registration. That is, if the redirect URI is `http://localhost:7001/msal4j-servlet-auth`, then you should name the application `msal4j-servlet-auth`.
 
 1. Go back to **Domain Structure** > **Deployments**, and start your application.
 
