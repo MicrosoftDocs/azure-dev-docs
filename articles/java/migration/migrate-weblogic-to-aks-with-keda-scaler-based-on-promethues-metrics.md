@@ -25,6 +25,17 @@ In this tutorial, you learn how to:
 
 ## Overview
 
+The following diagram illustrates the architecture you build:
+
+<!-- Diagram source -->
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-aks-autoscaling-architecture.png" alt-text="Diagram of the solution architecture of WLS on AKS with KEDA scaler based on Prometheus Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-aks-autoscaling-architecture.png" border="false":::
+
+
+In this articles, metrics that will be exported by [WebLoigc Monitoring Exporter](https://github.com/oracle/weblogic-monitoring-exporter), which is a Prometheus-compatible exporter. Available metrices are listed in the following picture. If you want to customize the exporter, see [WebLoigc Monitoring Exporter Configuration](https://github.com/oracle/weblogic-monitoring-exporter?tab=readme-ov-file#configuration).
+
+<!-- Diagram source -->
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-metrics.png" alt-text="WebLogic Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-metrics.png" border="false":::
+
 ## Prerequisites
 
 ## Prepare sample application
@@ -55,6 +66,8 @@ This step is already performed for you when you use the VM base image.
 
 Steps.
 
+---
+
 ## Enable KEDA
 
 ### [Enable KEDA using Marketplace Offer](#tab/offer)
@@ -64,6 +77,8 @@ This step is already performed for you when you use the VM base image.
 ### [Enable KEDA Manually](#tab/manual)
 
 Steps.
+
+---
 
 ## Create KEDA scaler
 
