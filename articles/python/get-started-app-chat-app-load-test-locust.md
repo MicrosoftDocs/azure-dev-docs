@@ -112,5 +112,3 @@ To understand that the load balancer is switching between the three Azure OpenAI
 * [View Azure Container Apps logs](get-started-app-chat-scaling-with-azure-container-apps.md#stream-logs-to-see-the-load-balancer-results) 
 
 [!INCLUDE [py-aca-cleanup](../intro/includes/scaling-load-balancer-cleanup-azure-container-apps.md)]
-
-[!INCLUDE [locust-clean-up-resources](../intro/includes/load-test-locust-clean-up.md)]
