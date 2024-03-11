@@ -7,7 +7,7 @@ author: diberry
 ms.service: azure
 ---
 
-## Open Container apps local balancer sample app
+## Open Azure API Management local balancer sample app
 
 #### [Codespaces (recommended)](#tab/github-codespaces)
 
@@ -28,7 +28,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ---
 
-## Deploy Azure Container Apps load balancer
+## Deploy Azure API Management load balancer
 
 
 1. To deploy the load balancer to Azure, sign in to Azure Developer CLI (AZD).
