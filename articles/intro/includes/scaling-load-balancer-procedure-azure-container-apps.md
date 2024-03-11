@@ -1,7 +1,7 @@
 ---
 ms.custom: overview, devx-track-python
 ms.topic: include
-ms.date: 01/31/2024
+ms.date: 03/08/2024
 ms.author: diberry
 author: diberry
 ms.service: azure
@@ -47,4 +47,5 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     You'll need to select a subscription and region for the deployment. These don't have to be the same subscription and region as the chat app. 
 
 1. Wait for the deployment to complete before continuing.
-1. Get the URL at the end of the deployment named Endpoint. This is the APIM_GATEWAY_URL used in the next section.
+
+1. Get the URL at the end of the deployment named **Endpoint**. This is the `CONTAINER_APP_URL` used in the next section.

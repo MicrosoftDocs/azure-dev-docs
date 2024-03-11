@@ -39,13 +39,13 @@ To use a Redis cache to store and retrieve data, configure the application by us
 
    ```properties
    # Specify the DNS URI of your Redis cache.
-   spring.redis.host=<your-redis-name>.redis.cache.windows.net
+   spring.data.redis.host=<your-redis-name>.redis.cache.windows.net
 
    # Specify the port for your Redis cache.
-   spring.redis.port=6379
+   spring.data.redis.port=6379
 
    # Specify the access key for your Redis cache.
-   spring.redis.password=<your-redis-access-key>
+   spring.data.redis.password=<your-redis-access-key>
    ```
 
    > [!NOTE]
@@ -53,13 +53,13 @@ To use a Redis cache to store and retrieve data, configure the application by us
    >
    > ```properties
    > # Specify the DNS URI of your Redis cache.
-   > spring.redis.host=<your-redis-name>.redis.cache.windows.net
+   > spring.data.redis.host=<your-redis-name>.redis.cache.windows.net
    > # Specify the access key for your Redis cache.
-   > spring.redis.password=<your-redis-access-key>
+   > spring.data.redis.password=<your-redis-access-key>
    > # Specify that you want to use SSL.
-   > spring.redis.ssl=true
+   > spring.data.redis.ssl.enabled=true
    > # Specify the SSL port for your Redis cache.
-   > spring.redis.port=6380
+   > spring.data.redis.port=6380
    > ```
    >
    > For more information, see [Quickstart: Use Azure Cache for Redis in Java](/azure/redis-cache/cache-java-get-started).

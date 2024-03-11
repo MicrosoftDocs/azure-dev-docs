@@ -1,7 +1,7 @@
 ---
 title: Getting starting with Azuze AI services for Python apps on Azure
 description: Index of getting started material in the Azure documentation for Azure AI services for Python apps.
-ms.date: 03/13/2023
+ms.date: 03/08/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
