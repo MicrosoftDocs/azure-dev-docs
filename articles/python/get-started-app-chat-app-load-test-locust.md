@@ -9,7 +9,15 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 # Load testing Python chat app using RAG with Locust
 
-When your [load balanced chat app](get-started-app-chat-scaling-with-azure-container-apps.md) is ready to test, use this procedure to apply load using Locust. The local locust load test demonstrates the load balancer working. 
+When your load balanced chat app is ready to test, use this procedure to apply load using Locust. The local locust load test demonstrates the load balancer working. 
+
+**Chat app** available in these languages:
+
+* [.NET](/dotnet/azure/ai/get-started-app-chat-template)
+* [Java](/azure/developer/java/quickstarts/get-started-app-chat-template)
+* [JavaScript](/azure/developer/javascript/get-started-app-chat-template)
+* [Python](/azure/developer/python/get-started-app-chat-template)
+
 Watch the demonstration video to understand more about load testing the chat app. 
 * [Video](https://www.youtube.com/watch?v=-oMqb6kBdDw)
 
@@ -21,8 +29,8 @@ Watch the demonstration video to understand more about load testing the chat app
     
 #### [Codespaces (recommended)](#tab/github-codespaces)
     
-* GitHub account
-    
+* You only need a [GitHub account](https://github.com/login)
+
 #### [Visual Studio Code](#tab/visual-studio-code)
 
 * [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
@@ -31,21 +39,53 @@ Watch the demonstration video to understand more about load testing the chat app
     
 ---
 
-* Deployed [load balancer](get-started-app-chat-scaling-with-azure-container-apps.md)
+* Deployed load balancer with high quota
+    * [Azure Container Apps solution](get-started-app-chat-scaling-with-azure-container-apps.md) with [OPENAI_CAPACITY set to 50](get-started-app-chat-scaling-with-azure-container-apps.md#configure-the-tokens-per-minute-quota-tpm)
 * Chat app deployed to use load balancer
+    * [.NET](/dotnet/azure/ai/get-started-app-chat-template)
+    * [Java](/azure/developer/java/quickstarts/get-started-app-chat-template)
+    * [JavaScript](/azure/developer/javascript/get-started-app-chat-template)
+    * [Python](/azure/developer/python/get-started-app-chat-template)
+
+## Open Load test sample app
+
+The load test is the Python chat app repository:
+* If you deployed the Python chat app, you need to return to that dev container to complete these steps.
+* If you deployed a different language chat app, you need to open the Python dev container for the Python repository. 
+
+#### [Codespaces (recommended)](#tab/github-codespaces)
+
+[GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)
+
+> [!IMPORTANT]
+> All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+
+#### [Visual Studio Code](#tab/visual-studio-code)
+
+The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
+
+[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Azure-Samples/azure-search-openai-demo)
+
+---
 
 ## Run the test
 
-1. Open the Python chat app sample's dev container with [Open in GitHub Codespaces](https://codespaces.new/Azure-Samples/azure-search-openai-demo) or [Visual Studio Code with your local computer](git-client://clone?repo=https%3A%2F%2Fgithub.com%2FAzure-Samples%2Fazure-search-openai-demo).
 1. Install the dependencies for the load test.
+
     ```bash
     python3 -m pip install -r requirements-dev.txt
     ```
+
 1. Instal the Locust load tester.
+
     ```bash
     python3 -m pip install locust
     ```
-1. Start Locust, which uses the [Locust test file](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/locustfile.py) found at the root of the repository.
+
+1. Start Locust, which uses the Locust test file: [locustfile.py](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/locustfile.py) found at the root of the repository.
+
     ```bash
     locust
     ```
@@ -68,3 +108,9 @@ Watch the demonstration video to understand more about load testing the chat app
 ## View load balancer logs
 
 To understand that the load balancer is switching between the three Azure OpenAI resources, use the Azure Container App logs. 
+
+* [View Azure Container Apps logs](get-started-app-chat-scaling-with-azure-container-apps.md#stream-logs-to-see-the-load-balancer-results) 
+
+[!INCLUDE [py-aca-cleanup](../intro/includes/scaling-load-balancer-cleanup-azure-container-apps.md)]
+
+[!INCLUDE [locust-clean-up-resources](../intro/includes/load-test-locust-clean-up.md)]
