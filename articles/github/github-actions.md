@@ -85,10 +85,3 @@ Visit the [Marketplace for GitHub Actions for Azure](https://github.com/marketpl
 * [Manage Azure Policy](https://github.com/Azure/manage-azure-policy)
 * [Trigger an Azure Pipelines run](https://github.com/Azure/pipelines)  
 
-## Next Steps
-
-> [!div class="nextstepaction"]
-> [Learning path, Automate your workflow with GitHub Actions](/training/modules/github-actions-automate-tasks/)
-
-> [!div class="nextstepaction"]
-> [Learning Lab, Continuous Delivery with Azure](https://github.com/skills/continuous-delivery-azure)
