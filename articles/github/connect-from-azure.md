@@ -283,7 +283,7 @@ In this example, you will create a secret named `AZURE_CREDENTIALS` that you can
     ```json
     {
         "clientId": "<GUID>",
-        "clientSecret": "<GUID>",
+        "clientSecret": "<secret>",
         "subscriptionId": "<GUID>",
         "tenantId": "<GUID>",
         (...)
