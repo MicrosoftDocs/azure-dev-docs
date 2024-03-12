@@ -311,6 +311,9 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Log in with Azure
         uses: azure/login@v1
         with:
@@ -322,19 +325,23 @@ jobs:
 In this example, you log in with the [Azure Login action](https://github.com/Azure/login) and then retrieve a resource group with the [Azure PowerShell action](https://github.com/azure/powershell).
 
 ```yaml
-on: [push]
-
 name: AzureLoginSample
+
+on: [push]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Log in with Azure
         uses: azure/login@v1
         with:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
           enable-AzPSSession: true
+
       - name: Azure PowerShell Action
         uses: Azure/powershell@v1
         with:
@@ -348,23 +355,25 @@ In this example, you log in with the [Azure Login action](https://github.com/Azu
 
 
 ```yaml
-on: [push]
-
 name: AzureLoginSample
 
-jobs:
-build-and-deploy:
-  runs-on: ubuntu-latest
-  steps:
+on: [push]
 
-    - name: Log in with Azure
-      uses: azure/login@v1
-      with:
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Log in with Azure
+        uses: azure/login@v1
+        with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Azure CLI script
-      uses: azure/CLI@v1
-      with:
+      - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
           azcliversion: 2.0.72
           inlineScript: |
             az account show

@@ -59,6 +59,7 @@ The [Azure starter action workflows repository](https://github.com/Azure/actions
 
 Visit the [Marketplace for GitHub Actions for Azure](https://github.com/marketplace?query=Azure&type=actions) to see all the available GitHub Actions for Azure.
 
+* [Azure Spring Cloud](https://github.com/Azure/azure-spring-cloud)
 * [Deploy Bicep file or Azure Resource Manager template](https://github.com/Azure/arm-deploy)
 * [Deploy to a static web app](/azure/static-web-apps/getting-started?tabs=angular)
 * [Azure App Service settings](https://github.com/Azure/appservice-settings)  
