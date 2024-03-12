@@ -134,29 +134,24 @@ First, open [Oracle WebLogic Server on AKS](https://aka.ms/wlsaks) offer in your
 
 The following steps show you how to fill out the Basics pane.
 
-:::image type="content" source="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/wlsaks-offer-portal-basis.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS Basics pane." lightbox="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/wlsaks-offer-portal-basis.png":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-portal-basis.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS Basics pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-portal-basis.png":::
 
 1. Ensure that the value shown for **Subscription** is the same one that has the roles listed in the prerequisites section.
 1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, *wlsaks-eastus-20240109*.
 1. Under **Instance details**, for **Region**, select **East US**.
 1. Under **Credentials WebLogic**, provide a password for **WebLogic Administrator** and **WebLogic Model encryption**, respectively. Write down the username and password for **WebLogic Administrator**.
-1. Under **Optional Basic Configuration**, For **Accept defaults for optional configuration?**, select **No**. The optional configuration shows.
-
-    :::image type="content" source="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/wlsaks-offer-portal-basis-optional-config.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS Basics pane Optional Basic Configuration." lightbox="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/wlsaks-offer-portal-basis-optional-config.png":::
-
-1. For **Name prefix for Managed Server**, fill in `msp`. You configure WLS TLOG table with prefix `TLOG_${serverName}_ ` later. This article creates TLOG table with name `TLOG_msp${index}_WLStore`. If you want a different managed server name prefix, make sure the value matches Microsoft SQL Server Table Naming Conventions and the real table names.
 1. Leave the defaults for the other fields.
 
 Select **Next** and go to **AKS** pane.
 
-:::image type="content" source="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/wlsaks-offer-portal-aks-image-selection.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS pane - Image Selection." lightbox="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/wlsaks-offer-portal-aks-image-selection.png":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-portal-aks-image-selection.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS pane - Image Selection." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-portal-aks-image-selection.png":::
 
 Under **Image selection**:
 
 1. For **Username for Oracle Single Sign-On authentication**, fill in your Oracle SSO username from the preconditions. 
 1. For **Password for Oracle Single Sign-On authentication**, fill in your Oracle SSO credentials from the preconditions.
 
-:::image type="content" source="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/wlsaks-offer-portal-aks-app-selection.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS pane - App Selection." lightbox="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/wlsaks-offer-portal-aks-app-selection.png":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-portal-aks-app-selection.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS pane - App Selection." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-portal-aks-app-selection.png":::
 
 Under **Application**:
 
@@ -170,7 +165,7 @@ Under **Application**:
 
 Leave the defaults in **TLS/SSL Configuration** pane, select **Next** to go to **Load Balancing** pane.
 
-:::image type="content" source="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/wlsaks-offer-portal-appgateway-ingress.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on AKS Load Balancing pane." lightbox="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/wlsaks-offer-portal-appgateway-ingress.png":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-portal-appgateway-ingress.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on AKS Load Balancing pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-portal-appgateway-ingress.png":::
 
 1. Next to **Create ingress for Administration Console. Make sure no application with path /console\*, it will cause conflict with Administration Console path**, select **Yes**.
 1. Leave the defaults for the other fields.
@@ -179,9 +174,9 @@ Leave the defaults in **TLS/SSL Configuration** pane, select **Next** to go to *
 Leave the defaults in **DNS** pane, select **Next** to go to **Database** pane.
 Leave the defaults in **Database** pane, select **Next** to go to **Horizontal Autoscaling** pane.
 
-:::image type="content" source="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/wlsaks-offer-portal-database.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on AKS Database pane." lightbox="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/wlsaks-offer-portal-database.png":::
-
 ### [Enable KEDA using Marketplace Offer](#tab/offer)
+
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-autoscaling.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on AKS Horizontal Autoscaling pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-autoscaling.png":::
 
 1. Next to **Provision resources for horizontal autoscaling?**, select **Yes**.
 1. Under **Horizontal autoscaling settings**, next to **Select metric source. Autoscaling based on resource metrics from Kubernetes Metrics Server or exporting by WebLogic Monitoring Exporter.**, select **WebLogic Monitor Exporter**.
@@ -189,7 +184,8 @@ Leave the defaults in **Database** pane, select **Next** to go to **Horizontal A
 
 ### [Enable KEDA manually](#tab/manual)
 
-Leave the defaults in **Horizontal Autoscaling** pane. Select **Review + create**.
+1. Leave the defaults in **Horizontal Autoscaling** pane. 
+1. Select **Review + create**.
 
 ---
 
