@@ -5,19 +5,19 @@ ms.date: 03/11/2024
 
 ## Setup
 
-### Clone or download this repository
+### Clone or download the sample repository
 
-From your shell or command line:
+To clone the sample, open a command prompt and use the following command:
 
 ```bash
 git clone https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication.git
 cd 3-Authorization-II/groups
 ```
 
-or download and extract the repository *.zip* file.
+Alternatively, navigate to the [ms-identity-java-servlet-webapp-authentication](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication) repository, then download it as a *.zip* file and extract it to your hard drive.
 
 > [!IMPORTANT]
-> To avoid file path length limitations on Windows, clone the repository into a directory near the root of your hard drive.
+> To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
 
 ## Register the sample application with your Microsoft Entra ID tenant
 
@@ -25,7 +25,7 @@ There's one project in this sample. To register the app on the portal, you can:
 
 - either follow manual configuration steps below
 - or use PowerShell scripts that:
-  - **automatically** creates the Microsoft Entra ID applications and related objects (passwords, permissions, dependencies) for you.
+  - automatically creates the Microsoft Entra ID applications and related objects - such as passwords, permissions, and dependencies - for you.
   - modify the projects' configuration files.
   - by default, the automation scripts set up an application that works with accounts in your organizational directory only.
 
@@ -100,19 +100,20 @@ Open the project in your IDE to configure the code.
 
    - **Your Microsoft Entra tenant ID** if you registered your app with the **Accounts in this organizational directory only** option.
 
-1. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID (clientId) of the `java-servlet-webapp-groups` application copied from the Azure portal.
+1. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID or `clientId` of the `java-servlet-webapp-groups` application copied from the Azure portal.
 
 1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the key you saved during the creation of the `java-servlet-webapp-groups` app, in the Azure portal.
 
-### Configure Security Groups
+### Configure security groups
 
 You have two different options available to you on how you can further configure your applications to receive the groups claim.
 
-1. [Receive **all the groups** that the signed-in user is assigned to in a Microsoft Entra ID tenant, including nested groups](#configure-your-application-to-receive-all-the-groups-the-signed-in-user-is-assigned-to-including-nested-groups).
+1. Receive all the groups that the signed-in user is assigned to in a Microsoft Entra ID tenant, included nested groups. For more information, see the section [Configure your application to receive all the groups the signed-in user is assigned to, including nested groups](#configure-your-application-to-receive-all-the-groups-the-signed-in-user-is-assigned-to-including-nested-groups).
 
-1. [Receive the **groups** claim values from a **filtered set of groups** that your application is programmed to work with](#configure-your-application-to-receive-the-groups-claim-values-from-a-filtered-set-of-groups-a-user-may-be-assigned-to) (Not available in the [Microsoft Entra ID Free edition](https://www.microsoft.com/security/business/microsoft-entra-pricing)).
+1. Receive the groups claim values from a filtered set of groups that your application is programmed to work with. For more information, see the section [Configure your application to receive the groups claim values from a filtered set of groups a user may be assigned to](#configure-your-application-to-receive-the-groups-claim-values-from-a-filtered-set-of-groups-a-user-may-be-assigned-to). This option isn't available in the [Microsoft Entra ID Free edition](https://www.microsoft.com/security/business/microsoft-entra-pricing).
 
-> To get the on-premise group's `samAccountName` or `On Premises Group Security Identifier` instead of Group ID, see [Configure group claims for applications with Microsoft Entra ID](/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#prerequisites-for-using-group-attributes-synchronized-from-active-directory).
+> [!NOTE]
+> To get the on-premise group's `samAccountName` or `On Premises Group Security Identifier` instead of the group ID, see the section [Prerequisites for using group attributes synchronized from Active Directory](/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#prerequisites-for-using-group-attributes-synchronized-from-active-directory) in [Configure group claims for applications by using Microsoft Entra ID](/entra/identity/hybrid/connect/how-to-connect-fed-group-claims).
 
 #### Configure your application to receive all the groups the signed-in user is assigned to, including nested groups
 
@@ -135,11 +136,11 @@ You have two different options available to you on how you can further configure
 1. Select the **Add groups claim** button on top to open the **Edit Groups Claim** screen.
 1. Select **Groups assigned to the application**.
 
-   1. Choosing additional options like `Security Groups` or `All groups (includes distribution lists but not groups assigned to the application)` negates the benefits your app derives from choosing to use this option.
+   Choosing additional options - such as **Security Groups** or **All groups (includes distribution lists but not groups assigned to the application)** - negates the benefits your app derives from choosing to use this option.
 
 1. Under the **ID** section, select **Group ID**. This results in Microsoft Entra ID sending the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID token](/entra/identity-platform/id-tokens).
-1. If you're exposing a web API using the **Expose an API** option, then you can also choose the `Group ID` option under the **Access** section. This results in Microsoft Entra ID sending the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [access token](/entra/identity-platform/access-tokens).
-1. In the app's registration screen, select on the **Overview** pane in the left to open the Application overview screen. Select the hyperlink with the name of your application in **Managed application in local directory** (note this field title can be truncated for instance `Managed application in ...`). When you select this link, you navigate to the **Enterprise Application Overview** page associated with the service principal for your application in the tenant where you created it. You can navigate back to the app registration page by using the *back* button of your browser.
+1. If you're exposing a web API using the **Expose an API** option, then you can also choose the **Group ID** option under the **Access** section. This option results in Microsoft Entra ID sending the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [access token](/entra/identity-platform/access-tokens).
+1. In the app's registration screen, select **Overview** in the navigation pane to open the application overview screen. Select the hyperlink with the name of your application in **Managed application in local directory**. This field title might be truncated - for instance `Managed application in ...`. When you select this link, you navigate to the **Enterprise Application Overview** page associated with the service principal for your application in the tenant where you created it. You can navigate back to the app registration page by using the back button of your browser.
 1. Select the **Users and groups** pane in the left to open the page where you can assign users and groups to your application.
 
    1. Select the **Add user** button on the top row.
@@ -165,12 +166,12 @@ You have two different options available to you on how you can further configure
 
 ## Run the sample
 
-### Build .war file using Maven
+### Build the .war file using Maven
 
-1. Navigate to the directory containing the *pom.xml* file for this sample (the same directory as this README), and run the following Maven command:
+To build the *.war* file, navigate to the directory containing the *pom.xml* file for the sample, and then run the following Maven command:
 
-   ```bash
-   mvn clean package
-   ```
+```bash
+mvn clean package
+```
 
-1. This should generate a *.war* file that you can run on a variety of application servers.
+This command generates a *.war* file that you can run on a variety of application servers.

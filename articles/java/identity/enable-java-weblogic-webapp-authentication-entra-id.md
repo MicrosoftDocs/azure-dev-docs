@@ -13,10 +13,6 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article demonstrates a Java WebLogic web app that signs in users to your Microsoft Entra ID tenant using the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 
-The following diagram shows the topology of the app:
-
-:::image type="content" source="media/topology-sign-in.png" alt-text="Diagram that shows the topology of the app.":::
-
 [!INCLUDE [scenario-sign-in-entra.md](includes/scenario-sign-in-entra.md)]
 
 [!INCLUDE [prerequisites-sign-in-entra.md](includes/prerequisites-sign-in-entra.md)]

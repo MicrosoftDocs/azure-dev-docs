@@ -13,12 +13,6 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article shows you how to create a Java WebSphere web app that signs in users with [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java) and restricts access to pages based on Microsoft Entra ID security group membership.
 
-The following diagram shows the topology of the app:
-
-:::image type="content" source="media/topology.png" alt-text="Diagram that shows the topology of the app.":::
-
-An Identity Developer session covered Microsoft Entra ID App roles and security groups, featuring this scenario and how to handle the overage claim. [Watch the video Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0).
-
 [!INCLUDE [scenario-authorization-groups.md](includes/scenario-authorization-groups.md)]
 
 [!INCLUDE [prerequisites-authorization-groups.md](includes/prerequisites-authorization-groups.md)]

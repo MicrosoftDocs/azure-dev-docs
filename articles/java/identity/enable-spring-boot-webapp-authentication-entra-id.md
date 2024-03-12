@@ -17,11 +17,7 @@ The following diagram shows the topology of the app:
 
 :::image type="content" source="media/topology-spring.png" alt-text="Diagram that shows the topology of the app.":::
 
-## Scenario
-
-1. The client Java Spring Boot web app uses the Microsoft Entra ID Spring Boot Starter client library for Java to sign-in a user and obtain an ID token from Microsoft Entra ID.
-
-1. The ID token proves that the user is authenticated with Microsoft Entra ID and enables the user to access protected routes.
+The client app uses the Microsoft Entra ID Spring Boot Starter client library for Java to sign-in a user and obtain an ID token from Microsoft Entra ID. The ID token proves that the user is authenticated with Microsoft Entra ID and enables the user to access protected routes.
 
 [!INCLUDE [prerequisites-spring-boot.md](includes/prerequisites-spring-boot.md)]
 
@@ -29,9 +25,9 @@ The following diagram shows the topology of the app:
 
 ## Setup
 
-### Clone or download this repository
+### Clone or download the sample repository
 
-From your shell or command line:
+To clone the sample, open a command prompt and use the following command:
 
 ```bash
 git clone https://github.com/Azure-Samples/ms-identity-java-spring-tutorial.git
@@ -39,7 +35,7 @@ cd ms-identity-java-spring-tutorial
 cd 1-Authentication/sign-in
 ```
 
-or download and extract the repository *.zip* file.
+Alternatively, navigate to the [ms-identity-java-spring-tutorial](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial) repository, then download it as a *.zip* file and extract it to your hard drive.
 
 > [!IMPORTANT]
 > To avoid path length limitations on Windows, we recommend cloning into a directory near the root of your drive.
@@ -50,7 +46,7 @@ There's one project in this sample. To register the app on the portal, you can:
 
 - either follow manual configuration steps below
 - or use PowerShell scripts that:
-  - **automatically** create the Microsoft Entra ID applications and related objects (passwords, permissions, dependencies) for you.
+  - automatically create the Microsoft Entra ID applications and related objects - such as passwords, permissions, and dependencies - for you.
   - modify the projects' configuration files.
   - by default, the automation scripts set up an application that works with accounts in your organizational directory only.
 
@@ -112,7 +108,7 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 
 1. Open the *src\main\resources\application.yml* file.
 1. Find the key `Enter_Your_Tenant_ID_Here` and replace the existing value with your Microsoft Entra tenant ID.
-1. Find the key `Enter_Your_Client_ID_Here` and replace the existing value with the application ID (clientId) of `java-spring-webapp-auth` app copied from the Azure portal.
+1. Find the key `Enter_Your_Client_ID_Here` and replace the existing value with the application ID or `clientId` of the `java-spring-webapp-auth` app copied from the Azure portal.
 1. Find the key `Enter_Your_Client_Secret_Here` and replace the existing value with the key you saved during the creation of `java-spring-webapp-auth` copied from the Azure portal.
 
 ## Run the sample
@@ -162,14 +158,14 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 ## Explore the sample
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
-- Select the context-sensitive button at the top right (it reads **Sign In** on first run)
+- Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app.
   - Alternatively, select **token details**. Because this is a protected page that requires authentication, you're automatically redirected to the sign-in page.
 - Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
-- Upon successful completion of the sign-in flow, you should be redirected to the home page (**sign in status**) or **token details** page, depending on which button triggered your sign-in flow.
-- Note the context-sensitive button now says `Sign out` and displays your username to its left.
+- Upon successful completion of the sign-in flow, you should be redirected to the home page - which shows the **sign in status** - or the **token details** page, depending on which button triggered your sign-in flow.
+- Note that the context-sensitive button now says **Sign out** and displays your user name.
 - If you're on the home page, select **ID Token Details** to see some of the ID token's decoded claims.
-- You can also use the button on the top right to sign out. The status page reflects this.
+- You can also use the button in the corner to sign out. The status page reflects this.
 
 ## Contents
 

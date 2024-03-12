@@ -11,15 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Secure Java Tomcat apps using roles and role claims
 
-This article shows how a Java Tomcat web app that uses [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) to sign in users and use [Microsoft Entra ID Application Roles (app roles)](/entra/identity-platform/howto-add-app-roles-in-apps) for authorization. App roles, along with Security groups are popular means to implement authorization.
-
-This application implements role-based access control (RBAC) using Microsoft Entra ID's application roles and role claims feature. Another approach is to use Microsoft Entra ID groups and group claims. Microsoft Entra ID Groups and Application Roles are by no means mutually exclusive. You can use them in tandem to provide even finer grained access control.
-
-You can use RBAC with application roles and role claims to securely enforce authorization policies.
-
-A Microsoft identity platform Office Hours session covered Microsoft Entra ID App roles and security groups, featuring this scenario and this sample. A recording of the session is provided in this video [Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0).
-
-For more information about how the protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](https://go.microsoft.com/fwlink/?LinkId=394414).
+This article demonstrates a Java Tomcat web app that uses [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) to sign in users and [Microsoft Entra ID Application Roles (app roles)](/entra/identity-platform/howto-add-app-roles-in-apps) for authorization.
 
 [!INCLUDE [scenario-authorization-roles.md](includes/scenario-authorization-roles.md)]
 

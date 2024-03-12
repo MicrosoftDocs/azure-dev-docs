@@ -5,19 +5,19 @@ ms.date: 03/11/2024
 
 ## Setup
 
-### Clone or download this repository
+### Clone or download the sample repository
 
-From your shell or command line:
+To clone the sample, open a command prompt and use the following command:
 
 ```bash
 git clone https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication.git
 cd 3-Authorization-II/roles
 ```
 
-or download and extract the repository *.zip* file.
+Alternatively, navigate to the [ms-identity-java-servlet-webapp-authentication](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication) repository, then download it as a *.zip* file and extract it to your hard drive.
 
 > [!IMPORTANT]
-> To avoid file path length limitations on Windows, clone the repository into a directory near the root of your hard drive.
+> To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
 
 ## Register the sample application with your Microsoft Entra ID tenant
 
@@ -25,7 +25,7 @@ There's one project in this sample. To register the app on the portal, you can:
 
 - either follow manual configuration steps below
 - or use PowerShell scripts that:
-  - **automatically** creates the Microsoft Entra ID applications and related objects (passwords, permissions, dependencies) for you.
+  - automatically creates the Microsoft Entra ID applications and related objects - such as passwords, permissions, and dependencies - for you.
   - modify the projects' configuration files.
   - by default, the automation scripts set up an application that works with accounts in your organizational directory only.
 
@@ -70,7 +70,7 @@ Following this guide, you must:
 1. In the **Register an application page** that appears, enter your application's registration information:
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-servlet-webapp-roles`.
    - Under **Supported account types**, select an option.
-     - Select **Accounts in this organizational directory only** if you're building an application for use only by users in your tenant (**single-tenant**).
+     - Select **Accounts in this organizational directory only** if you're building an application for use only by users in your tenant - that is, a *single-tenant* application.
    - In the **Redirect URI** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/msal4j-servlet-roles/auth/redirect`.
 1. Select **Register** to create the application.
 1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
@@ -105,22 +105,23 @@ Following this guide, you must:
 
 Open the project in your IDE to configure the code.
 
+> [!NOTE]
 > In the following steps, `ClientID` is the same as `Application ID` or `AppId`.
 
 1. Open the [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/3-Authorization-II/roles/src/main/resources/authentication.properties) file.
 1. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with your Microsoft Entra ID tenant ID.
-1. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID (clientId) of the `java-servlet-webapp-call-graph` application copied from the Azure portal.
+1. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID or `clientId` of the `java-servlet-webapp-call-graph` application copied from the Azure portal.
 1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the key you saved during the creation of the `java-servlet-webapp-roles` app, in the Azure portal.
-1. Find the key `app.roles` and make sure the value is set to `app.roles=admin PrivilegedAdmin, user RegularUser` (or substitute the names of your specific roles).
+1. Find the key `app.roles` and make sure the value is set to `app.roles=admin PrivilegedAdmin, user RegularUser`, or substitute the names of your specific roles.
 
 ## Run the sample
 
-### Build .war file using Maven
+### Build the .war file using Maven
 
-1. Navigate to the directory containing the *pom.xml* file for this sample (the same directory as this README), and run the following Maven command:
+To build the *.war* file, navigate to the directory containing the *pom.xml* file for the sample, and then run the following Maven command:
 
-   ```bash
-   mvn clean package
-   ```
+```bash
+mvn clean package
+```
 
-1. This should generate a *.war* file that you can run on a variety of application servers.
+This command generates a *.war* file that you can run on a variety of application servers.

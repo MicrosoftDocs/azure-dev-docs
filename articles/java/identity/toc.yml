@@ -79,7 +79,5 @@ items:
       href: enable-java-websphere-webapp-authorization-group-entra-id.md
     - name: Deploy to WebSphere on Azure VM
       href: deploy-websphere-to-vm.md
-  - name: Release notes
-    href: https://github.com/Azure-Samples/ms-identity-msal-java-samples/releases
   - name: Overview of the Microsoft Authentication Library (MSAL)
     href: /entra/identity-platform/msal-overview

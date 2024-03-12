@@ -39,7 +39,7 @@ Use the following steps to deploy the sample using the WebSphere's Integrated So
 
 1. On the **Applications** tab, select **New Application**, then **New Enterprise Application**.
 
-1. Choose the *.war* file you built, then select **Next** until you get to the **Map context roots for Web modules** installation step (the other default settings should be fine)
+1. Choose the *.war* file you built, then select **Next** until you get to the **Map context roots for Web modules** installation step. The other default settings should be fine.
 
 1. For the context root, set it to the same value as after the port number in the 'Redirect URI' you set in sample configuration/Azure app registration. That is, if the redirect URI is `http://<server-url>:9080/msal4j-servlet-auth/`, then the context root should be `msal4j-servlet-auth`.
 

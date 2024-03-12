@@ -5,19 +5,19 @@ ms.date: 03/11/2024
 
 ## Setup
 
-### Clone or download this repository
+### Clone or download the sample repository
 
-From your shell or command line:
+To clone the sample, open a command prompt and use the following command:
 
 ```bash
 git clone https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication.git
 cd 1-Authentication/sign-in-b2c
 ```
 
-or download and extract the repository *.zip* file.
+Alternatively, navigate to the [ms-identity-java-servlet-webapp-authentication](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication) repository, then download it as a *.zip* file and extract it to your hard drive.
 
 > [!IMPORTANT]
-> To avoid file path length limitations on Windows, clone the repository into a directory near the root of your hard drive.
+> To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
 
 ### Register the sample application with your Azure AD B2C tenant
 
@@ -62,13 +62,13 @@ See [Tutorial: Add identity providers to your applications in Azure Active Direc
 
 #### Configure the WebApp app (ms-identity-b2c-java-servlet-webapp-authentication) to use your app registration
 
-Open the project in your IDE (like **Visual Studio Code**) to configure the code.
+Open the project in your IDE - such as Visual Studio Code - to configure the code.
 
 > [!NOTE]
 > In the following steps, "ClientID" is the same as "Application ID" or "AppId".
 
 1. Open the [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in-b2c/src/main/resources/authentication.properties) file.
-1. Find the key `aad.clientId` and replace the existing value with the application ID (clientId) of the `ms-identity-b2c-java-servlet-webapp-authentication` application from the Azure portal.
+1. Find the key `aad.clientId` and replace the existing value with the application ID or `clientId` of the `ms-identity-b2c-java-servlet-webapp-authentication` application from the Azure portal.
 1. Find the app key `aad.secret` and replace the existing value with the key you saved during the creation of the `ms-identity-b2c-java-servlet-webapp-authentication` application from the Azure portal.
 1. Find the app key `aad.scopes` and replace the existing application clientId with the value you placed into `aad.clientId` in step 1 of this section.
 1. Find the app key `aad.authority` and replace the first instance of `fabrikamb2c` with the name of the Azure AD B2C tenant in which you created the `ms-identity-b2c-java-servlet-webapp-authentication` application in the Azure portal.
@@ -79,12 +79,12 @@ Open the project in your IDE (like **Visual Studio Code**) to configure the code
 
 ## Run the sample
 
-### Build .war file using Maven
+### Build the .war file using Maven
 
-1. Navigate to the directory containing the pom.xml file for this sample (the same directory as this README), and run the following Maven command:
+To build the *.war* file, navigate to the directory containing the *pom.xml* file for the sample, and then run the following Maven command:
 
-   ```bash
-   mvn clean package
-   ```
+```bash
+mvn clean package
+```
 
-1. This should generate a *.war* file that you can run on a variety of application servers.
+This command generates a *.war* file that you can run on a variety of application servers.

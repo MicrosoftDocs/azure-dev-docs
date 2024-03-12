@@ -13,15 +13,11 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article demonstrates a Java Spring Boot web app that signs in users on your Azure Active Directory B2C tenant using the [Azure AD B2C Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-active-directory-b2c). It uses the OpenID Connect protocol.
 
-## Scenario
-
-1. The client Java Spring web app uses the Azure AD B2C Spring Boot Starter client library for Java to sign in a user and obtain an ID token from Azure AD B2C.
-
-1. The ID token proves that the user is authenticated with Azure AD B2C and enables the user to access protected routes.
-
 The following diagram shows the topology of the app:
 
 :::image type="content" source="media/topology-spring.png" alt-text="Diagram that shows the topology of the app.":::
+
+The client app uses the Azure AD B2C Spring Boot Starter client library for Java to sign in a user and obtain an ID token from Azure AD B2C. The ID token proves that the user is authenticated with Azure AD B2C and enables the user to access protected routes.
 
 ## Prerequisites
 
@@ -36,9 +32,9 @@ The following diagram shows the topology of the app:
 
 ## Setup
 
-### Clone or download this repository
+### Clone or download the sample repository
 
-From your shell or command line:
+To clone the sample, open a command prompt and use the following command:
 
 ```bash
 git clone https://github.com/Azure-Samples/ms-identity-java-spring-tutorial.git
@@ -46,10 +42,10 @@ cd ms-identity-java-spring-tutorial
 cd 1-Authentication/sign-in-b2c
 ```
 
-or download and extract the repository *.zip* file.
+Alternatively, navigate to the [ms-identity-java-spring-tutorial](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial) repository, then download it as a *.zip* file and extract it to your hard drive.
 
 > [!IMPORTANT]
-> To avoid file path length limitations on Windows, clone the repository into a directory near the root of your hard drive.
+> To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
 
 This sample comes with a pre-registered application for demo purposes. If you would like to use your own Azure AD B2C tenant and application, follow the steps below to register and configure the application on Azure portal. Otherwise, continue with the steps for Running the sample.
 
@@ -100,7 +96,7 @@ Open the project in your IDE to configure the code.
 
 Open the *src/main/resources/application.yml* file.
 
-1. Find the key `client-id` and replace the existing value with the application ID (clientId) of the `java-spring-webapp-auth-b2c` application from the Azure portal.
+1. Find the key `client-id` and replace the existing value with the application ID or `clientId` of the `java-spring-webapp-auth-b2c` application from the Azure portal.
 1. Find the app key `client-secret` and replace the existing value with the key you saved during the creation of the `java-spring-webapp-auth-b2c` application from the Azure portal.
 1. Find the app key `base-uri` and replace the two instances of `fabrikamb2c` with the name of the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
 1. Find the app key `sign-up-or-sign-in` and replace it with the name of the sign-up/sign-in user-flow policy you created in the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
@@ -158,10 +154,10 @@ Open the *src/main/resources/templates/navbar.html* file.
 ## Explore the sample
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
-- Select the context-sensitive button at the top right (it reads **Sign In** on first run).
+- Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app.
   - Alternatively, select the link to **token details**. Because this is a protected page that requires authentication, you're automatically redirected to the sign-in page.
 - Follow the instructions on the next page to sign in with an account of your chosen identity provider. You may also choose to sign up or sign in to a local account on the B2C tenant using an email address.
-- Upon successful completion of the sign-in flow, you should be redirected to the home page (**sign in status**) or **token details** page, depending on which button triggered your sign-in flow.
+- Upon successful completion of the sign-in flow, you should be redirected to the home page - which shows the **sign in status** - or the **token details** page, depending on which button triggered your sign-in flow.
 - Note the context-sensitive button now says **Sign out** and displays your username to its left.
 - If you're on the home page, select **ID Token Details** to see some of the ID token's decoded claims.
 - You also have the option to edit your profile. Select **edit profile** to change details like your display name, place of residence, and profession.

@@ -6,7 +6,7 @@ ms.date: 03/11/2024
 ## Explore the sample
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
-- Select the context-sensitive button at the top right (it reads **Sign In** on first run).
+- Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app.
 - Follow the instructions on the next page to sign in with an account of your chosen identity provider.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
 - Select **ID Token Details** to see some of the ID token's decoded claims.
@@ -69,7 +69,7 @@ In this sample, these values are read from the *authentication.properties* file 
    ```
 
    - **AuthorizationRequestUrlParameters**: Parameters that must be set in order to build an AuthorizationRequestUrl.
-   - **REDIRECT_URI**: Where Azure AD B2C redirects the browser (along with auth code) after collecting user credentials.
+   - **REDIRECT_URI**: Where Azure AD B2C redirects the browser - along with the auth code - after collecting the user credentials.
    - **SCOPES**: [Scopes](/azure/active-directory-b2c/access-tokens#scopes) are permissions requested by the application.
      - Normally, the three scopes `openid profile offline_access` would suffice for receiving an ID token response.
      - However, MSAL4J requires all responses from Azure AD B2C to also contain an access token.

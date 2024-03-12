@@ -6,7 +6,7 @@ ms.date: 03/11/2024
 ## Explore the sample
 
 - Note the signed-in or signed-out status displayed at the center of the screen.
-- Select the context-sensitive button at the top right (it reads **Sign In** on first run)
+- Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app.
 - Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
 - Note the context-sensitive button now says `Sign out` and displays your username to its left.
@@ -28,7 +28,7 @@ The full code for this sample is available at [https://github.com/Azure-Samples/
 | *src/main/java/com/microsoft/azuresamples/msal4j/helpers/*      | Helper classes for authentication.                                                     |
 | *AuthenticationFilter.java*                                     | Redirects unauthenticated requests to protected endpoints to a 401 page.               |
 | *src/main/resources/authentication.properties*                  | Microsoft Entra ID and program configuration.                                          |
-| *src/main/webapp/*                                             | This directory contains the UI (JSP templates)                                         |
+| *src/main/webapp/*                                             | This directory contains the UI - JSP templates                                         |
 | *CHANGELOG.md*                                                  | List of changes to the sample.                                                         |
 | *CONTRIBUTING.md*                                               | Guidelines for contributing to the sample.                                             |
 | *LICENSE*                                                       | The license for the sample.                                                            |
@@ -86,7 +86,7 @@ In this sample, these values are read from the *authentication.properties* file 
    ```
 
    - **AuthorizationRequestUrlParameters**: Parameters that must be set in order to build an AuthorizationRequestUrl.
-   - **REDIRECT_URI**: Where Microsoft Entra ID redirects the browser (along with auth code) after collecting user credentials. It must match the redirect URI in the  Microsoft Entra ID app registration on [Azure Portal](https://portal.azure.com)
+   - **REDIRECT_URI**: Where Microsoft Entra ID redirects the browser - along with the auth code - after collecting user credentials. It must match the redirect URI in the  Microsoft Entra ID app registration on [Azure Portal](https://portal.azure.com)
    - **SCOPES**: [Scopes](/entra/identity-platform/access-tokens#scopes) are permissions requested by the application.
      - Normally, the three scopes `openid profile offline_access` suffice for receiving an ID token response.
      - Full list of scopes requested by the app can be found in the *authentication.properties* file. You can add more scopes like User.Read and so on.
@@ -110,7 +110,7 @@ In this sample, these values are read from the *authentication.properties* file 
    - **REDIRECT_URI**: The redirect URI used in the previous step must be passed again.
    - **SCOPES**: The scopes used in the previous step must be passed again.
 
-1. If `acquireToken` is successful, the token claims are extracted. If the nonce check passes, the results are placed in `context` (an instance of `IdentityContextData`) and saved to the session. The application can then instantiate this from the session (by way of an instance of `IdentityContextAdapterServlet`) whenever it needs access to it:
+1. If `acquireToken` is successful, the token claims are extracted. If the nonce check passes, the results are placed in `context` - an instance of `IdentityContextData` - and saved to the session. The application can then instantiate the `IdentityContextData` from the session by way of an instance of `IdentityContextAdapterServlet` whenever it needs access to it, as shown in the following code:
 
    ```java
    // parse IdToken claims from the IAuthenticationResult:
