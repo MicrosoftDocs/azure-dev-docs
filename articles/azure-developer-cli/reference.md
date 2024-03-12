@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 12/20/2023
+ms.date: 03/12/2024
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -82,7 +82,7 @@ Log in to Azure.
 When run without any arguments, log in interactively using a browser. To log in using a device code, pass
 --use-device-code.
 
-To log in as a service principal, pass --client-id and --tenant-id as well as one of: --client-secret, 
+To log in as a service principal, pass --client-id and --tenant-id as well as one of: --client-secret,
 --client-certificate, or --federated-credential-provider.
 
 
