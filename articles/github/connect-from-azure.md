@@ -1,5 +1,5 @@
 --- 
-title: Connect GitHub and Azure
+title: Authenticate to Azure from GitHub Action workflows
 description: Resources to connect to GitHub from Azure and other services  
 author: MoChilia 
 ms.author: shiyingchen 
