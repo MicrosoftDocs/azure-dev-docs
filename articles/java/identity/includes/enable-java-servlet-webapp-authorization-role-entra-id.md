@@ -105,7 +105,7 @@ Following this guide, you must:
 
 Open the project in your IDE to configure the code.
 
-> In the steps below, "ClientID" is the same as "Application ID" or "AppId".
+> In the following steps, `ClientID` is the same as `Application ID` or `AppId`.
 
 1. Open the [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/3-Authorization-II/roles/src/main/resources/authentication.properties) file.
 1. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with your Microsoft Entra ID tenant ID.

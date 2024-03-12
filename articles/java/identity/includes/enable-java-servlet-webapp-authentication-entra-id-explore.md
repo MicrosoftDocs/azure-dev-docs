@@ -16,7 +16,7 @@ ms.date: 03/11/2024
 
 ## Contents
 
-The full code for this sample is available at [https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/1-Authentication/sign-in](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/1-Authentication/sign-in). The below table lists the overall parts of this sample.
+The full code for this sample is available at [https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/1-Authentication/sign-in](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/1-Authentication/sign-in). The following table lists the overall parts of this sample:
 
 | File/folder                                                     | Description                                                                             |
 |-----------------------------------------------------------------|-----------------------------------------------------------------------------------------|

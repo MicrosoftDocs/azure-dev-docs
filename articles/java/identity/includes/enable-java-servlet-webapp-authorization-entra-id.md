@@ -94,7 +94,7 @@ Following this guide, you must:
 Open the project in your IDE to configure the code.
 
 > [!NOTE]
-> In the steps below, "ClientID" is the same as "Application ID" or "AppId".
+> In the following steps, `ClientID` is the same as `Application ID` or `AppId`.
 
 1. Open the *./src/main/resources/authentication.properties* file.
 1. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with:

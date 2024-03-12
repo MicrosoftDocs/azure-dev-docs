@@ -93,9 +93,10 @@ See [Tutorial: Add identity providers to your applications in Azure Active Direc
 
 #### Configure the web app (java-spring-webapp-auth-b2c) to use your app registration
 
-Open the project in your IDE (like **Visual Studio Code**) to configure the code.
+Open the project in your IDE to configure the code.
 
-> In the steps below, "ClientID" is the same as "Application ID" or "AppId".
+> [!NOTE]
+> In the following steps, `ClientID` is the same as `Application ID` or `AppId`.
 
 Open the *src/main/resources/application.yml* file.
 

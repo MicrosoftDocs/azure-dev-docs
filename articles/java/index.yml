@@ -110,13 +110,13 @@ conceptualContent:
       links:
         - text: Overview
           itemType: overview
-          url: secure-java-apps-with-identity-platform-overview.md
+          url: identity/secure-java-apps-with-identity-platform-overview.md
         - text: Secure Spring Boot apps
           itemType: how-to-guide
-          url: enable-spring-boot-webapp-authentication-entra-id.md
+          url: identity/enable-spring-boot-webapp-authentication-entra-id.md
         - text: Secure Tomcat apps
           itemType: how-to-guide
-          url: enable-java-tomcat-webapp-authentication-entra-id.md
+          url: identity/enable-java-tomcat-webapp-authentication-entra-id.md
       footerLink:
           text: See more
           url: identity/index.yml

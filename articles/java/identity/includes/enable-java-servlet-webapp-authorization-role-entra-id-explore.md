@@ -17,7 +17,7 @@ ms.date: 03/11/2024
 
 ## Contents
 
-The full code for this sample is available at [https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/3-Authorization-II/roles](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/3-Authorization-II/roles). The below table lists the overall parts of this sample.
+The full code for this sample is available at [https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/3-Authorization-II/roles](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/3-Authorization-II/roles). The following table lists the overall parts of this sample:
 
 | File/folder                                                     | Description                                                                            |
 |-----------------------------------------------------------------|----------------------------------------------------------------------------------------|

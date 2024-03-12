@@ -194,7 +194,7 @@ You have two different options available to you on how you can further configure
 Open the project in your IDE (like Visual Studio or Visual Studio Code) to configure the code.
 
 > [!NOTE]
-> In the steps below, "ClientID" is the same as "Application ID" or "AppId".
+> In the following steps, `ClientID` is the same as `Application ID` or `AppId`.
 
 Open the *src\main\resources\application.yml* file.
 
