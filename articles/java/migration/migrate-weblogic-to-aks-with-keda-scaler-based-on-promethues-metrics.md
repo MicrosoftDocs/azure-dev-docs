@@ -115,11 +115,10 @@ Use the following steps to create a storage account and container. Some of these
    - For **Region**, select **East US**.
    - For **Storage account name** use the same value as the resource group name.
    - For **Performance** select **Standard**.
-   - For **Redundancy** select **Locally-redundant storage (LRS)**.
    - The remaining tabs need no specializations.
 1. Proceed to validate and create the account, then return to this article.
 1. Create a storage container within the account following the steps in [Quickstart: Upload, download, and list blobs with the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal) Follow the steps in section **Create a container**.
-1. In the same article, follow the steps in **Uplaod a block blob** to upload the */tmp/testwebapp/testwebapp.war* you built with `build-war-app.sh`. Then return to this article.
+1. In the same article, follow the steps in **Upload a block blob** to upload the */tmp/testwebapp/testwebapp.war* you built with `build-war-app.sh`. Then return to this article.
 
 ## Deploy WLS on AKS using Azure Marketplace Offer
 
@@ -172,6 +171,7 @@ Leave the defaults in **TLS/SSL Configuration** pane, select **Next** to go to *
 1. Select **Next**
 
 Leave the defaults in **DNS** pane, select **Next** to go to **Database** pane.
+
 Leave the defaults in **Database** pane, select **Next** to go to **Horizontal Autoscaling** pane.
 
 ### [Enable KEDA using Marketplace Offer](#tab/offer)
@@ -198,7 +198,7 @@ Wait until **Running final validation...** successfully completes, then select *
 
 ### [Enable KEDA using Marketplace Offer](#tab/offer)
 
-This step is already performed for you when you use the VM base image.
+This step is already performed for you when you use the offer.
 
 ### [Enable KEDA manually](#tab/manual)
 
@@ -207,21 +207,91 @@ Steps to enable Prometheus.
 
 ## Enable KEDA
 
-### [Use Marketplace Offer](#tab/offer)
+### [Enable KEDA using Marketplace Offer](#tab/offer)
 
-This step is already performed for you when you use the VM base image.
+This step is already performed for you when you use the offer.
 
-### [Step by step](#tab/manual)
+### [Enable KEDA manually](#tab/manual)
 
 Steps to enable KEDA.
 
+
+## Examine the metrics
+
 ## Create KEDA scaler
 
-### [Use Marketplace Offer](#tab/offer)
+### [Enable KEDA using Marketplace Offer](#tab/offer)
 
-This step is already performed for you when you use the VM base image.
+Enabling KEDA using the marketplace offer, you find a KEDA scaler sample from the deployment output. You can modify the sampe with your desired metircs and create a KEDA scaler.
 
-### [Step by step](#tab/manual)
+Following the steps to get the output of scaler sample.
+
+1. In the corner of any Azure portal page, select the hamburger menu and select **Resource groups**.
+
+1. In the box with the text Filter for any field, enter the first few characters of the resource group you created previously. If you followed the recommended convention, enter your initials, then select the appropriate resource group.
+
+1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
+
+1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whoes name starts with **oracle.20210620-wls-on-aks**.
+
+1. The **shellCmdtoOutputKedaScalerSample** value is the base64 string of a scaler sample. Copy the value and run it in your terminal. The command should look similar to the following example:
+
+    ```bash
+    echo -e YXBpVm...XV0aAo= | base64 -d > scaler.yaml
+    ```
+    
+    This command produces a *scaler.yaml* file in current directory, with contents similar to the following example:
+
+    ```yaml
+    apiVersion: keda.sh/v1alpha1
+    kind: TriggerAuthentication
+    metadata:
+      name: azure-managed-prometheus-trigger-auth
+      namespace: sample-domain1-ns
+    spec:
+      podIdentity:
+          provider: azure-workload
+          identityId: cc41aedb-8eeb-4006-acd1-03b75a1a2319
+    ---
+    apiVersion: keda.sh/v1alpha1
+    kind: ScaledObject
+    metadata:
+      name: azure-managed-prometheus-scaler
+      namespace: sample-domain1-ns
+    spec:
+      scaleTargetRef:
+        apiVersion: weblogic.oracle/v1
+        kind: Cluster
+        name: sample-domain1-cluster-1
+      minReplicaCount: 1
+      maxReplicaCount: 5
+      triggers:
+      - type: prometheus
+        metadata:
+          serverAddress: https://amajtdxcfggepdbc-23bc.eastus.prometheus.monitor.azure.com
+          metricName: webapp_config_open_sessions_high_count
+          query: sum(webapp_config_open_sessions_high_count{app="<your-app-name>"}) # Note: query must return a vector/scalar single element response
+          threshold: '10'
+          activationThreshold: '1'
+        authenticationRef:
+          name: azure-managed-prometheus-trigger-auth
+
+    ```
+
+1. This article sums `openSessionsCurrentCount` of the sample application `testwebapp` as trigger query. When the sum of  `openSessionsCurrentCount` is more than `10`, scale up the WLS cluster until it reaches the maximum size. Ortherwise, scale down the WLS cluster until it reaches its minimum size. Modify the scaler sample as the following:
+
+    ```yaml
+    metricName: webapp_config_open_sessions_current_count
+    query: sum(webapp_config_open_sessions_current_count{app="testwebapp"}) # Note: query must return a vector/scalar single
+    ```
+1. Create the KEDA scaler using *scaler.yaml*
+
+   ```yaml
+   kubectl apply -f scaler.yaml
+   ```
+
+
+### [Enable KEDA manually](#tab/manual)
 
 Steps to create KEDA scaler.
 
