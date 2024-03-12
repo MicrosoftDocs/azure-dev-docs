@@ -33,9 +33,9 @@ The full code for this sample is available at [https://github.com/Azure-Samples/
 | *CONTRIBUTING.md*                                               | Guidelines for contributing to the sample.                                             |
 | *LICENSE*                                                       | The license for the sample.                                                            |
 
-## Process a Roles claim in the ID token
+## Process a roles claim in the ID token
 
-The name of the roles that the signed in user is assigned to is returned in the `roles` claim of the token.
+The names of the roles that the signed in user is assigned to is returned in the `roles` claim of the token.
 
 ```json
 {

@@ -21,7 +21,7 @@ The following diagram shows the topology of the app:
 
 1. The client Java Spring Boot web app uses the Microsoft Entra ID Spring Boot Starter client library for Java to sign-in a user and obtain an ID token from Microsoft Entra ID.
 
-1. The ID token proves that the user has successfully authenticated with Microsoft Entra ID and allows the user to access protected routes.
+1. The ID token proves that the user is authenticated with Microsoft Entra ID and enables the user to access protected routes.
 
 [!INCLUDE [prerequisites-spring-boot.md](includes/prerequisites-spring-boot.md)]
 

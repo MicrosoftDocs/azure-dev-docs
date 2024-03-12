@@ -32,7 +32,7 @@ The full code for this sample is available at [https://github.com/Azure-Samples/
 
 ## About the code
 
-This sample demonstrates how to use **MSAL4J** to sign in users into your Azure AD B2C tenant.
+This sample demonstrates how to use MSAL4J to sign in users into your Azure AD B2C tenant.
 
 A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file. This object helps craft the Azure AD B2C authorization URL and also helps exchange the authentication token for an access token.
 

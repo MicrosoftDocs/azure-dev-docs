@@ -37,7 +37,7 @@ The full code for this sample is available at [https://github.com/Azure-Samples/
 | *CONTRIBUTING.md*                                               | Guidelines for contributing to the sample.                                             |
 | *LICENSE*                                                       | The license for the sample.                                                            |
 
-## Process a Groups claim in tokens, including handling overage
+## Process a groups claim in tokens, including handling overage
 
 ### The groups claim
 

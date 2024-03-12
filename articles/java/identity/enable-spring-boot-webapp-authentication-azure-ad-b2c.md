@@ -17,7 +17,7 @@ This article demonstrates a Java Spring Boot web app that signs in users on your
 
 1. The client Java Spring web app uses the Azure AD B2C Spring Boot Starter client library for Java to sign in a user and obtain an ID token from Azure AD B2C.
 
-1. The ID token proves that the user has successfully authenticated with Azure AD B2C and allows the user to access protected routes.
+1. The ID token proves that the user is authenticated with Azure AD B2C and enables the user to access protected routes.
 
 The following diagram shows the topology of the app:
 

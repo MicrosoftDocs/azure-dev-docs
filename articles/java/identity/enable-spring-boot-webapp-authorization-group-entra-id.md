@@ -316,9 +316,9 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 }
 ```
 
-### Process a Groups claim in the ID token
+### Process a groups claim in the ID token
 
-The name of the roles that the signed-in user is assigned to is returned in the groups claim of the token.
+The names of the roles that the signed-in user is assigned to is returned in the groups claim of the token.
 
 ```json
 {
@@ -330,7 +330,8 @@ The name of the roles that the signed-in user is assigned to is returned in the 
 }
 ```
 
-A common way to access them is documented in the **ID Token Claims** section above.
+A common way to access the role names is documented in the [ID token claims](#id-token-claims) section.
+
 Microsoft Entra ID Boot Starter (v3.5 and above) parses the groups claim automatically and adds each group to the signed in user's **Authorities**. This allows developers to make use of groups with Spring **PrePost** condition annotations using the `hasAuthority` method. For example, you can find the following `@PreAuthorize` conditions demonstrated in *SampleController.java*:
 
 ```java

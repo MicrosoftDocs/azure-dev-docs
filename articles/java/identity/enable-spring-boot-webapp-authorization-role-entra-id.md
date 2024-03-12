@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article demonstrates a Java Spring Boot web app that uses the [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) for authentication, authorization, and token acquisition with the [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) protocol to sign in users, and restricts access to some routes using [Microsoft Entra ID Application Roles (app roles)](/entra/identity-platform/howto-add-app-roles-in-apps) for authorization.
 
-App roles, along with Security groups are popular means to implement authorization. Using Role-based Access Control (RBAC) with application roles and role claims, developers can securely enforce authorization policies with minimal effort on their part. Another approach is to use Microsoft Entra ID groups and group claims. Microsoft Entra ID Groups and Application Roles are by no means mutually exclusive. You can use them in tandem to provide even finer grained access control.
+App roles, along with Security groups are popular means to implement authorization. Using role-based access control (RBAC) with application roles and role claims, developers can securely enforce authorization policies with minimal effort on their part. Another approach is to use Microsoft Entra ID groups and group claims. Microsoft Entra ID Groups and Application Roles are by no means mutually exclusive. You can use them in tandem to provide even finer grained access control.
 
 A Microsoft identity platform Office Hours session covered Microsoft Entra ID App roles and security groups, featuring a similar scenario. A recording of the session is provided in this video [Using Security Groups and Application Roles in your apps](https://www.youtube.com/watch?v=LRoc-na27l0).
 
@@ -28,7 +28,7 @@ The following diagram shows the topology of the app:
 1. This Java Spring Boot web app uses the Microsoft Entra ID Spring Boot Starter client library for Java to sign in a user and obtain an [ID token](/entra/identity-platform/id-tokens) from Microsoft Entra ID.
 1. The **ID Token** token contains the **roles** claim. The application inspects the value of this claim to determine which pages the user is authorized to access.
 
-This kind of authorization is implemented using role-based access control (RBAC). When using RBAC, an administrator grants permissions to roles, not to individual users or groups. The administrator can then assign roles to different users and groups to control who has then access to certain content and functionality.
+This kind of authorization is implemented using RBAC. When using RBAC, an administrator grants permissions to roles, not to individual users or groups. The administrator can then assign roles to different users and groups to control who has then access to certain content and functionality.
 
 This sample application defines the following two *Application Roles*:
 
@@ -264,9 +264,9 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 }
 ```
 
-### Process a Roles claim in the ID token
+### Process a roles claim in the ID token
 
-The name of the roles that the signed-in user is assigned to is returned in the `roles` claim of the token.
+The names of the roles that the signed-in user is assigned to is returned in the `roles` claim of the token.
 
 ```json
 {
@@ -278,7 +278,8 @@ The name of the roles that the signed-in user is assigned to is returned in the 
 }
 ```
 
-A common way to access them is documented in the **ID Token Claims** section above.
+A common way to access the role names is documented in the [ID token claims](#id-token-claims) section.
+
 Microsoft Entra ID Boot Starter (v3.3 and above) also parses the roles claim automatically and adds each role to the signed in user's **Authorities**, prefixing each with the string `APPROLE_`. This allows developers to make use of app roles with Spring **PrePost** condition annotations using the `hasAuthority` method. For example, you can find the following `@PreAuthorize` conditions demonstrated in *SampleController.java*:
 
 ```java
