@@ -95,12 +95,14 @@ There's one project in this sample. To register it, you can:
 
 ### Choose the Microsoft Entra ID tenant where you want to create your applications
 
-As a first step, you need to:
+To choose your tenant, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If your account is present in more than one Microsoft Entra ID tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Microsoft Entra ID tenant.
 
 ### Register the web app (java-spring-webapp-roles)
+
+To register the app, use the following steps:
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Microsoft Entra ID**.
 1. Select the **App Registrations** pane on the left, then select **New registration**.

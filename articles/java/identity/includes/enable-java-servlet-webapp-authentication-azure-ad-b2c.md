@@ -25,7 +25,7 @@ This sample comes with a pre-registered application for testing purposes. If you
 
 ### Choose the Azure AD B2C tenant where you want to create your applications
 
-As a first step, you need to:
+To choose your tenant, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If your account is present in more than one Azure AD B2C tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Azure AD B2C tenant.
@@ -34,7 +34,7 @@ As a first step, you need to:
 
 To create common user flows like sign up, sign in, edit profile, and password reset, see [Tutorial: Create user flows in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-create-user-flows).
 
-You may consider creating [Custom policies in Azure Active Directory B2C](/azure/active-directory-b2c/custom-policy-overview) as well, however, this is beyond the scope of this tutorial.
+You should consider creating [Custom policies in Azure Active Directory B2C](/azure/active-directory-b2c/custom-policy-overview) as well, however, this is beyond the scope of this tutorial.
 
 ### Add external identity providers
 

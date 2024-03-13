@@ -53,15 +53,16 @@ There's one project in this sample. To register the app on the portal, you can:
 
 ### Choose the Microsoft Entra ID tenant where you want to create your applications
 
-As a first step, you need to:
+To choose your tenant, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If your account is present in more than one Microsoft Entra ID tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Microsoft Entra ID tenant.
 
 ### Register the web app (java-servlet-webapp-call-graph)
 
-[Register a new web app](/entra/identity-platform/quickstart-register-app) in the [Azure Portal](https://portal.azure.com).
-Following this guide, you must:
+First, register a new web app in the [Azure portal](https://portal.azure.com) by following the instructions in [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
+
+Then, use the following steps to complete the registration:
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 1. Select **New registration**.

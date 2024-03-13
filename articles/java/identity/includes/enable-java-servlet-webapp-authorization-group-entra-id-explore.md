@@ -78,7 +78,7 @@ The overage limit is 150 for SAML tokens, 200 for JWT tokens, and 6 for Single P
 #### Create the overage scenario in this sample for testing
 
 1. You can use the *BulkCreateGroups.ps1* file provided in the *AppCreationScripts* folder to create a large number of groups and assign users to them. This file helps test overage scenarios during development. Remember to change the user's `objectId` provided in the *BulkCreateGroups.ps1* script.
-1. When you run this sample and an overage occurred, then you'd see the  `_claim_names` in the home page after the user signs-in.
+1. When you run this sample and an overage occurred, then you'd see the `_claim_names` in the home page after the user signs in.
 1. We strongly advise that you use the group filtering feature, if possible, to avoid running into group overages. For more information, see the section [Configure your application to receive the groups claim values from a filtered set of groups a user may be assigned to](#configure-your-application-to-receive-the-groups-claim-values-from-a-filtered-set-of-groups-a-user-may-be-assigned-to).
 1. In case you cannot avoid running into group overage, we suggest you use the following steps to process groups claim in your token:
 
@@ -130,7 +130,7 @@ In this sample, these values are read from the *authentication.properties* file 
    ```
 
    - **AuthorizationRequestUrlParameters**: Parameters that must be set in order to build an AuthorizationRequestUrl.
-   - **REDIRECT_URI**: Where AAD redirects the browser - along with the auth code - after collecting user credentials. It must match the redirect URI in the  Microsoft Entra ID app registration on [Azure Portal](https://portal.azure.com)
+   - **REDIRECT_URI**: Where AAD redirects the browser - along with the auth code - after collecting user credentials. It must match the redirect URI in the Microsoft Entra ID app registration in the [Azure portal](https://portal.azure.com).
    - **SCOPES**: [Scopes](/entra/identity-platform/access-tokens#scopes) are permissions requested by the application.
      - Normally, the three scopes `openid profile offline_access` suffice for receiving an ID token response.
      - Full list of scopes requested by the app can be found in the *authentication.properties* file. You can add more scopes like User.Read and so on.

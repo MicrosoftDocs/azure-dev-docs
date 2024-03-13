@@ -44,7 +44,7 @@ As an extra step you can store this value in [Key Vault](/azure/key-vault/genera
    az keyvault set-policy \
        --resource-group $RESOURCE_GROUP \
        --name $KEY_VAULT \
-       --secret-permissions get list  \
+       --secret-permissions get list \
        --object-id $IDENTITY
    ```
 

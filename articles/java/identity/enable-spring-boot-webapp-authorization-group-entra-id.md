@@ -88,10 +88,14 @@ There's one project in this sample. To register it, you can:
 
 ### Choose the Microsoft Entra ID tenant where you want to create your applications
 
+To choose your tenant, use the following steps:
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If your account is present in more than one Microsoft Entra ID tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Microsoft Entra ID tenant.
 
 ### Register the web app (java-spring-webapp-groups)
+
+To register the app, use the following steps:
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Microsoft Entra ID**.
 1. Select the **App Registrations** pane on the left, then select **New registration**.
@@ -180,9 +184,9 @@ You have two different options available to you on how you can further configure
    1. Choose the groups that you want to assign to this application.
    1. Select **Select** to finish selecting the groups.
    1. Select **Assign** to finish the group assignment process.
-   1. Your application now receives these selected groups in the groups claim when a user signing in to your app is a member of  one or more these **assigned** groups.
+   1. Your application now receives these selected groups in the groups claim when a user signing in to your app is a member of one or more these assigned groups.
 
-1. Select the **Properties** pane in the left to open the page that lists the basic properties of your application.Set the **User assignment required?** flag to **Yes**.
+1. Select the **Properties** pane in the left to open the page that lists the basic properties of your application. Set the **User assignment required?** flag to **Yes**.
 
 > [!IMPORTANT]
 > When you set **User assignment required?** to **Yes**, Microsoft Entra ID checks that only users assigned to your application in the **Users and groups** pane are able to sign-in to your app. You can assign users directly or by assigning security groups they belong to.

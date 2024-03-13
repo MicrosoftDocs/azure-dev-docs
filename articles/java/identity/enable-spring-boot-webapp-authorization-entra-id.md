@@ -76,7 +76,7 @@ There's one project in this sample. To register it, you can:
 
 ### Choose the Microsoft Entra ID tenant where you want to create your applications
 
-As a first step, you need to:
+To choose your tenant, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If your account is present in more than one Microsoft Entra ID tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Microsoft Entra ID tenant.
@@ -278,7 +278,7 @@ public class SecurityConfig extends AADWebSecurityConfigurerAdapter{
 
 ### Call Graph
 
-When the user navigates to `/call_graph`, the application creates an instance of the `GraphServiceClient` - from the [Microsoft Graph SDK for Java, v3](https://github.com/microsoftgraph/msgraph-sdk-java) - using an `Oauth2AuthorizedClient` or `graphAuthorizedClient` that the AAD boot starter has prepared. The app asks the `GraphServiceClient` to call the  `/me` endpoint and displays details for the currently-signed-in user.
+When the user navigates to `/call_graph`, the application creates an instance of the `GraphServiceClient` - from the [Microsoft Graph SDK for Java, v3](https://github.com/microsoftgraph/msgraph-sdk-java) - using an `Oauth2AuthorizedClient` or `graphAuthorizedClient` that the AAD boot starter has prepared. The app asks the `GraphServiceClient` to call the `/me` endpoint and displays details for the currently-signed-in user.
 
 The `Oauth2AuthorizedClient` must be prepared with the correct scopes. See the *application.yml* file and the following [Scopes](#scopes) section. The `Oauth2AuthorizedClient` is used to surface the access token and place it in the Authorization header of `GraphServiceClient` requests.
 

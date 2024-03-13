@@ -47,11 +47,11 @@ Alternatively, navigate to the [ms-identity-java-spring-tutorial](https://github
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
 
-This sample comes with a pre-registered application for demo purposes. If you would like to use your own Azure AD B2C tenant and application, follow the steps below to register and configure the application on Azure portal. Otherwise, continue with the steps for Running the sample.
+This sample comes with a pre-registered application for demo purposes. If you'd like to use your own Azure AD B2C tenant and application, register and configure the application in the Azure portal by following the steps in the [Register the web app](#register-the-web-app-java-spring-webapp-auth-b2c). Otherwise, continue with the steps in the [Run the sample](#run-the-sample) section.
 
 ### Choose the Azure AD B2C tenant where you want to create your applications
 
-As a first step, you need to:
+To choose your tenant, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If your account is present in more than one Azure AD B2C tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Azure AD B2C tenant.
@@ -60,13 +60,15 @@ As a first step, you need to:
 
 To create common user flows like sign up, sign in, edit profile, and password reset, see [Tutorial: Create user flows in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-create-user-flows).
 
-You may consider creating [Custom policies in Azure Active Directory B2C](/azure/active-directory-b2c/custom-policy-overview) as well, however, this is beyond the scope of this tutorial.
+You should consider creating custom policies in Azure Active Directory B2C as well. However, this task is beyond the scope of this tutorial. For more information, see [Azure AD B2C custom policy overview](/azure/active-directory-b2c/custom-policy-overview).
 
 ### Add external identity providers
 
 See [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-add-identity-providers).
 
 ### Register the web app (java-spring-webapp-auth-b2c)
+
+To register the app, use the following steps:
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Azure AD B2C**.
 1. Select the **App Registrations** pane on the left, then select **New registration**.

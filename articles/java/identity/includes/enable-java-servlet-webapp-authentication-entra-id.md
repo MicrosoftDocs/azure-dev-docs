@@ -52,7 +52,7 @@ There's one project in this sample. To register the app on the portal, you can:
 
 ### [Manual](#tab/Manual)
 
-[Register a new web app](/entra/identity-platform/quickstart-register-app) in the [Azure Portal](https://portal.azure.com).
+[Register a new web app](/entra/identity-platform/quickstart-register-app) in the [Azure portal](https://portal.azure.com).
 Following this guide, you must:
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
