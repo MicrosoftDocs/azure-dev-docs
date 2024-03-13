@@ -43,7 +43,7 @@ See [Tutorial: Add identity providers to your applications in Azure Active Direc
 ### Register the WebApp app (ms-identity-b2c-java-servlet-webapp-authentication)
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Azure AD B2C**.
-1. Select the **App Registrations** pane on the left, then select **New registration**.
+1. Select **App Registrations** on the navigation pane, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
 
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `ms-identity-b2c-java-servlet-webapp-authentication`.

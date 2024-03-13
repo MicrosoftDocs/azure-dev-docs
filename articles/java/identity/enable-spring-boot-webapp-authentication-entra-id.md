@@ -83,7 +83,7 @@ To choose your tenant, use the following steps:
 ### Register the webApp app (java-spring-webapp-auth)
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Microsoft Entra ID**.
-1. Select the **App Registrations** pane on the left, then select **New registration**.
+1. Select **App Registrations** on the navigation pane, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-spring-webapp-auth`.
    - Under **Supported account types**, select **Accounts in this organizational directory only**.

@@ -32,7 +32,7 @@ For a video that covers this scenario, see [Implement authorization in your appl
 - A user account in your Microsoft Entra ID tenant. This sample doesn't work with a personal Microsoft account. Therefore, if you signed in to the [Azure portal](https://portal.azure.com) with a personal account and have never created a user account in your directory before, you need to do that now.
 - Two security groups, named **AdminGroup** and **UserGroup**, containing the user or users that you want to sign and test this sample. Or, you may add the user to two existing security groups in your tenant. If you choose to use existing groups, be sure to modify the sample configuration to use your existing security groups' name and object ID.
 - [Visual Studio Code](https://code.visualstudio.com/download)
-- [VS Code Azure Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
+- [Azure Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
 [!INCLUDE [spring-boot-overview-recommendations.md](includes/spring-boot-overview-recommendations.md)]
 
@@ -98,7 +98,7 @@ To choose your tenant, use the following steps:
 To register the app, use the following steps:
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Microsoft Entra ID**.
-1. Select the **App Registrations** pane on the left, then select **New registration**.
+1. Select **App Registrations** on the navigation pane, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
 
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-spring-webapp-groups`.
@@ -124,7 +124,7 @@ To register the app, use the following steps:
 ### Create Security Groups
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Microsoft Entra ID**.
-1. Select **Groups** pane on the left.
+1. Select **Groups** on the navigation pane.
 1. In the **Groups** pane, select **New Group**.
 
    - For **Group Type**, select **Security**

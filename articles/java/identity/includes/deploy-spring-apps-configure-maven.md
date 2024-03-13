@@ -21,7 +21,7 @@ Use the following steps to deploy using the [Maven plugin for Azure Spring Apps]
    - **Input the app name (demo)**: Provide an app name. If you use the default project artifact ID, press <kbd>Enter</kbd> directly.
    - **Runtimes**: Select the runtime you want to use for your spring apps instance. In this case you should use the default number, press <kbd>Enter</kbd> directly.
    - **Expose public access for this app (boot-for-azure)**: Press <kbd>y</kbd>.
-   - **Confirm to save all the above configurations**: Press <kbd>y</kbd>. If you press <kbd>n</kbd>, the configuration isn't saved in the POM files.
+   - **Confirm to save all the above configurations**: Press <kbd>y</kbd>. If you press <kbd>n</kbd>, the configuration isn't saved in the *.pom* file.
 
 ```output
 Summary of properties:

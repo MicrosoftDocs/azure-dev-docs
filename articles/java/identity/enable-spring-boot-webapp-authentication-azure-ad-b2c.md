@@ -26,7 +26,7 @@ The client app uses the Azure AD B2C Spring Boot Starter client library for Java
 - [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) is recommended for running this sample in VSCode.
 - An Azure AD B2C tenant. For more information, see [Tutorial: Create an Azure Active Directory B2C tenant](/azure/active-directory-b2c/tutorial-create-tenant)
 - [Visual Studio Code](https://code.visualstudio.com/download)
-- [VS Code Azure Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
+- [Azure Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
 [!INCLUDE [spring-boot-overview-recommendations.md](includes/spring-boot-overview-recommendations.md)]
 
@@ -71,7 +71,7 @@ See [Tutorial: Add identity providers to your applications in Azure Active Direc
 To register the app, use the following steps:
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Azure AD B2C**.
-1. Select the **App Registrations** pane on the left, then select **New registration**.
+1. Select **App Registrations** on the navigation pane, then select **New registration**.
 1. In the **Register an application page** that appears, enter your application's registration information:
 
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-spring-webapp-auth-b2c`.
