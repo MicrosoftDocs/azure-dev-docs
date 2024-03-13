@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Migrate WebSphere Server to Azure Virtual Machines with high availability and disaster recovery"
-description: Shows how to deploy WebSphere Server to Azure Virtual Machines with high availability and disaster recovery.
+title: "Tutorial: Migrate WebSphere Application Server to Azure Virtual Machines with high availability and disaster recovery"
+description: Shows how to deploy WebSphere Application Server to Azure Virtual Machines with high availability and disaster recovery.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: tutorial
@@ -8,9 +8,9 @@ ms.date: 02/26/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-websphere, devx-track-javaee-was, devx-track-javaee-was-vm, migration-java, devx-track-extended-java
 ---
 
-# Tutorial: Migrate WebSphere Server to Azure Virtual Machines with high availability and disaster recovery
+# Tutorial: Migrate WebSphere Application Server to Azure Virtual Machines with high availability and disaster recovery
 
-This tutorial shows you a simple and effective way to implement high availability and disaster recovery (HA/DR) for Java using WebSphere Server on Azure Virtual Machines (VMs). The solution illustrates how to achieve a low Recovery Time Objective (RTO) and Recovery Point Objective (RPO) using a simple database driven Jakarta EE application running on WebSphere. HA/DR is a complex topic, with many possible solutions. The best solution depends on your unique requirements. For other ways to implement HA/DR, see the resources at the end of this article.
+This tutorial shows you a simple and effective way to implement high availability and disaster recovery (HA/DR) for Java using WebSphere Application Server on Azure Virtual Machines (VMs). The solution illustrates how to achieve a low Recovery Time Objective (RTO) and Recovery Point Objective (RPO) using a simple database driven Jakarta EE application running on WebSphere Application Server. HA/DR is a complex topic, with many possible solutions. The best solution depends on your unique requirements. For other ways to implement HA/DR, see the resources at the end of this article.
 
 In this tutorial, you learn how to:
 
@@ -27,11 +27,11 @@ The following diagram illustrates the architecture you build:
 <!-- Diagram source https://github.com/Azure-Samples/azure-cafe/blob/main/diagrams/websphere-on-vms-ha-dr-solution-architecture.pptx -->
 :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/solution-architecture.png" alt-text="Diagram of the solution architecture of WebSphere on Azure VMs with high availability and disaster recovery." lightbox="media/migrate-websphere-to-vms-with-ha-dr/solution-architecture.png" border="false":::
 
-Azure Traffic Manager checks the health of your regions and routes the traffic accordingly to the application tier. The primary region has a full deployment of the WebSphere cluster. After the primary region is protected, the secondary region is restored during the failover using the Azure Site Recovery. As a result, the primary region is actively servicing network requests from the users. The secondary region is passive and activated to receive traffic only when the primary region experiences a service disruption. Azure Traffic Manager detects the health of the app deployed in the IBM HTTP Server to implement the conditional routing. The geo-failover RTO of the application tier depends on the time for shutting down the primary cluster, restoring the secondary cluster, and starting VMs and running the secondary WebSphere cluster. The RPO depends on the replication policy of the Azure Site Recovery and Azure SQL Database because the cluster data is stored and replicated in the local storage of the VMs and application data is persisted and replicated in the Azure SQL Database failover group.
+Azure Traffic Manager checks the health of your regions and routes the traffic accordingly to the application tier. The primary region has a full deployment of the WebSphere cluster. After the primary region is protected, the secondary region is restored during the failover using Azure Site Recovery. As a result, the primary region is actively servicing network requests from the users. The secondary region is passive and activated to receive traffic only when the primary region experiences a service disruption. Azure Traffic Manager detects the health of the app deployed in the IBM HTTP Server to implement the conditional routing. The geo-failover RTO of the application tier depends on the time for shutting down the primary cluster, restoring the secondary cluster, and starting VMs and running the secondary WebSphere cluster. The RPO depends on the replication policy of Azure Site Recovery and Azure SQL Database because the cluster data is stored and replicated in the local storage of the VMs and application data is persisted and replicated in the Azure SQL Database failover group.
 
-The database tier consists of an Azure SQL Database failover group with a primary server and a secondary server. The read/write listener endpoint always points to the primary server and is connected to WebSphere cluster in each region. A geo-failover switches all secondary databases in the group to the primary role. For geo-failover RPO and RTO of Azure SQL Database, see [Overview of Business Continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql-db&preserve-view=true).
+The database tier consists of an Azure SQL Database failover group with a primary server and a secondary server. The read/write listener endpoint always points to the primary server and is connected to the WebSphere cluster in each region. A geo-failover switches all secondary databases in the group to the primary role. For geo-failover RPO and RTO of Azure SQL Database, see [Overview of Business Continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql-db&preserve-view=true).
 
-This tutorial was written with the Azure Site Recovery and Azure SQL Database service because the tutorial relies on the HA features of these services. Other database choices are possible, but the HA features of whatever database you chose must be considered.
+This tutorial was written with Azure Site Recovery and Azure SQL Database service because the tutorial relies on the HA features of these services. Other database choices are possible, but the HA features of whatever database you chose must be considered.
 
 ## Prerequisites
 
@@ -104,7 +104,7 @@ Then, create an Azure SQL Database failover group by following the Azure portal 
 
 ## Set up the primary WebSphere cluster on Azure VMs
 
-In this section, you create the primary WebSphere clusters on Azure VMs using the [IBM WebSphere Application Server Cluster on Azure VMs](https://aka.ms/twas-cluster-portal) offer. The secondary cluster is restored from the primary cluster during the failover using the Azure Site Recovery later.
+In this section, you create the primary WebSphere clusters on Azure VMs using the [IBM WebSphere Application Server Cluster on Azure VMs](https://aka.ms/twas-cluster-portal) offer. The secondary cluster is restored from the primary cluster during the failover using Azure Site Recovery later.
 
 ### Deploy the primary WebSphere cluster
 
@@ -527,7 +527,7 @@ If you're not going to continue to use the WebSphere clusters and other componen
 
 ## Next steps
 
-In this tutorial, you set up an HA/DR solution consisting of an active-passive application infrastructure tier with an active-passive database tier, and in which both tiers span two geographically different sites. At the first site, both the application infrastructure tier and the database tier are active. At the second site, the secondary domain is restored with the Azure Site Recovery service, and the secondary database is on standby.
+In this tutorial, you set up an HA/DR solution consisting of an active-passive application infrastructure tier with an active-passive database tier, and in which both tiers span two geographically different sites. At the first site, both the application infrastructure tier and the database tier are active. At the second site, the secondary domain is restored with Azure Site Recovery service, and the secondary database is on standby.
 
 Continue to explore the following references for more options to build HA/DR solutions and run WebSphere on Azure:
 
