@@ -8,13 +8,13 @@ ms.custom: devx-track-js
 
 # How to authenticate JavaScript apps to Azure services using the Azure SDK for JavaScript
 
-[!INCLUDE [Create app registration step 1](<../../includes/sdk-auth-passwordless/overview-para-1.md>)] This article describes the recommended approaches to authenticate an app to Azure when using the Azure SDK for JavaScript.
+[!INCLUDE [Create app registration step 1](<../../../includes/sdk-auth-passwordless/overview-para-1.md>)] This article describes the recommended approaches to authenticate an app to Azure when using the Azure SDK for JavaScript.
 
 ## Recommended app authentication approach
 
-[!INCLUDE [Recommended app authentication approach](<../../includes/sdk-auth-passwordless/overview-recommend-authentication.md>)]
+[!INCLUDE [Recommended app authentication approach](<../../../includes/sdk-auth-passwordless/overview-recommend-authentication.md>)]
 
-:::image type="content" source="../../includes/media/sdk-auth-passwordless/javascript-sdk-auth-strategy.png" alt-text="A diagram showing the recommended token-based authentication strategies for an app depending on where it's running." :::
+:::image type="content" source="../../../includes/media/sdk-auth-passwordless/javascript-sdk-auth-strategy.png" alt-text="A diagram showing the recommended token-based authentication strategies for an app depending on where it's running." :::
 
 ### Advantages of token-based authentication
 
