@@ -17,8 +17,7 @@ The following diagram shows the topology of the app:
 
 :::image type="content" source="media/topology.png" alt-text="Diagram that shows the topology of the app.":::
 
-The Java Spring Boot web app uses the Microsoft Entra ID Spring Boot Starter client library for Java to obtain an [access token](/entra/identity-platform/access-tokens) for [Microsoft Graph](/graph/overview) from Microsoft Entra ID.
-1. The access token proves that the user is authorized to access the Microsoft Graph API endpoint as defined in the scope.
+The app uses the Microsoft Entra ID Spring Boot Starter client library for Java to obtain an [access token](/entra/identity-platform/access-tokens) for [Microsoft Graph](/graph/overview) from Microsoft Entra ID. The access token proves that the user is authorized to access the Microsoft Graph API endpoint as defined in the scope.
 
 [!INCLUDE [prerequisites-spring-boot.md](includes/prerequisites-spring-boot.md)]
 
