@@ -31,7 +31,7 @@ Deploy machine learning models for real-time inference.
 Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development.
 
 - [Train a regression model with AutoML and Python (SDK v1)](/azure/machine-learning/v1/how-to-auto-train-models-v1)
-- [Set up AutoML training for tabular data with the Azure Machine Learning CLI and Python SDK (v2}](/azure/machine-learning/how-to-configure-auto-train)
+- [Set up AutoML training for tabular data with the Azure Machine Learning CLI and Python SDK (v2)](/azure/machine-learning/how-to-configure-auto-train)
 
 ## Data access
 
