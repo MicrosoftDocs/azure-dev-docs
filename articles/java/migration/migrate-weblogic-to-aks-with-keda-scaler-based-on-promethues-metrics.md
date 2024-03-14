@@ -344,6 +344,38 @@ sample-domain1-admin-server      2/2     Running   0          4m29s
 sample-domain1-managed-server1   2/2     Running   0          3m16s
 sample-domain1-managed-server2   2/2     Running   0          112s
 ```
+> [!NOTE]
+> ```shell
+> echo 123
+> ```
+
+
+> [!NOTE]
+> You can access metrics from WebLogic Monitoring Exporter by exposing the exporter with a public IP. 
+> Create a Loadbalancer service for the exporter with the following command. Open the URL from output, you will be required to input user name and password to access the metrics. The user name and password is the WLS admin account you set in the offer deployment.
+> ```bash
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: wls-exporter-cluster-external-lb
+  namespace: ${WLS_NAMESPACE}
+spec:
+  ports:
+  - name: default
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    weblogic.domainUID: ${WLS_DOMAIN_UID}
+    weblogic.clusterName: cluster-1
+  sessionAffinity: None
+  type: LoadBalancer
+EOF
+
+WME_IP=$(kubectl get svc wls-exporter-cluster-external-lb -n ${WLS_NAMESPACE} -o=jsonpath='{.status.loadBalancer.ingress[*].ip}')
+echo "Metric address: http://${WME_IP}:8080/metrics"
+```
 
 ### Enable AKS Promethues integration
 
