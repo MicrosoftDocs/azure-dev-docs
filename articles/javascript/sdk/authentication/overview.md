@@ -14,7 +14,7 @@ ms.custom: devx-track-js
 
 [!INCLUDE [Recommended app authentication approach](<../../../includes/authentication/overview-recommend-authentication.md>)]
 
-:::image type="content" source="../../media/azure-sdk-authentication-auth-passwordless/javascript-sdk-auth-strategy.png" alt-text="A diagram showing the recommended token-based authentication strategies for an app depending on where it's running." :::
+:::image type="content" source="../../media/azure-sdk-authentication/javascript-sdk-auth-strategy.png" alt-text="A diagram showing the recommended token-based authentication strategies for an app depending on where it's running." :::
 
 ### Advantages of token-based authentication
 
