@@ -14,11 +14,11 @@ ms.custom: devx-track-js
 
 [!INCLUDE [Recommended app authentication approach](<../../../includes/authentication/overview-recommend-authentication.md>)]
 
-:::image type="content" source="../../includes/media/sdk-auth-passwordless/javascript-sdk-auth-strategy.png" alt-text="A diagram showing the recommended token-based authentication strategies for an app depending on where it's running." :::
+:::image type="content" source="../../media/azure-sdk-authentication-auth-passwordless/javascript-sdk-auth-strategy.png" alt-text="A diagram showing the recommended token-based authentication strategies for an app depending on where it's running." :::
 
 ### Advantages of token-based authentication
 
-[!INCLUDE [Advantages of token-based authentication](<../../includes/authentication/overview-advantages.md>)]
+[!INCLUDE [Advantages of token-based authentication](<../../../includes/authentication/overview-advantages.md>)]
 
 Use the following SDK: 
 
@@ -27,15 +27,15 @@ Use the following SDK:
 
 ### DefaultAzureCredential
 
-[!INCLUDE [DefaultAzureCredential](<../../includes/authentication/overview-defaultazurecredential.md>)]
+[!INCLUDE [DefaultAzureCredential](<../../../includes/authentication/overview-defaultazurecredential.md>)]
 
 ## Authentication in server environments
 
-[!INCLUDE [Authentication in server environments](<../../includes/authentication/overview-server-environments.md>)]
+[!INCLUDE [Authentication in server environments](<../../../includes/authentication/overview-server-environments.md>)]
 
 ## Authentication during local development
 
-[!INCLUDE [Authentication during local development](<../../includes/authentication/overview-local-environments.md>)]
+[!INCLUDE [Authentication during local development](<../../../includes/authentication/overview-local-environments.md>)]
 
 ## Use DefaultAzureCredential in an application
 
@@ -62,15 +62,15 @@ const blobServiceClient = new BlobServiceClient(
 );
 ```
 
-[!INCLUDE [Authentication during local development - after](<../../includes/authentication/overview-defaultazurecredential-after.md>)]
+[!INCLUDE [Authentication during local development - after](<../../../includes/authentication/overview-defaultazurecredential-after.md>)]
 
 ### Sequence of selecting authentication methods when using DefaultAzureCredential
 
-[!INCLUDE [Sequence of selecting authentication methods when using DefaultAzureCredential](<../../includes/authentication/overview-credential-sequence.md>)]
+[!INCLUDE [Sequence of selecting authentication methods when using DefaultAzureCredential](<../../../includes/authentication/overview-credential-sequence.md>)]
 
 The order in which `DefaultAzureCredential` looks for credentials for JavaScript is shown in the diagram and table below.  
 
-:::image type="content" source="../../media/DefaultAzureCredentialAuthFlow.svg" alt-text="A diagram showing the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="../../includes/media/sdk-auth-passwordless/DefaultAzureCredentialAuthFlow.svg":::
+:::image type="content" source="../../media/azure-sdk-authentication/DefaultAzureCredentialAuthFlow.svg" alt-text="A diagram showing the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="../../media/azure-sdk-authentication/DefaultAzureCredentialAuthFlow.svg":::
 
 There are two paths:
 * **Deployed service** (Azure or on-premises): the sequence begins with the environment variables, then the managed identity, then the rest of the locations for a credential (Visual Studio Code, Azure CLI, Azure PowerShell). 
