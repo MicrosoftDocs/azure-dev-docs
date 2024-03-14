@@ -216,7 +216,7 @@ Use the following steps to configure the app:
 - On the consent screen, note the scopes that are being requested.
 - Upon successful completion of the sign-in flow, you should be redirected to the home page - which shows the **sign in status** - or one of the other pages, depending on which button triggered your sign-in flow.
 - Notice that the context-sensitive button now says **Sign out** and displays your username.
-- If you're on the home page, select **ID Token Details** to see some of the ID token's decoded claims, including **roles**.
+- If you're on the home page, select **ID Token Details** to see some of the ID token's decoded claims, including roles.
 - Select **Admins Only** to view the `/admin_only`. Only users with app role **PrivilegedAdmin** can view this page. Otherwise an authorization failure message is displayed.
 - Select **Regular Users** to view the `/regular_user` page. Only users with app role **RegularUser** or **PrivilegedAdmin** can view this page. Otherwise an authorization failure message is displayed.
 - You can also use the button in the corner to sign out. The status page reflects the new state.

@@ -112,7 +112,7 @@ To register the app, use the following steps:
 1. In the app's registration screen, select **Certificates & secrets** on the navigation pane to open the page where you can generate secrets and upload certificates.
 1. In the **Client secrets** section, select **New client secret**.
 1. Type a key description - for example, *app secret*.
-1. Select one of the available key durations: **6 months**, **12 months** or **Custom**.
+1. Select one of the available key durations: **6 months**, **12 months**, or **Custom**.
 1. Select **Add**. The generated key value is displayed.
 1. Copy and save the generated value for use in later steps. You need this key for your code's configuration files. This key value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
 1. In the app's registration screen, select **API permissions** on the navigation pane to open the page where we add access to the APIs that your application needs.
@@ -161,7 +161,7 @@ You have the following options on how you can further configure your application
 1. In the app's registration screen, select **Token Configuration** on the navigation pane to open the page where you can configure the claims provided tokens issued to your application.
 1. Select **Add groups claim** to open the **Edit Groups Claim** screen.
 1. Select **Security groups** OR **All groups (includes distribution lists but not groups assigned to the application)**. Choosing both negates the effect of the **Security Groups** option.
-1. Under the **ID** section, select **Group ID**. This selection causes Microsoft Entra ID to send the [object ID](/graph/api/resources/group) of the groups the user is assigned to in the **groups** claim of the [ID token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
+1. Under the **ID** section, select **Group ID**. This selection causes Microsoft Entra ID to send the [object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
 
 #### Configure your application to receive the groups claim values from a filtered set of groups a user might be assigned to
 
@@ -176,8 +176,8 @@ You have the following options on how you can further configure your application
 1. In the app's registration screen, select **Token Configuration** on the navigation pane to open the page where you can configure the claims provided tokens issued to your application.
 1. Select **Add groups claim** to open the **Edit Groups Claim** screen.
 1. Select **Groups assigned to the application** and don't selection any other options. If you choose more options, such as **Security Groups** or **All groups (includes distribution lists but not groups assigned to the application)**, these options negate the effect of the **Groups assigned to the application** option.
-1. Under the **ID** section, select **Group ID**. This selection causes Microsoft Entra ID to send the object [id](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
-1. If you're exposing a Web API using the **Expose an API** option, then you can also choose the **Group ID** option under the **Access** section. This selection causes Microsoft Entra ID to send the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [access token](/entra/identity-platform/access-tokens) issued to the client applications of your API.
+1. Under the **ID** section, select **Group ID**. This selection causes Microsoft Entra ID to send the [object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
+1. If you're exposing a Web API using the **Expose an API** option, then you can also choose the **Group ID** option under the **Access** section. This selection causes Microsoft Entra ID to send the [object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [access token](/entra/identity-platform/access-tokens) issued to the client applications of your API.
 1. In the app's registration screen, select **Overview** on the navigation pane to open the Application overview screen. Select the hyperlink with the name of your application in **Managed application in local directory**. This field title might be truncated - for example, **Managed application in ...**. When you select this link, you navigate to the **Enterprise Application Overview** page associated with the service principal for your application in the tenant where you created it. You can navigate back to the app registration page by using the back button of your browser.
 1. Select **Users and groups** on the navigation pane to open the page where you can assign users and groups to your application.
 
@@ -274,7 +274,7 @@ Open the *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwe
 - On the consent screen, note the scopes that are being requested.
 - Upon successful completion of the sign-in flow, you should be redirected to the home page - which shows the **sign in status** - or one of the other pages, depending on which button triggered your sign-in flow.
 - Notice that the context-sensitive button now says **Sign out** and displays your username.
-- If you're on the home page, select **ID Token Details** to see some of the ID token's decoded claims, including **groups**.
+- If you're on the home page, select **ID Token Details** to see some of the ID token's decoded claims, including groups.
 - Select **Admins Only** to view the `/admin_only`. Only users belonging to the **AdminGroup** security group can view this page. Otherwise an authorization failure message is displayed.
 - Select **Regular Users** to view the `/regular_user` page. Only users belonging to the **UserGroup** security group can view this page. Otherwise an authorization failure message is displayed.
 - You can also use the button in the corner to sign out. The status page reflects the new state.
