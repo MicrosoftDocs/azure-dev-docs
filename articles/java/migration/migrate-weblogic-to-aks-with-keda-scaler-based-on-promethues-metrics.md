@@ -374,9 +374,58 @@ sample-domain1-managed-server2   2/2     Running   0          112s
 > ```
 > Open the URL from output to access metrics, you will be required to input user name and password. The user name and password is the WLS admin account you set during the offer deployment.
 
-### Enable AKS Promethues integration
+### Install AKS Promethues metrics addon
+
+Before you install the metrics add-on, you need an Azure Monitor Account. For more information, see [Enable monitoring for Kubernetes clusters](/azure/azure-monitor/containers/kubernetes-monitoring-enable).
+
+Run [az monitor account create](/cli/azure/monitor/account) to create the workspace. Replace the resouce group name and azure monitor account name with your desired values. 
+
+```azurecli
+AMA_RG_NAME="wlsaksamarg20240314"
+AMA_NAME="wlsaksama20240314"
+
+# create a resorce group for azure monitor account
+az group create -n ${AMA_RG_NAME} -l eastus
+# create azure monitor account
+az monitor account create -n ${AMA_NAME} -g ${AMA_RG_NAME}
+```
+
+Enable metrics addon in existing AKS cluster with [az aks update](/cli/azure/aks#az-aks-update). The k8s-extension version 1.4.1 or higher is required. For more information, see [Enable Prometheus](/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=cli#enable-prometheus-and-grafana).
+
+Firstly, open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer). Obtain the AKS cluster name and the resource group name, and fill in the following variables `AKS_CLUSTER_NAME`, `AKS_CLUSTER_RG_NAME`.
+
+```azurecli
+AKS_CLUSTER_NAME=<your-aks-cluster-name>
+AKS_CLUSTER_RG_NAME=<your-aks-cluster-resource-group>
+
+AMA_ID=$(az monitor account show -n ${AMA_NAME} -g ${AMA_RG_NAME} --query id -otsv)
+
+az extension remove --name aks-preview
+az extension add --name k8s-extension
+
+az aks update --enable-azure-monitor-metrics \
+    --name ${AKS_CLUSTER_NAME} \
+    --resource-group ${AKS_CLUSTER_RG_NAME} \
+    --azure-monitor-workspace-resource-id "${AMA_ID}"
+```
+
+It takes 15 minutes to deploy the metrics addon. Make sure the command completes withour errors.
+
+> [!NOTE]
+> You can run `kubectl get ds ama-metrics-node --namespace=kube-system` to validate the metrics addon.
+> This is a validation example:
+>
+> ```text
+> $ kubectl get ds ama-metrics-node --namespace=kube-system
+>   NAME               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+>   ama-metrics-node   3         3         3       3            3           <none>          32m
+> ```
 
 ### Configure Promethues to scrape metrics from WLS
+
+Once the AKS metrics addon enabled, you can configure Promethues to scrape metrics from WLS. For more information, see [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration).
+
+Follow the steps to apply scrape configuration.
 
 ### Query metrics in Azure Monitor workspace
 
