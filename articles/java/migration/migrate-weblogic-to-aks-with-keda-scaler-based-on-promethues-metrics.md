@@ -427,13 +427,11 @@ Once the AKS metrics addon enabled, you can configure Promethues to scrape metri
 
 Follow the steps to apply scrape configuration.
 
-### Query metrics in Azure Monitor workspace
-
 ---
 
-## Enable KEDA
+## Query metrics in Azure Monitor Workspace
 
-## Examine the metrics
+## Enable KEDA
 
 ## Create KEDA scaler
 
