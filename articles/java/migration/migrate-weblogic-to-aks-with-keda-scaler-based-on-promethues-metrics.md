@@ -30,6 +30,13 @@ The following diagram illustrates the architecture you build:
 <!-- Diagram source -->
 :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-aks-autoscaling-architecture.png" alt-text="Diagram of the solution architecture of WLS on AKS with KEDA scaler based on Prometheus Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-aks-autoscaling-architecture.png" border="false":::
 
+This article uses the WebLogic Monitoring Exporter to scrape WebLogic Server metrics and feed them to Prometheus. The exporter uses the WebLogic Server 12.2.1.x [RESTful Management Interface](https://docs.oracle.com/middleware/1221/wls/WLRUR/overview.htm#WLRUR111) for accessing runtime state and metrics. 
+
+The following WLS state and metrics will be exported. You can configure the exporter to export other metrics on your demain. For a detailed description of WebLogic Monitoring Exporter configuration and usage, see [WebLogic Monitoring Exporter](https://blogs.oracle.com/weblogicserver/exporting-metrics-from-weblogic-server).
+
+<!-- Diagram source -->
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-metrics.png" alt-text="WebLogic Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-metrics.png" border="false":::
+
 ## Prerequisites
 
 - Java Headless Mode. Run `jar --vesion` to test if the headless mode is workable. You can run `apt install openjdk-11-jdk-headless` to install it in Ubuntu.
@@ -213,13 +220,6 @@ This section shows manual steps to:
 
 #### Enable WebLogic Monitoring Exporter
 
-This article uses the WebLogic Monitoring Exporter to scrape WebLogic Server metrics and feed them to Prometheus. The exporter uses the WebLogic Server 12.2.1.x [RESTful Management Interface](https://docs.oracle.com/middleware/1221/wls/WLRUR/overview.htm#WLRUR111) for accessing runtime state and metrics. 
-
-This article configures WebLogic Monitoring Exporter to export the following WLS state and metrics. For a detailed description of WebLogic Monitoring Exporter configuration and usage, see [WebLogic Monitoring Exporter](https://blogs.oracle.com/weblogicserver/exporting-metrics-from-weblogic-server).
-
-<!-- Diagram source -->
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-metrics.png" alt-text="WebLogic Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-metrics.png" border="false":::
-
 The offer runs a operator-managed WebLogic Server domain in Kubernetes. You can simply add the `monitoringExporter` configuration element in the domain resource to enable the Monitoring Exporter. For more information, see [Monitoring exporter](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/accessing-the-domain/monitoring-exporter/).
 
 The following example patches the WLS domain with the exporter configuration using `kubectl patch`. The exporter image is `ghcr.io/oracle/weblogic-monitoring-exporter:2.1.9`. Here, the domain UID is `sample-domain1`, and the namespace is `sample-domain1-ns`, which were created by the offer with default settings. Replace with yours if you are using different domain UID and namespace.
@@ -344,38 +344,35 @@ sample-domain1-admin-server      2/2     Running   0          4m29s
 sample-domain1-managed-server1   2/2     Running   0          3m16s
 sample-domain1-managed-server2   2/2     Running   0          112s
 ```
-> [!NOTE]
-> ```shell
-> echo 123
-> ```
-
 
 > [!NOTE]
 > You can access metrics from WebLogic Monitoring Exporter by exposing the exporter with a public IP. 
-> Create a Loadbalancer service for the exporter with the following command. Open the URL from output, you will be required to input user name and password to access the metrics. The user name and password is the WLS admin account you set in the offer deployment.
+> Create a Loadbalancer service for the exporter with the following command. 
 > ```bash
-cat <<EOF | kubectl apply -f -
-apiVersion: v1
-kind: Service
-metadata:
-  name: wls-exporter-cluster-external-lb
-  namespace: ${WLS_NAMESPACE}
-spec:
-  ports:
-  - name: default
-    port: 8080
-    protocol: TCP
-    targetPort: 8080
-  selector:
-    weblogic.domainUID: ${WLS_DOMAIN_UID}
-    weblogic.clusterName: cluster-1
-  sessionAffinity: None
-  type: LoadBalancer
-EOF
-
-WME_IP=$(kubectl get svc wls-exporter-cluster-external-lb -n ${WLS_NAMESPACE} -o=jsonpath='{.status.loadBalancer.ingress[*].ip}')
-echo "Metric address: http://${WME_IP}:8080/metrics"
-```
+> cat <<EOF | kubectl apply -f -
+> apiVersion: v1
+> kind: Service
+> metadata:
+>   name: wls-exporter-cluster-external-lb
+>   namespace: ${WLS_NAMESPACE}
+> spec:
+>   ports:
+>   - name: default
+>     port: 8080
+>     protocol: TCP
+>     targetPort: 8080
+>   selector:
+>     weblogic.domainUID: ${WLS_DOMAIN_UID}
+>     weblogic.clusterName: cluster-1
+>   sessionAffinity: None
+>   type: LoadBalancer
+> EOF
+> 
+>
+> WME_IP=$(kubectl get svc wls-exporter-cluster-external-lb -n ${WLS_NAMESPACE} -o=jsonpath='{.status.loadBalancer.ingress[*].ip}')
+> echo "Metric address: http://${WME_IP}:8080/metrics"
+> ```
+> Open the URL from output to access metrics, you will be required to input user name and password. The user name and password is the WLS admin account you set during the offer deployment.
 
 ### Enable AKS Promethues integration
 
