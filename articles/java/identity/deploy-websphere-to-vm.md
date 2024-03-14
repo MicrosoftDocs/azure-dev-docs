@@ -14,7 +14,7 @@ This article shows you how to deploy a Java WebSphere web app with sign-in by Mi
 
 ## Prerequisites
 
-- Completion of one of the following WebSphere articles for enabling security with Microsoft Entra ID:
+- Completion of one of the following articles for enabling security with Microsoft Entra ID:
   - [Enable sign-in for Java WebSphere apps using Microsoft Entra ID](enable-java-websphere-webapp-authentication-entra-id.md)
   - [Enable sign-in for Java WebSphere apps using MSAL4J with Azure Active Directory B2C](enable-java-websphere-webapp-authentication-azure-ad-b2c.md)
   - [Enable Java WebSphere apps to sign in users and access Microsoft Graph](enable-java-websphere-webapp-authorization-entra-id.md)

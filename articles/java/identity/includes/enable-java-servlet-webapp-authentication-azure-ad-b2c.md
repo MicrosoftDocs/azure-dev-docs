@@ -69,7 +69,7 @@ Use the following steps to configure the app:
 > [!NOTE]
 > In the following steps, `ClientID` is the same as `Application ID` or `AppId`.
 
-1. Open the project in your IDE to configure the code.
+1. Open the project in your IDE.
 
 1. Open the *./src/main/resources/authentication.properties* file.
 

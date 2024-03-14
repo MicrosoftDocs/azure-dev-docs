@@ -14,7 +14,7 @@ This article shows you how to deploy a Java Spring Boot web app with sign-in by 
 
 ## Prerequisites
 
-- Completion of one of the following Spring Boot articles for enabling security with Microsoft Entra ID:
+- Completion of one of the following articles for enabling security with Microsoft Entra ID:
   - [Secure Java Spring Boot apps using Microsoft Entra ID](enable-spring-boot-webapp-authentication-entra-id.md)
   - [Secure Java Spring Boot apps using Azure Active Directory B2C](enable-spring-boot-webapp-authentication-azure-ad-b2c.md)
   - [Enable Java Spring Boot apps to sign in users and access Microsoft Graph](enable-spring-boot-webapp-authorization-entra-id.md)

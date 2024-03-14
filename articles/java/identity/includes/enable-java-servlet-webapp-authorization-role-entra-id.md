@@ -25,11 +25,11 @@ Alternatively, navigate to the [ms-identity-java-servlet-webapp-authentication](
 
 There's one project in this sample. To register the app on the Azure portal, you can either follow manual configuration steps or use a PowerShell script. The script does the following tasks:
 
-- Create the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
-- Modify the project configuration files.
-- By default, set up an application that works with accounts in your organizational directory only.
+- Creates the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
+- Modifies the project configuration files.
+- By default, sets up an application that works with accounts in your organizational directory only.
 
-### [Powershell](#tab/Powershell)
+### [PowerShell](#tab/PowerShell)
 
 Use the following steps to run the PowerShell script:
 
@@ -109,7 +109,7 @@ Use the following steps to configure the app:
 > [!NOTE]
 > In the following steps, `ClientID` is the same as `Application ID` or `AppId`.
 
-1. Open the project in your IDE to configure the code.
+1. Open the project in your IDE.
 
 1. Open the [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/3-Authorization-II/roles/src/main/resources/authentication.properties) file.
 

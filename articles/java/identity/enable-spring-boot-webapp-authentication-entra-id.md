@@ -46,11 +46,11 @@ Alternatively, navigate to the [ms-identity-java-spring-tutorial](https://github
 
 There's one project in this sample. To register the app on the Azure portal, you can either follow manual configuration steps or use a PowerShell script. The script does the following tasks:
 
-- Create the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
-- Modify the project configuration files.
-- By default, set up an application that works with accounts in your organizational directory only.
+- Creates the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
+- Modifies the project configuration files.
+- By default, sets up an application that works with accounts in your organizational directory only.
 
-### [Powershell](#tab/Powershell)
+### [PowerShell](#tab/PowerShell)
 
 Use the following steps to run the PowerShell script:
 
@@ -107,7 +107,7 @@ Use the following steps to configure the app:
 > [!NOTE]
 > In the following steps, `ClientID` is the same as `Application ID` or `AppId`.
 
-1. Open the project in your IDE to configure the code.
+1. Open the project in your IDE.
 
 1. Open the *src\main\resources\application.yml* file.
 
@@ -198,14 +198,14 @@ This sample demonstrates how to use [Microsoft Entra ID Spring Boot Starter clie
 
 Create a new Java Maven project and copy the *pom.xml* file from this project, and the *src* folder of this repository.
 
-If you'd like to create a project like this from scratch, you may use [Spring Initializer](https://start.spring.io):
+If you'd like to create a project like this from scratch, you can use [Spring Initializer](https://start.spring.io):
 
 - For **Packaging**, select **Jar**.
 - For **Java**, select version **11**.
-- For **Dependencies**, add the following:
-  - Microsoft Entra ID
-  - Spring Oauth2 Client
-  - Spring Web
+- For **Dependencies**, add the following items:
+  - **Microsoft Entra ID**
+  - **Spring Oauth2 Client**
+  - **Spring Web**
 - Be sure that it comes with Azure SDK version 3.3 or higher. If not, consider replacing the preconfigured *pom.xml* with the *pom.xml* from this repository.
 
 ### ID token claims
@@ -224,13 +224,13 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Sign-in and sign-out links
 
-To sign in, you must make a request to the Microsoft Entra ID sign-in endpoint automatically configured by **Microsoft Entra ID Spring Boot Starter client library for Java**.
+To sign in, you must make a request to the Microsoft Entra ID sign-in endpoint automatically configured by Microsoft Entra ID Spring Boot Starter client library for Java.
 
 ```html
 <a class="btn btn-success" href="/oauth2/authorization/azure">Sign In</a>
 ```
 
-To sign out, you must make POST request to the **logout** endpoint.
+To sign out, you must make POST request to the `logout` endpoint, as shown in the following example:
 
 ```html
 <form action="#" th:action="@{/logout}" method="post">
@@ -240,7 +240,7 @@ To sign out, you must make POST request to the **logout** endpoint.
 
 ### Authentication-dependent UI elements
 
-This app has some simple logic in the UI template pages for determining content to display based on whether the user is authenticated or not. For example, the following Spring Security Thymeleaf tags may be used:
+This app has some simple logic in the UI template pages for determining content to display based on whether the user is authenticated or not. For example, you can use the following Spring Security Thymeleaf tags:
 
 ```html
 <div sec:authorize="isAuthenticated()">

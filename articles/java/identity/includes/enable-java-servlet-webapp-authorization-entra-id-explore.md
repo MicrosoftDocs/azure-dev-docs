@@ -34,7 +34,7 @@ The full code for this sample is available at [https://github.com/Azure-Samples/
 
 ## About the code
 
-This sample uses **MSAL for Java (MSAL4J)** to sign a user in and obtain a token for MS Graph API. It uses [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain data from Graph. You must add these libraries to your projects using Maven. If you want to replicate this sample's behavior, you may choose to copy the *pom.xml* file, and the contents of the `helpers` and `authservlets` packages in the *src/main/java/com/microsoft/azuresamples/msal4j* package. You also need the *authentication.properties* file. These classes and files contain generic code that can be used in a wide array of applications. The rest of the sample may be copied as well, but the other classes and files are built specifically to address this sample's objective.
+This sample uses MSAL for Java (MSAL4J) to sign a user in and obtain a token for Microsoft Graph API. It uses [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain data from Graph. You must add these libraries to your projects using Maven. If you want to replicate this sample's behavior, you can choose to copy the *pom.xml* file, and the contents of the `helpers` and `authservlets` packages in the *src/main/java/com/microsoft/azuresamples/msal4j* package. You also need the *authentication.properties* file. These classes and files contain generic code that can be used in a wide array of applications. You can copy the rest of the sample as well, but the other classes and files are built specifically to address this sample's objective.
 
 A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file. This object helps craft the Microsoft Entra ID authorization URL and also helps exchange the authentication token for an access token.
 
@@ -51,7 +51,7 @@ The following parameters need to be provided upon instantiation:
 
 - The **Client ID** of the app
 - The **Client Secret**, which is a requirement for Confidential Client Applications
-- The **Microsoft Entra ID Authority**, which includes your AAD tenant ID.
+- The **Microsoft Entra ID Authority**, which includes your Microsoft Entra tenant ID.
 
 In this sample, these values are read from the *authentication.properties* file using a properties reader in the *Config.java* file.
 
@@ -131,10 +131,10 @@ User user = GraphHelper.getGraphClient(contextAdapter).me().buildRequest().get()
 ### Scopes
 
 - [Scopes](/entra/identity-platform/permissions-consent-overview) tell Microsoft Entra ID the level of access that the application is requesting.
-- Based on the requested scopes, Microsoft Entra ID presents a consent dialogue to the user upon signing in.
+- Based on the requested scopes, Microsoft Entra ID presents a consent dialogue to the user upon sign-in.
 - If the user consents to one or more scopes and obtains a token, the scopes-consented-to are encoded into the resulting `access_token`.
 - For the scopes requested by the application, see *authentication.properties*. By default, the application sets the scopes value to `User.Read`.
-- This particular MS Graph API scope is for accessing the information of the currently-signed-in user. The graph endpoint for accessing this info is `https://graph.microsoft.com/v1.0/me`
+- This particular Microsoft Graph API scope is for accessing the information of the current signed-in user. The graph endpoint for accessing this info is `https://graph.microsoft.com/v1.0/me`
 - Any valid requests made to this endpoint must bear an `access_token` that contains the scope `User.Read` in the Authorization header.
 
 ## More information

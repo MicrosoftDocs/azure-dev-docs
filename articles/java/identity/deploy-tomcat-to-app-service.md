@@ -14,7 +14,7 @@ This article shows you how to deploy a Tomcat web app with sign-in by Microsoft 
 
 ## Prerequisites
 
-- Completion of one of the following Tomcat articles for enabling security with Microsoft Entra ID:
+- Completion of one of the following articles for enabling security with Microsoft Entra ID:
   - [Enable sign-in for Java Tomcat apps using Microsoft Entra ID](enable-java-tomcat-webapp-authentication-entra-id.md)
   - [Enable sign-in for Java Tomcat apps using MSAL4J with Azure Active Directory B2C](enable-java-tomcat-webapp-authentication-azure-ad-b2c.md)
   - [Enable Java Tomcat apps to sign in users and access Microsoft Graph](enable-java-tomcat-webapp-authorization-entra-id.md)

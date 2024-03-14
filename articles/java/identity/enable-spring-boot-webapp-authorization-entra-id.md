@@ -46,16 +46,16 @@ Alternatively, navigate to the [ms-identity-java-spring-tutorial](https://github
 
 There's one project in this sample. To register the app on the Azure portal, you can either follow manual configuration steps or use a PowerShell script. The script does the following tasks:
 
-- Create the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
-- Modify the project configuration files.
+- Creates the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
+- Modifies the project configuration files.
 
-### [Powershell](#tab/Powershell)
+### [PowerShell](#tab/PowerShell)
 
 Use the following steps to run the PowerShell script:
 
 1. On Windows, run PowerShell as administrator and navigate to the root of the cloned directory.
 
-1. If you haven't used Azure AD Powershell before, we recommend that you go through the [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/AppCreationScripts/AppCreationScripts.md) in the source repository to ensure that your environment is prepared correctly.
+1. If you're new to Azure AD PowerShell, see [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/AppCreationScripts/AppCreationScripts.md) in the source repository to ensure that your environment is prepared correctly.
 
 1. Use the following command to set the execution policy for PowerShell:
 
@@ -114,7 +114,7 @@ Use the following steps to configure the app:
 > [!NOTE]
 > In the following steps, `ClientID` is the same as `Application ID` or `AppId`.
 
-1. Open the project in your IDE to configure the code.
+1. Open the project in your IDE.
 
 1. Open the *src\main\resources\application.yml* file.
 
@@ -206,14 +206,14 @@ This sample demonstrates how to use [Microsoft Entra ID Spring Boot Starter clie
 
 Create a new Java Maven project and copy the *pom.xml* file from this project, and the *src* folder of this repository.
 
-If you'd like to create a project like this from scratch, you may use [Spring Initializer](https://start.spring.io):
+If you'd like to create a project like this from scratch, you can use [Spring Initializer](https://start.spring.io):
 
 - For **Packaging**, select **Jar**.
 - For **Java**, select version **11**.
-- For **Dependencies**, add the following:
-  - Azure Active Directory
-  - Spring Oauth2 Client
-  - Spring Web
+- For **Dependencies**, add the following items:
+  - **Azure Active Directory**
+  - **Spring Oauth2 Client**
+  - **Spring Web**
 - Be sure that it comes with Azure SDK version 3.3 or higher. If not, consider replacing the preconfigured *pom.xml* with the *pom.xml* from this repository.
 
 ### ID token claims
@@ -232,13 +232,13 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Sign-in and sign-out links
 
-To sign in, you must make a request to the Azure Active Directory sign-in endpoint automatically configured by **Microsoft Entra ID Spring Boot Starter client library for Java**.
+To sign in, you must make a request to the Azure Active Directory sign-in endpoint automatically configured by Microsoft Entra ID Spring Boot Starter client library for Java, as shown in the following example:
 
 ```html
 <a class="btn btn-success" href="/oauth2/authorization/azure">Sign In</a>
 ```
 
-To sign out, you must make POST request to the **logout** endpoint.
+To sign out, you must make POST request to the `logout` endpoint, as shown in the following example:
 
 ```html
 <form action="#" th:action="@{/logout}" method="post">
@@ -248,7 +248,7 @@ To sign out, you must make POST request to the **logout** endpoint.
 
 ### Authentication-dependent UI elements
 
-This app has some simple logic in the UI template pages for determining content to display based on whether the user is authenticated or not. For example, the following Spring Security Thymeleaf tags may be used:
+This app has some simple logic in the UI template pages for determining content to display based on whether the user is authenticated or not. For example, you can use the following Spring Security Thymeleaf tags:
 
 ```html
 <div sec:authorize="isAuthenticated()">
@@ -284,7 +284,7 @@ public class SecurityConfig extends AADWebSecurityConfigurerAdapter{
 
 ### Call Graph
 
-When the user navigates to `/call_graph`, the application creates an instance of the `GraphServiceClient` - from the [Microsoft Graph SDK for Java, v3](https://github.com/microsoftgraph/msgraph-sdk-java) - using an `Oauth2AuthorizedClient` or `graphAuthorizedClient` that the AAD boot starter has prepared. The app asks the `GraphServiceClient` to call the `/me` endpoint and displays details for the currently-signed-in user.
+When the user navigates to `/call_graph`, the application creates an instance of the `GraphServiceClient` - from the [Microsoft Graph SDK for Java, v3](https://github.com/microsoftgraph/msgraph-sdk-java) - using an `Oauth2AuthorizedClient` or `graphAuthorizedClient` that the Microsoft Entra ID boot starter prepared. The app asks the `GraphServiceClient` to call the `/me` endpoint and displays details for the current signed-in user.
 
 The `Oauth2AuthorizedClient` must be prepared with the correct scopes. See the *application.yml* file and the following [Scopes](#scopes) section. The `Oauth2AuthorizedClient` is used to surface the access token and place it in the Authorization header of `GraphServiceClient` requests.
 
@@ -312,12 +312,12 @@ authorization-clients:
 [Scopes](/entra/identity-platform/scopes-oidc) tell Microsoft Entra ID the level of access that the application is requesting. For the Microsoft Graph scopes requested by this application, see *application.yml*.
 
 - By default, this application sets the scopes value to `https://graph.microsoft.com/User.Read`.
-- The `User.Read` scope is for accessing the information of the currently-signed-in user from the [/me endpoint](https://graph.microsoft.com/v1.0/me).
+- The `User.Read` scope is for accessing the information of the current signed-in user from the [/me endpoint](https://graph.microsoft.com/v1.0/me).
 - Valid requests to the [/me endpoint](https://graph.microsoft.com/v1.0/me) must contain the `User.Read` scope.
 
-Upon signing in, Microsoft Entra ID presents a consent dialogue to the user, based on the scopes requested by the application. If the user consents to one or more scopes and obtains a token, the scopes-consented-to are encoded into the resulting access token.
+When signing in, Microsoft Entra ID presents a consent dialogue to the user based on the scopes requested by the application. If the user consents to one or more scopes and obtains a token, the scopes-consented-to are encoded into the resulting access token.
 
-In this app, the `graphAuthorizedClient` - discussed in the previous section - surfaces the access token that proves which the scopes the user has consented to. The app uses this to create an instance of `GraphServiceClient` - also discussed previously - that handles Graph requests.
+In this app, the `graphAuthorizedClient` surfaces the access token that proves which the scopes the user consented to. The app uses this token to create an instance of `GraphServiceClient` that handles Graph requests.
 
 Using `GraphServiceClient.me().buildRequest().get()`, a request built and made to `https://graph.microsoft.com/v1.0/me`. The access token is placed in the Authorization header of the request.
 

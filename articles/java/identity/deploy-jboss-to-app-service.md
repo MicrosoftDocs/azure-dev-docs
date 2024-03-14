@@ -14,7 +14,7 @@ This article shows you how to deploy a JBoss web app with sign-in by Microsoft E
 
 ## Prerequisites
 
-- Completion of one of the following JBoss articles for enabling security with Microsoft Entra ID:
+- Completion of one of the following articles for enabling security with Microsoft Entra ID:
   - [Enable sign-in for Java JBoss EAP apps using Microsoft Entra ID](enable-java-jboss-eap-webapp-authentication-entra-id.md)
   - [Enable sign-in for Java JBoss EAP apps using MSAL4J with Azure Active Directory B2C](enable-java-jboss-eap-webapp-authentication-azure-ad-b2c.md)
   - [Enable Java JBoss EAP apps to sign in users and access Microsoft Graph](enable-java-jboss-eap-webapp-authorization-entra-id.md)

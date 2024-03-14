@@ -34,9 +34,9 @@ The full code for this sample is available at [https://github.com/Azure-Samples/
 
 ## About the code
 
-This sample shows how to use **MSAL for Java (MSAL4J)** to sign in users into your Microsoft Entra ID tenant. If you'd like to use MSAL4J in your own applications, you must add it to your projects using Maven.
+This sample shows how to use MSAL for Java (MSAL4J) to sign in users into your Microsoft Entra ID tenant. If you'd like to use MSAL4J in your own applications, you must add it to your projects using Maven.
 
-If you want to replicate this sample's behavior, you may choose to copy the *pom.xml* file, and the contents of the `helpers` and `authservlets` packages in the `src/main/java/com/microsoft/azuresamples/msal4j`. You also need the *authentication.properties* file. These classes and files contain generic code that can be used in a wide array of applications. The rest of the sample may be copied as well, but the other classes and files are built specifically to address this sample's objective.
+If you want to replicate this sample's behavior, you can choose to copy the *pom.xml* file, and the contents of the `helpers` and `authservlets` packages in the `src/main/java/com/microsoft/azuresamples/msal4j`. You also need the *authentication.properties* file. These classes and files contain generic code that can be used in a wide array of applications. You can copy the rest of the sample as well, but the other classes and files are built specifically to address this sample's objective.
 
 A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file. This object helps craft the Entra ID authorization URL and also helps exchange the authentication token for an access token.
 
@@ -122,7 +122,7 @@ app.protect.authenticated=/token_details
 ### Scopes
 
 - [Scopes](/entra/identity-platform/permissions-consent-overview) tell Microsoft Entra ID the level of access that the application is requesting.
-- Based on the requested scopes, Microsoft Entra ID presents a consent dialogue to the user upon signing in.
+- Based on the requested scopes, Microsoft Entra ID presents a consent dialogue to the user upon sign-in.
 - If the user consents to one or more scopes and obtains a token, the scopes-consented-to are encoded into the resulting `access_token`.
 - For the scopes requested by the application, see *authentication.properties*. These three scopes are requested by MSAL and given by Microsoft Entra ID by default.
 

@@ -14,7 +14,7 @@ This article shows you how to deploy a Java WebLogic web app with sign-in by Mic
 
 ## Prerequisites
 
-- Completion of one of the following WebLogic articles for enabling security with Microsoft Entra ID:
+- Completion of one of the following articles for enabling security with Microsoft Entra ID:
   - [Enable sign-in for Java WebLogic apps using Microsoft Entra ID](enable-java-weblogic-webapp-authentication-entra-id.md)
   - [Enable sign-in for Java WebLogic apps using MSAL4J with Azure Active Directory B2C](enable-java-weblogic-webapp-authentication-azure-ad-b2c.md)
   - [Enable Java WebLogic apps to sign in users and access Microsoft Graph](enable-java-weblogic-webapp-authorization-entra-id.md)

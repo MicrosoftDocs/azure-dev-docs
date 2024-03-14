@@ -21,7 +21,7 @@ The client app uses the Azure AD B2C Spring Boot Starter client library for Java
 
 ## Prerequisites
 
-- [JDK Version 15](https://jdk.java.net/15/). This sample was developed on a system with Java 15 but may be compatible with other versions.
+- [JDK version 15](https://jdk.java.net/15/). This sample was developed on a system with Java 15, but it might be compatible with other versions.
 - [Maven 3](https://maven.apache.org/download.cgi)
 - [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) is recommended for running this sample in Visual Studio Code.
 - An Azure AD B2C tenant. For more information, see [Tutorial: Create an Azure Active Directory B2C tenant](/azure/active-directory-b2c/tutorial-create-tenant)
@@ -56,6 +56,7 @@ This sample comes with a preregistered application for demo purposes. If you'd l
 To choose your tenant, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. If your account is present in more than one Azure AD B2C tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Azure AD B2C tenant.
 
 ### Create user flows and custom policies
@@ -73,7 +74,9 @@ See [Tutorial: Add identity providers to your applications in Azure Active Direc
 To register the app, use the following steps:
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Azure AD B2C**.
+
 1. Select **App Registrations** on the navigation pane, then select **New registration**.
+
 1. In the **Register an application page** that appears, enter your application's registration information:
 
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-spring-webapp-auth-b2c`.
@@ -81,14 +84,21 @@ To register the app, use the following steps:
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
 
 1. Select **Register** to create the application.
+
 1. In the app's registration screen, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
+
 1. Select **Save** to save your changes.
 
 1. In the app's registration screen, select the **Certificates & secrets** pane on the navigation pane to open the page to generate secrets and upload certificates.
+
 1. In the **Client secrets** section, select **New client secret**.
+
 1. Type a key description - for example, *app secret*.
+
 1. Select one of the available key durations as per your security concerns - for example, **In 2 years**.
+
 1. Select **Add**. The generated key value is displayed.
+
 1. Copy and save the generated value for use in later steps. You need this key for your code's configuration files. This key value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
 
 #### Configure the app (java-spring-webapp-auth-b2c) to use your app registration
@@ -98,7 +108,7 @@ Use the following steps to configure the app:
 > [!NOTE]
 > In the following steps, `ClientID` is the same as `Application ID` or `AppId`.
 
-1. Open the project in your IDE to configure the code.
+1. Open the project in your IDE.
 
 1. Open the *src/main/resources/application.yml* file.
 
@@ -167,7 +177,7 @@ Open the *src/main/resources/templates/navbar.html* file.
 - Notice the signed-in or signed-out status displayed at the center of the screen.
 - Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app.
   - Alternatively, select the link to **token details**. Because this page is protected and requires authentication, you're automatically redirected to the sign-in page.
-- On the next page, follow the instructions and sign in with an account of your chosen identity provider. You may also choose to sign up or sign in to a local account on the B2C tenant using an email address.
+- On the next page, follow the instructions and sign in with an account of your chosen identity provider. You can also choose to sign up or sign in to a local account on the B2C tenant using an email address.
 - Upon successful completion of the sign-in flow, you should be redirected to the home page - which shows the **sign in status** - or the **token details** page, depending on which button triggered your sign-in flow.
 - Notice that the context-sensitive button now says **Sign out** and displays your username.
 - If you're on the home page, select **ID Token Details** to see some of the ID token's decoded claims.
@@ -198,7 +208,7 @@ This sample demonstrates how to use [Azure AD B2C Spring Boot Starter client lib
 
 Create a new Java Maven project and copy the *pom.xml* file from this project, and the *src* folder of this repository.
 
-If you'd like to create a project like this from scratch, you may use [Spring Initializer](https://start.spring.io):
+If you'd like to create a project like this from scratch, you can use [Spring Initializer](https://start.spring.io):
 
 - For **Packaging**, select **Jar**.
 - For **Java**, select version **11**.
@@ -230,7 +240,7 @@ To sign in, you must make a request to the Azure Active Directory sign-in endpoi
 <a class="btn btn-success" href="/oauth2/authorization/{your-sign-up-sign-in-user-flow}">Sign In</a>
 ```
 
-To sign out, you must make POST request to the **logout** endpoint.
+To sign out, you must make POST request to the `logout` endpoint, as shown in the following example:
 
 ```html
 <form action="#" th:action="@{/logout}" method="post">
@@ -240,7 +250,7 @@ To sign out, you must make POST request to the **logout** endpoint.
 
 ### Authentication-dependent UI elements
 
-This app has some simple logic in the UI template pages for determining content to display based on whether the user is authenticated or not. For example, the following Spring Security Thymeleaf tags may be used:
+This app has some simple logic in the UI template pages for determining content to display based on whether the user is authenticated or not. For example, you can use the following Spring Security Thymeleaf tags:
 
 ```html
 <div sec:authorize="isAuthenticated()">

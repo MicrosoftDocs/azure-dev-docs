@@ -25,11 +25,11 @@ Alternatively, navigate to the [ms-identity-java-servlet-webapp-authentication](
 
 There's one project in this sample. To register the app on the Azure portal, you can either follow manual configuration steps or use a PowerShell script. The script does the following tasks:
 
-- Create the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
-- Modify the project configuration files.
-- By default, set up an application that works with accounts in your organizational directory only.
+- Creates the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
+- Modifies the project configuration files.
+- By default, sets up an application that works with accounts in your organizational directory only.
 
-### [Powershell](#tab/Powershell)
+### [PowerShell](#tab/PowerShell)
 
 Use the following steps to run the PowerShell script:
 
@@ -96,7 +96,7 @@ Use the following steps to configure the app:
 > [!NOTE]
 > In the following steps, `ClientID` is the same as `Application ID` or `AppId`.
 
-1. Open the project in your IDE to configure the code.
+1. Open the project in your IDE.
 
 1. Open the *./src/main/resources/authentication.properties* file.
 
@@ -108,11 +108,11 @@ Use the following steps to configure the app:
 
 ### Configure security groups
 
-You have two different options available to you on how you can further configure your applications to receive the groups claim.
+You have the following options available on how you can further configure your applications to receive the groups claim:
 
-1. Receive all the groups that the signed-in user is assigned to in a Microsoft Entra ID tenant, included nested groups. For more information, see the section [Configure your application to receive all the groups the signed-in user is assigned to, including nested groups](#configure-your-application-to-receive-all-the-groups-the-signed-in-user-is-assigned-to-including-nested-groups).
+- Receive all the groups that the signed-in user is assigned to in a Microsoft Entra ID tenant, included nested groups. For more information, see the section [Configure your application to receive all the groups the signed-in user is assigned to, including nested groups](#configure-your-application-to-receive-all-the-groups-the-signed-in-user-is-assigned-to-including-nested-groups).
 
-1. Receive the groups claim values from a filtered set of groups that your application is programmed to work with. For more information, see the section [Configure your application to receive the groups claim values from a filtered set of groups a user may be assigned to](#configure-your-application-to-receive-the-groups-claim-values-from-a-filtered-set-of-groups-a-user-may-be-assigned-to). This option isn't available in the [Microsoft Entra ID Free edition](https://www.microsoft.com/security/business/microsoft-entra-pricing).
+- Receive the groups claim values from a filtered set of groups that your application is programmed to work with. For more information, see the section [Configure your application to receive the groups claim values from a filtered set of groups a user might be assigned to](#configure-your-application-to-receive-the-groups-claim-values-from-a-filtered-set-of-groups-a-user-might-be-assigned-to). This option isn't available in the [Microsoft Entra ID Free edition](https://www.microsoft.com/security/business/microsoft-entra-pricing).
 
 > [!NOTE]
 > To get the on-premise group's `samAccountName` or `On Premises Group Security Identifier` instead of the group ID, see the section [Prerequisites for using group attributes synchronized from Active Directory](/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#prerequisites-for-using-group-attributes-synchronized-from-active-directory) in [Configure group claims for applications by using Microsoft Entra ID](/entra/identity/hybrid/connect/how-to-connect-fed-group-claims).
@@ -120,22 +120,22 @@ You have two different options available to you on how you can further configure
 #### Configure your application to receive all the groups the signed-in user is assigned to, including nested groups
 
 1. In the app's registration screen, select **Token Configuration** on the navigation pane to open the page where you can configure the claims provided tokens issued to your application.
-1. Select the **Add groups claim** button on top to open the **Edit Groups Claim** screen.
+1. Select **Add groups claim** to open the **Edit Groups Claim** screen.
 1. Select **Security groups** OR the **All groups (includes distribution lists but not groups assigned to the application)** option. Choosing both options negates the effect of the **Security Groups** option.
 1. Under the **ID** section, select **Group ID**. This selection causes Microsoft Entra ID to send the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the **groups** claim of the [ID token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
 
-#### Configure your application to receive the groups claim values from a filtered set of groups a user may be assigned to
+#### Configure your application to receive the groups claim values from a filtered set of groups a user might be assigned to
 
-##### Prerequisites, benefits and limitations of using this option
+##### Requirements, benefits, and limitations of using this option
 
-1. This option is useful when your application is interested in a selected set of groups that a signing-in user may be assigned to and not every security group this user is assigned to in the tenant. This option also saves your application from running into the [overage](#the-groups-overage-claim) issue.
+1. This option is useful when your application is interested in a selected set of groups that a signing-in user might be assigned to and not every security group this user is assigned to in the tenant. This option also saves your application from running into the [overage](#the-groups-overage-claim) issue.
 1. This feature isn't available in the [Microsoft Entra ID Free edition](https://www.microsoft.com/security/business/microsoft-entra-pricing).
 1. **Nested group assignments** aren't available when this option is utilized.
 
 ##### Steps to enable this option in your app
 
 1. In the app's registration screen, select **Token Configuration** on the navigation pane to open the page where you can configure the claims provided tokens issued to your application.
-1. Select the **Add groups claim** button on top to open the **Edit Groups Claim** screen.
+1. Select **Add groups claim** to open the **Edit Groups Claim** screen.
 1. Select **Groups assigned to the application**.
 
    Choosing additional options - such as **Security Groups** or **All groups (includes distribution lists but not groups assigned to the application)** - negates the benefits your app derives from choosing to use this option.
@@ -145,7 +145,7 @@ You have two different options available to you on how you can further configure
 1. In the app's registration screen, select **Overview** on the navigation pane to open the application overview screen. Select the hyperlink with the name of your application in **Managed application in local directory**. This field title might be truncated - for instance `Managed application in ...`. When you select this link, you navigate to the **Enterprise Application Overview** page associated with the service principal for your application in the tenant where you created it. You can navigate back to the app registration page by using the back button of your browser.
 1. Select **Users and groups** on the navigation pane to open the page where you can assign users and groups to your application.
 
-   1. Select the **Add user** button on the top row.
+   1. Select **Add user**.
    1. Select **User and Groups** from the resultant screen.
    1. Choose the groups that you want to assign to this application.
    1. Select **Select** to finish selecting the groups.

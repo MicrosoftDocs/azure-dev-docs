@@ -41,7 +41,7 @@ The full code for this sample is available at [https://github.com/Azure-Samples/
 
 ### The groups claim
 
-The object id of the security groups the signed in user is member of is returned in the groups claim of the token.
+The object ID of the security groups the signed in user is member of is returned in the groups claim of the token.
 
 ```json
 {
@@ -57,7 +57,7 @@ The object id of the security groups the signed in user is member of is returned
 
 To ensure that the token size doesn't exceed HTTP header size limits, the Microsoft identity platform limits the number of object IDs that it includes in the groups claim.
 
-The overage limit is 150 for SAML tokens, 200 for JWT tokens, and 6 for Single Page applications. If a user is member of more groups than the overage limit, then the Microsoft identity platform does not emit the group IDs in the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the [MS Graph API](https://graph.microsoft.com) to retrieve the user's group membership.
+The overage limit is 150 for SAML tokens, 200 for JWT tokens, and 6 for Single Page applications. If a user is member of more groups than the overage limit, then the Microsoft identity platform does not emit the group IDs in the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the [Microsoft Graph API](https://graph.microsoft.com) to retrieve the user's group membership.
 
 ```json
 {
@@ -79,7 +79,7 @@ The overage limit is 150 for SAML tokens, 200 for JWT tokens, and 6 for Single P
 
 1. You can use the *BulkCreateGroups.ps1* file provided in the *AppCreationScripts* folder to create a large number of groups and assign users to them. This file helps test overage scenarios during development. Remember to change the user's `objectId` provided in the *BulkCreateGroups.ps1* script.
 1. When you run this sample and an overage occurred, then you'd see the `_claim_names` in the home page after the user signs in.
-1. We strongly advise that you use the group filtering feature, if possible, to avoid running into group overages. For more information, see the section [Configure your application to receive the groups claim values from a filtered set of groups a user may be assigned to](#configure-your-application-to-receive-the-groups-claim-values-from-a-filtered-set-of-groups-a-user-may-be-assigned-to).
+1. We strongly advise that you use the group filtering feature, if possible, to avoid running into group overages. For more information, see the section [Configure your application to receive the groups claim values from a filtered set of groups a user might be assigned to](#configure-your-application-to-receive-the-groups-claim-values-from-a-filtered-set-of-groups-a-user-might-be-assigned-to).
 1. In case you cannot avoid running into group overage, we suggest you use the following steps to process groups claim in your token:
 
    1. Check for the claim `_claim_names` with one of the values being *groups*. This indicates overage.
@@ -87,17 +87,17 @@ The overage limit is 150 for SAML tokens, 200 for JWT tokens, and 6 for Single P
    1. If none found, look into the *groups*  claim for user's groups.
 
 > [!NOTE]
-> When attending to overage scenarios, which require a call to [Microsoft Graph](https://graph.microsoft.com) to read the signed-in user's group memberships, your app needs to have the [GroupMember.Read.All](/graph/permissions-reference#group-permissions) permission for the [getMemberObjects](/graph/api/user-getmemberobjects) function to execute successfully.
+> Handling overage requires a call to [Microsoft Graph](https://graph.microsoft.com) to read the signed-in user's group memberships, so your app needs to have the [GroupMember.Read.All](/graph/permissions-reference#group-permissions) permission for the [getMemberObjects](/graph/api/user-getmemberobjects) function to execute successfully.
 >
 > For more information about programming for Microsoft Graph, see the video [An introduction to Microsoft Graph for developers](https://www.youtube.com/watch?v=EBbnpFdB92A).
 
 ## About the code
 
-This sample uses **MSAL for Java (MSAL4J)** to sign a user in and obtain an ID token that may contain the groups claim. If there are too many groups for emission in the ID token, the sample uses [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain the group membership data from Microsoft Graph. Based on the groups the user belongs to, the signed in user can access either none, one, or both of the protected pages, `Admins Only` and `Regular Users`.
+This sample uses MSAL for Java (MSAL4J) to sign a user in and obtain an ID token that might contain the groups claim. If there are too many groups for emission in the ID token, the sample uses [Microsoft Graph SDK for Java](https://github.com/microsoftgraph/msgraph-sdk-java) to obtain the group membership data from Microsoft Graph. Based on the groups the user belongs to, the signed in user can access either none, one, or both of the protected pages, `Admins Only` and `Regular Users`.
 
-If you want to replicate this sample's behavior, you must add these libraries (MSAL4J and MS Graph SDK) your projects using Maven. As a developer, you may choose to copy the *pom.xml* file, and the contents of the `helpers` and `authservlets` packages in the `src/main/java/com/microsoft/azuresamples/msal4j` package. You also need the *authentication.properties* file. These classes and files contain generic code that can be used in a wide array of applications. The rest of the sample may be copied as well, but the other classes and files are built specifically to address this sample's objective.
+If you want to replicate this sample's behavior, you must add these libraries (MSAL4J and Microsoft Graph SDK) your projects using Maven. As a developer, you can choose to copy the *pom.xml* file, and the contents of the `helpers` and `authservlets` packages in the `src/main/java/com/microsoft/azuresamples/msal4j` package. You also need the *authentication.properties* file. These classes and files contain generic code that can be used in a wide array of applications. You can copy the rest of the sample as well, but the other classes and files are built specifically to address this sample's objective.
 
-A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file. This object helps craft the AAD authorization URL and also helps exchange the authentication token for an access token.
+A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file. This object helps craft the Microsoft Entra authorization URL and also helps exchange the authentication token for an access token.
 
 ```java
 // getConfidentialClientInstance method
@@ -112,7 +112,7 @@ The following parameters need to be provided upon instantiation:
 
 - The **Client ID** of the app
 - The **Client Secret**, which is a requirement for Confidential Client Applications
-- The **Microsoft Entra ID Authority**, which includes your AAD tenant ID.
+- The **Microsoft Entra ID Authority**, which includes your Microsoft Entra tenant ID.
 
 In this sample, these values are read from the *authentication.properties* file using a properties reader in the *Config.java* file.
 
@@ -130,7 +130,7 @@ In this sample, these values are read from the *authentication.properties* file 
    ```
 
    - **AuthorizationRequestUrlParameters**: Parameters that must be set in order to build an AuthorizationRequestUrl.
-   - **REDIRECT_URI**: Where AAD redirects the browser - along with the auth code - after collecting user credentials. It must match the redirect URI in the Microsoft Entra ID app registration in the [Azure portal](https://portal.azure.com).
+   - **REDIRECT_URI**: Where Microsoft Entra redirects the browser - along with the auth code - after collecting user credentials. It must match the redirect URI in the Microsoft Entra ID app registration in the [Azure portal](https://portal.azure.com).
    - **SCOPES**: [Scopes](/entra/identity-platform/access-tokens#scopes) are permissions requested by the application.
      - Normally, the three scopes `openid profile offline_access` suffice for receiving an ID token response.
      - Full list of scopes requested by the app can be found in the *authentication.properties* file. You can add more scopes like User.Read and so on.
@@ -172,7 +172,7 @@ In this sample, these values are read from the *authentication.properties* file 
    handleGroupsOverage(contextAdapter);
    ```
 
-1. After previous step, group memberships may be extracted by calling `context.getGroups()` using an instance of `IdentityContextData`.
+1. After previous step, you can extract group memberships by calling `context.getGroups()` using an instance of `IdentityContextData`.
 1. If the user is a member of too many groups - more than 200 - a call to `context.getGroups()` might have been empty if it weren't for the call to `handleGroupsOverage()`. Meanwhile, `context.getGroupsOverage()` returns `true`, signalling that an overage has occurred, and that getting the full list of groups requires a call to Microsoft Graph. See the `handleGroupsOverage()` method in *AuthHelper.java* to see how this application uses `context.setGroups()` when there's an overage.
 
 ### Protect the routes
@@ -203,10 +203,10 @@ app.protect.groups=/admin_only admin, /regular_user admin user
 ### Scopes
 
 - [Scopes](/entra/identity-platform/permissions-consent-overview) tell Microsoft Entra ID the level of access that the application is requesting.
-- Based on the requested scopes, Microsoft Entra ID presents a consent dialogue to the user upon signing in.
+- Based on the requested scopes, Microsoft Entra ID presents a consent dialogue to the user upon sign-in.
 - If the user consents to one or more scopes and obtains a token, the scopes-consented-to are encoded into the resulting `access_token`.
 - For the scopes requested by the application, see *authentication.properties*. By default, the application sets the scopes value to `GroupMember.Read.All`.
-- This particular MS Graph API scope is required in case the application needs to call Graph for getting the user's group memberships.
+- This particular Microsoft Graph API scope is required in case the application needs to call Graph for getting the user's group memberships.
 
 ## More information
 

@@ -35,7 +35,7 @@ The full code for this sample is available at [https://github.com/Azure-Samples/
 
 ## Process a roles claim in the ID token
 
-The names of the roles that the signed in user is assigned to is returned in the `roles` claim of the token.
+The roles claim of the token includes the names of the roles that the signed-in user is assigned to, as shown in the following example:
 
 ```json
 {
@@ -49,11 +49,11 @@ The names of the roles that the signed in user is assigned to is returned in the
 
 ## About the code
 
-This sample uses **MSAL for Java (MSAL4J)** to sign a user in and obtain an ID token that may contain the roles claim. Based on the roles claim present, the signed-in user can access none, one, or both of the protected pages, `Admins Only` and `Regular Users`.
+This sample uses MSAL for Java (MSAL4J) to sign a user in and obtain an ID token that might contain the roles claim. Based on the roles claim present, the signed-in user can access none, one, or both of the protected pages, `Admins Only` and `Regular Users`.
 
-If you want to replicate this sample's behavior, you may choose to copy the *pom.xml* file, and the contents of the `helpers` and `authservlets` packages in the `src/main/java/com/microsoft/azuresamples/msal4j` package. You also need the *authentication.properties* file. These classes and files contain generic code that can be used in a wide array of applications. The rest of the sample may be copied as well, but the other classes and files are built specifically to address this sample's objective.
+If you want to replicate this sample's behavior, you can choose to copy the *pom.xml* file, and the contents of the `helpers` and `authservlets` packages in the `src/main/java/com/microsoft/azuresamples/msal4j` package. You also need the *authentication.properties* file. These classes and files contain generic code that can be used in a wide array of applications. You can copy the rest of the sample as well, but the other classes and files are built specifically to address this sample's objective.
 
-A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file. This object helps craft the AAD authorization URL and also helps exchange the authentication token for an access token.
+A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file. This object helps craft the Microsoft Entra authorization URL and also helps exchange the authentication token for an access token.
 
 ```java
 // getConfidentialClientInstance method
@@ -68,7 +68,7 @@ The following parameters need to be provided upon instantiation:
 
 - The **Client ID** of the app
 - The **Client Secret**, which is a requirement for Confidential Client Applications
-- The **Microsoft Entra ID Authority**, which includes your AAD tenant ID.
+- The **Microsoft Entra ID Authority**, which includes your Microsoft Entra tenant ID.
 
 In this sample, these values are read from the *authentication.properties* file using a properties reader in the *Config.java* file.
 
@@ -150,7 +150,7 @@ app.protect.roles=/admin_only admin, /regular_user admin user
 ### Scopes
 
 - [Scopes](/entra/identity-platform/permissions-consent-overview) tell Microsoft Entra ID the level of access that the application is requesting.
-- Based on the requested scopes, Microsoft Entra ID presents a consent dialogue to the user upon signing in.
+- Based on the requested scopes, Microsoft Entra ID presents a consent dialogue to the user upon sign-in.
 - If the user consents to one or more scopes and obtains a token, the scopes-consented-to are encoded into the resulting `access_token`.
 - For the scopes requested by the application, see *authentication.properties*. These three scopes are requested by MSAL and given by Microsoft Entra ID by default.
 

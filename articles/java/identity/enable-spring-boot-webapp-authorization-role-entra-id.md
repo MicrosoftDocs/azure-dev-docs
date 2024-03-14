@@ -25,14 +25,14 @@ The following diagram shows the topology of the app:
 
 The app uses the Microsoft Entra ID Spring Boot Starter client library for Java to sign in a user and obtain an [ID token](/entra/identity-platform/id-tokens) from Microsoft Entra ID. The ID token contains the roles claim. The application inspects the value of this claim to determine which pages the user is authorized to access.
 
-This kind of authorization is implemented using RBAC. When using RBAC, an administrator grants permissions to roles, not to individual users or groups. The administrator can then assign roles to different users and groups to control who has access to certain content and functionality.
+This kind of authorization is implemented using RBAC. With RBAC, an administrator grants permissions to roles, not to individual users or groups. The administrator can then assign roles to different users and groups to control who has access to certain content and functionality.
 
 This sample application defines the following two *Application Roles*:
 
 - `PrivilegedAdmin`: Authorized to access the **Admins Only** and the **Regular Users** pages.
 - `RegularUser`: Authorized to access the **Regular Users** page.
 
-These application roles are defined in the [Azure portal](https://portal.azure.com) in the application's registration manifest. When a user signs into the application, Microsoft Entra ID emits a roles claim for each role that's been granted individually to the user in the form of role membership.
+These application roles are defined in the [Azure portal](https://portal.azure.com) in the application's registration manifest. When a user signs into the application, Microsoft Entra ID emits a roles claim for each role granted individually to the user in the form of role membership.
 
 You can assign users and groups to roles through the Azure portal or programmatically using [Microsoft Graph](https://graph.microsoft.com) and [Microsoft Azure AD PowerShell](/powershell/module/azuread/). This article describes both techniques.
 
@@ -66,16 +66,16 @@ Alternatively, navigate to the [ms-identity-java-spring-tutorial](https://github
 
 There's one project in this sample. To register the app on the Azure portal, you can either follow manual configuration steps or use a PowerShell script. The script does the following tasks:
 
-- Create the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
-- Modify the project configuration files.
+- Creates the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
+- Modifies the project configuration files.
 
-### [Powershell](#tab/Powershell)
+### [PowerShell](#tab/PowerShell)
 
 Use the following steps to run the PowerShell script:
 
 1. On Windows, run PowerShell as administrator and navigate to the root of the cloned directory.
 
-1. If you haven't used Azure AD Powershell before, we recommend that you go through the [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/3-Authorization-II/roles/AppCreationScripts/AppCreationScripts.md) in the source repository to ensure that your environment is prepared correctly.
+1. If you're new to Azure AD PowerShell, see [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/3-Authorization-II/roles/AppCreationScripts/AppCreationScripts.md) in the source repository to ensure that your environment is prepared correctly.
 
 1. Use the following command to set the execution policy for PowerShell:
 
@@ -149,7 +149,7 @@ Use the following steps to configure the app:
 > [!NOTE]
 > In the following steps, `ClientID` is the same as `Application ID` or `AppId`.
 
-1. Open the project in your IDE to configure the code.
+1. Open the project in your IDE.
 
 1. Open the *src\main\resources\application.yml* file.
 
@@ -211,7 +211,7 @@ Use the following steps to configure the app:
 
 - Notice the signed-in or signed-out status displayed at the center of the screen.
 - Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app.
-- Alternatively, select **token details**, **admins only**, or **regular users**. Because these are protected pages that require authentication, you're automatically redirected to the sign-in page.
+- Alternatively, select **token details**, **admins only**, or **regular users**. Because these pages are protected and require authentication, you're automatically redirected to the sign-in page.
 - On the next page, follow the instructions and sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
 - Upon successful completion of the sign-in flow, you should be redirected to the home page - which shows the **sign in status** - or one of the other pages, depending on which button triggered your sign-in flow.
@@ -246,14 +246,14 @@ This sample demonstrates how to use [Microsoft Entra ID Spring Boot Starter clie
 
 Create a new Java Maven project and copy the *pom.xml* file from this project, and the *src* folder of this repository.
 
-If you'd like to create a project like this from scratch, you may use [Spring Initializer](https://start.spring.io):
+If you'd like to create a project like this from scratch, you can use [Spring Initializer](https://start.spring.io):
 
 - For **Packaging**, select **Jar**.
 - For **Java**, select version **11**.
-- For **Dependencies**, add the following:
-  - Azure Active Directory
-  - Spring Oauth2 Client
-  - Spring Web
+- For **Dependencies**, add the following items:
+  - **Azure Active Directory**
+  - **Spring Oauth2 Client**
+  - **Spring Web**
 - Be sure that it comes with Azure SDK version 3.3 or higher. If not, consider replacing the preconfigured *pom.xml* with the *pom.xml* from this repository.
 
 ### ID token claims
@@ -272,7 +272,7 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Process a roles claim in the ID token
 
-The names of the roles that the signed-in user is assigned to is returned in the `roles` claim of the token.
+The roles claim of the token includes the names of the roles that the signed-in user is assigned to, as shown in the following example:
 
 ```json
 {
@@ -286,7 +286,7 @@ The names of the roles that the signed-in user is assigned to is returned in the
 
 A common way to access the role names is documented in the [ID token claims](#id-token-claims) section.
 
-Microsoft Entra ID Boot Starter v3.3 and higher also parses the roles claim automatically and adds each role to the signed in user's **Authorities**, prefixing each with the string `APPROLE_`. This allows developers to make use of app roles with Spring **PrePost** condition annotations using the `hasAuthority` method. For example, you can find the following `@PreAuthorize` conditions demonstrated in *SampleController.java*:
+Microsoft Entra ID Boot Starter v3.3 and higher also parses the roles claim automatically and adds each role to the signed in user's **Authorities**, prefixing each with the string `APPROLE_`. This configuration enables developers to make use of app roles with Spring `PrePost` condition annotations using the `hasAuthority` method. For example, you can find the following `@PreAuthorize` conditions demonstrated in *SampleController.java*:
 
 ```java
 @GetMapping(path = "/admin_only")
@@ -312,13 +312,13 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Sign-in and sign-out links
 
-To sign in, you must make a request to the Azure Active Directory sign-in endpoint automatically configured by **Microsoft Entra ID Spring Boot Starter client library for Java**.
+To sign in, you must make a request to the Azure Active Directory sign-in endpoint automatically configured by Microsoft Entra ID Spring Boot Starter client library for Java, as shown in the following example:
 
 ```html
 <a class="btn btn-success" href="/oauth2/authorization/azure">Sign In</a>
 ```
 
-To sign out, you must make POST request to the **logout** endpoint.
+To sign out, you must make POST request to the `logout` endpoint, as shown in the following example:
 
 ```html
 <form action="#" th:action="@{/logout}" method="post">
@@ -328,7 +328,7 @@ To sign out, you must make POST request to the **logout** endpoint.
 
 ### Authentication-dependent UI elements
 
-This app has some simple logic in the UI template pages for determining content to display based on whether the user is authenticated or not. For example, the following Spring Security Thymeleaf tags may be used:
+This app has some simple logic in the UI template pages for determining content to display based on whether the user is authenticated or not. For example, you can use the following Spring Security Thymeleaf tags:
 
 ```html
 <div sec:authorize="isAuthenticated()">
@@ -341,7 +341,7 @@ This app has some simple logic in the UI template pages for determining content 
 
 ### Protect routes with AADWebSecurityConfigurerAdapter
 
-By default, this app protects the **ID Token Details**, **Admins Only** and **Regular Users** pages so that only logged-in users can access them. This app uses configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/3-Authorization-II/roles/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class.
+By default, this app protects the **ID Token Details**, **Admins Only**, and **Regular Users** pages so that only logged-in users can access them. This app uses configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/3-Authorization-II/roles/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class.
 
 ```java
 @EnableWebSecurity
