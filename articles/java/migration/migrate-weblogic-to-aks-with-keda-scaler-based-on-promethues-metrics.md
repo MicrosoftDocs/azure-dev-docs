@@ -345,16 +345,9 @@ sample-domain1-managed-server1   2/2     Running   0          3m16s
 sample-domain1-managed-server2   2/2     Running   0          112s
 ```
 
+### Enable AKS Promethues integration
+
 ## Enable KEDA
-
-### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
-
-This step is already performed for you when you use the offer.
-
-### [Enable Horizontal Autoscaling manually](#tab/manual)
-
-Steps to enable KEDA.
-
 
 ## Examine the metrics
 
