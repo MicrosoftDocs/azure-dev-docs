@@ -30,12 +30,6 @@ The following diagram illustrates the architecture you build:
 <!-- Diagram source -->
 :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-aks-autoscaling-architecture.png" alt-text="Diagram of the solution architecture of WLS on AKS with KEDA scaler based on Prometheus Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-aks-autoscaling-architecture.png" border="false":::
 
-
-In this article, metrics that will be exported by [WebLoigc Monitoring Exporter](https://github.com/oracle/weblogic-monitoring-exporter), which is a Prometheus-compatible exporter. Available metrices are listed in the following picture. If you want to customize the exporter, see [WebLoigc Monitoring Exporter Configuration](https://github.com/oracle/weblogic-monitoring-exporter?tab=readme-ov-file#configuration).
-
-<!-- Diagram source -->
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-metrics.png" alt-text="WebLogic Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-metrics.png" border="false":::
-
 ## Prerequisites
 
 - Java Headless Mode. Run `jar --vesion` to test if the headless mode is workable. You can run `apt install openjdk-11-jdk-headless` to install it in Ubuntu.
@@ -194,24 +188,170 @@ Wait until **Running final validation...** successfully completes, then select *
 > [!NOTE]
 > If you see any problems during **Running final validation...**, fix them and try again
 
+## Connect to AKS cluster
+
+The following sections require a Linux terminal with `kubectl` installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command. 
+
+1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
+1. Select the AKS cluster from resource list. Select button **Connect**, you find the guidance of how to connect the AKS cluster.
+1. Select **Azure CLI** and follow the steps to connect to the AKS cluster in your local terminal.
+
 ## Enable Prometheus Metrics
 
-### [Enable KEDA using Marketplace Offer](#tab/offer)
+### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
 
 This step is already performed for you when you use the offer.
 
-### [Enable KEDA manually](#tab/manual)
+### [Enable Horizontal Autoscaling manually](#tab/manual)
 
-Steps to enable Prometheus.
+This section shows manual steps to:
 
+- Export WebLogic metrics using WebLogic Monitoring Exporter.
+- Enable AKS Promethues integration.
+- Configure Promethues to scrape metrics from WLS.
+- Query metrics from Azure Monitor Workspace.
+
+#### Enable WebLogic Monitoring Exporter
+
+This article uses the WebLogic Monitoring Exporter to scrape WebLogic Server metrics and feed them to Prometheus. The exporter uses the WebLogic Server 12.2.1.x [RESTful Management Interface](https://docs.oracle.com/middleware/1221/wls/WLRUR/overview.htm#WLRUR111) for accessing runtime state and metrics. 
+
+This article configures WebLogic Monitoring Exporter to export the following WLS state and metrics. For a detailed description of WebLogic Monitoring Exporter configuration and usage, see [WebLogic Monitoring Exporter](https://blogs.oracle.com/weblogicserver/exporting-metrics-from-weblogic-server).
+
+<!-- Diagram source -->
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-metrics.png" alt-text="WebLogic Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-metrics.png" border="false":::
+
+The offer runs a operator-managed WebLogic Server domain in Kubernetes. You can simply add the `monitoringExporter` configuration element in the domain resource to enable the Monitoring Exporter. For more information, see [Monitoring exporter](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/accessing-the-domain/monitoring-exporter/).
+
+The following example patches the WLS domain with the exporter configuration using `kubectl patch`. The exporter image is `ghcr.io/oracle/weblogic-monitoring-exporter:2.1.9`. Here, the domain UID is `sample-domain1`, and the namespace is `sample-domain1-ns`, which were created by the offer with default settings. Replace with yours if you are using different domain UID and namespace.
+
+```bash
+WME_IMAGE_URL="ghcr.io/oracle/weblogic-monitoring-exporter:2.1.9"
+WLS_DOMAIN_UID="sample-domain1"
+WLS_NAMESPACE="sample-domain1-ns"
+```
+
+```bash
+VERSION=$(kubectl -n ${WLS_NAMESPACE} get domain ${WLS_DOMAIN_UID} -o=jsonpath='{.spec.restartVersion}' | tr -d "\"")
+VERSION=$((VERSION+1))
+```
+
+```bash
+cat <<EOF >patch-file.json
+[
+    {
+        "op": "replace",
+        "path": "/spec/restartVersion",
+        "value": "${VERSION}"
+    },
+    {
+        "op": "add",
+        "path": "/spec/monitoringExporter",
+        "value": {
+            "configuration": {
+                "domainQualifier": true,
+                "metricsNameSnakeCase": true,
+                "queries": [
+                    {
+                        "applicationRuntimes": {
+                            "componentRuntimes": {
+                                "key": "name",
+                                "prefix": "webapp_config_",
+                                "servlets": {
+                                    "key": "servletName",
+                                    "prefix": "weblogic_servlet_",
+                                    "values": [
+                                        "invocationTotalCount",
+                                        "reloadTotal",
+                                        "executionTimeAverage",
+                                        "poolMaxCapacity",
+                                        "executionTimeTotal",
+                                        "reloadTotalCount",
+                                        "executionTimeHigh",
+                                        "executionTimeLow"
+                                    ]
+                                },
+                                "type": "WebAppComponentRuntime",
+                                "values": [
+                                    "deploymentState",
+                                    "contextRoot",
+                                    "sourceInfo",
+                                    "openSessionsHighCount",
+                                    "openSessionsCurrentCount",
+                                    "sessionsOpenedTotalCount",
+                                    "sessionCookieMaxAgeSecs",
+                                    "sessionInvalidationIntervalSecs",
+                                    "sessionTimeoutSecs",
+                                    "singleThreadedServletPoolSize",
+                                    "sessionIDLength",
+                                    "servletReloadCheckSecs",
+                                    "jSPPageCheckSecs"
+                                ]
+                            },
+                            "workManagerRuntimes": {
+                                "prefix": "workmanager_",
+                                "key": "applicationName",
+                                "values": [
+                                    "pendingRequests", 
+                                    "completedRequests", 
+                                    "stuckThreadCount"]
+                            },
+                            "key": "name",
+                            "keyName": "app"
+                        },
+                        "JVMRuntime": {
+                            "key": "name",
+                            "values": [
+                                "heapFreeCurrent", 
+                                "heapFreePercent", 
+                                "heapSizeCurrent", 
+                                "heapSizeMax", 
+                                "uptime", 
+                                "processCpuLoad"
+                            ]
+                        },
+                        "key": "name",
+                        "keyName": "server"
+                    }
+                ]
+            },
+            "image": "${WME_IMAGE_URL}",
+            "port": 8080
+        }
+    }
+]
+EOF
+```
+
+Now, you are ready to apply tha patch file. 
+
+The following example patches domain with *patch-file.json*.
+
+```bash
+kubectl -n ${WLS_NAMESPACE} patch domain ${WLS_DOMAIN_UID} \
+    --type=json \
+    --patch-file patch-file.json
+```
+
+The patch command causes a rolling update to the WLS cluster. It takes several minutes to complete. 
+You can watch the status with command `kubectl -n ${WLS_NAMESPACE} get pod -w`.
+
+Make sure all the pods are running as following before you move on.
+
+```text
+$ kubectl -n ${WLS_NAMESPACE} get pod -w
+NAME                             READY   STATUS    RESTARTS   AGE
+sample-domain1-admin-server      2/2     Running   0          4m29s
+sample-domain1-managed-server1   2/2     Running   0          3m16s
+sample-domain1-managed-server2   2/2     Running   0          112s
+```
 
 ## Enable KEDA
 
-### [Enable KEDA using Marketplace Offer](#tab/offer)
+### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
 
 This step is already performed for you when you use the offer.
 
-### [Enable KEDA manually](#tab/manual)
+### [Enable Horizontal Autoscaling manually](#tab/manual)
 
 Steps to enable KEDA.
 
@@ -220,7 +360,7 @@ Steps to enable KEDA.
 
 ## Create KEDA scaler
 
-### [Enable KEDA using Marketplace Offer](#tab/offer)
+### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
 
 Enabling KEDA using the marketplace offer, you find a KEDA scaler sample from the deployment output. You can modify the sampe with your desired metircs and create a KEDA scaler.
 
@@ -291,7 +431,7 @@ Following the steps to get the output of scaler sample.
    ```
 
 
-### [Enable KEDA manually](#tab/manual)
+### [Enable Horizontal Autoscaling manually](#tab/manual)
 
 Steps to create KEDA scaler.
 
