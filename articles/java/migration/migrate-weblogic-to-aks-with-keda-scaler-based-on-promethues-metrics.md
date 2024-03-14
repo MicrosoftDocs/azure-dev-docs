@@ -168,7 +168,7 @@ Leave the defaults in **DNS** pane, select **Next** to go to **Database** pane.
 
 Leave the defaults in **Database** pane, select **Next** to go to **Horizontal Autoscaling** pane.
 
-### [Enable KEDA using Marketplace Offer](#tab/offer)
+### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
 
 :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-autoscaling.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on AKS Horizontal Autoscaling pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-autoscaling.png":::
 
@@ -176,7 +176,7 @@ Leave the defaults in **Database** pane, select **Next** to go to **Horizontal A
 1. Under **Horizontal autoscaling settings**, next to **Select metric source. Autoscaling based on resource metrics from Kubernetes Metrics Server or exporting by WebLogic Monitoring Exporter.**, select **WebLogic Monitor Exporter**.
 1. Select **Review + create**.
 
-### [Enable KEDA manually](#tab/manual)
+### [Enable Horizontal Autoscaling manually](#tab/manual)
 
 1. Leave the defaults in **Horizontal Autoscaling** pane. 
 1. Select **Review + create**.
@@ -209,7 +209,7 @@ This section shows manual steps to:
 - Export WebLogic metrics using WebLogic Monitoring Exporter.
 - Enable AKS Promethues integration.
 - Configure Promethues to scrape metrics from WLS.
-- Query metrics from Azure Monitor Workspace.
+- Query metrics in Azure Monitor Workspace.
 
 #### Enable WebLogic Monitoring Exporter
 
@@ -346,6 +346,12 @@ sample-domain1-managed-server2   2/2     Running   0          112s
 ```
 
 ### Enable AKS Promethues integration
+
+### Configure Promethues to scrape metrics from WLS
+
+### Query metrics in Azure Monitor workspace
+
+---
 
 ## Enable KEDA
 
