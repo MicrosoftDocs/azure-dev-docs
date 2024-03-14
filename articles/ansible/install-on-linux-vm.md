@@ -4,7 +4,7 @@ description: Learn how to install and configure Ansible on an Azure VM for manag
 keywords: ansible, azure, devops, bash, cloudshell, playbook, azure cli, powershell, azure powershell
 ms.topic: quickstart
 ms.date: 07/19/2022
-ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell, mode-portal
+ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell, mode-portal, linux-related-content
 ---
 
 # Get Started: Configure Ansible on an Azure VM

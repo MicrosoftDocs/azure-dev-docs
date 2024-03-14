@@ -4,7 +4,7 @@ description: Learn how to create a Linux virtual machine in Azure using Ansible
 keywords: ansible, azure, devops, virtual machine
 ms.topic: tutorial
 ms.date: 11/08/2021
-ms.custom: devx-track-ansible
+ms.custom: devx-track-ansible, linux-related-content
 ---
 
 # Create a Linux virtual machines in Azure using Ansible

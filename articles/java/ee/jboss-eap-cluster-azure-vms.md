@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
 ms.date: 06/30/2023
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, devx-track-azurecli, linux-related-content
 ---
 
 # Quickstart: Deploy a JBoss EAP cluster on Azure virtual machines using the Azure portal
