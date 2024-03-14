@@ -3,9 +3,9 @@ ms.author: givermei
 ms.date: 03/11/2024
 ---
 
-The *authentication.properties* file of the application currently holds the value of your client secret in the `aad.secret` parameter. It isn't good practice to keep this value in this file. You might also risk committing it to a Git repository. Because this is a secret value it should be treated as such.
+The *authentication.properties* file of the application currently holds the value of your client secret in the `aad.secret` parameter. It isn't good practice to keep this value in this file. You might also be taking a risk if you commit it to a Git repository.
 
-As an extra step you can store this value in [Key Vault](/azure/key-vault/general/basic-concepts) and use [Key Vault References](/azure/app-service/app-service-key-vault-references?tabs=azure-cli) to make it available in your web application. You can follow the below steps to move the value of `aad.secret` to Key Vault and use it in your code.
+As an security extra step, you can store this value in [Azure Key Vault](/azure/key-vault/general/basic-concepts) and use [Key Vault References](/azure/app-service/app-service-key-vault-references?tabs=azure-cli) to make it available in your web application. Use the following steps to move the value of `aad.secret` to Key Vault and use it in your code.
 
 1. Create an Azure Key Vault instance.
 

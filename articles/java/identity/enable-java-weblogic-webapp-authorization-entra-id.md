@@ -23,7 +23,7 @@ This article demonstrates a Java WebLogic web app that signs in users and obtain
 
 [!INCLUDE [enable-java-servlet-webapp-authorization-entra-id.md](includes/enable-java-servlet-webapp-authorization-entra-id.md)]
 
-#### Deploy the sample
+### Deploy the sample
 
 These instructions assume that you installed WebLogic and set up some server domain.
 

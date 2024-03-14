@@ -37,9 +37,9 @@ Confirm (Y/N) [Y]: [INFO] Saving configuration to pom.
 [INFO] ------------------------------------------------------------------------
 ```
 
-After you've confirmed your choices, the plugin adds the below plugin element and prerequisite settings to your project's *pom.xml* file that configure your web app to run in Azure App Service.
+After you've confirmed your choices, the plugin adds the required plugin element and settings to your project's *pom.xml* file to configure your web app to run in Azure App Service.
 
-The relevant portion of the *pom.xml* file should look similar to the following example.
+The relevant portion of the *pom.xml* file should look similar to the following example:
 
 ```xml
 <build>

@@ -5,18 +5,18 @@ ms.date: 03/11/2024
 
 ## Explore the sample
 
-- Note the signed-in or signed-out status displayed at the center of the screen.
+- Notice the signed-in or signed-out status displayed at the center of the screen.
 - Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app.
-- Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
+- On the next page, follow the instructions and sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
-- Note the context-sensitive button now says `Sign out` and displays your username to its left.
+- Notice that the context-sensitive button now says **Sign out** and displays your username.
 - Select **ID Token Details** to see some of the ID token's decoded claims.
 - Select **Groups** to see any information about security group membership for the signed in user.
 - Select **Admin Only** or **Regular User** to access the groups claim protected endpoints.
   - If your signed in user is in the GroupAdmin group, the user can enter both pages.
   - If your signed in user is in the GroupMember group, the user can enter the Regular User page only.
   - If your signed in user is in neither group, the user can't access either of the two pages.
-- You can also use the button on the top right to sign out.
+- You can also use the button in the corner to sign out.
 - After signing out, select **ID Token Details** to observe that the app displays a `401: unauthorized` error instead of the ID token claims when the user isn't authorized.
 
 ## Contents
@@ -177,7 +177,7 @@ In this sample, these values are read from the *authentication.properties* file 
 
 ### Protect the routes
 
-See *AuthenticationFilter.java* to see how the sample app filters access to routes. In the *authentication.properties* file, the key `app.protect.authenticated` contains the comma-separated routes that are to be accessed by authenticated users only, as shown in the following example:
+See *AuthenticationFilter.java* to see how the sample app filters access to routes. In the *authentication.properties* file, the key `app.protect.authenticated` contains the comma-separated routes that only authenticated users can access, as shown in the following example:
 
 ```ini
 # for example, /token_details requires any user to be signed in and does not require special groups claim
@@ -205,7 +205,7 @@ app.protect.groups=/admin_only admin, /regular_user admin user
 - [Scopes](/entra/identity-platform/permissions-consent-overview) tell Microsoft Entra ID the level of access that the application is requesting.
 - Based on the requested scopes, Microsoft Entra ID presents a consent dialogue to the user upon signing in.
 - If the user consents to one or more scopes and obtains a token, the scopes-consented-to are encoded into the resulting `access_token`.
-- Note the scope requested by the application by referring to *authentication.properties*. By default, the application sets the scopes value to `GroupMember.Read.All`.
+- For the scopes requested by the application, see *authentication.properties*. By default, the application sets the scopes value to `GroupMember.Read.All`.
 - This particular MS Graph API scope is required in case the application needs to call Graph for getting the user's group memberships.
 
 ## More information

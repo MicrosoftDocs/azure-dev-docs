@@ -23,11 +23,13 @@ The app uses the Microsoft Entra ID Spring Boot Starter client library for Java 
 
 [!INCLUDE [spring-boot-overview-recommendations.md](includes/spring-boot-overview-recommendations.md)]
 
-## Setup
+## Set up the sample
+
+The following sections show you how to set up the sample application.
 
 ### Clone or download the sample repository
 
-To clone the sample, open a command prompt and use the following command:
+To clone the sample, open a Bash window and use the following command:
 
 ```bash
 git clone https://github.com/Azure-Samples/ms-identity-java-spring-tutorial.git
@@ -42,25 +44,26 @@ Alternatively, navigate to the [ms-identity-java-spring-tutorial](https://github
 
 ### Register the sample applications with your Azure Active Directory tenant
 
-There's one project in this sample. To register it, you can:
+There's one project in this sample. To register the app on the Azure portal, you can either follow manual configuration steps or use a PowerShell script. The script does the following tasks:
 
-- follow the steps below for manually register your apps
-- or use PowerShell scripts that:
-  - **automatically** creates the Microsoft Entra ID applications and related objects - such as passwords, permissions, and dependencies - for you.
-  - modify the projects' configuration files.
+- Create the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
+- Modify the project configuration files.
 
 ### [Powershell](#tab/Powershell)
 
+Use the following steps to run the PowerShell script:
+
 1. On Windows, run PowerShell as administrator and navigate to the root of the cloned directory.
+
 1. If you haven't used Azure AD Powershell before, we recommend that you go through the [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/AppCreationScripts/AppCreationScripts.md) in the source repository to ensure that your environment is prepared correctly.
-1. In PowerShell, run the following command:
+
+1. Use the following command to set the execution policy for PowerShell:
 
    ```powershell
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
    ```
 
-1. Run the script to create your Microsoft Entra ID application and configure the code of the sample application accordingly.
-1. In PowerShell, run the following commands:
+1. Use the following commands to run the configuration script:
 
    ```powershell
    cd .\AppCreationScripts\
@@ -68,8 +71,7 @@ There's one project in this sample. To register it, you can:
    ```
 
    > [!NOTE]
-   > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/AppCreationScripts/AppCreationScripts.md) in the source repository.
-   > The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
+   > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/AppCreationScripts/AppCreationScripts.md). The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
 
 ### [Manual](#tab/Manual)
 
@@ -89,14 +91,14 @@ To choose your tenant, use the following steps:
    - Under **Supported account types**, select **Accounts in this organizational directory only**.
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
 1. Select **Register** to create the application.
-1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
-1. In the app's registration screen, select the **Certificates & secrets** pane in the left to open the page where we can generate secrets and upload certificates.
+1. In the app's registration screen, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
+1. In the app's registration screen, select **Certificates & secrets** on the navigation pane to open the page where we can generate secrets and upload certificates.
 1. In the **Client secrets** section, select **New client secret**.
 1. Type a key description - for example, *app secret*.
 1. Select one of the available key durations: **In 1 year**, **In 2 years**, or **Never Expires**.
 1. Select **Add**. The generated key value is displayed.
-1. Copy the generated value for use in the steps later. You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
-1. In the app's registration screen, select the **API permissions** pane in the navigation pane to open the page for access to the APIs that your application needs.
+1. Copy and save the generated value for use in later steps. You need this key for your code's configuration files. This key value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
+1. In the app's registration screen, select the **API permissions** pane on the navigation pane to open the page for access to the APIs that your application needs.
    - Select **Add permissions** and then,
    - Ensure that the **Microsoft APIs** tab is selected.
    - In the **Commonly used Microsoft APIs** section, select **Microsoft Graph**.
@@ -105,55 +107,60 @@ To choose your tenant, use the following steps:
 
 ---
 
-#### Configure the webApp app (java-spring-webapp-call-graph) to use your app registration
+#### Configure the app (java-spring-webapp-call-graph) to use your app registration
 
-Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure the code.
+Use the following steps to configure the app:
 
 > [!NOTE]
 > In the following steps, `ClientID` is the same as `Application ID` or `AppId`.
 
+1. Open the project in your IDE to configure the code.
+
 1. Open the *src\main\resources\application.yml* file.
+
 1. Find the key `Enter_Your_Tenant_ID_Here` and replace the existing value with your Microsoft Entra tenant ID.
+
 1. Find the key `Enter_Your_Client_ID_Here` and replace the existing value with the application ID or `clientId` of the `java-spring-webapp-call-graph` app copied from the Azure portal.
+
 1. Find the key `Enter_Your_Client_Secret_Here` and replace the existing value with the key you saved during the creation of `java-spring-webapp-call-graph` copied from the Azure portal.
 
 ## Run the sample
 
 ### [Deploy to Azure Spring Apps](#tab/asa)
 
-#### Prerequisites
+### Prerequisites
 
 [!INCLUDE [deploy-spring-apps-intro.md](includes/deploy-spring-apps-intro.md)]
 
-#### Prepare the Spring project
+### Prepare the Spring project
 
 [!INCLUDE [deploy-spring-apps-prepare.md](includes/deploy-spring-apps-prepare.md)]
 
-#### Configure the Maven plugin
+### Configure the Maven plugin
 
 [!INCLUDE [deploy-spring-apps-configure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
 
-#### Prepare the web app for deployment
+### Prepare the web app for deployment
 
 [!INCLUDE [deploy-spring-apps-prepare-deploy.md](includes/deploy-spring-apps-prepare-deploy.md)]
 
 [!INCLUDE [deploy-spring-apps-secret-note.md](includes/deploy-spring-apps-secret-note.md)]
 
-#### Update your Microsoft Entra ID app registration
+### Update your Microsoft Entra ID app registration
 
 [!INCLUDE [deploy-spring-apps-update-registration.md](includes/deploy-spring-apps-update-registration.md)]
 
-#### Deploy the app
+### Deploy the app
 
 [!INCLUDE [deploy-spring-apps-deploy.md](includes/deploy-spring-apps-deploy.md)]
 
-#### Validate the app
+### Validate the app
 
 [!INCLUDE [deploy-spring-apps-validate.md](includes/deploy-spring-apps-validate.md)]
 
 ### [Run locally](#tab/local)
 
-1. Open a terminal or the integrated VSCode terminal.
+1. Open a terminal or the integrated Visual Studio Code terminal.
 1. In the same directory as this readme file, run `mvn clean compile spring-boot:run`.
 1. Open your browser and navigate to `http://localhost:8080`. You should see a screen with the text `You're signed in! Click here to get your ID Token Details`.
 
@@ -163,16 +170,16 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 
 ## Explore the sample
 
-- Note the signed-in or signed-out status displayed at the center of the screen.
+- Notice the signed-in or signed-out status displayed at the center of the screen.
 - Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app.
-  - Alternatively, select **token details** or **call graph**. Because this is a protected page that requires authentication, you're automatically redirected to the sign-in page.
-- Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
+  - Alternatively, select **token details** or **call graph**. Because this page is protected and requires authentication, you're automatically redirected to the sign-in page.
+- On the next page, follow the instructions and sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
 - Upon successful completion of the sign-in flow, you should be redirected to the home page - which shows the **sign in status** - or one of the other pages, depending on which button triggered your sign-in flow.
-- Note the context-sensitive button now says `Sign out` and displays your username to its left.
+- Notice that the context-sensitive button now says **Sign out** and displays your username.
 - If you're on the home page, select **ID Token Details** to see some of the ID token's decoded claims.
 - Select **Call Graph** to make a call to Microsoft Graph's [/me endpoint](/graph/api/user-get?tabs=java#example-2-signed-in-user-request) and see a selection of user details obtained.
-- You can also use the button on the top right to sign out. The status page reflects this.
+- You can also use the button in the corner to sign out. The status page reflects the new state.
 
 ## Contents
 
@@ -195,7 +202,7 @@ Open the project in your IDE (Visual Studio Code or IntelliJ IDEA) to configure 
 
 This sample demonstrates how to use [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) to sign in users into your Microsoft Entra ID tenant and obtain an access token for calling **Microsoft Graph**. It also makes use of **Spring Oauth2 Client** and **Spring Web** boot starters.
 
-### Project Initialization
+### Project initialization
 
 Create a new Java Maven project and copy the *pom.xml* file from this project, and the *src* folder of this repository.
 
@@ -207,7 +214,7 @@ If you'd like to create a project like this from scratch, you may use [Spring In
   - Azure Active Directory
   - Spring Oauth2 Client
   - Spring Web
-- Be sure that it comes with Azure SDK version 3.3 or higher. If not, consider replacing the pre-configured *pom.xml* with the *pom.xml* from this repository.
+- Be sure that it comes with Azure SDK version 3.3 or higher. If not, consider replacing the preconfigured *pom.xml* with the *pom.xml* from this repository.
 
 ### ID token claims
 
@@ -225,7 +232,7 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Sign-in and sign-out links
 
-To sign in, you must make a request to the Azure Active Directory sign-in endpoint that's automatically configured by **Microsoft Entra ID Spring Boot Starter client library for Java**.
+To sign in, you must make a request to the Azure Active Directory sign-in endpoint automatically configured by **Microsoft Entra ID Spring Boot Starter client library for Java**.
 
 ```html
 <a class="btn btn-success" href="/oauth2/authorization/azure">Sign In</a>
@@ -302,7 +309,7 @@ authorization-clients:
 
 ### Scopes
 
-[Scopes](/entra/identity-platform/scopes-oidc) tell Microsoft Entra ID the level of access that the application is requesting. Note the Microsoft Graph scopes requested by this application by referring to *application.yml*.
+[Scopes](/entra/identity-platform/scopes-oidc) tell Microsoft Entra ID the level of access that the application is requesting. For the Microsoft Graph scopes requested by this application, see *application.yml*.
 
 - By default, this application sets the scopes value to `https://graph.microsoft.com/User.Read`.
 - The `User.Read` scope is for accessing the information of the currently-signed-in user from the [/me endpoint](https://graph.microsoft.com/v1.0/me).

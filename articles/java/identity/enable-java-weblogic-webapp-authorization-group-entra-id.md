@@ -23,7 +23,7 @@ This article shows you how to create a Java WebLogic web app that signs in users
 
 [!INCLUDE [enable-java-servlet-webapp-authorization-group-entra-id.md](includes/enable-java-servlet-webapp-authorization-group-entra-id.md)]
 
-#### Deploy the sample
+### Deploy the sample
 
 These instructions assume that you installed WebLogic and set up some server domain.
 

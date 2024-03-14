@@ -3,11 +3,13 @@ ms.author: bbanerjee
 ms.date: 03/11/2024
 ---
 
-## Setup
+## Set up the sample
+
+The following sections show you how to set up the sample application.
 
 ### Clone or download the sample repository
 
-To clone the sample, open a command prompt and use the following command:
+To clone the sample, open a Bash window and use the following command:
 
 ```bash
 git clone https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication.git
@@ -21,33 +23,33 @@ Alternatively, navigate to the [ms-identity-java-servlet-webapp-authentication](
 
 ## Register the sample application with your Microsoft Entra ID tenant
 
-There's one project in this sample. To register the app on the portal, you can:
+There's one project in this sample. To register the app on the Azure portal, you can either follow manual configuration steps or use a PowerShell script. The script does the following tasks:
 
-- either follow manual configuration steps below
-- or use PowerShell scripts that:
-  - automatically creates the Microsoft Entra ID applications and related objects - such as passwords, permissions, and dependencies - for you.
-  - modify the projects' configuration files.
-  - by default, the automation scripts set up an application that works with accounts in your organizational directory only.
+- Create the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
+- Modify the project configuration files.
+- By default, set up an application that works with accounts in your organizational directory only.
 
 ### [Powershell](#tab/Powershell)
 
-1. On Windows, run PowerShell and navigate to the root of the cloned directory.
-1. In PowerShell, run the following command:
+Use the following steps to run the PowerShell script:
+
+1. On Windows, open PowerShell and navigate to the root of the cloned directory.
+
+1. Use the following command to set the execution policy for PowerShell:
 
    ```powershell
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
    ```
 
-1. Run the script to create your Microsoft Entra ID application and configure the code of the sample application accordingly.
-1. In PowerShell, run the following commands:
+1. Use the following commands to run the configuration script:
 
    ```powershell
    cd .\AppCreationScripts\
    .\Configure.ps1
    ```
 
-   > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/2-Authorization-I/call-graph/AppCreationScripts/AppCreationScripts.md)
-   > The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
+   > [!NOTE]
+   > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/2-Authorization-I/call-graph/AppCreationScripts/AppCreationScripts.md). The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
 
 ### [Manual](#tab/Manual)
 
@@ -75,14 +77,14 @@ Then, use the following steps to complete the registration:
    - Select **Personal Microsoft accounts** for use only by users of personal Microsoft accounts - for example, Hotmail, Live, Skype, and Xbox accounts.
    - In the **Redirect URI** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/msal4j-servlet-graph/auth/redirect`.
 1. Select **Register** to create the application.
-1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
+1. In the app's registration screen, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
 1. Select **Save** to save your changes.
-1. In the app's registration screen, select **Certificates & secrets** in the navigation pane to open the page where we can generate secrets and upload certificates.
+1. In the app's registration screen, select **Certificates & secrets** on the navigation pane to open the page where we can generate secrets and upload certificates.
 1. In the **Client secrets** section, select **New client secret**.
 1. Type a key description - for example, *app secret*.
 1. Select one of the available key durations: **In 1 year**, **In 2 years**, or **Never Expires**.
 1. Select **Add**. The generated key value is displayed.
-1. Copy the generated value for use in the steps later. You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
+1. Copy and save the generated value for use in later steps. You need this key for your code's configuration files. This key value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
 1. In the app's registration screen, select **API permissions** from the navigation pane to open the page to add access to the APIs that your application needs.
 1. Select **Add permissions**.
 1. Ensure that the **Microsoft APIs** tab is selected.
@@ -90,22 +92,26 @@ Then, use the following steps to complete the registration:
 1. In the **Delegated permissions** section, select **User.Read** from the list. Use the search box if necessary.
 1. Select **Add permissions**.
 
-### Configure the web app (java-servlet-webapp-call-graph) to use your app registration
+### Configure the app (java-servlet-webapp-call-graph) to use your app registration
 
-Open the project in your IDE to configure the code.
+Use the following steps to configure the app:
 
 > [!NOTE]
 > In the following steps, `ClientID` is the same as `Application ID` or `AppId`.
 
-1. Open the *./src/main/resources/authentication.properties* file.
-1. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with:
+1. Open the project in your IDE to configure the code.
 
-   - **Your Microsoft Entra ID tenant ID** if you registered your app with the **Accounts in this organizational directory only** option.
+1. Open the *./src/main/resources/authentication.properties* file.
+
+1. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with one of the following values:
+
+   - Your Microsoft Entra ID tenant ID if you registered your app with the **Accounts in this organizational directory only** option.
    - The word `organizations` if you registered your app with the **Accounts in any organizational directory** option.
    - The word `common` if you registered your app with the **Accounts in any organizational directory and personal Microsoft accounts** option.
-   - The word `consumers` if you registered your app with the **Personal Microsoft accounts** option
+   - The word `consumers` if you registered your app with the **Personal Microsoft accounts** option.
 
 1. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID or `clientId` of the `java-servlet-webapp-call-graph` application copied from the Azure portal.
+
 1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the key you saved during the creation of the `java-servlet-webapp-call-graph` app, in the Azure portal.
 
 ## Run the sample

@@ -3,11 +3,13 @@ ms.author: bbanerjee
 ms.date: 03/11/2024
 ---
 
-## Setup
+## Set up the sample
+
+The following sections show you how to set up the sample application.
 
 ### Clone or download the sample repository
 
-To clone the sample, open a command prompt and use the following command:
+To clone the sample, open a Bash window and use the following command:
 
 ```bash
 git clone https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication.git
@@ -21,25 +23,25 @@ Alternatively, navigate to the [ms-identity-java-servlet-webapp-authentication](
 
 ## Register the sample application with your Microsoft Entra ID tenant
 
-There's one project in this sample. To register the app on the portal, you can:
+There's one project in this sample. To register the app on the Azure portal, you can either follow manual configuration steps or use a PowerShell script. The script does the following tasks:
 
-- either follow manual configuration steps below
-- or use PowerShell scripts that:
-  - automatically creates the Microsoft Entra ID applications and related objects - such as passwords, permissions, and dependencies - for you.
-  - modify the projects' configuration files.
-  - by default, the automation scripts set up an application that works with accounts in your organizational directory only.
+- Create the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
+- Modify the project configuration files.
+- By default, set up an application that works with accounts in your organizational directory only.
 
 ### [Powershell](#tab/Powershell)
 
-1. On Windows, run PowerShell and navigate to the root of the cloned directory.
-1. In PowerShell, run the following command:
+Use the following steps to run the PowerShell script:
+
+1. On Windows, open PowerShell and navigate to the root of the cloned directory.
+
+1. Use the following command to set the execution policy for PowerShell:
 
    ```powershell
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
    ```
 
-1. Run the script to create your Microsoft Entra ID application and configure the code of the sample application accordingly.
-1. In PowerShell, run the following commands:
+1. Use the following commands to run the configuration script:
 
    ```powershell
    cd .\AppCreationScripts\
@@ -47,8 +49,7 @@ There's one project in this sample. To register the app on the portal, you can:
    ```
 
    > [!NOTE]
-   > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/3-Authorization-II/groups/AppCreationScripts/AppCreationScripts.md)
-   > The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
+   > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/3-Authorization-II/groups/AppCreationScripts/AppCreationScripts.md). The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
 
 ### [Manual](#tab/Manual)
 
@@ -72,14 +73,14 @@ Then, use the following steps to complete the registration:
    - Under **Supported account types**, select **Accounts in this organizational directory only**.
    - In the **Redirect URI** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/msal4j-servlet-groups/auth/redirect`.
 1. Select **Register** to create the application.
-1. In the app's registration screen, find and note the **Application (client) ID**. You use this value in your app's configuration file or files later in your code.
+1. In the app's registration screen, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
 1. Select **Save** to save your changes.
-1. In the app's registration screen, select **Certificates & secrets** in the navigation pane to open the page where we can generate secrets and upload certificates.
+1. In the app's registration screen, select **Certificates & secrets** on the navigation pane to open the page where we can generate secrets and upload certificates.
 1. In the **Client secrets** section, select **New client secret**.
 1. Type a key description - for example, *app secret*.
 1. Select one of the available key durations: **In 1 year**, **In 2 years**, or **Never Expires**.
 1. Select **Add**. The generated key value is displayed.
-1. Copy the generated value for use in the steps later. You need this key later in your code's configuration files. This key value isn't displayed again, and isn't retrievable by any other means, so make sure to note it from the Azure portal before navigating to any other screen or pane.
+1. Copy and save the generated value for use in later steps. You need this key for your code's configuration files. This key value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
 1. In the app's registration screen, select **API permissions** from the navigation pane to open the page to add access to the APIs that your application needs.
 1. Select **Add a permission**.
 1. Ensure that the **Microsoft APIs** tab is selected.
@@ -88,18 +89,18 @@ Then, use the following steps to complete the registration:
 1. Select **Add permissions**.
 1. `GroupMember.Read.All` requires admin consent, so select **Grant/revoke admin consent for {tenant}**, and then select **Yes** when you're asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a Microsoft Entra ID tenant admin to do this.
 
-#### Configure the web app (java-servlet-webapp-groups) to use your app registration
+#### Configure the app (java-servlet-webapp-groups) to use your app registration
 
-Open the project in your IDE to configure the code.
+Use the following steps to configure the app:
 
 > [!NOTE]
 > In the following steps, `ClientID` is the same as `Application ID` or `AppId`.
 
+1. Open the project in your IDE to configure the code.
+
 1. Open the *./src/main/resources/authentication.properties* file.
 
-1. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with:
-
-   - **Your Microsoft Entra tenant ID** if you registered your app with the **Accounts in this organizational directory only** option.
+1. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with your Microsoft Entra tenant ID if you registered your app with the **Accounts in this organizational directory only** option.
 
 1. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID or `clientId` of the `java-servlet-webapp-groups` application copied from the Azure portal.
 
@@ -118,7 +119,7 @@ You have two different options available to you on how you can further configure
 
 #### Configure your application to receive all the groups the signed-in user is assigned to, including nested groups
 
-1. In the app's registration screen, select the **Token Configuration** pane in the left to open the page where you can configure the claims provided tokens issued to your application.
+1. In the app's registration screen, select **Token Configuration** on the navigation pane to open the page where you can configure the claims provided tokens issued to your application.
 1. Select the **Add groups claim** button on top to open the **Edit Groups Claim** screen.
 1. Select **Security groups** OR the **All groups (includes distribution lists but not groups assigned to the application)** option. Choosing both options negates the effect of the **Security Groups** option.
 1. Under the **ID** section, select **Group ID**. This selection causes Microsoft Entra ID to send the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the **groups** claim of the [ID token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
@@ -133,7 +134,7 @@ You have two different options available to you on how you can further configure
 
 ##### Steps to enable this option in your app
 
-1. In the app's registration screen, select the **Token Configuration** pane in the left to open the page where you can configure the claims provided tokens issued to your application.
+1. In the app's registration screen, select **Token Configuration** on the navigation pane to open the page where you can configure the claims provided tokens issued to your application.
 1. Select the **Add groups claim** button on top to open the **Edit Groups Claim** screen.
 1. Select **Groups assigned to the application**.
 
@@ -141,8 +142,8 @@ You have two different options available to you on how you can further configure
 
 1. Under the **ID** section, select **Group ID**. This results in Microsoft Entra ID sending the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID token](/entra/identity-platform/id-tokens).
 1. If you're exposing a web API using the **Expose an API** option, then you can also choose the **Group ID** option under the **Access** section. This option results in Microsoft Entra ID sending the [Object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [access token](/entra/identity-platform/access-tokens).
-1. In the app's registration screen, select **Overview** in the navigation pane to open the application overview screen. Select the hyperlink with the name of your application in **Managed application in local directory**. This field title might be truncated - for instance `Managed application in ...`. When you select this link, you navigate to the **Enterprise Application Overview** page associated with the service principal for your application in the tenant where you created it. You can navigate back to the app registration page by using the back button of your browser.
-1. Select the **Users and groups** pane in the left to open the page where you can assign users and groups to your application.
+1. In the app's registration screen, select **Overview** on the navigation pane to open the application overview screen. Select the hyperlink with the name of your application in **Managed application in local directory**. This field title might be truncated - for instance `Managed application in ...`. When you select this link, you navigate to the **Enterprise Application Overview** page associated with the service principal for your application in the tenant where you created it. You can navigate back to the app registration page by using the back button of your browser.
+1. Select **Users and groups** on the navigation pane to open the page where you can assign users and groups to your application.
 
    1. Select the **Add user** button on the top row.
    1. Select **User and Groups** from the resultant screen.
@@ -151,19 +152,21 @@ You have two different options available to you on how you can further configure
    1. Select **Assign** to finish the group assignment process.
    1. Your application now receives these selected groups in the groups claim when a user signing in to your app is a member of one or more these assigned groups.
 
-1. Select the **Properties** pane in the left to open the page that lists the basic properties of your application.Set the **User assignment required?** flag to **Yes**.
+1. Select **Properties** on the navigation pane to open the page that lists the basic properties of your application.Set the **User assignment required?** flag to **Yes**.
 
 > [!IMPORTANT]
 > When you set **User assignment required?** to **Yes**, Microsoft Entra ID checks that only users assigned to your application in the **Users and groups** pane are able to sign-in to your app. You can assign users directly or by assigning security groups they belong to.
 
-### Configure the web app (java-servlet-webapp-groups) to recognize Group IDs
+### Configure the app (java-servlet-webapp-groups) to recognize group IDs
+
+Use the following steps to configure the app:
 
 > [!IMPORTANT]
-> During **Token Configuration**, if you've chosen any other option except **groupID** - such as **DNSDomain\sAMAccountName** - you should enter the **group name** - for example, `contoso.com\Test Group` - instead of the **object ID** below:
+> On the **Token Configuration** page, if you chose any option other than **groupID** - such as **DNSDomain\sAMAccountName** - you should enter the group name in the following steps - for example, `contoso.com\Test Group` - instead of the object ID:
 
 1. Open the *./src/main/resources/authentication.properties* file.
-1. Find the string `{enter-your-admins-group-id-here}` and replace the existing value with the **object ID** of the **GroupAdmin** group copied from the Azure portal. Remove the curly braces from the placeholder value as well.
-1. Find the string `{enter-your-users-group-id-here}` and replace the existing value with the **object ID** of the **GroupMember** group copied from the Azure portal. Remove the curly braces from the placeholder value as well.
+1. Find the string `{enter-your-admins-group-id-here}` and replace the existing value with the object ID of the `GroupAdmin` group, which you copied from the Azure portal. Remove the curly braces from the placeholder value as well.
+1. Find the string `{enter-your-users-group-id-here}` and replace the existing value with the object ID of the `GroupMember` group, which you copied from the Azure portal. Remove the curly braces from the placeholder value as well.
 
 ## Run the sample
 

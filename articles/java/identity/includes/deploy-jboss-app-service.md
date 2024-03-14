@@ -3,29 +3,29 @@ ms.author: givermei
 ms.date: 03/11/2024
 ---
 
-#### [Deploy to Azure App Service](#tab/appsvc)
+### [Deploy to Azure App Service](#tab/appsvc)
 
 [!INCLUDE [deploy-app-service-intro.md](./deploy-app-service-intro.md)]
 
-##### Configure the Maven plugin
+### Configure the Maven plugin
 
 [!INCLUDE [deploy-jboss-app-service-configure-maven.md](./deploy-jboss-app-service-configure-maven.md)]
 
-##### Prepare the web app for deployment
+### Prepare the web app for deployment
 
 [!INCLUDE [deploy-app-service-prepare-deploy.md](./deploy-app-service-prepare-deploy.md)]
 
 [!INCLUDE [deploy-jboss-app-service-secret-note.md](./deploy-jboss-app-service-secret-note.md)]
 
-##### Update your Microsoft Entra ID app registration
+### Update your Microsoft Entra ID app registration
 
 [!INCLUDE [deploy-app-service-update-registration.md](./deploy-app-service-update-registration.md)]
 
-##### Deploy the app
+### Deploy the app
 
 [!INCLUDE [deploy-app-service-deploy.md](./deploy-app-service-deploy.md)]
 
-#### [Run locally](#tab/local)
+### [Run locally](#tab/local)
 
 Before you can deploy to JBoss, you need to make some configuration changes in the sample itself and build or rebuild the package:
 

@@ -5,13 +5,13 @@ ms.date: 03/11/2024
 
 ## Explore the sample
 
-- Note the signed-in or signed-out status displayed at the center of the screen.
+- Notice the signed-in or signed-out status displayed at the center of the screen.
 - Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app.
-- Follow the instructions on the next page to sign in with an account of your chosen identity provider.
-- Note the context-sensitive button now says `Sign out` and displays your username to its left.
+- On the next page, follow the instructions and sign in with an account of your chosen identity provider.
+- Notice that the context-sensitive button now says **Sign out** and displays your username.
 - Select **ID Token Details** to see some of the ID token's decoded claims.
 - You also have the option of editing your profile. Select the link to edit details like your display name, place of residence, and profession.
-- You can also use the button on the top right to sign out.
+- You can also use the button in the corner to sign out.
 - After signing out, navigate to the following URL for the token details page: `http://localhost:8080/ms-identity-b2c-java-servlet-webapp-authentication/auth_token_details`. Here, you can observe how the app displays a `401: unauthorized` error instead of the ID token claims.
 
 ## Contents

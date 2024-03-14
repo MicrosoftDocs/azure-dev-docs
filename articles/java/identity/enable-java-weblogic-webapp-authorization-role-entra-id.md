@@ -23,7 +23,7 @@ This article demonstrates a Java WebLogic web app that uses [OpenID Connect](/en
 
 [!INCLUDE [enable-java-servlet-webapp-authorization-role-entra-id.md](includes/enable-java-servlet-webapp-authorization-role-entra-id.md)]
 
-#### Deploy the sample
+### Deploy the sample
 
 These instructions assume that you installed WebLogic and set up some server domain.
 

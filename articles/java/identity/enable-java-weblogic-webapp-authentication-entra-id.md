@@ -23,7 +23,7 @@ This article demonstrates a Java WebLogic web app that signs in users to your Mi
 
 [!INCLUDE [enable-java-servlet-webapp-authentication-entra-id.md](includes/enable-java-servlet-webapp-authentication-entra-id.md)]
 
-#### Deploy the sample
+### Deploy the sample
 
 These instructions assume that you installed WebLogic and set up some server domain.
 

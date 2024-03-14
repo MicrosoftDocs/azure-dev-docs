@@ -5,14 +5,14 @@ ms.date: 03/11/2024
 
 ## Explore the sample
 
-- Note the signed-in or signed-out status displayed at the center of the screen.
+- Notice the signed-in or signed-out status displayed at the center of the screen.
 - Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app.
-- Follow the instructions on the next page to sign in with an account in the Microsoft Entra ID tenant.
+- On the next page, follow the instructions and sign in with an account in the Microsoft Entra ID tenant.
 - On the consent screen, note the scopes that are being requested.
-- Note the context-sensitive button now says `Sign out` and displays your username to its left.
+- Notice that the context-sensitive button now says **Sign out** and displays your username.
 - Select **ID Token Details** to see some of the ID token's decoded claims.
 - Select **Call Graph** to make a call to Microsoft Graph's [/me endpoint](/graph/api/user-get?tabs=java#example-2-signed-in-user-request) and see a selection of user details obtained.
-- You can also use the button on the top right to sign out.
+- You can also use the button in the corner to sign out.
 
 ## Contents
 
@@ -110,7 +110,7 @@ In this sample, these values are read from the *authentication.properties* file 
 
 ### Protect the routes
 
-See *AuthenticationFilter.java* for how the sample app filters access to routes. In the *authentication.properties* file, the key `app.protect.authenticated` contains the comma-separated routes that are to be accessed by authenticated users only.
+For information about how the sample app filters access to routes, see *AuthenticationFilter.java*. In the *authentication.properties* file, the key `app.protect.authenticated` contains the comma-separated routes that only authenticated users can access.
 
 ```ini
 # for example, /token_details requires any user to be signed in and does not require special roles or groups claim(s)
@@ -133,7 +133,7 @@ User user = GraphHelper.getGraphClient(contextAdapter).me().buildRequest().get()
 - [Scopes](/entra/identity-platform/permissions-consent-overview) tell Microsoft Entra ID the level of access that the application is requesting.
 - Based on the requested scopes, Microsoft Entra ID presents a consent dialogue to the user upon signing in.
 - If the user consents to one or more scopes and obtains a token, the scopes-consented-to are encoded into the resulting `access_token`.
-- Note the scope requested by the application by referring to *authentication.properties*. By default, the application sets the scopes value to `User.Read`.
+- For the scopes requested by the application, see *authentication.properties*. By default, the application sets the scopes value to `User.Read`.
 - This particular MS Graph API scope is for accessing the information of the currently-signed-in user. The graph endpoint for accessing this info is `https://graph.microsoft.com/v1.0/me`
 - Any valid requests made to this endpoint must bear an `access_token` that contains the scope `User.Read` in the Authorization header.
 

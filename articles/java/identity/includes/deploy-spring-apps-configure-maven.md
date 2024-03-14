@@ -46,9 +46,9 @@ Confirm to save all the above configurations (Y/n):
 [INFO] ------------------------------------------------------------------------
 ```
 
-After you've confirmed your choices, the plugin adds the below plugin element and prerequisite settings to your project's *pom.xml* file that configure your app to run in Azure Spring Apps.
+After you've confirmed your choices, the plugin adds the required plugin element and settings to your project's *pom.xml* file to configure your app to run in Azure Spring Apps.
 
-The relevant portion of the *pom.xml* file should look similar to the following example.
+The relevant portion of the *pom.xml* file should look similar to the following example:
 
 ```xml
 <plugin>
@@ -81,7 +81,7 @@ The relevant portion of the *pom.xml* file should look similar to the following 
 </plugin>
 ```
 
-You can modify the configurations for Azure Spring Apps directly in your *pom.xml*. Some common configurations are listed in the following table:
+You can modify the configurations for Azure Spring Apps directly in your *pom.xml* file. Some common configurations are listed in the following table:
 
 | Property           | Required | Description                                                                                                                                                                                                               |
 |--------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
