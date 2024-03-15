@@ -75,15 +75,6 @@ This article uses metric `openSessionsCurrentCount` to scale up and scale down t
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- ========================================================================
-  == DISCLAIMER:
-  ==    This script is provided for educational purposes only. It is NOT
-  ==    supported by Oracle World Wide Technical Support.
-  ==    The script has been tested and appears to work as intended.
-  ==    You should always run new scripts on a test instance initially.
-  ==
-  ======================================================================== -->
-
 <wls:weblogic-web-app xmlns:wls="http://xmlns.oracle.com/weblogic/weblogic-web-app" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://xmlns.oracle.com/weblogic/weblogic-web-app http://xmlns.oracle.com/weblogic/weblogic-web-app/1.4/weblogic-web-app.xsd">
     <wls:weblogic-version>12.2.1</wls:weblogic-version>
     <wls:jsp-descriptor>
@@ -426,6 +417,63 @@ It takes 15 minutes to deploy the metrics addon. Make sure the command completes
 Once the AKS metrics addon enabled, you can configure Promethues to scrape metrics from WLS. For more information, see [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration).
 
 Follow the steps to apply scrape configuration.
+
+1. Create Prometheus scrape config file. For more information, see [Create Prometheus configuration file](/azure/azure-monitor/containers/prometheus-metrics-scrape-validate#create-prometheus-configuration-file).
+
+    Promethues requires the WebLogic admin account to sign in WebLogic Monitoring Exporter and access metrics. The WebLogic admin account is set during offer deployment. Fill in `WLS_ADMIN_USERNAME` and `WLS_ADMIN_PASSWORD` with the user name and password. For more details, see `[scrape_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config)`.
+
+    ```bash
+    WLS_ADMIN_USERNAME="weblogic"
+    WLS_ADMIN_PASSWORD="Secret123456"
+
+    cat <<EOF >prometheus-config
+    global:
+    scrape_interval: 30s
+    scrape_configs:
+    - job_name: '${WLS_DOMAIN_UID}'
+    kubernetes_sd_configs:
+    - role: pod
+      namespaces: 
+        names: [${WLS_NAMESPACE}]
+    basic_auth:
+      username: ${WLS_ADMIN_USERNAME}
+      password: ${WLS_ADMIN_PASSWORD}
+    EOF
+    ```
+
+2. Validate the scrape config file. You can find more information of [Prometheus scrape validation](/azure/azure-monitor/containers/prometheus-metrics-scrape-validate#validate-the-scrape-config-file). 
+
+    First, copy **promconfigvalidator** tool from the Azure Monitor metrics addon pod(s).
+
+    ```bash
+    for podname in $(kubectl get pods -l rsName=ama-metrics -n=kube-system -o json | jq -r '.items[].metadata.name'); do kubectl cp -n=kube-system "${podname}":/opt/promconfigvalidator ./promconfigvalidator;  kubectl cp -n=kube-system "${podname}":/opt/microsoft/otelcollector/collector-config-template.yml ./collector-config-template.yml; chmod 500 promconfigvalidator; done
+    ```
+
+    Next, validate the scrape config file using **promconfigvalidator**.
+
+    ```bash
+    ./promconfigvalidator --config "./prometheus-config" --otelTemplate "./collector-config-template.yml"
+    ```
+
+    You find similiar output as following content if the validation passes.
+
+    ```text
+    prom-config-validator::Config file provided - ./prometheus-config
+    prom-config-validator::Successfully generated otel config
+    prom-config-validator::Loading configuration...
+    prom-config-validator::Successfully loaded and validated prometheus config
+    ```
+
+    Next,deploy config file as configmap.
+
+    ```bash
+    kubectl create configmap ama-metrics-prometheus-config --from-file=prometheus-config -n kube-system
+    ```
+
+    This command creates a configmap named `ama-metrics-prometheus-config` in `kube-system` namespace. The Azure Monitor metrics replica pod restarts in 30-60 secs to apply the new config.
+
+> [!NOTE]
+> If you run into problems configuring Promethues scrape, see tips in [Troubleshooting](/azure/azure-monitor/containers/prometheus-metrics-scrape-validate#troubleshooting) to resolve.
 
 ---
 
