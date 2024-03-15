@@ -162,7 +162,7 @@ The following sections show you how to deploy the sample to Azure Spring Apps.
 
 [!INCLUDE [deploy-spring-apps-configure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
 
-### Prepare the web app for deployment
+### prepare the app for deployment
 
 [!INCLUDE [deploy-spring-apps-prepare-deploy.md](includes/deploy-spring-apps-prepare-deploy.md)]
 
@@ -262,13 +262,13 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Sign-in and sign-out links
 
-To sign in, you must make a request to the Azure Active Directory sign-in endpoint automatically configured by Microsoft Entra ID Spring Boot Starter client library for Java, as shown in the following example:
+For sign-in, you must make a request to the Azure Active Directory sign-in endpoint automatically configured by Microsoft Entra ID Spring Boot Starter client library for Java, as shown in the following example:
 
 ```html
 <a class="btn btn-success" href="/oauth2/authorization/azure">Sign In</a>
 ```
 
-To sign out, you must make POST request to the `logout` endpoint, as shown in the following example:
+For sign-out, you must make a POST request to the `logout` endpoint, as shown in the following example:
 
 ```html
 <form action="#" th:action="@{/logout}" method="post">
@@ -291,7 +291,7 @@ This app has some simple logic in the UI template pages for determining content 
 
 ### Protect routes with AADWebSecurityConfigurerAdapter
 
-By default, this app protects the **ID Token Details** and **Call Graph** pages so that only logged-in users can access them. This app uses configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class.
+By default, this app protects the **ID Token Details** and **Call Graph** pages so that only signed-in users can access them. This app uses configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class.
 
 ```java
 @EnableWebSecurity

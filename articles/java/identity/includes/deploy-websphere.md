@@ -17,7 +17,7 @@ Before you can deploy to WebSphere, use the following steps to make some configu
    app.homePage=https://<server-url>:<port-number>/msal4j-servlet-auth/
    ```
 
-1. After saving this file, you need to rebuild your app.
+1. After saving this file, use the following command to rebuild your app:
 
    ```bash
    mvn clean package

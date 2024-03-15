@@ -3,7 +3,7 @@ ms.author: givermei
 ms.date: 03/11/2024
 ---
 
-You're now ready to deploy your Web App to Azure App Service. Use the following command to make sure you're logged into your Azure environment to execute the deployment.
+You're now ready to deploy your Web App to Azure App Service. Use the following command to make sure you're signed in to your Azure environment to execute the deployment:
 
 ```azurecli
 az login

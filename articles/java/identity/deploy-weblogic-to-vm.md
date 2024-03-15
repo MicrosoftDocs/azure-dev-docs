@@ -22,9 +22,9 @@ This article shows you how to deploy a Java WebLogic web app with sign-in by Mic
   - [Secure Java WebLogic apps using groups and group claims](enable-java-weblogic-webapp-authorization-group-entra-id.md)
 - A deployed [Oracle WebLogic Server](https://www.oracle.com/java/weblogic/). For more information, see [Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine).
 
-## Prepare the web app for deployment
+## prepare the app for deployment
 
-When you deploy your application to Oracle WebLogic Server, your redirect URL changes to the redirect URL of the app on the Oracle WebLogic Server instance. You need to change these settings in your properties file.
+When you deploy your application to Oracle WebLogic Server, your redirect URL changes to the redirect URL of the app on the Oracle WebLogic Server instance. Use the following steps to change these settings in your properties file:
 
 1. Navigate to your app's *authentication.properties* file and change the value of `app.homePage` to your deployed app's domain name. This domain name has the form `http://<vm-host-name>:<port>/<your-app-path>`. You can get the host name and port from **adminConsoleURL** by removing `/console/`. If you're using the recommended sample app, the URL should be `http://<vm-host-name>:<port>/testwebapp/`, which should be similar to `http://wls-5b942e9f2a-admindomain.westus.cloudapp.azure.com:7001/testwebapp/`.
 

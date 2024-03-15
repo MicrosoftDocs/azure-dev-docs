@@ -29,7 +29,7 @@ This article shows you how to deploy a Tomcat web app with sign-in by Microsoft 
 
 [!INCLUDE [deploy-tomcat-app-service-configure-maven.md](includes/deploy-tomcat-app-service-configure-maven.md)]
 
-## Prepare the web app for deployment
+## prepare the app for deployment
 
 [!INCLUDE [deploy-app-service-prepare-deploy.md](includes/deploy-app-service-prepare-deploy.md)]
 

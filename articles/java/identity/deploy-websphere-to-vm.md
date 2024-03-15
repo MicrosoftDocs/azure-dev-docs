@@ -22,9 +22,9 @@ This article shows you how to deploy a Java WebSphere web app with sign-in by Mi
   - [Secure Java WebSphere apps using groups and group claims](enable-java-websphere-webapp-authorization-group-entra-id.md)
 - A deployed [IBM WebSphere Application Server Cluster](https://aka.ms/websphere-on-azure-portal). For more information, see [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](../ee/traditional-websphere-application-server-virtual-machines.md).
 
-## Prepare the web app for deployment
+## prepare the app for deployment
 
-When you deploy your application to WebSphere Application Server, your redirect URL changes to the redirect URL of your deployed WebSphere Application Server instance. You need to change these settings in your properties file.
+When you deploy your application to WebSphere Application Server, your redirect URL changes to the redirect URL of your deployed WebSphere Application Server instance. Use the following steps to change these settings in your properties file:
 
 1. Navigate to your app's *authentication.properties* file and change the value of `app.homePage` to your server URL and port number you're planning to use.
 
@@ -34,7 +34,7 @@ When you deploy your application to WebSphere Application Server, your redirect 
    app.homePage=https://<server-url>:<port-number>/msal4j-servlet-auth/
    ```
 
-1. After saving this file, you need to rebuild your app.
+1. After saving this file, use the following command to rebuild your app:
 
    ```bash
    mvn clean package

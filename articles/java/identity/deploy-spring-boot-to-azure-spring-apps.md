@@ -31,7 +31,7 @@ This article shows you how to deploy a Java Spring Boot web app with sign-in by 
 
 [!INCLUDE [deploy-spring-apps-configure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
 
-## Prepare the web app for deployment
+## prepare the app for deployment
 
 [!INCLUDE [deploy-spring-apps-prepare-deploy.md](includes/deploy-spring-apps-prepare-deploy.md)]
 

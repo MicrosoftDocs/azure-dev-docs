@@ -124,7 +124,7 @@ Use the following steps to configure the app:
 
 1. Find the app key `password-reset` and replace it with the name of the edit profile user-flow policy you created in the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
 
-Open the *src/main/resources/templates/navbar.html* file.
+1. Open the *src/main/resources/templates/navbar.html* file.
 
 1. Find the references to the `b2c_1_susi` and `b2c_1_edit_profile` flows and replace them with your `sign-up-sign-in` and `profile-edit` user-flows.
 
@@ -146,7 +146,7 @@ The following sections show you how to deploy the sample to Azure Spring Apps.
 
 [!INCLUDE [deploy-spring-apps-configure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
 
-### Prepare the web app for deployment
+### prepare the app for deployment
 
 [!INCLUDE [deploy-spring-apps-prepare-deploy.md](includes/deploy-spring-apps-prepare-deploy.md)]
 
@@ -244,13 +244,13 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Sign-in and sign-out links
 
-To sign in, you must make a request to the Azure Active Directory sign-in endpoint automatically configured by **Azure AD B2C Spring Boot Starter client library for Java**.
+For sign-in, you must make a request to the Azure Active Directory sign-in endpoint automatically configured by Azure AD B2C Spring Boot Starter client library for Java, as shown in the following example:
 
 ```html
 <a class="btn btn-success" href="/oauth2/authorization/{your-sign-up-sign-in-user-flow}">Sign In</a>
 ```
 
-To sign out, you must make POST request to the `logout` endpoint, as shown in the following example:
+For sign-out, you must make a POST request to the `logout` endpoint, as shown in the following example:
 
 ```html
 <form action="#" th:action="@{/logout}" method="post">
@@ -273,7 +273,7 @@ This app has some simple logic in the UI template pages for determining content 
 
 ### Protect routes with WebSecurityConfigurerAdapter
 
-By default, this app protects the **ID Token Details** page so that only logged-in users can access it. This app uses configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, extend `WebSecurityConfigurerAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class.
+By default, this app protects the **ID Token Details** page so that only signed-in users can access it. This app uses configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, extend `WebSecurityConfigurerAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class.
 
 ```java
 @EnableWebSecurity

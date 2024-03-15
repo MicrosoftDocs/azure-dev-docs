@@ -13,7 +13,7 @@ When you deploy your application to App Service, your redirect URL changes to th
    app.homePage=https://<your-app-name>.azurewebsites.net
    ```
 
-1. After saving this file, you need to rebuild your app.
+1. After saving this file, use the following command to rebuild your app:
 
    ```bash
    mvn clean package
