@@ -464,7 +464,7 @@ Follow the steps to apply scrape configuration.
     prom-config-validator::Successfully loaded and validated prometheus config
     ```
 
-    Next,deploy config file as configmap.
+    Next, deploy config file as configmap.
 
     ```bash
     kubectl create configmap ama-metrics-prometheus-config --from-file=prometheus-config -n kube-system
@@ -478,6 +478,17 @@ Follow the steps to apply scrape configuration.
 ---
 
 ## Query metrics in Azure Monitor Workspace
+
+Now, you're able to query metrics in Azure Monitor Workspace with steps:
+
+1. Open the azure monitor account.
+    - If you use Horizontal Autoscaling feature of Marketplace Offer, the monitor account locates in the resource group that created by [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
+    - If you enable Horizontal Autoscaling manually, the monitor account locates in the resource group that created by [Install AKS Promethues metrics addon](#install-aks-promethues-metrics-addon).
+
+1. Select **Managed Prometheus** -> **Prometheus explorer**. 
+1. Input `webapp_config_open_sessions_current_count` to query the current account of open sessions, as the screenshot shows.
+
+    :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/promethues-explorer.png" alt-text="Screenshot of the Azure portal showing the Promethues explorer." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/promethues-explorer.png":::
 
 ## Enable KEDA
 
