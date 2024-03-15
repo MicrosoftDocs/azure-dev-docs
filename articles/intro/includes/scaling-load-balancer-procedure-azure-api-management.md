@@ -50,9 +50,9 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ## Get load balancer endpoint
 
-1. Open the `.env` file in the `.azure/<ENVIRONMENT-NAME>/` folder and subfolder in the root of the load balancer sample.
-1. Collect the following information from the Load balancer sample's `.env` file found in the `.azure` folder, within the named environment subfolder. You need this information later.
+Run the following bash command to see the environment variables from the deployment. You need this information later.
 
-|Property|Example value|
-|---|---|
-|APIM_GATEWAY_URL|`https://<ENVIRONMENT-NAME>.azure-api.net`|
+```bash
+azd env get-values | grep APIM_GATEWAY_URL
+```
+
