@@ -374,9 +374,10 @@ Run [az monitor account create](/cli/azure/monitor/account) to create the worksp
 ```azurecli
 AMA_RG_NAME="wlsaksamarg20240314"
 AMA_NAME="wlsaksama20240314"
+LOCATION="eastus
 
 # create a resorce group for azure monitor account
-az group create -n ${AMA_RG_NAME} -l eastus
+az group create -n ${AMA_RG_NAME} -l ${LOCATION}
 # create azure monitor account
 az monitor account create -n ${AMA_NAME} -g ${AMA_RG_NAME}
 ```
@@ -455,7 +456,7 @@ Follow the steps to apply scrape configuration.
     ./promconfigvalidator --config "./prometheus-config" --otelTemplate "./collector-config-template.yml"
     ```
 
-    You find similiar output as following content if the validation passes.
+    You find similar output as following content if the validation passes.
 
     ```text
     prom-config-validator::Config file provided - ./prometheus-config
@@ -498,9 +499,129 @@ This step is already performed for you when you use the offer.
 
 ### [Enable Horizontal Autoscaling manually](#tab/manual)
 
+This article uses KEDA to drive the scaling of WLS container in Kubernetes based on Promethues metrics. Follow the steps to integrate KEDA with your AKS cluster. To learn more, see [Integrate KEDA with your Azure Kubernetes Service cluster](/azure/azure-monitor/containers/integrate-keda).
+
+1. Set up a workload identity.
+
+    First, check if workload-identity or oidc-issuer enabled in your AKS cluster with `az aks show`.
+
+    ```azurecli
+    az aks show --resource-group $AKS_CLUSTER_RG_NAME --name $AKS_CLUSTER_NAME --query oidcIssuerProfile
+    az aks show --resource-group $AKS_CLUSTER_RG_NAME --name $AKS_CLUSTER_NAME --query securityProfile.workloadIdentity
+    ```
+
+    If they are not set, enable workload identity and oidc-issuer.
+
+    ```azurecli
+    az aks update -g $AKS_CLUSTER_RG_NAME -n $AKS_CLUSTER_NAME --enable-workload-identity --enable-oidc-issuer
+    ```
+
+    Next, create a user assigned identity for KEDA. This identity is used by KEDA to authenticate with Azure Monitor.
+
+    ```azurecli
+    KEDA_IDENTITY_NAME="uami4keda20140315"
+
+    az identity create --name $KEDA_IDENTITY_NAME --resource-group $AKS_CLUSTER_RG_NAME -l ${LOCATION}
+    ```
+
+    Next, assign the Monitoring Data Reader role to the identity for your Azure Monitor workspace.
+
+    ```azurecli
+    KEDA_UAMI_CLIENT_ID="$(az identity show \
+        --resource-group $AKS_CLUSTER_RG_NAME \
+        --name $KEDA_IDENTITY_NAME \
+        --query 'clientId' -otsv)"
+
+    az role assignment create \
+        --assignee $KEDA_UAMI_CLIENT_ID \
+        --role "Monitoring Data Reader" \
+        --scope ${AMA_ID}
+    ```
+
+    Next, create the KEDA namespace and a Kubernetes service account. This service account is used by KEDA to authenticate with Azure.
+
+    ```bash
+    KEDA_NAMESPACE="keda"
+    KEDA_SA_NAME="keda-operator"
+
+
+    kubectl create namespace ${KEDA_NAMESPACE}
+
+    cat <<EOF | kubectl apply -f -
+    apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+      annotations:
+        azure.workload.identity/client-id: $KEDA_UAMI_CLIENT_ID
+      name: $KEDA_SA_NAME
+      namespace: $KEDA_NAMESPACE
+    EOF
+    ```
+
+    Next, establish a federated credential between the service account and the user assigned identity.
+
+    ```azurecli
+    FEDERATED_IDENTITY_CREDENTIAL_NAME="kedafederatedcredential20240315"
+    AKS_OIDC_ISSUER="$(az aks show -n $AKS_CLUSTER_NAME -g $AKS_CLUSTER_RG_NAME --query "oidcIssuerProfile.issuerUrl" -otsv)"
+
+    az identity federated-credential create \
+        --name $FEDERATED_IDENTITY_CREDENTIAL_NAME \
+        --identity-name $KEDA_IDENTITY_NAME \
+        --resource-group $AKS_CLUSTER_RG_NAME \
+        --issuer $AKS_OIDC_ISSUER \
+        --subject system:serviceaccount:$KEDA_NAMESPACE:$KEDA_SA_NAME \
+        --audience api://AzureADTokenExchange
+    ```
+
+1. Deploy KEDA.
+
+    This article uses Helm charts to deploy KEDA. For more information, see [Deploying KEDA](https://keda.sh/docs/2.10/deploy/).
+
+    ```bash
+    helm repo add kedacore https://kedacore.github.io/charts
+    helm repo update    
+    ```
+
+    Obtain tenant id.
+
+    ```azurecli
+    TENANT_ID="$(az identity show --resource-group $AKS_CLUSTER_RG_NAME --name $KEDA_IDENTITY_NAME --query 'tenantId' -otsv)"
+    ```
+
+    ```bash
+    helm install keda kedacore/keda --namespace keda \
+        --set serviceAccount.create=false \
+        --set serviceAccount.name=keda-operator \
+        --set podIdentity.azureWorkload.enabled=true \
+        --set podIdentity.azureWorkload.clientId=$KEDA_UAMI_CLIENT_ID \
+        --set podIdentity.azureWorkload.tenantId=$TENANT_ID
+    ```
+
+    Check KEDA deployment with `kubectl get pods -n ${KEDA_NAMESPACE} -w`. The final status should look like as following output.
+
+    ```text
+    $ kubectl get pods -n ${KEDA_NAMESPACE}
+    NAME                                              READY   STATUS    RESTARTS      AGE
+    keda-admission-webhooks-f7745ccd8-lwvw7           1/1     Running   0             69s
+    keda-operator-74b9997b49-jrc94                    1/1     Running   1 (64s ago)   69s
+    keda-operator-metrics-apiserver-6c984644d-95svb   1/1     Running   0             69s
+    ```
 ---
 
 ## Create KEDA scaler
+
+Scalers define how and when KEDA should scale a deployment. This article uses [Prometheus scaler](https://keda.sh/docs/2.10/scalers/prometheus/) to retrieve Prometheus metrics from Azure Monitor Workspace. 
+
+This article sums `openSessionsCurrentCount` of the sample application `testwebapp` as trigger query. When the total account of  `openSessionsCurrentCount` is more than `10`, scale up the WLS cluster until it reaches the maximum size. Otherwise, scale down the WLS cluster until it reaches its minimum size. The important parameters are set as following:
+
+| Parameter Name | Value |
+|--|--|
+| `serverAddress` |  The Query endpoint of your Azure Monitor workspace. |
+| `metricName` | `webapp_config_open_sessions_current_count` |
+| `query` | `sum(webapp_config_open_sessions_current_count{app="testwebapp"}) ` |
+| `threshold` | `10` |
+| `minReplicaCount` | `1` |
+| `maxReplicaCount` | `5`. The default value is `5`. If you modified the maximum cluster size during offer deployment, replace with your maximum cluster size. |
 
 ### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
 
@@ -509,13 +630,9 @@ Enabling KEDA using the marketplace offer, you find a KEDA scaler sample from th
 Following the steps to get the output of scaler sample.
 
 1. In the corner of any Azure portal page, select the hamburger menu and select **Resource groups**.
-
 1. In the box with the text Filter for any field, enter the first few characters of the resource group you created previously. If you followed the recommended convention, enter your initials, then select the appropriate resource group.
-
 1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
-
 1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whoes name starts with **oracle.20210620-wls-on-aks**.
-
 1. The **shellCmdtoOutputKedaScalerSample** value is the base64 string of a scaler sample. Copy the value and run it in your terminal. The command should look similar to the following example:
 
     ```bash
@@ -560,11 +677,11 @@ Following the steps to get the output of scaler sample.
 
     ```
 
-1. This article sums `openSessionsCurrentCount` of the sample application `testwebapp` as trigger query. When the sum of  `openSessionsCurrentCount` is more than `10`, scale up the WLS cluster until it reaches the maximum size. Ortherwise, scale down the WLS cluster until it reaches its minimum size. Modify the scaler sample as the following:
+1. Modify the metric name and query.
 
     ```yaml
     metricName: webapp_config_open_sessions_current_count
-    query: sum(webapp_config_open_sessions_current_count{app="testwebapp"}) # Note: query must return a vector/scalar single
+    query: sum(webapp_config_open_sessions_current_count{app="testwebapp"})
     ```
 1. Create the KEDA scaler using *scaler.yaml*
 
@@ -575,10 +692,151 @@ Following the steps to get the output of scaler sample.
 
 ### [Enable Horizontal Autoscaling manually](#tab/manual)
 
-Steps to create KEDA scaler.
+Create the scaler configuration with the following command.
+
+First, obtain query endpoint of the Azure Monitor workspace.
+
+```azurecli
+SERVER_ADDRESS=$(az monitor account show -n ${AMA_NAME} -g ${AMA_RG_NAME} --query metrics.prometheusQueryEndpoint -otsv)
+```
+
+Obtain WLS cluster name.
+
+```bash
+WLS_CLUSTER_NAME=$(kubectl get cluster -n ${WLS_NAMESPACE} -o json | jq -r '.items[0].metadata.name')
+```
+
+Create scaler configuration.
+
+```bash
+cat <<EOF >scaler.yaml
+apiVersion: keda.sh/v1alpha1
+kind: TriggerAuthentication
+metadata:
+  name: azure-managed-prometheus-trigger-auth
+  namespace: ${WLS_NAMESPACE}
+spec:
+  podIdentity:
+    provider: azure-workload
+    identityId: ${KEDA_UAMI_CLIENT_ID}
+---
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: azure-managed-prometheus-scaler
+  namespace: ${WLS_NAMESPACE}
+spec:
+  scaleTargetRef:
+    apiVersion: weblogic.oracle/v1
+    kind: Cluster
+    name: ${WLS_CLUSTER_NAME}
+  minReplicaCount: 1
+  maxReplicaCount: 5
+  triggers:
+  - type: prometheus
+    metadata:
+      serverAddress: ${SERVER_ADDRESS}
+      metricName: webapp_config_open_sessions_current_count
+      query: sum(webapp_config_open_sessions_current_count{app="testwebapp"})
+      threshold: '10'
+      activationThreshold: '1'
+    authenticationRef:
+      name: azure-managed-prometheus-trigger-auth
+EOF
+```
 
 ---
 
+Create the KEDA scaler using *scaler.yaml*
+
+```bash
+kubectl apply -f scaler.yaml
+```
+
+It takes several minutes for KEDA to retrieve metrics from Azure Monitor Workspace. Once the scaler is ready to work, you find the scaler status with `kubectl get hpa -n <wls-namespace> -w`.
+
+The output looks similar to the following content.
+
+```text
+$ kubectl get hpa -n sample-domain1-ns -w
+NAME                                       REFERENCE                          TARGETS      MINPODS   MAXPODS   REPLICAS   AGE
+keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)   1         5         2          2m57s
+```
+
 ## Test autoscaling
 
+Now, you are ready to observe the scaling up and scaling down capability.
+
+First, obtain the application URL.
+
+    1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
+    1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
+    1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whoes name starts with **oracle.20210620-wls-on-aks**.
+    1. The **clusterExternalUrl** value is the fully qualified, public Internet visible link to the sample app deployed in WLS on this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. 
+    1. The URL to access `testwebapp.war` is `${clusterExternalUrl}testwebapp`. For example, `http://wlsgw202403-wlsaks0314-domain1.eastus.cloudapp.azure.com/testwebapp/`.
+
+Next, run `curl` command to access the application and cause new sessions. The following example open 23 new sessions. The sessions will be expired after 150s.
+
+    Replace `APP_URL` with yours.
+
+    ```bash
+    COUNTER=0
+    MAXCURL=22
+    APP_URL="http://wlsgw202403-wlsaks0314-domain1.eastus.cloudapp.azure.com/testwebapp/"
+
+    while [ $COUNTER -lt $MAXCURL ]; do curl ${APP_URL}; let COUNTER=COUNTER+1; sleep 1;done
+    ```
+
+Then, observe the scaler with `kubectl get hpa -n <wls-namespace> -w` and WLS pods with `kubectl get pod -n <wls-namespace> -w`.
+
+    The output looks similar to the following content.
+
+    ```text
+    $ kubectl get hpa -n sample-domain1-ns -w
+    NAME                                       REFERENCE                          TARGETS      MINPODS   MAXPODS   REPLICAS   AGE
+    keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)   1         5         1          24m
+    keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)   1         5         1          24m
+    keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   10/10 (avg)   1         5         1          26m
+    keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   23/10 (avg)   1         5         1          26m
+    keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   7667m/10 (avg)   1         5         3          27m
+    keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   667m/10 (avg)    1         5         3          29m
+    keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         5         3          30m
+    ```
+
+    ```text
+    $ kubectl get pod -n sample-domain1-ns -w
+    NAME                             READY   STATUS    RESTARTS   AGE
+    sample-domain1-admin-server      2/2     Running   0          28h
+    sample-domain1-managed-server1   2/2     Running   0          28h
+    sample-domain1-managed-server1   2/2     Running   0          28h
+    sample-domain1-managed-server2   0/2     Pending   0          0s
+    sample-domain1-managed-server2   0/2     Pending   0          0s
+    sample-domain1-managed-server2   0/2     ContainerCreating   0          0s
+    sample-domain1-managed-server3   0/2     Pending             0          0s
+    sample-domain1-managed-server3   0/2     Pending             0          0s
+    sample-domain1-managed-server3   0/2     ContainerCreating   0          0s
+    sample-domain1-managed-server3   1/2     Running             0          1s
+    sample-domain1-managed-server2   1/2     Running             0          2s
+    sample-domain1-managed-server3   2/2     Running             0          46s
+    sample-domain1-managed-server2   2/2     Running             0          56s
+    sample-domain1-managed-server3   1/2     Running             0          7m5s
+    sample-domain1-managed-server3   1/2     Terminating         0          7m9s
+    sample-domain1-managed-server3   1/2     Terminating         0          7m9s
+    sample-domain1-managed-server2   1/2     Running             0          7m11s
+    sample-domain1-managed-server2   1/2     Terminating         0          7m15s
+    sample-domain1-managed-server2   1/2     Terminating         0          7m15s
+    sample-domain1-managed-server1   2/2     Running             0          28h
+    ```
+
+    The graph in Azure Monitor Workspace looks similar to the screenshot.
+
+    :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wls-autoscaling-graph.png" alt-text="Screenshot of the Azure portal showing the Promethues explorer graph." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wls-autoscaling-graph.png":::
+
 ## Clean up resources
+
+To avoid Azure charges, you should clean up unnecessary resources. When you no longer need the cluster, use the [az group delete](/cli/azure/group#az-group-delete) command. The following command removes the resource group, container service, container registry, and all related resources:
+
+```azurecli
+az group delete --name <wls-resource-group-name> --yes --no-wait
+az group delete --name <ama-resource-group-name> --yes --no-wait
+```
