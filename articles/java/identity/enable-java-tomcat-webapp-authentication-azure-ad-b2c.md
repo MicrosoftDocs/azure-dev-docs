@@ -16,8 +16,13 @@ This article demonstrates a Java Tomcat web application that authenticates users
 
 [!INCLUDE [scenario-sign-in-azure-ad-b2c.md](includes/scenario-sign-in-azure-ad-b2c.md)]
 
+## Prerequisites
+
 [!INCLUDE [prerequisites-sign-in-azure-ad-b2c.md](includes/prerequisites-sign-in-azure-ad-b2c.md)]
+
 [!INCLUDE [prerequisites-tomcat.md](includes/prerequisites-tomcat.md)]
+
+## Recommendations
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

@@ -16,8 +16,13 @@ This article demonstrates a Java JBoss EAP web application that authenticates us
 
 [!INCLUDE [scenario-sign-in-azure-ad-b2c.md](includes/scenario-sign-in-azure-ad-b2c.md)]
 
+## Prerequisites
+
 [!INCLUDE [prerequisites-sign-in-azure-ad-b2c.md](includes/prerequisites-sign-in-azure-ad-b2c.md)]
+
 [!INCLUDE [prerequisites-jboss.md](includes/prerequisites-jboss.md)]
+
+## Recommendations
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

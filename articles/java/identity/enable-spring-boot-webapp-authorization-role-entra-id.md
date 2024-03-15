@@ -39,6 +39,8 @@ You can assign users and groups to roles through the Azure portal or programmati
 > [!NOTE]
 > Role claims aren't present for guest users in a tenant if the `https://login.microsoftonline.com/common/` endpoint is used as the authority to sign in users. You need to sign-in a user to a tenanted endpoint like `https://login.microsoftonline.com/tenantid`.
 
+## Prerequisites
+
 [!INCLUDE [prerequisites-spring-boot.md](includes/prerequisites-spring-boot.md)]
 
 [!INCLUDE [spring-boot-overview-recommendations.md](includes/spring-boot-overview-recommendations.md)]
@@ -69,7 +71,7 @@ There's one project in this sample. To register the app on the Azure portal, you
 - Creates the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
 - Modifies the project configuration files.
 
-### [PowerShell](#tab/PowerShell)
+### [Use PowerShell](#tab/PowerShell)
 
 Use the following steps to run the PowerShell script:
 
@@ -93,16 +95,18 @@ Use the following steps to run the PowerShell script:
    > [!NOTE]
    > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/3-Authorization-II/roles/AppCreationScripts/AppCreationScripts.md). The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
 
-### [Manual](#tab/Manual)
+### [Use manual steps](#tab/Manual)
 
-### Choose the Microsoft Entra ID tenant where you want to create your applications
+The following sections show you how to register the app manually.
+
+#### Choose the Microsoft Entra ID tenant where you want to create your applications
 
 To choose your tenant, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If your account is present in more than one Microsoft Entra ID tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Microsoft Entra ID tenant.
 
-### Register the web app (java-spring-webapp-roles)
+#### Register the app (java-spring-webapp-roles)
 
 To register the app, use the following steps:
 
@@ -121,7 +125,9 @@ To register the app, use the following steps:
 1. Select **Add**. The generated key value is displayed.
 1. Copy and save the generated value for use in later steps. You need this key for your code's configuration files. This key value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
 
-#### Define the app Roles
+#### Define the app roles
+
+To define the app roles, use the following steps:
 
 1. Still on the same app registration, select **App roles** on the navigation pane.
 1. Select **Create app role**, then enter the following values:
@@ -138,7 +144,7 @@ To register the app, use the following steps:
 
 #### Assign users to app roles
 
- To add users to the app role defined earlier, follow the guidelines here: [Assign users and groups to roles.](/entra/identity-platform/howto-add-app-roles-in-apps#assign-users-and-groups-to-microsoft-entra-roles)
+To add users to the app role defined earlier, follow the guidelines here: [Assign users and groups to roles.](/entra/identity-platform/howto-add-app-roles-in-apps#assign-users-and-groups-to-microsoft-entra-roles)
 
 ---
 
@@ -166,6 +172,8 @@ Use the following steps to configure the app:
 ## Run the sample
 
 ### [Deploy to Azure Spring Apps](#tab/asa)
+
+The following sections show you how to deploy the sample to Azure Spring Apps.
 
 ### Prerequisites
 
@@ -199,8 +207,16 @@ Use the following steps to configure the app:
 
 ### [Run locally](#tab/local)
 
-1. Open a terminal or the integrated Visual Studio Code terminal.
-1. In the same directory as this readme file, run `mvn clean compile spring-boot:run`.
+To run the sample locally, use the following steps:
+
+1. Open a Bash window or the integrated Visual Studio Code terminal.
+
+1. In the root directory of the app project, use the following command:
+
+   ```bash
+   mvn clean compile spring-boot:run
+   ```
+
 1. Open your browser and navigate to `http://localhost:8080`. You should see a screen with the text `You're signed in! Click here to get your ID Token Details`.
 
 :::image type="content" source="media/app.png" alt-text="Screenshot of the sample app.":::

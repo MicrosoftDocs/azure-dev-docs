@@ -15,8 +15,13 @@ This article demonstrates a Java JBoss EAP web app that signs in users and obtai
 
 [!INCLUDE [scenario-authorization-graph.md](includes/scenario-authorization-graph.md)]
 
+## Prerequisites
+
 [!INCLUDE [prerequisites-authorization-graph.md](includes/prerequisites-authorization-graph.md)]
+
 [!INCLUDE [prerequisites-jboss.md](includes/prerequisites-jboss.md)]
+
+## Recommendations
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

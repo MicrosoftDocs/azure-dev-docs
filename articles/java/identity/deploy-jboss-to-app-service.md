@@ -20,7 +20,9 @@ This article shows you how to deploy a JBoss web app with sign-in by Microsoft E
   - [Enable Java JBoss EAP apps to sign in users and access Microsoft Graph](enable-java-jboss-eap-webapp-authorization-entra-id.md)
   - [Secure Java JBoss EAP apps using roles and role claims](enable-java-jboss-eap-webapp-authorization-role-entra-id.md)
   - [Secure Java JBoss EAP apps using groups and group claims](enable-java-jboss-eap-webapp-authorization-group-entra-id.md)
+
 [!INCLUDE [deploy-app-service-intro.md](includes/deploy-app-service-intro.md)]
+
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 ## Configure the Maven plugin

@@ -20,7 +20,9 @@ This article shows you how to deploy a Tomcat web app with sign-in by Microsoft 
   - [Enable Java Tomcat apps to sign in users and access Microsoft Graph](enable-java-tomcat-webapp-authorization-entra-id.md)
   - [Secure Java Tomcat apps using roles and role claims](enable-java-tomcat-webapp-authorization-role-entra-id.md)
   - [Secure Java Tomcat apps using groups and group claims](enable-java-tomcat-webapp-authorization-group-entra-id.md)
+
 [!INCLUDE [deploy-app-service-intro.md](includes/deploy-app-service-intro.md)]
+
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 ## Configure the Maven plugin

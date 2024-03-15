@@ -5,6 +5,10 @@ ms.date: 03/11/2024
 
 ### [Deploy to Azure App Service](#tab/appsvc)
 
+The following sections show you how to deploy the sample to Azure App Service.
+
+### Prerequisites
+
 [!INCLUDE [deploy-app-service-intro.md](./deploy-app-service-intro.md)]
 
 ### Configure the Maven plugin
@@ -27,7 +31,7 @@ ms.date: 03/11/2024
 
 ### [Run locally](#tab/local)
 
-To run the sample on Tomcat:
+To run the sample on Tomcat, use the following steps:
 
 1. In your Tomcat installation, ensure that there's an entry in *tomcat/conf/server.xml* for the address you want to host your application on.
 

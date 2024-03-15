@@ -3,8 +3,6 @@ ms.author: bbanerjee
 ms.date: 03/11/2024
 ---
 
-## Prerequisites
-
 - Java 8 or higher
 - [Maven 3](https://maven.apache.org/download.cgi)
 - A Microsoft Entra ID tenant. For more information, see [How to get a Microsoft Entra ID tenant](/entra/identity-platform/quickstart-create-new-tenant).

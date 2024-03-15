@@ -15,9 +15,13 @@ This article shows you how to create a Java WebLogic web app that signs in users
 
 [!INCLUDE [scenario-authorization-groups.md](includes/scenario-authorization-groups.md)]
 
+## Prerequisites
+
 [!INCLUDE [prerequisites-authorization-groups.md](includes/prerequisites-authorization-groups.md)]
 
 [!INCLUDE [prerequisites-weblogic.md](includes/prerequisites-weblogic.md)]
+
+## Recommendations
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

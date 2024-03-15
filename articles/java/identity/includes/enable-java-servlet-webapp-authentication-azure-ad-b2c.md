@@ -42,7 +42,7 @@ You should consider creating [Custom policies in Azure Active Directory B2C](/az
 
 See [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-add-identity-providers).
 
-### Register the WebApp app (ms-identity-b2c-java-servlet-webapp-authentication)
+### Register the app (ms-identity-b2c-java-servlet-webapp-authentication)
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Azure AD B2C**.
 1. Select **App Registrations** on the navigation pane, then select **New registration**.

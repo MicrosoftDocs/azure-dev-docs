@@ -15,9 +15,13 @@ This article shows you how to create a Java WebSphere web app that signs in user
 
 [!INCLUDE [scenario-authorization-groups.md](includes/scenario-authorization-groups.md)]
 
+## Prerequisites
+
 [!INCLUDE [prerequisites-authorization-groups.md](includes/prerequisites-authorization-groups.md)]
 
 [!INCLUDE [prerequisites-websphere.md](includes/prerequisites-websphere.md)]
+
+## Recommendations
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

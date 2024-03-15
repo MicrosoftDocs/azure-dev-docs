@@ -29,7 +29,7 @@ There's one project in this sample. To register the app on the Azure portal, you
 - Modifies the project configuration files.
 - By default, sets up an application that works with accounts in your organizational directory only.
 
-### [PowerShell](#tab/PowerShell)
+### [Use PowerShell](#tab/PowerShell)
 
 Use the following steps to run the PowerShell script:
 
@@ -51,7 +51,9 @@ Use the following steps to run the PowerShell script:
    > [!NOTE]
    > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/2-Authorization-I/call-graph/AppCreationScripts/AppCreationScripts.md). The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
 
-### [Manual](#tab/Manual)
+### [Use manual steps](#tab/Manual)
+
+The following sections show you how to register the app manually.
 
 ### Choose the Microsoft Entra ID tenant where you want to create your applications
 
@@ -60,7 +62,7 @@ To choose your tenant, use the following steps:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If your account is present in more than one Microsoft Entra ID tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Microsoft Entra ID tenant.
 
-### Register the web app (java-servlet-webapp-call-graph)
+### Register the app (java-servlet-webapp-call-graph)
 
 First, register a new web app in the [Azure portal](https://portal.azure.com) by following the instructions in [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
 

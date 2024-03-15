@@ -15,9 +15,13 @@ This sample demonstrates a Java WebSphere web app that signs in users to your Mi
 
 [!INCLUDE [scenario-sign-in-entra.md](includes/scenario-sign-in-entra.md)]
 
+## Prerequisites
+
 [!INCLUDE [prerequisites-sign-in-entra.md](includes/prerequisites-sign-in-entra.md)]
 
 [!INCLUDE [prerequisites-websphere.md](includes/prerequisites-websphere.md)]
+
+## Recommendations
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

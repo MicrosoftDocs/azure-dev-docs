@@ -20,6 +20,7 @@ This article shows you how to deploy a Java Spring Boot web app with sign-in by 
   - [Enable Java Spring Boot apps to sign in users and access Microsoft Graph](enable-spring-boot-webapp-authorization-entra-id.md)
   - [Secure Java Spring Boot apps using roles and role claims   ](enable-spring-boot-webapp-authorization-role-entra-id.md)
   - [Secure Java Spring Boot apps using groups and group claims](enable-spring-boot-webapp-authorization-group-entra-id.md)
+
 [!INCLUDE [deploy-spring-apps-intro.md](includes/deploy-spring-apps-intro.md)]
 
 ## Prepare the Spring project

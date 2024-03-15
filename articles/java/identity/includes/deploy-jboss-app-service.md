@@ -5,6 +5,10 @@ ms.date: 03/11/2024
 
 ### [Deploy to Azure App Service](#tab/appsvc)
 
+The following sections show you how to deploy the sample to Azure App Service.
+
+### Prerequisites
+
 [!INCLUDE [deploy-app-service-intro.md](./deploy-app-service-intro.md)]
 
 ### Configure the Maven plugin
@@ -27,7 +31,7 @@ ms.date: 03/11/2024
 
 ### [Run locally](#tab/local)
 
-Before you can deploy to JBoss, you need to make some configuration changes in the sample itself and build or rebuild the package:
+Before you can deploy to JBoss, use the following steps to make some configuration changes in the sample itself, and then build or rebuild the package:
 
 1. In the sample, find the *application.properties* or *authentication.properties* file where you configured the client ID, tenant, redirect URL, and so on. 
 

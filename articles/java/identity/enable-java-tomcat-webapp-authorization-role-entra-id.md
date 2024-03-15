@@ -15,9 +15,13 @@ This article demonstrates a Java Tomcat web app that uses [OpenID Connect](/entr
 
 [!INCLUDE [scenario-authorization-roles.md](includes/scenario-authorization-roles.md)]
 
+## Prerequisites
+
 [!INCLUDE [prerequisites-authorization-roles.md](includes/prerequisites-authorization-roles.md)]
 
 [!INCLUDE [prerequisites-tomcat.md](includes/prerequisites-tomcat.md)]
+
+## Recommendations
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

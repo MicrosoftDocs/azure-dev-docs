@@ -15,9 +15,13 @@ This article shows you how to create a Java Tomcat web app that signs in users w
 
 [!INCLUDE [scenario-authorization-groups.md](includes/scenario-authorization-groups.md)]
 
+## Prerequisites
+
 [!INCLUDE [prerequisites-authorization-groups.md](includes/prerequisites-authorization-groups.md)]
 
 [!INCLUDE [prerequisites-tomcat.md](includes/prerequisites-tomcat.md)]
+
+## Recommendations
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

@@ -29,7 +29,7 @@ There's one project in this sample. To register the app on the Azure portal, you
 - Modifies the project configuration files.
 - By default, sets up an application that works with accounts in your organizational directory only.
 
-### [PowerShell](#tab/PowerShell)
+### [Use PowerShell](#tab/PowerShell)
 
 Use the following steps to run the PowerShell script:
 
@@ -51,7 +51,7 @@ Use the following steps to run the PowerShell script:
    > [!NOTE]
    > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/1-Authentication/sign-in/AppCreationScripts/AppCreationScripts.md). The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
 
-### [Manual](#tab/Manual)
+### [Use manual steps](#tab/Manual)
 
 [Register a new web app](/entra/identity-platform/quickstart-register-app) in the [Azure portal](https://portal.azure.com).
 Following this guide, you must:

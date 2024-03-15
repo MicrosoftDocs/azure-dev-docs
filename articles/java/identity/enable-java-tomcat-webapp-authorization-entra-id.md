@@ -15,9 +15,13 @@ This article demonstrates a Java Tomcat web app that signs in users and obtains 
 
 [!INCLUDE [scenario-authorization-graph.md](includes/scenario-authorization-graph.md)]
 
+## Prerequisites
+
 [!INCLUDE [prerequisites-authorization-graph.md](includes/prerequisites-authorization-graph.md)]
 
 [!INCLUDE [prerequisites-tomcat.md](includes/prerequisites-tomcat.md)]
+
+## Recommendations
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

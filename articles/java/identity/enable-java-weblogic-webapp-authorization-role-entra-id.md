@@ -15,9 +15,13 @@ This article demonstrates a Java WebLogic web app that uses [OpenID Connect](/en
 
 [!INCLUDE [scenario-authorization-roles.md](includes/scenario-authorization-roles.md)]
 
+## Prerequisites
+
 [!INCLUDE [prerequisites-authorization-roles.md](includes/prerequisites-authorization-roles.md)]
 
 [!INCLUDE [prerequisites-weblogic.md](includes/prerequisites-weblogic.md)]
+
+## Recommendations
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

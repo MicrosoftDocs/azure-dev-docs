@@ -15,9 +15,13 @@ This article demonstrates a Java WebLogic web app that signs in users and obtain
 
 [!INCLUDE [scenario-authorization-graph.md](includes/scenario-authorization-graph.md)]
 
+## Prerequisites
+
 [!INCLUDE [prerequisites-authorization-graph.md](includes/prerequisites-authorization-graph.md)]
 
 [!INCLUDE [prerequisites-weblogic.md](includes/prerequisites-weblogic.md)]
+
+## Recommendations
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

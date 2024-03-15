@@ -3,20 +3,29 @@ ms.author: givermei
 ms.date: 03/11/2024
 ---
 
-The deployment process to Azure App Service uses your Azure credentials from the Azure CLI automatically. If the Azure CLI isn't installed locally, then the Maven plugin authenticates with OAuth or device sign-in. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
+When you deploy to Azure App Service, the deployment automatically uses your Azure credentials from the Azure CLI. If the Azure CLI isn't installed locally, then the Maven plugin authenticates with OAuth or device sign-in. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
-Run the Maven command shown next to configure the deployment. This command helps you to set up the App Service operating system, Java version, and Tomcat version.
+To deploy, use the following steps:
 
-```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.12.0:config
-```
+1. Run the following command to configure the deployment. This command helps you to set up the Azure App Service operating system, Java version, and Tomcat version.
+
+   ```bash
+   mvn com.microsoft.azure:azure-webapp-maven-plugin:2.12.0:config
+   ```
 
 1. For **Create new run configuration**, press <kbd>Y</kbd>, then press <kbd>Enter</kbd>.
+
 1. For **Define value for OS**, press <kbd>1</kbd> for Windows, or **2** for Linux, then press <kbd>Enter</kbd>.
+
 1. For **Define value for javaVersion**, press <kbd>2</kbd> for Java 11, then press <kbd>Enter</kbd>.
+
 1. For **Define value for webContainer**, press <kbd>4</kbd> for Tomcat 9.0, then press <kbd>Enter</kbd>.
+
 1. For **Define value for pricingTier**, press **Enter** to select the default **P1v2** tier.
+
 1. For **Confirm**, press <kbd>Y</kbd>, then press <kbd>Enter</kbd>.
+
+The following example shows the output of the deployment process:
 
 ```output
 Please confirm webapp properties

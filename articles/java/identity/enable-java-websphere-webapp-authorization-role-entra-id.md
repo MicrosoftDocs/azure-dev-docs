@@ -15,9 +15,13 @@ This article demonstrates a Java WebSphere web app that uses [OpenID Connect](/e
 
 [!INCLUDE [scenario-authorization-roles.md](includes/scenario-authorization-roles.md)]
 
+## Prerequisites
+
 [!INCLUDE [prerequisites-authorization-roles.md](includes/prerequisites-authorization-roles.md)]
 
 [!INCLUDE [prerequisites-websphere.md](includes/prerequisites-websphere.md)]
+
+## Recommendations
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

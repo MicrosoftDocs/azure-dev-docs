@@ -19,6 +19,8 @@ The following diagram shows the topology of the app:
 
 The client app uses the Microsoft Entra ID Spring Boot Starter client library for Java to sign-in a user and obtain an ID token from Microsoft Entra ID. The ID token proves that the user is authenticated with Microsoft Entra ID and enables the user to access protected routes.
 
+## Prerequisites
+
 [!INCLUDE [prerequisites-spring-boot.md](includes/prerequisites-spring-boot.md)]
 
 [!INCLUDE [spring-boot-overview-recommendations.md](includes/spring-boot-overview-recommendations.md)]
@@ -50,7 +52,7 @@ There's one project in this sample. To register the app on the Azure portal, you
 - Modifies the project configuration files.
 - By default, sets up an application that works with accounts in your organizational directory only.
 
-### [PowerShell](#tab/PowerShell)
+### [Use PowerShell](#tab/PowerShell)
 
 Use the following steps to run the PowerShell script:
 
@@ -72,20 +74,24 @@ Use the following steps to run the PowerShell script:
    > [!NOTE]
    > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/1-Authentication/sign-in/AppCreationScripts/AppCreationScripts.md). The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
 
-### [Manual](#tab/Manual)
+### [Use manual steps](#tab/Manual)
 
-### Choose the Microsoft Entra ID tenant where you want to create your applications
+The following sections show you how to register the app manually.
+
+#### Choose the Microsoft Entra ID tenant where you want to create your applications
 
 To choose your tenant, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If your account is present in more than one Microsoft Entra ID tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Microsoft Entra ID tenant.
 
-### Register the webApp app (java-spring-webapp-auth)
+#### Register the app (java-spring-webapp-auth)
+
+Use the following steps to register the app:
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Microsoft Entra ID**.
 1. Select **App Registrations** on the navigation pane, then select **New registration**.
-1. In the **Register an application page** that appears, enter your application's registration information:
+1. In the **Register an application page** that appears, enter the following application registration information:
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-spring-webapp-auth`.
    - Under **Supported account types**, select **Accounts in this organizational directory only**.
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
@@ -121,6 +127,8 @@ Use the following steps to configure the app:
 
 ### [Deploy to Azure Spring Apps](#tab/asa)
 
+The following sections show you how to deploy the sample to Azure Spring Apps.
+
 ### Prerequisites
 
 [!INCLUDE [deploy-spring-apps-intro.md](includes/deploy-spring-apps-intro.md)]
@@ -153,8 +161,16 @@ Use the following steps to configure the app:
 
 ### [Run locally](#tab/local)
 
-1. Open a terminal or the integrated Visual Studio Code terminal.
-1. In the same directory as this readme file, run `mvn clean compile spring-boot:run`.
+To run the sample locally, use the following steps:
+
+1. Open a Bash window or the integrated Visual Studio Code terminal.
+
+1. In the root directory of the app project, use the following command:
+
+   ```bash
+   mvn clean compile spring-boot:run
+   ```
+
 1. Open your browser and navigate to `http://localhost:8080`. You should see a screen with the text `You're signed in! Click here to get your ID Token Details`.
 
 :::image type="content" source="media/app.png" alt-text="Screenshot of the sample app.":::

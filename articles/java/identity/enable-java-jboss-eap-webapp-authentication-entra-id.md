@@ -15,9 +15,13 @@ This article demonstrates a Java JBoss EAP web app that signs in users to your M
 
 [!INCLUDE [scenario-sign-in-entra.md](includes/scenario-sign-in-entra.md)]
 
+## Prerequisites
+
 [!INCLUDE [prerequisites-sign-in-entra.md](includes/prerequisites-sign-in-entra.md)]
 
 [!INCLUDE [prerequisites-jboss.md](includes/prerequisites-jboss.md)]
+
+## Recommendations
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

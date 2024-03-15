@@ -3,8 +3,6 @@ ms.author: bbanerjee
 ms.date: 03/11/2024
 ---
 
-## Prerequisites
-
 - [JDK version 15](https://jdk.java.net/15/). This sample was developed on a system with Java 15, but it might be compatible with other versions.
 - [Maven 3](https://maven.apache.org/download.cgi)
 - [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) is recommended for running this sample in Visual Studio Code.

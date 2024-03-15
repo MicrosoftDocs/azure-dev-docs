@@ -69,7 +69,7 @@ You should consider creating custom policies in Azure Active Directory B2C as we
 
 See [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-add-identity-providers).
 
-### Register the web app (java-spring-webapp-auth-b2c)
+### Register the app (java-spring-webapp-auth-b2c)
 
 To register the app, use the following steps:
 
@@ -132,6 +132,8 @@ Open the *src/main/resources/templates/navbar.html* file.
 
 ### [Deploy to Azure Spring Apps](#tab/asa)
 
+The following sections show you how to deploy the sample to Azure Spring Apps.
+
 ### Prerequisites
 
 [!INCLUDE [deploy-spring-apps-intro.md](includes/deploy-spring-apps-intro.md)]
@@ -164,8 +166,16 @@ Open the *src/main/resources/templates/navbar.html* file.
 
 ### [Run locally](#tab/local)
 
-1. Open a terminal or the integrated Visual Studio Code terminal.
-1. In the same directory as this readme file, run `mvn clean compile spring-boot:run`.
+To run the sample locally, use the following steps:
+
+1. Open a Bash window or the integrated Visual Studio Code terminal.
+
+1. In the root directory of the app project, use the following command:
+
+   ```bash
+   mvn clean compile spring-boot:run
+   ```
+
 1. Open your browser and navigate to `http://localhost:8080`. You should see a screen with the text `You're signed in! Click here to get your ID Token Details`.
 
 :::image type="content" source="media/app.png" alt-text="Screenshot of the sample app.":::

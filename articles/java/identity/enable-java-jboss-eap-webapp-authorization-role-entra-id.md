@@ -15,9 +15,13 @@ This article demonstrates a Java JBoss EAP web app that uses [OpenID Connect](/e
 
 [!INCLUDE [scenario-authorization-roles.md](includes/scenario-authorization-roles.md)]
 
+## Prerequisites
+
 [!INCLUDE [prerequisites-authorization-roles.md](includes/prerequisites-authorization-roles.md)]
 
 [!INCLUDE [prerequisites-jboss.md](includes/prerequisites-jboss.md)]
+
+## Recommendations
 
 [!INCLUDE [java-servlet-overview-recommendation.md](includes/java-servlet-overview-recommendation.md)]
 

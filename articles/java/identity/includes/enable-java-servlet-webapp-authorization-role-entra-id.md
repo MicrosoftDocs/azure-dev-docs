@@ -29,7 +29,7 @@ There's one project in this sample. To register the app on the Azure portal, you
 - Modifies the project configuration files.
 - By default, sets up an application that works with accounts in your organizational directory only.
 
-### [PowerShell](#tab/PowerShell)
+### [Use PowerShell](#tab/PowerShell)
 
 Use the following steps to run the PowerShell script:
 
@@ -51,7 +51,9 @@ Use the following steps to run the PowerShell script:
    > [!NOTE]
    > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/3-Authorization-II/roles/AppCreationScripts/AppCreationScripts.md). The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
 
-### [Manual](#tab/Manual)
+### [Use manual steps](#tab/Manual)
+
+The following sections show you how to register the app manually.
 
 ### Choose the Microsoft Entra ID tenant where you want to create your applications
 
@@ -60,7 +62,7 @@ To choose your tenant, use the following steps:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If your account is present in more than one Microsoft Entra ID tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Microsoft Entra ID tenant.
 
-### Register the web app (java-servlet-webapp-roles)
+### Register the app (java-servlet-webapp-roles)
 
 First, register a new web app in the [Azure portal](https://portal.azure.com) by following the instructions in [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
 
@@ -83,7 +85,7 @@ Then, use the following steps to complete the registration:
 1. Select **Add**. The generated key value is displayed.
 1. Copy and save the generated value for use in later steps. You need this key for your code's configuration files. This key value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
 
-#### Define the Application Roles
+### Define the application roles
 
 1. Still on the same app registration, select **App roles** on the navigation pane.
 1. Select **Create app role**, then enter the following values:
@@ -98,7 +100,7 @@ Then, use the following steps to complete the registration:
    - For **Description**, enter **RegularUsers who can view the User Page**.
 1. Select **Apply** to save your changes.
 
-#### Assign users to the Application roles
+### Assign users to the application roles
 
  To add users to the app role defined earlier, follow the guidelines here: [Assign users and groups to roles.](/entra/identity-platform/howto-add-app-roles-in-apps#assign-users-and-groups-to-microsoft-entra-roles)
 
