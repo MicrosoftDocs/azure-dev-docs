@@ -49,7 +49,7 @@ Alternatively, navigate to the [ms-identity-java-spring-tutorial](https://github
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
 
-This sample comes with a preregistered application for demo purposes. If you'd like to use your own Azure AD B2C tenant and application, register and configure the application in the Azure portal. For more information, see the [Register the web app](#register-the-web-app-java-spring-webapp-auth-b2c) section. Otherwise, continue with the steps in the [Run the sample](#run-the-sample) section.
+This sample comes with a preregistered application for demo purposes. If you'd like to use your own Azure AD B2C tenant and application, register and configure the application in the Azure portal. For more information, see the [Register the app](#register-the-app-java-spring-webapp-auth-b2c) section. Otherwise, continue with the steps in the [Run the sample](#run-the-sample) section.
 
 ### Choose the Azure AD B2C tenant where you want to create your applications
 
