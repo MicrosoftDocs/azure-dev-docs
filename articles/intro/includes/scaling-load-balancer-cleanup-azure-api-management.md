@@ -45,7 +45,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
     :::image type="content" source="../media/get-started-scaling-load-balancer-azure-api-management/codespace-clean-up-repository.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
-1. Open the context menu for the codespace and then select **Delete**.
+1. Open the context menu for the Codespaces item and then select **Delete**.
 
     :::image type="content" source="../media/get-started-scaling-load-balancer-azure-api-management/codespace-clean-up-repository-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
 

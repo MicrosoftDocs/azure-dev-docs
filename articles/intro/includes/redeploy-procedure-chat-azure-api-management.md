@@ -89,5 +89,3 @@ These are completed on the chat app sample.
 
 ---
 
-You can now use the chat app with the confidence that it's built to scale across many users without running out of quota. 
-
