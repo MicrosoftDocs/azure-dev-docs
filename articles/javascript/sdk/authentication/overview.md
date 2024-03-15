@@ -12,11 +12,13 @@ ms.custom: devx-track-js
 
 ## Recommended app authentication approach
 
-[!INCLUDE [Recommended app authentication approach](<../../../includes/authentication/overview-recommend-authentication.md>)]
+[!INCLUDE [Recommended app authentication approach](<../../../includes/authentication/overview-recommend-authentication-javascript.md>)]
 
 :::image type="content" source="../../media/azure-sdk-authentication/javascript-sdk-auth-strategy.png" alt-text="A diagram showing the recommended token-based authentication strategies for an app depending on where it's running." :::
 
 ### Advantages of token-based authentication
+
+[!INCLUDE [Advantages of token-based authentication](<../../../includes/authentication/defaultazurecredential-overview-javascript.md>)]
 
 [!INCLUDE [Advantages of token-based authentication](<../../../includes/authentication/overview-advantages.md>)]
 
@@ -27,7 +29,7 @@ Use the following SDK:
 
 ### DefaultAzureCredential
 
-[!INCLUDE [DefaultAzureCredential](<../../../includes/authentication/overview-defaultazurecredential.md>)]
+[!INCLUDE [DefaultAzureCredential](<../../../includes/authentication/overview-defaultazurecredential-javascript.md>)]
 
 ## Authentication in server environments
 
