@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 06/13/2019
 ms.author: diberry
 ---
-When building apps for Azure, token-based authentication is strongly recommended over secrets (connection strings or keys). Token-based authentication is provided with [DefaultAzureCredential]().
 
 |Token-based authentication|Secrets (connection strings and keys)|
 |--|--|

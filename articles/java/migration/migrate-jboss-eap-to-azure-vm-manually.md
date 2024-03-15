@@ -6,7 +6,7 @@ ms.author: karler
 ms.topic: how-to
 ms.date: 08/22/2023
 recommendations: false
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, migration-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, migration-java, devx-track-azurecli, linux-related-content
 ---
 
 # Tutorial: Install Red Hat JBoss EAP on Azure Virtual Machines manually

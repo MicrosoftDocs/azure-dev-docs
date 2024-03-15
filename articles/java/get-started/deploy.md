@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
 ms.date: 02/02/2024
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java, linux-related-content
 ---
 
 # Deploy Java applications with confidence and ease

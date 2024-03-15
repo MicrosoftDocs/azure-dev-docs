@@ -1,5 +1,5 @@
 ---
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 The procedure for installing the Azure CLI on Linux varies depending on the package manager used by your Linux distribution. Follow the instructions for the package manager used by your Linux distribution.
 

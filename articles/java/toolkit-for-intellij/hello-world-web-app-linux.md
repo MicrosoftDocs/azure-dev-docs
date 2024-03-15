@@ -8,7 +8,7 @@ ms.date: 09/09/2020
 ms.service: azure-java
 ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java, linux-related-content
 ---
 
 # Deploy Java app to Azure Web Apps for Containers using Azure Toolkit for IntelliJ
