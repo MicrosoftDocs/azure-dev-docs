@@ -492,6 +492,14 @@ Now, you're able to query metrics in Azure Monitor Workspace with steps:
 
 ## Enable KEDA
 
+### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
+
+This step is already performed for you when you use the offer.
+
+### [Enable Horizontal Autoscaling manually](#tab/manual)
+
+---
+
 ## Create KEDA scaler
 
 ### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
@@ -568,6 +576,8 @@ Following the steps to get the output of scaler sample.
 ### [Enable Horizontal Autoscaling manually](#tab/manual)
 
 Steps to create KEDA scaler.
+
+---
 
 ## Test autoscaling
 
