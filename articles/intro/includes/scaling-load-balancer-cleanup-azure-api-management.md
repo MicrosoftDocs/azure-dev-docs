@@ -17,7 +17,7 @@ Return to the chat app article to clean up those resources.
 
 * [Python](/azure/developer/python/get-started-app-chat-template#clean-up-resources)
 
-### Clean upload balancer resources
+### Clean up load balancer resources
 
 Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
 
