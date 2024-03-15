@@ -22,7 +22,7 @@ ms.custom: devx-track-python, devx-track-python-ai
 
     #### [Codespaces (recommended)](#tab/github-codespaces)
     
-    * Only a [GitHub account](https://www.github.com/login) is required to use CodeSpaces
+    * Only a [GitHub account](https://www.github.com/login) is required to use Codespaces
     
     #### [Visual Studio Code](#tab/visual-studio-code)
     * [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
