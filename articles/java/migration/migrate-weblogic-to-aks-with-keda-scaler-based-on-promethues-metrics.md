@@ -769,68 +769,68 @@ Now, you are ready to observe the scaling up and scaling down capability.
 
 First, obtain the application URL.
 
-    1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
-    1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
-    1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whoes name starts with **oracle.20210620-wls-on-aks**.
-    1. The **clusterExternalUrl** value is the fully qualified, public Internet visible link to the sample app deployed in WLS on this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. 
-    1. The URL to access `testwebapp.war` is `${clusterExternalUrl}testwebapp`. For example, `http://wlsgw202403-wlsaks0314-domain1.eastus.cloudapp.azure.com/testwebapp/`.
+  1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
+  1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
+  1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whoes name starts with **oracle.20210620-wls-on-aks**.
+  1. The **clusterExternalUrl** value is the fully qualified, public Internet visible link to the sample app deployed in WLS on this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. 
+  1. The URL to access `testwebapp.war` is `${clusterExternalUrl}testwebapp`. For example, `http://wlsgw202403-wlsaks0314-domain1.eastus.cloudapp.azure.com/testwebapp/`.
 
 Next, run `curl` command to access the application and cause new sessions. The following example open 23 new sessions. The sessions will be expired after 150s.
 
-    Replace `APP_URL` with yours.
+  Replace value of **APP_URL** with yours.
 
-    ```bash
-    COUNTER=0
-    MAXCURL=22
-    APP_URL="http://wlsgw202403-wlsaks0314-domain1.eastus.cloudapp.azure.com/testwebapp/"
+  ```bash
+  COUNTER=0
+  MAXCURL=22
+  APP_URL="http://wlsgw202403-wlsaks0314-domain1.eastus.cloudapp.azure.com/testwebapp/"
 
-    while [ $COUNTER -lt $MAXCURL ]; do curl ${APP_URL}; let COUNTER=COUNTER+1; sleep 1;done
-    ```
+  while [ $COUNTER -lt $MAXCURL ]; do curl ${APP_URL}; let COUNTER=COUNTER+1; sleep 1;done
+  ```
 
 Then, observe the scaler with `kubectl get hpa -n <wls-namespace> -w` and WLS pods with `kubectl get pod -n <wls-namespace> -w`.
 
-    The output looks similar to the following content.
+  The output looks similar to the following content.
 
-    ```text
-    $ kubectl get hpa -n sample-domain1-ns -w
-    NAME                                       REFERENCE                          TARGETS      MINPODS   MAXPODS   REPLICAS   AGE
-    keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)   1         5         1          24m
-    keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)   1         5         1          24m
-    keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   10/10 (avg)   1         5         1          26m
-    keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   23/10 (avg)   1         5         1          26m
-    keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   7667m/10 (avg)   1         5         3          27m
-    keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   667m/10 (avg)    1         5         3          29m
-    keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         5         3          30m
-    ```
+  ```text
+  $ kubectl get hpa -n sample-domain1-ns -w
+  NAME                                       REFERENCE                          TARGETS      MINPODS   MAXPODS   REPLICAS   AGE
+  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)   1         5         1          24m
+  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)   1         5         1          24m
+  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   10/10 (avg)   1         5         1          26m
+  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   23/10 (avg)   1         5         1          26m
+  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   7667m/10 (avg)   1         5         3          27m
+  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   667m/10 (avg)    1         5         3          29m
+  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         5         3          30m
+  ```
 
-    ```text
-    $ kubectl get pod -n sample-domain1-ns -w
-    NAME                             READY   STATUS    RESTARTS   AGE
-    sample-domain1-admin-server      2/2     Running   0          28h
-    sample-domain1-managed-server1   2/2     Running   0          28h
-    sample-domain1-managed-server1   2/2     Running   0          28h
-    sample-domain1-managed-server2   0/2     Pending   0          0s
-    sample-domain1-managed-server2   0/2     Pending   0          0s
-    sample-domain1-managed-server2   0/2     ContainerCreating   0          0s
-    sample-domain1-managed-server3   0/2     Pending             0          0s
-    sample-domain1-managed-server3   0/2     Pending             0          0s
-    sample-domain1-managed-server3   0/2     ContainerCreating   0          0s
-    sample-domain1-managed-server3   1/2     Running             0          1s
-    sample-domain1-managed-server2   1/2     Running             0          2s
-    sample-domain1-managed-server3   2/2     Running             0          46s
-    sample-domain1-managed-server2   2/2     Running             0          56s
-    sample-domain1-managed-server3   1/2     Running             0          7m5s
-    sample-domain1-managed-server3   1/2     Terminating         0          7m9s
-    sample-domain1-managed-server3   1/2     Terminating         0          7m9s
-    sample-domain1-managed-server2   1/2     Running             0          7m11s
-    sample-domain1-managed-server2   1/2     Terminating         0          7m15s
-    sample-domain1-managed-server2   1/2     Terminating         0          7m15s
-    sample-domain1-managed-server1   2/2     Running             0          28h
-    ```
+  ```text
+  $ kubectl get pod -n sample-domain1-ns -w
+  NAME                             READY   STATUS    RESTARTS   AGE
+  sample-domain1-admin-server      2/2     Running   0          28h
+  sample-domain1-managed-server1   2/2     Running   0          28h
+  sample-domain1-managed-server1   2/2     Running   0          28h
+  sample-domain1-managed-server2   0/2     Pending   0          0s
+  sample-domain1-managed-server2   0/2     Pending   0          0s
+  sample-domain1-managed-server2   0/2     ContainerCreating   0          0s
+  sample-domain1-managed-server3   0/2     Pending             0          0s
+  sample-domain1-managed-server3   0/2     Pending             0          0s
+  sample-domain1-managed-server3   0/2     ContainerCreating   0          0s
+  sample-domain1-managed-server3   1/2     Running             0          1s
+  sample-domain1-managed-server2   1/2     Running             0          2s
+  sample-domain1-managed-server3   2/2     Running             0          46s
+  sample-domain1-managed-server2   2/2     Running             0          56s
+  sample-domain1-managed-server3   1/2     Running             0          7m5s
+  sample-domain1-managed-server3   1/2     Terminating         0          7m9s
+  sample-domain1-managed-server3   1/2     Terminating         0          7m9s
+  sample-domain1-managed-server2   1/2     Running             0          7m11s
+  sample-domain1-managed-server2   1/2     Terminating         0          7m15s
+  sample-domain1-managed-server2   1/2     Terminating         0          7m15s
+  sample-domain1-managed-server1   2/2     Running             0          28h
+  ```
 
-    The graph in Azure Monitor Workspace looks similar to the screenshot.
+  The graph in Azure Monitor Workspace looks similar to the screenshot.
 
-    :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wls-autoscaling-graph.png" alt-text="Screenshot of the Azure portal showing the Promethues explorer graph." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wls-autoscaling-graph.png":::
+  :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wls-autoscaling-graph.png" alt-text="Screenshot of the Azure portal showing the Promethues explorer graph." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wls-autoscaling-graph.png":::
 
 ## Clean up resources
 
