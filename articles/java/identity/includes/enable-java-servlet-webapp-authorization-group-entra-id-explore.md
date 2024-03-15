@@ -77,10 +77,15 @@ The overage limit is 150 for SAML tokens, 200 for JWT tokens, and 6 for Single P
 
 #### Create the overage scenario in this sample for testing
 
+To create the overage scenario, use the following steps:
+
 1. You can use the *BulkCreateGroups.ps1* file provided in the *AppCreationScripts* folder to create a large number of groups and assign users to them. This file helps test overage scenarios during development. Remember to change the user's `objectId` provided in the *BulkCreateGroups.ps1* script.
+
 1. When you run this sample and an overage occurred, then you'd see the `_claim_names` in the home page after the user signs in.
+
 1. We strongly advise that you use the group filtering feature, if possible, to avoid running into group overages. For more information, see the section [Configure your application to receive the groups claim values from a filtered set of groups a user might be assigned to](#configure-your-application-to-receive-the-groups-claim-values-from-a-filtered-set-of-groups-a-user-might-be-assigned-to).
-1. In case you cannot avoid running into group overage, we suggest you use the following steps to process groups claim in your token:
+
+1. In case you cannot avoid running into group overage, we suggest you use the following steps to process the groups claim in your token:
 
    1. Check for the claim `_claim_names` with one of the values being *groups*. This indicates overage.
    1. If found, make a call to the endpoint specified in `_claim_sources` to fetch user's groups.
@@ -118,7 +123,7 @@ In this sample, these values are read from the *authentication.properties* file 
 
 ### Step-by-step walkthrough
 
-1. The first step of the sign-in process is to send a request to the `/authorize` endpoint on for our Microsoft Entra ID Tenant. Our MSAL4J `ConfidentialClientApplication` instance is leveraged to construct an authorization request URL. Our app redirects the browser to this URL, which is where the user signs in.
+1. The first step of the sign-in process is to send a request to the `/authorize` endpoint on for our Microsoft Entra ID Tenant. The MSAL4J `ConfidentialClientApplication` instance is leveraged to construct an authorization request URL. The app redirects the browser to this URL, which is where the user signs in.
 
    ```java
    final ConfidentialClientApplication client = getConfidentialClientInstance();
@@ -136,7 +141,8 @@ In this sample, these values are read from the *authentication.properties* file 
      - Full list of scopes requested by the app can be found in the *authentication.properties* file. You can add more scopes like User.Read and so on.
 
 1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint contain an [authorization code](/entra/identity-platform/v2-oauth2-auth-code-flow).
-1. Our ConfidentialClientApplication instance then exchanges this authorization code for an ID token and access token from Microsoft Entra ID.
+
+1. The `ConfidentialClientApplication` instance then exchanges this authorization code for an ID token and access token from Microsoft Entra ID.
 
    ```java
    // First, validate the state, then parse any error codes in response, then extract the authCode. Then:
@@ -173,6 +179,7 @@ In this sample, these values are read from the *authentication.properties* file 
    ```
 
 1. After previous step, you can extract group memberships by calling `context.getGroups()` using an instance of `IdentityContextData`.
+
 1. If the user is a member of too many groups - more than 200 - a call to `context.getGroups()` might have been empty if it weren't for the call to `handleGroupsOverage()`. Meanwhile, `context.getGroupsOverage()` returns `true`, signalling that an overage has occurred, and that getting the full list of groups requires a call to Microsoft Graph. See the `handleGroupsOverage()` method in *AuthHelper.java* to see how this application uses `context.setGroups()` when there's an overage.
 
 ### Protect the routes

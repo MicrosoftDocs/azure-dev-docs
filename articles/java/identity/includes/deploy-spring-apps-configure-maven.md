@@ -23,6 +23,8 @@ Use the following steps to deploy using the [Maven plugin for Azure Spring Apps]
    - **Expose public access for this app (boot-for-azure)**: Press <kbd>y</kbd>.
    - **Confirm to save all the above configurations**: Press <kbd>y</kbd>. If you press <kbd>n</kbd>, the configuration isn't saved in the *.pom* file.
 
+The following example shows the output of the deployment process:
+
 ```output
 Summary of properties:
 Subscription id   : 12345678-1234-1234-1234-123456789101

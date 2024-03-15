@@ -54,7 +54,7 @@ In this sample, these values are read from the *authentication.properties* file 
 
 ### Step-by-step walkthrough
 
-1. The first step of the sign-in process is to send a request to the `/authorize` endpoint on for our Azure Active Directory B2C Tenant. Our MSAL4J ConfidentialClientApplication instance is leveraged to construct an authorization request URL, and our app redirects the browser to this URL.
+1. The first step of the sign-in process is to send a request to the `/authorize` endpoint on for our Azure Active Directory B2C Tenant. The MSAL4J `ConfidentialClientApplication` instance is leveraged to construct an authorization request URL, and our app redirects the browser to this URL.
 
    ```java
    final ConfidentialClientApplication client = getConfidentialClientInstance(policy);
@@ -82,7 +82,8 @@ In this sample, these values are read from the *authentication.properties* file 
    - **nonce**: a unique variable set by the app into the session on each token request, and destroyed after receiving the corresponding token. This nonce is transcribed to the resulting tokens dispensed Azure AD B2C, thereby ensuring that there's no token-replay attack occurring.
 
 1. The user is presented with a sign-in prompt by Azure Active Directory B2C. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint contains an [authorization code](/azure/active-directory-b2c/authorization-code-flow).
-1. Our ConfidentialClientApplication instance then exchanges this authorization code for an ID token and access token from Azure Active Directory B2C.
+
+1. The `ConfidentialClientApplication` instance then exchanges this authorization code for an ID token and access token from Azure Active Directory B2C.
 
    ```java
    final AuthorizationCodeParameters authParams = AuthorizationCodeParameters

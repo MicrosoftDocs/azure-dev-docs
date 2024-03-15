@@ -57,7 +57,7 @@ In this sample, these values are read from the *authentication.properties* file 
 
 ### Step-by-step walkthrough
 
-1. The first step of the sign-in process is to send a request to the `/authorize` endpoint on for our Microsoft Entra ID Tenant. Our MSAL4J `ConfidentialClientApplication` instance is leveraged to construct an authorization request URL. Our app redirects the browser to this URL, which is where the user signs in.
+1. The first step of the sign-in process is to send a request to the `/authorize` endpoint on for our Microsoft Entra ID Tenant. The MSAL4J `ConfidentialClientApplication` instance is leveraged to construct an authorization request URL. The app redirects the browser to this URL, which is where the user signs in.
 
    ```java
    final ConfidentialClientApplication client = getConfidentialClientInstance();
@@ -75,7 +75,8 @@ In this sample, these values are read from the *authentication.properties* file 
      - Full list of scopes requested by the app can be found in the *authentication.properties* file. You can add more scopes like User.Read and so on.
 
 1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to our app's redirect endpoint. A valid request to this endpoint contain an [authorization code](/entra/identity-platform/v2-oauth2-auth-code-flow).
-1. Our ConfidentialClientApplication instance then exchanges this authorization code for an ID token and access token from Microsoft Entra ID.
+
+1. The `ConfidentialClientApplication` instance then exchanges this authorization code for an ID token and access token from Microsoft Entra ID.
 
    ```java
    // First, validate the state, then parse any error codes in response, then extract the authCode. Then:

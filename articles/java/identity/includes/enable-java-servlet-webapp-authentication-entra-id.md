@@ -57,22 +57,35 @@ Use the following steps to run the PowerShell script:
 Following this guide, you must:
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
+
 1. Select **New registration**.
+
 1. In the **Register an application page** that appears, enter your application's registration information:
+
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-servlet-webapp-authentication`.
-   - Under **Supported account types**, select an option.
+   - Under **Supported account types**, select one of the following options:
+
      - Select **Accounts in this organizational directory only** if you're building an application for use only by users in your tenant - that is, a *single-tenant* application.
      - Select **Accounts in any organizational directory** if you'd like users in any Microsoft Entra ID tenant to be able to use your application - that is, a *multi-tenant* application.
      - Select **Accounts in any organizational directory and personal Microsoft accounts** for the widest set of customers - that is, a multi-tenant application that also supports Microsoft personal accounts.
      - Select **Personal Microsoft accounts** for use only by users of personal Microsoft accounts - for example, Hotmail, Live, Skype, and Xbox accounts.
+
    - In the **Redirect URI** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/msal4j-servlet-auth/auth/redirect`.
+
 1. Select **Register** to create the application.
+
 1. In the app's registration screen, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
+
 1. In the app's registration screen, select **Certificates & secrets** on the navigation pane to open the page to generate secrets and upload certificates.
+
 1. In the **Client secrets** section, select **New client secret**.
+
 1. Type a key description - for example, *app secret*.
+
 1. Select one of the available key durations: **In 1 year**, **In 2 years**, or **Never Expires**.
+
 1. Select **Add**. The generated key value is displayed.
+
 1. Copy and save the generated value for use in later steps. You need this key for your code's configuration files. This key value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
 
 ---

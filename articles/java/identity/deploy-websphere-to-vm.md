@@ -47,14 +47,22 @@ When you deploy your application to WebSphere Application Server, your redirect 
 Because the redirect URI changes to your deployed App on WebSphere, you also need to change the redirect URI in your Microsoft Entra ID App Registration.
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
+
 1. Use the search box to search for your app registration - for example, `java-servlet-webapp-authentication`.
+
 1. Open your app registration by selecting its name.
+
 1. Select **Authentication** from the menu.
+
 1. In the **Web** - **Redirect URIs** section, select **Add URI**.
+
 1. Fill out the URI of your web app, appending **/auth/redirect** - for example, `https://<server-url>:<port-number>/auth/redirect`.
+
 1. Select **Save**.
 
 ## Deploy the application
+
+To deploy the application, use the following steps:
 
 1. On the **Applications** tab, select **New Application**, then **New Enterprise Application**.
 

@@ -30,6 +30,7 @@ The sample comes with a preregistered application for testing purposes. If you w
 To choose your tenant, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. If your account is present in more than one Azure AD B2C tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Azure AD B2C tenant.
 
 ### Create user flows and custom policies
@@ -44,8 +45,12 @@ See [Tutorial: Add identity providers to your applications in Azure Active Direc
 
 ### Register the app (ms-identity-b2c-java-servlet-webapp-authentication)
 
+To register the app, use the following steps:
+
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Azure AD B2C**.
+
 1. Select **App Registrations** on the navigation pane, then select **New registration**.
+
 1. In the **Register an application page** that appears, enter your application's registration information:
 
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `ms-identity-b2c-java-servlet-webapp-authentication`.
@@ -53,13 +58,21 @@ See [Tutorial: Add identity providers to your applications in Azure Active Direc
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/ms-identity-b2c-java-servlet-webapp-authentication/auth_redirect`.
 
 1. Select **Register** to create the application.
+
 1. In the app's registration screen, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
+
 1. Select **Save** to save your changes.
+
 1. In the app's registration screen, select **Certificates & secrets** on the navigation pane to open the page where we can generate secrets and upload certificates.
+
 1. In the **Client secrets** section, select **New client secret**.
+
 1. Type a key description - for example, *app secret*.
+
 1. Select one of the available key durations: **In 1 year**, **In 2 years**, or **Never Expires**.
+
 1. Select **Add**. The generated key value is displayed.
+
 1. Copy and save the generated value for use in later steps. You need this key for your code's configuration files. This key value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
 
 ### Configure the app (ms-identity-b2c-java-servlet-webapp-authentication) to use your app registration

@@ -60,6 +60,7 @@ The following sections show you how to register the app manually.
 To choose your tenant, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. If your account is present in more than one Microsoft Entra ID tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Microsoft Entra ID tenant.
 
 ### Register the app (java-servlet-webapp-roles)
@@ -69,35 +70,54 @@ First, register a new web app in the [Azure portal](https://portal.azure.com) by
 Then, use the following steps to complete the registration:
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
+
 1. Select **New registration**.
-1. In the **Register an application page** that appears, enter your application's registration information:
+
+1. In the **Register an application page** that appears, enter the following app registration information:
+
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-servlet-webapp-roles`.
-   - Under **Supported account types**, select an option.
+   - Under **Supported account types**, select one of the following options:
+
      - Select **Accounts in this organizational directory only** if you're building an application for use only by users in your tenant - that is, a *single-tenant* application.
    - In the **Redirect URI** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/msal4j-servlet-roles/auth/redirect`.
 1. Select **Register** to create the application.
+
 1. In the app's registration screen, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
+
 1. Select **Save** to save your changes.
+
 1. In the app's registration screen, select **Certificates & secrets** on the navigation pane to open the page where we can generate secrets and upload certificates.
+
 1. In the **Client secrets** section, select **New client secret**.
+
 1. Type a key description - for example, *app secret*.
+
 1. Select one of the available key durations: **In 1 year**, **In 2 years**, or **Never Expires**.
+
 1. Select **Add**. The generated key value is displayed.
+
 1. Copy and save the generated value for use in later steps. You need this key for your code's configuration files. This key value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
 
 ### Define the application roles
 
+To define the app roles, use the following steps:
+
 1. Still on the same app registration, select **App roles** on the navigation pane.
+
 1. Select **Create app role**, then enter the following values:
-   - For **Display name**, enter a suitable name, for instance **PrivilegedAdmin**.
+
+   - For **Display name**, enter a suitable name - for example, *PrivilegedAdmin*.
    - For **Allowed member types**, choose **User**.
-   - For **Value**, enter **PrivilegedAdmin**.
-   - For **Description**, enter **PrivilegedAdmins who can view the Admin Page**.
+   - For **Value**, enter *PrivilegedAdmin*.
+   - For **Description**, enter *PrivilegedAdmins who can view the Admin Page*.
+
 1. Select **Create app role**, then enter the following values:
-   - For **Display name**, enter a suitable name, for instance **RegularUser**.
+
+   - For **Display name**, enter a suitable name - for example, *RegularUser*.
    - For **Allowed member types**, choose **User**.
-   - For **Value**, enter **RegularUser**.
-   - For **Description**, enter **RegularUsers who can view the User Page**.
+   - For **Value**, enter *RegularUser*.
+   - For **Description**, enter *RegularUsers who can view the User Page*.
+
 1. Select **Apply** to save your changes.
 
 ### Assign users to the application roles

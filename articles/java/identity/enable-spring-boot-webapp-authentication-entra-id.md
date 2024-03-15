@@ -83,25 +83,37 @@ The following sections show you how to register the app manually.
 To choose your tenant, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. If your account is present in more than one Microsoft Entra ID tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Microsoft Entra ID tenant.
 
 #### Register the app (java-spring-webapp-auth)
 
-Use the following steps to register the app:
+To register the app, use the following steps:
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and select **Microsoft Entra ID**.
+
 1. Select **App Registrations** on the navigation pane, then select **New registration**.
+
 1. In the **Register an application page** that appears, enter the following application registration information:
+
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-spring-webapp-auth`.
    - Under **Supported account types**, select **Accounts in this organizational directory only**.
    - In the **Redirect URI (optional)** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/login/oauth2/code/`.
+
 1. Select **Register** to create the application.
+
 1. In the app's registration screen, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
+
 1. In the app's registration screen, select **Certificates & secrets** on the navigation pane to open the page where we can generate secrets and upload certificates.
+
 1. In the **Client secrets** section, select **New client secret**.
+
 1. Type a key description - for example, *app secret*.
+
 1. Select one of the available key durations: **In 1 year**, **In 2 years**, or **Never Expires**.
+
 1. Select **Add**. The generated key value is displayed.
+
 1. Copy and save the generated value for use in later steps. You need this key for your code's configuration files. This key value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
 
 ---
