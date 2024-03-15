@@ -753,9 +753,9 @@ Create the KEDA scaler using *scaler.yaml*
 kubectl apply -f scaler.yaml
 ```
 
-It takes several minutes for KEDA to retrieve metrics from Azure Monitor Workspace. Once the scaler is ready to work, you find the scaler status with `kubectl get hpa -n <wls-namespace> -w`.
+It takes several minutes for KEDA to retrieve metrics from Azure Monitor Workspace. You can watch the scaler status with `kubectl get hpa -n <wls-namespace> -w`.
 
-The output looks similar to the following content.
+Once the scaler is ready to work, the output looks similar to the following content.
 
 ```text
 $ kubectl get hpa -n sample-domain1-ns -w
