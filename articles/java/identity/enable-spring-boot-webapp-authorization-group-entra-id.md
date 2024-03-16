@@ -128,7 +128,7 @@ To register the app, use the following steps:
 
 1. Copy and save the generated value for use in later steps. You need this key for your code's configuration files. This key value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
 
-1. In the app's registration screen, select **API permissions** on the navigation pane to open the page where we add access to the APIs that your application needs.
+1. In the app's registration screen, select **API permissions** on the navigation pane to open the page where you can add access to the APIs that your application needs.
 
 1. Select **Add a permission**.
 

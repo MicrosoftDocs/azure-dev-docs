@@ -35,7 +35,7 @@ To run the sample on Tomcat, use the following steps:
 
 1. In your Tomcat installation, ensure that there's an entry in *tomcat/conf/server.xml* for the address you want to host your application on.
 
-   By default, our samples just expect to connect to `http://localhost:8080 or https://localhost:8443`, as defined in the `app.homePage` value in the *authentication.properties* file.
+   By default, the samples just expect to connect to `http://localhost:8080 or https://localhost:8443`, as defined in the `app.homePage` value in the *authentication.properties* file.
 
 1. Copy the *.war* file you generated with Maven to the */webapps/* directory in your Tomcat installation, and start the Tomcat server.
 

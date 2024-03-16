@@ -104,7 +104,7 @@ To register the app, use the following steps:
 
 1. In the app's registration screen, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
 
-1. In the app's registration screen, select **Certificates & secrets** on the navigation pane to open the page where we can generate secrets and upload certificates.
+1. In the app's registration screen, select **Certificates & secrets** on the navigation pane to open the page where you can generate secrets and upload certificates.
 
 1. In the **Client secrets** section, select **New client secret**.
 

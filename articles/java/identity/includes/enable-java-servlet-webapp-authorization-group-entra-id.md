@@ -85,7 +85,7 @@ Then, use the following steps to complete the registration:
 
 1. Select **Save** to save your changes.
 
-1. In the app's registration screen, select **Certificates & secrets** on the navigation pane to open the page where we can generate secrets and upload certificates.
+1. In the app's registration screen, select **Certificates & secrets** on the navigation pane to open the page where you can generate secrets and upload certificates.
 
 1. In the **Client secrets** section, select **New client secret**.
 
