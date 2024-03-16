@@ -161,10 +161,10 @@ In your Jenkins website, select **Create new jobs** from the home page:
 ## Test GitHub integration
 To test the GitHub integration with Jenkins, commit a change in your fork. 
 
-Back in GitHub web UI, select your forked repo, and then select the **index.js** file. Select the pencil icon to edit this file so line 6 reads:
+Back in GitHub web UI, select your forked repo, and then select the **index.js** file. Select the pencil icon to edit this file with your name so line 58 reads:
 
 ```javascript
-response.end("Hello World!");
+return res.send("Hello World <Enter Your Name>!");
 ```
 
 To commit your changes, select the **Commit changes** button at the bottom.
