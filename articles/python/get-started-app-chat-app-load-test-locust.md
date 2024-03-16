@@ -39,7 +39,7 @@ Watch the demonstration video to understand more about load testing the chat app
     
 ---
 
-* Deployed load balancer with high quota
+* Deployed OpenAI load balancer with high quota
     * [Azure Container Apps solution](get-started-app-chat-scaling-with-azure-container-apps.md) with [OPENAI_CAPACITY set to 50](get-started-app-chat-scaling-with-azure-container-apps.md#configure-the-tokens-per-minute-quota-tpm)
 * Chat app deployed to use load balancer
     * [.NET](/dotnet/azure/ai/get-started-app-chat-template)
