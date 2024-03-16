@@ -107,7 +107,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ## View load balancer logs
 
-To understand that the load balancer is switching between the three Azure OpenAI resources, use the Azure Container App logs. 
+To see how the load balancer is switching between the three Azure OpenAI resources, use the Azure Container App logs. 
 
 * [View Azure Container Apps logs](get-started-app-chat-scaling-with-azure-container-apps.md#stream-logs-to-see-the-load-balancer-results) 
 
