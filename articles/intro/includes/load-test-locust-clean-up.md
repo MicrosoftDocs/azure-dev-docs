@@ -11,7 +11,7 @@ ms.service: azure
 
 If you used the Python chat app, previous steps have already cleaned up that sample's resources and dev containers. 
 
-If you used a different chat app, you need to return to that chat app's tutorial and follow the clean up steps. Clean up for languages othen than Python
+If you used a different chat app, you need to return to that chat app's tutorial and follow the clean up steps. Clean up for languages othen than Python:
 
 * [.NET](/dotnet/azure/ai/get-started-app-chat-template#clean-up-resources)
 * [Java](/azure/developer/java/quickstarts/get-started-app-chat-template#clean-up-resources)
