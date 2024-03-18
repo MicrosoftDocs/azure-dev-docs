@@ -22,7 +22,7 @@ This article shows you how to deploy a Java WebSphere web app with sign-in by Mi
   - [Secure Java WebSphere apps using groups and group claims](enable-java-websphere-webapp-authorization-group-entra-id.md)
 - A deployed [IBM WebSphere Application Server Cluster](https://aka.ms/websphere-on-azure-portal). For more information, see [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](../ee/traditional-websphere-application-server-virtual-machines.md).
 
-## prepare the app for deployment
+## Prepare the app for deployment
 
 When you deploy your application to WebSphere Application Server, your redirect URL changes to the redirect URL of your deployed WebSphere Application Server instance. Use the following steps to change these settings in your properties file:
 
@@ -44,7 +44,7 @@ When you deploy your application to WebSphere Application Server, your redirect 
 
 ## Update your Microsoft Entra ID app registration
 
-Because the redirect URI changes to your deployed App on WebSphere, you also need to change the redirect URI in your Microsoft Entra ID App Registration.
+Because the redirect URI changes to your deployed app on WebSphere, you also need to change the redirect URI in your Microsoft Entra ID app registration. Use the following steps to make this change:
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 
@@ -56,7 +56,7 @@ Because the redirect URI changes to your deployed App on WebSphere, you also nee
 
 1. In the **Web** - **Redirect URIs** section, select **Add URI**.
 
-1. Fill out the URI of your web app, appending **/auth/redirect** - for example, `https://<server-url>:<port-number>/auth/redirect`.
+1. Fill out the URI of your web app, appending `/auth/redirect` - for example, `https://<server-url>:<port-number>/auth/redirect`.
 
 1. Select **Save**.
 

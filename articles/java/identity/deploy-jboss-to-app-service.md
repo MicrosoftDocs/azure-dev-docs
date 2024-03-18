@@ -1,6 +1,6 @@
 ---
 title: Deploy Java JBoss apps to Azure App Service
-description: Shows you how to deploy a JBoss web app with sign-in by Microsoft Entra account to Azure App Service.
+description: Shows you how to deploy a JBoss app with sign-in by Microsoft Entra account to Azure App Service.
 services: active-directory
 ms.date: 03/11/2024
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Deploy Java JBoss apps to Azure App Service
 
-This article shows you how to deploy a JBoss web app with sign-in by Microsoft Entra account to Azure App Service.
+This article shows you how to deploy a JBoss app with sign-in by Microsoft Entra account to Azure App Service.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ This article shows you how to deploy a JBoss web app with sign-in by Microsoft E
 
 [!INCLUDE [deploy-jboss-app-service-configure-maven.md](includes/deploy-jboss-app-service-configure-maven.md)]
 
-## prepare the app for deployment
+## Prepare the app for deployment
 
 [!INCLUDE [deploy-app-service-prepare-deploy.md](includes/deploy-app-service-prepare-deploy.md)]
 

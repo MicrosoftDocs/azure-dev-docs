@@ -53,14 +53,14 @@ Use the following steps to run the PowerShell script:
 
 ### [Use manual steps](#tab/Manual)
 
-[Register a new web app](/entra/identity-platform/quickstart-register-app) in the [Azure portal](https://portal.azure.com).
+[Register a new app](/entra/identity-platform/quickstart-register-app) in the [Azure portal](https://portal.azure.com).
 Following this guide, you must:
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 
 1. Select **New registration**.
 
-1. In the **Register an application page** that appears, enter your application's registration information:
+1. In the **Register an application page** that appears, enter the following application registration information:
 
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-servlet-webapp-authentication`.
    - Under **Supported account types**, select one of the following options:
@@ -110,7 +110,7 @@ Use the following steps to configure the app:
 
 1. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID or `clientId` of the `java-servlet-webapp-authentication` application copied from the Azure portal.
 
-1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the key you saved during the creation of the `java-servlet-webapp-authentication` app, in the Azure portal.
+1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the value you saved during the creation of the `java-servlet-webapp-authentication` app, in the Azure portal.
 
 ## Run the sample
 

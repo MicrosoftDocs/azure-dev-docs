@@ -15,7 +15,7 @@ The following sections show you how to deploy the sample to Azure App Service.
 
 [!INCLUDE [deploy-tomcat-app-service-configure-maven.md](./deploy-tomcat-app-service-configure-maven.md)]
 
-### prepare the app for deployment
+### Prepare the app for deployment
 
 [!INCLUDE [deploy-app-service-prepare-deploy.md](./deploy-app-service-prepare-deploy.md)]
 

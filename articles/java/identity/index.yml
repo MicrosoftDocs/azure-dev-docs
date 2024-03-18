@@ -10,11 +10,11 @@ metadata:
   ms.topic: landing-page
 
 landingContent:
-  - title: Secure your Java JBoss EAP web app
+  - title: Secure your Java JBoss EAP app
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable sign-in with Entra ID
+          - text: Enable sign-in with Microsoft Entra ID
             url: enable-java-jboss-eap-webapp-authentication-entra-id.md
           - text: Enable sign-in with Azure AD B2C
             url: enable-java-jboss-eap-webapp-authentication-azure-ad-b2c.md
@@ -26,11 +26,11 @@ landingContent:
             url: enable-java-jboss-eap-webapp-authorization-group-entra-id.md
           - text: Deploy to App Service
             url: deploy-jboss-to-app-service.md
-  - title: Secure your Java Tomcat web app
+  - title: Secure your Java Tomcat app
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable sign-in with Entra ID
+          - text: Enable sign-in with Microsoft Entra ID
             url: enable-java-tomcat-webapp-authentication-entra-id.md
           - text: Enable sign-in with Azure AD B2C
             url: enable-java-tomcat-webapp-authentication-azure-ad-b2c.md
@@ -42,11 +42,11 @@ landingContent:
             url: enable-java-tomcat-webapp-authorization-group-entra-id.md
           - text: Deploy to App Service
             url: deploy-tomcat-to-app-service.md
-  - title: Secure your Java WebLogic web app
+  - title: Secure your Java WebLogic app
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable sign-in with Entra ID
+          - text: Enable sign-in with Microsoft Entra ID
             url: enable-java-weblogic-webapp-authentication-entra-id.md
           - text: Enable sign-in with Azure AD B2C
             url: enable-java-weblogic-webapp-authentication-azure-ad-b2c.md
@@ -58,11 +58,11 @@ landingContent:
             url: enable-java-weblogic-webapp-authorization-group-entra-id.md
           - text: Deploy to WebLogic on Azure VM
             url: deploy-weblogic-to-vm.md
-  - title: Secure your Java WebSphere web app
+  - title: Secure your Java WebSphere app
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable sign-in with Entra ID
+          - text: Enable sign-in with Microsoft Entra ID
             url: enable-java-websphere-webapp-authentication-entra-id.md
           - text: Enable sign-in with Azure AD B2C
             url: enable-java-websphere-webapp-authentication-azure-ad-b2c.md
@@ -74,11 +74,11 @@ landingContent:
             url: enable-java-websphere-webapp-authorization-group-entra-id.md
           - text: Deploy to WebSphere on Azure VM
             url: deploy-websphere-to-vm.md
-  - title: Secure your Java Spring Boot web app
+  - title: Secure your Java Spring Boot app
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable sign-in with Entra ID
+          - text: Enable sign-in with Microsoft Entra ID
             url: enable-spring-boot-webapp-authentication-entra-id.md
           - text: Enable sign-in with Azure AD B2C
             url: enable-spring-boot-webapp-authentication-azure-ad-b2c.md

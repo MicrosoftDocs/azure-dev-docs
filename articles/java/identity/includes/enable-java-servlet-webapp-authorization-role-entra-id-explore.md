@@ -5,33 +5,35 @@ ms.date: 03/11/2024
 
 ## Explore the sample
 
-- Notice the signed-in or signed-out status displayed at the center of the screen.
-- Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app.
-- On the next page, follow the instructions and sign in with an account in the Microsoft Entra ID tenant.
-- On the consent screen, note the scopes that are being requested.
-- Notice that the context-sensitive button now says **Sign out** and displays your username.
-- Select **ID Token Details** to see some of the ID token's decoded claims.
-- Select **Admins Only** to view the `/admin_only` page. Only users with app role **PrivilegedAdmin** can view this page. Otherwise an authorization failure message is displayed.
-- Select **Regular Users** to view the `/regular_user` page. Only users with app role **RegularUser** or **PrivilegedAdmin** can view this page. Otherwise an authorization failure message is displayed.
-- You can also use the button in the corner to sign out.
+Use the following steps to explore the sample:
+
+1. Notice the signed-in or signed-out status displayed at the center of the screen.
+1. Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app.
+1. On the next page, follow the instructions and sign in with an account in the Microsoft Entra ID tenant.
+1. On the consent screen, notice the scopes that are being requested.
+1. Notice that the context-sensitive button now says **Sign out** and displays your username.
+1. Select **ID Token Details** to see some of the ID token's decoded claims.
+1. Select **Admins Only** to view the `/admin_only` page. Only users with app role `PrivilegedAdmin` can view this page. Otherwise, an authorization failure message is displayed.
+1. Select **Regular Users** to view the `/regular_user` page. Only users with app role `RegularUser` or `PrivilegedAdmin` can view this page. Otherwise, an authorization failure message is displayed.
+1. Use the button in the corner to sign out.
 
 ## Contents
 
-The full code for this sample is available at [https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/3-Authorization-II/roles](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/3-Authorization-II/roles). The following table lists the overall parts of this sample:
+The following table shows the contents of the sample project folder:
 
-| File/folder                                                     | Description                                                                            |
-|-----------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| *AppCreationScripts/*                                           | Scripts to automatically configure Microsoft Entra ID app registrations.               |
-| *src/main/java/com/microsoft/azuresamples/msal4j/roles/*        | This directory contains the classes that define the web app's backend business logic.  |
-| *src/main/java/com/microsoft/azuresamples/msal4j/authservlets/* | This directory contains the classes that are used for sign in and sign out endpoints.  |
-| *____Servlet.java*                                              | All of the endpoints available are defined in .java classes ending in ____Servlet.java |
-| *src/main/java/com/microsoft/azuresamples/msal4j/helpers/*      | Helper classes for authentication.                                                     |
-| *AuthenticationFilter.java*                                     | Redirects unauthenticated requests to protected endpoints to a 401 page.               |
-| *src/main/resources/authentication.properties*                  | Microsoft Entra ID and program configuration.                                          |
-| *src/main/webapp/*                                             | This directory contains the UI - JSP templates                                         |
-| *CHANGELOG.md*                                                  | List of changes to the sample.                                                         |
-| *CONTRIBUTING.md*                                               | Guidelines for contributing to the sample.                                             |
-| *LICENSE*                                                       | The license for the sample.                                                            |
+| File/folder                                                     | Description                                                                                 |
+|-----------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| *AppCreationScripts/*                                           | Scripts to automatically configure Microsoft Entra ID app registrations.                    |
+| *src/main/java/com/microsoft/azuresamples/msal4j/roles/*        | This directory contains the classes that define the app's backend business logic.           |
+| *src/main/java/com/microsoft/azuresamples/msal4j/authservlets/* | This directory contains the classes that are used for sign in and sign out endpoints.       |
+| *____Servlet.java*                                              | All of the endpoints available are defined in *.java* classes ending in *____Servlet.java*. |
+| *src/main/java/com/microsoft/azuresamples/msal4j/helpers/*      | Helper classes for authentication.                                                          |
+| *AuthenticationFilter.java*                                     | Redirects unauthenticated requests to protected endpoints to a 401 page.                    |
+| *src/main/resources/authentication.properties*                  | Microsoft Entra ID and program configuration.                                               |
+| *src/main/webapp/*                                              | This directory contains the UI - JSP templates                                              |
+| *CHANGELOG.md*                                                  | List of changes to the sample.                                                              |
+| *CONTRIBUTING.md*                                               | Guidelines for contributing to the sample.                                                  |
+| *LICENSE*                                                       | The license for the sample.                                                                 |
 
 ## Process a roles claim in the ID token
 
@@ -53,20 +55,20 @@ This sample uses MSAL for Java (MSAL4J) to sign a user in and obtain an ID token
 
 If you want to replicate this sample's behavior, you can choose to copy the *pom.xml* file, and the contents of the `helpers` and `authservlets` packages in the `src/main/java/com/microsoft/azuresamples/msal4j` package. You also need the *authentication.properties* file. These classes and files contain generic code that can be used in a wide array of applications. You can copy the rest of the sample as well, but the other classes and files are built specifically to address this sample's objective.
 
-A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file. This object helps craft the Microsoft Entra authorization URL and also helps exchange the authentication token for an access token.
+A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file, as shown in the following example. This object helps craft the Microsoft Entra authorization URL and also helps exchange the authentication token for an access token.
 
 ```java
 // getConfidentialClientInstance method
 IClientSecret secret = ClientCredentialFactory.createFromSecret(SECRET);
 confClientInstance = ConfidentialClientApplication
-                    .builder(CLIENT_ID, secret)
-                    .authority(AUTHORITY)
-                    .build();
+                     .builder(CLIENT_ID, secret)
+                     .authority(AUTHORITY)
+                     .build();
 ```
 
-You need to provide the following parameters for instantiation:
+The following parameters are used for instantiation:
 
-- The client ID of the app
+- The client ID of the app.
 - The client secret, which is a requirement for Confidential Client Applications.
 - The Microsoft Entra ID Authority, which includes your Microsoft Entra tenant ID.
 

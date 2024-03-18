@@ -106,7 +106,7 @@ To register the app, use the following steps:
 
 1. Select **App Registrations** on the navigation pane, then select **New registration**.
 
-1. In the **Register an application page** that appears, enter your application's registration information:
+1. In the **Register an application page** that appears, enter the following application registration information:
 
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-spring-webapp-groups`.
    - Under **Supported account types**, select **Accounts in this organizational directory only**.
@@ -251,21 +251,21 @@ Use the following steps to configure the app:
 
 1. Open the *src\main\resources\application.yml* file.
 
-1. Find the key `Enter_Your_Tenant_ID_Here` and replace the existing value with your Microsoft Entra tenant ID.
+1. find the placeholder `Enter_Your_Tenant_ID_Here` and replace the existing value with your Microsoft Entra tenant ID.
 
-1. Find the key `Enter_Your_Client_ID_Here` and replace the existing value with the application ID or `clientId` of the `java-spring-webapp-groups` app copied from the Azure portal.
+1. find the placeholder `Enter_Your_Client_ID_Here` and replace the existing value with the application ID or `clientId` of the `java-spring-webapp-groups` app copied from the Azure portal.
 
-1. Find the key `Enter_Your_Client_Secret_Here` and replace the existing value with the key you saved during the creation of `java-spring-webapp-groups` copied from the Azure portal.
+1. find the placeholder `Enter_Your_Client_Secret_Here` and replace the existing value with the value you saved during the creation of `java-spring-webapp-groups` copied from the Azure portal.
 
-1. Find the key `Enter_Your_Admin_Group_ID_Here` and replace the existing value with the `objectId` value of your **AdminGroup**.
+1. find the placeholder `Enter_Your_Admin_Group_ID_Here` and replace the existing value with the `objectId` value of your **AdminGroup**.
 
-1. Find the key `Enter_Your_User_Group_ID_Here` and replace the existing value with the `objectId` value of your **UserGroup**.
+1. find the placeholder `Enter_Your_User_Group_ID_Here` and replace the existing value with the `objectId` value of your **UserGroup**.
 
 1. Open the *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java* file.
 
-1. Find the key `Enter_Your_Admin_Group_ID_Here` and replace the existing value with the `objectId` value of your **AdminGroup**.
+1. find the placeholder `Enter_Your_Admin_Group_ID_Here` and replace the existing value with the `objectId` value of your **AdminGroup**.
 
-1. Find the key `Enter_Your_User_Group_ID_Here` and replace the existing value with the `objectId` value of your **UserGroup**.
+1. find the placeholder `Enter_Your_User_Group_ID_Here` and replace the existing value with the `objectId` value of your **UserGroup**.
 
 ## Run the sample
 
@@ -285,7 +285,7 @@ The following sections show you how to deploy the sample to Azure Spring Apps.
 
 [!INCLUDE [deploy-spring-apps-configure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
 
-### prepare the app for deployment
+### Prepare the app for deployment
 
 [!INCLUDE [deploy-spring-apps-prepare-deploy.md](includes/deploy-spring-apps-prepare-deploy.md)]
 
@@ -315,7 +315,7 @@ To run the sample locally, use the following steps:
    mvn clean compile spring-boot:run
    ```
 
-1. Open your browser and navigate to `http://localhost:8080`. You should see a screen with the text `You're signed in! Click here to get your ID Token Details`.
+1. Open your browser and navigate to `http://localhost:8080`. You should see a screen with the text `You're signed in!` and buttons with the following labels: `ID Token Details`, `Admins Only`, and `Regular Users`.
 
 :::image type="content" source="media/app-spring-group.png" alt-text="Screenshot of the sample app.":::
 
@@ -323,19 +323,22 @@ To run the sample locally, use the following steps:
 
 ## Explore the sample
 
-- Notice the signed-in or signed-out status displayed at the center of the screen.
-- Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app.
-- Alternatively, select **token details**, **admins only**, or **regular users**. Because these pages are protected and require authentication, you're automatically redirected to the sign-in page.
-- On the next page, follow the instructions and sign in with an account in the Microsoft Entra ID tenant.
-- On the consent screen, note the scopes that are being requested.
-- Upon successful completion of the sign-in flow, you should be redirected to the home page - which shows the **sign in status** - or one of the other pages, depending on which button triggered your sign-in flow.
-- Notice that the context-sensitive button now says **Sign out** and displays your username.
-- If you're on the home page, select **ID Token Details** to see some of the ID token's decoded claims, including groups.
-- Select **Admins Only** to view the `/admin_only`. Only users belonging to the **AdminGroup** security group can view this page. Otherwise an authorization failure message is displayed.
-- Select **Regular Users** to view the `/regular_user` page. Only users belonging to the **UserGroup** security group can view this page. Otherwise an authorization failure message is displayed.
-- You can also use the button in the corner to sign out. The status page reflects the new state.
+Use the following steps to explore the sample:
+
+1. Notice the signed-in or signed-out status displayed at the center of the screen.
+1. Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app. Alternatively, select **token details**, **admins only**, or **regular users**. Because these pages are protected and require authentication, you're automatically redirected to the sign-in page.
+1. On the next page, follow the instructions and sign in with an account in the Microsoft Entra ID tenant.
+1. On the consent screen, notice the scopes that are being requested.
+1. Upon successful completion of the sign-in flow, you should be redirected to the home page - which shows the **sign in status** - or one of the other pages, depending on which button triggered your sign-in flow.
+1. Notice that the context-sensitive button now says **Sign out** and displays your username.
+1. If you're on the home page, select **ID Token Details** to see some of the ID token's decoded claims, including groups.
+1. Select **Admins Only** to view the `/admin_only`. Only users belonging to the `AdminGroup` security group can view this page. Otherwise, an authorization failure message is displayed.
+1. Select **Regular Users** to view the `/regular_user` page. Only users belonging to the `UserGroup` security group can view this page. Otherwise, an authorization failure message is displayed.
+1. Use the button in the corner to sign out. The status page reflects the new state.
 
 ## Contents
+
+The following table shows the contents of the sample project folder:
 
 | File/folder                                                                   | Description                                                                               |
 |-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
@@ -346,15 +349,15 @@ To run the sample locally, use the following steps:
 | *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/* | This directory contains the main application entry point, controller, and config classes. |
 | *.../MsIdentitySpringBootWebappApplication.java*                              | Main class.                                                                               |
 | *.../SampleController.java*                                                   | Controller with endpoint mappings.                                                        |
-| *.../SecurityConfig.java*                                                     | Security Configuration - for example, which routes require authentication.                |
-| *.../Utilities.java*                                                          | Utility Class - for example, filter ID token claims.                                      |
+| *.../SecurityConfig.java*                                                     | Security configuration - for example, which routes require authentication.                |
+| *.../Utilities.java*                                                          | Utility class - for example, filter ID token claims.                                      |
 | *CHANGELOG.md*                                                                | List of changes to the sample.                                                            |
 | *CONTRIBUTING.md*                                                             | Guidelines for contributing to the sample.                                                |
 | *LICENSE*                                                                     | The license for the sample.                                                               |
 
 ## About the code
 
-This sample demonstrates how to use [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) to sign in users into your Microsoft Entra ID tenant. It also makes use of **Spring Oauth2 Client** and **Spring Web** boot starters. It uses claims from **ID Token** obtained from Azure Active Directory to display details of the signed-in user, and to restrict access to some pages by using the groups claim for authorization.
+This sample demonstrates how to use [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) to sign in users into your Microsoft Entra ID tenant. The sample also makes use of the Spring Oauth2 Client and Spring Web boot starters. The sample uses claims from the ID token obtained from Microsoft Entra ID to display the details of the signed-in user, and to restrict access to some pages by using the groups claim for authorization.
 
 ### Project initialization
 
@@ -400,7 +403,7 @@ The groups claim of the token includes the names of the groups that the signed-i
 
 A common way to access the group names is documented in the [ID token claims](#id-token-claims) section.
 
-Microsoft Entra ID Boot Starter v3.5 and higher parses the groups claim automatically and adds each group to the signed in user's `Authorities`. This configuration enables developers to make use of groups with Spring `PrePost` condition annotations using the `hasAuthority` method. For example, you can find the following `@PreAuthorize` conditions demonstrated in *SampleController.java*:
+Microsoft Entra ID Boot Starter v3.5 and higher parses the groups claim automatically and adds each group to the signed-in user's `Authorities`. This configuration enables developers to make use of groups with Spring `PrePost` condition annotations using the `hasAuthority` method. For example, you can find the following `@PreAuthorize` conditions demonstrated in *SampleController.java*:
 
 ```java
 @GetMapping(path = "/admin_only")
@@ -482,7 +485,7 @@ To ensure that the token size doesn't exceed HTTP header size limits, the Micros
 
 The overage limit is 150 for SAML tokens, 200 for JWT tokens, 6 for single-page applications. If a user is a member of more groups than the overage limit, then the Microsoft identity platform doesn't emit the group IDs in the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the [Microsoft Graph API](https://graph.microsoft.com) to retrieve the user's group membership.
 
-Microsoft Entra ID Boot Starter v3.5 and higher parses the groups claim automatically and adds each group to the signed in user's **Authorities**. It **automatically** handles the groups overage scenario.
+Microsoft Entra ID Boot Starter v3.5 and higher parses the groups claim automatically and adds each group to the signed-in user's **Authorities**. It **automatically** handles the groups overage scenario.
 
 > [!NOTE]
 > We strongly advise you use the group filtering feature, if possible, to avoid running into group overages. For more information, see the section [Configure your application to receive the groups claim values from a filtered set of groups a user might be assigned to](#configure-your-application-to-receive-the-groups-claim-values-from-a-filtered-set-of-groups-a-user-might-be-assigned-to).

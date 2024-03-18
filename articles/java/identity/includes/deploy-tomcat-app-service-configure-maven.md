@@ -5,7 +5,7 @@ ms.date: 03/11/2024
 
 When you deploy to Azure App Service, the deployment automatically uses your Azure credentials from the Azure CLI. If the Azure CLI isn't installed locally, then the Maven plugin authenticates with OAuth or device sign-in. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
-To deploy, use the following steps:
+Use the following steps to configure the plugin:
 
 1. Run the following command to configure the deployment. This command helps you to set up the Azure App Service operating system, Java version, and Tomcat version.
 
@@ -46,7 +46,7 @@ Confirm (Y/N) [Y]: [INFO] Saving configuration to pom.
 [INFO] ------------------------------------------------------------------------
 ```
 
-After you've confirmed your choices, the plugin adds the required plugin element and settings to your project's *pom.xml* file to configure your web app to run in Azure App Service.
+After you've confirmed your choices, the plugin adds the required plugin element and settings to your project's *pom.xml* file to configure your app to run in Azure App Service.
 
 The relevant portion of the *pom.xml* file should look similar to the following example:
 
@@ -70,16 +70,16 @@ The relevant portion of the *pom.xml* file should look similar to the following 
 
 You can modify the configurations for App Service directly in your *pom.xml*. Some common configurations are listed in the following table:
 
-| Property           | Required | Description                                                                                                                                                                                                                                                          |
-|--------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `<subscriptionId>` | false    | Specify the subscription ID.                                                                                                                                                                                                                                         |
-| `<resourceGroup>`  | true     | Azure Resource Group for your Web App.                                                                                                                                                                                                                               |
-| `<appName>`        | true     | The name of your Web App.                                                                                                                                                                                                                                            |
-| `<region>`         | false    | Specifies the region to host your Web App; the default value is **centralus**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section.                                                   |
-| `<pricingTier>`    | false    | The pricing tier for your Web App. The default value is **P1v2** for production workload, while **B2** is the recommended minimum for Java dev/test. For more information, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) |
-| `<runtime>`        | false    | The runtime environment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details).                                                                                |
-| `<deployment>`     | false    | The deployment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details).                                                                                         |
+| Property         | Required | Description                                                                                                                                                                                                                                                                        |
+|------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `subscriptionId` | false    | The subscription ID.                                                                                                                                                                                                                                                               |
+| `resourceGroup`  | true     | The Azure resource group for your app.                                                                                                                                                                                                                                             |
+| `appName`        | true     | The name of your app.                                                                                                                                                                                                                                                              |
+| `region`         | false    | The region in which to host your app. The default value is `centralus`. For valid regions, see [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service).                                                                              |
+| `pricingTier`    | false    | The pricing tier for your app. The default value is `P1v2` for a production workload. The recommended minimum value for Java development and testing is `B2`. For more information, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/linux/). |
+| `runtime`        | false    | The runtime environment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details).                                                                                              |
+| `deployment`     | false    | The deployment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details).                                                                                                       |
 
-For the complete list of configurations, see the plugin reference documentation. All the Azure Maven Plugins share a common set of configurations. For these configurations see [Common Configurations](https://github.com/microsoft/azure-maven-plugins/wiki/Common-Configuration). For configurations specific to App Service, see [Azure Web App: Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details).
+For the complete list of configurations, see the plugin reference documentation. All the Azure Maven plugins share a common set of configurations. For these configurations, see [Common Configurations](https://github.com/microsoft/azure-maven-plugins/wiki/Common-Configuration). For configurations specific to Azure App Service, see [Azure app: Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details).
 
-Be careful about the values of `<appName>` and `<resourceGroup>`. They're used later.
+Be sure to save aside the `appName` and `resourceGroup` values for later use.

@@ -1,7 +1,7 @@
 ---
 title: Secure Java Tomcat apps using roles and role claims
 titleSuffix: Azure
-description: Shows you how to add authorization using app roles and role claims to Java Tomcat Web app that signs in users with the Microsoft identity platform.
+description: Shows you how to add authorization using app roles and role claims to Java Tomcat app that signs in users with the Microsoft identity platform.
 services: active-directory
 ms.date: 03/11/2024
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Secure Java Tomcat apps using roles and role claims
 
-This article demonstrates a Java Tomcat web app that uses [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) to sign in users and [Microsoft Entra ID Application Roles (app roles)](/entra/identity-platform/howto-add-app-roles-in-apps) for authorization.
+This article demonstrates a Java Tomcat app that uses [OpenID Connect](/entra/identity-platform/v2-protocols-oidc) to sign in users and [Microsoft Entra ID Application Roles (app roles)](/entra/identity-platform/howto-add-app-roles-in-apps) for authorization.
 
 [!INCLUDE [scenario-authorization-roles.md](includes/scenario-authorization-roles.md)]
 

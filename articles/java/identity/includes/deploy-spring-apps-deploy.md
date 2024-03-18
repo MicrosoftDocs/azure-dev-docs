@@ -3,17 +3,17 @@ ms.author: givermei
 ms.date: 03/11/2024
 ---
 
-You're now ready to deploy your app to Azure Spring Apps. With all the configuration ready in your *pom.xml* file, you can now deploy your Java app to Azure with one single command.
+You're now ready to deploy your app to Azure Spring Apps. With all the configuration ready in your *pom.xml* file, you can now deploy your Java app to Azure with one command.
 
 Use the following command to deploy the app:
 
 ```bash
-    mvn azure-spring-apps:deploy
+mvn azure-spring-apps:deploy
 ```
 
 The following list describes the command interaction:
 
-- **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
+- **OAuth2 login**: You need to authorize the sign-in to Azure based on the OAuth2 protocol.
 
 After the command is executed, you can see from the following log messages that the deployment was successful:
 

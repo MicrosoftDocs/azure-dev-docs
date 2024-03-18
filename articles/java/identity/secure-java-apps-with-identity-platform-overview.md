@@ -24,9 +24,9 @@ Each platform has guidance on the following tasks:
 
 - Enable sign-in for your users with Microsoft Entra ID and learn to work with ID tokens.
 - Enable sign-in for your customers with Azure AD B2C. Learn how to integrate with external social identity providers. Learn how to use user flows and custom policies.
-- Enable your web app to acquire an access token to authorize it to call the Microsoft Graph API. You can use the Microsoft Graph API to access extra user details.
-- Enable your web app to acquire an ID token with the roles claim. You can use this token to filter access to routes based on role membership.
-- Enable your web app to acquire an ID token with a groups claim. You can use this token to filter access to routes based on group membership. You also learn how to call Microsoft Graph to handle edge cases where the user is a member of too many groups to fit into an ID token.
+- Enable your app to acquire an access token to authorize it to call the Microsoft Graph API. You can use the Microsoft Graph API to access extra user details.
+- Enable your app to acquire an ID token with the roles claim. You can use this token to filter access to routes based on role membership.
+- Enable your app to acquire an ID token with a groups claim. You can use this token to filter access to routes based on group membership. You also learn how to call Microsoft Graph to handle edge cases where the user is a member of too many groups to fit into an ID token.
 - Deploy your app to the Azure platform.
 
 ## Next steps
@@ -34,10 +34,10 @@ Each platform has guidance on the following tasks:
 To read all the guidance for a particular platform, start with one of the following articles:
 
 - [Secure your Java Spring Boot app](enable-spring-boot-webapp-authentication-entra-id.md)
-- [Secure your Java Tomcat web app](enable-java-tomcat-webapp-authentication-entra-id.md)
-- [Secure your Java JBoss EAP web app](enable-java-jboss-eap-webapp-authentication-entra-id.md)
-- [Secure your Java WebLogic web app](enable-java-weblogic-webapp-authentication-entra-id.md)
-- [Secure your Java WebSphere web app](enable-java-websphere-webapp-authentication-entra-id.md)
+- [Secure your Java Tomcat app](enable-java-tomcat-webapp-authentication-entra-id.md)
+- [Secure your Java JBoss EAP app](enable-java-jboss-eap-webapp-authentication-entra-id.md)
+- [Secure your Java WebLogic app](enable-java-weblogic-webapp-authentication-entra-id.md)
+- [Secure your Java WebSphere app](enable-java-websphere-webapp-authentication-entra-id.md)
 
 ## More information
 
@@ -47,7 +47,7 @@ To learn more about the Microsoft identity platform, see the following articles:
 - [Azure Active Directory B2C](/azure/active-directory-b2c/)
 - [Overview of Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview)
 - [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types)
-- [Understanding Entra ID application consent experiences](/entra/identity-platform/application-consent-experience)
+- [Consent experience for applications in Microsoft Entra ID](/entra/identity-platform/application-consent-experience)
 - [Understand user and admin consent](/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
 - [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals)
 - [Microsoft identity platform best practices and recommendations](/entra/identity-platform/identity-platform-integration-checklist)

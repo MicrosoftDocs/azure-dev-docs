@@ -22,7 +22,7 @@ This article shows you how to deploy a Java WebLogic web app with sign-in by Mic
   - [Secure Java WebLogic apps using groups and group claims](enable-java-weblogic-webapp-authorization-group-entra-id.md)
 - A deployed [Oracle WebLogic Server](https://www.oracle.com/java/weblogic/). For more information, see [Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine).
 
-## prepare the app for deployment
+## Prepare the app for deployment
 
 When you deploy your application to Oracle WebLogic Server, your redirect URL changes to the redirect URL of the app on the Oracle WebLogic Server instance. Use the following steps to change these settings in your properties file:
 
@@ -44,7 +44,7 @@ When you deploy your application to Oracle WebLogic Server, your redirect URL ch
 
 ## Update your Microsoft Entra ID app registration
 
-Because the redirect URI changes to your deployed App on Oracle WebLogic Server, you also need to change the redirect URI in your Microsoft Entra ID App Registration.
+Because the redirect URI changes to your deployed app on Oracle WebLogic Server, you also need to change the redirect URI in your Microsoft Entra ID app registration. Use the following steps to make this change:
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 
@@ -56,6 +56,6 @@ Because the redirect URI changes to your deployed App on Oracle WebLogic Server,
 
 1. In the **Web** - **Redirect URIs** section, select **Add URI**.
 
-1. Fill out the URI of your web app, appending **/auth/redirect** - for example, `http://wls-5b942e9f2a-admindomain.westus.cloudapp.azure.com:7001/testwebapp/auth/redirect`.
+1. Fill out the URI of your web app, appending `/auth/redirect` - for example, `http://wls-5b942e9f2a-admindomain.westus.cloudapp.azure.com:7001/testwebapp/auth/redirect`.
 
 1. Select **Save**.

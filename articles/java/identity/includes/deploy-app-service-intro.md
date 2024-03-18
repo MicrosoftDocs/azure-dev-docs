@@ -3,7 +3,7 @@ ms.author: givermei
 ms.date: 03/11/2024
 ---
 
-- [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)
+- [Maven Plugin for Azure App Service apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)
 
   If Maven isn't your preferred development tool, see the following similar tutorials that use other tools:
 

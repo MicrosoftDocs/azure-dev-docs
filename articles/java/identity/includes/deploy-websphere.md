@@ -37,7 +37,7 @@ You also need to make the same change in the Azure app registration, where you s
 
 1. In the **Web** - **Redirect URIs** section, select **Add URI**.
 
-1. Fill out the URI of your web app, appending **/auth/redirect** - for example, `https://<server-url>:<port-number>/auth/redirect`.
+1. Fill out the URI of your app, appending **/auth/redirect** - for example, `https://<server-url>:<port-number>/auth/redirect`.
 
 1. Select **Save**.
 

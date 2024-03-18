@@ -1,6 +1,6 @@
 ---
 title: Deploy Java Spring Boot apps to Azure Spring Apps
-description: Shows you how to deploy a Java Spring Boot web app with sign-in by Microsoft Entra account to Azure Spring Apps.
+description: Shows you how to deploy a Java Spring Boot app with sign-in by Microsoft Entra account to Azure Spring Apps.
 services: active-directory
 ms.date: 03/11/2024
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Deploy Java Spring Boot apps to Azure Spring Apps
 
-This article shows you how to deploy a Java Spring Boot web app with sign-in by Microsoft Entra account to Azure Spring Apps.
+This article shows you how to deploy a Java Spring Boot app with sign-in by Microsoft Entra account to Azure Spring Apps.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ This article shows you how to deploy a Java Spring Boot web app with sign-in by 
 
 [!INCLUDE [deploy-spring-apps-configure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
 
-## prepare the app for deployment
+## Prepare the app for deployment
 
 [!INCLUDE [deploy-spring-apps-prepare-deploy.md](includes/deploy-spring-apps-prepare-deploy.md)]
 

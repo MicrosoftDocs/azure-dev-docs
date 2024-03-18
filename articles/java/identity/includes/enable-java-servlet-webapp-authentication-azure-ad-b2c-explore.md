@@ -5,36 +5,38 @@ ms.date: 03/11/2024
 
 ## Explore the sample
 
-- Notice the signed-in or signed-out status displayed at the center of the screen.
-- Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app.
-- On the next page, follow the instructions and sign in with an account of your chosen identity provider.
-- Notice that the context-sensitive button now says **Sign out** and displays your username.
-- Select **ID Token Details** to see some of the ID token's decoded claims.
-- You also have the option of editing your profile. Select the link to edit details like your display name, place of residence, and profession.
-- You can also use the button in the corner to sign out.
-- After signing out, navigate to the following URL for the token details page: `http://localhost:8080/ms-identity-b2c-java-servlet-webapp-authentication/auth_token_details`. Here, you can observe how the app displays a `401: unauthorized` error instead of the ID token claims.
+Use the following steps to explore the sample:
+
+1. Notice the signed-in or signed-out status displayed at the center of the screen.
+1. Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app.
+1. On the next page, follow the instructions and sign in with an account of your chosen identity provider.
+1. Notice that the context-sensitive button now says **Sign out** and displays your username.
+1. Select **ID Token Details** to see some of the ID token's decoded claims.
+1. You also have the option of editing your profile. Select the link to edit details like your display name, place of residence, and profession.
+1. Use the button in the corner to sign out.
+1. After signing out, navigate to the following URL for the token details page: `http://localhost:8080/ms-identity-b2c-java-servlet-webapp-authentication/auth_token_details`. Here, you can observe how the app displays a `401: unauthorized` error instead of the ID token claims.
 
 ## Contents
 
-The full code for this sample is available at [https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/1-Authentication/sign-in-b2c](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/1-Authentication/sign-in-b2c). The following table lists the overall parts of this sample:
+The following table shows the contents of the sample project folder:
 
-| File/folder                 | Description                                                                                        |
-|-----------------------------|----------------------------------------------------------------------------------------------------|
-| *AuthHelper.java*           | Helper functions for authentication.                                                               |
-| *Config.java*               | Runs on startup and configures properties reader and logger.                                       |
-| *authentication.properties* | Azure AD and program configuration.                                                                |
-| *AuthenticationFilter.java* | Redirects unauthenticated requests to protected resources to a 401 page.                           |
-| *MsalAuthSession*           | Instantiated with an HttpSession, stores all MSAL related session attributes in session attribute. |
-| *____Servlet.java*          | All of the endpoints available are defined in .java classes ending in ____Servlet.java             |
-| *CHANGELOG.md*              | List of changes to the sample.                                                                     |
-| *CONTRIBUTING.md*           | Guidelines for contributing to the sample.                                                         |
-| *LICENSE*                   | The license for the sample.                                                                        |
+| File/folder                 | Description                                                                                          |
+|-----------------------------|------------------------------------------------------------------------------------------------------|
+| *AuthHelper.java*           | Helper functions for authentication.                                                                 |
+| *Config.java*               | Runs on startup and configures properties reader and logger.                                         |
+| *authentication.properties* | Microsoft Entra ID and program configuration.                                                        |
+| *AuthenticationFilter.java* | Redirects unauthenticated requests to protected resources to a 401 page.                             |
+| *MsalAuthSession*           | Instantiated with an `HttpSession`. Stores all MSAL related session attributes in session attribute. |
+| *____Servlet.java*          | All of the endpoints available are defined in *.java* classes ending in *____Servlet.java*.          |
+| *CHANGELOG.md*              | List of changes to the sample.                                                                       |
+| *CONTRIBUTING.md*           | Guidelines for contributing to the sample.                                                           |
+| *LICENSE*                   | The license for the sample.                                                                          |
 
 ## About the code
 
 This sample demonstrates how to use MSAL4J to sign in users into your Azure AD B2C tenant.
 
-A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file. This object helps craft the Azure AD B2C authorization URL and also helps exchange the authentication token for an access token.
+A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file, as shown in the following example. This object helps craft the Azure AD B2C authorization URL and also helps exchange the authentication token for an access token.
 
 ```java
 IClientSecret secret = ClientCredentialFactory.createFromSecret(SECRET);
@@ -44,11 +46,11 @@ confClientInstance = ConfidentialClientApplication
                      .build();
 ```
 
-The following parameters need to be provided upon instantiation:
+The following parameters are used for instantiation:
 
-- The **Client ID** of the app
-- The **Client Secret**, which is a requirement for Confidential Client Applications
-- The **Azure AD B2C Authority** concatenated with the appropriate **UserFlowPolicy** for sign-up/sign-in or profile-edit or password-reset.
+- The Client ID of the app.
+- The client secret, which is a requirement for Confidential Client Applications.
+- The Azure AD B2C Authority concatenated with the appropriate `UserFlowPolicy` for sign-up, sign-in, profile-edit, or password-reset.
 
 In this sample, these values are read from the *authentication.properties* file using a properties reader in the *Config.java* file.
 

@@ -1,7 +1,7 @@
 ---
 title: Enable sign-in for WebLogic apps using Microsoft Entra ID
 titleSuffix: Azure
-description: Shows you how to develop a Java WebLogic web app that supports sign-in by using a Microsoft Entra account.
+description: Shows you how to develop a Java WebLogic app that supports sign-in by using a Microsoft Entra account.
 services: active-directory
 ms.date: 03/11/2024
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Enable sign-in for Java WebLogic apps using Microsoft Entra ID
 
-This article demonstrates a Java WebLogic web app that signs in users to your Microsoft Entra ID tenant using the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
+This article demonstrates a Java WebLogic app that signs in users to your Microsoft Entra ID tenant using the [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java).
 
 [!INCLUDE [scenario-sign-in-entra.md](includes/scenario-sign-in-entra.md)]
 

@@ -65,7 +65,7 @@ To choose your tenant, use the following steps:
 
 ### Register the app (java-servlet-webapp-groups)
 
-First, register a new web app in the [Azure portal](https://portal.azure.com) by following the instructions in [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
+First, register a new app in the [Azure portal](https://portal.azure.com) by following the instructions in [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
 
 Then, use the following steps to complete the registration:
 
@@ -126,7 +126,7 @@ Use the following steps to configure the app:
 
 1. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID or `clientId` of the `java-servlet-webapp-groups` application copied from the Azure portal.
 
-1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the key you saved during the creation of the `java-servlet-webapp-groups` app, in the Azure portal.
+1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the value you saved during the creation of the `java-servlet-webapp-groups` app, in the Azure portal.
 
 ### Configure security groups
 

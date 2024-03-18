@@ -77,7 +77,7 @@ To register the app, use the following steps:
 
 1. Select **App Registrations** on the navigation pane, then select **New registration**.
 
-1. In the **Register an application page** that appears, enter your application's registration information:
+1. In the **Register an application page** that appears, enter the following application registration information:
 
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-spring-webapp-auth-b2c`.
    - Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
@@ -112,11 +112,11 @@ Use the following steps to configure the app:
 
 1. Open the *src/main/resources/application.yml* file.
 
-1. Find the key `client-id` and replace the existing value with the application ID or `clientId` of the `java-spring-webapp-auth-b2c` application from the Azure portal.
+1. Find the `client-id` property and replace the existing value with the application ID or `clientId` of the `java-spring-webapp-auth-b2c` application from the Azure portal.
 
-1. Find the app key `client-secret` and replace the existing value with the key you saved during the creation of the `java-spring-webapp-auth-b2c` application from the Azure portal.
+1. Find the app key `client-secret` and replace the existing value with the value you saved during the creation of the `java-spring-webapp-auth-b2c` application from the Azure portal.
 
-1. Find the app key `base-uri` and replace the two instances of `fabrikamb2c` with the name of the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
+1. Find the app key `base-uri` and replace the two instances of the value `fabrikamb2c` with the name of the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
 
 1. Find the app key `sign-up-or-sign-in` and replace it with the name of the sign-up/sign-in user-flow policy you created in the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
 
@@ -146,7 +146,7 @@ The following sections show you how to deploy the sample to Azure Spring Apps.
 
 [!INCLUDE [deploy-spring-apps-configure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
 
-### prepare the app for deployment
+### Prepare the app for deployment
 
 [!INCLUDE [deploy-spring-apps-prepare-deploy.md](includes/deploy-spring-apps-prepare-deploy.md)]
 
@@ -184,35 +184,38 @@ To run the sample locally, use the following steps:
 
 ## Explore the sample
 
-- Notice the signed-in or signed-out status displayed at the center of the screen.
-- Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app.
-  - Alternatively, select the link to **token details**. Because this page is protected and requires authentication, you're automatically redirected to the sign-in page.
-- On the next page, follow the instructions and sign in with an account of your chosen identity provider. You can also choose to sign up or sign in to a local account on the B2C tenant using an email address.
-- Upon successful completion of the sign-in flow, you should be redirected to the home page - which shows the **sign in status** - or the **token details** page, depending on which button triggered your sign-in flow.
-- Notice that the context-sensitive button now says **Sign out** and displays your username.
-- If you're on the home page, select **ID Token Details** to see some of the ID token's decoded claims.
-- You can also edit your profile. Select **edit profile** to change details like your display name, place of residence, and profession.
-- You can also use the button in the corner to sign out. The status page reflects the new state.
+Use the following steps to explore the sample:
+
+1. Notice the signed-in or signed-out status displayed at the center of the screen.
+1. Select the context-sensitive button in the corner. This button reads **Sign In** when you first run the app. Alternatively, select the link to **token details**. Because this page is protected and requires authentication, you're automatically redirected to the sign-in page.
+1. On the next page, follow the instructions and sign in with an account of your chosen identity provider. You can also choose to sign up or sign in to a local account on the B2C tenant using an email address.
+1. Upon successful completion of the sign-in flow, you should be redirected to the home page - which shows the **sign in status** - or the **token details** page, depending on which button triggered your sign-in flow.
+1. Notice that the context-sensitive button now says **Sign out** and displays your username.
+1. If you're on the home page, select **ID Token Details** to see some of the ID token's decoded claims.
+1. Edit your profile. Select **edit profile** to change details like your display name, place of residence, and profession.
+1. Use the button in the corner to sign out. The status page reflects the new state.
 
 ## Contents
+
+The following table shows the contents of the sample project folder:
 
 | File/folder                                                                   | Description                                                                               |
 |-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
 | *pom.xml*                                                                     | Application dependencies.                                                                 |
-| *src/main/resources/templates/*                                              | Thymeleaf Templates for UI.                                                               |
-| *src/main/resources/application.yml*                                          | Application and Azure AD Boot Starter Library Configuration.                              |
+| *src/main/resources/templates/*                                               | Thymeleaf Templates for UI.                                                               |
+| *src/main/resources/application.yml*                                          | Application and Microsoft Entra Boot Starter library configuration.                       |
 | *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/* | This directory contains the main application entry point, controller, and config classes. |
 | *.../MsIdentitySpringBootWebappApplication.java*                              | Main class.                                                                               |
 | *.../SampleController.java*                                                   | Controller with endpoint mappings.                                                        |
-| *.../SecurityConfig.java*                                                     | Security Configuration - for example, which routes require authentication.                |
-| *.../Utilities.java*                                                          | Utility Class - for example, filter ID token claims.                                      |
+| *.../SecurityConfig.java*                                                     | Security configuration - for example, which routes require authentication.                |
+| *.../Utilities.java*                                                          | Utility class - for example, filter ID token claims.                                      |
 | *CHANGELOG.md*                                                                | List of changes to the sample.                                                            |
 | *CONTRIBUTING.md*                                                             | Guidelines for contributing to the sample.                                                |
 | *LICENSE*                                                                     | The license for the sample.                                                               |
 
 ## About the code
 
-This sample demonstrates how to use [Azure AD B2C Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory-b2c) to sign in users into your Azure AD tenant. It also makes use of **Spring Oauth2 Client** and **Spring Web** boot starters. It uses claims from **ID Token** obtained from Azure Active Directory to display details of the signed-in user.
+This sample demonstrates how to use [Azure AD B2C Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory-b2c) to sign in users into your Azure AD B2C tenant. The sample also makes use of the Spring Oauth2 Client and Spring Web boot starters. The sample uses claims from the ID token obtained from Azure AD B2C to display the details of the signed-in user.
 
 ### Project initialization
 

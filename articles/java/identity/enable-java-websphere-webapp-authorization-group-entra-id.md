@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Secure Java WebSphere apps using groups and group claims
 
-This article shows you how to create a Java WebSphere web app that signs in users with [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java). The app also restricts access to pages based on Microsoft Entra ID security group membership.
+This article shows you how to create a Java WebSphere app that signs in users with [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java). The app also restricts access to pages based on Microsoft Entra ID security group membership.
 
 [!INCLUDE [scenario-authorization-groups.md](includes/scenario-authorization-groups.md)]
 
