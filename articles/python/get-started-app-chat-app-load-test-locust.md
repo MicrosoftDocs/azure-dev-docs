@@ -36,26 +36,7 @@ Watch the demonstration video to understand more about load testing the chat app
 
 ## Open Load test sample app
 
-The load test is the Python chat app repository:
-* If you deployed the Python chat app, you need to return to that dev container to complete these steps.
-* If you deployed a different language chat app, you need to open the Python dev container for the Python repository. 
-
-#### [Codespaces (recommended)](#tab/github-codespaces)
-
-[GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
-
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)
-
-> [!IMPORTANT]
-> All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
-
-#### [Visual Studio Code](#tab/visual-studio-code)
-
-The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
-
-[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Azure-Samples/azure-search-openai-demo)
-
----
+The load test is in Python chat app repository. You need to return to that dev container to complete these steps.
 
 ## Run the test
 
@@ -90,7 +71,8 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 When you're done with load testing, clean up the resources. The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges. After you delete resource specific to this article, remember to return to the other chat app tutorial and follow the clean up steps.
 
-### Clean up GitHub Codespaces
+Return to the chat app article to [clean up](get-started-app-chat-template.md#clean-up-resources) those resources.
+
 
 ## Get help
 
