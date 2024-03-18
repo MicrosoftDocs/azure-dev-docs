@@ -86,3 +86,12 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
     :::image type="content" source="./media/get-started-app-chat-app-load-test-locust/locust-chart-results.png" alt-text="Screenshot of Locust chart during test run.":::
 
+## Clean up resources
+
+When you're done with load testing, clean up the resources. The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges. After you delete resource specific to this article, remember to return to the other chat app tutorial and follow the clean up steps.
+
+### Clean up GitHub Codespaces
+
+## Get help
+
+If you have trouble using this load tester, log your issue to the [repository's Issues](https://github.com/Azure-samples/azure-search-openai-demo).
