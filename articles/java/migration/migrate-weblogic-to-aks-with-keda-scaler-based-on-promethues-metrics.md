@@ -893,6 +893,8 @@ az group delete --name <ama-resource-group-name> --yes --no-wait
 Continue to explore the following references for more options to build autoscaling solutions and run WLS on Azure:
 
 > [!div class="nextstepaction"]
+> [Scaling options for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-scale)
+> [!div class="nextstepaction"]
 > [Learn more about Oracle WebLogic on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks)
 > [!div class="nextstepaction"]
 > [Approaches for scaling WebLogic clusters in a Kubernetes environment](https://aka.ms/wlsoperator-scaling)
