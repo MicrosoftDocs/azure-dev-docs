@@ -63,7 +63,7 @@ Clone [weblogic-kubernetes-operator](https://github.com/oracle/weblogic-kubernet
 git clone https://github.com/oracle/weblogic-kubernetes-operator.git
 ```
 
-The following is the structure of the application:
+The structure of [testwebapp](https://github.com/oracle/weblogic-kubernetes-operator/tree/main/integration-tests/src/test/resources/apps/testwebapp) shows as following:
 
 ```text
 .
@@ -82,7 +82,7 @@ The following is the structure of the application:
 
 ### Modify sample application
 
-This article uses metric `openSessionsCurrentCount` to scale up and scale down the WLS cluster. By default, the session timeout on WebLogic is 60 minutes.To observe the scaling down capability quickly, here sets a short `timeout`. The following example sets the session timeout with `150` seconds.
+This article uses metric `openSessionsCurrentCount` to scale up and scale down the WLS cluster. By default, the session timeout on WebLogic is 60 minutes.To observe the scaling down capability quickly, here sets a short timeout. The following example specifys the session timeout with 150 seconds using `wls:timeout-secs`.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -100,7 +100,7 @@ This article uses metric `openSessionsCurrentCount` to scale up and scale down t
 </wls:weblogic-web-app>
 ```
 
-Now, you can use the provided script [build-war-app.sh](https://github.com/oracle/weblogic-kubernetes-operator/blob/main/integration-tests/src/test/resources/bash-scripts/build-war-app.sh) to package the application.
+Now, you can use the provided script [build-war-app.sh](https://github.com/oracle/weblogic-kubernetes-operator/blob/main/integration-tests/src/test/resources/bash-scripts/build-war-app.sh) to package the application. The script uses `-s` to specify the source direcotry of the application, `-d` to specify the destination direcroty for WAR file. The following example saves the target WAR file to `/tmp/testwebapp/`
 
 ```bash
 cd weblogic-kubernetes-operator/integration-tests/src/test/resources/bash-scripts
@@ -126,7 +126,10 @@ Use the following steps to create a storage account and container. Some of these
 
 ## Deploy WLS on AKS using Azure Marketplace Offer
 
-In this section, you create WLS cluster on AKS using [Oracle WebLogic Server on AKS](https://aka.ms/wlsaks) offer. You can choose to either enable KEDA using the marketplace offer or install it after the offer deployment.
+In this section, you create WLS cluster on AKS using [Oracle WebLogic Server on AKS](https://aka.ms/wlsaks) offer. This article allows you to enable horizontal autoscaling semi-automatically using the marketplace offer or manually by:
+
+* Selecting tab **Use Horizontal Autoscaling feature of Marketplace Offer** provisions WebLogic Monitoring Exporter, Azure Monitor managed service for Prometheus, and KEDA automatically. After the offer deployment completes, the WLS metrics are exported and saved in Azure Monitor workspace; KEDA is installed with ability to retrieve metrics from the Azure Monitor workspace. Then you apply scaler for your scaling requirement manually.
+* Selecting tab **Enable Horizontal Autoscaling manually** provides step by step guidance to enable WebLogic Monitoring Exporter, Azure Monitor managed service for Prometheus, KEDA and scaler.
 
 > [!NOTE]
 > You can find more information of [Oracle WebLogic Server on AKS](https://aka.ms/wlsaks) offer from:
@@ -200,7 +203,9 @@ Wait until **Running final validation...** successfully completes, then select *
 
 ## Connect to AKS cluster
 
-The following sections require a Linux terminal with `kubectl` installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command. 
+The following sections require a terminal with `kubectl` installed to manage the WLS cluster. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command. 
+
+Follow the steps to connect to AKS cluster.
 
 1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
 1. Select the AKS cluster from resource list. Select button **Connect**, you find the guidance of how to connect the AKS cluster.
@@ -219,7 +224,7 @@ This section shows manual steps to:
 - Export WebLogic metrics using WebLogic Monitoring Exporter.
 - Enable AKS Promethues integration.
 - Configure Promethues to scrape metrics from WLS.
-- Query metrics in Azure Monitor Workspace.
+- Query metrics in the Azure Monitor workspace.
 
 #### Enable WebLogic Monitoring Exporter
 
@@ -490,9 +495,9 @@ Follow the steps to apply scrape configuration.
 
 ---
 
-## Retrive metrics from Azure Monitor workspace
+## Retrive metrics from Azure Monitor Workspace
 
-Now, you're able to query metrics in Azure Monitor Workspace. All data is retrieved from an Azure Monitor workspace by using queries that are written in Prometheus Query Language (PromQL).
+Now, you're able to query metrics in the Azure Monitor workspace. All data is retrieved from an Azure Monitor workspace by using queries that are written in Prometheus Query Language (PromQL).
 
 Follow the steps to input your PromQL.
 
@@ -624,22 +629,22 @@ This article uses KEDA to drive the scaling of WLS container in Kubernetes based
 
 ## Create KEDA scaler
 
-Scalers define how and when KEDA should scale a deployment. This article uses [Prometheus scaler](https://keda.sh/docs/2.10/scalers/prometheus/) to retrieve Prometheus metrics from Azure Monitor Workspace. 
+Scalers define how and when KEDA should scale a deployment. This article uses [Prometheus scaler](https://keda.sh/docs/2.10/scalers/prometheus/) to retrieve Prometheus metrics from the Azure Monitor workspace. 
 
-This article sums `openSessionsCurrentCount` of the sample application `testwebapp` as trigger query. When the total account of  `openSessionsCurrentCount` is more than `10`, scale up the WLS cluster until it reaches the maximum size. Otherwise, scale down the WLS cluster until it reaches its minimum size. The important parameters are set as following:
+This article use `openSessionsCurrentCount` of the sample application `testwebapp` as trigger query. When the average open session account is more than `10`, scale up the WLS cluster until it reaches the maximum replica size. Otherwise, scale down the WLS cluster until it reaches its minimum replica size. The important parameters are set as following:
 
 | Parameter Name | Value |
-|--|--|
+|-------------------|----------------------------------------------------|
 | `serverAddress` |  The Query endpoint of your Azure Monitor workspace. |
 | `metricName` | `webapp_config_open_sessions_current_count` |
 | `query` | `sum(webapp_config_open_sessions_current_count{app="testwebapp"}) ` |
-| `threshold` | `10` |
-| `minReplicaCount` | `1` |
-| `maxReplicaCount` | `5`. The default value is `5`. If you modified the maximum cluster size during offer deployment, replace with your maximum cluster size. |
+| `threshold` | 10 |
+| `minReplicaCount` | 1 |
+| `maxReplicaCount` | The default value is 5. If you modified the maximum cluster size during offer deployment, replace with your maximum cluster size. |
 
 ### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
 
-Enabling KEDA using the marketplace offer, you find a KEDA scaler sample from the deployment output. You can modify the sampe with your desired metircs and create a KEDA scaler.
+After the offer deployment completes, you find a KEDA scaler sample from the deployment output. You can modify the sample on your demand and create a KEDA scaler.
 
 Following the steps to get the output of scaler sample.
 
@@ -691,18 +696,12 @@ Following the steps to get the output of scaler sample.
 
     ```
 
-1. Modify the metric name and query.
+1. Modify the metric name. This article uses total `webapp_config_open_sessions_current_count` as query.
 
     ```yaml
     metricName: webapp_config_open_sessions_current_count
     query: sum(webapp_config_open_sessions_current_count{app="testwebapp"})
     ```
-1. Create the KEDA scaler using *scaler.yaml*
-
-   ```yaml
-   kubectl apply -f scaler.yaml
-   ```
-
 
 ### [Enable Horizontal Autoscaling manually](#tab/manual)
 
@@ -761,13 +760,13 @@ EOF
 
 ---
 
-Create the KEDA scaler using *scaler.yaml*
+Create the KEDA scaler by applying *scaler.yaml*
 
 ```bash
 kubectl apply -f scaler.yaml
 ```
 
-It takes several minutes for KEDA to retrieve metrics from Azure Monitor Workspace. You can watch the scaler status with `kubectl get hpa -n <wls-namespace> -w`.
+It takes several minutes for KEDA to retrieve metrics from the Azure Monitor workspace. You can watch the scaler status with `kubectl get hpa -n <wls-namespace> -w`.
 
 Once the scaler is ready to work, the output looks similar to the following content.
 
@@ -779,7 +778,7 @@ keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/
 
 ## Test autoscaling
 
-Now, you are ready to observe the scaling up and scaling down capability.
+Now, you are ready to observe the scaling up and scaling down capability. This article opens new sessions using `curl` to access the applicatio. Once average account is larger then 10, scaling up action happens. The sessions last for 150s, the open session account decrease as the sessions expire. Once average account is less then 10, scaling down sction happens. Follow the steps to cause scaling up and scaling down actions.
 
 First, obtain the application URL.
 
