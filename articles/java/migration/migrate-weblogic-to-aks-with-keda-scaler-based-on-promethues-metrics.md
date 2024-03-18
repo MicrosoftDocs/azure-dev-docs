@@ -633,7 +633,7 @@ Input your PromQL following steps:
 1. Open the Azure Monitor workspace.
 
     - If you use horizontal autoscaling feature of marketplace offer, the workspace locates at the resource group that created by [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
-    - If you enable horizontal autoscaling manually, the workspace locates at the resource group that created by [Install AKS Prometheus metrics addon](#install-aks-Prometheus-metrics-addon).
+    - If you enable horizontal autoscaling manually, the workspace locates at the resource group that created by [Install AKS Prometheus metrics addon](#install-aks-prometheus-metrics-addon).
 
 1. Select **Managed Prometheus** -> **Prometheus explorer**. 
 1. Input `webapp_config_open_sessions_current_count` to query the current account of open sessions, as the screenshot shows.
