@@ -224,7 +224,6 @@ This section shows manual steps to:
 - Export WebLogic metrics using WebLogic Monitoring Exporter.
 - Enable AKS Promethues integration.
 - Configure Promethues to scrape metrics from WLS.
-- Query metrics in the Azure Monitor workspace.
 
 #### Enable WebLogic Monitoring Exporter
 
@@ -330,9 +329,9 @@ cat <<EOF >patch-file.json
 EOF
 ```
 
-Now, you are ready to apply tha patch file. 
+Now, you are ready to apply tha patch. 
 
-The following example patches domain with *patch-file.json*.
+The following example patches domain with `kubectl patch`.
 
 ```bash
 kubectl -n ${WLS_NAMESPACE} patch domain ${WLS_DOMAIN_UID} \
@@ -340,7 +339,7 @@ kubectl -n ${WLS_NAMESPACE} patch domain ${WLS_DOMAIN_UID} \
     --patch-file patch-file.json
 ```
 
-The patch command causes a rolling update to the WLS cluster. It takes several minutes to complete. 
+The command applys **patch-file.json**, and causes a rolling update to the WLS cluster. It takes several minutes to complete. 
 You can watch the status with command `kubectl -n ${WLS_NAMESPACE} get pod -w`.
 
 Make sure all the pods are running as following before you move on.
@@ -376,11 +375,12 @@ sample-domain1-managed-server2   2/2     Running   0          112s
 >   type: LoadBalancer
 > EOF
 > 
->
-> WME_IP=$(kubectl get svc wls-exporter-cluster-external-lb -n ${WLS_NAMESPACE} -o=jsonpath='{.status.loadBalancer.ingress[*].ip}')
-> echo "Metric address: http://${WME_IP}:8080/metrics"
+> kubectl get svc wls-exporter-cluster-external-lb -n ${WLS_NAMESPACE} -w
 > ```
-> Open the URL from output to access metrics, you will be required to input user name and password. The user name and password is the WLS admin account you set during the offer deployment.
+> 
+> After the load balancer service is ready, write down the value of **EXTERNAL-IP**. You can access the metric wit URL `http://<EXTERNAL-IP>:8080/metrics`.
+> 
+> Open above URL in a web browser, you will be required to input user name and password. The user name and password is the WLS admin account you used in the offer deployment.
 
 ### Install AKS Promethues metrics addon
 
@@ -391,7 +391,7 @@ Run [az monitor account create](/cli/azure/monitor/account) to create the worksp
 ```azurecli
 AMA_RG_NAME="wlsaksamarg20240314"
 AMA_NAME="wlsaksama20240314"
-LOCATION="eastus
+LOCATION="eastus"
 
 # create a resorce group for azure monitor account
 az group create -n ${AMA_RG_NAME} -l ${LOCATION}
@@ -401,17 +401,25 @@ az monitor account create -n ${AMA_NAME} -g ${AMA_RG_NAME}
 
 Enable metrics addon in existing AKS cluster with [az aks update](/cli/azure/aks#az-aks-update). The k8s-extension version 1.4.1 or higher is required. For more information, see [Enable Prometheus](/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=cli#enable-prometheus-and-grafana).
 
-Firstly, open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer). Obtain the AKS cluster name and the resource group name, and fill in the following variables `AKS_CLUSTER_NAME`, `AKS_CLUSTER_RG_NAME`.
-
 ```azurecli
-AKS_CLUSTER_NAME=<your-aks-cluster-name>
-AKS_CLUSTER_RG_NAME=<your-aks-cluster-resource-group>
-
-AMA_ID=$(az monitor account show -n ${AMA_NAME} -g ${AMA_RG_NAME} --query id -otsv)
-
 az extension remove --name aks-preview
 az extension add --name k8s-extension
+```
 
+First, open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer). Obtain the AKS cluster name and the resource group name, and fill in value of variable `AKS_CLUSTER_NAME` and `AKS_CLUSTER_RG_NAME`. 
+
+```bash
+AKS_CLUSTER_NAME=<your-aks-cluster-name>
+AKS_CLUSTER_RG_NAME=<your-aks-cluster-resource-group>
+```
+
+To enable the metrics addon, you've to specify a workspace id. Use `az monitor account show` to obtain the Azure Monitor Account Id.
+
+```azurecli
+AMA_ID=$(az monitor account show -n ${AMA_NAME} -g ${AMA_RG_NAME} --query id -otsv)
+```
+
+```azurecli
 az aks update --enable-azure-monitor-metrics \
     --name ${AKS_CLUSTER_NAME} \
     --resource-group ${AKS_CLUSTER_RG_NAME} \
@@ -446,16 +454,16 @@ Follow the steps to apply scrape configuration.
 
     cat <<EOF >prometheus-config
     global:
-    scrape_interval: 30s
+      scrape_interval: 30s
     scrape_configs:
     - job_name: '${WLS_DOMAIN_UID}'
-    kubernetes_sd_configs:
-    - role: pod
-      namespaces: 
-        names: [${WLS_NAMESPACE}]
-    basic_auth:
-      username: ${WLS_ADMIN_USERNAME}
-      password: ${WLS_ADMIN_PASSWORD}
+      kubernetes_sd_configs:
+      - role: pod
+        namespaces: 
+          names: [${WLS_NAMESPACE}]
+      basic_auth:
+        username: ${WLS_ADMIN_USERNAME}
+        password: ${WLS_ADMIN_PASSWORD}
     EOF
     ```
 
@@ -473,7 +481,7 @@ Follow the steps to apply scrape configuration.
     ./promconfigvalidator --config "./prometheus-config" --otelTemplate "./collector-config-template.yml"
     ```
 
-    You find similar output as following content if the validation passes.
+    If the validation passes, you find similar output as following content.
 
     ```text
     prom-config-validator::Config file provided - ./prometheus-config
