@@ -40,8 +40,13 @@ Watch the demonstration video to understand more about load testing the chat app
     
 ---
 
-* Deployed load balancer with high quota using [Azure Container Apps solution](get-started-app-chat-scaling-with-azure-container-apps.md) with [OPENAI_CAPACITY set to 50](get-started-app-chat-scaling-with-azure-container-apps.md#configure-the-tokens-per-minute-quota-tpm)
-* [Python chat app](/azure/developer/python/get-started-app-chat-template)
+* Deployed OpenAI load balancer with high quota
+    * [Azure Container Apps solution](get-started-app-chat-scaling-with-azure-container-apps.md) with [OPENAI_CAPACITY set to 50](get-started-app-chat-scaling-with-azure-container-apps.md#configure-the-tokens-per-minute-quota-tpm)
+* Chat app deployed to use load balancer
+    * [.NET](/dotnet/azure/ai/get-started-app-chat-template)
+    * [Java](/azure/developer/java/quickstarts/get-started-app-chat-template)
+    * [JavaScript](/azure/developer/javascript/get-started-app-chat-template)
+    * [Python](/azure/developer/python/get-started-app-chat-template)
 
 ## Open Load test sample app
 
@@ -97,7 +102,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ## View load balancer logs
 
-To understand that the load balancer is switching between the three Azure OpenAI resources, use the Azure Container App logs. 
+To see how the load balancer is switching between the three Azure OpenAI resources, use the Azure Container App logs. 
 
 * [View Azure Container Apps logs](get-started-app-chat-scaling-with-azure-container-apps.md#stream-logs-to-see-the-load-balancer-results) 
 
