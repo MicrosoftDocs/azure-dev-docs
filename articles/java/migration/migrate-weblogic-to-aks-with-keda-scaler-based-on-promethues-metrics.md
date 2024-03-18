@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-
 
 # Tutorial: Migrate Oracle WebLogic Server to AKS with KEDA scaler based on Prometheus Metrics
 
-This tutorial shows you how to migrate Oracle WebLogic Server and configure automatic horizontal scaling based on Prometheus Metrics.
+This tutorial shows you how to migrate Oracle WebLogic Server (WLS) to Azure Kubernetes Service (AKS) and configure automatic horizontal scaling based on Prometheus metrics.
 
 In this tutorial, you learn how to:
 
@@ -28,14 +28,14 @@ In this tutorial, you learn how to:
 The following diagram illustrates the architecture you build:
 
 <!-- Diagram source -->
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-aks-autoscaling-architecture.png" alt-text="Diagram of the solution architecture of WLS on AKS with KEDA scaler based on Prometheus Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-aks-autoscaling-architecture.png" border="false":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/weblogic-aks-autoscaling-architecture.png" alt-text="Diagram of the solution architecture of WLS on AKS with KEDA scaler based on Prometheus Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/weblogic-aks-autoscaling-architecture.png" border="false":::
 
 This article uses the WebLogic Monitoring Exporter to scrape WebLogic Server metrics and feed them to Prometheus. The exporter uses the WebLogic Server 12.2.1.x [RESTful Management Interface](https://docs.oracle.com/middleware/1221/wls/WLRUR/overview.htm#WLRUR111) for accessing runtime state and metrics. 
 
-The following WLS state and metrics will be exported by default. You can configure the exporter to export other metrics on your demain. For a detailed description of WebLogic Monitoring Exporter configuration and usage, see [WebLogic Monitoring Exporter](https://blogs.oracle.com/weblogicserver/exporting-metrics-from-weblogic-server).
+The following WLS state and metrics are exported by default. You can configure the exporter to export other metrics on your demain. For a detailed description of WebLogic Monitoring Exporter configuration and usage, see [WebLogic Monitoring Exporter](https://blogs.oracle.com/weblogicserver/exporting-metrics-from-weblogic-server).
 
 <!-- Diagram source -->
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-metrics.png" alt-text="WebLogic Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-metrics.png" border="false":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/weblogic-metrics.png" alt-text="WebLogic Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/weblogic-metrics.png" border="false":::
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ The following WLS state and metrics will be exported by default. You can configu
 * Install Azure CLI version 2.54.0 or higher to run Azure CLI commands.
 * Install and set up [kubectl](/cli/azure/aks#az-aks-install-cli).
 * Install and set up [Git](/devops/develop/git/install-and-set-up-git).
-* Install a Java SE implementation, version 17 or later (for example, [the Microsoft build of OpenJDK](/java/openjdk)). Make sure the command-line `jar` tool is workaboe. Run `jar --help` to test it. 
+* Install a Java SE implementation, version 17 or later (for example, [the Microsoft build of OpenJDK](/java/openjdk)). Make sure the command-line `jar` tool is workable. To test it, run `jar --help`. 
 * Have the credentials for an Oracle single sign-on (SSO) account. To create one, see [Create Your Oracle Account](https://aka.ms/wls-aks-create-sso-account).
 * Accept the license terms for WLS.
   * Visit the [Oracle Container Registry](https://container-registry.oracle.com/) and sign in.
@@ -63,7 +63,7 @@ Clone [weblogic-kubernetes-operator](https://github.com/oracle/weblogic-kubernet
 git clone https://github.com/oracle/weblogic-kubernetes-operator.git
 ```
 
-The structure of [testwebapp](https://github.com/oracle/weblogic-kubernetes-operator/tree/main/integration-tests/src/test/resources/apps/testwebapp) shows as following:
+The structure of [testwebapp](https://github.com/oracle/weblogic-kubernetes-operator/tree/main/integration-tests/src/test/resources/apps/testwebapp) shows as following content:
 
 ```text
 .
@@ -82,7 +82,7 @@ The structure of [testwebapp](https://github.com/oracle/weblogic-kubernetes-oper
 
 ### Modify sample application
 
-This article uses metric `openSessionsCurrentCount` to scale up and scale down the WLS cluster. By default, the session timeout on WebLogic is 60 minutes.To observe the scaling down capability quickly, here sets a short timeout. The following example specifys the session timeout with 150 seconds using `wls:timeout-secs`.
+This article uses metric `openSessionsCurrentCount` to scale up and scale down the WLS cluster. By default, the session timeout on WebLogic is 60 minutes. To observe the scaling down capability quickly, this article sets a short timeout. The following example specifies the session timeout with 150 seconds using `wls:timeout-secs`.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -100,14 +100,14 @@ This article uses metric `openSessionsCurrentCount` to scale up and scale down t
 </wls:weblogic-web-app>
 ```
 
-Now, you can use the provided script [build-war-app.sh](https://github.com/oracle/weblogic-kubernetes-operator/blob/main/integration-tests/src/test/resources/bash-scripts/build-war-app.sh) to package the application. The script uses `-s` to specify the source direcotry of the application, `-d` to specify the destination direcroty of the generated WAR file. The following example saves the target WAR file to `/tmp/testwebapp/`.
+Now, you can use the provided script [build-war-app.sh](https://github.com/oracle/weblogic-kubernetes-operator/blob/main/integration-tests/src/test/resources/bash-scripts/build-war-app.sh) to package the application. The script uses `-s` to specify the source directory of the application, `-d` to specify the destination direcroty of the generated WAR file. The following example saves the target WAR file to `/tmp/testwebapp/`.
 
 ```bash
 cd weblogic-kubernetes-operator/integration-tests/src/test/resources/bash-scripts
 bash build-war-app.sh -s ../apps/testwebapp/ -d /tmp/testwebapp
 ```
 
-After the script finishes without error, you are able to deploy the sample application in */tmp/testwebapp/testwebapp.war* to the WLS cluster.  
+After the script finishes without error, you're able to deploy the sample application in */tmp/testwebapp/testwebapp.war* to the WLS cluster.  
 
 ### Create an Azure Storage account and upload the application
 
@@ -129,7 +129,7 @@ Use the following steps to create a storage account and container. Some of these
 In this section, you create WLS cluster on AKS using [Oracle WebLogic Server on AKS](https://aka.ms/wlsaks) offer. This article allows you to enable horizontal autoscaling semi-automatically using the marketplace offer or manually by:
 
 * Selecting tab **Use Horizontal Autoscaling feature of Marketplace Offer** provisions WebLogic Monitoring Exporter, Azure Monitor managed service for Prometheus, and KEDA automatically. After the offer deployment completes, the WLS metrics are exported and saved in Azure Monitor workspace; KEDA is installed with ability to retrieve metrics from the Azure Monitor workspace. Then you apply scaler for your scaling requirement manually.
-* Selecting tab **Enable Horizontal Autoscaling manually** provides step by step guidance to enable WebLogic Monitoring Exporter, Azure Monitor managed service for Prometheus, KEDA and scaler.
+* Selecting tab **Enable Horizontal Autoscaling manually** provides step by step guidance to enable WebLogic Monitoring Exporter, Azure Monitor managed service for Prometheus, KEDA, and scaler.
 
 > [!NOTE]
 > You can find more information of [Oracle WebLogic Server on AKS](https://aka.ms/wlsaks) offer from:
@@ -140,7 +140,7 @@ First, open [Oracle WebLogic Server on AKS](https://aka.ms/wlsaks) offer in your
 
 The following steps show you how to fill out the Basics pane.
 
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-portal-basis.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS Basics pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-portal-basis.png":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-portal-basis.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS Basics pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-portal-basis.png":::
 
 1. Ensure that the value shown for **Subscription** is the same one that has the roles listed in the prerequisites section.
 1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, *wlsaks-eastus-20240109*.
@@ -150,14 +150,14 @@ The following steps show you how to fill out the Basics pane.
 
 Select **Next** and go to **AKS** pane.
 
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-portal-aks-image-selection.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS pane - Image Selection." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-portal-aks-image-selection.png":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-portal-aks-image-selection.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS pane - Image Selection." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-portal-aks-image-selection.png":::
 
 Under **Image selection**:
 
 1. For **Username for Oracle Single Sign-On authentication**, fill in your Oracle SSO username from the preconditions. 
 1. For **Password for Oracle Single Sign-On authentication**, fill in your Oracle SSO credentials from the preconditions.
 
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-portal-aks-app-selection.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS pane - App Selection." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-portal-aks-app-selection.png":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-portal-aks-app-selection.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS pane - App Selection." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-portal-aks-app-selection.png":::
 
 Under **Application**:
 
@@ -171,7 +171,7 @@ Under **Application**:
 
 Leave the defaults in **TLS/SSL Configuration** pane, select **Next** to go to **Load Balancing** pane.
 
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-portal-appgateway-ingress.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on AKS Load Balancing pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-portal-appgateway-ingress.png":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-portal-appgateway-ingress.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on AKS Load Balancing pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-portal-appgateway-ingress.png":::
 
 1. Next to **Create ingress for Administration Console. Make sure no application with path /console\*, it will cause conflict with Administration Console path**, select **Yes**.
 1. Leave the defaults for the other fields.
@@ -183,7 +183,7 @@ Leave the defaults in **Database** pane, select **Next** to go to **Horizontal A
 
 ### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
 
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-autoscaling.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on AKS Horizontal Autoscaling pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wlsaks-offer-autoscaling.png":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-autoscaling.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on AKS Horizontal Autoscaling pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-autoscaling.png":::
 
 1. Next to **Provision resources for horizontal autoscaling?**, select **Yes**.
 1. Under **Horizontal autoscaling settings**, next to **Select metric source. Autoscaling based on resource metrics from Kubernetes Metrics Server or exporting by WebLogic Monitoring Exporter.**, select **WebLogic Monitor Exporter**.
@@ -222,14 +222,14 @@ This step is already performed for you when you use the offer.
 This section shows manual steps to:
 
 - Export WebLogic metrics using WebLogic Monitoring Exporter.
-- Enable AKS Promethues integration.
-- Configure Promethues to scrape metrics from WLS.
+- Enable AKS Prometheus integration.
+- Configure Prometheus to scrape metrics from WLS.
 
 #### Enable WebLogic Monitoring Exporter
 
 The offer runs a operator-managed WebLogic Server domain in Kubernetes. You can simply add the `monitoringExporter` configuration element in the domain resource to enable the Monitoring Exporter. For more information, see [Monitoring exporter](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/accessing-the-domain/monitoring-exporter/).
 
-The following example patches the WLS domain with the exporter configuration using `kubectl patch`. The exporter image is `ghcr.io/oracle/weblogic-monitoring-exporter:2.1.9`. Here, the domain UID is `sample-domain1`, and the namespace is `sample-domain1-ns`, which were created by the offer with default settings. Replace with yours if you are using different domain UID and namespace.
+The following example patches the WLS domain with the exporter configuration using `kubectl patch`. The exporter image is `ghcr.io/oracle/weblogic-monitoring-exporter:2.1.9`. The offer created a WLS cluster with default settings, with domain UID `sample-domain1`, namespace `sample-domain1-ns`. Replace with yours if you're using different domain UID and namespace.
 
 ```bash
 WME_IMAGE_URL="ghcr.io/oracle/weblogic-monitoring-exporter:2.1.9"
@@ -329,7 +329,7 @@ cat <<EOF >patch-file.json
 EOF
 ```
 
-Now, you are ready to apply tha patch. 
+Now, you're ready to apply the patch. 
 
 The following example patches domain with `kubectl patch`.
 
@@ -380,20 +380,20 @@ sample-domain1-managed-server2   2/2     Running   0          112s
 > 
 > After the load balancer service is ready, write down the value of **EXTERNAL-IP**. You can access the metric wit URL `http://<EXTERNAL-IP>:8080/metrics`.
 > 
-> Open above URL in a web browser, you will be required to input user name and password. The user name and password is the WLS admin account you used in the offer deployment.
+> Open the metric address in a web browser, you will be required to input user name and password. The user name and password is the WLS admin account you used in the offer deployment.
 
-### Install AKS Promethues metrics addon
+### Install AKS Prometheus metrics addon
 
 Before you install the metrics add-on, you need an Azure Monitor Account. For more information, see [Enable monitoring for Kubernetes clusters](/azure/azure-monitor/containers/kubernetes-monitoring-enable).
 
-Run [az monitor account create](/cli/azure/monitor/account) to create the workspace. Replace the resouce group name and azure monitor account name with your desired values. 
+Run [az monitor account create](/cli/azure/monitor/account) to create the workspace. Replace the resource group name and Azure Monitor Account name with your desired values. 
 
 ```azurecli
 AMA_RG_NAME="wlsaksamarg20240314"
 AMA_NAME="wlsaksama20240314"
 LOCATION="eastus"
 
-# create a resorce group for azure monitor account
+# create a resorce group for Azure Monitor Account
 az group create -n ${AMA_RG_NAME} -l ${LOCATION}
 # create azure monitor account
 az monitor account create -n ${AMA_NAME} -g ${AMA_RG_NAME}
@@ -413,7 +413,7 @@ AKS_CLUSTER_NAME=<your-aks-cluster-name>
 AKS_CLUSTER_RG_NAME=<your-aks-cluster-resource-group>
 ```
 
-To enable the metrics addon, you've to specify a workspace id. Use `az monitor account show` to obtain the Azure Monitor Account Id.
+To enable the metrics addon, you've to specify a workspace ID. Use `az monitor account show` to obtain the Azure Monitor Account ID.
 
 ```azurecli
 AMA_ID=$(az monitor account show -n ${AMA_NAME} -g ${AMA_RG_NAME} --query id -otsv)
@@ -426,7 +426,7 @@ az aks update --enable-azure-monitor-metrics \
     --azure-monitor-workspace-resource-id "${AMA_ID}"
 ```
 
-It takes 15 minutes to deploy the metrics addon. Make sure the command completes withour errors.
+It takes 15 minutes to deploy the metrics addon. Make sure the command completes without errors.
 
 > [!NOTE]
 > You can run `kubectl get ds ama-metrics-node --namespace=kube-system` to validate the metrics addon.
@@ -438,15 +438,15 @@ It takes 15 minutes to deploy the metrics addon. Make sure the command completes
 >   ama-metrics-node   3         3         3       3            3           <none>          32m
 > ```
 
-### Configure Promethues to scrape metrics from WLS
+### Configure Prometheus to scrape metrics from WLS
 
-Once the AKS metrics addon enabled, you can configure Promethues to scrape metrics from WLS. For more information, see [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration).
+Once the AKS metrics addon enabled, you can configure Prometheus to scrape metrics from WLS. For more information, see [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration).
 
 Follow the steps to apply scrape configuration.
 
 1. Create Prometheus scrape config file. For more information, see [Create Prometheus configuration file](/azure/azure-monitor/containers/prometheus-metrics-scrape-validate#create-prometheus-configuration-file).
 
-    Promethues requires the WebLogic admin account to sign in WebLogic Monitoring Exporter and access metrics. The WebLogic admin account is set during offer deployment. Fill in `WLS_ADMIN_USERNAME` and `WLS_ADMIN_PASSWORD` with the user name and password. For more details, see [scrape_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
+    Prometheus requires the WebLogic admin account to sign in WebLogic Monitoring Exporter and access metrics. The WebLogic admin account is set during offer deployment. Fill in `WLS_ADMIN_USERNAME` and `WLS_ADMIN_PASSWORD` with the user name and password. For more information, see [scrape_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
 
     ```bash
     WLS_ADMIN_USERNAME="weblogic"
@@ -469,7 +469,7 @@ Follow the steps to apply scrape configuration.
 
 2. Validate the scrape config file. You can find more information of [Prometheus scrape validation](/azure/azure-monitor/containers/prometheus-metrics-scrape-validate#validate-the-scrape-config-file). 
 
-    First, copy **promconfigvalidator** tool from the Azure Monitor metrics addon pod(s).
+    First, copy **promconfigvalidator** tool from the Azure Monitor metrics addon pods.
 
     ```bash
     for podname in $(kubectl get pods -l rsName=ama-metrics -n=kube-system -o json | jq -r '.items[].metadata.name'); do kubectl cp -n=kube-system "${podname}":/opt/promconfigvalidator ./promconfigvalidator;  kubectl cp -n=kube-system "${podname}":/opt/microsoft/otelcollector/collector-config-template.yml ./collector-config-template.yml; chmod 500 promconfigvalidator; done
@@ -499,7 +499,7 @@ Follow the steps to apply scrape configuration.
     This command creates a configmap named `ama-metrics-prometheus-config` in `kube-system` namespace. The Azure Monitor metrics replica pod restarts in 30-60 secs to apply the new config.
 
 > [!NOTE]
-> If you run into problems configuring Promethues scrape, see tips in [Troubleshooting](/azure/azure-monitor/containers/prometheus-metrics-scrape-validate#troubleshooting) to resolve.
+> If you run into problems configuring Prometheus scrape, see tips in [Troubleshooting](/azure/azure-monitor/containers/prometheus-metrics-scrape-validate#troubleshooting) to resolve.
 
 ---
 
@@ -515,7 +515,7 @@ This step is already performed for you when you use the offer.
 
 ### [Enable Horizontal Autoscaling manually](#tab/manual)
 
-This article uses KEDA to drive the scaling of WLS container in Kubernetes based on Promethues metrics. Follow the steps to integrate KEDA with your AKS cluster. To learn more, see [Integrate KEDA with your Azure Kubernetes Service cluster](/azure/azure-monitor/containers/integrate-keda).
+This article uses KEDA to drive the scaling of WLS container in Kubernetes based on Prometheus metrics. Follow the steps to integrate KEDA with your AKS cluster. To learn more, see [Integrate KEDA with your Azure Kubernetes Service cluster](/azure/azure-monitor/containers/integrate-keda).
 
 1. Set up a workload identity.
 
@@ -598,7 +598,7 @@ This article uses KEDA to drive the scaling of WLS container in Kubernetes based
     helm repo update    
     ```
 
-    Obtain tenant id.
+    Obtain tenant ID.
 
     ```azurecli
     TENANT_ID="$(az identity show --resource-group $AKS_CLUSTER_RG_NAME --name $KEDA_IDENTITY_NAME --query 'tenantId' -otsv)"
@@ -624,26 +624,26 @@ This article uses KEDA to drive the scaling of WLS container in Kubernetes based
     ```
 ---
 
-## Retrive metrics from Azure Monitor Workspace
+## Retrieve metrics from Azure Monitor Workspace
 
 Now, you're able to query metrics in the Azure Monitor workspace. All data is retrieved from an Azure Monitor workspace by using queries that are written in Prometheus Query Language (PromQL).
 
-Follow the steps to input your PromQL.
+Input your PromQL following steps:
 
-1. Open the azure monitor workspace.
+1. Open the Azure Monitor workspace.
     - If you use horizontal autoscaling feature of marketplace offer, the workspace locates at the resource group that created by [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
-    - If you enable horizontal autoscaling manually, the workspace locates at the resource group that created by [Install AKS Promethues metrics addon](#install-aks-promethues-metrics-addon).
+    - If you enable horizontal autoscaling manually, the workspace locates at the resource group that created by [Install AKS Prometheus metrics addon](#install-aks-Prometheus-metrics-addon).
 
 1. Select **Managed Prometheus** -> **Prometheus explorer**. 
 1. Input `webapp_config_open_sessions_current_count` to query the current account of open sessions, as the screenshot shows.
 
-    :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/promethues-explorer.png" alt-text="Screenshot of the Azure portal showing the Promethues explorer." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/promethues-explorer.png":::
+    :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/Prometheus-explorer.png" alt-text="Screenshot of the Azure portal showing the Prometheus explorer." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/Prometheus-explorer.png":::
 
 ## Create KEDA scaler
 
 Scalers define how and when KEDA should scale a deployment. This article uses [Prometheus scaler](https://keda.sh/docs/2.10/scalers/prometheus/) to retrieve Prometheus metrics from the Azure Monitor workspace. 
 
-This article use `openSessionsCurrentCount` of the sample application as trigger query. When the average open session account is more than `10`, scale up the WLS cluster until it reaches the maximum replica size. Otherwise, scale down the WLS cluster until it reaches its minimum replica size. The important parameters are set as following:
+This article use `openSessionsCurrentCount` of the sample application as trigger query. When the average open session account is more than `10`, scale up the WLS cluster until it reaches the maximum replica size. Otherwise, scale down the WLS cluster until it reaches its minimum replica size. The table lists important parameters:
 
 | Parameter Name | Value |
 |-------------------|----------------------------------------------------|
@@ -659,7 +659,7 @@ This article use `openSessionsCurrentCount` of the sample application as trigger
 >
 > 1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
 > 1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
-> 1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whoes name starts with **oracle.20210620-wls-on-aks**.
+> 1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whose name starts with **oracle.20210620-wls-on-aks**.
 > 1. The **adminConsoleExternalUrl** value is the fully qualified, public Internet visible link to the WLS admin consolt. Select the copy icon next to the field value to copy the link to your clipboard. 
 > 1. Paste the value to your browser and open WLS admin console. 
 > 1. Log in with WLS admin account, which you wrote down during [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
@@ -674,7 +674,7 @@ Following the steps to get the output of scaler sample.
 
 1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
 1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
-1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whoes name starts with **oracle.20210620-wls-on-aks**.
+1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whose name starts with **oracle.20210620-wls-on-aks**.
 1. The **kedaScalerServerAddress** value is the server address of that saves the WLS metrics. KEDA is able to access and retrieve metric from the address.
 1. The **shellCmdtoOutputKedaScalerSample** value is the base64 string of a scaler sample. Copy the value and run it in your terminal. The command should look similar to the following example:
 
@@ -784,7 +784,7 @@ EOF
 
 ---
 
-Create the KEDA scaler by applying *scaler.yaml*
+Create the KEDA scaler by applying *scaler.yaml*.
 
 ```bash
 kubectl apply -f scaler.yaml
@@ -807,17 +807,17 @@ keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/
 
 ## Test autoscaling
 
-Now, you are ready to observe the scaling up and scaling down capability. This article opens new sessions using `curl` to access the applicatio. Once average account is larger then 10, scaling up action happens. The sessions last for 150s, the open session account decrease as the sessions expire. Once average account is less then 10, scaling down sction happens. Follow the steps to cause scaling up and scaling down actions.
+Now, you are ready to observe the scaling up and scaling down capability. This article opens new sessions using `curl` to access the application. Once average account is larger than 10, scaling up action happens. The sessions last for 150s, the open session account decrease as the sessions expire. Once average account is less than 10, scaling down action happens. Follow the steps to cause scaling up and scaling down actions.
 
 First, obtain the application URL.
 
   1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
   1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
-  1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whoes name starts with **oracle.20210620-wls-on-aks**.
+  1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whose name starts with **oracle.20210620-wls-on-aks**.
   1. The **clusterExternalUrl** value is the fully qualified, public Internet visible link to the sample app deployed in WLS on this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. 
   1. The URL to access `testwebapp.war` is `${clusterExternalUrl}testwebapp`. For example, `http://wlsgw202403-wlsaks0314-domain1.eastus.cloudapp.azure.com/testwebapp/`.
 
-Next, run `curl` command to access the application and cause new sessions. The following example open 22 new sessions. The sessions will be expired after 150s.
+Next, run `curl` command to access the application and cause new sessions. The following example opens 22 new sessions. The sessions will be expired after 150s.
 
   Replace value of **WLS_CLUSTER_EXTERNAL_URL** with yours.
 
@@ -874,7 +874,7 @@ Then, observe the scaler with `kubectl get hpa -n <wls-namespace> -w` and WLS po
 
   The graph in the Azure Monitor workspace looks similar to the screenshot.
 
-  :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wls-autoscaling-graph.png" alt-text="Screenshot of the Azure portal showing the Promethues explorer graph." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wls-autoscaling-graph.png":::
+  :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wls-autoscaling-graph.png" alt-text="Screenshot of the Azure portal showing the Prometheus explorer graph." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wls-autoscaling-graph.png":::
 
 > [!NOTE]
 > In this article, the script opens 22 sessions. The average session account is less then 10 when the replica number reaches 3. The cluster didn't hit the maximum size 5.
