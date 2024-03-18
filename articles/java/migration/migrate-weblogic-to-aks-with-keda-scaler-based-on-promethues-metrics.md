@@ -45,7 +45,7 @@ The following WLS state and metrics are exported by default. You can configure t
 * Install Azure CLI version 2.54.0 or higher to run Azure CLI commands.
 * Install and set up [kubectl](/cli/azure/aks#az-aks-install-cli).
 * Install and set up [Git](/devops/develop/git/install-and-set-up-git).
-* Install a Java SE implementation, version 17 or later (for example, [the Microsoft build of OpenJDK](/java/openjdk)). Make sure the command-line `jar` tool is workable. To test it, run `jar --help`. 
+* Install a Java Standard Edition implementation, version 17 or later (for example, [the Microsoft build of OpenJDK](/java/openjdk)). Make sure the command-line `jar` tool is workable. To test it, run `jar --help`. 
 * Have the credentials for an Oracle single sign-on (SSO) account. To create one, see [Create Your Oracle Account](https://aka.ms/wls-aks-create-sso-account).
 * Accept the license terms for WLS.
   * Visit the [Oracle Container Registry](https://container-registry.oracle.com/) and sign in.
@@ -100,7 +100,7 @@ This article uses metric `openSessionsCurrentCount` to scale up and scale down t
 </wls:weblogic-web-app>
 ```
 
-Now, you can use the provided script [build-war-app.sh](https://github.com/oracle/weblogic-kubernetes-operator/blob/main/integration-tests/src/test/resources/bash-scripts/build-war-app.sh) to package the application. The script uses `-s` to specify the source directory of the application, `-d` to specify the destination direcroty of the generated WAR file. The following example saves the target WAR file to `/tmp/testwebapp/`.
+Now, you can use the provided script [build-war-app.sh](https://github.com/oracle/weblogic-kubernetes-operator/blob/main/integration-tests/src/test/resources/bash-scripts/build-war-app.sh) to package the application. The script uses `-s` to specify the source directory of the application, `-d` to specify the destination directory of the generated WAR file. The following example saves the target WAR file to `/tmp/testwebapp/`.
 
 ```bash
 cd weblogic-kubernetes-operator/integration-tests/src/test/resources/bash-scripts
@@ -227,7 +227,7 @@ This section shows manual steps to:
 
 #### Enable WebLogic Monitoring Exporter
 
-The offer runs a operator-managed WebLogic Server domain in Kubernetes. You can simply add the `monitoringExporter` configuration element in the domain resource to enable the Monitoring Exporter. For more information, see [Monitoring exporter](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/accessing-the-domain/monitoring-exporter/).
+The offer runs an operator-managed WebLogic Server domain in Kubernetes. You can simply add the `monitoringExporter` configuration element in the domain resource to enable the Monitoring Exporter. For more information, see [Monitoring exporter](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/accessing-the-domain/monitoring-exporter/).
 
 The following example patches the WLS domain with the exporter configuration using `kubectl patch`. The exporter image is `ghcr.io/oracle/weblogic-monitoring-exporter:2.1.9`. The offer created a WLS cluster with default settings, with domain UID `sample-domain1`, namespace `sample-domain1-ns`. Replace with yours if you're using different domain UID and namespace.
 
@@ -442,7 +442,7 @@ It takes 15 minutes to deploy the metrics addon. Make sure the command completes
 
 Once the AKS metrics addon enabled, you can configure Prometheus to scrape metrics from WLS. For more information, see [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration).
 
-Follow the steps to apply scrape configuration.
+Apply scrape configuration with steps:
 
 1. Create Prometheus scrape config file. For more information, see [Create Prometheus configuration file](/azure/azure-monitor/containers/prometheus-metrics-scrape-validate#create-prometheus-configuration-file).
 
@@ -505,7 +505,7 @@ Follow the steps to apply scrape configuration.
 
 ## Enable KEDA
 
-Kubernetes Event-driven Autoscaling (KEDA) is a single-purpose and lightweight component that strives to make application autoscaling simple and is a CNCF Graduate project.
+Kubernetes Event-driven Autoscaling (KEDA) is a single-purpose and lightweight component that strives to make application autoscaling simple and is a Cloud Native Computing Foundation Graduate project.
 
 It applies event-driven autoscaling to scale your application to meet demand in a sustainable and cost-efficient manner with scale-to-zero. You can find more information from [What is KEDA?](https://keda.sh/).
 
@@ -526,7 +526,7 @@ This article uses KEDA to drive the scaling of WLS container in Kubernetes based
     az aks show --resource-group $AKS_CLUSTER_RG_NAME --name $AKS_CLUSTER_NAME --query securityProfile.workloadIdentity
     ```
 
-    If they are not set, enable workload identity and oidc-issuer.
+    If they aren't set, enable workload identity and oidc-issuer.
 
     ```azurecli
     az aks update -g $AKS_CLUSTER_RG_NAME -n $AKS_CLUSTER_NAME --enable-workload-identity --enable-oidc-issuer
@@ -631,6 +631,7 @@ Now, you're able to query metrics in the Azure Monitor workspace. All data is re
 Input your PromQL following steps:
 
 1. Open the Azure Monitor workspace.
+
     - If you use horizontal autoscaling feature of marketplace offer, the workspace locates at the resource group that created by [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
     - If you enable horizontal autoscaling manually, the workspace locates at the resource group that created by [Install AKS Prometheus metrics addon](#install-aks-Prometheus-metrics-addon).
 
@@ -807,7 +808,7 @@ keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/
 
 ## Test autoscaling
 
-Now, you are ready to observe the scaling up and scaling down capability. This article opens new sessions using `curl` to access the application. Once average account is larger than 10, scaling up action happens. The sessions last for 150s, the open session account decrease as the sessions expire. Once average account is less than 10, scaling down action happens. Follow the steps to cause scaling up and scaling down actions.
+Now, you're ready to observe the scaling up and scaling down capability. This article opens new sessions using `curl` to access the application. Once average account is larger than 10, scaling up action happens. The sessions last for 150 seconds, the open session account decrease as the sessions expire. Once average account is less than 10, scaling down action happens. Follow the steps to cause scaling up and scaling down actions.
 
 First, obtain the application URL.
 
@@ -817,7 +818,7 @@ First, obtain the application URL.
   1. The **clusterExternalUrl** value is the fully qualified, public Internet visible link to the sample app deployed in WLS on this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. 
   1. The URL to access `testwebapp.war` is `${clusterExternalUrl}testwebapp`. For example, `http://wlsgw202403-wlsaks0314-domain1.eastus.cloudapp.azure.com/testwebapp/`.
 
-Next, run `curl` command to access the application and cause new sessions. The following example opens 22 new sessions. The sessions will be expired after 150s.
+Next, run `curl` command to access the application and cause new sessions. The following example opens 22 new sessions. The sessions will be expired after 150 seconds.
 
   Replace value of **WLS_CLUSTER_EXTERNAL_URL** with yours.
 
@@ -877,7 +878,7 @@ Then, observe the scaler with `kubectl get hpa -n <wls-namespace> -w` and WLS po
   :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wls-autoscaling-graph.png" alt-text="Screenshot of the Azure portal showing the Prometheus explorer graph." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wls-autoscaling-graph.png":::
 
 > [!NOTE]
-> In this article, the script opens 22 sessions. The average session account is less then 10 when the replica number reaches 3. The cluster didn't hit the maximum size 5.
+> In this article, the script opens 22 sessions. The average session account is less than 10 when the replica number reaches 3. The cluster didn't hit the maximum size 5.
 
 ## Clean up resources
 
