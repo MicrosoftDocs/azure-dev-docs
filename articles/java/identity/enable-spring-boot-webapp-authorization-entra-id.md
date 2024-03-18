@@ -194,7 +194,7 @@ To run the sample locally, use the following steps:
 
 1. Open your browser and navigate to `http://localhost:8080`. You should see a screen with the text `You're signed in! Click here to get your ID Token Details`.
 
-:::image type="content" source="media/app.png" alt-text="Screenshot of the sample app.":::
+:::image type="content" source="media/app-spring.png" alt-text="Screenshot of the sample app.":::
 
 ---
 
