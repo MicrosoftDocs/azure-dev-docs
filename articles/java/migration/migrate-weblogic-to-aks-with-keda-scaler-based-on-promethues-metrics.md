@@ -28,14 +28,14 @@ In this tutorial, you learn how to:
 The following diagram illustrates the architecture you build:
 
 <!-- Diagram source -->
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/weblogic-aks-autoscaling-architecture.png" alt-text="Diagram of the solution architecture of WLS on AKS with KEDA scaler based on Prometheus Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/weblogic-aks-autoscaling-architecture.png" border="false":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-aks-autoscaling-architecture.png" alt-text="Diagram of the solution architecture of WLS on AKS with KEDA scaler based on Prometheus Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-aks-autoscaling-architecture.png" border="false":::
 
 This article uses the WebLogic Monitoring Exporter to scrape WebLogic Server metrics and feed them to Prometheus. The exporter uses the WebLogic Server 12.2.1.x [RESTful Management Interface](https://docs.oracle.com/middleware/1221/wls/WLRUR/overview.htm#WLRUR111) for accessing runtime state and metrics. 
 
 The following WLS state and metrics are exported by default. You can configure the exporter to export other metrics on your demain. For a detailed description of WebLogic Monitoring Exporter configuration and usage, see [WebLogic Monitoring Exporter](https://blogs.oracle.com/weblogicserver/exporting-metrics-from-weblogic-server).
 
 <!-- Diagram source -->
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/weblogic-metrics.png" alt-text="WebLogic Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/weblogic-metrics.png" border="false":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-metrics.png" alt-text="WebLogic Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-metrics.png" border="false":::
 
 ## Prerequisites
 
@@ -140,7 +140,7 @@ First, open [Oracle WebLogic Server on AKS](https://aka.ms/wlsaks) offer in your
 
 The following steps show you how to fill out the Basics pane.
 
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-portal-basis.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS Basics pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-portal-basis.png":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-portal-basis.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS Basics pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-portal-basis.png":::
 
 1. Ensure that the value shown for **Subscription** is the same one that has the roles listed in the prerequisites section.
 1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, *wlsaks-eastus-20240109*.
@@ -150,14 +150,14 @@ The following steps show you how to fill out the Basics pane.
 
 Select **Next** and go to **AKS** pane.
 
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-portal-aks-image-selection.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS pane - Image Selection." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-portal-aks-image-selection.png":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-portal-aks-image-selection.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS pane - Image Selection." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-portal-aks-image-selection.png":::
 
 Under **Image selection**:
 
 1. For **Username for Oracle Single Sign-On authentication**, fill in your Oracle SSO username from the preconditions. 
 1. For **Password for Oracle Single Sign-On authentication**, fill in your Oracle SSO credentials from the preconditions.
 
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-portal-aks-app-selection.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS pane - App Selection." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-portal-aks-app-selection.png":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-portal-aks-app-selection.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS pane - App Selection." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-portal-aks-app-selection.png":::
 
 Under **Application**:
 
@@ -171,7 +171,7 @@ Under **Application**:
 
 Leave the defaults in **TLS/SSL Configuration** pane, select **Next** to go to **Load Balancing** pane.
 
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-portal-appgateway-ingress.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on AKS Load Balancing pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-portal-appgateway-ingress.png":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-portal-appgateway-ingress.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on AKS Load Balancing pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-portal-appgateway-ingress.png":::
 
 1. Next to **Create ingress for Administration Console. Make sure no application with path /console\*, it will cause conflict with Administration Console path**, select **Yes**.
 1. Leave the defaults for the other fields.
@@ -183,7 +183,7 @@ Leave the defaults in **Database** pane, select **Next** to go to **Horizontal A
 
 ### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
 
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-autoscaling.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on AKS Horizontal Autoscaling pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wlsaks-offer-autoscaling.png":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-autoscaling.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on AKS Horizontal Autoscaling pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-autoscaling.png":::
 
 1. Next to **Provision resources for horizontal autoscaling?**, select **Yes**.
 1. Under **Horizontal autoscaling settings**, next to **Select metric source. Autoscaling based on resource metrics from Kubernetes Metrics Server or exporting by WebLogic Monitoring Exporter.**, select **WebLogic Monitor Exporter**.
@@ -638,7 +638,7 @@ Input your PromQL following steps:
 1. Select **Managed Prometheus** -> **Prometheus explorer**. 
 1. Input `webapp_config_open_sessions_current_count` to query the current account of open sessions, as the screenshot shows.
 
-    :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/Prometheus-explorer.png" alt-text="Screenshot of the Azure portal showing the Prometheus explorer." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/Prometheus-explorer.png":::
+    :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/Prometheus-explorer.png" alt-text="Screenshot of the Azure portal showing the Prometheus explorer." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/Prometheus-explorer.png":::
 
 ## Create KEDA scaler
 
@@ -875,7 +875,7 @@ Then, observe the scaler with `kubectl get hpa -n <wls-namespace> -w` and WLS po
 
   The graph in the Azure Monitor workspace looks similar to the screenshot.
 
-  :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wls-autoscaling-graph.png" alt-text="Screenshot of the Azure portal showing the Prometheus explorer graph." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-Prometheus-metrics/wls-autoscaling-graph.png":::
+  :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wls-autoscaling-graph.png" alt-text="Screenshot of the Azure portal showing the Prometheus explorer graph." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wls-autoscaling-graph.png":::
 
 > [!NOTE]
 > In this article, the script opens 22 sessions. The average session account is less than 10 when the replica number reaches 3. The cluster didn't hit the maximum size 5.
