@@ -18,8 +18,8 @@ In this tutorial, you learn how to:
 >
 > - What WebLogic application metrics can be exported using WebLogic Monitoring Exporter?
 > - Deploy and run WebLogic applciation on AKS using Azure marketplace offer.
-> - Enable Prometheus Metrics.
-> - Enable Kubernetes Event-driven Autoscaling (KEDA).
+> - Enable Azure Monitor managed service for Prometheus and feed WLS metrics to Azure Monitor workspace.
+> - Integrate Kubernetes Event-driven Autoscaling (KEDA) with AKS cluster.
 > - Create KEDA scaler that is based on Prometheus Metrics.
 > - Validate the scaler configuration.
 
@@ -32,14 +32,26 @@ The following diagram illustrates the architecture you build:
 
 This article uses the WebLogic Monitoring Exporter to scrape WebLogic Server metrics and feed them to Prometheus. The exporter uses the WebLogic Server 12.2.1.x [RESTful Management Interface](https://docs.oracle.com/middleware/1221/wls/WLRUR/overview.htm#WLRUR111) for accessing runtime state and metrics. 
 
-The following WLS state and metrics will be exported. You can configure the exporter to export other metrics on your demain. For a detailed description of WebLogic Monitoring Exporter configuration and usage, see [WebLogic Monitoring Exporter](https://blogs.oracle.com/weblogicserver/exporting-metrics-from-weblogic-server).
+The following WLS state and metrics will be exported by default. You can configure the exporter to export other metrics on your demain. For a detailed description of WebLogic Monitoring Exporter configuration and usage, see [WebLogic Monitoring Exporter](https://blogs.oracle.com/weblogicserver/exporting-metrics-from-weblogic-server).
 
 <!-- Diagram source -->
 :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-metrics.png" alt-text="WebLogic Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/weblogic-metrics.png" border="false":::
 
 ## Prerequisites
 
-- Java Headless Mode. Run `jar --vesion` to test if the headless mode is workable. You can run `apt install openjdk-11-jdk-headless` to install it in Ubuntu.
+* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* Make sure you have either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
+* Prepare a local machine with either Windows, Linux or macOS installed.
+* Install Azure CLI version 2.54.0 or higher to run Azure CLI commands.
+* Install and set up [kubectl](/cli/azure/aks#az-aks-install-cli).
+* Install and set up [Git](/devops/develop/git/install-and-set-up-git).
+* Install a Java SE implementation, version 17 or later (for example, [the Microsoft build of OpenJDK](/java/openjdk)). Make sure the command-line `jar` tool is workaboe. Run `jar --help` to test it. 
+* Have the credentials for an Oracle single sign-on (SSO) account. To create one, see [Create Your Oracle Account](https://aka.ms/wls-aks-create-sso-account).
+* Accept the license terms for WLS.
+  * Visit the [Oracle Container Registry](https://container-registry.oracle.com/) and sign in.
+  * If you have a support entitlement, select **Middleware**, then search for and select **weblogic_cpu**.
+  * If you don't have a support entitlement from Oracle, select **Middleware**, then search for and select **weblogic**.
+  * Accept the license agreement.
 
 ## Prepare sample application
 
@@ -478,9 +490,11 @@ Follow the steps to apply scrape configuration.
 
 ---
 
-## Query metrics in Azure Monitor Workspace
+## Retrive metrics from Azure Monitor workspace
 
-Now, you're able to query metrics in Azure Monitor Workspace with steps:
+Now, you're able to query metrics in Azure Monitor Workspace. All data is retrieved from an Azure Monitor workspace by using queries that are written in Prometheus Query Language (PromQL).
+
+Follow the steps to input your PromQL.
 
 1. Open the azure monitor account.
     - If you use Horizontal Autoscaling feature of Marketplace Offer, the monitor account locates in the resource group that created by [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
