@@ -19,19 +19,22 @@ Watch the demonstration video to understand more about load testing the chat app
 * Access granted to Azure OpenAI in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
 * [Dev containers](https://containers.dev/) are available for both samples, with all dependencies required to complete this article. You can run the dev containers in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
+
+    #### [Codespaces (recommended)](#tab/github-codespaces)
+        
+    * You only need a [GitHub account](https://github.com/login)
+    
+    #### [Visual Studio Code](#tab/visual-studio-code)
+    
+    * [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
+    * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
+    * [Visual Studio Code](https://code.visualstudio.com/) with [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+        
+    ---
+
 * [Python chat app with RAG](get-started-app-chat-template.md) - if you configured your chat app to use one of the load balancing solutions, this article will help you test the load balancing. The load balancing solutions includ [Azure Container Apps](get-started-app-chat-scaling-with-azure-container-apps.md).
 
-#### [Codespaces (recommended)](#tab/github-codespaces)
-    
-* You only need a [GitHub account](https://github.com/login)
 
-#### [Visual Studio Code](#tab/visual-studio-code)
-
-* [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
-* [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-* [Visual Studio Code](https://code.visualstudio.com/) with [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-    
----
 
 
 ## Open Load test sample app
