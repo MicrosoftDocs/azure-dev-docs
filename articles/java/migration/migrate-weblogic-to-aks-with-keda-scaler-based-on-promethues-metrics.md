@@ -446,7 +446,7 @@ Follow the steps to apply scrape configuration.
 
 1. Create Prometheus scrape config file. For more information, see [Create Prometheus configuration file](/azure/azure-monitor/containers/prometheus-metrics-scrape-validate#create-prometheus-configuration-file).
 
-    Promethues requires the WebLogic admin account to sign in WebLogic Monitoring Exporter and access metrics. The WebLogic admin account is set during offer deployment. Fill in `WLS_ADMIN_USERNAME` and `WLS_ADMIN_PASSWORD` with the user name and password. For more details, see `[scrape_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config)`.
+    Promethues requires the WebLogic admin account to sign in WebLogic Monitoring Exporter and access metrics. The WebLogic admin account is set during offer deployment. Fill in `WLS_ADMIN_USERNAME` and `WLS_ADMIN_PASSWORD` with the user name and password. For more details, see [scrape_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
 
     ```bash
     WLS_ADMIN_USERNAME="weblogic"
@@ -504,6 +504,10 @@ Follow the steps to apply scrape configuration.
 ---
 
 ## Enable KEDA
+
+Kubernetes Event-driven Autoscaling (KEDA) is a single-purpose and lightweight component that strives to make application autoscaling simple and is a CNCF Graduate project.
+
+It applies event-driven autoscaling to scale your application to meet demand in a sustainable and cost-efficient manner with scale-to-zero. You can find more information from [What is KEDA?](https://keda.sh/).
 
 ### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
 
@@ -786,14 +790,19 @@ Create the KEDA scaler by applying *scaler.yaml*
 kubectl apply -f scaler.yaml
 ```
 
-It takes several minutes for KEDA to retrieve metrics from the Azure Monitor workspace. You can watch the scaler status with `kubectl get hpa -n <wls-namespace> -w`.
+It takes several minutes for KEDA to retrieve metrics from the Azure Monitor workspace. You can watch the scaler status with:
+
+```bash
+kubectl get hpa -n <wls-namespace> -w
+```
 
 Once the scaler is ready to work, the output looks similar to the following content.
 
 ```text
 $ kubectl get hpa -n sample-domain1-ns -w
-NAME                                       REFERENCE                          TARGETS      MINPODS   MAXPODS   REPLICAS   AGE
-keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)   1         5         2          2m57s
+NAME                                       REFERENCE                          TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   <unknown>/10 (avg)   1         5         0          10s
+keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)           1         5         2          15s
 ```
 
 ## Test autoscaling
@@ -810,12 +819,13 @@ First, obtain the application URL.
 
 Next, run `curl` command to access the application and cause new sessions. The following example open 22 new sessions. The sessions will be expired after 150s.
 
-  Replace value of **APP_URL** with yours.
+  Replace value of **WLS_CLUSTER_EXTERNAL_URL** with yours.
 
   ```bash
   COUNTER=0
   MAXCURL=22
-  APP_URL="http://wlsgw202403-wlsaks0314-domain1.eastus.cloudapp.azure.com/testwebapp/"
+  WLS_CLUSTER_EXTERNAL_URL="http://wlsgw202403-wlsaks0314-domain1.eastus.cloudapp.azure.com/"
+  APP_URL="${WLS_CLUSTER_EXTERNAL_URL}testwebapp/"
 
   while [ $COUNTER -lt $MAXCURL ]; do curl ${APP_URL}; let COUNTER=COUNTER+1; sleep 1;done
   ```
@@ -867,7 +877,7 @@ Then, observe the scaler with `kubectl get hpa -n <wls-namespace> -w` and WLS po
   :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wls-autoscaling-graph.png" alt-text="Screenshot of the Azure portal showing the Promethues explorer graph." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wls-autoscaling-graph.png":::
 
 > [!NOTE]
-> In this article, the script opens 22 sessions. When the replica number is 3, the average session account is less then 10, so the cluster will not hit the maximum size `5`.
+> In this article, the script opens 22 sessions. The average session account is less then 10 when the replica number reaches 3. The cluster didn't hit the maximum size 5.
 
 ## Clean up resources
 
