@@ -417,7 +417,7 @@
 | Spring Cloud Azure Starter Redis | Maven [4.16.0](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-redis/4.16.0/jar/) |  |  |
 | Spring Cloud Azure Starter Storage | Maven [4.3.0](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-storage/4.3.0/jar/)<br>Maven [6.0.0-beta.4](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-storage/6.0.0-beta.4/jar/) |  |  |
 | Spring Cloud Azure Stream Binder Test | Maven [4.0.0-beta.2](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-stream-binder-test/4.0.0-beta.2/jar/) |  |  |
-| Unknown Display Name | Maven [0.17.0-preview01](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-dapr/0.17.0-preview01/jar/) |  |  |
+| Unknown Display Name | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-dapr/1.0.0/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.microprofile/azure-microprofile-bom/1.0.0-beta.2/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.microprofile/azure-microprofile-config-keyvault/1.0.0-beta.2/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.microprofile/azure-microprofile-parent/1.0.0-beta.2/jar/) |  |  |

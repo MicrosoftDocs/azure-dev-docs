@@ -1,13 +1,13 @@
 ---
 ms.custom: overview, devx-track-python
 ms.topic: include
-ms.date: 03/08/2024
+ms.date: 01/31/2024
 ms.author: diberry
 author: diberry
 ms.service: azure
 ---
 
-## Open Container apps local balancer sample app
+## Open Azure API Management local balancer sample app
 
 #### [Codespaces (recommended)](#tab/github-codespaces)
 
@@ -28,7 +28,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ---
 
-## Deploy Azure Container Apps load balancer
+## Deploy Azure API Management load balancer
 
 
 1. To deploy the load balancer to Azure, sign in to Azure Developer CLI (AZD).
@@ -46,6 +46,13 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
     You'll need to select a subscription and region for the deployment. These don't have to be the same subscription and region as the chat app. 
 
-1. Wait for the deployment to complete before continuing.
+1. Wait for the deployment to complete before continuing. This may take up to 30 minutes. 
 
-1. Get the URL at the end of the deployment named **Endpoint**. This is the `CONTAINER_APP_URL` used in the next section.
+## Get load balancer endpoint
+
+Run the following bash command to see the environment variables from the deployment. You need this information later.
+
+```bash
+azd env get-values | grep APIM_GATEWAY_URL
+```
+
