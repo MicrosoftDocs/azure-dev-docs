@@ -100,7 +100,7 @@ This article uses metric `openSessionsCurrentCount` to scale up and scale down t
 </wls:weblogic-web-app>
 ```
 
-Now, you can use the provided script [build-war-app.sh](https://github.com/oracle/weblogic-kubernetes-operator/blob/main/integration-tests/src/test/resources/bash-scripts/build-war-app.sh) to package the application. The script uses `-s` to specify the source direcotry of the application, `-d` to specify the destination direcroty for WAR file. The following example saves the target WAR file to `/tmp/testwebapp/`
+Now, you can use the provided script [build-war-app.sh](https://github.com/oracle/weblogic-kubernetes-operator/blob/main/integration-tests/src/test/resources/bash-scripts/build-war-app.sh) to package the application. The script uses `-s` to specify the source direcotry of the application, `-d` to specify the destination direcroty of the generated WAR file. The following example saves the target WAR file to `/tmp/testwebapp/`.
 
 ```bash
 cd weblogic-kubernetes-operator/integration-tests/src/test/resources/bash-scripts
@@ -495,21 +495,6 @@ Follow the steps to apply scrape configuration.
 
 ---
 
-## Retrive metrics from Azure Monitor Workspace
-
-Now, you're able to query metrics in the Azure Monitor workspace. All data is retrieved from an Azure Monitor workspace by using queries that are written in Prometheus Query Language (PromQL).
-
-Follow the steps to input your PromQL.
-
-1. Open the azure monitor account.
-    - If you use Horizontal Autoscaling feature of Marketplace Offer, the monitor account locates in the resource group that created by [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
-    - If you enable Horizontal Autoscaling manually, the monitor account locates in the resource group that created by [Install AKS Promethues metrics addon](#install-aks-promethues-metrics-addon).
-
-1. Select **Managed Prometheus** -> **Prometheus explorer**. 
-1. Input `webapp_config_open_sessions_current_count` to query the current account of open sessions, as the screenshot shows.
-
-    :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/promethues-explorer.png" alt-text="Screenshot of the Azure portal showing the Promethues explorer." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/promethues-explorer.png":::
-
 ## Enable KEDA
 
 ### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
@@ -627,17 +612,42 @@ This article uses KEDA to drive the scaling of WLS container in Kubernetes based
     ```
 ---
 
+## Retrive metrics from Azure Monitor Workspace
+
+Now, you're able to query metrics in the Azure Monitor workspace. All data is retrieved from an Azure Monitor workspace by using queries that are written in Prometheus Query Language (PromQL).
+
+Follow the steps to input your PromQL.
+
+1. Open the azure monitor workspace.
+    - If you use horizontal autoscaling feature of marketplace offer, the workspace locates at the resource group that created by [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
+    - If you enable horizontal autoscaling manually, the workspace locates at the resource group that created by [Install AKS Promethues metrics addon](#install-aks-promethues-metrics-addon).
+
+1. Select **Managed Prometheus** -> **Prometheus explorer**. 
+1. Input `webapp_config_open_sessions_current_count` to query the current account of open sessions, as the screenshot shows.
+
+    :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/promethues-explorer.png" alt-text="Screenshot of the Azure portal showing the Promethues explorer." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/promethues-explorer.png":::
+
 ## Create KEDA scaler
 
 Scalers define how and when KEDA should scale a deployment. This article uses [Prometheus scaler](https://keda.sh/docs/2.10/scalers/prometheus/) to retrieve Prometheus metrics from the Azure Monitor workspace. 
 
-This article use `openSessionsCurrentCount` of the sample application `testwebapp` as trigger query. When the average open session account is more than `10`, scale up the WLS cluster until it reaches the maximum replica size. Otherwise, scale down the WLS cluster until it reaches its minimum replica size. The important parameters are set as following:
+The offer deploys *testwebapp.war* with name `app1`. You can access the WLS admin console to obtain the application name. 
+
+  1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
+  1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
+  1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whoes name starts with **oracle.20210620-wls-on-aks**.
+  1. The **adminConsoleExternalUrl** value is the fully qualified, public Internet visible link to the WLS admin consolt. Select the copy icon next to the field value to copy the link to your clipboard. 
+  1. Paste the value to your browser and open WLS admin console. Log in with WLS admin account, which you wrote down during [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
+    * Under **Domain Structure**, select **Deployments**. You find **app1** listed. 
+    * Select **app1**, the **Name** of the application is `app1`. Use `app1` as application name in the query.
+
+This article use `openSessionsCurrentCount` of the sample application as trigger query. When the average open session account is more than `10`, scale up the WLS cluster until it reaches the maximum replica size. Otherwise, scale down the WLS cluster until it reaches its minimum replica size. The important parameters are set as following:
 
 | Parameter Name | Value |
 |-------------------|----------------------------------------------------|
 | `serverAddress` |  The Query endpoint of your Azure Monitor workspace. |
 | `metricName` | `webapp_config_open_sessions_current_count` |
-| `query` | `sum(webapp_config_open_sessions_current_count{app="testwebapp"}) ` |
+| `query` | `sum(webapp_config_open_sessions_current_count{app="app1"}) ` |
 | `threshold` | 10 |
 | `minReplicaCount` | 1 |
 | `maxReplicaCount` | The default value is 5. If you modified the maximum cluster size during offer deployment, replace with your maximum cluster size. |
@@ -648,10 +658,10 @@ After the offer deployment completes, you find a KEDA scaler sample from the dep
 
 Following the steps to get the output of scaler sample.
 
-1. In the corner of any Azure portal page, select the hamburger menu and select **Resource groups**.
-1. In the box with the text Filter for any field, enter the first few characters of the resource group you created previously. If you followed the recommended convention, enter your initials, then select the appropriate resource group.
+1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
 1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
 1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whoes name starts with **oracle.20210620-wls-on-aks**.
+1. The **kedaScalerServerAddress** value is the server address of that saves the WLS metrics. KEDA is able to access and retrieve metric from the address.
 1. The **shellCmdtoOutputKedaScalerSample** value is the base64 string of a scaler sample. Copy the value and run it in your terminal. The command should look similar to the following example:
 
     ```bash
@@ -700,7 +710,7 @@ Following the steps to get the output of scaler sample.
 
     ```yaml
     metricName: webapp_config_open_sessions_current_count
-    query: sum(webapp_config_open_sessions_current_count{app="testwebapp"})
+    query: sum(webapp_config_open_sessions_current_count{app="app1"})
     ```
 
 ### [Enable Horizontal Autoscaling manually](#tab/manual)
@@ -750,7 +760,7 @@ spec:
     metadata:
       serverAddress: ${SERVER_ADDRESS}
       metricName: webapp_config_open_sessions_current_count
-      query: sum(webapp_config_open_sessions_current_count{app="testwebapp"})
+      query: sum(webapp_config_open_sessions_current_count{app="app1"})
       threshold: '10'
       activationThreshold: '1'
     authenticationRef:
@@ -841,7 +851,7 @@ Then, observe the scaler with `kubectl get hpa -n <wls-namespace> -w` and WLS po
   sample-domain1-managed-server1   2/2     Running             0          28h
   ```
 
-  The graph in Azure Monitor Workspace looks similar to the screenshot.
+  The graph in the Azure Monitor workspace looks similar to the screenshot.
 
   :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wls-autoscaling-graph.png" alt-text="Screenshot of the Azure portal showing the Promethues explorer graph." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wls-autoscaling-graph.png":::
 
