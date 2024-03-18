@@ -115,7 +115,7 @@ In this sample, these values are read from the *authentication.properties* file 
 
 ### Protect the routes
 
-For information about how the sample app filters access to routes, see *AuthenticationFilter.java*. In the *authentication.properties* file, the key `app.protect.authenticated` contains the comma-separated routes that only authenticated users can access.
+For information about how the sample app filters access to routes, see *AuthenticationFilter.java*. In the *authentication.properties* file, the `app.protect.authenticated` property contains the comma-separated routes that only authenticated users can access.
 
 ```ini
 # for example, /token_details requires any user to be signed in and does not require special roles claim(s)

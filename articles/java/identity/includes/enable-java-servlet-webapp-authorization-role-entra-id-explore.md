@@ -130,7 +130,7 @@ In this sample, these values are read from the *authentication.properties* file 
 
 ### Protect the routes
 
-For information about how the sample app filters access to routes, see *AuthenticationFilter.java*. In the *authentication.properties* file, the key `app.protect.authenticated` contains the comma-separated routes that only authenticated users can access.
+For information about how the sample app filters access to routes, see *AuthenticationFilter.java*. In the *authentication.properties* file, the `app.protect.authenticated` property contains the comma-separated routes that only authenticated users can access.
 
 ```ini
 # for example, /token_details requires any user to be signed in and does not require special roles claim(s)
@@ -162,7 +162,6 @@ app.protect.roles=/admin_only admin, /regular_user admin user
 - [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - [Microsoft identity platform](/entra/identity-platform/)
 - [Quickstart: Register an application with the Microsoft identity platform (Preview)](/entra/identity-platform/quickstart-register-app)
-
 - [Understanding Microsoft Entra ID application consent experiences](/entra/identity-platform/application-consent-experience)
 - [Understand user and admin consent](/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
 - [MSAL code samples](/entra/identity-platform/sample-v2-code?tabs=framework#java)

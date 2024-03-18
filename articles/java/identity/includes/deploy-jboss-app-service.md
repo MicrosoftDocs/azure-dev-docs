@@ -3,6 +3,8 @@ ms.author: givermei
 ms.date: 03/11/2024
 ---
 
+## Run the sample
+
 ### [Deploy to Azure App Service](#tab/appsvc)
 
 The following sections show you how to deploy the sample to Azure App Service.
@@ -33,7 +35,7 @@ The following sections show you how to deploy the sample to Azure App Service.
 
 Before you can deploy to JBoss, use the following steps to make some configuration changes in the sample itself, and then build or rebuild the package:
 
-1. In the sample, find the *application.properties* or *authentication.properties* file where you configured the client ID, tenant, redirect URL, and so on. 
+1. In the sample, find the *application.properties* or *authentication.properties* file where you configured the client ID, tenant, redirect URL, and so on.
 
 1. In this file, change references to `localhost:8080` or `localhost:8443` to the URL and port that JBoss runs on, which by default should be `localhost:9990`.
 

@@ -41,6 +41,8 @@ The following table shows the contents of the sample project folder:
 
 ## Process a groups claim in tokens, including handling overage
 
+The following sections describe how to process a groups claim.
+
 ### The groups claim
 
 The object ID of the security groups the signed-in user is member of is returned in the groups claim of the token.
@@ -186,7 +188,7 @@ In this sample, these values are read from the *authentication.properties* file 
 
 ### Protect the routes
 
-See *AuthenticationFilter.java* to see how the sample app filters access to routes. In the *authentication.properties* file, the key `app.protect.authenticated` contains the comma-separated routes that only authenticated users can access, as shown in the following example:
+See *AuthenticationFilter.java* to see how the sample app filters access to routes. In the *authentication.properties* file, the `app.protect.authenticated` property contains the comma-separated routes that only authenticated users can access, as shown in the following example:
 
 ```ini
 # for example, /token_details requires any user to be signed in and does not require special groups claim
@@ -198,7 +200,7 @@ Any of the routes listed in the comma-separated rule sets under the `app.protect
 However, these routes also contain a space-separated list of group memberships: only users belonging to at least one of the corresponding groups can access these routes after authenticating.
 
 ```ini
-# define short names for group IDs here for the app. This is useful in the next key (app.protect.groups).
+# define short names for group IDs here for the app. This is useful in the next property (app.protect.groups).
 # EXCLUDE the curly braces, they are in this file only as delimiters.
 # example:
 # app.groups=groupA abcdef-qrstuvw-xyz groupB abcdef-qrstuv-wxyz
@@ -222,7 +224,6 @@ app.protect.groups=/admin_only admin, /regular_user admin user
 - [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - [Microsoft identity platform (Microsoft Entra ID for developers)](/entra/identity-platform/)
 - [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app)
-
 - [Understanding Microsoft Entra ID application consent experiences](/entra/identity-platform/application-consent-experience)
 - [Understand user and admin consent](/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
 - [MSAL code samples](/entra/identity-platform/sample-v2-code?tabs=framework#java)

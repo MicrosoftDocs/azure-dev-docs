@@ -87,23 +87,23 @@ Then, use the following steps to complete the registration:
 
 1. Select **Register** to create the application.
 
-1. In the app's registration screen, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
+1. On the app's registration page, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
 
 1. Select **Save** to save your changes.
 
-1. In the app's registration screen, select **Certificates & secrets** on the navigation pane to open the page where you can generate secrets and upload certificates.
+1. On the app's registration page, select **Certificates & secrets** on the navigation pane to open the page where you can generate secrets and upload certificates.
 
 1. In the **Client secrets** section, select **New client secret**.
 
-1. Type a key description - for example, *app secret*.
+1. Type a description - for example, *app secret*.
 
-1. Select one of the available key durations: **In 1 year**, **In 2 years**, or **Never Expires**.
+1. Select one of the available durations: **In 1 year**, **In 2 years**, or **Never Expires**.
 
-1. Select **Add**. The generated key value is displayed.
+1. Select **Add**. The generated value is displayed.
 
-1. Copy and save the generated value for use in later steps. You need this key for your code's configuration files. This key value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
+1. Copy and save the generated value for use in later steps. You need this value for your code's configuration files. This value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
 
-1. In the app's registration screen, select **API permissions** from the navigation pane to open the page to add access to the APIs that your application needs.
+1. On the app's registration page, select **API permissions** from the navigation pane to open the page to add access to the APIs that your application needs.
 
 1. Select **Add permissions**.
 
@@ -139,9 +139,11 @@ Use the following steps to configure the app:
 
 ## Run the sample
 
-### Build the .war file using Maven
+The following sections describe how to run the sample.
 
-To build the *.war* file, navigate to the directory containing the *pom.xml* file for the sample, and then run the following Maven command:
+## Build the sample
+
+To build the sample using Maven, navigate to the directory containing the *pom.xml* file for the sample, and then run the following command:
 
 ```bash
 mvn clean package

@@ -81,23 +81,23 @@ Then, use the following steps to complete the registration:
 
 1. Select **Register** to create the application.
 
-1. In the app's registration screen, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
+1. On the app's registration page, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
 
 1. Select **Save** to save your changes.
 
-1. In the app's registration screen, select **Certificates & secrets** on the navigation pane to open the page where you can generate secrets and upload certificates.
+1. On the app's registration page, select **Certificates & secrets** on the navigation pane to open the page where you can generate secrets and upload certificates.
 
 1. In the **Client secrets** section, select **New client secret**.
 
-1. Type a key description - for example, *app secret*.
+1. Type a description - for example, *app secret*.
 
-1. Select one of the available key durations: **In 1 year**, **In 2 years**, or **Never Expires**.
+1. Select one of the available durations: **In 1 year**, **In 2 years**, or **Never Expires**.
 
-1. Select **Add**. The generated key value is displayed.
+1. Select **Add**. The generated value is displayed.
 
-1. Copy and save the generated value for use in later steps. You need this key for your code's configuration files. This key value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
+1. Copy and save the generated value for use in later steps. You need this value for your code's configuration files. This value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
 
-1. In the app's registration screen, select **API permissions** from the navigation pane to open the page to add access to the APIs that your application needs.
+1. On the app's registration page, select **API permissions** from the navigation pane to open the page to add access to the APIs that your application needs.
 
 1. Select **Add a permission**.
 
@@ -143,7 +143,7 @@ You have the following options available on how you can further configure your a
 
 To configure your application, use the following steps:
 
-1. In the app's registration screen, select **Token Configuration** on the navigation pane to open the page where you can configure the claims provided tokens issued to your application.
+1. On the app's registration page, select **Token Configuration** on the navigation pane to open the page where you can configure the claims provided tokens issued to your application.
 
 1. Select **Add groups claim** to open the **Edit Groups Claim** screen.
 
@@ -167,7 +167,7 @@ This feature isn't available in the [Microsoft Entra ID Free edition](https://ww
 
 To enable this option in your app, use the following steps:
 
-1. In the app's registration screen, select **Token Configuration** on the navigation pane to open the page where you can configure the claims provided tokens issued to your application.
+1. On the app's registration page, select **Token Configuration** on the navigation pane to open the page where you can configure the claims provided tokens issued to your application.
 
 1. Select **Add groups claim** to open the **Edit Groups Claim** screen.
 
@@ -179,7 +179,9 @@ To enable this option in your app, use the following steps:
 
 1. If you're exposing a web API using the **Expose an API** option, then you can also choose the **Group ID** option under the **Access** section. This option results in Microsoft Entra ID sending the [object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [access token](/entra/identity-platform/access-tokens).
 
-1. In the app's registration screen, select **Overview** on the navigation pane to open the application overview screen. Select the hyperlink with the name of your application in **Managed application in local directory**. This field title might be truncated - for instance `Managed application in ...`. When you select this link, you navigate to the **Enterprise Application Overview** page associated with the service principal for your application in the tenant where you created it. You can navigate back to the app registration page by using the back button of your browser.
+1. On the app's registration page, select **Overview** on the navigation pane to open the application overview screen.
+
+1. Select the hyperlink with the name of your application in **Managed application in local directory**. This field title might be truncated - for instance `Managed application in ...`. When you select this link, you navigate to the **Enterprise Application Overview** page associated with the service principal for your application in the tenant where you created it. You can navigate back to the app registration page by using the back button of your browser.
 
 1. Select **Users and groups** on the navigation pane to open the page where you can assign users and groups to your application.
 
@@ -215,9 +217,11 @@ Use the following steps to configure the app:
 
 ## Run the sample
 
-### Build the .war file using Maven
+The following sections describe how to run the sample.
 
-To build the *.war* file, navigate to the directory containing the *pom.xml* file for the sample, and then run the following Maven command:
+## Build the sample
+
+To build the sample using Maven, navigate to the directory containing the *pom.xml* file for the sample, and then run the following command:
 
 ```bash
 mvn clean package

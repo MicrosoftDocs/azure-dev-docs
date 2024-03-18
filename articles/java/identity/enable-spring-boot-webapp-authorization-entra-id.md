@@ -103,31 +103,33 @@ To register the app, use the following steps:
 
 1. Select **Register** to create the application.
 
-1. In the app's registration screen, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
+1. On the app's registration page, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
 
-1. In the app's registration screen, select **Certificates & secrets** on the navigation pane to open the page where you can generate secrets and upload certificates.
+1. On the app's registration page, select **Certificates & secrets** on the navigation pane to open the page where you can generate secrets and upload certificates.
 
 1. In the **Client secrets** section, select **New client secret**.
 
-1. Type a key description - for example, *app secret*.
+1. Type a description - for example, *app secret*.
 
-1. Select one of the available key durations: **In 1 year**, **In 2 years**, or **Never Expires**.
+1. Select one of the available durations: **In 1 year**, **In 2 years**, or **Never Expires**.
 
-1. Select **Add**. The generated key value is displayed.
+1. Select **Add**. The generated value is displayed.
 
-1. Copy and save the generated value for use in later steps. You need this key for your code's configuration files. This key value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
+1. Copy and save the generated value for use in later steps. You need this value for your code's configuration files. This value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
 
-1. In the app's registration screen, select the **API permissions** pane on the navigation pane to open the page for access to the APIs that your application needs.
+1. On the app's registration page, select the **API permissions** pane on the navigation pane to open the page for access to the APIs that your application needs.
 
-   - Select **Add permissions** and then,
-   - Ensure that the **Microsoft APIs** tab is selected.
-   - In the **Commonly used Microsoft APIs** section, select **Microsoft Graph**.
-   - In the **Delegated permissions** section, select the **User.Read** in the list. Use the search box if necessary.
-   - Select **Add permissions**.
+1. Select **Add permissions**, and then ensure that the **Microsoft APIs** tab is selected.
+
+1. In the **Commonly used Microsoft APIs** section, select **Microsoft Graph**.
+
+1. In the **Delegated permissions** section, select the **User.Read** in the list. Use the search box if necessary.
+
+1. Select **Add permissions**.
 
 ---
 
-#### Configure the app (java-spring-webapp-call-graph) to use your app registration
+### Configure the app (java-spring-webapp-call-graph) to use your app registration
 
 Use the following steps to configure the app:
 
@@ -138,11 +140,11 @@ Use the following steps to configure the app:
 
 1. Open the *src\main\resources\application.yml* file.
 
-1. find the placeholder `Enter_Your_Tenant_ID_Here` and replace the existing value with your Microsoft Entra tenant ID.
+1. Find the placeholder `Enter_Your_Tenant_ID_Here` and replace the existing value with your Microsoft Entra tenant ID.
 
-1. find the placeholder `Enter_Your_Client_ID_Here` and replace the existing value with the application ID or `clientId` of the `java-spring-webapp-call-graph` app copied from the Azure portal.
+1. Find the placeholder `Enter_Your_Client_ID_Here` and replace the existing value with the application ID or `clientId` of the `java-spring-webapp-call-graph` app copied from the Azure portal.
 
-1. find the placeholder `Enter_Your_Client_Secret_Here` and replace the existing value with the value you saved during the creation of `java-spring-webapp-call-graph` copied from the Azure portal.
+1. Find the placeholder `Enter_Your_Client_Secret_Here` and replace the existing value with the value you saved during the creation of `java-spring-webapp-call-graph` copied from the Azure portal.
 
 ## Run the sample
 
@@ -344,9 +346,7 @@ authorization-clients:
 
 [Scopes](/entra/identity-platform/scopes-oidc) tell Microsoft Entra ID the level of access that the application is requesting. For the Microsoft Graph scopes requested by this application, see *application.yml*.
 
-- By default, this application sets the scopes value to `https://graph.microsoft.com/User.Read`.
-- The `User.Read` scope is for accessing the information of the current signed-in user from the [/me endpoint](https://graph.microsoft.com/v1.0/me).
-- Valid requests to the [/me endpoint](https://graph.microsoft.com/v1.0/me) must contain the `User.Read` scope.
+By default, this application sets the scopes value to `https://graph.microsoft.com/User.Read`. The `User.Read` scope is for accessing the information of the current signed-in user from the [/me endpoint](https://graph.microsoft.com/v1.0/me). Valid requests to the [/me endpoint](https://graph.microsoft.com/v1.0/me) must contain the `User.Read` scope.
 
 When a user signs in, Microsoft Entra ID presents a consent dialogue to the user based on the scopes requested by the application. If the user consents to one or more scopes and obtains a token, the scopes-consented-to are encoded into the resulting access token.
 

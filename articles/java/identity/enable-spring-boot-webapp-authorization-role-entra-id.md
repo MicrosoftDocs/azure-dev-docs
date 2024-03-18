@@ -123,19 +123,19 @@ To register the app, use the following steps:
 
 1. Select **Register** to create the application.
 
-1. In the app's registration screen, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
+1. On the app's registration page, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
 
-1. In the app's registration screen, select **Certificates & secrets** on the navigation pane to open the page where you can generate secrets and upload certificates.
+1. On the app's registration page, select **Certificates & secrets** on the navigation pane to open the page where you can generate secrets and upload certificates.
 
 1. In the **Client secrets** section, select **New client secret**.
 
-1. Type a key description - for example, *app secret*.
+1. Type a description - for example, *app secret*.
 
-1. Select one of the available key durations: **In 1 year**, **In 2 years**, or **Never Expires**.
+1. Select one of the available durations: **In 1 year**, **In 2 years**, or **Never Expires**.
 
-1. Select **Add**. The generated key value is displayed.
+1. Select **Add**. The generated value is displayed.
 
-1. Copy and save the generated value for use in later steps. You need this key for your code's configuration files. This key value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
+1. Copy and save the generated value for use in later steps. You need this value for your code's configuration files. This value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
 
 #### Define the app roles
 
@@ -165,7 +165,7 @@ To add users to the app role defined earlier, follow the guidelines here: [Assig
 
 ---
 
-#### Configure the app (java-spring-webapp-roles) to use your app registration
+### Configure the app (java-spring-webapp-roles) to use your app registration
 
 Use the following steps to configure the app:
 
@@ -176,11 +176,11 @@ Use the following steps to configure the app:
 
 1. Open the *src\main\resources\application.yml* file.
 
-1. find the placeholder `Enter_Your_Tenant_ID_Here` and replace the existing value with your Microsoft Entra tenant ID.
+1. Find the placeholder `Enter_Your_Tenant_ID_Here` and replace the existing value with your Microsoft Entra tenant ID.
 
-1. find the placeholder `Enter_Your_Client_ID_Here` and replace the existing value with the application ID or `clientId` of the `java-spring-webapp-roles` app copied from the Azure portal.
+1. Find the placeholder `Enter_Your_Client_ID_Here` and replace the existing value with the application ID or `clientId` of the `java-spring-webapp-roles` app copied from the Azure portal.
 
-1. find the placeholder `Enter_Your_Client_Secret_Here` and replace the existing value with the value you saved during the creation of `java-spring-webapp-roles` copied from the Azure portal.
+1. Find the placeholder `Enter_Your_Client_Secret_Here` and replace the existing value with the value you saved during the creation of `java-spring-webapp-roles` copied from the Azure portal.
 
 1. Open the *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootapplication/Sample.Controller.java* file.
 

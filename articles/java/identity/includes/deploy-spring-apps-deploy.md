@@ -3,8 +3,6 @@ ms.author: givermei
 ms.date: 03/11/2024
 ---
 
-You're now ready to deploy your app to Azure Spring Apps. With all the configuration ready in your *pom.xml* file, you can now deploy your Java app to Azure with one command.
-
 Use the following command to deploy the app:
 
 ```bash

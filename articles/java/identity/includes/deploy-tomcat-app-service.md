@@ -3,6 +3,8 @@ ms.author: givermei
 ms.date: 03/11/2024
 ---
 
+## Run the sample
+
 ### [Deploy to Azure App Service](#tab/appsvc)
 
 The following sections show you how to deploy the sample to Azure App Service.

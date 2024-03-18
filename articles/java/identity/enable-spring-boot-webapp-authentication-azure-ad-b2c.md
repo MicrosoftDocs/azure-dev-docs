@@ -85,23 +85,23 @@ To register the app, use the following steps:
 
 1. Select **Register** to create the application.
 
-1. In the app's registration screen, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
+1. On the app's registration page, find and copy the **Application (client) ID** value to use later. You use this value in your app's configuration file or files.
 
 1. Select **Save** to save your changes.
 
-1. In the app's registration screen, select the **Certificates & secrets** pane on the navigation pane to open the page to generate secrets and upload certificates.
+1. On the app's registration page, select the **Certificates & secrets** pane on the navigation pane to open the page to generate secrets and upload certificates.
 
 1. In the **Client secrets** section, select **New client secret**.
 
-1. Type a key description - for example, *app secret*.
+1. Type a description - for example, *app secret*.
 
-1. Select one of the available key durations as per your security concerns - for example, **In 2 years**.
+1. Select one of the available durations as per your security concerns - for example, **In 2 years**.
 
-1. Select **Add**. The generated key value is displayed.
+1. Select **Add**. The generated value is displayed.
 
-1. Copy and save the generated value for use in later steps. You need this key for your code's configuration files. This key value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
+1. Copy and save the generated value for use in later steps. You need this value for your code's configuration files. This value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
 
-#### Configure the app (java-spring-webapp-auth-b2c) to use your app registration
+### Configure the app (java-spring-webapp-auth-b2c) to use your app registration
 
 Use the following steps to configure the app:
 
@@ -114,15 +114,15 @@ Use the following steps to configure the app:
 
 1. Find the `client-id` property and replace the existing value with the application ID or `clientId` of the `java-spring-webapp-auth-b2c` application from the Azure portal.
 
-1. Find the app key `client-secret` and replace the existing value with the value you saved during the creation of the `java-spring-webapp-auth-b2c` application from the Azure portal.
+1. Find the `client-secret` property and replace the existing value with the value you saved during the creation of the `java-spring-webapp-auth-b2c` application from the Azure portal.
 
-1. Find the app key `base-uri` and replace the two instances of the value `fabrikamb2c` with the name of the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
+1. Find the `base-uri` property and replace the two instances of the value `fabrikamb2c` with the name of the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
 
-1. Find the app key `sign-up-or-sign-in` and replace it with the name of the sign-up/sign-in user-flow policy you created in the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
+1. Find the `sign-up-or-sign-in` property and replace it with the name of the sign-up/sign-in user-flow policy you created in the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
 
-1. Find the app key `profile-edit` and replace it with the name of the password reset user-flow policy you created in the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
+1. Find the `profile-edit` property and replace it with the name of the password reset user-flow policy you created in the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
 
-1. Find the app key `password-reset` and replace it with the name of the edit profile user-flow policy you created in the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
+1. Find the `password-reset` property and replace it with the name of the edit profile user-flow policy you created in the Azure AD B2C tenant in which you created the `java-spring-webapp-auth-b2c` application in the Azure portal.
 
 1. Open the *src/main/resources/templates/navbar.html* file.
 
