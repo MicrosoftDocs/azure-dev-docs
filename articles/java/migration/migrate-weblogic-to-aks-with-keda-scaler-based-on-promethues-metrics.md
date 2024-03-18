@@ -631,16 +631,6 @@ Follow the steps to input your PromQL.
 
 Scalers define how and when KEDA should scale a deployment. This article uses [Prometheus scaler](https://keda.sh/docs/2.10/scalers/prometheus/) to retrieve Prometheus metrics from the Azure Monitor workspace. 
 
-The offer deploys *testwebapp.war* with name `app1`. You can access the WLS admin console to obtain the application name. 
-
-  1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
-  1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
-  1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whoes name starts with **oracle.20210620-wls-on-aks**.
-  1. The **adminConsoleExternalUrl** value is the fully qualified, public Internet visible link to the WLS admin consolt. Select the copy icon next to the field value to copy the link to your clipboard. 
-  1. Paste the value to your browser and open WLS admin console. Log in with WLS admin account, which you wrote down during [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
-    * Under **Domain Structure**, select **Deployments**. You find **app1** listed. 
-    * Select **app1**, the **Name** of the application is `app1`. Use `app1` as application name in the query.
-
 This article use `openSessionsCurrentCount` of the sample application as trigger query. When the average open session account is more than `10`, scale up the WLS cluster until it reaches the maximum replica size. Otherwise, scale down the WLS cluster until it reaches its minimum replica size. The important parameters are set as following:
 
 | Parameter Name | Value |
@@ -651,6 +641,18 @@ This article use `openSessionsCurrentCount` of the sample application as trigger
 | `threshold` | 10 |
 | `minReplicaCount` | 1 |
 | `maxReplicaCount` | The default value is 5. If you modified the maximum cluster size during offer deployment, replace with your maximum cluster size. |
+
+> [!NOTE]
+> The offer deploys *testwebapp.war* with name `app1` by default. You can access the WLS admin console to obtain the application name. 
+>
+> 1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
+> 1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
+> 1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whoes name starts with **oracle.20210620-wls-on-aks**.
+> 1. The **adminConsoleExternalUrl** value is the fully qualified, public Internet visible link to the WLS admin consolt. Select the copy icon next to the field value to copy the link to your clipboard. 
+> 1. Paste the value to your browser and open WLS admin console. 
+> 1. Log in with WLS admin account, which you wrote down during [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
+>   * Under **Domain Structure**, select **Deployments**. You find **app1** listed. 
+>   * Select **app1**, you find the **Name** of the application is `app1`. Use `app1` as application name in the query.
 
 ### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
 
