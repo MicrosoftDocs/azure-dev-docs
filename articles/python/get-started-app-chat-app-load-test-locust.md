@@ -19,7 +19,8 @@ Watch the demonstration video to understand more about load testing the chat app
 * Access granted to Azure OpenAI in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
 * [Dev containers](https://containers.dev/) are available for both samples, with all dependencies required to complete this article. You can run the dev containers in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
-    
+* [Python chat app with RAG](get-started-app-chat-template.md) - if you configured your chat app to use one of the load balancing solutions, this article will help you test the load balancing. The load balancing solutions includ [Azure Container Apps](get-started-app-chat-scaling-with-azure-container-apps.md).
+
 #### [Codespaces (recommended)](#tab/github-codespaces)
     
 * You only need a [GitHub account](https://github.com/login)
@@ -32,7 +33,6 @@ Watch the demonstration video to understand more about load testing the chat app
     
 ---
 
-* [Python chat app with RAG](get-started-app-chat-template.md) - if you configured your chat app to use one of the load balancing solutions, this article will help you test the load balancing. The load balancing solutions includ [Azure Container Apps](get-started-app-chat-scaling-with-azure-container-apps.md).
 
 ## Open Load test sample app
 
