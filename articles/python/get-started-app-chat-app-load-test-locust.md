@@ -32,7 +32,7 @@ Watch the demonstration video to understand more about load testing the chat app
     
 ---
 
-* [Python chat app with RAG](get-started-app-chat-template.md) - if you configured your chat app to use one of the load balancing solutions, this article will help you test the load balancing. The load balancing solutions includ [Azure Container Apps](get-started-app-chat-scaling-with-azure-container-apps).
+* [Python chat app with RAG](get-started-app-chat-template.md) - if you configured your chat app to use one of the load balancing solutions, this article will help you test the load balancing. The load balancing solutions includ [Azure Container Apps](get-started-app-chat-scaling-with-azure-container-apps.md).
 
 ## Open Load test sample app
 
@@ -72,7 +72,6 @@ The load test is in Python chat app repository. You need to return to that dev c
 When you're done with load testing, clean up the resources. The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges. After you delete resource specific to this article, remember to return to the other chat app tutorial and follow the clean up steps.
 
 Return to the chat app article to [clean up](get-started-app-chat-template.md#clean-up-resources) those resources.
-
 
 ## Get help
 
