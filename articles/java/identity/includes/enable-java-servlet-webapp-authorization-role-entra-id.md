@@ -21,7 +21,7 @@ Alternatively, navigate to the [ms-identity-java-servlet-webapp-authentication](
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
 
-## Register the sample application with your Microsoft Entra ID tenant
+### Register the sample application with your Microsoft Entra ID tenant
 
 There's one project in this sample. To register the app on the Azure portal, you can either follow manual configuration steps or use a PowerShell script. The script does the following tasks:
 
@@ -55,7 +55,7 @@ Use the following steps to run the PowerShell script:
 
 The following sections show you how to register the app manually.
 
-### Choose the Microsoft Entra ID tenant where you want to create your applications
+#### Choose the Microsoft Entra ID tenant where you want to create your applications
 
 To choose your tenant, use the following steps:
 
@@ -63,7 +63,7 @@ To choose your tenant, use the following steps:
 
 1. If your account is present in more than one Microsoft Entra ID tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Microsoft Entra ID tenant.
 
-### Register the app (java-servlet-webapp-roles)
+#### Register the app (java-servlet-webapp-roles)
 
 First, register a new app in the [Azure portal](https://portal.azure.com) by following the instructions in [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
 
@@ -98,7 +98,7 @@ Then, use the following steps to complete the registration:
 
 1. Copy and save the generated value for use in later steps. You need this value for your code's configuration files. This value isn't displayed again, and you can't retrieve it by any other means. So, be sure to save it from the Azure portal before you navigate to any other screen or pane.
 
-### Define the application roles
+#### Define the application roles
 
 To define the app roles, use the following steps:
 
@@ -120,9 +120,11 @@ To define the app roles, use the following steps:
 
 1. Select **Apply** to save your changes.
 
-### Assign users to the application roles
+#### Assign users to the application roles
 
  To add users to the app role defined earlier, follow the guidelines here: [Assign users and groups to roles.](/entra/identity-platform/howto-add-app-roles-in-apps#assign-users-and-groups-to-microsoft-entra-roles)
+
+---
 
 ### Configure the app (java-servlet-webapp-roles) to use your app registration
 

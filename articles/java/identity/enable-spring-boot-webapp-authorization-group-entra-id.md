@@ -142,7 +142,7 @@ To register the app, use the following steps:
 
 1. Select **Add permissions**.
 
-### Create security groups
+#### Create security groups
 
 To create security groups, use the following steps:
 
@@ -168,7 +168,7 @@ To create security groups, use the following steps:
 
 For more information, see [Manage Microsoft Entra groups and group membership](/entra/fundamentals/how-to-manage-groups).
 
-### Configure security groups
+#### Configure security groups
 
 You have the following options on how you can further configure your application to receive the groups claim:
 
@@ -179,7 +179,7 @@ You have the following options on how you can further configure your application
 > [!NOTE]
 > To get the on-premise group's `samAccountName` or `On Premises Group Security Identifier` instead of the group ID, see the section [Prerequisites for using group attributes synchronized from Active Directory](/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#prerequisites-for-using-group-attributes-synchronized-from-active-directory) in [Configure group claims for applications by using Microsoft Entra ID](/entra/identity/hybrid/connect/how-to-connect-fed-group-claims).
 
-#### Configure your application to receive all the groups the signed-in user is assigned to, including nested groups
+##### Configure your application to receive all the groups the signed-in user is assigned to, including nested groups
 
 To configure the app, use the following steps:
 
@@ -191,12 +191,12 @@ To configure the app, use the following steps:
 
 1. Under the **ID** section, select **Group ID**. This selection causes Microsoft Entra ID to send the [object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID token](/entra/identity-platform/id-tokens) that your app receives after signing-in a user.
 
-#### Configure your application to receive the groups claim values from a filtered set of groups a user might be assigned to
+##### Configure your application to receive the groups claim values from a filtered set of groups a user might be assigned to
 
 This option is useful when the following cases are true:
 
-* Your application is interested in a selected set of groups that a signing-in user might be assigned to.
-* Your app isn't interested in every security group this user is assigned to in the tenant.
+- Your application is interested in a selected set of groups that a signing-in user might be assigned to.
+- Your app isn't interested in every security group this user is assigned to in the tenant.
 
 This option helps your application avoid the [overage](#the-groups-overage-claim) issue.
 

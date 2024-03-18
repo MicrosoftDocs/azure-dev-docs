@@ -41,6 +41,6 @@ To run the sample on Tomcat, use the following steps:
 
 1. Copy the *.war* file you generated with Maven to the */webapps/* directory in your Tomcat installation, and start the Tomcat server.
 
-1. After Tomcat starts, open your browser and navigate to whatever URL you defined in step 1. and you should be able to access the application.
+1. After Tomcat starts, open your browser and navigate to whatever URL you defined in step 1 and you should be able to access the application.
 
 ---

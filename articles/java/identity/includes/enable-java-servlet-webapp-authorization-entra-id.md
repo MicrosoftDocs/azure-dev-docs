@@ -21,7 +21,7 @@ Alternatively, navigate to the [ms-identity-java-servlet-webapp-authentication](
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
 
-## Register the sample application with your Microsoft Entra ID tenant
+### Register the sample application with your Microsoft Entra ID tenant
 
 There's one project in this sample. To register the app on the Azure portal, you can either follow manual configuration steps or use a PowerShell script. The script does the following tasks:
 
@@ -55,7 +55,7 @@ Use the following steps to run the PowerShell script:
 
 The following sections show you how to register the app manually.
 
-### Choose the Microsoft Entra ID tenant where you want to create your applications
+#### Choose the Microsoft Entra ID tenant where you want to create your applications
 
 To choose your tenant, use the following steps:
 
@@ -63,7 +63,7 @@ To choose your tenant, use the following steps:
 
 1. If your account is present in more than one Microsoft Entra ID tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Microsoft Entra ID tenant.
 
-### Register the app (java-servlet-webapp-call-graph)
+#### Register the app (java-servlet-webapp-call-graph)
 
 First, register a new app in the [Azure portal](https://portal.azure.com) by following the instructions in [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
 
@@ -115,6 +115,8 @@ Then, use the following steps to complete the registration:
 
 1. Select **Add permissions**.
 
+---
+
 ### Configure the app (java-servlet-webapp-call-graph) to use your app registration
 
 Use the following steps to configure the app:
@@ -136,10 +138,6 @@ Use the following steps to configure the app:
 1. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID or `clientId` of the `java-servlet-webapp-call-graph` application copied from the Azure portal.
 
 1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the value you saved during the creation of the `java-servlet-webapp-call-graph` app, in the Azure portal.
-
-## Run the sample
-
-The following sections describe how to run the sample.
 
 ## Build the sample
 

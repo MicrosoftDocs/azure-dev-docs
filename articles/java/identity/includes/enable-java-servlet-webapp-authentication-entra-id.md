@@ -21,7 +21,7 @@ Alternatively, navigate to the [ms-identity-java-servlet-webapp-authentication](
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
 
-## Register the sample application with your Microsoft Entra ID tenant
+### Register the sample application with your Microsoft Entra ID tenant
 
 There's one project in this sample. To register the app on the Azure portal, you can either follow manual configuration steps or use a PowerShell script. The script does the following tasks:
 
@@ -53,8 +53,9 @@ Use the following steps to run the PowerShell script:
 
 ### [Use manual steps](#tab/Manual)
 
-[Register a new app](/entra/identity-platform/quickstart-register-app) in the [Azure portal](https://portal.azure.com).
-Following this guide, you must:
+Use the following steps to register the app manually:
+
+1. Follow the instructions in [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app), then continue here.
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 
@@ -111,10 +112,6 @@ Use the following steps to configure the app:
 1. Find the string `{enter-your-client-id-here}` and replace the existing value with the application ID or `clientId` of the `java-servlet-webapp-authentication` application copied from the Azure portal.
 
 1. Find the string `{enter-your-client-secret-here}` and replace the existing value with the value you saved during the creation of the `java-servlet-webapp-authentication` app, in the Azure portal.
-
-## Run the sample
-
-The following sections describe how to run the sample.
 
 ## Build the sample
 

@@ -21,7 +21,7 @@ Alternatively, navigate to the [ms-identity-java-servlet-webapp-authentication](
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
 
-## Register the sample application with your Microsoft Entra ID tenant
+### Register the sample application with your Microsoft Entra ID tenant
 
 There's one project in this sample. To register the app on the Azure portal, you can either follow manual configuration steps or use a PowerShell script. The script does the following tasks:
 
@@ -55,7 +55,7 @@ Use the following steps to run the PowerShell script:
 
 The following sections show you how to register the app manually.
 
-### Choose the Microsoft Entra ID tenant where you want to create your applications
+#### Choose the Microsoft Entra ID tenant where you want to create your applications
 
 To choose your tenant, use the following steps:
 
@@ -63,7 +63,7 @@ To choose your tenant, use the following steps:
 
 1. If your account is present in more than one Microsoft Entra ID tenant, select your profile in the corner of the Azure portal, and then select **Switch directory** to change your session to the desired Microsoft Entra ID tenant.
 
-### Register the app (java-servlet-webapp-groups)
+#### Register the app (java-servlet-webapp-groups)
 
 First, register a new app in the [Azure portal](https://portal.azure.com) by following the instructions in [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
 
@@ -110,6 +110,8 @@ Then, use the following steps to complete the registration:
 1. Select **Add permissions**.
 
 1. `GroupMember.Read.All` requires admin consent, so select **Grant/revoke admin consent for {tenant}**, and then select **Yes** when you're asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a Microsoft Entra ID tenant admin to do this.
+
+---
 
 ### Configure the app (java-servlet-webapp-groups) to use your app registration
 
@@ -214,10 +216,6 @@ Use the following steps to configure the app:
 1. Find the string `{enter-your-admins-group-id-here}` and replace the existing value with the object ID of the `GroupAdmin` group, which you copied from the Azure portal. Remove the curly braces from the placeholder value as well.
 
 1. Find the string `{enter-your-users-group-id-here}` and replace the existing value with the object ID of the `GroupMember` group, which you copied from the Azure portal. Remove the curly braces from the placeholder value as well.
-
-## Run the sample
-
-The following sections describe how to run the sample.
 
 ## Build the sample
 
