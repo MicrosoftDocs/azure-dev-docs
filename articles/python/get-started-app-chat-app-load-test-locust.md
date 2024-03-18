@@ -1,7 +1,7 @@
 ---
 title: Get started load testing Python enterprise chat sample using RAG
 description: Get started load testing Python chat app 
-ms.date: 02/01/2024
+ms.date: 03/18/2024
 ms.topic: get-started
 ms.custom: devx-track-python, devx-track-python-ai
 # CustomerIntent: As a python developer new to Azure OpenAI, I want to load test my scaled app past rate limiting.
@@ -9,14 +9,15 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 # Load testing Python chat app using RAG with Locust
 
-When your load balanced chat app is ready to test, use this procedure to apply load using Locust. The local locust load test demonstrates the load balancer working. 
+This article assumes that you already have the chat app up and running. 
 
-**Chat app** available in these languages:
+* [Python chat app with RAG](get-started-app-chat-template.md)
 
-* [.NET](/dotnet/azure/ai/get-started-app-chat-template)
-* [Java](/azure/developer/java/quickstarts/get-started-app-chat-template)
-* [JavaScript](/azure/developer/javascript/get-started-app-chat-template)
-* [Python](/azure/developer/python/get-started-app-chat-template)
+When you first deploy the chat app, use this procedure to test how much load it can work with. If your test indicates the chat app can't handle the load, you can scale the chat app:
+
+* [Azure Container Apps](get-started-chat-scaling-with-azure-container-apps) - for a simple, managed solution
+
+Then your load balanced chat app is ready to test with procedure again.
 
 Watch the demonstration video to understand more about load testing the chat app. 
 * [Video](https://www.youtube.com/watch?v=-oMqb6kBdDw)
@@ -39,13 +40,8 @@ Watch the demonstration video to understand more about load testing the chat app
     
 ---
 
-* Deployed load balancer with high quota
-    * [Azure Container Apps solution](get-started-app-chat-scaling-with-azure-container-apps.md) with [OPENAI_CAPACITY set to 50](get-started-app-chat-scaling-with-azure-container-apps.md#configure-the-tokens-per-minute-quota-tpm)
-* Chat app deployed to use load balancer
-    * [.NET](/dotnet/azure/ai/get-started-app-chat-template)
-    * [Java](/azure/developer/java/quickstarts/get-started-app-chat-template)
-    * [JavaScript](/azure/developer/javascript/get-started-app-chat-template)
-    * [Python](/azure/developer/python/get-started-app-chat-template)
+* Deployed load balancer with high quota using [Azure Container Apps solution](get-started-app-chat-scaling-with-azure-container-apps.md) with [OPENAI_CAPACITY set to 50](get-started-app-chat-scaling-with-azure-container-apps.md#configure-the-tokens-per-minute-quota-tpm)
+* [Python chat app](/azure/developer/python/get-started-app-chat-template)
 
 ## Open Load test sample app
 
@@ -76,12 +72,6 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
     ```bash
     python3 -m pip install -r requirements-dev.txt
-    ```
-
-1. Instal the Locust load tester.
-
-    ```bash
-    python3 -m pip install locust
     ```
 
 1. Start Locust, which uses the Locust test file: [locustfile.py](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/locustfile.py) found at the root of the repository.
