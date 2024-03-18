@@ -800,7 +800,7 @@ First, obtain the application URL.
   1. The **clusterExternalUrl** value is the fully qualified, public Internet visible link to the sample app deployed in WLS on this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. 
   1. The URL to access `testwebapp.war` is `${clusterExternalUrl}testwebapp`. For example, `http://wlsgw202403-wlsaks0314-domain1.eastus.cloudapp.azure.com/testwebapp/`.
 
-Next, run `curl` command to access the application and cause new sessions. The following example open 23 new sessions. The sessions will be expired after 150s.
+Next, run `curl` command to access the application and cause new sessions. The following example open 22 new sessions. The sessions will be expired after 150s.
 
   Replace value of **APP_URL** with yours.
 
@@ -818,24 +818,25 @@ Then, observe the scaler with `kubectl get hpa -n <wls-namespace> -w` and WLS po
 
   ```text
   $ kubectl get hpa -n sample-domain1-ns -w
-  NAME                                       REFERENCE                          TARGETS      MINPODS   MAXPODS   REPLICAS   AGE
-  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)   1         5         1          24m
-  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)   1         5         1          24m
-  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   10/10 (avg)   1         5         1          26m
-  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   23/10 (avg)   1         5         1          26m
-  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   7667m/10 (avg)   1         5         3          27m
-  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   667m/10 (avg)    1         5         3          29m
+  NAME                                       REFERENCE                          TARGETS          MINPODS   MAXPODS   REPLICAS   AGE
+  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         5         1          24m
+  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         5         1          24m
+  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   5/10 (avg)       1         5         1          26m
+  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   22/10 (avg)      1         5         1          27m
+  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   7334m/10 (avg)   1         5         3          29m
   keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         5         3          30m
+  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         5         3          35m
+  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         5         1          35m
   ```
 
   ```text
   $ kubectl get pod -n sample-domain1-ns -w
-  NAME                             READY   STATUS    RESTARTS   AGE
-  sample-domain1-admin-server      2/2     Running   0          28h
-  sample-domain1-managed-server1   2/2     Running   0          28h
-  sample-domain1-managed-server1   2/2     Running   0          28h
-  sample-domain1-managed-server2   0/2     Pending   0          0s
-  sample-domain1-managed-server2   0/2     Pending   0          0s
+  NAME                             READY   STATUS              RESTARTS   AGE
+  sample-domain1-admin-server      2/2     Running             0          28h
+  sample-domain1-managed-server1   2/2     Running             0          28h
+  sample-domain1-managed-server1   2/2     Running             0          28h
+  sample-domain1-managed-server2   0/2     Pending             0          0s
+  sample-domain1-managed-server2   0/2     Pending             0          0s
   sample-domain1-managed-server2   0/2     ContainerCreating   0          0s
   sample-domain1-managed-server3   0/2     Pending             0          0s
   sample-domain1-managed-server3   0/2     Pending             0          0s
@@ -856,6 +857,9 @@ Then, observe the scaler with `kubectl get hpa -n <wls-namespace> -w` and WLS po
   The graph in the Azure Monitor workspace looks similar to the screenshot.
 
   :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wls-autoscaling-graph.png" alt-text="Screenshot of the Azure portal showing the Promethues explorer graph." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics/wls-autoscaling-graph.png":::
+
+> [!NOTE]
+> In this article, the script opens 22 sessions. When the replica number is 3, the average session account is less then 10, so the cluster will not hit the maximum size `5`.
 
 ## Clean up resources
 
