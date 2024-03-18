@@ -887,3 +887,18 @@ To avoid Azure charges, you should clean up unnecessary resources. When you no l
 az group delete --name <wls-resource-group-name> --yes --no-wait
 az group delete --name <ama-resource-group-name> --yes --no-wait
 ```
+
+## Next steps
+
+Continue to explore the following references for more options to build autoscaling solutions and run WLS on Azure:
+
+> [!div class="nextstepaction"]
+> [Learn more about Oracle WebLogic on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks)
+> [!div class="nextstepaction"]
+> [Approaches for scaling WebLogic clusters in a Kubernetes environment](https://aka.ms/wlsoperator-scaling)
+> [!div class="nextstepaction"]
+> [Using Prometheus and Grafana to Monitor WebLogic Server on Kubernetes](https://blogs.oracle.com/weblogicserver/post/using-prometheus-and-grafana-to-monitor-weblogic-server-on-kubernetes)
+> [!div class="nextstepaction"]
+> [Oracle WebLogic Kubernetes Operator](https://aka.ms/wlsoperator)
+> [!div class="nextstepaction"]
+> [Learn more about Oracle WebLogic on Azure VMs](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
