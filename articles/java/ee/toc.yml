@@ -63,7 +63,7 @@ items:
       - name: WebLogic to AKS within custom VNET
         href: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
       - name: WebLogic to AKS with KEDA scaler based on Prometheus Metrics
-        href: ../migration/migrate-weblogic-to-aks-with-keda-scaler-based-on-promethues-metrics.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+        href: ../migration/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
       - name: WebLogic with App Gateway
         href: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
       - name: WebLogic to JBoss EAP on Azure App Service
