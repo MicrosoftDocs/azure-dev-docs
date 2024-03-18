@@ -638,7 +638,7 @@ Input your PromQL following steps:
 1. Select **Managed Prometheus** -> **Prometheus explorer**. 
 1. Input `webapp_config_open_sessions_current_count` to query the current account of open sessions, as the screenshot shows.
 
-    :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/Prometheus-explorer.png" alt-text="Screenshot of the Azure portal showing the Prometheus explorer." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/Prometheus-explorer.png":::
+    :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/prometheus-explorer.png" alt-text="Screenshot of the Azure portal showing the Prometheus explorer." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/prometheus-explorer.png":::
 
 ## Create KEDA scaler
 
