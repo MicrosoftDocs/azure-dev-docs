@@ -3,7 +3,7 @@ ms.author: givermei
 ms.date: 03/11/2024
 ---
 
-## Deploy the sample
+## Run the sample
 
 These instructions assume that you installed WebSphere and set up a server. You can use the guidance at [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](../../ee/traditional-websphere-application-server-virtual-machines.md) for a basic server setup.
 
