@@ -60,4 +60,4 @@ Use the following steps to deploy the sample to WebLogic via the web console:
 
 ## Next step
 
-[Deploy Java WebLogic apps to WebLogic on Azure Virtual Machines](deploy-weblogic-to-vm)
+[Deploy Java WebLogic apps to WebLogic on Azure Virtual Machines](deploy-weblogic-to-vm.md)
