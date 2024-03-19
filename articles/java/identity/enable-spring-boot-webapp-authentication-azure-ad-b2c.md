@@ -195,7 +195,11 @@ Use the following steps to explore the sample:
 1. Edit your profile. Select **edit profile** to change details like your display name, place of residence, and profession.
 1. Use the button in the corner to sign out. The status page reflects the new state.
 
-## Contents
+## About the code
+
+This sample demonstrates how to use [Azure AD B2C Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory-b2c) to sign in users into your Azure AD B2C tenant. The sample also makes use of the Spring Oauth2 Client and Spring Web boot starters. The sample uses claims from the ID token obtained from Azure AD B2C to display the details of the signed-in user.
+
+### Contents
 
 The following table shows the contents of the sample project folder:
 
@@ -213,27 +217,9 @@ The following table shows the contents of the sample project folder:
 | *CONTRIBUTING.md*                                                             | Guidelines for contributing to the sample.                                                |
 | *LICENSE*                                                                     | The license for the sample.                                                               |
 
-## About the code
-
-This sample demonstrates how to use [Azure AD B2C Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory-b2c) to sign in users into your Azure AD B2C tenant. The sample also makes use of the Spring Oauth2 Client and Spring Web boot starters. The sample uses claims from the ID token obtained from Azure AD B2C to display the details of the signed-in user.
-
-### Project initialization
-
-Create a new Java Maven project and copy the *pom.xml* file from this project, and the *src* folder of this repository.
-
-If you'd like to create a project like this from scratch, you can use [Spring Initializer](https://start.spring.io):
-
-- For **Packaging**, select **Jar**.
-- For **Java**, select version **11**.
-- For **Dependencies**, add the following items:
-  - **Azure Active Directory B2C**
-  - **Spring Oauth2 Client**
-  - **Spring Web**
-- Be sure that it comes with Azure SDK version 3.3 or higher. If it doesn't, consider replacing the preconfigured *pom.xml* file with the *pom.xml* from this repository.
-
 ### ID token claims
 
-To extract token details, make use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for an example of this app making use of ID token claims.
+To extract token details, the app makes use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping, as shown in the following example, as shown in the following example. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for the full details of how this app makes use of ID token claims.
 
 ```java
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
@@ -247,13 +233,13 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Sign-in and sign-out links
 
-For sign-in, you must make a request to the Azure Active Directory sign-in endpoint automatically configured by Azure AD B2C Spring Boot Starter client library for Java, as shown in the following example:
+For sign-in, the app makes a request to the Azure AD B2C sign-in endpoint automatically configured by Azure AD B2C Spring Boot Starter client library for Java, as shown in the following example:
 
 ```html
 <a class="btn btn-success" href="/oauth2/authorization/{your-sign-up-sign-in-user-flow}">Sign In</a>
 ```
 
-For sign-out, you must make a POST request to the `logout` endpoint, as shown in the following example:
+For sign-out, the app makes a POST request to the `logout` endpoint, as shown in the following example:
 
 ```html
 <form action="#" th:action="@{/logout}" method="post">
@@ -263,7 +249,7 @@ For sign-out, you must make a POST request to the `logout` endpoint, as shown in
 
 ### Authentication-dependent UI elements
 
-This app has some simple logic in the UI template pages for determining content to display based on whether the user is authenticated or not. For example, you can use the following Spring Security Thymeleaf tags:
+The app has some simple logic in the UI template pages for determining content to display based on whether the user is authenticated, as shown in the following example using Spring Security Thymeleaf tags:
 
 ```html
 <div sec:authorize="isAuthenticated()">
@@ -276,7 +262,7 @@ This app has some simple logic in the UI template pages for determining content 
 
 ### Protect routes with WebSecurityConfigurerAdapter
 
-By default, this app protects the **ID Token Details** page so that only signed-in users can access it. This app uses configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, extend `WebSecurityConfigurerAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class.
+By default, the app protects the **ID Token Details** page so that only signed-in users can access it. The app configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, you can extend `WebSecurityConfigurerAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/1-Authentication/sign-in-b2c/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
 
 ```java
 @EnableWebSecurity

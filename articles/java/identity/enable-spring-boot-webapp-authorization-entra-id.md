@@ -214,7 +214,11 @@ Use the following steps to explore the sample:
 1. Select **Call Graph** to make a call to Microsoft Graph's [/me endpoint](/graph/api/user-get?tabs=java#example-2-signed-in-user-request) and see a selection of the user details obtained.
 1. Use the button in the corner to sign out. The status page reflects the new state.
 
-## Contents
+## About the code
+
+This sample demonstrates how to use [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) to sign in users into your Microsoft Entra ID tenant and obtain an access token for calling Microsoft Graph. The sample also makes use of the Spring Oauth2 Client and Spring Web boot starters.
+
+### Contents
 
 The following table shows the contents of the sample project folder:
 
@@ -233,27 +237,9 @@ The following table shows the contents of the sample project folder:
 | *CONTRIBUTING.md*                                                             | Guidelines for contributing to the sample.                                                |
 | *LICENSE*                                                                     | The license for the sample.                                                               |
 
-## About the code
-
-This sample demonstrates how to use [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) to sign in users into your Microsoft Entra ID tenant and obtain an access token for calling Microsoft Graph. The sample also makes use of the Spring Oauth2 Client and Spring Web boot starters.
-
-### Project initialization
-
-Create a new Java Maven project and copy the *pom.xml* file from this project, and the *src* folder of this repository.
-
-If you'd like to create a project like this from scratch, you can use [Spring Initializer](https://start.spring.io):
-
-- For **Packaging**, select **Jar**.
-- For **Java**, select version **11**.
-- For **Dependencies**, add the following items:
-  - **Azure Active Directory**
-  - **Spring Oauth2 Client**
-  - **Spring Web**
-- Be sure that it comes with Azure SDK version 3.3 or higher. If not, consider replacing the preconfigured *pom.xml* with the *pom.xml* from this repository.
-
 ### ID token claims
 
-To extract token details, make use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for an example of this app making use of ID token claims.
+To extract token details, the app makes use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping, as shown in the following example. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for the full details of how this app makes use of ID token claims.
 
 ```java
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
@@ -267,13 +253,13 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Sign-in and sign-out links
 
-For sign-in, you must make a request to the Azure Active Directory sign-in endpoint automatically configured by Microsoft Entra ID Spring Boot Starter client library for Java, as shown in the following example:
+For sign-in, the app makes a request to the Azure Active Directory sign-in endpoint automatically configured by Microsoft Entra ID Spring Boot Starter client library for Java, as shown in the following example:
 
 ```html
 <a class="btn btn-success" href="/oauth2/authorization/azure">Sign In</a>
 ```
 
-For sign-out, you must make a POST request to the `logout` endpoint, as shown in the following example:
+For sign-out, the app makes a POST request to the `logout` endpoint, as shown in the following example:
 
 ```html
 <form action="#" th:action="@{/logout}" method="post">
@@ -283,7 +269,7 @@ For sign-out, you must make a POST request to the `logout` endpoint, as shown in
 
 ### Authentication-dependent UI elements
 
-This app has some simple logic in the UI template pages for determining content to display based on whether the user is authenticated or not. For example, you can use the following Spring Security Thymeleaf tags:
+The app has some simple logic in the UI template pages for determining content to display based on whether the user is authenticated, as shown in the following example using Spring Security Thymeleaf tags:
 
 ```html
 <div sec:authorize="isAuthenticated()">
@@ -296,7 +282,7 @@ This app has some simple logic in the UI template pages for determining content 
 
 ### Protect routes with AADWebSecurityConfigurerAdapter
 
-By default, this app protects the **ID Token Details** and **Call Graph** pages so that only signed-in users can access them. This app uses configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class.
+By default, the app protects the **ID Token Details** and **Call Graph** pages so that only signed-in users can access them. The app configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, you can extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
 
 ```java
 @EnableWebSecurity
@@ -317,11 +303,11 @@ public class SecurityConfig extends AADWebSecurityConfigurerAdapter{
 }
 ```
 
-### Call Graph
+### Call graph
 
-When the user navigates to `/call_graph`, the application creates an instance of the `GraphServiceClient` - from the [Microsoft Graph SDK for Java, v3](https://github.com/microsoftgraph/msgraph-sdk-java) - using an `Oauth2AuthorizedClient` or `graphAuthorizedClient` that the Microsoft Entra ID boot starter prepared. The app asks the `GraphServiceClient` to call the `/me` endpoint and displays details for the current signed-in user.
+When the user navigates to `/call_graph`, the application creates an instance of the `GraphServiceClient` using an `Oauth2AuthorizedClient` or `graphAuthorizedClient` that the Microsoft Entra ID boot starter prepared. The app asks the `GraphServiceClient` to call the `/me` endpoint and displays details for the current signed-in user. `GraphServiceClient` is from the [Microsoft Graph SDK for Java, v3](https://github.com/microsoftgraph/msgraph-sdk-java).
 
-The `Oauth2AuthorizedClient` must be prepared with the correct scopes. See the *application.yml* file and the following [Scopes](#scopes) section. The `Oauth2AuthorizedClient` is used to surface the access token and place it in the Authorization header of `GraphServiceClient` requests.
+The `Oauth2AuthorizedClient` must be prepared with the correct scopes. See the *application.yml* file and the following [Scopes](#scopes) section. The `Oauth2AuthorizedClient` is used to surface the access token and place it in the `Authorization` header of `GraphServiceClient` requests, as shown in the following example:
 
 ```java
 //see SampleController.java
@@ -333,6 +319,8 @@ public String callGraph(@RegisteredOAuth2AuthorizedClient("graph") OAuth2Authori
   return user.displayName;
 }
 ```
+
+The following example from the *application.yml* file shows the scopes requested:
 
 ```yml
 # see application.yml file
@@ -346,13 +334,13 @@ authorization-clients:
 
 [Scopes](/entra/identity-platform/scopes-oidc) tell Microsoft Entra ID the level of access that the application is requesting. For the Microsoft Graph scopes requested by this application, see *application.yml*.
 
-By default, this application sets the scopes value to `https://graph.microsoft.com/User.Read`. The `User.Read` scope is for accessing the information of the current signed-in user from the [/me endpoint](https://graph.microsoft.com/v1.0/me). Valid requests to the [/me endpoint](https://graph.microsoft.com/v1.0/me) must contain the `User.Read` scope.
+By default, the application sets the scopes value to `https://graph.microsoft.com/User.Read`. The `User.Read` scope is for accessing the information of the current signed-in user from the [/me endpoint](https://graph.microsoft.com/v1.0/me). Valid requests to the [/me endpoint](https://graph.microsoft.com/v1.0/me) must contain the `User.Read` scope.
 
 When a user signs in, Microsoft Entra ID presents a consent dialogue to the user based on the scopes requested by the application. If the user consents to one or more scopes and obtains a token, the scopes-consented-to are encoded into the resulting access token.
 
 In this app, the `graphAuthorizedClient` surfaces the access token that proves which the scopes the user consented to. The app uses this token to create an instance of `GraphServiceClient` that handles Graph requests.
 
-Using `GraphServiceClient.me().buildRequest().get()`, a request built and made to `https://graph.microsoft.com/v1.0/me`. The access token is placed in the Authorization header of the request.
+Using `GraphServiceClient.me().buildRequest().get()`, a request is built and made to `https://graph.microsoft.com/v1.0/me`. The access token is placed in the `Authorization` header of the request.
 
 ## More information
 

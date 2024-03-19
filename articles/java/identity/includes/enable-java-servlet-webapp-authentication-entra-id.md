@@ -53,9 +53,9 @@ Use the following steps to run the PowerShell script:
 
 ### [Use manual steps](#tab/Manual)
 
-Use the following steps to register the app manually:
+First, register the app in the Azure portal by following the instructions in [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
 
-1. Follow the instructions in [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app), then continue here.
+Then, use the following steps to complete the registration:
 
 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 

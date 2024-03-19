@@ -338,7 +338,11 @@ Use the following steps to explore the sample:
 1. Select **Regular Users** to view the `/regular_user` page. Only users belonging to the `UserGroup` security group can view this page. Otherwise, an authorization failure message is displayed.
 1. Use the button in the corner to sign out. The status page reflects the new state.
 
-## Contents
+## About the code
+
+This sample demonstrates how to use [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) to sign in users into your Microsoft Entra ID tenant. The sample also makes use of the Spring Oauth2 Client and Spring Web boot starters. The sample uses claims from the ID token obtained from Microsoft Entra ID to display the details of the signed-in user, and to restrict access to some pages by using the groups claim for authorization.
+
+### Contents
 
 The following table shows the contents of the sample project folder:
 
@@ -357,27 +361,9 @@ The following table shows the contents of the sample project folder:
 | *CONTRIBUTING.md*                                                             | Guidelines for contributing to the sample.                                                |
 | *LICENSE*                                                                     | The license for the sample.                                                               |
 
-## About the code
-
-This sample demonstrates how to use [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory) to sign in users into your Microsoft Entra ID tenant. The sample also makes use of the Spring Oauth2 Client and Spring Web boot starters. The sample uses claims from the ID token obtained from Microsoft Entra ID to display the details of the signed-in user, and to restrict access to some pages by using the groups claim for authorization.
-
-### Project initialization
-
-Create a new Java Maven project and copy the *pom.xml* file from this project, and the *src* folder of this repository.
-
-If you'd like to create a project like this from scratch, you can use [Spring Initializer](https://start.spring.io):
-
-- For **Packaging**, select **Jar**.
-- For **Java**, select version **11**.
-- For **Dependencies**, add the following items:
-  - **Azure Active Directory**
-  - **Spring Oauth2 Client**
-  - **Spring Web**
-- Be sure that it comes with Azure SDK version 3.5 or higher. If not, consider replacing the preconfigured *pom.xml* with the *pom.xml* from this repository.
-
 ### ID token claims
 
-To extract token details, make use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/3-Authorization-II/roles/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for an example of this app making use of ID token claims.
+To extract token details, the app makes use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping, as shown in the following example. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/3-Authorization-II/roles/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for the full details of how this app makes use of ID token claims.
 
 ```java
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
@@ -420,7 +406,7 @@ public String regularUser(Model model) {
 }
 ```
 
-To see a full list of authorities for a given user:
+The following code gets a full list of authorities for a given user:
 
  ```java
 @GetMapping(path = "/some_path")
@@ -431,13 +417,13 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Sign-in and sign-out links
 
-For sign-in, you must make a request to the Azure Active Directory sign-in endpoint automatically configured by Microsoft Entra ID Spring Boot Starter client library for Java, as shown in the following example:
+For sign-in, the app makes a request to the Azure Active Directory sign-in endpoint automatically configured by Microsoft Entra ID Spring Boot Starter client library for Java, as shown in the following example:
 
 ```html
 <a class="btn btn-success" href="/oauth2/authorization/azure">Sign In</a>
 ```
 
-For sign-out, you must make a POST request to the `logout` endpoint, as shown in the following example:
+For sign-out, the app makes a POST request to the `logout` endpoint, as shown in the following example:
 
 ```html
 <form action="#" th:action="@{/logout}" method="post">
@@ -447,7 +433,7 @@ For sign-out, you must make a POST request to the `logout` endpoint, as shown in
 
 ### Authentication-dependent UI elements
 
-This app has some simple logic in the UI template pages for determining content to display based on whether the user is authenticated or not. For example, you can use the following Spring Security Thymeleaf tags:
+The app has some simple logic in the UI template pages for determining content to display based on whether the user is authenticated, as shown in the following example using Spring Security Thymeleaf tags:
 
 ```html
 <div sec:authorize="isAuthenticated()">
@@ -460,7 +446,7 @@ This app has some simple logic in the UI template pages for determining content 
 
 ### Protect routes with AADWebSecurityConfigurerAdapter
 
-By default, this app protects the **ID Token Details**, **Admins Only**, and **Regular Users** pages so that only signed-in users can access them. This app uses configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/3-Authorization-II/roles/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class.
+By default, the app protects the **ID Token Details**, **Admins Only**, and **Regular Users** pages so that only signed-in users can access them. The app configures these routes using the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, you can extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/3-Authorization-II/roles/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
 
 ```java
 @EnableWebSecurity
@@ -487,7 +473,7 @@ To ensure that the token size doesn't exceed HTTP header size limits, the Micros
 
 The overage limit is 150 for SAML tokens, 200 for JWT tokens, 6 for single-page applications. If a user is a member of more groups than the overage limit, then the Microsoft identity platform doesn't emit the group IDs in the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the [Microsoft Graph API](https://graph.microsoft.com) to retrieve the user's group membership.
 
-Microsoft Entra ID Boot Starter v3.5 and higher parses the groups claim automatically and adds each group to the signed-in user's **Authorities**. It **automatically** handles the groups overage scenario.
+Microsoft Entra ID Boot Starter v3.5 and higher parses the groups claim automatically and adds each group to the signed-in user's `Authorities`. The starter automatically handles the groups overage scenario.
 
 > [!NOTE]
 > We strongly advise you use the group filtering feature, if possible, to avoid running into group overages. For more information, see the section [Configure your application to receive the groups claim values from a filtered set of groups a user might be assigned to](#configure-your-application-to-receive-the-groups-claim-values-from-a-filtered-set-of-groups-a-user-might-be-assigned-to).
@@ -516,7 +502,7 @@ To update the app registration, use the following steps:
 1. In the **Redirect URIs** section, update the reply URLs to match the site URL of your Azure deployment - for example, `https://java-spring-webapp-groups.azurewebsites.net/login/oauth2/code/`.
 
 > [!IMPORTANT]
-> If your app is using an *in-memory* storage, Azure App Services spins down your web site if it is inactive, and any records that your app was keeping are emptied. In addition, if you increase the instance count of your website, requests are distributed among the instances. Your apps records, therefore, aren't the same on each instance.
+> If your app is using an *in-memory* storage, Azure App Services spins down your web site if it's inactive, and any records that your app was keeping are emptied. Also, if you increase the instance count of your website, requests are distributed among the instances. Thus, your apps records aren't the same on each instance.
 
 ## More information
 
@@ -529,6 +515,5 @@ To update the app registration, use the following steps:
 - [Application and service principal objects in Azure Active Directory](/entra/identity-platform/app-objects-and-service-principals)
 - [National Clouds](/entra/identity-platform/authentication-national-cloud#app-registration-endpoints)
 - [MSAL code samples](/entra/identity-platform/sample-v2-code?tabs=framework#java)
-    // Add MSAL-java docs
 
 For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Microsoft Entra ID](/entra/identity-platform/authentication-flows-app-scenarios).
