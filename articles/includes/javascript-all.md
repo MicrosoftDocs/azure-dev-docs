@@ -10,10 +10,10 @@
 | Artifacts | npm [1.0.0-beta.14](https://www.npmjs.com/package/@azure/synapse-artifacts/v/1.0.0-beta.14) | [docs](/javascript/api/overview/azure/synapse-artifacts-readme) | GitHub [1.0.0-beta.14](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.14/sdk/synapse/synapse-artifacts/) |
 | Attestation | npm [1.0.0](https://www.npmjs.com/package/@azure/attestation/v/1.0.0) | [docs](/javascript/api/overview/azure/attestation-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0/sdk/attestation/attestation/) |
 | Azure AI Document Intelligence | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/ai-document-intelligence/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-intelligence_1.0.0-beta.2/sdk/documentintelligence/ai-document-intelligence-rest/) |
-| Azure AI Search | npm [12.0.0](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [12.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.0.0/sdk/search/search-documents/) |
+| Azure AI Search | npm [12.0.0](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0)<br>npm [12.1.0-beta.1](https://www.npmjs.com/package/@azure/search-documents/v/12.1.0-beta.1) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [12.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.0.0/sdk/search/search-documents/)<br>GitHub [12.1.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.1.0-beta.1/sdk/search/search-documents/) |
 | Azure Blob Storage Checkpoint Store | npm [1.0.1](https://www.npmjs.com/package/@azure/eventhubs-checkpointstore-blob/v/1.0.1) | [docs](/javascript/api/overview/azure/eventhubs-checkpointstore-blob-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_1.0.1/sdk/eventhub/eventhubs-checkpointstore-blob/) |
 | Azure Identity Broker | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-broker/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-broker_1.0.0/sdk/identity/identity-broker/) |
-| Azure Monitor OpenTelemetry | npm [1.2.0](https://www.npmjs.com/package/@azure/monitor-opentelemetry/v/1.2.0) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.2.0/sdk/monitor/monitor-opentelemetry/) |
+| Azure Monitor OpenTelemetry | npm [1.3.0](https://www.npmjs.com/package/@azure/monitor-opentelemetry/v/1.3.0) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-readme) | GitHub [1.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.3.0/sdk/monitor/monitor-opentelemetry/) |
 | Azure Remote Rendering | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-remote-rendering/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-remote-rendering-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-remote-rendering_1.0.0-beta.1/sdk/remoterendering/mixed-reality-remote-rendering/) |
 | Common | npm [1.0.0](https://www.npmjs.com/package/@azure/keyvault-common/v/1.0.0) | [docs](/javascript/api/overview/azure/keyvault-common-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-common_1.0.0/sdk/keyvault/keyvault-common/) |
 | Communication Call Automation | npm [1.1.0](https://www.npmjs.com/package/@azure/communication-call-automation/v/1.1.0) | [docs](/javascript/api/overview/azure/communication-call-automation-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-call-automation_1.1.0/sdk/communication/communication-call-automation/) |
@@ -422,7 +422,7 @@
 | Visual Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-visualsearch/v/3.0.1) |  |  |
 | Web Apps Framework Detection | npm [0.1.0](https://www.npmjs.com/package/@azure/web-apps-framework-detection/v/0.1.0) |  |  |
 | Web PubSub | npm [0.0.1-security.3](https://www.npmjs.com/package/azure-web-pubsub/v/0.0.1-security.3) |  |  |
-| Web PubSub Socket.IO | npm [1.0.1](https://www.npmjs.com/package/@azure/web-pubsub-socket.io/v/1.0.1) |  |  |
+| Web PubSub Socket.IO | npm [1.1.0](https://www.npmjs.com/package/@azure/web-pubsub-socket.io/v/1.1.0) |  |  |
 | Web Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-websearch/v/3.0.1) |  |  |
 | @azure/functions-authentication-events | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/functions-authentication-events/v/1.0.0-beta.2) |  |  |
 | Web PubSub CloudEvents Handlers for Express | npm [0.0.1-security.3](https://www.npmjs.com/package/azure-web-pubsub-express/v/0.0.1-security.3) |  |  |
@@ -433,7 +433,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240318.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240318.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240319.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240319.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
