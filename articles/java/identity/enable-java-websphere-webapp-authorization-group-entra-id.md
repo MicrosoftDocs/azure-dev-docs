@@ -30,3 +30,7 @@ This article shows you how to create a Java WebSphere app that signs in users wi
 [!INCLUDE [deploy-websphere.md](includes/deploy-websphere.md)]
 
 [!INCLUDE [enable-java-servlet-webapp-authorization-group-entra-id-explore.md](includes/enable-java-servlet-webapp-authorization-group-entra-id-explore.md)]
+
+## Next step
+
+[Deploy Java WebSphere apps to Traditional WebSphere on Azure Virtual Machines](deploy-websphere-to-vm.md)

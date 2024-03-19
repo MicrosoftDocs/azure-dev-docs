@@ -56,3 +56,7 @@ Use the following steps to deploy the sample to WebLogic via the web console:
 1. After the application starts, navigate to `http://localhost:7001/<application-name>/`, and you should be able to access the application.
 
 [!INCLUDE [enable-java-servlet-webapp-authorization-entra-id-explore.md](includes/enable-java-servlet-webapp-authorization-entra-id-explore.md)]
+
+## Next step
+
+[Deploy Java WebLogic apps to WebLogic on Azure Virtual Machines](deploy-weblogic-to-vm)

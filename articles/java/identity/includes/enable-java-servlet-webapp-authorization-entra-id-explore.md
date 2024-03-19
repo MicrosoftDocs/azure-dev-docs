@@ -153,7 +153,7 @@ For the scopes requested by the application, see *authentication.properties*. By
 
 - [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - [Microsoft identity platform (Microsoft Entra ID for developers)](/entra/identity-platform/)
-- [Quickstart: Register an application with the Microsoft identity platform (Preview)](/entra/identity-platform/quickstart-register-app)
+- [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app)
 - [Understanding Microsoft Entra ID application consent experiences](/entra/identity-platform/application-consent-experience)
 - [Understand user and admin consent](/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
 - [MSAL code samples](/entra/identity-platform/sample-v2-code?tabs=framework#java)

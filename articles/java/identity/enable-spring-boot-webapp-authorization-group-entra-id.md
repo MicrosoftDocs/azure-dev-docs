@@ -508,8 +508,8 @@ To update the app registration, use the following steps:
 
 - [Microsoft identity platform (Azure Active Directory for developers)](/entra/identity-platform/)
 - [Overview of Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview)
-- [Quickstart: Register an application with the Microsoft identity platform (Preview)](/entra/identity-platform/quickstart-register-app)
-- [Quickstart: Configure a client application to access web APIs (Preview)](/entra/identity-platform/quickstart-configure-app-access-web-apis)
+- [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app)
+- [Quickstart: Configure a client application to access web APIs](/entra/identity-platform/quickstart-configure-app-access-web-apis)
 - [Understanding Microsoft Entra ID application consent experiences](/entra/identity-platform/application-consent-experience)
 - [Understand user and admin consent](/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
 - [Application and service principal objects in Azure Active Directory](/entra/identity-platform/app-objects-and-service-principals)

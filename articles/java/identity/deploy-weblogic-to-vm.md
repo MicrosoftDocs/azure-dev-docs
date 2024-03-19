@@ -59,3 +59,14 @@ Because the redirect URI changes to your deployed app on Oracle WebLogic Server,
 1. Fill out the URI of your web app, appending `/auth/redirect` - for example, `http://wls-5b942e9f2a-admindomain.westus.cloudapp.azure.com:7001/testwebapp/auth/redirect`.
 
 1. Select **Save**.
+
+Your deployment is now complete.
+
+## More information
+
+- [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
+- [Microsoft identity platform (Microsoft Entra ID for developers)](/entra/identity-platform/)
+- [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app)
+- [Understanding Microsoft Entra ID application consent experiences](/entra/identity-platform/application-consent-experience)
+- [Understand user and admin consent](/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
+- [MSAL code samples](/entra/identity-platform/sample-v2-code?tabs=framework#java)

@@ -50,6 +50,23 @@ This article assumes that you completed one of the following articles using only
 
 [!INCLUDE [deploy-spring-apps-validate.md](includes/deploy-spring-apps-validate.md)]
 
+## More information
+
+- [Microsoft identity platform (Microsoft Entra ID for developers)](/entra/identity-platform/)
+- [Overview of Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview)
+- [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app)
+- [Quickstart: Configure a client application to access web APIs](/entra/identity-platform/quickstart-configure-app-access-web-apis)
+- [Understanding Microsoft Entra ID application consent experiences](/entra/identity-platform/application-consent-experience)
+- [Understand user and admin consent](/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
+- [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals)
+- [National Clouds](/entra/identity-platform/authentication-national-cloud#app-registration-endpoints)
+- [MSAL code samples](/entra/identity-platform/sample-v2-code?tabs=framework#java)
+- [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-active-directory)
+- [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java)
+- [MSAL4J Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
+- [ID tokens](/entra/identity-platform/id-tokens)
+- [Access tokens in the Microsoft identity platform](/entra/identity-platform/access-tokens)
+
 ## Next steps
 
 For more information and other deployment options, see the following articles:

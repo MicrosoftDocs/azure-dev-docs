@@ -31,3 +31,7 @@ This article demonstrates a Java Servlet application that authenticates users ag
 [!INCLUDE [deploy-websphere.md](includes/deploy-websphere.md)]
 
 [!INCLUDE [enable-java-servlet-webapp-authentication-azure-ad-b2c-explore.md](includes/enable-java-servlet-webapp-authentication-azure-ad-b2c-explore.md)]
+
+## Next step
+
+[Deploy Java WebSphere apps to Traditional WebSphere on Azure Virtual Machines](deploy-websphere-to-vm.md)

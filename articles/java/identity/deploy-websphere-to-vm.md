@@ -78,9 +78,21 @@ To deploy the application, use the following steps:
 
 1. After it finishes deploying, navigate to `http://<server-url>:9080/{whatever you set as the context root}` and you should be able to see the application.
 
+Your deployment is now complete.
+
+## More information
+
+- [Microsoft Authentication Library (MSAL) for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
+- [MSAL Java Reference Documentation](https://javadoc.io/doc/com.microsoft.azure/msal4j)
+- [Microsoft identity platform (Microsoft Entra ID for developers)](/entra/identity-platform/)
+- [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app)
+- [Understanding Microsoft Entra ID application consent experiences](/entra/identity-platform/application-consent-experience)
+- [Understand user and admin consent](/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent)
+- [MSAL code samples](/entra/identity-platform/sample-v2-code?tabs=framework#java)
+
 ## Next steps
 
-For more information and other deployment options, see the following articles:
+For other deployment options, see the following articles:
 
 - [Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](../ee/traditional-websphere-application-server-virtual-machines.md)
 - [What are solutions to run the IBM WebSphere family of products on Azure?](../ee/websphere-family.md)
