@@ -291,7 +291,7 @@
 | Azure.Communication.Administration | NuGet [1.0.0-beta.3](https://www.nuget.org/packages/Azure.Communication.Administration/1.0.0-beta.3) |  |  |
 | Azure.Communication.CallingServer | NuGet [1.0.0-beta.3](https://www.nuget.org/packages/Azure.Communication.CallingServer/1.0.0-beta.3) |  |  |
 | Azure.Core.Expressions.DataFactory | NuGet [1.0.0](https://www.nuget.org/packages/Azure.Core.Expressions.DataFactory/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core.Expressions.DataFactory_1.0.0/sdk/core/Azure.Core.Expressions.DataFactory/) |
-| Communication Calling Windows Client | NuGet [1.5.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.5.0) |  |  |
+| Communication Calling Windows Client | NuGet [1.5.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.5.0)<br>NuGet [1.5.0-beta.3](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.5.0-beta.3) |  |  |
 | Unknown Display Name | NuGet [12.0.0-beta.1](https://www.nuget.org/packages/Azure.Storage.DataMovement.Files.Shares/12.0.0-beta.1) |  |  |
 | Unknown Display Name | NuGet [1.0.2](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore.Analyzers/1.0.2) |  |  |
 | Unknown Display Name | NuGet [4.0.2945](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ItemTemplates.NetCore/4.0.2945) |  |  |
