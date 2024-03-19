@@ -26,12 +26,12 @@ This article shows you how to deploy a Java WebLogic web app with sign-in by Mic
 
 When you deploy your application to Oracle WebLogic Server, your redirect URL changes to the redirect URL of the app on the Oracle WebLogic Server instance. Use the following steps to change these settings in your properties file:
 
-1. Navigate to your app's *authentication.properties* file and change the value of `app.homePage` to your deployed app's domain name. This domain name has the form `http://<vm-host-name>:<port>/<your-app-path>`. You can get the host name and port from **adminConsoleURL** by removing `/console/`. If you're using the recommended sample app, the URL should be `http://<vm-host-name>:<port>/testwebapp/`, which should be similar to `http://wls-5b942e9f2a-admindomain.westus.cloudapp.azure.com:7001/testwebapp/`.
+1. Navigate to your app's *authentication.properties* file and change the value of `app.homePage` to your deployed app's domain name, as shown in the following example. This domain name has the form `http://<vm-host-name>:<port>/<your-app-path>`. You can get the host name and port from **adminConsoleURL** by removing `/console/`. If you're using the recommended sample app, the URL should be `http://<vm-host-name>:<port>/testwebapp/`, which should be similar to `http://wls-5b942e9f2a-admindomain.westus.cloudapp.azure.com:7001/testwebapp/`.
 
    ```ini
    # app.homePage is by default set to dev server address and app context path on the server
    # for apps deployed to azure, use https://your-sub-domain.azurewebsites.net
-   app.homePage=http://wls-5b942e9f2a-admindomain.westus.cloudapp.azure.com:7001/testwebapp/
+   app.homePage=http://<vm-host-name>:<port>/<your-app-path>
    ```
 
 1. After saving this file, use the following command to rebuild your app:

@@ -12,14 +12,15 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article shows you how to deploy a Tomcat app with sign-in by Microsoft Entra account to Azure App Service.
 
-## Prerequisites
+This article assumes that you completed one of the following articles using only the **Run locally** tab, and you now want to deploy to Azure. These instructions are the same as the ones in the **Deploy to Azure** tab in these articles:
 
-- Completion of one of the following articles for enabling security with Microsoft Entra ID:
-  - [Enable sign-in for Java Tomcat apps using Microsoft Entra ID](enable-java-tomcat-webapp-authentication-entra-id.md)
-  - [Enable sign-in for Java Tomcat apps using MSAL4J with Azure Active Directory B2C](enable-java-tomcat-webapp-authentication-azure-ad-b2c.md)
-  - [Enable Java Tomcat apps to sign in users and access Microsoft Graph](enable-java-tomcat-webapp-authorization-entra-id.md)
-  - [Secure Java Tomcat apps using roles and role claims](enable-java-tomcat-webapp-authorization-role-entra-id.md)
-  - [Secure Java Tomcat apps using groups and group claims](enable-java-tomcat-webapp-authorization-group-entra-id.md)
+- [Enable sign-in for Java Tomcat apps using Microsoft Entra ID](enable-java-tomcat-webapp-authentication-entra-id.md)
+- [Enable sign-in for Java Tomcat apps using MSAL4J with Azure Active Directory B2C](enable-java-tomcat-webapp-authentication-azure-ad-b2c.md)
+- [Enable Java Tomcat apps to sign in users and access Microsoft Graph](enable-java-tomcat-webapp-authorization-entra-id.md)
+- [Secure Java Tomcat apps using roles and role claims](enable-java-tomcat-webapp-authorization-role-entra-id.md)
+- [Secure Java Tomcat apps using groups and group claims](enable-java-tomcat-webapp-authorization-group-entra-id.md)
+
+## Prerequisites
 
 [!INCLUDE [deploy-app-service-intro.md](includes/deploy-app-service-intro.md)]
 

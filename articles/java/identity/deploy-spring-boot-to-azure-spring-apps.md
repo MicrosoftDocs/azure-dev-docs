@@ -12,14 +12,15 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article shows you how to deploy a Java Spring Boot app with sign-in by Microsoft Entra account to Azure Spring Apps.
 
-## Prerequisites
+This article assumes that you completed one of the following articles using only the **Run locally** tab, and you now want to deploy to Azure. These instructions are the same as the ones in the **Deploy to Azure** tab in these articles:
 
-- Completion of one of the following articles for enabling security with Microsoft Entra ID:
-  - [Secure Java Spring Boot apps using Microsoft Entra ID](enable-spring-boot-webapp-authentication-entra-id.md)
-  - [Secure Java Spring Boot apps using Azure Active Directory B2C](enable-spring-boot-webapp-authentication-azure-ad-b2c.md)
-  - [Enable Java Spring Boot apps to sign in users and access Microsoft Graph](enable-spring-boot-webapp-authorization-entra-id.md)
-  - [Secure Java Spring Boot apps using roles and role claims   ](enable-spring-boot-webapp-authorization-role-entra-id.md)
-  - [Secure Java Spring Boot apps using groups and group claims](enable-spring-boot-webapp-authorization-group-entra-id.md)
+- [Secure Java Spring Boot apps using Microsoft Entra ID](enable-spring-boot-webapp-authentication-entra-id.md)
+- [Secure Java Spring Boot apps using Azure Active Directory B2C](enable-spring-boot-webapp-authentication-azure-ad-b2c.md)
+- [Enable Java Spring Boot apps to sign in users and access Microsoft Graph](enable-spring-boot-webapp-authorization-entra-id.md)
+- [Secure Java Spring Boot apps using roles and role claims   ](enable-spring-boot-webapp-authorization-role-entra-id.md)
+- [Secure Java Spring Boot apps using groups and group claims](enable-spring-boot-webapp-authorization-group-entra-id.md)
+
+## Prerequisites
 
 [!INCLUDE [deploy-spring-apps-intro.md](includes/deploy-spring-apps-intro.md)]
 

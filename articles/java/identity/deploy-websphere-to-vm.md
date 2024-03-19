@@ -26,7 +26,7 @@ This article shows you how to deploy a Java WebSphere web app with sign-in by Mi
 
 When you deploy your application to WebSphere Application Server, your redirect URL changes to the redirect URL of your deployed WebSphere Application Server instance. Use the following steps to change these settings in your properties file:
 
-1. Navigate to your app's *authentication.properties* file and change the value of `app.homePage` to your server URL and port number you're planning to use.
+1. Navigate to your app's *authentication.properties* file and change the value of `app.homePage` to your server URL and port number you're planning to use, as shown in the following example:
 
    ```ini
    # app.homePage is by default set to dev server address and app context path on the server

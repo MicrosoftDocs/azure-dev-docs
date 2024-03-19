@@ -9,7 +9,7 @@ These instructions assume that you installed WebSphere and set up a server. You 
 
 Before you can deploy to WebSphere, use the following steps to make some configuration changes in the sample itself and then build or rebuild the package:
 
-1. Navigate to your app's *authentication.properties* file and change the value of `app.homePage` to your server URL and port number you're planning to use.
+1. Navigate to your app's *authentication.properties* file and change the value of `app.homePage` to your server URL and port number you're planning to use, as shown in the following example:
 
    ```ini
    # app.homePage is by default set to dev server address and app context path on the server
