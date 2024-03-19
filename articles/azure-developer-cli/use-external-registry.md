@@ -15,7 +15,7 @@ Azure Developer CLI (`azd`) supports external third-party container registries f
 
 Run `docker login` and authenticate to your external container registry. You may need to follow additional setup or configuration steps for your specific registry provider.
 
-```azurecli
+```azdeveloper
 docker login <your-registry>
 ```
 
