@@ -32,10 +32,3 @@ services:
 ```
 
 Support for additional container registries provides greater flexibility for your deployment workflows.
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Customize workflows using hooks](./azd-extensibility.yml)
-> [Manage Environment Variables](./manage-environment-variables.yml)
-> [Azure Developer CLI FAQ](./faq.yml)
