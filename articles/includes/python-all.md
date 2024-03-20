@@ -317,7 +317,7 @@
 | Storage - Files Data Lake | PyPI [0.0.51](https://pypi.org/project/azure-datalake-store/0.0.51) |  |  |
 | Synapse | PyPI [0.1.1](https://pypi.org/project/azure-synapse/0.1.1) | [docs](/python/api/overview/azure/synapse-readme?view=azure-python-preview&amp;preserve-view=true) | GitHub [0.1.1](https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse_0.1.1/sdk/synapse/azure-synapse/) |
 | Text Analytics | PyPI [1.0.2](https://pypi.org/project/text-analytics/1.0.2) |  |  |
-| Uamqp | PyPI [1.6.8](https://pypi.org/project/uamqp/1.6.8) |  | GitHub [1.6.8](https://github.com/Azure/azure-uamqp-python/) |
+| Uamqp | PyPI [1.6.9](https://pypi.org/project/uamqp/1.6.9) |  | GitHub [1.6.9](https://github.com/Azure/azure-uamqp-python/) |
 | Video Search | PyPI [2.0.0](https://pypi.org/project/azure-cognitiveservices-search-videosearch/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-cognitiveservices-search-videosearch_2.0.0/sdk/cognitiveservices/azure-cognitiveservices-search-videosearch/) |
 | Visual Search | PyPI [0.2.0](https://pypi.org/project/azure-cognitiveservices-search-visualsearch/0.2.0) |  | GitHub [0.2.0](https://github.com/Azure/azure-sdk-for-python/tree/azure-cognitiveservices-search-visualsearch_0.2.0/azure-cognitiveservices-search-visualsearch/) |
 | Web PubSub - Client | PyPI [1.0.0](https://pypi.org/project/azure-messaging-webpubsubclient/1.0.0) |  |  |
