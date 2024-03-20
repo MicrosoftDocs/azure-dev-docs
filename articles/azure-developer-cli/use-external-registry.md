@@ -42,7 +42,7 @@ services:
 > [!NOTE]
 > Your containerapp infra configuration must configure credentials when pulling containers from private container registries.
 
-## Pull, tag & push to external registry
+### Pull, tag & push to external registry
 
 Consider an `azure.yaml` file with the following configuration:
 
@@ -64,7 +64,7 @@ services:
 
 During a call to `azd deploy` the nginx image will be pulled from the configured image. In this case it is a public image on docker hub. The container/image will be retagged and pushed to the docker registry.
 
-## Build, tag & push to external registry on azd deploy
+### Build, tag & push to external registry on azd deploy
 
 Consider an `azure.yaml` file with the following configuration:
 
