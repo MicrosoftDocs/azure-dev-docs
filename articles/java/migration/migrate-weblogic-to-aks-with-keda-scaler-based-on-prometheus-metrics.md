@@ -32,8 +32,6 @@ The following diagram illustrates the architecture you build:
 
 The [Oracle WebLogic Server on AKS](https://aka.ms/wlsaks) offer runs a WLS operator and a WLS domain on AKS. The WLS operator manages a WLS domain which is deployed using [model in image](https://oracle.github.io/weblogic-kubernetes-operator/samples/domains/model-in-image/) domain source type. To learn more about WLS operator, see [Oracle WebLogic Kubernetes Operator](https://oracle.github.io/weblogic-kubernetes-operator/).
 
- The WLS Cluster custom resource has enabled the Kubernetes [scale subresource](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/#scale-subresource/). 
-
 The WebLogic Monitoring Exporter is to scrape WebLogic Server metrics and feed them to Prometheus. The exporter uses the WebLogic Server 12.2.1.x [RESTful Management Interface](https://docs.oracle.com/middleware/1221/wls/WLRUR/overview.htm#WLRUR111) for accessing runtime state and metrics. 
 
 Azure Monitor managed service for Prometheus collects and saves metrics from WLS at scale using a Prometheus-compatible monitoring solution, based on the [Prometheus](https://aka.ms/azureprometheus-promio) project from the Cloud Native Computing Foundation. To learn more, see [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview).
