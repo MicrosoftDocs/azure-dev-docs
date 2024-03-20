@@ -4,7 +4,7 @@
 | @azure/api-management-custom-widgets-tools | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/api-management-custom-widgets-tools/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/api-management-custom-widgets-tools-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/api-management-custom-widgets-tools) |
 | @azure/communication-administration | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/communication-administration/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/communication-administration-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | @azure/communication-calling-effects | npm [1.0.1](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.0.1) |  | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
-| @azure/communication-react | npm [1.13.0](https://www.npmjs.com/package/@azure/communication-react/v/1.13.0) |  | GitHub [1.13.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| @azure/communication-react | npm [1.14.0](https://www.npmjs.com/package/@azure/communication-react/v/1.14.0) |  | GitHub [1.14.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | AccessControl | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/synapse-access-control-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-access-control_1.0.0-beta.3/sdk/synapse/synapse-access-control/) |
 | App Configuration | npm [1.5.0](https://www.npmjs.com/package/@azure/app-configuration/v/1.5.0)<br>npm [1.6.0-beta.1](https://www.npmjs.com/package/@azure/app-configuration/v/1.6.0-beta.1) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.5.0/sdk/appconfiguration/app-configuration/)<br>GitHub [1.6.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.6.0-beta.1/sdk/appconfiguration/app-configuration/) |
 | Artifacts | npm [1.0.0-beta.14](https://www.npmjs.com/package/@azure/synapse-artifacts/v/1.0.0-beta.14) | [docs](/javascript/api/overview/azure/synapse-artifacts-readme) | GitHub [1.0.0-beta.14](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.14/sdk/synapse/synapse-artifacts/) |
@@ -78,7 +78,7 @@
 | Mixed Reality Authentication | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-authentication/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-authentication-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-authentication_1.0.0-beta.1/sdk/mixedreality/mixed-reality-authentication/) |
 | Monitor Ingestion | npm [1.0.0](https://www.npmjs.com/package/@azure/monitor-ingestion/v/1.0.0) | [docs](/javascript/api/overview/azure/monitor-ingestion-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-ingestion_1.0.0/sdk/monitor/monitor-ingestion/) |
 | Monitor Query | npm [1.1.1](https://www.npmjs.com/package/@azure/monitor-query/v/1.1.1)<br>npm [1.2.0-beta.3](https://www.npmjs.com/package/@azure/monitor-query/v/1.2.0-beta.3) | [docs](/javascript/api/overview/azure/monitor-query-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.1.1/sdk/monitor/monitor-query/)<br>GitHub [1.2.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.2.0-beta.3/sdk/monitor/monitor-query/) |
-| Notification Hubs | npm [1.1.0](https://www.npmjs.com/package/@azure/notification-hubs/v/1.1.0) | [docs](/javascript/api/overview/azure/notification-hubs-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/notification-hubs_1.1.0/sdk/notificationhubs/notification-hubs/) |
+| Notification Hubs | npm [1.1.1](https://www.npmjs.com/package/@azure/notification-hubs/v/1.1.1) | [docs](/javascript/api/overview/azure/notification-hubs-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/notification-hubs_1.1.1/sdk/notificationhubs/notification-hubs/) |
 | OpenAI | npm [1.0.0-beta.11](https://www.npmjs.com/package/@azure/openai/v/1.0.0-beta.11) | [docs](/javascript/api/overview/azure/openai-readme) | GitHub [1.0.0-beta.11](https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_1.0.0-beta.11/sdk/openai/openai/) |
 | OpenTelemetry Exporter | npm [1.0.0-beta.21](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter/v/1.0.0-beta.21) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-exporter-readme) | GitHub [1.0.0-beta.21](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.21/sdk/monitor/monitor-opentelemetry-exporter/) |
 | Personalizer | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-personalizer/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-personalizer_1.0.0-beta.1/sdk/personalizer/ai-personalizer-rest/) |
@@ -341,7 +341,7 @@
 | Unknown Display Name | npm [0.7.0](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.7.0) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/purview-datamap/v/1.0.0-beta.1) |  |  |
 | Unknown Display Name | npm [0.40.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.40.0) |  |  |
-| Unknown Display Name | npm [0.5.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.5.0) |  |  |
+| Unknown Display Name | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.6.0) |  |  |
 | Unknown Display Name | npm [1.0.0-preview.2](https://www.npmjs.com/package/@azure/app-configuration-provider/v/1.0.0-preview.2) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/openai-assistants/v/1.0.0-beta.5) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.6](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.6) |  |  |
@@ -367,7 +367,7 @@
 | Core - Client - AMQP Common | npm [1.0.0-preview.17](https://www.npmjs.com/package/@azure/amqp-common/v/1.0.0-preview.17) |  | GitHub [1.0.0-preview.17](https://github.com/Azure/azure-sdk-for-js/tree/@azure/amqp-common_1.0.0-preview.17/sdk/core/amqp-common/) |
 | Core - Client - Asynciterator Polyfill | npm [1.0.2](https://www.npmjs.com/package/@azure/core-asynciterator-polyfill/v/1.0.2) |  | GitHub [1.0.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-asynciterator-polyfill_1.0.2/sdk/core/core-asynciterator-polyfill/) |
 | Core - Client - Https | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/core-https/v/1.0.0-beta.1) |  |  |
-| Cosmos DB Query Editor | npm [1.0.0-beta.8](https://www.npmjs.com/package/@azure/cosmos-query-editor-react/v/1.0.0-beta.8) |  |  |
+| Cosmos DB Query Editor | npm [1.0.0-beta.9](https://www.npmjs.com/package/@azure/cosmos-query-editor-react/v/1.0.0-beta.9) |  |  |
 | Custom Image Search | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-customimagesearch/v/2.0.1) |  |  |
 | Custom Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-customsearch/v/3.0.1) |  |  |
 | Custom Search | npm [2.0.0](https://www.npmjs.com/package/azure-cognitiveservices-customsearch/v/2.0.0) |  |  |
@@ -433,7 +433,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240319.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240319.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240320.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240320.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -513,7 +513,7 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.63](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.63) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - PowerShell | npm [4.0.684](https://www.npmjs.com/package/@autorest/powershell/v/4.0.684) |  | GitHub [4.0.684](https://github.com/Azure/autorest.powershell) |
+| AutoRest - PowerShell | npm [4.0.685](https://www.npmjs.com/package/@autorest/powershell/v/4.0.685) |  | GitHub [4.0.685](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.13.7](https://www.npmjs.com/package/@autorest/python/v/6.13.7) |  | GitHub [6.13.7](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |

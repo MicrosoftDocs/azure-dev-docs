@@ -1,5 +1,5 @@
 ---
-ms.custom: overview, devx-track-python
+ms.custom: overview
 ms.topic: include
 ms.date: 01/31/2024
 ms.author: diberry
@@ -88,4 +88,3 @@ These are completed on the chat app sample.
     Wait until this process finishes before continuing.
 
 ---
-

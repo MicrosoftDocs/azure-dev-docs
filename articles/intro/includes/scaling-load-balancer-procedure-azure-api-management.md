@@ -1,5 +1,5 @@
 ---
-ms.custom: overview, devx-track-python
+ms.custom: overview
 ms.topic: include
 ms.date: 01/31/2024
 ms.author: diberry
@@ -55,4 +55,3 @@ Run the following bash command to see the environment variables from the deploym
 ```bash
 azd env get-values | grep APIM_GATEWAY_URL
 ```
-
