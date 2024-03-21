@@ -79,6 +79,8 @@ landingContent:
         links:
           - text: WebSphere Application Server to AKS
             url: migrate-websphere-to-azure-kubernetes-service.md
+          - text: "Tutorial: WebSphere Liberty/Open Liberty to AKS with high availability and disaster recovery"
+            url: migrate-liberty-to-aks-with-ha-dr.md
           - text: WebSphere Application Server to Azure Red Hat OpenShift
             url: migrate-websphere-to-azure-redhat-openshift.md
           - text: WebSphere Application Server to Azure Virtual Machines
