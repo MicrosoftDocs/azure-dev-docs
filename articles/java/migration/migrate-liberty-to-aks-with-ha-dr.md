@@ -61,34 +61,6 @@ First, create the primary Azure SQL Database by following the Azure portal steps
    1. In step 11, for **Backup storage redundancy**, select **Locally-redundant backup storage**. Consider other options for your backups. For more information, see the [Backup storage redundancy](/azure/azure-sql/database/automated-backups-overview?view=azuresql-db&preserve-view=true#backup-storage-redundancy) section of [Automated backups in Azure SQL Database](/azure/azure-sql/database/automated-backups-overview?view=azuresql-db&preserve-view=true).
    1. In step 14, in the **Firewall rules** configuration, for **Allow Azure services and resources to access this server**, select **Yes**.
 
-1. When you reach the section [Query the database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal#query-the-database), use the following steps:
-   1. In step 3, enter your **SQL authentication** server admin sign-in information to sign in.
-
-      > [!NOTE]
-      > If sign-in fails with an error message similar to **Client with IP address 'xx.xx.xx.xx' is not allowed to access the server**, select **Allowlist IP xx.xx.xx.xx on server \<your-sqlserver-name\>** at the end of the error message. Wait until the server firewall rules complete updating, then select **OK** again.
-
-   1. After you run the sample query in step 5, clear the editor and enter the following query, then select **Run** again.
-
-      ```sql
-      CREATE TABLE sessions (
-         ID VARCHAR(128) NOT NULL,
-         PROPID VARCHAR(128) NOT NULL,
-         APPNAME VARCHAR(128) NOT NULL,
-         LISTENERCNT SMALLINT,
-         LASTACCESS BIGINT,
-         CREATIONTIME BIGINT,
-         MAXINACTIVETIME INT,
-         USERNAME VARCHAR(256),
-         SMALL VARBINARY(MAX),
-         MEDIUM VARCHAR(MAX),
-         LARGE VARBINARY(MAX)
-      );
-      ```
-
-      After a successful run, you should see the message **Query succeeded: Affected rows: 0**.
-
-      The database table *sessions* is used for storing session data for your WebSphere app. The WebSphere cluster data including transaction logs is persisted to local storage of VMs where the cluster is deployed.
-
 Then, create an Azure SQL Database failover group by following the Azure portal steps in [Configure a failover group for Azure SQL Database](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db). You just need the following sections: [Create failover group](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#create-failover-group) and [Test planned failover](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#test-planned-failover). Use the following steps as you go through the article, then return to this article after you create and configure the Azure SQL Database failover group:
 
 1. When you reach the section [Create failover group](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#create-failover-group), use the following steps:
