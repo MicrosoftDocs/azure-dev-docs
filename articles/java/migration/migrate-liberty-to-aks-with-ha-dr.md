@@ -76,7 +76,7 @@ Then, create an Azure SQL Database failover group by following the Azure portal 
 
 ## Set up the primary WebSphere Liberty/Open Liberty cluster on AKS
 
-In this section, you create the primary WebSphere Liberty/Open Liberty cluster on AKS using the [](https://aka.ms/liberty-aks) offer. The secondary cluster is restored from the primary cluster during the failover using the Azure Backup later.
+In this section, you create the primary WebSphere Liberty/Open Liberty cluster on AKS using the [IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service](https://aka.ms/liberty-aks) offer. The secondary cluster is restored from the primary cluster during the failover using the Azure Backup later.
 
 ### Deploy the primary WebSphere Liberty/Open Liberty cluster
 
@@ -116,5 +116,72 @@ After a while, you should see the **Deployment** page where **Deployment is in p
 > [!NOTE]
 > If you see any problems during **Running final validation...**, fix them and try again.
 
-Depending on network conditions and other activity in your selected region, the deployment can take up to 25 minutes to complete. After that, you should see the text **Your deployment is complete** displayed on the deployment page.
+Depending on network conditions and other activity in your selected region, the deployment can take up to about 30 minutes to complete. After that, you should see the text **Your deployment is complete** displayed on the deployment page.
+
+### Verify the deployment of the cluster
+
+You deployed an AKS cluster, an Azure Container Registry (ACR) instance, and an Azure Application Gateway in the primary region. The AKS cluster is the target computing platform where your app is deployed and running. The ACR instance stores application image that is pulled by the AKS during the app deployment. The Azure Application Gateway acts as load balancer for application deployed to the AKS cluster.
+
+Use the following steps to verify these key components before moving to next step:
+
+1. Return to the **Deployment** page, then select **Outputs**.
+1. Copy the value of the property **cmdToConnectToCluster**. Open a terminal, paste the copied command, and press <kbd>Enter</kbd> to execute. You should see the similar message included in the output:
+
+   ```text
+   Merged "cluster3984d1-admin" as current context in <your-user>\.kube\config
+   ```
+
+1. Now run `kubectl get pod --all-namespaces` in the terminal to list all pods running on the AKS cluster. You should see the similar output:
+
+   ```text
+   NAMESPACE      NAME                                        READY   STATUS    RESTARTS      AGE
+   cert-manager   cert-manager-66bc9756fd-255pk               1/1     Running   0             8m55s
+   cert-manager   cert-manager-cainjector-669c9fb694-k4q88    1/1     Running   0             8m55s
+   cert-manager   cert-manager-webhook-84967d556d-vj4lp       1/1     Running   0             8m55s
+   kube-system    azure-ip-masq-agent-dgzkt                   1/1     Running   0             29m
+   kube-system    cloud-node-manager-6x7bp                    1/1     Running   0             29m
+   kube-system    coredns-789789675-6b7dh                     1/1     Running   0             28m
+   kube-system    coredns-789789675-n68wt                     1/1     Running   0             29m
+   kube-system    coredns-autoscaler-649b947bbd-zhdbn         1/1     Running   0             29m
+   kube-system    csi-azuredisk-node-h9p7m                    3/3     Running   0             29m
+   kube-system    csi-azurefile-node-jnllw                    3/3     Running   0             29m
+   kube-system    ingress-appgw-deployment-69944d8fb9-v9btr   1/1     Running   5 (12m ago)   17m
+   kube-system    konnectivity-agent-94878f88c-hfqng          1/1     Running   0             29m
+   kube-system    konnectivity-agent-94878f88c-ln2vp          1/1     Running   0             29m
+   kube-system    kube-proxy-28lkg                            1/1     Running   0             29m
+   kube-system    metrics-server-5fffcb8954-549xl             2/2     Running   0             28m
+   kube-system    metrics-server-5fffcb8954-fn56g             2/2     Running   0             28m
+   open-liberty   olo-controller-manager-7954d76cf8-qhmxw     1/1     Running   0             8m40s
+   ```
+
+1. Run `kubectl get secret` in the terminal to list all secrets installed on the AKS cluster. You should see one secret in the output:
+
+   ```text
+   NAME           TYPE                DATA   AGE
+   secret3984d1   kubernetes.io/tls   2      24m
+   ```
+
+   Copy the name of the secret - for example, *secret3984d1*, you use it in the app deployment later.
+
+1. Switch back to **Outputs** page, copy the value of the property **cmdToLoginInRegistry**. Paste the copied command in the terminal and press <kbd>Enter</kbd> to execute. You should see *Login Succeeded* in the output. Keep the terminal open and use it for further configuration of the WebSphere Liberty/Open Liberty cluster later.
+
+Use the following steps to write down the name and DNS name of the public IP address of the Azure Application Gateway. You use them for app deployment and the Azure Traffic Manager setup later.
+
+1. In the search box at the top of the Azure portal, enter **Resource groups** and select **Resource groups** in the search results.
+1. Select the name of resource group for your primary region - for example, *liberty-aks-eastus-mjg032524*.
+1. Find the **Public IP address** resource prefixed with `gwip`, copy and write down its name. 
+1. Select the **Public IP address** resource, copy and write down the **DNS name**.
+
+### Enable geo-replications for the ACR instance
+
+The ACR instance is designed to store application images for both primary and secondary clusters. Use the following steps to enable geo-replications for the ACR instance.
+
+1. In the search box at the top of the Azure portal, enter **Resource groups** and select **Resource groups** in the search results.
+1. Select the name of resource group for your primary region - for example, *liberty-aks-eastus-mjg032524*.
+1. Find the **Container registry** resource prefixed with `acr`, select to open.
+1. Select **Properties**. Select **Premium** for **Pricing plan** > **Save**. Wait until completion.
+1. Select **Geo-replications**. Select **+ Add** > **West US** for **Location** > **Create**. Wait until completion.
+1. Wait for a while, select **Refresh**. Repeat the operation until you see two locations are listed and **Status** is *Ready*.
+
+   :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/acr-geo-replications-enabled-in-paired-regions.png" alt-text="Screenshot of the ACR instance enabled with geo-replications in pair regions." lightbox="media/migrate-liberty-to-aks-with-ha-dr/acr-geo-replications-enabled-in-paired-regions.png" border="false":::
 
