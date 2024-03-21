@@ -270,7 +270,7 @@ The app has some simple logic in the UI template pages for determining content t
 
 ### Protect routes with AADWebSecurityConfigurerAdapter
 
-By default, the app protects the **ID Token Details** page so that only signed-in users can access it. The app configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, you can extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blo4b/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
+By default, the app protects the **ID Token Details** page so that only signed-in users can access it. The app configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, you can extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
 
 ```java
 @EnableWebSecurity
