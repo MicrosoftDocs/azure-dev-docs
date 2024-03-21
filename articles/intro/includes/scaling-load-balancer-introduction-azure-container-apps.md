@@ -17,7 +17,6 @@ This article requires you to deploy 2 separate samples:
     * Chat app available in these languages:
 
         * [.NET](/dotnet/ai/get-started-app-chat-template)
-        * [Java](/azure/developer/java/quickstarts/get-started-app-chat-template)
         * [JavaScript](/azure/developer/javascript/get-started-app-chat-template)
         * [Python](/azure/developer/python/get-started-app-chat-template)
 
