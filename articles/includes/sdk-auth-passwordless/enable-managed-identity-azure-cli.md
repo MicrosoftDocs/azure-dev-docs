@@ -1,6 +1,4 @@
 ---
-author: diberry
-ms.author: diberry
 ms.topic: include
 ms.custom: devx-track-azurecli
 ms.date: 03/31/2022

@@ -211,6 +211,8 @@ The intelligence of the chat is determined by the OpenAI model and the settings 
 |---|---|
 |Override prompt template|This is the prompt that is used to generate the answer.|
 |Temperature|The temperature used for the final Chat Completion API call, a number between 0 and 1 that controls the "creativity" of the model.|
+| Minimum search score|The minimum score of the search results that are used to generate the answer. Range depends on [search mode used](/azure/search/hybrid-search-ranking#scores-in-a-hybrid-search-results). |
+| Minimum reranker score|The minimum score from the semantic ranker of the search results that are used to generate the answer. Ranges from 0-4. |
 |Retrieve this many search results|This is the number of search results that are used to generate the answer. You can see these sources returned in the _Thought process_ and _Supporting content_ tabs of the citation. |
 |Exclude category|This is the category of documents that are excluded from the search results.|
 |Use semantic ranker for retrieval|This is a feature of [Azure AI Search](/azure/search/semantic-search-overview#what-is-semantic-search) that uses machine learning to improve the relevance of search results.|
@@ -278,9 +280,9 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 
-1. Locate your currently running codespaces sourced from the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
+1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
 
-    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running codespaces including their status and templates.":::
+    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
 1. Open the context menu for the codespace and then select **Delete**.
 
