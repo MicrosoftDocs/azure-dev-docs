@@ -91,7 +91,7 @@ Use the following steps to fill out the **Basics** pane:
 
 :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/portal-basics.png" alt-text="Screenshot of the Azure portal that shows the IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service Basics pane." lightbox="media/migrate-liberty-to-aks-with-ha-dr/portal-basics.png":::
 
-Wait for a while, you should see all fields pre-populated with the defaults in the **AKS** pane. Select **Next** to go to the **Load balancing** pane.
+Wait for a while, you should see all fields prepopulated with the defaults in the **AKS** pane. Select **Next** to go to the **Load balancing** pane.
 
 :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/portal-aks.png" alt-text="Screenshot of the Azure portal that shows the IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service AKS pane." lightbox="media/migrate-liberty-to-aks-with-ha-dr/portal-aks.png":::
 
@@ -163,14 +163,14 @@ Use the following steps to verify these key components before moving to next ste
 
    This secret is a TLS secret that includes certificate and key data for TLS traffic. Copy the name of the secret - for example, *secret3984d1*, you use it in the app deployment later.
 
-1. Switch back to **Outputs** page, copy the value of the property **cmdToLoginInRegistry**. Paste the copied command in the terminal and press <kbd>Enter</kbd> to execute. You should see *Login Succeeded* in the output. Keep the terminal open and use it for further configuration of the WebSphere Liberty/Open Liberty cluster later.
+1. Switch back to **Outputs** page. Copy the value of the property **cmdToLoginInRegistry**. Paste the copied command in the terminal and press <kbd>Enter</kbd> to execute. You should see *Login Succeeded* in the output. Keep the terminal open and use it for further configuration of the WebSphere Liberty/Open Liberty cluster later.
 
 Use the following steps to write down the name and DNS name of the public IP address of the Azure Application Gateway. You use them for app deployment and the Azure Traffic Manager setup later.
 
 1. In the search box at the top of the Azure portal, enter **Resource groups** and select **Resource groups** in the search results.
 1. Select the name of resource group for your primary region - for example, *liberty-aks-eastus-mjg032524*.
-1. Find the **Public IP address** resource prefixed with `gwip`, copy and write down its name. 
-1. Select the **Public IP address** resource, copy and write down the **DNS name** - for example, *olgw3984d1.eastus.cloudapp.azure.com*.
+1. Find the **Public IP address** resource prefixed with `gwip`, copy, and write down its name. 
+1. Select the **Public IP address** resource, copy, and write down the **DNS name** - for example, *olgw3984d1.eastus.cloudapp.azure.com*.
 
 ### Enable geo-replications for the ACR instance
 
@@ -254,7 +254,7 @@ javaee-cafe-cluster-agic-6bbb8d6f5c-m2wg6   1/1     Running   0          1m
 
 Now, use the following steps to verify if the app is running as expected.
 
-1. Open the DNS name of the public IP address of the Azure Application Gateway you wrote down before with *https* protocal in a new tab of the browser - for example, *https://olgw3984d1.eastus.cloudapp.azure.com*. You should see the welcome page of sample app.
+1. Open the DNS name of the public IP address of the Azure Application Gateway you wrote down before with *https* protocol in a new tab of the browser - for example, *https://olgw3984d1.eastus.cloudapp.azure.com*. You should see the welcome page of sample app.
 1. Create a new coffee with name and price (for example, *Coffee 1* with price *10*), which is persisted into both application data table and session table of the database. The UI that you see should be similar to the following screenshot:
 
    :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-liberty-to-aks-with-ha-dr/sample-app-ui.png":::
