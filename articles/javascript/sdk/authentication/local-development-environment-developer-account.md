@@ -10,7 +10,7 @@ ms.custom: dexx-track-js, devx-track-azurecli, devx-track-azurepowershell, devx-
 
 When creating cloud applications, developers need to debug and test applications on their local workstation. When an application is run on a developer's workstation during local development, it still must authenticate to any Azure services used by the app. This article covers how to use a developer's Azure credentials to authenticate the app to Azure during local development.
 
-:::image type="content" source="../../../includes/media/sdk-auth-passwordless/local-dev-dev-accounts-overview.png" alt-text="A diagram showing a local dev app running obtaining a service principal from an .env file and use that identity to connect to Azure resources.":::
+:::image type="content" source="../../../includes/media/sdk-auth-passwordless/javascript/local-dev-dev-accounts-overview.png" alt-text="A diagram showing a local dev app running obtaining a service principal from an .env file and use that identity to connect to Azure resources.":::
 
 For an app to authenticate to Azure during local development using the developer's Azure credentials, the developer must be signed-in to Azure from the VS Code Azure Tools extension, the Azure CLI, or Azure PowerShell.  The Azure SDK for JavaScript is able to detect that the developer is signed-in from one of these tools and then obtain the necessary credentials from the credentials cache to authenticate the app to Azure as the signed-in user.
 
