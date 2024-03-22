@@ -234,7 +234,7 @@ conceptualContent:
         - text: Oracle WebLogic Server on Azure VMs
           itemType: overview
           url: /azure/virtual-machines/workloads/oracle/oracle-weblogic
-        - text: Deploy a Java EE app to AKS AKS
+        - text: Deploy a Java EE app to AKS
           itemType: how-to-guide
           url: /azure/aks/howto-deploy-java-liberty-app
         - text: Deploy a MicroProfile App to Azure App Service
