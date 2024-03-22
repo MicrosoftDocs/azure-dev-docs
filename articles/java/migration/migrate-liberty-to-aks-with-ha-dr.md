@@ -4,7 +4,7 @@ description: Shows how to deploy WebSphere Liberty/Open Liberty to Azure Kuberne
 author: KarlErickson
 ms.author: jiangma
 ms.topic: tutorial
-ms.date: 03/25/2024
+ms.date: 03/26/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-websphere, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, migration-java, devx-track-extended-java
 ---
 
@@ -19,6 +19,7 @@ In this tutorial, you learn how to:
 > * Set up a Microsoft Azure SQL Database failover group in paired regions.
 > * Set up the primary WebSphere Liberty/Open Liberty cluster on AKS.
 > * Set up disaster recovery for the cluster using Azure Backup.
+> * Set up the secondary AKS cluster.
 > * Set up an Azure Traffic Manager.
 > * Test failover from primary to secondary.
 
@@ -80,7 +81,7 @@ In this section, you create the primary WebSphere Liberty/Open Liberty cluster o
 
 ### Deploy the primary WebSphere Liberty/Open Liberty cluster
 
-First, open the [IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service](https://aka.ms/twas-cluster-portal) offer in your browser and select **Create**. You should see the **Basics** pane of the offer.
+First, open the [IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service](https://aka.ms/liberty-aks) offer in your browser and select **Create**. You should see the **Basics** pane of the offer.
 
 Use the following steps to fill out the **Basics** pane:
 
@@ -161,7 +162,7 @@ Use the following steps to verify these key components before moving to next ste
    secret3984d1   kubernetes.io/tls   2      24m
    ```
 
-   This secret is a TLS secret that includes certificate and key data for TLS traffic. Copy the name of the secret - for example, *secret3984d1*, you use it in the app deployment later.
+   This secret is a TLS secret that includes certificate and key data for TLS traffic. Copy and write down the name of the secret - for example, *secret3984d1*, you use it in the app deployment later.
 
 1. Switch back to **Outputs** page. Copy the value of the property **cmdToLoginInRegistry**. Paste the copied command in the terminal and press <kbd>Enter</kbd> to execute. You should see *Login Succeeded* in the output. Keep the terminal open and use it for further configuration of the WebSphere Liberty/Open Liberty cluster later.
 
@@ -272,7 +273,7 @@ AKS backup uses a blob container to hold the AKS cluster resources. You create a
 Use the following steps to create a storage account and two containers. Some of these steps direct you to other guides.
 
 1. Sign in to the [Azure portal](https://aka.ms/publicportal).
-1. Create a storage account by following the steps in [Create a storage account](/azure/storage/common/storage-account-create). You don't need to perform all the steps in the article. Fill out the fields as shown on the **Basics** pane. For **Resource group**, select the existing resource group where the primary cluster is deployed - for example, *liberty-aks-eastus-mjg032524*. For **Region**, select **East US**. For **Storage account name**, enter a unique name - for example, *storageeastusmjg032524*. Then select **Review + create** to accept the default options. Proceed to validate and create the account, then return to this article.
+1. Create a storage account by following the steps in [Create a storage account](/azure/storage/common/storage-account-create). You don't need to perform all the steps in the article. Fill out the fields as shown on the **Basics** pane. For **Resource group**, select the existing resource group where the primary cluster is deployed - for example, *liberty-aks-eastus-mjg032524*. For **Storage account name**, enter a unique name - for example, *storageeastusmjg032524*. For **Region**, select **East US**. Then select **Review + create** to accept the default options. Proceed to validate and create the account, then return to this article.
 1. Create a storage container for AKS Backup Extension following [Create a storage container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). This guide uses *aks-backup-ext* as the container name.
 1. Create another storage container as staging location for use during restoring. This guide uses *staging* as the container name.
 
@@ -338,3 +339,46 @@ Open Azure portal, in the search bar on the top, search **Backup vaults**. You s
 
      :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/aks-backup-instance-protection-configured.png" alt-text="Screenshot of the Azure portal showing the AKS backup instance protection is configured." lightbox="media/migrate-liberty-to-aks-with-ha-dr/aks-backup-instance-protection-configured.png":::
 
+### Wait for a Vault-standard backup to happen
+
+In AKS, the **Vault-standard Tier** is the only tier that supports *Geo-redundancy* and *Cross Region Restore*. As stated in [Which backup storage tier does AKS backup support?](/azure/backup/azure-kubernetes-service-backup-overview#which-backup-storage-tier-does-aks-backup-support), "Only one scheduled recovery point per day is moved to Vault Tier." You must wait for a **Vault-standard** backup to happen. A good lower bound is to wait at most 24 hours after completing the previous step before restoring.
+
+Use the following steps to verify if a **Vault-standard** backup is available.
+
+1. In **Backup** page of the primary AKS cluster, select the backup instance.
+1. Wait for a while and select **Refresh**. Repeat the operation until you see at least one **Operational and Vault-standard** restore point is listed in section **RESTORE POINTS**.
+
+   <!-- TODO: capture the image once the Vault-standard backup available -->
+   :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/backup-instance-operational-and-vault-standard-restorepoint.png" alt-text="Screenshot of the Azure portal showing the AKS backup instance has Operational and Vault-standard restore point." lightbox="media/migrate-liberty-to-aks-with-ha-dr/backup-instance-operational-and-vault-standard-restorepoint.png":::
+
+## Set up the secondary AKS cluster
+
+While waiting for a **Vault-standard** backup for the primary AKS cluster to happen, set up your secondary AKS cluster for restoring later.
+
+Use the same steps in the section [Deploy the primary WebSphere Liberty/Open Liberty cluster](#deploy-the-primary-websphere-libertyopen-liberty-cluster) to set up the secondary AKS cluster in secondary region, except for the following differences:
+
+1. In the **Basics** pane, use the following steps:
+   1. In the **Resource group** field, select **Create new** and fill in a different unique value for the resource group - for example, *liberty-aks-westus-mjg032524*.
+   1. Under **Instance details**, for **Region**, select **West US**.
+
+1. In the **AKS** pane, use the following steps:
+   1. Under **Azure Container Registry (ACR)**, select **No** for **Select ACR instance**. Select the existing ACR instance in the primary region that enabled with geo-replications.
+
+      :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/portal-aks-select-existing-acr-in-primary-region.png" alt-text="Screenshot of the Azure portal that shows the IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service AKS pane with selecting the existing ACR instance in the primary region." lightbox="media/migrate-liberty-to-aks-with-ha-dr/portal-aks-select-existing-acr-in-primary-region.png":::
+
+Use the same steps in the section [Verify the deployment of the cluster](#verify-the-deployment-of-the-cluster) to verify the deployment in secondary region, except for the following differences:
+
+1. You don't need to copy and write down the name of the TLS secret. The TLS secret is restored from the backup of the primary AKS cluster.
+1. Use the resource group of the secondary cluster (for example, *liberty-aks-westus-mjg032524*) when you look up the the name and DNS name of the public IP address of the Azure Application Gateway deployed in the secondary region.
+
+Use the same steps in the section [Create a storage account](#create-a-storage-account) to create a storage account in secondary region, except for the following differences:
+
+1. For **Resource group** field, select the existing resource group where the secondary cluster is deployed - for example, *liberty-aks-westus-mjg032524*. 
+1. For **Storage account name**, enter a unique name - for example, *storagewestusmjg032524*. 
+1. For **Region**, select **West US**.
+
+Use the same steps in the section [Enable AKS Backup Extension](#enable-aks-backup-extension) to install the AKS Backup Extension for the cluster in secondary region, except for the following differences:
+
+1. In step 1 for enabling the CSI drivers and snapshots for your secondary cluster, update the value of Bash variable `RG_NAME` to resource group in the secondary region - for example, *liberty-aks-westus-mjg032524*.
+1. In step 2, select the AKS cluster from the resource group in the secondary region - for example, *liberty-aks-westus-mjg032524*.
+1. In step 4 for installing AKS Backup extension for your secondary cluster, select storage account created in the same resource group of the secondary region - for example, *storagewestusmjg032524*.
