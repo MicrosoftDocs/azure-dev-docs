@@ -281,11 +281,10 @@ Use the following steps to create a storage account and two containers. Some of 
 
 Before you continue, install the AKS Backup Extension to the cluster in primary region.
 
-1. Enable the CSI drivers and snapshots for your cluster. Run the following `az aks update` command in your local bash terminal.
+1. Enable the CSI drivers and snapshots for your cluster. For the following `az aks update` command, update the value of Bash variable `RG_NAME` to your resource group name (for example, *liberty-aks-eastus-mjg032524*) and run in your local bash terminal.
 
    ```bash
-   # Replace with your resource group name.
-   RG_NAME=liberty-aks-eastus-mjg032524 
+   RG_NAME=<your-aks-cluster-resource-group> 
    AKS_NAME=$(az aks list -g ${RG_NAME} --query "[0].name" -o tsv | tr -d '\r')
 
    az aks update -n ${AKS_NAME} -g ${RG_NAME} \
@@ -384,3 +383,5 @@ Use the same steps in the section [Enable AKS Backup Extension](#enable-aks-back
 1. In step 4 for installing AKS Backup extension for your secondary cluster, select storage account created in the same resource group of the secondary region - for example, *storagewestusmjg032524*.
 
 To save cost, stop the AKS cluster in secondary region by following [Stop and start an Azure Kubernetes Service (AKS) cluster](/azure/aks/start-stop-cluster). You need to start it before you restore the cluster later.
+
+## Set up an Azure Traffic Manager
