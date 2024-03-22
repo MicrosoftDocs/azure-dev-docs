@@ -273,8 +273,8 @@ Use the following steps to create a storage account and two containers. Some of 
 
 1. Sign in to the [Azure portal](https://aka.ms/publicportal).
 1. Create a storage account by following the steps in [Create a storage account](/azure/storage/common/storage-account-create). You don't need to perform all the steps in the article. Fill out the fields as shown on the **Basics** pane. For **Resource group**, select the existing resource group where the primary cluster is deployed - for example, *liberty-aks-eastus-mjg032524*. For **Region**, select **East US**. For **Storage account name**, enter a unique name - for example, *storageeastusmjg032524*. Then select **Review + create** to accept the default options. Proceed to validate and create the account, then return to this article.
-1. Create a storage container for AKS Backup Extension following [Create a storage container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). This guides uses *aks-backup-ext* as the container name.
-1. Create another storage container as staging location for use during restoring. This guides uses *staging* as the container name.
+1. Create a storage container for AKS Backup Extension following [Create a storage container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). This guide uses *aks-backup-ext* as the container name.
+1. Create another storage container as staging location for use during restoring. This guide uses *staging* as the container name.
 
 ### Enable AKS Backup Extension
 
@@ -300,7 +300,7 @@ Before you continue, install the AKS Backup Extension to the cluster in primary 
 1. Under **Settings** of the AKS landing page, select **Back up** > **Install Extension**.
 1. In the **Install AKS Backup extension** page, select **Next**. Select the storage account *storageeastusmjg032524* and blob container *aks-backup-ext* created in the same resource group. select **Next** > **Create**. It takes about five minutes to complete this step.
 
-### Backup the AKS cluster
+### Back up the AKS cluster
 
 Open Azure portal, in the search bar on the top, search **Backup vaults**. You see it listed under the **Services**. Then select it. Follow [Back up Azure Kubernetes Service by using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup) to enable AKS Backup for the primary cluster. Execute the steps up to, but not including **Use hooks during AKS backup**. 
 
@@ -336,5 +336,5 @@ Open Azure portal, in the search bar on the top, search **Backup vaults**. You s
 
    * After selecting **Configure backup** in step 15, you return to **Backup** page. Wait for a while and select **Refresh**. Repeat the operation until you see the backup instance is listed and its **Protection status** is *Protection configured*.
 
-     :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/aks-backup-instance-protection-configured.png" alt-text="Screenshot of the Azure portal showing the AKS backup instance protection configured." lightbox="media/migrate-liberty-to-aks-with-ha-dr/aks-backup-instance-protection-configured.png":::
+     :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/aks-backup-instance-protection-configured.png" alt-text="Screenshot of the Azure portal showing the AKS backup instance protection is configured." lightbox="media/migrate-liberty-to-aks-with-ha-dr/aks-backup-instance-protection-configured.png":::
 
