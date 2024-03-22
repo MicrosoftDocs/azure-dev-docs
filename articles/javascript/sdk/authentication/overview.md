@@ -72,7 +72,7 @@ const blobServiceClient = new BlobServiceClient(
 
 The order in which `DefaultAzureCredential` looks for credentials for JavaScript is shown in the diagram and table below.  
 
-:::image type="content" source="../../media/azure-sdk-authentication/default-azure-credential-auth-flow.svg" alt-text="A diagram showing the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="../../media/azure-sdk-authentication/default-azure-credential-auth-flow.svg":::
+:::image type="content" source="../../../includes/media/sdk-auth-passwordless/javascript/default-azure-credential-auth-flow.svg" alt-text="A diagram showing the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="../../../includes/media/sdk-auth-passwordless/javascript/default-azure-credential-auth-flow.svg":::
 
 There are two paths:
 * **Deployed service** (Azure or on-premises): the sequence begins with the environment variables, then the managed identity, then the rest of the locations for a credential (Visual Studio Code, Azure CLI, Azure PowerShell). 
