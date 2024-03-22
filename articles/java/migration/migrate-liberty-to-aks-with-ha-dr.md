@@ -127,13 +127,13 @@ Use the following steps to verify these key components before moving to next ste
 1. Return to the **Deployment** page, then select **Outputs**.
 1. Copy the value of the property **cmdToConnectToCluster**. Open a terminal, paste the copied command, and press <kbd>Enter</kbd> to execute. You should see the similar message included in the output:
 
-   ```text
+   ```Output
    Merged "cluster3984d1-admin" as current context in <your-user>\.kube\config
    ```
 
 1. Now run `kubectl get pod --all-namespaces` in the terminal to list all pods running on the AKS cluster. You should see the similar output:
 
-   ```text
+   ```Output
    NAMESPACE      NAME                                        READY   STATUS    RESTARTS      AGE
    cert-manager   cert-manager-66bc9756fd-255pk               1/1     Running   0             8m55s
    cert-manager   cert-manager-cainjector-669c9fb694-k4q88    1/1     Running   0             8m55s
@@ -156,12 +156,12 @@ Use the following steps to verify these key components before moving to next ste
 
 1. Run `kubectl get secret` in the terminal to list all secrets installed on the AKS cluster. You should see one secret in the output:
 
-   ```text
+   ```Output
    NAME           TYPE                DATA   AGE
    secret3984d1   kubernetes.io/tls   2      24m
    ```
 
-   Copy the name of the secret - for example, *secret3984d1*, you use it in the app deployment later.
+   This secret is a TLS secret that includes certificate and key data for TLS traffic. Copy the name of the secret - for example, *secret3984d1*, you use it in the app deployment later.
 
 1. Switch back to **Outputs** page, copy the value of the property **cmdToLoginInRegistry**. Paste the copied command in the terminal and press <kbd>Enter</kbd> to execute. You should see *Login Succeeded* in the output. Keep the terminal open and use it for further configuration of the WebSphere Liberty/Open Liberty cluster later.
 
@@ -170,7 +170,7 @@ Use the following steps to write down the name and DNS name of the public IP add
 1. In the search box at the top of the Azure portal, enter **Resource groups** and select **Resource groups** in the search results.
 1. Select the name of resource group for your primary region - for example, *liberty-aks-eastus-mjg032524*.
 1. Find the **Public IP address** resource prefixed with `gwip`, copy and write down its name. 
-1. Select the **Public IP address** resource, copy and write down the **DNS name**.
+1. Select the **Public IP address** resource, copy and write down the **DNS name** - for example, *olgw3984d1.eastus.cloudapp.azure.com*.
 
 ### Enable geo-replications for the ACR instance
 
@@ -185,3 +185,78 @@ The ACR instance is designed to store application images for both primary and se
 
    :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/acr-geo-replications-enabled-in-paired-regions.png" alt-text="Screenshot of the ACR instance enabled with geo-replications in pair regions." lightbox="media/migrate-liberty-to-aks-with-ha-dr/acr-geo-replications-enabled-in-paired-regions.png" border="false":::
 
+Additionally, use the following steps to write down the ACR login credentials. You use them for app deployment later.
+
+1. Select **Access keys**.
+1. Copy and write the value for **Login server**, **Username**, and **password**.
+
+### Deploy a sample app
+
+Deploy and run a sample CRUD Java/Jakarta EE application on WebSphere Liberty/Open Liberty cluster for disaster recovery failover test later.
+
+First, use the following commands to download the sample:
+
+```bash
+git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
+cd open-liberty-on-aks
+export BASE_DIR=$PWD
+git checkout 20240321
+```
+
+The application configures a data source [*jdbc/WebSphereCafeDB*](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240321/java-app/src/main/liberty/config/server.xml#L31-L39) that connects to the Azure SQL Database you deployed before. 
+The data source is used for [storing HTTP session data](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240321/java-app/src/main/liberty/config/server.xml#L28-L29), which enables failover and load balancing across a cluster of WebSphere Liberty/Open Liberty servers. 
+The sample app also configures [persistence schema](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240321/java-app/src/main/resources/META-INF/persistence.xml#L6-L18) to persist application data *coffee* in the same datasource.
+
+Next, define the following environment variables with the values you wrote down before.
+
+```bash
+export DB_SERVER_NAME=<failover group name>.database.windows.net
+export DB_NAME=mySampleDatabase
+export DB_USER=azureuser@<failover group name>
+export DB_PASSWORD='<SQL Server admin login password>'
+export LOGIN_SERVER=<ACR login server>
+export USER_NAME=<ACR username>
+export PASSWORD='<ACR password>'
+export INGRESS_TLS_SECRET=<TLS secret name>
+```
+
+Then, use the following steps to package the app, build the Docker image, push the image to the ACR instance, and deploy the sample to the AKS cluster:
+
+```bash
+cd $BASE_DIR/java-app
+mvn clean install
+
+cd $BASE_DIR/java-app/target
+docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile .
+docker tag javaee-cafe:v1 ${LOGIN_SERVER}/javaee-cafe:v1
+docker login -u ${USER_NAME} -p ${PASSWORD} ${LOGIN_SERVER}
+docker push ${LOGIN_SERVER}/javaee-cafe:v1
+
+cd $BASE_DIR/java-app/target
+kubectl apply -f db-secret.yaml
+kubectl apply -f openlibertyapplication-agic.yaml
+```
+
+Run the following command to get status of the pods created during the deployment:
+
+```bash
+kubectl get pods
+```
+
+The following example indicates that all the pods are running. If you don't see the similar output, wait for a while and repeat the operation.
+
+```Output
+NAME                                        READY   STATUS    RESTARTS   AGE
+javaee-cafe-cluster-agic-6bbb8d6f5c-2xjc4   1/1     Running   0          1m
+javaee-cafe-cluster-agic-6bbb8d6f5c-4f449   1/1     Running   0          1m
+javaee-cafe-cluster-agic-6bbb8d6f5c-m2wg6   1/1     Running   0          1m
+```
+
+Now, use the following steps to verify if the app is running as expected.
+
+1. Open the DNS name of the public IP address of the Azure Application Gateway you wrote down before with *https* protocal in a new tab of the browser - for example, *https://olgw3984d1.eastus.cloudapp.azure.com*. You should see the welcome page of sample app.
+1. Create a new coffee with name and price (for example, *Coffee 1* with price *10*), which is persisted into both application data table and session table of the database. The UI that you see should be similar to the following screenshot:
+
+   :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-liberty-to-aks-with-ha-dr/sample-app-ui.png":::
+
+If your UI doesn't look similar, troubleshoot and resolve the problem before you continue.
