@@ -254,9 +254,87 @@ javaee-cafe-cluster-agic-6bbb8d6f5c-m2wg6   1/1     Running   0          1m
 
 Now, use the following steps to verify if the app is running as expected.
 
-1. Open the DNS name of the public IP address of the Azure Application Gateway you wrote down before with *https* protocol in a new tab of the browser - for example, *https://olgw3984d1.eastus.cloudapp.azure.com*. You should see the welcome page of sample app.
+1. Open the DNS name of the public IP address of the Azure Application Gateway you wrote down before with *https* protocol in a new tab of the browser - for example, `https://olgw3984d1.eastus.cloudapp.azure.com`. You should see the welcome page of sample app.
 1. Create a new coffee with name and price (for example, *Coffee 1* with price *10*), which is persisted into both application data table and session table of the database. The UI that you see should be similar to the following screenshot:
 
    :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-liberty-to-aks-with-ha-dr/sample-app-ui.png":::
 
 If your UI doesn't look similar, troubleshoot and resolve the problem before you continue.
+
+## Set up disaster recovery for the cluster using Azure Backup
+
+In this section, you set up disaster recovery for the AKS cluster in the primary region using Azure Backup.
+
+### Create a storage account
+
+AKS backup uses a blob container to hold the AKS cluster resources. You create another blob container as staging location for use during cross region restoring.
+
+Use the following steps to create a storage account and two containers. Some of these steps direct you to other guides.
+
+1. Sign in to the [Azure portal](https://aka.ms/publicportal).
+1. Create a storage account by following the steps in [Create a storage account](/azure/storage/common/storage-account-create). You don't need to perform all the steps in the article. Fill out the fields as shown on the **Basics** pane. For **Resource group**, select the existing resource group where the primary cluster is deployed - for example, *liberty-aks-eastus-mjg032524*. For **Region**, select **East US**. For **Storage account name**, enter a unique name - for example, *storageeastusmjg032524*. Then select **Review + create** to accept the default options. Proceed to validate and create the account, then return to this article.
+1. Create a storage container for AKS Backup Extension following [Create a storage container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). This guides uses *aks-backup-ext* as the container name.
+1. Create another storage container as staging location for use during restoring. This guides uses *staging* as the container name.
+
+### Enable AKS Backup Extension
+
+Before you continue, install the AKS Backup Extension to the cluster in primary region.
+
+1. Enable the CSI drivers and snapshots for your cluster. Run the following `az aks update` command in your local bash terminal.
+
+   ```bash
+   # Replace with your resource group name.
+   RG_NAME=liberty-aks-eastus-mjg032524 
+   AKS_NAME=$(az aks list -g ${RG_NAME} --query "[0].name" -o tsv | tr -d '\r')
+
+   az aks update -n ${AKS_NAME} -g ${RG_NAME} \
+      --enable-disk-driver \
+      --enable-file-driver \
+      --enable-blob-driver \
+      --enable-snapshot-controller --yes
+   ```
+
+   It takes about 5 minutes to enable the drivers. Make sure the commands complete without error before moving on.
+
+1. Open the resource group that has AKS deployed - for example, *liberty-aks-eastus-mjg032524*. Select the AKS cluster from resources list.
+1. Under **Settings** of the AKS landing page, select **Back up** > **Install Extension**.
+1. In the **Install AKS Backup extension** page, select **Next**. Select the storage account *storageeastusmjg032524* and blob container *aks-backup-ext* created in the same resource group. select **Next** > **Create**. It takes about five minutes to complete this step.
+
+### Backup the AKS cluster
+
+Open Azure portal, in the search bar on the top, search **Backup vaults**. You see it listed under the **Services**. Then select it. Follow [Back up Azure Kubernetes Service by using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup) to enable AKS Backup for the primary cluster. Execute the steps up to, but not including **Use hooks during AKS backup**. 
+
+1. When you reach **Create a Backup vault** section.
+   * For step 1, select the existing resource group where the primary cluster is deployed (for example, *liberty-aks-eastus-mjg032524*) for **Resource group**, enter a unique value for **Backup vault name** (for example, *aks-backup-vault-eastus-mjg032524*), select **East US** for **Region**, and select **Globally-Redundant** for **Backup Storage Redundancy**.
+
+     :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/backupvault-basics.png" alt-text="Screenshot of the Azure portal showing the Backup Vault Basic pane." lightbox="media/migrate-liberty-to-aks-with-ha-dr/backupvault-basics.png":::
+
+   * For step 2, select **Enable** for **Cross Region Restore**.
+    
+1. When you reach the **Create a backup policy** section.
+   * For step 3, enter a name for the backup policy - for example, *aksbackuppolicy*. Select the Backup vault you created in the same resource group - for example, *aks-backup-vault-eastus-mjg032524*.
+   * For step 4, add a retention rule where **Vault-standard** is selected.
+   
+     :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/vault-standard-retention-rule.png" alt-text="Screenshot of the Azure portal showing the selection of the Vault-standard option." lightbox="media/migrate-liberty-to-aks-with-ha-dr/vault-standard-retention-rule.png":::
+      
+     Select **Add**.
+
+1. When you reach **Configure backups** section. Step 1-5 are for AKS Extension installation. Skip step 1-5 and start from step 6 for the AKS cluster in the primary region.
+   * For step 7, select the Backup vault you created in the same resource group (for example, *aks-backup-vault-eastus-mjg032524*) for **Vault**. When you run into permission errors, select **Grant Permission** to move on. After the permission deployment completes, if the error still shows, select **Revalidate** to refresh the role assignments.
+
+     :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/aks-configure-backup-grant-permission.png" alt-text="Screenshot of the Azure portal showing the AKS Configure Backup Grant Permission." lightbox="media/migrate-liberty-to-aks-with-ha-dr/aks-configure-backup-grant-permission.png":::
+   
+   * For step 10, you find **Select Resources to Backup**. 
+     * For **Backup Instance name**, fill in a unique name - for example, *akseastusmjg032524*. 
+     * For **Other options**, select all the options. Make sure **Include Secrets** is selected.
+
+     :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/aks-configure-backup-select-resources.png" alt-text="Screenshot of the Azure portal showing the AKS Configure Backup Select Resources." lightbox="media/migrate-liberty-to-aks-with-ha-dr/aks-configure-backup-select-resources.png":::
+
+   * For step 11, you run into Role assignment error. Follow step 12-14 to mitigate the error.
+
+     :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/aks-configure-backup-validation.png" alt-text="Screenshot of the Azure portal showing the AKS Configure Backup Validation." lightbox="media/migrate-liberty-to-aks-with-ha-dr/aks-configure-backup-validation.png":::
+
+   * After selecting **Configure backup** in step 15, you return to **Backup** page. Wait for a while and select **Refresh**. Repeat the operation until you see the backup instance is listed and its **Protection status** is *Protection configured*.
+
+     :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/aks-backup-instance-protection-configured.png" alt-text="Screenshot of the Azure portal showing the AKS backup instance protection configured." lightbox="media/migrate-liberty-to-aks-with-ha-dr/aks-backup-instance-protection-configured.png":::
+
