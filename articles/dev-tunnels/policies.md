@@ -28,9 +28,9 @@ In this quickstart, you'll learn how to configure and deploy Dev Tunnels group p
 
 :::image type="content" source="./media/policies/tunnel-policies.png" alt-text="Screenshot that shows Dev Tunnel policies in the Local Group Policy Editor.":::
 
-**Disable anonymous tunnel access**: Disallow anonymous tunnel access. Enabling this policy will enforce users to select either private or organization for tunnel access. This affects connecting to or hosting an existing tunnel with anonymous access control.
-**Disable Dev Tunnels**: Disallow users from using the Dev Tunnels service. All commands, with few exceptions (unset, echo, ping, and user), should be denied access when this policy is enabled.
-**Allow only selected Microsoft Entra ID or MSA tenants**: Users must authenticate within the given tenant list to access Dev Tunnels. When enabling this policy, multiple tenant IDs can be added by using a semicolon or comma to separate each. All commands, with few exceptions (unset, echo, ping, and user), should be denied access when this policy is enabled and the user's tenant ID is not in the list of allowed tenant IDs.
+**Disable anonymous tunnel access**: Disallow anonymous tunnel access. Enabling this policy enforces users to select either private or organization for tunnel access. This policy affects connecting to or hosting an existing tunnel with anonymous access control.
+**Disable Dev Tunnels**: Disallow users from using the Dev Tunnels service. All commands, with few exceptions, should be denied access when this policy is enabled. Exceptions: unset, echo, ping, and user.
+**Allow only selected Microsoft Entra ID or MSA tenants**: Users must authenticate within the given tenant list to access Dev Tunnels. When enabling this policy, multiple tenant IDs can be added by using a semicolon or comma to separate each. All commands, with few exceptions, should be denied access when this policy is enabled and the user's tenant ID isn't in the list of allowed tenant IDs. Exceptions: unset, echo, ping, and user.
 
 ## Configure policies with Local Group Policy Editor
 
@@ -49,7 +49,7 @@ In this quickstart, you'll learn how to configure and deploy Dev Tunnels group p
 
 ## Contact us
 
-If you have any feedback, feature requests, questions, or you encounter an unexpected issue while working with the `devtunnel` CLI, please reach out to us. We want to hear from you!
+If you have any feedback, feature requests, questions, or you encounter an unexpected issue while working with the `devtunnel` CLI, reach out to us. We want to hear from you!
 
 GitHub [issues](https://aka.ms/devtunnels/issues) is a great way to connect with us. You can open a new issue or up-vote any existing issues using a 👍 reaction to:
 
@@ -57,4 +57,4 @@ GitHub [issues](https://aka.ms/devtunnels/issues) is a great way to connect with
 - Submit a bug
 - Provide feedback
 
-If you are an enterprise looking to adopt dev tunnels in your organization with specific questions on security, enterprise management or support, please email us at tunnelsfeedback@microsoft.com.
+If you're an enterprise looking to adopt dev tunnels in your organization with specific questions on security, enterprise management or support, email us at tunnelsfeedback@microsoft.com.
