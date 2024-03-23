@@ -26,7 +26,7 @@ In this quickstart, you'll learn how to configure and deploy Dev Tunnels group p
 
 ## Policies Supported
 
-:::image type="content" source="./media/tunnel-policies.png" alt-text="Screenshot that shows Dev Tunnel policies in the Local Group Policy Editor.":::
+:::image type="content" source="./media/policies/tunnel-policies.png" alt-text="Screenshot that shows Dev Tunnel policies in the Local Group Policy Editor.":::
 
 **Disable anonymous tunnel access**: Disallow anonymous tunnel access. Enabling this policy will enforce users to select either private or organization for tunnel access. This affects connecting to or hosting an existing tunnel with anonymous access control.
 **Disable Dev Tunnels**: Disallow users from using the Dev Tunnels service. All commands, with few exceptions (unset, echo, ping, and user), should be denied access when this policy is enabled.
