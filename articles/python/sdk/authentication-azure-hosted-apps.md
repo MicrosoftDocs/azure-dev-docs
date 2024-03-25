@@ -33,7 +33,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 The Azure CLI commands used to enable managed identity for an Azure resource are of the form `az <command-group> identity --resource-group <resource-group-name> --name <resource-name>`. Specific commands for popular Azure services are shown below.
 
-[!INCLUDE [Enable managed identity Azure CLI](<./includes/enable-managed-identity-azure-cli.md>)]
+[!INCLUDE [Enable managed identity Azure CLI](<../../includes/sdk-auth-passwordless/enable-managed-identity-azure-cli.md>)]
 
 The output will look like the following.
 
