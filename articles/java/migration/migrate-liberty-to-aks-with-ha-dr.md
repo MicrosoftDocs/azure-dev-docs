@@ -239,7 +239,7 @@ kubectl apply -f db-secret.yaml
 kubectl apply -f openlibertyapplication-agic.yaml
 ```
 
-Run the following command to get the sample app you just deployed:
+Run the following command to get the sample app you deployed:
 
 ```bash
 kubectl get OpenLibertyApplication
@@ -376,7 +376,7 @@ Use the same steps in the section [Deploy the primary WebSphere Liberty/Open Lib
 1. In the **AKS** pane, use the following steps:
    1. Under **Azure Container Registry (ACR)**, select **No** for **Select ACR instance**. Select the existing ACR instance in the primary region that enabled with geo-replications.
 
-      :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/portal-aks-select-existing-acr-in-primary-region.png" alt-text="Screenshot of the Azure portal that shows the IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service AKS pane with selecting the existing ACR instance in the primary region." lightbox="media/migrate-liberty-to-aks-with-ha-dr/portal-aks-select-existing-acr-in-primary-region.png":::
+      :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/portal-aks-select-existing-acr-in-primary-region.png" alt-text="Screenshot of the Azure portal that selects the existing ACR instance in the primary region in the IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service AKS pane." lightbox="media/migrate-liberty-to-aks-with-ha-dr/portal-aks-select-existing-acr-in-primary-region.png":::
 
 Use the same steps in the section [Verify the deployment of the cluster](#verify-the-deployment-of-the-cluster) to verify the deployment in secondary region, except for the following differences:
 
@@ -460,7 +460,7 @@ Now, use the following steps to failover the Azure SQL Database from the primary
 Next, use the following steps to restore the backup of the primary AKS cluster to the secondary AKS cluster:
 
 1. In the search box at the top of the Azure portal, enter **Backup center** and select **Backup center** in the search results.
-1. Under **Manage**, select **Backup instances**. Filter on the datasource type **Kubernetes Services**. You will find the backup instance you created in the previous section - for example, *cluster3984d1\akseastusmjg032524*.
+1. Under **Manage**, select **Backup instances**. Filter on the datasource type **Kubernetes Services**. You find the backup instance you created in the previous section - for example, *cluster3984d1\akseastusmjg032524*.
 1. Select the backup instance.
 1. Select **Restore**.
 1. In the **Restore** page, the default pane is **Restore point**, select **Previous** to change to **Basics** pane. For **Restore Region**, select **Secondary Region**. Select **Next: Restore point**.
