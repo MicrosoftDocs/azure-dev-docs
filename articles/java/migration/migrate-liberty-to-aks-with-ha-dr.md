@@ -201,13 +201,13 @@ First, use the following commands to download the sample:
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
 export BASE_DIR=$PWD
-git checkout 20240321
+git checkout 20240325
 ```
 
-The application configures a data source [*jdbc/WebSphereCafeDB*](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240321/java-app/src/main/liberty/config/server.xml#L31-L39) that connects to the Azure SQL Database you deployed before. 
-The data source is used for [storing HTTP session data](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240321/java-app/src/main/liberty/config/server.xml#L28-L29), which enables failover and load balancing across a cluster of WebSphere Liberty/Open Liberty servers. 
-The sample app also configures [persistence schema](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240321/java-app/src/main/resources/META-INF/persistence.xml#L6-L18) to persist application data *coffee* in the same datasource.
-Notice that the context root of the sample is configured as */* in [server.xml](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240321/java-app/src/main/liberty/config/server.xml#L24-L26).
+The application configures a data source [*jdbc/JavaEECafeDB*](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/liberty/config/server.xml#L31-L39) that connects to the Azure SQL Database you deployed before. 
+The data source is used for [storing HTTP session data](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/liberty/config/server.xml#L28-L29), which enables failover and load balancing across a cluster of WebSphere Liberty/Open Liberty servers. 
+The sample app also configures [persistence schema](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/resources/META-INF/persistence.xml#L6-L18) to persist application data *coffee* in the same datasource.
+Notice that the context root of the sample is configured as */* in [server.xml](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/liberty/config/server.xml#L24-L26).
 
 Next, define the following environment variables with the values you wrote down before.
 
@@ -237,6 +237,19 @@ docker push ${LOGIN_SERVER}/javaee-cafe:v1
 cd $BASE_DIR/java-app/target
 kubectl apply -f db-secret.yaml
 kubectl apply -f openlibertyapplication-agic.yaml
+```
+
+Run the following command to get the sample app you just deployed:
+
+```bash
+kubectl get OpenLibertyApplication
+```
+
+You should see one *READY* application in the output:
+
+```Output
+NAME                       IMAGE                                 EXPOSED   RECONCILED   RESOURCESREADY   READY   AGE
+javaee-cafe-cluster-agic   acr3984d1.azurecr.io/javaee-cafe:v1             True         True             True    45s
 ```
 
 Run the following command to get status of the pods created during the deployment:
@@ -386,7 +399,7 @@ To save cost, stop the AKS cluster in secondary region by following [Stop and st
 
 ## Set up an Azure Traffic Manager
 
-In this section, you create an Azure Traffic Manager for distributing traffic to your public facing applications across the global Azure regions. The primary endpoint points to the public IP address of the Azure Application Gateway in the primary region, and the secondary endpoint points to the public IP address of the Azure Application Gateway in the secondary region.
+After you see a **Vault-standard** backup mentioned in section [Wait for a Vault-standard backup to happen](#wait-for-a-vault-standard-backup-to-happen) is available, it's ready to create an Azure Traffic Manager for distributing traffic to your public facing applications across the global Azure regions. The primary endpoint points to the public IP address of the Azure Application Gateway in the primary region, and the secondary endpoint points to the public IP address of the Azure Application Gateway in the secondary region.
 
 Create an Azure Traffic Manager profile by following [Quickstart: Create a Traffic Manager profile using the Azure portal](/azure/traffic-manager/quickstart-create-traffic-manager-profile). You just need the following sections: **Create a Traffic Manager profile** and **Add Traffic Manager endpoints**. Use the following steps as you go through these sections, then return to this article after you create and configure the Azure Traffic Manager.
 
@@ -426,4 +439,97 @@ If your UI doesn't look similar, troubleshoot and resolve the problem before you
 
 Now you set up the Traffic Manager profile. Keep the page open and you use it for monitoring the endpoint status change in a failover event later.
 
+## Test failover from primary to secondary
 
+To test failover, you manually failover your Azure SQL Database server and restore the backup of your AKS cluster, and then fail back using the Azure portal in this section.
+
+### Failover to the secondary site
+
+To simulate an outage of the primary region, stop the primary AKS cluster by following [Stop and start an Azure Kubernetes Service (AKS) cluster](/azure/aks/start-stop-cluster). 
+
+Next, start the secondary AKS cluster so it can be restored from the backup of the primary cluster.
+
+Then, switch to the browser tab of your Traffic Manager profile, and verify that the **Monitor status** for both endpoints *myPrimaryEndpoint* and *myFailoverEndpoint* is *Degraded*.
+
+Now, use the following steps to failover the Azure SQL Database from the primary server to the secondary server:
+
+1. Switch to the browser tab of your Azure SQL Database failover group - for example, *failovergroup-mjg032524*.
+1. Select **Failover** > **Yes**.
+1. Wait until it completes.
+
+Next, use the following steps to restore the backup of the primary AKS cluster to the secondary AKS cluster:
+
+1. In the search box at the top of the Azure portal, enter **Backup center** and select **Backup center** in the search results.
+1. Under **Manage**, select **Backup instances**. Filter on the datasource type **Kubernetes Services**. You will find the backup instance you created in the previous section - for example, *cluster3984d1\akseastusmjg032524*.
+1. Select the backup instance.
+1. Select **Restore**.
+1. In the **Restore** page, the default pane is **Restore point**, select **Previous** to change to **Basics** pane. For **Restore Region**, select **Secondary Region**. Select **Next: Restore point**.
+
+   :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/backup-instance-restore-basics.png" alt-text="Screenshot of the Azure portal showing the Restore Basics pane." lightbox="media/migrate-liberty-to-aks-with-ha-dr/backup-instance-restore-basics.png":::
+
+1. In the **Restore point** pane, the latest **Operational and Vault-standard** restore point is selected. Keep defaults and select **Next: Restore parameters**.
+
+   :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/backup-instance-restore-restorepoint.png" alt-text="Screenshot of the Azure portal showing the Restore point pane." lightbox="media/migrate-liberty-to-aks-with-ha-dr/backup-instance-restore-restorepoint.png":::
+
+1. In the **Restore parameters** pane.
+
+   * For **Select Target cluster**, select the secondary AKS cluster that you created in **West US**.  You run into permission issue as the following picture shows. Select **Grant Permission** to mitigate the errors. 
+   * For **Backup Staging Location**, select the Storage Account that you created in **West US**. You run into permission issue as the following picture shows. Select **Assign missing roles** to mitigate the errors. 
+
+     :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/backup-instance-restore-restoreparameters.png" alt-text="Screenshot of the Azure portal showing the Restore parameter pane." lightbox="media/migrate-liberty-to-aks-with-ha-dr/backup-instance-restore-restoreparameters.png":::
+
+   * When granting missing permissions, if asked to specify a **Scope**, accept the default value.
+
+   * Wait until all permissions are granted and role assignments finish. Select **Validate**. You should see the message, **Validation completed successfully**. Otherwise, troubleshoot and resolve the problem before continuing.
+
+1. Select **Next: Review + restore**. Then select **Restore**. It takes about 10 minutes to restore the cluster.
+
+1. You can monitor the restore process from **Backup center** > **Monitoring + reporting** > **Backup jobs**, as shown next.
+
+   :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/backup-restore-progress.png" alt-text="Screenshot of the Azure portal showing a CrossRegionRestore in progress." lightbox="media/migrate-liberty-to-aks-with-ha-dr/backup-restore-progress.png":::
+   
+   Wait for a while, select **Refresh**. Repeat the operation until you see **Status** becomes **Completed**.
+
+> [!NOTE]
+> Optinally you can switch to the browser tab of your Traffic Manager profile, and verify that the **Monitor status** for endpoint *myPrimaryEndpoint* is *Degraded* and **Monitor status** for endpoint *myFailoverEndpoint* is *Online*.
+
+Then, use the following steps to verify if the restore works as expected.
+
+1. Switch to the terminal where you connected to the secondary AKS cluster.
+1. Run the following command to get the sample app restored from the backup:
+
+   ```bash
+   kubectl get OpenLibertyApplication
+   ```
+
+   You should see one *READY* application in the output:
+
+   ```Output
+   NAME                       IMAGE                                 EXPOSED   RECONCILED   RESOURCESREADY   READY   AGE
+   javaee-cafe-cluster-agic   acr3984d1.azurecr.io/javaee-cafe:v1             True         True             True    3m
+   ```
+
+   Run the following command to get status of the pods created during the deployment:
+
+   ```bash
+   kubectl get pods
+   ```
+
+   You should see three *Running* pods in the output:
+
+   ```Output
+   NAME                                        READY   STATUS    RESTARTS   AGE
+   javaee-cafe-cluster-agic-7bb57dd945-6ljll   1/1     Running   0          3m
+   javaee-cafe-cluster-agic-7bb57dd945-h2xdf   1/1     Running   0          3m
+   javaee-cafe-cluster-agic-7bb57dd945-k744w   1/1     Running   0          3m
+   ```
+
+1. Switch to the browser tab of your Traffic Manager profile, then refresh the page until you see that the **Monitor status** for endpoint `myFailoverEndpoint` is *Online* and **Monitor status** the endpoint `myPrimaryEndpoint` is *Degraded*.
+1. Switch to the browser tab with the DNS name of the Traffic Manager profile - for example, `https://tmprofile-mjg032524.trafficmanager.net`. Refresh the page and you should see the same data persisted in the application data table and the session table displayed. The UI that you see should be similar to the following screenshot:
+
+   :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/sample-app-ui-after-failover.png" alt-text="Screenshot of the sample application UI after failover." lightbox="media/migrate-liberty-to-aks-with-ha-dr/sample-app-ui-after-failover.png":::
+
+   If you don't observe this behavior, it might be because the Traffic Manager is taking time to update DNS to point to the failover site. The problem could also be that your browser cached the DNS name resolution result that points to the failed site. Wait for a while and refresh the page again. 
+   
+   > [!NOTE]
+   > The app configures [session timeout](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/webapp/WEB-INF/web.xml#L29-L31) as 1 hour. Depending on how much time it took to failover, you may not see session data displayed in the **New coffee** section of the sample app UI if it's expired over 1 hour.
