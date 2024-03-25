@@ -376,7 +376,7 @@ Use the same steps in the section [Deploy the primary WebSphere Liberty/Open Lib
 1. In the **AKS** pane, use the following steps:
    1. Under **Azure Container Registry (ACR)**, select **No** for **Select ACR instance**. Select the existing ACR instance in the primary region that enabled with geo-replications.
 
-      :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/portal-aks-select-existing-acr-in-primary-region.png" alt-text="Screenshot of the Azure portal that selects the existing ACR instance in the primary region in the IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service AKS pane." lightbox="media/migrate-liberty-to-aks-with-ha-dr/portal-aks-select-existing-acr-in-primary-region.png":::
+      :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/portal-aks-select-existing-acr-in-primary-region.png" alt-text="Screenshot of the Azure portal that selects the existing ACR instance from the primary region in the AKS pane." lightbox="media/migrate-liberty-to-aks-with-ha-dr/portal-aks-select-existing-acr-in-primary-region.png":::
 
 Use the same steps in the section [Verify the deployment of the cluster](#verify-the-deployment-of-the-cluster) to verify the deployment in secondary region, except for the following differences:
 
