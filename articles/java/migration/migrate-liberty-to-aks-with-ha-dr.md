@@ -449,6 +449,11 @@ To simulate an outage of the primary region, stop the primary AKS cluster by fol
 
 Next, start the secondary AKS cluster so it can be restored from the backup of the primary cluster.
 
+> [!NOTE]
+> If you have WebSphere Liberty/Open Liberty applications running on restore target cluster, to avoid conflicts, clean up WebSphere Liberty/Open Liberty applications by running the following commands:
+> * For Open Liberty applications: `kubectl delete OpenLibertyApplication --all-namespaces`
+> * For WebSphere Liberty applications: `kubectl delete WebSphereLibertyApplication --all-namespaces`
+
 Then, switch to the browser tab of your Traffic Manager profile, and verify that the **Monitor status** for both endpoints *myPrimaryEndpoint* and *myFailoverEndpoint* is *Degraded*.
 
 Now, use the following steps to failover the Azure SQL Database from the primary server to the secondary server:
@@ -490,9 +495,6 @@ Next, use the following steps to restore the backup of the primary AKS cluster t
    
    Wait for a while, select **Refresh**. Repeat the operation until you see **Status** becomes **Completed**.
 
-> [!NOTE]
-> Optinally you can switch to the browser tab of your Traffic Manager profile, and verify that the **Monitor status** for endpoint *myPrimaryEndpoint* is *Degraded* and **Monitor status** for endpoint *myFailoverEndpoint* is *Online*.
-
 Then, use the following steps to verify if the restore works as expected.
 
 1. Switch to the terminal where you connected to the secondary AKS cluster.
@@ -533,3 +535,25 @@ Then, use the following steps to verify if the restore works as expected.
    
    > [!NOTE]
    > The app configures [session timeout](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/webapp/WEB-INF/web.xml#L29-L31) as 1 hour. Depending on how much time it took to failover, you may not see session data displayed in the **New coffee** section of the sample app UI if it's expired over 1 hour.
+
+### Re-protect the failover site
+
+Now the secondary region is the failover site and active, you should re-protect it with Azure Backup.
+
+First, use the same steps in the section [Back up the AKS cluster](#back-up-the-aks-cluster) to back up the secondary AKS cluster, except for the following differences:
+
+1. **Create a Backup vault**:
+   1. For **Resource group**, select the existing resource group deployed in the secondary region - for example, *liberty-aks-westus-mjg032524*.
+   1. For **Backup vault name**, enter a unique value  - for example, *aks-backup-vault-westus-mjg032524*.
+   1. For **Region**, select **West US**.
+1. **Create a backup policy**:
+   1. Select the Backup vault you created in the secondary region - for example, *aks-backup-vault-westus-mjg032524*.
+1. **Configure backups**:
+   1. Select the Backup vault you created in the secondary region - for example, *aks-backup-vault-westus-mjg032524*.
+   1. For **Backup Instance** name, fill in a unique name - for example, *akswestusmjg032524*.
+
+Then, use the same steps in the section [Wait for a Vault-standard backup to happen](#wait-for-a-vault-standard-backup-to-happen) to wait until a **Vault-standard** backup of the secondary AKS cluster is available, except for the following differences:
+
+1. Select the backup instance from the **Backup** page of the secondary AKS cluster.
+
+### Fail back to the primary site
