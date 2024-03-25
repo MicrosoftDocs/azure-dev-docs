@@ -169,7 +169,7 @@
 | Resource Management - Container Instances | npm [9.1.0](https://www.npmjs.com/package/@azure/arm-containerinstance/v/9.1.0) | [docs](/javascript/api/overview/azure/arm-containerinstance-readme) | GitHub [9.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerinstance/arm-containerinstance) |
 | Resource Management - Container Registry | npm [10.1.0](https://www.npmjs.com/package/@azure/arm-containerregistry/v/10.1.0)<br>npm [11.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-containerregistry/v/11.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-containerregistry-readme) | GitHub [10.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry) |
 | Resource Management - Container Service | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/arm-containerservice/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice-rest) |
-| Resource Management - Container Service | npm [19.7.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/19.7.0)<br>npm [19.8.0-beta.2](https://www.npmjs.com/package/@azure/arm-containerservice/v/19.8.0-beta.2) | [docs](/javascript/api/overview/azure/arm-containerservice-readme) | GitHub [19.7.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
+| Resource Management - Container Service | npm [19.8.0](https://www.npmjs.com/package/@azure/arm-containerservice/v/19.8.0) | [docs](/javascript/api/overview/azure/arm-containerservice-readme) | GitHub [19.8.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerservice/arm-containerservice) |
 | Resource Management - Container Service Fleet | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-containerservicefleet/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-containerservicefleet-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_1.0.0/sdk/containerservice/arm-containerservicefleet/) |
 | Resource Management - Content Delivery Network | npm [9.0.0](https://www.npmjs.com/package/@azure/arm-cdn/v/9.0.0) | [docs](/javascript/api/overview/azure/arm-cdn-readme) | GitHub [9.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn) |
 | Resource Management - Cosmos DB | npm [15.6.0](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/15.6.0)<br>npm [16.0.0-beta.7](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/16.0.0-beta.7) | [docs](/javascript/api/overview/azure/arm-cosmosdb-readme) | GitHub [15.6.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb) |
@@ -343,11 +343,13 @@
 | Unknown Display Name | npm [0.7.0](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.7.0) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/purview-datamap/v/1.0.0-beta.1) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
+| Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.1.0) |  |  |
 | Unknown Display Name | npm [0.40.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.40.0) |  |  |
 | Unknown Display Name | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.6.0) |  |  |
 | Unknown Display Name | npm [1.0.0-preview.3](https://www.npmjs.com/package/@azure/app-configuration-provider/v/1.0.0-preview.3) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/openai-assistants/v/1.0.0-beta.5) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.6](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.6) |  |  |
+| Unknown Display Name | npm [2.0.4426](https://www.npmjs.com/package/@microsoft.azure/autorest-core/v/2.0.4426) |  |  |
 | Unknown Display Name | npm [3.3.49](https://www.npmjs.com/package/@microsoft.azure/autorest.testserver/v/3.3.49) |  |  |
 | Unknown Display Name | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
 | Unknown Display Name | npm [0.1.1](https://www.npmjs.com/package/@typespec/bundler/v/0.1.1) |  |  |
@@ -436,7 +438,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240322.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240322.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240325.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240325.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -485,7 +487,7 @@
 | @azure-tools/python-generator-core | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/python-generator-core/v/0.1.0) |  |  |
 | @azure-tools/rlc-common | npm [0.24.0](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.24.0) |  |  |
 | @azure-tools/sdk-generation-lib | npm [1.0.5](https://www.npmjs.com/package/@azure-tools/sdk-generation-lib/v/1.0.5) |  |  |
-| @azure-tools/test-credential | npm [1.0.2](https://www.npmjs.com/package/@azure-tools/test-credential/v/1.0.2) |  |  |
+| @azure-tools/test-credential | npm [1.0.3](https://www.npmjs.com/package/@azure-tools/test-credential/v/1.0.3) |  |  |
 | @azure-tools/test-recorder | npm [3.1.0](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.1.0) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.2.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.2.0) |  |  |
@@ -516,8 +518,8 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.63](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.63) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - PowerShell | npm [4.0.687](https://www.npmjs.com/package/@autorest/powershell/v/4.0.687) |  | GitHub [4.0.687](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.13.7](https://www.npmjs.com/package/@autorest/python/v/6.13.7) |  | GitHub [6.13.7](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - PowerShell | npm [4.0.689](https://www.npmjs.com/package/@autorest/powershell/v/4.0.689) |  | GitHub [4.0.689](https://github.com/Azure/autorest.powershell) |
+| AutoRest - Python | npm [6.13.8](https://www.npmjs.com/package/@autorest/python/v/6.13.8) |  | GitHub [6.13.8](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
@@ -527,7 +529,7 @@
 | cadl-vscode | npm [0.40.0](https://www.npmjs.com/package/cadl-vscode/v/0.40.0) |  |  |
 | Git Rest Api SDK | npm [0.3.3](https://www.npmjs.com/package/git-rest-api-sdk/v/0.3.3) |  | GitHub [0.3.3](https://github.com/azure/git-rest-api) |
 | Ng Deploy | npm [0.2.3](https://www.npmjs.com/package/@azure/ng-deploy/v/0.2.3) |  | GitHub [0.2.3](https://github.com/Azure/ng-deploy-azure) |
-| Oad | npm [0.10.6](https://www.npmjs.com/package/@azure/oad/v/0.10.6) |  | GitHub [0.10.6](https://github.com/Azure/openapi-diff) |
+| Oad | npm [0.10.7](https://www.npmjs.com/package/@azure/oad/v/0.10.7) |  | GitHub [0.10.7](https://github.com/Azure/openapi-diff) |
 | OpenAPI Markdown | npm [0.9.4](https://www.npmjs.com/package/@azure/openapi-markdown/v/0.9.4) |  | GitHub [0.9.4](https://github.com/Azure/openapi-markdown) |
 | Publish Pipeline Result | npm [0.1.2](https://www.npmjs.com/package/@azure/publish-pipeline-result/v/0.1.2) |  |  |
 | RestAPI Specs Scripts | npm [0.14.0](https://www.npmjs.com/package/@azure/rest-api-specs-scripts/v/0.14.0) |  | GitHub [0.14.0](https://github.com/Azure/rest-api-specs-scripts) |
