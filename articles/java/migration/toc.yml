@@ -79,5 +79,7 @@ items:
           href: migrate-jboss-eap-to-azure-redhat-openshift.md
         - name: JBoss EAP to WildFly on AKS
           href: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
+        - name: "JBossEAP to Azure VMS with HADR"
+          href: migrate-jboss-eap-to-vms-with-ha-dr.md
     - name: WildFly to WildFly on AKS
       href: migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md
