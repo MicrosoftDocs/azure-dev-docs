@@ -207,6 +207,7 @@ git checkout 20240321
 The application configures a data source [*jdbc/WebSphereCafeDB*](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240321/java-app/src/main/liberty/config/server.xml#L31-L39) that connects to the Azure SQL Database you deployed before. 
 The data source is used for [storing HTTP session data](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240321/java-app/src/main/liberty/config/server.xml#L28-L29), which enables failover and load balancing across a cluster of WebSphere Liberty/Open Liberty servers. 
 The sample app also configures [persistence schema](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240321/java-app/src/main/resources/META-INF/persistence.xml#L6-L18) to persist application data *coffee* in the same datasource.
+Notice that the context root of the sample is configured as */* in [server.xml](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240321/java-app/src/main/liberty/config/server.xml#L24-L26).
 
 Next, define the following environment variables with the values you wrote down before.
 
@@ -347,7 +348,6 @@ Use the following steps to verify if a **Vault-standard** backup is available.
 1. In **Backup** page of the primary AKS cluster, select the backup instance.
 1. Wait for a while and select **Refresh**. Repeat the operation until you see at least one **Operational and Vault-standard** restore point is listed in section **RESTORE POINTS**.
 
-   <!-- TODO: capture the image once the Vault-standard backup available -->
    :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/backup-instance-operational-and-vault-standard-restorepoint.png" alt-text="Screenshot of the Azure portal showing the AKS backup instance has Operational and Vault-standard restore point." lightbox="media/migrate-liberty-to-aks-with-ha-dr/backup-instance-operational-and-vault-standard-restorepoint.png":::
 
 ## Set up the secondary AKS cluster
@@ -385,3 +385,45 @@ Use the same steps in the section [Enable AKS Backup Extension](#enable-aks-back
 To save cost, stop the AKS cluster in secondary region by following [Stop and start an Azure Kubernetes Service (AKS) cluster](/azure/aks/start-stop-cluster). You need to start it before you restore the cluster later.
 
 ## Set up an Azure Traffic Manager
+
+In this section, you create an Azure Traffic Manager for distributing traffic to your public facing applications across the global Azure regions. The primary endpoint points to the public IP address of the Azure Application Gateway in the primary region, and the secondary endpoint points to the public IP address of the Azure Application Gateway in the secondary region.
+
+Create an Azure Traffic Manager profile by following [Quickstart: Create a Traffic Manager profile using the Azure portal](/azure/traffic-manager/quickstart-create-traffic-manager-profile). You just need the following sections: **Create a Traffic Manager profile** and **Add Traffic Manager endpoints**. Use the following steps as you go through these sections, then return to this article after you create and configure the Azure Traffic Manager.
+
+1. When you reach the section [Create a Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile#create-a-traffic-manager-profile), use the following steps:
+   1. In step 2 **Create Traffic Manager profile**, use the following steps:
+      1. Enter a unique Traffic Manager profile name for **Name** - for example, *tmprofile-mjg032524*.
+      1. Select **Priority** for **Routing method**.
+      1. Enter and write down the new resource group name for **Resource group** - for example, *myResourceGroupTM1*.
+
+1. When you reach the section [Add Traffic Manager endpoints](/azure/traffic-manager/quickstart-create-traffic-manager-profile#add-traffic-manager-endpoints), use the following steps:
+   1. After you open the Traffic Manager profile in step 2, in the **Configuration** page, use the following steps:
+      1. For **DNS time to live (TTL)**, enter *10*.
+      1. Under **Endpoint monitor settings**, select **HTTPS** for **Protocol**, and enter *443* for **Port**.
+      1. Under **Fast endpoint failover settings**, use the following values:
+         * For **Probing internal**, select *10*.
+         * For **Tolerated number of failures**, enter *3*.
+         * For **Probe timeout**, *5*.
+      1. Select **Save**. Wait until it completes.
+   1. In step 4 for adding the primary endpoint *myPrimaryEndpoint*, use the following steps:
+      1. For **Target resource type**, select **Public IP address**.
+      1. Select the **Choose public IP address** dropdown and enter the name of the public IP address of the Azure Application Gateway in the **East US** region that you wrote down before. You should see one entry matched. Select it for **Public IP address**.
+   1. In step 6 for adding a failover/secondary endpoint *myFailoverEndpoint*, use the following steps:
+      1. For **Target resource type**, select **Public IP address**.
+      1. Select the **Choose public IP address** dropdown and enter the name of the public IP address of the Azure Application Gateway in the **West US** region that you wrote down before. You should see one entry matched. Select it for **Public IP address**.
+   1. Wait for a while. Select **Refresh** until the **Monitor status** for endpoint *myPrimaryEndpoint* is *Online* and **Monitor status** for endpoint *myFailoverEndpoint* is *Degraded*.
+
+Next, verify if the sample app deployed to the primary cluster can be accessed from the Traffic Manager profile:
+
+1. Select **Overview** of the Traffic Manager profile you created.
+1. Check and copy the DNS name of the Traffic Manager profile, replace protocol *http* with *https*. For example, `https://tmprofile-mjg032524.trafficmanager.net`.
+1. Open the URL in a new tab of the browser. You should see the coffee you created before is listed in the page.
+1. Create another coffee with a different name and price (for example, *Coffee 2* with price *20*), which is persisted into both application data table and session table of the database. The UI that you see should be similar to the following screenshot:
+
+   :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/sample-app-ui-2nd-coffee.png" alt-text="Screenshot of the sample application UI with the 2nd coffee." lightbox="media/migrate-liberty-to-aks-with-ha-dr/sample-app-ui-2nd-coffee.png":::
+
+If your UI doesn't look similar, troubleshoot and resolve the problem before you continue. Keep the console open and use it for failover test later.
+
+Now you set up the Traffic Manager profile. Keep the page open and you use it for monitoring the endpoint status change in a failover event later.
+
+
