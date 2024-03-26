@@ -173,11 +173,13 @@ Use the following steps to verify whether the IHS and Dmgr console work before m
 
 1. Return to the **Deployment** page, then select **Outputs**.
 1. Copy the value of the property **ihsConsole**. Open that URL in a new browser tab. You should see a welcome page of the IHS without any error message. If you don't, you must troubleshoot and resolve the issue before you continue. Keep the console open and use it for verifying the app deployment of the cluster later.
+   :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/ihs-welcome-screen.png" alt-text="IHS welcoms screen." lightbox="media/migrate-websphere-to-vms-with-ha-dr/ihs-welcome-screen.png" border="false":::
 1. Copy and write down the value of the property **adminSecuredConsole**. Open it in a new browser tab. You should see the sign-in page of the **WebSphere Integrated Solutions Console**. Sign in to the console with the user name and password for WebSphere administrator you wrote down before. If you aren't able to sign in, you must troubleshoot and resolve the issue before you continue. Keep the console open and use it for further configuration of the WebSphere cluster later.
 
 Use the following steps to write down the name of the public IP address of the IHS. You use it when you set up the Azure Traffic Manager later.
 
 1. Open the resource group where your cluster is deployed - for example, select **Overview** to switch back to the Overview pane of the deployment page. Then, select **Go to resource group**.
+1. In the table of resources, find the **Type** column. Select it to sort by type of resource.
 1. Find the **Public IP address** resource prefixed with `ihs`, then copy and write down its name.
 
 ### Configure the cluster
