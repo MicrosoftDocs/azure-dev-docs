@@ -11,7 +11,7 @@ metadata:
   description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
   author: diberry
   ms.author: diberry
-  ms.date: 01/25/2023
+  ms.date: 03/26/2024
   ms.topic: landing-page
   ms.custom: 2020Aug21Redesign, devx-track-js, engagement-fy23
 landingContent:
@@ -32,10 +32,7 @@ landingContent:
             url: /azure/developer/javascript/sdk/authentication/local-development-environment-service-principal
           - text: Authenticate your web app users
             url: how-to/with-authentication/getting-started.md?tabs=no-code%2Cno-code-credential
-          - text: Storage for developers
-            url: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-          - text: Azure SDK Blog
-            url: https://devblogs.microsoft.com/azure-sdk/
+
   - title: Deploy and host apps
     linkLists:
       - linkListType: tutorial
@@ -81,28 +78,29 @@ landingContent:
           - text: Express.js + MongoDB (docs)
             url: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
 
-  - title: AI/ML
+  - title: AI
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Enterprise chat with RAG
+            url: get-started-app-chat-template.md?tabs=github-codespaces
+          - text: Evaluate chat app
+            url: get-started-app-chat-evaluations.md
+          - text: Scale Azure OpenAI with Azure Container Apps
+            url: get-started-app-chat-scaling-with-azure-container-apps.md
+          - text: Scale Azure OpenAI with Azure API Management
+            url: get-started-app-chat-scaling-with-azure-api-management.md
           - text: Add search to website
             url: /azure/search/tutorial-javascript-overview?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-          - text: Language detection
-            url: /azure/cognitive-services/language-service/language-detection/quickstart?pivots=programming-language-javascript
-          - text: Key phrase extraction
-            url: /azure/cognitive-services/language-service/key-phrase-extraction/quickstart?pivots=programming-language-javascript
-          - text: Speech to text
-            url: /azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-javascript
-          - text: Text to speech
-            url: ./tutorial/convert-text-to-speech-cognitive-services.md
-          - text: Image analysis
-            url: tutorial/static-web-app-image-analysis.md
+
   - title: Use Azure client libraries (SDK)
     linkLists:
       - linkListType: get-started
         links:
           - text: Use the Azure SDKs for JS/TS
             url: core/use-azure-sdk.md
+          - text: Azure SDK Blog
+            url: https://devblogs.microsoft.com/azure-sdk/            
           - text: SDK latest version
             url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
           - text: SDK Reference Documentation
@@ -115,6 +113,14 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
+          - text: Azure Cosmos DB MongoDB
+            url: /azure/cosmos-db/mongodb/how-to-javascript-get-started
+          - text: Azure Cosmos DB no-SQL
+            url: /azure/cosmos-db/nosql/how-to-javascript-get-started?tabs=azure-cli%2Cwindows
+          - text: Key Vault Keys
+            url: /azure/key-vault/keys/javascript-developer-guide-get-started
+          - text: Key Vault Secrets
+            url: /azure/key-vault/secrets/javascript-developer-guide-get-started
           - text: Azure Storage Dev Guide
             url: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
   - title: End to end development
