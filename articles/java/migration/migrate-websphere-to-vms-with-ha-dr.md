@@ -226,8 +226,11 @@ First, use the following commands to download, build and package the sample:
 ```bash
 git clone https://github.com/Azure-Samples/websphere-cafe
 cd websphere-cafe
+git checkout 20240326
 mvn clean package
 ```
+
+If you see a message about being in `Detached HEAD` state, this message is safe to ignore.
 
 The package should be successfully generated and located at *\<parent-path-to-your-local-clone>/websphere-cafe/websphere-cafe-application/target/websphere-cafe.ear*. If you don't see the package, you must troubleshoot and resolve the issue before you continue.
 
