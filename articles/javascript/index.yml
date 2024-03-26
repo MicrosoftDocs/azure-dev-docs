@@ -52,6 +52,33 @@ landingContent:
           - text: "Server from VM: Express.js with NGINX"
             url: tutorial/nodejs-virtual-machine-vm/introduction.md
 
+
+  - title: AI
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Enterprise chat with RAG
+            url: get-started-app-chat-template.md?tabs=github-codespaces
+          - text: Evaluate chat app
+            url: get-started-app-chat-evaluations.md
+          - text: Scale Azure OpenAI with Azure Container Apps
+            url: get-started-app-chat-scaling-with-azure-container-apps.md
+          - text: Scale Azure OpenAI with Azure API Management
+            url: get-started-app-chat-scaling-with-azure-api-management.md
+          - text: Add search to website
+            url: /azure/search/tutorial-javascript-overview?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+
+  - title: End to end development
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Contoso Solution
+            url: end-to-end/contoso-real-estate-get-started.md
+          - text: Developer tools
+            url: end-to-end/contoso-real-estate-developer-tools.md
+          - text: Sample
+            url: https://github.com/Azure-Samples/contoso-real-estate
+
   - title: Azure SDK client library tutorials
     linkLists: 
       - linkListType: tutorial
@@ -77,21 +104,6 @@ landingContent:
             url: /training/modules/javascript-deploy-expressjs-app-service-with-database
           - text: Express.js + MongoDB (docs)
             url: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-
-  - title: AI
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Enterprise chat with RAG
-            url: get-started-app-chat-template.md?tabs=github-codespaces
-          - text: Evaluate chat app
-            url: get-started-app-chat-evaluations.md
-          - text: Scale Azure OpenAI with Azure Container Apps
-            url: get-started-app-chat-scaling-with-azure-container-apps.md
-          - text: Scale Azure OpenAI with Azure API Management
-            url: get-started-app-chat-scaling-with-azure-api-management.md
-          - text: Add search to website
-            url: /azure/search/tutorial-javascript-overview?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
 
   - title: Use Azure client libraries (SDK)
     linkLists:
@@ -123,16 +135,7 @@ landingContent:
             url: /azure/key-vault/secrets/javascript-developer-guide-get-started
           - text: Azure Storage Dev Guide
             url: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-  - title: End to end development
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Contoso Solution
-            url: end-to-end/contoso-real-estate-get-started.md
-          - text: Developer tools
-            url: end-to-end/contoso-real-estate-developer-tools.md
-          - text: Sample
-            url: https://github.com/Azure-Samples/contoso-real-estate
+
   - title: Developer tools
     linkLists:
       - linkListType: get-started
