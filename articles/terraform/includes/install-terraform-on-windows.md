@@ -9,7 +9,7 @@ ms.custom: devx-track-terraform
 
 1. From the download, extract the executable to a directory of your choosing (for example, `c:\terraform`).
 
-1. [Update your system's global path](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows) to the executable.
+1. Update your system's global PATH environment variable to include the directory that contains the executable.
 
 1. Open a terminal window.
 
