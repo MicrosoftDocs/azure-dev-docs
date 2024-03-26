@@ -107,6 +107,10 @@ Use the following steps to fill out the **Load balancing** pane:
 The following steps show you how to fill out the **Operator and application** pane:
 
 1. Leave the defaults for all fields.
+   
+   > [!NOTE]
+   > This tutorial deploys Open Liberty Operator using the defaults. Optionally you can deploy WebSphere Liberty Operator by selecting **Yes** for **IBM supported?**.
+
 1. Select **Review + create**.
 1. Wait until **Running final validation...** successfully completes, then select **Create**.
 
@@ -231,6 +235,7 @@ cd $BASE_DIR/java-app
 mvn clean install
 
 cd $BASE_DIR/java-app/target
+# If you deployed WebSphere Liberty Operator before, use "Dockerfile-wlp" instead of "Dockerfile"
 docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile .
 docker tag javaee-cafe:v1 ${LOGIN_SERVER}/javaee-cafe:v1
 docker login -u ${USER_NAME} -p ${PASSWORD} ${LOGIN_SERVER}
@@ -238,12 +243,14 @@ docker push ${LOGIN_SERVER}/javaee-cafe:v1
 
 cd $BASE_DIR/java-app/target
 kubectl apply -f db-secret.yaml
+# If you deployed WebSphere Liberty Operator before, use "webspherelibertyapplication-agic.yaml" instead of "openlibertyapplication-agic.yaml"
 kubectl apply -f openlibertyapplication-agic.yaml
 ```
 
 Run the following command to get the sample app you deployed:
 
 ```bash
+# If you deployed WebSphere Liberty Operator before, use "WebSphereLibertyApplication" instead of "OpenLibertyApplication"
 kubectl get OpenLibertyApplication
 ```
 
