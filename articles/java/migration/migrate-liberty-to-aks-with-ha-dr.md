@@ -132,6 +132,8 @@ Use the following steps to verify these key components before moving to next ste
    Merged "cluster3984d1-admin" as current context in <your-user>\.kube\config
    ```
 
+   Write down the command, you use it to connect to the cluster later. 
+
 1. Now run `kubectl get pod --all-namespaces` in the terminal to list all pods running on the AKS cluster. You should see the similar output:
 
    ```Output
@@ -450,9 +452,10 @@ To simulate an outage of the primary region, stop the primary AKS cluster by fol
 Next, start the secondary AKS cluster so it can be restored from the backup of the primary cluster.
 
 > [!NOTE]
-> If you have WebSphere Liberty/Open Liberty applications running on restore target cluster, to avoid conflicts, clean up WebSphere Liberty/Open Liberty applications by running the following commands:
-> * For Open Liberty applications: `kubectl delete OpenLibertyApplication --all-namespaces`
-> * For WebSphere Liberty applications: `kubectl delete WebSphereLibertyApplication --all-namespaces`
+> If you have WebSphere Liberty/Open Liberty applications running on restore target cluster, to avoid conflicts, use the following steps to clean up WebSphere Liberty/Open Liberty applications:
+> * Connect to the target cluster by running the command in `cmdToConnectToCluster` you wrote down before.
+> * For Open Liberty applications, run `kubectl get OpenLibertyApplication --all-namespaces -o yaml | kubectl delete -f -`
+> * For WebSphere Liberty applications, run `kubectl get WebSphereLibertyApplication --all-namespaces -o yaml | kubectl delete -f -`
 
 Then, switch to the browser tab of your Traffic Manager profile, and verify that the **Monitor status** for both endpoints *myPrimaryEndpoint* and *myFailoverEndpoint* is *Degraded*.
 
@@ -465,7 +468,7 @@ Now, use the following steps to failover the Azure SQL Database from the primary
 Next, use the following steps to restore the backup of the primary AKS cluster to the secondary AKS cluster:
 
 1. In the search box at the top of the Azure portal, enter **Backup center** and select **Backup center** in the search results.
-1. Under **Manage**, select **Backup instances**. Filter on the datasource type **Kubernetes Services**. You find the backup instance you created in the previous section - for example, *cluster3984d1\akseastusmjg032524*.
+1. Under **Manage**, select **Backup instances**. Filter on the datasource type **Kubernetes Services**. You find the backup instance you created in the previous section - for example, *<aks-cluster-name>\akseastusmjg032524*.
 1. Select the backup instance.
 1. Select **Restore**.
 1. In the **Restore** page, the default pane is **Restore point**, select **Previous** to change to **Basics** pane. For **Restore Region**, select **Secondary Region**. Select **Next: Restore point**.
@@ -479,13 +482,14 @@ Next, use the following steps to restore the backup of the primary AKS cluster t
 1. In the **Restore parameters** pane.
 
    * For **Select Target cluster**, select the secondary AKS cluster that you created in **West US**.  You run into permission issue as the following picture shows. Select **Grant Permission** to mitigate the errors. 
-   * For **Backup Staging Location**, select the Storage Account that you created in **West US**. You run into permission issue as the following picture shows. Select **Assign missing roles** to mitigate the errors. 
+   * For **Backup Staging Location**, select the Storage Account that you created in **West US**. You run into permission issue as the following picture shows. Select **Assign missing roles** to mitigate the errors.
+   * If the errors still happen after role assignments finish, select **Revalidate** to refresh the permissions.
 
      :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/backup-instance-restore-restoreparameters.png" alt-text="Screenshot of the Azure portal showing the Restore parameter pane." lightbox="media/migrate-liberty-to-aks-with-ha-dr/backup-instance-restore-restoreparameters.png":::
 
    * When granting missing permissions, if asked to specify a **Scope**, accept the default value.
 
-   * Wait until all permissions are granted and role assignments finish. Select **Validate**. You should see the message, **Validation completed successfully**. Otherwise, troubleshoot and resolve the problem before continuing.
+   * Select **Validate**. You should see the message, **Validation completed successfully**. Otherwise, troubleshoot and resolve the problem before continuing.
 
 1. Select **Next: Review + restore**. Then select **Restore**. It takes about 10 minutes to restore the cluster.
 
@@ -526,7 +530,7 @@ Then, use the following steps to verify if the restore works as expected.
    javaee-cafe-cluster-agic-7bb57dd945-k744w   1/1     Running   0          3m
    ```
 
-1. Switch to the browser tab of your Traffic Manager profile, then refresh the page until you see that the **Monitor status** for endpoint `myFailoverEndpoint` is *Online* and **Monitor status** the endpoint `myPrimaryEndpoint` is *Degraded*.
+1. Switch to the browser tab of your Traffic Manager profile, then refresh the page until you see that the **Monitor status** for endpoint `myFailoverEndpoint` is *Online* and **Monitor status** for endpoint `myPrimaryEndpoint` is *Degraded*.
 1. Switch to the browser tab with the DNS name of the Traffic Manager profile - for example, `https://tmprofile-mjg032524.trafficmanager.net`. Refresh the page and you should see the same data persisted in the application data table and the session table displayed. The UI that you see should be similar to the following screenshot:
 
    :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/sample-app-ui-after-failover.png" alt-text="Screenshot of the sample application UI after failover." lightbox="media/migrate-liberty-to-aks-with-ha-dr/sample-app-ui-after-failover.png":::
@@ -557,3 +561,52 @@ Then, use the same steps in the section [Wait for a Vault-standard backup to hap
 1. Select the backup instance from the **Backup** page of the secondary AKS cluster.
 
 ### Fail back to the primary site
+
+Use the same steps in the [Failover to the secondary site](#failover-to-the-secondary-site) section to fail back to the primary site including database server and the AKS cluster, except for the following differences:
+
+1. When you prepare for the failback:
+   1. Stop the secondary AKS cluster to simulate an outage of the secondary region.
+   1. Start the primary AKS cluster.
+   1. Connect to the primary AKS cluster and clean up WebSphere Liberty/Open Liberty applications.
+
+1. When you restore the backup of the secondary AKS cluster to the primary AKS cluster:
+   1. Select the backup instance in the secondary region - for example, *<aks-cluster-name>\akswestusmjg032524*.
+   1. In the **Restore parameters** pane:
+      1. For **Select Target cluster**, select the primary AKS cluster that you created in **East US**. 
+      1. For **Backup Staging Location**, select the Storage Account that you created in **East US**. 
+
+1. When you verify if the restore works as expected:
+   1. Switch to the terminal where you connected to the primary AKS cluster, and check if the app is restored successfully.
+   1. Switch to the browser tab of your Traffic Manager profile, then refresh the page until you see that the **Monitor status** for endpoint *myPrimaryEndpoint* is *Online* and **Monitor status** for endpoint *myFailoverEndpoint* is *Degraded*.
+
+## Clean up resources
+
+If you're not going to continue to use the WebSphere Liberty/Open Liberty clusters and other components, use the following steps to delete the resource groups to clean up the resources used in this tutorial:
+
+1. Enter the resource group name of Azure SQL Database servers (for example, *myResourceGroup*) in the search box at the top of the Azure portal, and select the matched resource group from the search results.
+1. Select **Delete resource group**.
+1. In **Enter resource group name to confirm deletion**, enter the resource group name.
+1. Select **Delete**.
+1. Repeat steps 1-4 for the resource group of the Traffic Manager - for example, *myResourceGroupTM1*.
+1. Enter **Backup vaults** in the search box at the top of the Azure portal, and select **Backup vaults** in the search results. You should see two Backup vaults listed. For each of them:
+   1. Select to open the Backup vault.
+   1. Select **Manage** > **Properties** > **Soft delete** > **Update**. Next to **Enable soft Delete**, unselect the checkbox. Select **Update**.
+   1. Select **Manage** > **Backup instances**. Filter on the datasource type **Kubernetes Services**. Select the instance you created and delete it.
+1. Wait until two Backup instances are deleted.
+1. Repeat steps 1-4 for the resource group of the primary cluster - for example, *liberty-aks-eastus-mjg032524*.
+1. Repeat steps 1-4 for the resource group of the secondary cluster - for example, *liberty-aks-westus-mjg032524*.
+
+## Next steps
+
+In this tutorial, you set up a WebSphere Liberty/Open Liberty HA/DR solution consisting of an active-passive application infrastructure tier with an active-passive database tier, and in which both tiers span two geographically different sites. At the first site, both the application infrastructure tier and the database tier are active. At the second site, the secondary domain is restored with Azure Backup, and the secondary database is on standby.
+
+Continue to explore the following references for more options to build HA/DR solutions and run WebSphere on Azure:
+
+> [!div class="nextstepaction"]
+> [Azure reliability documentation](/azure/reliability)
+> [!div class="nextstepaction"]
+> [Build solutions for high availability](/azure/architecture/high-availability/building-solutions-for-high-availability)
+> [!div class="nextstepaction"]
+> [Automatic failover using Azure Traffic Manager](/azure/networking/disaster-recovery-dns-traffic-manager#automatic-failover-using-azure-traffic-manager)
+> [!div class="nextstepaction"]
+> [Learn more about WebSphere on Azure](../ee/websphere-family.md)
