@@ -468,7 +468,7 @@ Now, use the following steps to failover the Azure SQL Database from the primary
 Next, use the following steps to restore the backup of the primary AKS cluster to the secondary AKS cluster:
 
 1. In the search box at the top of the Azure portal, enter **Backup center** and select **Backup center** in the search results.
-1. Under **Manage**, select **Backup instances**. Filter on the datasource type **Kubernetes Services**. You find the backup instance you created in the previous section - for example, *<aks-cluster-name>\akseastusmjg032524*.
+1. Under **Manage**, select **Backup instances**. Filter on the datasource type **Kubernetes Services**. You find the backup instance you created in the previous section - for example, *\<aks-cluster-name\>\akseastusmjg032524*.
 1. Select the backup instance.
 1. Select **Restore**.
 1. In the **Restore** page, the default pane is **Restore point**, select **Previous** to change to **Basics** pane. For **Restore Region**, select **Secondary Region**. Select **Next: Restore point**.
@@ -570,7 +570,7 @@ Use the same steps in the [Failover to the secondary site](#failover-to-the-seco
    1. Connect to the primary AKS cluster and clean up WebSphere Liberty/Open Liberty applications.
 
 1. When you restore the backup of the secondary AKS cluster to the primary AKS cluster:
-   1. Select the backup instance in the secondary region - for example, *<aks-cluster-name>\akswestusmjg032524*.
+   1. Select the backup instance in the secondary region - for example, *\<aks-cluster-name\>\akswestusmjg032524*.
    1. In the **Restore parameters** pane:
       1. For **Select Target cluster**, select the primary AKS cluster that you created in **East US**. 
       1. For **Backup Staging Location**, select the Storage Account that you created in **East US**. 
