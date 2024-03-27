@@ -144,9 +144,9 @@ conceptualContent:
         - text: Libraries, drivers, and Spring modules
           itemType: reference
           url: sdk/libraries-drivers-modules.md
-        - text: Azure development using Java
+        - text: Azure development using Maven
           itemType: get-started
-          url: sdk/get-started.md
+          url: sdk/get-started-maven.md
         - text: Introducing Azure SDK for Java
           itemType: learn
           url: sdk/overview.md
