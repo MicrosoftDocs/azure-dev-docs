@@ -6,7 +6,8 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 |Link|Description|
 |---|---|
-|[Get started with the .NET enterprise chat sample using RAG](/dotnet/azure/ai/get-started-app-chat-template)|An article that walks you through deploying and using the [Enterprise chat app sample for .NET](https://github.com/Azure-Samples/azure-search-openai-demo-csharp). This sample is a complete end-to-end solution demonstrating the [Retrieval-Augmented Generation (RAG) pattern](/azure/search/retrieval-augmented-generation-overview) running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. |
+|[Get started with the .NET enterprise chat sample using RAG](/dotnet/ai/get-started-app-chat-template)|An article that walks you through deploying and using the [Enterprise chat app sample for .NET](https://github.com/Azure-Samples/azure-search-openai-demo-csharp). This sample is a complete end-to-end solution demonstrating the [Retrieval-Augmented Generation (RAG) pattern](/azure/search/retrieval-augmented-generation-overview) running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. |
+|[Build an AI assistant using RAG](https://github.com/Azure/Vector-Search-AI-Assistant-MongoDBvCore)| This sample is a complete end-to-end solution demonstrating how to design and implement a Q&A AI assistant, which uses the [Embeddings API](/azure/ai-services/openai/tutorials/embeddings) and Completions API in Azure OpenAI Service, as well as the [vector database](/azure/cosmos-db/vector-database) in Azure Cosmos DB. |
 
 * [Demo video](https://aka.ms/azai/net/video)
 
@@ -27,7 +28,7 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 
 |Link|Description|
 |---|---|
-|[Get started with the .NET enterprise chat sample using RAG](/dotnet/azure/ai/get-started-app-chat-template)|An article that walks you through deploying and using the [Enterprise chat app sample for .NET](https://github.com/Azure-Samples/azure-search-openai-demo-csharp). This sample is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.|
+|[Get started with the .NET enterprise chat sample using RAG](/dotnet/ai/get-started-app-chat-template)|An article that walks you through deploying and using the [Enterprise chat app sample for .NET](https://github.com/Azure-Samples/azure-search-openai-demo-csharp). This sample is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.|
 
 ### Building blocks
 
@@ -78,4 +79,4 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 |[Document Translation in .NET](https://aka.ms/azai/net/translate/doc)|A quickstart article that details how to use Document Translation to translate a source document into a target language while preserving structure and text formatting.|
 |[Question Answering in .NET](https://aka.ms/azai/net/qna)|A quickstart article to get an answer (and confidence score) from a body of text that you send along with your question.|
 |[Conversational Language Understanding in .NET](https://aka.ms/azai/net/convo)|The client library for Conversational Language Understanding (CLU), a cloud-based conversational AI service, which can extract intents and entities in conversations and acts like an orchestrator to select the best candidate to analyze conversations to get best response from apps like Qna, Luis, and Conversation App.|
-|[Analyze images](/samples/azure-samples/azure-ai-vision-sdk/azure-ai-vision-sdk-preview-samples/)|Sample code and setup documents for the Microsoft Azure AI Vision SDK|
+|[Analyze images](/azure/ai-services/computer-vision/sdk/overview-sdk)|Sample code and setup documents for the Microsoft Azure AI Image Analysis SDK|

@@ -1,5 +1,5 @@
 ---
-ms.custom: overview, devx-track-python
+ms.custom: overview
 ms.topic: include
 ms.date: 01/31/2024
 ms.author: diberry
@@ -15,10 +15,9 @@ When you're done with both the chat app and the load balancer, clean up the reso
 
 Return to the chat app article to clean up those resources. 
 
-* [.NET](/dotnet/azure/ai/get-started-app-chat-template#clean-up-resources)
-* [Java](../../java/quickstarts/get-started-app-chat-template.md#clean-up-resources)
-* [JavaScript](../../javascript/get-started-app-chat-template.md#clean-up-resources)
-* [Python](../../python/get-started-app-chat-template.md#clean-up-resources)
+* [.NET](/dotnet/ai/get-started-app-chat-template#clean-up-resources)
+* [JavaScript](/azure/developer/javascript/get-started-app-chat-template#clean-up-resources)
+* [Python](/azure/developer/python/get-started-app-chat-template#clean-up-resources)
 
 ### Clean upload balancer resources
 

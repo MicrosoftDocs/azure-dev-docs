@@ -3,7 +3,7 @@ title: "Configure a custom startup file for Python apps on Azure App Service on 
 description: Discusses how to start a Python web app running on App Service, including specific instructions for Django, Flask, and other frameworks.
 ms.topic: conceptual
 ms.date: 01/12/2024
-ms.custom: devx-track-python
+ms.custom: devx-track-python, linux-related-content
 ---
 
 # Configure a custom startup file for Python apps on Azure App Service

@@ -13,8 +13,12 @@
   - name: Evaluate your chat app
     href: get-started-app-chat-evaluations.md
     display: Azure OpenAI
-  - name: Scale your chat app with Azure Container Apps
+  - name: Scale Azure OpenAI with Azure Container Apps
     href: get-started-app-chat-scaling-with-azure-container-apps.md
+  - name: Scale Azure OpenAI with Azure API Management
+    href: get-started-app-chat-scaling-with-azure-api-management.md
+  - name: Load test with Locust
+    href: get-started-app-chat-app-load-test-locust.md
 - name: Web
   items:
   - name: Set up local web dev environment
@@ -201,7 +205,7 @@
     href: quickstarts-app-hosting.md
   - name: Data solutions
     href: quickstarts-data-solutions.md
-  - name: Identity and security
+  - name: Identity and access management
     href: quickstarts-identity-security.md
   - name: Machine learning
     href: quickstarts-machine-learning.md

@@ -1,7 +1,7 @@
 ---
 title: Getting starting with messaging, events, and IoT for Python apps on Azure
 description: Index of Python-specific articles in Azure documentation for learning more about messaging, events, and IoT.
-ms.date: 03/14/2023
+ms.date: 03/08/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -19,15 +19,14 @@ Messaging services on Azure provide the interconnectivity between components and
 
 - **Queues**
   - [Quickstart: Azure Queue Storage client library for Python](/azure/storage/queues/storage-quickstart-queues-python)
-  - [Develop with Queues: How to use Azure Queue Storage from Python](/azure/storage/queues/storage-quickstart-queues-python?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli)
   - [Quickstart: Send messages to and receive messages from Azure Service Bus queues (Python)](/azure/service-bus-messaging/service-bus-python-how-to-use-queues)
   - [Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (Python)](/azure/service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions)
 
 - **Real-time web functionality (SignalR)**
-  - [Quickstart: Create a serverless app with Azure Functions, SignalR Service, and Python](/azure/azure-signalr/signalr-quickstart-azure-functions-python)
+  - [Quickstart: Create a serverless app with Azure Functions and Azure SignalR Service in Python](/azure/azure-signalr/signalr-quickstart-azure-functions-python)
 
 - **Azure Web PubSub**
-  - [How to create a WebPubSubServiceClient with Python and Azure Identity](/azure/azure-web-pubsub/howto-create-serviceclient-with-python-and-azure-identity)
+  - [How to create a `WebPubSubServiceClient` with Python and Azure Identity](/azure/azure-web-pubsub/howto-create-serviceclient-with-python-and-azure-identity)
 
 ## Events
 
@@ -53,11 +52,10 @@ Internet of Things or IoT refers to a collection of managed and platform service
   - [Quickstart: Control a device connected to an IoT hub](/azure/iot-hub/quickstart-control-device?pivots=programming-language-python)
 
 - **Device provisioning**
-  - [Create and provision a simulated TPM device](/azure/iot-dps/quick-create-simulated-device-tpm?pivots=programming-language-python)
   - [Quickstart: Provision an X.509 certificate simulated device](/azure/iot-dps/quick-create-simulated-device-x509?pivots=programming-language-python)
   - [Tutorial: Provision devices using symmetric key enrollment groups](/azure/iot-dps/how-to-legacy-device-symm-key?pivots=programming-language-python)
   - [Tutorial: Provision multiple X.509 devices using enrollment groups](/azure/iot-dps/tutorial-custom-hsm-enrollment-group-x509?pivots=programming-language-python)
 
 - **IoT Central/IoT Edge**
   - [Tutorial: Create and connect a client application to your Azure IoT Central application](/azure/iot-central/core/tutorial-connect-device?pivots=programming-language-python)
-  - [Tutorial: Develop and deploy a Python IoT Edge module for Linux devices](/azure/iot-edge/tutorial-python-module)
+  - [Tutorial: Develop IoT Edge modules using Visual Studio Code](/azure/iot-edge/tutorial-develop-for-linux?tabs=python&pivots=iotedge-dev-cli)

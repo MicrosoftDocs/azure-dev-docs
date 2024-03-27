@@ -229,7 +229,7 @@ You can then set the `spring.cloud.azure.appconfiguration.stores[0].connection-s
 
 ### Spring Cloud Azure configuration
 
-You can use [Spring Cloud Azure configuration](/azure/developer/java/spring-framework/configuration) to configure the library. You can use the following properties to configure the library:
+You can use [Spring Cloud Azure configuration](configuration.md) to configure the library. You can use the following properties to configure the library:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].endpoint= <URI-of-your-configuration-store>
@@ -372,7 +372,7 @@ You can create any secret-identifier through the Azure CLI. Secret identifiers j
 
 #### Using Key Vault references
 
-You can use [Spring Cloud Azure configuration](/azure/developer/java/spring-framework/configuration) to configure the library. You can use the same credential used to connect to App Configuration to connect to Azure Key Vault.
+You can use [Spring Cloud Azure configuration](configuration.md) to configure the library. You can use the same credential used to connect to App Configuration to connect to Azure Key Vault.
 
 #### Resolve non-Key Vault secrets
 
@@ -579,7 +579,7 @@ feature-management:
 
 #### TargetingFilter
 
-This filter provides the capability to enable a feature for a target audience. For an in-depth explanation of targeting, see the [targeting section](#targeting) section. The filter parameters include an audience object that describes users, groups, and a default percentage of the user base that should have access to the feature. For each group object that is listed in the target audience, a percentage is required which defines the percentage of that group's members that have access to the feature. A user has the feature enabled in the following cases:
+This filter provides the capability to enable a feature for a target audience. For an in-depth explanation of targeting, see the [targeting section](#targeting) section. The filter parameters include an audience object that describes users, groups, and a default percentage of the user base that should have access to the feature. For each group object that is listed in the target audience, a percentage is required that defines the percentage of that group's members that have access to the feature. A user has the feature enabled in the following cases:
 
 - The user is specified in the users' section directly.
 - The user is in the included percentage of any of the group rollouts.
@@ -801,7 +801,7 @@ These interfaces allow for customization of the HTTP client and its configuratio
 > [!NOTE]
 > The `ConfigurationClientBuilder` and `SecretClientBuilder` are already set up for use when passed into `customize`. Any changes to the clients, including the credentials and retry policy, override those already in place.
 >
-> You can also do this configuration by using [Spring Cloud Azure configuration](/azure/developer/java/spring-framework/configuration).
+> You can also do this configuration by using [Spring Cloud Azure configuration](configuration.md).
 
 ```java
 public class CustomClient implements ConfigurationClientCustomizer, SecretClientCustomizer {

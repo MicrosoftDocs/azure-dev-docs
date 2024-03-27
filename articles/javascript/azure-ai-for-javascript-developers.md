@@ -5,7 +5,7 @@ keywords: ai, azure openai service
 ms.service: azure
 ms.topic: overview
 ms.date: 11/17/2023
-ms.custom: overview, devx-track-js
+ms.custom: overview, devx-track-js, devx-track-js-ai
 ---
 
 # Develop JavaScript apps that use Azure AI services

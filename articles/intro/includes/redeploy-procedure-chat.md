@@ -1,7 +1,7 @@
 ---
-ms.custom: overview, devx-track-python
+ms.custom: overview
 ms.topic: include
-ms.date: 01/31/2024
+ms.date: 03/08/2024
 ms.author: diberry
 author: diberry
 ms.service: azure
@@ -13,23 +13,13 @@ These are completed on the chat app sample.
 
 #### [Initial deployment](#tab/initial-deployment)
 
-This process uses two different CLIs:
-
-* Azure Developer CLI (AZD): 
-    * Create environment for deployment
-    * Deploy chat app 
-* Azure CLI (AZ):
-    * Run bash script to get Azure Container App ingress FQDN URL, which also uses AZD to set environment variables in deployment environment
-
 1. Open the chat app sample's dev container using one of the following choices.
 
     |Language|Codespaces|Visual Studio Code|
     |--|--|--|
-    |.Net|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo-csharp)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo-csharp)|
-    |Java|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo-java)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo-java)|
+    |.NET|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo-csharp)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo-csharp)|
     |JavaScript|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-javascript)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-javascript)|
-    |Python|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo)
-|
+    |Python|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo)|
 
 1. Sign in to Azure Developer CLI (AZD).
 
@@ -45,19 +35,17 @@ This process uses two different CLIs:
     azd env new <name>
     ```
 
-1. To run [the bash script](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/scripts/load-balance-aca-setup.sh) to set the load balancer environment variables, sign in to the Azure CLI (AZ).
+1. Add the following environment variable, which tells the Chat app's backend to use a custom URL for the OpenAI requests.
 
     ```bash
-    az login --use-device-code
+    azd env set OPENAI_HOST azure_custom
     ```
 
-1. Run the following bash script to configure the chat app to use the load balancer.
+1. Add the following environment variable, substituting `<CONTAINER_APP_URL>` for the URL from the previous section. This action  tells the Chat app's backend what the value is of the custom URL for the OpenAI request.
 
     ```bash
-    bash scripts/load-balance-aca-setup.sh <RESOURCE-GROUP-NAME> <CONTAINER-APP-URL>
+    azd env set AZURE_OPENAI_CUSTOM_URL <CONTAINER_APP_URL>
     ```
-
-    This script adds environment variables to instruct the chat app where to send requests to Azure OpenAI. 
 
 1. Deploy the chat app.
 
@@ -67,37 +55,25 @@ This process uses two different CLIs:
 
 #### [Redeployment](#tab/redeployment)
 
-This process uses two different CLIs:
-
-* Azure Developer CLI (AZD): 
-    * Deploy chat app 
-* Azure CLI (AZ):
-    * Run bash script to get Azure Container App ingress FQDN URL, which also uses AZD to set environment variables in deployment environment
-
-
 1. Reopen the chat app sample's dev container using one of the following choices.
 
     |Language|Codespaces|Visual Studio Code|
     |--|--|--|
-    |.Net|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo-csharp)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo-csharp)|
-    |Java|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo-java)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo-java)|
+    |.NET|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo-csharp)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo-csharp)|
     |JavaScript|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-javascript)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-javascript)|
-    |Python|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo)
-|
+    |Python|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo)|
 
-1. Sign in to the Azure CLI (AZ).
-
-    ```bash
-    az login --use-device-code
-    ```
-
-1. Run the following bash script to configure the chat app to use the load balancer.
+1. Add the following environment variable, which tells the Chat app's backend to use a custom URL for the OpenAI requests.
 
     ```bash
-    bash scripts/load-balance-aca-setup.sh <RESOURCE-GROUP-NAME> <CONTAINER-APP-URL>
+    azd env set OPENAI_HOST azure_custom
     ```
 
-    This script adds environment variables to instruct the chat app where to send requests to Azure OpenAI. 
+1. Add the following environment variable, which tells the Chat app's backend what the value is of the custom URL for the OpenAI request.
+
+    ```bash
+    azd env set CONTAINER_APP_URL <CONTAINER_APP_URL>
+    ```
 
 1. Deploy the chat app.
 
@@ -110,4 +86,3 @@ This process uses two different CLIs:
 ---
 
 You can now use the chat app with the confidence that it's built to scale across many users without running out of quota. 
-
