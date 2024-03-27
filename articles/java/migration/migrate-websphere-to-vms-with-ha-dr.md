@@ -149,8 +149,10 @@ The following steps show you how to fill out the **Database** pane:
 1. For **Connect to database?**, select **Yes**.
 1. For **Choose database type**, select **Microsoft SQL Server** .
 1. For **JNDI Name**, enter *jdbc/WebSphereCafeDB*.
-1. For **Data source connection string (jdbc:sqlserver://\<host\>:\<port\>;database=\<database\>)**, replace the placeholders with the values you wrote down from the preceding section for the failover group of Azure SQL Database - for example, *jdbc:sqlserver://failovergroup-mjg022624.database.windows.net:1433;database=mySampleDatabase*.
+1. For **Data source connection string (jdbc:sqlserver://\<host\>:\<port\>;database=\<database\>)**, replace the placeholders with the values you wrote down from the preceding section for the failover group for the Azure SQL Database - for example, *jdbc:sqlserver://failovergroup-mjg022624.database.windows.net:1433;database=mySampleDatabase*.
 1. For **Database username**, enter the server admin sign-in name and the failover group name you wrote down from the preceding section - for example, *azureuser@failovergroup-mjg022624*.
+   > [!NOTE]
+   > Be extra careful to use the correct database server hostname and database username for the failover group, instead of the server hostname and username from the primary or backup database. By using the values from the failover group, you are, in effect, telling WebSphere to talk to the failover group, but, as far as WebSphere is concerned, it's just a normal database connection.
 1. Enter the server admin sign-in password that you wrote down before for **Database Password**. Enter the same value for **Confirm password**.
 1. Leave the defaults for the other fields.
 1. Select **Review + create**.
@@ -174,7 +176,9 @@ Use the following steps to verify whether the IHS and Dmgr console work before m
 1. Return to the **Deployment** page, then select **Outputs**.
 1. Copy the value of the property **ihsConsole**. Open that URL in a new browser tab. You should see a welcome page of the IHS without any error message. If you don't, you must troubleshoot and resolve the issue before you continue. Keep the console open and use it for verifying the app deployment of the cluster later.
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/ihs-welcome-screen.png" alt-text="IHS welcoms screen." lightbox="media/migrate-websphere-to-vms-with-ha-dr/ihs-welcome-screen.png" border="false":::
-1. Copy and write down the value of the property **adminSecuredConsole**. Open it in a new browser tab. You should see the sign-in page of the **WebSphere Integrated Solutions Console**. Sign in to the console with the user name and password for WebSphere administrator you wrote down before. If you aren't able to sign in, you must troubleshoot and resolve the issue before you continue. Keep the console open and use it for further configuration of the WebSphere cluster later.
+1. Copy and write down the value of the property **adminSecuredConsole**. Open it in a new browser tab. Accept the browser warning for the self-signed TLS certificate. Don't go to production using a self-signed TLS certificate.
+
+   You should see the sign-in page of the **WebSphere Integrated Solutions Console**. Sign in to the console with the user name and password for WebSphere administrator you wrote down before. If you aren't able to sign in, you must troubleshoot and resolve the issue before you continue. Keep the console open and use it for further configuration of the WebSphere cluster later.
 
 Use the following steps to write down the name of the public IP address of the IHS. You use it when you set up the Azure Traffic Manager later.
 
@@ -193,10 +197,10 @@ First, enable the option **Synchronize changes with Nodes** so that any configur
 Then, configure Database **Distributed sessions** for all application servers.
 
 1. Under navigation pane at the left side, select **Servers** > **Server Types** > **WebSphere application servers**.
-1. In **Application servers** pane, you should see 3 application servers listed. For each application server, follow instructions to configure Database **Distributed sessions**:
-   1. Select the application server.
-   1. Under **Container Settings** section, select **Session management** .
-   1. Under **Additional Properties** section, select **Distributed environment settings**.
+1. In **Application servers** pane, you should see 3 application servers listed. For each application server, follow these instructions to configure Database **Distributed sessions**:
+   1. In the table under the text **You can administer the following resources**, select the hyperlink for the application server. This starts with **MyCluster**.
+   1. In the **Container Settings** section, select **Session management** .
+   1. In the **Additional Properties** section, select **Distributed environment settings**.
    1. For **Distributed sessions**, select **Database (Supported for Web container only.)**.
    1. Select **Database**.
       1. Fill in *jdbc/WebSphereCafeDB* for **Datasource JNDI name**.
@@ -204,16 +208,16 @@ Then, configure Database **Distributed sessions** for all application servers.
       1. Fill in the Azure SQL server admin sign-in password that you wrote down before for **Password**.
       1. Fill in *sessions* for **Table space name**.
       1. Check **Use multi row schema**. 
-      1. Select **OK**. You're directed back to **Distributed environment settings** pane.
+      1. Select **OK**. You're directed back to the **Distributed environment settings** pane.
    1. Under **Additional Properties** section, select **Custom tuning parameters**.
    1. Select **Low (optimize for failover)** for **Tuning level**. 
    1. Select **OK**.
    1. Under **Messages**, select **Save**. Wait until completion.
    1. Select **Application servers** from the top breadcrumb bar. You're directed back to **Application servers** pane.
 1. Under navigation pane at the left side, select **Servers** > **Clusters** > **WebSphere application server clusters**.
-1. In **WebSphere application server clusters** pane, you should see cluster *MyCluster* listed. Check *MyCluster*.
+1. In **WebSphere application server clusters** pane, you should see cluster *MyCluster* listed. Check the checkbox next to **MyCluster**.
 1. Select **Ripplestart**.
-1. Wait until the cluster is restarted. You can select the **Status** icon and if the new window doesn't show *Started*, switch back to the console and refresh the web page after a while. Repeat the operation until you see *Started*.
+1. Wait until the cluster is restarted. You can select the **Status** icon and if the new window doesn't show **Started**, switch back to the console and refresh the web page after a while. Repeat the operation until you see **Started**. You may see **Partial Start** before reaching the state **Started**
 
 Keep the console open and use it for app deployment later.
 
@@ -241,7 +245,7 @@ Then, use the following steps to deploy the sample app to the cluster:
 1. Switch back to the WebSphere Integrated Solutions Console, sign-in again if you're logged out.
 1. Under navigation pane at the left side, select **Applications** > **Application Types** > **WebSphere enterprise applications**.
 1. In **Enterprise Applications** pane, select **Install** > **Choose File** > find the package located at *\<parent-path-to-your-local-clone>/websphere-cafe/websphere-cafe-application/target/websphere-cafe.ear*, select **Open**. Select **Next** > **Next** > **Next**.
-1. In **Map modules to servers** pane, press <kbd>Ctrl</kbd> and select all items listed in **Clusters and servers**, select all modules, select **Apply**. Select **Next** until you see **Finish** button. 
+1. In **Map modules to servers** pane, press <kbd>Ctrl</kbd> and select all items listed in **Clusters and servers**. Select the checkbox next to **websphere-cafe.war**. Select **Apply**. Select **Next** until you see **Finish** button. 
 1. Select **Finish** > **Save**, wait until completion. Select **OK**.
 1. Check installed application *websphere-cafe*, select **Start**. Wait until you see messages indicating application successfully started. If you are not able to see the successful message, you must troubleshoot and resolve the reason why before continuing.
 
