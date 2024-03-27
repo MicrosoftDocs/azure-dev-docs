@@ -2,10 +2,10 @@
 title: "JBoss EAP on Azure"
 description: An overview of the different JBoss EAP solutions on Azure, all jointly developed and supported by Red Hat and Microsoft.
 author: KarlErickson
-ms.author: karler
+ms.author: edburns
 ms.topic: overview
 ms.date: 10/03/2023
-ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-extended-java
+ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-extended-java, linux-related-content
 ---
 
 # Red Hat JBoss EAP on Azure

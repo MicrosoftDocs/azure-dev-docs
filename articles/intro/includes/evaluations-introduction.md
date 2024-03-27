@@ -1,5 +1,5 @@
 ---
-ms.custom: overview, devx-track-js, devx-track-python
+ms.custom: overview
 ms.topic: include
 ms.date: 01/31/2024
 ms.author: diberry

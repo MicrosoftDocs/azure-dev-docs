@@ -3,7 +3,7 @@ title: Get started with the Python enterprise chat sample using RAG
 description: Get started with Python and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
 ms.date: 11/17/2023
 ms.topic: get-started
-ms.custom: devx-track-python, devx-track-python-ai
+ms.custom: devx-track-python, devx-track-python-ai, devx-track-extended-azdevcli
 # CustomerIntent: As a python developer new to Azure OpenAI, I want deploy and use sample code to interact with app infused with my own business data so that learn from the sample code.
 ---
 
@@ -28,7 +28,7 @@ This article is part of a collection of articles that show you how to build a ch
 
 Other articles in the collection include: 
 
-* [.NET](/dotnet/azure/ai/get-started-app-chat-template)
+* [.NET](/dotnet/ai/get-started-app-chat-template)
 * [Java](../java/quickstarts/get-started-app-chat-template.md)
 * [JavaScript](../javascript/get-started-app-chat-template.md)
 * [JavaScript frontend  + Python backend](../javascript/chat-app-with-separate-front-back-end.md)
@@ -172,7 +172,7 @@ The sample repository contains all the code and configuration files you need to 
 1. When you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. It's used as part of the resource group name. 
 1. When prompted, select a subscription to create the resources in. 
 1. When you're prompted to select a location the first time, select a location near you. This location is used for most the resources including hosting.
-1. If you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
+1. If you're prompted for a location for the OpenAI model or for the Document Intelligence resource, select the location closest to you. If the same location is available as your first location, select that.
 1. Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
 1. Select that URL labeled `(✓) Done: Deploying service webapp` to open the chat application in a browser.
@@ -210,6 +210,9 @@ The intelligence of the chat is determined by the OpenAI model and the settings 
 |Setting|Description|
 |---|---|
 |Override prompt template|This is the prompt that is used to generate the answer.|
+|Temperature|The temperature used for the final Chat Completion API call, a number between 0 and 1 that controls the "creativity" of the model.|
+| Minimum search score|The minimum score of the search results that are used to generate the answer. Range depends on [search mode used](/azure/search/hybrid-search-ranking#scores-in-a-hybrid-search-results). |
+| Minimum reranker score|The minimum score from the semantic ranker of the search results that are used to generate the answer. Ranges from 0-4. |
 |Retrieve this many search results|This is the number of search results that are used to generate the answer. You can see these sources returned in the _Thought process_ and _Supporting content_ tabs of the citation. |
 |Exclude category|This is the category of documents that are excluded from the search results.|
 |Use semantic ranker for retrieval|This is a feature of [Azure AI Search](/azure/search/semantic-search-overview#what-is-semantic-search) that uses machine learning to improve the relevance of search results.|
@@ -258,8 +261,13 @@ The Azure resources created in this article are billed to your Azure subscriptio
 Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
 
 ```bash
-azd down --purge
+azd down --purge --force
 ```
+
+The switches provide: 
+
+* `purge`: Deleted resources are immediately purged. This allows you to reuse the Azure OpenAI TPM.
+* `force`: The deletion happens siliently, without requiring user consent. 
 
 ### Clean up GitHub Codespaces
 
@@ -272,9 +280,9 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 
-1. Locate your currently running codespaces sourced from the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
+1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
 
-    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running codespaces including their status and templates.":::
+    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
 1. Open the context menu for the codespace and then select **Delete**.
 

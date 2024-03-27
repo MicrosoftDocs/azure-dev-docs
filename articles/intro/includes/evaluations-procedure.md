@@ -1,5 +1,5 @@
 ---
-ms.custom: overview, devx-track-js, devx-track-python
+ms.custom: overview
 ms.topic: include
 ms.date: 01/31/2024
 ms.author: diberry
@@ -342,7 +342,11 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 
 ---
 
-After you clean up for the evaluations app, return to the chat app and [clean up](../../python/get-started-app-chat-template.md#clean-up-resources) its resources. 
+Return to the chat app article to clean up those resources. 
+
+* [Javascript](/azure/developer/javascript/get-started-app-chat-template#clean-up-resources)
+* [Python](/azure/developer/python/get-started-app-chat-template#clean-up-resources)
+
 
 ## Next steps
 

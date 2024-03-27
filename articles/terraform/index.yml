@@ -10,12 +10,12 @@ metadata:
   author: TomArcherMsft
   ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 09/27/2023
+  ms.date: 02/27/2024
   ms.custom: devx-track-terraform
 
 landingContent:
   # Card
-  - title: About Terraform on Azure
+  - title: Getting started
     linkLists:
       - linkListType: overview
         links:
@@ -35,10 +35,6 @@ landingContent:
         links:
           - text: Comparing features of Terraform and Bicep
             url: comparing-terraform-and-bicep.md
-
-  # Card
-  - title: Install and configure Terraform
-    linkLists:
       - linkListType: get-started
         links:
           - text: Install and configure Terraform
@@ -75,36 +71,46 @@ landingContent:
             url: ./azure-export-for-terraform/export-advanced-scenarios.md
             
   # Card
-  - title: Testing Terraform projects
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Testing overview
-            url: best-practices-testing-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Integration testing
-            url: best-practices-integration-testing.md
-          - text: Compliance testing
-            url: best-practices-compliance-testing.md
-          - text: End-to-end testing
-            url: best-practices-end-to-end-testing.md
-
-  # Card
-  - title: Work with Containers (AKS, Application Gateway, ...)
+  - title: Popular Terraform Azure service articles
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Create an Azure resource group using Terraform
+            url:  /azure/developer/terraform/create-resource-group
           - text: Create an AKS cluster
-            url: /azure/aks/learn/quick-kubernetes-deploy-terraform
-          - text: Create an ACI instance with a public IP address
-            url: /azure/container-instances/container-instances-quickstart-terraform
-          - text: Deploy Azure Application Gateway v2
-            url: /azure/application-gateway/quick-create-terraform
-      - linkListType: how-to-guide
+            url:  /azure/aks/learn/quick-kubernetes-deploy-terraform
+          - text: Create a Linux VM
+            url:  /azure/virtual-machines/linux/quick-create-terraform
+          - text: Create a Windows VM
+            url:  /azure/virtual-machines/windows/quick-create-terraform
+          - text: Create an Azure key vault and key using Terraform
+            url:  /azure/key-vault/keys/quick-create-terraform
+          - text: Direct web traffic with Azure Application Gateway - Terraform
+            url:  /azure/application-gateway/quick-create-terraform
+          - text: Create a single database in Azure SQL Database using Terraform
+            url:  /azure/azure-sql/database/single-database-create-terraform-quickstart
+          - text: Create an Azure API Management service using Terraform
+            url:  /azure/api-management/quickstart-terraform
+          - text: Create an Azure Front Door Standard/Premium profile using Terraform
+            url:  /azure/frontdoor/create-front-door-terraform
+          - text: Create an Azure Container Instance with a public IP address using Terraform
+            url:  /azure/container-instances/container-instances-quickstart-terraform
+
+  # Card
+  - title: Networking
+    linkLists:
+      - linkListType: quickstart
         links:
-          - text: Create an Application Gateway ingress controller in AKS
-            url: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress
+          - text: Deploy with IP Groups - Terraform
+            url: /azure/firewall/quick-create-ipgroup-terraform
+          - text: Deploy with multiple addresses - Terraform
+            url: /azure/firewall/quick-create-multiple-ip-terraform
+          - text: Deploy with Availability Zones - Terraform
+            url: /azure/firewall/deploy-terraform
+          - text: Create a NAT Gateway
+            url: /azure/nat-gateway/quickstart-create-nat-gateway-terraform
+          - text: Create a private endpoint
+            url: /azure/private-link/create-private-endpoint-terraform
 
   # Card
   - title: Manage infrastructure
@@ -127,47 +133,17 @@ landingContent:
             url: create-vm-scaleset-network-disks-using-packer-hcl.md
 
   # Card
-  - title: Networking
+  - title: Work with Containers (AKS, Application Gateway, ...)
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy with IP Groups - Terraform
-            url: /azure/firewall/quick-create-ipgroup-terraform
-          - text: Deploy with multiple addresses - Terraform
-            url: /azure/firewall/quick-create-multiple-ip-terraform
-          - text: Deploy with Availability Zones - Terraform
-            url: /azure/firewall/deploy-terraform
-
-  # Card
-  - title: Manage databases
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Deploy a MySQL Flexible Server
-            url: /azure/mysql/flexible-server/quickstart-create-terraform
+          - text: Create an AKS cluster
+            url: /azure/aks/learn/quick-kubernetes-deploy-terraform
+          - text: Create an ACI instance with a public IP address
+            url: /azure/container-instances/container-instances-quickstart-terraform
+          - text: Deploy Azure Application Gateway v2
+            url: /azure/application-gateway/quick-create-terraform
       - linkListType: how-to-guide
         links:
-          - text: Deploy an Azure Cosmos DB
-            url: deploy-azure-cosmos-db-to-azure-container-instances.md
-          - text: Deploy a PostgreSQL Flexible Server Database
-            url: deploy-postgresql-flexible-server-database.md
-
-  # Card
-  - title: Azure Virtual Desktop
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Configure an Azure Virtual Desktop
-            url: configure-azure-virtual-desktop.md
-          - text: Create Session Host
-            url: create-avd-session-host.md
-          - text: Configure Network Settings
-            url: configure-avd-network-settings.md        
-          - text: Configure RBAC permissions
-            url: configure-avd-rbac.md
-          - text: Create Azure Files Storage
-            url: create-avd-azure-files-storage.md
-          - text: Create Azure Compute Gallery
-            url: create-avd-azure-compute-image-gallery.md
-          - text: Create Log Analytics Workspace
-            url: create-avd-log-analytics-workspace.md
+          - text: Create an Application Gateway ingress controller in AKS
+            url: /azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress

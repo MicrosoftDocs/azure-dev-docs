@@ -36,6 +36,10 @@
     - name: Evaluate your chat app
       href: get-started-app-chat-evaluations.md
       display: Azure OpenAI
+    - name: Scale Azure OpenAI with Azure Container Apps
+      href: get-started-app-chat-scaling-with-azure-container-apps.md
+    - name: Scale Azure OpenAI with Azure API Management
+      href: get-started-app-chat-scaling-with-azure-api-management.md
   - name: Developer Guides
     items: 
     - name: GraphQL developer guide
