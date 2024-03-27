@@ -252,7 +252,7 @@ Then, use the following steps to deploy the sample app to the cluster:
 Now, use the following steps to verify if the app is running as expected.
 
 1. Switch back to the IHS console. Append the context root */websphere-cafe* of the deployed app to the address bar - for example, `http://ihs70685e.eastus.cloudapp.azure.com/websphere-cafe/`, and press <kbd>Enter</kbd>. You should see the welcome page of sample app.
-1. Create a new coffee with name and price (for example, *Coffee 1* with price *10*), which is persisted into both application data table and session table of the database. The UI that you see should be similar to the following screenshot:
+1. Create a new coffee with name and price (for example, *Coffee 1* with price *$10*), which is persisted into both application data table and session table of the database. The UI that you see should be similar to the following screenshot:
 
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui.png":::
 
@@ -281,20 +281,24 @@ In this section, you set up disaster recovery for Azure VMs in the primary clust
          > [!NOTE]
          > If the desired resource group is not listed, you can select **West US** for Region first and then switch back to **East US**.
 
-      1. Leave the defaults for other fields.
+      1. Leave the defaults for other fields. Select **Next**.
    1. Select the VMs:
       1. In **Virtual machines**, select all VMs listed - for example, there're 5 VMs deployed in the primary cluster for this tutorial.
-   1. Review replication settings:
+         :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/site-recovery-all-vms.png" alt-text="All five VMs are selected." lightbox="media/migrate-websphere-to-vms-with-ha-dr/site-recovery-all-vms.png":::
+         Select all five VMs and select **Next**.
+   1. Fill in **Replication settings**:
       1. For **Target location**, select **West US**.
       1. For **Target resource group**, select the resource group where the service recovery vault is deployed - for example, *was-cluster-westus-mjg022624*.
       1. Note down the new failover virtual network and failover subnet, which are mapped from ones in the primary region. 
       1. Leave the defaults for other fields.
-   1. Manage:
+      1. Select **Next**.
+   1. Fill in **Manage**:
       1. For **Replication policy**, use the default policy *24-hour-retention-policy*. You can also create a new policy for your business.
       1. Leave the defaults for other fields as well.
-   1. Review:
-      1. After selecting **Enable replication**, notice the message **Creating Azure resources. Don't close this blade.** displayed at the bottom of the page. Do nothing and wait until the blade is closed automatically, you're redirected to **Site Recovery** page.
-      1. Under **Protected items**, select **Replicated items**. Initially there are no items listed because the replication is still in progress. The replication takes time to complete, it's about 1 hour for this tutorial. Refresh the page periodically until you see all VMs are **Protected**, for example:
+      1. Select **Next**.
+   1. In **Review**:
+      1. After selecting **Enable replication**, notice the message **Creating Azure resources. Don't close this blade.** displayed at the bottom of the page. Do nothing and wait until the blade is closed automatically. You're redirected to **Site Recovery** page.
+      1. Under **Protected items**, select **Replicated items**. Initially there are no items listed because the replication is still in progress. The replication takes about one hour to complete. Refresh the page periodically until you see all VMs are **Protected**, for example:
 
          :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/replicated-items-protected.png" alt-text="Screenshot of VMs that are replicated and protected." lightbox="media/migrate-websphere-to-vms-with-ha-dr/replicated-items-protected.png":::
 
