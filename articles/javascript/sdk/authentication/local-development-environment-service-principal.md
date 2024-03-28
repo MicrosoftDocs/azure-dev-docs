@@ -8,22 +8,22 @@ ms.custom: dexx-track-js, devx-track-azurecli, devx-track-js
 
 # Authenticate JavaScript apps to Azure services during local development using service principals
 
-When creating cloud applications, developers need to debug and test applications on their local workstation. When an application is run on a developer's workstation during local development, it still must authenticate to any Azure services used by the app.  This article covers how to set up dedicated application service principal objects to be used during local development.
+When you create cloud applications, developers need to debug and test applications on their local workstation. When an application is run on a developer's workstation during local development, it still must authenticate to any Azure services used by the app. This article covers how to set up dedicated application service principal objects to be used during local development.
 
-:::image type="content" source="../../../includes/media/sdk-auth-passwordless/local-dev-service-principal-overview.png" alt-text="A diagram showing how a JavaScript app during local development will use the developer's credentials to connect to Azure by obtaining those credentials locally installed development tools.":::
+:::image type="content" source="../../../includes/media/sdk-auth-passwordless/javascript/local-dev-service-principal-overview.png" alt-text="A diagram showing how a JavaScript app during local development uses the developer's credentials to connect to Azure by obtaining those credentials locally installed development tools.":::
 
-Dedicated application service principals for local development allow you to follow the principle of least privilege during app development. Since permissions are scoped to exactly what is needed for the app during development, app code is prevented from accidentally accessing an Azure resource intended for use by a different app. This also prevents bugs from occurring when the app is moved to production because the app was overprivileged in the dev environment.
+Dedicated application service principals for local development allow you to follow the principle of least privilege during app development. Since permissions are scoped to exactly what is needed for the app during development, app code is prevented from accidentally accessing an Azure resource intended for use by a different app. This method also prevents bugs from occurring when the app is moved to production because the app was overprivileged in the dev environment.
 
-An application service principal is set up for the app when the app is registered in Azure.  When registering apps for local development, it's recommended to:
+An application service principal is set up for the app when the app is registered in Azure. When registering apps for local development, it's recommended to:
 
-- Create separate app registrations for each developer working on the app. This will create separate application service principals for each developer to use during local development and avoid the need for developers to share credentials for a single application service principal.
+- Create separate app registrations for each developer working on the app. This method creates separate application service principals for each developer to use during local development and avoid the need for developers to share credentials for a single application service principal.
 - Create separate app registrations per app. This scopes the app's permissions to only what is needed by the app.
 
-During local development, environment variables are set with the application service principal's identity.  The Azure SDK for JavaScript reads these environment variables and uses this information to authenticate the app to the Azure resources it needs.
+During local development, environment variables are set with the application service principal's identity. The Azure SDK for JavaScript reads these environment variables and uses this information to authenticate the app to the Azure resources it needs.
 
 ## 1 - Register the application in Azure
 
-Application service principal objects are created with an app registration in Azure.  This can be done using either the Azure portal or Azure CLI.
+Application service principal objects are created with an app registration in Azure. You can create service principals using either the Azure portal or Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -43,13 +43,13 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps.
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-First, use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a new service principal for the app.  This will also create the app registration for the app at the same time.
+First, use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a new service principal for the app. This creates the app registration for the app at the same time.
 
 ```azurecli
 az ad sp create-for-rbac --name {service-principal-name}
 ```
 
-The output of this command will look like the following.  It's recommended to copy this output into a temporary file in a text editor as you'll need these values in a future step as this is the only place you ever see the client secret (password) for the service principal.  You can, however, add a new password later without invalidating the service principal or existing passwords if need be.
+The output of this command looks like the following JSON object.  It's recommended to copy this output into a temporary file in a text editor as you'll need these values in a future step as this is the only place you ever see the client secret (password) for the service principal.  You can, however, add a new password later without invalidating the service principal or existing passwords if need be.
 
 ```json
 {
@@ -115,7 +115,7 @@ az ad group member add \
 
 ## 3 - Assign roles to the application
 
-Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app.  In this example, the roles will be assigned to the Microsoft Entra group created in step 2.  Roles can be assigned a role at a resource, resource group, or subscription scope.  This example will show how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
+Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app.  In this example, the roles are assigned to the Microsoft Entra group created in step 2.  Roles can be assigned a role at a resource, resource group, or subscription scope.  This example shows how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -163,7 +163,7 @@ For information on assigning permissions at the resource or subscription level u
 
 ## 4 - Set local development environment variables
 
-The `DefaultAzureCredential` object will look for the service principal information in a set of environment variables at runtime.  Since most developers work on multiple applications, it's recommended to use a package like [dotenv](https://www.npmjs.com/package/dotenv) to access environment from a `.env` file stored in the application's directory during development.  This scopes the environment variables used to authenticate the application to Azure such that they can only be used by this application.
+The `DefaultAzureCredential` object looks for the service principal information in a set of environment variables at runtime.  Since most developers work on multiple applications, it's recommended to use a package like [dotenv](https://www.npmjs.com/package/dotenv) to access environment from a `.env` file stored in the application's directory during development.  This scopes the environment variables used to authenticate the application to Azure such that they can only be used by this application.
 
 The `.env` file is never checked into source control since it contains the application secret key for Azure.  The standard [.gitignore](https://github.com/github/gitignore/blob/main/Node.gitignore#L76) file for JavaScript automatically excludes the `.env` file from check-in.
 
@@ -193,7 +193,7 @@ import 'dotenv/config'
 
 ## 5 - Implement DefaultAzureCredential in your application
 
-To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the `@azure/identity` package.  In this scenario, `DefaultAzureCredential` will detect the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`,  and `AZURE_CLIENT_SECRET` are set and read those variables to get the application service principal information to connect to Azure with.
+To authenticate Azure SDK client objects to Azure, your application should use the `DefaultAzureCredential` class from the `@azure/identity` package.  In this scenario, `DefaultAzureCredential` detects the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`,  and `AZURE_CLIENT_SECRET` are set and read those variables to get the application service principal information to connect to Azure with.
 
 Start by adding the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to your application.
 

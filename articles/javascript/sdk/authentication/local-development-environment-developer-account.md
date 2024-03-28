@@ -8,13 +8,13 @@ ms.custom: dexx-track-js, devx-track-azurecli, devx-track-azurepowershell, devx-
 
 # Authenticate JavaScript apps to Azure services during local development using developer accounts
 
-When creating cloud applications, developers need to debug and test applications on their local workstation. When an application is run on a developer's workstation during local development, it still must authenticate to any Azure services used by the app. This article covers how to use a developer's Azure credentials to authenticate the app to Azure during local development.
+When you create cloud applications, developers need to debug and test applications on their local workstation. When an application is run on a developer's workstation during local development, it still must authenticate to any Azure services used by the app. This article covers how to use a developer's Azure credentials to authenticate the app to Azure during local development.
 
-:::image type="content" source="../../../includes/media/sdk-auth-passwordless/local-dev-dev-accounts-overview.png" alt-text="A diagram showing a local dev app running obtaining a service principal from an .env file and use that identity to connect to Azure resources.":::
+:::image type="content" source="../../../includes/media/sdk-auth-passwordless/javascript/local-dev-dev-accounts-overview.png" alt-text="A diagram showing a local dev app running obtaining a service principal from an .env file and use that identity to connect to Azure resources.":::
 
-For an app to authenticate to Azure during local development using the developer's Azure credentials, the developer must be signed-in to Azure from the VS Code Azure Tools extension, the Azure CLI, or Azure PowerShell.  The Azure SDK for JavaScript is able to detect that the developer is signed-in from one of these tools and then obtain the necessary credentials from the credentials cache to authenticate the app to Azure as the signed-in user.
+For an app to authenticate to Azure during local development using the developer's Azure credentials, the developer must be signed-in to Azure from the Visual Studio Code Azure Tools extension, the Azure CLI, or Azure PowerShell.  The Azure SDK for JavaScript is able to detect that the developer is signed-in from one of these tools and then obtain the necessary credentials from the credentials cache to authenticate the app to Azure as the signed-in user.
 
-This approach is easiest to set up for a development team since it takes advantage of the developers' existing Azure accounts. However, a developer's account will likely have more permissions than required by the application, therefore exceeding the permissions the app will run with in production. As an alternative, you can create application service principals to use during local development, which can be scoped to have only the access needed by the app.
+This approach is easiest to set up for a development team since it takes advantage of the developers' existing Azure accounts. However, a developer's account will likely have more permissions than required by the application, therefore exceeding the permissions the app runs with in production. As an alternative, you can create application service principals to use during local development, which can be scoped to have only the access needed by the app.
 
 <a name='1---create-azure-ad-group-for-local-development'></a>
 
@@ -50,7 +50,7 @@ az ad group create \
     --description <group-description>
 ```
 
-To add members to the group, you'll need the object ID of Azure user.  Use the [az ad user list](/cli/azure/ad/sp#az-ad-user-list) to list the available service principals.  The `--filter` parameter command accepts OData style filters and can be used to filter the list on the display name of the user as shown.  The `--query` parameter limits to columns to only those of interest.
+To add members to the group, you'll need the object ID of Azure user.  Use the [az ad user list](/cli/azure/ad/sp#az-ad-user-list) to list the available service principals.  The `--filter` parameter command accepts OData style filters and can be used to filter the list on the display name of the user as shown.  The `--query` parameter returns specified columns.
 
 ```azurecli
 az ad user list \
@@ -73,7 +73,7 @@ az ad group member add \
 
 ## 2 - Assign roles to the Microsoft Entra group
 
-Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app.  In this example, the roles will be assigned to the Microsoft Entra group created in step 1.  Roles can be assigned a role at a resource, resource group, or subscription scope.  This example will show how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
+Next, you need to determine what roles (permissions) your app needs on what resources and assign those roles to your app.  In this example, the roles are assigned to the Microsoft Entra group created in step 1.  Roles can be assigned a role at a resource, resource group, or subscription scope.  This example shows how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
 
 ### [Azure portal](#tab/azure-portal)
 

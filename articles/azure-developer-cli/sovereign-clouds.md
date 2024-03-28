@@ -6,6 +6,7 @@ ms.author: alexwolf
 ms.date: 01/18/2024
 ms.topic: how-to
 ms.service: azure-dev-cli
+ms.custom: devx-track-terraform
 ---
 
 # Use Azure Developer CLI in sovereign clouds
