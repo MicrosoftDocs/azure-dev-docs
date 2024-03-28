@@ -283,7 +283,7 @@ In this section, you set up disaster recovery for Azure VMs in the primary clust
 
       1. Leave the defaults for other fields. Select **Next**.
    1. Select the VMs:
-      1. In **Virtual machines**, select all VMs listed - for example, there're 5 VMs deployed in the primary cluster for this tutorial.
+      1. In **Virtual machines**, select all VMs listed.
          :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/site-recovery-all-vms.png" alt-text="All five VMs are selected." lightbox="media/migrate-websphere-to-vms-with-ha-dr/site-recovery-all-vms.png":::
          Select all five VMs and select **Next**.
    1. Fill in **Replication settings**:
@@ -306,7 +306,7 @@ Next, create a recovery plan to include all replicated items so that they can fa
 
 1. In step 2, enter a name for the plan - for example, *recovery-plan-mjg022624*.
 1. In step 3, select **East US** for **Source** and **West US** for **Target**.
-1. In step 4 for **Select items**, select all protected items - for example, there're 5 protected VMs for this tutorial.
+1. In step 4 for **Select items**, select all protected items. Select all five protected VMs for this tutorial.
 
 Now you create a recovery plan. Keep the page open and you use it for failover test later.
 
@@ -326,7 +326,7 @@ Additionally, you need further network configuration to enable and protect exter
    1. For **Name**, enter a value - for example, *ihs-public-ip-westus-mjg022624*. Write it down.
    1. For **DNS name label**, enter a unique value - for example, *ihsmjg022624*.
 
-1. Create a network security group in the secondary region by following instructions in [Create a network security group](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#create-a-network-security-group), with the customization for some fields:
+1. Create a network security group in the secondary region by following instructions in [Create a network security group](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#create-a-network-security-group), with customization for some fields:
    1. For **Resource group**, select the resource group where the service recovery vault is deployed - for example, *was-cluster-westus-mjg022624*.
    1. For **Name**, enter a value - for example, *nsg-westus-mjg022624*.
    1. For **Region**, select **West US**.
@@ -347,7 +347,7 @@ Additionally, you need further network configuration to enable and protect exter
 
 In this section, you create an Azure Traffic Manager for distributing traffic to your public facing applications across the global Azure regions. The primary endpoint points to the public IP address of the IHS in the primary region, and the secondary endpoint points to the public IP address of the IHS in the secondary region.
 
-Create an Azure Traffic Manager profile by following [Quickstart: Create a Traffic Manager profile using the Azure portal](/azure/traffic-manager/quickstart-create-traffic-manager-profile). You just need the following sections: **Create a Traffic Manager profile** and **Add Traffic Manager endpoints**. Use the following steps as you go through these sections, then return to this article after you create and configure the Azure Traffic Manager.
+Create an Azure Traffic Manager profile by following [Quickstart: Create a Traffic Manager profile using the Azure portal](/azure/traffic-manager/quickstart-create-traffic-manager-profile). You just need the following sections: **Create a Traffic Manager profile** and **Add Traffic Manager endpoints**. You must skip the sections where you are directed to create App Service resources. Use the following steps as you go through these sections, then return to this article after you create and configure the Azure Traffic Manager.
 
 1. When you reach the section [Create a Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile#create-a-traffic-manager-profile), use the following steps:
    1. In step 2 **Create Traffic Manager profile**, use the following steps:
