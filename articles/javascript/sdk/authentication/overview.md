@@ -12,11 +12,13 @@ ms.custom: devx-track-js
 
 ## Recommended app authentication approach
 
-[!INCLUDE [Recommended app authentication approach](<../../../includes/authentication/overview-recommend-authentication.md>)]
+[!INCLUDE [Recommended app authentication approach](<../../../includes/authentication/overview-recommend-authentication-javascript.md>)]
 
 :::image type="content" source="../../media/azure-sdk-authentication/javascript-sdk-auth-strategy.png" alt-text="A diagram showing the recommended token-based authentication strategies for an app depending on where it's running." :::
 
 ### Advantages of token-based authentication
+
+[!INCLUDE [Advantages of token-based authentication](<../../../includes/authentication/defaultazurecredential-overview-javascript.md>)]
 
 [!INCLUDE [Advantages of token-based authentication](<../../../includes/authentication/overview-advantages.md>)]
 
@@ -27,7 +29,7 @@ Use the following SDK:
 
 ### DefaultAzureCredential
 
-[!INCLUDE [DefaultAzureCredential](<../../../includes/authentication/overview-defaultazurecredential.md>)]
+[!INCLUDE [DefaultAzureCredential](<../../../includes/authentication/overview-defaultazurecredential-javascript.md>)]
 
 ## Authentication in server environments
 
@@ -70,7 +72,7 @@ const blobServiceClient = new BlobServiceClient(
 
 The order in which `DefaultAzureCredential` looks for credentials for JavaScript is shown in the diagram and table below.  
 
-:::image type="content" source="../../media/azure-sdk-authentication/DefaultAzureCredentialAuthFlow.svg" alt-text="A diagram showing the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="../../media/azure-sdk-authentication/DefaultAzureCredentialAuthFlow.svg":::
+:::image type="content" source="../../../includes/media/sdk-auth-passwordless/javascript/default-azure-credential-auth-flow.svg" alt-text="A diagram showing the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="../../../includes/media/sdk-auth-passwordless/javascript/default-azure-credential-auth-flow.svg":::
 
 There are two paths:
 * **Deployed service** (Azure or on-premises): the sequence begins with the environment variables, then the managed identity, then the rest of the locations for a credential (Visual Studio Code, Azure CLI, Azure PowerShell). 

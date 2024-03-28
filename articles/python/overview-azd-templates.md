@@ -3,7 +3,7 @@ title: Overview of the Python Web azd Templates
 description: Conceptual overview of the Python web azd templates providing contextual background on how to get the most out of the Python web azd template experience.
 ms.date: 9/18/2023
 ms.topic: conceptual
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-extended-azdevcli
 ---
 
 # Overview of the Python Web azd Templates

@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure authentication
 
-**This article applies to:** ✔️ Version 4.15.0 ✔️ Version 5.9.1
+**This article applies to:** ✔️ Version 4.16.0 ✔️ Version 5.10.0
 
 This article describes all the Spring Cloud Azure authentication methods.
 

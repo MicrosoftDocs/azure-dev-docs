@@ -1,12 +1,12 @@
 --- 
-title: Connect GitHub and Azure
+title: Authenticate to Azure from GitHub Action workflows
 description: Resources to connect to GitHub from Azure and other services  
 author: MoChilia 
 ms.author: shiyingchen 
 ms.topic: reference
 ms.service: azure 
 ms.date: 10/25/2022
-ms.custom: github-actions-azure, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: github-actions-azure, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ---
 
 # Use GitHub Actions to connect to Azure
@@ -64,7 +64,7 @@ You'll need to create a Microsoft Entra application and service principal and th
      az ad sp create --id $appId
     ```
 
-1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with generated `assignee-object-id` (the newly created service principal object id).
+1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with generated `assignee-object-id` (the newly created service principal object ID).
 
     ```azurecli-interactive
     az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName
@@ -283,7 +283,7 @@ In this example, you will create a secret named `AZURE_CREDENTIALS` that you can
     ```json
     {
         "clientId": "<GUID>",
-        "clientSecret": "<GUID>",
+        "clientSecret": "<secret>",
         "subscriptionId": "<GUID>",
         "tenantId": "<GUID>",
         (...)
@@ -311,6 +311,9 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Log in with Azure
         uses: azure/login@v1
         with:
@@ -322,19 +325,23 @@ jobs:
 In this example, you log in with the [Azure Login action](https://github.com/Azure/login) and then retrieve a resource group with the [Azure PowerShell action](https://github.com/azure/powershell).
 
 ```yaml
-on: [push]
-
 name: AzureLoginSample
+
+on: [push]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Log in with Azure
         uses: azure/login@v1
         with:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
           enable-AzPSSession: true
+
       - name: Azure PowerShell Action
         uses: Azure/powershell@v1
         with:
@@ -348,23 +355,25 @@ In this example, you log in with the [Azure Login action](https://github.com/Azu
 
 
 ```yaml
-on: [push]
-
 name: AzureLoginSample
 
-jobs:
-build-and-deploy:
-  runs-on: ubuntu-latest
-  steps:
+on: [push]
 
-    - name: Log in with Azure
-      uses: azure/login@v1
-      with:
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Log in with Azure
+        uses: azure/login@v1
+        with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Azure CLI script
-      uses: azure/CLI@v1
-      with:
+      - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
           azcliversion: 2.0.72
           inlineScript: |
             az account show

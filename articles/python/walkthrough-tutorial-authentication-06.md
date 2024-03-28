@@ -1,7 +1,7 @@
 ---
 title: "Walkthrough, Part 6: Authenticate Python apps with Azure services"
 description: An examination of the main app's startup code, which sets up the DefaultAzureCredential object and client objects needed by the API endpoint.
-ms.date: 06/01/2022
+ms.date: 02/20/2024
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -12,16 +12,16 @@ ms.custom: devx-track-python
 
 The app's startup code, which follows the `import` statements, initializes different variables used in the functions that handle HTTP requests.
 
-First, we create the Flask app object and retrieve the third-party API endpoint URL from the environment variable:
+First, it creates the Flask app object and retrieves the third-party API endpoint URL from the environment variable:
 
 :::code language="python" source="~/../python-integrated-authentication/main_app/app.py" range="8-11":::
 
-Next, we obtain the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential
+Next, it obtains the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential
 ) object, which is the recommended credential to use when authenticating with Azure services. See [Authenticate Azure hosted applications with DefaultAzureCredential](./sdk/authentication-azure-hosted-apps.md).
 
 :::code language="python" source="~/../python-integrated-authentication/main_app/app.py" range="14":::
 
-When run locally, `DefaultAzureCredential` looks for the `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` environment variables that contain information for your local service principal. When run in the cloud, `DefaultAzureCredential` automatically uses the service principal registered for the app, which is typically contained within the managed identity.
+When run locally, `DefaultAzureCredential` looks for the `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` environment variables that contain information for the service principal that you're using for local development. When run in Azure, `DefaultAzureCredential` defaults to using the system-assigned managed identity enabled on the app. It's possible to override the default behavior with application settings, but in this example scenario, we use the default behavior.
 
 The code next retrieves the third-party API's access key from Azure Key Vault. In the provisioning script, the Key Vault is created using [`az keyvault create`](/cli/azure/keyvault#az-keyvault-create), and the secret is stored with [`az keyvault secret set`](/cli/azure/keyvault/secret#az-keyvault-secret-set).
 
@@ -37,9 +37,9 @@ Creating the `SecretClient` object doesn't authenticate the credential in any wa
 
 :::code language="python" source="~/../python-integrated-authentication/main_app/app.py" range="23-28":::
 
-Even if the app identity is authorized to access the key vault, it must still be authorized to access secrets.  Otherwise, the `get_secret` call fails. For this reason, the provisioning script sets a "get secrets" access policy for the app using the Azure CLI command, [`az keyvault set-policy`](/cli/azure/keyvault#az-keyvault-set-policy). For more information, see [Key Vault Authentication](/azure/key-vault/general/authentication) and [Grant your app access to Key Vault](/azure/key-vault/general/managed-identity#grant-your-app-access-to-key-vault). The latter article shows how to set an access policy using the Azure portal. (The article is also written for managed identity, but applies equally to a local service principle used in development.)
+Even if the app identity is authorized to access the key vault, it must still be authorized to access secrets.  Otherwise, the `get_secret` call fails. For this reason, the provisioning script sets a "get secrets" access policy for the app using the Azure CLI command, [`az keyvault set-policy`](/cli/azure/keyvault#az-keyvault-set-policy). For more information, see [Key Vault Authentication](/azure/key-vault/general/authentication) and [Grant your app access to Key Vault](/azure/key-vault/general/managed-identity#grant-your-app-access-to-key-vault). The latter article shows how to set an access policy using the Azure portal. (The article is also written for managed identity, but applies equally to a service principle used in local development.)
 
-Finally, the app code sets up the client object through which we can write messages to an Azure Storage Queue. The Queue's URL is in the environment variable `STORAGE_QUEUE_URL`.
+Finally, the app code sets up the client object through which it can write messages to an Azure Storage Queue. The Queue's URL is in the environment variable `STORAGE_QUEUE_URL`.
 
 :::code language="python" source="~/../python-integrated-authentication/main_app/app.py" range="31-32":::
 
