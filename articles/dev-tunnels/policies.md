@@ -11,7 +11,7 @@ ms.date: 03/27/2024
 
 # Configure and deploy Group Policy Administrative Templates for Dev Tunnels
 
-IT Administrators in organizations may want to control certain aspects of Dev Tunnels to achieve consistency or compliance across their organization. An easy way to accomplish this level of control is to configure and then deploy group policy settings to the client machines. The [Dev Tunnels in Visual Studio](https://aka.ms/devtunnels/vs), [port forwarding built into Visual Studio Code](https://code.visualstudio.com/docs/editor/port-forwarding), [the Visual Studio Code Remote - Tunnels extension](https://code.visualstudio.com/docs/remote/tunnels), and `devtunnel` CLI policies are consolidated in the [Administrator Template files (ADMX/ADML) for Dev Tunnels](https://aka.ms/devtunnels/policies).
+IT Administrators in organizations may want to control certain aspects of Dev Tunnels to achieve consistency or compliance across their organization. An easy way to accomplish this level of control is to configure and then deploy group policy settings to the client machines. The [Dev Tunnels in Visual Studio](https://aka.ms/devtunnels/vs), [port forwarding built into Visual Studio Code](https://code.visualstudio.com/docs/editor/port-forwarding), [the Visual Studio Code Remote - Tunnels extension](https://code.visualstudio.com/docs/remote/tunnels), and `devtunnel` CLI policies are consolidated in the [Administrator Template files (ADMX/ADML) for Dev Tunnels](https://aka.ms/devtunnels/policies/download).
 
 In this quickstart, you'll learn how to configure and deploy Dev Tunnels group policy settings across your organization.
 
@@ -36,7 +36,7 @@ In this quickstart, you'll learn how to configure and deploy Dev Tunnels group p
 
 ### Download the Administrator Template files
 
-1. Head over to the Microsoft Download Center and download the [Administrator Template files (ADMX/ADML) for Dev Tunnels](https://aka.ms/devtunnels/policies).
+1. Head over to the Microsoft Download Center and download the [Administrator Template files (ADMX/ADML) for Dev Tunnels](https://aka.ms/devtunnels/policies/download).
 1. Navigate to the `C:\Windows\PolicyDefinitions` folder and add the `TunnelsPolicies.admx` file.
 1. Navigate to the `C:\Windows\PolicyDefinitions\en-US` folder and add the `TunnelsPolicies.adml` file.
 
