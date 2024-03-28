@@ -29,6 +29,8 @@ The following diagram illustrates the architecture you build:
 
 Azure Traffic Manager checks the health of your regions and routes the traffic accordingly to the application tier. The primary region has a full deployment of the WebSphere cluster. After the primary region is protected, the secondary region is restored during the failover using Azure Site Recovery. As a result, the primary region is actively servicing network requests from the users. The secondary region is passive and activated to receive traffic only when the primary region experiences a service disruption. Azure Traffic Manager detects the health of the app deployed in the IBM HTTP Server to implement the conditional routing. The geo-failover RTO of the application tier depends on the time for shutting down the primary cluster, restoring the secondary cluster, and starting VMs and running the secondary WebSphere cluster. The RPO depends on the replication policy of Azure Site Recovery and Azure SQL Database because the cluster data is stored and replicated in the local storage of the VMs and application data is persisted and replicated in the Azure SQL Database failover group.
 
+The preceding diagram shows **Primary region** and **Secondary region** as the two regions comprising the HA/DR architecture. These regions need to be Azure paired regions. For more information on paired regions, see [/azure/reliability/cross-region-replication-azure](Azure cross-region replication). The article uses **East US** and **West **US** as the two regions, but they can be any paired regions that make sense for your scenario. For the list of region pairings, see [Azure paired regions](/azure/reliability/cross-region-replication-azure#azure-paired-regions).
+
 The database tier consists of an Azure SQL Database failover group with a primary server and a secondary server. The read/write listener endpoint always points to the primary server and is connected to the WebSphere cluster in each region. A geo-failover switches all secondary databases in the group to the primary role. For geo-failover RPO and RTO of Azure SQL Database, see [Overview of Business Continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql-db&preserve-view=true).
 
 This tutorial was written with Azure Site Recovery and Azure SQL Database service because the tutorial relies on the HA features of these services. Other database choices are possible, but the HA features of whatever database you chose must be considered.
@@ -404,7 +406,7 @@ Next, use the following steps to failover the WebSphere cluster with the recover
 1. Select **Failover**. Check **I understand the risk. Skip test failover.**. Leave the defaults for others, select **OK**.
 
    > [!NOTE]
-   > Optinally you can execute **Test failover** and **Cleanup test failover** to make sure everything works as expected before **Failover**. Reference [Tutorial: Run a disaster recovery drill for Azure VMs](/azure/site-recovery/azure-to-azure-tutorial-dr-drill) for more information. This tutorial chose **Faiolver** directly to simplify the exercise.
+   > Optinally you can execute **Test failover** and **Cleanup test failover** to make sure everything works as expected before **Failover**. Reference [Tutorial: Run a disaster recovery drill for Azure VMs](/azure/site-recovery/azure-to-azure-tutorial-dr-drill) for more information. This tutorial chose **Failover** directly to simplify the exercise.
 
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-settings.png" alt-text="Screenshot of failover settings." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-settings.png":::
 
@@ -413,7 +415,7 @@ Next, use the following steps to failover the WebSphere cluster with the recover
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-in-progress.png" alt-text="Screenshot of failover in progress." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-in-progress.png":::
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-completed.png" alt-text="Screenshot of failover completed." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-completed.png":::
 
-1. Optinally, you can view details of failover job by selecting the failover event (for example, *Failover of 'recovery-plan-mjg022624' is in progress...*) from notifications:
+1. Optionally, you can view details of failover job by selecting the failover event (for example, *Failover of 'recovery-plan-mjg022624' is in progress...*) from notifications:
    
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-job-details.png" alt-text="Screenshot of failover job details." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-job-details.png":::
 
