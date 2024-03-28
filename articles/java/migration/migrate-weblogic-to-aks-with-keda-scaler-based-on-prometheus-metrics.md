@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 The following diagram illustrates the architecture you build:
 
-<!-- Diagram source -->
+<!-- https://github.com/oracle/weblogic-azure/blob/main/weblogic-azure-aks/src/main/resources/diagrams/wls-aks-diagram-autoscaling.vsdx -->
 :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-aks-autoscaling-architecture.png" alt-text="Diagram of the solution architecture of WLS on AKS with KEDA scaler based on Prometheus Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-aks-autoscaling-architecture.png" border="false":::
 
 The [Oracle WebLogic Server on AKS](https://aka.ms/wlsaks) offer runs a WLS operator and a WLS domain on AKS. The WLS operator manages a WLS domain which is deployed using [model in image](https://oracle.github.io/weblogic-kubernetes-operator/samples/domains/model-in-image/) domain source type. To learn more about WLS operator, see [Oracle WebLogic Kubernetes Operator](https://oracle.github.io/weblogic-kubernetes-operator/).
@@ -40,7 +40,7 @@ This article integrates KEDA with your AKS cluster to scale WLS cluster based on
 
 The following WLS state and metrics are exported by default. You can configure the exporter to export other metrics on your demain. For a detailed description of WebLogic Monitoring Exporter configuration and usage, see [WebLogic Monitoring Exporter](https://blogs.oracle.com/weblogicserver/exporting-metrics-from-weblogic-server).
 
-<!-- Diagram source -->
+<!-- https://github.com/oracle/weblogic-azure/blob/main/weblogic-azure-aks/src/main/resources/diagrams/wls-aks-diagram-autoscaling.vsdx -->
 :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-metrics.png" alt-text="WebLogic Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-metrics.png" border="false":::
 
 ## Prerequisites
