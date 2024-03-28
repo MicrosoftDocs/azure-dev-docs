@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: edburns
 ms.service: azure-kubernetes-service
 ms.topic: conceptual
-ms.date: 12/22/2022
+ms.date: 10/30/2023
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 ---

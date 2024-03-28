@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: haiche
-ms.date: 11/30/2022
+ms.date: 01/24/2024
 ms.custom: devx-track-azurecli
 ---
 
