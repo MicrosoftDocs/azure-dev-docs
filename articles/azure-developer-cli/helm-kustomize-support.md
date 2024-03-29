@@ -100,7 +100,7 @@ The following Kustomize use cases are supported by `azd`.
 
 ### Deploy k8s manifests
 
-The following configuration will perform a `kubectl apply -k <dir>` command that points to your manifests folder that contains a `kustomization.yaml`:
+The following configuration performs a `kubectl apply -k <dir>` command that points to your manifests folder that contains a `kustomization.yaml`:
 
 ```yml
 # azure.yaml
@@ -138,11 +138,11 @@ services:
         dir: ./kustomize/overlays/${AZURE_ENV_NAME}
 ```
 
-### Modify kustomization.yaml before deployment
+### Modify `kustomization.yaml` before deployment
 
 A common use case for modifying the `kustomization.yaml` is to modify the container [image names/versions](https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/images/) used as part of your deployment.
 
-In the following example, specify an edits configuration and set any valid `kustomize edit ...` command. Environment variables referenced within the edit command are automatically interpolated from your azd environment variables.
+The following example specifies an `edits` configuration and sets any valid `kustomize edit ...` command. `azd` automatically interpolates any environment variables referenced within the `edit` command.
 
 ```yml
 # azure.yaml
@@ -192,7 +192,7 @@ services:
           APPLICATIONINSIGHTS_CONNECTION_STRING: ${APPLICATIONINSIGHTS_CONNECTION_STRING}
 ```
 
-The `configMapGenerator` generates a k8s config map with the specified name and contain all the key/value pairs referenced within the `.env` file.
+The `configMapGenerator` generates a k8s config map with the specified name and contains all the key/value pairs referenced within the `.env` file.
 
 ```yml
 # kustomization.yaml

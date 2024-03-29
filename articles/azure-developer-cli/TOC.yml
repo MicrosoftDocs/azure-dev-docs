@@ -21,6 +21,8 @@
       href: configure-devops-pipeline.md
     - name: Resource Group Scoped Deployments
       href: resource-group-scoped-deployments.md
+    - name: Use Helm and Kustomize
+      href: helm-kustomize-support.md
   - name: Configuration
     items:
     - name: Manage environment variables
