@@ -461,8 +461,8 @@ Next, start the secondary AKS cluster so it can be restored from the backup of t
 > [!NOTE]
 > If you have WebSphere Liberty/Open Liberty applications running on restore target cluster, to avoid conflicts, use the following steps to clean up WebSphere Liberty/Open Liberty applications:
 > * Connect to the target cluster by running the command in `cmdToConnectToCluster` you wrote down before.
-> * For Open Liberty applications, run `kubectl get OpenLibertyApplication --all-namespaces -o yaml | kubectl delete -f -`
-> * For WebSphere Liberty applications, run `kubectl get WebSphereLibertyApplication --all-namespaces -o yaml | kubectl delete -f -`
+> * For Open Liberty applications, run `kubectl delete OpenLibertyApplication --all --all-namespaces`
+> * For WebSphere Liberty applications, run `kubectl delete WebSphereLibertyApplication --all --all-namespaces`
 
 Then, switch to the browser tab of your Traffic Manager profile, and verify that the **Monitor status** for both endpoints *myPrimaryEndpoint* and *myFailoverEndpoint* is *Degraded*.
 
