@@ -485,6 +485,18 @@
         {
             "source_path": "toolkit-for-intellij/whats-new.md",
             "redirect_url": "/azure/developer/java/toolkit-for-intellij"
+        },
+        {
+            "source_path": "quickstarts/azure-ai-for-java-developers.md",
+            "redirect_url": "/azure/developer/java/azure-ai/azure-ai-for-java-developers"
+        },
+        {
+            "source_path": "quickstarts/get-started-app-chat-template.md",
+            "redirect_url": "/azure/developer/java/azure-ai/get-started-app-chat-template"
+        },
+        {
+            "source_path": "quickstarts/get-started-app-chat-scaling-with-azure-container-apps.md",
+            "redirect_url": "/azure/developer/java/azure-ai/get-started-app-chat-scaling-with-azure-container-apps"
         }
     ]
 }

@@ -34,6 +34,21 @@ conceptualContent:
         text: See more
         url: get-started/index.yml
 
+    - title: Azure AI for Java
+      links:
+        - text: Develop using Azure AI services
+          itemType: overview
+          url: azure-ai/azure-ai-for-java-developers.md
+        - text: Enterprise chat using RAG
+          itemType: get-started
+          url: azure-ai/get-started-app-chat-template.md
+        - text: Scale chat using RAG with Azure Container Apps
+          itemType: get-started
+          url: azure-ai/get-started-app-chat-scaling-with-azure-container-apps.md
+      footerLink:
+        text: See more
+        url: azure-ai/index.yml
+
     - title: Java learning resources
       links:
         - text: Overview
