@@ -349,7 +349,7 @@
 | Unknown Display Name | npm [1.0.0-preview.3](https://www.npmjs.com/package/@azure/app-configuration-provider/v/1.0.0-preview.3) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/openai-assistants/v/1.0.0-beta.5) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.6](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.6) |  |  |
-| Unknown Display Name | npm [2.0.4427](https://www.npmjs.com/package/@microsoft.azure/autorest-core/v/2.0.4427) |  |  |
+| Unknown Display Name | npm [2.0.4429](https://www.npmjs.com/package/@microsoft.azure/autorest-core/v/2.0.4429) |  |  |
 | Unknown Display Name | npm [3.3.49](https://www.npmjs.com/package/@microsoft.azure/autorest.testserver/v/3.3.49) |  |  |
 | Unknown Display Name | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
 | Unknown Display Name | npm [0.1.1](https://www.npmjs.com/package/@typespec/bundler/v/0.1.1) |  |  |
@@ -438,7 +438,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240329.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240329.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240329.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240329.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
