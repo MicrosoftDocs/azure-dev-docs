@@ -210,9 +210,6 @@ yum remove -y azd
 ::: zone-end
 
 ::: zone pivot="env-dev-container"
-## Dev Container
-
-A [Dev Container](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. To get started, make sure you have the pre-requisites before choosing your azd template.
 
 ## Pre-requisites
 
@@ -222,7 +219,25 @@ Before you get started using `azd`, ensure you have:
   - [Docker Desktop](https://aka.ms/azure-dev/docker-install) (other options coming soon.)
   - [Remote - Containers VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-  
+
+## Install `azd` in a Dev Container
+
+A [dev Container](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run an app on your local machine. Install `azd` as a feature in your dev container using the following:
+
+```json
+{
+    "name": "Azure Developer CLI",
+    "image": "mcr.microsoft.com/devcontainers/python:3.10-bullseye",
+    "features": {
+        // See https://containers.dev/features for list of features
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
+        },
+        "ghcr.io/azure/azure-dev/azd:latest": {}
+    }
+    // Rest of file omitted...
+} 
+```
+
 ::: zone-end
 
 ## Updating the Azure Developer CLI
