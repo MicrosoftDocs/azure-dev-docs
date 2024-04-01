@@ -1,6 +1,6 @@
 ---
-title: Deploy an artifact file to Azure Container Apps
-description: Use a prebuilt artifact file to deploy to Azure Container Apps.
+title: Deploy to Azure Container Apps using IntelliJ IDEA
+description: Deploy Java projects to Azure Container Apps using IntelliJ IDEA
 services: container-apps
 author: silencejialuo
 ms.author: jialuogan
@@ -191,4 +191,4 @@ If you want to clean up and remove an Azure Container Apps resource, you can del
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about developing in Java on Container Apps](/azure/container-apps/java-overview.md)
+> [Learn more about developing in Java on Container Apps](/azure/container-apps/java-overview)
