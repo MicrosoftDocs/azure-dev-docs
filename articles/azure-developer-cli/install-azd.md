@@ -220,9 +220,9 @@ Before you get started using `azd`, ensure you have:
   - [Remote - Containers VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Install `azd` in a Dev Container
+## Install `azd` in a dev container
 
-A [dev Container](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run an app on your local machine. Install `azd` as a feature in your dev container via the following steps:
+A [dev container](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run an app on your local machine. Install `azd` as a feature in your dev container via the following steps:
 
 1. Add the `azd` feature to the `devcontainer.json` file in the `.devcontainer` folder at the root of your template.
 
@@ -240,7 +240,7 @@ A [dev Container](https://code.visualstudio.com/docs/remote/containers) is a Doc
 } 
 ```
 
-1. Rebuild and run your dev container. In Visual Studio Code, use the command palette to execute the **Rebuild and Reopen in Dev Container** command.
+1. Rebuild and run your dev container. In Visual Studio Code, use the [command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) to execute the **Rebuild and Reopen in Dev Container** command.
 
 ::: zone-end
 
