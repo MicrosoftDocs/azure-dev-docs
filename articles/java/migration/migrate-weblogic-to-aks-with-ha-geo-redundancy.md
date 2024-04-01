@@ -29,12 +29,14 @@ The following diagram illustrates the architecture you build:
 <!-- Diagram source https://github.com/Azure-Samples/azure-cafe/blob/main/diagrams/weblogic-on-aks-dr-solution-architecture.vsdx-->
 :::image type="content" source="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/weblogic-on-aks-dr-solution-architecture.png" alt-text="Diagram of the solution architecture of WLS on Azure VMs with high availability and disaster recovery." lightbox="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/weblogic-on-aks-dr-solution-architecture.png" border="false":::
 
-Azure Traffic Manager checks the health of your regions and routes the traffic accordingly to the application tier. Both the primary region and the secondary region have a full deployment of the WLS cluster. However, only the primary region is actively servicing network requests from the users. The secondary region is passive and activated to receive traffic only when the primary region experiences a service disruption. Azure Traffic Manager uses the health check feature of the Azure Application Gateway and the WebLogic Kubernetes Operator (WKO) to implement this conditional routing. WKO deeply integrates with AKS health checks, enabling Azure Traffic Manager to have a high level of awareness of the health of your Java workload. The primary WLS cluster is running and the secondary cluster is shut down. The geo-failover RTO of the application tier depends on the time for starting AKS and running the secondary WLS cluster. The RPO depends on the Azure SQL Database and Azure Backup. The application data is persisted and replicated in the Azure SQL Database failover group. In this architecture, Azure backup has only one **Vault-standard** backup for the WLS configuration every day. For more details, see [What is Azure Kubernetes Service (AKS) backup?](/azure/backup/azure-kubernetes-service-backup-overview)
+Azure Traffic Manager checks the health of your regions and routes the traffic accordingly to the application tier. The primary region has a full deployment of the WLS cluster. Only the primary region is actively servicing network requests from the users. The secondary region restores the WLS cluster from backups of primary region in the case of a disaster/declared DR event. The secondary region is activated to receive traffic only when the primary region experiences a service disruption. Azure Traffic Manager uses the health check feature of the Azure Application Gateway and the WebLogic Kubernetes Operator (WKO) to implement this conditional routing. WKO deeply integrates with AKS health checks, enabling Azure Traffic Manager to have a high level of awareness of the health of your Java workload. The primary WLS cluster is running and the secondary cluster is shut down. The geo-failover RTO of the application tier depends on the time for starting AKS and running the secondary WLS cluster, typically less than an hour. The application data is persisted and replicated in the Azure SQL Database failover group, with an RTO of minutes or hours, an RPO of minutes or hours. In this architecture, Azure backup has only one **Vault-standard** backup for the WLS configuration every day. For more details, see [What is Azure Kubernetes Service (AKS) backup?](/azure/backup/azure-kubernetes-service-backup-overview)
 
 [!INCLUDE [ha-dr-for-wls-overview](includes/ha-dr-for-wls-overview.md)]
 
 ## Prerequisites
 
+* Currently, Azure Backup supports Vault Tier backups and restoring across regions, which are available in public preview, see [Enable Vault Tier backups for AKS and restore across regions by using Azure Backup](/azure/backup/tutorial-restore-aks-backups-across-regions).
+* This article uses Azure Backup to protect AKS. For region availability, supported scenarios, and limitations, see [Azure Kubernetes Service backup support matrix](/azure/backup/azure-kubernetes-service-cluster-backup-support-matrix).
 * [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 * Make sure you have either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 * Prepare a local machine with either Windows, Linux or macOS installed.
@@ -125,7 +127,7 @@ Use the following steps to create a storage account and container. Some of these
    - The remaining tabs need no specializations.
 1. Proceed to validate and create the account, then return to this article.
 1. Create a storage container within the account following the steps in [Quickstart: Upload, download, and list blobs with the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal) Follow the steps in section **Create a container**.
-1. In the same article, follow the steps in **Uplaod a block blob** to upload the *azure-cafe/weblogic-cafe/target/weblogic-cafe.war* you built with `mvn clean package`. Then return to this article.
+1. In the same article, follow the steps in **Upload a block blob** to upload the *azure-cafe/weblogic-cafe/target/weblogic-cafe.war* you built with `mvn clean package`. Then return to this article.
 
 ### Deploy WLS on AKS
 
@@ -465,6 +467,11 @@ az aks create -n ${AKS_NAME_WESTUS} \
 ```
 
 Above command automatically creates a **Standard_v2 SKU** application gateway instance with name `${RG_NAME_WESTUS}gw` in AKS node resource group. The node resource group is named **MC_resource-group-name_cluster-name_location** by default.
+
+> [!NOTE]
+> The AKS cluster provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks) runs across three availability zones in region eastus. 
+> While availability zone is not supported in region westus. The AKS cluster in West US is not Zone-redundant. 
+> If your production environment requires zone redundancy, make sure your paired region supports availability zone. For more information, see [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](/azure/aks/availability-zones#overview-of-availability-zones-for-aks-clusters).
 
 Run the following command to get public IP address of the application gateway instance. Write down the IP address which will be used in later section.
 
