@@ -56,7 +56,7 @@ When connecting to a web-forwarding url for the first time, users are presented 
 
 By default, tunnels and tunnel ports are private and only accessible to the user who created the tunnel.
 
-If a tunnel or tunnel port does need to be accessed without authentication, an allow-anonymous Access control entry (ACE) can be added (use `--anonymous`).
+If a tunnel or tunnel port does need to be accessed without authentication, an allow-anonymous Access control entry (ACE) can be added (use `--allow-anonymous`).
 
 Tunnel access can also be extended to your current Microsoft Entra tenant (use `--tenant`) or specific GitHub organizations (use `--organization`); for the latter see [GitHub Organization Access](#github-organization-access) below.
 
