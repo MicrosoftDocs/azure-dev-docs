@@ -30,7 +30,7 @@ In this quickstart, you'll learn how to configure and deploy Dev Tunnels group p
 
 - **Disable anonymous tunnel access**: Disallow anonymous tunnel access. Enabling this policy enforces users to select either private or organization for tunnel access. This means users cannot connect to an existing tunnel with anonymous access control, host an existing tunnel with anonymous access control, or add anonymous access to existing or new tunnels.
 - **Disable Dev Tunnels**: Disallow users from using the Dev Tunnels service. All commands, with few exceptions, should be denied access when this policy is enabled. Exceptions: unset, echo, ping, and user.
-- **Allow only selected Microsoft Entra ID or MSA tenants**: Users must authenticate within the given tenant list to access Dev Tunnels. When enabling this policy, multiple tenant IDs can be added by using a semicolon or comma to separate each. All commands, with few exceptions, should be denied access when this policy is enabled and the user's tenant ID isn't in the list of allowed tenant IDs. Exceptions: unset, echo, ping, and user.
+- **Allow only selected Microsoft Entra tenant IDs**: Users must authenticate within the given tenant list to access Dev Tunnels. When enabling this policy, multiple tenant IDs can be added by using a semicolon or comma to separate each. All commands, with few exceptions, should be denied access when this policy is enabled and the user's tenant ID isn't in the list of allowed tenant IDs. Exceptions: unset, echo, ping, and user. Follow the steps in [this article to find your Microsoft Entra tenant ID](https://learn.microsoft.com/entra/fundamentals/how-to-find-tenant).
 
 ## Configure policies with Local Group Policy Editor
 
