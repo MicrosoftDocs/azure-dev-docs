@@ -114,7 +114,7 @@
         "mobile-apps/**/*.md": "miparker",
         "python/**/*.md": "rotabor",
         "terraform/**/*.md": "tarcher",
-        "intro/**/*.md": "mcleans",
+        "intro/**/*.md": "mcleans"
       },
       "ms.devlang": {
         "java/**/*.md": "java",
