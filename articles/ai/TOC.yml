@@ -1,0 +1,22 @@
+- name: Intelligent Apps
+  href: index.yml
+
+- name: Overview
+  href: overview.md
+- name: Concepts
+  items: 
+  - name: Intro to generative AI for developers
+    href: intro-01.md
+    display: Gen AI Considerations
+
+- name: Quickstarts
+  items:
+
+- name: Tutorials
+  items:
+
+- name: How-to Guides
+  items: 
+
+- name: Samples
+  items:

@@ -1,0 +1,22 @@
+### YamlMime:Landing
+
+title: Intelligent Apps
+summary: |
+  Build applications with generative AI capabilities.
+
+metadata:
+  title: Intelligent Apps
+  description: Get started developing generative AI capabilities into your applications.
+  ms.date: 4/1/2024
+  ms.topic: landing-page
+  ms.collection: collection
+
+landingContent:
+  - title: Intro to Intelligent Apps
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Intro to generative AI
+            url: intro-01.md
+          - text: Develop apps with generative AI
+            url: intro-02.md
