@@ -160,7 +160,7 @@ When creating your PAT, set the following scopes:
    ````
 
 > [!NOTE]
-> By default, `azd pipeline config` in Azure DevOps uses `clientcredentials`. OIDC/federated credentials are not supported for Azure DevOps. 
+> By default, `azd pipeline config` in Azure DevOps uses `client-credentials`. OIDC/federated credentials are not supported for Azure DevOps. 
 > 
 > [Learn more about OIDC support in `azd`.](./faq.yml#what-is-openid-connect--oidc---and-is-it-supported) 
 

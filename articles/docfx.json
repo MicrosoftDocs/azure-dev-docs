@@ -56,7 +56,7 @@
         "jenkins/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "terraform/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "javascript/**/*.md": "https://github.com/Azure/azure-sdk-for-js/issues",
-        "java/**/*.md": "https://github.com/Azure/azure-sdk-for-java/issues",
+        "java/sdk/**/*.md": "https://github.com/Azure/azure-sdk-for-java/issues",
         "python/tutorial-deploy-app-service-on-linux*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
         "python/tutorial-deploy-containers*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
         "python/tutorial-vs-code-serverless-python*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues",
@@ -114,7 +114,7 @@
         "mobile-apps/**/*.md": "miparker",
         "python/**/*.md": "rotabor",
         "terraform/**/*.md": "tarcher",
-        "intro/**/*.md": "mcleans",
+        "intro/**/*.md": "mcleans"
       },
       "ms.devlang": {
         "java/**/*.md": "java",
