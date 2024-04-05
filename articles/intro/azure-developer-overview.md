@@ -2,7 +2,7 @@
 title: Azure for developers overview
 description: An overview of Azure from a developer's perspective.
 keywords: azure billing, azure portal
-ms.service: azure-devops
+ms.service: azure
 ms.subservice: azure-devops-reference
 ms.topic: overview
 ms.date: 08/04/2022
