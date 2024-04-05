@@ -37,7 +37,7 @@ The `azure` logger is used by some libraries instead of a specific logger. For e
 
 You can use the `logger.isEnabledFor` method to check whether any given logging level is enabled:
 
-:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py" range="17-22":::
+:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py" range="22-27":::
 
 Logging levels are the same as the [standard logging library levels](https://docs.python.org/3/library/logging.html#levels). The following table describes the general use of these logging levels in the Azure libraries for Python:
 
@@ -68,7 +68,7 @@ The best way to examine the exact logging for a library is to search for the log
 
 To capture logging output, you must register at least one log stream handler in your code:
 
-:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py" range="1,23-27":::
+:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py" range="1,17-20":::
 
 This example registers a handler that directs log output to stdout. You can use other types of handlers as described on [logging.handlers](https://docs.python.org/3/library/logging.handlers.html) in the Python documentation or use the standard [logging.basicConfig](https://docs.python.org/3/library/logging.html#logging.basicConfig) method.
 
