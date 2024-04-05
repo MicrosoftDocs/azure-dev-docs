@@ -9,6 +9,9 @@ ms.custom: devx-track-ansible, mode-portal, linux-related-content
 
 # Quickstart: Deploy the Ansible solution template for Azure to CentOS
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
 The Ansible solution template for Azure is designed to configure an Ansible instance on a CentOS virtual machine along with Ansible and a suite of tools configured to work with Azure. The tools include:
 
 - **Ansible modules for Azure** - The [Ansible modules for Azure](./module-version-matrix.md) are a suite of modules that enable you to create and manage your infrastructure on Azure. The latest version of these modules is deployed by default. However, during the solution-template deployment process, you can specify a version number that is appropriate for your environment.
