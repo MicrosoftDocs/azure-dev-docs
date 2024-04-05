@@ -52,6 +52,8 @@ landingContent:
             url: ./azure-ai-for-python-developers.md
           - text: Python enterprise RAG chat sample
             url: ./get-started-app-chat-template.md
+          - text: Connect to a vector database
+            url: /azure/cosmos-db/mongodb/vcore/vector-search          
   - title: Containers
     linkLists:
       - linkListType: tutorial
@@ -68,6 +70,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links: 
+          - text: Vector database
+            url: /azure/cosmos-db/mongodb/vcore/vector-search
           - text: SQL databases
             url: quickstarts-data-solutions.md#databases
           - text: Tables, blobs, files, NoSQL
