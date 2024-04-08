@@ -10,8 +10,7 @@ metadata:
   ms.date: 1/24/2024
   ms.topic: landing-page
   ms.collection: collection
-  ms.technology: azure
-  ms.product: azure-python
+  ms.service: azure-python
   ms.devlang: python
   ms.custom: devx-track-python, py-fresh-zinc
 
