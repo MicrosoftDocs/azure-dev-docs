@@ -12,167 +12,131 @@ ms.date: 03/27/2024
 
 # Quickstart: Deploy to Azure Container Apps using IntelliJ IDEA
 
-
-In this tutorial, you'll deploy a containerized application to Azure Container Apps using Azure Toolkit for IntelliJ IDEA. Your job is to create a backend web API service that returns a static collection of music albums. 
-
-The following screenshot shows the output from the album API service you deploy.
-
-:::image type="content" source="media/create-container-apps-intellij/DeploytoACAScreenshot.png" alt-text="Browser the album API service you deploy."::: 
-
+This article shows you how to deploy a containerized application to Azure Container Apps using Azure Toolkit for IntelliJ IDEA. You can create a backend web API service that returns a static collection of music albums.
 
 ## Prerequisites
 
-- An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An [Azure supported Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure), version 8, 11, 17 or 21. 
-- An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition or Community Edition installed
-- [Maven 3.5.0+](https://maven.apache.org/download.cgi)
-- A [Docker](https://www.docker.com/) client
-
-
-## Install and sign-in
-The following steps walk you through the Azure sign-in process in your IntelliJ development environment.
-
-1. If you haven't installed the plugin, see [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053).
-
-1. To sign in to your Azure account, navigate to the left-hand **Azure Explorer** sidebar, and then click the **Azure Sign In** icon. Alternatively, you can navigate to **Tools**, expand **Azure**, and then click **Azure Sign in**.
-
-   :::image type="content" source="media/sign-in-instructions/I01.png" alt-text="Sign in to Azure on IntelliJ.":::
-
-1. In the **Azure Sign In** window, select **OAuth 2.0**, and then click **Sign in**. For other sign-in options, see [Sign-in instructions for the Azure Toolkit for IntelliJ](sign-in-instructions.md).
-
-1. In the browser, sign in with your account and then go back to IntelliJ. In the **Select Subscriptions** dialog box, click on the subscription that you want to use, then click **Select**.
-
+- An Azure account with an active subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
+- An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), Ultimate or Community Edition.
+- [Maven 3.5.0+](https://maven.apache.org/download.cgi).
+- A [Docker](https://www.docker.com/) client.
+- The [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053). For more information, see [Install the Azure Toolkit for IntelliJ](install-tollkit.md). You'll also need to sign in to your Azure account for the Azure Toolkit for IntelliJ. For more information, see [Sign-in instructions for the Azure Toolkit for IntelliJ](sign-in-instructions.md).
 
 ## Clone the project
 
-1. Use the following git command to clone the sample app:
+1. Use the following command to clone the sample app:
 
-```git
-git clone https://github.com/Azure-Samples/containerapps-albumapi-java
-cd containerapps-albumapi-java
-git checkout IDE
-```
-2. Select **Open** to open the project in IntelliJ IDEA.
+   ```git
+   git clone https://github.com/Azure-Samples/containerapps-albumapi-java
+   cd containerapps-albumapi-java
+   git checkout IDE
+   ```
+
+1. Select **Open** to open the project in IntelliJ IDEA.
 
 ## Build and run the project locally
 
-1. Build the project with [Maven](https://maven.apache.org/download.cgi).
-```azurecli
-mvn clean package -DskipTests
-```
+1. Use the following command to build the project with [Maven](https://maven.apache.org/download.cgi):
 
-2. To verify application is running, open a browser and go to `http://localhost:8080/albums`. The page returns a list of the JSON objects.
+   ```azurecli
+   mvn clean package -DskipTests
+   ```
 
-```azurecli
-java -jar target\containerapps-albumapi-java-0.0.1-SNAPSHOT.jar
-```
+1. To verify application is running, open a browser and go to `http://localhost:8080/albums`. The page returns a list of JSON objects, as shown in the following command:
 
+   ```azurecli
+   java -jar target\containerapps-albumapi-java-0.0.1-SNAPSHOT.jar
+   ```
 
 ## Push image to an Azure Container Registry
 
 To deploy your project to Azure Container Apps, you need to build the container image and push it to an Azure Container Registry first.
 
 1. In **Azure Explorer** view, expand the **Azure node**, right-click on **Container Registries**, and select **Create in Azure Portal**.
+
 1. When the **Create container registry** page is displayed, enter the following information:
 
-   * **Subscription**: Specifies the Azure subscription that you want to use for your container registry.
+- **Subscription**: Specifies the Azure subscription that you want to use for your container registry.
+- **Resource Group**: Specifies the resource group for your container registry. Select one of the following options:
+  - **Create New**: Specifies that you want to create a new resource group.
+  - **Use Existing**: Specifies that you must select from a list of resource groups that are associated with your Azure account.
+- **Registry Name**: Specifies a name for the new container registry.
+- **Location**: Specifies the region where your container registry is created (for example, "West US").
+- **SKU**: Specifies the service tier for your container registry. For this tutorial, select **Basic**.
 
-   * **Resource Group**: Specifies the resource group for your container registry. Select one of the following options:
-      * **Create New**: Specifies that you want to create a new resource group.
-      * **Use Existing**: Specifies that you will select from a list of resource groups that are associated with your Azure account.
+1. Select **Review + create** and verify that the information is correct. Now, select **Create**.
 
-   * **Registry Name**: Specifies a name for the new container registry.
+1. On the **Project** tab, navigate to your project and open **Dockerfile**.
 
-   * **Location**: Specifies the region where your container registry will be created (for example, "West US").
+1. Select the Azure icon and select **Push Image to Azure Container Registry**.
 
-   * **SKU**: Specifies the service tier for your container registry. For this tutorial, select *Basic*. 
+1. Select the registry you created in the previous step, fill in the following information, and then select **Run**.
 
-1. Click **Review + create** and verify that the information is correct. Finish by clicking **Create**.
+   - **Repository Name**: Specifies the name for the repository.
+   - **Tag Name**: Specifies the version of an image or other artifact.
 
-1. Navigate to your project on the left-hand **Project** tab and open the *Dockerfile*.
-
-1. Click the Azure icon on line 1 and select "Push Image to Azure Container Registry".
-
-1. Select the registry you have created in the previous step, fill in the following information and click **Run**.
-
-   * **Repository Name**: Specifies the name for the repository. 
-
-   * **Tag Name**: Specifies the version of an image or other artifact.
-
-   :::image type="content" source="media/create-container-apps-intellij/PushtoRegistry.png" alt-text="Push Imgae to Azure Container Registry.":::
-
+   :::image type="content" source="media/create-container-apps-intellij/push-to-registry.png" alt-text="Screenshot of the Azure Container Registry that shows the push image function.":::
 
 ## Create an environment and a container app
 
-To set up your environment and deploy a container app in Azure, follow these steps: 
+Use the following steps to set up your environment and deploy a container app in Azure:
 
-1. Right-click on **Container Apps Environment** in **Azure Explorer** view, and then select **Create Container Apps Environment**.
+1. Right-click **Container Apps Environment** in **Azure Explorer** view, and then select **Create Container Apps Environment**.
 
-1. When the **Create Container Apps Environment** page is displayed, enter the following information and then click **OK**.
+1. On the **Create Container Apps Environment** page, enter the following information, and then select **OK**.
 
-   * **Subscription**: Specifies the Azure subscription that you want to use.
+   - **Subscription**: Specifies the Azure subscription that you want to use.
+   - **Resource Group**: Specifies the resource group for your container apps. Select one of the following options:
+      - **Create New**: Specifies that you want to create a new resource group.
+      - **Use Existing**: Specifies that you must select from a list of resource groups that are associated with your Azure account.
+   - **Name**: Specifies the name for the new container apps environment.
+   - **Region**: Specifies the appropriate region (for example, "Central  US").
+   - **Log Analytics workspace**: Specifies the Log Analytics workspace you want to use or accept the default.
 
-   * **Resource Group**: Specifies the resource group for your container apps. Select one of the following options:
-      * **Create New**: Specifies that you want to create a new resource group.
-      * **Use Existing**: Specifies that you will select from a list of resource groups that are associated with your Azure account.
+   :::image type="content" source="media/create-container-apps-intellij/create-container-apps-environment.png" alt-text="Screenshot of the Create Azure Container Apps Environment that shows the Environment details and Monitoring options.":::
 
-   * **Name**: Specifies the name for the new container apps environment.
+1. Right-click on the container apps environment you created and select **Create** > **Container App** in Azure Explorer. Enter the following information:
 
-   * **Region**: Specifies the appropriate region.(for example, "Central  US").      
-   * **Log Analytics workspace**: Specifies the Log Analytics workspace you want to use or accept the defaults.
+   - **Subscription**: Specifies the Azure subscription that you want to use.
+   - **Resource Group**: Specifies the resource group for your container apps. Select one of the following options:
+      - **Create New**: Specifies that you want to create a new resource group.
+      - **Use Existing**: Specifies that you must select from a list of resource groups that are associated with your Azure account.
+   - **Name**: Specifies the name for a new container app.
+   - **Region**: Specifies the appropriate region (for example, "Central US").
+   - **Environment**: Specifies the Container Apps Environment you want to use.
+   - **Quickstart**: Select **Use Quick Start Image**.
 
-   :::image type="content" source="media/create-container-apps-intellij/CreateACE.png" alt-text="Create Azure Container Environment.":::   
+   :::image type="content" source="media/create-container-apps-intellij/create-azure-container-apps.png" alt-text="Screenshot of the Create Azure Container App page that shows the Project Details, Container Apps Environment, and App Settings options.":::
 
-1. Once you’ve created the container apps environment, right-click on it and choose *Create > Container App** in Azure Explorer. Enter the following information:
-
-   * **Subscription**: Specifies the Azure subscription that you want to use.
-
-   * **Resource Group**: Specifies the resource group for your container apps. Select one of the following options:
-      * **Create New**: Specifies that you want to create a new resource group.
-      * **Use Existing**: Specifies that you will select from a list of resource groups that are associated with your Azure account.
-
-   * **Name**: Specifies the name for a new container app.
-
-   * **Region**: Specifies the appropriate region.(for example, "Central US"). 
-
-   * **Environment**: Specifies the Container Apps Environment you want to use.
-   * **Quickstart**: Select "Use Quick Start Image"
-
-   :::image type="content" source="media/create-container-apps-intellij/CreateACA.png" alt-text="Create Azure Container App.":::      
-
-1. When you've specified all of the preceding options, click **OK**.The toolkit will display a status message when it has successfully created.
+1. Select **OK**. The toolkit displays a status message when it's created successfully.
 
 ## Deploy the container app
 
-1. Navigate to your project on the left-hand Project tab, and open the *Dockerfile*.
+1. On the **Project** tab, navigate to your project and open **Dockerfile**
 
-   :::image type="content" source="media/create-container-apps-intellij/OpenDockerfile.png" alt-text="Open the Dockerfile.":::  
+   :::image type="content" source="media/create-container-apps-intellij/open-docker-file.png" alt-text="Screenshot of the Project tab with the Dockerfile highlighted.":::  
 
+1. Select the Azure icon and select **Deploy Image to Container App**.
 
-1. In the *Dockerfile*, click the Azure icon on line 1 and select "Deploy Image to Container App".
-   :::image type="content" source="media/create-container-apps-intellij/DeployImage.png" alt-text="Deploy Image to ACA.":::  
+   :::image type="content" source="media/create-container-apps-intellij/deploy-image-to-container-apps.png" alt-text="Deploy Image to ACA.":::  
 
-1. When the **Deploy Image to Azure Container Apps** page is displayed, enter the following information and click **Run**.
+1. On the **Deploy Image to Azure Container Apps** page, enter the following information and select **Run**.
 
-   * **Dockerfile/Image**: Specifies the path of the Dockerfile or accept the defaults.
+   - **Dockerfile/Image**: Specifies the path of the Dockerfile or accept the default.
+   - **Container Registry**: Specifies the Container Registry you want to use.
+   - **Repository Name**: Specifies the repository name you want to use under your Container Registry.
+   - **Tag Name**: Specifies the tag name you want to use under your Container Registry.
+   - **Container App**: Specifies the Container App you want to deploy to.
+   - **Ingress**:  Enable ingress for applications that require an HTTP or TCP endpoint. Select **Enable**.
+   - **External Traffilc**: Enable external traffic for applications that need an HTTP or TCP endpoint. Select **Enable**.
+   - **Target Port**: Set this value to the port number that your container uses. Open port 8080 in this step.
 
-   * **Container Registry**: Specifies Container Registry you want to use.
+   :::image type="content" source="media/create-container-apps-intellij/deploy-to-container-apps-settings.png" alt-text="Screenshot of the Deploy Image to Azure Container Apps settings page.":::
 
-   * **Repository Name**: Specifies the repository name you want to use under your Container Registry.
+1. Once the deployment finishes, the Azure Toolkit for IntelliJ displays a notification. Select **Browse** to open the deployed app in a browser.
 
-   * **Tag Name**: Specifies the tag name you want to use under your Container Registry.
-
-   * **Container App**: Specifies the Container App you want to deploy to.
-
-   * **Ingress**:  Enable ingress for applications that require an HTTP or TCP endpoint. Select **Enable**.
-   * **External Traffilc**: Enable external traffic for applications that need an HTTP or TCP endpoint. Select **Enable**.
-   * **Target Port**: Set this value to the port number that your container uses. Open port 8080 in this step. 
-
-   :::image type="content" source="media/create-container-apps-intellij/DeploytoACASettings.png" alt-text="Deploy Image to ACA with detailed settings.":::     
-   
-1. Once this deployment process finishes, the Azure Toolkit for IntelliJ will display a notification. Select browse to open the deployed app in a browser.
-
-   :::image type="content" source="media/create-container-apps-intellij/DeploytoACAScreenshot.png" alt-text="Browser the album API service you deploy."::: 
+   :::image type="content" source="media/create-container-apps-intellij/deploy-to-container-apps.png" alt-text="Screenshot of the deployed Azure Container App that shows the API in browser.":::
 
 In the browser's location bar, append the /albums path at the end of the app URL to view data from a sample API request.
 
@@ -186,8 +150,6 @@ If you want to clean up and remove an Azure Container Apps resource, you can del
 
 1. To delete your resource group, visit the [Azure portal](https://portal.azure.com) and manually delete the resources under your subscription.
 
-
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about developing in Java on Container Apps](/azure/container-apps/java-overview)
+- [Java on Azure Container Apps overview](/azure/container-apps/java-overview)
