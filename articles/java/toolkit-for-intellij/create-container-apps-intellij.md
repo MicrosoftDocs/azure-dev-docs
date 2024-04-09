@@ -21,7 +21,7 @@ This article shows you how to deploy a containerized application to Azure Contai
 - An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), Ultimate or Community Edition.
 - [Maven 3.5.0+](https://maven.apache.org/download.cgi).
 - A [Docker](https://www.docker.com/) client.
-- The [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053). For more information, see [Install the Azure Toolkit for IntelliJ](install-tollkit.md). You'll also need to sign in to your Azure account for the Azure Toolkit for IntelliJ. For more information, see [Sign-in instructions for the Azure Toolkit for IntelliJ](sign-in-instructions.md).
+- The [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053). For more information, see [Install the Azure Toolkit for IntelliJ](install-tollkit.md). You also need to sign in to your Azure account for the Azure Toolkit for IntelliJ. For more information, see [Sign-in instructions for the Azure Toolkit for IntelliJ](sign-in-instructions.md).
 
 ## Clone the project
 
@@ -109,7 +109,7 @@ Use the following steps to set up your environment and deploy a container app in
 
    :::image type="content" source="media/create-container-apps-intellij/create-azure-container-apps.png" alt-text="Screenshot of the Create Azure Container App page that shows the Project Details, Container Apps Environment, and App Settings options.":::
 
-1. Select **OK**. The toolkit displays a status message when it's created successfully.
+1. Select **OK**. The toolkit displays a status message when created successfully.
 
 ## Deploy the container app
 
@@ -119,9 +119,9 @@ Use the following steps to set up your environment and deploy a container app in
 
 1. Select the Azure icon and select **Deploy Image to Container App**.
 
-   :::image type="content" source="media/create-container-apps-intellij/deploy-image-to-container-apps.png" alt-text="Deploy Image to ACA.":::  
+   :::image type="content" source="media/create-container-apps-intellij/deploy-image-to-container-apps.png" alt-text="Screenshot of the Deploy Image to Azure Container Apps page.":::  
 
-1. On the **Deploy Image to Azure Container Apps** page, enter the following information and select **Run**.
+1. On the **Deploy Image to Azure Container Apps** page, enter the following information, and then select **Run**.
 
    - **Dockerfile/Image**: Specifies the path of the Dockerfile or accept the default.
    - **Container Registry**: Specifies the Container Registry you want to use.
@@ -129,7 +129,7 @@ Use the following steps to set up your environment and deploy a container app in
    - **Tag Name**: Specifies the tag name you want to use under your Container Registry.
    - **Container App**: Specifies the Container App you want to deploy to.
    - **Ingress**:  Enable ingress for applications that require an HTTP or TCP endpoint. Select **Enable**.
-   - **External Traffilc**: Enable external traffic for applications that need an HTTP or TCP endpoint. Select **Enable**.
+   - **External Traffic**: Enable external traffic for applications that need an HTTP or TCP endpoint. Select **Enable**.
    - **Target Port**: Set this value to the port number that your container uses. Open port 8080 in this step.
 
    :::image type="content" source="media/create-container-apps-intellij/deploy-to-container-apps-settings.png" alt-text="Screenshot of the Deploy Image to Azure Container Apps settings page.":::
