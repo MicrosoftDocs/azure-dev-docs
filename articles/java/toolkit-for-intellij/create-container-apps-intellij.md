@@ -21,7 +21,7 @@ This article shows you how to deploy a containerized application to Azure Contai
 - An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), Ultimate or Community Edition.
 - [Maven 3.5.0+](https://maven.apache.org/download.cgi).
 - A [Docker](https://www.docker.com/) client.
-- The [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053). For more information, see [Install the Azure Toolkit for IntelliJ](install-tollkit.md). You also need to sign in to your Azure account for the Azure Toolkit for IntelliJ. For more information, see [Sign-in instructions for the Azure Toolkit for IntelliJ](sign-in-instructions.md).
+- The [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053). For more information, see [Install the Azure Toolkit for IntelliJ](install-toolkit.md). You also need to sign in to your Azure account for the Azure Toolkit for IntelliJ. For more information, see [Sign-in instructions for the Azure Toolkit for IntelliJ](sign-in-instructions.md).
 
 ## Clone the project
 
