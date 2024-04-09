@@ -76,7 +76,7 @@ To deploy your project to Azure Container Apps, you need to build the container 
    - **Repository Name**: Specifies the name for the repository.
    - **Tag Name**: Specifies the version of an image or other artifact.
 
-   :::image type="content" source="media/create-container-apps-intellij/push-to-registry.png" alt-text="Screenshot of the Azure Container Registry that shows the push image function.":::
+   :::image type="content" source="media/create-container-apps-intellij/push-to-registry.png" alt-text="Screenshot of the Push Image to Azure Container Registry page with Run highlighted.":::
 
 ## Create an environment and a container app
 
@@ -94,7 +94,7 @@ Use the following steps to set up your environment and deploy a container app in
    - **Region**: Specifies the appropriate region (for example, **East US**).
    - **Log Analytics workspace**: Specifies the Log Analytics workspace you want to use or accept the default.
 
-   :::image type="content" source="media/create-container-apps-intellij/create-container-apps-environment.png" alt-text="Screenshot of the Create Azure Container Apps Environment that shows the Environment details and Monitoring options.":::
+   :::image type="content" source="media/create-container-apps-intellij/create-container-apps-environment.png" alt-text="Screenshot of the Create Container Apps Environment page with OK highlighted.":::
 
 1. Right-click on the container apps environment you created and select **Create** > **Container App** in Azure Explorer. Enter the following information:
 
@@ -107,7 +107,7 @@ Use the following steps to set up your environment and deploy a container app in
    - **Environment**: Specifies the Container Apps Environment you want to use.
    - **Quickstart**: Select **Use Quick Start Image**.
 
-   :::image type="content" source="media/create-container-apps-intellij/create-azure-container-apps.png" alt-text="Screenshot of the Create Azure Container App page that shows the Project Details, Container Apps Environment, and App Settings options.":::
+   :::image type="content" source="media/create-container-apps-intellij/create-azure-container-apps.png" alt-text="Screenshot of the Create Azure Container App page with OK highlighted.":::
 
 1. Select **OK**. The toolkit displays a status message when created successfully.
 
@@ -119,7 +119,7 @@ Use the following steps to set up your environment and deploy a container app in
 
 1. Select the Azure icon and then select **Deploy Image to Container App**.
 
-   :::image type="content" source="media/create-container-apps-intellij/deploy-image-to-container-apps.png" alt-text="Screenshot of the Deploy Image to Azure Container Apps page.":::  
+   :::image type="content" source="media/create-container-apps-intellij/deploy-image-to-container-apps.png" alt-text="Screenshot of the Dockerfile page with Deploy Image to Container App highlighted.":::  
 
 1. On the **Deploy Image to Azure Container Apps** page, enter the following information, and then select **Run**.
 
