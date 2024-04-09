@@ -1,6 +1,6 @@
 ---
 title: Deploy to Azure Container Apps using IntelliJ IDEA
-description: Deploy Java projects to Azure Container Apps using IntelliJ IDEA
+description: Deploy Java projects to Azure Container Apps using IntelliJ IDEA.
 services: container-apps
 author: silencejialuo
 ms.author: jialuogan
@@ -18,7 +18,7 @@ This article shows you how to deploy a containerized application to Azure Contai
 
 - An Azure account with an active subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
-- An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), Ultimate or Community Edition.
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), Ultimate or Community Edition.
 - [Maven 3.5.0+](https://maven.apache.org/download.cgi).
 - A [Docker](https://www.docker.com/) client.
 - The [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053). For more information, see [Install the Azure Toolkit for IntelliJ](install-toolkit.md). You also need to sign in to your Azure account for the Azure Toolkit for IntelliJ. For more information, see [Sign-in instructions for the Azure Toolkit for IntelliJ](sign-in-instructions.md).
