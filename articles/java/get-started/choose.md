@@ -234,3 +234,7 @@ To learn more about the services referenced in this diagram, use the links in th
 ## Summary
 
 In navigating the deployment of Java applications, Azure champions a nuanced A+B approach, offering a spectrum of services tailored to meet every application's needs. Microsoft's collaboration with the Java ecosystem leaders resulted in a suite of Azure services, each recommended for specific Java application types - deployed as source, binaries, or containers - streamlining the deployment process and ensuring optimal performance. This focus on matching deployment strategies with the most appropriate Azure services underscores Microsoft's commitment to providing you with the flexibility to choose the right tools for the job. The inherent portability of Java applications is a key advantage, enabling a seamless transition across on-premises systems and different cloud providers to enhance operational efficiency and agility. By advocating for this broader, more inclusive selection process, Microsoft not only simplifies the cloud journey for Java applications, but also maximizes scalability, security, observability, and cost-effectiveness. Ultimately, Microsoft's guidance empowers developers and enterprises to use Azure's ecosystem, ensuring that each Java application thrives in the cloud environment best suited to its needs.
+
+## Next step
+
+[Azure for Java developer documentation](../index.yml)
