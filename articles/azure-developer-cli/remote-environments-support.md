@@ -61,7 +61,7 @@ state:
 #### Configuration
 - **accountName**: Name of the Azure storage account
 - **containerName**: Name of the container within the storage account where configuration is stored. Defaults to the current azd project name if not specified
-- **endpoint**: Azure Endpoint used when configuring remote state. _Defaults to `blob.core.windows.net`_
+- **endpoint**: Azure Endpoint used when configuring remote state. _Defaults to `core.windows.net`_
 
 ## Remote state and `azd` commands
 
