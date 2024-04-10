@@ -6,13 +6,13 @@ author: silencejialuo
 ms.author: jialuogan
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 03/27/2024
+ms.date: 04/11/2024
 
 ---
 
 # Quickstart: Deploy to Azure Container Apps using IntelliJ IDEA
 
-This article shows you how to deploy a containerized application to Azure Container Apps using Azure Toolkit for IntelliJ IDEA. You can create a backend web API service that returns a static collection of music albums using these steps.
+This article shows you how to deploy a containerized application to Azure Container Apps using Azure Toolkit for IntelliJ IDEA. The article uses a sample backend web API service that returns a static collection of music albums.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ This article shows you how to deploy a containerized application to Azure Contai
 
 ## Clone the project
 
-1. Use the following command to clone the sample app:
+1. Use the following commands to clone the sample app and check out the `IDE` branch:
 
    ```git
    git clone https://github.com/Azure-Samples/containerapps-albumapi-java
@@ -43,7 +43,7 @@ This article shows you how to deploy a containerized application to Azure Contai
    mvn clean package -DskipTests
    ```
 
-1. To verify the application is running, open a browser and go to `http://localhost:8080/albums`. The page returns a list of JSON objects, similar to the following command output:
+1. To verify that the application is running, open a browser and go to `http://localhost:8080/albums`. The page returns a list of JSON objects similar to the output of the following command:
 
    ```azurecli
    java -jar target\containerapps-albumapi-java-0.0.1-SNAPSHOT.jar
@@ -76,7 +76,7 @@ To deploy your project to Azure Container Apps, you need to build the container 
    - **Repository Name**: Specifies the name for the repository.
    - **Tag Name**: Specifies the version of an image or other artifact.
 
-   :::image type="content" source="media/create-container-apps-intellij/push-to-registry.png" alt-text="Screenshot of the Push Image to Azure Container Registry page with Run highlighted.":::
+   :::image type="content" source="media/create-container-apps-intellij/push-to-registry.png" alt-text="Screenshot of Intelli J that shows the Push Image to Azure Container Registry dialog box.":::
 
 ## Create an environment and a container app
 
@@ -94,7 +94,7 @@ Use the following steps to set up your environment and deploy a container app in
    - **Region**: Specifies the appropriate region (for example, **East US**).
    - **Log Analytics workspace**: Specifies the Log Analytics workspace you want to use or accept the default.
 
-   :::image type="content" source="media/create-container-apps-intellij/create-container-apps-environment.png" alt-text="Screenshot of the Create Container Apps Environment page with OK highlighted.":::
+   :::image type="content" source="media/create-container-apps-intellij/create-container-apps-environment.png" alt-text="Screenshot of Intelli J that shows the Create Container Apps Environment dialog box.":::
 
 1. Right-click on the container apps environment you created and select **Create** > **Container App** in Azure Explorer. Enter the following information:
 
@@ -107,19 +107,19 @@ Use the following steps to set up your environment and deploy a container app in
    - **Environment**: Specifies the Container Apps Environment you want to use.
    - **Quickstart**: Select **Use Quick Start Image**.
 
-   :::image type="content" source="media/create-container-apps-intellij/create-azure-container-apps.png" alt-text="Screenshot of the Create Azure Container App page with OK highlighted.":::
+   :::image type="content" source="media/create-container-apps-intellij/create-azure-container-apps.png" alt-text="Screenshot of Intelli J that shows the Create Azure Container App dialog box.":::
 
-1. Select **OK**. The toolkit displays a status message when created successfully.
+1. Select **OK**. The toolkit displays a status message when the app creation succeeds.
 
 ## Deploy the container app
 
 1. On the **Project** tab, navigate to your project and open **Dockerfile**.
 
-   :::image type="content" source="media/create-container-apps-intellij/open-docker-file.png" alt-text="Screenshot of the Project tab with the Dockerfile highlighted.":::  
+   :::image type="content" source="media/create-container-apps-intellij/open-docker-file.png" alt-text="Screenshot of Intelli J that shows the Project explorer with the Dockerfile node highlighted.":::  
 
 1. Select the Azure icon and then select **Deploy Image to Container App**.
 
-   :::image type="content" source="media/create-container-apps-intellij/deploy-image-to-container-apps.png" alt-text="Screenshot of the Dockerfile page with Deploy Image to Container App highlighted.":::  
+   :::image type="content" source="media/create-container-apps-intellij/deploy-image-to-container-apps.png" alt-text="Screenshot of Intelli J that shows the Dockerfile in the editor with the Deploy Image to Container App menu option highlighted.":::  
 
 1. On the **Deploy Image to Azure Container Apps** page, enter the following information, and then select **Run**.
 
@@ -132,13 +132,13 @@ Use the following steps to set up your environment and deploy a container app in
    - **External Traffic**: Enable external traffic for applications that need an HTTP or TCP endpoint. Select **Enable**.
    - **Target Port**: Set this value to the port number that your container uses. Open port 8080 in this step.
 
-   :::image type="content" source="media/create-container-apps-intellij/deploy-to-container-apps-settings.png" alt-text="Screenshot of the Deploy Image to Azure Container Apps settings page.":::
+   :::image type="content" source="media/create-container-apps-intellij/deploy-to-container-apps-settings.png" alt-text="Screenshot of Intelli J that shows the Deploy Image to Azure Container Apps dialog box.":::
 
-1. Once the deployment finishes, the Azure Toolkit for IntelliJ displays a notification. Select **Browse** to open the deployed app in a browser.
+1. After the deployment finishes, the Azure Toolkit for IntelliJ displays a notification. Select **Browse** to open the deployed app in a browser.
 
-   :::image type="content" source="media/create-container-apps-intellij/deploy-to-container-apps.png" alt-text="Screenshot of the deployed Azure Container App that shows the API in browser.":::
+   :::image type="content" source="media/create-container-apps-intellij/deploy-to-container-apps.png" alt-text="Screenshot of the deployed app in a browser window.":::
 
-In the browser's location bar, append the /albums path at the end of the app URL to view data from a sample API request.
+In the browser's address bar, append the `/albums` path to the end of the app URL to view data from a sample API request.
 
 ## Clean up resources
 
