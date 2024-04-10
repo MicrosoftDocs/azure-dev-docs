@@ -64,7 +64,7 @@ For more information, including how to remove packages or install specific versi
 
 Many client and management libraries provide async versions (`.aio`). The `asyncio` library has been available since Python 3.4, and the async/await keywords were introduced in Python 3.5. The async versions of the libraries are intended to be used with Python 3.5 and later.
 
-Examples of Azure Python SDK libraries with async versions include: [azure.storage.blog.aio](/python/api/azure-storage-blob/azure.storage.blob.aio), [azure.servicebus.aio](/python/api/azure-servicebus/azure.servicebus.aio), [azure.mgmt.keyvault.aio](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.aio), and [azure.mgmt.compute.aio](/python/api/azure-mgmt-compute/azure.mgmt.compute.aio).
+Examples of Azure Python SDK libraries with async versions include: [azure.storage.blob.aio](/python/api/azure-storage-blob/azure.storage.blob.aio), [azure.servicebus.aio](/python/api/azure-servicebus/azure.servicebus.aio), [azure.mgmt.keyvault.aio](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault.aio), and [azure.mgmt.compute.aio](/python/api/azure-mgmt-compute/azure.mgmt.compute.aio).
 
 These libraries need an async transport such as `aiohttp` to work. The `azure-core` library provides an async transport, `AioHttpTransport`, which is used by the async libraries.
 
