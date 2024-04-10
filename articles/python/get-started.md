@@ -22,14 +22,14 @@ need to build cloud-based applications.
 
 If you are new to developing applications for the cloud, this short series of articles with videos will help you get up to speed quickly.
 
-* Part 1: [Azure for developers overview](/azure/developer/intro/azure-developer-overview)
-* Part 2: [Key Azure services for developers](/azure/developer/intro/azure-developer-key-services)
-* Part 3: [Hosting applications on Azure](/azure/developer/intro/hosting-apps-on-azure)
-* Part 4: [Connect your app to Azure services](/azure/developer/intro/connect-to-azure-services)
-* Part 5: [How do I create and manage resources in Azure?](/azure/developer/intro/azure-developer-create-resources)
-* Part 6: [Key concepts for building Azure apps](/azure/developer/intro/azure-developer-key-concepts)
-* Part 7: [How am I billed?](/azure/developer/intro/azure-developer-billing)
-* Part 8: [Versioning policy for Azure services, SDKs, and CLI tools](/azure/developer/intro/azure-service-sdk-tool-versioning)
+* Part 1: [Azure for developers overview](/articles/intro/azure-developer-overview)
+* Part 2: [Key Azure services for developers](/articles/intro/azure-developer-key-services)
+* Part 3: [Hosting applications on Azure](/articles/intro/hosting-apps-on-azure)
+* Part 4: [Connect your app to Azure services](/articles/intro/connect-to-azure-services)
+* Part 5: [How do I create and manage resources in Azure?](/articles/intro/azure-developer-create-resources)
+* Part 6: [Key concepts for building Azure apps](/articles/intro/azure-developer-key-concepts)
+* Part 7: [How am I billed?](/articles/intro/azure-developer-billing)
+* Part 8: [Versioning policy for Azure services, SDKs, and CLI tools](/articles/intro/azure-service-sdk-tool-versioning)
 
 Once you understand the basics of developing applications for the cloud, you will 
 want to set up your development environment and follow a Quickstart or Tutorial 
