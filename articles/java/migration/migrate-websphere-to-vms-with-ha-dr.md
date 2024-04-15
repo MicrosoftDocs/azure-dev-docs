@@ -27,7 +27,7 @@ The following diagram illustrates the architecture you build:
 <!-- Diagram source https://github.com/Azure-Samples/azure-cafe/blob/main/diagrams/websphere-on-vms-ha-dr-solution-architecture.pptx -->
 :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/solution-architecture.png" alt-text="Diagram of the solution architecture of WebSphere on Azure VMs with high availability and disaster recovery." lightbox="media/migrate-websphere-to-vms-with-ha-dr/solution-architecture.png" border="false":::
 
-Azure Traffic Manager checks the health of your regions and routes the traffic accordingly to the application tier. The primary region has a full deployment of the WebSphere cluster. After the primary region is protected, the secondary region is restored during the failover using Azure Site Recovery. As a result, the primary region is actively servicing network requests from the users. The secondary region is passive and activated to receive traffic only when the primary region experiences a service disruption. Azure Traffic Manager detects the health of the app deployed in the IBM HTTP Server to implement the conditional routing. The geo-failover RTO of the application tier depends on the time for shutting down the primary cluster, restoring the secondary cluster, and starting VMs and running the secondary WebSphere cluster. The RPO depends on the replication policy of Azure Site Recovery and Azure SQL Database because the cluster data is stored and replicated in the local storage of the VMs and application data is persisted and replicated in the Azure SQL Database failover group.
+Azure Traffic Manager checks the health of your regions and routes the traffic accordingly to the application tier. The primary region has a full deployment of the WebSphere cluster. After the primary region is protected by [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery), the secondary region can be restored during the failover. As a result, the primary region is actively servicing network requests from the users. The secondary region is passive and activated to receive traffic only when the primary region experiences a service disruption. Azure Traffic Manager detects the health of the app deployed in the IBM HTTP Server to implement the conditional routing. The geo-failover RTO of the application tier depends on the time for shutting down the primary cluster, restoring the secondary cluster, and starting VMs and running the secondary WebSphere cluster. The RPO depends on the replication policy of Azure Site Recovery and Azure SQL Database because the cluster data is stored and replicated in the local storage of the VMs and application data is persisted and replicated in the Azure SQL Database failover group.
 
 The preceding diagram shows **Primary region** and **Secondary region** as the two regions comprising the HA/DR architecture. These regions need to be Azure paired regions. For more information on paired regions, see [/azure/reliability/cross-region-replication-azure](Azure cross-region replication). The article uses **East US** and **West **US** as the two regions, but they can be any paired regions that make sense for your scenario. For the list of region pairings, see [Azure paired regions](/azure/reliability/cross-region-replication-azure#azure-paired-regions).
 
@@ -136,7 +136,7 @@ Use the following steps to fill out the **Cluster configuration** pane:
 Use the following steps to fill out the **Load balancer** pane:
 
 1. For **Password for VM administrator**, provide a password.
-1. For **Password for Password for IBM HTTP Server administrator**, provide a password.
+1. For **Password for IBM HTTP Server administrator**, provide a password.
 1. Leave the defaults for other fields.
 1. Select **Next** to go to the **Networking** pane.
 
@@ -377,7 +377,7 @@ Next, verify if the sample app deployed to the primary WebSphere cluster can be 
 
 1. Select **Overview** of the Traffic Manager profile you created.
 1. Check and copy the DNS name of the Traffic Manager profile, append it with */websphere-cafe/*. For example, `http://tmprofile-mjg022624.trafficmanager.net/websphere-cafe/`.
-1. Open the URL in a new tab of the browser. You should see the coffee you created before is listed in the page.
+1. Open the URL in a new tab of the browser. You should see the coffee you created before listed on the page.
 1. Create another coffee with a different name and price (for example, *Coffee 2* with price *20*), which is persisted into both application data table and session table of the database. The UI that you see should be similar to the following screenshot:
 
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui-2nd-coffee.png" alt-text="Screenshot of the sample application UI with the 2nd coffee." lightbox="media/migrate-websphere-to-vms-with-ha-dr/sample-app-ui-2nd-coffee.png":::
@@ -419,12 +419,15 @@ Next, use the following steps to failover the WebSphere cluster with the recover
    
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/failover-job-details.png" alt-text="Screenshot of failover job details." lightbox="media/migrate-websphere-to-vms-with-ha-dr/failover-job-details.png":::
 
-Then, use the following steps to enable the external access to the WebSphere Integrated Solutions Console and sample app in the secondary region, and verify if they work as expected.
+Then, use the following steps to enable the external access to the WebSphere Integrated Solutions Console and sample app in the secondary region.
 
 1. In the search box at the top of the Azure portal, enter **Resource groups** and select **Resource groups** in the search results.
 1. Select the name of resource group for your secondary region - for example, *was-cluster-westus-mjg022624*. Sort items by **Type** in the **Resource Group** page.
 1. Select **Network Interface** prefixed with *dmgr*. Select **IP configurations** > **ipconfig1**. Check **Associate public IP address**. For **Public IP address**, select public IP address prefixed with *dmgr*. This is the one you created previously. In the article it is named *dmgr-public-ip-westus-mjg022624*. Select **Save**, wait until it completes.
 1. Switch back to the resource group, and select **Network Interface** prefixed with *ihs*. Select **IP configurations** > **ipconfig1**. Check **Associate public IP address**. For **Public IP address**, select public IP address prefixed with *ihs*. This is the one you created previously. In the article it is named *ihs-public-ip-westus-mjg022624*. Select **Save**, wait until it completes.
+
+Now, verify if the failover works as expected.
+
 1. Find the DNS name label for the public IP address of Dmgr you created before. Open the URL of Dmgr WebSphere Integrated Solutions Console in a new browser tab. Don't forget to use `https`. For example, `https://dmgrmjg022624.westus.cloudapp.azure.com:9043/ibm/console`. Refresh the page until you see the welcome page for sign in. 
 1. Sign in to the console with the user name and password for WebSphere administrator you wrote down before, and check the followings:
    1. Under navigation pane at the left side, select **Servers** > **All servers**. In **Middleware servers** pane, you should see 4 servers listed, including 3 WebSphere application servers consisting of WebSphere cluster *MyCluster* and 1 Web server that is an IHS. Refresh the page until you see all servers are started.
