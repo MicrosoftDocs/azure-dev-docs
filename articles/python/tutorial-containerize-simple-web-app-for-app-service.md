@@ -171,6 +171,9 @@ docker build --tag fastapi-demo .
 
 ---
 
+> [!NOTE]
+> If the `docker build` command returns an error, make sure the docker deamon is running. On Windows, make sure that Docker Desktop is running.
+
 Run the image locally in a Docker container.
 
 ### [Flask](#tab/web-app-flask)
