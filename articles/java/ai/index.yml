@@ -29,12 +29,12 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Chat using your own data
-            url: /azure/ai-services/openai/use-your-data-quickstart?pivots=programming-language-spring&toc=/azure/developer/java/azure-ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+            url: /azure/ai-services/openai/use-your-data-quickstart?pivots=programming-language-spring&toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: GPT-35-Turbo and GPT-4
-            url: /azure/ai-services/openai/chatgpt-quickstart?tabs=bash&pivots=programming-language-java&toc=/azure/developer/java/azure-ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+            url: /azure/ai-services/openai/chatgpt-quickstart?tabs=bash&pivots=programming-language-java&toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: GPT-35-Turbo and GPT-4 with IntelliJ
-            url: ../toolkit-for-intellij/chatgpt-intellij.md?toc=/azure/developer/java/azure-ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+            url: ../toolkit-for-intellij/chatgpt-intellij.md?toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: Generate text
-            url: /azure/ai-services/openai/quickstart?tabs=bash&pivots=programming-language-java&toc=/azure/developer/java/azure-ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+            url: /azure/ai-services/openai/quickstart?tabs=bash&pivots=programming-language-java&toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: Generate images
-            url: /azure/ai-services/openai/dall-e-quickstart?tabs=bash&pivots=programming-language-java&toc=/azure/developer/java/azure-ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+            url: /azure/ai-services/openai/dall-e-quickstart?tabs=bash&pivots=programming-language-java&toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json

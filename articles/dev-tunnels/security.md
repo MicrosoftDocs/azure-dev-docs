@@ -10,7 +10,7 @@ ms.date: 06/15/2023
 ---
 # Security
 
-Dev tunnels is a security-focussed developer tunneling service. In this article, learn about how dev tunnels are secured.
+Dev tunnels is a security-focused developer tunneling service. In this article, learn about how dev tunnels are secured.
 
 ## Overview
 
