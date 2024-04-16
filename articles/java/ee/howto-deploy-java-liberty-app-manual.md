@@ -125,7 +125,7 @@ After a short time, you should see a JSON output that contains the following lin
 
 ## Connect to the ACR instance
 
-You need to sign in to the ACR instance before you can push an image to it. If you choose to run commands locally, ensure the docker daemon is running, and run the following commands to verify the connection:
+You need to sign in to the ACR instance before you can push an image to it. Run the following commands to verify the connection:
 
 ### [Bash](#tab/in-bash)
 
