@@ -262,7 +262,7 @@ aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.23.8
 
 In this section, you create an Azure SQL Database single database for use with your app.
 
-Create a single database in Azure SQL Database by following the Azure CLI steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli). Use the following directions as you go through the article, then return to this document after you create and configure the database server.
+Create a single database in Azure SQL Database by following the Azure CLI or PowerShell steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli). Use the following directions as you go through the article, then return to this document after you create and configure the database server.
 
 1. When you reach the [Set parameter values](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli#set-parameter-values) section of the quickstart, write down all variables in the code example labeled `Variable block`, including `location`, `resourceGroup`,`database`, `server`, `login`, and `password`. This article refers to the database `resourceGroup` as `<db-resource-group>`.
 
