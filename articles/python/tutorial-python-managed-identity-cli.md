@@ -142,7 +142,7 @@ The sample app stores photos submitted by reviewers as blobs in a container in y
 
 In this section, you enable anonymous access on your storage account and create a container that provides public (anonymous) access to its blobs.
 
-1. Update the storage account to allow anonymous read access to blobs with the [az storage account update](/cli/azure/storage/container#az-storage-account-update) command. Enabling anonymous access on the storage account doesn't affect access for individual blobs. To you must explicitly enable public access to blobs at the container-level.
+1. Update the storage account to allow anonymous read access to blobs with the [az storage account update](/cli/azure/storage/container#az-storage-account-update) command. Enabling anonymous access on the storage account doesn't affect access for individual blobs. You must explicitly enable public access to blobs at the container-level.
 
     ```azurecli
     az storage container create \
