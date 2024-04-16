@@ -21,13 +21,13 @@ A sample Python application using the Flask framework are available to help you 
 
 1. Clone the sample in an Azure Cloud Shell session.
 
-    ```bash
+    ```console
     git clone https://github.com/Azure-Samples/msdocs-flask-web-app-managed-identity.git
     ```
 
 2. Navigate to the application folder.
 
-    ```bash
+    ```console
     cd msdocs-flask-web-app-managed-identity
     ```
 
