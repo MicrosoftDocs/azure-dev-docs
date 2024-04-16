@@ -31,16 +31,20 @@ This article is intended to help you quickly get to deployment. Before going to 
 
 ## Prerequisites
 
-* If running the commands in this guide locally (instead of Azure Cloud Shell):
-  * Prepare a local machine with either Windows or Linux installed.
-  * Install a Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
-  * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
-  * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
+* Prepare a local machine with either Windows, macOS, or Linux installed.
+* Install the [Azure CLI](/cli/azure/install-azure-cli). If you're running on Windows or macOS, consider running the Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
+* When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+* Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.31.0 of the Azure CLI.
+* Install a Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
+* Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
+* Install [Docker](https://docs.docker.com/get-docker/) for your OS.
+* Ensure that [Git](https://git-scm.com) is installed.
 * Make sure you've been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
-
-* This article requires at least version 2.31.0 of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed. You can launch Azure CLI commands in either Bash or Azure PowerShell, either locally or in Azure Cloud Shell.
+> [!NOTE]
+> You can also run the commands in this article from [Azure Cloud Shell](/azure/cloud-shell/quickstart). This approach has all the prerequisite tools preinstalled, with the exception of Docker.
+>
+> :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to open Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 ## Sign in to Azure
 
