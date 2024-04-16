@@ -64,7 +64,7 @@ productDirectory:
     - title: JavaScript
       imageSrc: /media/logos/logo_js.svg
       links:
-        - url: /azure/developer/ai/azure-ai-for-developers?pivots=javascript
+        - url: ./ai/azure-ai-for-developers.md?pivots=javascript
           text: Develop Azure AI apps with JavaScript
         - url: /azure/static-web-apps/getting-started?tabs=vanilla-javascript
           text: Develop a static website
@@ -128,7 +128,7 @@ productDirectory:
           text: Install the Azure SDK for Go
         - url: ./go/azure-sdk-authentication.md
           text: Authenticate your app
-        - url: /azure/developer/ai/azure-ai-for-developers?pivots=go
+        - url: ./ai/azure-ai-for-developers.md?pivots=go
           text: Develop Azure AI apps with Go
         - url: /azure/storage/blobs/storage-quickstart-blobs-go
           text: Use Blob storage
