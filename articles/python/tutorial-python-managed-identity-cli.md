@@ -138,7 +138,11 @@ The Service Connector commands configure Azure Storage and Azure Database for Po
 
 ## Create a container in the storage account
 
-1. Update the storage account to allow anonymous access to blobs with the [az storage account update](/cli/azure/storage/container#az-storage-account-update) command. For enhanced security, by default, storage accounts are created with anonymous access disabled.
+The sample app stores photos submitted by reviewers as blobs in a container in your storage account. When a user submits a photo with their review, the sample app writes the image to the container using its system-assigned managed for authentication and authorization. You configured this functionality in the last section. When a user views the reviews for a restaurant, the app returns a link to the photo in blob storage for each review that has one associated with it. For the browser to display the photo, it must be able to access it in your storage account. The blob data must be available for read publicly through anonymous (unautnenticated) access. To enhance security, storage accounts are created with anonymous access to blob data disabled by default. To learn more about anonymous access settings, see [Configure anonymous read access for containers and blobs](/azure/storage/blobs/anonymous-read-access-configure).
+
+In this section, you enable anonymous access on your storage account and create a container that provides public (anonymous) access to its blobs.
+
+1. Update the storage account to allow anonymous read access to blobs with the [az storage account update](/cli/azure/storage/container#az-storage-account-update) command. Enabling anonymous access on the storage account doesn't affect access for individual blobs. To you must explicitly enable public access to blobs at the container-level.
 
     ```azurecli
     az storage container create \
@@ -148,7 +152,7 @@ The Service Connector commands configure Azure Storage and Azure Database for Po
       --auth-mode login
     ```
 
-1. Create a container called *photos* in the storage account with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command. Allow anonymous access to blobs in the newly created container.
+1. Create a container called *photos* in the storage account with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command. Allow anonymous (read) access to blobs in the newly created container.
 
     ```azurecli
     az storage container create \
