@@ -3,7 +3,7 @@ title: Create and deploy a Flask Python web app to Azure with system-assigned ma
 description: Use the Azure CLI to create and deploy a Flask Python web app to Azure App Service using a system-assigned managed identity.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 04/23/2023
+ms.date: 04/16/2024
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
@@ -13,7 +13,7 @@ In this tutorial, you deploy Python **[Flask](https://flask.palletsprojects.com/
 
 You can configure passwordless connections to Azure services using Service Connector or you can configure them manually. This tutorial shows how to use Service Connector. For more information about passwordless connections, see [Passwordless connections for Azure services](/azure/developer/intro/passwordless-overview).
 
-This tutorial shows you how to create and deploy a Python web app using the Azure CLI. You can run the tutorial commands in any environment with the CLI installed, such as your local environment or the [Azure Cloud Shell](https://shell.azure.com). For examples of using a user-assigned managed identity, see [Create and deploy a Django web app to Azure with a user-assigned managed identity](./tutorial-python-managed-identity-user-assigned-cli.md).
+This tutorial shows you how to create and deploy a Python web app using the Azure CLI. The commands in this tutorial are written to be run in a Bash shell. You can run the tutorial commands in any Bash environment with the CLI installed, such as your local environment or the [Azure Cloud Shell](https://shell.azure.com). With some modification -- for example, setting and using environment variables -- you can run these commands in other environments like Windows command shell. For examples of using a user-assigned managed identity, see [Create and deploy a Django web app to Azure with a user-assigned managed identity](./tutorial-python-managed-identity-user-assigned-cli.md).
 
 ## Get the sample app
 
@@ -21,21 +21,21 @@ A sample Python application using the Flask framework are available to help you 
 
 1. Clone the sample in an Azure Cloud Shell session.
 
-    ```azurecli
+    ```bash
     git clone https://github.com/Azure-Samples/msdocs-flask-web-app-managed-identity.git
     ```
 
 2. Navigate to the application folder.
 
-    ```azurecli
+    ```bash
     cd msdocs-flask-web-app-managed-identity
     ```
 
 ## Create an Azure PostgreSQL server
 
-1. Set up the environment variables needed for the tutorial and create a resource group with the [az group create](/cli/azure/group#az-group-create) command.
+1. Set up the environment variables needed for the tutorial.
 
-      ```azurecli
+      ```bash
       LOCATION="eastus"
       RAND_ID=$RANDOM
       RESOURCE_GROUP_NAME="msdocs-mi-web-app"
@@ -43,12 +43,16 @@ A sample Python application using the Flask framework are available to help you 
       DB_SERVER_NAME="msdocs-mi-postgres-$RAND_ID"
       ADMIN_USER="demoadmin"
       ADMIN_PW="ChAnG33#ThsPssWD$RAND_ID"
-      
-      az group create --location $LOCATION --name $RESOURCE_GROUP_NAME
       ```
 
     > [!IMPORTANT]
     >The `ADMIN_PW` must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and nonalphanumeric characters. When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
+
+1. Create a resource group with the [az group create](/cli/azure/group#az-group-create) command.
+
+      ```azurecli
+      az group create --location $LOCATION --name $RESOURCE_GROUP_NAME
+      ```
 
 1. Create a PostgreSQL server with the [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create) command. (This and subsequent commands use the line continuation character for Bash Shell ('\\'). Change the line continuation character for your shell if needed.)
 
@@ -134,18 +138,29 @@ The Service Connector commands configure Azure Storage and Azure Database for Po
 
 ## Create a container in the storage account
 
-1. Create a container called *photos* in the storage account with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command.
+1. Update the storage account to allow anonymous access to blobs with the [az storage account update](/cli/azure/storage/container#az-storage-account-update) command. For enhanced security, by default, storage accounts are created with anonymous access disabled.
+
+    ```azurecli
+    az storage container create \
+      --name $STORAGE_ACCOUNT_NAME \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --allow-blob-public-access true \
+      --auth-mode login
+    ```
+
+1. Create a container called *photos* in the storage account with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command. Allow anonymous access to blobs in the newly created container.
 
     ```azurecli
     az storage container create \
       --account-name $STORAGE_ACCOUNT_NAME \
       --name photos \
-      --public-access blob 
+      --public-access blob \
+      --auth-mode login 
     ```
 
 ## Test the Python web app in Azure
 
-The sample Python app uses the [azure.identity](https://pypi.org/project/azure-identity/) package and its `DefaultAzureCredential` class. `DefaultAzureCredential` automatically detects that a managed identity exists for the App Service and uses it to access other Azure resources (storage and PostgreSQL in this case). There's no need to provide storage keys, certificates, or credentials to the App Service to access these resources.
+The sample Python app uses the [azure.identity](https://pypi.org/project/azure-identity/) package and its `DefaultAzureCredential` class. When an app is running in Azure, `DefaultAzureCredential` automatically detects if a managed identity exists for the App Service and, if so, uses it to access other Azure resources (storage and PostgreSQL in this case). There's no need to provide storage keys, certificates, or credentials to the App Service to access these resources.
 
 1. Browse to the deployed application at the URL `http://$APP_SERVICE_NAME.azurewebsites.net`.
 
