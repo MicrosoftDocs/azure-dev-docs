@@ -9,7 +9,7 @@ ms.custom: devx-track-js, devx-track-js-ai
 
 # Scale Azure OpenAI for JavaScript with Azure API Management
 
-[!INCLUDE [aca-load-balancer-intro](../intro/includes/scaling-load-balancer-introduction-azure-api-management.md)]
+[!INCLUDE [aca-load-balancer-intro](../ai/includes/scaling-load-balancer-introduction-azure-api-management.md)]
 
 ## Prerequisites
 
@@ -31,13 +31,13 @@ ms.custom: devx-track-js, devx-track-js-ai
     
     ---
 
-[!INCLUDE [scaling-load-balancer-aca-procedure.md](../intro/includes/scaling-load-balancer-procedure-azure-api-management.md)]
+[!INCLUDE [scaling-load-balancer-aca-procedure.md](../ai/includes/scaling-load-balancer-procedure-azure-api-management.md)]
 
-[!INCLUDE [py-deployment-procedure](../intro/includes/redeploy-procedure-chat-azure-api-management.md)]
+[!INCLUDE [py-deployment-procedure](../ai/includes/redeploy-procedure-chat-azure-api-management.md)]
 
-[!INCLUDE [capacity.md](../intro/includes/scaling-load-balancer-capacity.md)]
+[!INCLUDE [capacity.md](../ai/includes/scaling-load-balancer-capacity.md)]
 
-[!INCLUDE [py-apim-cleanup](../intro/includes/scaling-load-balancer-cleanup-azure-api-management.md)]
+[!INCLUDE [py-apim-cleanup](../ai/includes/scaling-load-balancer-cleanup-azure-api-management.md)]
 
 ## Sample code
 

@@ -8,7 +8,7 @@ ms.custom: devx-track-js, devx-track-js-ai
 ---
 # Get started with evaluating answers in a chat app in JavaScript
 
-[!INCLUDE [evaluations-intro](../intro/includes/evaluations-introduction.md)]
+[!INCLUDE [evaluations-intro](../ai/includes/evaluations-introduction.md)]
 
 ## Prerequisites
 

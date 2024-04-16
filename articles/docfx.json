@@ -92,7 +92,8 @@
         "mobile-apps/**/*.md": "mikeparker104",
         "python/**/*.md": "bobtabor-msft",
         "terraform/**/*.md": "TomArcherMsft",
-        "intro/**/*.md": "mcleanbyron"
+        "intro/**/*.md": "mcleanbyron",
+        "ai/**/*.md": "mcleanbyron"
       },
       "manager": {
         "**/*.md": "mcleans",
@@ -114,7 +115,8 @@
         "mobile-apps/**/*.md": "miparker",
         "python/**/*.md": "rotabor",
         "terraform/**/*.md": "tarcher",
-        "intro/**/*.md": "mcleans"
+        "intro/**/*.md": "mcleans",
+        "ai/**/*.md": "mcleans"
       },
       "ms.devlang": {
         "java/**/*.md": "java",
@@ -133,9 +135,12 @@
         "python/**/*.md": "azure-python",
         "javascript/**/*.md": "azure-javascript",
         "dev-tunnels/**/*.md": "dev-tunnels",
-        "intro/**/*.md": "azure"
+        "intro/**/*.md": "azure",
+        "ai/**/*.md": "azure"
       },
-      
+      "ms.subservice": {
+        "ai/**/*.md": "intelligent-apps"
+      },
       "titleSuffix": {
         "ansible/**/*.yml" : "Ansible",
         "chef/**/*.yml" : "Chef",
