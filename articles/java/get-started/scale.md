@@ -120,6 +120,6 @@ For example, here's a [landing zone accelerator for Azure Spring Apps](/azure/cl
 
 :::image type="content" source="media/scale-end-to-end.png" alt-text="Diagram with the heading 'Scale with end-to-end security, monitoring and automation' and logos for the tools described in this article." border="false" lightbox="media/scale-end-to-end.png":::
 
-## Next steps
+## Next step
 
-[Azure for Java developer documentation](../index.yml)
+[Choose the right Azure services for your Java applications](choose.md)

@@ -8,7 +8,7 @@ metadata:
   title: Azure for Java developer documentation
   description: Get started developing apps for the cloud with these tutorials and tools for Java developers.
   ms.topic: hub-page
-  ms.date: 06/10/2021
+  ms.date: 04/10/2024
   author: KarlErickson
   ms.author: karler
   ms.custom: devx-track-java, devx-track-extended-java
@@ -27,9 +27,12 @@ conceptualContent:
         - text: Deploy with confidence and ease
           itemType: get-started
           url: get-started/deploy.md
-        - text: Scale with end-to-end security, monitoring, and automation
+        - text: Scale with security, monitoring, automation
           itemType: get-started
           url: get-started/scale.md
+        - text: Choose the right Azure services
+          itemType: get-started
+          url: get-started/choose.md
       footerLink:
         text: See more
         url: get-started/index.yml
@@ -38,16 +41,16 @@ conceptualContent:
       links:
         - text: Develop using Azure AI services
           itemType: overview
-          url: azure-ai/azure-ai-for-java-developers.md
+          url: ai/azure-ai-for-java-developers.md
         - text: Enterprise chat using RAG
           itemType: get-started
-          url: azure-ai/get-started-app-chat-template.md
+          url: ai/get-started-app-chat-template.md
         - text: Scale chat using RAG with Azure Container Apps
           itemType: get-started
-          url: azure-ai/get-started-app-chat-scaling-with-azure-container-apps.md
+          url: ai/get-started-app-chat-scaling-with-azure-container-apps.md
       footerLink:
         text: See more
-        url: azure-ai/index.yml
+        url: ai/index.yml
 
     - title: Java learning resources
       links:

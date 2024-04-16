@@ -2,7 +2,7 @@
 title: Deploy a Flask or FastAPI web app as a container in Azure App Service
 description: An overview of how to create and deploy a containerized Python web app (Flask or FastAPI) on Azure App Service.
 ms.topic: conceptual
-ms.date: 04/13/2023
+ms.date: 04/12/2024
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
@@ -171,6 +171,9 @@ docker build --tag fastapi-demo .
 
 ---
 
+> [!NOTE]
+> If the `docker build` command returns an error, make sure the docker deamon is running. On Windows, make sure that Docker Desktop is running.
+
 Run the image locally in a Docker container.
 
 ### [Flask](#tab/web-app-flask)
@@ -208,12 +211,6 @@ The `--detach` option runs the container in the background. The `--publish` opti
     ```azurecli
     az acr create --resource-group web-app-simple-rg \
     --name webappacr123 --sku Basic --admin-enabled true
-    
-    ACR_PASSWORD=$(az acr credential show \
-    --resource-group web-app-simple-rg \
-    --name webappacr123 \
-    --query "passwords[?name == 'password'].value" \
-    --output tsv)
     ```
 
     > [!NOTE]
@@ -221,7 +218,17 @@ The `--detach` option runs the container in the background. The `--publish` opti
 
     An Azure Container Registry is a private Docker registry that stores images for use in Azure Container Instances, Azure App Service, Azure Kubernetes Service, and other services. When creating a registry, you specify a name, SKU, and resource group. The second command saves the password to a variable with the [az credential show][20] command. The password is used to authenticate to the registry in a later step.
 
-    The commands for creating the registry and subsequent ones are shown for the Bash shell. Change the continuation character (`\`) as appropriate for other shells.
+1. Set an environment variable to the value of the password for the registry.
+
+    ```bash
+    ACR_PASSWORD=$(az acr credential show \
+    --resource-group web-app-simple-rg \
+    --name webappacr123 \
+    --query "passwords[?name == 'password'].value" \
+    --output tsv)
+    ```
+
+    The command for creating the environment variable is shown for the Bash shell. Change the syntax and continuation character (`\`) as appropriate for other shells.
 
     You can also get the password (`ACR_PASSWORD`) from the [Azure portal][25] by going to the registry, selecting **Access keys**, and copying the password.
 

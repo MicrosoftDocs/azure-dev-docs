@@ -9,7 +9,7 @@ metadata:
   ms.author: rotabor
   ms.date: 02/17/2023
   ms.topic: landing-page
-  ms.service: azure
+  ms.service: azure-go
   ms.collection: collection
   ms.devlang: golang
   ms.custom: devx-track-go

@@ -120,6 +120,6 @@ When you use Java with Azure, you can choose your own tools. You can build test,
 
 :::image type="content" source="media/code-using-tools-you-know.png" alt-text="Diagram with the text 'Code using the Java tools you know and love' and logos for the tools described in this article." border="false" lightbox="media/code-using-tools-you-know.png":::
 
-## Next steps
+## Next step
 
 [Deploy Java applications with confidence and ease](deploy.md)

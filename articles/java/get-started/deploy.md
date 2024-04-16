@@ -103,6 +103,6 @@ In summary, Azure supports your workload with an abundance of choice regardless 
 
 :::image type="content" source="media/deploy-with-confidence.png" alt-text="Diagram with the heading 'Deploy Java applications with confidence and ease' and logos for the deployment options described in this article." border="false" lightbox="media/deploy-with-confidence.png":::
 
-## Next steps
+## Next step
 
 [Scale with end-to-end security, monitoring, and automation](scale.md)
