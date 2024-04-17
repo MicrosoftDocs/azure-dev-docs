@@ -696,20 +696,20 @@ Open a web browser to the external IP address of your service (`52.152.189.57` f
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
+To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, database, and all related resources.
 
 ### [Bash](#tab/in-bash)
 
 ```bash
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
-az group delete --name <db-resource-group> --yes --no-wait
+az group delete --name $DB_RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
 ### [PowerShell](#tab/in-powershell)
 
 ```powershell
 az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
-az group delete --name <db-resource-group> --yes --no-wait
+az group delete --name $Env:DB_RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
 ---
