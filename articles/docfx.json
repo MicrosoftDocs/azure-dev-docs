@@ -139,7 +139,8 @@
         "ai/**/*.md": "azure"
       },
       "ms.subservice": {
-        "ai/**/*.md": "intelligent-apps"
+        "ai/**/*.md": "intelligent-apps",
+        "java/ai/**/*.md": "intelligent-apps"
       },
       "titleSuffix": {
         "ansible/**/*.yml" : "Ansible",
