@@ -1,3 +1,4 @@
+
 ---
 title: Manually Deploy a Java Application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service Cluster
 recommendations: false
@@ -266,7 +267,7 @@ Create a single database in Azure SQL Database by following the Azure CLI or Pow
 
 1. When you reach the [Set parameter values](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli#set-parameter-values) section of the quickstart, write down all variables in the code example labeled `Variable block`, including `location`, `resourceGroup`,`database`, `server`, `login`, and `password`. This article refers to the database `resourceGroup` as `<db-resource-group>`.
 
-1. After you create the database server, in the **Networking** pane, under the **Connectivity** tab, set the **Minimum TLS version** to **TLS 1.0**.
+1. After you create the database server, go to the newly created server in the Azure Portal. In the **Networking** pane, under the **Connectivity** tab, set the **Minimum TLS version** to **TLS 1.0**.
 
    :::image type="content" source="media/howto-deploy-java-liberty-app/sql-database-minimum-tls-version.png" alt-text="Screenshot of configuring SQL database networking TLS 1.0.":::
 
@@ -278,7 +279,25 @@ Create a single database in Azure SQL Database by following the Azure CLI or Pow
 
    :::image type="content" source="media/howto-deploy-java-liberty-app/sql-database-firewall-rules.png" alt-text="Screenshot of firewall rules - allow client access.":::
 
-Now that you've created the database and AKS cluster, you can prepare AKS to host Open Liberty.
+1. Save your networking changes.
+
+1. Create an environment variable in your shell for the resource group name for the database:
+
+### [Bash](#tab/in-bash)
+
+```bash
+export DB_RESOURCE_GROUP_NAME=<db-resource-group>
+```
+
+### [PowerShell](#tab/in-powershell)
+
+```powershell
+$Env:DB_RESOURCE_GROUP_NAME="<db-resource-group>"
+```
+
+---
+
+Now that you've created the database and AKS cluster, you can prepare AKS to host Liberty.
 
 ## Install Open Liberty Operator
 
