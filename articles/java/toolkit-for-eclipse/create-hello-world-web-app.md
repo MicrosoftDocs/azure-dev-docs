@@ -9,7 +9,6 @@ ms.author: asirveda
 ms.assetid: 20d41e88-9eab-462e-8ee3-89da71e7a33f
 ms.reviewer: asirveda
 ms.date: 08/25/2020
-ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: web

@@ -5,10 +5,8 @@ services: active-directory-b2c
 author: KarlErickson
 ms.author: xiada
 ms.date: 01/18/2023
-ms.service: active-directory
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
-ms.subservice: B2C
 ---
 
 # Add sign-in with Azure Active Directory B2C to a Spring web app

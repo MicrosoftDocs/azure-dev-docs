@@ -3,7 +3,6 @@ title: Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kub
 description: Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster.
 author: KarlErickson
 ms.author: jiangma
-ms.service: azure-kubernetes-service
 ms.topic: how-to
 ms.date: 09/21/2022
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes, jcache, redisson

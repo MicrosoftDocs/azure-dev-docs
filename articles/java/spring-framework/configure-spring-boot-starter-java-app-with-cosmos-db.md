@@ -5,7 +5,6 @@ services: cosmos-db
 author: KarlErickson
 ms.author: bbenz
 ms.date: 01/18/2023
-ms.service: cosmos-db
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
