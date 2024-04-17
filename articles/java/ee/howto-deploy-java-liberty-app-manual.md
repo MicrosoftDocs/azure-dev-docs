@@ -40,7 +40,7 @@ This article is intended to help you quickly get to deployment. Before going to 
 * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
 * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 * Ensure that [Git](https://git-scm.com) is installed.
-* Make sure you've been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
+* Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 
 > [!NOTE]
 > You can also run the commands in this article from [Azure Cloud Shell](/azure/cloud-shell/quickstart). This approach has all the prerequisite tools preinstalled, with the exception of Docker.
@@ -49,7 +49,7 @@ This article is intended to help you quickly get to deployment. Before going to 
 
 ## Sign in to Azure
 
-If you haven't done so already, sign in to your Azure subscription by using the [az login](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
+If you didn't do so already, sign in to your Azure subscription by using the [az login](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
 
 ### [Bash](#tab/in-bash)
 
@@ -159,7 +159,7 @@ docker login $Env:LOGIN_SERVER -u $Env:USER_NAME -p $Env:PASSWORD
 
 ---
 
-You should see `Login Succeeded` at the end of command output if you've logged into the ACR instance successfully.
+You should see `Login Succeeded` at the end of command output if you're logged into the ACR instance successfully.
 
 ## Create an AKS cluster
 
@@ -297,7 +297,7 @@ $Env:DB_RESOURCE_GROUP_NAME="<db-resource-group>"
 
 ---
 
-Now that you've created the database and AKS cluster, you can prepare AKS to host Liberty.
+Now that you created the database and AKS cluster, you can prepare AKS to host Liberty.
 
 ## Install Open Liberty Operator
 
@@ -367,7 +367,7 @@ cd open-liberty-on-aks
 git checkout 20230830
 ```
 
-If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
+If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you checked out a tag.
 
 ```
 java-app
@@ -394,7 +394,7 @@ In directory *liberty/config*, the *server.xml* is used to configure the DB conn
 
 ### Build the project
 
-Now that you've gathered the necessary properties, you can build the application. The POM file for the project reads many variables from the environment. As part of the Maven build, these variables are used to populate values in the YAML files located in *src/main/aks*. You can do something similar for your application outside Maven if you prefer.
+Now that you gathered the necessary properties, you can build the application. The POM file for the project reads many variables from the environment. As part of the Maven build, these variables are used to populate values in the YAML files located in *src/main/aks*. You can do something similar for your application outside Maven if you prefer.
 
 #### [Bash](#tab/in-bash)
 
@@ -525,7 +525,7 @@ You can now use the following steps to test the Docker image locally before depl
 
 Next, upload the built image to the ACR you created in the previous steps.
 
-If you haven't already done so, sign in to the container registry by using the following command:
+If you didn't already do so, sign in to the container registry by using the following command:
 
 #### [Bash](#tab/in-bash)
 
@@ -606,7 +606,7 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
    kubectl apply -f openlibertyapplication.yaml
    ```
 
-1. Determine whether the `OpenLibertyApplication` instance has been created by running the following command:
+1. Determine whether the `OpenLibertyApplication` instance is created by running the following command:
 
    ### [Bash](#tab/in-bash)
 
@@ -685,7 +685,7 @@ javaee-cafe-cluster         LoadBalancer   10.0.251.169   52.152.189.57   80:317
 
 After the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the `kubectl` watch process.
 
-If some time has passed between executing the steps in this section and the preceding one, ensure the database is active, if necessary. See the previous note regarding database pause.
+If some time passed between executing the steps in this section and the preceding one, ensure the database is active, if necessary. See the previous note regarding database pause.
 
 Open a web browser to the external IP address of your service (`52.152.189.57` for the above example) to see the application home page. If the page isn't loaded correctly, that's because the app is starting. You can wait for a while and refresh the page later. You should see the pod name of your application replicas displayed at the top-left of the page. Wait for a few minutes and refresh the page to see a different pod name displayed due to load balancing provided by the AKS cluster.
 
