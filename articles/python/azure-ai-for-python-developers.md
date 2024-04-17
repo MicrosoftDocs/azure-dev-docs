@@ -12,4 +12,4 @@ ms.custom: overview, devx-track-python
 
 This article provides documentation, samples and other resources for learning how to develop applications that use Azure OpenAI Service and other Azure AI Services.
 
-[!INCLUDE [azure-ai-for-developers-python](../intro/includes/azure-ai-for-developers-python.md)]
+[!INCLUDE [azure-ai-for-developers-python](../ai/includes/azure-ai-for-developers-python.md)]
