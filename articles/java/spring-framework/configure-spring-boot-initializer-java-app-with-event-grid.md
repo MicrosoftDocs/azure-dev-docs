@@ -5,7 +5,6 @@ author: KarlErickson
 ms.author: v-muyaofeng
 services: event-grid
 ms.date: 09/07/2023
-ms.service: event-grid
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---

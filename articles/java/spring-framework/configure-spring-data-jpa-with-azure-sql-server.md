@@ -4,7 +4,6 @@ description: Learn how to use Spring Data JPA with an Azure SQL Database.
 documentationcenter: java
 ms.date: 04/06/2023
 ms.author: bbenz
-ms.service: sql-database
 ms.tgt_pltfrm: multiple
 author: KarlErickson
 ms.topic: article

@@ -4,7 +4,6 @@ description: This article will walk you through the process of building, configu
 documentationcenter: java
 ms.reviewer: joshuapa
 ms.date: 07/22/2022
-ms.service: cosmos-db
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, spring-cloud-azure, devx-track-extended-java, linux-related-content
 ---

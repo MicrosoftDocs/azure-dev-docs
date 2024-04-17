@@ -5,7 +5,6 @@ services: active-directory
 author: KarlErickson
 ms.author: xiada
 ms.date: 01/17/2023
-ms.service: active-directory
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: identity

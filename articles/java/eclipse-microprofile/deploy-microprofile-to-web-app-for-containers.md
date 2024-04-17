@@ -9,7 +9,6 @@ documentationcenter: java
 author: KarlErickson
 ms.author: jogiles
 ms.date: 06/02/2022
-ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: how-to
 ms.workload: web
