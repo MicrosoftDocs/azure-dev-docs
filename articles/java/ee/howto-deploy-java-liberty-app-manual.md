@@ -1,4 +1,3 @@
-
 ---
 title: Manually Deploy a Java Application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service Cluster
 recommendations: false
@@ -32,12 +31,12 @@ This article is intended to help you quickly get to deployment. Before going to 
 
 ## Prerequisites
 
-* Prepare a local machine with either Windows, macOS, or Linux installed.
+* Prepare a local machine with Windows, macOS, or Linux installed.
 * Install the [Azure CLI](/cli/azure/install-azure-cli). If you're running on Windows or macOS, consider running the Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 * Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.31.0 of the Azure CLI.
 * Install a Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
-* Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
+* Install [Maven](https://maven.apache.org/download.cgi) version 3.5.0 or later.
 * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 * Ensure that [Git](https://git-scm.com) is installed.
 * Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
@@ -281,21 +280,19 @@ Create a single database in Azure SQL Database by following the Azure CLI or Pow
 
 1. Save your networking changes.
 
-1. Create an environment variable in your shell for the resource group name for the database:
+1. Use the following command to create an environment variable for the resource group name for the database:
 
-### [Bash](#tab/in-bash)
+   ### [Bash](#tab/in-bash)
 
-```bash
-export DB_RESOURCE_GROUP_NAME=<db-resource-group>
-```
+   ```bash
+   export DB_RESOURCE_GROUP_NAME=<db-resource-group>
+   ```
 
-### [PowerShell](#tab/in-powershell)
+   ### [PowerShell](#tab/in-powershell)
 
-```powershell
-$Env:DB_RESOURCE_GROUP_NAME="<db-resource-group>"
-```
-
----
+   ```powershell
+   $Env:DB_RESOURCE_GROUP_NAME="<db-resource-group>"
+   ```
 
 Now that you created the database and AKS cluster, you can prepare AKS to host Liberty.
 
