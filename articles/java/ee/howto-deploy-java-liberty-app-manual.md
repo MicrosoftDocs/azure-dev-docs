@@ -351,8 +351,6 @@ kubectl apply --server-side -k overlays/watch-all-namespaces
 
 ---
 
-The output should be a series of lines following the format `<object type> created`. If you see any lines that don't conform to that format, troubleshoot and resolve the reason before continuing.
-
 ## Configure and build the application image
 
 To deploy and run your Liberty application on the AKS cluster, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
