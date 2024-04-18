@@ -1,5 +1,5 @@
 ---
-title: Develop apps that use Azure AI services
+title: Develop intelligent apps using Azure AI services
 description: This article provides an organized list of resources about Azure AI scenarios for developers, including documentation and code samples.
 keywords: ai, azure openai service
 ms.service: azure
@@ -10,7 +10,7 @@ zone_pivot_group_filename: developer/intro/intro-zone-pivot-groups.json
 zone_pivot_groups: intelligent-apps-languages
 ---
 
-# Develop apps that use Azure AI services
+# Develop intelligent apps using Azure AI services
 
 This article provides documentation, samples and other resources for learning how to develop applications that use Azure OpenAI Service and other Azure AI Services.
 

@@ -1,18 +1,18 @@
 ### YamlMime:Landing
 
-title: Intelligent Apps
+title: Develop intelligent apps using Azure AI services
 summary: |
-  Build applications with generative AI capabilities.
+  Build applications with generative AI capabilities on Azure.
 
 metadata:
-  title: Intelligent Apps
+  title: Develop intelligent apps using Azure AI services
   description: Get started developing generative AI capabilities into your applications.
   ms.date: 4/1/2024
   ms.topic: landing-page
   ms.collection: collection
 
 landingContent:
-  - title: Intro to Intelligent Apps
+  - title: Introduction to intelligent apps
     linkLists:
       - linkListType: get-started
         links:

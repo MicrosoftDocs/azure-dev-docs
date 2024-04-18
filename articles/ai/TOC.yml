@@ -1,7 +1,7 @@
-- name: Develop apps that use Azure AI services
+- name: Develop intelligent apps using Azure AI services
   href: index.yml
 
-- name: Overview of intelligent apps
+- name: Overview
   href: overview.md
 
 - name: Get started
