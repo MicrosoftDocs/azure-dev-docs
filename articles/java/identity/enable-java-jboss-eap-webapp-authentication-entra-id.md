@@ -5,7 +5,7 @@ description: Shows you how to develop a Java JBoss EAP app that supports sign-in
 services: active-directory
 ms.date: 03/11/2024
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
 # Enable sign-in for Java JBoss EAP apps using Microsoft Entra ID
