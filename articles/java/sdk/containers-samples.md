@@ -6,7 +6,6 @@ author: KarlErickson
 ms.author: karler
 ms.date: 07/31/2017
 ms.topic: article
-ms.service: azure-kubernetes-service
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 

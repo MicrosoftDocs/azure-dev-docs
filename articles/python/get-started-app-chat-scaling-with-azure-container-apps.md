@@ -10,7 +10,7 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 # Scale Azure OpenAI for Python chat using RAG with Azure Container Apps
 
-[!INCLUDE [aca-load-balancer-intro](../intro/includes/scaling-load-balancer-introduction-azure-container-apps.md)]
+[!INCLUDE [aca-load-balancer-intro](../ai/includes/scaling-load-balancer-introduction-azure-container-apps.md)]
 
 ## Prerequisites
 
@@ -32,15 +32,15 @@ ms.custom: devx-track-python, devx-track-python-ai
     
     ---
 
-[!INCLUDE [scaling-load-balancer-aca-procedure.md](../intro/includes/scaling-load-balancer-procedure-azure-container-apps.md)]
+[!INCLUDE [scaling-load-balancer-aca-procedure.md](../ai/includes/scaling-load-balancer-procedure-azure-container-apps.md)]
 
-[!INCLUDE [py-deployment-procedure](../intro/includes/redeploy-procedure-chat.md)]
+[!INCLUDE [py-deployment-procedure](../ai/includes/redeploy-procedure-chat.md)]
 
-[!INCLUDE [logs](../intro/includes/scaling-load-balancer-logs-azure-container-apps.md)]
+[!INCLUDE [logs](../ai/includes/scaling-load-balancer-logs-azure-container-apps.md)]
 
-[!INCLUDE [capacity.md](../intro/includes/scaling-load-balancer-capacity.md)]
+[!INCLUDE [capacity.md](../ai/includes/scaling-load-balancer-capacity.md)]
 
-[!INCLUDE [py-aca-cleanup](../intro/includes/scaling-load-balancer-cleanup-azure-container-apps.md)]
+[!INCLUDE [py-aca-cleanup](../ai/includes/scaling-load-balancer-cleanup-azure-container-apps.md)]
 
 ## Sample code
 

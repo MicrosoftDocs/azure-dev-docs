@@ -5,7 +5,6 @@ description: Run a basic Hello World web app in a Linux container and deploy it 
 services: app-service\web
 documentationcenter: java
 ms.date: 09/09/2020
-ms.service: azure-java
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java, linux-related-content

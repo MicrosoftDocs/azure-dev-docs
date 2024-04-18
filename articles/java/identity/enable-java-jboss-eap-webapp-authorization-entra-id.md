@@ -4,7 +4,6 @@ titleSuffix: Azure
 description: Shows you how to develop a Java JBoss EAP app to sign in users and call Microsoft Graph with the Microsoft identity platform.
 services: active-directory
 ms.date: 03/11/2024
-ms.service: active-directory
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---

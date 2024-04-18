@@ -5,7 +5,6 @@ services: cosmos-db
 documentationcenter: java
 ms.date: 07/15/2022
 ms.author: bbenz
-ms.service: cosmos-db
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
