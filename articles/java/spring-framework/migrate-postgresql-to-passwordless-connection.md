@@ -1,7 +1,6 @@
 ---
 title: Migrate an application to use passwordless connections with Azure Database for PostgreSQL
 description: Learn how to migrate existing applications using Azure Database for PostgreSQL away from authentication patterns such as passwords to more secure approaches like Managed Identity.
-ms.service: postgresql
 ms.topic: how-to
 author: KarlErickson
 ms.author: v-muyaofeng

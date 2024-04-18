@@ -5,7 +5,6 @@ author: KarlErickson
 ms.author: edburns
 ms.date: 12/20/2022
 ms.topic: how-to
-ms.service: azure-redhat-openshift
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-extended-java, linux-related-content
 ---
 

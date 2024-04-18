@@ -5,7 +5,6 @@ author: KarlErickson
 ms.author: karler
 ms.date: 07/31/2017
 ms.topic: article
-ms.service: identity-platform
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 

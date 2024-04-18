@@ -1367,6 +1367,10 @@
     {
       "source_path": "articles/ansible/configure-in-docker-container.md",
       "redirect_url": "/azure/developer/ansible"
+    },
+    {
+      "source_path": "articles/intro/azure-ai-for-developers.md",
+      "redirect_url": "/azure/developer/ai/azure-ai-for-developers"
     }
   ]
 }
