@@ -15,7 +15,7 @@
     href: intro-01.md
     display: Gen AI Considerations
 
-- name: Guidance for Python developers
+- name: Python
   items:
   - name: Get started with the Python enterprise chat sample
     href: ../python/get-started-app-chat-template.md
@@ -30,7 +30,7 @@
   - name: Resources for building intelligent apps in Python
     href: ../python/azure-ai-for-python-developers.md
 
-- name: Guidance for JavaScript developers
+- name: JavaScript
   items:
     - name: Develop with Azure AI Services
       href: ../javascript/azure-ai-for-javascript-developers.md    
@@ -47,26 +47,26 @@
     - name: Resources for building intelligent apps in JavaScript
       href: ../javascript/azure-ai-for-javascript-developers.md
 
-- name: Guidance for Java developers
+- name: Java
   items:
     - name: Get started with the Java enterprise chat sample
-      href: ../java/get-started-app-chat-template.md
+      href: ../java/ai/get-started-app-chat-template.md
     - name: Scale Azure OpenAI with Azure Container Apps
-      href: ../java/get-started-app-chat-scaling-with-azure-container-apps.md
+      href: ../java/ai/get-started-app-chat-scaling-with-azure-container-apps.md
     - name: Chat using your own data
       href: /azure/ai-services/openai/use-your-data-quickstart?pivots=programming-language-spring&toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
     - name: GPT-35-Turbo and GPT-4
       href: /azure/ai-services/openai/chatgpt-quickstart?tabs=bash&pivots=programming-language-java&toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
     - name: GPT-35-Turbo and GPT-4 with IntelliJ
-      href: ../toolkit-for-intellij/chatgpt-intellij.md?toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      href: ../java/toolkit-for-intellij/chatgpt-intellij.md?toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
     - name: Generate text
       href: /azure/ai-services/openai/quickstart?tabs=bash&pivots=programming-language-java&toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
     - name: Generate images
       href: /azure/ai-services/openai/dall-e-quickstart?tabs=bash&pivots=programming-language-java&toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
     - name: Resources for building intelligent apps in Java
-      href: ../java/azure-ai-for-java-developers.md
+      href: ../java/ai/azure-ai-for-java-developers.md
 
-- name: Guidance for .NET developers
+- name: .NET
   items:
     - name: Get started with the .NET enterprise chat sample
       href: /dotnet/ai/get-started-app-chat-template
