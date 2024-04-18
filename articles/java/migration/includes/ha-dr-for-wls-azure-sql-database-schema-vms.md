@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: haiche
-ms.date: 3/1/2024
+ms.date: 04/29/2024
 ---
 
 Enter the following query to create schema for TLOG.

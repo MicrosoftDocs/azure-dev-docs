@@ -1,12 +1,11 @@
 ---
 author: KarlErickson
 ms.author: haiche
-ms.date: 3/13/2024
+ms.date: 4/22/2024
 ---
 
-   * Open the resource group that has AKS deployed. Select the AKS cluster from resources list. 
+3. Open the resource group that has AKS deployed. Select the AKS cluster from the resources list.
 
-   * In the AKS landing page, select **Settings** -> **Back up** -> **Install Extension**.
+1. On the AKS landing page, select **Settings** > **Back up** > **Install Extension**.
 
-   * In the **Install AKS Backup extension** page, select **Next**. Select the storage account and Blob container created in preceding steps. select **Next** and **Create**. It takes about five minutes to complete this step.
-
+1. On the **Install AKS Backup extension** page, select **Next**. Select the storage account and Blob container created in preceding steps. Select **Next** and then **Create**. It takes about five minutes to complete this step.

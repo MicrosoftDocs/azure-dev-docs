@@ -1,12 +1,12 @@
 ---
 author: KarlErickson
 ms.author: haiche
-ms.date: 3/1/2024
+ms.date: 04/29/2024
 ---
 
-In this section, you create an Azure SQL Database failover group in paired regions for use with your WLS clusters and app. In a later section, you configure WLS to store its session data and transaction log (TLOG) data to this database. This practice is consistent with Oracle's Maximum Availability Architecture (MAA). This guidance provides an Azura adaptation for MAA. For more details on MAA see [Oracle Maximum Availability Architecture](https://www.oracle.com/database/technologies/maximum-availability-architecture/).
+In this section, you create an Azure SQL Database failover group in paired regions for use with your WLS clusters and app. In a later section, you configure WLS to store its session data and transaction log (TLOG) data to this database. This practice is consistent with Oracle's Maximum Availability Architecture (MAA). This guidance provides an Azure adaptation for MAA. For more information on MAA, see [Oracle Maximum Availability Architecture](https://www.oracle.com/database/technologies/maximum-availability-architecture/).
 
-First, create the primary Azure SQL Database by following the Azure portal steps in [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal). Follow the steps up to, but not including **Clean up resources**. Use the following directions as you go through the article, then return to this article after you create and configure the Azure SQL Database:
+First, create the primary Azure SQL Database by following the Azure portal steps in [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal). Follow the steps up to, but not including, the "Clean up resources" section. Use the following directions as you go through the article, then return to this article after you create and configure the Azure SQL Database:
 
 1. When you reach the section [Create a single database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal#create-a-single-database), use the following steps:
    1. In step 4 for creating new resource group, write down the **Resource group name** value - for example, *myResourceGroup*.

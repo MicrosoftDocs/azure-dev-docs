@@ -1,12 +1,12 @@
 ---
 author: KarlErickson
 ms.author: haiche
-ms.date: 3/1/2024
+ms.date: 04/29/2024
 ---
 
-Finally, use the following steps to verify the sample app after the endpoint *myFailoverEndpoint* is *Online*.
+Finally, use the following steps to verify the sample app after the endpoint `myFailoverEndpoint` is in the **Online** state:
 
-1. Switch to the browser tab of your Traffic Manager, then refresh the page until you see that the **Monitor status** value of the endpoint `myFailoverEndpoint` becomes *Online*.
+1. Switch to the browser tab of your Traffic Manager, then refresh the page until you see that the **Monitor status** value of the endpoint `myFailoverEndpoint` enters the **Online** state.
 1. Switch to the browser tab of the sample app and refresh the page. You should see the same data persisted in the application data table and the session table displayed in the UI, as shown in the following screenshot:
 
    :::image type="content" source="../media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png" alt-text="Screenshot of the sample application UI after failover." lightbox="../media/migrate-weblogic-to-vms-with-ha-dr/sample-app-ui.png":::

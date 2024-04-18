@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: haiche
-ms.date: 3/1/2024
+ms.date: 04/29/2024
 ---
 
 In this section, you create an Azure Traffic Manager for distributing traffic to your public facing applications across the global Azure regions. The primary endpoint points to the Azure Application Gateway in the primary WLS cluster, and the secondary endpoint points to the Azure Application Gateway in the secondary WLS cluster.
