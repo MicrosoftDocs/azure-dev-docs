@@ -16,7 +16,7 @@ items:
     - name: Python
       items:
       - name: Get started with the Python enterprise chat sample
-        href: ../python/get-started-app-chat-template.md&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+        href: ../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
       - name: Evaluate your chat app
         href: ../python/get-started-app-chat-evaluations.md
       - name: Scale Azure OpenAI with Azure Container Apps

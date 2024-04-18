@@ -1,6 +1,6 @@
 items:
 - name: Azure
-  tocHref: /azure/index
+  tocHref: /azure
   topicHref: /azure/index
   items:
   - name: Developer
