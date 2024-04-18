@@ -6,7 +6,6 @@ author: KarlErickson
 ms.author: karler
 ms.date: 04/16/2017
 ms.topic: article
-ms.service: virtual-machines
 ms.assetid: 1eeb166f-8253-4fde-82d2-43997fda7819
 ms.custom: devx-track-java, devx-track-extended-java
 ---

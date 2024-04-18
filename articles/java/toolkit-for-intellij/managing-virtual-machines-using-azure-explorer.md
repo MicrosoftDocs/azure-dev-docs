@@ -4,7 +4,6 @@ description: Learn how to manage your Azure virtual machines by using the Azure 
 ms.date: 03/14/2022
 author: KarlErickson
 ms.author: jialuogan
-ms.service: azure-java
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---

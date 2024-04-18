@@ -4,7 +4,6 @@ description: This tutorial walks you though the steps to deploy a Spring Boot ap
 services: azure app service
 documentationcenter: java
 ms.date: 08/25/2021
-ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: web

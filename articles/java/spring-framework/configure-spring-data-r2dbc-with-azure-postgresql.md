@@ -4,7 +4,6 @@ description: Learn how to use Spring Data R2DBC with an Azure Database for Postg
 documentationcenter: java
 ms.author: bbenz
 ms.date: 07/22/2022
-ms.service: postgresql
 ms.tgt_pltfrm: multiple
 author: KarlErickson
 ms.topic: article

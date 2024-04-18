@@ -9,7 +9,7 @@ ms.custom: devx-track-python, devx-track-python-ai
 ---
 # Get started with evaluating answers in a chat app
 
-[!INCLUDE [evaluations-intro](../intro/includes/evaluations-introduction.md)]
+[!INCLUDE [evaluations-intro](../ai/includes/evaluations-introduction.md)]
 
 ## Prerequisites
 
@@ -45,4 +45,4 @@ ms.custom: devx-track-python, devx-track-python-ai
     
     ---
 
-[!INCLUDE [evaluations-procedure](../intro/includes/evaluations-procedure.md)]
+[!INCLUDE [evaluations-procedure](../ai/includes/evaluations-procedure.md)]

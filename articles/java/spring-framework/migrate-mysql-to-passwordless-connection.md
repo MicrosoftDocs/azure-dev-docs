@@ -1,7 +1,6 @@
 ---
 title: Migrate an application to use passwordless connections with Azure Database for MySQL
 description: Learn how to migrate existing applications using Azure Database for MySQL away from authentication patterns such as passwords to more secure approaches like Managed Identity.
-ms.service: mysql
 ms.topic: how-to
 author: KarlErickson
 ms.author: xiada

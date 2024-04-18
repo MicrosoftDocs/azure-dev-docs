@@ -5,7 +5,6 @@ services: storage
 author: KarlErickson
 ms.author: xiada
 ms.date: 04/06/2023
-ms.service: azure-storage
 ms.topic: article
 ms.workload: storage
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java

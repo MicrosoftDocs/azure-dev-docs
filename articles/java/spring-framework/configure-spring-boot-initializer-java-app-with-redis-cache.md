@@ -5,7 +5,6 @@ services: redis-cache
 author: KarlErickson
 ms.author: xiada
 ms.date: 10/13/2020
-ms.service: cache
 ms.tgt_pltfrm: cache-redis
 ms.topic: conceptual
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java

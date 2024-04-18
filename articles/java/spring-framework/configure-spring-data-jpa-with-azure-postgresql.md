@@ -4,7 +4,6 @@ description: Learn how to use Spring Data JPA with an Azure Database for Postgre
 documentationcenter: java
 ms.date: 02/22/2023
 ms.author: bbenz
-ms.service: postgresql
 ms.tgt_pltfrm: multiple
 author: KarlErickson
 ms.topic: article

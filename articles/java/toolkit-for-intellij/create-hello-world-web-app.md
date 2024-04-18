@@ -9,7 +9,6 @@ ms.author: jialuogan
 ms.assetid: 75ce7b36-e3ae-491d-8305-4b42ce37db4e
 ms.reviewer: jialuogan
 ms.date: 09/09/2020
-ms.service: app-service
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: web

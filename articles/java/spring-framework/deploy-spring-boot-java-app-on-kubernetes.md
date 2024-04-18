@@ -5,7 +5,6 @@ description: This tutorial will walk you though the steps to deploy a Spring Boo
 services: container-service
 documentationcenter: java
 ms.date: 01/19/2022
-ms.service: azure-java
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.custom: mvc, devx-track-java, devx-track-azurecli, spring-cloud-azure, devx-track-extended-java
@@ -14,7 +13,7 @@ ms.custom: mvc, devx-track-java, devx-track-azurecli, spring-cloud-azure, devx-t
 # Deploy Spring Boot Application to the Azure Kubernetes Service
 
 > [!NOTE]
-> For Spring Boot applications, we recommend using Azure Spring Apps. However, you can still choose to use Azure Kubernetes Service as a destination. 
+> For Spring Boot applications, we recommend using Azure Spring Apps. However, you can still choose to use Azure Kubernetes Service as a destination. For more information, see [Choose the right Azure services for your Java applications](../get-started/choose.md).
 
 This tutorial walks you through combining Kubernetes and Docker to develop and deploy a Spring Boot application to Microsoft Azure. More specifically, you use [Spring Boot] for application development, [Kubernetes] for container deployment, and the [Azure Kubernetes Service (AKS)] to host your application.
 

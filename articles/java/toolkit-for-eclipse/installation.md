@@ -4,7 +4,6 @@ description: Learn how to install the Azure Toolkit for Eclipse plug-in to creat
 documentationcenter: java
 ms.assetid: 9e93ff6a-f42b-4d99-b55b-624136b4a730
 ms.date: 11/19/2021
-ms.service: azure-java
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
