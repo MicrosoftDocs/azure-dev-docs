@@ -3,15 +3,17 @@ items:
   href: index.yml
   items:
     - name: Overview
-      href: overview.md
+      href: overview.md?bc=/azure/developer/ai/breadcrumb/toc.json
     - name: Get started
       items:
         - name: Resources for building intelligent apps
-          href: azure-ai-for-developers.md
+          href: azure-ai-for-developers.md?bc=/azure/developer/ai/breadcrumb/toc.json
     - name: Concepts
       items: 
       - name: Introduction to generative AI for developers
-        href: intro-01.md
+        href: intro-01.md?bc=/azure/developer/ai/breadcrumb/toc.json
+      - name: Develop apps that use generative AI
+        href: intro-02.md?bc=/azure/developer/ai/breadcrumb/toc.json
         display: Gen AI Considerations
     - name: Python
       items:
