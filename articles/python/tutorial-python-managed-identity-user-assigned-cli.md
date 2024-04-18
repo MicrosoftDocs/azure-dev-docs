@@ -5,7 +5,7 @@ ms.devlang: python
 ms.topic: tutorial
 author: bobtabor-msft
 ms.author: rotabor
-ms.date: 05/30/2023
+ms.date: 04/18/2024
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
@@ -13,9 +13,9 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 In this tutorial, you deploy a **[Django](https://www.djangoproject.com/)** web app to Azure App Service. The web app uses a user-assigned **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) with Azure role-based access control to access [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) resources. The code uses the [DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential) class of the [Azure Identity client library](/python/api/overview/azure/identity-readme) for Python. The `DefaultAzureCredential` class automatically detects that a managed identity exists for the App Service and uses it to access other Azure resources.
 
-In this tutorial, you create a user-assigned managed identity and assign it to the App Service so that it can access the database and storage account resources. For an example of using a system-assigned managed identity, see [Create and deploy a Flask Python web app to Azure with system-assigned managed identity](./tutorial-python-managed-identity-cli.md). User-assigned identities are recommended because they can be used by multiple resources, and their life cycles are decoupled from the resource life cycles with which they're associated. For more information about best practices of using managed identities, see [Managed identity best practice recommendations](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
+In this tutorial, you create a user-assigned managed identity and assign it to the App Service so that it can access the database and storage account resources. For an example of using a system-assigned managed identity, see [Create and deploy a Flask Python web app to Azure with system-assigned managed identity](./tutorial-python-managed-identity-cli.md). User-assigned managed identities are recommended because they can be used by multiple resources, and their life cycles are decoupled from the resource life cycles with which they're associated. For more information about best practicesjfor using managed identities, see [Managed identity best practice recommendations](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
-This tutorial shows you how to deploy the Python web app and create Azure resources using the [Azure CLI](/cli/azure/what-is-azure-cli). You can run the tutorial commands in any environment with the CLI installed, such as your local environment, the [Azure Cloud Shell](https://shell.azure.com), or [GitHub Codespaces](https://github.com/features/codespaces). 
+This tutorial shows you how to deploy the Python web app and create Azure resources using the [Azure CLI](/cli/azure/what-is-azure-cli). The commands in this tutorial are written to be run in a Bash shell. You can run the tutorial commands in any Bash environment with the CLI installed, such as your local environment or the [Azure Cloud Shell](https://shell.azure.com). With some modification -- for example, setting and using environment variables -- you can run these commands in other environments like Windows command shell.
 
 ## Get the sample app
 
@@ -23,21 +23,21 @@ Use the sample Django sample application to follow along with this tutorial. Dow
 
 1. Clone the sample.
 
-    ```azurecli
+    ```console
     git clone https://github.com/Azure-Samples/msdocs-django-web-app-managed-identity.git
     ```
 
 2. Navigate to the application folder.
 
-    ```azurecli
+    ```console
     cd msdocs-django-web-app-managed-identity
     ```
 
 ## Create an Azure PostgreSQL flexible server
 
-1. Set up the environment variables needed for the tutorial and create a resource group with the [az group create](/cli/azure/group#az-group-create) command.
+1. Set up the environment variables needed for the tutorial.
 
-      ```azurecli
+      ```bash
       LOCATION="eastus"
       RAND_ID=$RANDOM
       RESOURCE_GROUP_NAME="msdocs-mi-web-app"
@@ -45,12 +45,16 @@ Use the sample Django sample application to follow along with this tutorial. Dow
       DB_SERVER_NAME="msdocs-mi-postgres-$RAND_ID"
       ADMIN_USER="demoadmin"
       ADMIN_PW="ChAnG33#ThsPssWD$RAND_ID"
-      
-      az group create --location $LOCATION --name $RESOURCE_GROUP_NAME
       ```
 
     > [!IMPORTANT]
     >The `ADMIN_PW` must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and nonalphanumeric characters. When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
+
+1. Create a resource group with the [az group create](/cli/azure/group#az-group-create) command.
+
+      ```azurecli
+      az group create --location $LOCATION --name $RESOURCE_GROUP_NAME
+      ```
 
 1. Create a PostgreSQL flexible server with the [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create) command. (This and subsequent commands use the line continuation character for Bash Shell ('\\'). Change the line continuation character for other shells.)
 
@@ -68,7 +72,7 @@ Use the sample Django sample application to follow along with this tutorial. Dow
 
     The *sku-name* is the name of the pricing tier and compute configuration. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/). To list available SKUs, use `az postgres flexible-server list-skus --location $LOCATION`.
 
-1. Add your Azure account as a Microsoft Entra admin for the server with the [az postgres flexible-server ad-admin create]() command.
+1. Add your Azure account as a Microsoft Entra admin for the server with the [az postgres flexible-server ad-admin create](/cli/azure/postgres/flexible-server/ad-admin#az-postgres-flexible-server-ad-admin-create) command.
 
     ```azurecli
     ACCOUNT_EMAIL=$(az ad signed-in-user show --query userPrincipalName --output tsv)
