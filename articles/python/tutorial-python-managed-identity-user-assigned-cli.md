@@ -45,6 +45,7 @@ Use the sample Django sample application to follow along with this tutorial. Dow
       DB_SERVER_NAME="msdocs-mi-postgres-$RAND_ID"
       ADMIN_USER="demoadmin"
       ADMIN_PW="ChAnG33#ThsPssWD$RAND_ID"
+      UA_NAME="UAManagedIdentityPythonTest$RAND_ID"
       ```
 
     > [!IMPORTANT]
@@ -167,18 +168,18 @@ The sample app stores images in as blobs in Azure Storage. The storage account i
 
 Create a user-assigned managed identity and assign it to the App Service. The managed identity is used to access the database and storage account.
 
-1. Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity named "UAManagedIdentityPythonTest" and output the client ID to a variable for later use.
+1. Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity and output the client ID to a variable for later use.
 
     ```azurecli
-    UAClientID=$(az identity create --name UAManagedIdentityPythonTest --resource-group $RESOURCE_GROUP_NAME --query clientId --output tsv)
-    echo $UAClientID
+    UA_CLIENT_ID=$(az identity create --name $UA_NAME --resource-group $RESOURCE_GROUP_NAME --query clientId --output tsv)
+    echo $UA_CLIENT_ID
     ```
 
 1. Use the [az account show](/cli/azure/account#az-account-show) command to get your subscription ID and output it to a variable that can be used to construct the resource ID of the managed identity.
 
     ```azurecli
     SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-    RESOURCE_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ManagedIdentity/userAssignedIdentities/UAManagedIdentityPythonTest"
+    RESOURCE_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$UA_NAME"
     echo $RESOURCE_ID
     ```
 
@@ -198,12 +199,12 @@ Create a user-assigned managed identity and assign it to the App Service. The ma
     az webapp config appsettings set \
       --resource-group $RESOURCE_GROUP_NAME \
       --name $APP_SERVICE_NAME \
-      --settings AZURE_CLIENT_ID=$UAClientID \
+      --settings AZURE_CLIENT_ID=$UA_CLIENT_ID \
         STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME \
         STORAGE_CONTAINER_NAME=photos \
         DBHOST=$DB_SERVER_NAME \
         DBNAME=restaurant \
-        DBUSER=UAManagedIdentityPythonTest
+        DBUSER=$UA_NAME
     ```
 
 The sample app uses environment variables (app settings) to define connection information for the database and storage account but these variables don't include passwords. Instead, authentication is done passwordless with `DefaultAzureCredential`.
@@ -221,7 +222,7 @@ In this section, you create role assignments for the managed identity to enable 
     ```azurecli
     export MSYS_NO_PATHCONV=1
     az role assignment create \
-    --assignee $UAClientID \
+    --assignee $UA_CLIENT_ID \
     --role "Storage Blob Data Contributor" \
     --scope "/subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP_NAME"
     ```
@@ -237,7 +238,7 @@ In this section, you create role assignments for the managed identity to enable 
       --admin-user $ACCOUNT_EMAIL \
       --admin-password $ACCOUNT_EMAIL_TOKEN \
       --database-name postgres \
-      --querytext "select * from pgaadauth_create_principal('UAManagedIdentityPythonTest', false, false);select * from pgaadauth_list_principals(false);"
+      --querytext "select * from pgaadauth_create_principal('"$UA_NAME"', false, false);select * from pgaadauth_list_principals(false);"
     ```
 
     If you have trouble running the command, make sure you added your user account as Microsoft Entra admin for the PosgreSQL server and that you have allowed access to your IP address in the firewall rules. For more information see section [Create an Azure PostgreSQL flexible server](#create-an-azure-postgresql-flexible-server).
