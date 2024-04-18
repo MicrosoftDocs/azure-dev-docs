@@ -44,8 +44,6 @@ In this tutorial, you learn how to:
    * Under **Group**, **Artifact** and **Name** enter the same value, using a short descriptive string. The UI may automatically fill in some of these fields as you type.
    * In the **Dependencies** pane, select **Add Dependencies**. Use the UI to add dependencies on **Spring Web** and **Spring Security**.
 
-   :::image type="content" source="media/spring-initializer/2.7.1/mvn-java8-azure-web-security.png" alt-text="Screenshot of Spring Initializr with basic options.":::
-
    > [!NOTE]
    > Spring Security 5.5.1, 5.4.7, 5.3.10 and 5.2.11 have been released to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using the older version, please upgrade it.
 
