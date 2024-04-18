@@ -7,6 +7,6 @@ items:
     tocHref: /azure/developer
     topicHref: /azure/developer/index
     items:
-    - name: AI
+    - name: AI and intelligent apps
       tocHref: /azure
       topicHref: /azure/developer/ai/index
