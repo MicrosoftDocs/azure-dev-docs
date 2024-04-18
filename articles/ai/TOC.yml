@@ -1,22 +1,90 @@
-- name: Intelligent Apps
+- name: Develop apps that use Azure AI services
   href: index.yml
 
-- name: Overview
+- name: Overview of intelligent apps
   href: overview.md
+
+- name: Get started
+  items:
+  - name: Resources for building intelligent apps
+    href: azure-ai-for-developers.md
+
 - name: Concepts
   items: 
-  - name: Intro to generative AI for developers
+  - name: Introduction to generative AI for developers
     href: intro-01.md
     display: Gen AI Considerations
 
-- name: Quickstarts
+- name: Guidance for Python developers
   items:
+  - name: Get started with the Python enterprise chat sample
+    href: ../python/get-started-app-chat-template.md
+  - name: Evaluate your chat app
+    href: ../python/get-started-app-chat-evaluations.md
+  - name: Scale Azure OpenAI with Azure Container Apps
+    href: ../python/get-started-app-chat-scaling-with-azure-container-apps.md
+  - name: Scale Azure OpenAI with Azure API Management
+    href: ../python/get-started-app-chat-scaling-with-azure-api-management.md
+  - name: Load test with Locust
+    href: ../python/get-started-app-chat-app-load-test-locust.md
+  - name: Resources for building intelligent apps in Python
+    href: ../python/azure-ai-for-python-developers.md
 
-- name: Tutorials
+- name: Guidance for JavaScript developers
   items:
+    - name: Develop with Azure AI Services
+      href: ../javascript/azure-ai-for-javascript-developers.md    
+    - name: Get started with the JavaScript enterprise chat sample
+      href: ../javascript/get-started-app-chat-template.md
+    - name: JavaScript frontend + Python backend
+      href: ../javascript/chat-app-with-separate-front-back-end.md
+    - name: Evaluate your chat app
+      href: ../javascript/get-started-app-chat-evaluations.md
+    - name: Scale Azure OpenAI with Azure Container Apps
+      href: ../javascript/get-started-app-chat-scaling-with-azure-container-apps.md
+    - name: Scale Azure OpenAI with Azure API Management
+      href: ../javascript/get-started-app-chat-scaling-with-azure-api-management.md
+    - name: Resources for building intelligent apps in JavaScript
+      href: ../javascript/azure-ai-for-javascript-developers.md
 
-- name: How-to Guides
-  items: 
-
-- name: Samples
+- name: Guidance for Java developers
   items:
+    - name: Get started with the Java enterprise chat sample
+      href: ../java/get-started-app-chat-template.md
+    - name: Scale Azure OpenAI with Azure Container Apps
+      href: ../java/get-started-app-chat-scaling-with-azure-container-apps.md
+    - name: Chat using your own data
+      href: /azure/ai-services/openai/use-your-data-quickstart?pivots=programming-language-spring&toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+    - name: GPT-35-Turbo and GPT-4
+      href: /azure/ai-services/openai/chatgpt-quickstart?tabs=bash&pivots=programming-language-java&toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+    - name: GPT-35-Turbo and GPT-4 with IntelliJ
+      href: ../toolkit-for-intellij/chatgpt-intellij.md?toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+    - name: Generate text
+      href: /azure/ai-services/openai/quickstart?tabs=bash&pivots=programming-language-java&toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+    - name: Generate images
+      href: /azure/ai-services/openai/dall-e-quickstart?tabs=bash&pivots=programming-language-java&toc=/azure/developer/java/ai/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+    - name: Resources for building intelligent apps in Java
+      href: ../java/azure-ai-for-java-developers.md
+
+- name: Guidance for .NET developers
+  items:
+    - name: Get started with the .NET enterprise chat sample
+      href: /dotnet/ai/get-started-app-chat-template
+    - name: Scale Azure OpenAI with Azure Container Apps
+      href: /dotnet/ai/get-started-app-chat-scaling-with-azure-container-apps
+    - name: Overview of the .NET + AI ecosystem
+      href: /dotnet/ai/dotnet-ai-ecosystem
+    - name: Quickstarts
+      items:
+      - name: Summarize text
+        href: /dotnet/ai/quickstarts/quickstart-openai-summarize-text
+      - name: Build a chat app
+        href: /dotnet/ai/quickstarts/get-started-azure-openai
+      - name: Create an app to chat about your data
+        href: /dotnet/ai/quickstarts/quickstart-ai-chat-with-data
+      - name: Execute a local .NET function
+        href: /dotnet/ai/quickstarts/quickstart-azure-openai-tool
+      - name: Generate images
+        href: /dotnet/ai/quickstarts/quickstart-openai-generate-images
+    - name: Resources for building intelligent apps using .NET
+      href: /dotnet/ai/azure-ai-for-dotnet-developers
