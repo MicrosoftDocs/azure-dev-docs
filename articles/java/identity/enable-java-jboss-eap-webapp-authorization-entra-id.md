@@ -5,7 +5,7 @@ description: Shows you how to develop a Java JBoss EAP app to sign in users and 
 services: active-directory
 ms.date: 03/11/2024
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
 # Enable Java JBoss EAP apps to sign in users and access Microsoft Graph

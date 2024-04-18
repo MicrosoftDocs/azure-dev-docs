@@ -5,7 +5,7 @@ description: Shows you how to develop a Java Spring Boot web app to sign in user
 services: active-directory
 ms.date: 03/11/2024
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
 # Enable Java Spring Boot apps to sign in users and access Microsoft Graph

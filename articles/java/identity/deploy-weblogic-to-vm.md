@@ -4,7 +4,7 @@ description: Shows you how to deploy a Java WebLogic web app with sign-in by Mic
 services: active-directory
 ms.date: 03/11/2024
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
 # Deploy Java WebLogic apps to WebLogic on Azure Virtual Machines
