@@ -127,7 +127,7 @@ Run these commands in the root folder of the sample app to create an App Service
       --sku B1
     ```
 
-    The *sku* defines the size (CPU, memory) and cost of the App Service plan.  The B1 (Basic) service plan incurs a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
+    The *sku* defines the size (CPU, memory) and cost of the App Service plan. The B1 (Basic) service plan incurs a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
 
 1. Configure App Service to use the *start.sh* in the sample repo with the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
 
@@ -144,9 +144,9 @@ The sample app stores photos submitted by reviewers as blobs in Azure Storage.
 
 * When a user submits a photo with their review, the sample app writes the image to the container using managed identity and `DefaultAzureCredential` to access the storage account.
 
-* When a user views the reviews for a restaurant, the app returns a link to the photo in blob storage for each review that has one associated with it. For the browser to display the photo, it must be able to access it in your storage account. The blob data must be available for read publicly through anonymous (unautnenticated) access.
+* When a user views the reviews for a restaurant, the app returns a link to the photo in blob storage for each review that has one associated with it. For the browser to display the photo, it must be able to access it in your storage account. The blob data must be available for read publicly through anonymous (unauthenticated) access.
 
-In this section, you create a storage account and container that permits public read access to blobs in the container. In later sections, you'll create a user-assigned managed identity and configure it to write blobs to the storage account.
+In this section, you create a storage account and container that permits public read access to blobs in the container. In later sections, you create a user-assigned managed identity and configure it to write blobs to the storage account.
 
 1. Use the [az storage create](/cli/azure/storage#az-storage-create) command to create a storage account.
 
@@ -224,7 +224,7 @@ Create a user-assigned managed identity and assign it to the App Service. The ma
 
 The sample app uses environment variables (app settings) to define connection information for the database and storage account but these variables don't include passwords. Instead, authentication is done passwordless with `DefaultAzureCredential`.
 
-The repo code shown uses the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class constructor without passing the user-assigned managed identity client ID to the constructor. In this scenario, the fallback is to check for the AZURE_CLIENT_ID environment variable, which you set as an app setting.
+The sample app code uses the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class constructor without passing the user-assigned managed identity client ID to the constructor. In this scenario, the fallback is to check for the AZURE_CLIENT_ID environment variable, which you set as an app setting.
 
 If the AZURE_CLIENT_ID environment variable doesn't exist, the system-assigned managed identity will be used if it's configured. For more information, see [Introducing DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential).
 
@@ -256,11 +256,11 @@ In this section, you create role assignments for the managed identity to enable 
       --querytext "select * from pgaadauth_create_principal('"$UA_NAME"', false, false);select * from pgaadauth_list_principals(false);"
     ```
 
-    If you have trouble running the command, make sure you added your user account as Microsoft Entra admin for the PosgreSQL server and that you have allowed access to your IP address in the firewall rules. For more information see section [Create an Azure PostgreSQL flexible server](#create-an-azure-postgresql-flexible-server).
+    If you have trouble running the command, make sure you added your user account as Microsoft Entra admin for the PosgreSQL server and that you have allowed access to your IP address in the firewall rules. For more information, see section [Create an Azure PostgreSQL flexible server](#create-an-azure-postgresql-flexible-server).
 
 ## Test the Python web app in Azure
 
-The sample Python app uses the [azure.identity](https://pypi.org/project/azure-identity/) package and its `DefaultAzureCredential` class. When an app is running in Azure, `DefaultAzureCredential` automatically detects if a managed identity exists for the App Service and, if so, uses it to access other Azure resources (storage and PostgreSQL in this case). There's no need to provide storage keys, certificates, or credentials to the App Service to access these resources.
+The sample Python app uses the [azure.identity](https://pypi.org/project/azure-identity/) package and its `DefaultAzureCredential` class. When the app is running in Azure, `DefaultAzureCredential` automatically detects if a managed identity exists for the App Service and, if so, uses it to access other Azure resources (storage and PostgreSQL in this case). There's no need to provide storage keys, certificates, or credentials to the App Service to access these resources.
 
 1. Browse to the deployed application at the URL `http://$APP_SERVICE_NAME.azurewebsites.net`.
 
