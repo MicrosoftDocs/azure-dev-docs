@@ -52,7 +52,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Resources for building intelligent apps in Java
-            url: ../java/azure-ai-for-java-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+            url: ../java/ai/azure-ai-for-java-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Get started with the Java enterprise chat sample using RAG
             url: ../java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Scale the chat sample with Azure Container Apps
@@ -75,7 +75,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Resources for building intelligent apps in .NET
-            url: /dotnet/ai/azure-ai-for-dotnet-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+            url: /dotnet/ai/azure-ai-for-dotnet-developers?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Get started with the .NET enterprise chat sample using RAG
             url: /dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Scale the chat sample with Azure Container Apps
