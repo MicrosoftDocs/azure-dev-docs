@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
 
 landingContent:
-  - title: Introduction to intelligent apps
+  - title: Generative AI fundamentals
     linkLists:
       - linkListType: get-started
         links:
@@ -21,40 +21,38 @@ landingContent:
           - text: Develop apps that use generative AI
             url: intro-02.md
 
-  - title: Python guides
+  - title: Python
     linkLists:
       - linkListType: get-started
         links:
+          - text: Resources for building intelligent apps in Python
+            url: ../python/azure-ai-for-python-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Get started with the Python enterprise chat sample using RAG
             url: ../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Evaluate answers in the chat sample
             url: ../python/get-started-app-chat-evaluations.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Scale the chat sample with Azure Container Apps
             url: ../python/get-started-app-chat-scaling-with-azure-container-apps.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-      - linkListType: reference
-        links:
-          - text: Resources for building intelligent apps in Python
-            url: ../python/azure-ai-for-python-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
 
-  - title: JavaScript guides
+  - title: JavaScript
     linkLists:
       - linkListType: get-started
         links:
+          - text: Resources for building intelligent apps in JavaScript
+            url: ../javascript/azure-ai-for-javascript-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Get started with the JavaScript enterprise chat sample using RAG
             url: ../javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Get started with evaluating answers in the chat sample
             url: ../javascript/get-started-app-chat-evaluations.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Scale the chat sample with Azure Container Apps
             url: ../javascript/get-started-app-chat-scaling-with-azure-container-apps.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-      - linkListType: reference
-        links:
-          - text: Resources for building intelligent apps in JavaScript
-            url: ../javascript/azure-ai-for-javascript-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
 
-  - title: Java guides
+  - title: Java
     linkLists:
       - linkListType: get-started
         links:
+          - text: Resources for building intelligent apps in Java
+            url: ../java/azure-ai-for-java-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Get started with the Java enterprise chat sample using RAG
             url: ../java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Scale the chat sample with Azure Container Apps
@@ -67,12 +65,8 @@ landingContent:
             url: /azure/ai-services/openai/chatgpt-quickstart?tabs=bash&pivots=programming-language-java&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service in IntelliJ
             url: ../java/toolkit-for-intellij/chatgpt-intellij.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-      - linkListType: reference
-        links:
-          - text: Resources for building intelligent apps in Java
-            url: ../java/azure-ai-for-java-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
 
-  - title: .NET guides
+  - title: .NET
     linkLists:
       - linkListType: overview
         links:
@@ -80,6 +74,8 @@ landingContent:
             url: /dotnet/ai/dotnet-ai-ecosystem?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
       - linkListType: get-started
         links:
+          - text: Resources for building intelligent apps in .NET
+            url: /dotnet/ai/azure-ai-for-dotnet-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Get started with the .NET enterprise chat sample using RAG
             url: /dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Scale the chat sample with Azure Container Apps
@@ -90,7 +86,3 @@ landingContent:
             url: /dotnet/ai/quickstarts/get-started-azure-openai?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Get insight about your data from an .NET Azure AI chat app
             url: /dotnet/ai/quickstarts/quickstart-ai-chat-with-data?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-      - linkListType: reference
-        links:
-          - text: Resources for building intelligent apps in .NET
-            url: /dotnet/ai/azure-ai-for-dotnet-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
