@@ -42,10 +42,10 @@ An `azd` template source points to a JSON configuration file that describes a li
 
 `azd` allows you to enable multiple template source at a time. The following template source options are currently available to choose from:
 
-- **default** - A small set of preselected templates to demonstrate different tech stacks.
-- **awesome-azd** - A list of the templates from the [Awesome AZD gallery] that is enabled by default.
+- **default** - A small set of curated templates to demonstrate different tech stacks.
+- **awesome-azd** - A list of the templates from the [Awesome AZD gallery](https://azure.github.io/awesome-azd) that is enabled by default.
 - **file** -  A local/network path that points to a template source JSON configuration file.
-- **url** - A an http/https addressable path that points to a template source JSON configuration file.
+- **url** - An HTTP(S) addressable path that points to a template source JSON configuration file.
 - **ade** - Points to an Azure Deployment Environment template list. [Learn more about Azure Developer CLI support for Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration).
 
 ## Work with template sources
@@ -70,12 +70,12 @@ default      Default      resource
 Use the `azd template source add` command to add a new template source. This command accepts the following parameters:
 
 - **key**: The technical name of the template source.
-- **--type, -t**: The source type of **file** or **url**.
-- **--location, -l**: The template source location, which should be a local network or HTTP web URI.
-- **--displayName, -n**: The template source display name (optional, will use **key** value if omitted).
+- **--type, -t**: The template source type - valid values are **file** or **url**.
+- **--location, -l**: The template source location, which should be a local network or HTTP(S) web URI.
+- **--displayName, -n**: The template source display name (optional, will use **key** if omitted).
 
 ```azurecli
-azd template source add <key> --type url --location <your-uri> --displayname <your-display-name>
+azd template source add <key> --type <file-or-url> --location <your-uri> --displayname <your-display-name>
 ```
 
 Use the `azd template source remove` command to remove a template source:
@@ -101,17 +101,17 @@ azd template list
 For example, a default installation of `azd` lists the following templates from the **awesome-azd** template source:
 
 ```output
-Name                                                                                               Source       Repository Path
+Name                                                         Source       Repository Path
 
-Event Driven Java Application with Azure Service Bus on Azure Spring Apps                          Awesome AZD  Azure-Samples/ASA-Samples-Event-Driven-Application
-Static React Web App with Java API and PostgreSQL                                                  Awesome AZD  Azure-Samples/ASA-Samples-Web-Application
-SAP CAP on Azure App Service Quickstart                                                            Awesome AZD  Azure-Samples/app-service-javascript-sap-cap-quickstart
-SAP Cloud SDK on Azure App Service Quickstart (TypeScript)                                         Awesome AZD  Azure-Samples/app-service-javascript-sap-cloud-sdk-quickstart
-Java Spring Apps with Azure OpenAI                                                                 Awesome AZD  Azure-Samples/app-templates-java-openai-springapps
-WordPress with Azure Container Apps                                                                Awesome AZD  Azure-Samples/apptemplate-wordpress-on-ACA
-Bicep template to bootstrap Azure Deployment Environments                                          Awesome AZD  Azure-Samples/azd-deployment-environments
-Starter - Bicep                                                                                    Awesome AZD  Azure-Samples/azd-starter-bicep
-Starter - Terraform                                                                                Awesome AZD  Azure-Samples/azd-starter-terraform
+Event Driven Java Application with Azure Service Bus         Awesome AZD  Azure-Samples/ASA-Samples-Event-Driven-Application
+Static React Web App with Java API and PostgreSQL            Awesome AZD  Azure-Samples/ASA-Samples-Web-Application
+SAP CAP on Azure App Service Quickstart                      Awesome AZD  Azure-Samples/app-service-javascript-sap-cap-quickstart
+SAP Cloud SDK on Azure App Service Quickstart (TypeScript)   Awesome AZD  Azure-Samples/app-service-javascript-sap-cloud-sdk-quickstart
+Java Spring Apps with Azure OpenAI                           Awesome AZD  Azure-Samples/app-templates-java-openai-springapps
+WordPress with Azure Container Apps                          Awesome AZD  Azure-Samples/apptemplate-wordpress-on-ACA
+Bicep template to bootstrap Azure Deployment Environments    Awesome AZD  Azure-Samples/azd-deployment-environments
+Starter - Bicep                                              Awesome AZD  Azure-Samples/azd-starter-bicep
+Starter - Terraform                                          Awesome AZD  Azure-Samples/azd-starter-terraform
 
 # Additional templates omitted 
 ```
@@ -137,5 +137,5 @@ ADE integration is beyond the scope of this article. Learn more about configurin
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Developer CLI support for Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration) documentation.
+> [Azure Developer CLI support for Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration)
 > [Template list command reference](/azure/developer/azure-developer-cli/reference#azd-template)
