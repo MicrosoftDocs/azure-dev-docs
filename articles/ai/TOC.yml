@@ -18,7 +18,7 @@ items:
       items:
         - name: Overview
           href: ../python/azure-ai-for-python-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-        - name: Guides for building intelligent apps
+        - name: Guides for intelligent apps
           items:
             - name: Get started with the Python enterprise chat sample
               href: ../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
@@ -48,7 +48,7 @@ items:
       items:
         - name: Overview
           href: ../javascript/azure-ai-for-javascript-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-        - name: Guides for building intelligent apps
+        - name: Guides for intelligent apps
           items:
             - name: Get started with the JavaScript enterprise chat sample
               href: ../javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
@@ -78,7 +78,7 @@ items:
       items:
         - name: Overview
           href: ../java/ai/azure-ai-for-java-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-        - name: Guides for building intelligent apps
+        - name: Guides for intelligent apps
           items:
             - name: Get started with the Java enterprise chat sample
               href: ../java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
@@ -104,7 +104,7 @@ items:
       items:
         - name: Overview
           href: /dotnet/ai/azure-ai-for-dotnet-developers?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-        - name: Guides for building intelligent apps
+        - name: Guides for intelligent apps
           items:
             - name: Get started with the .NET enterprise chat sample
               href: /dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
