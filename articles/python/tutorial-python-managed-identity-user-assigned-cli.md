@@ -140,7 +140,13 @@ Run these commands in the root folder of the sample app to create an App Service
 
 ## Create a storage account and container
 
-The sample app stores images in as blobs in Azure Storage. The storage account is configured to allow public access to the container. The app uses the managed identity and the `DefaultAzureCredential` to access the storage account.
+The sample app stores photos submitted by reviewers as blobs in Azure Storage.
+
+* When a user submits a photo with their review, the sample app writes the image to the container using managed identity and `DefaultAzureCredential` to access the storage account.
+
+* When a user views the reviews for a restaurant, the app returns a link to the photo in blob storage for each review that has one associated with it. For the browser to display the photo, it must be able to access it in your storage account. The blob data must be available for read publicly through anonymous (unautnenticated) access.
+
+In this section, you create a storage account and container that permits public read access to blobs in the container. In later sections, you'll create a user-assigned managed identity and configure it to write blobs to the storage account.
 
 1. Use the [az storage create](/cli/azure/storage#az-storage-create) command to create a storage account.
 
@@ -254,7 +260,7 @@ In this section, you create role assignments for the managed identity to enable 
 
 ## Test the Python web app in Azure
 
-The sample Python app uses the [azure.identity](https://pypi.org/project/azure-identity/) package and its `DefaultAzureCredential` class. `DefaultAzureCredential` automatically detects that a managed identity exists for the App Service and uses it to access other Azure resources (storage and PostgreSQL in this case). There's no need to provide storage keys, certificates, or credentials to the App Service to access these resources.
+The sample Python app uses the [azure.identity](https://pypi.org/project/azure-identity/) package and its `DefaultAzureCredential` class. When an app is running in Azure, `DefaultAzureCredential` automatically detects if a managed identity exists for the App Service and, if so, uses it to access other Azure resources (storage and PostgreSQL in this case). There's no need to provide storage keys, certificates, or credentials to the App Service to access these resources.
 
 1. Browse to the deployed application at the URL `http://$APP_SERVICE_NAME.azurewebsites.net`.
 
