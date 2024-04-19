@@ -352,7 +352,7 @@
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
 | Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.2.1) |  |  |
 | Unknown Display Name | npm [0.41.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.41.0) |  |  |
-| Unknown Display Name | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.6.0) |  |  |
+| Unknown Display Name | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.7.0) |  |  |
 | Unknown Display Name | npm [2.0.4429](https://www.npmjs.com/package/@microsoft.azure/autorest-core/v/2.0.4429) |  |  |
 | Unknown Display Name | npm [3.3.49](https://www.npmjs.com/package/@microsoft.azure/autorest.testserver/v/3.3.49) |  |  |
 | Unknown Display Name | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
@@ -438,7 +438,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240418.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240418.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240418.4](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240418.4) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -488,7 +488,7 @@
 | @azure-tools/rlc-common | npm [0.27.0](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.27.0) |  |  |
 | @azure-tools/sdk-generation-lib | npm [1.0.5](https://www.npmjs.com/package/@azure-tools/sdk-generation-lib/v/1.0.5) |  |  |
 | @azure-tools/test-credential | npm [1.0.4](https://www.npmjs.com/package/@azure-tools/test-credential/v/1.0.4) |  |  |
-| @azure-tools/test-recorder | npm [3.1.2](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.1.2) |  |  |
+| @azure-tools/test-recorder | npm [3.2.0](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.2.0) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.2.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.2.0) |  |  |
 | @azure/static-web-apps-cli | npm [1.1.7](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/1.1.7) |  |  |
