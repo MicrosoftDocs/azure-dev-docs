@@ -3,17 +3,17 @@ items:
   href: index.yml
   items:
     - name: Overview
-      href: overview.md?bc=/azure/developer/ai/breadcrumb/toc.json
+      href: overview.md
     - name: Get started
       items:
         - name: Resources for building intelligent apps
-          href: azure-ai-for-developers.md?bc=/azure/developer/ai/breadcrumb/toc.json
+          href: azure-ai-for-developers.md
     - name: Concepts
       items: 
         - name: Introduction to generative AI for developers
-          href: intro-01.md?bc=/azure/developer/ai/breadcrumb/toc.json
+          href: intro-01.md
         - name: Develop apps that use generative AI
-          href: intro-02.md?bc=/azure/developer/ai/breadcrumb/toc.json
+          href: intro-02.md
     - name: Python
       items:
         - name: Overview
@@ -104,14 +104,14 @@ items:
       items:
         - name: Overview
           href: /dotnet/ai/azure-ai-for-dotnet-developers?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+        - name: Overview of the .NET + AI ecosystem
+          href: /dotnet/ai/dotnet-ai-ecosystem?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Guides for intelligent apps
           items:
             - name: Get started with the .NET enterprise chat sample
               href: /dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: Scale Azure OpenAI with Azure Container Apps
               href: /dotnet/ai/get-started-app-chat-scaling-with-azure-container-apps?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: Overview of the .NET + AI ecosystem
-              href: /dotnet/ai/dotnet-ai-ecosystem?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Quickstarts for Azure OpenAI Service
           items:
             - name: Build a chat app
