@@ -46,7 +46,7 @@ An `azd` template source points to a JSON configuration file that describes a li
 - **awesome-azd** - A list of the templates from the [Awesome AZD gallery] that is enabled by default.
 - **file** -  A local/network path that points to a template source JSON configuration file.
 - **url** - A an http/https addressable path that points to a template source JSON configuration file.
-- **ade** - Points to an Azure Deployment Environment template list. [Learn more about Azure Developer CLI support for Azure Deployment Environments](azure/developer/azure-developer-cli/ade-integration).
+- **ade** - Points to an Azure Deployment Environment template list. [Learn more about Azure Developer CLI support for Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration).
 
 ## Work with template sources
 
@@ -132,10 +132,10 @@ azd init --template <path-value>
 
 The Azure Developer CLI (`azd`) also provides support for Azure Deployment Environments. An Azure Deployment Environment (ADE) is a preconfigured collection of Azure resources deployed in predefined subscriptions. Azure governance is applied to those subscriptions based on the type of environment, such as sandbox, testing, staging, or production. With Azure Deployment Environments, your can enforce enterprise security policies and provide a curated set of predefined infrastructure as code (IaC) templates.
 
-ADE integration is beyond the scope of this article. Learn more about configuring `ade` support in the [Azure Developer CLI support for Azure Deployment Environments](azure/developer/azure-developer-cli/ade-integration) documentation.
+ADE integration is beyond the scope of this article. Learn more about configuring `ade` support in the [Azure Developer CLI support for Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration) documentation.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Developer CLI support for Azure Deployment Environments](azure/developer/azure-developer-cli/ade-integration) documentation.
-> [Template list command reference](azure/developer/azure-developer-cli/reference#azd-template)
+> [Azure Developer CLI support for Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration) documentation.
+> [Template list command reference](/azure/developer/azure-developer-cli/reference#azd-template)
