@@ -164,6 +164,15 @@ The sample app stores images in as blobs in Azure Storage. The storage account i
       --auth-mode login
     ```
 
+    > [!NOTE]
+    > If the command fails, for example, if you get an error indicating that the request may be blocked by network rules of the storage account, enter the following command to make sure that your Azure user account is assigned an Azure role on the storage account with permission to create a container.
+    >
+    > ```azurecli
+    > az role assignment create --role "Storage Blob Data Contributor" --assignee $ACCOUNT_EMAIL --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Storage/storageAccounts/$STORAGE_ACCOUNT_NAME"
+    > ```
+    >
+    > For more information, see [Quickstart: Create, download, and list blobs with Azure CLI](/azure/storage/blobs/storage-quickstart-blobs-cli#create-a-container). Note that several Azure roles permit you to create containers in a storage account, including "OWNER", "CONTRIBUTOR", "STORAGE BLOB DATA OWNER", and "STORAGE BLOB DATA CONTRIBUTOR".
+
 ## Create a user-assigned managed identity
 
 Create a user-assigned managed identity and assign it to the App Service. The managed identity is used to access the database and storage account.
