@@ -27,7 +27,7 @@ Use the following steps to create an Azure Cosmos DB instance:
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02.png" alt-text="Screenshot of the Azure portal showing 'Create a resource' page with search box highlighted and containing text 'Azure Cosmos DB'." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02.png":::
 
-1. On the **Select API option** screen, select **Core (SQL)**.
+1. On the next screen, select **Azure Cosmos DB for NoSQL**.
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02-01.png" alt-text="Screenshot of the Azure portal showing 'Select API option' page with 'Core SQL' option highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02-01.png":::
 
@@ -36,8 +36,9 @@ Use the following steps to create an Azure Cosmos DB instance:
    * Choose the **Subscription** you want to use for your database.
    * Specify whether to create a new **Resource group** for your database, or choose an existing resource group.
    * Enter a unique **Account Name**, which you use as the URI for your database. For example: *contosoaccounttest*.
-   * Choose **Core (SQL)** for the API.
    * Specify the **Location** for your database.
+   * This is a demo, so choose Apply Free Tier Discount.
+   * The rest of the options can be keep at their default settings.
 
 1. Select **Review + create**, review your specifications, and select **Create**.
 
