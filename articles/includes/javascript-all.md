@@ -438,11 +438,11 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240422.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240422.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240423.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240423.3) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
-| @autorest/gotest | npm [4.7.2](https://www.npmjs.com/package/@autorest/gotest/v/4.7.2) |  |  |
+| @autorest/gotest | npm [4.7.3](https://www.npmjs.com/package/@autorest/gotest/v/4.7.3) |  |  |
 | @autorest/openapi-to-cadl | npm [0.6.0](https://www.npmjs.com/package/@autorest/openapi-to-cadl/v/0.6.0) |  |  |
 | @autorest/schemas | npm [1.3.5](https://www.npmjs.com/package/@autorest/schemas/v/1.3.5) |  |  |
 | @autorest/system-requirements | npm [1.1.0](https://www.npmjs.com/package/@autorest/system-requirements/v/1.1.0) |  |  |
@@ -471,7 +471,7 @@
 | @azure-tools/cadl-ranch-api | npm [0.4.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.4.3) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.8.2](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.8.2) |  |  |
 | @azure-tools/cadl-ranch-expect | npm [0.13.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.13.3) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.31.8](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.31.8) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.32.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.32.0) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
@@ -518,8 +518,8 @@
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
 | AutoRest - Go | npm [4.0.0-preview.63](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.63) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
-| AutoRest - PowerShell | npm [4.0.695](https://www.npmjs.com/package/@autorest/powershell/v/4.0.695) |  | GitHub [4.0.695](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.13.12](https://www.npmjs.com/package/@autorest/python/v/6.13.12) |  | GitHub [6.13.12](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - PowerShell | npm [4.0.697](https://www.npmjs.com/package/@autorest/powershell/v/4.0.697) |  | GitHub [4.0.697](https://github.com/Azure/autorest.powershell) |
+| AutoRest - Python | npm [6.13.13](https://www.npmjs.com/package/@autorest/python/v/6.13.13) |  | GitHub [6.13.13](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
