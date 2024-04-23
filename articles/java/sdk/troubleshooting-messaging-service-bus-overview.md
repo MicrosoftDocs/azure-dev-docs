@@ -66,15 +66,15 @@ When you submit a bug, the log messages from classes in the following packages a
 
 ## Upgrade to 7.15.x or latest
 
-If you encounter any issues, you should first attempt to solve them by upgrading to latest Service Bus SDK version. The version 7.15.x and above is a major redesign, resolving long-standing performance and reliability concerns.
+If you encounter any issues, you should first attempt to solve them by upgrading to the latest version of the Service Bus SDK. Version 7.15.x is a major redesign, resolving long-standing performance and reliability concerns.
 
-The version 7.15.x and above reduces thread hopping, removes locks, optimizes code in hot paths, and reduces memory allocations. These changes result in up to 45-50 times greater throughput on the `ServiceBusProcessor` client.
+Version 7.15.x and later reduces thread hopping, removes locks, optimizes code in hot paths, and reduces memory allocations. These changes result in up to 45-50 times greater throughput on the `ServiceBusProcessor` client.
 
-The version 7.15.x and above also comes with various reliability improvements. It addresses several race conditions (such as prefetch and credit calculations) and improved error handling. These changes result in better reliability in the presence of transient issues across various client types.
+Version 7.15.x and later also comes with various reliability improvements. It addresses several race conditions (such as prefetch and credit calculations) and improved error handling. These changes result in better reliability in the presence of transient issues across various client types.
 
 ### Using the latest clients
 
-The new underlying framework in the latest version (7.15.x and above) with these improvements is called the V2-Stack. This release line includes both the previous generation of the underlying stack (the stack that version 7.14.x uses) and the new V2-Stack.
+The new underlying framework with these improvements - in version 7.15.x and later - is called the V2-Stack. This release line includes both the previous generation of the underlying stack - the stack that version 7.14.x uses - and the new V2-Stack.
 
 By default, some of the client types use the V2-Stack, while others require V2-Stack opt-in. You can accomplish the opt-in or opt-out of a specific stack (V2 or the previous generation) for a client type by providing `com.azure.core.util.Configuration` values when you build the client.
 
@@ -91,7 +91,7 @@ ServiceBusSessionReceiverClient sessionReceiver = new ServiceBusClientBuilder()
     .buildClient();
 ```
 
-The following table lists the client types and corresponding configuration names, and indicates whether the client is currently enabled by default to use the V2-Stack in the latest version 7.16.0. For a client that is not on the V2-Stack by default, you can use the example just shown to opt-in.
+The following table lists the client types and corresponding configuration names, and indicates whether the client is currently enabled by default to use the V2-Stack in the latest version 7.16.0. For a client that isn't on the V2-Stack by default, you can use the example just shown to opt-in.
 
 | Client type                                       | Configuration name                                                 | Is on V2-Stack by default? |
 |---------------------------------------------------|--------------------------------------------------------------------|----------------------------|
