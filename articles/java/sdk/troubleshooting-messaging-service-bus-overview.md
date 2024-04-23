@@ -64,40 +64,42 @@ When you submit a bug, the log messages from classes in the following packages a
   * The exception is that you can ignore the `onDelivery` message in `ReceiveLinkHandler`.
 * `com.azure.messaging.servicebus.implementation`
 
-## Upgrade to 7.15.x
+## Upgrade to 7.15.x or latest
 
-If you encounter any issues, you should first attempt to solve them by upgrading to version 7.15.x of the Service Bus SDK. The 7.15.x line is a major redesign, resolving long-standing performance and reliability concerns.
+If you encounter any issues, you should first attempt to solve them by upgrading to latest Service Bus SDK version. The version 7.15.x and above is a major redesign, resolving long-standing performance and reliability concerns.
 
-The 7.15.x line reduces thread hopping, removes locks, optimizes code in hot paths, and reduces memory allocations. These changes result in up to 45-50 times greater throughput on the `ServiceBusProcessor` client.
+The version 7.15.x and above reduces thread hopping, removes locks, optimizes code in hot paths, and reduces memory allocations. These changes result in up to 45-50 times greater throughput on the `ServiceBusProcessor` client.
 
-The 7.15.x line also comes with various reliability improvements. It addresses several race conditions (such as prefetch and credit calculations) and improved error handling. These changes result in better reliability in the presence of transient issues across various client types.
+The version 7.15.x and above also comes with various reliability improvements. It addresses several race conditions (such as prefetch and credit calculations) and improved error handling. These changes result in better reliability in the presence of transient issues across various client types.
 
-### Using clients in 7.15.x
+### Using the latest clients
 
-The new underlying framework in 7.15.x with these improvements is called the V2-Stack. The 7.15.x line includes both the previous generation of the underlying stack (the stack that version 7.14.x uses) and the new V2-Stack.
+The new underlying framework in the latest version (7.15.x and above) with these improvements is called the V2-Stack. This release line includes both the previous generation of the underlying stack (the stack that version 7.14.x uses) and the new V2-Stack.
 
 By default, some of the client types use the V2-Stack, while others require V2-Stack opt-in. You can accomplish the opt-in or opt-out of a specific stack (V2 or the previous generation) for a client type by providing `com.azure.core.util.Configuration` values when you build the client.
 
-For example, V2-Stack-based session receive with `ProcessorClient` requires opt-in as shown in the following example:
+For example, V2-Stack-based session receive with `ServiceBusSessionReceiverClient` requires opt-in as shown in the following example:
 
 ```java
-ServiceBusProcessorClient sessionProcessor = new ServiceBusClientBuilder()
+ServiceBusSessionReceiverClient sessionReceiver = new ServiceBusClientBuilder()
     .connectionString(Config.CONNECTION_STRING)
     .configuration(new com.azure.core.util.ConfigurationBuilder()
-        .putProperty("com.azure.messaging.servicebus.session.processor.asyncReceive.v2", "true") // 'false' by default, opt-in for V2-Stack.
+        .putProperty("com.azure.messaging.servicebus.session.syncReceive.v2", "true") // 'false' by default, opt-in for V2-Stack.
         .build())
-    .sessionProcessor()
+    .sessionReceiver()
+    .queueName(Config.QUEUE_NAME)
+    .buildClient();
 ```
 
-The following table lists the client types and corresponding configuration names, and indicates whether the client is currently enabled by default to use the V2-Stack. For a client that is not on the V2-Stack by default, you can use the example just shown to opt-in.
+The following table lists the client types and corresponding configuration names, and indicates whether the client is currently enabled by default to use the V2-Stack in the latest version 7.16.0. For a client that is not on the V2-Stack by default, you can use the example just shown to opt-in.
 
 | Client type                                       | Configuration name                                                 | Is on V2-Stack by default? |
 |---------------------------------------------------|--------------------------------------------------------------------|----------------------------|
 | Sender and management client                      | `com.azure.messaging.servicebus.sendAndManageRules.v2`             | yes                        |
 | Non-session processor and reactor receiver client | `com.azure.messaging.servicebus.nonSession.asyncReceive.v2`        | yes                        |
+| Session processor receiver client                 | `com.azure.messaging.servicebus.session.processor.asyncReceive.v2` | yes                        |
+| Session reactor receiver client                   | `com.azure.messaging.servicebus.session.reactor.asyncReceive.v2`   | yes                        |
 | Non-session synchronous receiver client           | `com.azure.messaging.servicebus.nonSession.syncReceive.v2`         | no                         |
-| Session processor receiver client                 | `com.azure.messaging.servicebus.session.processor.asyncReceive.v2` | no                         |
-| Session reactor receiver client                   | `com.azure.messaging.servicebus.session.reactor.asyncReceive.v2`   | no                         |
 | Session synchronous receiver client               | `com.azure.messaging.servicebus.session.syncReceive.v2`            | no                         |
 
 As an alternative to using `com.azure.core.util.Configuration`, you can do the opt-in or opt-out by setting the same configuration names using environment variables or system properties.
