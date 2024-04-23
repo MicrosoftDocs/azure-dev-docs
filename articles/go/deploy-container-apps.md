@@ -142,8 +142,8 @@ Run the following Azure CLI command to get the FQDN (Fully Qualified Domain Name
 
 ```bash
 APP_FQDN=$(az containerapp show \
-    --resource-group <resourceGroupName> \
     --name <containerAppName> \
+    --resource-group <resourceGroupName> \
     --query properties.configuration.ingress.fqdn \
     --output tsv)
 ```
