@@ -13,7 +13,7 @@ Using your Azure authentication information, set the appropriate environment var
 
     ```bash
     export AZURE_SUBSCRIPTION_ID="<azure_subscription_id>"
-    export AZURE_TENANT_ID="<active_directory_tenant_id"
+    export AZURE_TENANT_ID="<active_directory_tenant_id>"
     export AZURE_CLIENT_ID="<service_principal_appid>"
     export AZURE_CLIENT_SECRET="<service_principal_password>"
     ```
