@@ -11,7 +11,7 @@ ms.author: jogiles
 
 # Troubleshoot Azure Service Bus
 
-This article covers failure investigation techniques, common errors for the credential types in the Azure Service Bus Java client library, and mitigation steps to resolve these errors.
+This article covers failure investigation techniques, concurrency, common errors for the credential types in the Azure Service Bus Java client library, and mitigation steps to resolve these errors.
 
 ## Enable and configure logging
 
@@ -63,6 +63,18 @@ When you submit a bug, the log messages from classes in the following packages a
 * `com.azure.core.amqp.implementation.handler`
   * The exception is that you can ignore the `onDelivery` message in `ReceiveLinkHandler`.
 * `com.azure.messaging.servicebus.implementation`
+
+## Concurrency in ProcessorClient
+
+The ProcessorClient allows the application to configure how many calls to the message handler should happen concurrently, making it possible to process multiple messages in parallel. For a ProcessorClient consuming messages from a non-session entity, the application can configure the desired concurrency using `maxConcurrentCalls` API. For a session enabled entity, the desired concurrency will be `maxConcurrentSessions` times `maxConcurrentCalls`.
+
+If the application observes fewer concurrent calls to the message handler than the configured concurrency, it might be because the thread pool is not sized appropriately.
+
+The ProcessorClient uses demon threads from the Reactor global [boundedElastic](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html#boundedElastic--) thread pool to invoke the message handler. The maximum number of concurrent threads in this pool is limited by a cap. By default, this cap is ten times the number of available CPU cores. For the ProcessorClient to effectively support the application's desired concurrency (`maxConcurrentCalls` or `maxConcurrentSessions` times `maxConcurrentCalls`), it is necessary to have the boundedElastic pool cap higher than the desired concurrency. The default cap can be overridden by setting the system property `reactor.schedulers.defaultBoundedElasticSize`.
+
+While tuning the thread pool and CPU allocation is case by case, when overriding the pool cap, as a starting point, limit the concurrent threads to ~20-30 per CPU core. It is recommended to cap desired concurrency per ProcessorClient instance to ~20-30. Profile and measure your specific use case and tune the concurrency aspects accordingly. For high load scenarios, consider running multiple ProcessorClient instances where each instance is built from a new `ServiceBusClientBuilder` instance, additionally, consider running each ProcessorClient in a dedicated host (container, VM) so that downtime in one host does not impact the overall message processing.
+
+Keep in mind that setting a high value for the pool cap on a host with few CPU cores would have adverse effects. Some signs of low CPU resources or pool with too many threads on fewer CPUs are frequent timeouts, lock lost, deadlock or lower throughput. If you're running the Java application on container, then it is recommended two or more vCPU cores. It is not recommended to select anything less than 1 vCPU core when running Java application on containerized environments. For in depth recommendations on resourcing, refer [Containerize your Java application](https://learn.microsoft.com/azure/developer/java/containers/overview).
 
 ## Upgrade to 7.15.x or latest
 
