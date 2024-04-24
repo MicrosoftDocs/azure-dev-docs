@@ -1,6 +1,6 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 ms.topic: include
 ms.date: 08/10/2021
 ---
@@ -24,7 +24,7 @@ Using your Azure authentication information, set the appropriate environment var
     . ~/.bashrc
     ```
 
-1. Once the environment variables have been set, you can verify their values as follows:
+1. Once the environment variables are set, you can verify their values as follows:
 
     ```bash
     printenv | grep ^AZURE*
