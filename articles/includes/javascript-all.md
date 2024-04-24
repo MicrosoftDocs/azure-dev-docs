@@ -111,7 +111,7 @@
 | Video Analyzer Edge | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/video-analyzer-edge/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/video-analyzer-edge-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/video-analyzer-edge_1.0.0-beta.4/sdk/videoanalyzer/video-analyzer-edge/) |
 | VS Code Authentication Plugin | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-vscode/v/1.0.0) | [docs](/javascript/api/overview/azure/identity-vscode-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_1.0.0/sdk/identity/identity-vscode/) |
 | Web PubSub | npm [1.1.1](https://www.npmjs.com/package/@azure/web-pubsub/v/1.1.1) | [docs](/javascript/api/overview/azure/web-pubsub-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub_1.1.1/sdk/web-pubsub/web-pubsub/) |
-| Web PubSub Client | npm [1.0.0](https://www.npmjs.com/package/@azure/web-pubsub-client/v/1.0.0) | [docs](/javascript/api/overview/azure/web-pubsub-client-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client_1.0.0/sdk/web-pubsub/web-pubsub-client/) |
+| Web PubSub Client | npm [1.0.1](https://www.npmjs.com/package/@azure/web-pubsub-client/v/1.0.1) | [docs](/javascript/api/overview/azure/web-pubsub-client-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client_1.0.1/sdk/web-pubsub/web-pubsub-client/) |
 | WebPubSub Client SDK Protobuf | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/web-pubsub-client-protobuf/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/web-pubsub-client-protobuf-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client-protobuf_1.0.0-beta.2/sdk/web-pubsub/web-pubsub-client-protobuf/) |
 | OpenTelemetry Instrumentation | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/opentelemetry-instrumentation-azure-sdk/v/1.0.0-beta.5) | [docs](/javascript/api/overview/azure/opentelemetry-instrumentation-azure-sdk-readme) | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/opentelemetry-instrumentation-azure-sdk_1.0.0-beta.5/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk/) |
 | Web PubSub CloudEvents Handlers for Express | npm [1.0.5](https://www.npmjs.com/package/@azure/web-pubsub-express/v/1.0.5) | [docs](/javascript/api/overview/azure/web-pubsub-express-readme) | GitHub [1.0.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-express_1.0.5/sdk/web-pubsub/web-pubsub-express/) |
@@ -438,7 +438,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240423.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240423.3) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240424.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240424.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -516,10 +516,10 @@
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
-| AutoRest - Go | npm [4.0.0-preview.63](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.63) |  |  |
+| AutoRest - Go | npm [4.0.0-preview.64](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.64) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.697](https://www.npmjs.com/package/@autorest/powershell/v/4.0.697) |  | GitHub [4.0.697](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.13.13](https://www.npmjs.com/package/@autorest/python/v/6.13.13) |  | GitHub [6.13.13](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.13.14](https://www.npmjs.com/package/@autorest/python/v/6.13.14) |  | GitHub [6.13.14](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
