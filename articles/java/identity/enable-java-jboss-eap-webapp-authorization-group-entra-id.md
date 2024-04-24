@@ -5,7 +5,7 @@ description: Shows how to enable sign-in for Java JBoss EAP apps and restrict ac
 services: active-directory
 ms.date: 03/11/2024
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
 # Secure Java JBoss EAP apps using groups and group claims

@@ -4,7 +4,7 @@ description: Shows you how to deploy a Java WebSphere web app with sign-in by Mi
 services: active-directory
 ms.date: 03/11/2024
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
 # Deploy Java WebSphere apps to Traditional WebSphere on Azure Virtual Machines
