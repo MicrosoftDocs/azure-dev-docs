@@ -438,7 +438,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240424.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240424.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240425.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240425.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -516,7 +516,7 @@
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
-| AutoRest - Go | npm [4.0.0-preview.64](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.64) |  |  |
+| AutoRest - Go | npm [4.0.0-preview.65](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.65) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.697](https://www.npmjs.com/package/@autorest/powershell/v/4.0.697) |  | GitHub [4.0.697](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.13.14](https://www.npmjs.com/package/@autorest/python/v/6.13.14) |  | GitHub [6.13.14](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
