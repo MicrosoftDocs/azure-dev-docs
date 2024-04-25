@@ -1,7 +1,6 @@
 ---
 title: Access data with Azure Cosmos DB NoSQL API
 description: Learn how to configure an application created with the Spring Boot Initializer with Azure Cosmos DB for NoSQL.
-services: cosmos-db
 author: KarlErickson
 ms.author: bbenz
 ms.date: 01/18/2023
