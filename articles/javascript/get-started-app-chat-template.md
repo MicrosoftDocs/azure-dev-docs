@@ -3,7 +3,8 @@ title: Get started with the JavaScript enterprise chat sample using RAG
 description: Get started with JavaScript and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
 ms.date: 11/17/2023
 ms.topic: get-started
-ms.custom: devx-track-javascript, devx-track-javascript-ai, devx-track-js
+ms.subservice: intelligent-apps
+ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want deploy and use sample code to interact with chat app infused with my own business data so that learn from the sample code.
 ---
 
@@ -25,9 +26,9 @@ By following the instructions in this article, you will:
 
 Once you complete this article, you can start modifying the new project with your custom code and data.
 
-This article is part of a collection of articles that show you how to build a chat app using Azure Open AI Service and Azure AI Search. Other articles in the collection include: 
+This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Service and Azure AI Search. Other articles in the collection include: 
 
-* [.NET](/dotnet/azure/ai/get-started-app-chat-template)
+* [.NET](/dotnet/ai/get-started-app-chat-template)
 * [Java](../java/quickstarts/get-started-app-chat-template.md)
 * [Python](../python/get-started-app-chat-template.md)
 
@@ -37,14 +38,16 @@ A simple architecture of the chat app is shown in the following diagram:
 
 :::image type="content" source="./media/get-started-app-chat-template/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
-Key components of the architecture include:
+The chat sample application is built for a fictitious company called _Contoso Real Estate_, and the intelligent chat experience allows its customers to ask support questions about the usage of its products. The sample data includes a set of documents that describe its terms of service, privacy policy and a support guide. The documents are ingested into the architecture during deployment
 
-* A web application to host the interactive chat experience.
-* An Azure AI Search resource to get answers from your own data. Data is ingested during app startup.
-* An Azure OpenAI Service to provide: 
-    * Keywords to enhance the search over your own data.
-    * Answers from the OpenAI model.
-    * Embeddings from the ada model
+The application is made from multiple components, including:
+
+- **Search service**: the backend service that provides the search and retrieval capabilities.
+- **Indexer service**: the service that indexes the data and creates the search indexes.
+- **Web app**: the frontend web application that provides the user interface and orchestrates the interaction between the user and the backend services.
+
+:::image type="content" source="./media/get-started-app-chat-template/app-architecture-azure-services.png" alt-text="Diagram showing Azure services and their integration flow for the front-end app, the search, and the document ingestion.":::
+
 
 ## Cost 
 
@@ -160,7 +163,7 @@ The sample repository contains all the code and configuration files you need to 
 ### Deploy chat app to Azure
 
 > [!IMPORTANT]
-> Azure resources created in this section immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
+> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
 
 1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
 

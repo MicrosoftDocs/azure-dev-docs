@@ -4,9 +4,8 @@ titleSuffix: Azure
 description: Shows you how to develop a Java Spring Boot web app to sign in users and call Microsoft Graph with the Microsoft identity platform.
 services: active-directory
 ms.date: 03/11/2024
-ms.service: active-directory
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
 # Enable Java Spring Boot apps to sign in users and access Microsoft Graph
@@ -353,7 +352,7 @@ Using `GraphServiceClient.me().buildRequest().get()`, a request is built and mad
 - [Application and service principal objects in Azure Active Directory](/entra/identity-platform/app-objects-and-service-principals)
 - [National Clouds](/entra/identity-platform/authentication-national-cloud#app-registration-endpoints)
 - [MSAL code samples](/entra/identity-platform/sample-v2-code?tabs=framework#java)
-- [Azure Active Directory Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-active-directory)
+- [Azure Active Directory Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory)
 - [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - [MSAL4J Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
 - [ID tokens](/entra/identity-platform/id-tokens)

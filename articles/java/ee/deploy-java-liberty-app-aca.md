@@ -4,11 +4,10 @@ recommendations: false
 description: Shows you how to deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps.
 author: KarlErickson
 ms.author: jiangma
-ms.service: container-apps
 ms.topic: quickstart
 ms.date: 10/30/2023
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aca, devx-track-azurecli, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aca, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 ---
 
 # Deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps
@@ -481,7 +480,11 @@ az containerapp create \
     --registry-username $ACR_USER_NAME \
     --registry-password $ACR_PASSWORD \
     --target-port 9080 \
-    --env-vars DB_SERVER_NAME=${DB_SERVER_NAME} DB_NAME=${DB_NAME} DB_USER=${DB_USER} DB_PASSWORD=${DB_PASSWORD} \
+    --env-vars \
+        DB_SERVER_NAME=${DB_SERVER_NAME} \
+        DB_NAME=${DB_NAME} \
+        DB_USER=${DB_USER} \
+        DB_PASSWORD=${DB_PASSWORD} \
     --ingress 'external'
 ```
 
@@ -498,7 +501,11 @@ az containerapp create `
     --registry-username $Env:ACR_USER_NAME `
     --registry-password $Env:ACR_PASSWORD `
     --target-port 9080 `
-    --env-vars DB_SERVER_NAME=$Env:DB_SERVER_NAME DB_NAME=$Env:DB_NAME DB_USER=$Env:DB_USER DB_PASSWORD=$Env:DB_PASSWORD `
+    --env-vars `
+        DB_SERVER_NAME=$Env:DB_SERVER_NAME `
+        DB_NAME=$Env:DB_NAME `
+        DB_USER=$Env:DB_USER `
+        DB_PASSWORD=$Env:DB_PASSWORD `
     --ingress 'external'
 ```
 
@@ -516,7 +523,8 @@ Use the following command to get a fully qualified url to access the application
 echo https://$(az containerapp show \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $ACA_NAME \
-    --query properties.configuration.ingress.fqdn -o tsv)
+    --query properties.configuration.ingress.fqdn \
+    --output tsv)
 ```
 
 #### [PowerShell](#tab/in-powershell)
@@ -525,7 +533,8 @@ echo https://$(az containerapp show \
 Write-Host https://$(az containerapp show `
     --resource-group $Env:RESOURCE_GROUP_NAME `
     --name $Env:ACA_NAME `
-    --query properties.configuration.ingress.fqdn -o tsv)
+    --query properties.configuration.ingress.fqdn `
+    --output tsv)
 ```
 
 ---

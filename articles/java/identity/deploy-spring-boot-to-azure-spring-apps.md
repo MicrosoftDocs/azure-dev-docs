@@ -3,9 +3,8 @@ title: Deploy Java Spring Boot apps to Azure Spring Apps
 description: Shows you how to deploy a Java Spring Boot app with sign-in by Microsoft Entra account to Azure Spring Apps.
 services: active-directory
 ms.date: 03/11/2024
-ms.service: active-directory
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
 # Deploy Java Spring Boot apps to Azure Spring Apps
@@ -61,7 +60,7 @@ This article assumes that you completed one of the following articles using only
 - [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals)
 - [National Clouds](/entra/identity-platform/authentication-national-cloud#app-registration-endpoints)
 - [MSAL code samples](/entra/identity-platform/sample-v2-code?tabs=framework#java)
-- [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-active-directory)
+- [Microsoft Entra ID Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory)
 - [Microsoft Authentication Library for Java (MSAL4J)](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - [MSAL4J Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
 - [ID tokens](/entra/identity-platform/id-tokens)

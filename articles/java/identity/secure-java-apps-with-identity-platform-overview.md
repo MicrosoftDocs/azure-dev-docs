@@ -4,9 +4,8 @@ titleSuffix: Azure
 description: Provides an overview of recommended strategies for securing Java applications with the Microsoft identity platform.
 services: active-directory
 ms.date: 03/11/2024
-ms.service: active-directory
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
 # Get started with securing Java application with the Microsoft identity platform

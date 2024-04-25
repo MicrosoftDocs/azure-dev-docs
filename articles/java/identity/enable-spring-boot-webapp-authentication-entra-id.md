@@ -4,9 +4,8 @@ titleSuffix: Azure
 description: Shows you how to develop a Java Spring Boot web app that supports sign-in by Microsoft Entra account.
 services: active-directory
 ms.date: 03/11/2024
-ms.service: active-directory
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
 # Secure Java Spring Boot apps using Microsoft Entra ID
@@ -270,7 +269,7 @@ The app has some simple logic in the UI template pages for determining content t
 
 ### Protect routes with AADWebSecurityConfigurerAdapter
 
-By default, the app protects the **ID Token Details** page so that only signed-in users can access it. The app configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, apply the AadWebApplicationHttpSecurityConfigurer#aadWebApplication method for the HttpSecurity. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blo4b/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
+By default, the app protects the **ID Token Details** page so that only signed-in users can access it. The app configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, apply the `AadWebApplicationHttpSecurityConfigurer#aadWebApplication` method for the `HttpSecurity`. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blo4b/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
 
 ```java
 @Configuration

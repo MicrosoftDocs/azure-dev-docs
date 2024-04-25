@@ -4,8 +4,8 @@ description: Shows how to deploy WebLogic Server to Azure Virtual Machines with 
 author: KarlErickson
 ms.author: jiangma
 ms.topic: tutorial
-ms.date: 01/03/2023
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java,, devx-track-azurecli, devx-track-extended-java
+ms.date: 01/09/2024
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-extended-java
 ---
 
 # Tutorial: Migrate Oracle WebLogic Server to Azure Virtual Machines with high availability and disaster recovery
@@ -159,7 +159,7 @@ In the meantime, you can set up the secondary WLS cluster in parallel.
 
 ### Set up the secondary WLS cluster
 
-Follow the same steps in as in the section [Set up the primary WLS cluster](#set-up-the-primary-wls-cluster) to set up the secondary WLS cluster in East US region, except for the following differences:
+Follow the same steps in the section [Set up the primary WLS cluster](#set-up-the-primary-wls-cluster) to set up the secondary WLS cluster in East US region, except for the following differences:
 
 1. In the **Basics** pane, use the following steps:
    1. In the **Resource group** field, select **Create new** and fill in a different unique value for the resource group - for example, *wls-cluster-eastus-ejb120623*.

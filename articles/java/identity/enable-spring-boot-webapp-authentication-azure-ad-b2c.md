@@ -3,15 +3,13 @@ title: Secure Spring Boot apps using Azure Active Directory B2C
 description: Shows you how to develop a Java Spring Boot web app that supports sign-in by Azure Active Directory B2C.
 services: active-directory
 ms.date: 03/11/2024
-ms.service: active-directory
-ms.subservice: B2C
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
 # Secure Java Spring Boot apps using Azure Active Directory B2C
 
-This article demonstrates a Java Spring Boot web app that signs in users on your Azure Active Directory B2C tenant using the [Azure AD B2C Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter-active-directory-b2c). It uses the OpenID Connect protocol.
+This article demonstrates a Java Spring Boot web app that signs in users on your Azure Active Directory B2C tenant using the [Azure AD B2C Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory-b2c). It uses the OpenID Connect protocol.
 
 The following diagram shows the topology of the app:
 

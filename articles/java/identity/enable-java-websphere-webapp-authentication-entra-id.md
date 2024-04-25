@@ -4,9 +4,8 @@ titleSuffix: Azure
 description: Shows you how to develop a Java WebSphere app that supports sign-in by using a Microsoft Entra account.
 services: active-directory
 ms.date: 03/11/2024
-ms.service: active-directory
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
 # Enable sign-in for Java WebSphere apps using Microsoft Entra ID

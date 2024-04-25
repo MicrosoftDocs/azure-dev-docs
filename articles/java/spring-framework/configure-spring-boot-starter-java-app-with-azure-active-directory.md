@@ -1,10 +1,10 @@
 ---
 title: Add sign-in with Microsoft Entra account to a Spring web app
-description: Shows you how to develop a Spring web app which supports sign-in by Microsoft Entra account.
+description: Shows you how to develop a Spring web app that supports sign-in by Microsoft Entra account.
 services: active-directory
-documentationcenter: java
+author: KarlErickson
+ms.author: xiada
 ms.date: 01/17/2023
-ms.service: active-directory
 ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.workload: identity
@@ -14,7 +14,7 @@ adobe-target: true
 
 # Add sign-in with Microsoft Entra account to a Spring web app
 
-This article shows you how to develop a Spring web app which supports sign-in by [Microsoft Entra account](/azure/active-directory/fundamentals/active-directory-whatis#terminology). After finishing all steps in this article, the web app will redirect to the Microsoft Entra sign-in page when it's been accessed anonymously. The following screenshot shows the Microsoft Entra sign-in page:
+This article shows you how to develop a Spring web app that supports sign-in by [Microsoft Entra account](/azure/active-directory/fundamentals/active-directory-whatis#terminology). After finishing all steps in this article, the web app will redirect to the Microsoft Entra sign-in page when it's been accessed anonymously. The following screenshot shows the Microsoft Entra sign-in page:
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/application-login.png" alt-text="Screenshot of application 'Sign in' dialog.":::
 

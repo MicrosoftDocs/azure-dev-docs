@@ -3,7 +3,7 @@ title: Serverless Node.js code with Azure Functions
 description: Azure Functions provides Node.js serverless code infrastructure with JavaScript and TypeScript, allowing you to create responsive, on-demand HTTP endpoints.
 ms.topic: how-to
 ms.date: 05/02/2023
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperf-fy21q2,engagement-fy23, devx-track-ts
+ms.custom: devx-track-js, engagement-fy23, devx-track-ts
 ---
 
 # Use Azure Functions to develop Node.js serverless solutions
@@ -58,7 +58,7 @@ The following common settings should be configured to keep your Azure Function s
 
 A function is an exported asynchronous function with request and context information. The following partial screenshot from the Azure portal shows the function code. 
 
-#### [v4 TypeScript (preview)](#tab/v4-ts)
+#### [v4 TypeScript](#tab/v4-ts)
 
 ```typescript
 import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
@@ -82,10 +82,10 @@ app.http('status', {
 });
 ```
 
-#### [v4 JavaScript (preview)](#tab/v4-js)
+#### [v4 JavaScript](#tab/v4-js)
 
 ```javascript
-const { app } = require("@azure/functions");
+import { app } from "@azure/functions";
 
 async function status(request, context) {
     context.log(`Http function processed request for url "${request.url}"`);
@@ -109,90 +109,6 @@ module.exports = status
 ```
 
 
-#### [v3 TypeScript](#tab/v3-ts)
-
-Azure function code file:
-
-```typescript
-import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-
-const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-    context.log('HTTP trigger function processed a request.');
-
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: process.env
-    };
-
-};
-
-export default httpTrigger;
-```
-
-Azure function definition file:
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "scriptFile": "../dist/status/index.js"
-}
-```
-
-#### [v3 JavaScript](#tab/v3-js)
-
-Azure function code file:
-
-```javascript
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: process.env
-    };
-}
-```
-
-Azure function definition file:
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ]
-}
-```
-
 ---
 
 ## Develop functions locally with Visual Studio Code and extensions
@@ -210,12 +126,15 @@ Serverless functions remove much of the server configuration and management so y
 
 ## Next steps
 
-The [Azure Functions developer guide for JavaScript](/azure/azure-functions/functions-reference-node) is a good starting point. 
+Use the following table to learn more about Azure Functions with Node.js
 
-Use the Learn module to learn how to [enable automatic updates in a web app using Azure functions and SignalR Service](/training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/).
+| To Learn | Sample |
+| -- | -- |
+|[What is Contoso Real Estate](../end-to-end/contoso-real-estate-get-started.md)|[Contoso Real Estate](https://github.com/azure-Samples/contoso-real-estate)|
+|[Build Serverless APIs with Azure Functions](/training/modules/build-api-azure-functions/)|[MicrosoftDocs/mslearn-build-api-azure-functions](https://github.com/MicrosoftDocs/mslearn-build-api-azure-functions)|
+|[Refactor Node.js Express APIs into serverless Azure Functions APIs](/training/modules/shift-nodejs-express-apis-serverless/)|[MicrosoftDocs/mslearn-module-shifting-nodejs-express-apis-to-serverless](https://github.com/MicrosoftDocs/mslearn-module-shifting-nodejs-express-apis-to-serverless)|
+|[ Upload and analyze a file with Azure Functions and Blob Storage](/azure/storage/blobs/blob-upload-function-trigger-javascript)|[Azure-Samples/msdocs-storage-bind-function-service](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/tree/main/javascript-v4)|
 
-* [Run code on a timer](/azure/azure-functions/functions-create-scheduled-function)
-* [Run code when files are uploaded or updated in Azure Blob storage](/azure/storage/blobs/storage-upload-process-images?tabs=nodejsv10)
-* [Run code when a message is written into Azure Queue Storage](/azure/azure-functions/functions-create-storage-queue-triggered-function)
+
 * [Store unstructured data using Azure Functions and Azure Cosmos DB](/azure/azure-functions/functions-integrate-store-unstructured-data-cosmosdb?tabs=javascript)
 * [Node.js + Azure Functions samples](/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions)

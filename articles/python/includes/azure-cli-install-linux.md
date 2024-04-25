@@ -1,5 +1,5 @@
 ---
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 The procedure for installing the Azure CLI on Linux varies depending on the package manager used by your Linux distribution. Follow the instructions for the package manager used by your Linux distribution.
 
@@ -50,6 +50,9 @@ If you prefer a step-by-step installation process, complete the following steps 
     ```
 
 #### [dnf (RHEL, Fedora, CentOS)](#tab/dnf)
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 1. Import the Microsoft repository key.
 

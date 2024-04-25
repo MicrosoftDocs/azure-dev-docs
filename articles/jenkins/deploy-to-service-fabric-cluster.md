@@ -4,7 +4,7 @@ description: Learn how to configure continuous build and integration for your Se
 keywords: jenkins, azure, devops, cicd, linux, service fabric, cluster
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.custom: devx-track-jenkins
+ms.custom: devx-track-jenkins, linux-related-content
 ---
 
 # Tutorial: Deploy to a Service Fabric cluster
@@ -66,7 +66,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    1. Click on **Connect** for the file-share and note the values it displays under **Connecting from Linux**, the value should look similar to the one below:
 
       ```sh
-      sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
+      sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=<username>,password=<storage-key>,dir_mode=0777,file_mode=0777
       ```
 
    > [!NOTE]
@@ -78,7 +78,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
    ```
    * Replace `[REMOTE_FILE_SHARE_LOCATION]` with the value `//sfjenkinsstorage1.file.core.windows.net/sfjenkins` from the output of the connect in step 2 above.
-   * Replace `[FILE_SHARE_CONNECT_OPTIONS_STRING]` with the value `vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777` from step 2 above.
+   * Replace `[FILE_SHARE_CONNECT_OPTIONS_STRING]` with the value `vers=3.0,username=<username>,password=<storage-key>,dir_mode=0777,file_mode=0777` from step 2 above.
 
 1. **Secure Cluster Only:** 
    
@@ -105,7 +105,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    ```
    The preceding command takes the certificate in PEM format. If your certificate is in PFX format, you can use the following command to convert it. If your PFX file isn't password protected, specify the **passin** parameter as `-passin pass:`.
    ```sh
-   openssl pkcs12 -in cert.pfx -out cert.pem -nodes -passin pass:MyPassword1234!
+   openssl pkcs12 -in cert.pfx -out cert.pem -nodes -passin pass:<password>
    ``` 
    
    **Unsecure Cluster**
@@ -239,7 +239,7 @@ The steps in this section show you how to configure a Jenkins job to respond to 
         If the PFX file is password protected, include the password in the `-passin` parameter. For example:
 
         ```sh
-        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
+        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:<password>
         ``` 
 
      1. To get the container ID for your Jenkins container, run `docker ps` from your host.

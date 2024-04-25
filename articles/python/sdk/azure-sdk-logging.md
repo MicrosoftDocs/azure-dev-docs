@@ -1,14 +1,14 @@
 ---
 title: Configure logging in the Azure libraries for Python
 description: The Azure libraries use the standard Python logging module, which is configured on a per-library or per-operation basis.
-ms.date: 12/12/2022
+ms.date: 01/19/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
 # Configure logging in the Azure libraries for Python
 
-Azure Libraries for Python that are [based on azure.core](azure-sdk-library-package-index.md#libraries-using-azurecore) page provide logging output using the standard Python [logging](https://docs.python.org/3/library/logging.html) library.
+Azure Libraries for Python that are [based on azure.core](azure-sdk-library-package-index.md#libraries-using-azurecore) provide logging output using the standard Python [logging](https://docs.python.org/3/library/logging.html) library.
 
 The general process to work with logging is as follows:
 
@@ -37,7 +37,7 @@ The `azure` logger is used by some libraries instead of a specific logger. For e
 
 You can use the `logger.isEnabledFor` method to check whether any given logging level is enabled:
 
-:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py" range="17-22":::
+:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py" range="22-27":::
 
 Logging levels are the same as the [standard logging library levels](https://docs.python.org/3/library/logging.html#levels). The following table describes the general use of these logging levels in the Azure libraries for Python:
 
@@ -68,16 +68,16 @@ The best way to examine the exact logging for a library is to search for the log
 
 To capture logging output, you must register at least one log stream handler in your code:
 
-:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py" range="1,23-27":::
+:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py" range="1,17-20":::
 
 This example registers a handler that directs log output to stdout. You can use other types of handlers as described on [logging.handlers](https://docs.python.org/3/library/logging.handlers.html) in the Python documentation or use the standard [logging.basicConfig](https://docs.python.org/3/library/logging.html#logging.basicConfig) method.
 
 ## Enable HTTP logging for a client object or operation
 
-By default, logging within the Azure libraries doesn't include any HTTP information. To include HTTP information in log output (as DEBUG level), you must specifically pass `logging_enable=True` to a client or credential object constructor or to a specific method.
+By default, logging within the Azure libraries doesn't include any HTTP information. To include HTTP information in log output (as DEBUG level), you must explicitly pass `logging_enable=True` to a client or credential object constructor or to a specific method.
 
 > [!CAUTION]
-> HTTP logging can reveal includes sensitive information such as account keys in headers and other credentials. Be sure to protect these logs to avoid compromising security.
+> HTTP logging can include sensitive information such as account keys in headers and other credentials. Be sure to protect these logs to avoid compromising security.
 
 ### Enable HTTP logging for a client object (DEBUG level)
 
@@ -89,7 +89,7 @@ Enabling HTTP logging for a client object enables logging for all operations inv
 
 :::code language="python" source="~/../python-sdk-docs-examples/logging/enable_for_credential.py":::
 
-Enabling HTTP logging for a credential object enables logging for all operations invoked through that object, specifically, but not for operations in a client object that don't involve authentication.
+Enabling HTTP logging for a credential object enables logging for all operations invoked through that object, but not for operations in a client object that don't involve authentication.
 
 ### Enable logging for an individual method (DEBUG level)
 
@@ -99,23 +99,24 @@ Enabling HTTP logging for a credential object enables logging for all operations
 
 The following code is that shown in [Example: Use a storage account](./examples/azure-sdk-example-storage-use.md) with the addition of enabling DEBUG and HTTP logging:
 
-:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py" range="1-23,28-49":::
+:::code language="python" source="~/../python-sdk-docs-examples/storage/use_blob_auth_logging.py":::
 
-The logging output is as follows:
+The output is as follows:
 
-<pre>
-Request URL: 'https://msdocswebapp123.blob.core.windows.net/blob-container-01/sample-blob-37c8e.txt'
+```output
+Logger enabled for ERROR=True, WARNING=True, INFO=True, DEBUG=True
+Request URL: 'https://pythonazurestorage12345.blob.core.windows.net/blob-container-01/sample-blob-5588e.txt'
 Request method: 'PUT'
 Request headers:
     'Content-Length': '77'
     'x-ms-blob-type': 'BlockBlob'
     'If-None-Match': '*'
-    'x-ms-version': '2021-08-06'
+    'x-ms-version': '2023-11-03'
     'Content-Type': 'application/octet-stream'
     'Accept': 'application/xml'
-    'User-Agent': 'azsdk-python-storage-blob/12.14.1 Python/3.9.5 (Windows-10-10.0.22621-SP0)'
-    'x-ms-date': 'Mon, 12 Dec 2022 18:05:08 GMT'
-    'x-ms-client-request-id': '83378428-7a47-11ed-9b02-f077c3084edf'
+    'User-Agent': 'azsdk-python-storage-blob/12.19.0 Python/3.10.11 (Windows-10-10.0.22631-SP0)'
+    'x-ms-date': 'Fri, 19 Jan 2024 19:25:53 GMT'
+    'x-ms-client-request-id': '8f7b1b0b-b700-11ee-b391-782b46f5c56b'
     'Authorization': '*****'
 Request body:
 b"Hello there, Azure Storage. I'm a friendly file ready to be stored in a blob."
@@ -123,14 +124,18 @@ Response status: 201
 Response headers:
     'Content-Length': '0'
     'Content-MD5': 'SUytm0872jZh+KYqtgjbTA=='
-    'Last-Modified': 'Mon, 12 Dec 2022 18:05:08 GMT'
-    'ETag': '"0x8DADC6B67626784"'
+    'Last-Modified': 'Fri, 19 Jan 2024 19:25:54 GMT'
+    'ETag': '"0x8DC1924749AE3C3"'
     'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
-    'x-ms-request-id': '82904be4-e01e-0051-7e54-0e7d72000000'
-    'x-ms-client-request-id': '83378428-7a47-11ed-9b02-f077c3084edf'
-    'x-ms-version': '2021-08-06'
+    'x-ms-request-id': '7ac499fa-601e-006d-3f0d-4bdf28000000'
+    'x-ms-client-request-id': '8f7b1b0b-b700-11ee-b391-782b46f5c56b'
+    'x-ms-version': '2023-11-03'
     'x-ms-content-crc64': 'rtHLUlztgxc='
     'x-ms-request-server-encrypted': 'true'
-    'Date': 'Mon, 12 Dec 2022 18:05:07 GMT'
+    'Date': 'Fri, 19 Jan 2024 19:25:53 GMT'
 Response content:
-b''</pre>
+b''
+```
+
+> [!NOTE]
+> If you get an authorization error, make sure the identity you're running under is assigned the "Storage Blob Data Contributor" role on your blob container. To learn more, see [Use blob storage with authentication](./examples/azure-sdk-example-storage-use.md#4a-use-blob-storage-with-authentication).

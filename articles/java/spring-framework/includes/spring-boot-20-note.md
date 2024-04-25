@@ -1,10 +1,8 @@
 ---
-ms.service: azure-java
 ms.topic: include
 ms.date: 07/22/2022
 ms.author: bbenz
 author: KarlErickson
-ms.author: seal
 ---
 
 > [!IMPORTANT]

@@ -24,9 +24,9 @@ The Contoso Real Estate application is an example end to end architecture, along
 
 ## API testing with Playwright
 
-The purpose of **Test Automation** is about executing tests automatically to validate [software specs](contoso-real-estate-user-scenarios.md), then using the reported insights to improve software quality iteratively. For APIs, this requires tools that can automate test actions in the browser (web automation) and support this consistently across browsers.
+The purpose of **Test Automation** is about executing tests automatically to validate [software specs](contoso-real-estate-user-scenarios.md), then using the reported insights to improve software quality iteratively. For APIs, this requires tools that can automate test actions and support this consistently across development, CICD, and production environments.
 
-Playwright is an open-source framework for reliable end-to-end testing of modern web apps. It's built to enable cross-browser web automation that is ever-green, capable, reliable and fast. 
+[Playwright](https://playwright.dev/) is an open-source framework for reliable end-to-end testing of modern web apps. It's built to enable cross-browser web automation that is ever-green, capable, reliable and fast. 
 
 **What kinds of things can we test with Playwright?**
 
@@ -40,16 +40,16 @@ The API endpoint is available in an environment variable based on which environm
 
 * **Local development on a local machine**: The local computer is running the Azure Functions API locally. The API is available at `http://localhost:7071/api/`.
 * **GitHub Codespaces**: The Codespaces environment is run in a browser from a cloud-based container. Use environment variables to construct the API endpoint from the host and port:  `https://${process.env.CODESPACE_NAME}-${process.env.CODESPACE_PORT}.githubpreview.dev`.
-* **Azure**: The API is deployed to Azure Functions. The deployed endpoint is available from the Azure Developer CLI's `.env` file based on the output variable using in the main.bicep. For this specific project, the environment variable name `SERVICE_API_ENDPOINTS`. This variable is a stringified array. In order to use it in the test, you need to parse it into an array and then select the first item in the array.
+* **Azure**: The API is deployed to Azure Functions. The deployed endpoint is available from the Azure Developer CLI's `.env` file based on the output variable used in the main.bicep. For this specific project, the environment variable name `SERVICE_API_ENDPOINTS`. This variable is a stringified array. In order to use it in the test, you need to parse it into an array and then select the first item in the array.
 
 ## Prerequisites 
 
-* GitHub account: access to the Contoso Real Estate repository and ability to fork and open with GitHub Codespaces is required to complete tutorial. 
 * Azure subscription: a free account can be created [here](https://azure.microsoft.com/free/)
+* GitHub account: access to the Contoso Real Estate repository and ability to fork and open with GitHub Codespaces is required to complete tutorial. 
 
 ## Prepare to test the APIs in Codespaces
 
-The Contoso Real Estate monorepo has been configured with DevContainers. The DevContainers include the required dependencies to develop locally including npm packages and database services such as PostGreSQL and MongoDB.
+The Contoso Real Estate monorepo is configured with DevContainers. The DevContainers include the required dependencies to develop locally including npm packages and database services such as PostGreSQL and MongoDB.
 
 Use the following steps to prepare to test the API when running the API locally. 
 
@@ -63,17 +63,20 @@ Use the following steps to prepare to test the API when running the API locally.
     npm start
     ```
 
+    This is equivalent to running `docker compose up -d`, the `-d` indicates a detached state of the process, so the output of each service isn't shown in the terminal. This leaves the terminal free for other commands.
+
 Now that the services and applications are running, you can test the API.
 
 ## Install Playwright in a new `test-api` package.
 
-While you could install the testing infrastructure into the `./packages/api` folder (monorepo package), for this tutorial you'll create a new package to keep the testing infrastructure separate from the application code. This helps with troubleshooting. 
+While you could install the testing infrastructure into the `./packages/api` folder (monorepo package), for this tutorial you'll create a new package to keep the testing infrastructure separated from the application code. This helps with troubleshooting. 
 
 1. Create a new `api-testing` package in the `./packages` folder.
 
     ```bash
     cd packages
     mkdir api-testing
+    cd api-testing
     ```
 
 1. Initialize the package for Playwright
@@ -103,43 +106,22 @@ While you could install the testing infrastructure into the `./packages/api` fol
 
     The test should pass. Notice that the default test is a browser-based test but this tutorial is about API testing. There isn't any harm in installing the browsers and running the default test. You can remove the browsers later if you want to. Now you know the test infrastructure works. 
 
-
-## Playwright test configuration
-
-
-
-1. Open the `package.json` file and add the following script. This allows the tests to be run from the workspace root.
-
-    ```json
-    "scripts": {
-      "test": "playwright test"
-    },
-    ```
-
-1. The default Playwright test is a browser-based test. You need to switch the project to API testing. Open the `playwright.config.ts` and remote the `projects` property and its values. This isn't needed for API testing.
-
 ## Create an API test 
 
-1. Delete this `tests/example.spec.ts` test file.
-1. Create a new test file in the `tests` folder called `api.spec.ts`.
 
-    ```bash
-    touch tests/api.spec.ts
-    ```
+1. Create a new test file in the `tests` folder called `api.spec.ts`.
 
 1. Add the following code to the `api.spec.ts` file.
 
     ```typescript
     import { test, expect  } from '@playwright/test';
     
-    // create base URL from 3 sources:
-    // 1. Azure: JSON.parse(process.env.SERVICE_API_ENDPOINTS)[0] - output array as string from `./infra/main.bicep`
-    // 2. GitHub Codespaces: `https://${process.env.CODESPACE_NAME}-${process.env.CODESPACE_PORT}.githubpreview.dev`
-    // 3. Local development on a local machine: `localhost:7071`
+    const LOCAL_BASE_URL = 'http://localhost:7072';
+
     const BASE_URL = process.env.SERVICE_API_ENDPOINTS
       ? JSON.parse(process.env.SERVICE_API_ENDPOINTS)[0]
       : process.env.CODESPACE_NAME
-        ? 'http://localhost:7072';
+        ? LOCAL_BASE_URL;
     
     console.log(`BASE_URL: ${BASE_URL}`);
     
@@ -178,10 +160,10 @@ While you could install the testing infrastructure into the `./packages/api` fol
 1. Run the test. This validates the API is running and can connect to the two databases.
 
     ```bash
-    npm test
+    npx playwright test
     ```
 
-1. The test should pass without output like the following:
+1. The test should pass with output like the following:
 
     ```console
      $ npm run test --workspace=api-test
@@ -223,10 +205,6 @@ While you could install the testing infrastructure into the `./packages/api` fol
       ✓  2 function.api.spec.ts:32:5 › should get users (351ms)
     
       2 passed (1.1s)
-    
-    To open last HTML report run:
-    
-      npx playwright show-report
     ```
 
 ## Debug the test with Visual Studio extension for Playwright
@@ -250,5 +228,6 @@ Once you know the line that is causing the error, you can debug the test. The Co
 
 ## More resources
 
+* [Contoso Real Estate](https://github.com/Azure-Samples/contoso-real-estate)
 * [Playwright](https://playwright.dev/)
 * [End to End Testing w/ Playwright: Mandy Whaley & Arjun Attam - Static Web Apps: Code to Scale (6 of 6)](https://youtu.be/VMl8aV-ddMA)

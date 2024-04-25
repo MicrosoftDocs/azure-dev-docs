@@ -2,7 +2,6 @@
 title: Spring Boot Starter for Microsoft Entra developer's guide
 description: This guide describes the features, issues, workarounds, and diagnostic steps to be aware of when you use the Microsoft Entra starter.
 ms.date: 04/06/2023
-ms.service: active-directory
 ms.topic: article
 author: KarlErickson
 ms.author: shaozliu
@@ -11,7 +10,7 @@ ms.custom: devx-track-java, engagement-fy23, spring-cloud-azure, devx-track-exte
 
 # Spring Boot Starter for Microsoft Entra developer's guide
 
-**This article applies to:** ✔️ Version 4.14.0 ✔️ Version 5.8.0
+**This article applies to:** ✔️ Version 4.17.0 ✔️ Version 5.11.0
 
 This article describes the features and core scenarios of the Spring Boot Starter for Microsoft Entra ID. The article also includes guidance on common issues, workarounds, and diagnostic steps.
 

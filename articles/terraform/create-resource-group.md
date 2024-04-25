@@ -9,6 +9,7 @@ ms.custom: devx-track-terraform
 adobe-target: true
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure resource group using Terraform

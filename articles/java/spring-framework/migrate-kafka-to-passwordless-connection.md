@@ -5,7 +5,6 @@ author: KarlErickson
 ms.author: yiliu6
 ms.topic: how-to
 ms.date: 11/16/2022
-ms.service: event-hubs
 ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure, devx-track-java, devx-track-azurecli, devx-track-extended-java
 ---
 
@@ -251,7 +250,7 @@ Next, use the following steps to update your Spring Kafka application to use pas
        @Override
        public Set<String> scope() {
            // Referring to https://docs.microsoft.com/azure/active-directory/develop/access-tokens#payload-claims, the scp
-           // claim is a String which is presented as a space separated list.
+           // claim is a String, which is presented as a space separated list.
            return Optional.ofNullable(claims.getClaim("scp"))
                    .map(s -> Arrays.stream(((String) s)
                    .split(" "))

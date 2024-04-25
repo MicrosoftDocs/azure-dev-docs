@@ -5,8 +5,7 @@ author: KarlErickson
 ms.author: edburns
 ms.date: 12/20/2022
 ms.topic: how-to
-ms.service: azure-redhat-openshift
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-extended-java, linux-related-content
 ---
 
 # Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster
