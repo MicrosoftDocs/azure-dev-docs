@@ -85,6 +85,8 @@ func main() {
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [Go in Visual Studio Code](https://code.visualstudio.com/docs/languages/go)
+> [!div class="nextstepaction"]
 > [Key Azure Services for Go Developers](key-azure-services-for-go.md)
 > [!div class="nextstepaction"]
 > [Authenticate with the Azure SDK for Go](azure-sdk-authentication.md)
