@@ -30,7 +30,13 @@ mkdir deployARM-how-to
 cd deployARM-how-to
 ```
 
-The Azure SDK for Go contains several packages for working with Azure, for this tutorial you'll need the `azcore/to`, `azidentity, and `armresources` packages:
+Run the `go mod init` command to create the `go.mod` and `go.sum` files.
+
+```azurecli
+go mod init deployARM-how-to
+```
+
+The Azure SDK for Go contains several packages for working with Azure, for this tutorial you'll need the `azcore/to`, `azidentity, and `armresources` packages.
 
 Run the `go get` command to download these packages:
 
@@ -38,12 +44,6 @@ Run the `go get` command to download these packages:
 go get github.com/Azure/azure-sdk-for-go/sdk/azcore/to
 go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
 go get github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources
-```
-
-Run the `go mod init` command to create the `go.mod` and `go.sum` files.
-
-```azurecli
-go mod init deployARM-how-to
 ```
 
 Next create a file named `main.go`
@@ -175,9 +175,23 @@ Replace `<StorageAccountName>` and `<StorageAccountDisplayName>` with a [valid s
 
 ## Run the application
 
-Before you can deploy the template with GO, define the subscription ID as an environment variable.
+The code in this article uses the [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) type from the Azure Identity module for Go to authenticate to Azure. `DefaultAzureCredential` supports many credential types for authentication with Azure using OAuth with Microsoft Entra ID. In this article, we'll use the user credentials that you sign in to the Azure CLI with.
 
-Create an environment variable named `AZURE_SUBSCRIPTION_ID` set to your Azure subscription ID. To get the subscription ID, run the AzureCLI command `az account list`.
+If you haven't already, sign in to the Azure CLI:
+
+```azurecli
+az login
+```
+
+If there are multiple subscriptions associated with your account, use the [az account list](/cli/azure/account#az-account-list) command to get a list of those subscriptions and the [az account set](/cli/azure/account#az-account-set) command to set the active subscription.
+
+Next, define the subscription ID as an environment variable.
+
+Create an environment variable named `AZURE_SUBSCRIPTION_ID` set to your Azure subscription ID. To get the subscription ID, you can run the [az account show](/cli/azure/account#az-account-show) command.
+
+```azurecli
+az account show --query id --output tsv
+```
 
 ```azurecli
 export AZURE_SUBSCRIPTION_ID=<AzureSubscriptionId>
@@ -185,10 +199,32 @@ export AZURE_SUBSCRIPTION_ID=<AzureSubscriptionId>
 
 Replace `<AzureSubscriptionId>` with your subscription ID.
 
-Next, run the `go run` command to deploy the template:
+Finally, run the `go run` command to deploy the template:
 
 ```azurecli
 go run main.go
+```
+
+## Verify the resources on Azure
+
+There are several Azure CLI commands you can use to verify that the resources were successfully created on Azure. The following commands are some examples.
+
+To verify that the resource group has been created, run the [az group exists](/cli/azure/group#az-group-exists) command.
+
+```azurecli
+az group exists --name deployARM-how-to
+```
+
+You can list the resources in the group with the [az resource list](/cli/azure/resource#az-resource-list) command.
+
+```azurecli
+az resource list --resource-group deployARM-how-to
+```
+
+You can examine the deployment results (outputResources) and properties with the [az deployment group show](/cli/azure/deployment/group#az-deployment-group-show) command.
+
+```azurecli
+az deployment group show -g deployARM-how-to -n deployARM-how-to
 ```
 
 ## Clean up resources
