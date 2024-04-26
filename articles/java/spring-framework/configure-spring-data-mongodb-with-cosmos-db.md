@@ -29,8 +29,6 @@ This article demonstrates creating a sample application that uses [Spring Data] 
 
 1. Select **Create a resource**, then **Databases**, then **Azure Cosmos DB**.
 
-   ![Azure portal, create a resource, search for Azure Cosmos DB.][COSMOSDB01]
-
 1. On the **Select API option** screen, select **Azure Cosmos DB for MongoDB**.
 
    ![Azure portal, create a resource, select API option, Azure Cosmos DB for MongoDB selected.][COSMOSDB02]
@@ -150,7 +148,6 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 
 <!-- IMG List -->
 
-[COSMOSDB01]: media/configure-spring-data-mongodb-with-cosmos-db/create-cosmos-db-01.png
 [COSMOSDB02]: media/configure-spring-data-mongodb-with-cosmos-db/create-cosmos-db-02.png
 [COSMOSDB03]: media/configure-spring-data-mongodb-with-cosmos-db/create-cosmos-db-03.png
 [COSMOSDB04]: media/configure-spring-data-mongodb-with-cosmos-db/create-cosmos-db-04.png
