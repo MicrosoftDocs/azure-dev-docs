@@ -289,13 +289,9 @@ Maven will deploy your web application to Azure. If the web application or web a
 
 When your web application has been deployed, you can manage it through the [Azure portal].
 
-Your web application will be listed in the **microprofile** resource group, as shown in the following screenshot:
+Your web application will be listed in the **microprofile** resource group.
 
-:::image type="content" source="media/quarkus/quarkus-azure-portal-rg.png" alt-text="Screenshot of Azure portal showing resource group contents." lightbox="media/quarkus/quarkus-azure-portal-rg.png":::
-
-You can access to your web application by selecting **Browse** in the **Overview** page for your web app. Verify that the deployment was successful and is running. You should see the following screen displayed:
-
-:::image type="content" source="media/quarkus/quarkus-azure-portal-manage.png" alt-text="Screenshot of Azure portal showing web app overview page." lightbox="media/quarkus/quarkus-azure-portal-manage.png":::
+You can access to your web application by selecting **Browse** in the **Overview** page for your web app. Verify that the deployment was successful and is running.
 
 ## Confirm the log stream from the running App Service
 
