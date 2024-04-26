@@ -175,7 +175,7 @@ Replace `<StorageAccountName>` and `<StorageAccountDisplayName>` with a [valid s
 
 ## Sign in to Azure
 
-The code in this article uses the [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) type from the Azure Identity module for Go to authenticate to Azure. `DefaultAzureCredential` supports many credential types for authentication with Azure using OAuth with Microsoft Entra ID. In this article, you use the user credentials that you sign in to the Azure CLI with. For the program to run successfully, you should have permissions to create resource groups and Azure resources like Storage accounts in your subscription.
+The code in this article uses the [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) type from the Azure Identity module for Go to authenticate to Azure. `DefaultAzureCredential` supports many credential types for authentication with Azure using OAuth with Microsoft Entra ID. In this article, you use the user credentials that you sign in to the Azure CLI with.
 
 If you haven't already, sign in to the Azure CLI:
 
