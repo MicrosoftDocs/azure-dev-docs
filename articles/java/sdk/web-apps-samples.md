@@ -6,7 +6,6 @@ author: KarlErickson
 ms.author: karler
 ms.date: 04/16/2017
 ms.topic: article
-ms.assetid: 43633e5c-9fb1-4807-ba63-e24c126754e2
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 

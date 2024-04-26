@@ -1,7 +1,6 @@
 ---
 title: Add sign-in with Azure Active Directory B2C to a Spring Web App
 description: Shows you how to create a Java app with sign-in capability by using the Spring Boot Starter for Microsoft Entra ID.
-services: active-directory-b2c
 author: KarlErickson
 ms.author: xiada
 ms.date: 01/18/2023
