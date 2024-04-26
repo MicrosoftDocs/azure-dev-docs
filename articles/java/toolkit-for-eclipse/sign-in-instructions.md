@@ -32,8 +32,6 @@ This section walks you through the Azure sign in process by device login.
 
 1. In the **Azure Sign In** window, select **Device Login**, and then click **Sign in**.
 
-   ![The Azure Sign In window with device login selected][I02]
-
 1. Click **Copy&Open** in **Azure Device Login** dialog .
 
 > [!NOTE]
@@ -101,6 +99,4 @@ After you have configured your account by preceding steps, you will be automatic
 
 
 <!-- IMG List -->
-
-[I02]: media/sign-in-instructions/I02.png
 
