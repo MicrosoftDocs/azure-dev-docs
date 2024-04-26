@@ -26,7 +26,7 @@ The rest of this article details the configuration of all available logging opti
 ## Enable HTTP request/response logging
 
 HTTP request and response logging are off by default. Clients that communicate to Azure services over HTTP can be configured to write a log for each request and response (or exception) they received.
-To enable logs, pass a configured instance of [`HttpLogOptions`](https://learn.microsoft.com/java/api/com.azure.core.http.policy.httplogoptions) to the `httpLogOptions` method on the
+To enable logs, pass a configured instance of [`HttpLogOptions`](/java/api/com.azure.core.http.policy.httplogoptions) to the `httpLogOptions` method on the
 corresponding client builder.
 
 Here's an example for App Configuration service:
@@ -40,7 +40,7 @@ ConfigurationClient configurationClient = new ConfigurationClientBuilder()
 
 In the above example, we enable logs enriched with request and response headers. Header values are logged only for a configurable allowlist of headers.
 
-You can change the level of details by providing a different value of the [`HttpLogDetailLevel`](https://learn.microsoft.com/java/api/com.azure.core.http.policy.httplogdetaillevel?view=azure-java-stable) enum.
+You can change the level of details by providing a different value of the [`HttpLogDetailLevel`](/java/api/com.azure.core.http.policy.httplogdetaillevel) enum.
 
 For example, when `HttpLogDetailLevel.BASIC` level is configured, produced logs contain request method, sanitized request URL, try count, response code, and the content length for request and response bodies.
 
@@ -52,7 +52,7 @@ For example, Azure Blob Storage SAS URL is logged in the following format:
 
 The `HttpLogDetailLevel.HEADERS` we used in the previous example includes all the basic details and allowed headers. And the `HttpLogDetailLevel.BODY_AND_HEADERS` level adds request and response bodies as long as they're smaller than 16 KB and printable.
 
-Check [`HttpLogOptions`](https://learn.microsoft.com/java/api/com.azure.core.http.policy.httplogoptions) documentation for the full list of configuration options.
+Check [`HttpLogOptions`](/java/api/com.azure.core.http.policy.httplogoptions) documentation for the full list of configuration options.
 
 If you use OpenTelemetry, you may consider using distributed tracing instead of logging for HTTP requests, refer to the [Distributed Tracing](./tracing.md) article for the details.
 
