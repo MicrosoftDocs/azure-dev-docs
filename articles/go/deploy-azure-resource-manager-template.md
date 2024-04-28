@@ -82,7 +82,7 @@ var (
 )
 
 func readJSON(path string) (map[string]interface{}, error) {
-	data, err := ioutil.ReadFile(path)
+	data, err := os.ReadFile(path)
 	if err != nil {
 		log.Fatalf("failed to read file: %v", err)
 	}
