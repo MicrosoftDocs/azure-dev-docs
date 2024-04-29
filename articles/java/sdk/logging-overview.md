@@ -25,37 +25,33 @@ The rest of this article details the configuration of all available logging opti
 
 ## Enable HTTP request/response logging
 
-HTTP request and response logging are off by default. Clients that communicate to Azure services over HTTP can be configured to write a log record
-for each request and response (or exception) they receive.
+HTTP request and response logging are off by default. You can configure clients that communicate to Azure services over HTTP to write a log record for each request and response (or exception) they receive.
 
-If you use OpenTelemetry, you may consider using distributed tracing instead of logging for HTTP requests, refer to the [Distributed Tracing](./tracing.md) article for the details.
+If you use OpenTelemetry, consider using distributed tracing instead of logging for HTTP requests. For more information, see [Configure tracing in the Azure SDK for Java](tracing.md).
 
-### Configure HTTP logging with environment variable
+### Configure HTTP logging with an environment variable
 
-The `AZURE_HTTP_LOG_DETAIL_LEVEL` environment variable can be used to enable HTTP logs globally. It supports the following values:
+You can use the `AZURE_HTTP_LOG_DETAIL_LEVEL` environment variable to enable HTTP logs globally. This variable supports the following values:
 
-- `NONE` - HTTP logs are disabled (the default)
-- `BASIC` - produced HTTP logs contain request method, sanitized request URL, try count, response code, and the content length for request and response bodies.
-- `HEADERS` - includes all the basic details and adds headers that are known to be safe for logging purposes (don't contain secrets or sensitive information). The full list of header names is available in the [`HttpLogOptions`](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/src/main/java/com/azure/core/http/policy/HttpLogOptions.java) class.
-- `BODY_AND_HEADERS` - includes all the details provided on `HEADERS` level and adds request and response bodies as long as they're smaller than 16 KB and printable.
+- `NONE`: HTTP logs are disabled. This value is the default.
+- `BASIC`: HTTP logs contain request method, sanitized request URL, try count, response code, and the content length for request and response bodies.
+- `HEADERS`: HTTP logs include all the basic details and also include headers that are known to be safe for logging purposes - that is, they don't contain secrets or sensitive information. The full list of header names is available in the [HttpLogOptions](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/src/main/java/com/azure/core/http/policy/HttpLogOptions.java) class.
+- `BODY_AND_HEADERS`: HTTP logs include all the details provided by the `HEADERS` level and also include request and response bodies as long as they're smaller than 16 KB and printable.
 
-> Note:
-> The request URL is sanitized - all query parameter values are redacted except for the `api-version` value. Individual client libraries may add other query params which are known to be safe
-> to the allowlist.
+> [!NOTE]
+> The request URL is sanitized - that is, all query parameter values are redacted except for the `api-version` value. Individual client libraries may add other query parameters that are known to be safe to the allowlist.
 
-For example, Azure Blob Storage SAS URL is logged in the following format:
+For example, the Azure Blob Storage shared access signature (SAS) URL is logged in the following format:
 `https://myaccount.blob.core.windows.net/pictures/profile.jpg?sv=REDACTED&st=REDACTED&se=REDACTED&sr=REDACTED&sp=REDACTED&rscd=REDACTED&rsct=REDACTED&sig=REDACTED`
 
 > [!WARNING]
-> Logging request and response bodies is not recommended in production as they may contain sensitive information, significantly affect performance, change how content is buffered and have other side-effects.
+> Logging request and response bodies isn't recommended in production because they might contain sensitive information, significantly affect performance, change how content is buffered, and have other side effects.
 
 ### Configure HTTP logging in code
 
-Azure client builders that implement [`HttpTrait<T>`](/java/api/com.azure.core.client.traits.httptrait) interface support code-based HTTP logging configuration. Code-based configuration
-applies to individual client instances and provides more options and customizations comparing to environment variable configuration.
+Azure client builders that implement the [HttpTrait\<T>](/java/api/com.azure.core.client.traits.httptrait) interface support code-based HTTP logging configuration. Code-based configuration applies to individual client instances and provides more options and customizations compared to environment variable configuration.
 
-To configure logs, pass an instance of [`HttpLogOptions`](/java/api/com.azure.core.http.policy.httplogoptions) to the `httpLogOptions` method on the
-corresponding client builder. Here's an example for App Configuration service:
+To configure logs, pass an instance of [HttpLogOptions](/java/api/com.azure.core.http.policy.httplogoptions) to the `httpLogOptions` method on the corresponding client builder. The following code shows an example for the App Configuration service:
 
 ```java
 HttpLogOptions httpLogOptions = new HttpLogOptions()
@@ -69,13 +65,13 @@ ConfigurationClient configurationClient = new ConfigurationClientBuilder()
         .buildClient();
 ```
 
-Here we enabled HTTP logs with headers and added `Accept-Ranges` response header along with the `label` query parameter to the corresponding allowlists, so they should now show up in the produced logs.
+This code enables HTTP logs with headers and adds the `Accept-Ranges` response header and the `label` query parameter to the corresponding allowlists. After this change, these values should appear in the produced logs.
 
-Check [`HttpLogOptions`](/java/api/com.azure.core.http.policy.httplogoptions) documentation for the full list of configuration options.
+For the full list of configuration options, see the [HttpLogOptions](/java/api/com.azure.core.http.policy.httplogoptions) documentation.
 
 ## Default logger (for temporary debugging)
 
-As noted, all Azure client libraries use SLF4J for logging, but there's a fallback, default logger built into Azure client libraries for Java. This default logger is provided for cases where an application has been deployed, and logging is required, but it's not possible to redeploy the application with an SLF4J logger included. To enable this logger, you must first be certain that no SLF4J logger exists (because it takes precedence), and then set the `AZURE_LOG_LEVEL` environment variable. The following table shows the values allowed for this environment variable:
+As noted, all Azure client libraries use SLF4J for logging, but there's a fallback, default logger built into Azure client libraries for Java. This default logger is provided for cases where an application is deployed, and logging is required, but it's not possible to redeploy the application with an SLF4J logger included. To enable this logger, you must first be certain that no SLF4J logger exists (because it takes precedence), and then set the `AZURE_LOG_LEVEL` environment variable. The following table shows the values allowed for this environment variable:
 
 | Log Level              | Allowed environment variable values    |
 |------------------------|----------------------------------------|
@@ -104,7 +100,7 @@ For examples, see the documentation for the logging framework you use.
 
 ### Structured logging
 
-In addition to logging the common properties mentioned earlier, Azure client libraries annotate log messages with extra context when applicable. For example, you may see JSON-formatted logs containing `az.sdk.message` with context written as other root properties, as shown in the following example:
+In addition to logging the common properties mentioned earlier, Azure client libraries annotate log messages with extra context when applicable. For example, you might see JSON-formatted logs containing `az.sdk.message` with context written as other root properties, as shown in the following example:
 
 ```log
 16:58:51.038 INFO  c.a.c.c.i.C.getManifestProperties - {"az.sdk.message":"HTTP request","method":"GET","url":"<>","tryCount":"1","contentLength":0}
@@ -125,7 +121,7 @@ traces
 
 ## Next steps
 
-Now that you've seen how logging works in the Azure SDK for Java, consider reviewing the following articles. These articles provide guidance on how to configure some of the more popular Java logging frameworks to work with SLF4J and the Java client libraries:
+Now that you know how logging works in the Azure SDK for Java, consider reviewing the following articles. These articles provide guidance on how to configure some of the more popular Java logging frameworks to work with SLF4J and the Java client libraries:
 
 * [java.util.logging](logging-jul.md)
 * [Logback](logging-logback.md)
