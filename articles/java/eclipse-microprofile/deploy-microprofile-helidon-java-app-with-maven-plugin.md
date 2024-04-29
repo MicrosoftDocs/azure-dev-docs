@@ -234,13 +234,9 @@ Maven will deploy your web app to Azure. If the web app or web app plan doesn't 
 
 When your web has been deployed, you can manage it through the [Azure portal].
 
-Your web app will be listed in **App Services**, as shown in the following screenshot:
+Your web app will be listed in **App Services**.
 
-:::image type="content" source="media/helidon/azure-portal-app-service-screen.png" alt-text="Screenshot of Azure portal with web app listed on App Services screen." lightbox="media/helidon/azure-portal-app-service-screen.png":::
-
-You can access to your web app by selecting **Browse** on the **Overview** page for your web app:
-
-:::image type="content" source="media/helidon/azure-portal-app-service-overview.png" alt-text="Screenshot of Azure portal showing the web app overview page." lightbox="media/helidon/azure-portal-app-service-overview.png":::
+You can access to your web app by selecting **Browse** on the **Overview** page for your web app.
 
 Verify that the deployment was successful by using the same cURL command as before(`/data/hello`), using your web app URL from the Portal instead of `localhost`. You should see the following message displayed: **Hello World**
 

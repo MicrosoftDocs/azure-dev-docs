@@ -457,7 +457,7 @@ az ad sp delete --id <YOUR-SERVICE-PRINCIPAL-NAME>
 
 ## Sample code
 
-* [GitHub](https://github.com/Azure-Samples/js-e2e-azure-resource-management-functions)
+* [GitHub: Azure-Samples/azure-typescript-e2e-apps](https://github.com/Azure-Samples/azure-typescript-e2e-apps/blob/main/api-functions-v4-azure-resource-management)
 
 
 ## Next steps

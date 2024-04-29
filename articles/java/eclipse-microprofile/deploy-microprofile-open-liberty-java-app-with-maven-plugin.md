@@ -287,13 +287,9 @@ Maven will deploy your web app to Azure. If the web app or web app plan doesn't 
 
 When your app has been deployed, you can manage it through the [Azure portal].
 
-Your web app will be listed in the resource group, as shown in the following screenshot:
+Your web app will be listed in the resource group.
 
-:::image type="content" source="media/open-liberty/open-liberty-azure-portal-rg.png" alt-text="Screenshot of Azure portal showing resource group contents." lightbox="media/open-liberty/open-liberty-azure-portal-rg.png":::
-
-You can access your web app by selecting **Browse** on the **Overview** page for your web app. Verify that the deployment was successful and Running. You should see the following screen displayed:
-
-:::image type="content" source="media/open-liberty/open-liberty-azure-portal-manage.png" alt-text="Screenshot of Azure portal showing web app overview page." lightbox="media/open-liberty/open-liberty-azure-portal-manage.png":::
+You can access your web app by selecting **Browse** on the **Overview** page for your web app. Verify that the deployment was successful and Running. 
 
 ## Confirm the log stream from the running App Service
 
