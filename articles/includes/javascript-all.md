@@ -195,7 +195,7 @@
 | Resource Management - Deployment Manager | npm [3.1.1](https://www.npmjs.com/package/@azure/arm-deploymentmanager/v/3.1.1)<br>npm [4.0.0-beta.4](https://www.npmjs.com/package/@azure/arm-deploymentmanager/v/4.0.0-beta.4) | [docs](/javascript/api/overview/azure/arm-deploymentmanager-readme) | GitHub [3.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/deploymentmanager/arm-deploymentmanager) |
 | Resource Management - Deployment Stacks | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-resourcesdeploymentstacks/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-resourcesdeploymentstacks-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resourcesdeploymentstacks_1.0.0-beta.1/sdk/resourcesdeploymentstacks/arm-resourcesdeploymentstacks/) |
 | Resource Management - Desktop Virtualization | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-desktopvirtualization/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-desktopvirtualization-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-desktopvirtualization_1.1.0/sdk/desktopvirtualization/arm-desktopvirtualization/) |
-| Resource Management - Dev Center | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-devcenter/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-devcenter-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-devcenter_1.0.0/sdk/devcenter/arm-devcenter/) |
+| Resource Management - Dev Center | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-devcenter/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-devcenter-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-devcenter_1.1.0/sdk/devcenter/arm-devcenter/) |
 | Resource Management - Dev Spaces | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-devspaces/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-devspaces-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/devspaces/arm-devspaces) |
 | Resource Management - DevHub | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-devhub/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-devhub-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-devhub_1.0.0-beta.3/sdk/devhub/arm-devhub/) |
 | Resource Management - Device Provisioning Services | npm [5.1.0](https://www.npmjs.com/package/@azure/arm-deviceprovisioningservices/v/5.1.0)<br>npm [6.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-deviceprovisioningservices/v/6.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-deviceprovisioningservices-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/deviceprovisioningservices/arm-deviceprovisioningservices) |
@@ -438,7 +438,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240426.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240426.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240429.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240429.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -448,7 +448,7 @@
 | @autorest/system-requirements | npm [1.1.0](https://www.npmjs.com/package/@autorest/system-requirements/v/1.1.0) |  |  |
 | @autorest/test-utils | npm [0.6.0](https://www.npmjs.com/package/@autorest/test-utils/v/0.6.0) |  |  |
 | @autorest/testmodeler | npm [2.6.1](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.1) |  |  |
-| @autorest/typescript | npm [6.0.21](https://www.npmjs.com/package/@autorest/typescript/v/6.0.21) |  |  |
+| @autorest/typescript | npm [6.0.22](https://www.npmjs.com/package/@autorest/typescript/v/6.0.22) |  |  |
 | @azure-tools/adl-openapi | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-openapi/v/0.3.2) |  |  |
 | @azure-tools/adl-rest | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-rest/v/0.3.2) |  |  |
 | @azure-tools/adl-rpaas | npm [0.4.2](https://www.npmjs.com/package/@azure-tools/adl-rpaas/v/0.4.2) |  |  |
@@ -471,13 +471,13 @@
 | @azure-tools/cadl-ranch-api | npm [0.4.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.4.3) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.8.2](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.8.2) |  |  |
 | @azure-tools/cadl-ranch-expect | npm [0.13.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.13.3) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.32.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.32.0) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.33.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.33.0) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.7.5](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.5) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.7.6](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.6) |  |  |
 | @azure-tools/json | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/json/v/1.3.0) |  |  |
 | @azure-tools/jsonschema | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.0) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
@@ -485,7 +485,7 @@
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
 | @azure-tools/prettier-plugin-cadl | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/prettier-plugin-cadl/v/0.2.1) |  |  |
 | @azure-tools/python-generator-core | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/python-generator-core/v/0.1.0) |  |  |
-| @azure-tools/rlc-common | npm [0.27.0](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.27.0) |  |  |
+| @azure-tools/rlc-common | npm [0.28.0](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.28.0) |  |  |
 | @azure-tools/sdk-generation-lib | npm [1.0.5](https://www.npmjs.com/package/@azure-tools/sdk-generation-lib/v/1.0.5) |  |  |
 | @azure-tools/test-credential | npm [1.0.4](https://www.npmjs.com/package/@azure-tools/test-credential/v/1.0.4) |  |  |
 | @azure-tools/test-recorder | npm [3.2.0](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.2.0) |  |  |
@@ -519,7 +519,7 @@
 | AutoRest - Go | npm [4.0.0-preview.66](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.66) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.697](https://www.npmjs.com/package/@autorest/powershell/v/4.0.697) |  | GitHub [4.0.697](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.13.14](https://www.npmjs.com/package/@autorest/python/v/6.13.14) |  | GitHub [6.13.14](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.13.15](https://www.npmjs.com/package/@autorest/python/v/6.13.15) |  | GitHub [6.13.15](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
