@@ -25,36 +25,53 @@ The rest of this article details the configuration of all available logging opti
 
 ## Enable HTTP request/response logging
 
-HTTP request and response logging are off by default. Clients that communicate to Azure services over HTTP can be configured to write a log for each request and response (or exception) they received.
-To enable logs, pass a configured instance of [`HttpLogOptions`](/java/api/com.azure.core.http.policy.httplogoptions) to the `httpLogOptions` method on the
-corresponding client builder.
+HTTP request and response logging are off by default. Clients that communicate to Azure services over HTTP can be configured to write a log record
+for each request and response (or exception) they receive.
 
-Here's an example for App Configuration service:
+If you use OpenTelemetry, you may consider using distributed tracing instead of logging for HTTP requests, refer to the [Distributed Tracing](./tracing.md) article for the details.
 
-```java
-ConfigurationClient configurationClient = new ConfigurationClientBuilder()
-        .connectionString(connectionString)
-        .httpLogOptions(new HttpLogOptions().setLogLevel(HttpLogDetailLevel.HEADERS))
-        .buildClient();
-```
+### Configure HTTP logging with environment variable
 
-In the above example, we enable logs enriched with request and response headers. Header values are logged only for a configurable allowlist of headers.
+The `AZURE_HTTP_LOG_DETAIL_LEVEL` environment variable can be used to enable HTTP logs globally. It supports the following values:
 
-You can change the level of details by providing a different value of the [`HttpLogDetailLevel`](/java/api/com.azure.core.http.policy.httplogdetaillevel) enum.
-
-For example, when `HttpLogDetailLevel.BASIC` level is configured, produced logs contain request method, sanitized request URL, try count, response code, and the content length for request and response bodies.
+- `NONE` - HTTP logs are disabled (the default)
+- `BASIC` - produced HTTP logs contain request method, sanitized request URL, try count, response code, and the content length for request and response bodies.
+- `HEADERS` - includes all the basic details and adds headers that are known to be safe for logging purposes (don't contain secrets or sensitive information). The full list of header names is available in the [`HttpLogOptions`](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/src/main/java/com/azure/core/http/policy/HttpLogOptions.java) class.
+- `BODY_AND_HEADERS` - includes all the details provided on `HEADERS` level and adds request and response bodies as long as they're smaller than 16 KB and printable.
 
 > Note:
-> The request URL is sanitized by default - all query parameter values are redacted except for configurable allowlist.
+> The request URL is sanitized - all query parameter values are redacted except for the `api-version` value. Individual client libraries may add other query params which are known to be safe
+> to the allowlist.
 
 For example, Azure Blob Storage SAS URL is logged in the following format:
 `https://myaccount.blob.core.windows.net/pictures/profile.jpg?sv=REDACTED&st=REDACTED&se=REDACTED&sr=REDACTED&sp=REDACTED&rscd=REDACTED&rsct=REDACTED&sig=REDACTED`
 
-The `HttpLogDetailLevel.HEADERS` we used in the previous example includes all the basic details and allowed headers. And the `HttpLogDetailLevel.BODY_AND_HEADERS` level adds request and response bodies as long as they're smaller than 16 KB and printable.
+> [!WARNING]
+> Logging request and response bodies is not recommended in production as they may contain sensitive information, significantly affect performance, change how content is buffered and have other side-effects.
+
+### Configure HTTP logging in code
+
+Azure client builders that implement [`HttpTrait<T>`](/java/api/com.azure.core.client.traits.httptrait) interface support code-based HTTP logging configuration. Code-based configuration
+applies to individual client instances and provides more options and customizations comparing to environment variable configuration.
+
+To configure logs, pass an instance of [`HttpLogOptions`](/java/api/com.azure.core.http.policy.httplogoptions) to the `httpLogOptions` method on the
+corresponding client builder. Here's an example for App Configuration service:
+
+```java
+HttpLogOptions httpLogOptions = new HttpLogOptions()
+        .setLogLevel(HttpLogDetailLevel.HEADERS)
+        .addAllowedHeaderName("Accept-Ranges")
+        .addAllowedQueryParamName("label");
+
+ConfigurationClient configurationClient = new ConfigurationClientBuilder()
+        .httpLogOptions(httpLogOptions)
+        ...
+        .buildClient();
+```
+
+Here we enabled HTTP logs with headers and added `Accept-Ranges` response header along with the `label` query parameter to the corresponding allowlists, so they should now show up in the produced logs.
 
 Check [`HttpLogOptions`](/java/api/com.azure.core.http.policy.httplogoptions) documentation for the full list of configuration options.
-
-If you use OpenTelemetry, you may consider using distributed tracing instead of logging for HTTP requests, refer to the [Distributed Tracing](./tracing.md) article for the details.
 
 ## Default logger (for temporary debugging)
 
