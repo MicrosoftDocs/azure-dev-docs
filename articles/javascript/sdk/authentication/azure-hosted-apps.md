@@ -10,7 +10,7 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 When an app is hosted in Azure (using a service like Azure App Service, Azure Virtual Machines, or Azure Container Instances), the recommended approach to authenticating an app to Azure resources is to use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
 
-A managed identity provides an identity for your app so that your app connects to other Azure resources without the need to use a secret (such as a connection string of key).  Internally, Azure knows the identity of your app and what resources it's allowed to connect to.  Azure uses this information to automatically obtain Microsoft Entra tokens for the app to allow it to connect to other Azure resources, all without you having to manage (create or rotate) the authentication secrets.
+A managed identity provides an identity for your app so that your app connects to other Azure resources without the need to use a secret (such as a connection string of key). Internally, Azure knows the identity of your app and what resources it's allowed to connect to. Azure uses this information to automatically obtain Microsoft Entra tokens for the app to allow it to connect to other Azure resources, all without you having to manage (create or rotate) the authentication secrets.
 
 ## Managed identity types
 
@@ -19,20 +19,20 @@ There are two types of managed identities:
 * **System-assigned managed identities** - single Azure resource
 * **User-assigned managed identities** - multiple Azure resources
 
-This article will cover the steps to enable and use a system-assigned managed identity for an app.  If you need to use a user-assigned managed identity, see the article [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to see how to create a user-assigned managed identity.
+This article covers the steps to enable and use a system-assigned managed identity for an app.  If you need to use a user-assigned managed identity, see the article [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to see how to create a user-assigned managed identity.
 
 ### System-assigned managed identities for single resource
 
-System-assigned managed identities are provided by and tied directly to an Azure resource.  When you enable managed identity on an Azure resource, you get a system-assigned managed identity for that resource.  It is tied to the lifecycle of the Azure resource. When the resource is deleted, Azure automatically deletes the identity for you.  Since all you have to do is enable managed identity for the Azure resource hosting your code, this is the easiest type of managed identity to use.
+System-assigned managed identities are provided by and tied directly to an Azure resource. When you enable managed identity on an Azure resource, you get a system-assigned managed identity for that resource. It's tied to the lifecycle of the Azure resource. When the resource is deleted, Azure automatically deletes the identity for you. Since all you have to do is enable managed identity for the Azure resource hosting your code, this is the easiest type of managed identity to use.
 
 ### User-assigned managed identities for multiple resources
 
-Conceptually this identity is a standalone Azure resource. This is most frequently used when your solution has multiple workloads that run on multiple Azure resources that all need to share the same identity and same permissions.  For example, if your solution had components that ran on multiple App Service and virtual machine instances and they all needed access to the same set of Azure resources, creating and using a user-assigned managed identity across those resources would make sense.
+Conceptually this identity is a standalone Azure resource. This is most frequently used when your solution has multiple workloads that run on multiple Azure resources that all need to share the same identity and same permissions. For example, if your solution had components that ran on multiple App Service and virtual machine instances and they all needed access to the same set of Azure resources, creating and using a user-assigned managed identity across those resources would make sense.
 
 
 ## 1 - System-assigned: Enable in hosted app
 
-The first step is to enable managed identity on the Azure resource hosting your app.  For example, if you're hosting a Django application using Azure App Service, you need to enable managed identity for that App Service web app.  If you were using a virtual machine to host your app, you would enable your VM to use managed identity.
+The first step is to enable managed identity on the Azure resource hosting your app. For example, if you're hosting a Django application using Azure App Service, you need to enable managed identity for that App Service web app.  If you were using a virtual machine to host your app, you would enable your VM to use managed identity.
 
 You can enable managed identity to be used for an Azure resource using either the Azure portal or the Azure CLI.
 
@@ -48,16 +48,16 @@ You can enable managed identity to be used for an Azure resource using either th
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-The Azure CLI commands used to enable managed identity for an Azure resource are of the form `az <command-group> identity --resource-group <resource-group-name> --name <resource-name>`.  Specific commands for popular Azure services are shown below.
+The Azure CLI commands used to enable managed identity for an Azure resource are of the form `az <command-group> identity --resource-group <resource-group-name> --name <resource-name>`. Specific commands for popular Azure services are shown below.
 
 [!INCLUDE [Enable managed identity Azure CLI](<../../../includes/sdk-auth-passwordless/enable-managed-identity-azure-cli.md>)]
 
-The output will look like the following.
+The output looks like the following.
 
 ```json
 {
-  "principalId": "99999999-9999-9999-9999-999999999999",
-  "tenantId": "33333333-3333-3333-3333-333333333333",
+  "principalId": "<REPLACE_WITH_YOUR_PRINCIPAL_ID>",
+  "tenantId": "<REPLACE_WITH_YOUR_TENANT_ID>",
   "type": "SystemAssigned",
   "userAssignedIdentities": null
 }
@@ -70,7 +70,7 @@ The `principalId` value is the unique ID of the managed identity. Keep a copy of
 
 ## 2 - Assign roles to the managed identity
 
-Next, you need to determine what roles (permissions) your app needs and assign the managed identity to those roles in Azure.  A managed identity can be assigned  roles at a resource, resource group, or subscription scope.  This example will show how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
+Next, you need to determine what roles (permissions) your app needs and assign the managed identity to those roles in Azure. A managed identity can be assigned  roles at a resource, resource group, or subscription scope. This example shows how to assign roles at the resource group scope since most applications group all their Azure resources into a single resource group.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -116,7 +116,7 @@ For information on assigning permissions at the resource or subscription level u
 
 ## 3 - Implement DefaultAzureCredential in your application
 
-The `DefaultAzureCredential` class will automatically detect that a managed identity is being used and use the managed identity to authenticate to other Azure resources.  As discussed in the [Azure SDK for JavaScript authentication overview](./overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime.  In this way, your app can use different authentication methods in different environments without implementing environment specific code.
+The `DefaultAzureCredential` class will automatically detect that a managed identity is being used and use the managed identity to authenticate to other Azure resources. As discussed in the [Azure SDK for JavaScript authentication overview](./overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime.  In this way, your app can use different authentication methods in different environments without implementing environment specific code.
 
 First, add the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to your application.
 
@@ -124,7 +124,7 @@ First, add the [@azure/identity](https://www.npmjs.com/package/@azure/identity) 
 npm install @azure/identity
 ```
 
-Next, for any JavaScript code that creates an Azure SDK client object in your app, you'll want to:
+Next, for any JavaScript code that creates an Azure SDK client object in your app, you want to:
 
 1. Import the `DefaultAzureCredential` class from the `@azure/identity` module.
 1. Create a `DefaultAzureCredential` object.
@@ -147,4 +147,4 @@ const blobServiceClient = new BlobServiceClient(
 );
 ```
 
-When the above code is run on your local workstation during local development, the SDK method, _DefaultAzureCredential()_, looks in the environment variables for an application service principal or at VS Code, the Azure CLI, or Azure PowerShell for a set of developer credentials, either of which can be used to authenticate the app to Azure resources during local development.  In this way, this same code can be used to authenticate your app to Azure resources during both local development and when deployed to Azure.
+When the above code is run on your local workstation during local development, the SDK method, _DefaultAzureCredential()_, look in the environment variables for an application service principal or at VS Code, the Azure CLI, or Azure PowerShell for a set of developer credentials, either of which can be used to authenticate the app to Azure resources during local development.  In this way, this same code can be used to authenticate your app to Azure resources during both local development and when deployed to Azure.

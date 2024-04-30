@@ -16,8 +16,6 @@ items:
     - name: Tomcat to Azure
       expanded: true
       items:
-        - name: Tomcat to Azure Spring Apps
-          href: migrate-tomcat-to-azure-spring-apps.md
         - name: Tomcat to Azure App Service
           href: migrate-tomcat-to-tomcat-app-service.md
         - name: Tomcat to Azure Container Apps
