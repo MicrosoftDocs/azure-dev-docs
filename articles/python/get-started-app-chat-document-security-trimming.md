@@ -28,7 +28,7 @@ The enterprise chat app has a simply architecture using Azure OpenAI Search and 
 
 To secure the documents, user authentication to Azure Entra ID is required, then passed to Azure Search.
 
-:::image type="content" source="media/get-started-app-chat-document-security-trimming/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing an answer determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI.":::
+:::image type="content" source="media/get-started-app-chat-document-security-trimming/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing a use authenticating with Entra ID, then passing that authentication to Azure AI Search.":::
 
 Each document ingested into Azure AI Search includes user authentication, which is returned in the query result set.
 
