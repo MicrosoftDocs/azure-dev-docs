@@ -26,7 +26,7 @@ The enterprise chat app has a simply architecture using Azure OpenAI Search and 
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/simple-rag-chat-architecture.png" alt-text="Architectural diagram showing an answer determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI.":::
 
-To add security for the documents, you need to: 
+To add security for the documents, you need to update the enterprise chat app: 
 
 * Add user authentication to the chat app with Azure Entra
 * Add documents to Azure AI Search and index the documents with user information
@@ -45,22 +45,23 @@ A [development container](https://containers.dev/) environment is available with
 
 To use this article, you need the following prerequisites:
 
+* Azure subscription.  [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true) 
+* Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+* Access granted to Azure OpenAI in the desired Azure subscription.
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
+
+You need additional prerequisites depending on your preferred development environment.
+
 #### [Codespaces (recommended)](#tab/github-codespaces)
 
-1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
-1. Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-1. Access granted to Azure OpenAI in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
 1. GitHub account
 
 #### [Visual Studio Code](#tab/visual-studio-code)
-1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
-1. Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-1. Access granted to Azure OpenAI in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
+
 1. [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
 1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
 1. [Visual Studio Code](https://code.visualstudio.com/)
+1. [Git](https://git-scm.com/downloads)
 1. [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ---
@@ -76,11 +77,10 @@ Begin now with a development environment that has all the dependencies installed
 > [!IMPORTANT]
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
-1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository.
+1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
 1. Right-click on the following button, and select _Open link in new windows_ in order to have both the development environment and the documentation available at the same time. 
 
-    > [!div class="nextstepaction"]
-    > [Open this project in GitHub Codespaces](https://github.com/codespaces/new?azure-portal=true&hide_repo_select=true&ref=main&skip_quickstart=true&repo=684521881)
+    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)
 
 1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**
 
@@ -94,8 +94,7 @@ Begin now with a development environment that has all the dependencies installed
     azd auth login
     ```
 
-1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
-
+1. Complete the authentication process.
 
 1. The remaining tasks in this article take place in the context of this development container.
 
@@ -103,7 +102,19 @@ Begin now with a development environment that has all the dependencies installed
 
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
-1. Open **Visual Studio Code** in the context of an empty directory.
+1. Fork the sample repository with the following link: [azure-samples/azure-search-openai-demo](https://github.com/azure-samples/azure-search-openai-demo/fork).
+
+1. Clone your fork to your local computer. Replace `<GITHUB_USER>` with your GITHUB user name.
+
+    ```console
+    git clone https://github.com/<GITHUB_USER>/azure-search-openai-demo
+    ```
+
+1. Open **Visual Studio Code** in the new directory.
+
+    ```console
+    cd azure-search-openai-demo && code .
+    ```
 
 1. Ensure that you have the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed in Visual Studio Code.
 
@@ -114,37 +125,51 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     >
     > :::image type="content" source="./media/get-started-app-chat-template/open-terminal-option.png" lightbox="./media/get-started-app-chat-template/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
 
+1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
+
+1. Reopen the Terminal window again (<kbd>Ctrl</kbd> + <kbd>`</kbd>) and leave it open.
+
 1. Sign in to Azure with the Azure Developer CLI.
 
     ```bash
     azd auth login
     ```
 
-    Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
+    Complete the authentication process.
 
-1. Create a folder and initialize it to use the sample project with Azure Developer CLI:
-
-    ```bash
-    azd init -t azure-search-openai-javascript
-    ```
-
-    You don't need to clone this repository.
-
-1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
-
-    > [!TIP]
-    > Visual Studio Code may automatically prompt you to reopen the existing folder within a development container. This is functionally equivalent to using the command palette to reopen the current workspace in a container.
-
-1. Reopen the Terminal window again (<kbd>Ctrl</kbd> + <kbd>`</kbd>) and leave it open.
 1. The remaining exercises in this project take place in the context of this development container.
 
 ---
 
 ## Deploy and run
 
+The sample repository contains all the code and configuration files you need to deploy a chat app with secured documents to Azure. The following steps walk you through the process of deploying the sample to Azure.
 
 ### Deploy chat app to Azure
 
+
+> [!IMPORTANT]
+> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
+
+1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
+
+    ```bash
+    azd up
+    ```
+
+1. Use the following table to answer the AZD deployment prompts:
+
+    |Prompt|Answer|
+    |--|--|
+    |Environment name| Use a short name with identifying information such as your alias and app: `tjones-secure-chat`.|
+    |Subscription|Select a subscription to create the resources in.|
+    |Location|Select a location near you. If you're prompted again for a location for the OpenAI model or for the Document Intelligence resource, select the location closest to you. If the same location is available as your first location, select that.|
+
+    Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
+1. After the application has been successfully deployed, you see a URL displayed in the terminal.
+1. Select that URL labeled `(✓) Done: Deploying service webapp` to open the chat application in a browser.
+
+    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
 ### Use chat app to get secure answers
 
