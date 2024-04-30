@@ -30,11 +30,9 @@ To secure the documents, user authentication to Azure Entra ID is required, then
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing a use authenticating with Entra ID, then passing that authentication to Azure AI Search.":::
 
-Each document indexed in Azure AI Search includes user authentication, which is returned in the query result set.
+Azure AI Search doesn't provide document-level permissions and can't vary search results from within the same index by user permissions. To secure the document, you create a filter that trims search results based on a _string_ containing group or user identity.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
-
-
 
 ## Prerequisites
 
