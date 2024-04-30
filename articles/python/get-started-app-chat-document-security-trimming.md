@@ -16,20 +16,23 @@ An authorized user should have access to answers contained within the documents 
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/chat-answer-with-authorized-access.png" alt-text="Screenshot of chat app with answer with required authentication access.":::
 
-An unauthorized user shouldn't have access to answer from secured documents.
+An unauthorized user shouldn't have access to answers from secured documents they don't have authorization to see.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/chat-answer-with-no-access.png" alt-text="Screenshot of chat app with answer indicating user doesn't have access to data.":::
 
-
 ## Architectural overview
 
-The original chat app has a simplified architecture using Azure OpenAI Search and Azure OpenAI. An answer is determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI. 
+The enterprise chat app has a simply architecture using Azure OpenAI Search and Azure OpenAI. An answer is determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI. No user authentication is used in this simply flow.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/simple-rag-chat-architecture.png" alt-text="Architectural diagram showing an answer determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI.":::
 
-To secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.
+To secure the documents, user authentication to Azure Entra ID is required, then passed to Azure Search.
 
-:::image type="content" source="media/get-started-app-chat-document-security-trimming/azure-ai-search-with-user-authorization.png" alt-text="{alt-text}":::
+:::image type="content" source="media/get-started-app-chat-document-security-trimming/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing an answer determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI.":::
+
+Each document ingested into Azure AI Search includes user authentication, which is returned in the query result set.
+
+:::image type="content" source="media/get-started-app-chat-document-security-trimming/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
 
 
 
