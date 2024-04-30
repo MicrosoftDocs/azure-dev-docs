@@ -30,7 +30,7 @@ To secure the documents, user authentication to Azure Entra ID is required, then
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing a use authenticating with Entra ID, then passing that authentication to Azure AI Search.":::
 
-Each document ingested into Azure AI Search includes user authentication, which is returned in the query result set.
+Each document indexed in Azure AI Search includes user authentication, which is returned in the query result set.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
 
