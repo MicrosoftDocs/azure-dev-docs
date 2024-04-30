@@ -26,13 +26,18 @@ The enterprise chat app has a simply architecture using Azure OpenAI Search and 
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/simple-rag-chat-architecture.png" alt-text="Architectural diagram showing an answer determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI.":::
 
-To secure the documents, user authentication to Azure Entra ID is required, then passed to Azure Search.
+To add security for the documents, you need to: 
+
+* Add user authentication to the chat app with Azure Entra
+* Add documents to Azure AI Search and index the documents with user information
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing a use authenticating with Entra ID, then passing that authentication to Azure AI Search.":::
 
-Azure AI Search doesn't provide document-level permissions and can't vary search results from within the same index by user permissions. To secure the document, you create a filter that trims search results based on a _string_ containing group or user identity.
+Azure AI Search doesn't provide document-level permissions and can't vary search results from within the same index by user permissions. To add security, you as the service owner, create a filter that trims search results based on a _string_ containing group or user identity.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
+
+Because the authorization isn't natively contained in Azure AI Search, when you change the users and their authroizations in Entra ID, you need to reindex the Search service with new user information you provide.
 
 ## Prerequisites
 
