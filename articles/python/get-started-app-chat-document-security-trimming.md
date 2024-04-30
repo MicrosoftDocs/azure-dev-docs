@@ -46,7 +46,9 @@ A [development container](https://containers.dev/) environment is available with
 To use this article, you need the following prerequisites:
 
 * Azure subscription.  [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true) 
-* Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+* Azure account permissions - Your Azure Account must have 
+    * Permission to [manage applications in Azure Entra ID](https://learn.microsoft.com/azure/active-directory/roles/permissions-reference#cloud-application-administrator).
+    * Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
 * Access granted to Azure OpenAI in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
 
@@ -140,6 +142,29 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. The remaining exercises in this project take place in the context of this development container.
 
 ---
+
+## Set up authentication and authorization
+
+1. Get your tenant ID with the following Azure CLI command.
+
+    ```azurecli
+    az account show --query 'tenantId' -o tsv
+    ```
+    
+
+1. Run the following command to enable the login UI and App Service authentication.
+
+    ```console
+    azd env set AZURE_USE_AUTHENTICATION true
+    azd env set AZURE_ENFORCE_ACCESS_CONTROL true
+    azd env set AZURE_AUTH_TENANT_ID <REPLACE-WITH-YOUR-TENANT-ID>
+    ```
+
+1. Run the following command to turn on authentication.
+
+    ```console
+    bash scripts/prepdocs.sh AZURE_USE_AUTHENTICATION=true
+    ```
 
 ## Deploy and run
 
