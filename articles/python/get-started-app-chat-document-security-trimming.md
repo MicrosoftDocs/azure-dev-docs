@@ -143,20 +143,28 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ---
 
-## Set up authentication and authorization
+## Get required information with Azure CLI
 
-1. Get your tenant ID with the following Azure CLI command.
+1. Get your tenant ID with the following Azure CLI command. 
 
     ```azurecli
     az account show --query 'tenantId' -o tsv
     ```
     
 
-1. Run the following command to enable the login UI and App Service authentication.
+1. Find your subscription name and ID with the following Azure CLI command. If you have access to more than one subscription, make sure to get the ID of the correct subscription. 
+
+    ```azurecli
+    az account list --query "sort_by(@, &name)" --output table
+    ```
+    
+
+## Set up authentication and authorization
+
+1. Run the following commands to enable the login UI and App Service authentication.
 
     ```console
     azd env set AZURE_USE_AUTHENTICATION true
-    azd env set AZURE_ENFORCE_ACCESS_CONTROL true
     azd env set AZURE_AUTH_TENANT_ID <REPLACE-WITH-YOUR-TENANT-ID>
     ```
 
