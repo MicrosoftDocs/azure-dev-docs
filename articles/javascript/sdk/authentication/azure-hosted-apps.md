@@ -56,8 +56,8 @@ The output will look like the following.
 
 ```json
 {
-  "principalId": "99999999-9999-9999-9999-999999999999",
-  "tenantId": "33333333-3333-3333-3333-333333333333",
+  "principalId": "<REPLACE_WITH_YOUR_PRINCIPAL_ID>",
+  "tenantId": "<REPLACE_WITH_YOUR_TENANT_ID>",
   "type": "SystemAssigned",
   "userAssignedIdentities": null
 }
