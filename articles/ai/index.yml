@@ -17,6 +17,10 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Intro to generative AI
-            url: intro-01.md
-          - text: Develop apps with generative AI
-            url: intro-02.md
+            url: introduction-build-generative-ai-solutions.md
+          - text: Concepts and considerations
+            url: gen-ai-concepts-considerations-developers.md
+          - text: Simple Retrieval-Augmented Generation
+            url: simple-retrieval-augmented-generation.md
+          - text: Advanced Retrieval-Augmented Generation
+            url: advanced-retrieval-augmented-generation.md
