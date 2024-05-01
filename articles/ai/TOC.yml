@@ -8,10 +8,14 @@ items:
       href: azure-ai-for-developers.md
     - name: Concepts
       items: 
-        - name: Introduction to generative AI for developers
-          href: intro-01.md
-        - name: Develop apps that use generative AI
-          href: intro-02.md
+        - name: Intro to generative AI
+          href: introduction-build-generative-ai-solutions.md      
+        - name: Concepts and considerations
+          href: gen-ai-concepts-considerations-developers.md
+        - name: Simple Retrieval-Augmented Generation
+          href: simple-retrieval-augmented-generation.md
+        - name: Advanced Retrieval-Augmented Generation
+          href: advanced-retrieval-augmented-generation.md
     - name: Python
       items:
         - name: Overview

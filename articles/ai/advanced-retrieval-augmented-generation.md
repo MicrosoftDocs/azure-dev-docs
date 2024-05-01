@@ -5,6 +5,8 @@ ms.date: 5/1/2024
 ms.topic: conceptual
 ---
 
+# Building advanced Retrieval-Augmented Generation systems
+
 The previous article discussed two options for building a "chat over your data" application, one of the premiere use cases for generative AI in businesses:
 
 - Retrieval augmented generation (RAG) which supplements an LLM's training with a database of searchable articles that can be retrieved based on similarity to the users' queries and passed to the LLM for completion.
@@ -16,13 +18,13 @@ This article explores RAG in more depth, specifically, all of the work required 
 
 The previous article depicted the steps or phases of RAG using the following diagram.
 
-:::image type="content" source="./media/naive-rag-inference-pipeline-highres.png" alt-text="Diagram depicting a simple RAG flow, with boxes representing steps or processes and arrows connecting each box. The flow begins with the user's query, which is sent to the Embedding API, which results in a vectorized query, which is used to find the nearest matches in the vector database, which retrieves article chunks, and the query and article chunks are sent to the Completion API, and the results are sent to the user." :::
+:::image type="content" source="./media/naive-rag-inference-pipeline-highres.png" alt-text="Diagram depicting a simple RAG flow, with boxes representing steps or processes and arrows connecting each box. The flow begins with the user's query. Next, the query is sent to the Embedding API, which results in a vectorized query, which is used to find the nearest matches in the vector database, which retrieves article chunks, and the query and article chunks are sent to the Completion API, and the results are sent to the user." :::
 
 This depiction has been referred to as "naive RAG", and is a useful way of first understanding the mechanisms, roles and responsibilities required to implement a RAG-based chat system.
 
 However, a more real-world implementation has many more pre- and post- processing steps to prepare the articles, the queries and the responses for use. The following diagram is a more realistic depiction of a RAG, sometimes referred to as "advanced RAG".
 
-:::image type="content" source="./media/advanced-rag-inference-pipeline-highres.png" alt-text="Diagram displaying the advanced RAG flow of logic as a series of boxes with arrows between them.  There are ten boxes start with the user's query, then query processing steps, then a call to the Embedding API, then the resulting query as a vector, then the vector is used to query the vector database to find the nearest match, then retrieved as article chunks, then post-retrieval processing steps, then processed query and processed article chunks are sent to the Completion API, then post-completion processing steps, and finally a response delivered to the user." :::
+:::image type="content" source="./media/advanced-rag-inference-pipeline-highres.png" alt-text="Diagram displaying the advanced RAG flow of logic as a series of boxes with arrows between them.  There are ten boxes start with the user's query. Next, query processing steps, then a call to the Embedding API, then the resulting query as a vector, then the vector is used to query the vector database to find the nearest match, then retrieved as article chunks, then post-retrieval processing steps, then processed query and processed article chunks are sent to the Completion API, then post-completion processing steps, and finally a response delivered to the user." :::
 
 This article provides a conceptual framework for understanding the types of pre- and post- processing concerns in a real-world RAG-based chat system, organized as follow:
 
@@ -274,8 +276,8 @@ These features would not only help in identifying and mitigating risks but also 
 
 For more information, see:
 
-[Foundations of assessing harm](https://learn.microsoft.com/azure/architecture/guide/responsible-innovation/harms-modeling/)
-[Types of harm](https://learn.microsoft.com/azure/architecture/guide/responsible-innovation/harms-modeling/type-of-harm)
+[Foundations of assessing harm](../azure/architecture/guide/responsible-innovation/harms-modeling/)
+[Types of harm](../azure/architecture/guide/responsible-innovation/harms-modeling/type-of-harm)
 
 ### Testing and verifying the safeguards
 
