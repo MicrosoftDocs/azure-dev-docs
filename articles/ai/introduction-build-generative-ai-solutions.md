@@ -185,7 +185,7 @@ At some point you’ll probably think of (or be asked to build) some specific AI
 
 ## Build your first generative AI solution
 
-If you want to start experimenting with building a generative AI solution immediately, we recommend taking a look at [Get started with the Python enterprise chat sample using RAG](https://learn.microsoft.com/en-us/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces). There are versions of the tutorial also available in [.NET](/dotnet/ai/get-started-app-chat-template?tabs=github-codespaces), [Java](/azure/developer/java/ai/get-started-app-chat-template?tabs=github-codespaces), and [JavaScript](/azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces).
+If you want to start experimenting with building a generative AI solution immediately, we recommend taking a look at [Get started with the Python enterprise chat sample using RAG](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces). There are versions of the tutorial also available in [.NET](/dotnet/ai/get-started-app-chat-template?tabs=github-codespaces), [Java](/azure/developer/java/ai/get-started-app-chat-template?tabs=github-codespaces), and [JavaScript](/azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces).
 
 ## Final considerations that may influence your application design decisions
 

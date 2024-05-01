@@ -159,7 +159,6 @@ You can use OpenAI's Moderation API directly to explicitly check any content for
 
 Secondly, you can use Azure AI Content Safety to help with text moderation, image moderation, jailbreak risk detection, and protected material detection. This combines a portal setup, configuration, and reporting experience with code you can add to your application to identify harmful content.
 
-
 ## Final considerations that may influence your application design decisions
 
 Understanding tokenization, pricing, context windows, and implementing programmatic improvements to enhance the users' text generation experience have a significant impact on how you design your generative AI system. Here's a short list of things to consider and other takeaways from this article that will impact your application design decisions:
@@ -167,3 +166,5 @@ Understanding tokenization, pricing, context windows, and implementing programma
 - Evaluate the necessity of using the latest AI model against cost considerations. Less expensive models might suffice for your application's needs, balancing performance with budget constraints.
 - Consider optimizing the context window length to manage costs without significantly impacting the user experience. Trimming unnecessary parts of the conversation could reduce processing fees while maintaining quality interactions.
 - Evaluate the impact of tokenization and the granularity of your inputs and outputs. Understanding how your chosen LLM handles tokenization can help you optimize the efficiency of your API calls, potentially reducing costs and improving response times.
+
+If you want to start experimenting with building a generative AI solution immediately, we recommend taking a look at [Get started with the Python enterprise chat sample using RAG](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces). There are versions of the tutorial also available in [.NET](/dotnet/ai/get-started-app-chat-template?tabs=github-codespaces), [Java](/azure/developer/java/ai/get-started-app-chat-template?tabs=github-codespaces), and [JavaScript](/azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces).
