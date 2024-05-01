@@ -24,7 +24,7 @@ The following sections describe this in more detail.
 
 The first step to creating a RAG-based chat system is to create a vector data store containing the vector embedding of the document (or a portion of the document). Consider the following diagram which outlines the basic steps to creating a vectoried index of documents.
 
-:::image type="content" source="./media/vector-embedding-pipeline-highres.png" alt-text="" :::
+:::image type="content" source="./media/vector-embedding-pipeline-highres.png" alt-text="Diagram depicting the different stages of ingestion of documents, starting with chunking, then post-chunking process steps, then calls to the embedding API, then saving the document chunks as vectorized embeddings into the vector database." :::
 
 The entire process is driven by the notion of an **embedding**, which is a numerical representation of data — typically words, phrases, sentences, or even entire documents — that captures the semantic properties of the input in a way that can be processed by machine learning models. 
 
@@ -51,7 +51,7 @@ A RAG system first uses semantic search to find articles that could be helpful t
 
 Consider the following diagram as a simple RAG implementation (sometimes referred to as "naive RAG").
 
-:::image type="content" source="./media/vector-embedding-pipeline-highres.png" alt-text="" :::
+:::image type="content" source="./media/naive-rag-inference-pipeline-highres.png" alt-text="Diagram depicting a simple RAG flow, with boxes representing steps or processes and arrows connecting each box. The flow begins with the user's query, which is sent to the Embedding API, which results in a vectorized query, which is used to find the nearest matches in the vector database, which retrieves article chunks, and the query and article chunks are sent to the Completion API, and the results are sent to the user." :::
 
 In the diagram, a user submits a query. The first step is to create an embedding for the user's prompt to get back a vector. The next step is to search the vector database for those documents (or portions of documents) that are a "nearest neighbor" match. 
 

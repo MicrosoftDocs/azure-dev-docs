@@ -27,7 +27,7 @@ What can you do to mitigate the possible downsides or problems with LLMs and get
 
 To address the problems of LLMs, engineers need to consider the kinds of information they are working with, and choose the right retrieval model for their application. The following categories represent different approaches to how LLMs interact with external information or databases to generate responses.
 
-:::image type="content" source="./media/llm-knowledge.png" alt-text="An image" :::
+:::image type="content" source="./media/llm-knowledge.png" alt-text="Diagram depicting three different types of retreival generation with retrieval-off generation at the top correlated with the most pre-trained knowledge, then retrieval-augmented generation, then retrieval-centric generation at the bottom correlated with the most retrieved knowledge." :::
 
 - **Retrieval-Off Generation (ROG)** - This is the way traditional way LLMs operate, where the model generates responses based solely on the knowledge it was trained on, without accessing or retrieving any external information during the generation process. The model's knowledge is static, limited to what was included in its training data up to the cutoff date. In addition to creative writing, it can answer questions on information readily available at large on the internet.
 
