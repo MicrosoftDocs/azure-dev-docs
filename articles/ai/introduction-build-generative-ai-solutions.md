@@ -182,3 +182,10 @@ At some point you’ll probably think of (or be asked to build) some specific AI
 
 - Learn prompt engineering best practices: Crafting effective prompts is an art. Experiment with different prompts to see how they affect the output. Be concise yet descriptive.
 - Commit to iterative refinement: Often, the first prompt might not yield the desired result. It's a process of trial and error. Use the outputs to refine your prompts further.
+
+## Final considerations that may influence your application design decisions
+
+Here's a short list of things to consider and other takeaways from this article that will impact your application design decisions:
+
+- Define the problem space and audience clearly to align the AI's capabilities with user expectations, optimizing the solution's effectiveness for the intended use case.
+- Leverage low-code/no-code platforms for rapid prototyping and development if they meet your project's requirements, evaluating the trade-off between development speed and customizability. Explore the possibilities of low-code and no-code solutions for parts of your application to speed up development and enable non-technical team members to contribute to the project.

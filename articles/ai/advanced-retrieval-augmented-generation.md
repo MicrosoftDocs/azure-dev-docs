@@ -284,3 +284,11 @@ For more information, see:
 This article outlined several processes aimed at mitigating the possibility that the RAG-based chat system could be exploited or compromised. **Red-teaming** plays a crucial role in ensuring the mitigations are effective. Red-teaming involves simulating an adversary's actions aimed at the application to uncover potential weaknesses or vulnerabilities. This approach is especially vital in addressing the significant risk of jailbreaking. 
 
 To effectively test and verify the safeguards of a RAG-based chat system, developers need to rigorously assess these systems under various scenarios where these guidelines could be tested. This not only ensures robustness but also helps in fine-tuning the system’s responses to adhere strictly to defined ethical standards and operational procedures.
+
+## Final considerations that may influence your application design decisions
+
+Here's a short list of things to consider and other takeaways from this article that will impact your application design decisions:
+
+- Acknowledge the non-deterministic nature of generative AI in your design, planning for variability in outputs and setting up mechanisms to ensure consistency and relevance in responses.
+- Assess the benefits of preprocessing user prompts against the potential increase in latency and costs. Simplifying or modifying prompts before submission might improve response quality but could add complexity and time to the response cycle.
+- Investigate strategies for parallelizing LLM requests to enhance performance. This approach might reduce latency but requires careful management to avoid increased complexity and potential cost implications.

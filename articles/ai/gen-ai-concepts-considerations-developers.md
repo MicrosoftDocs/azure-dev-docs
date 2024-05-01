@@ -148,3 +148,22 @@ The [Chat end point documentation](https://platform.openai.com/docs/api-referenc
 - **Stop Sequences**: You can specify one or more sequences where the API will stop generating further tokens. This is useful for controlling the structure of the output, such as ending a completion at the end of a sentence or paragraph.
 
 - **Logit Bias**: Allows you to modify the likelihood of specified tokens appearing in the completion. This can be used to guide the completion in a certain direction or to suppress undesired content.
+
+## Understanding Microsoft OpenAI Safeguards
+
+In addition to keeping the LLM's responses bound to specific subject matter or domains, you will also likely be concerned about the kinds of questions your users are asking of the LLM, and the kinds of answers it is generating.
+
+First, API calls to Microsoft OpenAI Services automatically filters content it finds potentially offensive and reports this back to you across a number of filtering categories. See Content filtering for more details.
+
+You can use OpenAI's Moderation API directly to explicitly check any content for potentially harmful content.
+
+Secondly, you can use Azure AI Content Safety to help with text moderation, image moderation, jailbreak risk detection, and protected material detection. This combines a portal setup, configuration, and reporting experience with code you can add to your application to identify harmful content.
+
+
+## Final considerations that may influence your application design decisions
+
+Understanding tokenization, pricing, context windows, and implementing programmatic improvements to enhance the users' text generation experience have a significant impact on how you design your generative AI system. Here's a short list of things to consider and other takeaways from this article that will impact your application design decisions:
+
+- Evaluate the necessity of using the latest AI model against cost considerations. Less expensive models might suffice for your application's needs, balancing performance with budget constraints.
+- Consider optimizing the context window length to manage costs without significantly impacting the user experience. Trimming unnecessary parts of the conversation could reduce processing fees while maintaining quality interactions.
+- Evaluate the impact of tokenization and the granularity of your inputs and outputs. Understanding how your chosen LLM handles tokenization can help you optimize the efficiency of your API calls, potentially reducing costs and improving response times.
