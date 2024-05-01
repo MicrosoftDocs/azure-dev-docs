@@ -28,7 +28,7 @@ The following diagram illustrates the architecture you build:
 <!-- Diagram source https://github.com/Azure-Samples/azure-cafe/blob/main/diagrams/liberty-on-aks-ha-dr-solution-architecture.pptx -->
 :::image type="content" source="media/migrate-liberty-to-aks-with-ha-dr/solution-architecture.png" alt-text="Diagram of the solution architecture of WebSphere Liberty/Open Liberty on AKS with high availability and disaster recovery." lightbox="media/migrate-liberty-to-aks-with-ha-dr/solution-architecture.png" border="false":::
 
-Azure Traffic Manager checks the health of your regions and routes the traffic accordingly to the application tier. The primary region has a full deployment of the WebSphere Liberty/Open Liberty cluster. After the primary region is protected, the secondary region is restored during the failover using the Azure Backup. As a result, the primary region is actively servicing network requests from the users. The secondary region is passive and activated to receive traffic only when the primary region experiences a service disruption. Azure Traffic Manager detects the health of the app endpoint to implement the conditional routing. The geo-failover RTO of the application tier depends on the time for starting and restoring the secondary cluster. The RPO depends on the backup policy of the Azure Backup and Azure SQL Database because the cluster data is stored and replicated in the local storage connected to the AKS and application data is persisted and replicated in the Azure SQL Database failover group.
+Azure Traffic Manager checks the health of your regions and routes the traffic accordingly to the application tier. Both the primary region and the secondary region have a full deployment of the Liberty cluster cluster. However, only the primary region is actively servicing network requests from the users. The secondary region is passive and activated to receive traffic only when the primary region experiences a service disruption. Azure Traffic Manager uses the health check feature of the Azure Application Gateway to implement this conditional routing. The primary cluster is running and the secondary cluster is shut down. The geo-failover RTO of the application tier depends on the time for starting VMs and running the secondary cluster. The RPO depends on the Azure SQL Database because the data is persisted and replicated in the Azure SQL Database failover group.
 
 The database tier consists of an Azure SQL Database failover group with a primary server and a secondary server. The read/write listener endpoint always points to the primary server and is connected to WebSphere Liberty/Open Liberty cluster in each region. A geo-failover switches all secondary databases in the group to the primary role. For geo-failover RPO and RTO of Azure SQL Database, see [Overview of Business Continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql-db&preserve-view=true).
 
@@ -37,7 +37,7 @@ This tutorial was written with the Azure Backup and Azure SQL Database service b
 ## Prerequisites
 
 * [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-* Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](/azure/role-based-access-control/role-assignments-list-portal).
+* Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following steps in [List role assignments for a user or group](/azure/role-based-access-control/role-assignments-list-portal).
 * Prepare a local machine with Windows, Linux, or macOS installed.
 * Install and set up [Git](/devops/develop/git/install-and-set-up-git).
 * Install a Java SE implementation, version 17 or later (for example, [the Microsoft build of OpenJDK](/java/openjdk)).
@@ -210,7 +210,7 @@ export BASE_DIR=$PWD
 git checkout 20240325
 ```
 
-The application configures a data source [*jdbc/JavaEECafeDB*](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/liberty/config/server.xml#L31-L39) that connects to the Azure SQL Database you deployed before. 
+The application configures a data source [`jdbc/JavaEECafeDB`](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/liberty/config/server.xml#L31-L39) that connects to the Azure SQL Database you deployed before. 
 The data source is used for [storing HTTP session data](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/liberty/config/server.xml#L28-L29), which enables failover and load balancing across a cluster of WebSphere Liberty/Open Liberty servers. 
 The sample app also configures [persistence schema](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/resources/META-INF/persistence.xml#L6-L18) to persist application data *coffee* in the same datasource.
 Notice that the context root of the sample is configured as */* in [server.xml](https://github.com/Azure-Samples/open-liberty-on-aks/blob/20240325/java-app/src/main/liberty/config/server.xml#L24-L26).
@@ -296,7 +296,7 @@ AKS backup uses a blob container to hold the AKS cluster resources. You create a
 Use the following steps to create a storage account and two containers. Some of these steps direct you to other guides.
 
 1. Sign in to the [Azure portal](https://aka.ms/publicportal).
-1. Create a storage account by following the steps in [Create a storage account](/azure/storage/common/storage-account-create). You don't need to perform all the steps in the article. Fill out the fields as shown on the **Basics** pane. For **Resource group**, select the existing resource group where the primary cluster is deployed - for example, *liberty-aks-eastus-mjg032524*. For **Storage account name**, enter a unique name - for example, *storageeastusmjg032524*. For **Region**, select **East US**. Then select **Review + create** to accept the default options. Proceed to validate and create the account, then return to this article.
+1. Create a storage account by following the steps in [Create a storage account](/azure/storage/common/storage-account-create). You don't need to do all the steps in the article. Fill out the fields as shown on the **Basics** pane. For **Resource group**, select the existing resource group where the primary cluster is deployed - for example, *liberty-aks-eastus-mjg032524*. For **Storage account name**, enter a unique name - for example, *storageeastusmjg032524*. For **Region**, select **East US**. Then select **Review + create** to accept the default options. Proceed to validate and create the account, then return to this article.
 1. Create a storage container for AKS Backup Extension following [Create a storage container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). This guide uses *aks-backup-ext* as the container name.
 1. Create another storage container as staging location for use during restoring. This guide uses *staging* as the container name.
 
@@ -446,7 +446,7 @@ Next, verify if the sample app deployed to the primary cluster can be accessed f
 
 If your UI doesn't look similar, troubleshoot and resolve the problem before you continue. Keep the console open and use it for failover test later.
 
-Now you set up the Traffic Manager profile. Keep the page open and you use it for monitoring the endpoint status change in a failover event later.
+You've completed the Traffic Manager profile setup. Keep the page open and you use it for monitoring the endpoint status change in a failover event later.
 
 ## Test failover from primary to secondary
 
@@ -496,7 +496,7 @@ Next, use the following steps to restore the backup of the primary AKS cluster t
 
    * When granting missing permissions, if asked to specify a **Scope**, accept the default value.
 
-   * Select **Validate**. You should see the message, **Validation completed successfully**. Otherwise, troubleshoot and resolve the problem before continuing.
+   * Select **Validate**. You should see the message, `Validation completed successfully`. Otherwise, troubleshoot and resolve the problem before continuing.
 
 1. Select **Next: Review + restore**. Then select **Restore**. It takes about 10 minutes to restore the cluster.
 
