@@ -20,8 +20,8 @@ landingContent:
             url: introduction-build-generative-ai-solutions.md
           - text: Concepts and considerations
             url: gen-ai-concepts-considerations-developers.md
-          - text: Simple Retrieval-Augmented Generation
-            url: simple-retrieval-augmented-generation.md
+          - text: Augment LLMs with RAG And Fine-tuning
+            url: augment-llm-rag-fine-tuning.md
           - text: Advanced Retrieval-Augmented Generation
             url: advanced-retrieval-augmented-generation.md
 

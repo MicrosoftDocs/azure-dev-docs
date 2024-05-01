@@ -131,7 +131,7 @@ The article [Building advanced Retrieval-Augmented Generation systems](advanced-
 
 ### Other factors influencing completions
 
-Beyond programmatically modifying the prompt, creating an inference pipeline, and other techniques that will be discussed in [Implementing a Retrieval-Augmented Generation System](simple-retrieval-augmented-generation.md), there are parameters that can be modified when making calls to the Azure OpenAI API.
+Beyond programmatically modifying the prompt, creating an inference pipeline, and other techniques that will be discussed in [Augmenting a Large Language Model with Retrieval-Augmented Generation and Fine-tuning](augment-llm-rag-fine-tuning.md), there are parameters that can be modified when making calls to the Azure OpenAI API.
 
 The [Chat end point documentation](https://platform.openai.com/docs/api-reference/chat/create) lists required and optional parameters to pass that can affect various aspects of the completion. If you're using an SDK instead, please refer to the SDK documentation for the language of your choice. If you want to experiement with the parameters, you can do so in the [Playground](https://platform.openai.com/playground/chat).
 
