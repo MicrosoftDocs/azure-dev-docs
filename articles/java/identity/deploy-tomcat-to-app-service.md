@@ -4,7 +4,7 @@ description: Shows you how to deploy a Tomcat app with sign-in by Microsoft Entr
 services: active-directory
 ms.date: 03/11/2024
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
 # Deploy Java Tomcat apps to Azure App Service

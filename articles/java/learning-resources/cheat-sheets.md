@@ -4,7 +4,7 @@ description: Java - curated list of cheat sheets
 author: KarlErickson
 ms.author: sreea
 ms.topic: article
-ms.date: 03/19/2021
+ms.date: 04/24/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 The following cheat sheets provide quick references for Java and related technologies:
 
-- [Java language](https://cs2113f18.github.io/java/JavaCheatSheet.pdf)
+- [Java language](https://introcs.cs.princeton.edu/java/11cheatsheet/)
 - [JVM options](https://www.jrebel.com/system/files/jvm-options-cheat-sheet.pdf)
 - [Spring annotations](https://www.jrebel.com/system/files/spring-annotations-cheat-sheet.pdf)
 - [Maven](https://www.jrebel.com/system/files/maven-cheat-sheet.pdf)
