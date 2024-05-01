@@ -288,8 +288,8 @@ These features would not only help in identifying and mitigating risks but also 
 
 For more information, see:
 
-[Foundations of assessing harm](/azure/architecture/guide/responsible-innovation/harms-modeling/)
-[Types of harm](/azure/architecture/guide/responsible-innovation/harms-modeling/type-of-harm)
+- [Foundations of assessing harm](/azure/architecture/guide/responsible-innovation/harms-modeling/)
+- [Types of harm](/azure/architecture/guide/responsible-innovation/harms-modeling/type-of-harm)
 
 ### Testing and verifying the safeguards
 
