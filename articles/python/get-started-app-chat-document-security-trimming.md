@@ -145,44 +145,35 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ## Get required information with Azure CLI
 
-1. Get your tenant ID with the following Azure CLI command. 
+To set up authentication, you need to know how your tenant is set up:
+
+* **Tenant without conditional access policy**: If you tenant doesn't have a conditional access policy, use the same tenant ID for the 2 environment variables: `AZURE_AUTH_TENANT_ID` and `AZURE_TENANT_ID`.
+* **Tenant with conditional access policy**: If your tenant has a conditional access policy, you need a second tenant without conditional access. Use this second tenant for the `AZURE_AUTH_TENANT_ID` environment variable. Your first tenant, associated with your user account is used for the `AZURE_TENANT_ID` environment variable.
+
+1. Get your subscription ID and tenant ID with the following Azure CLI command. 
 
     ```azurecli
-    az account show --query 'tenantId' -o tsv
+    az account list --query "[].{subscription_id:id, name:name, tenantId:tenantId}" -o table
     ```
-    
 
-1. Find your subscription name and ID with the following Azure CLI command. If you have access to more than one subscription, make sure to get the ID of the correct subscription. 
+1. For tenants with a conditional access policy, find the ID of a second tenant without conditional access or [create a new tenant](/entra/fundamentals/create-new-tenant). 
 
-    ```azurecli
-    az account list --query "sort_by(@, &name)" --output table
-    ```
-    
-
-## Set up authentication and authorization
+## Set environment variables
 
 1. Run the following commands to enable the login UI and App Service authentication.
 
     ```console
     azd env set AZURE_USE_AUTHENTICATION true
+    azd env set AZURE_ENFORCE_ACCESS_CONTROL true
     azd env set AZURE_AUTH_TENANT_ID <REPLACE-WITH-YOUR-TENANT-ID>
+    azd env set AZURE_TENANT_ID <REPLACE-WITH-YOUR-TENANT-ID>
     ```
 
-1. Run the following command to turn on authentication.
+    `AZURE_USE_AUTHENTICATION` enables the "Turn on filter" in the client UX developer settings.
 
-    ```console
-    bash scripts/prepdocs.sh AZURE_USE_AUTHENTICATION=true
-    ```
+## Deploy chat app to Azure
 
-## Deploy and run
-
-The sample repository contains all the code and configuration files you need to deploy a chat app with secured documents to Azure. The following steps walk you through the process of deploying the sample to Azure.
-
-### Deploy chat app to Azure
-
-
-> [!IMPORTANT]
-> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
+Deployment includes creating the Azure resources, uploading the documents, creating the Entra apps (client & server), and turning on identity for the hosting resource. 
 
 1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
 
@@ -196,7 +187,9 @@ The sample repository contains all the code and configuration files you need to 
     |--|--|
     |Environment name| Use a short name with identifying information such as your alias and app: `tjones-secure-chat`.|
     |Subscription|Select a subscription to create the resources in.|
-    |Location|Select a location near you. If you're prompted again for a location for the OpenAI model or for the Document Intelligence resource, select the location closest to you. If the same location is available as your first location, select that.|
+    |Location for Azure resources|Select a location near you. |
+    |Location for `documentIntelligentResourceGroupLocation`|Select a location near you.|
+    |Location for `openAIResourceGroupLocation`|Select a location near you. |
 
     Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
 1. After the application has been successfully deployed, you see a URL displayed in the terminal.
@@ -204,36 +197,44 @@ The sample repository contains all the code and configuration files you need to 
 
     :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
-### Use chat app to get secure answers
+1. Agree to the app authentiation pop-up. 
+1. When the chat app displays, notice in the top right corner, your user is signed in. 
+1. Select the card with `What is included in my Northwind Health Plus plan that is not in standard?`.
+1. You get the answer:
 
-
-### Use chat app settings to change behavior of responses
-
-The intelligence of the chat app is determined by the OpenAI model and the settings that are used to interact with the model. 
-
-:::image type="content" source="./media/get-started-app-chat-template/browser-chat-developer-settings-chat-pane.png" alt-text="Screenshot of chat developer settings":::
-
-|Setting|Description|
-|---|---|
-|Override prompt template|This is the prompt that is used to generate the answer.|
-|Retrieve this many search results|This is the number of search results that are used to generate the answer. You can see these sources returned in the _Thought process_ and _Supporting content_ tabs of the citation. |
-|Exclude category|This is the category of documents that are excluded from the search results.|
-|Use semantic ranker for retrieval|This is a feature of [Azure AI Search](/azure/search/semantic-search-overview#what-is-semantic-search) that uses machine learning to improve the relevance of search results.|
-|Use query-contextual summaries instead of whole documents|When both `Use semantic ranker` and `Use query-contextual summaries` are checked, the LLM uses captions extracted from key passages, instead of all the passages, in the highest ranked documents.|
-|Suggest follow-up questions|Have the chat app suggest follow-up questions based on the answer.|
-|Retrieval mode|**Vectors + Text** means that the search results are based on the text of the documents and the embeddings of the documents. **Vectors** means that the search results are based on the embeddings of the documents. **Text** means that the search results are based on the text of the documents.|
-|Stream chat completion responses|Stream response instead of waiting until the complete answer is available for a response.|
-
-The following steps walk you through the process of changing the settings.
-
-1. In the browser, select the **Developer Settings** tab.
-1. Check the **Use query-contextual summaries instead of** checkbox and ask the same question again.
-
-    ```
-    What happens if the rental doesn't fit the description?
+    ```text
+    I'm sorry, but I don't have access to the specific details of the Northwind Health Plus plan or the standard plan. Please refer to your employee handbook or contact your HR department for more information about the coverage included in your specific plan.
     ```
 
-    The chat returned with a more concise answer such as the following.
+    Let's turn on your permissions for the exact document so you _can_ get the answer. 
+
+## Get the URL for a document in storage
+
+1. In the `.azure` folder at the root of the project, find the environment directory, and open the `.env` file with that directory. 
+1. Search for the `AZURE_STORAGE_ACCOUNT` value. 
+1. Use the following Azure CLI commands to get the URL of the **Benefit_Options.pdf** blob in the **Content** container.
+
+    ```azurecli
+    az storage blob url --name 'Benefit_Options.pdf' --container-name 'Content' --account-name <REPLACE_WITH_AZURE_STORAGE_ACCOUNT>
+    ```
+
+1. Copy the blob URL to use later.
+
+
+## Get your user ID
+
+1. In the chap app, select **Developer settings**.
+1. In the **ID Token claims** section, copy your `objectidentifier`. This is known in the next section as the `USER_OBJECT_ID`.
+
+## Secure a document in Azure Search
+
+Use the following script to change the document's permissions for the **Benefit_Options.pdf** so you don't have access to it.
+
+```bash
+./scripts/manageacl.sh -v --acl-type oids --acl-action add --acl <REPLACE_WITH_YOUR_USER_OBJECT_ID> --url <REPLACE_WITH_YOUR_DOCUMENT_URL>
+```
+
+##
 
 ## Clean up resources
 
