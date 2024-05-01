@@ -7,11 +7,11 @@ ms.topic: conceptual
 
 # Important concepts and considerations for developers building generative AI solutuions
 
-LLMs are amazing, but even they have their limitations. Engineers need to understand those limitations, what LLMs are capable of "out of the box", and how to tweak them to get the best results. This article will identify several challenges and limiting factors, and explain common ways to overcome those challenges and take control of the content generation process regardless of what type of generative AI feature you're building into your application.
+Large Language Models (LLMs) are amazing, but even they have their limitations. Developers need to understand those limitations, what LLMs are capable of "out of the box", and how to tweak them to get the best results for the generative AI solutions they are building. This article will identify several challenges and limiting factors, and explain common ways to overcome those challenges and take control of the content generation process regardless of what type of generative AI features you're building into your application.
 
-## Engineering challenges of working with LLMs
+## Engineering challenges when working with LLMs
 
-LLMs are incredible tools, but even they have their limitations. These limitation require engineers to make affordances to correct their problems. These problems include:
+The most significant challenges or limitations to be aware of when working with LLMs:
 
 - **Knowledge cutoff** - Due to the high cost of training an LLM, their body of knowledge is limited to what they were trained on at a certain point in time. Without any plug-ins or other accommodations, they have no access to real-time information, nor do they have access to private data.
 
@@ -21,11 +21,11 @@ LLMs are incredible tools, but even they have their limitations. These limitatio
 
 - **No domain specific knowledge** - Similar to "knowledge cutoff, if you have private information like internal-only company documents, the LLM was not trained on this information and therefore has no domain specific knowledge.
 
-What can you do to mitigate the possible downsides or problems with LLMs and get the best possible results to help your users and your organization? Start by understanding the ways in which you can supplement where the LLM is getting its data from.
+What can you do to mitigate the possible challenges or problems with LLMs and get the best possible results to help your users and your organization? Start by understanding the ways in which you can supplement where the LLM is getting its data from.
 
 ### Understanding where LLMs get their information
 
-To address the problems of LLMs, engineers need to consider the kinds of information they are working with, and choose the right retrieval model for their application. The following categories represent different approaches to how LLMs interact with external information or databases to generate responses.
+A good starting point to getting the best results from an LLM is to understand where or how LLMs get their information. The following categories represent different approaches to how LLMs interact with various sources of information to generate responses.
 
 :::image type="content" source="./media/llm-knowledge.png" alt-text="Diagram depicting three different types of retreival generation with retrieval-off generation at the top correlated with the most pre-trained knowledge, then retrieval-augmented generation, then retrieval-centric generation at the bottom correlated with the most retrieved knowledge." :::
 
@@ -33,7 +33,7 @@ To address the problems of LLMs, engineers need to consider the kinds of informa
 
 - **Retrieval-Augmented Generation (RAG)** - Combines the generative capabilities of LLMs with the ability to retrieve information from external databases or documents in real-time. The model queries an external source to find relevant information, which it then uses to inform its response. This approach allows the model to provide more accurate and up-to-date information than it could from its pre-trained knowledge alone. Use cases include fact checking, answering questions based on real-time data or private, domain-specific data.
 
-- **Retrieval-Centric Generation (RCG)** - Places even more emphasis on the retrieved content, often structuring responses around the information fetched from external sources. The model might directly incorporate large segments of retrieved text into its outputs, editing or annotating them to fit the user's query. This approach can be seen as a hybrid between retrieval-based and generative methods, where the balance may heavily favor the information retrieved over the model's own generative capabilities. Use cases include summarization of a longer document, research assistance to provide comparisons and thematic explorations across multiple similar documents, and compilation or collation of different sources of material into a combined output.
+- **Retrieval-Centric Generation (RCG)** - Places even more emphasis on the externally retrieved content, often structuring responses around the information fetched from external sources. The model might directly incorporate large segments of retrieved text into its outputs, editing or annotating them to fit the user's query. This approach can be seen as a hybrid between retrieval-based and generative methods, where the balance may heavily favor the information retrieved over the model's own generative capabilities. Use cases include summarization of a longer document, research assistance to provide comparisons and thematic explorations across multiple similar documents, and compilation or collation of different sources of material into a combined output.
 
 A good example of Retrieval-Off Generation (ROG) is ChatGPT. By contrast, if necessary, Copilot (via Bing) extends the LLM by using external sources from news sources (and providing links to those sources).
 
@@ -47,9 +47,9 @@ The mechanisms for external retrieval of data that power both RAG and RCG are di
 
 Understanding the distinctions between retrieval models can help in choosing the right approach for specific applications, balancing the need for creative synthesis versus the need for accuracy and fidelity to source material.
 
-## Understanding factors how an LLM 
+## Understanding factors that influence how inference works
 
-Since you're likely familiar with ChatGPT's web-based user interface, understanding how it works can help you understand concepts that will be vital when building generative AI features in your own applications. 
+Since you're likely familiar with ChatGPT's web-based user interface, understanding how it works to answer questions can help you understand concepts that will be vital when building generative AI features in your own applications. 
 
 When interactively chatting with ChatGPT, the user interface design gives the illusion of a long-running chat session which maintains state over the course of several back-and-forth exchanges between you and the LLM. In reality, for a given chat session, all of your prompts and all of the LLM's responses (also known as "completions") are sent each time you initiate a new prompt. So, as your conversation grows, you are sending more and more text to the LLM to process – all of the previous prompts and completions. ChatGPT uses the entire chat session's context – not just the current prompt – when composing a response to your current prompt. The entire chat session is called the **context window**.
 
@@ -82,9 +82,9 @@ Each LLM model (ex. gpt-3.5, gpt-3.5-turbo, gpt-4, etc.) usually has a different
 
 This pricing model has a significant impact on how you design the user interactions, as well as the amount of pre- and post- processing you add. 
 
-## System versus User prompts
+## System versus user prompts
 
-Up to this point, we've only talked about "user prompts" – the prompts that comprise the interchange between you and ChatGPT. 
+Up to this point, we've only talked about "user prompts" – the prompts that comprise the interchange between a user and ChatGPT. 
 
 OpenAI introduced the "system prompt" (also known as "custom instructions"), which is an over-arching set of instructions that you define and is added to all your chat conversations. Think of it as a set of meta instructions you want the LLM to always observe each time you start a new chat session. For example, you can set the system prompt to "always respond in the poetic form of haiku." From that point on, every new prompt to ChatGPT will result in a haiku containing the answer.
 
@@ -96,7 +96,7 @@ But modifying the user's prompt is only one method to improve the text generatio
 
 ## Methods to improve the text generation experience for users In ChatGPT
 
-If you want to improve text generation, you are limited to simply improving the prompt, and there are many prompt engineering techniques that can help you. However, if you're building your own generative AI application, there are several ways to improve the text generation experience for users, and you may want to experiment with implementing all of them:
+To improve text generation results, developers are limited to simply improving the prompt, and there are many prompt engineering techniques that can help. However, if you're building your own generative AI application, there are several ways to improve the text generation experience for users, and you may want to experiment with implementing all of them:
 
 -	Programmatically modify the user prompts
 -	Implement an inference pipeline
@@ -127,9 +127,13 @@ Post-processing could involve validating the answer's relevance and appropriaten
 
 There is one caveat to this approach: each time you add a call to an LLM in your inference pipeline, you increase the overall latency  (time to respond) and the cost of each interaction with the user. As an experienced software developer, you are likely already aware of these kinds of trade-offs that must be made by leadership that affect the budget, performance, and effectiveness of the software system.
 
-## Other factors influencing completions
+The article [Building advanced Retrieval-Augmented Generation systems](advanced-retrieval-augmented-generation.md) dives deep into specific steps of building an inference pipeline.
 
-If you look at the [Chat end point documentation](https://platform.openai.com/docs/api-reference/chat/create), you can see a list of required and optional parameters to pass that can affect aspects of the completion. You can experiement with these in the [Playground](https://platform.openai.com/playground/chat).
+### Other factors influencing completions
+
+Beyond programmatically modifying the prompt, creating an inference pipeline, and other techniques that will be discussed in [Implementing a Retrieval-Augmented Generation System](simple-retrieval-augmented-generation.md), there are parameters that can be modified when making calls to the Azure OpenAI API.
+
+The [Chat end point documentation](https://platform.openai.com/docs/api-reference/chat/create) lists required and optional parameters to pass that can affect various aspects of the completion. If you're using an SDK instead, please refer to the SDK documentation for the language of your choice. If you want to experiement with the parameters, you can do so in the [Playground](https://platform.openai.com/playground/chat).
 
 - **Temperature**: control the randomness of the output generated by the model. At zero, the model becomes completely deterministic, consistently selecting the most likely next token from its training data. At a temperature of 1, the model balances between choosing high probability tokens and introducing randomness into the output.
 
