@@ -141,6 +141,10 @@ Let's look at each stage to identify specific strategies.
 
 ### Query pre-processing steps
 
+Query pre-processing occurs immediately after your user submits their query, as depicted in this diagram:
+
+:::image type="content" source="./media/advanced-rag-query-processing-steps-highres.png" alt-text="Diagram repeating the advanced RAG steps with emphasis on the box labelled query processing steps." :::
+
 The goal of these steps is to make sure the user is asking questions within the scope of our system (and not trying to "jailbreak" the system to make it do something unintended) and prepare the user's query to increase the likelihood that we'll locate the best possible article chunks using the cosine similarity / "nearest neighbor" search.
 
 **Policy check** - This step could involve logic that identifies, removes, flags or rejects certain content. Some examples may include removing personally identifiable information, removing expletives, and identifying "jailbreak" attempts. **Jailbreaking** refers to the methods that users might employ to circumvent or manipulate the built-in safety, ethical, or operational guidelines of the model. 
@@ -204,7 +208,11 @@ If a user asks a technical question about the biochemical effects of a new drug,
 
 ### Post-retrieval processing steps
 
-Once the retriever component returns results from the vector database, the next steps are to validate that the article chunks will be useful when _augmenting_ the LLM prompt and then begin to prepare the prompt to be presented to the LLM. 
+Post-retrieval processing occurs after the retriever component retrieves relevant content chunks from the vector database as depicted in the diagram:
+
+:::image type="content" source="./media/advanced-rag-post-retrieval-processing-steps-highres.png" alt-text="Diagram repeating the advanced RAG steps with emphasis on the box labelled post-retrieval processing steps." :::
+
+With candidate content chunks retrieved, the next steps are to validate that the article chunks will be useful when _augmenting_ the LLM prompt and then begin to prepare the prompt to be presented to the LLM. 
 
 Developers must consider several aspects of the prompt. A prompt that includes too much supplement information and some (possibly the most important information) could be ignored. Similarly, a prompt that includes irrelevant information could unduly impact the answer.
 
@@ -219,6 +227,10 @@ To deal with these issues, a post-retrieval processing pipeline may include the 
 - **Prompt compression** - Using a small, inexpensive model designed to combine and summarize multiple article chunks into a single, compressed prompt prior to sending it to the LLM.
 
 ### Post-completion processing steps
+
+Post-completion processing occurs after the user's query and all content chunks have been sent to the LLM, as depicted in the following diagram:
+
+:::image type="content" source="./media/advanced-rag-post-completion-processing-steps-highres.png" alt-text="Diagram repeating the advanced RAG steps with emphasis on the box labelled post-completion processing steps." :::
 
 Once the prompt has been completed by the LLM, it is time to validate the completion to ensure that the answer is accurate. A post-completion processing pipeline may include the following steps:
 
