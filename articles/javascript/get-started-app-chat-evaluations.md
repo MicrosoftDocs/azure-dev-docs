@@ -45,4 +45,4 @@ ms.custom: devx-track-js, devx-track-js-ai
     
     ---
 
-[!INCLUDE [evaluations-procedure](../intro/includes/evaluations-procedure.md)]
+[!INCLUDE [evaluations-procedure](../ai/includes/evaluations-procedure.md)]

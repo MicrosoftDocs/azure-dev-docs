@@ -1,19 +1,25 @@
 ### YamlMime:Landing
 
 title: Develop intelligent apps using Azure AI services
+title: Develop intelligent apps using Azure AI services
 summary: |
+  Build applications with generative AI capabilities on Azure.
   Build applications with generative AI capabilities on Azure.
 
 metadata:
   title: Develop intelligent apps using Azure AI services
+  title: Develop intelligent apps using Azure AI services
   description: Get started developing generative AI capabilities into your applications.
+  ms.date: 4/18/2024
   ms.date: 4/18/2024
   ms.topic: landing-page
   ms.collection: collection
 
 landingContent:
   - title: Fundamentals of generative AI
+  - title: Fundamentals of generative AI
     linkLists:
+      - linkListType: overview
       - linkListType: overview
         links:
           - text: Intro to generative AI
