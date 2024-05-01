@@ -141,15 +141,15 @@ Each of these Azure services contributes to creating a comprehensive, scalable, 
 
 In this section we'll focus on the Azure OpenAI API. As stated earlier, you access LLM functionality programmatically through a RESTful web API. You can use literally any modern programming language to call into these APIs. In many cases, there are language or platform specific SDKs that operate as "wrappers" around the REST API calls to make the experience more idiomatic. 
 
-- [Azure OpenAI client library for .NET](/dotnet/api/overview/azure/ai.openai-readme?view=azure-dotnet-preview)
-- [Azuew OpenAI client library for Java](/java/api/overview/azure/ai-openai-readme?view=azure-java-preview)
-- [Azure OpenAI client library for JavaScript](/javascript/api/overview/azure/openai-readme?view=azure-node-preview)
+- [Azure OpenAI client library for .NET](/dotnet/api/overview/azure/ai.openai-readme)
+- [Azuew OpenAI client library for Java](/java/api/overview/azure/ai-openai-readme)
+- [Azure OpenAI client library for JavaScript](/javascript/api/overview/azure/openai-readme)
 - [Azure OpenAI client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai)
 - Python has no Azure specific client library. You simply use the [OpenAI Python package](https://platform.openai.com/docs/api-reference) and change several options.
 
 If a language or platform SDK is unavailable, the worst-case scenario is that you must make REST calls directly to the web API. However, most developers are familiar with how to do this.
 
-- [Azure OpenAI Service REST API](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference)
+- [Azure OpenAI Service REST API](/azure/ai-services/openai/reference)
 
 Azure OpenAI offers a range of APIs  designed to facilitate different types of AI-powered tasks, allowing developers to integrate advanced AI functionalities into their applications. Here's an overview of the key APIs available from OpenAI: 
 
