@@ -183,6 +183,10 @@ At some point you’ll probably think of (or be asked to build) some specific AI
 - Learn prompt engineering best practices: Crafting effective prompts is an art. Experiment with different prompts to see how they affect the output. Be concise yet descriptive.
 - Commit to iterative refinement: Often, the first prompt might not yield the desired result. It's a process of trial and error. Use the outputs to refine your prompts further.
 
+## Build your first generative AI solution
+
+If you want to start experimenting with building a generative AI solution immediately, we recommend taking a look at [Get started with the Python enterprise chat sample using RAG](https://learn.microsoft.com/en-us/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces). There are versions of the tutorial also available in [.NET](/dotnet/ai/get-started-app-chat-template?tabs=github-codespaces), [Java](/azure/developer/java/ai/get-started-app-chat-template?tabs=github-codespaces), and [JavaScript](/azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces).
+
 ## Final considerations that may influence your application design decisions
 
 Here's a short list of things to consider and other takeaways from this article that will impact your application design decisions:
