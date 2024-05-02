@@ -67,13 +67,13 @@ The sample is a stateful application that stores information in an HTTP session.
 
 ## Prepare the application
 
-Clone the sample application using the following command.
+Clone the sample application using the following command:
 
 ```bash
 git clone https://github.com/Azure-Samples/jboss-on-aro-jakartaee
 ```
 
-You cloned the `Todo-list` demo application and your local repository is on the `main` branch. The demo application is a simple Java app that creates, reads, updates, and deletes records on Azure SQL. This application can be deployed as it is on a JBoss EAP server installed in your local machine. You just need to configure the server with the required database driver and data source. You also need a database server accessible from your local environment.
+You cloned the `Todo-list` demo application and your local repository is on the `main` branch. The demo application is a simple Java app that creates, reads, updates, and deletes records on Azure SQL. You can deploy this application as it is on a JBoss EAP server installed in your local machine. You just need to configure the server with the required database driver and data source. You also need a database server accessible from your local environment.
 
 However, when you're targeting OpenShift, you might want to trim the capabilities of your JBoss EAP server. For example, you might want to reduce the security exposure of the provisioned server and reduce the overall footprint. You might also want to include some MicroProfile specs to make your application more suitable for running on an OpenShift environment. When you use JBoss EAP, one way to accomplish this task is by packaging your application and your server in a single deployment unit known as a Bootable JAR. Let's do that by adding the required changes to our demo application.
 
@@ -87,9 +87,9 @@ git checkout bootable-jar
 Let's do a quick review of what we changed in this branch:
 
 * We added the `wildfly-jar-maven` plugin to provision the server and the application in a single executable JAR file. The OpenShift deployment unit is our server with our application.
-* On the maven plugin, we specified a set of Galleon layers. This configuration allows us to trim the server capabilities to only what we need. For complete documentation on Galleon, see [the WildFly documentation](https://docs.wildfly.org/galleon/).
+* On the Maven plugin, we specified a set of Galleon layers. This configuration enables us to trim the server capabilities to only what we need. For complete documentation on Galleon, see [the WildFly documentation](https://docs.wildfly.org/galleon/).
 * Our application uses Jakarta Faces with Ajax requests, which means that there's information stored in the HTTP session. We don't want to lose such information if a pod is removed. We could save this information on the client and send it back on each request. However, there are cases where you may decide not to distribute certain information to the clients. For this demo, we chose to replicate the session across all pod replicas. To do it, we added `<distributable />` to the `web.xml`. That, together with the server clustering capabilities, makes the HTTP session distributable across all pods.
-* We added two MicroProfile Health Checks that allow identifying when the application is live and ready to receive requests.
+* We added two MicroProfile Health Checks that enable you to identify when the application is live and ready to receive requests.
 
 ## Run the application locally
 
@@ -107,7 +107,7 @@ All of the other settings can be safely used from the linked article.
 
 On the **Additional settings** page, you don't have to choose the option to prepopulate the database with sample data, but there's no harm in doing so.
 
-Once the database is created with the above database name, Server admin login, and password, get the value for the server name from the overview page for the newly created database resource in the portal. Hover the mouse over the value of the **Server name** field and select the copy icon that appears beside the value. Save this value aside for use later (we set a variable named `MSSQLSERVER_HOST` to this value).
+After the database is created with the above database name, Server admin login, and password, get the value for the server name from the overview page for the newly created database resource in the portal. Hover the mouse over the value of the **Server name** field and select the copy icon that appears beside the value. Save this value aside for use later (we set a variable named `MSSQLSERVER_HOST` to this value).
 
 > [!NOTE]
 > To keep monetary costs low, the Quickstart directs the reader to select the serverless compute tier. This tier scales to zero when there is no activity. When this happens, the database is not immediately responsive.  If, at any point when executing the steps in this article, you observe database problems, consider disabling Auto-pause. To learn how, search for Auto-pause in [Azure SQL Database serverless](/azure/azure-sql/database/serverless-tier-overview). At the time of writing, the following AZ CLI command would disable Auto-pause for the database configured in this article. `az sql db update --resource-group $RESOURCEGROUP --server <Server name, without the .database.windows.net part> --name todos_db --auto-pause-delay -1`
@@ -220,7 +220,7 @@ git checkout bootable-jar-openshift
 
 Let's do a quick review about what we changed in this branch:
 
-* We added a new maven profile named `bootable-jar-openshift` that prepares the Bootable JAR with a specific configuration for running the server on the cloud. For example, it enables the JGroups subsystem to use TCP requests to discover other pods by using the KUBE_PING protocol.
+* We added a new Maven profile named `bootable-jar-openshift` that prepares the Bootable JAR with a specific configuration for running the server on the cloud. For example, it enables the JGroups subsystem to use TCP requests to discover other pods by using the KUBE_PING protocol.
 * We added a set of configuration files in the _jboss-on-aro-jakartaee/deployment_ directory. In this directory, you can find the configuration files to deploy the application.
 
 ### Deploy the application on OpenShift
@@ -308,7 +308,7 @@ At this point, we need to configure the chart to build and deploy the applicatio
 
 1. When the build is finished, the bottom-left icon displays a green check
 
-1. When the deployment is completed, the circle outline is dark blue. If you hover the mouse over the dark blue, you should see a message appear stating something similar to '3 Running'. When you see that message, you can go to application the URL (using the top-right icon) from the route associated with the deployment.
+1. When the deployment is completed, the circle outline is dark blue. If you hover the mouse over the dark blue, you should see a message appear stating something similar to `3 Running`. When you see that message, you can go to application the URL (using the top-right icon) from the route associated with the deployment.
 
    :::image type="content" source="media/jboss-eap-on-aro/console-open-application.png" alt-text="Screenshot of OpenShift console open application.":::
 
@@ -316,7 +316,7 @@ At this point, we need to configure the chart to build and deploy the applicatio
 
    :::image type="content" source="media/jboss-eap-on-aro/application-running-openshift.png" alt-text="Screenshot of OpenShift application running.":::
 
-1. The application shows you the name of the pod that serves the information. To verify the clustering capabilities, you could add some Todos. Then delete the pod with the name indicated in the **Server Host Name** field that appears on the application `(oc delete pod <pod name>)`, and once deleted, create a new Todo on the same application window. You can see that the new Todo is added via an Ajax request and the **Server Host Name** field now shows a different name. Behind the scenes, the OpenShift load balancer dispatched the new request and delivered it to an available pod. The Jakarta Faces view is restored from the HTTP session copy stored in the pod that's processing the request. Indeed, you can see that the **Session ID** field didn't change. If the session isn't replicated across your pods, you get a Jakarta Faces `ViewExpiredException`, and your application doesn't work as expected.
+1. The application shows you the name of the pod that serves the information. To verify the clustering capabilities, you could add some Todos. Then, delete the pod with the name indicated in the **Server Host Name** field that appears on the application by using `oc delete pod <pod-name>`, and after it's deleted, create a new Todo on the same application window. You can see that the new Todo is added via an Ajax request and the **Server Host Name** field now shows a different name. Behind the scenes, the OpenShift load balancer dispatched the new request and delivered it to an available pod. The Jakarta Faces view is restored from the HTTP session copy stored in the pod that's processing the request. Indeed, you can see that the **Session ID** field didn't change. If the session isn't replicated across your pods, you get a Jakarta Faces `ViewExpiredException`, and your application doesn't work as expected.
 
 ## Clean up resources
 
