@@ -41,7 +41,7 @@ The sample is a stateful application that stores information in an HTTP session.
 1. Clone the code for this demo application (todo-list) to your local system. The demo application is at [GitHub](https://github.com/Azure-Samples/jboss-on-aro-jakartaee).
 1. Follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json).
 
-   Though the "Get a Red Hat pull secret" step is labeled as optional, **it is required for this article**.  The pull secret enables your Azure Red Hat OpenShift cluster to find the JBoss EAP application images.
+   Though the "Get a Red Hat pull secret" step is labeled as optional, **it is required for this article**. The pull secret enables your Azure Red Hat OpenShift cluster to find the JBoss EAP application images.
 
    If you plan to run memory-intensive applications on the cluster, specify the proper virtual machine size for the worker nodes using the `--worker-vm-size` parameter. For more information, see:
 
@@ -220,12 +220,12 @@ git checkout bootable-jar-openshift
 
 Let's do a quick review about what we changed in this branch:
 
-* We have added a new maven profile named `bootable-jar-openshift` that prepares the Bootable JAR with a specific configuration for running the server on the cloud. For example, it enables the JGroups subsystem to use TCP requests to discover other pods by using the KUBE_PING protocol.
+* We added a new maven profile named `bootable-jar-openshift` that prepares the Bootable JAR with a specific configuration for running the server on the cloud. For example, it enables the JGroups subsystem to use TCP requests to discover other pods by using the KUBE_PING protocol.
 * We added a set of configuration files in the _jboss-on-aro-jakartaee/deployment_ directory. In this directory, you can find the configuration files to deploy the application.
 
 ### Deploy the application on OpenShift
 
-The next steps explain how you can deploy the application with a Helm chart using the OpenShift web console. Avoid hard coding sensitive values into your Helm chart using a feature called "secrets". A secret is simply a collection of name=value pairs, where the values are specified in some known place in advance of when they're needed. In our case, the Helm chart uses two secrets, with the following name=value pairs from each.
+The next steps explain how you can deploy the application with a Helm chart using the OpenShift web console. Avoid hard coding sensitive values into your Helm chart using a feature called 'secrets'. A secret is simply a collection of name=value pairs, where the values are specified in some known place before they're needed. In our case, the Helm chart uses two secrets, with the following name=value pairs from each.
 
 * `mssqlserver-secret`
 
@@ -280,7 +280,7 @@ The next steps explain how you can deploy the application with a Helm chart usin
 
    :::image type="content" source="media/jboss-eap-on-aro/console-project-combo-box.png" alt-text="Screenshot of OpenShift console project combo box.":::
 
-1. Select **+Add**.  In the **Developer Catalog** section, select **Helm Chart**. You arrive at the Helm Chart catalog available on your Azure Red Hat OpenShift cluster. In the **Filter by keyword** box, type **eap**. You should see several options, as shown here:
+1. Select **+Add**. In the **Developer Catalog** section, select **Helm Chart**. You arrive at the Helm Chart catalog available on your Azure Red Hat OpenShift cluster. In the **Filter by keyword** box, type **eap**. You should see several options, as shown here:
 
    :::image type="content" source="media/jboss-eap-on-aro/console-eap-helm-charts.png" alt-text="Screenshot of OpenShift console EAP Helm Charts.":::
 
@@ -308,7 +308,7 @@ At this point, we need to configure the chart to build and deploy the applicatio
 
 1. When the build is finished, the bottom-left icon displays a green check
 
-1. When the deployment is completed, the circle outline is dark blue. If you hover the mouse over the dark blue, you should see a message appear stating something similar to "3 Running".  When you see that message, you can go to application the URL (using the top-right icon) from the route associated with the deployment.
+1. When the deployment is completed, the circle outline is dark blue. If you hover the mouse over the dark blue, you should see a message appear stating something similar to '3 Running'. When you see that message, you can go to application the URL (using the top-right icon) from the route associated with the deployment.
 
    :::image type="content" source="media/jboss-eap-on-aro/console-open-application.png" alt-text="Screenshot of OpenShift console open application.":::
 
@@ -316,7 +316,7 @@ At this point, we need to configure the chart to build and deploy the applicatio
 
    :::image type="content" source="media/jboss-eap-on-aro/application-running-openshift.png" alt-text="Screenshot of OpenShift application running.":::
 
-1. The application shows you the name of the pod that serves the information. To verify the clustering capabilities, you could add some Todos. Then delete the pod with the name indicated in the **Server Host Name** field that appears on the application `(oc delete pod <pod name>)`, and once deleted, create a new Todo on the same application window. You can see that the new Todo is added via an Ajax request and the **Server Host Name** field now shows a different name. Behind the scenes, the OpenShift load balancer dispatched the new request and delivered it to an available pod. The Jakarta Faces view is restored from the HTTP session copy stored in the pod that's processing the request. Indeed, you can see that the **Session ID** field didn't change. If the session isn't replicated across your pods, you get a Jakarta Faces `ViewExpiredException`, and your application won't work as expected.
+1. The application shows you the name of the pod that serves the information. To verify the clustering capabilities, you could add some Todos. Then delete the pod with the name indicated in the **Server Host Name** field that appears on the application `(oc delete pod <pod name>)`, and once deleted, create a new Todo on the same application window. You can see that the new Todo is added via an Ajax request and the **Server Host Name** field now shows a different name. Behind the scenes, the OpenShift load balancer dispatched the new request and delivered it to an available pod. The Jakarta Faces view is restored from the HTTP session copy stored in the pod that's processing the request. Indeed, you can see that the **Session ID** field didn't change. If the session isn't replicated across your pods, you get a Jakarta Faces `ViewExpiredException`, and your application doesn't work as expected.
 
 ## Clean up resources
 
