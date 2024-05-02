@@ -80,6 +80,7 @@ However, when you're targeting OpenShift, you might want to trim the capabilitie
 Navigate to your demo application local repository and change the branch to `bootable-jar`:
 
 ```bash
+## cd jboss-on-aro-jakartaee
 git checkout bootable-jar
 ```
 
