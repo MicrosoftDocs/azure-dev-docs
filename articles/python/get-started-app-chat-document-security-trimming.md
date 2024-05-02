@@ -10,7 +10,7 @@ ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli
 
 # Get started with chat document security for Python
 
-This article provides the process to secure your chat app to ensure users receive answers based on their permissions. When you build a chat application using the RAG pattern with your own data, make sure that each user gets answers from documents they are authorized to see.
+This article provides the process to secure your chat app to ensure users receive answers based on their permissions. When you build a chat application using the RAG pattern with your own data, make sure that each user gets answers from documents they're authorized to see.
 
 An authorized user should have access to answers contained within the documents of the chat app.
 
@@ -22,13 +22,13 @@ An unauthorized user shouldn't have access to answers from secured documents the
 
 ## Architectural overview
 
-The enterprise chat app has a simply architecture using Azure OpenAI Search and Azure OpenAI. An answer is determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI. No user authentication is used in this simply flow.
+The enterprise chat app has a simple architecture using Azure OpenAI Search and Azure OpenAI. An answer is determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI. No user authentication is used in this simply flow.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/simple-rag-chat-architecture.png" alt-text="Architectural diagram showing an answer determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI.":::
 
 To add security for the documents, you need to update the enterprise chat app: 
 
-* Add user authentication to the chat app with Azure Entra
+* Add user authentication to the chat app with Microsoft Entra
 * Add documents to Azure AI Search and index the documents with user information
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing a use authenticating with Entra ID, then passing that authentication to Azure AI Search.":::
@@ -37,7 +37,7 @@ Azure AI Search doesn't provide document-level permissions and can't vary search
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
 
-Because the authorization isn't natively contained in Azure AI Search, when you change the users and their authroizations in Entra ID, you need to reindex the Search service with new user information you provide.
+Because the authorization isn't natively contained in Azure AI Search, when you change the users and their authorizations in Entra ID, you need to reindex the Search service with new user information you provide.
 
 ## Prerequisites
 
@@ -47,12 +47,12 @@ To use this article, you need the following prerequisites:
 
 * Azure subscription.  [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true) 
 * Azure account permissions - Your Azure Account must have 
-    * Permission to [manage applications in Azure Entra ID](https://learn.microsoft.com/azure/active-directory/roles/permissions-reference#cloud-application-administrator).
+    * Permission to [manage applications in Microsoft Entra ID](https://learn.microsoft.com/azure/active-directory/roles/permissions-reference#cloud-application-administrator).
     * Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
 * Access granted to Azure OpenAI in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
 
-You need additional prerequisites depending on your preferred development environment.
+You need more prerequisites depending on your preferred development environment.
 
 #### [Codespaces (recommended)](#tab/github-codespaces)
 
@@ -147,7 +147,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 To set up authentication, you need to know how your tenant is set up:
 
-* **Tenant without conditional access policy**: If you tenant doesn't have a conditional access policy, use the same tenant ID for the 2 environment variables: `AZURE_AUTH_TENANT_ID` and `AZURE_TENANT_ID`.
+* **Tenant without conditional access policy**: If your tenant doesn't have a conditional access policy, use the same tenant ID for the 2 environment variables: `AZURE_AUTH_TENANT_ID` and `AZURE_TENANT_ID`.
 * **Tenant with conditional access policy**: If your tenant has a conditional access policy, you need a second tenant without conditional access. Use this second tenant for the `AZURE_AUTH_TENANT_ID` environment variable. Your first tenant, associated with your user account is used for the `AZURE_TENANT_ID` environment variable.
 
 1. Get your subscription ID and tenant ID with the following Azure CLI command. 
@@ -160,7 +160,7 @@ To set up authentication, you need to know how your tenant is set up:
 
 ## Set environment variables
 
-1. Run the following commands to enable the login UI and App Service authentication.
+1. Run the following commands to enable the sign-in UI and App Service authentication.
 
     ```console
     azd env set AZURE_USE_AUTHENTICATION true
@@ -197,44 +197,113 @@ Deployment includes creating the Azure resources, uploading the documents, creat
 
     :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
-1. Agree to the app authentiation pop-up. 
+1. Agree to the app authentication pop-up. 
 1. When the chat app displays, notice in the top right corner, your user is signed in. 
-1. Select the card with `What is included in my Northwind Health Plus plan that is not in standard?`.
+1. Select the card with `What does a product manager do?`.
 1. You get the answer:
 
     ```text
-    I'm sorry, but I don't have access to the specific details of the Northwind Health Plus plan or the standard plan. Please refer to your employee handbook or contact your HR department for more information about the coverage included in your specific plan.
+    The provided sources do not contain specific information about the role of a Product Manager at Contoso Electronics.
     ```
 
-    Let's turn on your permissions for the exact document so you _can_ get the answer. 
+    :::image type="content" source="./media/get-started-app-chat-template/role-library-access-denied.png" alt-text="Screenshot of chat app in browser showing the answer can't be returned":::
 
-## Get the URL for a document in storage
+## Open access to a document for a user
+
+Let's turn on your permissions for the exact document so you _can_ get the answer. These require several pieces of information:
+
+* Azure Storage
+    * Account name
+    * Container name
+    * Blob/document URL
+* User's ID in Entra ID
+
+Once this information is known, update the Azure AI Search index information for that document. 
+
+### Get the URL for a document in storage
 
 1. In the `.azure` folder at the root of the project, find the environment directory, and open the `.env` file with that directory. 
 1. Search for the `AZURE_STORAGE_ACCOUNT` value. 
-1. Use the following Azure CLI commands to get the URL of the **Benefit_Options.pdf** blob in the **Content** container.
+1. Use the following Azure CLI commands to get the URL of the **role_library.pdf** blob in the **content** container.
 
     ```azurecli
-    az storage blob url --name 'Benefit_Options.pdf' --container-name 'Content' --account-name <REPLACE_WITH_AZURE_STORAGE_ACCOUNT>
+    az storage blob url --account-name <REPLACE_WITH_AZURE_STORAGE_ACCOUNT --container-name 'content' --name 'role_library.pdf' 
     ```
+    
+    |Parameter|Purpose|
+    |--|--|
+    |--account-name|Azure Storage account name|
+    |--container-name|The container name in this sample is `content`|
+    |--name|The blob name in this step is `role_library.pdf` |
 
 1. Copy the blob URL to use later.
 
-
-## Get your user ID
+### Get your user ID
 
 1. In the chap app, select **Developer settings**.
 1. In the **ID Token claims** section, copy your `objectidentifier`. This is known in the next section as the `USER_OBJECT_ID`.
 
-## Secure a document in Azure Search
+### Provide user access to a document in Azure Search
 
-Use the following script to change the document's permissions for the **Benefit_Options.pdf** so you don't have access to it.
+1. Use the following script to change the `oids` field in Azure AI Search for **role_library.pdf** so you have access to it.
 
-```bash
-./scripts/manageacl.sh -v --acl-type oids --acl-action add --acl <REPLACE_WITH_YOUR_USER_OBJECT_ID> --url <REPLACE_WITH_YOUR_DOCUMENT_URL>
-```
+    ```bash
+    ./scripts/manageacl.sh -v --acl-type oids --acl-action add --acl <REPLACE_WITH_YOUR_USER_OBJECT_ID> --url <REPLACE_WITH_YOUR_DOCUMENT_URL>
+    ```
+    
+    |Parameter|Purpose|
+    |--|--|
+    |-v|Verbose output.
+    |--acl-type|Group or user (oids): `oids`|
+    |--acl-action|**Add** to a Search index field. Other options include `remove`, `remove_all`, `list`. |
+    |--acl|Group or user's `USER_OBJECT_ID`|
+    |--url|The file's location in Azure storage, such as `https://MYSTORAGENAME.blob.core.windows.net/content/role_library.pdf`. Don't surround URL with quotes in the CLI command.|
 
-##
+1. The console output for this command looks like: 
+
+    ```console.
+    Loading azd .env file from current environment...
+    Creating Python virtual environment "app/backend/.venv"...
+    Installing dependencies from "requirements.txt" into virtual environment (in quiet mode)...
+    Running manageacl.py. Arguments to script: -v --acl-type oids --acl-action add --acl 00000000-0000-0000-0000-000000000000 --url https://mystorage.blob.core.windows.net/content/role_library.pdf
+    Found 58 search documents with storageUrl https://strej6jfwqcr2u6.blob.core.windows.net/content/role_library.pdf
+    Adding acl 00000000-0000-0000-0000-000000000000 to 58 search documents
+    ```
+
+1. Optionally, use the following command to verify your permissions is listed for the file in Azure AI Search.
+
+    ```bash
+    ./scripts/manageacl.sh -v --acl-type oids --acl-action list --acl <REPLACE_WITH_YOUR_USER_OBJECT_ID> --url <REPLACE_WITH_YOUR_DOCUMENT_URL>
+    ```
+    
+    |Parameter|Purpose|
+    |--|--|
+    |-v|Verbose output.
+    |--acl-type|Group or user (oids): `oids`|
+    |--acl-action|**List** a Search index field `oids`. Other options include `remove`, `remove_all`, `list`. |
+    |--acl|Group or user's `USER_OBJECT_ID`|
+    |--url|The file's location in Azure storage, such as `https://MYSTORAGENAME.blob.core.windows.net/content/role_library.pdf`. Don't surround URL with quotes in the CLI command.|
+
+1. The console output for this command looks like: 
+
+    ```console.
+    Loading azd .env file from current environment...
+    Creating Python virtual environment "app/backend/.venv"...
+    Installing dependencies from "requirements.txt" into virtual environment (in quiet mode)...
+    Running manageacl.py. Arguments to script: -v --acl-type oids --acl-action view --acl 00000000-0000-0000-0000-000000000000 --url https://mystorage.blob.core.windows.net/content/role_library.pdf
+    Found 58 search documents with storageUrl https://mystorage.blob.core.windows.net/content/role_library.pdf
+    [00000000-0000-0000-0000-000000000000]
+    ```
+
+    The array at the end of the output includes your USER_OBJECT_ID and is used to determine to use the document in determining the answer in Azure OpenAI. 
+
+### Verify user access to the document
+
+1. Return to the chat app. You may need to sign in again. 
+1. Enter the same query so that the `role_library` content is used in the Azure OpenAI answer: `What does a product manager do?`.
+1. View the answer includes the appropriate answer from the role library document.
+
+    :::image type="content" source="./media/get-started-app-chat-template/role-library-access-granted.png" alt-text="Screenshot of chat app in browser showing the answer is returned.":::
 
 ## Clean up resources
 
@@ -259,9 +328,9 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 
-1. Locate your currently running codespaces sourced from the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository.
+1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository.
 
-    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running codespaces including their status and templates.":::
+    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
 1. Open the context menu for the codespace and then select **Delete**.
 
@@ -284,7 +353,28 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main#troubleshooting).
 
-If your issued isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-javascript/issues).
+If your issue isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-javascript/issues).
+
+### Verify Azure AI Search contains your USER_OBJECT_ID
+
+1. Open the [Azure portal](https://portal.azure.com) and search for your `AI Search`. 
+1. Select your search resource from the list.
+1. Select **Search management -> Indexes**. 
+1. Select the **gptkbindex**. 
+1. Select **View -> JSON view**.
+1. Replace the JSON with the following JSON.
+
+    ```json
+    {
+      "search": "*",
+      "select": "sourcefile, oids",
+      "filter": "oids/any()"
+    }
+    ```
+
+    This searches all documents where the `oids` field has any value and returns the `sourcefile`, and `oids` fields. 
+
+1. If the `role_library.pdf` doesn't have your oid, return to the [Provide user access to a document in Azure Search](#provide-user-access-to-a-document-in-azure-search) section and complete the steps.
 
 ## Next steps
 
