@@ -29,11 +29,11 @@ Without the document security, the enterprise chat app has a simple architecture
 To add security for the documents, you need to update the enterprise chat app: 
 
 * Add client authentication to the chat app with Microsoft Entra
-* Add server authentication to get documents from Azure AI Search which coorespond to the user's identity
+* Add server authentication to get documents from Azure AI Search which correspond to the user's identity
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing a use authenticating with Entra ID, then passing that authentication to Azure AI Search.":::
 
-Azure AI Search doesn't provide _native_ document-level permissions and can't vary search results from within an index by user permissions. To add security, you as the service owner, create a filter that trims search results based on a _string_ containing group or user identity.
+Azure AI Search doesn't provide _native_ document-level permissions and can't vary search results from within an index by user permissions. To add security, you as the service administrator, create a filter that trims search results based on a _string_ containing group or user identity.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
 
@@ -58,7 +58,7 @@ You need more prerequisites depending on your preferred development environment.
 
 #### [Codespaces (recommended)](#tab/github-codespaces)
 
-1. GitHub account
+1. [GitHub account](https://github.com/login)
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -149,24 +149,22 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 To set up authentication, you need to know how your tenant is set up:
 
-* **Tenant without conditional access policy**: If your tenant doesn't have a conditional access policy, use the same tenant ID for the 2 environment variables:
+* **Tenant without conditional access policy**: Personal Azure subscriptions typically don't have conditional access. If your tenant doesn't have a conditional access policy, use the same tenant ID for the 2 environment variables:
     * `AZURE_AUTH_TENANT_ID`
     * `AZURE_TENANT_ID`
-* **Tenant with conditional access policy**: If your tenant has a conditional access policy, you need a second tenant without conditional access. 
+* **Tenant with conditional access policy**: Enterprise (corporate) subscriptions typically have conditional access. If your tenant has a conditional access policy, you need a second tenant without conditional access. 
     * Your first tenant, associated with your user account, is used for the `AZURE_TENANT_ID` environment variable.
-    * [Create a second tenant](/entra/fundamentals/create-new-tenant) for the `AZURE_AUTH_TENANT_ID` environment variable to access Microsoft Graph. 
+    * Your second tenant, without conditional access, is used for the `AZURE_AUTH_TENANT_ID` environment variable to access Microsoft Graph. For tenants with a conditional access policy, find the ID of a second tenant without conditional access or [create a new tenant](/entra/fundamentals/create-new-tenant). 
 
-1. Get your subscription ID and tenant ID with the following Azure CLI command. 
+Get your subscription ID and tenant ID with the following Azure CLI command. 
 
-    ```azurecli
-    az account list --query "[].{subscription_id:id, name:name, tenantId:tenantId}" -o table
-    ```
-
-1. For tenants with a conditional access policy, find the ID of a second tenant without conditional access or [create a new tenant](/entra/fundamentals/create-new-tenant). 
+```azurecli
+az account list --query "[].{subscription_id:id, name:name, tenantId:tenantId}" -o table
+```
 
 ## Set environment variables
 
-1. Run the following commands to configure the sample to use the sign-in UI and App Service authentication.
+1. Run the following commands to configure the sample to use authentication.
 
     ```console
     azd env set AZURE_USE_AUTHENTICATION true
@@ -177,8 +175,8 @@ To set up authentication, you need to know how your tenant is set up:
 
     |Parameter|Purpose|
     |--|--|
-    |`AZURE_USE_AUTHENTICATION`|Enables the "Turn on filter" in the client UX developer settings.|
-    |`AZURE_ENFORCE_ACCESS_CONTROL`|Require authentication for any document access.|
+    |`AZURE_USE_AUTHENTICATION`|Enables `Use oid security filter` in the chat app **Developer settings**.|
+    |`AZURE_ENFORCE_ACCESS_CONTROL`|Requires authentication for any document access. The **Developer settings** for oid and group security will be turned on and disabled so they can't be disabled from the UI.|
     |`AZURE_TENANT_ID`|The tenant which authorizes your user sign in.|
     |`AZURE_AUTH_TENANT_ID`|The tenant which has not conditional access to query Microsoft Graph.|
 
@@ -210,6 +208,11 @@ Deployment includes creating the Azure resources, uploading the documents, creat
 
 1. Agree to the app authentication pop-up. 
 1. When the chat app displays, notice in the top right corner, your user is signed in. 
+1. Open **Developer settings** and notice both these options are selected and greyed out (disabled for change).
+
+    * **Use oid security filter**
+    * **Use groups security filter**
+
 1. Select the card with `What does a product manager do?`.
 1. You get the answer: `The provided sources do not contain specific information about the role of a Product Manager at Contoso Electronics.`
 
@@ -217,15 +220,15 @@ Deployment includes creating the Azure resources, uploading the documents, creat
 
 ## Open access to a document for a user
 
-Let's turn on your permissions for the exact document so you _can_ get the answer. These require several pieces of information:
+Turn on your permissions for the exact document so you _can_ get the answer. These require several pieces of information:
 
 * Azure Storage
     * Account name
     * Container name
-    * Blob/document URL
+    * Blob/document URL for `role_library.pdf`
 * User's ID in Entra ID
 
-Once this information is known, update the Azure AI Search index information for that document. 
+Once this information is known, update the Azure AI Search index `oids` field for the `role_library.pdf` document. 
 
 ### Get the URL for a document in storage
 
@@ -285,7 +288,7 @@ Once this information is known, update the Azure AI Search index information for
     Adding acl 00000000-0000-0000-0000-000000000000 to 58 search documents
     ```
 
-1. Optionally, use the following command to verify your permissions is listed for the file in Azure AI Search.
+1. Optionally, use the following command to verify your permission is listed for the file in Azure AI Search.
 
     ```bash
     ./scripts/manageacl.sh \
@@ -315,9 +318,11 @@ Once this information is known, update the Azure AI Search index information for
     [00000000-0000-0000-0000-000000000000]
     ```
 
-    The array at the end of the output includes your USER_OBJECT_ID and is used to determine if the document in used in the answer with Azure OpenAI. 
+    The array at the end of the output includes your USER_OBJECT_ID and is used to determine if the document is used in the answer with Azure OpenAI. 
 
 ### Verify user access to the document 
+
+If you completed the steps but did not see the correct answer, verify your USER_OBJECT_ID is set correctly in Azure AI Search for that `role_library.pdf`.
 
 1. Return to the chat app. You may need to sign in again. 
 1. Enter the same query so that the `role_library` content is used in the Azure OpenAI answer: `What does a product manager do?`.
