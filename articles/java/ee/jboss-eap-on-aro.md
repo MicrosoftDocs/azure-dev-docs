@@ -210,7 +210,7 @@ Follow the next steps to build and run the application locally.
 
 ## Deploy to OpenShift
 
-To deploy the application, we're going to use the JBoss EAP Helm Charts already available in Azure Red Hat OpenShift. We also need to supply the desired configuration, for example, the database user, the database password, the driver version we want to use, and the connection information used by the data source. The following steps assume you have a Microsoft SQL database server running and accessible from your OpenShift cluster, and you have stored the database user name, password, hostname, port and database name in an OpenShift [OpenShift Secret object](https://docs.openshift.com/container-platform/4.8/nodes/pods/nodes-pods-secrets.html#nodes-pods-secrets-about_nodes-pods-secrets) named `mssqlserver-secret`.
+To deploy the application, we're going to use the JBoss EAP Helm Charts already available in Azure Red Hat OpenShift. We also need to supply the desired configuration, for example, the database user, the database password, the driver version we want to use, and the connection information used by the data source. The following steps assume you have Azure SQL running and accessible from your OpenShift cluster, and you have stored the database user name, password, hostname, port and database name in an OpenShift [OpenShift Secret object](https://docs.openshift.com/container-platform/4.8/nodes/pods/nodes-pods-secrets.html#nodes-pods-secrets-about_nodes-pods-secrets) named `mssqlserver-secret`.
 
 Navigate to your demo application local repository and change the current branch to `bootable-jar-openshift`:
 
