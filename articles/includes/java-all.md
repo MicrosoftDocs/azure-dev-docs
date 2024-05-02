@@ -16,7 +16,7 @@
 | Azure Redis Checkpoint Store | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-messaging-eventhubs-checkpointstore-jedis/1.0.0-beta.2/jar/) | [docs](/java/api/overview/azure/messaging-eventhubs-checkpointstore-jedis-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-jedis_1.0.0-beta.2/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-jedis/) |
 | Azure Remote Rendering | Maven [1.1.28](https://search.maven.org/artifact/com.azure/azure-mixedreality-remoterendering/1.1.28/jar/) | [docs](/java/api/overview/azure/mixedreality-remoterendering-readme) | GitHub [1.1.28](https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-remoterendering_1.1.28/sdk/remoterendering/azure-mixedreality-remoterendering/) |
 | CloudNative CloudEvents with Event Grid  | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-messaging-eventgrid-cloudnative-cloudevents/1.0.0-beta.1/jar/) | [docs](/java/api/overview/azure/messaging-eventgrid-cloudnative-cloudevents-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid-cloudnative-cloudevents_1.0.0-beta.1/sdk/eventgrid/azure-messaging-eventgrid-cloudnative-cloudevents/) |
-| Communication Call Automation | Maven [1.1.4](https://search.maven.org/artifact/com.azure/azure-communication-callautomation/1.1.4/jar/) | [docs](/java/api/overview/azure/communication-callautomation-readme) | GitHub [1.1.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-callautomation_1.1.4/sdk/communication/azure-communication-callautomation/) |
+| Communication Call Automation | Maven [1.2.0](https://search.maven.org/artifact/com.azure/azure-communication-callautomation/1.2.0/jar/) | [docs](/java/api/overview/azure/communication-callautomation-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-callautomation_1.2.0/sdk/communication/azure-communication-callautomation/) |
 | Communication Chat | Maven [1.5.0](https://search.maven.org/artifact/com.azure/azure-communication-chat/1.5.0/jar/) | [docs](/java/api/overview/azure/communication-chat-readme) | GitHub [1.5.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-chat_1.5.0/sdk/communication/azure-communication-chat/) |
 | Communication Common | Maven [1.3.2](https://search.maven.org/artifact/com.azure/azure-communication-common/1.3.2/jar/)<br>Maven [2.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-communication-common/2.0.0-beta.1/jar/) | [docs](/java/api/overview/azure/communication-common-readme) | GitHub [1.3.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_1.3.2/sdk/communication/azure-communication-common/)<br>GitHub [2.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_2.0.0-beta.1/sdk/communication/azure-communication-common/) |
 | Communication Email | Maven [1.0.12](https://search.maven.org/artifact/com.azure/azure-communication-email/1.0.12/jar/) | [docs](/java/api/overview/azure/communication-email-readme) | GitHub [1.0.12](https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-email_1.0.12/sdk/communication/azure-communication-email/) |
@@ -40,11 +40,11 @@
 | Core - Client - HTTP OkHttp | Maven [1.11.20](https://search.maven.org/artifact/com.azure/azure-core-http-okhttp/1.11.20/jar/) | [docs](/java/api/overview/azure/core-http-okhttp-readme) | GitHub [1.11.20](https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-okhttp_1.11.20/sdk/core/azure-core-http-okhttp/) |
 | Core - Client - Test | Maven [1.24.2](https://search.maven.org/artifact/com.azure/azure-core-test/1.24.2/jar/) | [docs](/java/api/overview/azure/core-test-readme) | GitHub [1.24.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.24.2/sdk/core/azure-core-test/) |
 | Core - Plugin - Tracing OpenTelemetry Plugin | Maven [1.0.0-beta.45](https://search.maven.org/artifact/com.azure/azure-core-tracing-opentelemetry/1.0.0-beta.45/jar/) | [docs](/java/api/overview/azure/core-tracing-opentelemetry-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.45](https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opentelemetry_1.0.0-beta.45/sdk/core/azure-core-tracing-opentelemetry/) |
-| Cosmos DB | Maven [4.58.0](https://search.maven.org/artifact/com.azure/azure-cosmos/4.58.0/jar/) | [docs](/java/api/overview/azure/cosmos-readme) | GitHub [4.58.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.58.0/sdk/cosmos/azure-cosmos/) |
+| Cosmos DB | Maven [4.59.0](https://search.maven.org/artifact/com.azure/azure-cosmos/4.59.0/jar/) | [docs](/java/api/overview/azure/cosmos-readme) | GitHub [4.59.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.59.0/sdk/cosmos/azure-cosmos/) |
 | Cosmos Spark 3.4 | Maven [4.30.0](https://search.maven.org/artifact/com.azure.cosmos.spark/azure-cosmos-spark_3-4_2-12/4.30.0/jar/) |  | GitHub [4.30.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-4_2-12_4.30.0/sdk/cosmos/azure-cosmos-spark_3-4_2-12/) |
 | Cosmos Test | Maven [1.0.0-beta.6](https://search.maven.org/artifact/com.azure/azure-cosmos-test/1.0.0-beta.6/jar/) | [docs](/java/api/overview/azure/cosmos-test-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.6](https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-test_1.0.0-beta.6/sdk/cosmos/azure-cosmos-test/) |
 | Defender EASM | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-analytics-defender-easm/1.0.0-beta.1/jar/) | [docs](/java/api/overview/azure/analytics-defender-easm-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-analytics-defender-easm_1.0.0-beta.1/sdk/easm/azure-analytics-defender-easm/) |
-| Dev Center | Maven [1.0.0-beta.3](https://search.maven.org/artifact/com.azure/azure-developer-devcenter/1.0.0-beta.3/jar/) | [docs](/java/api/overview/azure/developer-devcenter-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-java/tree/azure-developer-devcenter_1.0.0-beta.3/sdk/devcenter/azure-developer-devcenter/) |
+| Dev Center | Maven [1.0.0](https://search.maven.org/artifact/com.azure/azure-developer-devcenter/1.0.0/jar/) | [docs](/java/api/overview/azure/developer-devcenter-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-developer-devcenter_1.0.0/sdk/devcenter/azure-developer-devcenter/) |
 | Device Update | Maven [1.0.17](https://search.maven.org/artifact/com.azure/azure-iot-deviceupdate/1.0.17/jar/) | [docs](/java/api/overview/azure/iot-deviceupdate-readme) | GitHub [1.0.17](https://github.com/Azure/azure-sdk-for-java/tree/azure-iot-deviceupdate_1.0.17/sdk/deviceupdate/azure-iot-deviceupdate/) |
 | Digital Twins | Maven [1.3.19](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.3.19/jar/) | [docs](/java/api/overview/azure/digitaltwins-core-readme) | GitHub [1.3.19](https://github.com/Azure/azure-sdk-for-java/tree/azure-digitaltwins-core_1.3.19/sdk/digitaltwins/azure-digitaltwins-core/) |
 | Document Intelligence | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-ai-documentintelligence/1.0.0-beta.2/jar/) | [docs](/java/api/overview/azure/ai-documentintelligence-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-documentintelligence_1.0.0-beta.2/sdk/documentintelligence/azure-ai-documentintelligence/) |
@@ -60,9 +60,9 @@
 | Identity | Maven [1.12.0](https://search.maven.org/artifact/com.azure/azure-identity/1.12.0/jar/) | [docs](/java/api/overview/azure/identity-readme) | GitHub [1.12.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.12.0/sdk/identity/azure-identity/) |
 | Identity Broker | Maven [1.1.0](https://search.maven.org/artifact/com.azure/azure-identity-broker/1.1.0/jar/) | [docs](/java/api/overview/azure/identity-broker-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-broker_1.1.0/sdk/identity/azure-identity-broker/) |
 | Image Analysis | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-ai-vision-imageanalysis/1.0.0-beta.2/jar/) | [docs](/java/api/overview/azure/ai-vision-imageanalysis-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/vision/azure-ai-vision-imageanalysis) |
-| Key Vault - Administration | Maven [4.5.2](https://search.maven.org/artifact/com.azure/azure-security-keyvault-administration/4.5.2/jar/) | [docs](/java/api/overview/azure/security-keyvault-administration-readme) | GitHub [4.5.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-administration_4.5.2/sdk/keyvault/azure-security-keyvault-administration/) |
+| Key Vault - Administration | Maven [4.5.3](https://search.maven.org/artifact/com.azure/azure-security-keyvault-administration/4.5.3/jar/) | [docs](/java/api/overview/azure/security-keyvault-administration-readme) | GitHub [4.5.3](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-administration_4.5.3/sdk/keyvault/azure-security-keyvault-administration/) |
 | Key Vault - Certificates | Maven [4.6.2](https://search.maven.org/artifact/com.azure/azure-security-keyvault-certificates/4.6.2/jar/) | [docs](/java/api/overview/azure/security-keyvault-certificates-readme) | GitHub [4.6.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-certificates_4.6.2/sdk/keyvault/azure-security-keyvault-certificates/) |
-| Key Vault - Keys | Maven [4.8.2](https://search.maven.org/artifact/com.azure/azure-security-keyvault-keys/4.8.2/jar/) | [docs](/java/api/overview/azure/security-keyvault-keys-readme) | GitHub [4.8.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-keys_4.8.2/sdk/keyvault/azure-security-keyvault-keys/) |
+| Key Vault - Keys | Maven [4.8.3](https://search.maven.org/artifact/com.azure/azure-security-keyvault-keys/4.8.3/jar/) | [docs](/java/api/overview/azure/security-keyvault-keys-readme) | GitHub [4.8.3](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-keys_4.8.3/sdk/keyvault/azure-security-keyvault-keys/) |
 | Key Vault - Secrets | Maven [4.8.2](https://search.maven.org/artifact/com.azure/azure-security-keyvault-secrets/4.8.2/jar/) | [docs](/java/api/overview/azure/security-keyvault-secrets-readme) | GitHub [4.8.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-secrets_4.8.2/sdk/keyvault/azure-security-keyvault-secrets/) |
 | Load Testing | Maven [1.0.12](https://search.maven.org/artifact/com.azure/azure-developer-loadtesting/1.0.12/jar/) | [docs](/java/api/overview/azure/developer-loadtesting-readme) | GitHub [1.0.12](https://github.com/Azure/azure-sdk-for-java/tree/azure-developer-loadtesting_1.0.12/sdk/loadtesting/azure-developer-loadtesting/) |
 | Maps Render | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-maps-render/1.0.0-beta.2/jar/) | [docs](/java/api/overview/azure/maps-render-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-maps-render_1.0.0-beta.2/sdk/maps/azure-maps-render/) |
@@ -117,7 +117,7 @@
 | Video Analyzer Edge | Maven [1.0.0-beta.6](https://search.maven.org/artifact/com.azure/azure-media-videoanalyzer-edge/1.0.0-beta.6/jar/) | [docs](/java/api/overview/azure/media-videoanalyzer-edge-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.6](https://github.com/Azure/azure-sdk-for-java/tree/azure-media-videoanalyzer-edge_1.0.0-beta.6/sdk/videoanalyzer/azure-media-videoanalyzer-edge/) |
 | Web PubSub | Maven [1.2.14](https://search.maven.org/artifact/com.azure/azure-messaging-webpubsub/1.2.14/jar/) | [docs](/java/api/overview/azure/messaging-webpubsub-readme) | GitHub [1.2.14](https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-webpubsub_1.2.14/sdk/webpubsub/azure-messaging-webpubsub/) |
 | Web PubSub Client | Maven [1.0.2](https://search.maven.org/artifact/com.azure/azure-messaging-webpubsub-client/1.0.2/jar/) | [docs](/java/api/overview/azure/messaging-webpubsub-client-readme) | GitHub [1.0.2](https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-webpubsub-client_1.0.2/sdk/webpubsub/azure-messaging-webpubsub-client/) |
-| Cosmos DB Encryption | Maven [2.10.0](https://search.maven.org/artifact/com.azure/azure-cosmos-encryption/2.10.0/jar/) | [docs](/java/api/overview/azure/cosmos-encryption-readme) | GitHub [2.10.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_2.10.0/sdk/cosmos/azure-cosmos-encryption/) |
+| Cosmos DB Encryption | Maven [2.11.0](https://search.maven.org/artifact/com.azure/azure-cosmos-encryption/2.11.0/jar/) | [docs](/java/api/overview/azure/cosmos-encryption-readme) | GitHub [2.11.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_2.11.0/sdk/cosmos/azure-cosmos-encryption/) |
 | OLTP Spark 3.1 Connector for Azure Cosmos DB SQL API | Maven [4.30.0](https://search.maven.org/artifact/com.azure.cosmos.spark/azure-cosmos-spark_3-1_2-12/4.30.0/jar/) | [docs](/java/api/overview/azure/cosmos-spark_3-1_2-12-readme) | GitHub [4.30.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-1_2-12_4.30.0/sdk/cosmos/azure-cosmos-spark_3-1_2-12/) |
 | OLTP Spark 3.2 Connector for Azure Cosmos DB SQL API | Maven [4.30.0](https://search.maven.org/artifact/com.azure.cosmos.spark/azure-cosmos-spark_3-2_2-12/4.30.0/jar/) | [docs](/java/api/overview/azure/cosmos-spark_3-2_2-12-readme) | GitHub [4.30.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-2_2-12_4.30.0/sdk/cosmos/azure-cosmos-spark_3-2_2-12/) |
 | OLTP Spark 3.3 Connector for Azure Cosmos DB SQL API | Maven [4.30.0](https://search.maven.org/artifact/com.azure.cosmos.spark/azure-cosmos-spark_3-3_2-12/4.30.0/jar/) |  | GitHub [4.30.0](https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-spark_3-3_2-12_4.30.0/sdk/cosmos/azure-cosmos-spark_3-3_2-12/) |
@@ -421,12 +421,12 @@
 | JSON - GSON JSON | Maven [1.0.0-beta.3](https://search.maven.org/artifact/com.azure/azure-json-gson/1.0.0-beta.3/jar/) |  |  |
 | JSON - JSON Reflect | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-json-reflect/1.0.0-beta.2/jar/) |  |  |
 | Kusto Spark | Maven [5.0.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-spark_2.4_2.12/5.0.0/jar/) |  |  |
-| Postgre Single Library | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-postgre-single-lib/0.43.1/jar/) |  |  |
+| Postgre Single Library | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-postgre-single-lib/0.44.0/jar/) |  |  |
 | Purview Administration | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-analytics-purview-administration/1.0.0-beta.1/jar/) |  |  |
 | Schema Registry - JSON | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.microsoft.azure/azure-schemaregistry-kafka-json/1.0.0-beta.2/jar/) |  |  |
 | Service Bus -JMS | Maven [2.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-servicebus-jms/2.0.0-beta.1/jar/) |  |  |
-| Service Bus Library | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-servicebus-lib/0.43.1/jar/) |  |  |
-| Service Linker Library | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-servicelinker-lib/0.43.1/jar/) |  |  |
+| Service Bus Library | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-servicebus-lib/0.44.0/jar/) |  |  |
+| Service Linker Library | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-servicelinker-lib/0.44.0/jar/) |  |  |
 | Spring Cloud Azure Native Reachability | Maven [5.0.0-beta.1](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-native-reachability/5.0.0-beta.1/jar/) |  |  |
 | Spring Cloud Azure Starter - OpenAI | Maven [4.9.0-beta.1](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-openai/4.9.0-beta.1/jar/) |  |  |
 | Spring Cloud Azure Stream Binder Test | Maven [4.0.0-beta.2](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-stream-binder-test/4.0.0-beta.2/jar/) |  |  |
@@ -434,7 +434,7 @@
 | Unknown Display Name | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.microprofile/azure-microprofile-bom/1.0.0-beta.2/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.microprofile/azure-microprofile-config-keyvault/1.0.0-beta.2/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.microprofile/azure-microprofile-parent/1.0.0-beta.2/jar/) |  |  |
-| Unknown Display Name | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-keyvault-lib/0.43.1/jar/) |  |  |
+| Unknown Display Name | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-keyvault-lib/0.44.0/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.4](https://search.maven.org/artifact/com.microsoft.azure/azureml-fs-scala-impl/1.0.4/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/flink-connector-kusto/1.0.0/jar/) |  |  |
 | Active Directory Authentication Library | Maven [1.6.7](https://search.maven.org/artifact/com.microsoft.azure/adal4j/1.6.7/jar/) | [docs](/java/api/overview/azure/activedirectory) |  |
@@ -462,7 +462,7 @@
 | azure-communication-administration | Maven [1.0.0-beta.4](https://search.maven.org/artifact/com.azure/azure-communication-administration/1.0.0-beta.4/jar/) |  |  |
 | azure-schemaregistry-spark-avro | Maven [1.0.1](https://search.maven.org/artifact/com.microsoft.azure/azure-schemaregistry-spark-avro/1.0.1/jar/) |  |  |
 | azure-storage-fastpath | Maven [1.0.0-beta.6](https://search.maven.org/artifact/com.azure/azure-storage-fastpath/1.0.0-beta.6/jar/) |  |  |
-| azure-toolkit-applicationinsights-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-applicationinsights-lib/0.43.1/jar/) |  |  |
+| azure-toolkit-applicationinsights-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-applicationinsights-lib/0.44.0/jar/) |  |  |
 | Batch | Maven [11.1.1](https://search.maven.org/artifact/com.microsoft.azure/azure-batch/11.1.1/jar/) | [docs](/java/api/overview/azure/batch) | GitHub [11.1.1](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/batch/microsoft-azure-batch) |
 | Client Authentication | Maven [1.7.14](https://search.maven.org/artifact/com.microsoft.azure/azure-client-authentication/1.7.14/jar/) |  |  |
 | Client Runtime | Maven [1.7.14](https://search.maven.org/artifact/com.microsoft.azure/azure-client-runtime/1.7.14/jar/) |  |  |
@@ -580,15 +580,15 @@
 | azure-functions-java-core-library | Maven [1.2.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-core-library/1.2.0/jar/) |  |  |
 | azure-functions-java-library-sql | Maven [2.1.0-preview](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-sql/2.1.0-preview/jar/) |  |  |
 | azure-functions-java-spi | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-spi/1.0.0/jar/) |  |  |
-| azure-toolkit-compute-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-compute-lib/0.43.1/jar/) |  |  |
-| azure-toolkit-containerapps-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-containerapps-lib/0.43.1/jar/) |  |  |
-| azure-toolkit-cosmos-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-cosmos-lib/0.43.1/jar/) |  |  |
-| azure-toolkit-database-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-database-lib/0.43.1/jar/) |  |  |
-| azure-toolkit-libs | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-libs/0.43.1/jar/) |  |  |
-| azure-toolkit-monitor-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-monitor-lib/0.43.1/jar/) |  |  |
-| azure-toolkit-postgre-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-postgre-lib/0.43.1/jar/) |  |  |
+| azure-toolkit-compute-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-compute-lib/0.44.0/jar/) |  |  |
+| azure-toolkit-containerapps-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-containerapps-lib/0.44.0/jar/) |  |  |
+| azure-toolkit-cosmos-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-cosmos-lib/0.44.0/jar/) |  |  |
+| azure-toolkit-database-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-database-lib/0.44.0/jar/) |  |  |
+| azure-toolkit-libs | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-libs/0.44.0/jar/) |  |  |
+| azure-toolkit-monitor-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-monitor-lib/0.44.0/jar/) |  |  |
+| azure-toolkit-postgre-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-postgre-lib/0.44.0/jar/) |  |  |
 | azure-toolkit-resource-lib | Maven [0.19.2](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-resource-lib/0.19.2/jar/) |  |  |
-| azure-toolkit-sqlserver-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-sqlserver-lib/0.43.1/jar/) |  |  |
+| azure-toolkit-sqlserver-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-sqlserver-lib/0.44.0/jar/) |  |  |
 | Bill of Materials | Maven [1.0.0.M1](https://search.maven.org/artifact/com.microsoft.azure/azure-bom/1.0.0.M1/jar/) |  |  |
 | Bill of Materials | Maven [2.3.0](https://search.maven.org/artifact/com.microsoft.azure/azure-dependencies-bom/2.3.0/jar/) |  |  |
 | Cosmos DB - Cassandra Extensions | Maven [0.14.0](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmos-cassandra-extensions/0.14.0/jar/) |  |  |
@@ -607,7 +607,7 @@
 | Document DB - Hadoop | Maven [1.2.0](https://search.maven.org/artifact/com.microsoft.azure/azure-documentdb-hadoop/1.2.0/jar/) |  |  |
 | Document DB - Reactive Extension | Maven [0.9.0-rc2](https://search.maven.org/artifact/com.microsoft.azure/azure-documentdb-rx/0.9.0-rc2/jar/) |  |  |
 | Elastic Database Tools | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure/azure-elasticdb-tools/1.0.0/jar/) |  |  |
-| Event Hubs Library | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-eventhubs-lib/0.43.1/jar/) |  |  |
+| Event Hubs Library | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-eventhubs-lib/0.44.0/jar/) |  |  |
 | kusto-log4j-appender | Maven [2.0.2](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-log4j-appender/2.0.2/jar/) |  |  |
 | Schema Registry - Kafka Avro | Maven [1.1.1](https://search.maven.org/artifact/com.microsoft.azure/azure-schemaregistry-kafka-avro/1.1.1/jar/) |  |  |
 | Service Bus - JMS | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms/1.0.2/jar/) |  |  |
@@ -634,16 +634,16 @@
 | azure-autorest-extension | Maven [1.0.0-beta.5](https://search.maven.org/artifact/com.azure.tools/azure-autorest-extension/1.0.0-beta.5/jar/) |  |  |
 | azure-autorest-parent | Maven [1.0.0-beta.5](https://search.maven.org/artifact/com.azure.tools/azure-autorest-parent/1.0.0-beta.5/jar/) |  |  |
 | azure-maven-plugins | Maven [1.37.0](https://search.maven.org/artifact/com.microsoft.azure/azure-maven-plugins/1.37.0/jar/) |  |  |
-| azure-toolkit-appservice-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-appservice-lib/0.43.1/jar/) |  |  |
-| azure-toolkit-auth-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-auth-lib/0.43.1/jar/) |  |  |
-| azure-toolkit-common-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-common-lib/0.43.1/jar/) |  |  |
-| azure-toolkit-containerregistry-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-containerregistry-lib/0.43.1/jar/) |  |  |
-| azure-toolkit-containerservice-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-containerservice-lib/0.43.1/jar/) |  |  |
-| azure-toolkit-mysql-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-mysql-lib/0.43.1/jar/) |  |  |
-| azure-toolkit-mysql-single-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-mysql-single-lib/0.43.1/jar/) |  |  |
-| azure-toolkit-redis-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-redis-lib/0.43.1/jar/) |  |  |
-| azure-toolkit-springcloud-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-springcloud-lib/0.43.1/jar/) |  |  |
-| azure-toolkit-storage-lib | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-storage-lib/0.43.1/jar/) |  |  |
+| azure-toolkit-appservice-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-appservice-lib/0.44.0/jar/) |  |  |
+| azure-toolkit-auth-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-auth-lib/0.44.0/jar/) |  |  |
+| azure-toolkit-common-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-common-lib/0.44.0/jar/) |  |  |
+| azure-toolkit-containerregistry-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-containerregistry-lib/0.44.0/jar/) |  |  |
+| azure-toolkit-containerservice-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-containerservice-lib/0.44.0/jar/) |  |  |
+| azure-toolkit-mysql-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-mysql-lib/0.44.0/jar/) |  |  |
+| azure-toolkit-mysql-single-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-mysql-single-lib/0.44.0/jar/) |  |  |
+| azure-toolkit-redis-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-redis-lib/0.44.0/jar/) |  |  |
+| azure-toolkit-springcloud-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-springcloud-lib/0.44.0/jar/) |  |  |
+| azure-toolkit-storage-lib | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-storage-lib/0.44.0/jar/) |  |  |
 | Bundler Maven Plugin | Maven [0.0.5](https://search.maven.org/artifact/com.microsoft.azure/bundler-maven-plugin/0.0.5/jar/) |  |  |
 | codesnippet-maven-plugin | Maven [1.0.0-beta.10](https://search.maven.org/artifact/com.azure.tools/codesnippet-maven-plugin/1.0.0-beta.10/jar/) |  |  |
 | Functions - Maven Plugin | Maven [1.33.0](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-maven-plugin/1.33.0/jar/) |  |  |
@@ -658,6 +658,6 @@
 | Tools common | Maven [0.14.0](https://search.maven.org/artifact/com.microsoft.azure/azure-tools-common/0.14.0/jar/) |  |  |
 | Tracing Util | Maven [0.9.8](https://search.maven.org/artifact/com.microsoft.azure/azure-tracing-util/0.9.8/jar/) |  |  |
 | Troposphere Maven Plugin | Maven [2.6.0.1](https://search.maven.org/artifact/com.azurenight.maven/troposphere-maven-plugin/2.6.0.1/jar/) |  |  |
-| Unknown Display Name | Maven [0.43.1](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-cognitiveservices-lib/0.43.1/jar/) |  |  |
+| Unknown Display Name | Maven [0.44.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-cognitiveservices-lib/0.44.0/jar/) |  |  |
 | Webapp Maven Plugin | Maven [2.13.0](https://search.maven.org/artifact/com.microsoft.azure/azure-webapp-maven-plugin/2.13.0/jar/) |  |  |
 | Webapp Maven Plugin | Maven [0.1.1](https://search.maven.org/artifact/com.microsoft.azure/webapp-maven-plugin/0.1.1/jar/) |  |  |
