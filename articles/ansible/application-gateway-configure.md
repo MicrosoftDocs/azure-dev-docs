@@ -214,8 +214,8 @@ Save the following playbook as `appgw_create.yml`:
         resource_group: "{{ resource_group }}"
         name: "{{ appgw_name }}"
         sku:
-          name: standard_small
-          tier: standard
+          name: standard_v2
+          tier: standard_v2
           capacity: 2
         gateway_ip_configurations:
           - subnet:
