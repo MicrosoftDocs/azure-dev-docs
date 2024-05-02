@@ -141,7 +141,7 @@ Follow the next steps to build and run the application locally.
 
    If you receive an error with text similar to the following example:
 
-   ```bash
+   ```output
    Cannot open server '<your prefix>mysqlserver' requested by the login. Client with IP address 'XXX.XXX.XXX.XXX' is not allowed to access the server.
    ```
 
@@ -149,7 +149,7 @@ Follow the next steps to build and run the application locally.
 
    If you receive a message with text similar to the following example:
 
-   ```bash
+   ```output
    Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: There is already an object named 'TODOS' in the database.
    ```
 
@@ -169,7 +169,7 @@ Follow the next steps to build and run the application locally.
 
    If your cluster is working, you can see on the server console log a trace similar to the following one:
 
-   ```bash
+   ```output
    INFO  [org.infinispan.CLUSTER] (thread-6,ejb,node) ISPN000094: Received new cluster view for channel ejb
    ```
 
