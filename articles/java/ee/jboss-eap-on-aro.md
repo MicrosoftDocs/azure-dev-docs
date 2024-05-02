@@ -67,6 +67,12 @@ The sample is a stateful application that stores information in an HTTP session.
 
 ## Prepare the application
 
+Clone the sample application using the following command.
+
+```bash
+git clone https://github.com/Azure-Samples/jboss-on-aro-jakartaee
+```
+
 At this stage, you have cloned the `Todo-list` demo application and your local repository is on the `main` branch. The demo application is a simple Jakarta EE 8 application that creates, reads, updates, and deletes records on a Microsoft SQL Server. This application can be deployed as it is on a JBoss EAP server installed in your local machine. You just need to configure the server with the required database driver and data source. You also need a database server accessible from your local environment.
 
 However, when you're targeting OpenShift, you might want to trim the capabilities of your JBoss EAP server. For example, you might want to reduce the security exposure of the provisioned server and reduce the overall footprint. You might also want to include some MicroProfile specs to make your application more suitable for running on an OpenShift environment. When you use JBoss EAP, one way to accomplish this task is by packaging your application and your server in a single deployment unit known as a Bootable JAR. Let's do that by adding the required changes to our demo application.
