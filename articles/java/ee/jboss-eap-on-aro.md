@@ -88,12 +88,12 @@ Let's do a quick review of what we changed in this branch:
 
 * We have added the `wildfly-jar-maven` plugin to provision the server and the application in a single executable JAR file. The OpenShift deployment unit is our server with our application.
 * On the maven plugin, we have specified a set of Galleon layers. This configuration allows us to trim the server capabilities to only what we need. For complete documentation on Galleon, see [the WildFly documentation](https://docs.wildfly.org/galleon/).
-* Our application uses Jakarta Faces with Ajax requests, which means that there's information stored in the HTTP Session. We don't want to lose such information if a pod is removed. We could save this information on the client and send it back on each request. However, there are cases where you may decide not to distribute certain information to the clients. For this demo, we have chosen to replicate the session across all pod replicas. To do it, we have added `<distributable />` to the `web.xml`. That, together with the server clustering capabilities, makes the HTTP Session distributable across all pods.
+* Our application uses Jakarta Faces with Ajax requests, which means that there's information stored in the HTTP session. We don't want to lose such information if a pod is removed. We could save this information on the client and send it back on each request. However, there are cases where you may decide not to distribute certain information to the clients. For this demo, we have chosen to replicate the session across all pod replicas. To do it, we have added `<distributable />` to the `web.xml`. That, together with the server clustering capabilities, makes the HTTP session distributable across all pods.
 * We have added two MicroProfile Health Checks that allow identifying when the application is live and ready to receive requests.
 
 ## Run the application locally
 
-Before deploying the application on OpenShift, we're going to run it locally to verify how it works. The following steps assume you have a Microsoft SQL Server running and available from your local environment.
+Before deploying the application on OpenShift, we're going to run it locally to verify how it works. The following steps assume you have Azure SQL running and available from your local environment.
 
 To create the database, follow the steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal), but use the following substitutions.
 
