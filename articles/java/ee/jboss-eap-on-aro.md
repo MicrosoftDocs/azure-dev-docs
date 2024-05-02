@@ -34,7 +34,7 @@ The application is a stateful application that stores information in an HTTP Ses
 > [!NOTE]
 > Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](/azure/azure-portal/supportability/per-vm-quota-requests?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json). Note that the free trial subscription isn't eligible for a quota increase, [upgrade to a Pay-As-You-Go subscription](/azure/cost-management-billing/manage/upgrade-azure-subscription?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json) before requesting a quota increase.
 
-1. Prepare a local machine with a Unix-like operating system supported by the various products installed (such as [WSL](/windows/wsl/) on Windows).
+1. Prepare a local machine with a Unix-like operating system supported by the various products installed - such as Ubuntu, macOS, or [Windows Subsystem for Linux](/windows/wsl/).
 1. Install a Java SE implementation. The local development steps in this article were tested with JDK 17 [from the Microsoft build of OpenJDK](https://www.microsoft.com/openjdk).
 1. Install [Maven](https://maven.apache.org/download.cgi) 3.8.6 or later.
 1. Install [Azure CLI](/cli/azure/install-azure-cli) 2.40 or later.
