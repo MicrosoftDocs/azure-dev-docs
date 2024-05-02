@@ -24,7 +24,7 @@
 | Communication Messages | npm [1.0.1](https://www.npmjs.com/package/@azure-rest/communication-messages/v/1.0.1) |  | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/communication-messages_1.0.1/sdk/communication/communication-messages-rest/) |
 | Communication Phone Numbers | npm [1.2.0](https://www.npmjs.com/package/@azure/communication-phone-numbers/v/1.2.0)<br>npm [1.3.0-beta.4](https://www.npmjs.com/package/@azure/communication-phone-numbers/v/1.3.0-beta.4) | [docs](/javascript/api/overview/azure/communication-phone-numbers-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.2.0/sdk/communication/communication-phone-numbers/)<br>GitHub [1.3.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.3.0-beta.4/sdk/communication/communication-phone-numbers/) |
 | Communication Rooms | npm [1.1.0](https://www.npmjs.com/package/@azure/communication-rooms/v/1.1.0) | [docs](/javascript/api/overview/azure/communication-rooms-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-rooms_1.1.0/sdk/communication/communication-rooms/) |
-| Communication Sms | npm [1.1.0](https://www.npmjs.com/package/@azure/communication-sms/v/1.1.0) | [docs](/javascript/api/overview/azure/communication-sms-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.1.0/sdk/communication/communication-sms/) |
+| Communication Sms | npm [1.1.0](https://www.npmjs.com/package/@azure/communication-sms/v/1.1.0)<br>npm [1.2.0-beta.1](https://www.npmjs.com/package/@azure/communication-sms/v/1.2.0-beta.1) | [docs](/javascript/api/overview/azure/communication-sms-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.1.0/sdk/communication/communication-sms/)<br>GitHub [1.2.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.2.0-beta.1/sdk/communication/communication-sms/) |
 | Confidential Ledger | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/confidential-ledger/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/confidential-ledger_1.0.0/sdk/confidentialledger/confidential-ledger-rest/) |
 | Container Registry | npm [1.1.0](https://www.npmjs.com/package/@azure/container-registry/v/1.1.0) | [docs](/javascript/api/overview/azure/container-registry-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.1.0/sdk/containerregistry/container-registry/) |
 | Content Safety | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-content-safety_1.0.0/sdk/contentsafety/ai-content-safety-rest/) |
@@ -370,7 +370,7 @@
 | Azure Functions | npm [4.0.0](https://www.npmjs.com/package/@azure/functions/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-functions-nodejs-library) |
 | Batch | npm [11.1.0](https://www.npmjs.com/package/@azure/batch/v/11.1.0) |  | GitHub [11.1.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
-| Communication Calling | npm [1.23.2](https://www.npmjs.com/package/@azure/communication-calling/v/1.23.2) |  | GitHub [1.23.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| Communication Calling | npm [1.24.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.24.1) |  | GitHub [1.24.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Communication Signaling | npm [1.0.0-beta.26](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.26) |  | GitHub [1.0.0-beta.26](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Computer Vision | npm [8.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.2.0) |  |  |
 | Content Safety | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  |  |
@@ -471,7 +471,7 @@
 | @azure-tools/cadl-ranch-api | npm [0.4.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.4.3) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.8.2](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.8.2) |  |  |
 | @azure-tools/cadl-ranch-expect | npm [0.13.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.13.3) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.33.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.33.0) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.33.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.33.1) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
