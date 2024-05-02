@@ -286,7 +286,7 @@ The next steps explain how you can deploy the application with a Helm chart usin
 
    Because our application uses MicroProfile capabilities, we select the Helm Chart for EAP Xp. The `Xp` stands for Expansion Pack. With the JBoss Enterprise Application Platform expansion pack, developers can use Eclipse MicroProfile application programming interfaces (APIs) to build and deploy microservices-based applications.
 
-1. Select the **EAP Xp4** Helm Chart, and then select **Install Helm Chart**.
+1. Select the **JBoss EAP XP 4** Helm Chart, and then select **Install Helm Chart**.
 
 At this point, we need to configure the chart to build and deploy the application:
 
