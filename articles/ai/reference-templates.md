@@ -16,14 +16,20 @@ The reference templates are complete end-to-end solutions including documention,
 
 :::zone pivot="dotnet"
 
-
 |Name|Description|
 |--|--|
-|[Enterprise chat]()||
+|[Enterprise chat](#enterprise-chat-with-net)|This sample is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.|
 |[Contoso Chat Retail copilot with .NET and Semantic Kernel](#contoso-chat-retail-copilot-with-net-and-semantic-kernel)|A customer sales and support chat solution with rag. |
 |[Process Automation: Speech to Text and Summarization with .NET and GPT 3.5 Turbo](#process-automation-speech-to-text-and-summarization-with-net-and-gpt-35-turbo)|This solution converts speech to text and then processes and summarizes the text based on the prompt scenario.|
 
 ## Enterprise chat with .NET
+
+This .NET [reference template](https://github.com/Azure-Samples/azure-search-openai-demo-csharp) is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
+
+|Azure Hosting|Technologies|AI Models|
+|--|--|--|
+|Azure Container Apps<br>Azure Functions|Azure OpenAI<br>Azure Computer Vision<br>Azure Form Recognizer<br>Azure AI Search<br>Azure Storage|GPT 3.5 Turbo<br>GPT 4.0|
+
 
 ## Contoso Chat Retail copilot with .NET and Semantic Kernel
 
@@ -51,12 +57,21 @@ This .NET [reference template](https://github.com/Azure-Samples/summarization-op
 
 |Name|Description|
 |--|--|
+|[Enterprise chat](#enterprise-chat-with-python)|This sample is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.|
 |[Multi-Modal Creative Writing copilot with Dalle](#multi-modal-creative-writing-copilot-with-dalle)|A creative writing multi-agent solution to help users write articles.|
 |[Contoso Chat Retail copilot with AI Studio](#contoso-chat-retail-copilot-with-ai-studio)|A customer sales and support chat solution with rag.|
 |[Process Automation: Speech to Text and Summarization with AI Studio](#process-automation-with-speech-to-text-and-summarization-with-ai-studio)|This solution is a process automation solution which converts speech to text and provides summarization with Azure AI Studio.|
 |[Function Calling with Prompty, LangChain and Elastic Search](#function-calling-with-prompty-langchain-and-elastic-search)|Function calling for vector database lookup based on user question.|
 |[Function Calling with Prompty, LangChain and Pinecone](#function-calling-with-prompty-langchain-and-pinecone)|Function calling for vector database lookup based on user question|
 |[Assistant API Analytics Copilot with Python and Azure AI Studio](#assistant-api-analytics-copilot-with-python-and-azure-ai-studio)|Assistant API to chat with tabular data and perform analytics in natural language.|
+
+## Enterprise chat with Python
+
+This python [reference template](https://github.com/Azure-Samples/azure-search-openai-demo) is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
+
+|Azure Hosting|Technologies|AI Models|
+|--|--|--|
+|Azure App Service|Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio|GPT 3.5 Turbo<br>GPT 4.0<br>Dalle|
 
 
 ## Multi-Modal Creative Writing copilot with Dalle
@@ -117,15 +132,16 @@ This python [reference template](https://github.com/Azure-Samples/assistant-data
 
 |Name|Description|
 |--|--|
+|[Enterprise chat](#enterprise-chat-with-javascript)|This sample is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.|
 |[Web Frontend UI for AI Integration](#web-frontend-ui-for-ai-integration)|A web chat UI interface that can be used with any of the api llm backend solutions.|
 
-:::zone-end
+## Enterprise chat with JavaScript
 
-:::zone pivot="java"
+This JavaScript [reference template](https://github.com/azure-samples/azure-search-openai-javascript) is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
 
-|Name|Description|
-|--|--|
-|[Web Frontend UI for AI Integration](#web-frontend-ui-for-ai-integration)|A web chat UI interface that can be used with any of the api llm backend solutions.|
+|Azure Hosting|Technologies|AI Models|
+|--|--|--|
+|Azure Container Apps<br>Azure Static Web Apps|Azure OpenAI<br>Azure AI Search<br>Azure Storage<br>Azure Monitor|text-embedding-ada-002|
 
 
 ## Web Frontend UI for AI Integration
@@ -135,6 +151,23 @@ This JavaScript [reference template](https://github.com/Azure-Samples/web-openai
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
 |Azure Static Web Apps|||
+:::zone-end
+
+:::zone pivot="java"
+
+|Name|Description|
+|--|--|
+|[Web Frontend UI for AI Integration](#web-frontend-ui-for-ai-integration)|A web chat UI interface that can be used with any of the api llm backend solutions.|
+
+## Enterprise chat with Java
+
+This Java[reference template](https://github.com/Azure-Samples/azure-search-openai-demo-java) is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
+
+This sample supports different architectural styles. It can be deployed as standalone app on top of Azure App Service or as a microservice event driven architecture with web frontend, AI orchestration and document ingestion apps hosted by Azure Container Apps or Azure Kubernetes Service.
+
+|Azure Hosting|Technologies|AI Models|
+|--|--|--|
+|Azure App Service<br>Azure Container Apps<br>Azure Kubernetes Service|Azure OpenAI<br>Azure AI Search<br>Azure Storage<br>Azure Monitor||
 
 :::zone-end
 
