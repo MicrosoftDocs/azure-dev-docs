@@ -48,6 +48,7 @@ This .NET [reference template](https://github.com/Azure-Samples/summarization-op
 :::zone-end
 
 :::zone pivot="python"
+
 |Name|Description|
 |--|--|
 |[Multi-Modal Creative Writing copilot with Dalle](#multi-modal-creative-writing-copilot-with-dalle)|A creative writing multi-agent solution to help users write articles.|
@@ -55,7 +56,7 @@ This .NET [reference template](https://github.com/Azure-Samples/summarization-op
 |[Process Automation: Speech to Text and Summarization with AI Studio](#process-automation-with-speech-to-text-and-summarization-with-ai-studio)|This solution is a process automation solution which converts speech to text and provides summarization with Azure AI Studio.|
 |[Function Calling with Prompty, LangChain and Elastic Search](#function-calling-with-prompty-langchain-and-elastic-search)|Function calling for vector database lookup based on user question.|
 |[Function Calling with Prompty, LangChain and Pinecone](#function-calling-with-prompty-langchain-and-pinecone)|Function calling for vector database lookup based on user question|
-|Python|[Assistant API Analytics Copilot with Python and Azure AI Studio](#assistant-api-analytics-copilot-with-python-and-azure-ai-studio)|Assistant API to chat with tabular data and perform analytics in natural language.|
+|[Assistant API Analytics Copilot with Python and Azure AI Studio](#assistant-api-analytics-copilot-with-python-and-azure-ai-studio)|Assistant API to chat with tabular data and perform analytics in natural language.|
 
 
 ## Multi-Modal Creative Writing copilot with Dalle
