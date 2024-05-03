@@ -51,7 +51,6 @@ The following WLS state and metrics are exported by default. You can configure t
 * Install Azure CLI version 2.54.0 or higher to run Azure CLI commands.
 * Install and set up [kubectl](/cli/azure/aks#az-aks-install-cli).
 * Install and set up [Git](/devops/develop/git/install-and-set-up-git).
-* Install a Java Standard Edition implementation, version 17 or later (for example, [the Microsoft build of OpenJDK](/java/openjdk)). Make sure the command-line `jar` tool is workable. To test it, run `jar --help`. 
 * Have the credentials for an Oracle single sign-on (SSO) account. To create one, see [Create Your Oracle Account](https://aka.ms/wls-aks-create-sso-account).
 * Accept the license terms for WLS.
   * Visit the [Oracle Container Registry](https://container-registry.oracle.com/) and sign in.
@@ -63,34 +62,19 @@ The following WLS state and metrics are exported by default. You can configure t
 
 This article uses [testwebapp](https://github.com/oracle/weblogic-kubernetes-operator/tree/main/integration-tests/src/test/resources/apps/testwebapp) from [weblogic-kubernetes-operator](https://github.com/oracle/weblogic-kubernetes-operator) as sample application. 
 
-Clone [weblogic-kubernetes-operator](https://github.com/oracle/weblogic-kubernetes-operator).
+Download the pre-built sample app and expand it into a directory.
 
 ```bash
-git clone https://github.com/oracle/weblogic-kubernetes-operator.git
-```
-
-The structure of [testwebapp](https://github.com/oracle/weblogic-kubernetes-operator/tree/main/integration-tests/src/test/resources/apps/testwebapp) shows as following content:
-
-```text
-.
-├── META-INF
-│   ├── MANIFEST.MF
-│   └── maven
-│       └── com.oracle.weblogic
-│           └── testwebapp
-│               ├── pom.properties
-│               └── pom.xml
-├── WEB-INF
-│   ├── web.xml
-│   └── weblogic.xml
-└── index.jsp
+curl -L -o testwebapp.war https://aka.ms/wls-aks-testwebapp
+unzip -d testwebapp testwebapp.war
 ```
 
 ### Modify sample application
 
-This article uses metric `openSessionsCurrentCount` to scale up and scale down the WLS cluster. By default, the session timeout on WebLogic is 60 minutes. To observe the scaling down capability quickly, this article sets a short timeout. The following example specifies the session timeout with 150 seconds using `wls:timeout-secs`.
+This article uses metric `openSessionsCurrentCount` to scale up and scale down the WLS cluster. By default, the session timeout on WebLogic is 60 minutes. To observe the scaling down capability quickly, this article sets a short timeout. The following example specifies the session timeout with 150 seconds using `wls:timeout-secs`. The HEREDOC format is used to overwrite the file at `testwebapp/WEB-INF/weblogic.xml` with the desired content.
 
 ```xml
+cat <<EOF > testwebapp/WEB-INF/weblogic.xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <wls:weblogic-web-app xmlns:wls="http://xmlns.oracle.com/weblogic/weblogic-web-app" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://xmlns.oracle.com/weblogic/weblogic-web-app http://xmlns.oracle.com/weblogic/weblogic-web-app/1.4/weblogic-web-app.xsd">
@@ -104,16 +88,14 @@ This article uses metric `openSessionsCurrentCount` to scale up and scale down t
     <wls:timeout-secs>150</wls:timeout-secs>
  </wls:session-descriptor>
 </wls:weblogic-web-app>
+EOF
 ```
 
-Now, you can use the provided script [build-war-app.sh](https://github.com/oracle/weblogic-kubernetes-operator/blob/main/integration-tests/src/test/resources/bash-scripts/build-war-app.sh) to package the application. The script uses `-s` to specify the source directory of the application, `-d` to specify the destination directory of the generated WAR file. The following example saves the target WAR file to `/tmp/testwebapp/`.
+Rezip the sample app.
 
 ```bash
-cd weblogic-kubernetes-operator/integration-tests/src/test/resources/bash-scripts
-bash build-war-app.sh -s ../apps/testwebapp/ -d /tmp/testwebapp
+cd testwebapp && zip -r ../testwebapp.war * && cd ..
 ```
-
-After the script finishes without error, you're able to deploy the sample application in */tmp/testwebapp/testwebapp.war* to the WLS cluster.  
 
 ### Create an Azure Storage account and upload the application
 
