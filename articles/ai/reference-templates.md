@@ -53,7 +53,7 @@ This python [reference template](https://github.com/Azure-Samples/contoso-chat) 
 
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
-|Azure Container Apps<br>|Azure OpenAI<br>Azure AI Search<br>Azure AI Studio<br>Azure Cosmos DB|GPT 3.5 Turbo<br>GPT 4.0<br>MIR|
+|Azure Container Apps<br>|Azure OpenAI<br>Azure AI Search<br>Azure AI Studio<br>Azure Cosmos DB|GPT 3.5 Turbo<br>GPT 4.0<br>Managed Integration Runtime (MIR)|
 
 ## Process Automation with Speech to Text and Summarization with AI Studio
 
@@ -61,7 +61,7 @@ This python [reference template](https://github.com/Azure-Samples/summarization-
 
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
-||Azure AI Studio<br>Speech to Text Service<br>Prompt Flow<br>MIR|GPT 3.5 Turbo|
+||Azure AI Studio<br>Speech to Text Service<br>Prompt Flow<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
 
 ## Process Automation: Speech to Text and Summarization with .NET and GPT 3.5 Turbo
 
@@ -79,7 +79,7 @@ This python [reference template](https://github.com/Azure-Samples/agent-python-o
 
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
-||Azure AI Studio<br>Elastic Search<br>Microsoft Entra ID<br>Azure Managed Identity<br>Azure Monitor<br>Azure Storage<br>Azure AI Studio<br>MIR|GPT 3.5 Turbo|
+||Azure AI Studio<br>Elastic Search<br>Microsoft Entra ID<br>Azure Managed Identity<br>Azure Monitor<br>Azure Storage<br>Azure AI Studio<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
 
 ## Function Calling with Prompty, LangChain and Pinecone
 
@@ -95,7 +95,7 @@ This python [reference template](https://github.com/Azure-Samples/assistant-data
 
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
-||Azure AI Search<br>Azure AI Studio<br>MIR<br>Azure OpenAI|GPT 3.5 Turbo<br>GPT 4|
+||Azure AI Search<br>Azure AI Studio<br>Managed Integration Runtime (MIR)<br>Azure OpenAI|GPT 3.5 Turbo<br>GPT 4|
 
 ## Web Frontend UI for AI Integration
 
