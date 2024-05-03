@@ -33,11 +33,11 @@ To add security for the documents, you need to update the enterprise chat app:
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing a use authenticating with Entra ID, then passing that authentication to Azure AI Search.":::
 
-Azure AI Search doesn't provide _native_ document-level permissions and can't vary search results from within an index by user permissions. To add security, you as the service administrator, create a filter that trims search results based on a _string_ containing group or user identity.
+Azure AI Search doesn't provide _native_ document-level permissions and can't vary search results from within an index by user permissions. Your application can use search filters to ensure a document is accessible to a specific user or by a specific group.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
 
-Because the authorization isn't natively contained in Azure AI Search, when you change the users and their authorizations in Entra ID, you need to reindex the Search service with new user information you provide. 
+Because the authorization isn't natively contained in Azure AI Search, when you change the users and their authorizations in Entra ID, you need to update the document's access control with new user information you provide.
 
 In this article, the process of securing documents in Azure AI Search, is provided through scripts which you as the search administrator need to run.
 
@@ -149,8 +149,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 To set up authentication, you need to know how your tenant is set up:
 
-* **Tenant without conditional access policy**: Personal Azure subscriptions typically don't have conditional access. If your tenant doesn't have a conditional access policy, use the same tenant ID for the 2 environment variables:
-    * `AZURE_AUTH_TENANT_ID`
+* **Tenant without conditional access policy**: Personal Azure subscriptions typically don't have conditional access. If your tenant doesn't have a conditional access policy, use the following environment variable for your tenant ID. By default, AZURE_TENANT_ID is used for both the authentication tenant and the main tenant.
     * `AZURE_TENANT_ID`
 * **Tenant with conditional access policy**: Enterprise (corporate) subscriptions typically have conditional access. If your tenant has a conditional access policy, you need a second tenant without conditional access. 
     * Your first tenant, associated with your user account, is used for the `AZURE_TENANT_ID` environment variable.
@@ -164,21 +163,31 @@ az account list --query "[].{subscription_id:id, name:name, tenantId:tenantId}" 
 
 ## Set environment variables
 
-1. Run the following commands to configure the sample to use authentication.
+1. Run the following commands to configure environment variables for the sample to use authentication.
 
     ```console
     azd env set AZURE_USE_AUTHENTICATION true
     azd env set AZURE_ENFORCE_ACCESS_CONTROL true
-    azd env set AZURE_AUTH_TENANT_ID <REPLACE-WITH-YOUR-TENANT-ID>
     azd env set AZURE_TENANT_ID <REPLACE-WITH-YOUR-TENANT-ID>
     ```
 
     |Parameter|Purpose|
     |--|--|
-    |`AZURE_USE_AUTHENTICATION`|Enables `Use oid security filter` in the chat app **Developer settings**.|
+    |`AZURE_USE_AUTHENTICATION`|Enables user sign-in to the chat app. Enables `Use oid security filter` in the chat app **Developer settings**.|
     |`AZURE_ENFORCE_ACCESS_CONTROL`|Requires authentication for any document access. The **Developer settings** for oid and group security will be turned on and disabled so they can't be disabled from the UI.|
     |`AZURE_TENANT_ID`|The tenant which authorizes your user sign in.|
-    |`AZURE_AUTH_TENANT_ID`|The tenant which has not conditional access to query Microsoft Graph.|
+
+
+1. If you need to use `AZURE_AUTH_TENANT_ID` due to a conditional access policy on your user tenant, run the following command to configure the sample to use a second tenant for application hosting. 
+
+    ```console
+    azd env set AZURE_AUTH_TENANT_ID <REPLACE-WITH-YOUR-TENANT-ID>
+    ```
+
+    |Parameter|Purpose|
+    |--|--|
+    |`AZURE_AUTH_TENANT_ID`|If `AZURE_AUTH_TENANT_ID` is set, it's the tenant that hosts the app.|
+     
 
 ## Deploy chat app to Azure
 
