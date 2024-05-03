@@ -16,18 +16,15 @@ The reference templates are complete end-to-end solutions including documention,
 
 Language|Name|Description|
 |--|--|--|
-|.NET|[Contoso Chat Retail copilot with .NET and Semantic Kernel](https://github.com/Azure-Samples/chat-rag-openai-csharp-prompty)|A customer sales and support chat solution with rag. |
-|.NET|[Process Automation: Speech to Text and Summarization with .NET and GPT 3.5 Turbo]()|This solution converts speech to text and then processes and summarizes the text based on the prompt scenario.|
-
-|JavaScript|[Web Frontend UI for AI Integration]()|A web chat UI interface that can be used with any of the api llm backend solutions.|
-
-
-|Python|[Multi-Modal Creative Writing copilot with Dalle]()|A creative writing multi-agent solution to help users write articles.|
-|Python|[Contoso Chat Retail copilot with AI Studio]()|A customer sales and support chat solution with rag.|
-|Python|[Process Automation: Speech to Text and Summarization with AI Studio]()|Python|This solution is a process automation solution which converts speech to text and provides summarization with Azure AI Studio.|
-|Python|[Function Calling with Prompty, LangChain and Elastic Search]()|Function calling for vector database lookup based on user question.|
-|Python|[Function Calling with Prompty, LangChain and Pinecone]()|Function calling for vector database lookup based on user question|
-|Python|[Assistant API Analytics Copilot with Python and Azure AI Studio]()|Assistant API to chat with tabular data and perform analytics in natural language.|
+|.NET|[Contoso Chat Retail copilot with .NET and Semantic Kernel](#contoso-chat-retail-copilot-with-net-and-semantic-kernel)|A customer sales and support chat solution with rag. |
+|.NET|[Process Automation: Speech to Text and Summarization with .NET and GPT 3.5 Turbo](#process-automation-speech-to-text-and-summarization-with-net-and-gpt-35-turbo)|This solution converts speech to text and then processes and summarizes the text based on the prompt scenario.|
+|JavaScript|[Web Frontend UI for AI Integration](#web-frontend-ui-for-ai-integration)|A web chat UI interface that can be used with any of the api llm backend solutions.|
+|Python|[Multi-Modal Creative Writing copilot with Dalle](#multi-modal-creative-writing-copilot-with-dalle)|A creative writing multi-agent solution to help users write articles.|
+|Python|[Contoso Chat Retail copilot with AI Studio](#contoso-chat-retail-copilot-with-ai-studio)|A customer sales and support chat solution with rag.|
+|Python|[Process Automation: Speech to Text and Summarization with AI Studio](#process-automation-with-speech-to-text-and-summarization-with-ai-studio)|This solution is a process automation solution which converts speech to text and provides summarization with Azure AI Studio.|
+|Python|[Function Calling with Prompty, LangChain and Elastic Search](#function-calling-with-prompty-langchain-and-elastic-search)|Function calling for vector database lookup based on user question.|
+|Python|[Function Calling with Prompty, LangChain and Pinecone](#function-calling-with-prompty-langchain-and-pinecone)|Function calling for vector database lookup based on user question|
+|Python|[Assistant API Analytics Copilot with Python and Azure AI Studio](#assistant-api-analytics-copilot-with-python-and-azure-ai-studio)|Assistant API to chat with tabular data and perform analytics in natural language.|
 
 
 ## Multi-Modal Creative Writing copilot with Dalle
