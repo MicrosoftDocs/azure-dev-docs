@@ -30,7 +30,7 @@
     - name: Get started with Enterprise chat
       href: get-started-app-chat-template.md
     - name: Get started with serverless chat with LangChainjs
-      href: get-started-app-chat-langchainjs.md
+      href: get-started-app-chat-template-langchainjs.md
       display: Azure OpenAI, OpenAI, AI
     - name: JavaScript frontend + Python backend
       href: chat-app-with-separate-front-back-end.md

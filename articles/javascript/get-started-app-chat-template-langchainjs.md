@@ -155,7 +155,7 @@ The sample repository contains all the code and configuration files you need to 
 1. After the application has been successfully deployed, you see two URLs displayed in the terminal. 
 1. Select that URL labeled `Deploying service webapp` to open the chat application in a browser.
 
-    :::image type="content" source="./media/get-started-app-chat-langchainjs/articles/javascript/media/get-started-app-chat-langchainjs/demo.gif" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+    :::image type="content" source="./media/get-started-app-chat-langchainjs/demo.gif" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
 ### Use chat app to get answers from PDF files
 
