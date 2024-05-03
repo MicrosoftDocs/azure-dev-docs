@@ -10,6 +10,8 @@ items:
           href: intro-01.md
         - name: Develop apps that use generative AI
           href: intro-02.md
+        - name: Reference templates
+          href: reference-templates.md
     - name: Python
       items:
         - name: Overview
