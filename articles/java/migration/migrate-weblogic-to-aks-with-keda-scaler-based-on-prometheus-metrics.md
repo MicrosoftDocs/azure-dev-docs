@@ -110,15 +110,20 @@ Use the following steps to create a storage account and container. Some of these
    - The remaining tabs need no specializations.
 1. Proceed to validate and create the account, then return to this article.
 1. Create a storage container within the account following the steps in [Quickstart: Upload, download, and list blobs with the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal) Follow the steps in section **Create a container**.
-1. In the same article, follow the steps in **Upload a block blob** to upload the */tmp/testwebapp/testwebapp.war* you built with `build-war-app.sh`. Then return to this article.
+1. In the same article, follow the steps in **Upload a block blob** to upload the *testwebapp.war*. Then return to this article.
 
 ## Deploy WLS on AKS using Azure Marketplace Offer
 
-In this section, you create WLS cluster on AKS using [Oracle WebLogic Server on AKS](https://aka.ms/wlsaks) offer. This article allows you to enable horizontal autoscaling semi-automatically using the marketplace offer or manually by:
+In this section, you create a WLS cluster on AKS using [Oracle WebLogic Server on AKS](https://aka.ms/wlsaks) offer. The offer provides a full feature set for easily deploying WebLogic Server on AKS. This article focuses on the advanced dynamic scaling capabilities of the offer. For the complete reference documentation for this offer, see [the Oracle documentation](https://aka.ms/wls-aks-docs).
 
-* Selecting tab **Use Horizontal Autoscaling feature of Marketplace Offer** provisions WebLogic Monitoring Exporter, Azure Monitor managed service for Prometheus, and KEDA automatically. After the offer deployment completes, the WLS metrics are exported and saved in Azure Monitor workspace; KEDA is installed with ability to retrieve metrics from the Azure Monitor workspace. Then you apply scaler for your scaling requirement manually.
-* Selecting tab **Enable Horizontal Autoscaling manually** provides step by step guidance to enable WebLogic Monitoring Exporter, Azure Monitor managed service for Prometheus, KEDA, and scaler.
+The offer implements two choices for horizontal autoscaling.
 
+* Kubernetes Metrics Server. This choice sets up all necessary configuration at deployment time. A horizontol pod autoscaler (HPA) is deployed with a choice of metrics. You can further customize the HPA after deployment.
+* WebLogic Monitoring Exporter. This choice provisions WebLogic Monitoring Exporter, Azure Monitor managed service for Prometheus, and KEDA automatically. After the offer deployment completes, the WLS metrics are exported and saved in Azure Monitor workspace. KEDA is installed with ability to retrieve metrics from the Azure Monitor workspace.
+   **With this option, you must take additional action after deployment to complete the configuration.**
+   
+This article describes the second option and corresponding actions to complete configuration.
+   
 > [!NOTE]
 > You can find more information of [Oracle WebLogic Server on AKS](https://aka.ms/wlsaks) offer from:
 > * [Deploy a Java application with WebLogic Server on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-wls-app) 
@@ -155,15 +160,15 @@ Under **Application**:
 1. Select the storage container from the preceding section.
 1. Select the checkbox next to **testwebapp.war** uploaded from the preceding section. Select **Select**. 
 1. Leave the defaults for the other fields.
-1. Select **Next** 
+1. Select **Next**.
 
-Leave the defaults in **TLS/SSL Configuration** pane, select **Next** to go to **Load Balancing** pane.
+Leave the defaults in **TLS/SSL Configuration** pane. Select **Next** to go to the **Load Balancing** pane.
 
 :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-portal-appgateway-ingress.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on AKS Load Balancing pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-portal-appgateway-ingress.png":::
 
-1. Next to **Create ingress for Administration Console. Make sure no application with path /console\*, it will cause conflict with Administration Console path**, select **Yes**.
-1. Leave the defaults for the other fields.
-1. Select **Next**
+1. Leave the default values for all option except **Create ingress for Administration Console. Make sure no application with path /console\*, it will cause conflict with Administration Console path**. For this option, select **Yes**.
+1. Leave the defaults for the remaining fields.
+1. Select **Next**.
 
 Leave the defaults in **DNS** pane, select **Next** to go to **Database** pane.
 
