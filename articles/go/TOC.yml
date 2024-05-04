@@ -26,11 +26,11 @@ items:
       items:
         - name: Authentication with the autorest package (legacy)
           href: azure-sdk-authorization.md
-        - name: Auth with development environments
+        - name: Auth with Azure Identity module overview
           href: azure-sdk-authentication.md
         - name: Auth with Azure-hosted apps
           href: azure-sdk-authentication-managed-identity.md
-        - name: Auth with credentials
+        - name: Auth with service principal
           href: azure-sdk-authentication-service-principal.md
     - name: How-to guides
       expanded: false

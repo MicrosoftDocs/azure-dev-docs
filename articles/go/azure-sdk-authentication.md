@@ -1,7 +1,7 @@
 ---
 title: Azure authentication with the Azure Identity module for Go
 description: Learn to use the Azure Identity module for Go to authenticate to Azure.
-ms.date: 06/22/2023
+ms.date: 05/04/2024
 ms.topic: how-to
 ms.custom: devx-track-go
 ---
@@ -29,14 +29,15 @@ go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
 
 Use the `DefaultAzureCredential` to authenticate to Azure with one of the following techniques:
 
-- [Option 1: Define environment variables](#environment-variables)
-- [Option 2: Use workload identity](#workload-identity)
-- [Option 3: Use a managed identity](#managed-identity)
-- [Option 4: Sign in with Azure CLI](#azureCLI)
+- [Option 1: Define environment variables](#option-1-define-environment-variables)
+- [Option 2: Use workload identity](#option-2-use-workload-identity)
+- [Option 3: Use a managed identity](#option-3-use-a-managed-identity)
+- [Option 4: Sign in with Azure CLI](#option-4-sign-in-with-azure-cli)
+- [Option 5: Sign in with Azure Developer CLI](#option-5-sign-in-with-azure-developer-cli)
 
 To learn more about the different credential types, see [credential types](./azure-sdk-authorization.md).
 
-### <span id="environment-variables"/> Option 1: Define environment variables
+### Option 1: Define environment variables
 
 The `DefaultAzureCredential` uses the `EnvironmentCredential` type to configure authentication using environment variables that supports three authentication types. Choose from the following authentication types and define the appropriate environment variables.
 
@@ -120,13 +121,13 @@ $env:AZURE_PASSWORD="<azure_user_password>"
 
 Configuration is attempted in the preceding order. For example, if values for a client secret and certificate are both present, the client secret is used.
 
-### <span id="workload-identity"/> Option 2: Use Workload Identity
+### Option 2: Use Workload Identity
 
 [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) enables pods in a Kubernetes cluster to use a Kubernetes identity (service account). A Kubernetes token is issued, and [OIDC federation](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#openid-connect-tokens) enables Kubernetes applications to access Azure resources securely with Microsoft Entra ID.
 
 If the required environment variables for `EnvironmentCredential` aren't present, `DefaultAzureCredential` attempts to authenticate using [WorkloadIdentityCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#WorkloadIdentityCredential). `WorkloadIdentityCredential` attempts to read the service principal configuration from environment variables set by the Workload Identity webhook.
 
-### <span id="managed-identity"/> Option 3: Use a managed identity
+### Option 3: Use a managed identity
 
 [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) eliminate the need for developers to manage credentials. By connecting to resources that support Microsoft Entra authentication, applications can use Microsoft Entra tokens instead of credentials.
 
@@ -151,7 +152,7 @@ $env:AZURE_CLIENT_ID="<user_assigned_managed_identity_client_id>"
 
 ---
 
-### <span id="azureCLI"/> Option 4: Sign in with Azure CLI
+### Option 4: Sign in with Azure CLI
 
 To reduce friction in local development, `DefaultAzureCredential` can authenticate as the user signed into the Azure CLI.
 
@@ -162,6 +163,18 @@ az login
 ```
 
 Azure CLI authentication isn't recommended for applications running in Azure.
+
+### Option 5: Sign in with Azure Developer CLI
+
+In local development, if the user isn't signed in to the Azure CLI, `DefaultAzureCredential` can authenticate as the user signed into the Azure Developer CLI.
+
+Run the following command to sign into the Azure Developer CLI:
+
+```azdeveloper
+azd auth login
+```
+
+Azure Developer CLI authentication isn't recommended for applications running in Azure.
 
 ## 3. Use DefaultAzureCredential to authenticate ResourceClient
 
@@ -214,6 +227,7 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
     }   
 
     ```
+
     Replace `<subscription ID>` with your subscription ID.
 
 1. Run [`go run`](https://pkg.go.dev/cmd/go/internal/run) to build and run the application:
@@ -221,6 +235,9 @@ Create a new sample Go module named `azure-auth` to test authenticating to Azure
     ```bash
     go run .
     ```
+
+    > [!NOTE]
+    > To run as-is on your local system, you need to sign in to Azure using the Azure CLI or Azure Developer CLI.
 
 ## Authenticate to Azure with DefaultAzureCredential
 
