@@ -47,7 +47,9 @@ The following WLS state and metrics are exported by default. You can configure t
 
 * [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 * Make sure you have either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
-* Prepare a local machine with either Windows, Linux or macOS installed.
+* Prepare a local machine with either Windows with WSL, GNU/Linux, or macOS installed.
+   * If running on macOS or Windows, the steps in the section [Configure Prometheus to scrape metrics from WLS](#configure-prometheus-to-scrape-metrics-from-wls) will not run on macOS. Run the steps in this section on [Azure Cloud Shell](../articles/cloud-shell/quickstart.md) using the bash environment.
+     [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)  
 * Install Azure CLI version 2.54.0 or higher to run Azure CLI commands.
 * Install and set up [kubectl](/cli/azure/aks#az-aks-install-cli).
 * Install and set up [Git](/devops/develop/git/install-and-set-up-git).
@@ -57,14 +59,17 @@ The following WLS state and metrics are exported by default. You can configure t
   * If you have a support entitlement, select **Middleware**, then search for and select **weblogic_cpu**.
   * If you don't have a support entitlement from Oracle, select **Middleware**, then search for and select **weblogic**.
   * Accept the license agreement.
+* If you are running the 
 
 ## Prepare sample application
 
 This article uses [testwebapp](https://github.com/oracle/weblogic-kubernetes-operator/tree/main/integration-tests/src/test/resources/apps/testwebapp) from [weblogic-kubernetes-operator](https://github.com/oracle/weblogic-kubernetes-operator) as sample application. 
 
-Download the pre-built sample app and expand it into a directory.
+Download the pre-built sample app and expand it into a directory. Because this article writes several files, let's create a top level directory to contain everything.
 
 ```bash
+export BASE_DIR=$PWD/wlsaks
+mkdir $BASE_DIR && cd $BASE_DIR
 curl -L -o testwebapp.war https://aka.ms/wls-aks-testwebapp
 unzip -d testwebapp testwebapp.war
 ```
@@ -193,7 +198,7 @@ Follow the steps to connect to AKS cluster.
 
 1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
 1. Select the AKS cluster from resource list. Select button **Connect**, you find the guidance of how to connect the AKS cluster.
-1. Select **Azure CLI** and follow the steps to connect to the AKS cluster in your local terminal.
+1. Select **Azure CLI** and follow the steps to connect to the AKS cluster in your local terminal. If running on macOS or Windows, save the `az aks get-credentials` command aside for use in Azure Cloud Shell later.
 
 ## Enable Prometheus Metrics
 
@@ -319,10 +324,9 @@ kubectl -n ${WLS_NAMESPACE} patch domain ${WLS_DOMAIN_UID} \
 The command applys **patch-file.json**, and causes a rolling update to the WLS cluster. It takes several minutes to complete. 
 You can watch the status with command `kubectl -n ${WLS_NAMESPACE} get pod -w`.
 
-Make sure all the pods are running as following before you move on.
+Make sure all the pods have gone through the cycle of `Terminating`, `Pending`, `ContainerCreating`, and `Running` before you move on. When all three pods have done this, the `AGE` value for each pod should be no more than a few minutes from the others.
 
 ```text
-$ kubectl -n ${WLS_NAMESPACE} get pod -w
 NAME                             READY   STATUS    RESTARTS   AGE
 sample-domain1-admin-server      2/2     Running   0          4m29s
 sample-domain1-managed-server1   2/2     Running   0          3m16s
@@ -355,7 +359,7 @@ sample-domain1-managed-server2   2/2     Running   0          112s
 > kubectl get svc wls-exporter-cluster-external-lb -n ${WLS_NAMESPACE} -w
 > ```
 > 
-> After the load balancer service is ready, write down the value of **EXTERNAL-IP**. You can access the metric wit URL `http://<EXTERNAL-IP>:8080/metrics`.
+> After the load balancer service is ready, write down the value of **EXTERNAL-IP**. You can access the metric at the URL `http://<EXTERNAL-IP>:8080/metrics`.
 > 
 > Open the metric address in a web browser, you will be required to input user name and password. The user name and password is the WLS admin account you used in the offer deployment.
 
@@ -363,12 +367,12 @@ sample-domain1-managed-server2   2/2     Running   0          112s
 
 Before you install the metrics add-on, you need an Azure Monitor Account. For more information, see [Enable monitoring for Kubernetes clusters](/azure/azure-monitor/containers/kubernetes-monitoring-enable).
 
-Run [az monitor account create](/cli/azure/monitor/account) to create the workspace. Replace the resource group name and Azure Monitor Account name with your desired values. 
+Run [az monitor account create](/cli/azure/monitor/account) to create the workspace. Replace the resource group name and Azure Monitor Account name with your desired values. The resource group name must be unique within your subscription.
 
 ```azurecli
-AMA_RG_NAME="wlsaksamarg20240314"
-AMA_NAME="wlsaksama20240314"
-LOCATION="eastus"
+export AMA_RG_NAME="wlsaksamarg20240314"
+export AMA_NAME="${AMA_RG_NAME}ama"
+export LOCATION="eastus"
 
 # create a resorce group for Azure Monitor Account
 az group create -n ${AMA_RG_NAME} -l ${LOCATION}
@@ -376,7 +380,7 @@ az group create -n ${AMA_RG_NAME} -l ${LOCATION}
 az monitor account create -n ${AMA_NAME} -g ${AMA_RG_NAME}
 ```
 
-Enable metrics addon in existing AKS cluster with [az aks update](/cli/azure/aks#az-aks-update). The k8s-extension version 1.4.1 or higher is required. For more information, see [Enable Prometheus](/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=cli#enable-prometheus-and-grafana).
+Enable the metrics addon in the existing AKS cluster with [az aks update](/cli/azure/aks#az-aks-update). The k8s-extension version 1.4.1 or higher is required. For more information, see [Enable Prometheus](/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=cli#enable-prometheus-and-grafana). The following command ensures the `aks` preview is removed, if present, then installs the `k8s-extension`.
 
 ```azurecli
 az extension remove --name aks-preview
@@ -386,11 +390,11 @@ az extension add --name k8s-extension
 First, open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer). Obtain the AKS cluster name and the resource group name, and fill in value of variable `AKS_CLUSTER_NAME` and `AKS_CLUSTER_RG_NAME`. 
 
 ```bash
-AKS_CLUSTER_NAME=<your-aks-cluster-name>
-AKS_CLUSTER_RG_NAME=<your-aks-cluster-resource-group>
+export AKS_CLUSTER_NAME=<your-aks-cluster-name>
+export AKS_CLUSTER_RG_NAME=<your-aks-cluster-resource-group>
 ```
 
-To enable the metrics addon, you've to specify a workspace ID. Use `az monitor account show` to obtain the Azure Monitor Account ID.
+To enable the metrics addon, specify a workspace ID. Use `az monitor account show` to obtain the Azure Monitor Account ID.
 
 ```azurecli
 AMA_ID=$(az monitor account show -n ${AMA_NAME} -g ${AMA_RG_NAME} --query id -otsv)
@@ -403,31 +407,41 @@ az aks update --enable-azure-monitor-metrics \
     --azure-monitor-workspace-resource-id "${AMA_ID}"
 ```
 
-It takes 15 minutes to deploy the metrics addon. Make sure the command completes without errors.
+It takes 15 minutes to deploy the metrics addon. If you see a message including the text `Azure Monitor Metrics is already enabled for this cluster`, it is safe to proceed.
 
-> [!NOTE]
-> You can run `kubectl get ds ama-metrics-node --namespace=kube-system` to validate the metrics addon.
-> This is a validation example:
->
-> ```text
-> $ kubectl get ds ama-metrics-node --namespace=kube-system
->   NAME               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
->   ama-metrics-node   3         3         3       3            3           <none>          32m
-> ```
+Run the command `kubectl get ds ama-metrics-node --namespace=kube-system` to validate the metrics addon.
+
+```bash
+kubectl get ds ama-metrics-node --namespace=kube-system
+```
+
+Output should look identical to the following.
+
+```text
+  NAME               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+  ama-metrics-node   3         3         3       3            3           <none>          32m
+```
 
 ### Configure Prometheus to scrape metrics from WLS
 
 Once the AKS metrics addon enabled, you can configure Prometheus to scrape metrics from WLS. For more information, see [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration).
 
+> [!NOTE]
+> If you're executing the steps in this article on a macOS or Windows machine, execute the steps in this section in Azure Cloud Shell.
+> [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com) 
+> First, connect to the AKS cluster using the `az aks get-credentials` command you saved earlier.
+
 Apply scrape configuration with steps:
 
-1. Create Prometheus scrape config file. For more information, see [Create Prometheus configuration file](/azure/azure-monitor/containers/prometheus-metrics-scrape-validate#create-prometheus-configuration-file).
+1. Create a Prometheus scrape config file. For more information, see [Create Prometheus configuration file](/azure/azure-monitor/containers/prometheus-metrics-scrape-validate#create-prometheus-configuration-file).
 
-    Prometheus requires the WebLogic admin account to sign in WebLogic Monitoring Exporter and access metrics. The WebLogic admin account is set during offer deployment. Fill in `WLS_ADMIN_USERNAME` and `WLS_ADMIN_PASSWORD` with the user name and password. For more information, see [scrape_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
+    Prometheus requires the WebLogic admin account to authenticate the WebLogic Monitoring Exporter and access metrics. The WebLogic admin account is set during offer deployment. Fill in `WLS_ADMIN_USERNAME` and `WLS_ADMIN_PASSWORD` with the user name and password. For more information, see [scrape_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
 
     ```bash
-    WLS_ADMIN_USERNAME="weblogic"
-    WLS_ADMIN_PASSWORD="Secret123456"
+    export WLS_ADMIN_USERNAME="weblogic"
+    export WLS_ADMIN_PASSWORD="Secret123456"
+    export WLS_DOMAIN_UID="sample-domain1"
+    export WLS_NAMESPACE="sample-domain1-ns"
 
     cat <<EOF >prometheus-config
     global:
@@ -446,7 +460,7 @@ Apply scrape configuration with steps:
 
 2. Validate the scrape config file. You can find more information of [Prometheus scrape validation](/azure/azure-monitor/containers/prometheus-metrics-scrape-validate#validate-the-scrape-config-file). 
 
-    First, copy **promconfigvalidator** tool from the Azure Monitor metrics addon pods.
+    First, ensure the **promconfigvalidator** tool from the Azure Monitor metrics addon pods is ready to invoke locally.
 
     ```bash
     for podname in $(kubectl get pods -l rsName=ama-metrics -n=kube-system -o json | jq -r '.items[].metadata.name'); do kubectl cp -n=kube-system "${podname}":/opt/promconfigvalidator ./promconfigvalidator;  kubectl cp -n=kube-system "${podname}":/opt/microsoft/otelcollector/collector-config-template.yml ./collector-config-template.yml; chmod 500 promconfigvalidator; done
