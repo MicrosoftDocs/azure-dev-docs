@@ -210,15 +210,14 @@ The offer runs an operator-managed WebLogic Server domain in Kubernetes. You can
 The following example patches the WLS domain with the exporter configuration using `kubectl patch`. The exporter image is `ghcr.io/oracle/weblogic-monitoring-exporter:2.1.9`. The offer created a WLS cluster with default settings, with domain UID `sample-domain1`, namespace `sample-domain1-ns`. Replace with yours if you're using different domain UID and namespace.
 
 ```bash
-WME_IMAGE_URL="ghcr.io/oracle/weblogic-monitoring-exporter:2.1.9"
-WLS_DOMAIN_UID="sample-domain1"
-WLS_NAMESPACE="sample-domain1-ns"
+export WME_IMAGE_URL="ghcr.io/oracle/weblogic-monitoring-exporter:2.1.9"
+export WLS_DOMAIN_UID="sample-domain1"
+export WLS_NAMESPACE="sample-domain1-ns"
+export VERSION=$(kubectl -n ${WLS_NAMESPACE} get domain ${WLS_DOMAIN_UID} -o=jsonpath='{.spec.restartVersion}' | tr -d "\"")
+export VERSION=$((VERSION+1))
 ```
 
-```bash
-VERSION=$(kubectl -n ${WLS_NAMESPACE} get domain ${WLS_DOMAIN_UID} -o=jsonpath='{.spec.restartVersion}' | tr -d "\"")
-VERSION=$((VERSION+1))
-```
+Use the environment variables to generate `patch-file.json`. This file causes the WebLogic Monitoring Exporter to run on with the Weblogic Kubernetes Operator.
 
 ```bash
 cat <<EOF >patch-file.json
