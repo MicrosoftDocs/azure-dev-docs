@@ -174,20 +174,11 @@ Leave the defaults in **DNS** pane, select **Next** to go to **Database** pane.
 
 Leave the defaults in **Database** pane, select **Next** to go to **Horizontal Autoscaling** pane.
 
-### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
-
 :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-autoscaling.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on AKS Horizontal Autoscaling pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-autoscaling.png":::
 
 1. Next to **Provision resources for horizontal autoscaling?**, select **Yes**.
 1. Under **Horizontal autoscaling settings**, next to **Select metric source. Autoscaling based on resource metrics from Kubernetes Metrics Server or exporting by WebLogic Monitoring Exporter.**, select **WebLogic Monitor Exporter**.
 1. Select **Review + create**.
-
-### [Enable Horizontal Autoscaling manually](#tab/manual)
-
-1. Leave the defaults in **Horizontal Autoscaling** pane. 
-1. Select **Review + create**.
-
----
 
 Wait until **Running final validation...** successfully completes, then select **Create**. After a while, you should see the **Deployment** page where **Deployment is in progress** is displayed.
 
@@ -205,12 +196,6 @@ Follow the steps to connect to AKS cluster.
 1. Select **Azure CLI** and follow the steps to connect to the AKS cluster in your local terminal.
 
 ## Enable Prometheus Metrics
-
-### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
-
-This step is already performed for you when you use the offer.
-
-### [Enable Horizontal Autoscaling manually](#tab/manual)
 
 This section shows manual steps to:
 
@@ -494,19 +479,11 @@ Apply scrape configuration with steps:
 > [!NOTE]
 > If you run into problems configuring Prometheus scrape, see tips in [Troubleshooting](/azure/azure-monitor/containers/prometheus-metrics-scrape-validate#troubleshooting) to resolve.
 
----
-
 ## Enable KEDA
 
 Kubernetes Event-driven Autoscaling (KEDA) is a single-purpose and lightweight component that strives to make application autoscaling simple and is a Cloud Native Computing Foundation Graduate project.
 
 It applies event-driven autoscaling to scale your application to meet demand in a sustainable and cost-efficient manner with scale-to-zero. You can find more information from [What is KEDA?](https://keda.sh/).
-
-### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
-
-This step is already performed for you when you use the offer.
-
-### [Enable Horizontal Autoscaling manually](#tab/manual)
 
 This article uses KEDA to drive the scaling of WLS container in Kubernetes based on Prometheus metrics. Follow the steps to integrate KEDA with your AKS cluster. To learn more, see [Integrate KEDA with your Azure Kubernetes Service cluster](/azure/azure-monitor/containers/integrate-keda).
 
@@ -615,7 +592,6 @@ This article uses KEDA to drive the scaling of WLS container in Kubernetes based
     keda-operator-74b9997b49-jrc94                    1/1     Running   1 (64s ago)   69s
     keda-operator-metrics-apiserver-6c984644d-95svb   1/1     Running   0             69s
     ```
----
 
 ## Retrieve metrics from Azure Monitor Workspace
 
@@ -775,8 +751,6 @@ spec:
       name: azure-managed-prometheus-trigger-auth
 EOF
 ```
-
----
 
 Create the KEDA scaler by applying *scaler.yaml*.
 
