@@ -6,7 +6,6 @@ author: KarlErickson
 ms.author: jiangma
 ms.topic: conceptual
 ms.date: 10/31/2023
-keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aro, openshift, red hat
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java, linux-related-content
 ---
 
