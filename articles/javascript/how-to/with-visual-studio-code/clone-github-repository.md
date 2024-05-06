@@ -55,6 +55,8 @@ This action isn't available from this feature. Select a different tab.
 
 ---
 
+To connect to a private repository, you need to sign in to your GitHub account in Visual Studio Code. Once your are signed in with an account which has access to the private repository, use the procedure noted above. 
+
 ## Initialize new repository
 
 If you don't have a GitHub repository yet, but would like to start your project locally, initialize your folder with git. 
