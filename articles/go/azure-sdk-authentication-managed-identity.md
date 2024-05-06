@@ -1,7 +1,7 @@
 ---
 title: Authentication with the Azure SDK for Go using a managed identity
 description: In this tutorial, you'll use the Azure SDK for Go to authenticate to Azure with a managed identity.
-ms.date: 09/15/2021
+ms.date: 05/06/2024
 ms.topic: how-to
 ms.custom: devx-track-go, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -10,7 +10,7 @@ ms.custom: devx-track-go, devx-track-azurecli, devx-track-azurepowershell
 
 In this tutorial, you'll configure an Azure virtual machine with a managed identity to authenticate to Azure using the Azure SDK for Go.
 
-Managed identities eliminate the need for you to manage credentials by providing an identity directly to an Azure resource. Permissions assigned to the identity grant the resource access to other Azure resources that support managed identities. Removing the need for you to pass credentials to your application.
+Managed identities eliminate the need for you to manage credentials by providing an identity directly to an Azure resource. Permissions assigned to the identity grant the resource access to other Azure resources that support managed identities. Removing the need for you to pass credentials to your application. You can use managed identities to authenticate and authorize Azure-hosted apps with other Azure resources.
 
 Follow this tutorial to assign a managed identity to a virtual machine and authenticate to Azure using a managed identity.
 
@@ -90,7 +90,7 @@ Create a new Azure key vault instance by running the following command:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-az keyvault create --location eastus --name `<keyVaultName>` --resource-group go-on-azure
+az keyvault create --location eastus --name <keyVaultName> --resource-group go-on-azure
 ```
 
 Replace `<keyVaultName>` with a globally unique name.
@@ -98,7 +98,7 @@ Replace `<keyVaultName>` with a globally unique name.
 # [PowerShell](#tab/powershell)
 
 ```powershell
-New-AzKeyVault -ResourceGroupName go-on-azure -Name `<keyVaultName>` -Location eastus
+New-AzKeyVault -ResourceGroupName go-on-azure -Name <keyVaultName> -Location eastus
 ```
 
 Replace `<keyVaultName>` with a globally unique name.
@@ -183,15 +183,18 @@ Choose one of the following options:
 Run the following commands to assign the `Key Vault Contributor` role to the system-assigned managed identity:
 
 # [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 #output system identity principal ID
-az vm identity show --name go-on-azure-vm --resource-group go-on-azure --query 'principalId' -o tsv
+az vm identity show --name go-on-azure-vm --resource-group go-on-azure --query principalId -o tsv
 
 #output key vault ID
-scope=$(az keyvault show --name go-on-azure-kv --query id -o tsv)
+az keyvault show --name <keyVaultName> --query id -o tsv
 
-az role assignment create --assignee '<principalId>' --role 'Key Vault Contributor' --scope '<keyVaultId>'
+az role assignment create --assignee <principalId> --role "Key Vault Contributor" --scope <keyVaultId>
 ```
+
+In the second command, replace `<keyVaultName>` with the name of your key vault. In the last command, replace `<principalId>` and `<keyVaultId>` with the output from the first two commands.
 
 # [PowerShell](#tab/powershell)
 
@@ -214,15 +217,19 @@ Replace `<KeyVaultName>` with the key vault name.
 Run the following commands to assign the `Key Vault Contributor` role to the user-assigned managed identity:
 
 # [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 #output user identity principal ID
-az identity show --resource-group go-on-azure --name GoUserIdentity --query 'principalId' -o tsv
+az identity show --resource-group go-on-azure --name GoUserIdentity --query principalId -o tsv
 
 #output key vault ID
-az keyvault show --name go-on-azure-kv --query id -o tsv
+az keyvault show --name <keyVaultName> --query id -o tsv
 
-az role assignment create --assignee '<principalId>' --role 'Key Vault Contributor' --scope '<keyVaultId>'
+az role assignment create --assignee <principalId> --role "Key Vault Contributor" --scope <keyVaultId>
 ```
+
+In the second command, replace `<keyVaultName>` with the name of your key vault. In the last command, replace `<principalId>` and `<keyVaultId>` with the output from the first two commands.
+
 # [PowerShell](#tab/powershell)
 
 ```powershell
@@ -239,7 +246,7 @@ Replace `<KeyVaultName>` with the key vault name.
 
 ---
 
-To learn more about built-in roles, check out [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
+To learn more about built-in roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 ## 4. Create a key vault secret with Go
 
