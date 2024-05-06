@@ -1,7 +1,7 @@
 ---
 title: "JavaScript Azure OpenAI Assistants and function calling"
 description: "This article shows you how to deploy and run the serverless Azure OpenAI Assistant with function calling."
-ms.date: 04/29/2024
+ms.date: 05/06/2024
 ms.topic: get-started
 ms.service: azure-javascript
 ms.subservice: intelligent-apps
@@ -23,8 +23,6 @@ This application is built around two main components:
 - A serverless API built with [Azure Functions](/azure/azure-functions/functions-overview?pivots=programming-language-javascript) and using OpenAI JavaScript SDK. The serverless app sends the assistants definition including the function call to the OpenAI endpoint. The endpoint responds with the follow-up function call and the parameters needed to complete that call. 
 
     - The sample's function call generates a random stock ticker value based on the stock symbol sent into the Azure Function. 
-
-    
 
 ## Prerequisites
 
@@ -109,7 +107,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     > [!TIP]
     > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
     >
-    > :::image type="content" source="./media/get-started-app-chat-template/open-terminal-option.png" lightbox="./media/get-started-app-chat-template/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
+    > :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/open-terminal-option.png" lightbox="./media/get-started-app-chat-assistants-function-calling/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
 
 1. Sign in to Azure with the Azure Developer CLI.
 
@@ -153,14 +151,58 @@ The sample repository contains all the code and configuration files you need to 
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
 1. Select that URL labeled `Deploying service web` to open the assistant application in a browser.
 
-    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" lightbox="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of assistant app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
-
 ### Use assistant app 
 
 You can use the assistant app to get the stock market price of `MSFT`. The following steps walk you through the process of using the assistant app.
 
 1. In the browser, select or enter **What is the refund policy** in the text box at the bottom of the page.
 
-    :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/browser-chat-initial-answer.png" alt-text="Screenshot of assistant app's first answer.":::
+    :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-demo.png" alt-text="Screenshot of assistant app's first answer.":::
 
-## How did we solve the problem?
+## Clean up resources
+
+### Clean up Azure resources
+
+The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
+
+Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
+
+```bash
+azd down --purge
+```
+
+### Clean up GitHub Codespaces
+
+#### [GitHub Codespaces](#tab/github-codespaces)
+
+Deleting the GitHub Codespaces environment ensures that you can maximize the amount of free per-core hours entitlement you get for your account.
+
+> [!IMPORTANT]
+> For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+
+1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
+
+1. Locate your currently running codespaces sourced from the [`Azure-Samples/azure-openai-assistant-javascript`](https://github.com/Azure-Samples/azure-openai-assistant-javascript) GitHub repository.
+
+    :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/github-codespace-dashboard.png" alt-text="Screenshot of all the running codespaces including their status and templates.":::
+
+1. Open the context menu, `...`, for the codespace and then select **Delete**.
+
+#### [Visual Studio Code](#tab/visual-studio-code)
+
+You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
+
+1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
+
+    :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+
+> [!TIP]
+> Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
+
+---
+
+## Get help
+
+This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-openai-assistant-javascript/tree/main#troubleshooting).
+
+If your issued isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-openai-assistant-javascript/issues).
