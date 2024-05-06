@@ -10,7 +10,7 @@ ms.custom: devx-track-js, devx-track-js-ai
 ---
 # Get started with Azure OpenAI with Assistants and function calling in JavaScript
 
-This article shows you how to deploy and run the [serverless Azure OpenAI Assistant Quick Start](https://github.com/Azure-Samples/azure-openai-assistant-javascript). This sample implements a assistants app using JavaScript, Azure OpenAI Service assistants with function calling, and Azure Functions to get the latest stock price.
+This article shows you how to deploy and run the [serverless Azure OpenAI Assistant Quick Start](https://github.com/Azure-Samples/azure-openai-assistant-javascript). This sample implements an assistants app using JavaScript, Azure OpenAI Service assistants with function calling, and Azure Functions to get the latest stock price.
 
 ## Architectural overview
 
@@ -130,7 +130,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ## Deploy and run
 
-The sample repository contains all the code and configuration files you need to deploy an function app to Azure. The following steps walk you through the process of deploying the sample to Azure.
+The sample repository contains all the code and configuration files you need to deploy a function app to Azure. The following steps walk you through the process of deploying the sample to Azure.
 
 ### Deploy assistants app to Azure
 
@@ -182,9 +182,9 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 
-1. Locate your currently running codespaces sourced from the [`Azure-Samples/azure-openai-assistant-javascript`](https://github.com/Azure-Samples/azure-openai-assistant-javascript) GitHub repository.
+1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-openai-assistant-javascript`](https://github.com/Azure-Samples/azure-openai-assistant-javascript) GitHub repository.
 
-    :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/github-codespace-dashboard.png" alt-text="Screenshot of all the running codespaces including their status and templates.":::
+    :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
 1. Open the context menu, `...`, for the codespace and then select **Delete**.
 
@@ -206,3 +206,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-openai-assistant-javascript/tree/main#troubleshooting).
 
 If your issued isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-openai-assistant-javascript/issues).
+
+## Related content
+
+* [Get started with evaluating answers in a chat app in JavaScript](get-started-app-chat-evaluations.md)
