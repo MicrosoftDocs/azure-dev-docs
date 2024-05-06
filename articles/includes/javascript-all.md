@@ -353,6 +353,7 @@
 | Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.2.1) |  |  |
 | Unknown Display Name | npm [0.41.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.41.0) |  |  |
 | Unknown Display Name | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.7.0) |  |  |
+| Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.1.0) |  |  |
 | Unknown Display Name | npm [2.0.4429](https://www.npmjs.com/package/@microsoft.azure/autorest-core/v/2.0.4429) |  |  |
 | Unknown Display Name | npm [3.3.49](https://www.npmjs.com/package/@microsoft.azure/autorest.testserver/v/3.3.49) |  |  |
 | Unknown Display Name | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
