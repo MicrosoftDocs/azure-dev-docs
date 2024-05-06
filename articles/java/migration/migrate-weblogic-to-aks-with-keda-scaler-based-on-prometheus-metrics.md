@@ -18,8 +18,9 @@ In this tutorial, you learn how to:
 >
 > - What WebLogic application metrics can be exported using WebLogic Monitoring Exporter?
 > - Deploy and run WebLogic applciation on AKS using Azure marketplace offer.
-> - Enable Azure Monitor managed service for Prometheus and feed WLS metrics to Azure Monitor workspace.
-> - Integrate Kubernetes Event-driven Autoscaling (KEDA) with AKS cluster.
+> - Enable Azure Monitor managed service for Prometheus using Azure marketplace offer.
+> - Feed WLS metrics to Azure Monitor workspace using Azure marketplace offer.
+> - Integrate Kubernetes Event-driven Autoscaling (KEDA) with AKS cluster using Azure marketplace offer.
 > - Create KEDA scaler that is based on Prometheus Metrics.
 > - Validate the scaler configuration.
 
@@ -52,7 +53,6 @@ The following WLS state and metrics are exported by default. You can configure t
      [![Embed launch](/azure/developer/go/media/cloud-shell-try-it/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)  
 * Install Azure CLI version 2.54.0 or higher to run Azure CLI commands.
 * Install and set up [kubectl](/cli/azure/aks#az-aks-install-cli).
-* Install and set up [Git](/devops/develop/git/install-and-set-up-git).
 * Have the credentials for an Oracle single sign-on (SSO) account. To create one, see [Create Your Oracle Account](https://aka.ms/wls-aks-create-sso-account).
 * Accept the license terms for WLS.
   * Visit the [Oracle Container Registry](https://container-registry.oracle.com/) and sign in.
@@ -200,423 +200,13 @@ Follow the steps to connect to AKS cluster.
 1. Select the AKS cluster from resource list. Select button **Connect**, you find the guidance of how to connect the AKS cluster.
 1. Select **Azure CLI** and follow the steps to connect to the AKS cluster in your local terminal. If running on macOS or Windows, save the `az aks get-credentials` command aside for use in Azure Cloud Shell later.
 
-## Enable Prometheus Metrics
-
-This section shows manual steps to:
-
-- Export WebLogic metrics using WebLogic Monitoring Exporter.
-- Enable AKS Prometheus integration.
-- Configure Prometheus to scrape metrics from WLS.
-
-#### Enable WebLogic Monitoring Exporter
-
-The offer runs an operator-managed WebLogic Server domain in Kubernetes. You can simply add the `monitoringExporter` configuration element in the domain resource to enable the Monitoring Exporter. For more information, see [Monitoring exporter](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/accessing-the-domain/monitoring-exporter/).
-
-The following example patches the WLS domain with the exporter configuration using `kubectl patch`. The exporter image is `ghcr.io/oracle/weblogic-monitoring-exporter:2.1.9`. The offer created a WLS cluster with default settings, with domain UID `sample-domain1`, namespace `sample-domain1-ns`. Replace with yours if you're using different domain UID and namespace.
-
-```bash
-export WME_IMAGE_URL="ghcr.io/oracle/weblogic-monitoring-exporter:2.1.9"
-export WLS_DOMAIN_UID="sample-domain1"
-export WLS_NAMESPACE="sample-domain1-ns"
-export VERSION=$(kubectl -n ${WLS_NAMESPACE} get domain ${WLS_DOMAIN_UID} -o=jsonpath='{.spec.restartVersion}' | tr -d "\"")
-export VERSION=$((VERSION+1))
-```
-
-Use the environment variables to generate `patch-file.json`. This file causes the WebLogic Monitoring Exporter to run on with the Weblogic Kubernetes Operator.
-
-```bash
-cat <<EOF >patch-file.json
-[
-    {
-        "op": "replace",
-        "path": "/spec/restartVersion",
-        "value": "${VERSION}"
-    },
-    {
-        "op": "add",
-        "path": "/spec/monitoringExporter",
-        "value": {
-            "configuration": {
-                "domainQualifier": true,
-                "metricsNameSnakeCase": true,
-                "queries": [
-                    {
-                        "applicationRuntimes": {
-                            "componentRuntimes": {
-                                "key": "name",
-                                "prefix": "webapp_config_",
-                                "servlets": {
-                                    "key": "servletName",
-                                    "prefix": "weblogic_servlet_",
-                                    "values": [
-                                        "invocationTotalCount",
-                                        "reloadTotal",
-                                        "executionTimeAverage",
-                                        "poolMaxCapacity",
-                                        "executionTimeTotal",
-                                        "reloadTotalCount",
-                                        "executionTimeHigh",
-                                        "executionTimeLow"
-                                    ]
-                                },
-                                "type": "WebAppComponentRuntime",
-                                "values": [
-                                    "deploymentState",
-                                    "contextRoot",
-                                    "sourceInfo",
-                                    "openSessionsHighCount",
-                                    "openSessionsCurrentCount",
-                                    "sessionsOpenedTotalCount",
-                                    "sessionCookieMaxAgeSecs",
-                                    "sessionInvalidationIntervalSecs",
-                                    "sessionTimeoutSecs",
-                                    "singleThreadedServletPoolSize",
-                                    "sessionIDLength",
-                                    "servletReloadCheckSecs",
-                                    "jSPPageCheckSecs"
-                                ]
-                            },
-                            "workManagerRuntimes": {
-                                "prefix": "workmanager_",
-                                "key": "applicationName",
-                                "values": [
-                                    "pendingRequests", 
-                                    "completedRequests", 
-                                    "stuckThreadCount"]
-                            },
-                            "key": "name",
-                            "keyName": "app"
-                        },
-                        "JVMRuntime": {
-                            "key": "name",
-                            "values": [
-                                "heapFreeCurrent", 
-                                "heapFreePercent", 
-                                "heapSizeCurrent", 
-                                "heapSizeMax", 
-                                "uptime", 
-                                "processCpuLoad"
-                            ]
-                        },
-                        "key": "name",
-                        "keyName": "server"
-                    }
-                ]
-            },
-            "image": "${WME_IMAGE_URL}",
-            "port": 8080
-        }
-    }
-]
-EOF
-```
-
-Now, you're ready to apply the patch. 
-
-The following example patches domain with `kubectl patch`.
-
-```bash
-kubectl -n ${WLS_NAMESPACE} patch domain ${WLS_DOMAIN_UID} \
-    --type=json \
-    --patch-file patch-file.json
-```
-
-The command applys **patch-file.json**, and causes a rolling update to the WLS cluster. It takes several minutes to complete. 
-You can watch the status with command `kubectl -n ${WLS_NAMESPACE} get pod -w`.
-
-Make sure all the pods have gone through the cycle of `Terminating`, `Pending`, `ContainerCreating`, and `Running` before you move on. When all three pods have done this, the `AGE` value for each pod should be no more than a few minutes from the others.
-
-```text
-NAME                             READY   STATUS    RESTARTS   AGE
-sample-domain1-admin-server      2/2     Running   0          4m29s
-sample-domain1-managed-server1   2/2     Running   0          3m16s
-sample-domain1-managed-server2   2/2     Running   0          112s
-```
-
-> [!NOTE]
-> You can access metrics from WebLogic Monitoring Exporter by exposing the exporter with a public IP. 
-> Create a Loadbalancer service for the exporter with the following command. 
-> ```bash
-> cat <<EOF | kubectl apply -f -
-> apiVersion: v1
-> kind: Service
-> metadata:
->   name: wls-exporter-cluster-external-lb
->   namespace: ${WLS_NAMESPACE}
-> spec:
->   ports:
->   - name: default
->     port: 8080
->     protocol: TCP
->     targetPort: 8080
->   selector:
->     weblogic.domainUID: ${WLS_DOMAIN_UID}
->     weblogic.clusterName: cluster-1
->   sessionAffinity: None
->   type: LoadBalancer
-> EOF
-> 
-> kubectl get svc wls-exporter-cluster-external-lb -n ${WLS_NAMESPACE} -w
-> ```
-> 
-> After the load balancer service is ready, write down the value of **EXTERNAL-IP**. You can access the metric at the URL `http://<EXTERNAL-IP>:8080/metrics`.
-> 
-> Open the metric address in a web browser, you will be required to input user name and password. The user name and password is the WLS admin account you used in the offer deployment.
-
-### Install AKS Prometheus metrics addon
-
-Before you install the metrics add-on, you need an Azure Monitor Account. For more information, see [Enable monitoring for Kubernetes clusters](/azure/azure-monitor/containers/kubernetes-monitoring-enable).
-
-Run [az monitor account create](/cli/azure/monitor/account) to create the workspace. Replace the resource group name and Azure Monitor Account name with your desired values. The resource group name must be unique within your subscription.
-
-```azurecli
-export AMA_RG_NAME="wlsaksamarg20240314"
-export AMA_NAME="${AMA_RG_NAME}ama"
-export LOCATION="eastus"
-
-# create a resorce group for Azure Monitor Account
-az group create -n ${AMA_RG_NAME} -l ${LOCATION}
-# create azure monitor account
-az monitor account create -n ${AMA_NAME} -g ${AMA_RG_NAME}
-```
-
-Enable the metrics addon in the existing AKS cluster with [az aks update](/cli/azure/aks#az-aks-update). The k8s-extension version 1.4.1 or higher is required. For more information, see [Enable Prometheus](/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=cli#enable-prometheus-and-grafana). The following command ensures the `aks` preview is removed, if present, then installs the `k8s-extension`.
-
-```azurecli
-az extension remove --name aks-preview
-az extension add --name k8s-extension
-```
-
-First, open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer). Obtain the AKS cluster name and the resource group name, and fill in value of variable `AKS_CLUSTER_NAME` and `AKS_CLUSTER_RG_NAME`. 
-
-```bash
-export AKS_CLUSTER_NAME=<your-aks-cluster-name>
-export AKS_CLUSTER_RG_NAME=<your-aks-cluster-resource-group>
-```
-
-To enable the metrics addon, specify a workspace ID. Use `az monitor account show` to obtain the Azure Monitor Account ID.
-
-```azurecli
-AMA_ID=$(az monitor account show -n ${AMA_NAME} -g ${AMA_RG_NAME} --query id -otsv)
-```
-
-```azurecli
-az aks update --enable-azure-monitor-metrics \
-    --name ${AKS_CLUSTER_NAME} \
-    --resource-group ${AKS_CLUSTER_RG_NAME} \
-    --azure-monitor-workspace-resource-id "${AMA_ID}"
-```
-
-It takes 15 minutes to deploy the metrics addon. If you see a message including the text `Azure Monitor Metrics is already enabled for this cluster`, it is safe to proceed.
-
-Run the command `kubectl get ds ama-metrics-node --namespace=kube-system` to validate the metrics addon.
-
-```bash
-kubectl get ds ama-metrics-node --namespace=kube-system
-```
-
-Output should look identical to the following.
-
-```text
-  NAME               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-  ama-metrics-node   3         3         3       3            3           <none>          32m
-```
-
-### Configure Prometheus to scrape metrics from WLS
-
-Once the AKS metrics addon enabled, you can configure Prometheus to scrape metrics from WLS. For more information, see [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration).
-
-> [!NOTE]
-> If you're executing the steps in this article on a macOS or Windows machine, execute the steps in this section in Azure Cloud Shell.
-> [![Embed launch](/azure/developer/go/media/cloud-shell-try-it/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com) 
-> First, connect to the AKS cluster using the `az aks get-credentials` command you saved earlier.
-
-Apply scrape configuration with steps:
-
-1. Create a Prometheus scrape config file. For more information, see [Create Prometheus configuration file](/azure/azure-monitor/containers/prometheus-metrics-scrape-validate#create-prometheus-configuration-file).
-
-    Prometheus requires the WebLogic admin account to authenticate the WebLogic Monitoring Exporter and access metrics. The WebLogic admin account is set during offer deployment. Fill in `WLS_ADMIN_USERNAME` and `WLS_ADMIN_PASSWORD` with the user name and password. For more information, see [scrape_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
-
-    ```bash
-    export WLS_ADMIN_USERNAME="weblogic"
-    export WLS_ADMIN_PASSWORD="Secret123456"
-    export WLS_DOMAIN_UID="sample-domain1"
-    export WLS_NAMESPACE="sample-domain1-ns"
-
-    cat <<EOF >prometheus-config
-    global:
-      scrape_interval: 30s
-    scrape_configs:
-    - job_name: '${WLS_DOMAIN_UID}'
-      kubernetes_sd_configs:
-      - role: pod
-        namespaces: 
-          names: [${WLS_NAMESPACE}]
-      basic_auth:
-        username: ${WLS_ADMIN_USERNAME}
-        password: ${WLS_ADMIN_PASSWORD}
-    EOF
-    ```
-
-2. Validate the scrape config file. You can find more information of [Prometheus scrape validation](/azure/azure-monitor/containers/prometheus-metrics-scrape-validate#validate-the-scrape-config-file). 
-
-    First, ensure the **promconfigvalidator** tool from the Azure Monitor metrics addon pods is ready to invoke locally.
-
-    ```bash
-    for podname in $(kubectl get pods -l rsName=ama-metrics -n=kube-system -o json | jq -r '.items[].metadata.name'); do kubectl cp -n=kube-system "${podname}":/opt/promconfigvalidator ./promconfigvalidator;  kubectl cp -n=kube-system "${podname}":/opt/microsoft/otelcollector/collector-config-template.yml ./collector-config-template.yml; chmod 500 promconfigvalidator; done
-    ```
-
-    Next, validate the scrape config file using **promconfigvalidator**.
-
-    ```bash
-    ./promconfigvalidator --config "./prometheus-config" --otelTemplate "./collector-config-template.yml"
-    ```
-
-    If the validation passes, you find similar output as following content.
-
-    ```text
-    prom-config-validator::Config file provided - ./prometheus-config
-    prom-config-validator::Successfully generated otel config
-    prom-config-validator::Loading configuration...
-    prom-config-validator::Successfully loaded and validated prometheus config
-    ```
-
-    Next, deploy config file as configmap.
-
-    ```bash
-    kubectl create configmap ama-metrics-prometheus-config --from-file=prometheus-config -n kube-system
-    ```
-
-    This command creates a configmap named `ama-metrics-prometheus-config` in `kube-system` namespace. The Azure Monitor metrics replica pod restarts in 30-60 secs to apply the new config.
-
-> [!NOTE]
-> If you run into problems configuring Prometheus scrape, see tips in [Troubleshooting](/azure/azure-monitor/containers/prometheus-metrics-scrape-validate#troubleshooting) to resolve.
-
-## Enable KEDA
-
-Kubernetes Event-driven Autoscaling (KEDA) is a single-purpose and lightweight component that strives to make application autoscaling simple and is a Cloud Native Computing Foundation Graduate project.
-
-It applies event-driven autoscaling to scale your application to meet demand in a sustainable and cost-efficient manner with scale-to-zero. You can find more information from [What is KEDA?](https://keda.sh/).
-
-This article uses KEDA to drive the scaling of WLS container in Kubernetes based on Prometheus metrics. Follow the steps to integrate KEDA with your AKS cluster. To learn more, see [Integrate KEDA with your Azure Kubernetes Service cluster](/azure/azure-monitor/containers/integrate-keda).
-
-1. Set up a workload identity.
-
-    First, check if workload-identity or oidc-issuer enabled in your AKS cluster with `az aks show`.
-
-    ```azurecli
-    az aks show --resource-group $AKS_CLUSTER_RG_NAME --name $AKS_CLUSTER_NAME --query oidcIssuerProfile
-    az aks show --resource-group $AKS_CLUSTER_RG_NAME --name $AKS_CLUSTER_NAME --query securityProfile.workloadIdentity
-    ```
-
-    If they aren't set, enable workload identity and oidc-issuer.
-
-    ```azurecli
-    az aks update -g $AKS_CLUSTER_RG_NAME -n $AKS_CLUSTER_NAME --enable-workload-identity --enable-oidc-issuer
-    ```
-
-    Next, create a user assigned identity for KEDA. This identity is used by KEDA to authenticate with Azure Monitor.
-
-    ```azurecli
-    KEDA_IDENTITY_NAME="uami4keda20140315"
-
-    az identity create --name $KEDA_IDENTITY_NAME --resource-group $AKS_CLUSTER_RG_NAME -l ${LOCATION}
-    ```
-
-    Next, assign the Monitoring Data Reader role to the identity for your Azure Monitor workspace.
-
-    ```azurecli
-    KEDA_UAMI_CLIENT_ID="$(az identity show \
-        --resource-group $AKS_CLUSTER_RG_NAME \
-        --name $KEDA_IDENTITY_NAME \
-        --query 'clientId' -otsv)"
-
-    az role assignment create \
-        --assignee $KEDA_UAMI_CLIENT_ID \
-        --role "Monitoring Data Reader" \
-        --scope ${AMA_ID}
-    ```
-
-    Next, create the KEDA namespace and a Kubernetes service account. This service account is used by KEDA to authenticate with Azure.
-
-    ```bash
-    KEDA_NAMESPACE="keda"
-    KEDA_SA_NAME="keda-operator"
-
-
-    kubectl create namespace ${KEDA_NAMESPACE}
-
-    cat <<EOF | kubectl apply -f -
-    apiVersion: v1
-    kind: ServiceAccount
-    metadata:
-      annotations:
-        azure.workload.identity/client-id: $KEDA_UAMI_CLIENT_ID
-      name: $KEDA_SA_NAME
-      namespace: $KEDA_NAMESPACE
-    EOF
-    ```
-
-    Next, establish a federated credential between the service account and the user assigned identity.
-
-    ```azurecli
-    FEDERATED_IDENTITY_CREDENTIAL_NAME="kedafederatedcredential20240315"
-    AKS_OIDC_ISSUER="$(az aks show -n $AKS_CLUSTER_NAME -g $AKS_CLUSTER_RG_NAME --query "oidcIssuerProfile.issuerUrl" -otsv)"
-
-    az identity federated-credential create \
-        --name $FEDERATED_IDENTITY_CREDENTIAL_NAME \
-        --identity-name $KEDA_IDENTITY_NAME \
-        --resource-group $AKS_CLUSTER_RG_NAME \
-        --issuer $AKS_OIDC_ISSUER \
-        --subject system:serviceaccount:$KEDA_NAMESPACE:$KEDA_SA_NAME \
-        --audience api://AzureADTokenExchange
-    ```
-
-1. Deploy KEDA.
-
-    This article uses Helm charts to deploy KEDA. For more information, see [Deploying KEDA](https://keda.sh/docs/2.10/deploy/).
-
-    ```bash
-    helm repo add kedacore https://kedacore.github.io/charts
-    helm repo update    
-    ```
-
-    Obtain tenant ID.
-
-    ```azurecli
-    TENANT_ID="$(az identity show --resource-group $AKS_CLUSTER_RG_NAME --name $KEDA_IDENTITY_NAME --query 'tenantId' -otsv)"
-    ```
-
-    ```bash
-    helm install keda kedacore/keda --namespace keda \
-        --set serviceAccount.create=false \
-        --set serviceAccount.name=keda-operator \
-        --set podIdentity.azureWorkload.enabled=true \
-        --set podIdentity.azureWorkload.clientId=$KEDA_UAMI_CLIENT_ID \
-        --set podIdentity.azureWorkload.tenantId=$TENANT_ID
-    ```
-
-    Check KEDA deployment with `kubectl get pods -n ${KEDA_NAMESPACE} -w`. The final status should look like as following output.
-
-    ```text
-    $ kubectl get pods -n ${KEDA_NAMESPACE}
-    NAME                                              READY   STATUS    RESTARTS      AGE
-    keda-admission-webhooks-f7745ccd8-lwvw7           1/1     Running   0             69s
-    keda-operator-74b9997b49-jrc94                    1/1     Running   1 (64s ago)   69s
-    keda-operator-metrics-apiserver-6c984644d-95svb   1/1     Running   0             69s
-    ```
-
 ## Retrieve metrics from Azure Monitor Workspace
 
 Now, you're able to query metrics in the Azure Monitor workspace. All data is retrieved from an Azure Monitor workspace by using queries that are written in Prometheus Query Language (PromQL).
 
 Input your PromQL following steps:
 
-1. Open the Azure Monitor workspace.
-
-    - If you use horizontal autoscaling feature of marketplace offer, the workspace locates at the resource group that created by [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
-    - If you enable horizontal autoscaling manually, the workspace locates at the resource group that created by [Install AKS Prometheus metrics addon](#install-aks-prometheus-metrics-addon).
-
+1. Open the Azure Monitor workspace, the workspace locates at the resource group that created by [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
 1. Select **Managed Prometheus** -> **Prometheus explorer**. 
 1. Input `webapp_config_open_sessions_current_count` to query the current account of open sessions, as the screenshot shows.
 
@@ -648,8 +238,6 @@ This article use `openSessionsCurrentCount` of the sample application as trigger
 > 1. Log in with WLS admin account, which you wrote down during [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
 >   * Under **Domain Structure**, select **Deployments**. You find **app1** listed. 
 >   * Select **app1**, you find the **Name** of the application is `app1`. Use `app1` as application name in the query.
-
-### [Use Horizontal Autoscaling feature of Marketplace Offer](#tab/offer)
 
 After the offer deployment completes, you find a KEDA scaler sample from the deployment output. You can modify the sample on your demand and create a KEDA scaler.
 
@@ -710,61 +298,6 @@ Following the steps to get the output of scaler sample.
     query: sum(webapp_config_open_sessions_current_count{app="app1"})
     ```
 
-### [Enable Horizontal Autoscaling manually](#tab/manual)
-
-Create the scaler configuration with the following command.
-
-First, obtain query endpoint of the Azure Monitor workspace.
-
-```azurecli
-SERVER_ADDRESS=$(az monitor account show -n ${AMA_NAME} -g ${AMA_RG_NAME} --query metrics.prometheusQueryEndpoint -otsv)
-```
-
-Obtain WLS cluster name.
-
-```bash
-WLS_CLUSTER_NAME=$(kubectl get cluster -n ${WLS_NAMESPACE} -o json | jq -r '.items[0].metadata.name')
-```
-
-Create scaler configuration.
-
-```bash
-cat <<EOF >scaler.yaml
-apiVersion: keda.sh/v1alpha1
-kind: TriggerAuthentication
-metadata:
-  name: azure-managed-prometheus-trigger-auth
-  namespace: ${WLS_NAMESPACE}
-spec:
-  podIdentity:
-    provider: azure-workload
-    identityId: ${KEDA_UAMI_CLIENT_ID}
----
-apiVersion: keda.sh/v1alpha1
-kind: ScaledObject
-metadata:
-  name: azure-managed-prometheus-scaler
-  namespace: ${WLS_NAMESPACE}
-spec:
-  scaleTargetRef:
-    apiVersion: weblogic.oracle/v1
-    kind: Cluster
-    name: ${WLS_CLUSTER_NAME}
-  minReplicaCount: 1
-  maxReplicaCount: 5
-  triggers:
-  - type: prometheus
-    metadata:
-      serverAddress: ${SERVER_ADDRESS}
-      metricName: webapp_config_open_sessions_current_count
-      query: sum(webapp_config_open_sessions_current_count{app="app1"})
-      threshold: '10'
-      activationThreshold: '1'
-    authenticationRef:
-      name: azure-managed-prometheus-trigger-auth
-EOF
-```
-
 Create the KEDA scaler by applying *scaler.yaml*.
 
 ```bash
@@ -774,7 +307,7 @@ kubectl apply -f scaler.yaml
 It takes several minutes for KEDA to retrieve metrics from the Azure Monitor workspace. You can watch the scaler status with:
 
 ```bash
-kubectl get hpa -n <wls-namespace> -w
+kubectl get hpa -n sample-domain1-ns -w
 ```
 
 Once the scaler is ready to work, the output looks similar to the following content.
