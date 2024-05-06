@@ -1,6 +1,6 @@
 ---
 title: "Get started with Serverless AI Chat using LangChain.js"
-description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut."
+description: "Use LangChainjs to simplify the interaction between the Azure OpenAI and Azure AI Search to answer a chat answer."
 ms.topic: get-started 
 ms.date: 04/27/2024
 ms.subservice: intelligent-apps
@@ -19,9 +19,7 @@ The code includes sample data for a fictitious company, Contoso Real Estate. Cus
 
 ## Architectural overview
 
-A simple architecture of the chat app is shown in the following diagram:
-
-:::image type="content" source="./media/get-started-app-chat-langchainjs/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
+### The chat app
 
 The user interacts with the application:
 
@@ -30,6 +28,26 @@ The user interacts with the application:
 - The Serverless API interacts with Azure OpenAI Service to generate a response, using the data from Azure Cosmos DB for MongoDB vCore.
 - If there's a need to reference the documents, Azure Blob Storage is used to retrieve the PDF documents.
 - The generated response is then sent back to the web app and displayed to the user.
+
+A simple architecture of the chat app is shown in the following diagram:
+
+:::image type="content" source="./media/get-started-app-chat-langchainjs/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
+
+### LangChainjs simplifies the complexity between services
+
+The API flow is useful to understand how LangChainJS is helpful in this scenario by abstracting out the interactions. The **serverless API endpoint**:
+
+- Receives the question from the user. 
+- Creates client objects:
+    - Azure OpenAI for embeddings and chat
+    - Azure AI Search for the vector store
+- Creates a document chain with the LLM model, the chat message (system and user prompts), and the document source.
+- Creates a retrieval chain from the document chain and the vector store. 
+- Streams the responses from the retrieval chain.
+
+The developer's work is to correctly configure the dependencies services, such as Azure OpenAI and Azure AI Search and construct the chains correctly. The underlying chain logic knows how to resolve the query. This allows you construct chains from many different services and configurations as long as they work with the LangChain requirements. 
+
+### Where is Azure in this architecture?
 
 This application is made from multiple components:
 
@@ -122,7 +140,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     > [!TIP]
     > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
     >
-    > :::image type="content" source="./media/get-started-app-chat-template/open-terminal-option.png" lightbox="./media/get-started-app-chat-template/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
+    > :::image type="content" source="./media/get-started-app-chat-langchainjs/open-terminal-option.png" lightbox="./media/get-started-app-chat-langchainjs/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
 
@@ -217,9 +235,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
     :::image type="content" source="./media/get-started-app-chat-langchainjs/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
-1. Open the context menu for the codespace and then select **Delete**.
-
-    :::image type="content" source="./media/get-started-app-chat-langchainjs/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
+1. Open the context menu, `...`, for the codespace and then select **Delete**.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
