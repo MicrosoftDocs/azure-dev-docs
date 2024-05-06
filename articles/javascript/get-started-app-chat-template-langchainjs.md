@@ -5,7 +5,7 @@ ms.topic: get-started
 ms.date: 04/27/2024
 ms.subservice: intelligent-apps
 
-#customer intent: As a TypeScript developer, I want deploy and use a serverless chat app so that I can understand how langchainjs is used.
+#customer intent: As a TypeScript developer, I want deploy and use a serverless chat app so that I can understand how langchainjs helps a chat app.
 
 ---
 # Get started with Serverless AI Chat with RAG using LangChain.js
@@ -14,11 +14,22 @@ Creating AI apps can be complex. With LangChain.js, Azure Functions, and Serverl
 
 The code includes sample data for a fictitious company, Contoso Real Estate. Customers can ask support questions about the company's products. The data includes documents on the company's terms of service, privacy policy, and support guide.
 
+:::image type="content" source="./media/get-started-app-chat-langchainjs/demo.gif" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+
+
 ## Architectural overview
 
 A simple architecture of the chat app is shown in the following diagram:
 
 :::image type="content" source="./media/get-started-app-chat-langchainjs/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
+
+The user interacts with the application:
+
+- With the chat interface in the client web app.
+- The client web app sends the user's query to the Serverless API via HTTP calls.
+- The Serverless API interacts with Azure OpenAI Service to generate a response, using the data from Azure Cosmos DB for MongoDB vCore.
+- If there's a need to reference the documents, Azure Blob Storage is used to retrieve the PDF documents.
+- The generated response is then sent back to the web app and displayed to the user.
 
 This application is made from multiple components:
 
@@ -132,7 +143,6 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ---
 
-
 ## Deploy and run
 
 The sample repository contains all the code and configuration files you need to deploy the serverless chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
@@ -147,29 +157,38 @@ The sample repository contains all the code and configuration files you need to 
     ```bash
     azd up
     ```
-1. When you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. It's used as part of the resource group name. 
-1. When prompted, select a subscription to create the resources in. 
-1. When you're prompted to select a location the first time, select a location near you. This location is used for most the resources including hosting.
-1. If you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
+1. Use the following table to answer the prompts:
+
+    |Prompt|Answer|
+    |--|--|
+    |Environment name|Keep it short and lowercase. Add your name or alias. For example, `john-chat`. It's used as part of the resource group name.| 
+    |Subscription|Select the subscription to create the resources in. |
+    |Location (for hosting)|Select a location near you from the list.|
+    |Location for the OpenAI model|Select a location near you from the list. If the same location is available as your first location, select that.|
+
 1. Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
+
+    > [!NOTE]The documents are uploaded to the `/api/documents` route after the deployment is complete as a process after the `azd up` command. This is controlled by the `azure.yaml` file. 
+
 1. After the application has been successfully deployed, you see two URLs displayed in the terminal. 
 1. Select that URL labeled `Deploying service webapp` to open the chat application in a browser.
 
-    :::image type="content" source="./media/get-started-app-chat-langchainjs/demo.gif" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
-
 ### Use chat app to get answers from PDF files
 
-The chat app is preloaded with rental information from a [PDF file catalog](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main/data). You can use the chat app to ask questions about the rental process. The following steps walk you through the process of using the chat app.
+The chat app is preloaded with rental information from a [PDF file catalog](https://github.com/Azure-Samples/serverless-chat-langchainjs/tree/main/data). You can use the chat app to ask questions about the rental process. The following steps walk you through the process of using the chat app.
 
-1. In the browser, select or enter **How to search and book rentals** in the text box at the bottom of the page.
+1. In the browser, select or enter **What is the refund policy**.
 
-    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer.png" alt-text="Screenshot of chat app's first answer.":::
+    :::image type="content" source="./media/get-started-app-chat-langchainjs/first-prompt-chat.png" lightbox="./media/get-started-app-chat-langchainjs/first-prompt-chat.png" alt-text="Screenshot of chat app's first answer.":::
 
-1. From the suggested follow-up questions, select **How can I contact the host if I have questions about a rental?**.
+1. Select a follow-up question.
 
-    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with Show thought process highlighted in a red box.":::
+    :::image type="content" source="./media/get-started-app-chat-langchainjs/follow-up-suggested-prompt.png" lightbox="./media/get-started-app-chat-langchainjs/follow-up-suggested-prompt.png" alt-text="Screenshot of chat app's suggested follow up prompt and answer":::
 
-1. From the response, select the `support.pdf` citation to see the document used to generate the answer. When you're done with the new browser tab, close it to return to the serverless chat app.
+1. From the response, select the citation to see the document used to generate the answer. This delivers the document from Azure Storage to the client. When you're done with the new browser tab, close it to return to the serverless chat app.
+
+
+    :::image type="content" source="./media/get-started-app-chat-langchainjs/citation-document.png" lightbox="./media/get-started-app-chat-langchainjs/citation-document.png" alt-text="Screenshot of original document containing citation.":::
 
 ## Clean up resources
 
@@ -194,13 +213,13 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 
-1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository.
+1. Locate your currently running Codespaces sourced from the [`Azure-Samples/serverless-chat-langchainjs`](https://github.com/Azure-Samples/serverless-chat-langchainjs) GitHub repository.
 
-    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
+    :::image type="content" source="./media/get-started-app-chat-langchainjs/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
 1. Open the context menu for the codespace and then select **Delete**.
 
-    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
+    :::image type="content" source="./media/get-started-app-chat-langchainjs/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -208,7 +227,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="./media/get-started-app-chat-template/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+    :::image type="content" source="./media/get-started-app-chat-langchainjs/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
