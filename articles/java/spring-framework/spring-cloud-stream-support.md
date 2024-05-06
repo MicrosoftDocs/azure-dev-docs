@@ -3,7 +3,7 @@ title: Spring Cloud Stream support
 description: This article describes how Spring Cloud Azure and Spring Cloud Stream can be used together.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yeyonghui
+ms.author: hangwan
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---

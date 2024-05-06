@@ -1,7 +1,7 @@
 ---
 ms.date: 08/17/2022
 author: KarlErickson
-ms.author: xiada
+ms.author: hangwan
 ---
 
 ### [Azure CLI](#tab/sign-in-azure-cli)

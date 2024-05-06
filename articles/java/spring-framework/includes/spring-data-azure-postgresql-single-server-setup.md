@@ -1,7 +1,7 @@
 ---
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yeyonghui
+ms.author: hangwan
 ---
 
 ## Configure a firewall rule for your PostgreSQL server
