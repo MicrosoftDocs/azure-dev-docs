@@ -439,7 +439,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240429.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240429.3) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240506.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240506.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -472,13 +472,13 @@
 | @azure-tools/cadl-ranch-api | npm [0.4.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.4.3) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.8.2](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.8.2) |  |  |
 | @azure-tools/cadl-ranch-expect | npm [0.13.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.13.3) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.33.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.33.1) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.33.2](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.33.2) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.7.7](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.7) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.7.8](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.8) |  |  |
 | @azure-tools/json | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/json/v/1.3.0) |  |  |
 | @azure-tools/jsonschema | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.0) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
