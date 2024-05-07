@@ -1,10 +1,8 @@
 ---
 title: Create a Hello World web app for Azure App Service using Eclipse
 description: This tutorial shows you how to use the Azure Toolkit for Eclipse to create a Hello World Web App for Azure.
-keywords: java, eclipse, web app, azure app service, hello world, quick start
 author: KarlErickson
-ms.author: asirveda 
-ms.reviewer: asirveda
+ms.author: jialuogan
 ms.date: 08/25/2020
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
