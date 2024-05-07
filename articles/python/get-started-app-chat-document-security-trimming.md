@@ -213,7 +213,7 @@ Deployment includes creating the Azure resources, uploading the documents, creat
     :::image type="content" source="./media/get-started-app-chat-document-security-trimming/azd-deployment-output.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
 1. Agree to the app authentication pop-up. 
-1. When the chat app displays, notice in the top right corner, your user is signed in. 
+1. When the chat app is displayed, notice in the top right corner that your user is signed in. 
 1. Open **Developer settings** and notice both these options are selected and greyed out (disabled for change).
 
     * **Use oid security filter**
