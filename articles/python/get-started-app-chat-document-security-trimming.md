@@ -1,7 +1,7 @@
 ---
 title: "Get started with chat document security trimming"
-description: "Secure your chat app with user authentication and document security trimming to ensure users receive answers based on their permissions."
-ms.date: 11/17/2023
+description: "Secure your chat app documents with user authentication and document security trimming to ensure users receive answers based on their permissions."
+ms.date: 05/07/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli
@@ -10,7 +10,7 @@ ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli
 
 # Get started with chat document security for Python
 
-This article provides the process to secure your chat app to ensure users gets answers from documents they're authorized to see. When you build a chat application using the RAG pattern with your own data, make sure that each user receives an answer based on their permissions.
+When you build a chat application using the RAG pattern with your own data, make sure that each user receives an answer based on their permissions. Follow the process in this article to add document access control to your chat app. 
 
 An **authorized user** should have access to answers contained within the documents of the chat app.
 
@@ -22,7 +22,7 @@ An **unauthorized user** shouldn't have access to answers from secured documents
 
 ## Architectural overview
 
-Without the document security, the enterprise chat app has a simple architecture using Azure OpenAI Search and Azure OpenAI. An answer is determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI. No user authentication is used in this simply flow.
+Without document security, the enterprise chat app has a simple architecture using Azure AI Search and Azure OpenAI. An answer is determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI. No user authentication is used in this simply flow.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/simple-rag-chat-architecture.png" alt-text="Architectural diagram showing an answer determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI.":::
 
@@ -329,6 +329,29 @@ Once this information is known, update the Azure AI Search index `oids` field fo
 
     The array at the end of the output includes your USER_OBJECT_ID and is used to determine if the document is used in the answer with Azure OpenAI. 
 
+
+### Verify Azure AI Search contains your USER_OBJECT_ID
+
+1. Open the [Azure portal](https://portal.azure.com) and search for your `AI Search`. 
+1. Select your search resource from the list.
+1. Select **Search management -> Indexes**. 
+1. Select the **gptkbindex**. 
+1. Select **View -> JSON view**.
+1. Replace the JSON with the following JSON.
+
+    ```json
+    {
+      "search": "*",
+      "select": "sourcefile, oids",
+      "filter": "oids/any()"
+    }
+    ```
+
+    This searches all documents where the `oids` field has any value and returns the `sourcefile`, and `oids` fields. 
+
+1. If the `role_library.pdf` doesn't have your oid, return to the [Provide user access to a document in Azure Search](#provide-user-access-to-a-document-in-azure-search) section and complete the steps.
+
+
 ### Verify user access to the document 
 
 If you completed the steps but did not see the correct answer, verify your USER_OBJECT_ID is set correctly in Azure AI Search for that `role_library.pdf`.
@@ -386,27 +409,6 @@ You aren't necessarily required to clean up your local environment, but you can 
 ## Get help
 
 This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main#troubleshooting).
-
-### Verify Azure AI Search contains your USER_OBJECT_ID
-
-1. Open the [Azure portal](https://portal.azure.com) and search for your `AI Search`. 
-1. Select your search resource from the list.
-1. Select **Search management -> Indexes**. 
-1. Select the **gptkbindex**. 
-1. Select **View -> JSON view**.
-1. Replace the JSON with the following JSON.
-
-    ```json
-    {
-      "search": "*",
-      "select": "sourcefile, oids",
-      "filter": "oids/any()"
-    }
-    ```
-
-    This searches all documents where the `oids` field has any value and returns the `sourcefile`, and `oids` fields. 
-
-1. If the `role_library.pdf` doesn't have your oid, return to the [Provide user access to a document in Azure Search](#provide-user-access-to-a-document-in-azure-search) section and complete the steps.
 
 ## Next steps
 
