@@ -22,7 +22,7 @@ An **unauthorized user** shouldn't have access to answers from secured documents
 
 ## Architectural overview
 
-Without the document security, the enterprise chat app has a simple architecture using Azure OpenAI Search and Azure OpenAI. An answer is determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI. No user authentication is used in this simply flow.
+Without the document security feature, the enterprise chat app has a simple architecture using Azure OpenAI Search and Azure OpenAI. An answer is determined from queries to Azure AI Search where the documents are stored, in combination with a response from an Azure OpenAI GPT model. No user authentication is used in this simple flow.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/simple-rag-chat-architecture.png" alt-text="Architectural diagram showing an answer determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI.":::
 
