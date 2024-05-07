@@ -217,14 +217,14 @@ Deployment includes creating the Azure resources, uploading the documents, creat
     :::image type="content" source="./media/get-started-app-chat-document-security-trimming/azd-deployment-output.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
 1. Agree to the app authentication pop-up. 
-1. When the chat app displays, notice in the top right corner, your user is signed in. 
+1. When the chat app is displayed, notice in the top right corner that your user is signed in. 
 1. Open **Developer settings** and notice both these options are selected and greyed out (disabled for change).
 
     * **Use oid security filter**
     * **Use groups security filter**
 
 1. Select the card with `What does a product manager do?`.
-1. You get the answer: `The provided sources do not contain specific information about the role of a Product Manager at Contoso Electronics.`
+1. You get an answer like: `The provided sources do not contain specific information about the role of a Product Manager at Contoso Electronics.`
 
     :::image type="content" source="./media/get-started-app-chat-document-security-trimming/role-library-access-denied.png" alt-text="Screenshot of chat app in browser showing the answer can't be returned":::
 
