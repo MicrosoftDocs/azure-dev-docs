@@ -9,56 +9,28 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
 ---
 
+# Deploy to an AI/ML studio online endpoint using the Azure Developer CLI
 
-The Azure Developer CLI supports the ability to quickly and easily deploy to an AI/ML studio online endpoint from `azd`. 
-
-* When `config.flow` section is defined `azd` will create a new prompt flow from the specified file path
-* When `config.environment` section is defined `azd` will create a new  environment version using the referenced yaml file definition
-* When `config.model` section is defined `azd` will create a new model version using the referenced yaml file definition
-
-The `config.deployment` section is **required** and will create a new online deployment to the associated online endpoint from the referenced yaml file definition.
-
-* Associates environment and model will be referenced when available
-* `azd` waits for deployment to enter a terminal provisioning state
-* On successful deployments all traffic is shifted to the new deployment version
-* All previous deployments are deleted to free up compute for future deployments.
-
-## Supported AI online endpoint features
+The Azure Developer CLI enables you to quickly and easily deploy to an [Azure ML Studio](https://ml.azure.com) or [Azure AI Studio](https://ai.azure.com) online endpoint. This feature is enabled and configured using the `azure.yaml` template file. `azd` supports the following features AI/ML studio features:
 
 * Custom Environments
-  * Environments can be viewed with [Azure ML Studio](https://ml.azure.com) under the `Environments` section
-
 * Custom models
-  * Models can be viewed with [Azure ML Studio](https://ml.azure.com) under the `Models` section
-
 * Prompt flows
-  * Flows can be viewed in [Azure ML Studio](https://ml.azure.com) under the `Prompt flow` section
-  * Flows can be viewed in [Azure AI Studio](https://ai.azure.com) under the `Prompt flow` section
-
 * Online Deployments (within Online-Endpoint)
-  * Deployments can be viewed in [Azure ML Studio](https://ml.azure.com) under the `Endpoints` section
-  * Deployments can be viewed in [Azure AI Studio](https://ai.azure.com) under the `Deployments` section
 
-## Requirements
+## Configure online endpoints
 
-The following resources will included within your deployed Azure resources.
+Configure support for AI/ML online endpoints in the `services` section of the `azure.yaml` file.
 
-1. AI Hub Resource  (Azure ML Workspace) & Required dependencies.
-   * Key Vault
-   * Storage Account
-   * Container Registry (optional)
-   * App Insights (optional)
-   * Azure Open AI Services
-   * Azure AI Search (If required by your app)
-2. AI Project Resource (Azure ML Workspace)
-3. Online Endpoint (ML Online Endpoint)
-   * Should be tagged with `azd-service-name` tag
-   * This is the target of the azd deployment
-4. AI Hub Connections
+- Set the `host` value to `ai.endpoint`.
+- The `config` section for `ai.endpoint` supports the following configurations:
+  - **workspace**: The name of the AI studio project / workspace (supports env var substitutions).
+  - **environment**: Optional custom configuration for ML environments. `azd` creates a new  environment version from the referenced yaml file definition.
+  - **flow**: Optional custom configuration for flows. `azd` creates a new prompt flow from the specified file path.
+  - **model**: Optional custom configuration for ML models. `azd` creates a new model version from the referenced yaml file definition.
+  - **deployment**: **Required** configuration for online endpoint deployments. `azd` creates a new online deployment to the associated online endpoint from the referenced yaml file definition.
 
-   * Any required connections that may be referenced in your flow/model
-
-## Example azure.yaml
+Additional details for these configurations are provided in later sections. Consider the following sample `azure.yaml` file that configures these features:
 
 ```yaml
 name: contoso-chat
@@ -94,18 +66,6 @@ services:
         environment:
           PRT_CONFIG_OVERRIDE: deployment.subscription_id=${AZURE_SUBSCRIPTION_ID},deployment.resource_group=${AZURE_RESOURCE_GROUP},deployment.workspace_name=${AZUREAI_PROJECT_NAME},deployment.endpoint_name=${AZUREAI_ENDPOINT_NAME},deployment.deployment_name=${AZUREAI_DEPLOYMENT_NAME}
 ```
-
-## AI Endpoint Configuration
-
-The `config` section for `ai.endpoint` supports the following configurations:
-
-**workspace**: The name of the AI studio project / workspace (supports env var substitutions).
-**flow**: Custom configuration for flows.
-**environment**: Custom configuration for ML environments.
-**model**: Custom configuration for ML models.
-**deployment**: Custom configuration for online endpoint deployments.
-
-Details for each of these configurations are provided in the following sections.
 
 ### Flow (flow)
 
@@ -152,3 +112,19 @@ The deployment configuration section is **required** and supports the following 
 > [!NOTE]
 > Only supports managed online deployments.
 
+## Deployment dependencies
+
+The following resources are create in your Azure environment as part of the provisioning and deployment process:
+
+1. AI Hub Resource  (Azure ML Workspace) & Required dependencies.
+   * Key Vault
+   * Storage Account
+   * Container Registry (optional)
+   * App Insights (optional)
+   * Azure Open AI Services
+   * Azure AI Search (If required by your app)
+2. AI Project Resource (Azure ML Workspace)
+3. Online Endpoint (ML Online Endpoint)
+   * Should be tagged with `azd-service-name` tag
+   * This is the target of the azd deployment
+4. AI Hub Connections
