@@ -272,7 +272,7 @@ Next SSH into the Azure virtual machine, install Go, and built the Go package.
 
 1. SSH into the Azure VM.
 
-    ```azurecli
+    ```console
     ssh azureuser@<public-ip>
     ```
 
@@ -280,7 +280,7 @@ Next SSH into the Azure virtual machine, install Go, and built the Go package.
 
 1. Install Go
 
-    ```azurecli
+    ```bash
     sudo add-apt-repository ppa:longsleep/golang-backports;
     sudo apt update;
     sudo apt install golang-go -y
@@ -290,25 +290,25 @@ Next SSH into the Azure virtual machine, install Go, and built the Go package.
 
 1. Make a new directory with the name `go-on-azure` in your home directory.
 
-    ```azurecli
+    ```bash
     mkidr ~/go-on-azure
     ```
 
 1. Change to the `go-on-azure` directory.
 
-    ```azurecli
+    ```bash
     cd ~/go-on-azure
     ```
 
 1. Run `go mod init` to create the `go.mod` file.
 
-    ```azurecli
+    ```bash
     go mod init go-on-azure
     ```
 
 1. Run `go get` to install the required Go modules.
 
-    ```azurecli
+    ```bash
     go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
     go get "github.com/Azure/azure-sdk-for-go/sdk/keyvault/azsecrets"
     ```
@@ -360,13 +360,13 @@ Next SSH into the Azure virtual machine, install Go, and built the Go package.
 
 Before you run the code, create an environment variable named `KEY_VAULT_NAME`. Set the environment variable's value to the name of the Azure Key Vault created previously. Replace `<KeyVaultName>` with the name of your Azure Key Vault instance.
 
-```azurecli
+```bash
 export KEY_VAULT_NAME=<KeyVaultName>
 ```
 
 Next, run `go run` command to create a key vault secret.
 
-```azurecli
+```bash
 go run main.go
 ```
 
