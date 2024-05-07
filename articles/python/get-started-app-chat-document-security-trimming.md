@@ -151,7 +151,7 @@ To set up authentication, you need to know how your tenant is set up:
 
 * **Tenant without conditional access policy**: Personal Azure subscriptions typically don't have conditional access policies. If your tenant doesn't have a conditional access policy, use the following environment variable for your tenant ID. By default, AZURE_TENANT_ID is used for both the authentication tenant and the main tenant.
     * `AZURE_TENANT_ID`
-* **Tenant with conditional access policy**: Enterprise (corporate) subscriptions typically have conditional access. If your tenant has a conditional access policy, you need a second tenant without conditional access. 
+* **Tenant with conditional access policy**: Enterprise (corporate) subscriptions typically have conditional access policies. If your tenant has a conditional access policy, you need a second tenant without a conditional access policy.
     * Your first tenant, associated with your user account, is used for the `AZURE_TENANT_ID` environment variable.
     * Your second tenant, without conditional access, is used for the `AZURE_AUTH_TENANT_ID` environment variable to access Microsoft Graph. For tenants with a conditional access policy, find the ID of a second tenant without conditional access or [create a new tenant](/entra/fundamentals/create-new-tenant). 
 
