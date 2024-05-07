@@ -29,7 +29,7 @@ Without document security feature, the enterprise chat app has a simple architec
 To add security for the documents, you need to update the enterprise chat app: 
 
 * Add client authentication to the chat app with Microsoft Entra.
-* Add server-side logic to populate a search index with the user identities that have access to each document.
+* Add server-side logic to populate a search index which corresponds to the authenticated user's identity that should have access to each document.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing a use authenticating with Entra ID, then passing that authentication to Azure AI Search.":::
 
@@ -37,9 +37,13 @@ Azure AI Search doesn't provide _native_ document-level permissions and can't va
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
 
-Because the authorization isn't natively contained in Azure AI Search, when you change the users and their authorizations in Entra ID, you need to update the document's access control with new user information you provide.
+Because the authorization isn't natively contained in Azure AI Search, when you use process document access control using the technique illustrated in this procedure, you need to:
 
-In this article, the process of securing documents in Azure AI Search, is provided through _example_ scripts which you as the search administrator would run. You can take these scripts and apply your own security and productionizing requirements to scale to your needs.
+* Create a field in your index to contain the users or groups who have access to the document. 
+* Update the field with those details.
+* Reindex when that information changes.
+
+In this article, the process of securing documents in Azure AI Search, is made possible with _example_ scripts which you as the search administrator would run. You can take these scripts and apply your own security and productionizing requirements to scale to your needs.
 
 ## Prerequisites
 
@@ -206,7 +210,7 @@ Deployment includes creating the Azure resources, uploading the documents, creat
     |Location for `documentIntelligentResourceGroupLocation`|Select a location near you.|
     |Location for `openAIResourceGroupLocation`|Select a location near you. |
 
-    Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
+    Wait 5 or 10 minutes after the app is deployed to allow the app to start up.
 1. After the application has been successfully deployed, you see a URL displayed in the terminal.
 1. Select that URL labeled `(✓) Done: Deploying service webapp` to open the chat application in a browser.
 
