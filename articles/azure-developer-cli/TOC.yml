@@ -31,6 +31,8 @@
       href: use-terraform-for-azd.md
     - name: Use third-party container registries
       href: use-external-registry.md
+    - name: Deploy to Azure AI/ML online endpoints
+      href: azure-ai-ml-endpoints.md
   - name: Create templates
     items:
     - name: Make your project azd-compatible

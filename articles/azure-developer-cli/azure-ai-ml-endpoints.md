@@ -11,26 +11,26 @@ ms.custom: devx-track-azdevcli, build-2023
 
 # Deploy to an AI/ML studio online endpoint using the Azure Developer CLI
 
-The Azure Developer CLI enables you to quickly and easily deploy to an [Azure ML Studio](https://ml.azure.com) or [Azure AI Studio](https://ai.azure.com) online endpoint. This feature is enabled and configured using the `azure.yaml` template file. `azd` supports the following features AI/ML studio features:
+The Azure Developer CLI enables you to quickly and easily deploy to an [Azure ML Studio](https://ml.azure.com) or [Azure AI Studio](https://ai.azure.com) online endpoint. This feature is enabled and configured using the `azure.yaml` template file. `azd` supports the following AI/ML studio features:
 
-* Custom Environments
+* Custom environments
 * Custom models
 * Prompt flows
-* Online Deployments (within Online-Endpoint)
+* Online deployments (within Online-Endpoint)
 
-## Configure online endpoints
+## Configure the template
 
-Configure support for AI/ML online endpoints in the `services` section of the `azure.yaml` file.
+Configure support for AI/ML online endpoints in the `services` section of the `azure.yaml` file:
 
 - Set the `host` value to `ai.endpoint`.
 - The `config` section for `ai.endpoint` supports the following configurations:
-  - **workspace**: The name of the AI studio project / workspace (supports env var substitutions).
-  - **environment**: Optional custom configuration for ML environments. `azd` creates a new  environment version from the referenced yaml file definition.
+  - **workspace**: The name of the AI studio workspace. Supports `azd` environment variable substitutions and syntax.
+  - **environment**: Optional custom configuration for ML environments. `azd` creates a new  environment version from the referenced YAML file definition.
   - **flow**: Optional custom configuration for flows. `azd` creates a new prompt flow from the specified file path.
-  - **model**: Optional custom configuration for ML models. `azd` creates a new model version from the referenced yaml file definition.
-  - **deployment**: **Required** configuration for online endpoint deployments. `azd` creates a new online deployment to the associated online endpoint from the referenced yaml file definition.
+  - **model**: Optional custom configuration for ML models. `azd` creates a new model version from the referenced YAML file definition.
+  - **deployment**: **Required** configuration for online endpoint deployments. `azd` creates a new online deployment to the associated online endpoint from the referenced YAML file definition.
 
-Additional details for these configurations are provided in later sections. Consider the following sample `azure.yaml` file that configures these features:
+Consider the following sample `azure.yaml` file that configures these features:
 
 ```yaml
 name: contoso-chat
@@ -47,7 +47,7 @@ services:
     host: ai.endpoint
     # New config flow for AI project configuration
     config:
-      # The name of the AI studio project / workspace
+      # The name of the AI studio workspace
       workspace: ${AZUREAI_PROJECT_NAME}
       # Optional: Path to custom ML environment manifest
       environment:
@@ -66,6 +66,10 @@ services:
         environment:
           PRT_CONFIG_OVERRIDE: deployment.subscription_id=${AZURE_SUBSCRIPTION_ID},deployment.resource_group=${AZURE_RESOURCE_GROUP},deployment.workspace_name=${AZUREAI_PROJECT_NAME},deployment.endpoint_name=${AZUREAI_ENDPOINT_NAME},deployment.deployment_name=${AZUREAI_DEPLOYMENT_NAME}
 ```
+
+## Explore configuration options
+
+Each supported feature for AI/ML online endpoints can be customized for your specific scenario using the options described in the following sections.
 
 ### Flow (flow)
 
