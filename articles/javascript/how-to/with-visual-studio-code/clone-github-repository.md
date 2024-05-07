@@ -221,7 +221,7 @@ Working in Visual Studio Code with a repository uses separate tools.
 |Icon|Information|[Access from](https://code.visualstudio.com/docs/getstarted/userinterface)|
 |--|--|--|
 || [Git commands](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) in command palette|<kbd>F1</kbd>|
-|:::image type="content" source="../../media/how-to-clone-github-repo/git-commit-icon-activity-bar.png" alt-text="Small icon for Source control used in Visual Studio Code.":::|Source control extension|Activity bar|
+|:::image type="icon" source="../../media/how-to-clone-github-repo/git-commit-icon-activity-bar.png":::|Source control extension|Activity bar|
 |:::image type="content" source="../../media/how-to-clone-github-repo/github-icon-prs-issues.png" alt-text="Icon for GitHub PRs and Issues":::|[GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) extension|Activity bar|
 ||[GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension|You can quickly and easily open a GitHub repository either by searching for GitHub Repositories: Open Repository... from the Command Palette, <kbd>F1</kbd>, or by choosing Open GitHub Repository... from the remote indicator (the green button in the lower left corner of the status bar).|
 
