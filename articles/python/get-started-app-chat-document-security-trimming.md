@@ -22,24 +22,24 @@ An **unauthorized user** shouldn't have access to answers from secured documents
 
 ## Architectural overview
 
-Without document security, the enterprise chat app has a simple architecture using Azure AI Search and Azure OpenAI. An answer is determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI. No user authentication is used in this simply flow.
+Without document security feature, the enterprise chat app has a simple architecture using Azure AI Search and Azure OpenAI. An answer is determined from queries to Azure AI Search where the documents are stored, in combination with a response from an Azure OpenAI GPT model. No user authentication is used in this simple flow.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/simple-rag-chat-architecture.png" alt-text="Architectural diagram showing an answer determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI.":::
 
 To add security for the documents, you need to update the enterprise chat app: 
 
-* Add client authentication to the chat app with Microsoft Entra
-* Add server authentication to get documents from Azure AI Search which correspond to the user's identity
+* Add client authentication to the chat app with Microsoft Entra.
+* Add server-side logic to populate a search index with the user identities that have access to each document.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing a use authenticating with Entra ID, then passing that authentication to Azure AI Search.":::
 
-Azure AI Search doesn't provide _native_ document-level permissions and can't vary search results from within an index by user permissions. Your application can use search filters to ensure a document is accessible to a specific user or by a specific group.
+Azure AI Search doesn't provide _native_ document-level permissions and can't vary search results from within an index by user permissions. Your application can use search filters to ensure a document is accessible to a specific user or by a specific group. Within your search index, each document should have a filterable field that stores user or group identity information.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
 
 Because the authorization isn't natively contained in Azure AI Search, when you change the users and their authorizations in Entra ID, you need to update the document's access control with new user information you provide.
 
-In this article, the process of securing documents in Azure AI Search, is provided through scripts which you as the search administrator need to run.
+In this article, the process of securing documents in Azure AI Search, is provided through _example_ scripts which you as the search administrator would run. You can take these scripts and apply your own security and productionizing requirements to scale to your needs.
 
 ## Prerequisites
 
@@ -147,19 +147,16 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ## Get required information with Azure CLI
 
-To set up authentication, you need to know how your tenant is set up:
-
-* **Tenant without conditional access policy**: Personal Azure subscriptions typically don't have conditional access. If your tenant doesn't have a conditional access policy, use the following environment variable for your tenant ID. By default, AZURE_TENANT_ID is used for both the authentication tenant and the main tenant.
-    * `AZURE_TENANT_ID`
-* **Tenant with conditional access policy**: Enterprise (corporate) subscriptions typically have conditional access. If your tenant has a conditional access policy, you need a second tenant without conditional access. 
-    * Your first tenant, associated with your user account, is used for the `AZURE_TENANT_ID` environment variable.
-    * Your second tenant, without conditional access, is used for the `AZURE_AUTH_TENANT_ID` environment variable to access Microsoft Graph. For tenants with a conditional access policy, find the ID of a second tenant without conditional access or [create a new tenant](/entra/fundamentals/create-new-tenant). 
-
-Get your subscription ID and tenant ID with the following Azure CLI command. 
+Get your subscription ID and tenant ID with the following Azure CLI command. Copy the value to use as your `AZURE_TENANT_ID`.
 
 ```azurecli
 az account list --query "[].{subscription_id:id, name:name, tenantId:tenantId}" -o table
 ```
+
+If you get an error about your tenant's conditional access policy, you need a second tenant without a conditional access policy.
+
+* Your first tenant, associated with your user account, is used for the `AZURE_TENANT_ID` environment variable.
+* Your second tenant, without conditional access, is used for the `AZURE_AUTH_TENANT_ID` environment variable to access Microsoft Graph. For tenants with a conditional access policy, find the ID of a second tenant without conditional access or [create a new tenant](/entra/fundamentals/create-new-tenant).
 
 ## Set environment variables
 
