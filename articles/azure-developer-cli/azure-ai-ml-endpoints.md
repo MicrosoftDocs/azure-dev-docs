@@ -22,13 +22,13 @@ The Azure Developer CLI enables you to quickly and easily deploy to an [Azure ML
 
 Configure support for AI/ML online endpoints in the `services` section of the `azure.yaml` file:
 
-- Set the `host` value to `ai.endpoint`.
-- The `config` section for `ai.endpoint` supports the following configurations:
-  - **workspace**: The name of the AI studio workspace. Supports `azd` environment variable substitutions and syntax.
-  - **environment**: Optional custom configuration for ML environments. `azd` creates a new  environment version from the referenced YAML file definition.
-  - **flow**: Optional custom configuration for flows. `azd` creates a new prompt flow from the specified file path.
-  - **model**: Optional custom configuration for ML models. `azd` creates a new model version from the referenced YAML file definition.
-  - **deployment**: **Required** configuration for online endpoint deployments. `azd` creates a new online deployment to the associated online endpoint from the referenced YAML file definition.
+* Set the `host` value to `ai.endpoint`.
+* The `config` section for `ai.endpoint` supports the following configurations:
+  * **workspace**: The name of the AI studio workspace. Supports `azd` environment variable substitutions and syntax.
+  * **environment**: Optional custom configuration for ML environments. `azd` creates a new  environment version from the referenced YAML file definition.
+  * **flow**: Optional custom configuration for flows. `azd` creates a new prompt flow from the specified file path.
+  * **model**: Optional custom configuration for ML models. `azd` creates a new model version from the referenced YAML file definition.
+  * **deployment**: **Required** configuration for online endpoint deployments. `azd` creates a new online deployment to the associated online endpoint from the referenced YAML file definition.
 
 Consider the following sample `azure.yaml` file that configures these features:
 
@@ -75,43 +75,43 @@ Each supported feature for AI/ML online endpoints supports customizations for yo
 
 The `flow` configuration section is optional and supports the following values:
 
-- **name**: The name of the flow. Defaults to `<service-name>-flow-<timestamp>` if not specified.
-- **path**: The relative path to a folder that contains the flow manifest.
-- **overrides**: Any custom overrides to apply to the flow.
+* **name**: The name of the flow. Defaults to `<service-name>-flow-<timestamp>` if not specified.
+* **path**: The relative path to a folder that contains the flow manifest.
+* **overrides**: Any custom overrides to apply to the flow.
 
     > [!NOTE]
     > Each call to `azd deploy` creates a new timestamped flow.
-    
+
 ### Environment
 
 The `environment` configuration section is optional and supports the following values:
 
-- **name**: The name of the custom environment. Defaults to `<service-name>-environment` if not specified.
-- **path**: The relative path to a custom [environment yaml manifest](/azure/machine-learning/reference-yaml-environment?view=azureml-api-2).
-- **overrides**: Any custom overrides to apply to the environment.
+* **name**: The name of the custom environment. Defaults to `<service-name>-environment` if not specified.
+* **path**: The relative path to a custom [environment yaml manifest](/azure/machine-learning/reference-yaml-environment?view=azureml-api-2&preserve-view=true).
+* **overrides**: Any custom overrides to apply to the environment.
 
     > [!NOTE]
     > Each call to `azd deploy` creates a new environment version.
-    
+
 ### Model
 
 The `model` configuration section is optional and supports following values:
 
-- **name**: The name of the custom model. Defaults to `<service-name>-model` if not specified.
-- **path**: The relative path to a custom [model yaml manifest](/azure/machine-learning/reference-yaml-model?view=azureml-api-2&preserve-view=true).
-- **overrides**: Any custom overrides to apply to the model.
+* **name**: The name of the custom model. Defaults to `<service-name>-model` if not specified.
+* **path**: The relative path to a custom [model yaml manifest](/azure/machine-learning/reference-yaml-model?view=azureml-api-2&preserve-view=true).
+* **overrides**: Any custom overrides to apply to the model.
 
     > [!NOTE]
     > Each call to `azd deploy` creates a new environment version.
-    
+
 ### Deployment
 
 The `deployment` configuration section is **required** and supports the following values:
 
-- **name**: The name of the custom deployment. Defaults to `<service-name>-deployment` if not specified.
-- **path**: The relative path to a custom [deployment yaml manifest](/azure/machine-learning/reference-yaml-deployment-managed-online?view=azureml-api-2&preserve-view=true).
-- **environment**: A map of key value pairs to set environment variables for the deployment. Supports environment variable substitutions from OS/AZD environment variables using `${VAR_NAME}` syntax.
-- **overrides**: Any custom overrides to apply to the deployment.
+* **name**: The name of the custom deployment. Defaults to `<service-name>-deployment` if not specified.
+* **path**: The relative path to a custom [deployment yaml manifest](/azure/machine-learning/reference-yaml-deployment-managed-online?view=azureml-api-2&preserve-view=true).
+* **environment**: A map of key value pairs to set environment variables for the deployment. Supports environment variable substitutions from OS/AZD environment variables using `${VAR_NAME}` syntax.
+* **overrides**: Any custom overrides to apply to the deployment.
 
     > [!NOTE]
     > Only supports managed online deployments.
