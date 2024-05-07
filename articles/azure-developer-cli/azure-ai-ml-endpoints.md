@@ -82,7 +82,7 @@ The flow configuration section is optional and supports the following values:
 
 The environment configuration section is optional and supports the following values:
 
-- **name**: Name of custom environment (defaults to `<service-name>-environment` if not specified).
+- **name**: Name of custom environment. Defaults to `<service-name>-environment` if not specified)
 - **path**: Relative path to a custom [environment yaml manifest](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-environment?view=azureml-api-2).
 - **overrides**: Any custom overrides to apply to the environment.
 
@@ -93,7 +93,7 @@ The environment configuration section is optional and supports the following val
 
 The model configuration section is optional and supports following values:
 
-- **name**: Name of custom model (defaults to `<service-name>-model` if not specified).
+- **name**: Name of custom model. Defaults to `<service-name>-model` if not specified.
 - **path**: Relative path to a custom [model yaml manifest](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-model?view=azureml-api-2).
 - **overrides**: Any custom overrides to apply to the model.
 
@@ -104,7 +104,7 @@ The model configuration section is optional and supports following values:
 
 The deployment configuration section is **required** and supports the following values:
 
-- **name**: Name of custom model(defaults to `<service-name>-deployment` if not specified).
+- **name**: Name of custom model. Defaults to `<service-name>-deployment` if not specified.
 - **path**: Relative path to a custom [deployment yaml manifest](https://learn.microsoft.com/en-us/azure/machine-learning/reference-yaml-deployment-managed-online?view=azureml-api-2).
 - **environment**: A map of key value pairs to set environment variables for the deployment. Supports environment variable substitutions from OS/AZD environment variables using `${VAR_NAME}` syntax.
 - **overrides**: Any custom overrides to apply to the deployment.
@@ -114,7 +114,7 @@ The deployment configuration section is **required** and supports the following 
 
 ## Deployment dependencies
 
-The following resources are create in your Azure environment as part of the provisioning and deployment process:
+The following resources are created in your Azure environment as part of the provisioning and deployment process:
 
 1. AI Hub Resource  (Azure ML Workspace) & Required dependencies.
    * Key Vault
