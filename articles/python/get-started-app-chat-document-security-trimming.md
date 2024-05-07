@@ -220,7 +220,7 @@ Deployment includes creating the Azure resources, uploading the documents, creat
     * **Use groups security filter**
 
 1. Select the card with `What does a product manager do?`.
-1. You get the answer: `The provided sources do not contain specific information about the role of a Product Manager at Contoso Electronics.`
+1. You get an answer like: `The provided sources do not contain specific information about the role of a Product Manager at Contoso Electronics.`
 
     :::image type="content" source="./media/get-started-app-chat-document-security-trimming/role-library-access-denied.png" alt-text="Screenshot of chat app in browser showing the answer can't be returned":::
 
