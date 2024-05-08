@@ -33,7 +33,7 @@ To add security for the documents, you need to update the enterprise chat app:
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing a use authenticating with Entra ID, then passing that authentication to Azure AI Search.":::
 
-Azure AI Search doesn't provide _native_ document-level permissions and can't vary search results from within an index by user permissions. Your application can use search filters to ensure a document is accessible to a specific user or by a specific group. Within your search index, each document should have a filterable field that stores user or group identity information.
+Azure AI Search doesn't provide _native_ document-level permissions and can't vary search results from within an index by user permissions. Instead, your application can use search filters to ensure a document is accessible to a specific user or by a specific group. Within your search index, each document should have a filterable field that stores user or group identity information.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
 
@@ -43,7 +43,7 @@ Because the authorization isn't natively contained in Azure AI Search, when you 
 * Update the field with those details.
 * Reindex when that information changes.
 
-In this article, the process of securing documents in Azure AI Search, is made possible with _example_ scripts which you as the search administrator would run. You can take these scripts and apply your own security and productionizing requirements to scale to your needs.
+In this article, the process of securing documents in Azure AI Search, is made possible with _example_ scripts which you as the search administrator would run. The scripts associate a single document with a single user identity. You can take these [scripts](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/scripts) and apply your own security and productionizing requirements to scale to your needs.
 
 ## Prerequisites
 
@@ -160,7 +160,7 @@ az account list --query "[].{subscription_id:id, name:name, tenantId:tenantId}" 
 If you get an error about your tenant's conditional access policy, you need a second tenant without a conditional access policy.
 
 * Your first tenant, associated with your user account, is used for the `AZURE_TENANT_ID` environment variable.
-* Your second tenant, without conditional access, is used for the `AZURE_AUTH_TENANT_ID` environment variable to access Microsoft Graph. For tenants with a conditional access policy, find the ID of a second tenant without conditional access or [create a new tenant](/entra/fundamentals/create-new-tenant).
+* Your second tenant, without conditional access, is used for the `AZURE_AUTH_TENANT_ID` environment variable to access Microsoft Graph. For tenants with a conditional access policy, find the ID of a second tenant without a conditional access policy or [create a new tenant](/entra/fundamentals/create-new-tenant).
 
 ## Set environment variables
 
