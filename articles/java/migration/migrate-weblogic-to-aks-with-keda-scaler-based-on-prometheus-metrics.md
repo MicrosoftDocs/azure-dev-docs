@@ -49,8 +49,6 @@ The following WLS state and metrics are exported by default. You can configure t
 * [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 * Make sure you have either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 * Prepare a local machine with either Windows with WSL, GNU/Linux, or macOS installed.
-   * If running on macOS or Windows, the steps in the section [Configure Prometheus to scrape metrics from WLS](#configure-prometheus-to-scrape-metrics-from-wls) will not run on macOS. Run the steps in this section on [Azure Cloud Shell](../articles/cloud-shell/quickstart.md) using the bash environment.
-     [![Embed launch](/azure/developer/go/media/cloud-shell-try-it/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)  
 * Install Azure CLI version 2.54.0 or higher to run Azure CLI commands.
 * Install and set up [kubectl](/cli/azure/aks#az-aks-install-cli).
 * Have the credentials for an Oracle single sign-on (SSO) account. To create one, see [Create Your Oracle Account](https://aka.ms/wls-aks-create-sso-account).
