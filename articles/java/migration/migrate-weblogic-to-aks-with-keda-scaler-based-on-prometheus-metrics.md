@@ -212,6 +212,33 @@ Input your PromQL following steps:
 
     :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/prometheus-explorer.png" alt-text="Screenshot of the Azure portal showing the Prometheus explorer." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/prometheus-explorer.png":::
 
+> [!NOTE]
+> You can access the metrics by exposing WebLogic Monitoring Exporter with command:
+> ```
+> cat <<EOF | kubectl apply -f -
+> apiVersion: v1
+> kind: Service
+> metadata:
+>   name: sample-domain1-cluster-1-exporter
+>   namespace: sample-domain1-ns
+> spec:
+>   ports:
+>   - name: default
+>     port: 8080
+>     protocol: TCP
+>     targetPort: 8080
+>   selector:
+>     weblogic.domainUID: sample-domain1
+>     weblogic.clusterName: cluster-1
+>   sessionAffinity: None
+>   type: LoadBalancer
+> EOF
+> 
+> kubectl get svc -n sample-domain1-ns
+> ```
+> Access the `http://<exporter-public-ip>:8080/metrics` and login with WebLogic credentials. You will find all the metrics.
+
+
 ## Create KEDA scaler
 
 Scalers define how and when KEDA should scale a deployment. This article uses [Prometheus scaler](https://keda.sh/docs/2.10/scalers/prometheus/) to retrieve Prometheus metrics from the Azure Monitor workspace. 
