@@ -20,6 +20,8 @@ items:
       - name: Red Hat JBoss EAP Server on Azure VM
         href: /azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Red Hat JBoss EAP on Azure Red Hat OpenShift
+        href: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: Red Hat JBoss EAP on Azure Red Hat OpenShift 4 cluster
         href: jboss-eap-on-aro.md
       - name: Red Hat Quarkus on Azure Container Apps
         href: deploy-java-quarkus-app.md
