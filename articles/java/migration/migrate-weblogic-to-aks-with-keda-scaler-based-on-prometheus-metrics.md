@@ -232,7 +232,7 @@ Input your PromQL following steps:
 >   type: LoadBalancer
 > EOF
 > 
-> kubectl get svc -n sample-domain1-ns
+> kubectl get svc -n sample-domain1-ns -w
 > ```
 > Access the `http://<exporter-public-ip>:8080/metrics` and login with WebLogic credentials. You will find all the metrics.
 
