@@ -55,7 +55,7 @@ Deploy a virtual machine to Azure. You'll run the Go code to create a secret in 
     az vm create \
     --resource-group go-on-azure \
     --name go-on-azure-vm \
-    --image canonical:ubuntuserver:19.04:latest \
+    --image Canonical:0001-com-ubuntu-pro-jammy:pro-22_04-lts:latest \
     --admin-username azureuser \
     --admin-password <password>
     ```
@@ -146,10 +146,8 @@ Run the following commands to create a user-assigned managed identity:
 ```azurecli
 az identity create -g go-on-azure -n GoUserIdentity
 
-az vm identity assign -g go-on-azure -n go-on-azure-vm --identities <UserIdentityId>
+az vm identity assign -g go-on-azure -n go-on-azure-vm --identities GoUserIdentity
 ```
-
-Replace `<UserIdentityId>` with the managed user identity's ID.
 
 To learn more, check out [Configure managed identities for Azure resources on an Azure VM using Azure CLI](/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm).
 
@@ -291,7 +289,7 @@ Next SSH into the Azure virtual machine, install Go, and built the Go package.
 1. Make a new directory with the name `go-on-azure` in your home directory.
 
     ```bash
-    mkidr ~/go-on-azure
+    mkdir ~/go-on-azure
     ```
 
 1. Change to the `go-on-azure` directory.
