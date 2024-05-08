@@ -292,4 +292,4 @@ az group delete --name $RG_NAME --yes --no-wait
 Learn more about deploying JBoss EAP on Azure by following these links:
 
 > [!div class="nextstepaction"]
-> [Red Hat JBoss EAP on Azure](jboss-on-azure.md)
+> [JBoss EAP on Azure](jboss-on-azure.md)
