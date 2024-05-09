@@ -55,7 +55,7 @@ Deploy a virtual machine to Azure. You'll run the Go code to create a secret in 
     az vm create \
     --resource-group go-on-azure \
     --name go-on-azure-vm \
-    --image Canonical:0001-com-ubuntu-pro-jammy:pro-22_04-lts:latest \
+    --image Canonical:0001-com-ubuntu-server-jammy:22_04-lts:latest \
     --admin-username azureuser \
     --admin-password <password>
     ```
@@ -90,7 +90,7 @@ Create a new Azure key vault instance by running the following command:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-az keyvault create --location eastus --name <keyVaultName> --resource-group go-on-azure
+az keyvault create --location eastus --name <keyVaultName> --resource-group go-on-azure --enable-rbac-authorization
 ```
 
 Replace `<keyVaultName>` with a globally unique name.
@@ -189,7 +189,7 @@ az vm identity show --name go-on-azure-vm --resource-group go-on-azure --query p
 #output key vault ID
 az keyvault show --name <keyVaultName> --query id -o tsv
 
-az role assignment create --assignee <principalId> --role "Key Vault Contributor" --scope <keyVaultId>
+az role assignment create --assignee <principalId> --role "Key Vault Secrets Officer" --scope <keyVaultId>
 ```
 
 In the second command, replace `<keyVaultName>` with the name of your key vault. In the last command, replace `<principalId>` and `<keyVaultId>` with the output from the first two commands.
@@ -223,7 +223,7 @@ az identity show --resource-group go-on-azure --name GoUserIdentity --query prin
 #output key vault ID
 az keyvault show --name <keyVaultName> --query id -o tsv
 
-az role assignment create --assignee <principalId> --role "Key Vault Contributor" --scope <keyVaultId>
+az role assignment create --assignee <principalId> --role "Key Vault Secrets Officer" --scope <keyVaultId>
 ```
 
 In the second command, replace `<keyVaultName>` with the name of your key vault. In the last command, replace `<principalId>` and `<keyVaultId>` with the output from the first two commands.
@@ -342,7 +342,8 @@ Next SSH into the Azure virtual machine, install Go, and built the Go package.
             log.Fatalf("failed to create a client: %v", err)
         }
     
-        resp, err := client.SetSecret(context.TODO(), secretName, secretValue, nil)
+        params := azsecrets.SetSecretParameters{Value: &secretValue}
+        resp, err := client.SetSecret(context.TODO(), secretName, params, nil)
         if err != nil {
             log.Fatalf("failed to create a secret: %v", err)
         }
