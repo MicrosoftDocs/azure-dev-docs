@@ -2,8 +2,8 @@
 title: Configure and deploy group policies
 titleSuffix: Microsoft dev tunnels
 description: Learn how to configure and deploy group policies settings across your organization. 
-author: curib
-ms.author: cauribeg
+author: derekbekoe
+ms.author: debekoe
 ms.topic: quickstart
 ms.service: azure-dev-tunnels
 ms.date: 03/27/2024 
