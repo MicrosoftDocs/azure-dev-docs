@@ -238,9 +238,9 @@ Use Prometheus Query Language (PromQL) queries see metrics in the Azure Monitor 
 
 ## Create KEDA scaler
 
-Scalers define how and when KEDA should scale a deployment. This article uses [Prometheus scaler](https://keda.sh/docs/2.10/scalers/prometheus/) to retrieve Prometheus metrics from the Azure Monitor workspace. 
+Scalers define how and when KEDA should scale a deployment. This article uses the [Prometheus scaler](https://keda.sh/docs/2.10/scalers/prometheus/) to retrieve Prometheus metrics from the Azure Monitor workspace. 
 
-This article use `openSessionsCurrentCount` of the sample application as trigger query. When the average open session account is more than `10`, scale up the WLS cluster until it reaches the maximum replica size. Otherwise, scale down the WLS cluster until it reaches its minimum replica size. The table lists important parameters:
+This article use `openSessionsCurrentCount` of the sample application as the trigger query. The rule for this metric is described as follows. When the average open session account is more than `10`, scale up the WLS cluster until it reaches the maximum replica size. Otherwise, scale down the WLS cluster until it reaches its minimum replica size. The table lists the important parameters:
 
 | Parameter Name | Value |
 |-------------------|----------------------------------------------------|
@@ -251,25 +251,11 @@ This article use `openSessionsCurrentCount` of the sample application as trigger
 | `minReplicaCount` | 1 |
 | `maxReplicaCount` | The default value is 5. If you modified the maximum cluster size during offer deployment, replace with your maximum cluster size. |
 
-> [!NOTE]
-> The offer deploys *testwebapp.war* with name `app1` by default. You can access the WLS admin console to obtain the application name. 
->
-> 1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
-> 1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
-> 1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whose name starts with **oracle.20210620-wls-on-aks**.
-> 1. The **adminConsoleExternalUrl** value is the fully qualified, public Internet visible link to the WLS admin consolt. Select the copy icon next to the field value to copy the link to your clipboard. 
-> 1. Paste the value to your browser and open WLS admin console. 
-> 1. Log in with WLS admin account, which you wrote down during [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
->   * Under **Domain Structure**, select **Deployments**. You find **app1** listed. 
->   * Select **app1**, you find the **Name** of the application is `app1`. Use `app1` as application name in the query.
-
-After the offer deployment completes, you find a KEDA scaler sample from the deployment output. You can modify the sample on your demand and create a KEDA scaler.
-
-Following the steps to get the output of scaler sample.
+Because you selected **WebLogic Monitoring Exporter** at deployment time, a KEDA scaler has been made ready to deploy. The following steps show you how to configure the KEDA scaler for use with your AKS cluster.
 
 1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
 1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
-1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whose name starts with **oracle.20210620-wls-on-aks**.
+1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whose name starts with something similar to **oracle.20210620-wls-on-aks**.
 1. The **kedaScalerServerAddress** value is the server address of that saves the WLS metrics. KEDA is able to access and retrieve metric from the address.
 1. The **shellCmdtoOutputKedaScalerSample** value is the base64 string of a scaler sample. Copy the value and run it in your terminal. The command should look similar to the following example:
 
@@ -277,71 +263,44 @@ Following the steps to get the output of scaler sample.
     echo -e YXBpVm...XV0aAo= | base64 -d > scaler.yaml
     ```
     
-    This command produces a *scaler.yaml* file in current directory, with contents similar to the following example:
+    This command produces a *scaler.yaml* file in current directory.
+
+1. Modify the query to use the name of the deployed app.
+
+   > [!NOTE]
+   > When you deploy an app with the offer, it is named `app1` by default. You can access the WLS admin console to obtain the application name. 
+   >
+   > 1. Use the preceding steps to view the deployment outputs.
+   > 1. The **adminConsoleExternalUrl** value is the fully qualified, public Internet visible link to the WLS admin consolt. Select the copy icon next to the field value to copy the link to your clipboard. 
+   > 1. Paste the value to your browser and open WLS admin console. 
+   > 1. Log in with WLS admin account, which you wrote down during [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
+   >   * Under **Domain Structure**, select **Deployments**. You find **app1** listed. 
+   >   * Select **app1**, you find the **Name** of the application is `app1`. Use `app1` as application name in the query.
 
     ```yaml
-    apiVersion: keda.sh/v1alpha1
-    kind: TriggerAuthentication
-    metadata:
-      name: azure-managed-prometheus-trigger-auth
-      namespace: sample-domain1-ns
-    spec:
-      podIdentity:
-          provider: azure-workload
-          identityId: cc41aedb-8eeb-4006-acd1-03b75a1a2319
-    ---
-    apiVersion: keda.sh/v1alpha1
-    kind: ScaledObject
-    metadata:
-      name: azure-managed-prometheus-scaler
-      namespace: sample-domain1-ns
-    spec:
-      scaleTargetRef:
-        apiVersion: weblogic.oracle/v1
-        kind: Cluster
-        name: sample-domain1-cluster-1
-      minReplicaCount: 1
-      maxReplicaCount: 5
-      triggers:
-      - type: prometheus
-        metadata:
-          serverAddress: https://amajtdxcfggepdbc-23bc.eastus.prometheus.monitor.azure.com
-          metricName: webapp_config_open_sessions_high_count
-          query: sum(webapp_config_open_sessions_high_count{app="<your-app-name>"}) # Note: query must return a vector/scalar single element response
-          threshold: '10'
-          activationThreshold: '1'
-        authenticationRef:
-          name: azure-managed-prometheus-trigger-auth
-
-    ```
-
-1. Modify the metric name. This article uses total `webapp_config_open_sessions_current_count` as query.
-
-    ```yaml
-    metricName: webapp_config_open_sessions_current_count
     query: sum(webapp_config_open_sessions_current_count{app="app1"})
     ```
 
-Create the KEDA scaler by applying *scaler.yaml*.
+1. Create the KEDA scaler by applying *scaler.yaml*.
 
-```bash
-kubectl apply -f scaler.yaml
-```
+   ```bash
+   kubectl apply -f scaler.yaml
+   ```
 
-It takes several minutes for KEDA to retrieve metrics from the Azure Monitor workspace. You can watch the scaler status with:
+   It takes several minutes for KEDA to retrieve metrics from the Azure Monitor workspace. You can watch the scaler status with:
 
-```bash
-kubectl get hpa -n sample-domain1-ns -w
-```
+   ```bash
+   kubectl get hpa -n sample-domain1-ns -w
+   ```
 
-Once the scaler is ready to work, the output looks similar to the following content.
+   Once the scaler is ready to work, the output looks similar to the following content.
 
-```text
-$ kubectl get hpa -n sample-domain1-ns -w
-NAME                                       REFERENCE                          TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
-keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   <unknown>/10 (avg)   1         5         0          10s
-keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)           1         5         2          15s
-```
+   ```text
+   $ kubectl get hpa -n sample-domain1-ns -w
+   NAME                                       REFERENCE                          TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+   keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)           1         5         2          15s
+   ```
+
 
 ## Test autoscaling
 
@@ -349,9 +308,7 @@ Now, you're ready to observe the scaling up and scaling down capability. This ar
 
 First, obtain the application URL.
 
-  1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
-  1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
-  1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whose name starts with **oracle.20210620-wls-on-aks**.
+  1. Use the preceding steps to view the deployment outputs.
   1. The **clusterExternalUrl** value is the fully qualified, public Internet visible link to the sample app deployed in WLS on this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. 
   1. The URL to access `testwebapp.war` is `${clusterExternalUrl}testwebapp`. For example, `http://wlsgw202403-wlsaks0314-domain1.eastus.cloudapp.azure.com/testwebapp/`.
 
@@ -410,7 +367,7 @@ Then, observe the scaler with `kubectl get hpa -n <wls-namespace> -w` and WLS po
   sample-domain1-managed-server1   2/2     Running             0          28h
   ```
 
-  The graph in the Azure Monitor workspace looks similar to the screenshot.
+  The graph in the Azure Monitor workspace will look similar to this.
 
   :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wls-autoscaling-graph.png" alt-text="Screenshot of the Azure portal showing the Prometheus explorer graph." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wls-autoscaling-graph.png":::
 
