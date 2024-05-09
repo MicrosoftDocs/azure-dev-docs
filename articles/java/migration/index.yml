@@ -89,6 +89,8 @@ landingContent:
             url: migrate-websphere-to-jboss-eap-on-azure-app-service.md
           - text: "Tutorial: WebSphere to Azure VMs manual guidance"
             url: migrate-websphere-to-azure-vm-manually.md
+          - text: "Tutorial: WebSphere to Azure VMs with high availability and disaster recovery"
+            url: migrate-websphere-to-vms-with-ha-dr.md
   - title: Migrate JBoss EAP to Azure
     linkLists:
       - linkListType: how-to-guide
