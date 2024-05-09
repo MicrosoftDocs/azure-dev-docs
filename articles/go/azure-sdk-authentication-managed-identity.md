@@ -1,7 +1,7 @@
 ---
 title: Authentication with the Azure SDK for Go using a managed identity
 description: In this tutorial, you'll use the Azure SDK for Go to authenticate to Azure with a managed identity.
-ms.date: 05/06/2024
+ms.date: 05/09/2024
 ms.topic: how-to
 ms.custom: devx-track-go, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -17,7 +17,6 @@ Follow this tutorial to assign a managed identity to a virtual machine and authe
 ## Prerequisites
 
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
-- **Go installed**: Version 1.18 or [above](https://go.dev/dl/)
 
 ## 1. Configure your environment
 
@@ -55,7 +54,7 @@ Deploy a virtual machine to Azure. You'll run the Go code to create a secret in 
     az vm create \
     --resource-group go-on-azure \
     --name go-on-azure-vm \
-    --image Canonical:0001-com-ubuntu-server-jammy:22_04-lts:latest \
+    --image canonical:0001-com-ubuntu-server-jammy:22_04-lts:latest \
     --admin-username azureuser \
     --admin-password <password>
     ```
@@ -72,7 +71,7 @@ Deploy a virtual machine to Azure. You'll run the Go code to create a secret in 
     New-AzVM `
     -ResourceGroupName go-on-azure `
     -Location eastus `
-    -Image canonical:ubuntuserver:19.04:latest `
+    -Image canonical:0001-com-ubuntu-server-jammy:22_04-lts:latest `
     -Name go-on-azure-vm `
     -OpenPorts 22 `
     -Credential $credential
@@ -98,7 +97,8 @@ Replace `<keyVaultName>` with a globally unique name.
 # [PowerShell](#tab/powershell)
 
 ```powershell
-New-AzKeyVault -ResourceGroupName go-on-azure -Name <keyVaultName> -Location eastus
+New-AzKeyVault -ResourceGroupName go-on-azure -Name <keyVaultName> -Location eastus -EnableRbacAuthorization
+
 ```
 
 Replace `<keyVaultName>` with a globally unique name.
