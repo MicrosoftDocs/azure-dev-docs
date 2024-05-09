@@ -1,5 +1,5 @@
 items:
-- name: Develop intelligent apps using Azure AI services
+- name: Develop AI applications using Azure AI services
   href: index.yml
   items:
     - name: Overview
