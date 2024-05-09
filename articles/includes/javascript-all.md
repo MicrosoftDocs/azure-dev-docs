@@ -89,7 +89,7 @@
 | Schema Registry | npm [1.2.0](https://www.npmjs.com/package/@azure/schema-registry/v/1.2.0)<br>npm [1.3.0-beta.1](https://www.npmjs.com/package/@azure/schema-registry/v/1.3.0-beta.1) | [docs](/javascript/api/overview/azure/schema-registry-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry_1.2.0/sdk/schemaregistry/schema-registry/)<br>GitHub [1.3.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry_1.3.0-beta.1/sdk/schemaregistry/schema-registry/) |
 | Schema Registry - Avro | npm [1.1.0](https://www.npmjs.com/package/@azure/schema-registry-avro/v/1.1.0) | [docs](/javascript/api/overview/azure/schema-registry-avro-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry-avro_1.1.0/sdk/schemaregistry/schema-registry-avro/) |
 | Schema Registry - JSON | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/schema-registry-json/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/schema-registry-json-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry-json_1.0.0-beta.1/sdk/schemaregistry/schema-registry-json/) |
-| Service Bus | npm [7.9.4](https://www.npmjs.com/package/@azure/service-bus/v/7.9.4) | [docs](/javascript/api/overview/azure/service-bus-readme) | GitHub [7.9.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.9.4/sdk/servicebus/service-bus/) |
+| Service Bus | npm [7.9.4](https://www.npmjs.com/package/@azure/service-bus/v/7.9.4)<br>npm [7.10.0-beta.1](https://www.npmjs.com/package/@azure/service-bus/v/7.10.0-beta.1) | [docs](/javascript/api/overview/azure/service-bus-readme) | GitHub [7.9.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.9.4/sdk/servicebus/service-bus/)<br>GitHub [7.10.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.10.0-beta.1/sdk/servicebus/service-bus/) |
 | Spark | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/synapse-spark/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/synapse-spark-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-spark_1.0.0-beta.4/sdk/synapse/synapse-spark/) |
 | Storage - Blobs | npm [12.17.0](https://www.npmjs.com/package/@azure/storage-blob/v/12.17.0)<br>npm [12.23.0-beta.1](https://www.npmjs.com/package/@azure/storage-blob/v/12.23.0-beta.1) | [docs](/javascript/api/overview/azure/storage-blob-readme) | GitHub [12.17.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.17.0/sdk/storage/storage-blob/)<br>GitHub [12.23.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.23.0-beta.1/sdk/storage/storage-blob/) |
 | Storage - Blobs Changefeed | npm [12.0.0-preview.4](https://www.npmjs.com/package/@azure/storage-blob-changefeed/v/12.0.0-preview.4) | [docs](/javascript/api/overview/azure/storage-blob-changefeed-readme) | GitHub [12.0.0-preview.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob-changefeed_12.0.0-preview.4/sdk/storage/storage-blob-changefeed/) |
@@ -347,20 +347,20 @@
 | App Configuration Provider | npm [1.0.0-preview.4](https://www.npmjs.com/package/@azure/app-configuration-provider/v/1.0.0-preview.4) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | Purview Data Map | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/purview-datamap/v/1.0.0-beta.1) |  |  |
-| tmlanguage-generator | npm [0.6.0-dev.5](https://www.npmjs.com/package/tmlanguage-generator/v/0.6.0-dev.5) |  |  |
+| tmlanguage-generator | npm [0.5.5](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.5) |  |  |
 | Unknown Display Name | npm [0.7.0](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.7.0) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
-| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.2.1) |  |  |
-| Unknown Display Name | npm [0.41.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.41.0) |  |  |
+| Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.3.0) |  |  |
+| Unknown Display Name | npm [0.42.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.42.0) |  |  |
 | Unknown Display Name | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.7.0) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.1.0) |  |  |
 | Unknown Display Name | npm [2.0.4429](https://www.npmjs.com/package/@microsoft.azure/autorest-core/v/2.0.4429) |  |  |
 | Unknown Display Name | npm [3.3.49](https://www.npmjs.com/package/@microsoft.azure/autorest.testserver/v/3.3.49) |  |  |
 | Unknown Display Name | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
-| Unknown Display Name | npm [0.2.0-dev.4](https://www.npmjs.com/package/@typespec/bundler/v/0.2.0-dev.4) |  |  |
-| Unknown Display Name | npm [0.2.1](https://www.npmjs.com/package/@typespec/playground/v/0.2.1) |  |  |
+| Unknown Display Name | npm [0.1.3](https://www.npmjs.com/package/@typespec/bundler/v/0.1.3) |  |  |
+| Unknown Display Name | npm [0.2.2](https://www.npmjs.com/package/@typespec/playground/v/0.2.2) |  |  |
 | Unknown Display Name | npm [0.47.0-dev.0](https://www.npmjs.com/package/@typespec/tspd/v/0.47.0-dev.0) |  |  |
-| Unknown Display Name | npm [0.55.0](https://www.npmjs.com/package/@typespec/xml/v/0.55.0) |  |  |
+| Unknown Display Name | npm [0.56.0](https://www.npmjs.com/package/@typespec/xml/v/0.56.0) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.8](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.8) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
@@ -439,7 +439,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240429.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240429.3) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240508.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240508.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -468,17 +468,17 @@
 | @azure-tools/cadl-providerhub | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.26.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.26.0) |  |  |
 | @azure-tools/cadl-python | npm [0.6.1](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.6.1) |  |  |
-| @azure-tools/cadl-ranch | npm [0.12.7](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.12.7) |  |  |
+| @azure-tools/cadl-ranch | npm [0.12.8](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.12.8) |  |  |
 | @azure-tools/cadl-ranch-api | npm [0.4.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.4.3) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.8.2](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.8.2) |  |  |
-| @azure-tools/cadl-ranch-expect | npm [0.13.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.13.3) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.33.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.33.1) |  |  |
+| @azure-tools/cadl-ranch-expect | npm [0.13.4](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.13.4) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.33.4](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.33.4) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.7.7](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.7) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.7.8](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.8) |  |  |
 | @azure-tools/json | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/json/v/1.3.0) |  |  |
 | @azure-tools/jsonschema | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.0) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
