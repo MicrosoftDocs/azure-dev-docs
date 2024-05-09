@@ -115,10 +115,10 @@ To learn more about the difference between system-assigned and user-assigned, ch
 
 Choose one of the following options:
 
-* [Option 1: Create a system-assigned identity](#create-system-assigned)
-* [Option 2: Create a user-assigned identity](#create-user-assigned)
+- [Option 1: Create a system-assigned identity](#option-1-create-a-system-assigned-identity)
+- [Option 2: Create a user-assigned identity](#option-2-create-a-user-assigned-identity)
 
-### <span id="create-system-assigned"/> Option 1: Create a system-assigned identity
+### Option 1: Create a system-assigned identity
 
 Run the following commands to create a system-assigned managed identity:
 
@@ -137,7 +137,7 @@ Update-AzVM -ResourceGroupName go-on-azure -VM $vm -IdentityType SystemAssigned
 
 ---
 
-### <span id="create-user-assigned"/> Option 2: Create a user-assigned identity
+### Option 2: Create a user-assigned identity
 
 Run the following commands to create a user-assigned managed identity:
 
@@ -173,10 +173,10 @@ After a managed identity is created, you assign roles to grant the identity perm
 
 Choose one of the following options:
 
-* [Option 1: Assign a role to a system-assigned identity](#add-role-system-assigned)
-* [Option 2: Assign a role to a user-assigned identity](#add-role-user-assigned)
+- [Option 1: Assign a role to a system-assigned identity](#option-1-assign-a-role-to-a-system-assigned-identity)
+- [Option 2: Assign a role to a user-assigned identity](#option-2-assign-a-role-to-a-user-assigned-identity)
 
-### <span id="add-role-system-assigned"/> Option 1: Assign a role to a system-assigned identity
+### Option 1: Assign a role to a system-assigned identity
 
 Run the following commands to assign the `Key Vault Secrets Officer` role to the system-assigned managed identity:
 
@@ -210,7 +210,7 @@ Replace `<KeyVaultName>` with the key vault name.
 
 ---
 
-### <span id="add-role-user-assigned"/> Option 2: Assign a role to a user-assigned identity
+### Option 2: Assign a role to a user-assigned identity
 
 Run the following commands to assign the `Key Vault Secrets Officer` role to the user-assigned managed identity:
 
