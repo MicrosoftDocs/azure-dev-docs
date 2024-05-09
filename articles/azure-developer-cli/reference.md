@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 04/30/2024
+ms.date: 05/07/2024
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -758,6 +758,7 @@ azd init [flags]
   -b, --branch string         The template branch to initialize from. Must be used with a template argument (--template or -t).
       --docs                  Opens the documentation for azd init in your web browser.
   -e, --environment string    The name of the environment to use.
+  -f, --filter strings        The tag(s) used to filter template results. Supports comma-separated values.
       --from-code             Initializes a new application from your existing code.
   -h, --help                  Gets help for init.
   -l, --location string       Azure location for the new environment
@@ -1021,9 +1022,10 @@ azd template list [flags]
 ### Options
 
 ```azdeveloper
-      --docs            Opens the documentation for azd template list in your web browser.
-  -h, --help            Gets help for list.
-  -s, --source string   Filters templates by source.
+      --docs             Opens the documentation for azd template list in your web browser.
+  -f, --filter strings   The tag(s) used to filter template results. Supports comma-separated values.
+  -h, --help             Gets help for list.
+  -s, --source string    Filters templates by source.
 ```
 
 ### Options inherited from parent commands
