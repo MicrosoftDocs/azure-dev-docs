@@ -169,7 +169,7 @@ To learn more, check out [Manage user-assigned managed identities](/azure/active
 
 ## 3. Assign a role to the managed identity
 
-After a managed identity is created, you assign roles to grant the identity permissions to access other Azure resource. In this tutorial, you'll assign the built-in role of `Key Vault Contributor` to the managed identity so the Go application can create a secret within the key vault instance.
+After a managed identity is created, you assign roles to grant the identity permissions to access other Azure resource. In this tutorial, you'll assign the built-in role of `Key Vault Secrets Officer` to the managed identity so the Go application can create a secret within the key vault instance.
 
 Choose one of the following options:
 
@@ -178,7 +178,7 @@ Choose one of the following options:
 
 ### <span id="add-role-system-assigned"/> Option 1: Assign a role to a system-assigned identity
 
-Run the following commands to assign the `Key Vault Contributor` role to the system-assigned managed identity:
+Run the following commands to assign the `Key Vault Secrets Officer` role to the system-assigned managed identity:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -199,7 +199,7 @@ In the second command, replace `<keyVaultName>` with the name of your key vault.
 ```powershell
 $splat = @{
     ObjectId = (Get-AzVM -Name go-on-azure-vm).Identity.PrincipalId
-    RoleDefinitionName = 'Key Vault Contributor'
+    RoleDefinitionName = 'Key Vault Secrets Officer'
     Scope = (Get-AzKeyVault -Name <keyVaultName>).ResourceId
 }
 
@@ -212,7 +212,7 @@ Replace `<KeyVaultName>` with the key vault name.
 
 ### <span id="add-role-user-assigned"/> Option 2: Assign a role to a user-assigned identity
 
-Run the following commands to assign the `Key Vault Contributor` role to the user-assigned managed identity:
+Run the following commands to assign the `Key Vault Secrets Officer` role to the user-assigned managed identity:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -233,7 +233,7 @@ In the second command, replace `<keyVaultName>` with the name of your key vault.
 ```powershell
 $splat = @{
     ObjectId = (Get-AzUserAssignedIdentity -Name GoUserIdentity -ResourceGroupName go-on-azure).Id
-    RoleDefinitionName = 'Key Vault Contributor'
+    RoleDefinitionName = 'Key Vault Secrets Officer'
     Scope = (Get-AzKeyVault -Name <keyVaultName>).ResourceId
 }
 
@@ -244,7 +244,7 @@ Replace `<KeyVaultName>` with the key vault name.
 
 ---
 
-To learn more about built-in roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
+To learn more about built-in roles for key vault, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide). To learn more about built-in roles in Azure, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 ## 4. Create a key vault secret with Go
 
@@ -357,10 +357,10 @@ Next SSH into the Azure virtual machine, install Go, and built the Go package.
 
     ```
 
-Before you run the code, create an environment variable named `KEY_VAULT_NAME`. Set the environment variable's value to the name of the Azure Key Vault created previously. Replace `<KeyVaultName>` with the name of your Azure Key Vault instance.
+Before you run the code, create an environment variable named `KEY_VAULT_NAME`. Set the environment variable's value to the name of the Azure Key Vault created previously. Replace `<keyVaultName>` with the name of your Azure Key Vault instance.
 
 ```bash
-export KEY_VAULT_NAME=<KeyVaultName>
+export KEY_VAULT_NAME=<keyVaultName>
 ```
 
 Next, run `go run` command to create a key vault secret.
@@ -369,7 +369,15 @@ Next, run `go run` command to create a key vault secret.
 go run main.go
 ```
 
-Verify the key vault secret was created using Azure PowerShell, Azure CLI, or the Azure portal.
+The output will be similar to the following:
+
+```Output
+Name: https://<keyVaultName>.vault.azure.net/secrets/quickstart-secret/0e0b941824c4493bb3b83045a31b2bf7, Value: createdWithGO
+```
+
+You can verify the key vault secret was created using Azure PowerShell, Azure CLI, or the Azure portal.
+
+>[NOTE!] If you use the Azure CLI or Azure PowerShell, you need to ensure that your Azure user account is assigned a role that permits it to read secrets in the key vault like "Key Vault Secrets Officer" or "Key Vault Secrets User".
 
 ## Next steps
 
