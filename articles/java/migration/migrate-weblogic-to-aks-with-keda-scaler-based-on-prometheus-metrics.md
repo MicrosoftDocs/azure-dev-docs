@@ -61,7 +61,7 @@ The following WLS state and metrics are exported by default. You can configure t
 
 ## Prepare sample application
 
-This article uses [testwebapp](https://github.com/oracle/weblogic-kubernetes-operator/tree/main/integration-tests/src/test/resources/apps/testwebapp) from [weblogic-kubernetes-operator](https://github.com/oracle/weblogic-kubernetes-operator) as sample application. 
+This article uses [testwebapp](https://github.com/oracle/weblogic-kubernetes-operator/tree/main/integration-tests/src/test/resources/apps/testwebapp) from [weblogic-kubernetes-operator](https://github.com/oracle/weblogic-kubernetes-operator) as a sample application. 
 
 Download the pre-built sample app and expand it into a directory. Because this article writes several files, let's create a top level directory to contain everything.
 
@@ -74,7 +74,7 @@ unzip -d testwebapp testwebapp.war
 
 ### Modify sample application
 
-This article uses metric `openSessionsCurrentCount` to scale up and scale down the WLS cluster. By default, the session timeout on WebLogic is 60 minutes. To observe the scaling down capability quickly, this article sets a short timeout. The following example specifies the session timeout with 150 seconds using `wls:timeout-secs`. The HEREDOC format is used to overwrite the file at `testwebapp/WEB-INF/weblogic.xml` with the desired content.
+This article uses the metric `openSessionsCurrentCount` to scale up and scale down the WLS cluster. By default, the session timeout on WebLogic Server is 60 minutes. To observe the scaling down capability quickly, this article sets a short timeout. The following example specifies the session timeout with 150 seconds using `wls:timeout-secs`. The HEREDOC format is used to overwrite the file at `testwebapp/WEB-INF/weblogic.xml` with the desired content.
 
 ```xml
 cat <<EOF > testwebapp/WEB-INF/weblogic.xml
@@ -200,18 +200,17 @@ Follow the steps to connect to AKS cluster.
 
 ## Retrieve metrics from Azure Monitor Workspace
 
-Now, you're able to query metrics in the Azure Monitor workspace. All data is retrieved from an Azure Monitor workspace by using queries that are written in Prometheus Query Language (PromQL).
+Use Prometheus Query Language (PromQL) queries see metrics in the Azure Monitor workspace.
 
-Input your PromQL following steps:
+1. View the resource group you used in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
+1. Select the resource of type **Azure Monitor workspace**.
+1. Under **Managed Prometheus**, select **Prometheus explorer**. 
+1. Input `webapp_config_open_sessions_current_count` to query the current account of open sessions, shown next.
 
-1. Open the Azure Monitor workspace, the workspace locates at the resource group that created by [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
-1. Select **Managed Prometheus** -> **Prometheus explorer**. 
-1. Input `webapp_config_open_sessions_current_count` to query the current account of open sessions, as the screenshot shows.
-
-    :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/prometheus-explorer.png" alt-text="Screenshot of the Azure portal showing the Prometheus explorer." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/prometheus-explorer.png":::
+   :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/prometheus-explorer.png" alt-text="Screenshot of the Azure portal showing the Prometheus explorer." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/prometheus-explorer.png":::
 
 > [!NOTE]
-> You can access the metrics by exposing WebLogic Monitoring Exporter with command:
+> You can access the metrics by exposing the WebLogic Monitoring Exporter with this command:
 > ```
 > cat <<EOF | kubectl apply -f -
 > apiVersion: v1
@@ -234,8 +233,8 @@ Input your PromQL following steps:
 > 
 > kubectl get svc -n sample-domain1-ns -w
 > ```
-> Access the `http://<exporter-public-ip>:8080/metrics` and login with WebLogic credentials. You will find all the metrics.
-
+>
+> Wait for the `EXTERNAL-IP` column in the row for `sample-domain1-cluster-1-exporter` to switch from `<pending>` to an IP address. Then access the `http://<exporter-public-ip>:8080/metrics` and login with the credentials you specified when deploying the offer. You will find all the metrics.
 
 ## Create KEDA scaler
 
