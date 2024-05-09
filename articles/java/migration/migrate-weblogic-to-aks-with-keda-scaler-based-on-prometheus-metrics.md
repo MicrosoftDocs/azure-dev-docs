@@ -39,7 +39,7 @@ Azure Monitor managed service for Prometheus collects and saves metrics from WLS
 
 This article integrates KEDA with your AKS cluster to scale WLS cluster based on Prometheus metrics from the Azure Monitor workspace. KEDA acts to monitor Azure Monitor managed service for Prometheus and feed that data to AKS and the Horizontal Pod Autoscaler (HPA) to drive rapid scale of WLS workload.
 
-The following WLS state and metrics are exported by default. You can configure the exporter to export other metrics on your demain. For a detailed description of WebLogic Monitoring Exporter configuration and usage, see [WebLogic Monitoring Exporter](https://blogs.oracle.com/weblogicserver/exporting-metrics-from-weblogic-server).
+The following WLS state and metrics are exported by default. You can configure the exporter to export other metrics on your demand. For a detailed description of WebLogic Monitoring Exporter configuration and usage, see [WebLogic Monitoring Exporter](https://blogs.oracle.com/weblogicserver/exporting-metrics-from-weblogic-server).
 
 <!-- https://github.com/oracle/weblogic-azure/blob/main/weblogic-azure-aks/src/main/resources/diagrams/wls-aks-diagram-autoscaling.vsdx -->
 :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-metrics.png" alt-text="WebLogic Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-metrics.png" border="false":::
