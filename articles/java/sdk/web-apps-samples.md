@@ -1,9 +1,8 @@
 ---
 title: Azure management libraries for Java web app samples
 description: Get sample code for creating and updating Azure web apps hosted in App Service using the Azure management libraries for Java.
-keywords: Azure, Java, SDK, API, Maven, Gradle, web apps, app service
 author: KarlErickson
-ms.author: karler
+ms.author: jogiles
 ms.date: 04/16/2017
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java

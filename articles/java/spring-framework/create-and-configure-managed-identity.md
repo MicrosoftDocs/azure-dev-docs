@@ -2,7 +2,7 @@
 title: Create and configure a managed identity on Azure hosting services
 description: Shows you how to create and configure a managed identity on Azure hosting services.
 author: KarlErickson
-ms.author: rujche
+ms.author: hangwan
 ms.date: 04/06/2023
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java

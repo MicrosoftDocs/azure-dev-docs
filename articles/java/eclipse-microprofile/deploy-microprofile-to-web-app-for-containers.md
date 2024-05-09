@@ -3,7 +3,7 @@ title: Deploy a Java MicroProfile service
 titleSuffix: Azure Web App for Containers
 description: Learn how to deploy a MicroProfile service using Docker and Azure Web App for Containers. Build tiny Java applications that can be quickly and easily deployed.
 author: KarlErickson
-ms.author: jogiles
+ms.author: jialuogan
 ms.date: 06/02/2022
 ms.topic: how-to
 ms.custom: devx-track-java, kr2b-contr-experiment, devx-track-extended-java

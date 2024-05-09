@@ -79,7 +79,7 @@ An Azure service principal provides access to Azure without having to use your p
 
     * Your project and owner: `resource-management-john-smith`.
     * Your department and date: `IT-2021-September`
-    * A unique identifier: `1e8966d7-ba85-424b-9db4-c39e1ae9d0ca`
+    * A unique identifier: `00000000-0000-0000-0000-000000000000`
 
 1. In a bash terminal, create your service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Replace `<SUBSCRIPTION-ID>` with your subscription ID. 
 
