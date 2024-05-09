@@ -23,18 +23,22 @@ landingContent:
 
   - title: AI app templates
     linkLists:
+      - linkListType: overview
+        links:
+          - text: AI app templates overview
+            url: azure-ai-for-developers.md
       - linkListType: get-started
         links:
-          - text: Get started with the Python enterprise chat sample
+          - text: Python enterprise chat sample
             url: ../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-          - text: Get started with the JavaScript enterprise chat sample
+          - text: JavaScript enterprise chat sample
             url: ../javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-          - text: Get started with the Java enterprise chat sample
+          - text: Java enterprise chat sample
             url: ../java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-          - text: Get started with the .NET enterprise chat sample
+          - text: .NET enterprise chat sample
             url: /dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
 
-  - title: Developer centers for developing AI applications
+  - title: Resources by programming language
     linkLists:
       - linkListType: overview
         links:
@@ -44,5 +48,5 @@ landingContent:
             url: ../javascript/azure-ai-for-javascript-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Java
             url: ../java/ai/azure-ai-for-java-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-          - text: .NET
+          - text: C# and .NET
             url: /dotnet/ai/azure-ai-for-dotnet-developers?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
