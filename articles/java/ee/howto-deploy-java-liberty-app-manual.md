@@ -6,7 +6,6 @@ author: KarlErickson
 ms.author: edburns
 ms.topic: conceptual
 ms.date: 04/16/2024
-keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 ---
 
@@ -459,10 +458,7 @@ You can now run and test the project locally before deploying to Azure. For conv
 
 ### Build the image for AKS deployment
 
-> [!NOTE]
-> If you selected to use the Bash environment in Azure Cloud Shell, use `az acr build` command to build and push image from a Docker file, see [Quickstart: Build and run a container image using Azure Container Registry Tasks](/azure/container-registry/container-registry-quickstart-task-cli#build-and-push-image-from-a-dockerfile). After that, go directly to the [Deploy the application to the AKS cluster](#deploy-the-application-to-the-aks-cluster) section. If you chose to run commands locally, you can use the following guidance.
-
-You can now run the `docker build` command to build the image, as shown in the following example:
+You can now run the `docker buildx build` command to build the image, as shown in the following example:
 
 ### [Bash](#tab/in-bash)
 
@@ -470,10 +466,10 @@ You can now run the `docker build` command to build the image, as shown in the f
 cd <path-to-your-repo>/java-app/target
 
 # If you are running with Open Liberty
-docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
+docker buildx --platform linux/amd64 build -t javaee-cafe:v1 --pull --file=Dockerfile .
 
 # If you are running with WebSphere Liberty
-docker build -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
+docker buildx --platform linux/amd64 build -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
 ```
 
 ### [PowerShell](#tab/in-powershell)

@@ -1,12 +1,10 @@
 ---
 title: Upload a file to an Azure Blob Storage
 description: Learn how to configure a Spring Boot Initializer app with the Azure Storage starter.
-services: storage
 author: KarlErickson
-ms.author: xiada
+ms.author: hangwan
 ms.date: 04/06/2023
 ms.topic: article
-ms.workload: storage
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
 

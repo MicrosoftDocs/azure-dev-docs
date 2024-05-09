@@ -2,7 +2,7 @@
 title: Use Azure Service Bus in Spring applications
 description: Shows you how to use Azure Service Bus in Java applications built with the Spring framework.
 author: KarlErickson
-ms.author: karler
+ms.author: hangwan
 ms.date: 04/21/2023
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
@@ -289,7 +289,7 @@ The following list shows reasons why this code isn't flexible or graceful:
 
 Fortunately, building the client beans by yourself isn't necessary with Spring Cloud Azure. Instead, you can directly inject the beans and use the [configuration properties](spring-cloud-azure.md?tabs=maven#configuration-properties) that you're already familiar with to configure Service Bus.
 
-Spring Cloud Azure also provides the following global configurations for different scenarios. For more information, see the [Global configuration for Azure Service SDKs](spring-cloud-azure.md?tabs=maven#global-configuration-for-azure-service-sdks) section of the [Spring Cloud Azure developer guide](spring-cloud-azure.md).
+Spring Cloud Azure also provides the following global configurations for different scenarios. For more information, see the [Global configuration for Azure Service SDKs](configuration.md#global-configuration-for-azure-service-sdks) section of the [Spring Cloud Azure configuration](configuration.md).
 
 - Proxy options.
 - Retry options.
