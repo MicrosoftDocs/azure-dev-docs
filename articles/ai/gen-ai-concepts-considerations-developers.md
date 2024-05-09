@@ -5,7 +5,7 @@ ms.date: 4/12/2024
 ms.topic: conceptual
 ---
 
-# Important concepts and considerations for developers building generative AI solutuions
+# Important concepts and considerations for developers building generative AI solutions
 
 Large Language Models (LLMs) are amazing, but even they have their limitations. Developers need to understand those limitations, what LLMs are capable of "out of the box", and how to tweak them to get the best results for the generative AI solutions they are building. This article will identify several challenges and limiting factors, and explain common ways to overcome those challenges and take control of the content generation process regardless of what type of generative AI features you're building into your application.
 

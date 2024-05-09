@@ -12,7 +12,7 @@ items:
           href: gen-ai-concepts-considerations-developers.md
         - name: Augment LLMs with RAG and fine-tuning
           href: augment-llm-rag-fine-tuning.md
-        - name: Advanced Retrieval-Augmented Generation
+        - name: Advanced RAG
           href: advanced-retrieval-augmented-generation.md
     - name: Python
       items:

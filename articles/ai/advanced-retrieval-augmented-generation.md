@@ -153,7 +153,6 @@ The goal of these steps is to make sure the user is asking questions within the 
 
 A variation on step-back prompting is **hypothetical document embeddings** (HyDE) which uses the LLM to answer the user's question, creates an embedding for that response (the hypothetical document embedding), and uses that embedding to perform a search against the vector database.
 
--- insert diagram of hyde --
 
 ### Subqueries
 
