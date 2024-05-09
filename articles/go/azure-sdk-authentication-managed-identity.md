@@ -308,7 +308,7 @@ Next SSH into the Azure virtual machine, install Go, and built the Go package.
 
     ```bash
     go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-    go get "github.com/Azure/azure-sdk-for-go/sdk/keyvault/azsecrets"
+    go get "github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azsecrets"
     ```
 
 1. Create a `main.go` file and copy the following code into it.
@@ -323,7 +323,7 @@ Next SSH into the Azure virtual machine, install Go, and built the Go package.
         "os"
     
         "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-        "github.com/Azure/azure-sdk-for-go/sdk/keyvault/azsecrets"
+        "github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azsecrets"
     )
     
     func createSecret() {
