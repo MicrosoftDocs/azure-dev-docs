@@ -10,22 +10,48 @@ items:
           href: intro-01.md
         - name: Develop apps that use generative AI
           href: intro-02.md
-    - name: Python
+    - name: AI app templates
+      items:
+        - name: Get started with the enterprise chat app templates
+          items:
+            - name: Python enterprise chat sample
+              href: ../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+            - name: JavaScript enterprise chat sample
+              href: ../javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+            - name: JavaScript frontend + Python backend
+              href: ../javascript/chat-app-with-separate-front-back-end.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+            - name: Java enterprise chat sample
+              href: ../java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+            - name: .NET enterprise chat sample
+              href: /dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+        - name: Evaluate the chat app
+          items:
+            - name: Evaluate the Python app
+              href: ../python/get-started-app-chat-evaluations.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+            - name: Evaluate the JavaScript app
+              href: ../javascript/get-started-app-chat-evaluations.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+        - name: Load balance the chat app with Azure Container Apps
+          items:
+            - name: Scale the Python chat app
+              href: ../python/get-started-app-chat-scaling-with-azure-container-apps.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+            - name: Scale the JavaScript chat app
+              href: ../javascript/get-started-app-chat-scaling-with-azure-container-apps.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+            - name: Scale the Java chat app
+              href: ../java/ai/get-started-app-chat-scaling-with-azure-container-apps.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+            - name: Scale the .NET chat app
+              href: /dotnet/ai/get-started-app-chat-scaling-with-azure-container-apps?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+        - name: Load balance the chat app with Azure API Management
+          items:
+            - name: Scale the Python app
+              href: ../python/get-started-app-chat-scaling-with-azure-api-management.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+            - name: Scale the JavaScript app
+              href: ../javascript/get-started-app-chat-scaling-with-azure-api-management.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+        - name: Load test the Python app with Locust
+          href: ../python/get-started-app-chat-app-load-test-locust.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+    - name: Python resources
       items:
         - name: Overview
           href: ../python/azure-ai-for-python-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-        - name: Guides for intelligent apps
-          items:
-            - name: Get started with the Python enterprise chat sample
-              href: ../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: Evaluate your chat app
-              href: ../python/get-started-app-chat-evaluations.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: Scale Azure OpenAI with Azure Container Apps
-              href: ../python/get-started-app-chat-scaling-with-azure-container-apps.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: Scale Azure OpenAI with Azure API Management
-              href: ../python/get-started-app-chat-scaling-with-azure-api-management.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: Load test with Locust
-              href: ../python/get-started-app-chat-app-load-test-locust.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Quickstarts for Azure OpenAI Service
           items:
             - name: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service
@@ -44,18 +70,6 @@ items:
       items:
         - name: Overview
           href: ../javascript/azure-ai-for-javascript-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-        - name: Guides for intelligent apps
-          items:
-            - name: Get started with the JavaScript enterprise chat sample
-              href: ../javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: JavaScript frontend + Python backend
-              href: ../javascript/chat-app-with-separate-front-back-end.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: Evaluate your chat app
-              href: ../javascript/get-started-app-chat-evaluations.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: Scale Azure OpenAI with Azure Container Apps
-              href: ../javascript/get-started-app-chat-scaling-with-azure-container-apps.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: Scale Azure OpenAI with Azure API Management
-              href: ../javascript/get-started-app-chat-scaling-with-azure-api-management.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Quickstarts for Azure OpenAI Service
           items:
             - name: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service
@@ -74,12 +88,6 @@ items:
       items:
         - name: Overview
           href: ../java/ai/azure-ai-for-java-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-        - name: Guides for intelligent apps
-          items:
-            - name: Get started with the Java enterprise chat sample
-              href: ../java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: Scale Azure OpenAI with Azure Container Apps
-              href: ../java/ai/get-started-app-chat-scaling-with-azure-container-apps.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Quickstarts for Azure OpenAI Service
           items:
             - name: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service
@@ -102,12 +110,6 @@ items:
           href: /dotnet/ai/azure-ai-for-dotnet-developers?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Overview of the .NET + AI ecosystem
           href: /dotnet/ai/dotnet-ai-ecosystem?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-        - name: Guides for intelligent apps
-          items:
-            - name: Get started with the .NET enterprise chat sample
-              href: /dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: Scale Azure OpenAI with Azure Container Apps
-              href: /dotnet/ai/get-started-app-chat-scaling-with-azure-container-apps?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Quickstarts for Azure OpenAI Service
           items:
             - name: Build a chat app
