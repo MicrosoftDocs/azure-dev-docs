@@ -115,20 +115,3 @@ The `deployment` configuration section is **required** and supports the followin
 
     > [!NOTE]
     > Only supports managed online deployments.
-
-## Deployment dependencies
-
-`azd` creates the following resources in your Azure environment as part of the provisioning and deployment process:
-
-* AI Hub Resource  (Azure ML Workspace) & Required dependencies.
-  * Key Vault
-  * Storage Account
-  * Container Registry (optional)
-  * App Insights (optional)
-  * Azure Open AI Services
-  * Azure AI Search (If required by your app)
-* AI Project Resource (Azure ML Workspace)
-* Online Endpoint (ML Online Endpoint)
-  * Should be tagged with `azd-service-name` tag
-  * This is the target of the azd deployment
-* AI Hub Connections
