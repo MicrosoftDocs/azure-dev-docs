@@ -164,33 +164,28 @@ When creating your PAT, set the following scopes:
 
 1. Provide your answers to the following prompts:
 
-   **Personal Access Token (PAT)**
-   - Copy/paste your PAT.
-   - Export your PAT as a system environment by running the following command. Otherwise, you will be prompted every time you set up an Azure Pipeline:
+   - **Personal Access Token (PAT)**
+      - Copy/paste your PAT.
+      - Export your PAT as a system environment by running the following command. Otherwise, you will be prompted every time you set up an Azure Pipeline:
 
-      ```azdeveloper
-      export AZURE_DEVOPS_EXT_PAT=<PAT>
-      ```
+         ```azdeveloper
+         export AZURE_DEVOPS_EXT_PAT=<PAT>
+         ```
 
-   **Please enter an Azure DevOps Organization Name**  
+   - **Please enter an Azure DevOps Organization Name:**  
+      -Type [your AzDo organization](#create-or-use-an-existing-azure-devops-organization). Once you hit enter, `AZURE_DEVOPS_ORG_NAME="<your Azure DevOps Org Name>"` is automatically added to the .env file for the current environment.
 
-   Type [your AzDo organization](#create-or-use-an-existing-azure-devops-organization). Once you hit enter, `AZURE_DEVOPS_ORG_NAME="<your Azure DevOps Org Name>"` is automatically added to the .env file for the current environment. 
+   - **A remote named "origin" was not found. Would you like to configure one?**
+      - Yes
 
-   **A remote named "origin" was not found. Would you like to configure one?**
+   - **How would you like to configure your project?**
+      - Create a new Azure DevOps Project
 
-   Yes
+   - **Enter the name for your new Azure DevOps Project OR Hit enter to use this name: ( {default name} )**
+      - Select **Enter**, or create a unique project name.
 
-   **How would you like to configure your project?**
-
-   Create a new Azure DevOps Project
-
-   **Enter the name for your new Azure DevOps Project OR Hit enter to use this name: ( {default name} )**
-
-   Select **Enter**, or create a unique project name.
-
-   **Would you  like to commit and push your local changes to start the configured CI pipeline?**
-
-   Yes
+   - **Would you  like to commit and push your local changes to start the configured CI pipeline?**
+      - Yes
 
 1. Navigate to your Azure DevOps portal (https://dev.azure.com) to find your project and verify the build.
 
