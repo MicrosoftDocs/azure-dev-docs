@@ -315,14 +315,14 @@ When the pipeline runs, `azd` takes the values for the parameters from the secre
 
 ## Create a pipeline definition
 
-A CI/CD pipeline definition has typically 4 main sections:
+If your `azd` template doesn't already have a CI/CD pipeline definition file, you can create one yourself. A CI/CD pipeline definition has typically 4 main sections:
   
 - trigger
 - permissions
 - operating system or pool
 - steps to be run
 
-A pipeline definition for `azd` has no special requirements for setting the trigger or the os, but it does require specific CI/CD configurations:
+The following examples demonstrate how to create a definition file and related configurations for GitHub Actions and Azure Pipelines.
 
 ## [GitHub Actions](#tab/GitHub)
 
