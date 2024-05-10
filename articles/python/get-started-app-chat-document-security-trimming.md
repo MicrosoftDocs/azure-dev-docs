@@ -1,7 +1,7 @@
 ---
 title: "Get started with chat document security trimming"
 description: "Secure your chat app documents with user authentication and document security trimming to ensure users receive answers based on their permissions."
-ms.date: 05/07/2024
+ms.date: 05/10/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli
@@ -10,7 +10,7 @@ ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli
 
 # Get started with chat document security for Python
 
-When you build a chat application using the RAG pattern with your own data, make sure that each user receives an answer based on their permissions. Follow the process in this article to add document access control to your chat app. 
+When you build a [chat application using the RAG pattern](get-started-app-chat-template.md) with your own data, make sure that each user receives an answer based on their permissions. Follow the process in this article to add document access control to your chat app. 
 
 An **authorized user** should have access to answers contained within the documents of the chat app.
 
