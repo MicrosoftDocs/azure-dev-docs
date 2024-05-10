@@ -10,7 +10,7 @@ ms.custom: devx-track-go
 
 In this tutorial, you'll use the Azure SDK for Go to authenticate to Azure with an Azure service principal using either a secret or a certificate.
 
-Azure service principals define the access policy and permissions in a Microsoft Entra tenant, enabling core features such as authentication during sign-on and authorization during resource access. They removing the need to use personal accounts to access Azure resources. The Azure SDK for Go [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) module provides a convenient way to authenticate to Azure with a service principal using environment variables, and a secret or a certificate.
+Azure service principals define the access policy and permissions in a Microsoft Entra tenant, enabling core features such as authentication during sign-on and authorization during resource access. They remove the need to use personal accounts to access Azure resources. The Azure SDK for Go [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) module provides a convenient way to authenticate to Azure with a service principal using environment variables, and a secret or a certificate.
 
 Follow this tutorial to create and authenticate with the Azure SDK for Go using a service principal.
 
@@ -52,13 +52,13 @@ Use one of the following techniques to create an Azure service principal and ass
 - [Option 1: Create an Azure service principal with a secret](#option-1-create-an-azure-service-principal-with-a-secret)
 - [Option 2: Create an Azure service principal with a certificate](#option-2-authenticate-with-a-certificate)
 
-To learn more Azure service principals, see [Service principal object](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). 
+To learn more Azure service principals, see [Service principal object](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
 
 Assigning the "Key Vault Secrets Officer" role to the service principal, authorizes it to create, read, update, and delete secrets in the key vault. To learn more about built-in roles for Azure key vault, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide). To learn more about built-in roles in Azure, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 ### Option 1: Create an Azure service principal with a secret
 
-Run the following commands to create an Azure service principal and assign it the "Key Vault Secrets Officer" role on the key vault. The "Key Vault Secrets Officer" role authorizes the service principal to perform CRUD operations on the key vault secrets.
+Run the following commands to create an Azure service principal and assign it the "Key Vault Secrets Officer" role on the key vault.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -102,6 +102,8 @@ Replace `<Password>`, `<servicePrincipalName>`, and `<keyVaultId>` with the appr
 
 ### Option 2: Create an Azure service principal with a certificate
 
+Run the following commands to create an Azure service principal that uses a certificate and assign it the "Key Vault Secrets Officer" role on the key vault.
+
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
 az ad sp create-for-rbac --name <servicePrincipal> --create-cert --role "Key Vault Secrets Officer" --scope <keyVaultId>
@@ -142,11 +144,9 @@ Replace `<pftPassword>`, `<servicePrincipalName>`, and `<keyVaultId>` with the a
 
 ## 3. Authenticate to Azure with a service principal
 
-By using the `DefaultAzureCredential`, you can avoid writing environment-specific code to authenticate to Azure.
+By using `DefaultAzureCredential`, you can avoid writing environment-specific code to authenticate to Azure. With `DefaultAzureCredential`, you can configure your service principal credentials by defining environment variables.
 
-Use the `DefaultAzureCredential` to configure your service principal credentials by defining environment variables.
-
-Choosing one of the following options to configure your service principal credentials:
+Choose one of the following options to configure your service principal credentials:
 
 - [Option 1: Authenticate with a secret](#option-1-authenticate-with-a-secret)
 - [Option 2: Authenticate with a certificate](#option-2-authenticate-with-a-certificate)
@@ -207,7 +207,7 @@ $env:AZURE_CLIENT_CERTIFICATE_PATH="<azure_client_certificate_path>"
 
 ---
 
-### Use DefaultAzureCredential to authenticate ResourceClient
+### Use DefaultAzureCredential to authenticate a resource client
 
 Use the `NewDefaultAzureCredential` function of the Azure Identity module to authenticate a resource client.
 
@@ -313,7 +313,7 @@ Use the following code sample to verify that your service principal authenticate
 
 1. Run the `go run` command to create the new key vault secret.
 
-   ```bash
+   ```Console
     go run main.go
     ```
 
