@@ -48,7 +48,7 @@ Select your preferred pipeline provider to continue:
 
 ### Authorize GitHub to deploy to Azure
 
-To configure the workflow, you need to authorize a service princiapl to deploy to Azure on your behalf, from a GitHub action. `azd` creates the service principal and a [federated credential](https://learn.microsoft.com/graph/api/resources/federatedidentitycredentials-overview) for it.
+To configure the workflow, you need to authorize a service principal to deploy to Azure on your behalf, from a GitHub action. `azd` creates the service principal and a [federated credential](/graph/api/resources/federatedidentitycredentials-overview) for it.
 
 1. Run the following command to create the Azure service principal and configure the pipeline:
 
@@ -210,7 +210,7 @@ When creating your PAT, set the following scopes:
 1. Using your browser, open your project's repository to see both:
    - Your commit
    - Azure Pipeline
-   
+
    :::image type="content" source="media/configure-devops-pipeline/azure-devops-pipeline-after-test-update.png" alt-text="Screenshot of GitHub workflow running after test update.":::
 
 1. Visit the web frontend URL to inspect the update.
@@ -219,19 +219,19 @@ When creating your PAT, set the following scopes:
 
 Add [`azd` as an Azure DevOps task](https://aka.ms/azd-azdo-task). This task will install `azd`. To use it, you can add the following to `.azdo\pipelines\azure-dev.yml`:
 
-   ```
-   trigger:
-      - main
-      - branch
+```YAML
+trigger:
+   - main
+   - branch
 
-   pool:
-      vmImage: ubuntu-latest
-      # vmImage: windows-latest
+pool:
+   vmImage: ubuntu-latest
+   # vmImage: windows-latest
 
-   steps:
-      - task: setup-azd@0
-      displayName: Install azd
-   ```
+steps:
+   - task: setup-azd@0
+   displayName: Install azd
+```
 
 
 ---
@@ -248,7 +248,7 @@ azd down
 
 You can extend the `azd pipeline config` command for specific template scenarios or requirements, as described in the following sections.
 
-### Additional secrets and/or variables
+### Additional secrets or variables
 
 By default, `azd` sets variables and secrets for the pipeline. For example, the `azd pipeline config` command creates the `subscription id`, `environment name` and the `region` as pipeline variables whenever it executes. The pipeline definition then references those variables:
 
@@ -261,7 +261,7 @@ env:
    AZURE_LOCATION: ${{ vars.AZURE_LOCATION }}
 ```
 
-When the pipeline runs, `azd` gets the values from the environment, which is mapped to the variables and secrets. Depending on the template, there might be settings which you can control using environment variables, for example, there could be an environment variable named `KEY_VAULT_NAME`, which can be set to define the name of a Key Vault resource within the infrastructure of a template. For such cases, the list of variables and secrets can be defined by the template, using the `azure.yaml`. For example, consider the following `azure.yaml` configuration:
+When the pipeline runs, `azd` gets the values from the environment, which is mapped to the variables and secrets. Depending on the template, there might be settings which you can control using environment variables. For example, an environment variable named `KEY_VAULT_NAME` could be set to define the name of a Key Vault resource within the template infrastructure. For such cases, the list of variables and secrets can be defined by the template, using the `azure.yaml`. For example, consider the following `azure.yaml` configuration:
 
 ```yaml
 pipeline:
@@ -297,7 +297,7 @@ Consider the following bicep example:
 param BlobStorageConnection string
 ```
 
-The parameter `BlobStorageConnection` has no default value, `azd` will prompt the user to enter a value for it. However, there is no interactive prompt during CI/CD. `azd` must request the value for the parameter when you run `azd pipeline config`, save the value in the pipeline, and then fetch the value again when the pipeline runs.
+The parameter `BlobStorageConnection` has no default value set, so `azd` prompts the user to enter a value. However, there is no interactive prompt during CI/CD. `azd` must request the value for the parameter when you run `azd pipeline config`, save the value in the pipeline, and then fetch the value again when the pipeline runs.
 
 `azd` uses a pipeline secret called `AZD_INITIAL_ENVIRONMENT_CONFIG` to automatically save and set the value of all the required parameters in the pipeline. You only need to reference this secret in your pipeline:
 
@@ -313,7 +313,7 @@ When the pipeline runs, `azd` takes the values for the parameters from the secre
 > [!NOTE]
 > You must re-run `azd pipeline config` if you add a new parameter.
 
-## Create a pipeline definition for azd
+## Create a pipeline definition
 
 A CI/CD pipeline definition has typically 4 main sections:
   
