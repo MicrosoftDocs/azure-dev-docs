@@ -1,7 +1,7 @@
 ---
 title: Azure authentication with the Azure Identity module for Go
 description: Learn to use the Azure Identity module for Go to authenticate to Azure.
-ms.date: 05/04/2024
+ms.date: 05/10/2024
 ms.topic: how-to
 ms.custom: devx-track-go
 ---
@@ -27,7 +27,7 @@ go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
 
 ## 2. Authenticate with Azure
 
-Use the `DefaultAzureCredential` to authenticate to Azure with one of the following techniques:
+Use `DefaultAzureCredential` to authenticate to Azure with one of the following techniques:
 
 - [Option 1: Define environment variables](#option-1-define-environment-variables)
 - [Option 2: Use workload identity](#option-2-use-workload-identity)
@@ -119,7 +119,7 @@ $env:AZURE_PASSWORD="<azure_user_password>"
 
 ---
 
-Configuration is attempted in the preceding order. For example, if values for a client secret and certificate are both present, the client secret is used.
+Configuration is attempted in the preceding order. For example, if values for a client secret and certificate are both present, the client secret is used. For an end-to-end tutorial about authenticating with service principals, see [Azure SDK for Go authentication with a service principal](./azure-sdk-authentication-service-principal.md).
 
 ### Option 2: Use Workload Identity
 
@@ -129,7 +129,7 @@ If the required environment variables for `EnvironmentCredential` aren't present
 
 ### Option 3: Use a managed identity
 
-[Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) eliminate the need for developers to manage credentials. By connecting to resources that support Microsoft Entra authentication, applications can use Microsoft Entra tokens instead of credentials.
+[Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) eliminate the need for developers to manage credentials. When connecting to resources that support Microsoft Entra authentication, applications hosted in Azure can use Microsoft Entra tokens instead of credentials. Managed Identities are not supported in local development.
 
 If the required environment variables for `WorkloadIdentityCredential` aren't present, `DefaultAzureCredential` attempts to authenticate using [ManagedIdentityCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#ManagedIdentityCredential).
 
@@ -147,10 +147,11 @@ export AZURE_CLIENT_ID="<user_assigned_managed_identity_client_id>"
 $env:AZURE_CLIENT_ID="<user_assigned_managed_identity_client_id>"
 ```
 
-> [!NOTE]
-> To use a system-assigned managed identity, make sure the `AZURE_CLIENT_ID` environment variable isn't set.
-
 ---
+
+If the  `AZURE_CLIENT_ID` environment variable isn't set, `DefaultAzureCredentials` attempts to authenicate using the system-assigned managed identity if one is enabled on the hosting resource.
+
+For an end-to-end tutorial about authenticating with managed identities in Azure-hosted apps, see [Authentication with the Azure SDK for Go using a managed identity](./azure-sdk-authentication-managed-identity.md).
 
 ### Option 4: Sign in with Azure CLI
 
@@ -161,8 +162,6 @@ Run the following command to sign into the Azure CLI:
 ```azurecli
 az login
 ```
-
-Azure CLI authentication isn't recommended for applications running in Azure.
 
 ### Option 5: Sign in with Azure Developer CLI
 
