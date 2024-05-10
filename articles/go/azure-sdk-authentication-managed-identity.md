@@ -73,6 +73,7 @@ Deploy a virtual machine to Azure. You'll run the Go code to create a secret in 
     -Location eastus `
     -Image canonical:0001-com-ubuntu-server-jammy:22_04-lts:latest `
     -Name go-on-azure-vm `
+    -PublicIpAddressName go-on-azure-vm `
     -OpenPorts 22 `
     -Credential $credential
     ```
@@ -154,7 +155,7 @@ To learn more, check out [Configure managed identities for Azure resources on an
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$userIdentity = New-AzUserAssignedIdentity -ResourceGroupName go-on-azure -Name GoUserIdentity
+$userIdentity = New-AzUserAssignedIdentity -ResourceGroupName go-on-azure -Name GoUserIdentity -Location eastus
 $vm = Get-AzVM -ResourceGroupName go-on-azure -Name go-on-azure-vm
 Update-AzVM -ResourceGroupName go-on-azure -VM $vm -IdentityType UserAssigned -IdentityID $userIdentity.Id
 ```
@@ -232,7 +233,7 @@ In the second command, replace `<keyVaultName>` with the name of your key vault.
 
 ```powershell
 $splat = @{
-    ObjectId = (Get-AzUserAssignedIdentity -Name GoUserIdentity -ResourceGroupName go-on-azure).Id
+    ObjectId = (Get-AzUserAssignedIdentity -Name GoUserIdentity -ResourceGroupName go-on-azure).PrincipalId
     RoleDefinitionName = 'Key Vault Secrets Officer'
     Scope = (Get-AzKeyVault -Name <keyVaultName>).ResourceId
 }
@@ -240,7 +241,7 @@ $splat = @{
 New-AzRoleAssignment @splat
 ```
 
-Replace `<KeyVaultName>` with the key vault name.
+Replace `<keyVaultName>` with the key vault name.
 
 ---
 
