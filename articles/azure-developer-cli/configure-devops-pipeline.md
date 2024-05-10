@@ -31,7 +31,7 @@ You can use the configuration file as-is or modify it to suit your needs.
 
 > [!NOTE]
 > Make sure your template has a pipeline definition (azure-dev.yaml) before calling `azd pipeline config`. `azd` will not automatically create this file.
-> See [Create a pipeline definition for azd](#create-a-pipeline-definition-for-azd) below.
+> See [Create a pipeline definition for azd](#create-a-pipeline-definition) below.
 
 To configure a CI/CD pipeline you'll use the `azd pipeline config` command, which handles the following tasks:
 
