@@ -378,7 +378,8 @@ Name: https://<keyVaultName>.vault.azure.net/secrets/quickstart-secret/0e0b94182
 
 You can verify the key vault secret was created using Azure PowerShell, Azure CLI, or the Azure portal.
 
->[NOTE!] If you use the Azure CLI or Azure PowerShell, you need to ensure that your Azure user account is assigned a role that permits it to read secrets in the key vault like "Key Vault Secrets Officer" or "Key Vault Secrets User".
+> [NOTE!]
+> If you use the Azure CLI or Azure PowerShell, you need to make sure that your Azure user account is assigned a role that permits it to read secrets in the key vault like "Key Vault Secrets Officer" or "Key Vault Secrets User".
 
 ## Next steps
 
