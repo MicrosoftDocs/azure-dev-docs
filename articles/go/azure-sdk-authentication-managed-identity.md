@@ -381,6 +381,44 @@ You can verify the key vault secret was created using Azure PowerShell, Azure CL
 > [NOTE!]
 > If you use the Azure CLI or Azure PowerShell, you need to make sure that your Azure user account is assigned a role that permits it to read secrets in the key vault like "Key Vault Secrets Officer" or "Key Vault Secrets User".
 
+## 5. Clean up resources
+
+If you no longer want to use the Azure resources you created in this article, it's a good practice to delete them. Deleting unused resources helps you avoid incurring ongoing charges and keeps your subscription uncluttered. The easiest way to delete the resources you used in this tutorial is to delete the resource group.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az group delete --name go-on-azure --force-deletion-types Microsoft.Compute/virtualMachines --yes --no-wait
+```
+
+The `--yes` argument tells the command not to ask for confirmation. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
+
+The preceding command performs a [soft delete](/azure/key-vault/general/soft-delete-overview) on the key vault in the resource group. To permenantly remove it from your subscription, enter the following command:
+
+```azurecli
+az keyvault purge --name <keyVaultName> --no-wait
+```
+
+Replace `<keyVaultName>` with the name of your key vault.
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+Remove-AzResourceGroup -Name go-on-azure -Force
+```
+
+The `-Force` argument tells the cmdlet not to ask for confirmation.
+
+The preceding command performs a [soft delete](/azure/key-vault/general/soft-delete-overview) on the key vault in the resource group. To permenantly remove it from your subscription, enter the following command:
+
+```powershell
+Remove-AzKeyVault -Name `<keyVaultName>` -InRemovedState -Force
+```
+
+Replace `<keyVaultName>` with the name of your key vault.
+
+---
+
 ## Next steps
 
 > [!div class="nextstepaction"]

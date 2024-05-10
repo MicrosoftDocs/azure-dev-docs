@@ -341,6 +341,8 @@ The preceding command performs a [soft delete](/azure/key-vault/general/soft-del
 az keyvault purge --name <keyVaultName> --no-wait
 ```
 
+Replace `<keyVaultName>` with the name of your key vault.
+
 # [PowerShell](#tab/powershell)
 
 ```powershell
