@@ -1,7 +1,7 @@
 ---
 ms.date: 05/06/2020
 author: KarlErickson
-ms.author: judubois
+ms.author: hangwan
 ---
 
 Inside the main `DemoApplication` class, configure a new Spring bean that will create a database schema, using the following code:

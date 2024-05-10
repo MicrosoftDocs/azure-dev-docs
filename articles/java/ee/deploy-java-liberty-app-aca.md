@@ -4,10 +4,8 @@ recommendations: false
 description: Shows you how to deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps.
 author: KarlErickson
 ms.author: jiangma
-ms.service: container-apps
 ms.topic: quickstart
 ms.date: 10/30/2023
-keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aca, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 ---
 

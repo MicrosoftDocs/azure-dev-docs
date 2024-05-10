@@ -60,9 +60,9 @@ To configure the workflow, you need to authorize a service princiapl to deploy t
 
    > [!NOTE]
    > By default, `azd pipeline config` uses [OpenID Connect (OIDC)](../github/connect-from-azure.md#use-the-azure-login-action-with-openid-connect), called **federated** credentials. If you'd rather not use OIDC, run `azd pipeline config --auth-type client-credentials`. 
-   > 
+   >
    > OIDC/federated credentials are **not** supported for Terraform.
-   > 
+   >
    > [Learn more about OIDC support in `azd`.](./faq.yml#what-is-openid-connect--oidc---and-is-it-supported) 
 
 1. Supply the requested GitHub information.
@@ -103,8 +103,10 @@ To configure the workflow, you need to authorize a service princiapl to deploy t
 1. Visit the web frontend URL to inspect the update.
 
 ### `azd` as a GitHub action
+
 Add [`azd` as a GitHub action](https://aka.ms/azd-gha). This action will install `azd`. To use it, you can add the following to `.github\workflows\azure-dev.yml`:
-   ```
+
+   ```yml
    on: [push]
 
    jobs:
@@ -114,7 +116,6 @@ Add [`azd` as a GitHub action](https://aka.ms/azd-gha). This action will install
             - name: Install azd
             uses: Azure/setup-azd@v0.1.0
    ```
-
 
 ## [Azure DevOps](#tab/azdo)
 
@@ -130,6 +131,7 @@ To run a pipeline in Azure DevOps, you'll need an Azure DevOps organization. You
 The Azure Developer CLI relies on an Azure DevOps Personal Access Token (PAT) to configure an Azure DevOps project. [Create a new Azure DevOps PAT](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate#create-a-pat).
 
 When creating your PAT, set the following scopes:
+
 - Agent Pools (read, manage)
 - Build (read and execute)
 - Code (full)
@@ -160,7 +162,7 @@ When creating your PAT, set the following scopes:
 
 > [!NOTE]
 > By default, `azd pipeline config` in Azure DevOps uses `client-credentials`. `azd` does not currently support OIDC/federated credentials for Azure DevOps.
->
+> [Learn more about OIDC support in `azd`.](./faq.yml#what-is-openid-connect--oidc---and-is-it-supported) 
 
 1. Provide your answers to the following prompts:
 
@@ -213,9 +215,10 @@ When creating your PAT, set the following scopes:
 
 1. Visit the web frontend URL to inspect the update.
 
-
 ### `azd` as an Azure DevOps task
+
 Add [`azd` as an Azure DevOps task](https://aka.ms/azd-azdo-task). This task will install `azd`. To use it, you can add the following to `.azdo\pipelines\azure-dev.yml`:
+
    ```
    trigger:
       - main
@@ -313,10 +316,11 @@ When the pipeline runs, `azd` takes the values for the parameters from the secre
 ## Create a pipeline definition for azd
 
 A CI/CD pipeline definition has typically 4 main sections:
-  - trigger
-  - permissions
-  - operating system or pool
-  - steps to be run
+  
+- trigger
+- permissions
+- operating system or pool
+- steps to be run
 
 A pipeline definition for `azd` has no special requirements for setting the trigger or the os, but it does require specific CI/CD configurations:
 

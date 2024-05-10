@@ -3,7 +3,7 @@ title: Scale with end-to-end security, monitoring, and automation
 titleSuffix: Azure
 description: This article provides an overview of some key Azure services and features that you can use to build scalable Java applications.
 author: KarlErickson
-ms.author: karler
+ms.author: asirveda
 ms.topic: conceptual
 ms.date: 02/02/2024
 ms.custom: devx-track-java, devx-track-extended-java
@@ -120,6 +120,6 @@ For example, here's a [landing zone accelerator for Azure Spring Apps](/azure/cl
 
 :::image type="content" source="media/scale-end-to-end.png" alt-text="Diagram with the heading 'Scale with end-to-end security, monitoring and automation' and logos for the tools described in this article." border="false" lightbox="media/scale-end-to-end.png":::
 
-## Next steps
+## Next step
 
-[Azure for Java developer documentation](../index.yml)
+[Choose the right Azure services for your Java applications](choose.md)

@@ -200,7 +200,7 @@
         },
         {
             "source_path": "migration/appcat.md",
-            "redirect_url": "/azure/migrate/appcat/java?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json",
+            "redirect_url": "/azure/migrate/appcat/java?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json"
         },
         {
             "source_path": "migration/migrate-weblogic-with-aad-ldap.md",
@@ -488,15 +488,31 @@
         },
         {
             "source_path": "quickstarts/azure-ai-for-java-developers.md",
-            "redirect_url": "/azure/developer/java/azure-ai/azure-ai-for-java-developers"
+            "redirect_url": "/azure/developer/java/ai/azure-ai-for-java-developers"
         },
         {
             "source_path": "quickstarts/get-started-app-chat-template.md",
-            "redirect_url": "/azure/developer/java/azure-ai/get-started-app-chat-template"
+            "redirect_url": "/azure/developer/java/ai/get-started-app-chat-template"
         },
         {
             "source_path": "quickstarts/get-started-app-chat-scaling-with-azure-container-apps.md",
-            "redirect_url": "/azure/developer/java/azure-ai/get-started-app-chat-scaling-with-azure-container-apps"
+            "redirect_url": "/azure/developer/java/ai/get-started-app-chat-scaling-with-azure-container-apps"
+        },
+        {
+            "source_path": "azure-ai/index.yml",
+            "redirect_url": "/azure/developer/java/ai/index"
+        },
+        {
+            "source_path": "azure-ai/azure-ai-for-java-developers.md",
+            "redirect_url": "/azure/developer/java/ai/azure-ai-for-java-developers"
+        },
+        {
+            "source_path": "azure-ai/get-started-app-chat-scaling-with-azure-container-apps.md",
+            "redirect_url": "/azure/developer/java/ai/get-started-app-chat-scaling-with-azure-container-apps"
+        },
+        {
+            "source_path": "azure-ai/get-started-app-chat-template.md",
+            "redirect_url": "/azure/developer/java/ai/get-started-app-chat-template"
         }
     ]
 }

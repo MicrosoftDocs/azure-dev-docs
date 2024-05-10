@@ -1,12 +1,9 @@
 ---
 title: Use Spring Data with Azure Cosmos DB for MongoDB API
 description: Learn how to use Spring Data MongoDB API with Azure Cosmos DB.
-services: cosmos-db
-documentationcenter: java
 ms.date: 07/15/2022
-ms.author: bbenz
-ms.service: cosmos-db
-ms.tgt_pltfrm: multiple
+author: KarlErickson
+ms.author: hangwan
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
@@ -28,8 +25,6 @@ This article demonstrates creating a sample application that uses [Spring Data] 
 1. Browse to the Azure portal at <https://portal.azure.com/> and sign in.
 
 1. Select **Create a resource**, then **Databases**, then **Azure Cosmos DB**.
-
-   ![Azure portal, create a resource, search for Azure Cosmos DB.][COSMOSDB01]
 
 1. On the **Select API option** screen, select **Azure Cosmos DB for MongoDB**.
 
@@ -150,7 +145,6 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 
 <!-- IMG List -->
 
-[COSMOSDB01]: media/configure-spring-data-mongodb-with-cosmos-db/create-cosmos-db-01.png
 [COSMOSDB02]: media/configure-spring-data-mongodb-with-cosmos-db/create-cosmos-db-02.png
 [COSMOSDB03]: media/configure-spring-data-mongodb-with-cosmos-db/create-cosmos-db-03.png
 [COSMOSDB04]: media/configure-spring-data-mongodb-with-cosmos-db/create-cosmos-db-04.png

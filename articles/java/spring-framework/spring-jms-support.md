@@ -3,14 +3,14 @@ title: Use Azure Service Bus with JMS
 description: This article describes how to use Spring Cloud Azure and Spring JMS together.
 ms.date: 08/17/2023
 author: KarlErickson
-ms.author: v-yeyonghui
+ms.author: hangwan
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Use Azure Service Bus with JMS
 
-**This article applies to:** ✔️ Version 4.16.0 ✔️ Version 5.10.0
+**This article applies to:** ✔️ Version 4.18.0 ✔️ Version 5.12.0
 
 This article describes how to use Azure Service Bus with the JMS API integrated into the Spring JMS framework.
 
