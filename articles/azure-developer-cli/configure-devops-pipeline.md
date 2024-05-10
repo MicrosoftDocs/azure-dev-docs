@@ -326,15 +326,10 @@ A pipeline definition for `azd` has no special requirements for setting the trig
 
 ## [GitHub Actions](#tab/GitHub)
 
-### Permissions
+Running `azd` in GitHub Actions requires the following configurations:
 
-When running in GitHub Actions, `azd` requires `id-token: write` and `contents: read` access scopes.
-
-### Workflow steps
-
-Before calling any `azd` command from a workflow step, you first need to [install the azd action](https://aka.ms/azd-gha), unless you are using a docker image where `azd` is already installed.
-
-### Example
+- Grant `id-token: write` and `contents: read` access scopes.
+- [Install the azd action](https://aka.ms/azd-gha), unless you are using a docker image where `azd` is already installed.
 
 You can use the following template as a starting point for your own pipeline definition:
 
