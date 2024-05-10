@@ -245,7 +245,7 @@ Replace `<keyVaultName>` with the key vault name.
 
 ---
 
-To learn more about built-in roles for key vault, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide). To learn more about built-in roles in Azure, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
+To learn more about built-in roles in Azure key vault, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide). To learn more about built-in roles in Azure, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 ## 4. Create a key vault secret with Go
 
@@ -370,7 +370,7 @@ Next, run `go run` command to create a key vault secret.
 go run main.go
 ```
 
-The output will be similar to the following:
+On success, the output will be similar to the following:
 
 ```Output
 Name: https://<keyVaultName>.vault.azure.net/secrets/quickstart-secret/0e0b941824c4493bb3b83045a31b2bf7, Value: createdWithGO
