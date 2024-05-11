@@ -51,6 +51,7 @@ The following WLS state and metrics are exported by default. You can configure t
 * Prepare a local machine with either Windows with WSL, GNU/Linux, or macOS installed.
 * Install Azure CLI version 2.54.0 or higher to run Azure CLI commands.
 * Install and set up [kubectl](/cli/azure/aks#az-aks-install-cli).
+* Install [cURL](https://curl.se/).
 * Have the credentials for an Oracle single sign-on (SSO) account. To create one, see [Create Your Oracle Account](https://aka.ms/wls-aks-create-sso-account).
 * Accept the license terms for WLS.
   * Visit the [Oracle Container Registry](https://container-registry.oracle.com/) and sign in.
@@ -144,7 +145,9 @@ The following steps show you how to fill out the Basics pane.
 1. Under **Credentials WebLogic**, provide a password for **WebLogic Administrator** and **WebLogic Model encryption**, respectively. Write down the username and password for **WebLogic Administrator**.
 1. Leave the defaults for the other fields.
 
-Select **Next** and go to **AKS** pane.
+Select **Next** and go to the **AKS** tab.
+
+1. Set the **Maximum node count** to 10. This will allow you to observe the autoscaling behavior.
 
 :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-portal-aks-image-selection.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS pane - Image Selection." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-portal-aks-image-selection.png":::
 
@@ -162,7 +165,6 @@ Under **Application**:
 1. Start typing the name of the storage account from the preceding section. When the desired storage account appears, select it.
 1. Select the storage container from the preceding section.
 1. Select the checkbox next to **testwebapp.war** uploaded from the preceding section. Select **Select**. 
-1. Leave the defaults for the other fields.
 1. Select **Next**.
 
 Leave the defaults in **TLS/SSL Configuration** pane. Select **Next** to go to the **Load Balancing** pane.
@@ -175,12 +177,12 @@ Leave the defaults in **TLS/SSL Configuration** pane. Select **Next** to go to t
 
 Leave the defaults in **DNS** pane, select **Next** to go to **Database** pane.
 
-Leave the defaults in **Database** pane, select **Next** to go to **Horizontal Autoscaling** pane.
+Leave the defaults in **Database** pane, select **Next** to go to **Autoscaling** pane.
 
 :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-autoscaling.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server Cluster on AKS Horizontal Autoscaling pane." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-autoscaling.png":::
 
 1. Next to **Provision resources for horizontal autoscaling?**, select **Yes**.
-1. Under **Horizontal autoscaling settings**, next to **Select metric source. Autoscaling based on resource metrics from Kubernetes Metrics Server or exporting by WebLogic Monitoring Exporter.**, select **WebLogic Monitor Exporter**.
+1. Under **Horizontal autoscaling settings**, next to **Select autoscaling option.**, select **WebLogic Monitor Exporter (advanced autoscaling)**.
 1. Select **Review + create**.
 
 Wait until **Running final validation...** successfully completes, then select **Create**. After a while, you should see the **Deployment** page where **Deployment is in progress** is displayed.
@@ -195,8 +197,9 @@ The following sections require a terminal with `kubectl` installed to manage the
 Follow the steps to connect to AKS cluster.
 
 1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
-1. Select the AKS cluster from resource list. Select button **Connect**, you find the guidance of how to connect the AKS cluster.
-1. Select **Azure CLI** and follow the steps to connect to the AKS cluster in your local terminal. If running on macOS or Windows, save the `az aks get-credentials` command aside for use in Azure Cloud Shell later.
+1. Select the resource of type **Kubernetes service** from resource list. 
+1. Select **Connect**. Guidance to connect the AKS cluster appears.
+1. Select **Azure CLI** and follow the steps to connect to the AKS cluster in your local terminal.
 
 ## Retrieve metrics from Azure Monitor Workspace
 
@@ -234,13 +237,13 @@ Use Prometheus Query Language (PromQL) queries see metrics in the Azure Monitor 
 > kubectl get svc -n sample-domain1-ns -w
 > ```
 >
-> Wait for the `EXTERNAL-IP` column in the row for `sample-domain1-cluster-1-exporter` to switch from `<pending>` to an IP address. Then access the `http://<exporter-public-ip>:8080/metrics` and login with the credentials you specified when deploying the offer. You will find all the metrics.
+> Wait for the `EXTERNAL-IP` column in the row for `sample-domain1-cluster-1-exporter` to switch from `<pending>` to an IP address. Then open the URL `http://<exporter-public-ip>:8080/metrics` in a browser and login with the credentials you specified when deploying the offer. You will find all the available metrics. You can input any of these in the PromQL window to display them in Azure Monitor. For example `heap_free_percent` shows an interesting graph. To watch the memory pressure as the load is applied to the application, set the **Auto refresh** and **Time range** to the smallest possible interval and leave the tab open. 
 
 ## Create KEDA scaler
 
 Scalers define how and when KEDA should scale a deployment. This article uses the [Prometheus scaler](https://keda.sh/docs/2.10/scalers/prometheus/) to retrieve Prometheus metrics from the Azure Monitor workspace. 
 
-This article use `openSessionsCurrentCount` of the sample application as the trigger query. The rule for this metric is described as follows. When the average open session account is more than `10`, scale up the WLS cluster until it reaches the maximum replica size. Otherwise, scale down the WLS cluster until it reaches its minimum replica size. The table lists the important parameters:
+This article uses `openSessionsCurrentCount` as the trigger. The rule for this metric is described as follows. When the average open session account is more than `10`, scale up the WLS cluster until it reaches the maximum replica size. Otherwise, scale down the WLS cluster until it reaches its minimum replica size. The table lists the important parameters:
 
 | Parameter Name | Value |
 |-------------------|----------------------------------------------------|
@@ -256,7 +259,8 @@ Because you selected **WebLogic Monitoring Exporter** at deployment time, a KEDA
 1. Open Azure portal and go to the resource group that was provisioned in [Deploy WLS on AKS](#deploy-wls-on-aks-using-azure-marketplace-offer).
 1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
 1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the preceding section. Select the oldest deployment, whose name starts with something similar to **oracle.20210620-wls-on-aks**.
-1. The **kedaScalerServerAddress** value is the server address of that saves the WLS metrics. KEDA is able to access and retrieve metric from the address.
+1. Select **Outputs**. This shows the list of outputs from the deployment. There are a wealth of useful outputs.
+1. The **kedaScalerServerAddress** value is the server address that saves the WLS metrics. KEDA is able to access and retrieve metrics from the address.
 1. The **shellCmdtoOutputKedaScalerSample** value is the base64 string of a scaler sample. Copy the value and run it in your terminal. The command should look similar to the following example:
 
     ```bash
@@ -265,7 +269,12 @@ Because you selected **WebLogic Monitoring Exporter** at deployment time, a KEDA
     
     This command produces a *scaler.yaml* file in current directory.
 
-1. Modify the query to use the name of the deployed app.
+1. Modify the `metric:` and `query:` lines in *scaler.yaml* as shown next.
+
+   ```yaml
+   metricName: webapp_config_open_sessions_current_count
+   query: sum(webapp_config_open_sessions_current_count{app="app1"})
+   ```
 
    > [!NOTE]
    > When you deploy an app with the offer, it is named `app1` by default. You can access the WLS admin console to obtain the application name. 
@@ -277,11 +286,13 @@ Because you selected **WebLogic Monitoring Exporter** at deployment time, a KEDA
    >   * Under **Domain Structure**, select **Deployments**. You find **app1** listed. 
    >   * Select **app1**, you find the **Name** of the application is `app1`. Use `app1` as application name in the query.
 
-    ```yaml
-    query: sum(webapp_config_open_sessions_current_count{app="app1"})
-    ```
+1. If desired, modify the `maxReplicaCount:` line in *scaler.yaml* as shown next. It is an error to set this value higher than what you specified at deployment time on the **AKS** tab.
 
-1. Create the KEDA scaler by applying *scaler.yaml*.
+   ```yaml
+   maxReplicaCount: 10
+   ```
+
+1. Create the KEDA scaler rule by applying *scaler.yaml*.
 
    ```bash
    kubectl apply -f scaler.yaml
@@ -293,7 +304,7 @@ Because you selected **WebLogic Monitoring Exporter** at deployment time, a KEDA
    kubectl get hpa -n sample-domain1-ns -w
    ```
 
-   Once the scaler is ready to work, the output looks similar to the following content.
+   Once the scaler is ready to work, the output looks similar to the following content. The value in the `TARGETS` column will switch from `<unknown>` to `0`.
 
    ```text
    $ kubectl get hpa -n sample-domain1-ns -w
@@ -304,7 +315,7 @@ Because you selected **WebLogic Monitoring Exporter** at deployment time, a KEDA
 
 ## Test autoscaling
 
-Now, you're ready to observe the scaling up and scaling down capability. This article opens new sessions using `curl` to access the application. Once average account is larger than 10, scaling up action happens. The sessions last for 150 seconds, the open session account decrease as the sessions expire. Once average account is less than 10, scaling down action happens. Follow the steps to cause scaling up and scaling down actions.
+Now, you're ready to observe the autoscaling capability. This article opens new sessions using `curl` to access the application. Once average account is larger than 10, scaling up action happens. The sessions last for 150 seconds, the open session account decrease as the sessions expire. Once average account is less than 10, scaling down action happens. Follow the steps to cause scaling up and scaling down actions.
 
 First, obtain the application URL.
 
@@ -325,54 +336,59 @@ Next, run `curl` command to access the application and cause new sessions. The f
   while [ $COUNTER -lt $MAXCURL ]; do curl ${APP_URL}; let COUNTER=COUNTER+1; sleep 1;done
   ```
 
-Then, observe the scaler with `kubectl get hpa -n <wls-namespace> -w` and WLS pods with `kubectl get pod -n <wls-namespace> -w`.
+In two separate shells, observe the scaler with `kubectl get hpa -n sample-domain1-ns -w` and WLS pods with `kubectl get pod -n sample-domain1-ns -w`.
 
-  The output looks similar to the following content.
+The output looks similar to the following content.
 
-  ```text
-  $ kubectl get hpa -n sample-domain1-ns -w
-  NAME                                       REFERENCE                          TARGETS          MINPODS   MAXPODS   REPLICAS   AGE
-  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         5         1          24m
-  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         5         1          24m
-  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   5/10 (avg)       1         5         1          26m
-  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   22/10 (avg)      1         5         1          27m
-  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   7334m/10 (avg)   1         5         3          29m
-  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         5         3          30m
-  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         5         3          35m
-  keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         5         1          35m
-  ```
+```text
+$ kubectl get hpa -n sample-domain1-ns -w
+NAME                                       REFERENCE                          TARGETS          MINPODS   MAXPODS   REPLICAS   AGE
+keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         10         1         24m
+keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         10         1         24m
+keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   5/10 (avg)       1         10         1         26m
+keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   22/10 (avg)      1         10         1         27m
+keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   7334m/10 (avg)   1         10         3         29m
+keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   14667m/10 (avg)  1         10         3         48m
+keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         10         3         30m
+keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         10         3         35m
+keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         10         1         35m
+keda-hpa-azure-managed-prometheus-scaler   Cluster/sample-domain1-cluster-1   0/10 (avg)       1         10         5          53m
+```
 
-  ```text
-  $ kubectl get pod -n sample-domain1-ns -w
-  NAME                             READY   STATUS              RESTARTS   AGE
-  sample-domain1-admin-server      2/2     Running             0          28h
-  sample-domain1-managed-server1   2/2     Running             0          28h
-  sample-domain1-managed-server1   2/2     Running             0          28h
-  sample-domain1-managed-server2   0/2     Pending             0          0s
-  sample-domain1-managed-server2   0/2     Pending             0          0s
-  sample-domain1-managed-server2   0/2     ContainerCreating   0          0s
-  sample-domain1-managed-server3   0/2     Pending             0          0s
-  sample-domain1-managed-server3   0/2     Pending             0          0s
-  sample-domain1-managed-server3   0/2     ContainerCreating   0          0s
-  sample-domain1-managed-server3   1/2     Running             0          1s
-  sample-domain1-managed-server2   1/2     Running             0          2s
-  sample-domain1-managed-server3   2/2     Running             0          46s
-  sample-domain1-managed-server2   2/2     Running             0          56s
-  sample-domain1-managed-server3   1/2     Running             0          7m5s
-  sample-domain1-managed-server3   1/2     Terminating         0          7m9s
-  sample-domain1-managed-server3   1/2     Terminating         0          7m9s
-  sample-domain1-managed-server2   1/2     Running             0          7m11s
-  sample-domain1-managed-server2   1/2     Terminating         0          7m15s
-  sample-domain1-managed-server2   1/2     Terminating         0          7m15s
-  sample-domain1-managed-server1   2/2     Running             0          28h
-  ```
+```text
+$ kubectl get pod -n sample-domain1-ns -w
+NAME                             READY   STATUS              RESTARTS   AGE
+sample-domain1-admin-server      2/2     Running             0          28h
+sample-domain1-managed-server1   2/2     Running             0          28h
+sample-domain1-managed-server1   2/2     Running             0          28h
+sample-domain1-managed-server2   0/2     Pending             0          0s
+sample-domain1-managed-server2   0/2     Pending             0          0s
+sample-domain1-managed-server2   0/2     ContainerCreating   0          0s
+sample-domain1-managed-server3   0/2     Pending             0          0s
+sample-domain1-managed-server3   0/2     Pending             0          0s
+sample-domain1-managed-server3   0/2     ContainerCreating   0          0s
+sample-domain1-managed-server3   1/2     Running             0          1s
+sample-domain1-admin-server      2/2     Running             0          95m
+sample-domain1-managed-server1   2/2     Running             0          94m
+sample-domain1-managed-server2   2/2     Running             0          56s
+sample-domain1-managed-server3   2/2     Running             0          55s
+sample-domain1-managed-server4   1/2     Running             0          9s
+sample-domain1-managed-server5   1/2     Running             0          9s
+sample-domain1-managed-server5   2/2     Running             0          37s
+sample-domain1-managed-server4   2/2     Running             0          42s
+sample-domain1-managed-server5   1/2     Terminating         0          6m46s
+sample-domain1-managed-server5   1/2     Terminating         0          6m46s
+sample-domain1-managed-server4   1/2     Running             0          6m51s
+sample-domain1-managed-server4   1/2     Terminating         0          6m53s
+sample-domain1-managed-server4   1/2     Terminating         0          6m53s
+sample-domain1-managed-server3   1/2     Running             0          7m40s
+sample-domain1-managed-server3   1/2     Terminating         0          7m45s
+sample-domain1-managed-server3   1/2     Terminating         0          7m45s
+```
 
-  The graph in the Azure Monitor workspace will look similar to this.
+The graph in the Azure Monitor workspace will look similar to this.
 
-  :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wls-autoscaling-graph.png" alt-text="Screenshot of the Azure portal showing the Prometheus explorer graph." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wls-autoscaling-graph.png":::
-
-> [!NOTE]
-> In this article, the script opens 22 sessions. The average session account is less than 10 when the replica number reaches 3. The cluster didn't hit the maximum size 5.
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wls-autoscaling-graph.png" alt-text="Screenshot of the Azure portal showing the Prometheus explorer graph." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wls-autoscaling-graph.png":::
 
 ## Clean up resources
 
