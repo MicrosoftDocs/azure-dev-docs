@@ -143,11 +143,10 @@ The following steps show you how to fill out the Basics pane.
 1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, *wlsaks-eastus-20240109*.
 1. Under **Instance details**, for **Region**, select **East US**.
 1. Under **Credentials WebLogic**, provide a password for **WebLogic Administrator** and **WebLogic Model encryption**, respectively. Write down the username and password for **WebLogic Administrator**.
-1. Leave the defaults for the other fields.
+1. Next to **Optional Basic Configuration**, select **No**.
+1. Under **Optional Basic Configuration**, set **Maximum dynamic cluster size** to 10. This will allow you to observe the autoscaling behavior. 
 
 Select **Next** and go to the **AKS** tab.
-
-1. Set the **Maximum node count** to 10. This will allow you to observe the autoscaling behavior.
 
 :::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-portal-aks-image-selection.png" alt-text="Screenshot of the Azure portal showing the Oracle WebLogic Server on AKS pane - Image Selection." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/wlsaks-offer-portal-aks-image-selection.png":::
 
