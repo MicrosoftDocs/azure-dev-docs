@@ -271,7 +271,7 @@ azd down --purge --force
 The switches provide: 
 
 * `purge`: Deleted resources are immediately purged. This allows you to reuse the Azure OpenAI TPM.
-* `force`: The deletion happens siliently, without requiring user consent. 
+* `force`: The deletion happens silently, without requiring user consent. 
 
 ### Clean up GitHub Codespaces
 
