@@ -37,7 +37,7 @@ Azure AI Search doesn't provide _native_ document-level permissions and can't va
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
 
-Because the authorization isn't natively contained in Azure AI Search, you need to add a field to hold user or group information, then trim any documents which don't match the user or user's group. To implement this technique, you need to:
+Because the authorization isn't natively contained in Azure AI Search, you need to add a field to hold user or group information, then trim any documents which don't match the user. To implement this technique, you need to:
 
 * Create a document access control field in your index dedicated to storing the details of users or groups with document access. 
 * Populate the document's access control field with the relevant user or group details.
@@ -48,7 +48,7 @@ In this article, the process of securing documents in Azure AI Search, is made p
 
 ## Prerequisites
 
-A [development container](https://containers.dev/) environment is available with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
+A [development container](https://containers.dev/) environment is available with all [dependencies](https://github.com/azure-samples/azure-search-openai-demo?tab=readme-ov-file#azure-deployment) required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
 
 To use this article, you need the following prerequisites:
 
