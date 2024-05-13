@@ -39,7 +39,7 @@ Azure AI Search doesn't provide _native_ document-level permissions and can't va
 
 Because the authorization isn't natively contained in Azure AI Search, when you use process document access control using the technique illustrated in this procedure, you need to:
 
-* Create a field in your index dedicated to storing the details of users or groups with document access. 
+* Create a document access control field in your index dedicated to storing the details of users or groups with document access. 
 * Populate the document's access control field with the relevant user or group details.
 * Update this access control field whenever there are changes in user or group access permissions.
 * If your index is set with an indexer schedule, these changes will be incorporated during the next scheduled indexing. If not, you'll need to manually reindex.
