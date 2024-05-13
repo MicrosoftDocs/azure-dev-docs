@@ -60,4 +60,4 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     azd env get-values
     ```
     
-1. Copy the `CONTAINER_APP_URL` value. You use it the next section.
+1. Copy the `CONTAINER_APP_URL` value. You will use it in the next section.
