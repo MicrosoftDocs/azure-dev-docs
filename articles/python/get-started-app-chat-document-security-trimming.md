@@ -1,7 +1,7 @@
 ---
 title: "Get started with chat document security trimming"
 description: "Secure your chat app documents with user authentication and document security trimming to ensure users receive answers based on their permissions."
-ms.date: 05/10/2024
+ms.date: 05/13/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli
@@ -37,12 +37,12 @@ Azure AI Search doesn't provide _native_ document-level permissions and can't va
 
 :::image type="content" source="media/get-started-app-chat-document-security-trimming/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
 
-Because the authorization isn't natively contained in Azure AI Search, when you use process document access control using the technique illustrated in this procedure, you need to:
+Because the authorization isn't natively contained in Azure AI Search, you need to add a field to hold user or group information, then trim any documents which don't match the user or user's group. To implement this technique, you need to:
 
 * Create a document access control field in your index dedicated to storing the details of users or groups with document access. 
 * Populate the document's access control field with the relevant user or group details.
 * Update this access control field whenever there are changes in user or group access permissions.
-* If your index is set with an indexer schedule, these changes will be incorporated during the next scheduled indexing. If not, you'll need to manually reindex.
+* If your index updates are scheduled with an indexer, changes are picked up on the next indexer run. If you don't use an indexer, you need to manually reindex.
 
 In this article, the process of securing documents in Azure AI Search, is made possible with _example_ scripts which you as the search administrator would run. The scripts associate a single document with a single user identity. You can take these [scripts](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/scripts) and apply your own security and productionizing requirements to scale to your needs.
 
