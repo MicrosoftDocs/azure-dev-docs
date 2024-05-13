@@ -23,7 +23,7 @@ Once you complete this article, you can start modifying the new project with you
 
 This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Service and Azure AI Search. Other articles in the collection include: 
 
-* [.Net](/dotnet/ai/get-started-app-chat-template)
+* [.NET](/dotnet/ai/get-started-app-chat-template)
 * [JavaScript](../../javascript/get-started-app-chat-template.md)
 * [Python](../../python/get-started-app-chat-template.md)
 
@@ -147,7 +147,7 @@ The sample repository contains all the code and configuration files you need to 
     azd up
     ```
 
-1. When you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. Its used as part of the resource group name. 
+1. When you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. It's used as part of the resource group name. 
 1. When prompted, select a subscription to create the resources in. 
 1. When you're prompted to select a location the first time, select a location near you. This location is used for most the resources including hosting.
 1. If you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
@@ -243,8 +243,8 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 > [!IMPORTANT]
 > For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
-1. Locate your currently running codespaces sourced from the [`Azure-Samples/azure-search-openai-demo-java`](https://github.com/Azure-Samples/azure-search-openai-demo-java) GitHub repository.
-    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running codespaces including their status and templates.":::
+1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-demo-java`](https://github.com/Azure-Samples/azure-search-openai-demo-java) GitHub repository.
+    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 1. Open the context menu for the codespace and then select **Delete**.
     :::image type="content" source="./media/get-started-app-chat-template/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
 
