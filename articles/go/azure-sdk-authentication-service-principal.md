@@ -28,20 +28,20 @@ Before you begin, create a new resource group and key vault instance.
 ```azurecli
 az group create --name go-on-azure --location eastus
 
-az keyvault create --location eastus --name `<keyVaultName>` --resource-group go-on-azure --enable-rbac-authorization
+az keyvault create --location eastus --name <keyVaultName> --resource-group go-on-azure --enable-rbac-authorization
 ```
 
-Replace `<keyVaultName>` with a globally unique name. Also, note down the `id` property from the output of the `az keyvault create` command. You'll use it in the next section to define the scope of the authorization for the service prinicpal.
+Replace `<keyVaultName>` with a globally unique name. Also, note down the `id` property from the output of the `az keyvault create` command. You'll use it in the next section to define the scope of the authorization for the service prinicpal. The `id` value has the following form: `/subscriptions/<subscriptionId>/resourceGroups/go-on-azure/providers/Microsoft.KeyVault/vaults/<keyVaultName>`.
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
 New-AzResourceGroup -Name go-on-azure -location eastus
 
-New-AzKeyVault -ResourceGroupName go-on-azure -Name `<keyVaultName>` -Location eastus -EnableRbacAuthorization
+New-AzKeyVault -ResourceGroupName go-on-azure -Name keyVaultName> -Location eastus -EnableRbacAuthorization
 ```
 
-Replace `<keyVaultName>` with a globally unique name. Also, note down the `ResourceId` property from the output of the `New-AzKeyVault` command. You'll use it in the next section to define the scope of the authorization for the service prinicpal.
+Replace `<keyVaultName>` with a globally unique name. Also, note down the `ResourceId` property from the output of the `New-AzKeyVault` command. You'll use it in the next section to define the scope of the authorization for the service prinicpal. The `ResourceId` value has the following form:`/subscriptions/<subscriptionId>/resourceGroups/go-on-azure/providers/Microsoft.KeyVault/vaults/<keyVaultName>`.
 
 ---
 
@@ -63,12 +63,12 @@ Run the following commands to create an Azure service principal and assign it th
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az ad sp create-for-rbac --name `<servicePrincipalName>` --role "Key Vault Secrets Officer" --scope <keyVaultId>
+az ad sp create-for-rbac --name <servicePrincipalName> --role "Key Vault Secrets Officer" --scope <keyVaultId>
 ```
 
 Replace `<servicePrincipalName>` and `<keyVaultId>` with the appropriate values.
 
-Make sure you copy the **password** value - it can't be retrieved. If you forget the password, [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
+Note down the `password`, `tenantId`, and `appId` properties from the output. You'll need them in the following sections. After creation, the service principal password can't be retrieved. If you forget the password, you can [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
 
 # [PowerShell](#tab/powershell)
 
@@ -106,7 +106,7 @@ Run the following commands to create an Azure service principal that uses a cert
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-az ad sp create-for-rbac --name <servicePrincipal> --create-cert --role "Key Vault Secrets Officer" --scope <keyVaultId>
+az ad sp create-for-rbac --name <servicePrincipalName> --create-cert --role "Key Vault Secrets Officer" --scope <keyVaultId>
 ```
 
 Replace `<servicePrincipalName>` and `<keyVaultId>` with the appropriate values.
@@ -166,7 +166,7 @@ Define the following environment variables:
 # [Bash](#tab/azure-cli)
 
 ```bash
-export AZURE_TENANT_ID="<active_directory_tenant_id"
+export AZURE_TENANT_ID="<active_directory_tenant_id>"
 export AZURE_CLIENT_ID="<service_principal_appid>"
 export AZURE_CLIENT_SECRET="<service_principal_password>"
 ```
@@ -174,7 +174,7 @@ export AZURE_CLIENT_SECRET="<service_principal_password>"
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$env:AZURE_TENANT_ID="<active_directory_tenant_id"
+$env:AZURE_TENANT_ID="<active_directory_tenant_id>"
 $env:AZURE_CLIENT_ID="<service_principal_appid>"
 $env:AZURE_CLIENT_SECRET="<service_principal_password>"
 ```
@@ -192,7 +192,7 @@ $env:AZURE_CLIENT_SECRET="<service_principal_password>"
 # [Bash](#tab/azure-cli)
 
 ```bash
-export AZURE_TENANT_ID="<active_directory_tenant_id"
+export AZURE_TENANT_ID="<active_directory_tenant_id>"
 export AZURE_CLIENT_ID="<service_principal_appid>"
 export AZURE_CLIENT_CERTIFICATE_PATH="<azure_client_certificate_path>"
 ```
@@ -200,7 +200,7 @@ export AZURE_CLIENT_CERTIFICATE_PATH="<azure_client_certificate_path>"
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$env:AZURE_TENANT_ID="<active_directory_tenant_id"
+$env:AZURE_TENANT_ID="<active_directory_tenant_id>"
 $env:AZURE_CLIENT_ID="<service_principal_appid>"
 $env:AZURE_CLIENT_CERTIFICATE_PATH="<azure_client_certificate_path>"
 ```
@@ -343,6 +343,14 @@ az keyvault purge --name <keyVaultName> --no-wait
 
 Replace `<keyVaultName>` with the name of your key vault.
 
+Finally, you should remove the service principal.
+
+```azurecli
+az ad sp delete --id <servicePrincipalAppId>
+```
+
+Replace `<servicePrincipalAppId>` with the App ID of your service principal.
+
 # [PowerShell](#tab/powershell)
 
 ```powershell
@@ -358,6 +366,14 @@ Remove-AzKeyVault -Name `<keyVaultName>` -InRemovedState -Force
 ```
 
 Replace `<keyVaultName>` with the name of your key vault.
+
+Finally, you should remove the service principal.
+
+```powershell
+Remove-AzureADServicePrincipal -ObjectId <servicePrincipalObjectId>
+```
+
+Replace `<servicePrincipalObjectId>` with the Object ID of your service principal.
 
 ---
 
