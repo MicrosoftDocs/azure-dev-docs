@@ -29,14 +29,16 @@ landingContent:
             url: azure-ai-for-developers.md
       - linkListType: get-started
         links:
-          - text: Python enterprise chat sample
+          - text: Chat with your data using Python
             url: ../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-          - text: JavaScript enterprise chat sample
+          - text: Chat with your data using JavaScript
             url: ../javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-          - text: Java enterprise chat sample
+          - text: Chat with your data using Java
             url: ../java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-          - text: .NET enterprise chat sample
+          - text: Chat with your data using .NET
             url: /dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+          - text: Use the chat protocol in a JavaScript frontend and Python backend
+            url: ../javascript/chat-app-with-separate-front-back-end.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
 
   - title: Resources by programming language
     linkLists:

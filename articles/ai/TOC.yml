@@ -12,23 +12,23 @@ items:
           href: intro-02.md
     - name: AI app templates
       items:
-        - name: Get started with the enterprise chat app templates
+        - name: Get started with the chat app templates
           items:
-            - name: Python enterprise chat sample
+            - name: Chat with your data using Python
               href: ../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: JavaScript enterprise chat sample
+            - name: Chat with your data using JavaScript
               href: ../javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: JavaScript frontend + Python backend
-              href: ../javascript/chat-app-with-separate-front-back-end.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: Java enterprise chat sample
+            - name: Chat with your data using Java
               href: ../java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: .NET enterprise chat sample
+            - name:  Chat with your data using .NET
               href: /dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+        - name: Use the chat protocol in a JavaScript frontend and Python backend
+          href: ../javascript/chat-app-with-separate-front-back-end.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Evaluate the chat app
           items:
-            - name: Evaluate the Python app
+            - name: Evaluate the Python chat app
               href: ../python/get-started-app-chat-evaluations.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: Evaluate the JavaScript app
+            - name: Evaluate the JavaScript chat aapp
               href: ../javascript/get-started-app-chat-evaluations.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Load balance the chat app with Azure Container Apps
           items:
@@ -42,11 +42,11 @@ items:
               href: /dotnet/ai/get-started-app-chat-scaling-with-azure-container-apps?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Load balance the chat app with Azure API Management
           items:
-            - name: Scale the Python app
+            - name: Scale the Python chat aapp
               href: ../python/get-started-app-chat-scaling-with-azure-api-management.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: Scale the JavaScript app
+            - name: Scale the JavaScript chat aapp
               href: ../javascript/get-started-app-chat-scaling-with-azure-api-management.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-        - name: Load test the Python app with Locust
+        - name: Load test the Python chat aapp with Locust
           href: ../python/get-started-app-chat-app-load-test-locust.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
     - name: Python resources
       items:
