@@ -31,7 +31,7 @@ To add security for the documents, you need to update the enterprise chat app:
 * Add client authentication to the chat app with Microsoft Entra.
 * Add server-side logic to populate a search index which corresponds to the authenticated user's identity that should have access to each document.
 
-:::image type="content" source="media/get-started-app-chat-document-security-trimming/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing a use authenticating with Entra ID, then passing that authentication to Azure AI Search.":::
+:::image type="content" source="media/get-started-app-chat-document-security-trimming/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing a use authenticating with Microsoft Entra ID, then passing that authentication to Azure AI Search.":::
 
 Azure AI Search doesn't provide _native_ document-level permissions and can't vary search results from within an index by user permissions. Instead, your application can use search filters to ensure a document is accessible to a specific user or by a specific group. Within your search index, each document should have a filterable field that stores user or group identity information.
 
@@ -193,7 +193,7 @@ If you get an error about your tenant's conditional access policy, you need a se
 
 ## Deploy chat app to Azure
 
-Deployment includes creating the Azure resources, uploading the documents, creating the Entra identity apps (client & server), and turning on identity for the hosting resource. 
+Deployment includes creating the Azure resources, uploading the documents, creating the Microsoft Entra identity apps (client & server), and turning on identity for the hosting resource. 
 
 1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
 
@@ -237,7 +237,7 @@ Turn on your permissions for the exact document so you _can_ get the answer. The
     * Account name
     * Container name
     * Blob/document URL for `role_library.pdf`
-* User's ID in Entra ID
+* User's ID in Microsoft Entra ID
 
 Once this information is known, update the Azure AI Search index `oids` field for the `role_library.pdf` document. 
 
