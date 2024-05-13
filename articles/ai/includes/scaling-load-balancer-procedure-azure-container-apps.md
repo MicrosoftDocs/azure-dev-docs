@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 05/11/2024
+ms.date: 05/13/2024
 ms.author: diberry
 author: diberry
 ms.service: azure
@@ -30,16 +30,16 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ## Deploy Azure Container Apps load balancer
 
-1. Sign in to the Azure CLI to provide authentication to the post provision step.
-
-    ```bash
-    az login --use-device-code
-    ```
-
 1. Sign in to the Azure Developer CLI to provide authentication to the provisioning and deployment steps.
 
     ```bash
     azd auth login --use-device-code
+    ```
+
+1. Set an environment variable to use Azure CLI authentication to the post provision step.
+
+    ```bash
+    azd config set auth.useAzCliAuth "true"
     ```
 
 1. Deploy the load balancer app.
