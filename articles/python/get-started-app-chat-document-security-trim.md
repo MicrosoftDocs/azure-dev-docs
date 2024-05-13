@@ -14,28 +14,28 @@ When you build a [chat application using the RAG pattern](get-started-app-chat-t
 
 An **authorized user** should have access to answers contained within the documents of the chat app.
 
-:::image type="content" source="media/get-started-app-chat-document-security-trimming/chat-answer-with-authorized-access.png" alt-text="Screenshot of chat app with answer with required authentication access.":::
+:::image type="content" source="media/get-started-app-chat-document-security-trim/chat-answer-with-authorized-access.png" alt-text="Screenshot of chat app with answer with required authentication access.":::
 
 An **unauthorized user** shouldn't have access to answers from secured documents they don't have authorization to see.
 
-:::image type="content" source="media/get-started-app-chat-document-security-trimming/chat-answer-with-no-access.png" alt-text="Screenshot of chat app with answer indicating user doesn't have access to data.":::
+:::image type="content" source="media/get-started-app-chat-document-security-trim/chat-answer-with-no-access.png" alt-text="Screenshot of chat app with answer indicating user doesn't have access to data.":::
 
 ## Architectural overview
 
 Without document security feature, the enterprise chat app has a simple architecture using Azure AI Search and Azure OpenAI. An answer is determined from queries to Azure AI Search where the documents are stored, in combination with a response from an Azure OpenAI GPT model. No user authentication is used in this simple flow.
 
-:::image type="content" source="media/get-started-app-chat-document-security-trimming/simple-rag-chat-architecture.png" alt-text="Architectural diagram showing an answer determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI.":::
+:::image type="content" source="media/get-started-app-chat-document-security-trim/simple-rag-chat-architecture.png" alt-text="Architectural diagram showing an answer determined from queries to Azure AI Search where the documents are stored, in combination with a prompt response from Azure OpenAI.":::
 
 To add security for the documents, you need to update the enterprise chat app: 
 
 * Add client authentication to the chat app with Microsoft Entra.
 * Add server-side logic to populate a search index which corresponds to the authenticated user's identity that should have access to each document.
 
-:::image type="content" source="media/get-started-app-chat-document-security-trimming/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing a use authenticating with Microsoft Entra ID, then passing that authentication to Azure AI Search.":::
+:::image type="content" source="media/get-started-app-chat-document-security-trim/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing a use authenticating with Microsoft Entra ID, then passing that authentication to Azure AI Search.":::
 
 Azure AI Search doesn't provide _native_ document-level permissions and can't vary search results from within an index by user permissions. Instead, your application can use search filters to ensure a document is accessible to a specific user or by a specific group. Within your search index, each document should have a filterable field that stores user or group identity information.
 
-:::image type="content" source="media/get-started-app-chat-document-security-trimming/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
+:::image type="content" source="media/get-started-app-chat-document-security-trim/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
 
 Because the authorization isn't natively contained in Azure AI Search, you need to add a field to hold user or group information, then trim any documents which don't match the user. To implement this technique, you need to:
 
@@ -93,7 +93,7 @@ Begin now with a development environment that has all the dependencies installed
 
 1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**
 
-    :::image type="content" source="./media/get-started-app-chat-document-security-trimming/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
+    :::image type="content" source="./media/get-started-app-chat-document-security-trim/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
@@ -132,7 +132,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     > [!TIP]
     > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
     >
-    > :::image type="content" source="./media/get-started-app-chat-document-security-trimming/open-terminal-option.png" lightbox="./media/get-started-app-chat-document-security-trimming/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
+    > :::image type="content" source="./media/get-started-app-chat-document-security-trim/open-terminal-option.png" lightbox="./media/get-started-app-chat-document-security-trim/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
 
@@ -215,7 +215,7 @@ Deployment includes creating the Azure resources, uploading the documents, creat
 1. After the application has been successfully deployed, you see a URL displayed in the terminal.
 1. Select that URL labeled `(✓) Done: Deploying service webapp` to open the chat application in a browser.
 
-    :::image type="content" source="./media/get-started-app-chat-document-security-trimming/azd-deployment-output.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+    :::image type="content" source="./media/get-started-app-chat-document-security-trim/azd-deployment-output.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
 1. Agree to the app authentication pop-up. 
 1. When the chat app is displayed, notice in the top right corner that your user is signed in. 
@@ -227,7 +227,7 @@ Deployment includes creating the Azure resources, uploading the documents, creat
 1. Select the card with `What does a product manager do?`.
 1. You get an answer like: `The provided sources do not contain specific information about the role of a Product Manager at Contoso Electronics.`
 
-    :::image type="content" source="./media/get-started-app-chat-document-security-trimming/role-library-access-denied.png" alt-text="Screenshot of chat app in browser showing the answer can't be returned":::
+    :::image type="content" source="./media/get-started-app-chat-document-security-trim/role-library-access-denied.png" alt-text="Screenshot of chat app in browser showing the answer can't be returned":::
 
 ## Open access to a document for a user
 
@@ -362,7 +362,7 @@ If you completed the steps but did not see the correct answer, verify your USER_
 1. Enter the same query so that the `role_library` content is used in the Azure OpenAI answer: `What does a product manager do?`.
 1. View the result which now includes the appropriate answer from the role library document.
 
-    :::image type="content" source="./media/get-started-app-chat-document-security-trimming/role-library-access-granted.png" alt-text="Screenshot of chat app in browser showing the answer is returned.":::
+    :::image type="content" source="./media/get-started-app-chat-document-security-trim/role-library-access-granted.png" alt-text="Screenshot of chat app in browser showing the answer is returned.":::
 
 ## Clean up resources
 
@@ -389,11 +389,11 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository.
 
-    :::image type="content" source="./media/get-started-app-chat-document-security-trimming/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
+    :::image type="content" source="./media/get-started-app-chat-document-security-trim/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
 1. Open the context menu for the codespace and then select **Delete**.
 
-    :::image type="content" source="./media/get-started-app-chat-document-security-trimming/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
+    :::image type="content" source="./media/get-started-app-chat-document-security-trim/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -401,7 +401,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="./media/get-started-app-chat-document-security-trimming/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+    :::image type="content" source="./media/get-started-app-chat-document-security-trim/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
