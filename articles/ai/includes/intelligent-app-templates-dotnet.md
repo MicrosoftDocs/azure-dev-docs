@@ -46,7 +46,7 @@ This .NET [reference template](https://github.com/Azure-Samples/contoso-chat-csh
 ## Process Automation: Speech to Text and Summarization with .NET and GPT 3.5 Turbo
 
 
-This .NET [reference template](https://github.com/Azure-Samples/summarization-openai-csharp-prompty) is a process automation solution which converts speech to text and then processes and summarizes the text based on the prompt scenario.
+This .NET [reference template](https://github.com/Azure-Samples/summarization-openai-csharp-prompty) is a process automation solution which recieves issues reported by field and shop floor workers at a company called Contoso Manufacturing, a manufacturing company that makes car batteries. The issues are shared by the workers either live through microphone input or pre-recorded as audio files. We translate the input from speech to text and then use an LLM and Prompty or Promptflow to summarize the issue and return the results in a format we specify..
 
 :::row:::
    :::column span="":::
