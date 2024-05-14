@@ -10,7 +10,7 @@ ms.custom: devx-track-go
 
 In this tutorial, you'll use the Azure SDK for Go to authenticate to Azure with an Azure service principal using either a secret or a certificate.
 
-Azure service principals define the access policy and permissions in a Microsoft Entra tenant, enabling core features such as authentication during sign-on and authorization during resource access. They remove the need to use personal accounts to access Azure resources. The Azure SDK for Go [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) module provides a convenient way to authenticate to Azure with a service principal using environment variables, and a secret or a certificate.
+Azure service principals define the access policy and permissions in a Microsoft Entra tenant, enabling core features such as authentication during sign-on and authorization during resource access. They remove the need to use personal accounts to access Azure resources. For example, you can assign a service prinicipal the exact permissions needed for your app and develop against those permissions, rather than using a personal account, which may have more privileges in your tenant than the app requires. You can also use service principals for apps that are hosted on-premisis that need to use Azure resources. The Azure SDK for Go [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) module provides a convenient way to authenticate to Azure with a service principal using environment variables, and a secret or a certificate.
 
 Follow this tutorial to create and authenticate with the Azure SDK for Go using a service principal.
 
@@ -31,17 +31,21 @@ az group create --name go-on-azure --location eastus
 az keyvault create --location eastus --name <keyVaultName> --resource-group go-on-azure --enable-rbac-authorization
 ```
 
-Replace `<keyVaultName>` with a globally unique name. Also, note down the `id` property from the output of the `az keyvault create` command. You'll use it in the next section to define the scope of the authorization for the service prinicpal. The `id` value has the following form: `/subscriptions/<subscriptionId>/resourceGroups/go-on-azure/providers/Microsoft.KeyVault/vaults/<keyVaultName>`.
+Replace `<keyVaultName>` with a globally unique name.
+
+Note down the `id` property from the output of the `az keyvault create` command. You'll use it in the next section to define the scope of the authorization for the service prinicpal. The `id` value has the following form: `/subscriptions/<subscriptionId>/resourceGroups/go-on-azure/providers/Microsoft.KeyVault/vaults/<keyVaultName>`.
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
 New-AzResourceGroup -Name go-on-azure -location eastus
 
-New-AzKeyVault -ResourceGroupName go-on-azure -Name keyVaultName> -Location eastus -EnableRbacAuthorization
+New-AzKeyVault -ResourceGroupName go-on-azure -Name <keyVaultName> -Location eastus -EnableRbacAuthorization
 ```
 
-Replace `<keyVaultName>` with a globally unique name. Also, note down the `ResourceId` property from the output of the `New-AzKeyVault` command. You'll use it in the next section to define the scope of the authorization for the service prinicpal. The `ResourceId` value has the following form:`/subscriptions/<subscriptionId>/resourceGroups/go-on-azure/providers/Microsoft.KeyVault/vaults/<keyVaultName>`.
+Replace `<keyVaultName>` with a globally unique name.
+
+Note down the `ResourceId` property from the output of the `New-AzKeyVault` command. You'll use it in the next section to define the scope of the authorization for the service prinicpal. The `ResourceId` value has the following form:`/subscriptions/<subscriptionId>/resourceGroups/go-on-azure/providers/Microsoft.KeyVault/vaults/<keyVaultName>`.
 
 ---
 
@@ -105,6 +109,7 @@ Replace `<Password>`, `<servicePrincipalName>`, and `<keyVaultId>` with the appr
 Run the following commands to create an Azure service principal that uses a certificate and assign it the "Key Vault Secrets Officer" role on the key vault.
 
 # [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az ad sp create-for-rbac --name <servicePrincipalName> --create-cert --role "Key Vault Secrets Officer" --scope <keyVaultId>
 ```
@@ -209,7 +214,7 @@ $env:AZURE_CLIENT_CERTIFICATE_PATH="<azure_client_certificate_path>"
 
 ### Use DefaultAzureCredential to authenticate a resource client
 
-Use the `NewDefaultAzureCredential` function of the Azure Identity module to authenticate a resource client.
+After you set the environment variables, you can use the `NewDefaultAzureCredential` function of the Azure Identity module to authenticate a resource client.
 
 ```go
 cred, err := azidentity.NewDefaultAzureCredential(nil)
@@ -218,7 +223,7 @@ if err != nil {
 }
 ```
 
-## 4. Sample code
+## 4. Create a key vault secret with Go
 
 Use the following code sample to verify that your service principal authenticates to Azure and has the appropriate permissions to the key vault.
 
