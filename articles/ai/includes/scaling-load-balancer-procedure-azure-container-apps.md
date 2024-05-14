@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 03/08/2024
+ms.date: 05/13/2024
 ms.author: diberry
 author: diberry
 ms.service: azure
@@ -30,14 +30,18 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ## Deploy Azure Container Apps load balancer
 
-
-1. To deploy the load balancer to Azure, sign in to Azure Developer CLI (AZD).
+1. Sign in to the Azure Developer CLI to provide authentication to the provisioning and deployment steps.
 
     ```bash
-    azd auth login
+    azd auth login --use-device-code
     ```
 
-1. Finish the sign in instructions.
+1. Set an environment variable to use Azure CLI authentication to the post provision step.
+
+    ```bash
+    azd config set auth.useAzCliAuth "true"
+    ```
+
 1. Deploy the load balancer app.
 
     ```bash
@@ -48,4 +52,12 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 1. Wait for the deployment to complete before continuing.
 
-1. Get the URL at the end of the deployment named **Endpoint**. This is the `CONTAINER_APP_URL` used in the next section.
+## Get the deployment endpoint
+
+1. Use the following command to display the deployed endpoint for the Azure Container app.
+
+    ```bash
+    azd env get-values
+    ```
+    
+1. Copy the `CONTAINER_APP_URL` value. You will use it in the next section.
