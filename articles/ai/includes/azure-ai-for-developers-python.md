@@ -3,7 +3,20 @@
 Azure AI reference templates are well-maintained, easily deployed reference implementations. These ensure a high-quality starting point for your AI applications. The **end-to-end solutions** provide popular, comprehensive reference applications. The **building blocks** are smaller-scale samples that focus on specific scenarios and tasks.
 
 [Learn more about about the reference templates and other building blocks](../azure-ai-for-developers.md), or 
-[Get started with the Python enterprise chat sample using RAG](../../python/get-started-app-chat-template.md), an article that walks you through deploying and using the [Enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample is a complete end-to-end solution demonstrating the [Retrieval-Augmented Generation (RAG) pattern](/azure/search/retrieval-augmented-generation-overview) running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
+[get started with the Python enterprise chat sample using RAG](../../python/get-started-app-chat-template.md), an article that walks you through deploying and using the [Enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample is a complete end-to-end solution demonstrating the [Retrieval-Augmented Generation (RAG) pattern](/azure/search/retrieval-augmented-generation-overview) running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
+
+## Popular starting points
+
+If you're just getting started, consider one of these scenario-based quickstarts:
+
+|Link|Description|
+|---|---|
+|[Quickstart: Get started generating text using Azure OpenAI Service](/azure/ai-services/openai/quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-python)|A very quick set of instructions to set up the services you need and code you must write to prompt a model using Python.|
+|[Quickstart: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service](/azure/ai-services/openai/chatgpt-quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-python)|Similar to the previous quickstart, but provides an example of system, assistant and user roles to tailor the content when asked certain questions.|
+|[Quickstart: Chat with Azure OpenAI models using your own data](/azure/ai-services/openai/use-your-data-quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-python)|Similar to the first quickstart, but this time you add your own data (like a PDF or other document).|
+|[Quickstart: Get started using Azure OpenAI Assistants (Preview)](/azure/ai-services/openai/assistants-quickstart?tabs=command-line%2Ctypescript&pivots=programming-language-python)|Similar to the first quickstart in this list, but this time you tell the model to use the built-in Python code interpreter to solve math problems step by step. This is a starting point to using your own AI assistants accessed through custom instructions.|
+|[Quickstart: Use images in your AI chats](/azure/ai-services/openai/gpt-v-quickstart?tabs=image%2Ccommand-line&pivots=programming-language-python)|How to programmatically ask the model to describe the contents of an image.|
+|[Quickstart: Generate images with Azure OpenAI Service](/azure/ai-services/openai/dall-e-quickstart?tabs=dalle3%2Ccommand-line&pivots=programming-language-python)|Programmatically generate images using Dall-E based on a prompt.|
 
 
 ### Azure OpenAI Service documentation
@@ -22,10 +35,10 @@ Azure AI reference templates are well-maintained, easily deployed reference impl
 |Link|Description|
 |---|---|
 |[Generative AI for Beginners Workshop](https://github.com/microsoft/generative-ai-for-beginners/tree/main)|Learn the fundamentals of building Generative AI applications with our 18-lesson comprehensive course by Microsoft Cloud Advocates.|
-|[Microsoft Azure AI Fundamentals: Generative AI](https://learn.microsoft.comtraining/paths/introduction-generative-ai/)|Training path to help you understand how large language models form the foundation of generative AI: how Azure OpenAI Service provides access to the latest generative AI technology, how prompts and responses can be fine-tuned and how Microsoft's responsible AI principles drive ethical AI advancements.|
-|[Get started with Azure AI Services](https://learn.microsoft.com/training/paths/get-started-azure-ai/)|Azure AI Services is a collection of services that are building blocks of AI functionality you can integrate into your applications. In this learning path, you'll learn how to provision, secure, monitor, and deploy Azure AI Services resources and use them to build intelligent solutions.|
-|[Develop Generative AI solutions with Azure OpenAI Service](https://learn.microsoft.com/training/paths/develop-ai-solutions-azure-openai/)|Azure OpenAI Service provides access to OpenAI's powerful large language models such as ChatGPT, GPT, Codex, and Embeddings models. This learning path teaches developers how to generate code, images, and text using the Azure OpenAI SDK and other Azure services.|
-|[Build AI Apps with Azure Database for PostgreSQL](https://learn.microsoft.com/training/paths/build-ai-apps-azure-database-postgresql/)|This learning path explores how the Azure AI and Azure Machine Learning Services integrations provided by the Azure AI extension for Azure Database for PostgreSQL - Flexible Server can enable you to build AI-powered apps.|
+|[Microsoft Azure AI Fundamentals: Generative AI](/training/paths/introduction-generative-ai/)|Training path to help you understand how large language models form the foundation of generative AI: how Azure OpenAI Service provides access to the latest generative AI technology, how prompts and responses can be fine-tuned and how Microsoft's responsible AI principles drive ethical AI advancements.|
+|[Get started with Azure AI Services](/training/paths/get-started-azure-ai/)|Azure AI Services is a collection of services that are building blocks of AI functionality you can integrate into your applications. In this learning path, you'll learn how to provision, secure, monitor, and deploy Azure AI Services resources and use them to build intelligent solutions.|
+|[Develop Generative AI solutions with Azure OpenAI Service](/training/paths/develop-ai-solutions-azure-openai/)|Azure OpenAI Service provides access to OpenAI's powerful large language models such as ChatGPT, GPT, Codex, and Embeddings models. This learning path teaches developers how to generate code, images, and text using the Azure OpenAI SDK and other Azure services.|
+|[Build AI Apps with Azure Database for PostgreSQL](/training/paths/build-ai-apps-azure-database-postgresql/)|This learning path explores how the Azure AI and Azure Machine Learning Services integrations provided by the Azure AI extension for Azure Database for PostgreSQL - Flexible Server can enable you to build AI-powered apps.|
 
 
 ### Azure OpenAI Service samples
