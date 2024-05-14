@@ -11,15 +11,26 @@ ms.service: azure
 
 This JavaScript [reference template](https://github.com/azure-samples/azure-search-openai-javascript) is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
 
+:::row:::
+   :::column:::
+      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-chat-javascript.png" lightbox="../media/intelligent-app-templates/architecture-diagram-chat-javascript.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+   :::column-end:::
+   :::column:::
+      :::image type="content" source="../media/intelligent-app-templates/browser-app-chat-javascript.png" lightbox="../media/intelligent-app-templates/browser-app-chat-javascript.png" alt-text="Diagram showing architecture from client to backend app":::
+   :::column-end:::
+:::row-end:::
+
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
 |Azure Container Apps<br>Azure Static Web Apps|Azure OpenAI<br>Azure AI Search<br>Azure Storage<br>Azure Monitor|text-embedding-ada-002|
 
 
-## Web Frontend UI for AI Integration
+## Azure OpenAI Chat Frontend
 
-This JavaScript [reference template](https://github.com/Azure-Samples/web-openai-swa-frontend) is 
+This JavaScript [reference template](https://github.com/Azure-Samples/azure-openai-chat-frontend) is a minimal OpenAI chat web component to hook as a client to any backend implementation.
+
+:::video source="../media/intelligent-app-templates/chat-frontend-javascript-video.mp4":::
 
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
-|Azure Static Web Apps|||
+|Azure Static Web Apps|Azure AI Search<br>Azure OpenAI|GPT 3.5 Turbo<br>GPT4|
