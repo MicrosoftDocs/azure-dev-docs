@@ -1,7 +1,7 @@
 ---
 title: Get started with the Python enterprise chat sample using RAG
 description: Get started with Python and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 05/08/2024
+ms.date: 05/14/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, devx-track-extended-azdevcli
@@ -13,9 +13,6 @@ ms.custom: devx-track-python, devx-track-python-ai, devx-track-extended-azdevcli
 This article shows you how to deploy and run the [Enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample implements a chat app using Python, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about employee benefits at a fictitious company. The app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. 
 
 * [Demo video](https://aka.ms/azai/py/video)
-
-> [!div class="nextstepaction"]
-> [Begin now](#open-development-environment)
 
 By following the instructions in this article, you will:
 
