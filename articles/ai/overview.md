@@ -86,7 +86,7 @@ When you're ready to jump in and start building something significant, we recomm
 Each language overview page links to popular articles, samples, documentation and more specific to your preferred programming language or platform:
 
 - [Python Resources](./overview-python.md)
-- [JavaScript](./overview-javascript.md)
+- [JavaScript Resources](./overview-javascript.md)
 - [Java Resources](./overview-java.md)
 - [.NET Resources](./overview-dotnet.md)
 
