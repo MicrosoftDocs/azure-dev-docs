@@ -17,20 +17,20 @@ The intelligent app templates are complete end-to-end solutions including docume
 
 :::zone pivot="dotnet"
 
-[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-apps-templates-dotnet.md)]
+[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-app-templates-dotnet.md)]
 
 :::zone-end
 
 :::zone pivot="python"
 
-[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-apps-templates-python.md)]
+[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-app-templates-python.md)]
 
 
 :::zone-end
 
 :::zone pivot="java"
 
-[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-apps-templates-java.md)]
+[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-app-templates-java.md)]
 
 
 :::zone-end
@@ -38,13 +38,13 @@ The intelligent app templates are complete end-to-end solutions including docume
 
 :::zone pivot="javascript"
 
-[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-apps-templates-javascript.md)]
+[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-app-templates-javascript.md)]
 
 
 :::zone-end
 
 :::zone pivot="golang"
 
-[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-apps-templates-golang.md)]
+[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-app-templates-golang.md)]
 
 :::zone-end

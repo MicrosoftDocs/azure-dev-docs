@@ -27,7 +27,16 @@ This .NET [reference template](https://github.com/Azure-Samples/azure-search-ope
 
 ## Contoso Chat Retail copilot with .NET and Semantic Kernel
 
-This .NET [reference template](https://github.com/Azure-Samples/agent-openai-python-prompty) is a customer sales and support chat solution with rag.
+This .NET [reference template](https://github.com/Azure-Samples/contoso-chat-csharp-prompty), we present Contoso Outdoors, a conceptual store specializing in outdoor gear for hiking and camping enthusiasts. This virtual store enhances customer engagement and sales support through an intelligent chat agent. This agent is powered by the Retrieval Augmented Generation (RAG) pattern within the Microsoft Azure AI Stack, enriched with Semantic Kernel and Prompty support.
+
+:::row:::
+   :::column span="":::
+      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-contoso-chat-csharp-prompty-dotnet" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+   :::column-end:::
+   :::column span="":::
+      :::image type="content" source="/dotnet/ai/media/get-started-app-chat-template/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app":::
+   :::column-end:::
+:::row-end:::
 
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
