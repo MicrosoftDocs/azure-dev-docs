@@ -17,7 +17,7 @@ The intelligent app templates are complete end-to-end solutions including docume
 
 :::zone pivot="dotnet"
 
-[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-apps-templates-dotent.md)]
+[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-apps-templates-dotnet.md)]
 
 :::zone-end
 

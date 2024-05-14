@@ -11,7 +11,7 @@ items:
         - name: Develop apps that use generative AI
           href: intro-02.md
         - name: AI app templates
-          href: intelligent-apps-templates.md
+          href: intelligent-app-templates.md
     - name: Python
       items:
         - name: Get started with the chat app templates
