@@ -40,9 +40,9 @@ When you're ready to jump in and start building something significant, we recomm
 
 :::zone pivot="python"
 
-## Python enterprise chat sample
+## AI app templates
 
-When you're ready to jump in and start building something significant, we recommend you get started with the enterprise chat sample using RAG.
+There are several [AI app templates]() available. One of the most popular templates the enterprise chat sample using RAG:
 
 |Link|Description|
 |---|---|
