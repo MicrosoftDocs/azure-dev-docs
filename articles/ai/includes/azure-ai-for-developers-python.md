@@ -2,7 +2,7 @@
 
 We provide several Azure AI reference templates that feature with well-maintained, easily deployed reference implementations. These ensure a high-quality starting point for your intelligent applications. The end-to-end solutions provide popular, comprehensive reference applications. The building blocks are smaller-scale samples that focus on specific scenarios and tasks.
 
-[Learn more about about the reference templates and other building blocks](./azure-ai-for-developers.md), or 
+[Learn more about about the reference templates and other building blocks](../azure-ai-for-developers.md), or 
 [Get started with the Python enterprise chat sample using RAG](../../python/get-started-app-chat-template.md), an article that walks you through deploying and using the [Enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample is a complete end-to-end solution demonstrating the [Retrieval-Augmented Generation (RAG) pattern](/azure/search/retrieval-augmented-generation-overview) running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
 
 
