@@ -1,5 +1,5 @@
 ---
-title: Develop JavaScript apps that use Azure AI services
+title: Develop AI Apps with JavaScript
 description: This article provides an organized list of resources about Azure AI scenarios for JavaScript developers, including documentation and code samples.
 keywords: ai, azure openai service
 ms.subservice: intelligent-apps
@@ -8,7 +8,7 @@ ms.date: 5/14/2024
 ms.custom: overview, devx-track-javascript
 ---
 
-# Develop JavaScript apps that use Azure AI services
+# Develop AI Apps with JavaScript
 
 This article provides documentation, samples and other resources for learning how to develop applications that use Azure OpenAI Service and other Azure AI Services.
 
