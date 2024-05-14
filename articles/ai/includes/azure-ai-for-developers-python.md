@@ -1,15 +1,4 @@
-## Popular starting points
-
-If you're just getting started, consider one of these scenario-based quickstarts:
-
-|Link|Description|
-|---|---|
-|[Quickstart: Get started generating text using Azure OpenAI Service](/azure/ai-services/openai/quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-python)|A very quick set of instructions to set up the services you need and code you must write to prompt a model using Python.|
-|[Quickstart: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service](/azure/ai-services/openai/chatgpt-quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-python)|Similar to the previous quickstart, but provides an example of system, assistant and user roles to tailor the content when asked certain questions.|
-|[Quickstart: Chat with Azure OpenAI models using your own data](/azure/ai-services/openai/use-your-data-quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-python)|Similar to the first quickstart, but this time you add your own data (like a PDF or other document).|
-|[Quickstart: Get started using Azure OpenAI Assistants (Preview)](/azure/ai-services/openai/assistants-quickstart?tabs=command-line%2Ctypescript&pivots=programming-language-python)|Similar to the first quickstart in this list, but this time you tell the model to use the built-in Python code interpreter to solve math problems step by step. This is a starting point to using your own AI assistants accessed through custom instructions.|
-|[Quickstart: Use images in your AI chats](/azure/ai-services/openai/gpt-v-quickstart?tabs=image%2Ccommand-line&pivots=programming-language-python)|How to programmatically ask the model to describe the contents of an image.|
-|[Quickstart: Generate images with Azure OpenAI Service](/azure/ai-services/openai/dall-e-quickstart?tabs=dalle3%2Ccommand-line&pivots=programming-language-python)|Programmatically generate images using Dall-E based on a prompt.|
+## AI app templates
 
 When you're ready to jump in and start building something significant, we recommend you get started with the enterprise chat sample using RAG.
 
@@ -29,6 +18,19 @@ The Azure OpenAIprovides REST API access to OpenAI's powerful language models. T
 |Link|Description|
 |---|---|
 |[Azure OpenAI Service Documentation](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
+
+### Popular starting points
+
+If you're just getting started, consider one of these scenario-based quickstarts:
+
+|Link|Description|
+|---|---|
+|[Quickstart: Get started generating text using Azure OpenAI Service](/azure/ai-services/openai/quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-python)|A very quick set of instructions to set up the services you need and code you must write to prompt a model using Python.|
+|[Quickstart: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service](/azure/ai-services/openai/chatgpt-quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-python)|Similar to the previous quickstart, but provides an example of system, assistant and user roles to tailor the content when asked certain questions.|
+|[Quickstart: Chat with Azure OpenAI models using your own data](/azure/ai-services/openai/use-your-data-quickstart?tabs=command-line%2Cpython-new&pivots=programming-language-python)|Similar to the first quickstart, but this time you add your own data (like a PDF or other document).|
+|[Quickstart: Get started using Azure OpenAI Assistants (Preview)](/azure/ai-services/openai/assistants-quickstart?tabs=command-line%2Ctypescript&pivots=programming-language-python)|Similar to the first quickstart in this list, but this time you tell the model to use the built-in Python code interpreter to solve math problems step by step. This is a starting point to using your own AI assistants accessed through custom instructions.|
+|[Quickstart: Use images in your AI chats](/azure/ai-services/openai/gpt-v-quickstart?tabs=image%2Ccommand-line&pivots=programming-language-python)|How to programmatically ask the model to describe the contents of an image.|
+|[Quickstart: Generate images with Azure OpenAI Service](/azure/ai-services/openai/dall-e-quickstart?tabs=dalle3%2Ccommand-line&pivots=programming-language-python)|Programmatically generate images using Dall-E based on a prompt.|
 
 ### Training
 
@@ -60,9 +62,9 @@ The Azure OpenAIprovides REST API access to OpenAI's powerful language models. T
 |[Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)|Guidance article on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
 
 
-## Azure AI Services
+## Other Azure AI Services
 
-The Azure AI Services is a collection of services that help developers and organization rapidly create intelligent, market-ready, and responsbile applications with out-of-the-box and prebuilt customizable APIs and models.
+The Azure AI Services is a collection of services (including Azure OpenAI Services) that help developers and organizations rapidly create intelligent, market-ready, and responsbile applications with out-of-the-box and prebuilt customizable APIs and models. It encompases speech, vision, search, and more.
 
 ### Documentation
 
@@ -77,10 +79,7 @@ The Azure AI Services is a collection of services that help developers and organ
 |[Vision](/azure/ai-services/computer-vision/)|Analyze content in images and videos|
 |[Face](/azure/ai-services/computer-vision/overview-identity)|Detect and identify people and emotions in images.|
 |[Content Safety](/azure/ai-services/content-safety/)|An AI service that detects unwanted content.|
-|[Bot Service](/composer/)|Create bots and connect them across channels.|
 |[Document Intelligence](/azure/ai-services/document-intelligence/)|Turn documents into intelligent data-driven solutions.|
-|[Video Indexer](/azure/azure-video-indexer/)|Extract actionable insights from your videos.|
-|[Immersive Reader](/azure/ai-services/immersive-reader/)|Help users read and comprehend text.|
 
 
 

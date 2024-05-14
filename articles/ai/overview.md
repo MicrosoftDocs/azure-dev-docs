@@ -13,7 +13,7 @@ This area is designed for experienced developers new to building generative AI a
 
 If you're a developer just getting started with building AI Apps or adding AI features to your applications, the most important thing to keep in mind is that you can leverage your existing skills.
 
-## Concepts
+## Introduction to Generative AI for Developers
 
 It might be helpful to understand some core concepts to level-set as you get started.
 
@@ -81,7 +81,7 @@ When you're ready to jump in and start building something significant, we recomm
 :::zone-end
 
 
-## Language resources
+## Additional resources by language
 
 Each language overview page links to popular articles, samples, documentation and more specific to your preferred programming language or platform:
 
