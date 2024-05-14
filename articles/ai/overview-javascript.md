@@ -1,6 +1,6 @@
 ---
 title: Develop AI Apps with JavaScript
-description: This article provides an organized list of resources about Azure AI scenarios for JavaScript developers, including documentation and code samples.
+description: This article offers a structured compilation of resources related to Azure AI scenarios for JavaScript developers, featuring both documentation and code samples.
 keywords: ai, azure openai service
 ms.subservice: intelligent-apps
 ms.topic: overview
