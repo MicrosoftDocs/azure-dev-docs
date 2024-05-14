@@ -12,11 +12,11 @@ ms.service: azure
 This .NET [reference template](https://github.com/Azure-Samples/azure-search-openai-demo-csharp) is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
 
 :::row:::
-   :::column span="":::
-      :::image type="content" source="/dotnet/ai/media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+   :::column:::
+      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-chat-dotnet.png" lightbox="../media/intelligent-app-templates/architecture-diagram-chat-dotnet.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
    :::column-end:::
-   :::column span="":::
-      :::image type="content" source="/dotnet/ai/media/get-started-app-chat-template/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app":::
+   :::column:::
+      :::image type="content" source="../media/intelligent-app-templates/browser-app-chat-dotnet.png" lightbox="../media/intelligent-app-templates/browser-app-chat-dotnet.png" alt-text="Diagram showing architecture from client to backend app":::
    :::column-end:::
 :::row-end:::
 
@@ -31,10 +31,10 @@ This .NET [reference template](https://github.com/Azure-Samples/contoso-chat-csh
 
 :::row:::
    :::column span="":::
-      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-contoso-chat-csharp-prompty-dotnet" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-contoso-chat-csharp-prompty-dotnet.png" lightbox="../media/intelligent-app-templates/architecture-diagram-contoso-chat-csharp-prompty-dotnet.png" alt-text="Screenshot of .NET hiking and camping enthusiast store.":::
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="/dotnet/ai/media/get-started-app-chat-template/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app":::
+      :::image type="content" source="../media/intelligent-app-templates/browser-app-contoso-chat-csharp-prompty-dotnet.png" source="../media/intelligent-app-templates/browser-app-contoso-chat-csharp-prompty-dotnet.png" alt-text="Diagram showing architecture from client to backend app":::
    :::column-end:::
 :::row-end:::
 
