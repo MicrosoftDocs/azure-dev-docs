@@ -1,0 +1,50 @@
+---
+title: Intelligent app templates
+description: This article describes the intelligent app templates provided as GitHub repositories to build, deploy, and extend on Azure.
+keywords: ai, azure openai service
+ms.service: azure
+ms.topic: overview
+ms.date: 05/14/2024
+ms.custom: overview, devx-track-dotnet, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
+zone_pivot_group_filename: developer/intro/intro-zone-pivot-groups.json
+zone_pivot_groups: intelligent-apps-languages
+---
+
+# Azure AI intelligent app templates
+
+The intelligent app templates are complete end-to-end solutions including documention, source code, and deployment to allow you to take and extend for your own purposes. 
+
+
+:::zone pivot="dotnet"
+
+[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-apps-templates-dotent.md)]
+
+:::zone-end
+
+:::zone pivot="python"
+
+[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-apps-templates-python.md)]
+
+
+:::zone-end
+
+:::zone pivot="java"
+
+[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-apps-templates-java.md)]
+
+
+:::zone-end
+
+
+:::zone pivot="javascript"
+
+[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-apps-templates-javascript.md)]
+
+
+:::zone-end
+
+:::zone pivot="golang"
+
+[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-apps-templates-golang.md)]
+
+:::zone-end

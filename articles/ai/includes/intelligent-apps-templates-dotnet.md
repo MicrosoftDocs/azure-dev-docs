@@ -1,0 +1,44 @@
+---
+ms.custom: overview
+ms.topic: include
+ms.date: 01/31/2024
+ms.author: diberry
+author: diberry
+ms.service: azure
+---
+
+## Enterprise chat with .NET
+
+This .NET [reference template](https://github.com/Azure-Samples/azure-search-openai-demo-csharp) is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
+
+:::row:::
+   :::column span="":::
+      :::image type="content" source="/dotnet/ai/media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+   :::column-end:::
+   :::column span="":::
+      :::image type="content" source="/dotnet/ai/media/get-started-app-chat-template/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app":::
+   :::column-end:::
+:::row-end:::
+
+|Azure Hosting|Technologies|AI Models|
+|--|--|--|
+|Azure Container Apps<br>Azure Functions|Azure OpenAI<br>Azure Computer Vision<br>Azure Form Recognizer<br>Azure AI Search<br>Azure Storage|GPT 3.5 Turbo<br>GPT 4.0|
+
+
+## Contoso Chat Retail copilot with .NET and Semantic Kernel
+
+This .NET [reference template](https://github.com/Azure-Samples/agent-openai-python-prompty) is a customer sales and support chat solution with rag.
+
+|Azure Hosting|Technologies|AI Models|
+|--|--|--|
+|Azure Container Apps<br>|Azure OpenAI<br>Microsoft Entra ID<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio<br>Azure SQL<br>Azure Storage|GPT 3.5 Turbo<br>GPT 4.0|
+
+
+## Process Automation: Speech to Text and Summarization with .NET and GPT 3.5 Turbo
+
+
+This .NET [reference template](https://github.com/Azure-Samples/summarization-openai-csharp-prompty) is a process automation solution which converts speech to text and then processes and summarizes the text based on the prompt scenario.
+
+|Azure Hosting|Technologies|AI Models|
+|--|--|--|
+|Azure Container Apps|Speech to Text<br>Summarization<br>Azure OpenAI|GPT 3.5 Turbo|
