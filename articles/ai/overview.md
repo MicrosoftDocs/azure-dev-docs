@@ -15,4 +15,4 @@ Even so, it might be helpful to understand _some_ [core concepts](./overview.md)
 
 Then, consider the overview page with links to popular articles, samples, documentation and more specific to your preferred programming language or platform ([.NET](./overview-dotnet.md), [Java](./overview-java.md), [Python](./overview-python.md), [JavaScript](./overview-javascript.md)).
 
-Finally, when you're ready to jump in and start building something significant, we recommend you [get started with the enterprise chat sample using RAG](../../python/get-started-app-chat-template.md).
+Finally, when you're ready to jump in and start building something significant, we recommend you [get started with the enterprise chat sample using RAG](../python/get-started-app-chat-template.md).
