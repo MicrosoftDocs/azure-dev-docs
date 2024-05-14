@@ -48,6 +48,15 @@ This .NET [reference template](https://github.com/Azure-Samples/contoso-chat-csh
 
 This .NET [reference template](https://github.com/Azure-Samples/summarization-openai-csharp-prompty) is a process automation solution which converts speech to text and then processes and summarizes the text based on the prompt scenario.
 
+:::row:::
+   :::column span="":::
+      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-summarization-dotnet.png" lightbox="../media/intelligent-app-templates/architecture-diagram-summarization-dotnet.png" alt-text="Screenshot of .NET hiking and camping enthusiast store.":::
+   :::column-end:::
+   :::column span="":::
+     
+   :::column-end:::
+:::row-end:::
+
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
 |Azure Container Apps|Speech to Text<br>Summarization<br>Azure OpenAI|GPT 3.5 Turbo|
