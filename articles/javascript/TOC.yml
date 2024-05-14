@@ -144,8 +144,6 @@
       href: how-to/with-azure-sdk/create-manage-virtual-machine.md
   - name: Development with Visual Studio Code
     items:
-    - name: Install and debug local project
-      href: how-to/with-visual-studio-code/install-run-debug-nodejs.md
     - name: Clone a GitHub repo for changes
       href: how-to/with-visual-studio-code/clone-github-repository.md
     - name: Create an Azure database

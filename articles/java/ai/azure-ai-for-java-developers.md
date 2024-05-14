@@ -1,7 +1,6 @@
 ---
 title: Develop Java apps that use Azure AI services
 description: This article provides an organized list of resources about Azure AI scenarios for Java developers, including documentation and code samples.
-keywords: ai, azure openai service
 ms.topic: overview
 ms.date: 11/17/2023
 ms.custom: overview, devx-track-extended-java

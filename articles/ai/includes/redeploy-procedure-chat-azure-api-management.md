@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 01/31/2024
+ms.date: 05/11/2024
 ms.author: diberry
 author: diberry
 ms.service: azure
@@ -44,7 +44,7 @@ These are completed on the chat app sample.
 1. Add the following environment variable, which tells the Chat app's backend what the value is of the custom URL for the OpenAI request.
 
     ```bash
-    azd env set set AZURE_OPENAI_CUSTOM_URL <APIM_GATEWAY_URL>
+    azd env set AZURE_OPENAI_CUSTOM_URL <APIM_GATEWAY_URL>
     ```
 
 1. Deploy the chat app.
