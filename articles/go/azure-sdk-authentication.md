@@ -129,7 +129,7 @@ If the required environment variables for `EnvironmentCredential` aren't present
 
 ### Option 3: Use a managed identity
 
-[Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) eliminate the need for developers to manage credentials. When connecting to resources that support Microsoft Entra authentication, applications hosted in Azure can use Microsoft Entra tokens instead of credentials. Managed Identities are not supported in local development.
+[Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) eliminate the need for developers to manage credentials. When connecting to resources that support Microsoft Entra authentication, applications hosted in Azure can use Microsoft Entra tokens instead of credentials. Managed Identities aren't supported in local development.
 
 If the required environment variables for `WorkloadIdentityCredential` aren't present, `DefaultAzureCredential` attempts to authenticate using [ManagedIdentityCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#ManagedIdentityCredential).
 
@@ -149,7 +149,7 @@ $env:AZURE_CLIENT_ID="<user_assigned_managed_identity_client_id>"
 
 ---
 
-If the  `AZURE_CLIENT_ID` environment variable isn't set, `DefaultAzureCredentials` attempts to authenicate using the system-assigned managed identity if one is enabled on the hosting resource.
+If the  `AZURE_CLIENT_ID` environment variable isn't set, `DefaultAzureCredentials` attempts to authenticate using the system-assigned managed identity if one is enabled on the hosting resource.
 
 For an end-to-end tutorial about authenticating with managed identities in Azure-hosted apps, see [Authentication with the Azure SDK for Go using a managed identity](./azure-sdk-authentication-managed-identity.md).
 

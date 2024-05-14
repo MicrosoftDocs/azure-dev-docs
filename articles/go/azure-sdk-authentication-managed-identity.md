@@ -1,6 +1,6 @@
 ---
 title: Authentication with the Azure SDK for Go using a managed identity
-description: In this tutorial, you'll use the Azure SDK for Go to authenticate to Azure with a managed identity.
+description: In this tutorial, you use the Azure SDK for Go to authenticate to Azure with a managed identity.
 ms.date: 05/09/2024
 ms.topic: how-to
 ms.custom: devx-track-go, devx-track-azurecli, devx-track-azurepowershell
@@ -8,7 +8,7 @@ ms.custom: devx-track-go, devx-track-azurecli, devx-track-azurepowershell
 
 # Authentication with the Azure SDK for Go using a managed identity
 
-In this tutorial, you'll configure an Azure virtual machine with a managed identity to authenticate to Azure using the Azure SDK for Go.
+In this tutorial, you configure an Azure virtual machine with a managed identity to authenticate to Azure using the Azure SDK for Go.
 
 Managed identities eliminate the need for you to manage credentials by providing an identity directly to an Azure resource. Permissions assigned to the identity grant the resource access to other Azure resources that support managed identities, removing the need for you to pass credentials in your application. You can use managed identities to authenticate and authorize Azure-hosted apps with other Azure resources.
 
@@ -20,11 +20,11 @@ Follow this tutorial to assign a managed identity to a virtual machine and authe
 
 ## 1. Configure your environment
 
-Before you begin, you'll need to configure your environment.
+Before you begin, you need to configure your environment.
 
 ### Deploy a virtual machine
 
-Deploy a virtual machine to Azure. You'll run the Go code to create a secret in Azure key vault from that virtual machine.
+Deploy a virtual machine to Azure. You run the Go code to create a secret in Azure key vault from that virtual machine.
 
 1. Create an Azure resource group.
 
@@ -170,7 +170,7 @@ To learn more, check out [Manage user-assigned managed identities](/azure/active
 
 ## 3. Assign a role to the managed identity
 
-After a managed identity is created, you assign roles to grant the identity permissions to access other Azure resource. In this tutorial, you'll assign the built-in role of `Key Vault Secrets Officer` to the managed identity so the Go application can create a secret within the key vault instance.
+After a managed identity is created, you assign roles to grant the identity permissions to access other Azure resource. In this tutorial, you assign the built-in role of `Key Vault Secrets Officer` to the managed identity so the Go application can create a secret within the key vault instance.
 
 Choose one of the following options:
 
@@ -370,7 +370,7 @@ Next, run `go run` command to create a key vault secret.
 go run main.go
 ```
 
-On success, the output will be similar to the following:
+On success, the output is similar to the following:
 
 ```Output
 Name: https://<keyVaultName>.vault.azure.net/secrets/quickstart-secret/0e0b941824c4493bb3b83045a31b2bf7, Value: createdWithGO
@@ -393,7 +393,7 @@ az group delete --name go-on-azure --force-deletion-types Microsoft.Compute/virt
 
 The `force-deletion-type` argument tells the command to force deletion of VMs in the resource group. The `--yes` argument tells the command not to ask for confirmation. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
-The preceding command performs a [soft delete](/azure/key-vault/general/soft-delete-overview) on the key vault in the resource group. To permenantly remove it from your subscription, enter the following command:
+The preceding command performs a [soft delete](/azure/key-vault/general/soft-delete-overview) on the key vault in the resource group. To permanently remove it from your subscription, enter the following command:
 
 ```azurecli
 az keyvault purge --name <keyVaultName> --no-wait
@@ -409,7 +409,7 @@ Remove-AzResourceGroup -Name go-on-azure -Force
 
 The `-Force` argument tells the cmdlet not to ask for confirmation.
 
-The preceding command performs a [soft delete](/azure/key-vault/general/soft-delete-overview) on the key vault in the resource group. To permenantly remove it from your subscription, enter the following command:
+The preceding command performs a [soft delete](/azure/key-vault/general/soft-delete-overview) on the key vault in the resource group. To permanently remove it from your subscription, enter the following command:
 
 ```powershell
 Remove-AzKeyVault -Name `<keyVaultName>` -InRemovedState -Force

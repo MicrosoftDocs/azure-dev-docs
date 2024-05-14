@@ -1,6 +1,6 @@
 ---
 title: Azure SDK for Go authentication with a service principal
-description: In this tutorial, you'll use the Azure SDK for Go to authenticate to Azure with an Azure service principal using a secret or a certificate.
+description: In this tutorial, you use the Azure SDK for Go to authenticate to Azure with an Azure service principal using a secret or a certificate.
 ms.date: 05/10/2024
 ms.topic: how-to
 ms.custom: devx-track-go
@@ -8,9 +8,9 @@ ms.custom: devx-track-go
 
 # Azure SDK for Go authentication with a service principal
 
-In this tutorial, you'll use the Azure SDK for Go to authenticate to Azure with an Azure service principal using either a secret or a certificate.
+In this tutorial, you use the Azure SDK for Go to authenticate to Azure with an Azure service principal using either a secret or a certificate.
 
-Azure service principals define the access policy and permissions in a Microsoft Entra tenant, enabling core features such as authentication during sign-on and authorization during resource access. They remove the need to use personal accounts to access Azure resources. For example, you can assign a service prinicipal the exact permissions needed for your app and develop against those permissions, rather than using a personal account, which may have more privileges in your tenant than the app requires. You can also use service principals for apps that are hosted on-premisis that need to use Azure resources. The Azure SDK for Go [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) module provides a convenient way to authenticate to Azure with a service principal using environment variables, and a secret or a certificate.
+Azure service principals define the access policy and permissions in a Microsoft Entra tenant, enabling core features such as authentication during sign-on and authorization during resource access. They remove the need to use personal accounts to access Azure resources. You can assign a service principal the exact permissions needed for your app and develop against those permissions, rather than using a personal account, which might have more privileges in your tenant than the app requires. You can also use service principals for apps that are hosted on-premise that need to use Azure resources. The Azure SDK for Go [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) module provides a convenient way to authenticate to Azure with a service principal using environment variables, and a secret or a certificate.
 
 Follow this tutorial to create and authenticate with the Azure SDK for Go using a service principal.
 
@@ -33,7 +33,7 @@ az keyvault create --location eastus --name <keyVaultName> --resource-group go-o
 
 Replace `<keyVaultName>` with a globally unique name.
 
-Note down the `id` property from the output of the `az keyvault create` command. You'll use it in the next section to define the scope of the authorization for the service prinicpal. The `id` value has the following form: `/subscriptions/<subscriptionId>/resourceGroups/go-on-azure/providers/Microsoft.KeyVault/vaults/<keyVaultName>`.
+Note down the `id` property from the output of the `az keyvault create` command. You'll use it in the next section to define the scope of the authorization for the service principal. The `id` value has the following form: `/subscriptions/<subscriptionId>/resourceGroups/go-on-azure/providers/Microsoft.KeyVault/vaults/<keyVaultName>`.
 
 # [PowerShell](#tab/powershell)
 
@@ -45,7 +45,7 @@ New-AzKeyVault -ResourceGroupName go-on-azure -Name <keyVaultName> -Location eas
 
 Replace `<keyVaultName>` with a globally unique name.
 
-Note down the `ResourceId` property from the output of the `New-AzKeyVault` command. You'll use it in the next section to define the scope of the authorization for the service prinicpal. The `ResourceId` value has the following form:`/subscriptions/<subscriptionId>/resourceGroups/go-on-azure/providers/Microsoft.KeyVault/vaults/<keyVaultName>`.
+Note down the `ResourceId` property from the output of the `New-AzKeyVault` command. You'll use it in the next section to define the scope of the authorization for the service principal. The `ResourceId` value has the following form:`/subscriptions/<subscriptionId>/resourceGroups/go-on-azure/providers/Microsoft.KeyVault/vaults/<keyVaultName>`.
 
 ---
 
@@ -72,7 +72,7 @@ az ad sp create-for-rbac --name <servicePrincipalName> --role "Key Vault Secrets
 
 Replace `<servicePrincipalName>` and `<keyVaultId>` with the appropriate values.
 
-Note down the `password`, `tenantId`, and `appId` properties from the output. You'll need them in the following sections. After creation, the service principal password can't be retrieved. If you forget the password, you can [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
+Note down the `password`, `tenantId`, and `appId` properties from the output. You need them in the following sections. After creation, the service principal password can't be retrieved. If you forget the password, you can [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
 
 # [PowerShell](#tab/powershell)
 
@@ -322,7 +322,7 @@ Use the following code sample to verify that your service principal authenticate
     go run main.go
     ```
 
-    On success, the output will be similar to the following:
+    On success, the output is similar to the following:
 
     ```Output
     Name: https://<keyVaultName>.vault.azure.net/secrets/ExamplePassword/1e697f71d0014761a65641226f2f057b, Value: hVFkk965BuUv
@@ -340,7 +340,7 @@ az group delete --name go-on-azure --yes --no-wait
 
 The `--yes` argument tells the command not to ask for confirmation. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
-The preceding command performs a [soft delete](/azure/key-vault/general/soft-delete-overview) on the key vault in the resource group. To permenantly remove it from your subscription, enter the following command:
+The preceding command performs a [soft delete](/azure/key-vault/general/soft-delete-overview) on the key vault in the resource group. To permanently remove it from your subscription, enter the following command:
 
 ```azurecli
 az keyvault purge --name <keyVaultName> --no-wait
@@ -364,7 +364,7 @@ Remove-AzResourceGroup -Name go-on-azure -Force
 
 The `-Force` argument tells the cmdlet not to ask for confirmation.
 
-The preceding command performs a [soft delete](/azure/key-vault/general/soft-delete-overview) on the key vault in the resource group. To permenantly remove it from your subscription, enter the following command:
+The preceding command performs a [soft delete](/azure/key-vault/general/soft-delete-overview) on the key vault in the resource group. To permanently remove it from your subscription, enter the following command:
 
 ```powershell
 Remove-AzKeyVault -Name `<keyVaultName>` -InRemovedState -Force
