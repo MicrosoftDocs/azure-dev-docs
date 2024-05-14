@@ -1,46 +1,10 @@
 ## Azure AI reference templates
 
-Azure AI reference templates provide you with well-maintained, easy to deploy reference implementations. These ensure a high-quality starting point for your intelligent applications. The end-to-end solutions provide popular, comprehensive reference applications. The building blocks are smaller-scale samples that focus on specific scenarios and tasks.
+We provide several Azure AI reference templates that feature with well-maintained, easily deployed reference implementations. These ensure a high-quality starting point for your intelligent applications. The end-to-end solutions provide popular, comprehensive reference applications. The building blocks are smaller-scale samples that focus on specific scenarios and tasks.
 
-### End-to-end solutions
+[Learn more about about the reference templates and other building blocks](./azure-ai-for-developers.md), or 
+[Get started with the Python enterprise chat sample using RAG](../../python/get-started-app-chat-template.md), an article that walks you through deploying and using the [Enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample is a complete end-to-end solution demonstrating the [Retrieval-Augmented Generation (RAG) pattern](/azure/search/retrieval-augmented-generation-overview) running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
 
-|Link|Description|
-|---|---|
-|[Get started with the Python enterprise chat sample using RAG](../../python/get-started-app-chat-template.md)|An article that walks you through deploying and using the [Enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample is a complete end-to-end solution demonstrating the [Retrieval-Augmented Generation (RAG) pattern](/azure/search/retrieval-augmented-generation-overview) running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. |
-
-* [Demo video](https://aka.ms/azai/py/video)
-
-### Building blocks
-
-|Building Block|Description|
-|---|---|
-|[Build a chat app with Azure OpenAI in Python](https://github.com/Azure-Samples/chatgpt-quickstart/blob/main/README.md)|A simple Python Quart app that streams responses from ChatGPT to an HTML/JS frontend using JSON Lines over a ReadableStream.|
-|[Build a LangChain with Azure OpenAI in Python](https://github.com/Azure-Samples/function-python-ai-langchain)|An Azure Functions sample that shows how to take a human prompt as HTTP Get or Post input, calculates the completions using chains of human input and templates. This is a starting point that can be used for more sophisticated chains.|
-|[Build a ChatGPT Plugin with Azure Container Apps in Python](https://github.com/Azure-Samples/openai-plugin-fastapi/blob/main/README.md)|A sample for creating ChatGPT Plugin using GitHub Codespaces, VS Code, and Azure. The sample includes templates to deploy the plugin to Azure Container Apps using the Azure Developer CLI.|
-|[Summarize Text using Azure AI Language with Azure Functions](https://github.com/Azure-Samples/function-python-ai-textsummarize)|Take text documents as input, summarize using Azure AI Language, and then output to another text document using Azure Functions.|
-|[Azure AI Python Template Gallery](https://aka.ms/azai/py/gallery)|For the full list of Azure AI templates, visit our gallery. All app templates in our gallery can be spun up and deployed using a single command: _azd up_.|
-|[Smart load balancing with Azure Container Apps](../../python/get-started-app-chat-scaling-with-azure-container-apps.md)|This [sample solution](https://github.com/Azure-Samples/openai-aca-lb) is built using the high-performance [YARP C# reverse-proxy framework](https://github.com/microsoft/reverse-proxy) from Microsoft. However, you don't need to understand C# to use it, you can just build the provided Docker image. This is an alternative solution to the [API Management OpenAI smart load balancer](https://github.com/Azure-Samples/openai-apim-lb/), with the same logic.|
-|[Smart load balancing with Azure API Management](../../python/get-started-app-chat-scaling-with-azure-api-management.md)|The [enterprise sample solution](https://github.com/Azure-Samples/openai-apim-lb) shows how to create an Azure API Management Policy to seamlessly expose a single endpoint to your applications while keeping an efficient logic to consume two or more OpenAI or any API backends based on availability and priority.|
-|[Evaulate your chat app](../../python/get-started-app-chat-evaluations.md)|Evaluate a chat app's answers against a set of correct or ideal answers (known as ground truth). The [evaulation tools](https://github.com/Azure-Samples/ai-rag-chat-evaluator) can be used with any Chat API which conforms to the [Chat protocol](https://github.com/Azure-Samples/ai-chat-app-protocol).|
-|[Load test your chat app with Locust](../../python/get-started-app-chat-app-load-test-locust.md)|Use a Locust test to validate your chat app can handle the expected load. If your chat app doesn't scale on your App Service due to Azure OpenAI TPM limits, add a load balancer and test your load again. Smart load balancers include [Azure API Management](../../python/get-started-app-chat-scaling-with-azure-api-management.md) and [Azure Container Apps](../../python/get-started-app-chat-scaling-with-azure-container-apps.md).|
-
-## Azure OpenAI
-
-### End-to-end solutions
-
-|Link|Description|
-|---|---|
-|[Get started with the Python enterprise chat sample using RAG](../../python/get-started-app-chat-template.md)|An article that walks you through deploying and using the [Enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. |
-
-### Building blocks
-
-|Link|Description|
-|---|---|
-|[Build a chat app with Azure OpenAI in Python](https://github.com/Azure-Samples/chatgpt-quickstart/blob/main/README.md)|A simple Python Quart app that streams responses from ChatGPT to an HTML/JS frontend using JSON Lines over a ReadableStream.|
-|[Build a LangChain with Azure OpenAI in Python](https://github.com/Azure-Samples/function-python-ai-langchain)|A sample shows how to take a human prompt as HTTP Get or Post input, calculates the completions using chains of human input and templates. This is a starting point that can be used for more sophisticated chains.|
-|[Build a ChatGPT Plugin with Azure Container Apps in Python](https://github.com/Azure-Samples/openai-plugin-fastapi/blob/main/README.md)|A sample for creating ChatGPT Plugin using GitHub Codespaces, VS Code, and Azure. The sample includes templates to deploy the plugin to Azure Container Apps using the Azure Developer CLI.|
-|[Vector Similarity Search with Azure Cache for Redis Enterprise](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/vector-similarity-search-with-azure-cache-for-redis-enterprise/ba-p/3822059)|A walkthrough using Azure Cache for Redis as a backend vector store for RAG scenarios.|
-|[OpenAI solutions with your own data using PostgreSQL](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/unlocking-the-power-of-open-ai-and-pgvector-with-azure/ba-p/3828539)|An article discussing how Azure Database for PostgreSQL Flexible Server and Azure Cosmos DB for PostgreSQL supports the pgvector extension, along with an overview, scenarios, etc.|
 
 ### SDKs and other samples/guidance
 
