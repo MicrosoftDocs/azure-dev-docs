@@ -11,6 +11,15 @@ ms.service: azure
 
 This python [reference template](https://github.com/Azure-Samples/azure-search-openai-demo) is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
 
+:::row:::
+   :::column:::
+      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-chat-javascript.png" lightbox="../media/intelligent-app-templates/architecture-diagram-chat-javascript.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+   :::column-end:::
+   :::column:::
+      :::image type="content" source="../media/intelligent-app-templates/browser-app-chat-javascript.png" lightbox="../media/intelligent-app-templates/browser-app-chat-javascript.png" alt-text="Diagram showing architecture from client to backend app":::
+   :::column-end:::
+:::row-end:::
+
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
 |Azure App Service|Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio|GPT 3.5 Turbo<br>GPT 4.0<br>Dalle|

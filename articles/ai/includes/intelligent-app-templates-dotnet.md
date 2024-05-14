@@ -34,7 +34,7 @@ This .NET [reference template](https://github.com/Azure-Samples/contoso-chat-csh
       :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-contoso-chat-csharp-prompty-dotnet.png" lightbox="../media/intelligent-app-templates/architecture-diagram-contoso-chat-csharp-prompty-dotnet.png" alt-text="Screenshot of .NET hiking and camping enthusiast store.":::
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="../media/intelligent-app-templates/browser-app-contoso-chat-csharp-prompty-dotnet.png" source="../media/intelligent-app-templates/browser-app-contoso-chat-csharp-prompty-dotnet.png" alt-text="Diagram showing architecture from client to backend app":::
+      :::image type="content" source="../media/intelligent-app-templates/browser-app-contoso-chat-csharp-prompty-dotnet.png" lightbox="../media/intelligent-app-templates/browser-app-contoso-chat-csharp-prompty-dotnet.png" alt-text="Diagram showing architecture from client to backend app for hiking app.":::
    :::column-end:::
 :::row-end:::
 
@@ -50,7 +50,7 @@ This .NET [reference template](https://github.com/Azure-Samples/summarization-op
 
 :::row:::
    :::column span="":::
-      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-summarization-dotnet.png" lightbox="../media/intelligent-app-templates/architecture-diagram-summarization-dotnet.png" alt-text="Screenshot of .NET hiking and camping enthusiast store.":::
+      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-summarization-dotnet.png" lightbox="../media/intelligent-app-templates/architecture-diagram-summarization-dotnet.png" alt-text="Screenshot of .NET webapp with side chat for speech to text and summarization for Contoso Manufacturing.":::
    :::column-end:::
    :::column span="":::
      
