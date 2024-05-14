@@ -10,6 +10,8 @@
   - name: Get started with the Python enterprise chat sample
     href: get-started-app-chat-template.md
     display: Azure OpenAI, OpenAI, FastApi
+  - name: Document Security
+    href: get-started-app-chat-document-security-trim.md
   - name: Evaluate your chat app
     href: get-started-app-chat-evaluations.md
     display: Azure OpenAI
