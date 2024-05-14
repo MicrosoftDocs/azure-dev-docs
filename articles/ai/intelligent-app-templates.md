@@ -43,8 +43,3 @@ The intelligent app templates are complete end-to-end solutions including docume
 
 :::zone-end
 
-:::zone pivot="golang"
-
-[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-app-templates-golang.md)]
-
-:::zone-end
