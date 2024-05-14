@@ -24,21 +24,11 @@ It might be helpful to understand some core concepts to level-set as you get sta
 |[Augmenting a Large Language Model with Retrieval-Augmented Generation and Fine-tuning](./augment-llm-rag-fine-tuning.md)|Details the two mechanisms that developers can use to augment the information LLMs use to compose their models: retrieval-augmented generation and fine-tuning.|
 |[Building advanced Retrieval-Augmented Generation systems](./advanced-retrieval-augmented-generation.md)|Discusses real-world considerations and patterns for RAG-based chat systems.|
 
-## Language resources
-
-Each language overview page links to popular articles, samples, documentation and more specific to your preferred programming language or platform:
-
-- [.NET](./overview-dotnet.md)
-- [Java](./overview-java.md)
-- [Python](./overview-python.md)
-- [JavaScript](./overview-javascript.md)
-
-
-## Enterprise chat sample
-
-Finally, when you're ready to jump in and start building something significant, we recommend you get started with the enterprise chat sample using RAG.
-
 :::zone pivot="dotnet"
+
+## .NET enterprise chat sample
+
+When you're ready to jump in and start building something significant, we recommend you get started with the enterprise chat sample using RAG.
 
 |Link|Description|
 |---|---|
@@ -50,6 +40,10 @@ Finally, when you're ready to jump in and start building something significant, 
 
 :::zone pivot="python"
 
+## Python enterprise chat sample
+
+When you're ready to jump in and start building something significant, we recommend you get started with the enterprise chat sample using RAG.
+
 |Link|Description|
 |---|---|
 |[Get started with the enterprise chat sample](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces)|This article introduces the enterprise chat app sample and guides you through the basics of deploying and using the app.|
@@ -59,6 +53,10 @@ Finally, when you're ready to jump in and start building something significant, 
 :::zone-end
 
 :::zone pivot="javascript"
+
+## JavaScript enterprise chat sample
+
+When you're ready to jump in and start building something significant, we recommend you get started with the enterprise chat sample using RAG.
 
 |Link|Description|
 |---|---|
@@ -70,6 +68,10 @@ Finally, when you're ready to jump in and start building something significant, 
 
 :::zone pivot="java"
 
+## Java enterprise chat sample
+
+When you're ready to jump in and start building something significant, we recommend you get started with the enterprise chat sample using RAG.
+
 |Link|Description|
 |---|---|
 |[Get started with the enterprise chat sample](/azure/developer/java/ai/get-started-app-chat-template?tabs=github-codespaces)|This article introduces the enterprise chat app sample and guides you through the basics of deploying and using the app.|
@@ -77,3 +79,14 @@ Finally, when you're ready to jump in and start building something significant, 
 |[Video for the sample](https://www.youtube.com/watch?v=mcftrg6L8Fs)|This video provides an overview and demo of the enterprise chat app sample.|
 
 :::zone-end
+
+
+## Language resources
+
+Each language overview page links to popular articles, samples, documentation and more specific to your preferred programming language or platform:
+
+- [Python Resources](./overview-python.md)
+- [JavaScript](./overview-javascript.md)
+- [Java Resources](./overview-java.md)
+- [.NET Resources](./overview-dotnet.md)
+
