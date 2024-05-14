@@ -13,10 +13,10 @@ This .NET [reference template](https://github.com/Azure-Samples/azure-search-ope
 
 :::row:::
    :::column:::
-      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-chat-dotnet.png" lightbox="../media/intelligent-app-templates/architecture-diagram-chat-dotnet.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-chat-dotnet.png" lightbox="../media/intelligent-app-templates/architecture-diagram-chat-dotnet.png" alt-text="Diagram showing architecture from client to backend app for .NET.":::
    :::column-end:::
    :::column:::
-      :::image type="content" source="../media/intelligent-app-templates/browser-app-chat-dotnet.png" lightbox="../media/intelligent-app-templates/browser-app-chat-dotnet.png" alt-text="Diagram showing architecture from client to backend app":::
+      :::image type="content" source="../media/intelligent-app-templates/browser-app-chat-dotnet.png" lightbox="../media/intelligent-app-templates/browser-app-chat-dotnet.png" alt-text="Screenshot of .NET chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
    :::column-end:::
 :::row-end:::
 
@@ -31,10 +31,10 @@ This .NET [reference template](https://github.com/Azure-Samples/contoso-chat-csh
 
 :::row:::
    :::column span="":::
-      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-contoso-chat-csharp-prompty-dotnet.png" lightbox="../media/intelligent-app-templates/architecture-diagram-contoso-chat-csharp-prompty-dotnet.png" alt-text="Screenshot of .NET hiking and camping enthusiast store.":::
+      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-contoso-chat-csharp-prompty-dotnet.png" lightbox="../media/intelligent-app-templates/architecture-diagram-contoso-chat-csharp-prompty-dotnet.png" alt-text="Diagram showing architecture from client to backend app for hiking app.":::
    :::column-end:::
    :::column span="":::
-      :::image type="content" source="../media/intelligent-app-templates/browser-app-contoso-chat-csharp-prompty-dotnet.png" lightbox="../media/intelligent-app-templates/browser-app-contoso-chat-csharp-prompty-dotnet.png" alt-text="Diagram showing architecture from client to backend app for hiking app.":::
+      :::image type="content" source="../media/intelligent-app-templates/browser-app-contoso-chat-csharp-prompty-dotnet.png" lightbox="../media/intelligent-app-templates/browser-app-contoso-chat-csharp-prompty-dotnet.png" alt-text="Screenshot of .NET hiking and camping enthusiast store.":::
    :::column-end:::
 :::row-end:::
 
