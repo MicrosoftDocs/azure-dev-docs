@@ -10,6 +10,6 @@ ms.custom: overview, devx-track-python
 
 # Develop AI Apps with Python
 
-Here's a bunch of learning resources for Python developers who are getting started building AI Apps. Resources include reference samples, documentation, training, and so on.
+This article contains an organized list of the best learning resources for Python developers who are getting started building AI Apps. Resources include popular quickstart articles, reference samples, documentation, training courses, and so on.
 
 [!INCLUDE [azure-ai-for-developers-python](includes/azure-ai-for-developers-python.md)]
