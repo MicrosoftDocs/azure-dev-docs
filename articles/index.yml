@@ -106,11 +106,11 @@ productDirectory:
           text: Azure SDK for .NET          
         - url: /dotnet/azure/
           text: See more in the .NET developer center
-    - title: Develop AI applications using Azure AI services
+    - title: Azure AI for developers
       imageSrc: ./intro/media/azure-openai.png
       links:
         - url: ./ai/azure-ai-for-developers.md
-          text: Overview
+          text: Overview of AI apps
         - url: ./python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           text: Chat with your data using Python
         - url: ./javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
