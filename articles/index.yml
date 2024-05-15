@@ -109,7 +109,7 @@ productDirectory:
     - title: Azure AI for developers
       imageSrc: ./intro/media/azure-openai.png
       links:
-        - url: ./ai/azure-ai-for-developers.md
+        - url: ./ai/index.yml
           text: Overview of AI apps
         - url: ./python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           text: Chat with your data using Python
