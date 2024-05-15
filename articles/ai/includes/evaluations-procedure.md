@@ -353,6 +353,6 @@ Return to the chat app article to clean up those resources.
 * [Evaluations repository](https://github.com/Azure-Samples/ai-rag-chat-evaluator)
 * [Enterprise chat app GitHub repository](https://github.com/Azure-Samples/azure-search-openai-demo)
 * [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat) best practice solution architecture
-* [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
+* [Access control in Generative AI apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
 * [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-an-enterprise-ready-azure-openai-solution-with-azure-api/bc-p/3935407)
 * [Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167)

@@ -11,20 +11,13 @@ When you're ready to jump in and start building something significant, we recomm
 
 ## Azure OpenAI Service
 
-The Azure OpenAIprovides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Python SDK, or our web-based interface in the Azure OpenAI Studio.
+The Azure OpenAIprovides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Azure OpenAI SDK for .NET, or the web-based interface in the Azure OpenAI Studio.
 
 ### Documentation
 
 |Link|Description|
 |---|---|
 |[Azure OpenAI Service Documentation](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
-
-### Popular starting points
-
-If you're just getting started, consider one of these scenario-based quickstarts:
-
-|Link|Description|
-|---|---|
 |[Overview of the .NET + AI ecosystem](/dotnet/ai/dotnet-ai-ecosystem)|Summary of the services and tools you might need to use in your applications, with links to learn more about each of them.|
 |[Build an Azure AI chat app with .NET](/dotnet/ai/quickstarts/get-started-azure-openai)|Use Semantic Kernel or Azure OpenAI SDK to create a simple .NET 8 console chat application.|
 |[Summarize text using Azure AI chat app with .NET](/dotnet/ai/quickstarts/quickstart-openai-summarize-text)|Simiar to the previous article, but the prompt is to summarize text.|
@@ -40,7 +33,7 @@ If you're just getting started, consider one of these scenario-based quickstarts
 |[Generative AI for Beginners Workshop](https://github.com/microsoft/generative-ai-for-beginners/tree/main)|Learn the fundamentals of building Generative AI applications with our 18-lesson comprehensive course by Microsoft Cloud Advocates.|
 |[Microsoft Azure AI Fundamentals: Generative AI](/training/paths/introduction-generative-ai/)|Training path to help you understand how large language models form the foundation of generative AI: how Azure OpenAI Service provides access to the latest generative AI technology, how prompts and responses can be fine-tuned and how Microsoft's responsible AI principles drive ethical AI advancements.|
 |[Develop Generative AI solutions with Azure OpenAI Service](/training/paths/develop-ai-solutions-azure-openai/)|Azure OpenAI Service provides access to OpenAI's powerful large language models such as ChatGPT, GPT, Codex, and Embeddings models. This learning path teaches developers how to generate code, images, and text using the Azure OpenAI SDK and other Azure services.|
-|[Build AI Apps with Azure Database for PostgreSQL](/training/paths/build-ai-apps-azure-database-postgresql/)|This learning path explores how the Azure AI and Azure Machine Learning Services integrations provided by the Azure AI extension for Azure Database for PostgreSQL - Flexible Server can enable you to build AI-powered apps.|
+|[Build AI apps with Azure Database for PostgreSQL](/training/paths/build-ai-apps-azure-database-postgresql/)|This learning path explores how the Azure AI and Azure Machine Learning Services integrations provided by the Azure AI extension for Azure Database for PostgreSQL - Flexible Server can enable you to build AI-powered apps.|
 
 ### Samples
 
