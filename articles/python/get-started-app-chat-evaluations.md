@@ -1,7 +1,7 @@
 ---
 title: "Evaluating chat apps with Azure OpenAI"
 description: "Learn how to effectively evaluate answers in your RAG-based chat app using Azure OpenAI. Generate sample prompts, run evaluations, and analyze results."
-ms.date: 01/22/2024
+ms.date: 05/15/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
@@ -18,16 +18,16 @@ ms.custom: devx-track-python, devx-track-python-ai
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
 
-* Complete the [previous chat App procedure](get-started-app-chat-template.md) to deploy the chat app to Azure. This procedure loads the data into the Azure AI Search resource. This resource is required for the evaluations app to work. Don't complete the **Clean up resources** section of the previous procedure.     
+* Complete the [previous chat App procedure](get-started-app-chat-template.md) to deploy the chat app to Azure. This resource is required for the evaluations app to work. Don't complete the **Clean up resources** section of the previous procedure.      
 
     You'll need the following Azure resource information from that deployment, which is referred to as the **chat app** in this article:
 
-    * Web API URI: The URI of the deployed chat app API. 
+    * Chat API URI: The service backend endpoint shown at the end of the `azd up` process. 
     * Azure AI Search. The following values are required:
-        * Resource name: The name of the Azure AI Search resource name.
-        * Index name: The name of the Azure AI Search index where your documents are stored.
-        * Query key: The key to query your Search index.
-    * If you experimented with the chat app authentication, you need to disable user authentication so the evaluation app can access the chat app.
+         * Resource name: The name of the Azure AI Search resource name, reported as `Search service` during the `azd up` process.
+        * Index name: The name of the Azure AI Search index where your documents are stored. This can be found in the Azure Portal for the Search service.
+
+    The Chat API URL allows the evaluations to make requests through your backend application. The Azure AI Search information allows the evaluation scripts to use the same deployment as your backend, loaded with the documents. 
 
     Once you have this information collected, you shouldn't need to use the **chat app** development environment again. It's referred to later in this article several times to indicate how the **chat app** is used by the **Evaluations app**. Don't delete the **chat app** resources until you complete the entire procedure in this article.
 

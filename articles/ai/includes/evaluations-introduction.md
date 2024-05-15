@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 01/31/2024
+ms.date: 05/15/2024
 ms.author: diberry
 author: diberry
 ms.service: azure
@@ -26,3 +26,5 @@ Key components of the architecture include:
 * **Evaluator** runs sample questions and prompts against the chat app and returns the results.
 * **Review tool** allows you to review the results of the evaluations.
 * **Diff tool** allows you to compare the answers between evaluations.
+
+When you deploy this evaulation to Azure, the Azure OpenAI endpoint is created for the GPT-4 model with its own [capacity](/azure/ai-services/openai/quotas-limits#regional-quota-limits). When evaluating chat applications, it is important that the evaluator has its own OpenAI resource using GPT-4 with its own capacity.

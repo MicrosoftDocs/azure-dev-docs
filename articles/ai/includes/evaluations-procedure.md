@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 01/31/2024
+ms.date: 05/15/2024
 ms.author: diberry
 author: diberry
 ms.service: azure
@@ -10,6 +10,8 @@ ms.service: azure
 ## Open development environment
 
 Begin now with a development environment that has all the dependencies installed to complete this article. You should arrange your monitor workspace so you can see both this documentation and the development environment at the same time. 
+
+This article was tested with the `switzerlandnorth` region for the evaluation deployment.
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
@@ -47,7 +49,7 @@ Begin now with a development environment that has all the dependencies installed
     This doesn't deploy the evaluations app, but it does create the **Azure OpenAI** resource with a GPT-4 deployment that's required to run the evaluations locally in the development environment.
 
 1. The remaining tasks in this article take place in the context of this development container.
-1. The name of the GitHub repository is shown in the search bar. This helps you distinguish between this evaluations app from the chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
+1. The name of the GitHub repository is shown in the search bar. This visual indicator helps you distinguish between this evaluations app from the chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -88,10 +90,8 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     azd up
     ```
 
-    This doesn't deploy the evaluations app, but it does create the **Azure OpenAI** resource required to run the app locally in the development environment.
-
 1. The remaining exercises in this project take place in the context of this development container.
-1. The name of the GitHub repository is shown in the bottom left corner Visual Studio Code. This helps you distinguish between this evaluations app from the chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
+1. The name of the GitHub repository is shown in the bottom left corner Visual Studio Code. This visual indicator helps you distinguish between this evaluations app from the chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
 
 ---
 
@@ -110,14 +110,12 @@ Update the environment values and configuration information with the information
     ```bash
     AZURE_SEARCH_SERVICE="<service-name>"
     AZURE_SEARCH_INDEX="<index-name>"
-    AZURE_SEARCH_KEY="<query-key>"
     ```
 
     The `AZURE_SEARCH_KEY` value is the **query key** for the Azure AI Search instance. 
 
 
-1. Copy the `example_config.json` file at the root of the **Evaluations app** folder into a new file `my_config.json`. 
-1. Replace the existing content of `my_config.json` with the following content:
+1. Create a new file named `my_config.json` and copy the following content into it:
 
 
     ```json
@@ -134,6 +132,8 @@ Update the environment values and configuration information with the information
     }
     ```
 
+    The evaluation script creates the `my_results` folder.
+
 1. Change the `target_url` to the URI value of your **chat app**, which you gathered in the [prerequisites](#prerequisites) section. The chat app must conform to the chat protocol. The URI has the following format `https://CHAT-APP-URL/chat`. Make sure the protocol and the `chat` route are part of the URI.
 
 ## Generate sample data
@@ -148,7 +148,7 @@ In order to evaluate new answers, they must be compared to a "ground truth" answ
     python3 -m scripts generate --output=my_input/qa.jsonl --numquestions=14 --persource=2
     ```
 
-The question/answer pairs are generated and stored in `my_input/qa.jsonl` (in [JSONL format](https://jsonlines.org/)) as input to the evaluator used in the next step. For a production evaluation, you would generate more QA pairs, perhaps more than 200 for this dataset. 
+The question/answer pairs are generated and stored in `my_input/qa.jsonl` (in [JSONL format](https://jsonlines.org/)) as input to the evaluator used in the next step. For a production evaluation, you would generate more QA pairs, more than 200 for this dataset. 
 
 > [!NOTE]
 > The few number of questions and answers per source is meant to allow you to quickly complete this procedure. It isn't meant to be a production evaluation which should have more questions and answers per source.
@@ -157,10 +157,12 @@ The question/answer pairs are generated and stored in `my_input/qa.jsonl` (in [J
 
 1. Edit the `my_config.json` config file properties:
 
-    * Change `results_dir` to include the name of the prompt: `my_results/experiment_refined`.
-    * Change `prompt_template` to: `<READFILE>my_input/experiment_refined.txt` to use the refined prompt template in the evaluation. 
+    |Property|New value|
+    |--|--|
+    |results_dir|`my_results/experiment_refined`|
+    |prompt_template|`<READFILE>my_input/prompt_refined.txt`|
 
-    The refined prompt is very specific about the subject domain.
+    The refined prompt is specific about the subject domain.
 
     ```txt
     If there isn't enough information below, say you don't know. Do not generate answers that don't use the sources below. If asking a clarifying question to the user would help, ask the question.
@@ -178,17 +180,21 @@ The question/answer pairs are generated and stored in `my_input/qa.jsonl` (in [J
     python3 -m scripts evaluate --config=my_config.json --numquestions=14
     ````
 
-    This created a new experiment folder in `my_results` with the evaluation. The folder contains the results of the evaluation including:
-    
-    * `eval_results.jsonl`: Each question and answer, along with the GPT metrics for each QA pair.
-    * `summary.json`: The overall results, like the average GPT metrics.
+     This script created a new experiment folder in `my_results/` with the evaluation. The folder contains the results of the evaluation including:
+
+    | File Name | Description |
+    |--|--|
+    | `eval_results.jsonl`| Each question and answer, along with the GPT metrics for each QA pair.|
+    | `summary.json`| The overall results, like the average GPT metrics.|
     
 ## Run second evaluation with a weak prompt
 
 1. Edit the `my_config.json` config file properties:
 
-    * Change `results_dir` to: `my_results/experiment_weak`
-    * Change `prompt_template` to: `<READFILE>my_input/prompt_weak.txt` to use the weak prompt template in the next evaluation. 
+    |Property|New value|
+    |--|--|
+    |results_dir|`my_results/experiment_weak`|
+    |prompt_template|`<READFILE>my_input/prompt_weak.txt`|
 
     That weak prompt has no context about the subject domain:
 
@@ -208,9 +214,13 @@ Use a prompt which allows for more creativity.
 
 1. Edit the `my_config.json` config file properties:
 
-    * Change `results_dir` to: `my_results/experiment_ignoresources_temp09`
-    * Change `prompt_template` to: `<READFILE>my_input/prompt_ignoresources.txt` 
-    * Add a new override, `"temperature": 0.9` - the default temperature is 0.7. The higher the temperature, the more creative the answers.
+    |Existing|Property|New value|
+    |--|--|--|
+    |Existing|results_dir|`my_results/experiment_ignoresources_temp09`|
+    |Existing|prompt_template|`<READFILE>my_input/prompt_ignoresources.txt`|
+    |New| temperature | `0.9`|
+
+    The default temperature is 0.7. The higher the temperature, the more creative the answers.
 
     The ignore prompt is short: 
 
@@ -224,7 +234,7 @@ Use a prompt which allows for more creativity.
     ```json
     {
         "testdata_path": "my_input/qa.jsonl",
-        "results_dir": "my_results/experiment_ignoresources_temp09",
+        "results_dir": "my_results/prompt_ignoresources_temp09",
         "target_url": "https://YOUR-CHAT-APP/chat",
         "target_parameters": {
             "overrides": {
@@ -252,7 +262,7 @@ You have performed three evaluations based on different prompts and app settings
     python3 -m review_tools summary my_results
     ```
     
-1. The results look like: 
+1. The results look _something_ like: 
 
     :::image type="content" source="../media/get-started-app-chat-evaluations/evaluations-review-summary.png" alt-text="Screenshot of evaluations review tool showing the three evaluations.":::
 
@@ -283,7 +293,7 @@ Compare the returned answers from the evaluations.
     python3 -m review_tools diff my_results/experiment_refined my_results/experiment_ignoresources_temp09
     ```
 
-1. Review the results.
+1. Review the results. Your results may vary. 
 
     :::image type="content" source="../media/get-started-app-chat-evaluations/evaluations-difference-between-evaluation-answers.png" alt-text="Screenshot of comparison of evaluation answers between evaluations.":::
 
@@ -344,7 +354,7 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 
 Return to the chat app article to clean up those resources. 
 
-* [Javascript](/azure/developer/javascript/get-started-app-chat-template#clean-up-resources)
+* [JavaScript](/azure/developer/javascript/get-started-app-chat-template#clean-up-resources)
 * [Python](/azure/developer/python/get-started-app-chat-template#clean-up-resources)
 
 
