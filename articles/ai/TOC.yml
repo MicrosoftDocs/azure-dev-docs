@@ -75,7 +75,7 @@ items:
     - name: JavaScript resources
       items:
         - name: Overview
-          href: overview-javascript.md
+          href: ../javascript/azure-ai-for-javascript-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service
           href: /azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-javascript&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Chat with Azure OpenAI models using your own data
@@ -91,7 +91,7 @@ items:
     - name: Java resources
       items:
         - name: Overview
-          href: overview-java.md
+          href: ../java/ai/azure-ai-for-java-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service
           href: /azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-java&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service in IntelliJ
