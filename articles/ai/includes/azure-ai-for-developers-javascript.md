@@ -1,6 +1,6 @@
 ## AI app templates
 
-There are several [AI app templates](/azure/developer/ai/intelligent-app-templates?pivots=javascript) featuring complete end-to-end solutions available for each programming language. One of the most popular templates the enterprise chat sample using RAG:
+There are several [AI app templates](../intelligent-app-templates?pivots=javascript) featuring complete end-to-end solutions available for each programming language. One of the most popular templates the enterprise chat sample using RAG:
 
 |Link|Description|
 |---|---|
