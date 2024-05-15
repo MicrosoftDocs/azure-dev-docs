@@ -29,7 +29,7 @@ This JavaScript [reference template](https://github.com/azure-samples/azure-sear
 
 This JavaScript [reference template](https://github.com/Azure-Samples/azure-openai-chat-frontend) is a minimal OpenAI chat web component to hook as a client to any backend implementation.
 
-:::video source="../media/intelligent-app-templates/chat-frontend-javascript-video.mp4":::
+:::video source="../media/intelligent-app-templates/chat-frontend-javascript-video.gif":::
 
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
