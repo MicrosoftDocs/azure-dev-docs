@@ -28,7 +28,7 @@ It might be helpful to understand some core concepts to level-set as you get sta
 
 ## AI app templates
 
-There are several [AI app templates]() available. One of the most popular templates the enterprise chat sample using RAG:
+There are several [AI app templates](./intelligent-app-templates.md) featuring complete end-to-end solutions available for each programming language. One of the most popular templates the enterprise chat sample using RAG:
 
 # [.NET](#tab/dotnet)
 
