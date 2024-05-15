@@ -2,9 +2,6 @@
 title: Use passwordless connections with Azure OpenAI
 titleSuffix: Azure AI services
 description: Use passwordless connections for authentication and authorization to Azure OpenAI.
-manager: nitinme
-author: mrbullwinkle
-ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: how-to
 ms.date: 05/15/2024
