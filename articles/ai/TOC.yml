@@ -6,12 +6,18 @@ items:
       href: overview.md
     - name: Concepts
       items: 
-        - name: Introduction to generative AI for developers
-          href: intro-01.md
-        - name: Develop apps that use generative AI
-          href: intro-02.md
+        - name: Intro to generative AI
+          href: introduction-build-generative-ai-solutions.md      
+        - name: Concepts and considerations
+          href: gen-ai-concepts-considerations-developers.md
+        - name: Augment LLMs with RAG and fine-tuning
+          href: augment-llm-rag-fine-tuning.md
+        - name: Advanced RAG
+          href: advanced-retrieval-augmented-generation.md
     - name: AI app templates
       items:
+        - name: Get started
+          href: intelligent-app-templates.md
         - name: Get started with the chat app templates
           items:
             - name: Chat with your data using Python
