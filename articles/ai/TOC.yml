@@ -6,12 +6,6 @@ items:
       href: azure-ai-for-developers.md
     - name: Concepts
       items: 
-        - name: Introduction to generative AI for developers
-          href: intro-01.md
-        - name: Develop apps that use generative AI
-          href: intro-02.md
-    - name: Python
-      items:
         - name: Intro to generative AI
           href: introduction-build-generative-ai-solutions.md      
         - name: Concepts and considerations
@@ -22,8 +16,8 @@ items:
           href: advanced-retrieval-augmented-generation.md
     - name: AI app templates
       items:
-        - name: Overview
-          href: intelligent-app-templates.md
+        - name: Get started
+          href: intelligent-apps-templates.md
         - name: Get started with the chat app templates
           items:
             - name: Chat with your data using Python
