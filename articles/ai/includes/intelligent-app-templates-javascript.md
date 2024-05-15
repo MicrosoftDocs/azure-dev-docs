@@ -7,7 +7,7 @@ author: diberry
 ms.service: azure
 ---
 
-## Enterprise chat with JavaScript
+### Enterprise chat with JavaScript
 
 This JavaScript [reference template](https://github.com/azure-samples/azure-search-openai-javascript) is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
 
@@ -25,7 +25,7 @@ This JavaScript [reference template](https://github.com/azure-samples/azure-sear
 |Azure Container Apps<br>Azure Static Web Apps|Azure OpenAI<br>Azure AI Search<br>Azure Storage<br>Azure Monitor|text-embedding-ada-002|
 
 
-## Azure OpenAI Chat Frontend
+### Azure OpenAI Chat Frontend
 
 This JavaScript [reference template](https://github.com/Azure-Samples/azure-openai-chat-frontend) is a minimal OpenAI chat web component to hook as a client to any backend implementation.
 
@@ -35,7 +35,7 @@ This JavaScript [reference template](https://github.com/Azure-Samples/azure-open
 |--|--|--|
 |Azure Static Web Apps|Azure AI Search<br>Azure OpenAI|GPT 3.5 Turbo<br>GPT4|
 
-## Serverless AI Chat with RAG using LangChain.js
+### Serverless AI Chat with RAG using LangChain.js
 
 This JavaScript [reference template](https://github.com/Azure-Samples/serverless-chat-langchainjs) is a serverless AI chatbot with Retrieval-Augmented Generation using LangChain.js and Azure that uses a set of enterprise documents to generate responses to user queries. We use a fictitious company called Contoso Real Estate, and the experience allows its customers to ask support questions about the usage of its products. The sample data includes a set of documents that describes its terms of service, privacy policy and a support guide.
 

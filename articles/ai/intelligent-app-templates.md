@@ -14,6 +14,43 @@ zone_pivot_groups: intelligent-apps-languages
 
 The intelligent app templates are complete end-to-end solutions including documention, source code, and deployment to allow you to take and extend for your own purposes. 
 
+## Building blocks
+
+
+:::zone pivot="dotnet"
+
+[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-app-building-blocks-dotnet.md)]
+
+:::zone-end
+
+:::zone pivot="python"
+
+[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-app-building-blocks-python.md)]
+
+
+:::zone-end
+
+:::zone pivot="java"
+
+[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-app-building-blocks-java.md)]
+
+
+:::zone-end
+
+
+:::zone pivot="javascript"
+
+[!INCLUDE [//build 2024 templates](../ai/includes/intelligent-app-building-blocks-javascript.md)]
+
+
+:::zone-end
+
+:::zone pivot="golang"
+
+
+:::zone-end
+
+## End to end applications
 
 :::zone pivot="dotnet"
 
@@ -43,7 +80,3 @@ The intelligent app templates are complete end-to-end solutions including docume
 
 :::zone-end
 
-:::zone pivot="golang"
-
-
-:::zone-end
