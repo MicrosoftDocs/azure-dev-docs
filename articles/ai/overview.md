@@ -24,11 +24,12 @@ It might be helpful to understand some core concepts to level-set as you get sta
 |[Augmenting a Large Language Model with Retrieval-Augmented Generation and Fine-tuning](./augment-llm-rag-fine-tuning.md)|Details the two mechanisms that developers can use to augment the information LLMs use to compose their models: retrieval-augmented generation and fine-tuning.|
 |[Building advanced Retrieval-Augmented Generation systems](./advanced-retrieval-augmented-generation.md)|Discusses real-world considerations and patterns for RAG-based chat systems.|
 
-:::zone pivot="dotnet"
 
-## .NET enterprise chat sample
+## AI app templates
 
-When you're ready to jump in and start building something significant, we recommend you get started with the enterprise chat sample using RAG.
+There are several [AI app templates]() available. One of the most popular templates the enterprise chat sample using RAG:
+
+# [.NET](#tab/dotnet)
 
 |Link|Description|
 |---|---|
@@ -36,41 +37,7 @@ When you're ready to jump in and start building something significant, we recomm
 |[Source code for the sample](https://github.com/Azure-Samples/azure-search-openai-demo-csharp)|This GitHub repository contains the source code for the sample and more details about the sample architecture, deployment options, and how to start extending the sample to your own production app.|
 |[Video for the sample](https://www.youtube.com/watch?v=mcftrg6L8Fs&feature=youtu.be)|This video provides an overview and demo of the enterprise chat app sample.|
 
-:::zone-end
-
-:::zone pivot="python"
-
-## AI app templates
-
-There are several [AI app templates]() available. One of the most popular templates the enterprise chat sample using RAG:
-
-|Link|Description|
-|---|---|
-|[Get started with the enterprise chat sample](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces)|This article introduces the enterprise chat app sample and guides you through the basics of deploying and using the app.|
-|[Source code for the sample](https://github.com/Azure-Samples/azure-search-openai-demo)|This GitHub repository contains the source code for the sample and more details about the sample architecture, deployment options, and how to start extending the sample to your own production app.|
-|[Video for the sample](https://www.youtube.com/watch?v=3acB0OWmLvM)|This video provides an overview and demo of the enterprise chat app sample.|
-
-:::zone-end
-
-:::zone pivot="javascript"
-
-## JavaScript enterprise chat sample
-
-When you're ready to jump in and start building something significant, we recommend you get started with the enterprise chat sample using RAG.
-
-|Link|Description|
-|---|---|
-|[Get started with the enterprise chat sample](/azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces)|This article introduces the enterprise chat app sample and guides you through the basics of deploying and using the app.|
-|[Source code for the sample](https://github.com/Azure-Samples/azure-search-openai-javascript)|This GitHub repository contains the source code for the sample and more details about the sample architecture, deployment options, and how to start extending the sample to your own production app.|
-|[Video for the sample](https://www.youtube.com/watch?v=uckVTuS36H0)|This video provides an overview and demo of the enterprise chat app sample.|
-
-:::zone-end
-
-:::zone pivot="java"
-
-## Java enterprise chat sample
-
-When you're ready to jump in and start building something significant, we recommend you get started with the enterprise chat sample using RAG.
+# [Java](#tab/java)
 
 |Link|Description|
 |---|---|
@@ -78,8 +45,23 @@ When you're ready to jump in and start building something significant, we recomm
 |[Source code for the sample](https://github.com/Azure-Samples/azure-search-openai-demo-java)|This GitHub repository contains the source code for the sample and more details about the sample architecture, deployment options, and how to start extending the sample to your own production app.|
 |[Video for the sample](https://www.youtube.com/watch?v=mcftrg6L8Fs)|This video provides an overview and demo of the enterprise chat app sample.|
 
-:::zone-end
+# [Python](#tab/python)
 
+|Link|Description|
+|---|---|
+|[Get started with the enterprise chat sample](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces)|This article introduces the enterprise chat app sample and guides you through the basics of deploying and using the app.|
+|[Source code for the sample](https://github.com/Azure-Samples/azure-search-openai-demo)|This GitHub repository contains the source code for the sample and more details about the sample architecture, deployment options, and how to start extending the sample to your own production app.|
+|[Video for the sample](https://www.youtube.com/watch?v=3acB0OWmLvM)|This video provides an overview and demo of the enterprise chat app sample.|
+
+# [JavaScript](#tab/javascript)
+
+|Link|Description|
+|---|---|
+|[Get started with the enterprise chat sample](/azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces)|This article introduces the enterprise chat app sample and guides you through the basics of deploying and using the app.|
+|[Source code for the sample](https://github.com/Azure-Samples/azure-search-openai-javascript)|This GitHub repository contains the source code for the sample and more details about the sample architecture, deployment options, and how to start extending the sample to your own production app.|
+|[Video for the sample](https://www.youtube.com/watch?v=uckVTuS36H0)|This video provides an overview and demo of the enterprise chat app sample.|
+
+---
 
 ## Additional resources by language
 
