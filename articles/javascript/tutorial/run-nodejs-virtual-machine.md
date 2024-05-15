@@ -348,7 +348,7 @@ If you have issues, use the following table to understand how to resolve your is
 
 ## Sample code
 
-* [Express.js virtual machine sample code](https://github.com/Azure-Samples/js-e2e-vm)
+* [Express.js virtual machine sample code](https://github.com/Azure-Samples/azure-typescript-e2e-apps/tree/main/api-expressjs-vm)
 
 ## Next steps
 

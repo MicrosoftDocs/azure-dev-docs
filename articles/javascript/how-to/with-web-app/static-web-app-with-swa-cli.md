@@ -73,7 +73,7 @@ Fork the [sample repository](https://github.com/Azure-Samples/azure-typescript-e
 1. Install dependencies for the local back-end app:
 
     ```bash
-    cd ../apiV4-inmemory && npm install && cd ..
+    cd ../api-inmemory && npm install && cd ..
     ```
 
 

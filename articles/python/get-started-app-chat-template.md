@@ -1,7 +1,7 @@
 ---
 title: Get started with the Python enterprise chat sample using RAG
 description: Get started with Python and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 11/17/2023
+ms.date: 05/08/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, devx-track-extended-azdevcli
@@ -174,15 +174,18 @@ The sample repository contains all the code and configuration files you need to 
 1. When prompted, select a subscription to create the resources in. 
 1. When you're prompted to select a location the first time, select a location near you. This location is used for most the resources including hosting.
 1. If you're prompted for a location for the OpenAI model or for the Document Intelligence resource, select the location closest to you. If the same location is available as your first location, select that.
-1. Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
+1. Wait 5 or 10 minutes after the app is deployed before continuing.
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
+
+    :::image type="content" source="media/get-started-app-chat-template/azd-deployed-endpoint.png" alt-text="Screenshot of deployed app as reported at the end of the AZD CLI azd up process.":::
+
 1. Select that URL labeled `(✓) Done: Deploying service webapp` to open the chat application in a browser.
 
     :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
 ### Use chat app to get answers from PDF files
 
-The chat app is preloaded with employee benefits information from [PDF files](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/data). You can use the chat app to ask questions about the benefits. The following steps walk you through the process of using the chat app.
+The chat app is preloaded with employee benefits information from [PDF files](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/data). You can use the chat app to ask questions about the benefits. The following steps walk you through the process of using the chat app. Your answers may vary as the underlying models are updated. 
 
 1. In the browser, select or enter *What happens in a performance review?* in the chat text box.
 
@@ -268,7 +271,7 @@ azd down --purge --force
 The switches provide: 
 
 * `purge`: Deleted resources are immediately purged. This allows you to reuse the Azure OpenAI TPM.
-* `force`: The deletion happens siliently, without requiring user consent. 
+* `force`: The deletion happens silently, without requiring user consent. 
 
 ### Clean up GitHub Codespaces
 
