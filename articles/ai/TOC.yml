@@ -10,9 +10,8 @@ items:
           href: intro-01.md
         - name: Develop apps that use generative AI
           href: intro-02.md
-        - name: AI app templates
-          href: intelligent-app-templates.md
     - name: Python
+      items:
         - name: Intro to generative AI
           href: introduction-build-generative-ai-solutions.md      
         - name: Concepts and considerations
@@ -21,7 +20,10 @@ items:
           href: augment-llm-rag-fine-tuning.md
         - name: Advanced RAG
           href: advanced-retrieval-augmented-generation.md
+    - name: AI app templates
       items:
+        - name: Overview
+          href: intelligent-app-templates.md
         - name: Get started with the chat app templates
           items:
             - name: Chat with your data using Python
