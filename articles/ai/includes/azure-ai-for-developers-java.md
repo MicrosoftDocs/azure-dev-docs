@@ -21,9 +21,9 @@ The Azure OpenAIprovides REST API access to OpenAI's powerful language models. T
 |[Quickstart: Get started generating text using Azure OpenAI Service](/azure/ai-services/openai/quickstart?pivots=programming-language-java)|A very quick set of instructions to set up the services you need and code you must write to prompt a model using Java.|
 |[Quickstart: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-java)|Similar to the previous quickstart, but provides an example of system, assistant and user roles to tailor the content when asked certain questions.|
 |[Quickstart: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service in IntelliJ](/azure/developer/java/toolkit-for-intellij/chatgpt-intellij)|Similar to the first quickstart, but provides an example of system, assistant and user roles to tailor the content when asked certain questions using IntelliJ.|
-|[Quickstart: Chat with Azure OpenAI models using your own data](https://learn.microsoft.com/en-us/azure/ai-services/openai/use-your-data-quickstart?pivots=programming-language-spring)|Similar to the first quickstart, but this time you add your own data (like a PDF or other document).|
+|[Quickstart: Chat with Azure OpenAI models using your own data](/azure/ai-services/openai/use-your-data-quickstart?pivots=programming-language-spring)|Similar to the first quickstart, but this time you add your own data (like a PDF or other document).|
 |[Quickstart: Get started using Azure OpenAI Assistants (Preview)](/azure/ai-services/openai/assistants-quickstart?tabs=command-line%2Ctypescript&pivots=programming-language-python)|Similar to the first quickstart in this list, but this time you tell the model to use the built-in Python code interpreter to solve math problems step by step. This is a starting point to using your own AI assistants accessed through custom instructions.|
-|[Quickstart: Use images in your AI chats](/azure/ai-services/openai/gpt-v-quickstart?pivots=programming-language-studio&bc=%2Fazure%2Fdeveloper%2Fai%2Fbreadcrumb%2Ftoc.json&branch=main&tabs=image%2Ccommand-line)||
+|[Quickstart: Use images in your AI chats](/azure/ai-services/openai/gpt-v-quickstart?pivots=programming-language-studio)|How to programmatically ask the model to describe the contents of an image.|
 |[Quickstart: Generate images with Azure OpenAI Service](/azure/ai-services/openai/dall-e-quickstart?pivots=programming-language-java)|Programmatically generate images using Dall-E based on a prompt.|
 
 
@@ -53,8 +53,8 @@ The Azure OpenAIprovides REST API access to OpenAI's powerful language models. T
 
 |Link|Description|
 |---|---|
-|**azure-ai-openai**|[Source code](https://aka.ms/oai/java/sdk)|[Releases](https://azure.github.io/azure-sdk/?search=openai)|[Maven package](https://aka.ms/oai/java/maven)|
-|**azure-ai-openai-assistants**|[Source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai-assistants_1.0.0-beta.1/sdk/openai/azure-ai-openai-assistants/)|[Releases](https://central.sonatype.com/artifact/com.azure/azure-ai-openai-assistants/versions)|[Maven package](https://central.sonatype.com/artifact/com.azure/azure-ai-openai-assistants/)|
+|**azure-ai-openai**|[Source code](https://aka.ms/oai/java/sdk) [Releases](https://azure.github.io/azure-sdk/?search=openai) [Maven package](https://aka.ms/oai/java/maven)|
+|**azure-ai-openai-assistants**|[Source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai-assistants_1.0.0-beta.1/sdk/openai/azure-ai-openai-assistants/) [Releases](https://central.sonatype.com/artifact/com.azure/azure-ai-openai-assistants/versions) [Maven package](https://central.sonatype.com/artifact/com.azure/azure-ai-openai-assistants/)|
 
 
 ## Other Azure AI Services

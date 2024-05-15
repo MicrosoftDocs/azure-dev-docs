@@ -3,7 +3,7 @@ items:
   href: index.yml
   items:
     - name: Overview
-      href: overview.md
+      href: azure-ai-for-developers.md
     - name: Concepts
       items: 
         - name: Intro to generative AI
