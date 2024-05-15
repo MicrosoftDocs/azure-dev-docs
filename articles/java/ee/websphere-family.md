@@ -36,8 +36,8 @@ The offer [WebSphere Liberty or Open Liberty on AKS](https://ibm.biz/liberty-aks
 [WebSphere Cluster on Azure VMs](https://ibm.biz/twas-cluster-portal) and [WebSphere Single Instance on Azure VM](https://ibm.biz/twas-single-portal) are two Azure Marketplace offers that automatically provision several Azure resources, enabling a quick transition to traditional WebSphere Application Server on Azure VMs. The automatically provisioned resources include virtual network, storage, network security group, Java, Linux, WebSphere, and database connectivity (Db2, Oracle database, Azure SQL). Both offers support evaluation and Bring-Your-Own-License (BYOL) options for WebSphere. With minimal effort, you can provision a fully functional, highly available WebSphere ND cluster, including the Deployment Manager and any number of servers. You can also have the cluster offer provision IBM HTTP Server or Azure App Gateway as a load-balancer. The Deployment Manager and all servers are started by default, which allows you to begin managing the cluster right away using the Admin Console. Similarly, the single instance offer easily provisions a WebSphere (Base) server on a VM with the Console fully functional.
 
 Besides, IBM and Microsoft also provide basic VM images for WebSphere ND and Base:
--  [IBM WebSphere Application Server VM base image](https://ibm.biz/twas-base-portal)
--  [IBM WebSphere Application Server ND VM base image](https://ibm.biz/twas-nd-portal)
+- [IBM WebSphere Application Server VM base image](https://ibm.biz/twas-base-portal)
+- [IBM WebSphere Application Server ND VM base image](https://ibm.biz/twas-nd-portal)
 
 The VM images are suitable for customers that need very customized deployments.
 
@@ -45,7 +45,7 @@ The VM images are suitable for customers that need very customized deployments.
 
 Explore the currently available WebSphere on Azure offers at Azure Marketplace:
 
-- [IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift ](https://ibm.biz/liberty-aro)
+- [IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](https://ibm.biz/liberty-aro)
 - [IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service](https://ibm.biz/liberty-aks)
 - [IBM HTTP Server VM base image](https://ibm.biz/twas-ihs-portal)
 - [IBM WebSphere Application Server VM base image](https://ibm.biz/twas-base-portal)
@@ -57,6 +57,6 @@ The following articles provide more information on getting started with these te
 - [How-to guides: Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 - [Quickstart: Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster](/azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 - [Quickstart: Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](traditional-websphere-application-server-virtual-machines.md)
-- [Manual Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](liberty-on-aro.md)
+- [Manually Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](liberty-on-aro.md)
 - [Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster](howto-deploy-java-liberty-app-manual.md)
 - [Manually install IBM WebSphere Application Server Network Deployment traditional on Azure virtual machines](/azure/developer/java/migration/migrate-websphere-to-azure-vm-manually?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
