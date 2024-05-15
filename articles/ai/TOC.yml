@@ -28,6 +28,8 @@ items:
               href: ../java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: .NET
               href: /dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+        - name: Connect without passwords
+          href: passwordless-connections.md
         - name: Evaluate the chat app
           items:
             - name: Python
