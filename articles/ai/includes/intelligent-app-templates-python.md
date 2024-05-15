@@ -77,7 +77,7 @@ This python [reference template](https://github.com/Azure-Samples/agent-python-o
 
 :::row:::
    :::column:::
-      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-function-calling-prompty-langchain-elasticsearch-python" lightbox="../media/intelligent-app-templates/architecture-diagram-function-calling-prompty-langchain-elasticsearch-python" alt-text="Architectural diagram for an app using the Prompty tool, Langchain, and Elasticsearch to build a large language model (LLM) search agent with function calling for Python.":::
+      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-function-calling-prompty-langchain-elasticsearch-python.png" lightbox="../media/intelligent-app-templates/architecture-diagram-function-calling-prompty-langchain-elasticsearch-python.png" alt-text="Architectural diagram for an app using the Prompty tool, Langchain, and Elasticsearch to build a large language model (LLM) search agent with function calling for Python.":::
    :::column-end:::
    :::column:::
    :::column-end:::
@@ -89,15 +89,7 @@ This python [reference template](https://github.com/Azure-Samples/agent-python-o
 
 ### Function Calling with Prompty, LangChain and Pinecone
 
-This python [reference template](https://github.com/Azure-Samples/agent-openai-python-prompty-langchain-pinecone) is
-
-:::row:::
-   :::column:::
-      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-function-calling-prompty-langchain-elasticsearch-python" lightbox="../media/intelligent-app-templates/architecture-diagram-function-calling-prompty-langchain-elasticsearch-python" alt-text="Architectural diagram for an app using the Prompty tool, Langchain, and Elasticsearch to build a large language model (LLM) search agent with function calling for Python.":::
-   :::column-end:::
-   :::column:::
-   :::column-end:::
-:::row-end:::
+This python [reference template](https://github.com/Azure-Samples/agent-openai-python-prompty-langchain-pinecone) is an app with Prompty, LangChain, and Pinecone. 
 
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
