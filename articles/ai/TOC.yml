@@ -109,7 +109,7 @@ items:
     - name: .NET resources
       items:
         - name: Overview
-          href: overview-dotnet.md
+          href: /dotnet/ai/azure-ai-for-dotnet-developers?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: .NET + AI ecosystem
           href: /dotnet/ai/dotnet-ai-ecosystem?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Build a chat app

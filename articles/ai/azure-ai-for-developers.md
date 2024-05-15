@@ -68,7 +68,7 @@ There are several [AI app templates](./intelligent-app-templates.md) featuring c
 
 Each language overview page links to popular articles, samples, documentation and more specific to your preferred programming language or platform:
 
-- [Python Resources](./overview-python.md)
-- [JavaScript Resources](./overview-javascript.md)
-- [Java Resources](./overview-java.md)
-- [.NET Resources](./overview-dotnet.md)
+- [Python Resources](../python/azure-ai-for-python-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+- [JavaScript Resources](../javascript/azure-ai-for-javascript-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+- [Java Resources](../java/ai/azure-ai-for-java-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+- [.NET Resources](/dotnet/ai/azure-ai-for-dotnet-developers?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
