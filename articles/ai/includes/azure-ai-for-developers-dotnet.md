@@ -1,13 +1,6 @@
 ## AI app templates
 
-There are several [AI app templates](../intelligent-app-templates.md?pivots=dotnet) featuring complete end-to-end solutions available for each programming language. One of the most popular templates the enterprise chat sample using RAG:
-
-|Link|Description|
-|---|---|
-|[Get started with the enterprise chat sample](/dotnet/ai/get-started-app-chat-template?tabs=github-codespaces)|This article introduces the enterprise chat app sample and guides you through the basics of deploying and using the app.|
-|[Source code for the sample](https://github.com/Azure-Samples/azure-search-openai-demo-csharp)|This GitHub repository contains the source code for the sample and more details about the sample architecture, deployment options, and how to start extending the sample to your own production app.|
-|[Video for the sample](https://www.youtube.com/watch?v=AYvyAhmzgVk&feature=youtu.be)|This video provides an overview and demo of the enterprise chat app sample.|
-
+[AI app templates](../intelligent-app-templates.md?pivots=dotnet) provide you with well-maintained, easy to deploy reference implementations. These ensure a high-quality starting point for your intelligent applications. The end-to-end solutions provide popular, comprehensive reference applications. The building blocks are smaller-scale samples that focus on specific scenarios and tasks.
 
 ## Azure OpenAI Service
 
