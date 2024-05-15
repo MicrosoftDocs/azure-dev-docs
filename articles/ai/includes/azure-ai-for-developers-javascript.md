@@ -1,10 +1,10 @@
 ## AI app templates
 
-There are several [AI app templates](./intelligent-app-templates.md?pivots=javascript) featuring complete end-to-end solutions available for each programming language. One of the most popular templates the enterprise chat sample using RAG:
+There are several [AI app templates](/azure/developer/ai/intelligent-app-templates.md?pivots=javascript) featuring complete end-to-end solutions available for each programming language. One of the most popular templates the enterprise chat sample using RAG:
 
 |Link|Description|
 |---|---|
-|[Get started with the enterprise chat sample](/javascript/get-started-app-chat-template?tabs=github-codespaces)|This article introduces the enterprise chat app sample and guides you through the basics of deploying and using the app.|
+|[Get started with the enterprise chat sample](/azure/developer/javascript/get-started-app-chat-template)|This article introduces the enterprise chat app sample and guides you through the basics of deploying and using the app.|
 |[Source code for the sample](https://github.com/Azure-Samples/azure-search-openai-javascript)|This GitHub repository contains the source code for the sample and more details about the sample architecture, deployment options, and how to start extending the sample to your own production app.|
 |[Video for the sample](https://www.youtube.com/watch?v=uckVTuS36H0)|This video provides an overview and demo of the enterprise chat app sample.|
 
