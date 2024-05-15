@@ -16,6 +16,8 @@ items:
           href: advanced-retrieval-augmented-generation.md
     - name: AI app templates
       items:
+        - name: Get started
+          href: intelligent-app-templates.md
         - name: Get started with the chat app templates
           items:
             - name: Chat with your data using Python
