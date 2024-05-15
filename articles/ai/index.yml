@@ -16,7 +16,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Intro to generative AI
+          - text: Introduction to generative AI
             url: introduction-build-generative-ai-solutions.md
           - text: Concepts and considerations
             url: gen-ai-concepts-considerations-developers.md
@@ -41,8 +41,6 @@ landingContent:
             url: ../java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Chat with your data using .NET
             url: /dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-          - text: Use the chat protocol in a JavaScript frontend and Python backend
-            url: ../javascript/chat-app-with-separate-front-back-end.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
 
   - title: Resources by programming language
     linkLists:

@@ -106,19 +106,19 @@ productDirectory:
           text: Azure SDK for .NET          
         - url: /dotnet/azure/
           text: See more in the .NET developer center
-    - title: Azure AI for Developers
+    - title: Azure AI for developers
       imageSrc: ./intro/media/azure-openai.png
       links:
         - url: ./ai/azure-ai-for-developers.md
-          text: Develop apps that use Azure AI services
-        - url: /azure/developer/python/get-started-app-chat-template?tabs=github-codespaces
-          text: Python enterprise chat sample using RAG 
-        - url: /dotnet/ai/get-started-app-chat-template?tabs=github-codespaces
-          text: .NET enterprise chat sample using RAG
-        - url: /azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces
-          text: JavaScript enterprise chat sample using RAG
-        - url: /azure/developer/java/quickstarts/get-started-app-chat-template?tabs=github-codespaces
-          text: Java enterprise chat sample using RAG
+          text: Overview of AI apps
+        - url: ./python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+          text: Chat with your data using Python
+        - url: ./javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+          text: Chat with your data using JavaScript
+        - url: ./java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+          text: Chat with your data using Java
+        - url: /dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+          text: Chat with your data using .NET
         - url: /azure/ai-services/
           text: Azure AI services documentation
     - title: Go
