@@ -51,10 +51,16 @@ The Azure OpenAIprovides REST API access to OpenAI's powerful language models. T
 
 ### SDKs and libraries
 
-|Link|Description|
-|---|---|
-|**azure-ai-openai**|[Source code](https://aka.ms/oai/java/sdk) [Releases](https://azure.github.io/azure-sdk/?search=openai) [Maven package](https://aka.ms/oai/java/maven)|
-|**azure-ai-openai-assistants**|[Source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai-assistants_1.0.0-beta.1/sdk/openai/azure-ai-openai-assistants/) [Releases](https://central.sonatype.com/artifact/com.azure/azure-ai-openai-assistants/versions) [Maven package](https://central.sonatype.com/artifact/com.azure/azure-ai-openai-assistants/)|
+|Package|Source code|Releases|Maven|
+
+|---|---|---|---|
+
+|**langchain4j-azure-open-ai**|[Source code](https://github.com/langchain4j/langchain4j/tree/main/langchain4j-azure-open-ai)|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-open-ai/versions)|[Maven package](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-open-ai)
+
+|**langchain4j-azure-ai-search**|[Source code](https://github.com/langchain4j/langchain4j/tree/main/langchain4j-azure-ai-search)|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-ai-search/versions)|[Maven](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-ai-search)|
+
+|**langchain4j-document-loader-azure-storage-blob**|n/a|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-document-loader-azure-storage-blob/versions)|[Maven](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-document-loader-azure-storage-blob/overview)|
+
 
 
 ## Other Azure AI Services
