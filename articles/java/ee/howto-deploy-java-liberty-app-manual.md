@@ -262,7 +262,7 @@ In this section, you create an Azure SQL Database single database for use with y
 
 Create a single database in Azure SQL Database by following the Azure CLI or PowerShell steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli). Use the following directions as you go through the article, then return to this document after you create and configure the database server.
 
-1. When you reach the [Set parameter values](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli#set-parameter-values) section of the quickstart, write down all variables in the code example labeled `Variable block`, including `location`, `resourceGroup`,`database`, `server`, `login`, and `password`. This article refers to the database `resourceGroup` as `<db-resource-group>`.
+1. When you reach the [Set parameter values](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli#set-parameter-values) section of the quickstart, copy and save aside the values of all variables in the code example labeled `Variable block`, including `location`, `resourceGroup`,`database`, `server`, `login`, and `password`. This article refers to the database `resourceGroup` as `<db-resource-group>`.
 
 1. After you create the database server, go to the newly created server in the Azure portal. In the **Networking** pane, under the **Connectivity** tab, set the **Minimum TLS version** to **TLS 1.0**.
 

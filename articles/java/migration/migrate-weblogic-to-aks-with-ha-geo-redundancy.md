@@ -152,7 +152,7 @@ Use the following steps to deploy WLS on AKS:
    1. Ensure that the value shown for **Subscription** is the same one that has the roles listed in the prerequisites section.
    1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, *wlsaks-eastus-20240109*.
    1. Under **Instance details**, for **Region**, select **East US**.
-   1. Under **Credentials WebLogic**, provide a password for **WebLogic Administrator** and **WebLogic Model encryption**, respectively. Write down the username and password for **WebLogic Administrator**.
+   1. Under **Credentials WebLogic**, provide a password for **WebLogic Administrator** and **WebLogic Model encryption**, respectively. Save aside the username and password for **WebLogic Administrator**.
    1. Under **Optional Basic Configuration**, for **Accept defaults for optional configuration?**, select **No**. The optional configuration shows.
 
       :::image type="content" source="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/wls-aks-offer-portal-basis-optional-config.png" alt-text="Screenshot of the Azure portal that shows the Oracle WebLogic Server on AKS Basics pane Optional Basic Configuration." lightbox="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/wls-aks-offer-portal-basis-optional-config.png":::
@@ -202,7 +202,7 @@ Use the following steps to deploy WLS on AKS:
    - For **DataSource Connection String**, paste the value you saved for **JDBC connection string** in the [Get the JDBC connection string and database admin username for the failover group](#get-the-jdbc-connection-string-and-database-admin-username-for-the-failover-group) section.
    - For **Global transaction protocol**, select **None**.
    - For **Database username**, paste the value you saved for **database admin username** in the [Get the JDBC connection string and database admin username for the failover group](#get-the-jdbc-connection-string-and-database-admin-username-for-the-failover-group) section.
-   - Enter the database server admin sign-in password that you wrote down before for **Database Password**. Enter the same value for **Confirm password**.
+   - Enter the database server admin sign-in password that you saved aside previously for **Database Password**. Enter the same value for **Confirm password**.
    - Leave the defaults for the other fields.
 
 1. Select **Review + create**.
@@ -497,7 +497,7 @@ Use the following steps to create the AKS cluster:
    > [!NOTE]
    > The AKS cluster that you provisioned in the [Deploy WLS on AKS](#deploy-wls-on-aks) section runs across three availability zones in the East US region. Availability zones aren't supported in the West US region. The AKS cluster in West US isn't zone-redundant. If your production environment requires zone redundancy, make sure your paired region supports availability zones. For more information, see the [Overview of availability zones for AKS clusters](/azure/aks/availability-zones#overview-of-availability-zones-for-aks-clusters) section of [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](/azure/aks/availability-zones).
 
-1. Use the following commands to get the public IP address of the application gateway instance. Write down the IP address, which you use later in this article.
+1. Use the following commands to get the public IP address of the application gateway instance. Save aside the IP address, which you use later in this article.
 
    ```azurecli
    export APPGW_ID=$(az aks show \
