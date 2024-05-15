@@ -35,10 +35,10 @@ Replace `<keyVaultName>` with a globally unique name.
 
 Note down the `id` property from the output of the `az keyvault create` command. You'll use it in the next section to define the scope of the authorization for the service principal. The `id` value has the following form: `/subscriptions/<subscriptionId>/resourceGroups/go-on-azure/providers/Microsoft.KeyVault/vaults/<keyVaultName>`.
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-New-AzResourceGroup -Name go-on-azure -location eastus
+```azurepowershell
+New-AzResourceGroup -Name go-on-azure -Location eastus
 
 New-AzKeyVault -ResourceGroupName go-on-azure -Name <keyVaultName> -Location eastus -EnableRbacAuthorization
 ```
@@ -74,33 +74,17 @@ Replace `<servicePrincipalName>` and `<keyVaultId>` with the appropriate values.
 
 Note down the `password`, `tenantId`, and `appId` properties from the output. You need them in the following sections. After creation, the service principal password can't be retrieved. If you forget the password, you can [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell
 # Create an Azure service principal
-$password = '<Password>'
+$sp = New-AzAdServicePrincipal -DisplayName '<servicePrincipalName>' -Role 'Key Vault Secrets Officer' -Scope <keyVaultId>
 
-$credentials = New-Object Microsoft.Azure.Commands.ActiveDirectory.PSADPasswordCredential `
--Property @{ StartDate=Get-Date; EndDate=Get-Date -Year 2024; Password=$password}
-
-$spSplat = @{
-    DisplayName = '<servicePrincipalName>'
-    PasswordCredential = $credentials
-}
-
-$sp = New-AzAdServicePrincipal @spSplat
-
-# assign role permissions to the service principal
-$roleAssignmentSplat = @{
-    ObjectId = $sp.id;
-    RoleDefinitionName = 'Key Vault Secrets Officer';
-    Scope = "<keyVaultId>"
-}
-
-New-AzRoleAssignment @roleAssignmentSplat
+# Export the password for the service principal
+$sp.PasswordCredentials.SecretText
 ```
 
-Replace `<Password>`, `<servicePrincipalName>`, and `<keyVaultId>` with the appropriate value.
+Replace `<servicePrincipalName>`, and `<keyVaultId>` with the appropriate value.
 
 ---
 
@@ -116,31 +100,36 @@ az ad sp create-for-rbac --name <servicePrincipalName> --create-cert --role "Key
 
 Replace `<servicePrincipalName>` and `<keyVaultId>` with the appropriate values.
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-$cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
-  -Subject "CN=<servicePrincipal>" `
-  -KeySpec KeyExchange
+```azurepowershell
+$certParams = @{
+    CertStoreLocation = "Cert:\CurrentUser\My"
+    Subject = "CN=<servicePrincipal>"
+    KeySpec = 'KeyExchange'
+}
+$cert = New-SelfSignedCertificate @certParams
 $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
-$sp = New-AzADServicePrincipal -DisplayName <servicePrincipal> `
-  -CertValue $keyValue `
-  -EndDate $cert.NotAfter `
-  -StartDate $cert.NotBefore
+$spCertParams = @{
+    CertValue = $keyValue
+    EndDate = $cert.NotAfter
+    StartDate = $cert.NotBefore
+    DisplayName = '<servicePrincipal>'
+}
+$sp = New-AzADServicePrincipal @spCertParams
 
-$pftPwd = ConvertTo-SecureString -String "<pftPassword>" -Force -AsPlainText
+$pftPwd = Read-Host -Prompt 'Enter pft password' -AsSecureString
 
-$cert | Export-PfxCertificate -FilePath "<servicePrincipal>.pfx" -Password
+$cert | Export-PfxCertificate -FilePath '<servicePrincipal>.pfx' -Password $pftPwd
 
 # assign role permissions to the service principal
-$roleAssignmentSplat = @{
-    ObjectId = $sp.id;
-    RoleDefinitionName = 'Key Vault Secrets Officer';
-    Scope = "<keyVaultId>"
+$roleAssignmentParams = @{
+    ObjectId = $sp.id
+    RoleDefinitionName = 'Key Vault Secrets Officer'
+    Scope = '<keyVaultId>'
 }
-
-New-AzRoleAssignment @roleAssignmentSplat
+New-AzRoleAssignment @roleAssignmentParams
 ```
 
 Replace `<pftPassword>`, `<servicePrincipalName>`, and `<keyVaultId>` with the appropriate value.
@@ -176,7 +165,7 @@ export AZURE_CLIENT_ID="<service_principal_appid>"
 export AZURE_CLIENT_SECRET="<service_principal_password>"
 ```
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 ```powershell
 $env:AZURE_TENANT_ID="<active_directory_tenant_id>"
@@ -202,7 +191,7 @@ export AZURE_CLIENT_ID="<service_principal_appid>"
 export AZURE_CLIENT_CERTIFICATE_PATH="<azure_client_certificate_path>"
 ```
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 ```powershell
 $env:AZURE_TENANT_ID="<active_directory_tenant_id>"
@@ -306,7 +295,7 @@ Use the following code sample to verify that your service principal authenticate
 
     Replace `<keyVaultName>` with the name of your Azure Key Vault instance.
 
-    # [PowerShell](#tab/powershell)
+    # [PowerShell](#tab/azure-powershell)
 
     ```powershell
     $env:KEY_VAULT_NAME="<keyVaultName>"
@@ -356,9 +345,9 @@ az ad sp delete --id <servicePrincipalAppId>
 
 Replace `<servicePrincipalAppId>` with the App ID of your service principal.
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell
 Remove-AzResourceGroup -Name go-on-azure -Force
 ```
 
@@ -366,16 +355,16 @@ The `-Force` argument tells the cmdlet not to ask for confirmation.
 
 The preceding command performs a [soft delete](/azure/key-vault/general/soft-delete-overview) on the key vault in the resource group. To permanently remove it from your subscription, enter the following command:
 
-```powershell
-Remove-AzKeyVault -Name `<keyVaultName>` -InRemovedState -Force
+```azurepowershell
+Remove-AzKeyVault -Name '<keyVaultName>' -Location eastus -InRemovedState -Force
 ```
 
 Replace `<keyVaultName>` with the name of your key vault.
 
 Finally, you should remove the service principal.
 
-```powershell
-Remove-AzureADServicePrincipal -ObjectId <servicePrincipalObjectId>
+```azurepowershell
+Remove-AzAdServicePrincipal -ObjectId <servicePrincipalObjectId>
 ```
 
 Replace `<servicePrincipalObjectId>` with the Object ID of your service principal.
