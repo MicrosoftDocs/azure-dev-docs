@@ -212,7 +212,7 @@ In this section, you create an Azure SQL Database single database for use with y
 
 Create a single database in Azure SQL Database by following the Azure CLI steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli). Execute the steps up to, but not including **Query the database**. Use the following steps as you go through the article, then return to this document after you create and configure the database server:
 
-When you reach the [Set parameter values](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli#set-parameter-values) section of the quickstart, output and write down values of variables in the code example labeled `Variable block`, including `resourceGroup`,`server`, `database`, `login`, and `password`. Define the following environment variables after replacing placeholders `<resourceGroup>`,`<server>`, `<database>`, `<login>`, and `<password>` with these values.
+When you reach the [Set parameter values](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli#set-parameter-values) section of the quickstart, output and save aside the values of variables in the code example labeled `Variable block`, including `resourceGroup`,`server`, `database`, `login`, and `password`. Define the following environment variables after replacing placeholders `<resourceGroup>`,`<server>`, `<database>`, `<login>`, and `<password>` with these values.
 
 ### [Bash](#tab/in-bash)
 

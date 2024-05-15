@@ -59,7 +59,7 @@ Use the following steps to fill out the **Basics** pane:
 1. Ensure that the value shown for **Subscription** is the same one that has the roles listed in the prerequisites section.
 1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, *wls-cluster-eastus-ejb120623*.
 1. Under **Instance details**, for **Region**, select **East US**.
-1. Under **Credentials for Virtual Machines and WebLogic**, provide a password for **admin account of VM** and **WebLogic Administrator**, respectively. Write down the username and password for **WebLogic Administrator**.
+1. Under **Credentials for Virtual Machines and WebLogic**, provide a password for **admin account of VM** and **WebLogic Administrator**, respectively. Save aside the username and password for **WebLogic Administrator**.
 1. Leave the defaults for other fields.
 1. Select **Next** to go to the **TLS/SSL Configuration** pane.
 
@@ -75,11 +75,11 @@ Leave the defaults in the **TLS/SSL Configuration** pane, select **Next** to go 
 
 You should see all fields pre-populated with the defaults in the **Networking** pane. Use the following steps to save the network configuration:
 
-1. Select **Edit virtual network**. Write down the address space of the virtual network - for example, *10.1.4.0/23*.
+1. Select **Edit virtual network**. Save aside the address space of the virtual network - for example, *10.1.4.0/23*.
 
    :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-networking-vnet.png" alt-text="Screenshot of the Azure portal that shows the Oracle WebLogic Server Cluster on Azure VMs Virtual Network pane." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-networking-vnet.png":::
 
-1. Select `wls-subnet` to edit the subnet. Under **Subnet details**, write down the starting address and subnet size - for example, *10.1.5.0* and */28*.
+1. Select `wls-subnet` to edit the subnet. Under **Subnet details**, save aside the starting address and subnet size - for example, *10.1.5.0* and */28*.
 
    :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-networking-vnet-wls-subnet.png" alt-text="Screenshot of the Azure portal that shows the Oracle WebLogic Server Cluster on Azure VMs WLS Subnet of Virtual Network pane." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-networking-vnet-wls-subnet.png":::
 
@@ -92,10 +92,10 @@ The following steps show you how to fill out the **Database** pane:
 1. For **Connect to database?**, select **Yes**.
 1. For **Choose database type**, select **Microsoft SQL Server (Support passwordless connection)** .
 1. For **JNDI Name**, enter *jdbc/WebLogicCafeDB*.
-1. For **DataSource Connection String**, replace the placeholders with the values you wrote down from the preceding section for the primary SQL Database - for example, *jdbc:sqlserver://sqlserverprimary-ejb120623.database.windows.net:1433;database=mySampleDatabase*.
+1. For **DataSource Connection String**, replace the placeholders with the values you saved aside in the preceding section for the primary SQL Database - for example, *jdbc:sqlserver://sqlserverprimary-ejb120623.database.windows.net:1433;database=mySampleDatabase*.
 1. For **Global transaction protocol**, select **None**.
-1. For **Database username**, replace the placeholders with the values you wrote down from the preceding section for the primary SQL Database - for example, *azureuser@sqlserverprimary-ejb120623*.
-1. Enter the server admin sign-in password that you wrote down before for **Database Password**. Enter the same value for **Confirm password**.
+1. For **Database username**, replace the placeholders with the values you saved aside in the preceding section for the primary SQL Database - for example, *azureuser@sqlserverprimary-ejb120623*.
+1. Enter the server admin sign-in password that you saved aside previously for **Database Password**. Enter the same value for **Confirm password**.
 1. Leave the defaults for the other fields.
 1. Select **Review + create**.
 1. Wait until **Running final validation...** successfully completes, then select **Create**.
@@ -128,8 +128,8 @@ Follow the same steps in as in the section [Set up the primary WLS cluster](#set
    1. For `wls-subnet`, enter same starting address and subnet size as your primary WLS cluster - for example, *10.1.5.0* and */28*.
 
 1. In the **Database** pane, use the following steps:
-   1. For **DataSource Connection String**, replace the placeholders with the values you wrote down from the preceding section for the secondary SQL Database - for example, *jdbc:sqlserver://sqlserversecondary-ejb120623.database.windows.net:1433;database=mySampleDatabase*.
-   1. For **Database username**, replace the placeholders with the values you wrote down from the preceding section for the secondary SQL Database - for example, *azureuser@sqlserversecondary-ejb120623*.
+   1. For **DataSource Connection String**, replace the placeholders with the values you saved aside in the preceding section for the secondary SQL Database - for example, *jdbc:sqlserver://sqlserversecondary-ejb120623.database.windows.net:1433;database=mySampleDatabase*.
+   1. For **Database username**, replace the placeholders with the values you saved aside in the preceding section for the secondary SQL Database - for example, *azureuser@sqlserversecondary-ejb120623*.
 
 ### Mirror the network settings for the two clusters
 
@@ -143,14 +143,14 @@ First, use the following steps to configure network settings for the primary clu
 1. Select the network interface `adminVM_NIC_with_pub_ip`.
    1. Under **Settings**, select **IP configurations**.
    1. Select `ipconfig1`.
-   1. Under **Private IP address settings**, select **Static** for **Allocation**. Write down the private IP address.
+   1. Under **Private IP address settings**, select **Static** for **Allocation**. Save aside the private IP address.
    1. Select **Save**.
 1. Return to the resource group of the primary WLS cluster, then repeat step 3 for the network interfaces `mspVM1_NIC_with_pub_ip`, `mspVM2_NIC_with_pub_ip`, and `mspVM3_NIC_with_pub_ip`.
 1. Wait until all updates complete. You can select the notifications icon in the Azure portal to open the **Notifications** pane for status monitoring.
 
    :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-notifications-icon.png" alt-text="Screenshot of the Azure portal notifications icon.":::
 
-1. Return to the resource group of the primary WLS cluster, then copy the name for the resource with type **Private endpoint** - for example, *7e8c8bsaep*. Use that name to find the remaining network interface - for example, *7e8c8bsaep.nic.c0438c1a-1936-4b62-864c-6792eec3741a*. Select it and follow the preceding steps to write down its private IP address.
+1. Return to the resource group of the primary WLS cluster, then copy the name for the resource with type **Private endpoint** - for example, *7e8c8bsaep*. Use that name to find the remaining network interface - for example, *7e8c8bsaep.nic.c0438c1a-1936-4b62-864c-6792eec3741a*. Select it and follow the preceding steps to get its private IP address.
 
 Then, use the following steps to configure the network settings for the secondary cluster after its deployment completes:
 
@@ -203,12 +203,12 @@ Use the following steps to verify whether the Azure Application Gateway and WLS 
 
 1. Return to the **Deployment** page, then select **Outputs**.
 1. Copy the value of the property **appGatewayURL**. Append the string *weblogic/ready* and then open that URL in a new browser tab. You should see an empty page without any error message. If you don't, you must troubleshoot and resolve the issue before you continue.
-1. Copy and write down the value of the property **adminConsole**. Open it in a new browser tab. You should see the sign-in page of the **WebLogic Server Administration Console**. Sign in to the console with the user name and password for WebLogic administrator you wrote down before. If you aren't able to sign in, you must troubleshoot and resolve the issue before you continue.
+1. Copy and save aside the value of the property **adminConsole**. Open it in a new browser tab. You should see the sign-in page of the **WebLogic Server Administration Console**. Sign in to the console with the user name and password for WebLogic administrator you saved aside previously. If you aren't able to sign in, you must troubleshoot and resolve the issue before you continue.
 
-Use the following steps to write down the IP address of the Azure Application Gateway for each cluster. You use these values when you set up the Azure Traffic Manager later.
+Use the following steps to get the IP address of the Azure Application Gateway for each cluster. You use these values when you set up the Azure Traffic Manager later.
 
 1. Open the resource group where your cluster is deployed - for example, select **Overview** to switch back to the Overview pane of the deployment page. Then, select **Go to resource group**.
-1. Find the resource `gwip` with the type **Public IP address**, then select it to open it. Look for the **IP address** field and write down its value.
+1. Find the resource `gwip` with the type **Public IP address**, then select it to open it. Look for the **IP address** field and save aside its value.
 
 ## Set up an Azure Traffic Manager
 
@@ -226,7 +226,7 @@ In this section, you configure WLS clusters for high availability and disaster r
 
 Now use the following steps to deploy the sample app to the clusters, starting from the primary cluster:
 
-1. Open the *adminConsole* of the cluster in a new tab of your web browser. Sign in to the WebLogic Server Administration Console with the username and password of the WebLogic Administrator you wrote down before.
+1. Open the *adminConsole* of the cluster in a new tab of your web browser. Sign in to the WebLogic Server Administration Console with the username and password of the WebLogic Administrator you saved aside previously.
 1. Locate **Domain structure** > **wlsd** > **Deployments** in the navigation pane. Select **Deployments**.
 1. Select **Lock & Edit** > **Install** > **Upload your file(s)** > **Choose File**. Select the *weblogic-cafe.war* file that you prepared previously.
 1. Select **Next** > **Next** > **Next**. Select `cluster1` with option **All servers in the cluster** for the deployment targets. Select **Next** > **Finish**. Select **Activate Changes**.
@@ -241,7 +241,7 @@ Use the following steps to make your WLS clusters aware of the Azure Traffic Man
 1. Make sure you're signed in to WebLogic Server Administration Console.
 1. Navigate to **Domain structure** > **wlsd** > **Environment** > **Clusters** in the navigation pane. Select **Clusters**.
 1. Select `cluster1` from the clusters table.
-1. Select **Lock & Edit** > **HTTP**. Remove the current value for **Frontend Host**, and enter the DNS name of the Traffic Manager profile you wrote down before, without the leading `http://` - for example, *tmprofile-ejb120623.trafficmanager.net*. Select **Save** > **Activate Changes**.
+1. Select **Lock & Edit** > **HTTP**. Remove the current value for **Frontend Host**, and enter the DNS name of the Traffic Manager profile you saved aside previously, without the leading `http://` - for example, *tmprofile-ejb120623.trafficmanager.net*. Select **Save** > **Activate Changes**.
 
 Repeat the same steps in the WebLogic Server Administration Console, but for the secondary cluster in the West US region.
 

@@ -73,7 +73,7 @@ The following procedure creates Azure Cosmos DB database using CLI.
    az account set -s <your-subscription-id>
    ```
 
-1. Create an Azure resource group, and write down the resource group name for later use.
+1. Create an Azure resource group, and save aside the resource group name for later use.
 
    ```azurecli
    az group create \
