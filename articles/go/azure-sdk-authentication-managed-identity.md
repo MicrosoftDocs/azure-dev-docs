@@ -36,13 +36,13 @@ Deploy a virtual machine to Azure. You run the Go code to create a secret in Azu
 
     Change the `--location` parameter to the appropriate value for your environment.
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name go-on-azure -location eastus
+    New-AzResourceGroup -Name go-on-azure -Location eastus
     ```
 
-    Change the `--location` parameter to the appropriate value for your environment.
+    Change the `-Location` parameter to the appropriate value for your environment.
 
     ---
 
@@ -61,24 +61,29 @@ Deploy a virtual machine to Azure. You run the Go code to create a secret in Azu
 
     Replace the `<password>` your password.
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    $adminUsername = "azureuser"
-    $adminPassword = ConvertTo-SecureString <password> -AsPlainText -Force
-    $credential = New-Object System.Management.Automation.PSCredential ($adminUsername, $adminPassword);
-    
-    New-AzVM `
-    -ResourceGroupName go-on-azure `
-    -Location eastus `
-    -Image canonical:0001-com-ubuntu-server-jammy:22_04-lts:latest `
-    -Name go-on-azure-vm `
-    -PublicIpAddressName go-on-azure-vm `
-    -OpenPorts 22 `
-    -Credential $credential
-    ```
+    $adminUsername = 'azureuser'
+    $adminPassword = Read-Host -Prompt 'Enter a Password' -AsSecureString
+    $credParams = @{
+        TypeName = 'System.Management.Automation.PSCredential'
+        ArgumentList = $adminUsername, $adminPassword
+    }
+    $credential = New-Object @credParams
 
-    Replace the `<password>` your password.
+
+    $vmParams = @{
+        ResourceGroupName = 'go-on-azure'
+        Location = 'eastus'
+        Image = 'canonical:0001-com-ubuntu-server-jammy:22_04-lts:latest'
+        Name = 'go-on-azure-vm'
+        PublicIpAddressName = 'go-on-azure-vm'
+        OpenPorts = 22
+        Credential = $credential
+    }
+    New-AzVM @vmParams
+    ```
 
     ---
 
@@ -95,9 +100,9 @@ az keyvault create --location eastus --name <keyVaultName> --resource-group go-o
 
 Replace `<keyVaultName>` with a globally unique name.
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell
 New-AzKeyVault -ResourceGroupName go-on-azure -Name <keyVaultName> -Location eastus -EnableRbacAuthorization
 
 ```
@@ -129,9 +134,9 @@ Run the following commands to create a system-assigned managed identity:
 az vm identity assign -g go-on-azure -n go-on-azure-vm
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell
 $vm = Get-AzVM -ResourceGroupName go-on-azure -Name go-on-azure-vm
 Update-AzVM -ResourceGroupName go-on-azure -VM $vm -IdentityType SystemAssigned
 ```
@@ -152,12 +157,12 @@ az vm identity assign -g go-on-azure -n go-on-azure-vm --identities GoUserIdenti
 
 To learn more, check out [Configure managed identities for Azure resources on an Azure VM using Azure CLI](/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm).
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell
 $userIdentity = New-AzUserAssignedIdentity -ResourceGroupName go-on-azure -Name GoUserIdentity -Location eastus
 $vm = Get-AzVM -ResourceGroupName go-on-azure -Name go-on-azure-vm
-Update-AzVM -ResourceGroupName go-on-azure -VM $vm -IdentityType UserAssigned -IdentityID $userIdentity.Id
+Update-AzVM -ResourceGroupName go-on-azure -VM $vm -IdentityType UserAssigned -IdentityId $userIdentity.Id
 ```
 
 To learn more, check out [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
@@ -195,16 +200,15 @@ az role assignment create --assignee <principalId> --role "Key Vault Secrets Off
 
 In the second command, replace `<keyVaultName>` with the name of your key vault. In the last command, replace `<principalId>` and `<keyVaultId>` with the output from the first two commands.
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-$splat = @{
+```azurepowershell
+$systemIdentityParams = @{
     ObjectId = (Get-AzVM -Name go-on-azure-vm).Identity.PrincipalId
     RoleDefinitionName = 'Key Vault Secrets Officer'
     Scope = (Get-AzKeyVault -Name <keyVaultName>).ResourceId
 }
-
-New-AzRoleAssignment @splat
+New-AzRoleAssignment @systemIdentityParams
 ```
 
 Replace `<KeyVaultName>` with the key vault name.
@@ -229,16 +233,15 @@ az role assignment create --assignee <principalId> --role "Key Vault Secrets Off
 
 In the second command, replace `<keyVaultName>` with the name of your key vault. In the last command, replace `<principalId>` and `<keyVaultId>` with the output from the first two commands.
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-$splat = @{
+```azurepowershell
+$userIdentityParams = @{
     ObjectId = (Get-AzUserAssignedIdentity -Name GoUserIdentity -ResourceGroupName go-on-azure).PrincipalId
     RoleDefinitionName = 'Key Vault Secrets Officer'
     Scope = (Get-AzKeyVault -Name <keyVaultName>).ResourceId
 }
-
-New-AzRoleAssignment @splat
+New-AzRoleAssignment @userIdentityParams
 ```
 
 Replace `<keyVaultName>` with the key vault name.
@@ -261,7 +264,7 @@ Next SSH into the Azure virtual machine, install Go, and built the Go package.
     az vm show -d -g go-on-azure -n go-on-azure-vm --query publicIps -o tsv
     ```
 
-    # [PowerShell](#tab/powershell)
+    # [Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
     (Get-AzVM -ResourceGroupName go-on-azure -VMName go-on-azure-vm | Get-AzPublicIpAddress).IpAddress
@@ -401,9 +404,9 @@ az keyvault purge --name <keyVaultName> --no-wait
 
 Replace `<keyVaultName>` with the name of your key vault.
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell
 Remove-AzResourceGroup -Name go-on-azure -Force
 ```
 
@@ -411,7 +414,7 @@ The `-Force` argument tells the cmdlet not to ask for confirmation.
 
 The preceding command performs a [soft delete](/azure/key-vault/general/soft-delete-overview) on the key vault in the resource group. To permanently remove it from your subscription, enter the following command:
 
-```powershell
+```azurepowershell
 Remove-AzKeyVault -Name `<keyVaultName>` -InRemovedState -Force
 ```
 
