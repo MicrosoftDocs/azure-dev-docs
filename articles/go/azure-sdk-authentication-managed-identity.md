@@ -415,7 +415,7 @@ The `-Force` argument tells the cmdlet not to ask for confirmation.
 The preceding command performs a [soft delete](/azure/key-vault/general/soft-delete-overview) on the key vault in the resource group. To permanently remove it from your subscription, enter the following command:
 
 ```azurepowershell
-Remove-AzKeyVault -Name `<keyVaultName>` -InRemovedState -Force
+Remove-AzKeyVault -Name '<keyVaultName>' -InRemovedState -Force
 ```
 
 Replace `<keyVaultName>` with the name of your key vault.
