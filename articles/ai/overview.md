@@ -3,8 +3,6 @@ title: Overview of AI Apps
 description: Overview article introducing the resources available in this content area, and how to get started integrating generative AI into applications.
 ms.date: 5/14/2024
 ms.topic: conceptual
-zone_pivot_group_filename: developer/intro/intro-zone-pivot-groups.json
-zone_pivot_groups: intelligent-apps-languages
 ---
 
 # Overview of AI Apps
