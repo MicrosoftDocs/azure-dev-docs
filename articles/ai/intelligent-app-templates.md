@@ -16,6 +16,7 @@ The intelligent app templates are complete end-to-end solutions including docume
 
 ## Building blocks
 
+Building blocks are samples to solve a specific issue with intelligent apps.  
 
 :::zone pivot="dotnet"
 
@@ -45,12 +46,10 @@ The intelligent app templates are complete end-to-end solutions including docume
 
 :::zone-end
 
-:::zone pivot="golang"
 
+## End-to-end applications
 
-:::zone-end
-
-## End to end applications
+End-to-end applications demonstrate a complete intelligent app. 
 
 :::zone pivot="dotnet"
 
