@@ -43,6 +43,8 @@ This JavaScript [reference template](https://github.com/Azure-Samples/serverless
    :::column:::
       :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-chat-serverless-langchainjs-javascript.png" lightbox="../media/intelligent-app-templates/architecture-diagram-chat-serverless-langchainjs-javascript.png" alt-text="Diagram showing architecture for serverless API using LangChainjs to integrate with Azure OpenAI Service and Azure AI Search.":::
    :::column-end:::
+   :::column:::
+   :::column-end:::
 :::row-end:::
 
 |Azure Hosting|Technologies|AI Models|
