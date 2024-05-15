@@ -60,3 +60,4 @@ The following articles provide more information on getting started with these te
 - [Manually Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](liberty-on-aro.md)
 - [Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster](howto-deploy-java-liberty-app-manual.md)
 - [Manually install IBM WebSphere Application Server Network Deployment traditional on Azure virtual machines](/azure/developer/java/migration/migrate-websphere-to-azure-vm-manually?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+- [Deploy a Java Application with Open Liberty or WebSphere Liberty on Azure Container Apps](deploy-java-liberty-app-aca.md)
