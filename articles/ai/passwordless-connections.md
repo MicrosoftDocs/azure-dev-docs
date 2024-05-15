@@ -1,13 +1,10 @@
 ---
 title: Use passwordless connections with Azure OpenAI
-titleSuffix: Azure AI services
 description: Use passwordless connections for authentication and authorization to Azure OpenAI.
-ms.service: azure-ai-openai
 ms.topic: how-to
 ms.date: 05/15/2024
 ms.reviewer: scaddie
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python, passwordless-go
-recommendations: false
 #customer intent: As a developer, I want to use passwordless connections so that I don't leak secrets.
 ---
 
@@ -396,4 +393,3 @@ openai_client = openai.AzureOpenAI(
 ## Additional resources
 
 * [Passwordless connections developer guide](/azure/developer/intro/passwordless-overview)
-* [How to configure Azure OpenAI Service with managed identities](managed-identity.md)
