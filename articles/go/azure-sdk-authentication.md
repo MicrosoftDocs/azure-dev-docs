@@ -52,7 +52,7 @@ The `DefaultAzureCredential` uses the `EnvironmentCredential` type to configure 
 # [Bash](#tab/bash)
 
 ```bash
-export AZURE_TENANT_ID="<active_directory_tenant_id"
+export AZURE_TENANT_ID="<active_directory_tenant_id>"
 export AZURE_CLIENT_ID="<service_principal_appid>"
 export AZURE_CLIENT_SECRET="<service_principal_password>"
 ```
@@ -60,7 +60,7 @@ export AZURE_CLIENT_SECRET="<service_principal_password>"
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$env:AZURE_TENANT_ID="<active_directory_tenant_id"
+$env:AZURE_TENANT_ID="<active_directory_tenant_id>"
 $env:AZURE_CLIENT_ID="<service_principal_appid>"
 $env:AZURE_CLIENT_SECRET="<service_principal_password>"
 ```

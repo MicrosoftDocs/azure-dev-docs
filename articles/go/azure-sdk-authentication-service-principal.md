@@ -72,19 +72,30 @@ az ad sp create-for-rbac --name <servicePrincipalName> --role "Key Vault Secrets
 
 Replace `<servicePrincipalName>` and `<keyVaultId>` with the appropriate values.
 
-Note down the `password`, `tenantId`, and `appId` properties from the output. You need them in the following sections. After creation, the service principal password can't be retrieved. If you forget the password, you can [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
+Note down the `password`, `tenant`, and `appId` properties from the output. You need them in the next section. 
+
+After creation, the service principal password can't be retrieved. If you forget the password, you can [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 # Create an Azure service principal
-$sp = New-AzAdServicePrincipal -DisplayName '<servicePrincipalName>' -Role 'Key Vault Secrets Officer' -Scope <keyVaultId>
+$sp = New-AzADServicePrincipal -DisplayName '<servicePrincipalName>' -Role 'Key Vault Secrets Officer' -Scope <keyVaultId>
 
 # Export the password for the service principal
 $sp.PasswordCredentials.SecretText
+
+# Export the service principal App ID
+$sp.AppId
+
+# Get the Tenant ID
+(Get-AzTenant).Id
+
 ```
 
 Replace `<servicePrincipalName>`, and `<keyVaultId>` with the appropriate value.
+
+Note down the Password , App ID, and Tenant ID. You need them in the next section.
 
 ---
 
@@ -100,12 +111,14 @@ az ad sp create-for-rbac --name <servicePrincipalName> --create-cert --role "Key
 
 Replace `<servicePrincipalName>` and `<keyVaultId>` with the appropriate values.
 
+Note down the `fileWithCertAndPrivateKey`, `tenantId`, and `appId` properties from the output. You need them in the next section.
+
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $certParams = @{
     CertStoreLocation = "Cert:\CurrentUser\My"
-    Subject = "CN=<servicePrincipal>"
+    Subject = "CN=<servicePrincipalName>"
     KeySpec = 'KeyExchange'
 }
 $cert = New-SelfSignedCertificate @certParams
@@ -115,13 +128,13 @@ $spCertParams = @{
     CertValue = $keyValue
     EndDate = $cert.NotAfter
     StartDate = $cert.NotBefore
-    DisplayName = '<servicePrincipal>'
+    DisplayName = '<servicePrincipalName>'
 }
 $sp = New-AzADServicePrincipal @spCertParams
 
 $pftPwd = Read-Host -Prompt 'Enter pft password' -AsSecureString
 
-$cert | Export-PfxCertificate -FilePath '<servicePrincipal>.pfx' -Password $pftPwd
+$cert | Export-PfxCertificate -FilePath '<servicePrincipalName>.pfx' -Password $pftPwd
 
 # assign role permissions to the service principal
 $roleAssignmentParams = @{
@@ -130,9 +143,18 @@ $roleAssignmentParams = @{
     Scope = '<keyVaultId>'
 }
 New-AzRoleAssignment @roleAssignmentParams
+
+# Export the service principal App ID
+$sp.AppId
+
+# get the Tenant ID
+(Get-AzTenant).Id
+
 ```
 
-Replace `<pftPassword>`, `<servicePrincipalName>`, and `<keyVaultId>` with the appropriate value.
+Replace `<servicePrincipalName>` and `<keyVaultId>` with the appropriate value.
+
+Note down the App ID, Tenant ID, and the password you entered. You need them in the next section.
 
 ---
 
@@ -197,6 +219,7 @@ export AZURE_CLIENT_CERTIFICATE_PATH="<azure_client_certificate_path>"
 $env:AZURE_TENANT_ID="<active_directory_tenant_id>"
 $env:AZURE_CLIENT_ID="<service_principal_appid>"
 $env:AZURE_CLIENT_CERTIFICATE_PATH="<azure_client_certificate_path>"
+$env:AZURE_CLIENT_CERTIFICATE_PASSWORD="<azure_client_certificate_password>"
 ```
 
 ---
@@ -337,10 +360,10 @@ az keyvault purge --name <keyVaultName> --no-wait
 
 Replace `<keyVaultName>` with the name of your key vault.
 
-Finally, you should remove the service principal.
+Finally, you should remove the app registration and service principal.
 
 ```azurecli
-az ad sp delete --id <servicePrincipalAppId>
+az ad app delete --id <servicePrincipalAppId>
 ```
 
 Replace `<servicePrincipalAppId>` with the App ID of your service principal.
@@ -361,13 +384,13 @@ Remove-AzKeyVault -Name '<keyVaultName>' -Location eastus -InRemovedState -Force
 
 Replace `<keyVaultName>` with the name of your key vault.
 
-Finally, you should remove the service principal.
+Finally, you should remove the app registration and service principal.
 
 ```azurepowershell
-Remove-AzAdServicePrincipal -ObjectId <servicePrincipalObjectId>
+Remove-AzADApplication -DisplayName <servicePrincipalName>
 ```
 
-Replace `<servicePrincipalObjectId>` with the Object ID of your service principal.
+Replace `<servicePrincipalName>` with the name you used for your service principal.
 
 ---
 
