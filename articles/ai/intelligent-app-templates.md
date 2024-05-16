@@ -4,7 +4,7 @@ description: This article describes the intelligent app templates provided as Gi
 keywords: ai, azure openai service
 ms.service: azure
 ms.topic: overview
-ms.date: 05/14/2024
+ms.date: 05/16/2024
 ms.custom: overview, devx-track-dotnet, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 zone_pivot_group_filename: developer/intro/intro-zone-pivot-groups.yml
 zone_pivot_groups: intelligent-apps-languages-top-four
