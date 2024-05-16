@@ -4,7 +4,7 @@ description: "Use LangChainjs to simplify the interaction between the Azure Open
 ms.topic: get-started 
 ms.date: 05/06/2024
 ms.subservice: intelligent-apps
-
+ms.custom: build-2024-intelligent-apps
 #customer intent: As a TypeScript developer, I want deploy and use a serverless chat app so that I can understand how langchainjs helps a chat app.
 
 ---

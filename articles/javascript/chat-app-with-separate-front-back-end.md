@@ -4,7 +4,7 @@ description: Steps to integrate the JavaScript frontend with the Python backend 
 ms.date: 12/07/2023
 ms.topic: get-started
 ms.subservice: intelligent-apps
-ms.custom: devx-track-js, devx-track-python, devx-track-js-ai, devx-track-python-ai, 
+ms.custom: devx-track-js, devx-track-python, devx-track-js-ai, devx-track-python-ai, build-2024-intelligent-apps
 # CustomerIntent: As a multilanguage developer new to Azure OpenAI, I want use the JavaScript frontend with a different language backend from the reference templates.
 ---
 

@@ -4,7 +4,7 @@ description: Get started with JavaScript and search across your own data using a
 ms.date: 05/10/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
-ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli
+ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want deploy and use sample code to interact with chat app infused with my own business data so that learn from the sample code.
 ---
 

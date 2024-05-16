@@ -5,7 +5,7 @@ keywords: ai, azure openai service
 ms.subservice: intelligent-apps
 ms.topic: overview
 ms.date: 11/17/2023
-ms.custom: overview, devx-track-python
+ms.custom: overview, devx-track-python, build-2024-intelligent-apps
 ---
 
 # Develop AI apps with Python

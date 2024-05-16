@@ -4,7 +4,7 @@ description: "Learn how to effectively evaluate answers in your RAG-based chat a
 ms.date: 05/15/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
-ms.custom: devx-track-python, devx-track-python-ai
+ms.custom: devx-track-python, devx-track-python-ai, build-2024-intelligent-apps
 # CustomerIntent: As a python developer new to Azure OpenAI, I want to evaluate the answers of my chat app and determine the best prompt.
 ---
 # Get started with evaluating answers in a chat app

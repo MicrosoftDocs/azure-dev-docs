@@ -3,6 +3,7 @@ title: Building advanced Retrieval-Augmented Generation systems
 description: Conceptual article for developers discussing real-world considerations and patterns for  RAG-based chat systems.
 ms.date: 5/1/2024
 ms.topic: conceptual
+ms.custom: build-2024-intelligent-apps
 ---
 
 # Building advanced Retrieval-Augmented Generation systems
