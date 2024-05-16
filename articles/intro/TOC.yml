@@ -255,7 +255,7 @@ items:
         - name: How-to
           items: 
           - name: Azure OpenAI
-            href: ../ai/passwordless-connections.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            href: ../ai/passwordless-connections.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json&tabs=python
 
   - name: Versioning policy for Azure services, SDKs, and CLI tools
     href: azure-service-sdk-tool-versioning.md
