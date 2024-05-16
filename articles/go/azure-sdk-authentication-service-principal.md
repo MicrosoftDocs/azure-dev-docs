@@ -45,7 +45,7 @@ New-AzKeyVault -ResourceGroupName go-on-azure -Name <keyVaultName> -Location eas
 
 Replace `<keyVaultName>` with a globally unique name.
 
-Note down the `ResourceId` property from the output of the `New-AzKeyVault` command. You'll use it in the next section to define the scope of the authorization for the service principal. The `ResourceId` value has the following form:`/subscriptions/<subscriptionId>/resourceGroups/go-on-azure/providers/Microsoft.KeyVault/vaults/<keyVaultName>`.
+Note down the `Resource ID` property from the output of the `New-AzKeyVault` command. You'll use it in the next section to define the scope of the authorization for the service principal. The `Resource ID` value has the following form:`/subscriptions/<subscriptionId>/resourceGroups/go-on-azure/providers/Microsoft.KeyVault/vaults/<keyVaultName>`.
 
 ---
 
@@ -226,7 +226,7 @@ $env:AZURE_CLIENT_CERTIFICATE_PASSWORD="<azure_client_certificate_password>"
 
 ### Use DefaultAzureCredential to authenticate a resource client
 
-After you set the environment variables, you can use the `NewDefaultAzureCredential` function of the Azure Identity module to authenticate a resource client.
+After you set the environment variables, you can use `NewDefaultAzureCredential` in the Azure Identity module to authenticate a resource client. The following code shows how to get an instance of `DefaultAzureCredential`.
 
 ```go
 cred, err := azidentity.NewDefaultAzureCredential(nil)
