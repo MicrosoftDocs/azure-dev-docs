@@ -14,7 +14,7 @@ items:
           href: augment-llm-rag-fine-tuning.md
         - name: Advanced RAG
           href: advanced-retrieval-augmented-generation.md
-    - name: AI app templates
+    - name: Use AI app templates to understand key tasks
       items:
         - name: Overview
           href: intelligent-app-templates.md
@@ -58,7 +58,7 @@ items:
           href: ../python/get-started-app-chat-document-security-trim.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Connect a JavaScript frontend and Python backend
           href: ../javascript/chat-app-with-separate-front-back-end.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-    - name: Connect without passwords
+    - name: Use Azure OpenAI without keys
       href: passwordless-connections.md
     - name: Python resources
       items:
