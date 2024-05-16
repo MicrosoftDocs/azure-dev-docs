@@ -4,7 +4,7 @@ description: Get started with Python and search across your own data using a cha
 ms.date: 05/14/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
-ms.custom: devx-track-python, devx-track-python-ai, devx-track-extended-azdevcli
+ms.custom: devx-track-python, devx-track-python-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
 # CustomerIntent: As a python developer new to Azure OpenAI, I want deploy and use sample code to interact with app infused with my own business data so that learn from the sample code.
 ---
 

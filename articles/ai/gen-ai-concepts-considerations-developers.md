@@ -3,6 +3,7 @@ title: Important concepts and considerations for developers building generative 
 description: Conceptual article for developers building generative AI applications explaining the limitations of LLMs and how to get the best results by modifying prompts, implementing an inference pipeline and tweaking optional API call parameters.
 ms.date: 4/12/2024
 ms.topic: conceptual
+ms.custom: build-2024-intelligent-apps
 ---
 
 # Important concepts and considerations for developers building generative AI solutions

@@ -4,7 +4,7 @@ description: Learn how to add load balancing with Azure API Management to your J
 ms.date: 03/29/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
-ms.custom: devx-track-js, devx-track-js-ai
+ms.custom: devx-track-js, devx-track-js-ai, build-2024-intelligent-apps
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want to scale my OpenAI capacity to avoid rate limit errors.
 ---
 

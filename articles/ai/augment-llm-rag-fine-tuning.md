@@ -3,6 +3,7 @@ title: Augmenting a Large Language Model with Retrieval-Augmented Generation and
 description: Conceptual article detailing the creation of a Retrieval-Augmented Generation (RAG)-based chat system, emphasizing integration, optimization, and ethical considerations for delivering contextually relevant responses.
 ms.date: 4/12/2024
 ms.topic: conceptual
+ms.custom: build-2024-intelligent-apps
 ---
 
 # Augmenting a Large Language Model with Retrieval-Augmented Generation and Fine-tuning
