@@ -125,4 +125,4 @@ This python [reference template](https://github.com/Azure-Samples/assistant-data
 
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
-||Azure AI Search<br>Azure AI Studio<br>Managed Integration Runtime (MIR)<br>Azure OpenAI|GPT 3.5 Turbo<br>GPT 4|
+|Machine Learning service|Azure AI Search<br>Azure AI Studio<br>Managed Integration Runtime (MIR)<br>Azure OpenAI|GPT 3.5 Turbo<br>GPT 4|
