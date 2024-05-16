@@ -63,13 +63,13 @@ You need more prerequisites depending on your preferred development environment.
 
 #### [Codespaces (recommended)](#tab/github-codespaces)
 
-1. [GitHub account](https://github.com/login)
+* [GitHub account](https://github.com/login)
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
-1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-1. [Visual Studio Code](https://code.visualstudio.com/)
-1. [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ---
 
