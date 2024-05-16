@@ -1,7 +1,7 @@
 ---
 title: Scale Azure OpenAI for JavaScript with Azure API Management
 description: Learn how to add load balancing with Azure API Management to your JavaScript RAG chat app application to extend the chat app beyond the Azure OpenAI token and model quota limits. 
-ms.date: 03/29/2024
+ms.date: 5/16/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai
