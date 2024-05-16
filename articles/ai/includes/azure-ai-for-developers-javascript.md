@@ -43,9 +43,7 @@ The Azure OpenAIprovides REST API access to OpenAI's powerful language models. T
 ### SDKs and libraries
 
 |Package|Source code|Releases|npm|
-
 |---|---|---|---|
-
 |**@azure/openai**|[Source code](https://aka.ms/oai/js/sdk)|[Releases](https://azure.github.io/azure-sdk/?search=openai)|[Package](https://aka.ms/oai/js/npm)|
 
 
