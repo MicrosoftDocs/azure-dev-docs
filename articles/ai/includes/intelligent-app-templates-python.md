@@ -77,7 +77,7 @@ This python [reference template](https://github.com/Azure-Samples/summarization-
 
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
-||Azure AI Studio<br>Speech to Text Service<br>Prompt Flow<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
+|Azure Container Apps|Azure AI Studio<br>Speech to Text Service<br>Prompt Flow<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
 
 ### Function Calling with Prompty, LangChain and Elastic Search
 
@@ -93,7 +93,7 @@ This python [reference template](https://github.com/Azure-Samples/agent-python-o
 
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
-||Azure AI Studio<br>Elastic Search<br>Microsoft Entra ID<br>Azure Managed Identity<br>Azure Monitor<br>Azure Storage<br>Azure AI Studio<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
+|Machine Learning service|Azure AI Studio<br>Elastic Search<br>Microsoft Entra ID<br>Azure Managed Identity<br>Azure Monitor<br>Azure Storage<br>Azure AI Studio<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
 
 ### Function Calling with Prompty, LangChain and Pinecone
 
