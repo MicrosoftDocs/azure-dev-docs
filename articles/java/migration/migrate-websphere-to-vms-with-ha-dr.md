@@ -54,14 +54,14 @@ In this section, you create an Azure SQL Database failover group in paired regio
 First, create the primary Azure SQL Database by following the Azure portal steps in [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal). Follow the steps up to, but not including, the "Clean up resources" section. Use the following directions as you go through the article, then return to this article after you create and configure the Azure SQL Database:
 
 1. When you reach the section [Create a single database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal#create-a-single-database), use the following steps:
-   1. In step 4 for creating new resource group, write down the **Resource group name** value - for example, `myResourceGroup`.
-   1. In step 5 for database name, write down the **Database name** value - for example, `mySampleDatabase`.
+   1. In step 4 for creating new resource group, save aside the **Resource group name** value - for example, `myResourceGroup`.
+   1. In step 5 for database name, save aside the **Database name** value - for example, `mySampleDatabase`.
    1. In step 6 for creating the server, use the following steps:
       1. Fill in a unique server name - for example, `sqlserverprimary-mjg022624`.
       1. For **Location**, select **(US) East US**.
       1. For **Authentication method**, select **Use SQL authentication**.
-      1. Write down the **Server admin login** value - for example, `azureuser`.
-      1. Write down the **Password** value.
+      1. Save aside the **Server admin login** value - for example, `azureuser`.
+      1. Save aside the **Password** value.
    1. In step 8, for **Workload environment**, select **Development**. Look at the description and consider other options for your workload.
    1. In step 11, for **Backup storage redundancy**, select **Locally-redundant backup storage**. Consider other options for your backups. For more information, see the [Backup storage redundancy](/azure/azure-sql/database/automated-backups-overview?view=azuresql-db&preserve-view=true#backup-storage-redundancy) section of [Automated backups in Azure SQL Database](/azure/azure-sql/database/automated-backups-overview?view=azuresql-db&preserve-view=true).
    1. In step 14, in the **Firewall rules** configuration, for **Allow Azure services and resources to access this server**, select **Yes**.
@@ -97,7 +97,7 @@ First, create the primary Azure SQL Database by following the Azure portal steps
 Then, create an Azure SQL Database failover group by following the Azure portal steps in [Configure a failover group for Azure SQL Database](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db). You just need the following sections: [Create failover group](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#create-failover-group) and [Test planned failover](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#test-planned-failover). Use the following steps as you go through the article, then return to this article after you create and configure the Azure SQL Database failover group:
 
 1. In the section [Create failover group](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#create-failover-group), use the following steps:
-   1. In step 5 for creating the failover group, enter and write down the unique failover group name - for example, `failovergroup-mjg022624`.
+   1. In step 5 for creating the failover group, enter and save aside the unique failover group name - for example, `failovergroup-mjg022624`.
    1. In step 5 for configuring the server, select the option to create a new secondary server and then use the following steps:
       1. Enter a unique server name - for example, `sqlserversecondary-mjg022624`.
       1. Enter the same server admin and password as your primary server.
@@ -130,7 +130,7 @@ Use the following steps to fill out the **Basics** pane:
 Use the following steps to fill out the **Cluster configuration** pane:
 
 1. For **Password for VM administrator**, provide a password.
-1. For **Password for WebSphere administrator**, provide a password. Write down the username and password for **WebSphere administrator**.
+1. For **Password for WebSphere administrator**, provide a password. Save aside the username and password for **WebSphere administrator**.
 1. Leave the defaults for other fields.
 1. Select **Next** to go to the **Load balancer** pane.
 
@@ -154,11 +154,11 @@ The following steps show you how to fill out the **Database** pane:
 1. For **Connect to database?**, select **Yes**.
 1. For **Choose database type**, select **Microsoft SQL Server** .
 1. For **JNDI Name**, enter *jdbc/WebSphereCafeDB*.
-1. For **Data source connection string (jdbc:sqlserver://\<host\>:\<port\>;database=\<database\>)**, replace the placeholders with the values you wrote down from the preceding section for the failover group for the Azure SQL Database - for example, `jdbc:sqlserver://failovergroup-mjg022624.database.windows.net:1433;database=mySampleDatabase`.
-1. For **Database username**, enter the server admin sign-in name and the failover group name you wrote down from the preceding section - for example, `azureuser@failovergroup-mjg022624`.
+1. For **Data source connection string (jdbc:sqlserver://\<host\>:\<port\>;database=\<database\>)**, replace the placeholders with the values you saved aside in the preceding section for the failover group for the Azure SQL Database - for example, `jdbc:sqlserver://failovergroup-mjg022624.database.windows.net:1433;database=mySampleDatabase`.
+1. For **Database username**, enter the server admin sign-in name and the failover group name you saved aside in the preceding section - for example, `azureuser@failovergroup-mjg022624`.
    > [!NOTE]
    > Be extra careful to use the correct database server hostname and database username for the failover group, instead of the server hostname and username from the primary or backup database. By using the values from the failover group, you are, in effect, telling WebSphere to talk to the failover group. However, ss far as WebSphere is concerned, it's just a normal database connection.
-1. Enter the server admin sign-in password that you wrote down previously for **Database Password**. Enter the same value for **Confirm password**.
+1. Enter the server admin sign-in password that you saved aside previously for **Database Password**. Enter the same value for **Confirm password**.
 1. Leave the defaults for the other fields.
 1. Select **Review + create**.
 1. Wait until **Running final validation...** successfully completes, then select **Create**.
@@ -183,15 +183,15 @@ Use the following steps to verify whether the IHS and Dmgr console work before m
 
    :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/ihs-welcome-screen.png" alt-text="Screenshot of the IBM HTTP Server welcome screen." lightbox="media/migrate-websphere-to-vms-with-ha-dr/ihs-welcome-screen.png" border="false":::
 
-1. Copy and write down the value of the property **adminSecuredConsole**. Open it in a new browser tab. Accept the browser warning for the self-signed TLS certificate. Don't go to production using a self-signed TLS certificate.
+1. Copy and save aside the value of the property **adminSecuredConsole**. Open it in a new browser tab. Accept the browser warning for the self-signed TLS certificate. Don't go to production using a self-signed TLS certificate.
 
-   You should see the sign-in page of the **WebSphere Integrated Solutions Console**. Sign in to the console with the user name and password for WebSphere administrator you wrote down previously. If you aren't able to sign in, you must troubleshoot and resolve the issue before you continue. Keep the console open and use it for further configuration of the WebSphere cluster later.
+   You should see the sign-in page of the **WebSphere Integrated Solutions Console**. Sign in to the console with the user name and password for WebSphere administrator you saved aside previously. If you aren't able to sign in, you must troubleshoot and resolve the issue before you continue. Keep the console open and use it for further configuration of the WebSphere cluster later.
 
-Use the following steps to write down the name of the public IP address of the IHS. You use it when you set up the Azure Traffic Manager later.
+Use the following steps to get the name of the public IP address of the IHS. You use it when you set up the Azure Traffic Manager later.
 
 1. Open the resource group where your cluster is deployed - for example, select **Overview** to switch back to the Overview pane of the deployment page, then select **Go to resource group**.
 1. In the table of resources, find the **Type** column. Select it to sort by type of resource.
-1. Find the **Public IP address** resource prefixed with `ihs`, then copy and write down its name.
+1. Find the **Public IP address** resource prefixed with `ihs`, then copy and save aside its name.
 
 ### Configure the cluster
 
@@ -211,8 +211,8 @@ Then, use the following steps to configure database *distributed sessions* for a
    1. For **Distributed sessions**, select **Database (Supported for Web container only.)**.
    1. Select **Database** and use the following steps:
       1. For **Datasource JNDI name**, enter *jdbc/WebSphereCafeDB*.
-      1. For **User ID**, enter the server admin sign-in name and the failover group name that you wrote down from the preceding section - for example, `azureuser@failovergroup-mjg022624`.
-      1. Fill in the Azure SQL server admin sign-in password that you wrote down previously for **Password**.
+      1. For **User ID**, enter the server admin sign-in name and the failover group name that you saved aside in the preceding section - for example, `azureuser@failovergroup-mjg022624`.
+      1. Fill in the Azure SQL server admin sign-in password that you saved aside previously for **Password**.
       1. For **Table space name**, enter *sessions*.
       1. Select **Use multi row schema**.
       1. Select **OK**. You're directed back to the **Distributed environment settings** pane.
@@ -354,8 +354,8 @@ In this section, you create an Azure Traffic Manager for distributing traffic to
 Create an Azure Traffic Manager profile by following the instructions in [Quickstart: Create a Traffic Manager profile using the Azure portal](/azure/traffic-manager/quickstart-create-traffic-manager-profile). You just need the following sections: [Create a Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile#create-a-traffic-manager-profile) and [Add Traffic Manager endpoints](/azure/traffic-manager/quickstart-create-traffic-manager-profile#add-traffic-manager-endpoints). You must skip the sections where you're directed to create App Service resources. Use the following steps as you go through these sections, then return to this article after you create and configure the Azure Traffic Manager.
 
 1. In the section [Create a Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile#create-a-traffic-manager-profile), in step 2, for **Create Traffic Manager profile**, use the following steps:
-   1. Write down the unique Traffic Manager profile name for **Name** - for example, `tmprofile-mjg022624`.
-   1. Write down the new resource group name for **Resource group** - for example, `myResourceGroupTM1`.
+   1. Save aside the unique Traffic Manager profile name for **Name** - for example, `tmprofile-mjg022624`.
+   1. Save aside the new resource group name for **Resource group** - for example, `myResourceGroupTM1`.
 
 1. When you reach the section [Add Traffic Manager endpoints](/azure/traffic-manager/quickstart-create-traffic-manager-profile#add-traffic-manager-endpoints), use the following steps:
    1. After you open the Traffic Manager profile in step 2, in the **Configuration** page, use the following steps:
@@ -368,10 +368,10 @@ Create an Azure Traffic Manager profile by following the instructions in [Quicks
       1. Select **Save**. Wait until it completes.
    1. In step 4 for adding the primary endpoint `myPrimaryEndpoint`, use the following steps:
       1. For **Target resource type**, select **Public IP address**.
-      1. Select the **Choose public IP address** dropdown and enter the name of the public IP address of the IHS in the East US region that you wrote down previously. You should see one entry matched. Select it for **Public IP address**.
+      1. Select the **Choose public IP address** dropdown and enter the name of the public IP address of the IHS in the East US region that you saved aside previously. You should see one entry matched. Select it for **Public IP address**.
    1. In step 6 for adding a failover/secondary endpoint `myFailoverEndpoint`, use the following steps:
       1. For **Target resource type**, select **Public IP address**.
-      1. Select the **Choose public IP address** dropdown and enter the name of the public IP address of the IHS in the West US region that you wrote down previously. You should see one entry matched. Select it for **Public IP address**.
+      1. Select the **Choose public IP address** dropdown and enter the name of the public IP address of the IHS in the West US region that you saved aside previously. You should see one entry matched. Select it for **Public IP address**.
    1. Wait for a while. Select **Refresh** until the **Monitor status** for endpoint `myPrimaryEndpoint` is **Online** and **Monitor status** for endpoint `myFailoverEndpoint` is **Degraded**.
 
 Next, use the following steps to verify that the sample app deployed to the primary WebSphere cluster is accessible from the Traffic Manager profile:
@@ -431,7 +431,7 @@ Then, use the following steps to enable the external access to the WebSphere Int
 Now, use the following steps to verify that the failover works as expected:
 
 1. Find the DNS name label for the public IP address of the Dmgr you created previously. Open the URL of Dmgr WebSphere Integrated Solutions Console in a new browser tab. Don't forget to use `https`. For example, `https://dmgrmjg022624.westus.cloudapp.azure.com:9043/ibm/console`. Refresh the page until you see the welcome page for sign in.
-1. Sign in to the console with the user name and password for WebSphere administrator that you wrote down previously, and then use the following steps:
+1. Sign in to the console with the user name and password for WebSphere administrator that you saved aside previously, and then use the following steps:
    1. In the navigation pane, select **Servers** > **All servers**. In the **Middleware servers** pane, you should see 4 servers listed, including 3 WebSphere application servers consisting of WebSphere cluster `MyCluster` and 1 Web server that is an IHS. Refresh the page until you see that all servers are started.
 
       :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/middleware-servers.png" alt-text="Screenshot of the Dmgr WebSphere Integrated Solutions Console that shows the Middleware servers page." lightbox="media/migrate-websphere-to-vms-with-ha-dr/middleware-servers.png":::
