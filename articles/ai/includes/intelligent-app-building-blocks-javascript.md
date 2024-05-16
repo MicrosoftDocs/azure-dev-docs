@@ -5,10 +5,18 @@ ms.date: 05/15/2024
 ms.service: azure
 ---
 
-## Secure resources with passwordless connections
+### Secure resources with passwordless connections
 
 Application requests to most Azure services must be authenticated with keys or [passwordless connections](../passwordless-connections.md). Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate to the service. Passwordless authentication offers improved management and security benefits over the account key because there's no key (or connection string) to store.
 
-## Evaluate 
+### Load balance with Azure Container Apps 
+
+Learn how to [add load balancing to your application](../../javascript/get-started-app-chat-scaling-with-azure-api-management.md) to extend the chat app beyond the Azure OpenAI token and model quota limits. This approach uses Azure Container Apps to create three Azure OpenAI endpoints, as well as a primary container to direct incoming traffic to one of the three endpoints.
+
+### Load balance with Azure APIM Management
+
+Learn how to [add load balancing to your application](../../javascript/get-started-app-chat-scaling-with-azure-api-management.md) to extend the chat app beyond the Azure OpenAI token and model quota limits. This approach uses Azure Container Apps to create three Azure OpenAI endpoints, as well as a primary container to direct incoming traffic to one of the three endpoints.
+
+### Evaluate 
 
 Learn how to [evaluate a chat app's answers](../../javascript/get-started-app-chat-evaluations.md) against a set of correct or ideal answers (known as ground truth). Whenever you change your chat application in a way which affects the answers, run an evaluation to compare the changes. This demo application offers tools you can use today to make it easier to run evaluations.
