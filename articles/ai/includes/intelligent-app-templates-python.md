@@ -28,6 +28,20 @@ This python [reference template](https://github.com/Azure-Samples/azure-search-o
 This python [reference template](https://github.com/Azure-Samples/agent-openai-python-prompty) is a 
 creative writing multi-agent solution to help users write articles.
 
+This sample demonstrates how to create and work with AI agents driven by [Azure OpenAI](/azure/ai-services/openai/). It includes a Flask app that takes a topic and instruction from a user then calls a research agent that uses the [Bing Search API](/bing/search-apis/bing-web-search) to research the topic, a product agent that uses [Azure AI Search](/azure/search/) to do a semantic similarity search for related products from a vectore store, a writer agent to combine the research and product information into a helpful article, and an editor agent to refine the article that's finally presented to the user.
+
+
+:::row:::
+   :::column:::
+      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-agent-openai-prompty-python.png" lightbox="../media/intelligent-app-templates/architecture-diagram-agent-openai-prompty-python.png" alt-text="Architectural diagram of python multi-modal creative writing copilot application.":::
+   :::column-end:::
+   :::column:::
+   :::column-end:::
+:::row-end:::
+
+
+
+
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
 |Azure Container registery<br>Azure Kubernetes<br>|Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio|GPT 3.5 Turbo<br>GPT 4.0<br>Dalle|
@@ -44,8 +58,6 @@ This python [reference template](https://github.com/Azure-Samples/contoso-chat) 
    :::column:::
    :::column-end:::
 :::row-end:::
-
-
 
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
@@ -65,7 +77,7 @@ This python [reference template](https://github.com/Azure-Samples/summarization-
 
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
-||Azure AI Studio<br>Speech to Text Service<br>Prompt Flow<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
+|Azure Container Apps|Azure AI Studio<br>Speech to Text Service<br>Prompt Flow<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
 
 ### Function Calling with Prompty, LangChain and Elastic Search
 
@@ -81,11 +93,19 @@ This python [reference template](https://github.com/Azure-Samples/agent-python-o
 
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
-||Azure AI Studio<br>Elastic Search<br>Microsoft Entra ID<br>Azure Managed Identity<br>Azure Monitor<br>Azure Storage<br>Azure AI Studio<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
+|Machine Learning service|Azure AI Studio<br>Elastic Search<br>Microsoft Entra ID<br>Azure Managed Identity<br>Azure Monitor<br>Azure Storage<br>Azure AI Studio<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
 
 ### Function Calling with Prompty, LangChain and Pinecone
 
-This python [reference template](https://github.com/Azure-Samples/agent-openai-python-prompty-langchain-pinecone) is an app with Prompty, LangChain, and Pinecone. 
+This python [reference template](https://github.com/Azure-Samples/agent-openai-python-prompty-langchain-pinecone) utilizes the new Prompty tool, Langchain, and Pinecone to build a large language model (LLM) search agent. This agent with Retrieval-Augmented Generation (RAG) technologyis is capable of answering user questions based on the provided data by integrating real-time information retrieval with generative responses.
+
+:::row:::
+   :::column:::
+      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-agent-openai-prompty-langchain-pinecone-python.png" lightbox="../media/intelligent-app-templates/architecture-diagram-agent-openai-prompty-langchain-pinecone-python.png" alt-text="Architectural diagram for an OpenAI agent app using the Prompty, Langchain, and Pinecone with Python.":::
+   :::column-end:::
+   :::column:::
+   :::column-end:::
+:::row-end:::
 
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
@@ -95,6 +115,14 @@ This python [reference template](https://github.com/Azure-Samples/agent-openai-p
 
 This python [reference template](https://github.com/Azure-Samples/assistant-data-openai-python-promptflow) is an Assistant API to chat with tabular data and perform analytics in natural language.
 
+:::row:::
+   :::column:::
+      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-assistant-data-openai-promptflow-python.png" lightbox="../media/intelligent-app-templates/architecture-diagram-assistant-data-openai-promptflow-python.png" alt-text="Architectural diagram for an Assistant API to chat with tabular data and perform analytics in natural language.":::
+   :::column-end:::
+   :::column:::
+   :::column-end:::
+:::row-end:::
+
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
-||Azure AI Search<br>Azure AI Studio<br>Managed Integration Runtime (MIR)<br>Azure OpenAI|GPT 3.5 Turbo<br>GPT 4|
+|Machine Learning service|Azure AI Search<br>Azure AI Studio<br>Managed Integration Runtime (MIR)<br>Azure OpenAI|GPT 3.5 Turbo<br>GPT 4|
