@@ -2,13 +2,11 @@
 ms.custom: overview
 ms.topic: include
 ms.date: 01/31/2024
-ms.author: diberry
-author: diberry
 ms.service: azure
 ---
 
 
-## Enterprise chat with Java
+### Enterprise chat with Java
 
 This Java[reference template](https://github.com/Azure-Samples/azure-search-openai-demo-java) is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
 

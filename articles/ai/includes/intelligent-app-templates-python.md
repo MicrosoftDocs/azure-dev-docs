@@ -2,12 +2,10 @@
 ms.custom: overview
 ms.topic: include
 ms.date: 01/31/2024
-ms.author: diberry
-author: diberry
 ms.service: azure
 ---
 
-## Enterprise chat with Python
+### Enterprise chat with Python
 
 This python [reference template](https://github.com/Azure-Samples/azure-search-openai-demo) is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
 
@@ -25,7 +23,7 @@ This python [reference template](https://github.com/Azure-Samples/azure-search-o
 |Azure App Service|Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio|GPT 3.5 Turbo<br>GPT 4.0<br>Dalle|
 
 
-## Multi-Modal Creative Writing copilot with Dalle
+### Multi-Modal Creative Writing copilot with Dalle
 
 This python [reference template](https://github.com/Azure-Samples/agent-openai-python-prompty) is a 
 creative writing multi-agent solution to help users write articles.
@@ -35,7 +33,7 @@ creative writing multi-agent solution to help users write articles.
 |Azure Container registery<br>Azure Kubernetes<br>|Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio|GPT 3.5 Turbo<br>GPT 4.0<br>Dalle|
 
 
-## Contoso Chat Retail copilot with AI Studio
+### Contoso Chat Retail copilot with AI Studio
 
 This python [reference template](https://github.com/Azure-Samples/contoso-chat) is a customer sales and support chat solution with rag. Learn to build an Large Language Model (LLM) Application with a RAG (Retrieval Augmented Generation) architecture using Azure AI Studio and Prompt Flow.
 
@@ -53,7 +51,7 @@ This python [reference template](https://github.com/Azure-Samples/contoso-chat) 
 |--|--|--|
 |Azure Container Apps<br>|Azure OpenAI<br>Azure AI Search<br>Azure AI Studio<br>Azure Cosmos DB|GPT 3.5 Turbo<br>GPT 4.0<br>Managed Integration Runtime (MIR)|
 
-## Process Automation with Speech to Text and Summarization with AI Studio
+### Process Automation with Speech to Text and Summarization with AI Studio
 
 This python [reference template](https://github.com/Azure-Samples/summarization-openai-python-prompflow) is a process automation solution which recieves issues reported by field and shop floor workers at a company called Contoso Manufacturing, a manufacturing company that makes car batteries. The issues are shared by the workers either live through microphone input, pre-recorded as audio files or as text input. We translate audio input from speech to text and then use the text reports as input to an LLM and Prompty/Promptflow to summarize the issue and return the results in a format we specify..
 
@@ -68,8 +66,6 @@ This python [reference template](https://github.com/Azure-Samples/summarization-
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
 ||Azure AI Studio<br>Speech to Text Service<br>Prompt Flow<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
-
-## Function calling
 
 ### Function Calling with Prompty, LangChain and Elastic Search
 
@@ -95,7 +91,7 @@ This python [reference template](https://github.com/Azure-Samples/agent-openai-p
 |--|--|--|
 |Azure Container Apps|Pinecone<br>Microsoft Entra ID<br>Microsoft Managed Identity<br>Azure Monitor<br>Azure Storage|GPT 3.5 Turbo|
 
-## Assistant API Analytics Copilot with Python and Azure AI Studio
+### Assistant API Analytics Copilot with Python and Azure AI Studio
 
 This python [reference template](https://github.com/Azure-Samples/assistant-data-openai-python-promptflow) is an Assistant API to chat with tabular data and perform analytics in natural language.
 
