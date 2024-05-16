@@ -35,16 +35,41 @@ This JavaScript [reference template](https://github.com/Azure-Samples/azure-open
 
 ### Serverless AI Chat with RAG using LangChain.js
 
-This JavaScript [reference template](https://github.com/Azure-Samples/serverless-chat-langchainjs) is a serverless AI chatbot with Retrieval-Augmented Generation using LangChain.js and Azure that uses a set of enterprise documents to generate responses to user queries. We use a fictitious company called Contoso Real Estate, and the experience allows its customers to ask support questions about the usage of its products. The sample data includes a set of documents that describes its terms of service, privacy policy and a support guide.
+Learn [how to deploy and run](../../javascript/get-started-app-chat-template-langchainjs.md)
+this JavaScript [reference template](https://github.com/Azure-Samples/serverless-chat-langchainjs). The application is a serverless AI chatbot with Retrieval-Augmented Generation using LangChain.js and Azure that uses a set of enterprise documents to generate responses to user queries. We use a fictitious company called Contoso Real Estate, and the experience allows its customers to ask support questions about the usage of its products. The sample data includes a set of documents that describes its terms of service, privacy policy and a support guide.
 
 :::row:::
    :::column:::
-      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-chat-serverless-langchainjs-javascript.png" lightbox="../media/intelligent-app-templates/architecture-diagram-chat-serverless-langchainjs-javascript.png" alt-text="Diagram showing architecture for serverless API using LangChainjs to integrate with Azure OpenAI Service and Azure AI Search.":::
+      :::image type="content" source="../../javascript/media/get-started-app-chat-langchainjs/simple-architecture-diagram.png" lightbox="../../javascript/media/get-started-app-chat-langchainjs/simple-architecture-diagram.png" alt-text="Diagram showing architecture for serverless API using LangChainjs to integrate with Azure OpenAI Service and Azure AI Search.":::
    :::column-end:::
    :::column:::
+      :::image type="content" source="../../javascript/media/get-started-app-chat-langchainjs/demo.gif" lightbox="../../javascript/media/get-started-app-chat-langchainjs/demo.gif" alt-text="Browser video of demonstration of JavaScript chat app using RAG and Langchain.js":::
    :::column-end:::
 :::row-end:::
 
 |Azure Hosting|Technologies|AI Models|
 |--|--|--|
-|Azure Static Web Apps|Azure AI Search<br>Azure OpenAI|GPT 3.5 Turbo<br>GPT4|
+|Azure Static Web Apps<br>Azure Functions|Azure AI Search<br>Azure OpenAI<br>Azure Cosmos DB<br>Azure Storage<br>Azure Managed Identity|GPT4<br>Mistral<br>Ollama|
+
+<!--
+
+### Assistant API with Function Calling
+
+Learn [how to deploy and run](../../javascript/get-started-app-chat-assistants-function-calling.md) this JavaScript [reference template](https://github.com/Azure-Samples/azure-openai-assistant-javascript). This application is a serverless Azure OpenAI Assistant Quick Start which implements an assistants app using JavaScript, Azure OpenAI Service assistants with function calling, and Azure Functions to get the latest stock price.
+
+https://review.learn.microsoft.com/en-us/azure/developer/javascript/media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-diagram.png
+
+:::row:::
+   :::column:::
+      :::image type="content" source="../../javascript/media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-diagram.png" lightbox="../../javascript/media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-diagram.png" alt-text="Diagram showing architecture for assistants API using LangChainjs to integrate with Azure OpenAI Service.":::
+   :::column-end:::
+   :::column:::
+      :::image type="content" source="../../javascript/media/get-started-app-chat-langchainjs/demo.gif" lightbox="../../javascript/media/get-started-app-chat-langchainjs/demo.gif" alt-text="Browser image of demonstration of JavaScript assistants chat app.":::
+   :::column-end:::
+:::row-end:::
+
+|Azure Hosting|Technologies|AI Models|
+|--|--|--|
+|Azure Static Web Apps<br>Azure Functions|Azure OpenAI<br>Azure Managed Identity|GPT 3.5 Turbo|
+
+-->
