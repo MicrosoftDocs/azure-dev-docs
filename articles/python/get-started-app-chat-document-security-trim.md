@@ -67,7 +67,6 @@ You need more prerequisites depending on your preferred development environment.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
-1. [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
 1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
 1. [Visual Studio Code](https://code.visualstudio.com/)
 1. [Git](https://git-scm.com/downloads)

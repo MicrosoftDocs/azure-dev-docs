@@ -1,7 +1,7 @@
 ---
 title: "Evaluating JavaScript chat apps with Azure OpenAI"
 description: "Learn how to effectively evaluate answers in your JavaScript RAG-based chat app using Azure OpenAI. Generate sample prompts, run evaluations, and analyze results."
-ms.date: 01/31/2024
+ms.date: 05/16/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai
@@ -27,12 +27,12 @@ ms.custom: devx-track-js, devx-track-js-ai
 
     You'll need the following Azure resource information from that deployment, which is referred to as the **chat app** in this article:
 
-    * Web API URI: The URI of the deployed chat app API. 
+    * Chat API URI: The service backend endpoint shown at the end of the `azd up` process. 
     * Azure AI Search. The following values are required:
-        * Resource name: The name of the Azure AI Search resource name.
-        * Index name: The name of the Azure AI Search index where your documents are stored.
-        * Query key: The key to query your Search index.
-    * If you experimented with the chat app authentication, you need to disable user authentication so the evaluation app can access the chat app.
+         * Resource name: The name of the Azure AI Search resource name, reported as `Search service` during the `azd up` process.
+        * Index name: The name of the Azure AI Search index where your documents are stored. This can be found in the Azure Portal for the Search service.
+
+    The Chat API URL allows the evaluations to make requests through your backend application. The Azure AI Search information allows the evaluation scripts to use the same deployment as your backend, loaded with the documents. 
 
     Once you have this information collected, you shouldn't need to use the **chat app** development environment again. It's referred to later in this article several times to indicate how the **chat app** is used by the **Evaluations app**. Don't delete the **chat app** resources until you complete the entire procedure in this article.
 
@@ -43,8 +43,6 @@ ms.custom: devx-track-js, devx-track-js-ai
     * GitHub account
     
     #### [Visual Studio Code](#tab/visual-studio-code)
-    * [Git](https://git-scm.com/downloads)
-    * [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
     * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
     * [Visual Studio Code](https://code.visualstudio.com/)
     * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)

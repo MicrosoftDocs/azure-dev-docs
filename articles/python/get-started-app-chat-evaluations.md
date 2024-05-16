@@ -7,7 +7,7 @@ ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
 # CustomerIntent: As a python developer new to Azure OpenAI, I want to evaluate the answers of my chat app and determine the best prompt.
 ---
-# Get started with evaluating answers in a chat app
+# Get started with evaluating answers in a chat app in Python
 
 [!INCLUDE [evaluations-intro](../ai/includes/evaluations-introduction.md)]
 
@@ -38,8 +38,6 @@ ms.custom: devx-track-python, devx-track-python-ai
     * GitHub account
     
     #### [Visual Studio Code](#tab/visual-studio-code)
-    * [Git](https://git-scm.com/downloads)
-    * [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
     * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
     * [Visual Studio Code](https://code.visualstudio.com/)
     * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
