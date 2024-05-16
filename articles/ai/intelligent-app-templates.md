@@ -10,13 +10,16 @@ zone_pivot_group_filename: developer/intro/intro-zone-pivot-groups.yml
 zone_pivot_groups: intelligent-apps-languages-top-four
 ---
 
-# Azure AI intelligent app templates
+# AI app templates
 
-The intelligent app templates are complete end-to-end solutions including documention, source code, and deployment to allow you to take and extend for your own purposes. 
+This section of the documentation introduces you to the Azure AI templates and related articles that use these templates to demonstrate how to perform key developer tasks. Azure AI templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+
+There are two categories of AI app templates:
+
+* **Building blocks** are smaller-scale samples that focus on specific scenarios and tasks.
+* **End-to-end solutions** ARE complete end-to-end solutions including documention, source code, and deployment to allow you to take and extend for your own purposes.
 
 ## Building blocks
-
-Building blocks are samples to solve a specific issue with intelligent apps.  
 
 :::zone pivot="dotnet"
 
@@ -48,8 +51,6 @@ Building blocks are samples to solve a specific issue with intelligent apps.
 
 
 ## End-to-end applications
-
-End-to-end applications demonstrate a complete intelligent app. 
 
 :::zone pivot="dotnet"
 
