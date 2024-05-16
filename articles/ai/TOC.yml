@@ -17,7 +17,7 @@ items:
     - name: AI app templates
       items:
         - name: Overview
-          href: intelligent-app-templates-overview.md
+          href: intelligent-app-templates.md
         - name: Chat with your data
           items:
             - name: Python
