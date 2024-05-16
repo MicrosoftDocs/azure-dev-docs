@@ -26,7 +26,7 @@ Watch the demonstration video to understand more about load testing the chat app
     * You only need a [GitHub account](https://github.com/login)
     
     #### [Visual Studio Code](#tab/visual-studio-code)
-    
+    * [Git](https://git-scm.com/downloads)
     * [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
     * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
     * [Visual Studio Code](https://code.visualstudio.com/) with [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
