@@ -18,7 +18,12 @@ ms.custom: devx-track-js, devx-track-js-ai
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
 
-* Complete the [previous chat App procedure](get-started-app-chat-template.md) to deploy the chat app to Azure. This procedure loads the data into the Azure AI Search resource. This resource is required for the evaluations app to work. Don't complete the **Clean up resources** section of the previous procedure.     
+* Deploy a chat app 
+
+    * [JavaScript](get-started-app-chat-template.md)
+    * [JavaScript with LangChain.js](get-started-app-chat-template-langchainjs.md)
+
+* These chat apps load the data into the Azure AI Search resource. This resource is required for the evaluations app to work. Don't complete the **Clean up resources** section of the previous procedure.     
 
     You'll need the following Azure resource information from that deployment, which is referred to as the **chat app** in this article:
 
