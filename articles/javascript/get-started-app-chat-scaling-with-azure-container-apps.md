@@ -27,8 +27,9 @@ ms.custom: devx-track-js, devx-track-js-ai
     
     #### [Visual Studio Code](#tab/visual-studio-code)
     * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-    * [Visual Studio Code](https://code.visualstudio.com/) with [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-    
+    * [Visual Studio Code](https://code.visualstudio.com/)
+    * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
     ---
 
 [!INCLUDE [scaling-load-balancer-aca-procedure.md](../ai/includes/scaling-load-balancer-procedure-azure-container-apps.md)]

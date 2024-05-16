@@ -69,7 +69,6 @@ You need more prerequisites depending on your preferred development environment.
 
 1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
 1. [Visual Studio Code](https://code.visualstudio.com/)
-1. [Git](https://git-scm.com/downloads)
 1. [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ---
@@ -110,21 +109,9 @@ Begin now with a development environment that has all the dependencies installed
 
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
-1. Fork the sample repository with the following link: [azure-samples/azure-search-openai-demo](https://github.com/azure-samples/azure-search-openai-demo/fork).
-
-1. Clone your fork to your local computer. Replace `<GITHUB_USER>` with your GITHUB user name.
-
-    ```console
-    git clone https://github.com/<GITHUB_USER>/azure-search-openai-demo
-    ```
-
-1. Open **Visual Studio Code** in the new directory.
-
-    ```console
-    cd azure-search-openai-demo && code .
-    ```
-
 1. Ensure that you have the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed in Visual Studio Code.
+
+1. [![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo)
 
 1. Open a new terminal in the editor.
 
