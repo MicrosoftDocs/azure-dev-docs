@@ -227,7 +227,7 @@ items:
         - name: How-to
           items: 
           - name: Azure OpenAI
-            href: ../ai/passwordless-connections.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
+            href: ../ai/passwordless-connections.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json&tabs=javascript
       - name: Python
         items:
         - name: Quickstarts
