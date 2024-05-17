@@ -25,11 +25,11 @@ landingContent:
           - text: Advanced Retrieval-Augmented Generation
             url: advanced-retrieval-augmented-generation.md
 
-  - title: Use AI app templates for key scenarios
+  - title: AI app templates
     linkLists:
       - linkListType: overview
         links:
-          - text: AI app templates
+          - text: AI app templates overview
             url: intelligent-app-templates.md
       - linkListType: get-started
         links:
