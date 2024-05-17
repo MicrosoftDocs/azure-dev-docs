@@ -121,34 +121,34 @@ Begin now with a development environment that has all the dependencies installed
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
 
+1. Create a new local directory on your computer for the project. 
 
-1. Ensure that you have the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed in Visual Studio Code.
+    ```bash
+    mkdir my-intelligent-app && cd my-intelligent-app
+    ```
 
-1. [![Open this project in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://codespaces.new/Azure-Samples/serverless-chat-langchainjs)
+1. Open Visual Studio Code in that directory:
 
-1. Open a new terminal in the editor.
+    ```bash
+    code .
+    ```
 
-    > [!TIP]
-    > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
-    >
-    > :::image type="content" source="./media/get-started-app-chat-langchainjs/open-terminal-option.png" lightbox="./media/get-started-app-chat-langchainjs/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
+1. Open a new terminal in Visual Studio Code.
+1. Run the following AZD command to bring the GitHub repository to your local computer.
 
-1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
+    ```bash
+    azd init -t serverless-chat-langchainj
+    ```
 
-    > [!TIP]
-    > Visual Studio Code may automatically prompt you to reopen the existing folder within a development container. This is functionally equivalent to using the command palette to reopen the current workspace in a container.
-
-1. Reopen the Terminal window again (<kbd>Ctrl</kbd> + <kbd>`</kbd>) and leave it open.
-
+1. Open the Command Pallete, search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing. 
 1. Sign in to Azure with the Azure Developer CLI.
 
     ```bash
     azd auth login
     ```
-
-    Complete the authentication process.
-
+    Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
 1. The remaining exercises in this project take place in the context of this development container.
+
 
 ---
 

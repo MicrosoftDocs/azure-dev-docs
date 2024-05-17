@@ -26,20 +26,18 @@ Watch the demonstration video to understand more about load testing the chat app
     * You only need a [GitHub account](https://github.com/login)
     
     #### [Visual Studio Code](#tab/visual-studio-code)
+    * [Azure Developer CLI](/azure/developer/azure-developer-cli)
     * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
     * [Visual Studio Code](https://code.visualstudio.com/)
     * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
         
     ---
 
-* [Python chat app with RAG](get-started-app-chat-template.md) - if you configured your chat app to use one of the load balancing solutions, this article will help you test the load balancing. The load balancing solutions includ [Azure Container Apps](get-started-app-chat-scaling-with-azure-container-apps.md).
-
-
-
+* [Python chat app with RAG](get-started-app-chat-template.md) - if you configured your chat app to use one of the load balancing solutions, this article will help you test the load balancing. The load balancing solutions includes [Azure Container Apps](get-started-app-chat-scaling-with-azure-container-apps.md).
 
 ## Open Load test sample app
 
-The load test is in Python chat app repository. You need to return to that dev container to complete these steps.
+The load test is in [Python chat app](get-started-app-chat-template.md) solution as a [Locust test](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/locustfile.py). You need to return to that article, deploy the solution, then use that dev container development environment to complete the following steps.
 
 ## Run the test
 

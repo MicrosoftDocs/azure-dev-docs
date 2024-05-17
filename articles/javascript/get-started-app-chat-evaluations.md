@@ -43,6 +43,7 @@ ms.custom: devx-track-js, devx-track-js-ai, build-2024-intelligent-apps
     * GitHub account
     
     #### [Visual Studio Code](#tab/visual-studio-code)
+    * [Azure Developer CLI](/azure/developer/azure-developer-cli)
     * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
     * [Visual Studio Code](https://code.visualstudio.com/)
     * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
