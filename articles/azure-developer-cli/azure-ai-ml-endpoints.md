@@ -14,17 +14,24 @@ ms.custom: devx-track-azdevcli, build-2023
 The Azure Developer CLI enables you to quickly and easily deploy to an [Azure ML Studio](https://ml.azure.com) or [Azure AI Studio](https://ai.azure.com) online endpoint. This feature is enabled and configured using the `azure.yaml` template file. `azd` supports the following AI/ML studio features:
 
 * Custom environments
+  * Environments can be viewed with [Azure ML Studio](https://ml.azure.com/) under the `Environments` section.
 * Custom models
+  * Models can be viewed with [Azure ML Studio](https://ml.azure.com/) under the `models` section.
 * Prompt flows
+  * Flows can be viewed with [Azure ML Studio](https://ml.azure.com/) under the `flows` section.
+  * Flows can be viewed with [Azure AI Studio](https://ai.azure.com/) under the `flows` section.
 * Online deployments (within Online-Endpoint)
+  * Deployments can be viewed with [Azure ML Studio](https://ml.azure.com/) under the `deployments` section.
+  * Deployments can be viewed with [Azure AI Studio](https://ai.azure.com/) under the `deployments` section.
 
-## Configure the template
+## Configure the AI/ML studio online endpoint
 
 Configure support for AI/ML online endpoints in the `services` section of the `azure.yaml` file:
 
 * Set the `host` value to `ai.endpoint`.
 * The `config` section for `ai.endpoint` supports the following configurations:
   * **workspace**: The name of the AI studio workspace. Supports `azd` environment variable substitutions and syntax.
+    * If not specified, `azd` will look for environment variable with name `AZUREAI_PROJECT_NAME`.
   * **environment**: Optional custom configuration for ML environments. `azd` creates a new  environment version from the referenced YAML file definition.
   * **flow**: Optional custom configuration for flows. `azd` creates a new prompt flow from the specified file path.
   * **model**: Optional custom configuration for ML models. `azd` creates a new model version from the referenced YAML file definition.
@@ -36,11 +43,6 @@ Consider the following sample `azure.yaml` file that configures these features:
 name: contoso-chat
 metadata:
   template: contoso-chat@0.0.1-beta
-hooks:
-  # Post provision hooks are still required to seed any data sources or create required search indexes
-  postprovision:
-    shell: sh
-    run: ./infra/hooks/postprovision.sh
 services:
   chat:
     # Referenced new ai.endpoint host type
@@ -66,6 +68,13 @@ services:
         environment:
           PRT_CONFIG_OVERRIDE: deployment.subscription_id=${AZURE_SUBSCRIPTION_ID},deployment.resource_group=${AZURE_RESOURCE_GROUP},deployment.workspace_name=${AZUREAI_PROJECT_NAME},deployment.endpoint_name=${AZUREAI_ENDPOINT_NAME},deployment.deployment_name=${AZUREAI_DEPLOYMENT_NAME}
 ```
+
+The `config.deployment` section is required and creates a new online deployment to the associated online endpoint from the referenced yaml file definition. This functionality handles various concerns for you, including the following:
+
+* Associates environment and model will be referenced when available.
+* `azd` waits for deployment to enter a terminal provisioning state.
+* On successful deployments, all traffic is shifted to the new deployment version.
+* All previous deployments, are deleted to free up compute for future deployments.
 
 ## Explore configuration options
 
