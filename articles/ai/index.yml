@@ -25,11 +25,11 @@ landingContent:
           - text: Advanced Retrieval-Augmented Generation
             url: advanced-retrieval-augmented-generation.md
 
-  - title: AI app templates
+  - title: Learn with AI application templates
     linkLists:
       - linkListType: overview
         links:
-          - text: AI app templates overview
+          - text: AI application templates
             url: intelligent-app-templates.md
       - linkListType: get-started
         links:
@@ -54,3 +54,5 @@ landingContent:
             url: ../java/ai/azure-ai-for-java-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: C# and .NET
             url: /dotnet/ai/azure-ai-for-dotnet-developers?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+          - text: Go
+            url: ../go/azure-ai-for-go-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
