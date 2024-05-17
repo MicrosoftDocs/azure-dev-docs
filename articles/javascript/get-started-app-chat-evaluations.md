@@ -30,7 +30,7 @@ ms.custom: devx-track-js, devx-track-js-ai, build-2024-intelligent-apps
     * Chat API URI: The service backend endpoint shown at the end of the `azd up` process. 
     * Azure AI Search. The following values are required:
          * Resource name: The name of the Azure AI Search resource name, reported as `Search service` during the `azd up` process.
-        * Index name: The name of the Azure AI Search index where your documents are stored. This can be found in the Azure Portal for the Search service.
+        * Index name: The name of the Azure AI Search index where your documents are stored. This can be found in the Azure portal for the Search service.
 
     The Chat API URL allows the evaluations to make requests through your backend application. The Azure AI Search information allows the evaluation scripts to use the same deployment as your backend, loaded with the documents. 
 
