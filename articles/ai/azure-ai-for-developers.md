@@ -14,9 +14,9 @@ This area is designed for experienced developers new to building generative AI a
 
 If you're a developer just getting started with building AI apps or adding AI features to your applications, the most important thing to keep in mind is that you can leverage your existing skills.
 
-## Introduction to Generative AI for Developers
+## Introduction to generative AI for developers
 
-It might be helpful to understand some core concepts to level-set as you get started.
+These articles provide an overview of some foundational concepts relevant to building applications that use generative AI.
 
 |Link|Description|
 |---|---|
@@ -28,7 +28,9 @@ It might be helpful to understand some core concepts to level-set as you get sta
 
 ## AI app templates
 
-There are several [AI app templates](./intelligent-app-templates.md) featuring complete end-to-end solutions available for each programming language. One of the most popular templates the enterprise chat sample using RAG:
+There are many AI app templates that provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps. These templates include building blocks (smaller-scale samples that focus on specific scenarios and tasks) and complete end-to-end solutions for each programming language. For a list of the available templates, see [AI app templates](./intelligent-app-templates.md).
+
+One of the most popular templates the enterprise chat sample using RAG.
 
 # [.NET](#tab/dotnet)
 
@@ -66,9 +68,9 @@ There are several [AI app templates](./intelligent-app-templates.md) featuring c
 
 ## Additional resources by language
 
-Each language overview page links to popular articles, samples, documentation and more specific to your preferred programming language or platform:
+Each language overview page links to popular articles, samples, documentation and more specific to your preferred programming language or platform.
 
-- [Python Resources](../python/azure-ai-for-python-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
-- [JavaScript Resources](../javascript/azure-ai-for-javascript-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
-- [Java Resources](../java/ai/azure-ai-for-java-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
-- [.NET Resources](/dotnet/ai/azure-ai-for-dotnet-developers?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+- [Python](../python/azure-ai-for-python-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+- [JavaScript](../javascript/azure-ai-for-javascript-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+- [Java](../java/ai/azure-ai-for-java-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+- [.NET](/dotnet/ai/azure-ai-for-dotnet-developers?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
