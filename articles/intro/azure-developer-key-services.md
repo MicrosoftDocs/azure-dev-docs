@@ -26,7 +26,7 @@ This article introduces some of the key Azure services that are used most freque
 
 ## Azure AI services
 
-[Azure AI services](/azure/ai-services/) help you create intelligent applications with pre-built and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
+[Azure AI services](/azure/ai-services/) help you create AI apps with pre-built and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
 
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
 |----|-------|-----------|
