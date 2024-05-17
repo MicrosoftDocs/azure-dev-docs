@@ -15,9 +15,9 @@ This article shows you how to deploy a Red Hat JBoss Enterprise Application Plat
 In this guide, you learn how to:
 > [!div class="checklist"]
 >
-> * Prepare an JBoss EAP application for OpenShift.
-> * Create an Azure SQL Database single database.
-> * Deploy the application on an Azure Red Hat OpenShift 4 by using JBoss Helm Charts and OpenShift Web Console.
+> * Prepare a JBoss EAP application for OpenShift.
+> * Create an single database instance of Azure SQL Database.
+> * Deploy the application on an Azure Red Hat OpenShift 4 cluster by using JBoss Helm Charts and OpenShift Web Console
 
 This article is step-by-step manual guidance for running JBoss EAP app on an Azure Red Hat OpenShift 4 cluster. For a more automated solution that accelerates your journey to Azure Red Hat OpenShift 4 cluster, see [Quickstart: Deploy JBoss EAP on Azure Red Hat OpenShift using the Azure portal](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
