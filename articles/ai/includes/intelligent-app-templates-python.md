@@ -24,7 +24,7 @@ This AI template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
-| Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio | GPT 3.5 Turbo<br>GPT 4.0<br>Dalle |
+| Azure App Service | Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio | GPT 3.5 Turbo<br>GPT 4.0<br>Dalle |
 
 
 ### Multi-Modal Creative Writing copilot with Dalle
