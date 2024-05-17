@@ -1,5 +1,5 @@
 ---
-title: Deploy a Java Application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 Cluster
+title: Deploy a Java Application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift Cluster
 recommendations: false
 description: Shows you how to deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 cluster.
 author: KarlErickson
@@ -11,9 +11,18 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 # Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster
 
-This guide shows you how to run your Java, Java EE, [Jakarta EE](https://jakarta.ee/), or [MicroProfile](https://microprofile.io/) application on the Open Liberty/WebSphere Liberty runtime. The guide then shows you how to deploy the containerized application to an Azure Red Hat OpenShift 4 cluster using the Open Liberty Operator. This article walks you through preparing a Liberty application, building the application Docker image and running the containerized application on an Azure Red Hat OpenShift 4 cluster. For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
-This article is step-by-step manual guidance for running Open/WebSphere Liberty on an Azure Red Hat OpenShift 4 cluster. For a more automated solution that accelerates your journey to Azure Red Hat OpenShift 4 cluster, see [Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app).
+In this guide, you will learn how to:
+
+> [!div class="checklist"]
+>
+> * Prepare the Liberty application
+> * Build the application image
+> * Run the containerized application on an Azure Red Hat OpenShift 4 cluster using the GUI and the CLI
+
+This article is step-by-step manual guidance for running Open/WebSphere Liberty on an Azure Red Hat OpenShift 4 cluster. It walks you through preparing a Liberty application, building the application Docker image and running the containerized application on an Azure Red Hat OpenShift 4 cluster. For a more automated solution that accelerates your journey to Azure Red Hat OpenShift 4 cluster, see [Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json) using Azure Marketplace offer.
+
+For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
@@ -32,7 +41,7 @@ Complete the following prerequisites to successfully use this guide.
 1. Install [Azure CLI](/cli/azure/install-azure-cli) 2.0.75 or later.
 1. Check and install [`envsubst`](https://command-not-found.com/envsubst) if it's not preinstalled in your operating system.
 1. Clone the code for this sample on your local system. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro).
-1. Follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster).
+1. Follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
    Though the "Get a Red Hat pull secret" step is labeled as optional, **it is required for this article**. The pull secret enables your Azure Red Hat OpenShift cluster to find the Open Liberty Operator.
 
@@ -42,7 +51,7 @@ Complete the following prerequisites to successfully use this guide.
    * [Supported virtual machine sizes for memory optimized](/azure/openshift/support-policies-v4#memory-optimized)
    * [Prerequisites to install the Elasticsearch Operator](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-deploying.html#cluster-logging-deploy-eo-cli_cluster-logging-deploying)
 
-1. Connect to the cluster by following the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-connect-cluster).
+1. Connect to the cluster by following the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-connect-cluster?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
    * Be sure to follow the steps in "Install the OpenShift CLI" because we use the `oc` command later in this article.
    * Save aside the cluster console URL. It should look like `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`.
@@ -540,17 +549,16 @@ oc delete -f openlibertyapplication.yaml
 
 ## Clean up resources
 
-Delete the Azure Red Hat OpenShift cluster by following the steps in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-delete-cluster)
+Delete the Azure Red Hat OpenShift cluster by following the steps in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-delete-cluster?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 ## Next steps
 
-In this guide, you learned how to:
+Continue to explore options to run WebSphere products on Azure.
 
-> [!div class="checklist"]
->
-> * Prepare the Liberty application
-> * Build the application image
-> * Run the containerized application on an Azure Red Hat OpenShift 4 cluster using the GUI and the CLI
+> [!div class="nextstepaction"]
+> [Learn more about the IBM WebSphere family of products on Azure](../ee/websphere-family.md)
+
+If you’re interested in keeping up to date with latest developments, select **Contact Me** on the overview page of [IBM WebSphere Product Family on Azure](https://aka.ms/websphere-on-azure-contactme) at Azure Marketplace, and register to be notified when new offers are made available.
 
 You can learn more from references used in this guide:
 

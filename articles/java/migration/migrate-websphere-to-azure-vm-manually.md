@@ -1991,6 +1991,6 @@ az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
 Continue to explore options to run WebSphere products on Azure.
 
 > [!div class="nextstepaction"]
-> [What are solutions to run the IBM WebSphere family of products on Azure?](../ee/websphere-family.md)
+> [Learn more about the IBM WebSphere family of products on Azure](../ee/websphere-family.md)
 
 If you’re interested in keeping up to date with latest developments, select **Contact Me** on the overview page of [IBM WebSphere Product Family on Azure](https://aka.ms/websphere-on-azure-contactme) at Azure Marketplace, and register to be notified when new offers are made available.
