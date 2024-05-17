@@ -1,13 +1,15 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 01/31/2024
+ms.date: 5/16/2024
 ms.service: azure
 ---
 
 ### Enterprise chat with Python
 
-This python [reference template](https://github.com/Azure-Samples/azure-search-openai-demo) is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
+This template is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
+
+To get started with this template, see [Get started with the Python enterprise chat sample using RAG](../../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json). To access the source code and read in-depth details about the template, see the [azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repo.
 
 :::row:::
    :::column:::
@@ -18,18 +20,18 @@ This python [reference template](https://github.com/Azure-Samples/azure-search-o
    :::column-end:::
 :::row-end:::
 
-|Azure Hosting|Technologies|AI Models|
+This template demonstrates the use of these features.
+
+| Azure hosting solution | Technologies | AI models |
 |--|--|--|
-|Azure App Service|Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio|GPT 3.5 Turbo<br>GPT 4.0<br>Dalle|
+| Azure App Service | Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio | GPT 3.5 Turbo<br>GPT 4.0<br>DALL-E |
 
 
-### Multi-Modal Creative Writing copilot with Dalle
+### Multi-Modal Creative Writing Copilot with DALL-E
 
-This python [reference template](https://github.com/Azure-Samples/agent-openai-python-prompty) is a 
-creative writing multi-agent solution to help users write articles.
+This template is a creative writing multi-agent solution to help users write articles. It demonstrates how to create and work with AI agents driven by [Azure OpenAI](/azure/ai-services/openai/). It includes a Flask app that takes a topic and instruction from a user then calls a research agent that uses the [Bing Search API](/bing/search-apis/bing-web-search) to research the topic, a product agent that uses [Azure AI Search](/azure/search/) to do a semantic similarity search for related products from a vectore store, a writer agent to combine the research and product information into a helpful article, and an editor agent to refine the article that's finally presented to the user.
 
-This sample demonstrates how to create and work with AI agents driven by [Azure OpenAI](/azure/ai-services/openai/). It includes a Flask app that takes a topic and instruction from a user then calls a research agent that uses the [Bing Search API](/bing/search-apis/bing-web-search) to research the topic, a product agent that uses [Azure AI Search](/azure/search/) to do a semantic similarity search for related products from a vectore store, a writer agent to combine the research and product information into a helpful article, and an editor agent to refine the article that's finally presented to the user.
-
+To access the source code and read in-depth details about the template, see the [agent-openai-python-prompty](https://github.com/Azure-Samples/agent-openai-python-prompty) GitHub repo.
 
 :::row:::
    :::column:::
@@ -39,17 +41,18 @@ This sample demonstrates how to create and work with AI agents driven by [Azure 
    :::column-end:::
 :::row-end:::
 
+This template demonstrates the use of these features.
 
-
-
-|Azure Hosting|Technologies|AI Models|
+| Azure hosting solution | Technologies | AI models |
 |--|--|--|
-|Azure Container registery<br>Azure Kubernetes<br>|Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio|GPT 3.5 Turbo<br>GPT 4.0<br>Dalle|
+|Azure Container registery<br>Azure Kubernetes<br>|Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio|GPT 3.5 Turbo<br>GPT 4.0<br>DALL-E|
 
 
-### Contoso Chat Retail copilot with AI Studio
+### Contoso Chat Retail Copilot with AI Studio
 
-This python [reference template](https://github.com/Azure-Samples/contoso-chat) is a customer sales and support chat solution with rag. Learn to build an Large Language Model (LLM) Application with a RAG (Retrieval Augmented Generation) architecture using Azure AI Studio and Prompt Flow.
+This template is a customer sales and support chat solution. It demonstrates how to build a Large Language Model (LLM) application with a RAG (Retrieval Augmented Generation) architecture using Azure AI Studio and Prompt Flow.
+
+To access the source code and read in-depth details about the template, see the [contoso-chat](https://github.com/Azure-Samples/contoso-chat) GitHub repo.
 
 :::row:::
    :::column:::
@@ -59,13 +62,17 @@ This python [reference template](https://github.com/Azure-Samples/contoso-chat) 
    :::column-end:::
 :::row-end:::
 
-|Azure Hosting|Technologies|AI Models|
+This template demonstrates the use of these features.
+
+| Azure hosting solution | Technologies | AI models |
 |--|--|--|
 |Azure Container Apps<br>|Azure OpenAI<br>Azure AI Search<br>Azure AI Studio<br>Azure Cosmos DB|GPT 3.5 Turbo<br>GPT 4.0<br>Managed Integration Runtime (MIR)|
 
-### Process Automation with Speech to Text and Summarization with AI Studio
+### Process automation with speech to text and summarization with AI Studio
 
-This python [reference template](https://github.com/Azure-Samples/summarization-openai-python-prompflow) is a process automation solution which recieves issues reported by field and shop floor workers at a company called Contoso Manufacturing, a manufacturing company that makes car batteries. The issues are shared by the workers either live through microphone input, pre-recorded as audio files or as text input. We translate audio input from speech to text and then use the text reports as input to an LLM and Prompty/Promptflow to summarize the issue and return the results in a format we specify..
+This template is a process automation solution that recieves issues reported by field and shop floor workers at a company called Contoso Manufacturing, a manufacturing company that makes car batteries. The issues are shared by the workers either live through microphone input, pre-recorded as audio files or as text input. The solution translates audio input from speech to text and then uses the text reports as input to an LLM and Prompty/Promptflow to summarize the issue and return the results in a format specified by the solution.
+
+To access the source code and read in-depth details about the template, see the [summarization-openai-python-prompflow](https://github.com/Azure-Samples/summarization-openai-python-prompflow) GitHub repo.
 
 :::row:::
    :::column:::
@@ -75,13 +82,17 @@ This python [reference template](https://github.com/Azure-Samples/summarization-
    :::column-end:::
 :::row-end:::
 
-|Azure Hosting|Technologies|AI Models|
+This template demonstrates the use of these features.
+
+| Azure hosting solution | Technologies | AI models |
 |--|--|--|
 |Azure Container Apps|Azure AI Studio<br>Speech to Text Service<br>Prompt Flow<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
 
-### Function Calling with Prompty, LangChain and Elastic Search
+### Function calling with Prompty, LangChain and Elastic Search
 
-This python [reference template](https://github.com/Azure-Samples/agent-python-openai-prompty-langchain) is an application using Prompty, Langchain, and Elasticsearch to build a large language model (LLM) search agent. This agent with Retrieval-Augmented Generation (RAG) technology is is capable of answering user questions based on the provided data by integrating real-time information retrieval with generative responses.
+This template is an application that uses Prompty, Langchain, and Elasticsearch to build a large language model (LLM) search agent. This agent with Retrieval Augmented Generation (RAG) technology is is capable of answering user questions based on the provided data by integrating real-time information retrieval with generative responses.
+
+To access the source code and read in-depth details about the template, see the [agent-python-openai-prompty-langchain](https://github.com/Azure-Samples/agent-python-openai-prompty-langchain) GitHub repo.
 
 :::row:::
    :::column:::
@@ -91,13 +102,17 @@ This python [reference template](https://github.com/Azure-Samples/agent-python-o
    :::column-end:::
 :::row-end:::
 
-|Azure Hosting|Technologies|AI Models|
+This template demonstrates the use of these features.
+
+| Azure hosting solution | Technologies | AI models |
 |--|--|--|
 |Machine Learning service|Azure AI Studio<br>Elastic Search<br>Microsoft Entra ID<br>Azure Managed Identity<br>Azure Monitor<br>Azure Storage<br>Azure AI Studio<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
 
-### Function Calling with Prompty, LangChain and Pinecone
+### Function calling with Prompty, LangChain and Pinecone
 
-This python [reference template](https://github.com/Azure-Samples/agent-openai-python-prompty-langchain-pinecone) utilizes the new Prompty tool, Langchain, and Pinecone to build a large language model (LLM) search agent. This agent with Retrieval-Augmented Generation (RAG) technologyis is capable of answering user questions based on the provided data by integrating real-time information retrieval with generative responses.
+This template utilizes the new Prompty tool, Langchain, and Pinecone to build a large language model (LLM) search agent. This agent with Retrieval Augmented Generation (RAG) technologyis is capable of answering user questions based on the provided data by integrating real-time information retrieval with generative responses.
+
+To access the source code and read in-depth details about the template, see the [agent-openai-python-prompty-langchain-pinecone](https://github.com/Azure-Samples/agent-openai-python-prompty-langchain-pinecone) GitHub repo.
 
 :::row:::
    :::column:::
@@ -107,13 +122,15 @@ This python [reference template](https://github.com/Azure-Samples/agent-openai-p
    :::column-end:::
 :::row-end:::
 
-|Azure Hosting|Technologies|AI Models|
+This template demonstrates the use of these features.
+
+| Azure hosting solution | Technologies | AI models |
 |--|--|--|
 |Azure Container Apps|Pinecone<br>Microsoft Entra ID<br>Microsoft Managed Identity<br>Azure Monitor<br>Azure Storage|GPT 3.5 Turbo|
 
 ### Assistant API Analytics Copilot with Python and Azure AI Studio
 
-This python [reference template](https://github.com/Azure-Samples/assistant-data-openai-python-promptflow) is an Assistant API to chat with tabular data and perform analytics in natural language.
+This template is an Assistant API to chat with tabular data and perform analytics in natural language. To access the source code and read in-depth details about the template, see the [assistant-data-openai-python-promptflow](https://github.com/Azure-Samples/assistant-data-openai-python-promptflow) GitHub repo.
 
 :::row:::
    :::column:::
@@ -123,6 +140,8 @@ This python [reference template](https://github.com/Azure-Samples/assistant-data
    :::column-end:::
 :::row-end:::
 
-|Azure Hosting|Technologies|AI Models|
+This template demonstrates the use of these features.
+
+| Azure hosting solution | Technologies | AI models |
 |--|--|--|
 |Machine Learning service|Azure AI Search<br>Azure AI Studio<br>Managed Integration Runtime (MIR)<br>Azure OpenAI|GPT 3.5 Turbo<br>GPT 4|
