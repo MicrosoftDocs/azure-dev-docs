@@ -5,7 +5,7 @@ ms.date: 05/15/2024
 ms.service: azure
 ---
 
-| Building Block | Description | Article |
+| Building block | Description | Article |
 |----------------|-------------|---------------|
 | Add document security trimming to Azure AI Search  |  When you build a chat application using the RAG pattern with your own data, make sure that each user receives an answer based on their permissions. An authorized user should have access to answers contained within the documents of the chat app. An unauthorized user shouldn't have access to answers from secured documents they don't have authorization to see. | [Configure document security for the Python chat app](../../python/get-started-app-chat-document-security-trim.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json) |
 | Evaluate chat app answers | Learn how to evaluate a chat app's answers against a set of correct or ideal answers (known as ground truth). Whenever you change your chat application in a way which affects the answers, run an evaluation to compare the changes. This demo application offers tools you can use today to make it easier to run evaluations. | [Evaluate the Python chat app](../../python/get-started-app-chat-evaluations.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json) |

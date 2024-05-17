@@ -24,10 +24,10 @@ This AI template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
-| Azure App Service | Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio | GPT 3.5 Turbo<br>GPT 4.0<br>Dalle |
+| Azure App Service | Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio | GPT 3.5 Turbo<br>GPT 4.0<br>DALL-E |
 
 
-### Multi-Modal Creative Writing copilot with Dalle
+### Multi-Modal Creative Writing Copilot with DALL-E
 
 This AI template is a creative writing multi-agent solution to help users write articles. It demonstrates how to create and work with AI agents driven by [Azure OpenAI](/azure/ai-services/openai/). It includes a Flask app that takes a topic and instruction from a user then calls a research agent that uses the [Bing Search API](/bing/search-apis/bing-web-search) to research the topic, a product agent that uses [Azure AI Search](/azure/search/) to do a semantic similarity search for related products from a vectore store, a writer agent to combine the research and product information into a helpful article, and an editor agent to refine the article that's finally presented to the user.
 
@@ -45,10 +45,10 @@ This AI template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
-|Azure Container registery<br>Azure Kubernetes<br>|Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio|GPT 3.5 Turbo<br>GPT 4.0<br>Dalle|
+|Azure Container registery<br>Azure Kubernetes<br>|Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio|GPT 3.5 Turbo<br>GPT 4.0<br>DALL-E|
 
 
-### Contoso Chat Retail copilot with AI Studio
+### Contoso Chat Retail Copilot with AI Studio
 
 This AI template is a customer sales and support chat solution. It demonstrates how to build a Large Language Model (LLM) application with a RAG (Retrieval Augmented Generation) architecture using Azure AI Studio and Prompt Flow.
 
@@ -68,7 +68,7 @@ This AI template demonstrates the use of these features.
 |--|--|--|
 |Azure Container Apps<br>|Azure OpenAI<br>Azure AI Search<br>Azure AI Studio<br>Azure Cosmos DB|GPT 3.5 Turbo<br>GPT 4.0<br>Managed Integration Runtime (MIR)|
 
-### Process Automation with Speech to Text and Summarization with AI Studio
+### Process automation with speech to text and summarization with AI Studio
 
 This AI template is a process automation solution that recieves issues reported by field and shop floor workers at a company called Contoso Manufacturing, a manufacturing company that makes car batteries. The issues are shared by the workers either live through microphone input, pre-recorded as audio files or as text input. The solution translates audio input from speech to text and then uses the text reports as input to an LLM and Prompty/Promptflow to summarize the issue and return the results in a format specified by the solution.
 
@@ -88,7 +88,7 @@ This AI template demonstrates the use of these features.
 |--|--|--|
 |Azure Container Apps|Azure AI Studio<br>Speech to Text Service<br>Prompt Flow<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
 
-### Function Calling with Prompty, LangChain and Elastic Search
+### Function calling with Prompty, LangChain and Elastic Search
 
 This AI template is an application that uses Prompty, Langchain, and Elasticsearch to build a large language model (LLM) search agent. This agent with Retrieval Augmented Generation (RAG) technology is is capable of answering user questions based on the provided data by integrating real-time information retrieval with generative responses.
 
@@ -108,7 +108,7 @@ This AI template demonstrates the use of these features.
 |--|--|--|
 |Machine Learning service|Azure AI Studio<br>Elastic Search<br>Microsoft Entra ID<br>Azure Managed Identity<br>Azure Monitor<br>Azure Storage<br>Azure AI Studio<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
 
-### Function Calling with Prompty, LangChain and Pinecone
+### Function calling with Prompty, LangChain and Pinecone
 
 This AI template utilizes the new Prompty tool, Langchain, and Pinecone to build a large language model (LLM) search agent. This agent with Retrieval Augmented Generation (RAG) technologyis is capable of answering user questions based on the provided data by integrating real-time information retrieval with generative responses.
 

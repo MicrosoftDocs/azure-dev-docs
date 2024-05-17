@@ -62,6 +62,8 @@ items:
           href: ../python/get-started-app-chat-document-security-trim.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Connect a JavaScript frontend and Python backend
           href: ../javascript/chat-app-with-separate-front-back-end.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+        - name: Get started with Serverless AI chat with RAG using LangChain.js
+          href: ../../javascript/get-started-app-chat-template-langchainjs.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
     - name: Resources
       items:
         - name: Python
