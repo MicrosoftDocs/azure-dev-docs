@@ -1,6 +1,6 @@
 ---
 title: AI app templates
-description: This article describes the intelligent app templates provided as GitHub repositories to build, deploy, and extend on Azure.
+description: This article describes the AI app templates provided as GitHub repositories to build, deploy, and extend on Azure.
 keywords: ai, azure openai service
 ms.service: azure
 ms.topic: overview
