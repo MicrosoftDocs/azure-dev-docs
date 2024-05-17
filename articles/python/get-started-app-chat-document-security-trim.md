@@ -63,15 +63,13 @@ You need more prerequisites depending on your preferred development environment.
 
 #### [Codespaces (recommended)](#tab/github-codespaces)
 
-1. [GitHub account](https://github.com/login)
+* [GitHub account](https://github.com/login)
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
-1. [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
-1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-1. [Visual Studio Code](https://code.visualstudio.com/)
-1. [Git](https://git-scm.com/downloads)
-1. [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ---
 
@@ -111,21 +109,9 @@ Begin now with a development environment that has all the dependencies installed
 
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
-1. Fork the sample repository with the following link: [azure-samples/azure-search-openai-demo](https://github.com/azure-samples/azure-search-openai-demo/fork).
-
-1. Clone your fork to your local computer. Replace `<GITHUB_USER>` with your GITHUB user name.
-
-    ```console
-    git clone https://github.com/<GITHUB_USER>/azure-search-openai-demo
-    ```
-
-1. Open **Visual Studio Code** in the new directory.
-
-    ```console
-    cd azure-search-openai-demo && code .
-    ```
-
 1. Ensure that you have the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed in Visual Studio Code.
+
+1. [![Open this project in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo)
 
 1. Open a new terminal in the editor.
 
@@ -387,7 +373,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 
-1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository.
+1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
 
     :::image type="content" source="./media/get-started-app-chat-document-security-trim/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
@@ -410,11 +396,10 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 ## Get help
 
-This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main#troubleshooting).
+This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main#troubleshooting).
 
 ## Next steps
 
-* [Enterprise chat app GitHub repository](https://github.com/Azure-Samples/azure-search-openai-javascript)
 * [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat) best practice solution architecture
 * [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
 * [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-an-enterprise-ready-azure-openai-solution-with-azure-api/bc-p/3935407)

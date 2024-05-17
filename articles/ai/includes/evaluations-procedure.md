@@ -23,8 +23,7 @@ This article was tested with the `switzerlandnorth` region for the evaluation de
 1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/ai-rag-chat-evaluator`](https://github.com/Azure-Samples/ai-rag-chat-evaluator) GitHub repository.
 1. Right-click on the following button, and select _Open link in new window_ in order to have both the development environment and the documentation available at the same time. 
 
-    > [!div class="nextstepaction"]
-    > [Open this project in GitHub Codespaces](https://github.com/codespaces/new?azure-portal=true&hide_repo_select=true&ref=main&repo=721389005)
+    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/ai-rag-chat-evaluator)
 
 1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**
 
@@ -55,26 +54,9 @@ This article was tested with the `switzerlandnorth` region for the evaluation de
 
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
-
-1. Clone the [Azure-Samples/ai-rag-chat-evaluator](https://github.com/Azure-Samples/ai-rag-chat-evaluator) GitHub repository to your local machine.
-
-    ```bash
-    git clone https://github.com/Azure-Samples/ai-rag-chat-evaluator
-    ```
-
-1. Open **Visual Studio Code** in the context of the cloned repo:
-
-    ```bash
-    cd ai-rag-chat-evaluator
-    code .
-    ```
-
 1. Ensure that you have the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed in Visual Studio Code.
 
-1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
-
-    > [!TIP]
-    > Visual Studio Code may automatically prompt you to reopen the existing folder within a development container. This is functionally equivalent to using the command palette to reopen the current workspace in a container.
+1. [![Open this project in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Azure-Samples/ai-rag-chat-evaluator)
 
 1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
 

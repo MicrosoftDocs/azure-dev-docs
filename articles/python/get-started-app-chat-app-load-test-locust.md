@@ -1,7 +1,7 @@
 ---
 title: Get started load testing Python enterprise chat sample using RAG
 description: Get started load testing Python chat app 
-ms.date: 03/18/2024
+ms.date: 05/16/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, build-2024-intelligent-apps
@@ -26,10 +26,9 @@ Watch the demonstration video to understand more about load testing the chat app
     * You only need a [GitHub account](https://github.com/login)
     
     #### [Visual Studio Code](#tab/visual-studio-code)
-    
-    * [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
     * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-    * [Visual Studio Code](https://code.visualstudio.com/) with [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+    * [Visual Studio Code](https://code.visualstudio.com/)
+    * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
         
     ---
 
