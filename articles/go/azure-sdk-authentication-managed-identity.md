@@ -18,9 +18,13 @@ Follow this tutorial to assign a managed identity to a virtual machine and authe
 
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
 
-## 1. Configure your environment
+- If you want to use the Azure CLI to run the steps in this article:
 
-Before you begin, you need to configure your environment.
+  [!INCLUDE [Azure CLI prerequisites](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+## 1. Create Azure resources
+
+Before you begin, you need to create a new resource group, virtual machine, and  key vault instance.
 
 ### Deploy a virtual machine
 

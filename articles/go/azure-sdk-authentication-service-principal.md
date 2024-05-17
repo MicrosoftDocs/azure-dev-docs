@@ -19,7 +19,7 @@ Follow this tutorial to create and authenticate with the Azure SDK for Go using 
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
 - **Go installed**: Version 1.18 or [above](https://go.dev/dl/)
 
-## 1. Configure your environment
+## 1. Create Azure resources
 
 Before you begin, create a new resource group and key vault instance.
 
