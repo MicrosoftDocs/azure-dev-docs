@@ -10,11 +10,11 @@ zone_pivot_group_filename: developer/intro/intro-zone-pivot-groups.yml
 zone_pivot_groups: intelligent-apps-languages-top-four
 ---
 
-# AI app templates
+# AI application templates
 
-This section of the documentation introduces you to the *AI app templates* and related articles that use these templates to demonstrate how to perform key developer tasks. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+This section of the documentation introduces you to the *AI application templates* and related articles that use these templates to demonstrate how to perform key developer tasks. AI application templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
-There are two categories of AI app templates, **building blocks** and **end-to-end solutions**.
+There are two categories of AI application templates, **building blocks** and **end-to-end solutions**.
 
 ## Building blocks
 

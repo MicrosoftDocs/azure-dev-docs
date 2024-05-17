@@ -18,7 +18,7 @@ items:
       items:
         - name: Use Azure OpenAI without passwords
           href: passwordless-connections.md
-    - name: Use AI app templates for key scenarios
+    - name: Use AI application templates for key scenarios
       items:
         - name: Overview
           href: intelligent-app-templates.md
@@ -62,7 +62,7 @@ items:
           href: ../python/get-started-app-chat-document-security-trim.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Connect a JavaScript frontend and Python backend
           href: ../javascript/chat-app-with-separate-front-back-end.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-        - name: Get started with Serverless AI chat with RAG using LangChain.js
+        - name: Serverless AI chat with RAG using LangChain.js
           href: ../javascript/get-started-app-chat-template-langchainjs.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
     - name: Resources
       items:
@@ -132,3 +132,5 @@ items:
               href: /dotnet/ai/quickstarts/quickstart-azure-openai-tool?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: Generate images
               href: /dotnet/ai/quickstarts/quickstart-openai-generate-images?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+        - name: Go
+          href: ../go/azure-ai-for-go-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json

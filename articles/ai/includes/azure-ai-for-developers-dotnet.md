@@ -1,10 +1,10 @@
-## AI app templates
+## AI application templates
 
-[AI app templates](../intelligent-app-templates.md?pivots=dotnet) provide you with well-maintained, easy to deploy reference implementations. These ensure a high-quality starting point for your intelligent applications. The end-to-end solutions provide popular, comprehensive reference applications. The building blocks are smaller-scale samples that focus on specific scenarios and tasks.
+[AI appication templates](../intelligent-app-templates.md?pivots=dotnet) provide you with well-maintained, easy to deploy reference implementations. These ensure a high-quality starting point for your intelligent applications. The end-to-end solutions provide popular, comprehensive reference applications. The building blocks are smaller-scale samples that focus on specific scenarios and tasks.
 
 ## Azure OpenAI Service
 
-The Azure OpenAIprovides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Azure OpenAI SDK for .NET, or the web-based interface in the Azure OpenAI Studio.
+Azure OpenAI Service provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Azure OpenAI SDK for .NET, or the web-based interface in the Azure OpenAI Studio.
 
 ### Documentation
 
@@ -52,7 +52,7 @@ The Azure OpenAIprovides REST API access to OpenAI's powerful language models. T
 
 ## Other Azure AI Services
 
-The Azure AI Services is a collection of services (including Azure OpenAI Services) that help developers and organizations rapidly create intelligent, market-ready, and responsbile applications with out-of-the-box and prebuilt customizable APIs and models. It encompases speech, vision, search, and more.
+Azure AI Services are a collection of services (including Azure OpenAI Service) that help developers and organizations rapidly create intelligent, market-ready, and responsbile applications with out-of-the-box and prebuilt customizable APIs and models. These services include speech, vision, search, and more.
 
 ### Documentation
 
