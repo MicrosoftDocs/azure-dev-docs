@@ -369,23 +369,23 @@ Next SSH into the Azure virtual machine, install Go, and built the Go package.
 
     ```
 
-Before you run the code, create an environment variable named `KEY_VAULT_NAME`. Set the environment variable's value to the name of the Azure Key Vault created previously. Replace `<keyVaultName>` with the name of your Azure Key Vault instance.
+1. Create an environment variable named `KEY_VAULT_NAME`. Replace `<keyVaultName>` with the name of your Azure key vault instance.
 
-```bash
-export KEY_VAULT_NAME=<keyVaultName>
-```
+    ```bash
+    export KEY_VAULT_NAME=<keyVaultName>
+    ```
 
-Next, run `go run` command to create a key vault secret.
+1. Run `go run` command to create a key vault secret.
 
-```bash
-go run main.go
-```
+    ```bash
+    go run main.go
+    ```
 
-On success, the output is similar to the following:
+    On success, the output is similar to the following:
 
-```Output
-Name: https://<keyVaultName>.vault.azure.net/secrets/quickstart-secret/0e0b941824c4493bb3b83045a31b2bf7, Value: createdWithGO
-```
+    ```Output
+    Name: https://<keyVaultName>.vault.azure.net/secrets/quickstart-secret/0e0b941824c4493bb3b83045a31b2bf7, Value: createdWithGO
+    ```
 
 You can verify the key vault secret was created using Azure PowerShell, Azure CLI, or the Azure portal.
 
@@ -399,10 +399,10 @@ If you no longer want to use the Azure resources you created in this article, it
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group delete --name go-on-azure --force-deletion-types Microsoft.Compute/virtualMachines --yes --no-wait
+az group delete --name go-on-azure --force-deletion-types Microsoft.Compute/virtualMachines --yes
 ```
 
-The `force-deletion-type` argument tells the command to force deletion of VMs in the resource group. The `--yes` argument tells the command not to ask for confirmation. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
+The `force-deletion-type` argument tells the command to force deletion of VMs in the resource group. The `--yes` argument tells the command not to ask for confirmation.
 
 The preceding command performs a [soft delete](/azure/key-vault/general/soft-delete-overview) on the key vault in the resource group. To permanently remove it from your subscription, enter the following command:
 

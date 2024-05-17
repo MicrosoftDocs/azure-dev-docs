@@ -1,7 +1,7 @@
 ---
 title: Azure SDK for Go authentication with a service principal
 description: In this tutorial, you use the Azure SDK for Go to authenticate to Azure with an Azure service principal using a secret or a certificate.
-ms.date: 05/10/2024
+ms.date: 05/17/2024
 ms.topic: how-to
 ms.custom: devx-track-go
 ---
@@ -156,14 +156,14 @@ New-AzRoleAssignment @roleAssignmentParams
 # Export the service principal App ID
 $sp.AppId
 
-# get the Tenant ID
+# Get the Tenant ID
 (Get-AzTenant).Id
 
 ```
 
 Replace `<servicePrincipalName>` and `<keyVaultId>` with the appropriate value.
 
-Note down the App ID, Tenant ID, and the password you entered. You need them in the next section.
+Note down the App ID, Tenant ID, and the password you entered. You need them in the next section. You also need the full path of the certificate file, which you can find in the output of the `Export_PfxCertificate` cmdlet.
 
 ---
 
@@ -212,7 +212,8 @@ $env:AZURE_CLIENT_SECRET="<service_principal_password>"
 |-|-
 |`AZURE_CLIENT_ID`|Application ID of an Azure service principal
 |`AZURE_TENANT_ID`|ID of the application's Microsoft Entra tenant
-|`AZURE_CLIENT_CERTIFICATE_PATH`|Path to a certificate file including private key (without password protection)
+|`AZURE_CLIENT_CERTIFICATE_PATH`|Path to a certificate file including private key. If you followed the steps for the Azure CLI, the file isn't password protected. If you followed the steps for Azure PowerShell, the file is password protected, and you'll also need to set the `AZURE_CLIENT_CERTIFICATE_PASSWORD` variable.
+|`AZURE_CLIENT_CERTIFICATE_PASSWORD`|The password you entered when you created the service principal. Only needed if you followed the steps for Azure PowerShell.
 
 # [Bash](#tab/azure-cli)
 
@@ -235,7 +236,7 @@ $env:AZURE_CLIENT_CERTIFICATE_PASSWORD="<azure_client_certificate_password>"
 
 ### Use DefaultAzureCredential to authenticate a resource client
 
-After you set the environment variables, you can use `NewDefaultAzureCredential` in the Azure Identity module to authenticate a resource client. The following code shows how to get an instance of `DefaultAzureCredential`.
+After you set the environment variables, you can use `DefaultAzureCredential` in the Azure Identity module to authenticate a resource client. The following code shows how to get an instance of `DefaultAzureCredential`.
 
 ```go
 cred, err := azidentity.NewDefaultAzureCredential(nil)
@@ -356,10 +357,10 @@ If you no longer want to use the Azure resources you created in this article, it
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group delete --name go-on-azure --yes --no-wait
+az group delete --name go-on-azure --yes
 ```
 
-The `--yes` argument tells the command not to ask for confirmation. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
+The `--yes` argument tells the command not to ask for confirmation.
 
 The preceding command performs a [soft delete](/azure/key-vault/general/soft-delete-overview) on the key vault in the resource group. To permanently remove it from your subscription, enter the following command:
 
