@@ -1,8 +1,7 @@
 ---
 title: Develop Go apps that use Azure AI services
-description: This article provides an organized list of resources about Azure AI scenarios for JavaScript developers, including documentation and code samples.
+description: This article provides an organized list of resources about Azure AI scenarios for Go developers, including documentation and code samples.
 keywords: ai, azure openai service
-ms.subservice: intelligent-apps
 ms.topic: overview
 ms.date: 5/16/2024
 ms.custom: overview, devx-track-go, build-2024-intelligent-apps
