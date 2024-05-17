@@ -1068,3 +1068,5 @@ Continue to explore options to run JBoss EAP on Azure.
 
 > [!div class="nextstepaction"]
 > [Learn more about JBoss EAP on Azure](../ee/jboss-on-azure.md)
+
+If you’re interested in keeping up to date with latest developments, select **Contact Me** on the overview page of [JBoss EAP on Azure](https://aka.ms/eap-contact-me) at Azure Marketplace, and register to be notified when new offers are made available.
