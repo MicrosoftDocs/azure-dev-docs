@@ -5,7 +5,7 @@ ms.date: 05/15/2024
 ms.service: azure
 ---
 
-| Building Block | Description | Documentation |
+| Building Block | Description | Article |
 |----------------|-------------|---------------|
 | Secure Azure resources with passwordless connections | Application requests to most Azure services must be authenticated with keys or passwordless connections. Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate to the service. Passwordless authentication offers improved management and security benefits over the account key because there's no key (or connection string) to store. | [Use Azure OpenAI without passwords](../passwordless-connections.md) |
 | Add document security trimming to Azure AI Search  |  When you build a chat application using the RAG pattern with your own data, make sure that each user receives an answer based on their permissions. An authorized user should have access to answers contained within the documents of the chat app. An unauthorized user shouldn't have access to answers from secured documents they don't have authorization to see. | [Configure document security for the Python chat app](../../python/get-started-app-chat-document-security-trim.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json) |
