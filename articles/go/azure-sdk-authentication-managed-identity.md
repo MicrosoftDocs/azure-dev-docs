@@ -1,7 +1,7 @@
 ---
 title: Authentication with the Azure SDK for Go using a managed identity
 description: In this tutorial, you use the Azure SDK for Go to authenticate to Azure with a managed identity.
-ms.date: 05/09/2024
+ms.date: 05/17/2024
 ms.topic: how-to
 ms.custom: devx-track-go, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -20,7 +20,11 @@ Follow this tutorial to assign a managed identity to a virtual machine and authe
 
 - If you want to use the Azure CLI to run the steps in this article:
 
-  [!INCLUDE [Azure CLI prerequisites](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+  [!INCLUDE [Azure CLI prerequisites no header](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+- If you want to use Azure PowerShell to run the steps in this article:
+
+  [!INCLUDE [Azure PowerShell prerequisites no header](./includes/azure-powershell-requirements-no-header.md)]
 
 ## 1. Create Azure resources
 

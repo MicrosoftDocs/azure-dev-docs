@@ -17,7 +17,16 @@ Follow this tutorial to create and authenticate with the Azure SDK for Go using 
 ## Prerequisites
 
 [!INCLUDE [azure-subscription.md](includes/azure-subscription.md)]
+
 - **Go installed**: Version 1.18 or [above](https://go.dev/dl/)
+
+- If you want to use the Azure CLI to run the steps in this article:
+
+  [!INCLUDE [Azure CLI prerequisites no header](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+- If you want to use Azure PowerShell to run the steps in this article:
+
+  [!INCLUDE [Azure PowerShell prerequisites no header](./includes/azure-powershell-requirements-no-header.md)]
 
 ## 1. Create Azure resources
 
