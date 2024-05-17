@@ -7,9 +7,9 @@ ms.service: azure
 
 ### Enterprise chat with JavaScript
 
-This AI template is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
+This template is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
 
-To get started with this AI template, see [Get started with the JavaScript enterprise chat sample using RAG](../../javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json). To access the source code and read in-depth details about the template, see the [azure-search-openai-javascript](https://github.com/azure-samples/azure-search-openai-javascript) GitHub repo.
+To get started with this template, see [Get started with the JavaScript enterprise chat sample using RAG](../../javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json). To access the source code and read in-depth details about the template, see the [azure-search-openai-javascript](https://github.com/azure-samples/azure-search-openai-javascript) GitHub repo.
 
 :::row:::
    :::column:::
@@ -20,7 +20,7 @@ To get started with this AI template, see [Get started with the JavaScript enter
    :::column-end:::
 :::row-end:::
 
-This AI template demonstrates the use of these features.
+This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
@@ -29,13 +29,13 @@ This AI template demonstrates the use of these features.
 
 ### Azure OpenAI chat frontend
 
-This AI template is a minimal OpenAI chat web component that can be hooked to any backend implementation as a client.
+This template is a minimal OpenAI chat web component that can be hooked to any backend implementation as a client.
 
 To access the source code and read in-depth details about the template, see the [azure-openai-chat-frontend](https://github.com/Azure-Samples/azure-openai-chat-frontend) GitHub repo.
 
 :::image source="../media/intelligent-app-templates/chat-frontend-javascript-video.gif" alt-text="Video demonstrating JavaScript chat frontend application.":::
 
-This AI template demonstrates the use of these features.
+This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
@@ -44,9 +44,9 @@ This AI template demonstrates the use of these features.
 
 ### Serverless AI chat with RAG using LangChain.js
 
-The AI template is a serverless AI chatbot with Retrieval Augmented Generation using LangChain.js and Azure that uses a set of enterprise documents to generate responses to user queries. It uses a fictitious company called Contoso Real Estate, and the experience allows its customers to ask support questions about the usage of its products. The sample data includes a set of documents that describes its terms of service, privacy policy and a support guide.
+The template is a serverless AI chatbot with Retrieval Augmented Generation using LangChain.js and Azure that uses a set of enterprise documents to generate responses to user queries. It uses a fictitious company called Contoso Real Estate, and the experience allows its customers to ask support questions about the usage of its products. The sample data includes a set of documents that describes its terms of service, privacy policy and a support guide.
 
-To learn how to deploy and run this AI template, see [Get started with Serverless AI Chat with RAG using LangChain.js](../../javascript/get-started-app-chat-template-langchainjs.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json). To access the source code and read in-depth details about the template, see the [serverless-chat-langchainjs](https://github.com/Azure-Samples/serverless-chat-langchainjs) GitHub repo.
+To learn how to deploy and run this template, see [Get started with Serverless AI Chat with RAG using LangChain.js](../../javascript/get-started-app-chat-template-langchainjs.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json). To access the source code and read in-depth details about the template, see the [serverless-chat-langchainjs](https://github.com/Azure-Samples/serverless-chat-langchainjs) GitHub repo.
 
 Learn [how to deploy and run](../../javascript/get-started-app-chat-template-langchainjs.md)
 this JavaScript [reference template](). 
@@ -60,7 +60,7 @@ this JavaScript [reference template]().
    :::column-end:::
 :::row-end:::
 
-This AI template demonstrates the use of these features.
+This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
@@ -83,7 +83,7 @@ https://review.learn.microsoft.com/en-us/azure/developer/javascript/media/get-st
    :::column-end:::
 :::row-end:::
 
-This AI template demonstrates the use of these features.
+This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|

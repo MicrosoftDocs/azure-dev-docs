@@ -7,9 +7,9 @@ ms.service: azure
 
 ### Enterprise chat with Python
 
-This AI template is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
+This template is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
 
-To get started with this AI template, see [Get started with the Python enterprise chat sample using RAG](../../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json). To access the source code and read in-depth details about the template, see the [azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repo.
+To get started with this template, see [Get started with the Python enterprise chat sample using RAG](../../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json). To access the source code and read in-depth details about the template, see the [azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repo.
 
 :::row:::
    :::column:::
@@ -20,7 +20,7 @@ To get started with this AI template, see [Get started with the Python enterpris
    :::column-end:::
 :::row-end:::
 
-This AI template demonstrates the use of these features.
+This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
@@ -29,7 +29,7 @@ This AI template demonstrates the use of these features.
 
 ### Multi-Modal Creative Writing Copilot with DALL-E
 
-This AI template is a creative writing multi-agent solution to help users write articles. It demonstrates how to create and work with AI agents driven by [Azure OpenAI](/azure/ai-services/openai/). It includes a Flask app that takes a topic and instruction from a user then calls a research agent that uses the [Bing Search API](/bing/search-apis/bing-web-search) to research the topic, a product agent that uses [Azure AI Search](/azure/search/) to do a semantic similarity search for related products from a vectore store, a writer agent to combine the research and product information into a helpful article, and an editor agent to refine the article that's finally presented to the user.
+This template is a creative writing multi-agent solution to help users write articles. It demonstrates how to create and work with AI agents driven by [Azure OpenAI](/azure/ai-services/openai/). It includes a Flask app that takes a topic and instruction from a user then calls a research agent that uses the [Bing Search API](/bing/search-apis/bing-web-search) to research the topic, a product agent that uses [Azure AI Search](/azure/search/) to do a semantic similarity search for related products from a vectore store, a writer agent to combine the research and product information into a helpful article, and an editor agent to refine the article that's finally presented to the user.
 
 To access the source code and read in-depth details about the template, see the [agent-openai-python-prompty](https://github.com/Azure-Samples/agent-openai-python-prompty) GitHub repo.
 
@@ -41,7 +41,7 @@ To access the source code and read in-depth details about the template, see the 
    :::column-end:::
 :::row-end:::
 
-This AI template demonstrates the use of these features.
+This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
@@ -50,7 +50,7 @@ This AI template demonstrates the use of these features.
 
 ### Contoso Chat Retail Copilot with AI Studio
 
-This AI template is a customer sales and support chat solution. It demonstrates how to build a Large Language Model (LLM) application with a RAG (Retrieval Augmented Generation) architecture using Azure AI Studio and Prompt Flow.
+This template is a customer sales and support chat solution. It demonstrates how to build a Large Language Model (LLM) application with a RAG (Retrieval Augmented Generation) architecture using Azure AI Studio and Prompt Flow.
 
 To access the source code and read in-depth details about the template, see the [contoso-chat](https://github.com/Azure-Samples/contoso-chat) GitHub repo.
 
@@ -62,7 +62,7 @@ To access the source code and read in-depth details about the template, see the 
    :::column-end:::
 :::row-end:::
 
-This AI template demonstrates the use of these features.
+This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
@@ -70,7 +70,7 @@ This AI template demonstrates the use of these features.
 
 ### Process automation with speech to text and summarization with AI Studio
 
-This AI template is a process automation solution that recieves issues reported by field and shop floor workers at a company called Contoso Manufacturing, a manufacturing company that makes car batteries. The issues are shared by the workers either live through microphone input, pre-recorded as audio files or as text input. The solution translates audio input from speech to text and then uses the text reports as input to an LLM and Prompty/Promptflow to summarize the issue and return the results in a format specified by the solution.
+This template is a process automation solution that recieves issues reported by field and shop floor workers at a company called Contoso Manufacturing, a manufacturing company that makes car batteries. The issues are shared by the workers either live through microphone input, pre-recorded as audio files or as text input. The solution translates audio input from speech to text and then uses the text reports as input to an LLM and Prompty/Promptflow to summarize the issue and return the results in a format specified by the solution.
 
 To access the source code and read in-depth details about the template, see the [summarization-openai-python-prompflow](https://github.com/Azure-Samples/summarization-openai-python-prompflow) GitHub repo.
 
@@ -82,7 +82,7 @@ To access the source code and read in-depth details about the template, see the 
    :::column-end:::
 :::row-end:::
 
-This AI template demonstrates the use of these features.
+This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
@@ -90,7 +90,7 @@ This AI template demonstrates the use of these features.
 
 ### Function calling with Prompty, LangChain and Elastic Search
 
-This AI template is an application that uses Prompty, Langchain, and Elasticsearch to build a large language model (LLM) search agent. This agent with Retrieval Augmented Generation (RAG) technology is is capable of answering user questions based on the provided data by integrating real-time information retrieval with generative responses.
+This template is an application that uses Prompty, Langchain, and Elasticsearch to build a large language model (LLM) search agent. This agent with Retrieval Augmented Generation (RAG) technology is is capable of answering user questions based on the provided data by integrating real-time information retrieval with generative responses.
 
 To access the source code and read in-depth details about the template, see the [agent-python-openai-prompty-langchain](https://github.com/Azure-Samples/agent-python-openai-prompty-langchain) GitHub repo.
 
@@ -102,7 +102,7 @@ To access the source code and read in-depth details about the template, see the 
    :::column-end:::
 :::row-end:::
 
-This AI template demonstrates the use of these features.
+This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
@@ -110,7 +110,7 @@ This AI template demonstrates the use of these features.
 
 ### Function calling with Prompty, LangChain and Pinecone
 
-This AI template utilizes the new Prompty tool, Langchain, and Pinecone to build a large language model (LLM) search agent. This agent with Retrieval Augmented Generation (RAG) technologyis is capable of answering user questions based on the provided data by integrating real-time information retrieval with generative responses.
+This template utilizes the new Prompty tool, Langchain, and Pinecone to build a large language model (LLM) search agent. This agent with Retrieval Augmented Generation (RAG) technologyis is capable of answering user questions based on the provided data by integrating real-time information retrieval with generative responses.
 
 To access the source code and read in-depth details about the template, see the [agent-openai-python-prompty-langchain-pinecone](https://github.com/Azure-Samples/agent-openai-python-prompty-langchain-pinecone) GitHub repo.
 
@@ -122,7 +122,7 @@ To access the source code and read in-depth details about the template, see the 
    :::column-end:::
 :::row-end:::
 
-This AI template demonstrates the use of these features.
+This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
@@ -130,7 +130,7 @@ This AI template demonstrates the use of these features.
 
 ### Assistant API Analytics Copilot with Python and Azure AI Studio
 
-This AI template is an Assistant API to chat with tabular data and perform analytics in natural language. To access the source code and read in-depth details about the template, see the [assistant-data-openai-python-promptflow](https://github.com/Azure-Samples/assistant-data-openai-python-promptflow) GitHub repo.
+This template is an Assistant API to chat with tabular data and perform analytics in natural language. To access the source code and read in-depth details about the template, see the [assistant-data-openai-python-promptflow](https://github.com/Azure-Samples/assistant-data-openai-python-promptflow) GitHub repo.
 
 :::row:::
    :::column:::
@@ -140,7 +140,7 @@ This AI template is an Assistant API to chat with tabular data and perform analy
    :::column-end:::
 :::row-end:::
 
-This AI template demonstrates the use of these features.
+This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|

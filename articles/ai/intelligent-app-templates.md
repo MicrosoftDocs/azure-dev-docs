@@ -12,7 +12,7 @@ zone_pivot_groups: intelligent-apps-languages-top-four
 
 # AI app templates
 
-This section of the documentation introduces you to the *Azure AI templates* and related articles that use these templates to demonstrate how to perform key developer tasks. Azure AI templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+This section of the documentation introduces you to the *AI app templates* and related articles that use these templates to demonstrate how to perform key developer tasks. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
 There are two categories of AI app templates, **building blocks** and **end-to-end solutions**.
 
