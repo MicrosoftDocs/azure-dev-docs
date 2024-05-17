@@ -56,9 +56,9 @@ You'll need to create a Microsoft Entra application and service principal and th
     az ad app create --display-name myApp
     ```
 
-    This command will output JSON with an `appId` that is your `client-id`. The `objectId` is `APPLICATION-OBJECT-ID` and it will be used for creating federated credentials with Graph API calls.
+    This command will output JSON with an `appId` that is your `client-id`. The `appId` will be used for creating federated credentials with Graph API calls.
 
-1. Create a service principal. Replace the `$appID` with the appId from your JSON output. This command generates JSON output with a different `objectId` will be used in the next step. The new  `objectId` is the `assignee-object-id`. 
+1. Create a service principal. Replace the `$appID` with the appId from your JSON output. This command generates a JSON output with a different `id`, that will be used in the next step. The new `id` is the `assignee-object-id`. 
 
     ```azurecli-interactive
      az ad sp create --id $appId
@@ -131,7 +131,7 @@ For a more detailed overview, see [Configure an app to trust a GitHub repo](/azu
 
 Run the following command to [create a new federated identity credential](/azure/active-directory/workload-identities/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azcli) for your Microsoft Entra application.
 
-* Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Microsoft Entra application.
+* Replace `APP-ID` with the **appId (generated while creating app)** for your Microsoft Entra application.
 * Set a value for `CREDENTIAL-NAME` to reference later.
 * Set the `subject`. The value of this is defined by GitHub depending on your workflow:
   * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
@@ -139,7 +139,7 @@ Run the following command to [create a new federated identity credential](/azure
   * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
 
 ```azurecli
-az ad app federated-credential create --id <APPLICATION-OBJECT-ID> --parameters credential.json
+az ad app federated-credential create --id <APP-ID> --parameters credential.json
 ("credential.json" contains the following content)
 {
     "name": "<CREDENTIAL-NAME>",
