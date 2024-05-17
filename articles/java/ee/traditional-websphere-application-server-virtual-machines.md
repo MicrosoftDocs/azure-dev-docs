@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines"
-description: Shows you how to deploy a WebSphere Application Server (traditional) cluster on Azure Virtual Machines.
+title: "Quickstart: Deploy WebSphere Application Server Network Deployment Cluster on Azure Virtual Machines"
+description: Shows you how to deploy a traditional WebSphere Application Server cluster on Azure Virtual Machines using Azure Marketplace offer.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
@@ -9,11 +9,11 @@ ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-tr
 
 ---
 
-# Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines
+# Quickstart: Deploy WebSphere Application Server Network Deployment Cluster on Azure Virtual Machines
 
-This article shows you how to quickly deploy a cluster of traditional WebSphere Application Server (tWAS) instances on Azure Virtual Machines (VMs).
+This article shows you how to quickly deploy a cluster of traditional WebSphere Application Server (tWAS) Network Deployment instances on Azure Virtual Machines (VMs).
 
-This article uses the Azure Marketplace offer for WebSphere Application Server Cluster to accelerate your journey to Azure VMs. The offer automatically provisions a number of resources including latest Red Hat Enterprise Linux (RHEL) VMs with fixes, latest WebSphere Application Server ND 9.0.5.x on each VM with fixes, latest IBM JDK 8 with fixes on each VM, a Deployment Manager on one of the VMs with Administrative Console enabled, and optionally an IBM HTTP Server (IHS) or Azure Application Gateway as load balancer. To see the offer, visit the [Azure portal](https://aka.ms/twas-cluster-portal). If you prefer manual step-by-step guidance for installing WebSphere Application Server Cluster that doesn't utilize the automation enabled by the offer, see [Tutorial: Manually install IBM WebSphere Application Server Network Deployment traditional on Azure Virtual Machines](../migration/migrate-websphere-to-azure-vm-manually.md).
+This article uses the Azure Marketplace offer for WebSphere Application Server Cluster to accelerate your journey to Azure VMs. The offer automatically provisions a number of resources including latest Red Hat Enterprise Linux (RHEL) VMs with fixes, latest WebSphere Application Server ND 9.0.5.x on each VM with fixes, latest IBM JDK 8 with fixes on each VM, a Deployment Manager on one of the VMs with Administrative Console enabled, and optionally an IBM HTTP Server (IHS) or Azure Application Gateway as load balancer. Visit Azure portal to see the offer [IBM WebSphere Application Server Network Deployment Cluster on Azure VMs](https://ibm.biz/twas-cluster-portal). If you prefer manual step-by-step guidance for installing WebSphere Application Server Cluster that doesn't utilize the automation enabled by the offer, see [Tutorial: Manually install IBM WebSphere Application Server Network Deployment traditional on Azure Virtual Machines](../migration/migrate-websphere-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ This article uses the Azure Marketplace offer for WebSphere Application Server C
 
 ## Deploy a cluster
 
-In this article, we use the [IBM WebSphere Application Server Cluster](https://aka.ms/websphere-on-azure-portal) offer from the Azure portal. The offer automates common steps for deploying a tWAS cluster. You can find more background and a demo video on the offer page.
+In this article, we use the Azure Marketplace offer [IBM WebSphere Application Server ND Cluster on Azure VMs](https://ibm.biz/twas-cluster-portal) from the Azure portal. The offer automates common steps for deploying a traditional WebSphere Application Server Network Deployment cluster. You can find more background and a demo video on the offer page.
 
 You can start creating your deployment from the page. By default, the deployment consists of the following VMs:
 
@@ -144,4 +144,11 @@ az group delete --name <resource-group-name> --yes --no-wait
 
 ## Next steps
 
-Now that you've learned how to deploy a WebSphere Application Server (traditional) cluster to Azure Virtual Machines, feel free to review and provide feedback on the [offering](https://aka.ms/websphere-on-vms-review). If you’re interested in keeping up to date with latest developments, select **Contact Me** on the [offering overview page](https://ibm.biz/WASAzureContactMe), and register to be notified when new offers are made available.
+Continue to explore options to run WebSphere products on Azure.
+
+> [!div class="nextstepaction"]
+> [What are solutions to run the IBM WebSphere family of products on Azure?](../ee/websphere-family.md)
+
+If you’re interested in keeping up to date with latest developments, select **Contact Me** on the overview page of [IBM WebSphere Product Family on Azure](https://aka.ms/websphere-on-azure-contactme) at Azure Marketplace, and register to be notified when new offers are made available.
+
+
