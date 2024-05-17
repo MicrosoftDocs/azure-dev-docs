@@ -1,5 +1,5 @@
 items:
-- name: Develop AI applications using Azure AI services
+- name: Develop AI apps using Azure AI services
   href: index.yml
   items:
     - name: Overview
@@ -18,7 +18,7 @@ items:
       items:
         - name: Use Azure OpenAI without passwords
           href: passwordless-connections.md
-    - name: Use AI application templates for key scenarios
+    - name: Use AI app templates for key scenarios
       items:
         - name: Overview
           href: intelligent-app-templates.md

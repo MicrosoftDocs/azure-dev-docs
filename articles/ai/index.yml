@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Develop AI applications using Azure AI services
+title: Develop AI apps using Azure AI services
 summary: |
   Build applications with generative AI capabilities on Azure.
 
 metadata:
-  title: Develop AI applications using Azure AI services
+  title: Develop AI apps using Azure AI services
   description: Get started developing generative AI capabilities into your applications.
   ms.date: 5/15/2024
   ms.topic: landing-page
@@ -25,11 +25,11 @@ landingContent:
           - text: Advanced Retrieval-Augmented Generation
             url: advanced-retrieval-augmented-generation.md
 
-  - title: Learn with AI application templates
+  - title: Learn with AI app templates
     linkLists:
       - linkListType: overview
         links:
-          - text: AI application templates
+          - text: AI app templates
             url: intelligent-app-templates.md
       - linkListType: get-started
         links:

@@ -8,8 +8,8 @@ ms.date: 11/17/2023
 ms.custom: overview, devx-track-js, devx-track-js-ai, build-2024-intelligent-apps
 ---
 
-# Develop AI applications with JavaScript
+# Develop AI apps with JavaScript
 
-This article contains an organized list of the best learning resources for JavaScript developers who are getting started building AI applications. Resources include popular quickstart articles, reference samples, documentation, training courses, and so on.
+This article contains an organized list of the best learning resources for JavaScript developers who are getting started building AI apps. Resources include popular quickstart articles, reference samples, documentation, training courses, and so on.
 
 [!INCLUDE [azure-ai-for-developers-javascript](../ai/includes/azure-ai-for-developers-javascript.md)]

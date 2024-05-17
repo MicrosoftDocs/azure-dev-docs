@@ -8,9 +8,9 @@ ms.date: 5/14/2024
 ms.custom: overview, devx-track-dotnet, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python, build-2024-intelligent-apps
 ---
 
-# Overview of AI application development
+# Overview of AI app development
 
-This documentation is designed for experienced developers who are new to building generative AI applications on Azure using Azure OpenAI Services and their favorite programming language.
+This documentation is designed for experienced developers who are new to building generative AI apps on Azure using Azure OpenAI Services and their favorite programming language.
 
 ## Introduction to generative AI for developers
 
@@ -18,14 +18,14 @@ These articles provide an overview of some foundational concepts relevant to bui
 
 |Article|Description|
 |---|---|
-|[Introduction to developing generative AI applications for experienced developers](./introduction-build-generative-ai-solutions.md)|Explores the developers role in integrating generative AI into applications, exploring its business benefits, operational fundamentals, and the potential of large language models (LLMs).|
+|[Introduction to developing generative AI apps for experienced developers](./introduction-build-generative-ai-solutions.md)|Explores the developers role in integrating generative AI into applications, exploring its business benefits, operational fundamentals, and the potential of large language models (LLMs).|
 |[Important concepts and considerations for developers building generative AI solutions](./gen-ai-concepts-considerations-developers.md)|Explains the limitations of LLMs and where LLMs get their information, how tokenization works and impacts results, and how to get the best results by modifying prompts, implementing an inference pipeline and tweaking optional API call parameters.|
 |[Augmenting a Large Language Model with Retrieval-Augmented Generation and Fine-tuning](./augment-llm-rag-fine-tuning.md)|Details the two mechanisms that developers can use to augment the information LLMs use to compose their models: retrieval-augmented generation and fine-tuning.|
 |[Building advanced Retrieval-Augmented Generation systems](./advanced-retrieval-augmented-generation.md)|Discusses real-world considerations and patterns for RAG-based chat systems.|
 
-## AI application templates
+## AI app templates
 
-There are many AI application templates that provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps. These templates include building blocks (smaller-scale samples that focus on specific scenarios and tasks) and complete end-to-end solutions for each programming language. For a list of the available templates, see [AI application templates](./intelligent-app-templates.md).
+There are many AI app templates that provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps. These templates include building blocks (smaller-scale samples that focus on specific scenarios and tasks) and complete end-to-end solutions for each programming language. For a list of the available templates, see [AI app templates](./intelligent-app-templates.md).
 
 One of the most popular templates is the enterprise chat sample using RAG.
 
