@@ -12,7 +12,7 @@ ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli, build-
 
 This article shows you how to deploy and run the [Enterprise chat app sample for JavaScript](https://github.com/Azure-Samples/azure-search-openai-javascript). This sample implements a chat app using JavaScript, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about rental properties. The rental properties chat app is seeded with data from markdown files (*.md) including a privacy policy, terms of service, and support. 
 
-* [Demo JavaScript](https://aka.ms/azai/js/video) -  fullstack video
+* [Demo JavaScript](https://aka.ms/azai/js/video) -  full stack video
 * [Demo JavaScript](https://aka.ms/azai/js.py/video) - frontend with Python backend video
 
 By following the instructions in this article, you will:
@@ -35,7 +35,7 @@ A simple architecture of the chat app is shown in the following diagram:
 
 :::image type="content" source="./media/get-started-app-chat-template/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
-The chat sample application is built for a fictitious company called _Contoso Real Estate_, and the intelligent chat experience allows its customers to ask support questions about the usage of its products. The sample data includes a set of documents that describe its terms of service, privacy policy and a support guide. The documents are ingested into the architecture during deployment
+The chat sample application is built for a fictitious company called _Contoso Real Estate_, and the intelligent chat experience allows its customers to ask support questions about the usage of its products. The sample data includes a set of documents that describe its terms of service, privacy policy and a support guide. The documents are ingested into the architecture during deployment.
 
 The application is made from multiple components, including:
 
@@ -243,9 +243,9 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 
-1. Locate your currently running codespaces sourced from the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository.
+1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository.
 
-    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running codespaces including their status and templates.":::
+    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
 1. Open the context menu for the codespace and then select **Delete**.
 

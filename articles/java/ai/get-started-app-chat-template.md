@@ -44,7 +44,7 @@ Key components of the architecture include:
 
 ## Cost 
 
-Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you only pay for what you use. To complete this article, there will be a charge but it will be minimal. When you are done with the article, you can delete the resources to stop incurring charges.
+Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you only pay for what you use. To complete this article, there will be a charge but it will be minimal. When you're done with the article, you can delete the resources to stop incurring charges.
 
 Learn more about [cost in the sample repo](https://github.com/Azure-Samples/azure-search-openai-demo-java#cost-estimation).
 
@@ -175,7 +175,7 @@ The chat app is preloaded with employee benefits information from [PDF files](ht
     |**Supporting content**|This includes the information to answer your question and the source material.|
     |**Citation**|This displays the PDF page that contains the citation.|
 
-1. When you are done, select the selected tab again to close the pane.
+1. When you're done, select the selected tab again to close the pane.
 
 ### Use chat app settings to change behavior of responses
 
@@ -222,7 +222,7 @@ The following steps walk you through the process of changing the settings.
 
     For example the response, which used the Semantic ranker provided a single answer: `The deductible for the Northwind Health Plus plan is $2,000 per year`.
 
-    The reponse without semantic ranking returned an answer, which required more work to get the answer: `Based on the information provided, it is unclear what your specific deductible is. The Northwind Health Plus plan has different deductible amounts for in-network and out-of-network services, and there is also a separate prescription drug deductible. I would recommend checking with your provider or referring to the specific benefits details for your plan to determine your deductible amount`.
+    The response without semantic ranking returned an answer, which required more work to get the answer: `Based on the information provided, it is unclear what your specific deductible is. The Northwind Health Plus plan has different deductible amounts for in-network and out-of-network services, and there is also a separate prescription drug deductible. I would recommend checking with your provider or referring to the specific benefits details for your plan to determine your deductible amount`.
 
 ## Clean up resources
 
