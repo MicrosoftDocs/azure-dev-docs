@@ -30,7 +30,7 @@
     - name: Get started with Enterprise chat
       href: get-started-app-chat-template.md
       display: Azure OpenAI, OpenAI, AI
-    - name: Serverless Azure OpenAI Assistant with function end-to-end/contoso-real-estate-serverless-api-migration.md
+    - name: Serverless Azure OpenAI Assistant with function calling
       href: get-started-app-chat-assistants-function-calling.md
       display: Azure OpenAI, OpenAI, AI, function calling, assistants
     - name: JavaScript frontend + Python backend
