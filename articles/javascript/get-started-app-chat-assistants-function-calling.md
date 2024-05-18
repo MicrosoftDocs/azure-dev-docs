@@ -1,7 +1,7 @@
 ---
 title: "JavaScript Azure OpenAI Assistants and function calling"
 description: "This article shows you how to deploy and run the serverless Azure OpenAI Assistant with function calling."
-ms.date: 05/06/2024
+ms.date: 05/18/2024
 ms.topic: get-started
 ms.service: azure-javascript
 ms.subservice: intelligent-apps
@@ -13,6 +13,8 @@ ms.custom: devx-track-js, devx-track-js-ai
 This article shows you how to deploy and run the [serverless Azure OpenAI Assistant Quick Start](https://github.com/Azure-Samples/azure-openai-assistant-javascript). This sample implements an assistants app using JavaScript, Azure OpenAI Service assistants with function calling, and Azure Functions to get the latest stock price.
 
 ## Architectural overview
+
+Azure OpenAI Assistants allows you to create AI assistants tailored to your needs through custom instructions and augmented by advanced tools like code interpreter, and custom functions. In this article, we provide an in-depth walkthrough of getting started with the Assistants API.
 
 :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
