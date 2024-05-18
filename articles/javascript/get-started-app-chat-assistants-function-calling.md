@@ -24,7 +24,7 @@ This application is built around two main components:
 
 - A serverless API built with [Azure Functions](/azure/azure-functions/functions-overview?pivots=programming-language-javascript) and using OpenAI JavaScript SDK. The serverless app sends the assistants definition including the function call to the OpenAI endpoint. The endpoint responds with the follow-up function call and the parameters needed to complete that call. 
 
-    - The sample's function call generates a random stock ticker value based on the stock symbol sent into the Azure Function. 
+    - The sample's function call simulates an API call by generating a random stock ticker value based on the stock symbol sent into the Azure Function. This simulation can be replaced with a remote API in your solution.
 
 ## Prerequisites
 
@@ -157,7 +157,7 @@ The sample repository contains all the code and configuration files you need to 
 
 You can use the assistant app to get the stock market price of `MSFT`. The following steps walk you through the process of using the assistant app.
 
-1. In the browser, select or enter **What is the refund policy** in the text box at the bottom of the page.
+1. In the browser, select the **Run** button.
 
     :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-demo.png" alt-text="Screenshot of assistant app's first answer.":::
 
