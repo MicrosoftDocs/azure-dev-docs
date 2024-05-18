@@ -10,7 +10,7 @@ ms.custom: devx-track-js, devx-track-js-ai
 ---
 # Get started with Azure OpenAI with Assistants and function calling in JavaScript
 
-This article shows you how to deploy and run the [serverless Azure OpenAI Assistant Quick Start](https://github.com/Azure-Samples/azure-openai-assistant-javascript). This sample implements an assistants app using JavaScript, Azure OpenAI Service assistants with function calling, and Azure Functions to get the latest stock price.
+This article shows you how to deploy and run the [serverless Azure OpenAI Assistant Quick Start](https://github.com/Azure-Samples/azure-openai-assistant-javascript). This sample implements an assistants app using JavaScript, Azure OpenAI Service assistants with function calling, and Azure Functions.
 
 ## Architectural overview
 
