@@ -33,7 +33,7 @@ items:
                 - name: Serverless AI chat with RAG using LangChain.js
                   href: ../javascript/get-started-app-chat-template-langchainjs.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
                 - name: Serverless Azure OpenAI Assistants with function calling
-                  href: get-started-app-chat-assistants-function-calling.md
+                  href: ../javascript/get-started-app-chat-assistants-function-calling.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: Java
               href: ../java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: .NET
