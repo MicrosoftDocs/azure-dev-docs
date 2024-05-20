@@ -4,7 +4,7 @@ description: "Secure your chat app documents with user authentication and docume
 ms.date: 05/13/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
-ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli
+ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
 # CustomerIntent: 
 ---
 
@@ -19,6 +19,9 @@ An **authorized user** should have access to answers contained within the docume
 An **unauthorized user** shouldn't have access to answers from secured documents they don't have authorization to see.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trim/chat-answer-with-no-access.png" alt-text="Screenshot of chat app with answer indicating user doesn't have access to data.":::
+
+> [!NOTE]
+> This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
 ## Architectural overview
 
@@ -63,15 +66,13 @@ You need more prerequisites depending on your preferred development environment.
 
 #### [Codespaces (recommended)](#tab/github-codespaces)
 
-1. [GitHub account](https://github.com/login)
+* [GitHub account](https://github.com/login)
 
 #### [Visual Studio Code](#tab/visual-studio-code)
-
-1. [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
-1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-1. [Visual Studio Code](https://code.visualstudio.com/)
-1. [Git](https://git-scm.com/downloads)
-1. [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+* [Azure Developer CLI](/azure/developer/azure-developer-cli)
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ---
 
@@ -111,41 +112,32 @@ Begin now with a development environment that has all the dependencies installed
 
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
-1. Fork the sample repository with the following link: [azure-samples/azure-search-openai-demo](https://github.com/azure-samples/azure-search-openai-demo/fork).
+1. Create a new local directory on your computer for the project. 
 
-1. Clone your fork to your local computer. Replace `<GITHUB_USER>` with your GITHUB user name.
-
-    ```console
-    git clone https://github.com/<GITHUB_USER>/azure-search-openai-demo
+    ```bash
+    mkdir my-intelligent-app && cd my-intelligent-app
     ```
 
-1. Open **Visual Studio Code** in the new directory.
+1. Open Visual Studio Code in that directory:
 
-    ```console
-    cd azure-search-openai-demo && code .
+    ```bash
+    code .
     ```
 
-1. Ensure that you have the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed in Visual Studio Code.
+1. Open a new terminal in Visual Studio Code.
+1. Run the following AZD command to bring the GitHub repository to your local computer.
 
-1. Open a new terminal in the editor.
+    ```bash
+    azd init -t azure-search-openai-demo
+    ```
 
-    > [!TIP]
-    > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
-    >
-    > :::image type="content" source="./media/get-started-app-chat-document-security-trim/open-terminal-option.png" lightbox="./media/get-started-app-chat-document-security-trim/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
-
-1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
-
-1. Reopen the Terminal window again (<kbd>Ctrl</kbd> + <kbd>`</kbd>) and leave it open.
-
+1. Open the Command Palette, search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing. 
 1. Sign in to Azure with the Azure Developer CLI.
 
     ```bash
     azd auth login
     ```
-
-    Complete the authentication process.
-
+    Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
 1. The remaining exercises in this project take place in the context of this development container.
 
 ---
@@ -387,7 +379,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 
-1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository.
+1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
 
     :::image type="content" source="./media/get-started-app-chat-document-security-trim/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
@@ -410,11 +402,10 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 ## Get help
 
-This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-javascript/tree/main#troubleshooting).
+This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main#troubleshooting).
 
 ## Next steps
 
-* [Enterprise chat app GitHub repository](https://github.com/Azure-Samples/azure-search-openai-javascript)
 * [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat) best practice solution architecture
 * [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
 * [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-an-enterprise-ready-azure-openai-solution-with-azure-api/bc-p/3935407)

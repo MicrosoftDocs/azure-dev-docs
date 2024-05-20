@@ -7,6 +7,9 @@ items:
     tocHref: /azure/developer
     topicHref: /azure/developer/index
     items:
+    - name: AI
+      tocHref: /azure/developer/ai
+      topicHref: /azure/developer/ai/index
     - name: Ansible
       tocHref: /azure/developer/ansible
       topicHref: /azure/developer/ansible/index

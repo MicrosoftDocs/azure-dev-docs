@@ -1,10 +1,10 @@
 ---
 title: Scale Azure OpenAI for JavaScript with Azure API Management
 description: Learn how to add load balancing with Azure API Management to your JavaScript RAG chat app application to extend the chat app beyond the Azure OpenAI token and model quota limits. 
-ms.date: 03/29/2024
+ms.date: 5/16/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
-ms.custom: devx-track-js, devx-track-js-ai
+ms.custom: devx-track-js, devx-track-js-ai, build-2024-intelligent-apps
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want to scale my OpenAI capacity to avoid rate limit errors.
 ---
 
@@ -26,9 +26,9 @@ ms.custom: devx-track-js, devx-track-js-ai
     * Only a [GitHub account](https://www.github.com/login) is required to use Codespaces
     
     #### [Visual Studio Code](#tab/visual-studio-code)
-    * [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
     * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-    * [Visual Studio Code](https://code.visualstudio.com/) with [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+    * [Visual Studio Code](https://code.visualstudio.com/)
+    * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
     
     ---
 

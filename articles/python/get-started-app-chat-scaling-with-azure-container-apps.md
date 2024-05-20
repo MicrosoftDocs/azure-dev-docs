@@ -4,7 +4,7 @@ description: Learn how to add load balancing to your application to extend the c
 ms.date: 05/13/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
-ms.custom: devx-track-python, devx-track-python-ai
+ms.custom: devx-track-python, devx-track-python-ai, build-2024-intelligent-apps
 # CustomerIntent: As a python developer new to Azure OpenAI, I want to scale my OpenAI capacity to avoid rate limit errors.
 ---
 
@@ -26,9 +26,9 @@ ms.custom: devx-track-python, devx-track-python-ai
     * GitHub account
     
     #### [Visual Studio Code](#tab/visual-studio-code)
-    * [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
     * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-    * [Visual Studio Code](https://code.visualstudio.com/) with [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+    * [Visual Studio Code](https://code.visualstudio.com/)
+    * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
     
     ---
 

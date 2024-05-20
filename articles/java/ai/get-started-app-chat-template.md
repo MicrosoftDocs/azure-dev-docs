@@ -3,7 +3,7 @@ title: Get started with the Java enterprise chat sample using RAG
 description: Get started with Java and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
 ms.date: 05/11/2024
 ms.topic: get-started
-ms.custom: devx-track-java, devx-track-java-ai, devx-track-extended-java, devx-track-extended-azdevcli
+ms.custom: devx-track-java, devx-track-java-ai, devx-track-extended-java, devx-track-extended-azdevcli, build-2024-intelligent-apps
 # CustomerIntent: As a Java developer new to Azure OpenAI, I want deploy and use sample code to interact with app infused with my own business data so that learn from the sample code.
 ---
 
@@ -27,6 +27,9 @@ This article is part of a collection of articles that show you how to build a ch
 * [JavaScript](../../javascript/get-started-app-chat-template.md)
 * [Python](../../python/get-started-app-chat-template.md)
 
+> [!NOTE]
+> This article uses one or more [AI app templates](../../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+
 ## Architectural overview
 
 A simple architecture of the chat app is shown in the following diagram:
@@ -44,7 +47,7 @@ Key components of the architecture include:
 
 ## Cost 
 
-Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you only pay for what you use. To complete this article, there will be a charge but it will be minimal. When you are done with the article, you can delete the resources to stop incurring charges.
+Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you only pay for what you use. To complete this article, there will be a charge but it will be minimal. When you're done with the article, you can delete the resources to stop incurring charges.
 
 Learn more about [cost in the sample repo](https://github.com/Azure-Samples/azure-search-openai-demo-java#cost-estimation).
 
@@ -56,21 +59,21 @@ To use this article, you need the following prerequisites:
 
 #### [Codespaces (recommended)](#tab/github-codespaces)
 
-1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
-1. Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-1. Access granted to Azure OpenAI in the desired Azure subscription.
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
+* Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+* Access granted to Azure OpenAI in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
-1. GitHub account
+* GitHub account
 
 #### [Visual Studio Code](#tab/visual-studio-code)
-1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
-1. Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-1. Access granted to Azure OpenAI in the desired Azure subscription.
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
+* Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+* Access granted to Azure OpenAI in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
-1. [Azure Developer CLI](../../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
-1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-1. [Visual Studio Code](https://code.visualstudio.com/)
-1. [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+* [Azure Developer CLI](/azure/developer/azure-developer-cli)
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ---
 
@@ -85,12 +88,11 @@ Begin now with a development environment that has all the dependencies installed
 
 > [!IMPORTANT]
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
-1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-demo-java`](https://github.com/Azure-Samples/azure-search-openai-demo-java) GitHub repository.
 1. Right-click on the following button, and select _Open link in new windows_ in order to have both the development environment and the documentation available at the same time. 
 
-    > [!div class="nextstepaction"]
-    > [Open this project in GitHub Codespaces](https://github.com/codespaces/new?azure-portal=true&hide_repo_select=true&ref=main&skip_quickstart=true&repo=687400781)
-1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**
+    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo-java)
+
+1. On the **Create codespace** page, review the codespace configuration settings and then select **Create Codespace**.
 
     :::image type="content" source="./media/get-started-app-chat-template/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
@@ -110,31 +112,32 @@ Begin now with a development environment that has all the dependencies installed
 
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
-1. Open **Visual Studio Code** in the context of an empty directory.
+1. Create a new local directory on your computer for the project. 
 
-1. Ensure that you have the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) installed in Visual Studio Code.
+    ```bash
+    mkdir my-intelligent-app && cd my-intelligent-app
+    ```
 
-1. Open a new terminal in the editor.
+1. Open Visual Studio Code in that directory:
 
-    > [!TIP]
-    > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
-    >
-    > :::image type="content" source="./media/get-started-app-chat-template/open-terminal-option.png" lightbox="./media/get-started-app-chat-template/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
+    ```bash
+    code .
+    ```
+
+1. Open a new terminal in Visual Studio Code.
+1. Run the following AZD command to bring the GitHub repository to your local computer.
+
+    ```bash
+    azd init -t azure-search-openai-demo-java
+    ```
+
+1. Open the Command Palette, search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing. 
 1. Sign in to Azure with the Azure Developer CLI.
 
     ```bash
     azd auth login
     ```
     Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
-1. Create a folder and initialize it to use the sample project with Azure Developer CLI:
-    ```bash
-    azd init -t azure-search-openai-demo-java
-    ```
-    You don't need to clone this repository.
-1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen in Container**.
-    > [!TIP]
-    > Visual Studio Code may automatically prompt you to reopen the existing folder within a development container. This is functionally equivalent to using the command palette to reopen the current workspace in a container.
-1. Re-open the Terminal window again (<kbd>Ctrl</kbd> + <kbd>`</kbd>)and leave it open.
 1. The remaining exercises in this project take place in the context of this development container.
 ---
 ## Deploy and run
@@ -147,7 +150,7 @@ The sample repository contains all the code and configuration files you need to 
     azd up
     ```
 
-1. When you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. It's used as part of the resource group name. 
+1. If you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. It's used as part of the resource group name. 
 1. When prompted, select a subscription to create the resources in. 
 1. When you're prompted to select a location the first time, select a location near you. This location is used for most the resources including hosting.
 1. If you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
@@ -157,7 +160,7 @@ The sample repository contains all the code and configuration files you need to 
     :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 ### Use chat app to get answers from PDF files
 
-The chat app is preloaded with employee benefits information from [PDF files](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/data). You can use the chat app to ask questions about the benefits. The following steps walk you through the process of using the chat app.
+The chat app is preloaded with employee benefits information from [PDF files](https://github.com/Azure-Samples/azure-search-openai-demo-java/tree/main/data). You can use the chat app to ask questions about the benefits. The following steps walk you through the process of using the chat app.
 
 1. In the browser, select or enter "What is included in my Northwind Health Plus plan that is not in standard?" in the chat text box. 
 
@@ -175,7 +178,7 @@ The chat app is preloaded with employee benefits information from [PDF files](ht
     |**Supporting content**|This includes the information to answer your question and the source material.|
     |**Citation**|This displays the PDF page that contains the citation.|
 
-1. When you are done, select the selected tab again to close the pane.
+1. When you're done, select the selected tab again to close the pane.
 
 ### Use chat app settings to change behavior of responses
 
@@ -222,7 +225,7 @@ The following steps walk you through the process of changing the settings.
 
     For example the response, which used the Semantic ranker provided a single answer: `The deductible for the Northwind Health Plus plan is $2,000 per year`.
 
-    The reponse without semantic ranking returned an answer, which required more work to get the answer: `Based on the information provided, it is unclear what your specific deductible is. The Northwind Health Plus plan has different deductible amounts for in-network and out-of-network services, and there is also a separate prescription drug deductible. I would recommend checking with your provider or referring to the specific benefits details for your plan to determine your deductible amount`.
+    The response without semantic ranking returned an answer, which required more work to get the answer: `Based on the information provided, it is unclear what your specific deductible is. The Northwind Health Plus plan has different deductible amounts for in-network and out-of-network services, and there is also a separate prescription drug deductible. I would recommend checking with your provider or referring to the specific benefits details for your plan to determine your deductible amount`.
 
 ## Clean up resources
 
@@ -282,3 +285,4 @@ If your issued isn't addressed, log your issue to the repository's [Issues](http
 * [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
 * [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-an-enterprise-ready-azure-openai-solution-with-azure-api/bc-p/3935407)
 * [Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167)
+* [More Azure AI end-to-end templates](https://aka.ms/aigallery)
