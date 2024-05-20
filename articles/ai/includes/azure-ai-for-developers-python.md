@@ -61,18 +61,16 @@ Azure AI Services are a collection of services (including Azure OpenAI Service) 
 
 ### Documentation
 
-|Link|Description|
-|---|---|
-|[Azure AI Services](/azure/ai-services/what-are-ai-services)|Top level overview page for all Azure AI Services.|
-|[Azure AI Studio](/azure/ai-studio/what-is-ai-studio?tabs=home)|Azure AI Studio brings together capabilities from across multiple Azure AI services.|
-|[Azure AI Search]()|Bring AI-powered cloud search to your applications.|
-|[Speech](/azure/ai-services/speech-service/)|Speech to text, text to speech, translation, and speaker recognition.|
-|[Language](/azure/ai-services/language-service/)|Build apps with industry-leading natural landuage understanding capabilities.|
-|[Translator](/azure/ai-services/translator/)|Use AI-powered trnslation to translate more than 100 in-use, at-risk and endangered languages and dialects.|
-|[Vision](/azure/ai-services/computer-vision/)|Analyze content in images and videos|
-|[Face](/azure/ai-services/computer-vision/overview-identity)|Detect and identify people and emotions in images.|
+|AI service|Description|Library|Quickstart|
+|---|---|---|---|
 |[Content Safety](/azure/ai-services/content-safety/)|An AI service that detects unwanted content.|
-|[Document Intelligence](/azure/ai-services/document-intelligence/)|Turn documents into intelligent data-driven solutions.|
+|[Document Intelligence](/azure/ai-services/document-intelligence/)|Turn documents into intelligent data-driven solutions.|[Azure ContentSafety client library for Python](/python/api/overview/azure/ai-contentsafety-readme?view=azure-python)|[Quickstart](/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Cwindows&pivots=programming-language-python)|[Azure Document Intelligence client library for Python](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python)|[Quickstart](/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?pivots=programming-language-python)|
+|[Language](/azure/ai-services/language-service/)|Build apps with industry-leading natural landuage understanding capabilities.|[Azure Text Analytics client library for Python](/python/api/overview/azure/ai-textanalytics-readme?view=azure-python)|[Quickstart](/azure/ai-services/language-service/text-analytics-for-health/quickstart?tabs=windows&pivots=programming-language-python)|
+|[Azure AI Search]()|Bring AI-powered cloud search to your applications.|[Azure AI Search client library for Python](/python/api/overview/azure/search?view=azure-python)|[Quickstart](/azure/search/search-get-started-text?tabs=python)|
+|[Speech](/azure/ai-services/speech-service/)|Speech to text, text to speech, translation, and speaker recognition.|[Azure AI Speech client library for Python](/python/api/overview/azure/cognitiveservices/speech?view=azure-python)|[Quickstart](/azure/ai-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-python)|
+|[Translator](/azure/ai-services/translator/)|Use AI-powered trnslation to translate more than 100 in-use, at-risk and endangered languages and dialects.|[Azure Text Translation client library for Python](/python/api/overview/azure/ai-translation-document-readme?view=azure-python)|[Quickstart](/azure/ai-services/translator/quickstart-text-sdk?pivots=programming-language-python)|
+|[Vision](/azure/ai-services/computer-vision/)|Analyze content in images and videos|[Azure Image Analysis client library for Python](/python/api/overview/azure/ai-vision-imageanalysis-readme?view=azure-python-preview)|[Quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library?tabs=windows%2Cvisual-studio&pivots=programming-language-python)|
+
 
 ### Training
 
