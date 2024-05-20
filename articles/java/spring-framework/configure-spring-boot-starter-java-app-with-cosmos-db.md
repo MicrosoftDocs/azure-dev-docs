@@ -124,7 +124,7 @@ Your simple Spring Boot application is now ready for editing.
 1. Save and close the *application.properties* file.
 
 > [!NOTE]
-> To connect using Microsoft Entra ID, refer to the [Spring Boot Starter for Microsoft Entra ID developer's guide](./spring-boot-starter-for-azure-active-directory-developer-guide?tabs=SpringCloudAzure4x).
+> To connect using Microsoft Entra ID, refer to the [Spring Boot Starter for Microsoft Entra ID developer's guide](spring-boot-starter-for-azure-active-directory-developer-guide.md).
 
 ## Add sample code to implement basic database functionality
 
