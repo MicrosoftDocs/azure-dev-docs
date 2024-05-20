@@ -42,7 +42,6 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 |[Generative AI for Beginners Workshop](https://github.com/microsoft/generative-ai-for-beginners/tree/main)|Learn the fundamentals of building Generative AI apps with our 18-lesson comprehensive course by Microsoft Cloud Advocates.|
 |[Microsoft Azure AI Fundamentals: Generative AI](/training/paths/introduction-generative-ai/)|Training path to help you understand how large language models form the foundation of generative AI: how Azure OpenAI Service provides access to the latest generative AI technology, how prompts and responses can be fine-tuned and how Microsoft's responsible AI principles drive ethical AI advancements.|
 |[Develop Generative AI solutions with Azure OpenAI Service](/training/paths/develop-ai-solutions-azure-openai/)|Azure OpenAI Service provides access to OpenAI's powerful large language models such as ChatGPT, GPT, Codex, and Embeddings models. This learning path teaches developers how to generate code, images, and text using the Azure OpenAI SDK and other Azure services.|
-|[Build AI apps with Azure Database for PostgreSQL](/training/paths/build-ai-apps-azure-database-postgresql/)|This learning path explores how the Azure AI and Azure Machine Learning Services integrations provided by the Azure AI extension for Azure Database for PostgreSQL - Flexible Server can enable you to build AI-powered apps.|
 
 
 
@@ -68,16 +67,13 @@ Azure AI Services are a collection of services (including Azure OpenAI Service) 
 
 |Link|Description|
 |---|---|
-|[Azure AI Services](/azure/ai-services/what-are-ai-services)|Top level overview page for all Azure AI Services.|
-|[Azure AI Studio](/azure/ai-studio/what-is-ai-studio?tabs=home)|Azure AI Studio brings together capabilities from across multiple Azure AI services.|
-|[Azure AI Search]()|Bring AI-powered cloud search to your applications.|
-|[Speech](/azure/ai-services/speech-service/)|Speech to text, text to speech, translation, and speaker recognition.|
-|[Language](/azure/ai-services/language-service/)|Build apps with industry-leading natural landuage understanding capabilities.|
-|[Translator](/azure/ai-services/translator/)|Use AI-powered trnslation to translate more than 100 in-use, at-risk and endangered languages and dialects.|
-|[Vision](/azure/ai-services/computer-vision/)|Analyze content in images and videos|
-|[Face](/azure/ai-services/computer-vision/overview-identity)|Detect and identify people and emotions in images.|
-|[Content Safety](/azure/ai-services/content-safety/)|An AI service that detects unwanted content.|
-|[Document Intelligence](/azure/ai-services/document-intelligence/)|Turn documents into intelligent data-driven solutions.|
+|[Azure ContentSafety client library for .NET](/dotnet/api/overview/azure/ai.contentsafety-readme?view=azure-dotnet)|The .NET client library for the Azure AI Content Safety service used to detect unwanted content. [Quickstart](/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Cwindows&pivots=programming-language-csharp)|
+|[Azure Document Intelligence client library for .NET](/dotnet/api/overview/azure/cognitiveservices/documentintelligence?view=azure-dotnet)|The .NET client library for the Azure AI Document Intelligent service, used to turn documents into intelligent data-driven solutions. [Quickstart](/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?view=doc-intel-4.0.0&pivots=programming-language-csharp)|
+|[Azure Text Analytics client library for .NET](/dotnet/api/overview/azure/ai.textanalytics-readme?view=azure-dotnet)|The .NET client library for the Azure AI Language service. Build apps with industry-leading natural landuage understanding capabilities. [Quickstart](/azure/ai-services/language-service/text-analytics-for-health/quickstart?tabs=windows&pivots=programming-language-csharp)|
+|[Azure AI Search client library for .NET](/dotnet/api/overview/azure/search?view=azure-dotnet)|The .NET client library for Azure AI Search service. Bring AI-powered cloud search to your applications. [Quickstart](/azure/search/search-get-started-text?tabs=dotnet) |
+|[Azure AI Speech client library for .NET](/dotnet/api/overview/azure/cognitiveservices/speech?view=azure-dotnet)|The .NET client library for Azure AI Speech. Perform speech to text, text to speech, translation, and speaker recognition. [Quickstart](/azure/ai-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-csharp)|
+|[Azure Text Translation client library for .NET](/dotnet/api/overview/azure/ai.translation.text-readme?view=azure-dotnet-preview)|The .NET client library for the Azure AI Translator service. Use AI-powered trnslation to translate more than 100 in-use, at-risk and endangered languages and dialects. [Quickstart](/azure/ai-services/translator/quickstart-text-sdk?pivots=programming-language-csharp&branch=main)|
+|[Azure Image Analysis client library for .NET](/dotnet/api/overview/azure/ai.vision.imageanalysis-readme?view=azure-dotnet-preview)|The .NET client library for the Azure AI Vision service used to analyze content in images and videos. [Quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library?tabs=windows%2Cvisual-studio&pivots=programming-language-csharp&branch=main)|
 
 ### Training
 
