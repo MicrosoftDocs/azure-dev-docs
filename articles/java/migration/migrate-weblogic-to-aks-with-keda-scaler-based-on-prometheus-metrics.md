@@ -42,7 +42,16 @@ This article integrates KEDA with your AKS cluster to scale WLS cluster based on
 The following WLS state and metrics are exported by default. You can configure the exporter to export other metrics on your demand. For a detailed description of WebLogic Monitoring Exporter configuration and usage, see [WebLogic Monitoring Exporter](https://blogs.oracle.com/weblogicserver/exporting-metrics-from-weblogic-server).
 
 <!-- https://github.com/oracle/weblogic-azure/blob/main/weblogic-azure-aks/src/main/resources/diagrams/wls-aks-diagram-autoscaling.vsdx -->
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-metrics.png" alt-text="WebLogic Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-metrics.png" border="false":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-metrics.png" lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-metrics.png" border="false":::
+
+| Category | Category Hierarchy | Metrics |
+|----------|--------------------|---------|
+| Servlets | ServerRuntime -> ApplicationRuntime -> ComponentRuntime -> WebAppComponentRuntime |"invocationTotalCount", "reloadTotal", "executionTimeAverage", "poolMaxCapacity", "executionTimeTotal", "reloadTotalCount", "executionTimeHigh", "executionTimeLow"|
+| WebAppComponentRuntime | ServerRuntime -> ApplicationRuntime -> ComponentRuntime | "deploymentState", "contextRoot", "sourceInfo", "openSessionsHighCount", "openSessionsCurrentCount", "sessionsOpenedTotalCount", "sessionCookieMaxAgeSecs", "sessionInvalidationIntervalSecs", "sessionTimeoutSecs", "singleThreadedServletPoolSize", "sessionIDLength", "servletReloadCheckSecs", "jSPPageCheckSecs" |
+| WorkManagerRuntimes | ServerRuntime -> ApplicationRuntime | "pendingRequests", "completedRequests", "stuckThreadCount"|
+| JVMRuntime | JVMRuntime | "heapFreeCurrent", "heapFreePercent", "heapSizeCurrent", "heapSizeMax", "uptime", "processCpuLoad"|
+
+:::image-end:::
 
 ## Prerequisites
 
