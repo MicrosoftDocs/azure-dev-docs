@@ -1,7 +1,7 @@
 ---
 title: Additional methods to authenticate to Azure resources from Python apps
 description: This article describes additional, less common methods you can use to authenticate your Python app to Azure resources. 
-ms.date: 11/30/2023
+ms.date: 05/20/2024
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
@@ -25,7 +25,9 @@ Perform the following steps to enable the application to authenticate through th
 1. Under **Advanced settings**, select **Yes** for **Allow public client flows**.
 1. Select **Save** to apply the changes.
 1. To authorize the application for specific resources, navigate to the resource in question, select **API Permissions**, and enable **Microsoft Graph** and other resources you want to access. Microsoft Graph is usually enabled by default.
-    1. You must also be the admin of your tenant to grant consent to your application when you sign in for the first time.
+
+    > [!IMPORTANT]
+    > You must also be the admin of your tenant to grant consent to your application when you sign in for the first time.
 
 If you can't configure the device code flow option on your Active Directory, your application might need to be multitenant. To make this change, navigate to the **Authentication** panel, select **Accounts in any organizational directory** (under **Supported account types**), and then select **Yes** for **Allow public client flows**.
 
@@ -71,7 +73,9 @@ Perform the following steps to enable the application to authenticate through th
 1. Back on the **Authentication** pane, under **Advanced settings**, select **Yes** for **Allow public client flows**.
 1. Select **Save** to apply the changes.
 1. To authorize the application for specific resources, navigate to the resource in question, select **API Permissions**, and enable **Microsoft Graph** and other resources you want to access. Microsoft Graph is usually enabled by default.
-    1. You must also be the admin of your tenant to grant consent to your application when you sign in for the first time.
+
+    > [!IMPORTANT]
+    > You must also be the admin of your tenant to grant consent to your application when you sign in for the first time.
 
 ### Example using InteractiveBrowserBrokerCredential
 
@@ -86,7 +90,11 @@ from azure.storage.blob import BlobServiceClient
 current_window_handle = win32gui.GetForegroundWindow()
 
 credential = InteractiveBrowserBrokerCredential(parent_window_handle=current_window_handle)
-client = BlobServiceClient(account_url, credential=credential)
+client = BlobServiceClient("https://jimacoblobstorage.blob.core.windows.net/", credential=credential)
+
+# Prompt for credentials appears on first use of the client
+for container in client.list_containers():
+    print(container.name)
 ```
 
 For more exact control, such as setting a timeout, you can supply specific arguments to `InteractiveBrowserBrokerCredential` such as `timeout`.
