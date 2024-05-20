@@ -42,8 +42,8 @@ An `azd` template source points to a JSON configuration file that describes a li
 
 `azd` allows you to enable multiple template source at a time. The following template source options are currently available to choose from:
 
-- **default** - A small set of curated templates to demonstrate different tech stacks.
 - **awesome-azd** - A list of the templates from the [Awesome AZD gallery](https://azure.github.io/awesome-azd) that is enabled by default.
+- **default** - A small set of curated templates to demonstrate different tech stacks.
 - **file** -  A local/network path that points to a template source JSON configuration file.
 - **url** - An HTTP(S) addressable path that points to a template source JSON configuration file.
 - **ade** - Points to an Azure Deployment Environment template list. [Learn more about Azure Developer CLI support for Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration).
@@ -54,7 +54,7 @@ An `azd` template source points to a JSON configuration file that describes a li
 
 Use the `azd template source list` command to list all currently configured template sources:
 
-```azurecli
+```azdeveloper
 azd template source list
 ```
 
@@ -74,19 +74,19 @@ Use the `azd template source add` command to add a new template source. This com
 - **--location, -l**: The template source location, which should be a local network or HTTP(S) web URI.
 - **--displayName, -n**: The template source display name (optional, will use **key** if omitted).
 
-```azurecli
+```azdeveloper
 azd template source add <key> --type <file-or-url> --location <your-uri> --displayname <your-display-name>
 ```
 
 Use the `azd template source remove` command to remove a template source:
 
-```azurecli
+```azdeveloper
 azd template source remove <key>
 ```
 
 Use the `azd config reset` command to reset the template configuration back to default settings:
 
-```azurecli
+```azdeveloper
 azd config reset
 ```
 
@@ -94,7 +94,7 @@ azd config reset
 
 After you configure your template sources, use the `azd template list` command to list the available templates from those sources:
 
-```azurecli
+```azdeveloper
 azd template list
 ```
 
@@ -112,19 +112,19 @@ WordPress with Azure Container Apps                          Awesome AZD  Azure-
 Bicep template to bootstrap Azure Deployment Environments    Awesome AZD  Azure-Samples/azd-deployment-environments
 Starter - Bicep                                              Awesome AZD  Azure-Samples/azd-starter-bicep
 Starter - Terraform                                          Awesome AZD  Azure-Samples/azd-starter-terraform
-
+...
 # Additional templates omitted 
 ```
 
 Include the `--source` flag to only list templates from a specific source:
 
-```azurecli
+```azdeveloper
 azd template list --source <source-name>
 ```
 
 To initialize a template from the displayed list, run the `azd init` command and provide the path of the template:
 
-```azurecli
+```azdeveloper
 azd init --template <path-value>
 ```
 
