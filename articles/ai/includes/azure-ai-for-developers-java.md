@@ -67,11 +67,8 @@ Azure AI Services are a collection of services (including Azure OpenAI Service) 
 |[Document Intelligence](/azure/ai-services/document-intelligence/)|Turn documents into intelligent data-driven solutions.|[Document Intelligence API reference](/java/api/overview/azure/ai-formrecognizer-readme)|[Quickstart](/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?pivots=programming-language-java)|
 |[Language](/azure/ai-services/language-service/)|Build apps with industry-leading natural landuage understanding capabilities.|[Language API reference](/java/api/overview/azure/ai-textanalytics-readme)|[Quickstart](/azure/ai-services/language-service/text-analytics-for-health/quickstart?tabs=windows&pivots=programming-language-java)|
 |[Search](/azure/search/)|Bring AI-powered cloud search to your applications.|[Search API reference](/java/api/overview/azure/search-documents-readme)|[Quickstart](/azure/search/search-get-started-text?tabs=java) |
-
 |[Speech](/azure/ai-services/speech-service/)|Speech to text, text to speech, translation, and speaker recognition.|[Speech API reference](/java/api/overview/azure/search-documents-readme)|[Quickstart](/azure/ai-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-java)|
-
 |[Translator](/azure/ai-services/translator/)|Use AI-powered trnslation to translate more than 100 in-use, at-risk and endangered languages and dialects.|[Translator API reference](/java/api/overview/azure/ai-translation-text-readme)|[Quickstart](/azure/ai-services/translator/quickstart-text-sdk?pivots=programming-language-java)|
-
 |[Vision](/azure/ai-services/computer-vision/)|Analyze content in images and videos.|[Vision API reference](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40?pivots=programming-language-java&tabs=visual-studio%2Cwindows)|[Quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library?tabs=windows%2Cvisual-studio&pivots=programming-language-java)|
 
 
