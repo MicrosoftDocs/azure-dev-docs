@@ -1,43 +1,13 @@
-## Azure AI reference templates
+## AI app templates
 
-Azure AI reference templates provide you with well-maintained, easy to deploy reference implementations. These ensure a high-quality starting point for your intelligent applications. The end-to-end solutions provide popular, comprehensive reference applications. The building blocks are smaller-scale samples that focus on specific scenarios and tasks.
+[AI app templates](../intelligent-app-templates.md?pivots=dotnet) provide you with well-maintained, easy to deploy reference implementations. These ensure a high-quality starting point for your AI apps. The end-to-end solutions provide popular, comprehensive reference applications. The building blocks are smaller-scale samples that focus on specific scenarios and tasks.
 
-### End-to-end solutions
+## Azure OpenAI Service
 
-|Link|Description|
-|---|---|
-|[Get started with the .NET enterprise chat sample using RAG](/dotnet/ai/get-started-app-chat-template)|An article that walks you through deploying and using the [Enterprise chat app sample for .NET](https://github.com/Azure-Samples/azure-search-openai-demo-csharp). This sample is a complete end-to-end solution demonstrating the [Retrieval-Augmented Generation (RAG) pattern](/azure/search/retrieval-augmented-generation-overview) running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. |
-|[Build an AI assistant using RAG](https://github.com/Azure/Vector-Search-AI-Assistant-MongoDBvCore)| This sample is a complete end-to-end solution demonstrating how to design and implement a Q&A AI assistant, which uses the [Embeddings API](/azure/ai-services/openai/tutorials/embeddings) and Completions API in Azure OpenAI Service, as well as the [vector database](/azure/cosmos-db/vector-database) in Azure Cosmos DB. |
+Azure OpenAI Service provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Azure OpenAI SDK for .NET, or the web-based interface in the Azure OpenAI Studio.
 
-* [Demo video](https://aka.ms/azai/net/video)
 
-### Building blocks
-
-|Link|Description|
-|---|---|
-|[Build a chat app with Azure OpenAI (Python)](https://github.com/Azure-Samples/chatgpt-quickstart/blob/main/README.md)|A simple Python Quart app that streams responses from ChatGPT to an HTML/JS frontend using JSON Lines over a ReadableStream. (The Python code is provided as a reference and could be adapted to .NET.)|
-|[Build a LangChain with Azure OpenAI (Python)](https://github.com/Azure-Samples/function-python-ai-langchain)|A sample shows how to take a human prompt as HTTP Get or Post input, calculates the completions using chains of human input and templates. This is a starting point that can be used for more sophisticated chains. (The Python code is provided as a reference and could be adapted to .NET.)|
-|[Build a ChatGPT Plugin with Azure Container Apps (Python)](https://github.com/Azure-Samples/openai-plugin-fastapi/blob/main/README.md)|A sample for creating ChatGPT Plugin using GitHub Codespaces, VS Code, and Azure. The sample includes templates to deploy the plugin to Azure Container Apps using the Azure Developer CLI. (The Python code is provided as a reference and could be adapted to .NET.)|
-|[Azure AI .NET Template Gallery](https://azure.github.io/awesome-azd/?tags=ai&tags=dotnetCsharp)|For the full list of Azure AI templates, visit our gallery. All app templates in our gallery can be spun up and deployed using a single command: _azd up_.|
-|[Smart load balancing with Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)|This solution is built using the high-performance [YARP C# reverse-proxy framework](https://github.com/microsoft/reverse-proxy) from Microsoft. However, you don't need to understand C# to use it, you can just build the provided Docker image. This is an alternative solution to the [API Management OpenAI smart load balancer](https://github.com/Azure-Samples/openai-apim-lb/), with the same logic.|
-|[Smart load balancing with Azure API Management](https://github.com/Azure-Samples/openai-apim-lb/)|The enterprise solution shows how to create an Azure API Management Policy to seamlessly expose a single endpoint to your applications while keeping an efficient logic to consume two or more OpenAI or any API backends based on availability and priority.|
-
-## Azure OpenAI
-
-### End-to-end solutions
-
-|Link|Description|
-|---|---|
-|[Get started with the .NET enterprise chat sample using RAG](/dotnet/ai/get-started-app-chat-template)|An article that walks you through deploying and using the [Enterprise chat app sample for .NET](https://github.com/Azure-Samples/azure-search-openai-demo-csharp). This sample is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.|
-
-### Building blocks
-
-|Link|Description|
-|---|---|
-|[Vector Similarity Search with Azure Cache for Redis Enterprise (Python)](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/vector-similarity-search-with-azure-cache-for-redis-enterprise/ba-p/3822059)|An article that walks you through using Azure Cache for Redis as a backend vector store for RAG scenarios. (The Python code is provided as a reference and could be adapted to .NET.)|
-|[OpenAI solutions with your own data using PostgreSQL (Python)](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/unlocking-the-power-of-open-ai-and-pgvector-with-azure/ba-p/3828539)|An article discussing how Azure Database for PostgreSQL Flexible Server and Azure Cosmos DB for PostgreSQL supports the pgvector extension, along with an overview, scenarios, etc. (The Python code is provided as a reference and could be adapted to .NET.)|
-
-### SDKs and other samples/guidance
+### Libraries and samples
 
 |Link|Description|
 |---|---|
@@ -45,30 +15,40 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 |[Azure OpenAI SDK Releases](https://azure.github.io/azure-sdk/?search=openai)|Links to all Azure OpenAI SDK library packages, including links for .NET, Java, JavaScript and Go.|
 |[Azure.AI.OpenAI NuGet package](https://aka.ms/oai/net/nuget)|The NuGet version of the Azure OpenAI client library for .NET.|
 |[Get started using GPT-35-Turbo and GPT-4](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-csharp&tabs=command-line)|An article that walks you through creating a chat completion sample.|
+|[Get started using GPT-35-Turbo and GPT-4](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-csharp&tabs=command-line)|An article that walks you through creating a chat completion sample.|
 |[Completions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)|A collection of 10 samples that demonstrate how to use the Azure OpenAI client library for .NET to chat, stream replies, use your own data, transcribe/translate audio, generate images, etc.|
 |[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/StreamingChat.cs)|A deep link to the samples demonstrating streaming completions.|
 |[OpenAI with Microsoft Entra ID Role based access control](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication using Microsoft Entra ID.|
 |[OpenAI with Managed Identities](/azure/ai-services/openai/how-to/managed-identity)|An article with more complex security scenarios that require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
 |[More samples](https://github.com/Azure-Samples/openai-dotnet-samples/blob/main/README.md)|A collection of OpenAI samples written in .NET.|
-|[More guidance](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
 
-## Other Azure AI services
-
-### End-to-end solutions
+### Documentation
 
 |Link|Description|
 |---|---|
-|[Captioning and Call Center Transcription](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios)|A repo containing samples for captions and transcriptions in a call center scenario.|
-|[Use Form Recognizer to automate a paper based process using the New patient registration with Form Recognizer workshop](https://newpatiente2e.github.io/docs/). ([Code](https://github.com/newpatiente2e/Contoso-New-Patient-App))|A complete walkthrough of an Azure AI Document Intelligence scenario in a workshop format.|
+|[Azure OpenAI Service Documentation](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
+|[Overview of the .NET + AI ecosystem](/dotnet/ai/dotnet-ai-ecosystem)|Summary of the services and tools you might need to use in your applications, with links to learn more about each of them.|
+|[Build an Azure AI chat app with .NET](/dotnet/ai/quickstarts/get-started-azure-openai)|Use Semantic Kernel or Azure OpenAI SDK to create a simple .NET 8 console chat application.|
+|[Summarize text using Azure AI chat app with .NET](/dotnet/ai/quickstarts/quickstart-openai-summarize-text)|Simiar to the previous article, but the prompt is to summarize text.|
+|[Get insight about your data from an .NET Azure AI chat app](/dotnet/ai/quickstarts/quickstart-ai-chat-with-data)|Use Semantic Kernel or Azure OpenAI SDK to get analytics and information about your data.|
+|[Extend Azure AI using Tools and execute a local Function with .NET](/dotnet/ai/quickstarts/quickstart-azure-openai-tool)|Create an assistant that handles certain prompts using custom tools build in .NET.|
+|[Generate images using Azure AI with .NET](/dotnet/ai/quickstarts/quickstart-openai-generate-images)|Use the OpenAI dell-e-3 model to generate an image.|
 
-### Building blocks
+### Training
 
 |Link|Description|
 |---|---|
-|[Use Speech to converse with OpenAI](/azure/ai-services/speech-service/openai-speech?tabs=windows)|An article detailing how to use Azure AI Speech to converse with Azure OpenAI Service. The text recognized by the Speech service is sent to Azure OpenAI. Speech service then synthesizes the text response from Azure OpenAI.|
-|[Translate documents from and into more than 100 different languages](https://github.com/MicrosoftTranslator/DocumentTranslation)|An article showing how to translate local files or network files in many different formats, to more than 100 different languages. Supported formats include HTML, PDF, all Office document formats, Markdown, MHTML, Outlook, MSG, XLIFF, CSV, TSV and plain text.|
+|[Generative AI for Beginners Workshop](https://github.com/microsoft/generative-ai-for-beginners/tree/main)|Learn the fundamentals of building Generative AI apps with our 18-lesson comprehensive course by Microsoft Cloud Advocates.|
+|[Microsoft Azure AI Fundamentals: Generative AI](/training/paths/introduction-generative-ai/)|Training path to help you understand how large language models form the foundation of generative AI: how Azure OpenAI Service provides access to the latest generative AI technology, how prompts and responses can be fine-tuned and how Microsoft's responsible AI principles drive ethical AI advancements.|
+|[Develop Generative AI solutions with Azure OpenAI Service](/training/paths/develop-ai-solutions-azure-openai/)|Azure OpenAI Service provides access to OpenAI's powerful large language models such as ChatGPT, GPT, Codex, and Embeddings models. This learning path teaches developers how to generate code, images, and text using the Azure OpenAI SDK and other Azure services.|
 
-### SDKs and samples/guidance
+
+
+## Other Azure AI Services
+
+Azure AI Services are a collection of services (including Azure OpenAI Service) that help developers and organizations rapidly create intelligent, market-ready, and responsbile applications with out-of-the-box and prebuilt customizable APIs and models. These services include speech, vision, search, and more.
+
+### Samples
 
 |Link|Description|
 |---|---|
@@ -80,3 +60,22 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 |[Question Answering in .NET](https://aka.ms/azai/net/qna)|A quickstart article to get an answer (and confidence score) from a body of text that you send along with your question.|
 |[Conversational Language Understanding in .NET](https://aka.ms/azai/net/convo)|The client library for Conversational Language Understanding (CLU), a cloud-based conversational AI service, which can extract intents and entities in conversations and acts like an orchestrator to select the best candidate to analyze conversations to get best response from apps like Qna, Luis, and Conversation App.|
 |[Analyze images](/azure/ai-services/computer-vision/sdk/overview-sdk)|Sample code and setup documents for the Microsoft Azure AI Image Analysis SDK|
+
+
+### Documentation
+
+|AI service|Description|API reference|Quickstart|
+|---|---|---|---|
+|[Content Safety](/azure/ai-services/content-safety/)|An AI service that detects unwanted content.|[Content Safety API reference](/dotnet/api/overview/azure/ai.contentsafety-readme?view=azure-dotnet)|[Quickstart](/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Cwindows&pivots=programming-language-csharp)|
+|[Document Intelligence](/azure/ai-services/document-intelligence/)|Turn documents into intelligent data-driven solutions.|[Document Intelligence API reference](/dotnet/api/overview/azure/cognitiveservices/documentintelligence?view=azure-dotnet)|[Quickstart](/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?view=doc-intel-4.0.0&pivots=programming-language-csharp)|
+|[Language](/azure/ai-services/language-service/)|Build apps with industry-leading natural landuage understanding capabilities.|[Language API reference](/dotnet/api/overview/azure/ai.textanalytics-readme?view=azure-dotnet)|[Quickstart](/azure/ai-services/language-service/text-analytics-for-health/quickstart?tabs=windows&pivots=programming-language-csharp)|
+|[Search](/azure/search/)|Bring AI-powered cloud search to your applications.|[Search API reference](/dotnet/api/overview/azure/search?view=azure-dotnet)|[Quickstart](/azure/search/search-get-started-text?tabs=dotnet)|
+|[Speech](/azure/ai-services/speech-service/)|Speech to text, text to speech, translation, and speaker recognition.|[Speech API reference](/dotnet/api/overview/azure/cognitiveservices/speech?view=azure-dotnet)|[Quickstart](/azure/ai-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-csharp)|
+|[Translator](/azure/ai-services/translator/)|Use AI-powered trnslation to translate more than 100 in-use, at-risk and endangered languages and dialects.|[Translation API reference](/dotnet/api/overview/azure/ai.translation.text-readme?view=azure-dotnet-preview)|[Quickstart](/azure/ai-services/translator/quickstart-text-sdk?pivots=programming-language-csharp&branch=main)|
+|[Vision](/azure/ai-services/computer-vision/)|Analyze content in images and videos.|[Vision API reference](/dotnet/api/overview/azure/ai.vision.imageanalysis-readme?view=azure-dotnet-preview)| [Quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library?tabs=windows%2Cvisual-studio&pivots=programming-language-csharp&branch=main)|
+
+### Training
+
+|Link|Description|
+|---|---|
+|[Get started with Azure AI Services](/training/paths/get-started-azure-ai/)|Azure AI Services is a collection of services that are building blocks of AI functionality you can integrate into your applications. In this learning path, you'll learn how to provision, secure, monitor, and deploy Azure AI Services resources and use them to build intelligent solutions.|

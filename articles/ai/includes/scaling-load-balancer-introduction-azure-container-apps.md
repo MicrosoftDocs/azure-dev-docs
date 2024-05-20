@@ -9,7 +9,7 @@ ms.service: azure
 
 Learn how to add load balancing to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. This approach uses Azure Container Apps to create three Azure OpenAI endpoints, as well as a primary container to direct incoming traffic to one of the three endpoints.
 
-This article requires you to deploy 2 separate samples:
+This article requires you to deploy two separate samples:
 
 * Chat app
     * If you haven't deployed the chat app yet, wait until after the load balancer sample is deployed. 
@@ -22,6 +22,8 @@ This article requires you to deploy 2 separate samples:
 
 * Load balancer app
 
+> [!NOTE]
+> This article uses one or more [AI app templates](../intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
 ## Architecture for load balancing Azure OpenAI with Azure Container Apps
 
