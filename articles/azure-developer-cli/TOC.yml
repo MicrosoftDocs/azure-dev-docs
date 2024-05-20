@@ -33,6 +33,8 @@
       href: use-external-registry.md
     - name: Use Helm and Kustomize
       href: helm-kustomize-support.md
+    - name: Configure template sources
+      href: configure-template-sources.md
   - name: Create templates
     items:
     - name: Make your project azd-compatible

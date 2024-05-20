@@ -1,8 +1,9 @@
 ---
 title: Get started with the JavaScript enterprise chat sample using RAG
 description: Get started with JavaScript and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 11/17/2023
+ms.date: 05/10/2024
 ms.topic: get-started
+ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want deploy and use sample code to interact with chat app infused with my own business data so that learn from the sample code.
 ---
@@ -13,9 +14,6 @@ This article shows you how to deploy and run the [Enterprise chat app sample for
 
 * [Demo JavaScript](https://aka.ms/azai/js/video) -  fullstack video
 * [Demo JavaScript](https://aka.ms/azai/js.py/video) - frontend with Python backend video
-
-> [!div class="nextstepaction"]
-> [Begin now](#open-development-environment)
 
 By following the instructions in this article, you will:
 
@@ -92,7 +90,7 @@ Begin now with a development environment that has all the dependencies installed
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository.
-1. Right-click on the following button, and select _Open link in new windows_ in order to have both the development environment and the documentation available at the same time. 
+1. Right-click on the following button, and select _Open link in new window_ in order to have both the development environment and the documentation available at the same time. 
 
     > [!div class="nextstepaction"]
     > [Open this project in GitHub Codespaces](https://github.com/codespaces/new?azure-portal=true&hide_repo_select=true&ref=main&skip_quickstart=true&repo=684521881)

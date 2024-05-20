@@ -4,7 +4,7 @@ description: Provides step-by-step guidance to install Red Hat JBoss EAP on Azur
 author: KarlErickson
 ms.author: karler
 ms.topic: how-to
-ms.date: 08/22/2023
+ms.date: 02/05/2024
 recommendations: false
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, migration-java, devx-track-azurecli, linux-related-content
 ---
@@ -28,7 +28,7 @@ In this tutorial, you learn how to do the following tasks:
 If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy JBoss EAP Server on an Azure virtual machine using the Azure portal](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
 > [!NOTE]
-> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ If you prefer a fully automated solution that does all of these steps on your be
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for Red Hat JBoss EAP. This entitlement lets the fully automated solution mentioned earlier (in [Deploy JBoss EAP Server on an Azure virtual machine using the Azure portal](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)) to install the Red Hat tested and certified JBoss EAP version.
   > [!NOTE]
-  > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Write down the account details, which is used as the *RHSM username* and *RHSM password* in the next section.
+  > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Save aside the account details, which is used as the *RHSM username* and *RHSM password* in the next section.
 - If you're already registered, or after you've completed registration, you can locate the necessary credentials (*Pool IDs*) by using the following steps. These *Pool IDs* are also used as the *RHSM Pool ID with EAP entitlement* in subsequent steps.
   1. Sign in to your [Red Hat account](https://sso.redhat.com).
   1. The first time you sign in, you're prompted to complete your profile. Depending on your usage, select either **Personal** or **Corporate** for **Account Type**, as shown in the following screenshot:
@@ -48,7 +48,7 @@ If you prefer a fully automated solution that does all of these steps on your be
   1. Open [Red Hat Developer Subscription for Individuals](https://aka.ms/red-hat-individual-dev-sub). This link takes you to all of the subscriptions in your account for the appropriate SKU.
   1. In the row of controls under **All purchased Subscriptions** table, select **Active**. This ensures only active subscriptions are shown.
   1. Select the sortable column header for **End Date** until the value furthest in the future is shown as the first row.
-  1. Select the first row. Then, copy and write down the value following **Master Pools** from **Pool IDs**.
+  1. Select the first row. Then, copy and save aside the value following **Master Pools** from **Pool IDs**.
 
 - A Java JDK, Version 11. In this guide, we recommend [Red Hat Build of OpenJDK](https://developers.redhat.com/products/openjdk/download). Ensure that your `JAVA_HOME` environment variable is set correctly in the shells in which you run the commands.
 - [Git](https://git-scm.com/downloads); use `git --version` to test whether `git` works. This tutorial was tested with version 2.25.1.
@@ -886,7 +886,7 @@ Use the following steps to create the database instance:
 1. Use the following commands to allow access from Azure services:
 
    ```azurecli
-   # Write down the following names for later use
+   # Save aside the following names for later use
    export fullyQualifiedDomainName=$(az postgres server show \
        --resource-group abc1110rg \
        --name ${DB_SERVER_NAME} \

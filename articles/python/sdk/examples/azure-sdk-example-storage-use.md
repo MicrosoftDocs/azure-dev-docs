@@ -165,7 +165,7 @@ For more information on role assignments, see [How to assign role permissions us
 1. Create an environment variable named `AZURE_STORAGE_CONNECTION_STRING`, the value of which is the full connection string for the storage account. (This environment variable is also used by various Azure CLI comments.) You can get the connection string for your storage account by running the [az storage account show-connection-string](/cli/azure/storage/account#az-storage-account-show-connection-string) command.
 
     ```azurecli
-    az storage account show-connection-string --resource-group PythonAzureExample-Storage-rg -name pythonazurestorage12345
+    az storage account show-connection-string --resource-group PythonAzureExample-Storage-rg --name pythonazurestorage12345
     ```
 
     Replace `PythonAzureExample-Storage-rg` and `pythonazurestorage12345` with the resource group that contains your storage account and the exact name of your storage account.

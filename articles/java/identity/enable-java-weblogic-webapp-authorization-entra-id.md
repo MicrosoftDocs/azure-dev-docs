@@ -2,11 +2,11 @@
 title: Enable WebLogic app sign-in and access to Microsoft Graph
 titleSuffix: Azure
 description: Shows you how to develop a Java WebLogic app to sign in users and call Microsoft Graph with the Microsoft identity platform.
-services: active-directory
+author: KarlErickson
+ms.author: bbanerjee
 ms.date: 03/11/2024
-ms.service: active-directory
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
 # Enable Java WebLogic apps to sign in users and access Microsoft Graph

@@ -3,14 +3,14 @@ title: Spring Cloud Azure authentication
 description: This reference doc contains all Spring Cloud Azure authentication methods.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yeyonghui
+ms.author: hangwan
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure authentication
 
-**This article applies to:** ✔️ Version 4.16.0 ✔️ Version 5.10.0
+**This article applies to:** ✔️ Version 4.18.0 ✔️ Version 5.12.0
 
 This article describes all the Spring Cloud Azure authentication methods.
 

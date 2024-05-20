@@ -1,8 +1,7 @@
 ---
 author: KarlErickson
 ms.date: 07/15/2022
-ms.author: bbenz
-ms.service: azure-java
+ms.author: hangwan
 ms.custom: devx-track-azurecli
 ms.topic: include
 ---

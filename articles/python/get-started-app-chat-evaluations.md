@@ -3,12 +3,13 @@ title: "Evaluating chat apps with Azure OpenAI"
 description: "Learn how to effectively evaluate answers in your RAG-based chat app using Azure OpenAI. Generate sample prompts, run evaluations, and analyze results."
 ms.date: 01/22/2024
 ms.topic: get-started
+ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
 # CustomerIntent: As a python developer new to Azure OpenAI, I want to evaluate the answers of my chat app and determine the best prompt.
 ---
 # Get started with evaluating answers in a chat app
 
-[!INCLUDE [evaluations-intro](../intro/includes/evaluations-introduction.md)]
+[!INCLUDE [evaluations-intro](../ai/includes/evaluations-introduction.md)]
 
 ## Prerequisites
 
@@ -44,4 +45,4 @@ ms.custom: devx-track-python, devx-track-python-ai
     
     ---
 
-[!INCLUDE [evaluations-procedure](../intro/includes/evaluations-procedure.md)]
+[!INCLUDE [evaluations-procedure](../ai/includes/evaluations-procedure.md)]

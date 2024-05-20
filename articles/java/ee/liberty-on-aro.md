@@ -4,10 +4,8 @@ recommendations: false
 description: Shows you how to deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 cluster.
 author: KarlErickson
 ms.author: jiangma
-ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 10/31/2022
-keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aro, openshift, red hat
+ms.date: 10/31/2023
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java, linux-related-content
 ---
 
@@ -47,7 +45,7 @@ Complete the following prerequisites to successfully use this guide.
 1. Connect to the cluster by following the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-connect-cluster).
 
    * Be sure to follow the steps in "Install the OpenShift CLI" because we use the `oc` command later in this article.
-   * Write down the cluster console URL. It should look like `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`.
+   * Save aside the cluster console URL. It should look like `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`.
    * Take note of the `kubeadmin` credentials.
    * Be sure to follow the steps in "Connect using the OpenShift CLI" with the `kubeadmin` credentials.
 
@@ -85,7 +83,7 @@ Use the following steps to set up an Azure Database for MySQL for use with your 
 1. Create an Azure Database for MySQL flexible server by following the steps in: [Quickstart: Use the Azure portal to create an Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/quickstart-create-server-portal). Return to this document after creating the database.
 
    > [!NOTE]
-   > At the **Basics** step, write down the ***Server name**.mysql.database.azure.com*, **Admin username**, and **Password** values.
+   > At the **Basics** step, save aside the ***Server name**.mysql.database.azure.com*, **Admin username**, and **Password** values.
 
 1. After your database is created, open **your database** > **Networking**.
 
@@ -95,7 +93,7 @@ Use the following steps to set up an Azure Database for MySQL for use with your 
 
    :::image type="content" source="media/liberty-on-aro/configure-mysql-database-networking.png" alt-text="Screenshot of configuring mysql database networking." lightbox="media/liberty-on-aro/configure-mysql-database-networking.png":::
 
-1. Open **your database** > **Connect** > Select **Connect from your app** > **JDBC**. Write down the **Port number** following database server address. For example, **3306** is the port number in the following example.
+1. Open **your database** > **Connect** > Select **Connect from your app** > **JDBC**. Save aside the **Port number** following database server address. For example, **3306** is the port number in the following example.
 
    ```text
    String url="jdbc:mysql://<Server name>.mysql.database.azure.com:3306/{your_database}?useSSL=true";myDbConn=DriverManager.getConnection(url, "<Server admin username>", "{your_password}");
@@ -104,7 +102,7 @@ Use the following steps to set up an Azure Database for MySQL for use with your 
 1. Open **your database** > **Databases** > Select **Add**. Fill in a value for **Name** and select **Save** to create a new database. This database has **Scheme type** as **User** and is used for the application later.
 
    > [!NOTE]
-   > Write down the **Name** for the database you created.
+   > Save aside the **Name** for the database you created.
 
 ## Prepare the Liberty application
 
@@ -112,7 +110,7 @@ We use a Java EE 8 application as our example in this guide. Open Liberty is a [
 
 ### Run the application on Open Liberty
 
-To run the application on Open Liberty, you need to create an Open Liberty server configuration file so that the [Liberty Maven plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin) can package the application for deployment. The Liberty Maven plugin isn't required to deploy the application to OpenShift. However, we use it in this example with Open Liberty’s developer (dev) mode. Developer mode lets you easily run the application locally. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
+To run the application on Open Liberty, you need to create an Open Liberty server configuration file so that the [Liberty Maven plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin) can package the application for deployment. The Liberty Maven plugin isn't required to deploy the application to OpenShift. However, we use it in this example with Open Liberty's developer (dev) mode. Developer mode lets you easily run the application locally. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
 
 Follow the steps in this section to prepare the sample application for later use in this article. These steps use Maven and the `liberty-maven-plugin`.
 

@@ -8,7 +8,7 @@ items:
   - name: Host applications on Azure
     href: hosting-apps-on-azure.md
   - name: Develop apps that use Azure AI services
-    href: azure-ai-for-developers.md
+    href: ../ai/azure-ai-for-developers.md
   - name: Connect apps to Azure services
     href: connect-to-azure-services.md
   - name: Create Azure resources
