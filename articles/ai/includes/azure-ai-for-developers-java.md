@@ -9,10 +9,10 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 ### Libraries and samples
 
 |Link|Description|
-|---|---|---|---|
+|---|---|
 |[**langchain4j-azure-open-ai**](https://github.com/langchain4j/langchain4j/tree/main/langchain4j-azure-open-ai)|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-open-ai/versions) [Maven package](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-open-ai)|
 |[**langchain4j-azure-ai-search**](https://github.com/langchain4j/langchain4j/tree/main/langchain4j-azure-ai-search)|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-ai-search/versions) [Maven](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-ai-search)|
-|**langchain4j-document-loader-azure-storage-blob**|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-document-loader-azure-storage-blob/versions)|[Maven](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-document-loader-azure-storage-blob/overview)|
+|**langchain4j-document-loader-azure-storage-blob**|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-document-loader-azure-storage-blob/versions) [Maven](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-document-loader-azure-storage-blob/overview)|
 |[Get started using GPT-35-Turbo and GPT-4](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-java&tabs=command-line)|An article that walks you through creating a chat completion sample.|
 |[Completions](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-openai_1.0.0-beta.1/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatbotSample.java)|A simple example demonstrating how to get completions for the provided prompt.|
 |[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-openai_1.0.0-beta.1/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/StreamingChatSample.java)|A simple example demonstrating how to use  streaming chat completions.|
@@ -64,7 +64,7 @@ Azure AI Services are a collection of services (including Azure OpenAI Service) 
 |Link|Description|
 |---|---|
 |[Azure ContentSafety client library for Java](/java/api/overview/azure/ai-contentsafety-readme)|The Java client library for the Azure AI Content Safety service used to detect unwanted content.|
-|[Azure Document Intelligence client library for Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable)|The Java client library for the Azure AI Document Intelligent service, used to turn documents into intelligent data-driven solutions.|
+|[Azure Document Intelligence client library for Java](/java/api/overview/azure/ai-formrecognizer-readme)|The Java client library for the Azure AI Document Intelligent service, used to turn documents into intelligent data-driven solutions.|
 |[Azure Text Analytics client library for Java](/java/api/overview/azure/ai-textanalytics-readme)|The Java client library for the Azure AI Language service. Build apps with industry-leading natural landuage understanding capabilities.|
 |[Azure Cognitive Search client library for Java](/java/api/overview/azure/search-documents-readme)|The Java client library for Azure AI Search service. Bring AI-powered cloud search to your applications. [Quickstart](/samples/azure-samples/azure-search-java-samples/java-quickstart/) |
 |[Azure AI Search client library for Java](/java/api/overview/azure/search-documents-readme)|The Java client library for Azure AI Speech. Perform speech to text, text to speech, translation, and speaker recognition.|
