@@ -157,19 +157,15 @@ The sample repository contains all the code and configuration files you need to 
 
 You can use the assistant app to get the stock market price of `MSFT`. The following steps walk you through the process of using the assistant app. The assistant can send you the answers in email. That isn't configured yet so change the prompt to not use that instruction.
 
-1. In the browser, remove the following text from the prompt:
+1. In the browser, copy and paste in the following prompt:
 
     ```
-    Send me the full analysis by email.
+    Based on the latest financial data and current stock market trends, can you provide a detailed analysis of Microsoft's current state? Please include insights into their recent performance, market position, and future outlook. Additionally, retrieve and include the latest closing price of Microsoft's stock using its ticker symbol (MSFT). 
     ```
     
 1. Select the **Run** button. Your results should look _similar_ to the following response.
 
     :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-demo.png" alt-text="Screenshot of assistant app's first answer.":::
-
-### Configure assistant to send response in email
-
-
 
 ## Clean up resources
 
