@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 
 # Additional methods to authenticate to Azure resources from Python apps
 
-This article lists additional methods apps can use to authenticate to Azure resources.  The methods on this page are less commonly used and, when possible, it's encouraged to use one of the methods outlined in the [authenticating Python apps to Azure using the Azure SDK overview](./authentication-overview.md) article.
+This article lists additional methods apps can use to authenticate to Azure resources. The methods on this page are less commonly used and, when possible, we encourage you to use one of the methods outlined in the [authenticating Python apps to Azure using the Azure SDK overview](./authentication-overview.md) article.
 
 ## Interactive browser authentication
 
@@ -64,7 +64,7 @@ Perform the following steps to enable the application to authenticate through th
         ms-appx-web://microsoft.aad.brokerplugin/{client_id}
         ```
 
-         The `{client_id}` placeholder must be replaced with the Application (client) ID listed on the Overview blade of the app registration.
+         The `{client_id}` placeholder must be replaced with the Application (client) ID listed on the Overview pane of the app registration.
 
     1. Select **Configure**.
 
