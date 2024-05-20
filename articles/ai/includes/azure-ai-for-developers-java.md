@@ -61,15 +61,18 @@ Azure AI Services are a collection of services (including Azure OpenAI Service) 
 
 ### Documentation
 
-|Link|Description|
-|---|---|
-|[Azure ContentSafety client library for Java](/java/api/overview/azure/ai-contentsafety-readme)|The Java client library for the Azure AI Content Safety service used to detect unwanted content. [Quickstart](/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Cwindows&pivots=programming-language-java)|
-|[Azure Document Intelligence client library for Java](/java/api/overview/azure/ai-formrecognizer-readme)|The Java client library for the Azure AI Document Intelligent service, used to turn documents into intelligent data-driven solutions. [Quickstart](/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?pivots=programming-language-java)|
-|[Azure Text Analytics client library for Java](/java/api/overview/azure/ai-textanalytics-readme)|The Java client library for the Azure AI Language service. Build apps with industry-leading natural landuage understanding capabilities. [Quickstart](/azure/ai-services/language-service/text-analytics-for-health/quickstart?tabs=windows&pivots=programming-language-java)|
-|[Azure AI Search client library for Java](/java/api/overview/azure/search-documents-readme)|The Java client library for Azure AI Search service. Bring AI-powered cloud search to your applications. [Quickstart](/azure/search/search-get-started-text?tabs=java) |
-|[Azure AI Speech client library for Java](/java/api/overview/azure/search-documents-readme)|The Java client library for Azure AI Speech. Perform speech to text, text to speech, translation, and speaker recognition. [Quickstart](/azure/ai-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-java)|
-|[Azure Text Translation client library for Java](/java/api/overview/azure/ai-translation-text-readme)|The Java client library for the Azure AI Translator service. Use AI-powered trnslation to translate more than 100 in-use, at-risk and endangered languages and dialects. [Quickstart](/azure/ai-services/translator/quickstart-text-sdk?pivots=programming-language-java)|
-|[Azure Image Analysis client library for Java](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40?pivots=programming-language-java&tabs=visual-studio%2Cwindows)|The Java client library for the Azure AI Vision service used to analyze content in images and videos. [Quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library?tabs=windows%2Cvisual-studio&pivots=programming-language-java)|
+|AI service|Description|API reference|Quickstart|
+|---|---|---|---|
+|[Content Safety](/azure/ai-services/content-safety/)|An AI service that detects unwanted content.|[Content Safety API reference](/java/api/overview/azure/ai-contentsafety-readme)|[Quickstart](/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Cwindows&pivots=programming-language-java)|
+|[Document Intelligence](/azure/ai-services/document-intelligence/)|Turn documents into intelligent data-driven solutions.|[Document Intelligence API reference](/java/api/overview/azure/ai-formrecognizer-readme)|[Quickstart](/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?pivots=programming-language-java)|
+|[Language](/azure/ai-services/language-service/)|Build apps with industry-leading natural landuage understanding capabilities.|[Language API reference](/java/api/overview/azure/ai-textanalytics-readme)|[Quickstart](/azure/ai-services/language-service/text-analytics-for-health/quickstart?tabs=windows&pivots=programming-language-java)|
+|[Search](/azure/search/)|Bring AI-powered cloud search to your applications.|[Search API reference](/java/api/overview/azure/search-documents-readme)|[Quickstart](/azure/search/search-get-started-text?tabs=java) |
+
+|[Speech](/azure/ai-services/speech-service/)|Speech to text, text to speech, translation, and speaker recognition.|[Speech API reference](/java/api/overview/azure/search-documents-readme)|[Quickstart](/azure/ai-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-java)|
+
+|[Translator](/azure/ai-services/translator/)|Use AI-powered trnslation to translate more than 100 in-use, at-risk and endangered languages and dialects.|[Translator API reference](/java/api/overview/azure/ai-translation-text-readme)|[Quickstart](/azure/ai-services/translator/quickstart-text-sdk?pivots=programming-language-java)|
+
+|[Vision](/azure/ai-services/computer-vision/)|Analyze content in images and videos.|[Vision API reference](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40?pivots=programming-language-java&tabs=visual-studio%2Cwindows)|[Quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library?tabs=windows%2Cvisual-studio&pivots=programming-language-java)|
 
 
 ### Training

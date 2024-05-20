@@ -61,7 +61,7 @@ Azure AI Services are a collection of services (including Azure OpenAI Service) 
 
 ### Documentation
 
-|AI service|Description|Library|Quickstart|
+|AI service|Description|API reference|Quickstart|
 |---|---|---|---|
 |[Content Safety](/azure/ai-services/content-safety/)|An AI service that detects unwanted content.|[Content Safety API reference](/python/api/overview/azure/ai-contentsafety-readme)|[Quickstart](/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Cwindows&pivots=programming-language-python)|
 |[Document Intelligence](/azure/ai-services/document-intelligence/)|Turn documents into intelligent data-driven solutions.|[Document Intelligence API reference](/python/api/overview/azure/ai-formrecognizer-readme)|[Quickstart](/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?pivots=programming-language-python)|
