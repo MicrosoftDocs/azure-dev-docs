@@ -42,7 +42,7 @@ This article integrates KEDA with your AKS cluster to scale WLS cluster based on
 The following WLS state and metrics are exported by default. You can configure the exporter to export other metrics on your demand. For a detailed description of WebLogic Monitoring Exporter configuration and usage, see [WebLogic Monitoring Exporter](https://blogs.oracle.com/weblogicserver/exporting-metrics-from-weblogic-server).
 
 <!-- https://github.com/oracle/weblogic-azure/blob/main/weblogic-azure-aks/src/main/resources/diagrams/wls-aks-diagram-autoscaling.vsdx -->
-:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-metrics.png" lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-metrics.png" border="false":::
+:::image type="content" source="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-metrics.png" alt-text="WebLogic Metrics." lightbox="media/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics/weblogic-metrics.png" border="false":::
 The following table shows the exported WebLogic metrics:
 
 | Category | Category Hierarchy | Metrics |
