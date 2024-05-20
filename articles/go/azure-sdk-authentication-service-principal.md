@@ -26,7 +26,7 @@ Follow this tutorial to create and authenticate with the Azure SDK for Go using 
 
 - If you want to use Azure PowerShell to run the steps in this article:
 
-  [!INCLUDE [Azure PowerShell prerequisites no header](./includes/azure-powershell-requirements-no-header.md)]
+  [!INCLUDE [Azure PowerShell prerequisites no header](~/../articles/reusable-content/azure-powershell/azure-powershell-requirements-no-header.md)]
 
 ## 1. Create Azure resources
 

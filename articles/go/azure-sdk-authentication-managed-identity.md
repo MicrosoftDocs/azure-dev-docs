@@ -24,7 +24,7 @@ Follow this tutorial to assign a managed identity to a virtual machine and authe
 
 - If you want to use Azure PowerShell to run the steps in this article:
 
-  [!INCLUDE [Azure PowerShell prerequisites no header](./includes/azure-powershell-requirements-no-header.md)]
+  [!INCLUDE [Azure PowerShell prerequisites no header](~/../articles/reusable-content/azure-powershell/azure-powershell-requirements-no-header.md)]
 
 ## 1. Create Azure resources
 
