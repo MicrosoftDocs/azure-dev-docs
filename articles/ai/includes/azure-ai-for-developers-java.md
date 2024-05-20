@@ -45,9 +45,6 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 
 
 
-
-
-
 ## Other Azure AI Services
 
 Azure AI Services are a collection of services (including Azure OpenAI Service) that help developers and organizations rapidly create intelligent, market-ready, and responsbile applications with out-of-the-box and prebuilt customizable APIs and models. These services include speech, vision, search, and more.
@@ -67,24 +64,18 @@ Azure AI Services are a collection of services (including Azure OpenAI Service) 
 
 |Link|Description|
 |---|---|
-|[Azure AI Services](/azure/ai-services/what-are-ai-services)|Top level overview page for all Azure AI Services.|
-|[Azure AI Studio](/azure/ai-studio/what-is-ai-studio?tabs=home)|Azure AI Studio brings together capabilities from across multiple Azure AI services.|
-|[Azure AI Search]()|Bring AI-powered cloud search to your applications.|
-|[Speech](/azure/ai-services/speech-service/)|Speech to text, text to speech, translation, and speaker recognition.|
-|[Language](/azure/ai-services/language-service/)|Build apps with industry-leading natural landuage understanding capabilities.|
-|[Translator](/azure/ai-services/translator/)|Use AI-powered trnslation to translate more than 100 in-use, at-risk and endangered languages and dialects.|
-|[Vision](/azure/ai-services/computer-vision/)|Analyze content in images and videos|
-|[Face](/azure/ai-services/computer-vision/overview-identity)|Detect and identify people and emotions in images.|
-|[Content Safety](/azure/ai-services/content-safety/)|An AI service that detects unwanted content.|
-|[Document Intelligence](/azure/ai-services/document-intelligence/)|Turn documents into intelligent data-driven solutions.|
+|[Content Safety](/java/api/overview/azure/ai-contentsafety-readme?view=azure-java-stable)|An AI service that detects unwanted content.|
+|[Document Intelligence](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable)|Turn documents into intelligent data-driven solutions.|
+|[Language](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable)|Build apps with industry-leading natural landuage understanding capabilities.|
+|[Search](/java/api/overview/azure/search-documents-readme?view=azure-java-stable)|Bring AI-powered cloud search to your applications. [Quickstart](/samples/azure-samples/azure-search-java-samples/java-quickstart/) |
+|[Speech](/azure/ai-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=windows%2Cubuntu%2Cdotnetcli%2Cdotnet%2Cjre%2Cmaven%2Cnodejs%2Cmac%2Cpypi)|Speech to text, text to speech, translation, and speaker recognition.|
+|[Translator](/java/api/overview/azure/ai-translation-text-readme?view=azure-java-preview)|Use AI-powered trnslation to translate more than 100 in-use, at-risk and endangered languages and dialects.|
+|[Vision](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40?pivots=programming-language-java&tabs=visual-studio%2Cwindows)|Analyze content in images and videos|
 
 
 ### Training
 
 |Link|Description|
 |---|---|
-|[Generative AI for Beginners Workshop](https://github.com/microsoft/generative-ai-for-beginners/tree/main)|Learn the fundamentals of building Generative AI apps with our 18-lesson comprehensive course by Microsoft Cloud Advocates.|
-|[Microsoft Azure AI Fundamentals: Generative AI](/training/paths/introduction-generative-ai/)|Training path to help you understand how large language models form the foundation of generative AI: how Azure OpenAI Service provides access to the latest generative AI technology, how prompts and responses can be fine-tuned and how Microsoft's responsible AI principles drive ethical AI advancements.|
 |[Get started with Azure AI Services](/training/paths/get-started-azure-ai/)|Azure AI Services is a collection of services that are building blocks of AI functionality you can integrate into your applications. In this learning path, you'll learn how to provision, secure, monitor, and deploy Azure AI Services resources and use them to build intelligent solutions.|
-
 
