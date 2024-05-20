@@ -118,19 +118,21 @@ items:
               href: /azure/ai-services/openai/dall-e-quickstart?pivots=programming-language-java&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: .NET
           items:
+            - name: AI for .NET docs center
+              href: /dotnet/ai
             - name: Overview
-              href: /dotnet/ai/azure-ai-for-dotnet-developers?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: .NET + AI ecosystem
-              href: /dotnet/ai/dotnet-ai-ecosystem?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+              href: /dotnet/ai/get-started/dotnet-ai-overview
+            - name: Learning resources and samples
+              href: /dotnet/ai/azure-ai-for-dotnet-developers
             - name: Build a chat app
-              href: /dotnet/ai/quickstarts/get-started-azure-openai?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: Create an app to chat about your data
-              href: /dotnet/ai/quickstarts/quickstart-ai-chat-with-data?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+              href: /dotnet/ai/quickstarts/get-started-azure-openai
+            - name: Create a chat app that uses your data
+              href: /dotnet/ai/quickstarts/quickstart-ai-chat-with-data
             - name: Summarize text
-              href: /dotnet/ai/quickstarts/quickstart-openai-summarize-text?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-            - name: Execute a local .NET function
-              href: /dotnet/ai/quickstarts/quickstart-azure-openai-tool?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+              href: /dotnet/ai/quickstarts/quickstart-openai-summarize-text
             - name: Generate images
-              href: /dotnet/ai/quickstarts/quickstart-openai-generate-images?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+              href: /dotnet/ai/quickstarts/quickstart-openai-generate-images
+            - name: Implement RAG using vector search
+              href: /dotnet/ai/tutorials/tutorial-ai-vector-search
         - name: Go
           href: ../go/azure-ai-for-go-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
