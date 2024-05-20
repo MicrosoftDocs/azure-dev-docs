@@ -2,8 +2,8 @@
 title: Dev tunnels security
 titleSuffix: Microsoft dev tunnels
 description: Learn about security when using dev tunnels
-author: curib
-ms.author: cauribeg
+author: derekbekoe
+ms.author: debekoe
 ms.topic: conceptual
 ms.service: azure-dev-tunnels
 ms.date: 06/15/2023 
