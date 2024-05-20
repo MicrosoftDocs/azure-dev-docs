@@ -73,7 +73,8 @@ $env:AZURE_CLIENT_SECRET="<service_principal_password>"
 |-|-
 |`AZURE_CLIENT_ID`|ID of a Microsoft Entra application
 |`AZURE_TENANT_ID`|ID of the application's Microsoft Entra tenant
-|`AZURE_CLIENT_CERTIFICATE_PATH`|Path to a certificate file including private key (without password protection)
+|`AZURE_CLIENT_CERTIFICATE_PATH`|Path to a PEM or PKCS12 certificate file including private key
+|`AZURE_CLIENT_CERTIFICATE_PASSWORD`|(optional) Password for the certificate file
 
 # [Bash](#tab/bash)
 

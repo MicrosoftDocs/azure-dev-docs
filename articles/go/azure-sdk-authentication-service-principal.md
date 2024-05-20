@@ -212,7 +212,7 @@ $env:AZURE_CLIENT_SECRET="<service_principal_password>"
 |-|-
 |`AZURE_CLIENT_ID`|Application ID of an Azure service principal
 |`AZURE_TENANT_ID`|ID of the application's Microsoft Entra tenant
-|`AZURE_CLIENT_CERTIFICATE_PATH`|Path to a certificate file including private key. If you followed the steps for the Azure CLI, the file isn't password protected. If you followed the steps for Azure PowerShell, the file is password protected, and you'll also need to set the `AZURE_CLIENT_CERTIFICATE_PASSWORD` variable.
+|`AZURE_CLIENT_CERTIFICATE_PATH`|Path to a PEM or PKCS12 certificate file including private key. If you followed the steps for the Azure CLI, the file isn't password protected. If you followed the steps for Azure PowerShell, the file is password protected, and you'll also need to set the `AZURE_CLIENT_CERTIFICATE_PASSWORD` environment variable.
 |`AZURE_CLIENT_CERTIFICATE_PASSWORD`|The password you entered when you created the service principal. Only needed if you followed the steps for Azure PowerShell.
 
 # [Bash](#tab/azure-cli)
