@@ -30,7 +30,7 @@ This article is part of a collection of articles that show you how to build a ch
 * [Python](../python/get-started-app-chat-template.md)
 
 > [!NOTE]
-> This article uses one or more *AI app templates* as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps. For more information about other available templates, see [AI app templates](../ai/intelligent-app-templates.md).
+> This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
 ## Architectural overview
 

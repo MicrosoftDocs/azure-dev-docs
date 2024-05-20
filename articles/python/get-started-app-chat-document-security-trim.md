@@ -21,7 +21,7 @@ An **unauthorized user** shouldn't have access to answers from secured documents
 :::image type="content" source="media/get-started-app-chat-document-security-trim/chat-answer-with-no-access.png" alt-text="Screenshot of chat app with answer indicating user doesn't have access to data.":::
 
 > [!NOTE]
-> This article uses one or more *AI app templates* as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps. For more information about other available templates, see [AI app templates](../ai/intelligent-app-templates.md).
+> This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
 ## Architectural overview
 

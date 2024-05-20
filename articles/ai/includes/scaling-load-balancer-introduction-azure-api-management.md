@@ -18,7 +18,7 @@ This article requires you to deploy two separate samples:
 * Load balancer with Azure API Management
 
 > [!NOTE]
-> This article uses one or more *AI app templates* as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps. For more information about other available templates, see [AI app templates](../intelligent-app-templates.md).
+> This article uses one or more [AI app templates](../intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
 ## Architecture for load balancing Azure OpenAI with Azure API Management
 
