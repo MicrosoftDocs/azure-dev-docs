@@ -20,6 +20,9 @@ An **unauthorized user** shouldn't have access to answers from secured documents
 
 :::image type="content" source="media/get-started-app-chat-document-security-trim/chat-answer-with-no-access.png" alt-text="Screenshot of chat app with answer indicating user doesn't have access to data.":::
 
+> [!NOTE]
+> This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+
 ## Architectural overview
 
 Without document security feature, the enterprise chat app has a simple architecture using Azure AI Search and Azure OpenAI. An answer is determined from queries to Azure AI Search where the documents are stored, in combination with a response from an Azure OpenAI GPT model. No user authentication is used in this simple flow.

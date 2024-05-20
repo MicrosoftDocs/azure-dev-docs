@@ -16,6 +16,8 @@ The code includes sample data for a fictitious company, Contoso Real Estate. Cus
 
 :::image type="content" source="./media/get-started-app-chat-langchainjs/demo.gif" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
+> [!NOTE]
+> This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
 ## Architectural overview
 

@@ -22,6 +22,9 @@ This article is part of a collection of articles that show you how to build a ch
 * [Java](../java/quickstarts/get-started-app-chat-template.md)
 * [Python](../python/get-started-app-chat-template.md)
 
+> [!NOTE]
+> This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+
 ## Prerequisites
 
 Deploy the 2 reference architectures using the following articles. Make sure to use the same subscription and region for both deployments. The deployment may take up to 20 minutes. Leave the deployments up; don't complete the _Clean up resources_ section until you're done with this article.

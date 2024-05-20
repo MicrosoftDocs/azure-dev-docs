@@ -15,7 +15,11 @@ This article provides the process to perform load testing on a Python chat appli
 Watch the demonstration video to understand more about load testing the chat app. 
 * [Video](https://www.youtube.com/watch?v=-oMqb6kBdDw)
 
+> [!NOTE]
+> This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+
 ## Prerequisites
+
 * Azure subscription.  [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true) 
 * Access granted to Azure OpenAI in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.

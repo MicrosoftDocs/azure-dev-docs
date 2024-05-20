@@ -16,6 +16,9 @@ By following the instructions in this article, you will:
 - Run evaluations using a sample prompt with the generated user questions.
 - Review analysis of answers.
 
+> [!NOTE]
+> This article uses one or more [AI app templates](../intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+
 ## Architectural overview
 
 Key components of the architecture include:

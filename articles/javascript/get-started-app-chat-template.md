@@ -29,6 +29,9 @@ This article is part of a collection of articles that show you how to build a ch
 * [Java](../java/quickstarts/get-started-app-chat-template.md)
 * [Python](../python/get-started-app-chat-template.md)
 
+> [!NOTE]
+> This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+
 ## Architectural overview
 
 A simple architecture of the chat app is shown in the following diagram:

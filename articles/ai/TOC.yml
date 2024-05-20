@@ -27,7 +27,13 @@ items:
             - name: Python
               href: ../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: JavaScript
-              href: ../javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+              items:
+                - name: Get started with the chat app template
+                  href: ../javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+                - name: Serverless AI chat with RAG using LangChain.js
+                  href: ../javascript/get-started-app-chat-template-langchainjs.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+                - name: Serverless Azure OpenAI Assistants with function calling
+                  href: ../javascript/get-started-app-chat-assistants-function-calling.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: Java
               href: ../java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: .NET
@@ -62,8 +68,6 @@ items:
           href: ../python/get-started-app-chat-document-security-trim.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Connect a JavaScript frontend and Python backend
           href: ../javascript/chat-app-with-separate-front-back-end.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-        - name: Serverless AI chat with RAG using LangChain.js
-          href: ../javascript/get-started-app-chat-template-langchainjs.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
     - name: Resources
       items:
         - name: Python
