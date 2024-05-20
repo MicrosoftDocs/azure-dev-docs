@@ -8,11 +8,11 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 
 ### Libraries and samples
 
-|Package|Source code|Releases|Maven|
+|Link|Description|
 |---|---|---|---|
-|**langchain4j-azure-open-ai**|[Source code](https://github.com/langchain4j/langchain4j/tree/main/langchain4j-azure-open-ai)|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-open-ai/versions)|[Maven package](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-open-ai)
-|**langchain4j-azure-ai-search**|[Source code](https://github.com/langchain4j/langchain4j/tree/main/langchain4j-azure-ai-search)|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-ai-search/versions)|[Maven](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-ai-search)|
-|**langchain4j-document-loader-azure-storage-blob**|n/a|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-document-loader-azure-storage-blob/versions)|[Maven](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-document-loader-azure-storage-blob/overview)|
+|[**langchain4j-azure-open-ai**](https://github.com/langchain4j/langchain4j/tree/main/langchain4j-azure-open-ai)|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-open-ai/versions) [Maven package](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-open-ai)|
+|[**langchain4j-azure-ai-search**](https://github.com/langchain4j/langchain4j/tree/main/langchain4j-azure-ai-search)|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-ai-search/versions) [Maven](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-azure-ai-search)|
+|**langchain4j-document-loader-azure-storage-blob**|[Releases](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-document-loader-azure-storage-blob/versions)|[Maven](https://central.sonatype.com/artifact/dev.langchain4j/langchain4j-document-loader-azure-storage-blob/overview)|
 |[Get started using GPT-35-Turbo and GPT-4](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-java&tabs=command-line)|An article that walks you through creating a chat completion sample.|
 |[Completions](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-openai_1.0.0-beta.1/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatbotSample.java)|A simple example demonstrating how to get completions for the provided prompt.|
 |[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-openai_1.0.0-beta.1/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/StreamingChatSample.java)|A simple example demonstrating how to use  streaming chat completions.|
@@ -44,7 +44,6 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 |[Develop Generative AI solutions with Azure OpenAI Service](/training/paths/develop-ai-solutions-azure-openai/)|Azure OpenAI Service provides access to OpenAI's powerful large language models such as ChatGPT, GPT, Codex, and Embeddings models. This learning path teaches developers how to generate code, images, and text using the Azure OpenAI SDK and other Azure services.|
 
 
-
 ## Other Azure AI Services
 
 Azure AI Services are a collection of services (including Azure OpenAI Service) that help developers and organizations rapidly create intelligent, market-ready, and responsbile applications with out-of-the-box and prebuilt customizable APIs and models. These services include speech, vision, search, and more.
@@ -64,13 +63,13 @@ Azure AI Services are a collection of services (including Azure OpenAI Service) 
 
 |Link|Description|
 |---|---|
-|[Content Safety](/java/api/overview/azure/ai-contentsafety-readme?view=azure-java-stable)|An AI service that detects unwanted content.|
-|[Document Intelligence](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable)|Turn documents into intelligent data-driven solutions.|
-|[Language](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable)|Build apps with industry-leading natural landuage understanding capabilities.|
-|[Search](/java/api/overview/azure/search-documents-readme?view=azure-java-stable)|Bring AI-powered cloud search to your applications. [Quickstart](/samples/azure-samples/azure-search-java-samples/java-quickstart/) |
-|[Speech](/azure/ai-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=windows%2Cubuntu%2Cdotnetcli%2Cdotnet%2Cjre%2Cmaven%2Cnodejs%2Cmac%2Cpypi)|Speech to text, text to speech, translation, and speaker recognition.|
-|[Translator](/java/api/overview/azure/ai-translation-text-readme?view=azure-java-preview)|Use AI-powered trnslation to translate more than 100 in-use, at-risk and endangered languages and dialects.|
-|[Vision](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40?pivots=programming-language-java&tabs=visual-studio%2Cwindows)|Analyze content in images and videos|
+|[Azure ContentSafety client library for Java](/java/api/overview/azure/ai-contentsafety-readme)|The Java client library for the Azure AI Content Safety service used to detect unwanted content.|
+|[Azure Document Intelligence client library for Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable)|The Java client library for the Azure AI Document Intelligent service, used to turn documents into intelligent data-driven solutions.|
+|[Azure Text Analytics client library for Java](/java/api/overview/azure/ai-textanalytics-readme)|The Java client library for the Azure AI Language service. Build apps with industry-leading natural landuage understanding capabilities.|
+|[Azure Cognitive Search client library for Java](/java/api/overview/azure/search-documents-readme)|The Java client library for Azure AI Search service. Bring AI-powered cloud search to your applications. [Quickstart](/samples/azure-samples/azure-search-java-samples/java-quickstart/) |
+|[Azure AI Search client library for Java](/java/api/overview/azure/search-documents-readme)|The Java client library for Azure AI Speech. Perform speech to text, text to speech, translation, and speaker recognition.|
+|[Azure Text Translation client library for Java](/java/api/overview/azure/ai-translation-text-readme)|The Java client library for the Azure AI Translator service. Use AI-powered trnslation to translate more than 100 in-use, at-risk and endangered languages and dialects.|
+|[Azure Image Analysis client library for Java](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40?pivots=programming-language-java&tabs=visual-studio%2Cwindows)|The Java client library for the Azure AI Vision service used to analyze content in images and videos.|
 
 
 ### Training
