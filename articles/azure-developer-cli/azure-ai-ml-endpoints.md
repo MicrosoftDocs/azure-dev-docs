@@ -28,7 +28,7 @@ The Azure Developer CLI enables you to quickly and easily deploy to an [Azure ML
 
 To work with AI/ML studio online endpoints, you'll need the following:
 
-* [Azure Subscription](https://signup.azure.com/signup)
+* [Azure Subscription](https://signup.azure.com/signup) with OpenAI access enabled
 * [AI Hub Resource](/azure/ai-studio/concepts/ai-resources)
 * [AI Project](/azure/ai-studio/how-to/create-projects)
 * [OpenAI Service](/azure/ai-services/openai/)
