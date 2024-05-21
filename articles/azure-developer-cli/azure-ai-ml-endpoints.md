@@ -26,8 +26,9 @@ The Azure Developer CLI enables you to quickly and easily deploy to an [Azure ML
 
 ## Prerequisites
 
-To work with AI/ML studio online endpoints, you'll need the following infrastructure resources:
+To work with AI/ML studio online endpoints, you'll need the following:
 
+* [Azure Subscription](https://signup.azure.com/signup)
 * [AI Hub Resource](/azure/ai-studio/concepts/ai-resources)
 * [AI Project](/azure/ai-studio/how-to/create-projects)
 * [OpenAI Service](/azure/ai-services/openai/)
