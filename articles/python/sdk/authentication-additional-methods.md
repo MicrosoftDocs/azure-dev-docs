@@ -90,7 +90,7 @@ from azure.storage.blob import BlobServiceClient
 current_window_handle = win32gui.GetForegroundWindow()
 
 # To autheticate and authorize with an app, use the following line to get a credential and
-# substitute the <app_id> and <tenant_id> placeholders with the value for your app and tenant.
+# substitute the <app_id> and <tenant_id> placeholders with the values for your app and tenant.
 # credential = InteractiveBrowserBrokerCredential(parent_window_handle=current_window_handle, client_id=<app_id>, tenant_id=<tenant_id>)
 credential = InteractiveBrowserBrokerCredential(parent_window_handle=current_window_handle)
 client = BlobServiceClient("https://<storage-account-name>.blob.core.windows.net/", credential=credential)
