@@ -1,92 +1,56 @@
-## Azure AI reference templates
+## AI app templates
 
-Azure AI reference templates provide you with well-maintained, easy to deploy reference implementations. These ensure a high-quality starting point for your intelligent applications. The end-to-end solutions provide popular, comprehensive reference applications. The building blocks are smaller-scale samples that focus on specific scenarios and tasks.
+[AI app templates](../intelligent-app-templates.md?pivots=javascript) provide you with well-maintained, easy to deploy reference implementations. These ensure a high-quality starting point for your AI apps. The end-to-end solutions provide popular, comprehensive reference applications. The building blocks are smaller-scale samples that focus on specific scenarios and tasks.
 
-### End-to-end solutions
+## Azure OpenAI Service
 
-|Link|Description|
-|---|---|
-|[Get started with the JavaScript enterprise chat sample using RAG](../../javascript/get-started-app-chat-template.md)|An article that walks you through deploying and using the [Enterprise chat app sample for JavaScript](https://github.com/Azure-Samples/azure-search-openai-javascript). This sample is a complete end-to-end solution demonstrating the [Retrieval-Augmented Generation (RAG) pattern](/azure/search/retrieval-augmented-generation-overview) running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. |
+Azure OpenAI Service provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Azure OpenAI SDK for .NET, or the web-based interface in the Azure OpenAI Studio.
 
-* [Demo video](https://aka.ms/azai/js/video) - JavaScript fullstack 
-* [Demo video](https://aka.ms/azai/js.py/video) - JavaScript frontend with Python backend 
+### Libraries
 
-
-### Building blocks
-
-|Link|Description|
-|---|---|
-|[Build a chat app with Azure OpenAI (Python)](https://github.com/Azure-Samples/chatgpt-quickstart/blob/main/README.md)|A simple Python Quart app that streams responses from ChatGPT to an HTML/JS frontend using JSON Lines over a ReadableStream. (The Python code is provided as a reference and could be adapted to JavaScript.)|
-|[Build a LangChain with Azure OpenAI (Python)](https://github.com/Azure-Samples/function-python-ai-langchain)|A sample shows how to take a human prompt as HTTP Get or Post input, calculates the completions using chains of human input and templates. This is a starting point that can be used for more sophisticated chains. (The Python code is provided as a reference and could be adapted to JavaScript.)|
-|[Build a ChatGPT Plugin with Azure Container Apps (Python)](https://github.com/Azure-Samples/openai-plugin-fastapi/blob/main/README.md)|A sample for creating ChatGPT Plugin using GitHub Codespaces, VS Code, and Azure. The sample includes templates to deploy the plugin to Azure Container Apps using the Azure Developer CLI. (The Python code is provided as a reference and could be adapted to JavaScript.)|
-|[Azure AI JavaScript Template Gallery](https://azure.github.io/awesome-azd/?tags=ai&tags=javascript)|For the full list of Azure AI templates, visit our gallery. All app templates in our gallery can be spun up and deployed using a single command: _azd up_.|
-|[Smart load balancing with Azure Container Apps](../../javascript/get-started-app-chat-scaling-with-azure-container-apps.md)|This [sample solution](https://github.com/Azure-Samples/openai-aca-lb) is built using the high-performance [YARP C# reverse-proxy framework](https://github.com/microsoft/reverse-proxy) from Microsoft. However, you don't need to understand C# to use it, you can just build the provided Docker image. This is an alternative solution to the [API Management OpenAI smart load balancer](https://github.com/Azure-Samples/openai-apim-lb/), with the same logic.|
-|[Smart load balancing with Azure API Management](../../javascript/get-started-app-chat-scaling-with-azure-api-management.md)|The enterprise solution shows how to create an Azure API Management Policy to seamlessly expose a single endpoint to your applications while keeping an efficient logic to consume two or more OpenAI or any API backends based on availability and priority.|
-|[Evaulate your chat app](../../python/get-started-app-chat-evaluations.md)|Evaluate a chat app's answers against a set of correct or ideal answers (known as ground truth). The [evaulation tools](https://github.com/Azure-Samples/ai-rag-chat-evaluator) can be used with any Chat API which conforms to the [Chat protocol](https://github.com/Azure-Samples/ai-chat-app-protocol).|
-
-## Azure OpenAI
-
-### End-to-end solutions
-
-|Link|Description|
-|---|---|
-|[Get started with the JavaScript enterprise chat sample using RAG](../../javascript/get-started-app-chat-template.md)|An article that walks you through deploying and using the [Enterprise chat app sample for JavaScript](https://github.com/Azure-Samples/azure-search-openai-javascript). This sample is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.|
-
-### Building blocks
-
-|Link|Description|
-|---|---|
-|[Vector Similarity Search with Azure Cache for Redis Enterprise (Python)](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/vector-similarity-search-with-azure-cache-for-redis-enterprise/ba-p/3822059)|A walkthrough of using Azure Cache for Redis as a backend vector store for RAG scenarios. (The Python code is provided as a reference and could be adapted to JavaScript.)|
-|[OpenAI solutions with your own data using PostgreSQL (Python)](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/unlocking-the-power-of-open-ai-and-pgvector-with-azure/ba-p/3828539)|An article discussing how Azure Database for PostgreSQL Flexible Server and Azure Cosmos DB for PostgreSQL supports the pgvector extension, along with an overview, scenarios, etc. (The Python code is provided as a reference and could be adapted to JavaScript.)|
-
-### SDKs 
-
-|Package|Source code|Releases|npm|
+|Package|Source code|npm|
 |---|---|---|---|
-|**@azure/openai**|[Source code](https://aka.ms/oai/js/sdk)|[Releases](https://azure.github.io/azure-sdk/?search=openai)|[Package](https://aka.ms/oai/js/npm)|
+|**OpenAI Node API Library**|[Source code](https://github.com/openai/openai-node/blob/master/README.md)|[Package](https://www.npmjs.com/package/openai)|
 
-## Samples and guidance
+### Samples
 
 |Link|Description|
 |---|---|
-|[Get started using GPT-35-Turbo and GPT-4](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-javascript&tabs=command-line)|An article that walks you through creating a chat completion sample.|
 |[Completions](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v1-beta/javascript/completions.js)|A simple example demonstrating how to get completions for the provided prompt.|
-|[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v1-beta/javascript/chatCompletions.js)|A simple example demonstrating how to use  streaming chat completions.|
+|[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v1-beta/javascript/chatCompletions.js)|A simple example demonstrating how to use  streaming chat completions.|
 |[Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)|Article with guidance on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
 |[OpenAI with Microsoft Entra ID Role based access control](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication using Microsoft Entra ID.|
 |[OpenAI with Managed Identities](/azure/ai-services/openai/how-to/managed-identity)|An article detailing more complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
 |[More samples](https://aka.ms/oai/js/samples)|OpenAI samples covering a range of scenarios.|
-|[More guidance](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
 
-## Open source integration
-
-### SDKs 
-
-|Package|Source code|Releases|npm|
-|---|---|---|---|
-|**@langchain/azure-openai**|[Source code](https://github.com/langchain-ai/langchainjs/tree/main/libs/langchain-azure-openai)|[Releases](https://www.npmjs.com/package/@langchain/azure-openai?activeTab=versions)|[Package](https://www.npmjs.com/package/@langchain/azure-openai)|
-
-## Other Azure AI services
-
-### End-to-end solutions
+### Documentation
 
 |Link|Description|
 |---|---|
-|[Captioning and Call Center Transcription](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios)|A repo containing samples for captions and transcriptions in a call center scenario.|
+|[Azure OpenAI Service Documentation](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
+|[Quickstart: Get started generating text using Azure OpenAI Service](/azure/ai-services/openai/quickstart?pivots=programming-language-javascript)|A very quick set of instructions to set up the services you need and code you must write to prompt a model using JavaScript.|
+|[Quickstart: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-javascript)|Similar to the previous quickstart, but provides an example of system, assistant and user roles to tailor the content when asked certain questions.|
+|[Quickstart: Chat with Azure OpenAI models using your own data](/azure/ai-services/openai/use-your-data-quickstart?pivots=programming-language-javascript)|Similar to the first quickstart, but this time you add your own data (like a PDF or other document).|
+|[Quickstart: Get started using Azure OpenAI Assistants (Preview)](/azure/ai-services/openai/assistants-quickstart?pivots=programming-language-javascript)|Similar to the first quickstart in this list, but this time you tell the model to use the built-in Python code interpreter to solve math problems step by step. This is a starting point to using your own AI assistants accessed through custom instructions.|
+|[Quickstart: Use images in your AI chats](/azure/ai-services/openai/gpt-v-quickstart?pivots=programming-language-studio)|How to programmatically ask the model to describe the contents of an image.|
+|[Quickstart: Generate images with Azure OpenAI Service](/azure/ai-services/openai/dall-e-quickstart?pivots=programming-language-javascript)|Programmatically generate images using Dall-E based on a prompt.|
 
-### Building blocks
+
+### Training
 
 |Link|Description|
 |---|---|
-|[Use Speech to converse with OpenAI (C# and Python)](/azure/ai-services/speech-service/openai-speech?tabs=windows)|An article that uses Azure AI Speech to converse with Azure OpenAI Service. The text recognized by the Speech service is sent to Azure OpenAI. The Speech service synthesizes the text response from Azure OpenAI. (The C# and Python code is provided as a reference and could be adapted to JavaScript.)|
+|[Generative AI for Beginners Workshop](https://github.com/microsoft/generative-ai-for-beginners/tree/main)|Learn the fundamentals of building Generative AI apps with our 18-lesson comprehensive course by Microsoft Cloud Advocates.|
+|[Microsoft Azure AI Fundamentals: Generative AI](/training/paths/introduction-generative-ai/)|Training path to help you understand how large language models form the foundation of generative AI: how Azure OpenAI Service provides access to the latest generative AI technology, how prompts and responses can be fine-tuned and how Microsoft's responsible AI principles drive ethical AI advancements.|
+|[Develop Generative AI solutions with Azure OpenAI Service](/training/paths/develop-ai-solutions-azure-openai/)|Azure OpenAI Service provides access to OpenAI's powerful large language models such as ChatGPT, GPT, Codex, and Embeddings models. This learning path teaches developers how to generate code, images, and text using the Azure OpenAI SDK and other Azure services.|
+|[Build AI apps with Azure Database for PostgreSQL](/training/paths/build-ai-apps-azure-database-postgresql/)|This learning path explores how the Azure AI and Azure Machine Learning Services integrations provided by the Azure AI extension for Azure Database for PostgreSQL - Flexible Server can enable you to build AI-powered apps.|
 
-### SDKs
 
-|Link|Description|
-|---|---|
-|[Azure AI Document Intelligence SDK](/azure/applied-ai-services/form-recognizer/sdk-preview)|Azure AI Document Intelligence (formerly Form Recognizer) is a cloud service that uses machine learning to analyze text and structured data from documents. The Document Intelligence software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Intelligence models and capabilities into your applications.|
+## Other Azure AI Services
 
-### Samples and guidance
+Azure AI Services are a collection of services (including Azure OpenAI Service) that help developers and organizations rapidly create intelligent, market-ready, and responsbile applications with out-of-the-box and prebuilt customizable APIs and models. These services include speech, vision, search, and more.
+
+### Samples
 
 |Link|Description|
 |---|---|
@@ -95,3 +59,22 @@ Azure AI reference templates provide you with well-maintained, easy to deploy re
 |[Extract, classify, and understand text within documents using Text Analytics in JavaScript](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true)|The client Library for Text Analytics. This is part of the [Azure AI Language](/azure/ai-services/language-service) service, which provides Natural Language Processing (NLP) features for understanding and analyzing text.|
 |[Document Translation in JavaScript](/azure/ai-services/translator/document-translation/quickstarts/document-translation-rest-api?pivots=programming-language-javascript)|A quickstart article that uses Document Translation to translate a source document into a target language while preserving structure and text formatting.|
 |[Analyze images](/azure/ai-services/computer-vision/sdk/overview-sdk)|Sample code and setup documents for the Microsoft Azure AI Image Analysis SDK.|
+
+### Documentation
+
+|AI service|Description|API reference|Quickstart|
+|---|---|---|---|
+|[Content Safety](/azure/ai-services/content-safety/)|An AI service that detects unwanted content.|[Content Safety API reference](/javascript/api/overview/azure/ai-content-safety-rest-readme)|[Quickstart](/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Cwindows&pivots=programming-language-javascript)|
+|[Document Intelligence](/azure/ai-services/document-intelligence/)|Turn documents into intelligent data-driven solutions.|[Document Intelligence API reference](/javascript/api/overview/azure/ai-form-recognizer-readme)|[Quickstart](/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?pivots=programming-language-javascript)|
+|[Language](/azure/ai-services/language-service/)|Build apps with industry-leading natural landuage understanding capabilities.|[Text Analytics API reference](/javascript/api/overview/azure/ai-form-recognizer-readme)|[Quickstart](/azure/ai-services/language-service/text-analytics-for-health/quickstart?tabs=windows&pivots=programming-language-javascript)|
+|[Search](/azure/search/)|Bring AI-powered cloud search to your applications.|[Search API reference](/javascript/api/overview/azure/search-documents-readme)|[Quickstart](/azure/search/search-get-started-text?tabs=javascript)|
+|[Speech](/azure/ai-services/speech-service/)|Speech to text, text to speech, translation, and speaker recognition.|[Speech API reference](/javascript/api/overview/azure/microsoft-cognitiveservices-speech-sdk-readme)|[Quickstart](/azure/ai-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-javascript)|
+|[Translator](/azure/ai-services/translator/)|Use AI-powered trnslation to translate more than 100 in-use, at-risk and endangered languages and dialects.|[Translation API reference](/javascript/api/overview/azure/ai-translation-text-rest-readme)|[Quickstart](/azure/ai-services/translator/quickstart-text-sdk?pivots=programming-language-javascript)|
+|[Vision](/azure/ai-services/computer-vision/)|Analyze content in images and videos.|[Image Analysis API reference](/javascript/api/overview/azure/ai-vision-image-analysis-rest-readme)|[Quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library?tabs=windows%2Cvisual-studio&pivots=programming-language-javascript)|
+
+
+### Training
+
+|Link|Description|
+|---|---|
+|[Get started with Azure AI Services](/training/paths/get-started-azure-ai/)|Azure AI Services is a collection of services that are building blocks of AI functionality you can integrate into your applications. In this learning path, you'll learn how to provision, secure, monitor, and deploy Azure AI Services resources and use them to build intelligent solutions.|

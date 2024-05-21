@@ -163,6 +163,10 @@
       "ms.topic": {
         "**/includes/**/*.md": "include"
       },
+      "ms.custom": {
+        "**/ai/**/*.md": "build-2024-intelligent-apps",
+        "**/ai/**/*.yml": "build-2024-intelligent-apps"
+      },
       "ROBOTS": {
         "ux-beta/**/*.md": "NOINDEX"
       }    

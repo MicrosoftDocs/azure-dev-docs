@@ -6,10 +6,9 @@ metadata:
   title: Dev tunnels documentation
   description: Use Dev tunnels to securely expose local web services to the Internet, control who has access, and easily test and debug your web applications from anywhere.
   ms.service: azure-dev-tunnels
-  ms.custom: build-2023
   ms.topic: landing-page
-  author: curib 
-  ms.author: cauribeg
+  author: derekbekoe
+  ms.author: debekoe
   ms.date: 06/06/2023 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 

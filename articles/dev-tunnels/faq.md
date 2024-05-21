@@ -2,11 +2,10 @@
 title: Dev tunnels frequently asked questions (FAQ)
 titleSuffix: Microsoft dev tunnels
 description: Frequently asked questions for dev tunnels.
-author: curib
-ms.author: cauribeg
+author: derekbekoe
+ms.author: debekoe
 ms.topic: reference
 ms.service: azure-dev-tunnels
-ms.custom: build-2023
 ms.date: 11/17/2023 
 ---
 

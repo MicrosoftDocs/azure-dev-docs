@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 01/31/2024
+ms.date: 05/15/2024
 ms.author: diberry
 author: diberry
 ms.service: azure
@@ -16,6 +16,9 @@ By following the instructions in this article, you will:
 - Run evaluations using a sample prompt with the generated user questions.
 - Review analysis of answers.
 
+> [!NOTE]
+> This article uses one or more [AI app templates](../intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+
 ## Architectural overview
 
 Key components of the architecture include:
@@ -26,3 +29,5 @@ Key components of the architecture include:
 * **Evaluator** runs sample questions and prompts against the chat app and returns the results.
 * **Review tool** allows you to review the results of the evaluations.
 * **Diff tool** allows you to compare the answers between evaluations.
+
+When you deploy this evaluation to Azure, the Azure OpenAI endpoint is created for the GPT-4 model with its own [capacity](/azure/ai-services/openai/quotas-limits#regional-quota-limits). When evaluating chat applications, it is important that the evaluator has its own OpenAI resource using GPT-4 with its own capacity.
