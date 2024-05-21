@@ -89,8 +89,11 @@ from azure.storage.blob import BlobServiceClient
 # Get the handle of the current window
 current_window_handle = win32gui.GetForegroundWindow()
 
+# To autheticate and authorize with an app, use the following line to get a credential and
+# substitute the <app_id> and <tenant_id> placeholders with the value for your app and tenant.
+# credential = InteractiveBrowserBrokerCredential(parent_window_handle=current_window_handle, client_id=<app_id>, tenant_id=<tenant_id>)
 credential = InteractiveBrowserBrokerCredential(parent_window_handle=current_window_handle)
-client = BlobServiceClient("https://jimacoblobstorage.blob.core.windows.net/", credential=credential)
+client = BlobServiceClient("https://<storage-account-name>.blob.core.windows.net/", credential=credential)
 
 # Prompt for credentials appears on first use of the client
 for container in client.list_containers():
@@ -98,6 +101,8 @@ for container in client.list_containers():
 ```
 
 For more exact control, such as setting a timeout, you can supply specific arguments to `InteractiveBrowserBrokerCredential` such as `timeout`.
+
+For the code to run successfully, your user account and app (if specified) must be assigned an Azure role on the storage account that allows access to blob containers like "Storage Account Data Contributor". If an app is specified, it must have API Permissions set for Azure Storage (step 6 in the previous section).
 
 ## Device code authentication
 
