@@ -3,7 +3,6 @@ title: "Deploy Quarkus on Azure Container Apps"
 description: Shows how to quickly stand up Quarkus on Azure Container Apps.
 author: KarlErickson
 ms.author: jiangma
-ms.service: container-apps
 ms.topic: quickstart
 ms.date: 09/29/2023
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-aca, devx-track-extended-java, devx-track-azurecli

@@ -1,11 +1,11 @@
 ---
 title: Deploy Java Tomcat apps to Azure App Service
 description: Shows you how to deploy a Tomcat app with sign-in by Microsoft Entra account to Azure App Service.
-services: active-directory
+author: KarlErickson
+ms.author: givermei
 ms.date: 03/11/2024
-ms.service: active-directory
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
 # Deploy Java Tomcat apps to Azure App Service

@@ -173,4 +173,4 @@ If something is missing from this list, please fill out the feedback to tell us 
 
 ## Next steps
 
-* [How to develop and debug Node.js with Visual Studio Code](with-visual-studio-code/install-run-debug-nodejs.md)
+* [Build a new Static Web App on Azure with Node.js](create-static-web-app.md)

@@ -67,12 +67,16 @@ Run the following commands build and push the image to the registry:
 
 1. Get the sign-in server information.
     ```bash
-    az acr list --query "[].loginServer" 
+    az acr show \
+        --name <azureContainerRegistryName> \
+        --resource-group <resourceGroupName> \
+        --query loginServer \
+        --output tsv  
     ```
 
 1. Build the Docker image locally.
     ```bash
-    docker build -t <loginServer>/<imageName>:latest
+    docker build -t <loginServer>/<imageName>:latest .
     ```
 
 2. Push the Docker image to Azure Container Registry.
@@ -137,13 +141,17 @@ az containerapp create \
 Run the following Azure CLI command to get the FQDN (Fully Qualified Domain Name) of the web application's ingress.
 
 ```bash
-APP_FQDN=$(az containerapp list --query "[].properties.configuration.ingress.fqdn")
+APP_FQDN=$(az containerapp show \
+    --name <containerAppName> \
+    --resource-group <resourceGroupName> \
+    --query properties.configuration.ingress.fqdn \
+    --output tsv)
 ```
 
 Next, run the curl command against the FQDN and confirm output reflects the HTML of the website.
 
 ```bash
-curl "$APP_FQDN"
+curl "https://$APP_FQDN"
 ```
 
 ## Clean-up resources

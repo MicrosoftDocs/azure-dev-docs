@@ -3,12 +3,13 @@ title: "Evaluating JavaScript chat apps with Azure OpenAI"
 description: "Learn how to effectively evaluate answers in your JavaScript RAG-based chat app using Azure OpenAI. Generate sample prompts, run evaluations, and analyze results."
 ms.date: 01/31/2024
 ms.topic: get-started
+ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want to evaluate the answers of my chat app and determine the best prompt.
 ---
 # Get started with evaluating answers in a chat app in JavaScript
 
-[!INCLUDE [evaluations-intro](../intro/includes/evaluations-introduction.md)]
+[!INCLUDE [evaluations-intro](../ai/includes/evaluations-introduction.md)]
 
 ## Prerequisites
 
@@ -44,4 +45,4 @@ ms.custom: devx-track-js, devx-track-js-ai
     
     ---
 
-[!INCLUDE [evaluations-procedure](../intro/includes/evaluations-procedure.md)]
+[!INCLUDE [evaluations-procedure](../ai/includes/evaluations-procedure.md)]

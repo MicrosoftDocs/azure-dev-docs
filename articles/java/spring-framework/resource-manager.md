@@ -3,14 +3,14 @@ title: Spring Cloud Azure resource manager
 description: This article describes Spring Cloud Azure resource manager.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yeyonghui
+ms.author: hangwan
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-arm-template, devx-track-extended-java
 ---
 
 # Spring Cloud Azure Resource Manager
 
-**This article applies to:** ✔️ Version 4.16.0 ✔️ Version 5.10.0
+**This article applies to:** ✔️ Version 4.18.0 ✔️ Version 5.12.0
 
 Azure Resource Manager (ARM) is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. Spring Cloud Azure Resource Manager can help provision resources or retrieve resource metadata.
 

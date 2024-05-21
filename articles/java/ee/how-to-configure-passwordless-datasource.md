@@ -5,7 +5,6 @@ author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
 ms.date: 01/12/2023
-keywords: java, jakartaee, javaee, database, passwordless, weblogic, vm, aks, kubernetes
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-javaee-wls-vm, has-azure-ad-ps-ref, passwordless-java
 ---
 

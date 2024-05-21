@@ -30,7 +30,7 @@ highlightedContent:
       url: ./intro/connect-to-azure-services.md
     - title: Develop apps that use Azure AI services
       itemType: overview
-      url: ./intro/azure-ai-for-developers.md
+      url: ./ai/azure-ai-for-developers.md
     - title: Create resources in Azure
       itemType: concept
       url: ./intro/azure-developer-create-resources.md
@@ -64,7 +64,7 @@ productDirectory:
     - title: JavaScript
       imageSrc: /media/logos/logo_js.svg
       links:
-        - url: /azure/developer/intro/azure-ai-for-developers?pivots=javascript
+        - url: ./ai/azure-ai-for-developers.md?pivots=javascript
           text: Develop Azure AI apps with JavaScript
         - url: /azure/static-web-apps/getting-started?tabs=vanilla-javascript
           text: Develop a static website
@@ -109,7 +109,7 @@ productDirectory:
     - title: Azure AI for Developers
       imageSrc: ./intro/media/azure-openai.png
       links:
-        - url: ./intro/azure-ai-for-developers.md
+        - url: ./ai/azure-ai-for-developers.md
           text: Develop apps that use Azure AI services
         - url: /azure/developer/python/get-started-app-chat-template?tabs=github-codespaces
           text: Python enterprise chat sample using RAG 
@@ -128,7 +128,7 @@ productDirectory:
           text: Install the Azure SDK for Go
         - url: ./go/azure-sdk-authentication.md
           text: Authenticate your app
-        - url: /azure/developer/intro/azure-ai-for-developers?pivots=go
+        - url: ./ai/azure-ai-for-developers.md?pivots=go
           text: Develop Azure AI apps with Go
         - url: /azure/storage/blobs/storage-quickstart-blobs-go
           text: Use Blob storage

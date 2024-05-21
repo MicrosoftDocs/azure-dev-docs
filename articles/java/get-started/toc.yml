@@ -8,5 +8,7 @@ items:
     href: code.md
   - name: Deploy Java applications with confidence and ease
     href: deploy.md
-  - name: Scale with end-to-end security, monitoring, and automation
+  - name: Scale with security, monitoring, and automation
     href: scale.md
+  - name: Choose the right services for your applications
+    href: choose.md

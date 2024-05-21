@@ -2,11 +2,11 @@
 title: Secure Java JBoss EAP apps using roles and role claims
 titleSuffix: Azure
 description: Shows you how to add authorization using app roles and role claims to Java JBoss EAP app that signs in users with the Microsoft identity platform.
-services: active-directory
+author: KarlErickson
+ms.author: givermei
 ms.date: 03/11/2024
-ms.service: active-directory
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
 # Secure Java JBoss EAP apps using roles and role claims

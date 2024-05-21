@@ -9,6 +9,9 @@ ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell, 
 
 # Get Started: Configure Ansible on an Azure VM
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
 This article shows how to install [Ansible](https://docs.ansible.com/) on a Centos VM in Azure.
 
 In this article, you learn how to:

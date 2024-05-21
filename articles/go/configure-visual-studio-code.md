@@ -8,11 +8,11 @@ ms.custom: devx-track-go
 
 # Configure Visual Studio Code for Go development
 
-In this quickstart, you'll install and configure the [Go for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=golang.Go) extension.
+In this quickstart, you install and configure the [Go for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=golang.Go) extension.
 
 In the [Go Developer Survey 2020 Results](https://go.dev/blog/survey2020-results), **41%** of respondents chose Visual Studio Code as their *most preferred editor* for Go. This makes Visual Studio Code the most popular editor for Go developers.
 
-Visual Studio Code and the Go extension provide IntelliSense, code navigation, and advanced debugging. In this quickstart, you'll configure Visual Studio Code. Then you'll write, run, and debug a sample Go program.
+Visual Studio Code and the Go extension provide IntelliSense, code navigation, and advanced debugging. In this quickstart, you configure Visual Studio Code. Then you write, run, and debug a sample Go program.
 
 ![A screenshot showing a Go program within Visual Studio Code](./media/configure-visual-studio-code/visual-studio-code.png)
 
@@ -20,7 +20,7 @@ Visual Studio Code and the Go extension provide IntelliSense, code navigation, a
 
 ## 1. Install Go
 
-Follow these steps to install Go:
+To install Go, follow these steps:
 
 1. In a web browser, go to [go.dev/doc/install](https://go.dev/doc/install).
 1. Download the version for your operating system.
@@ -55,9 +55,9 @@ Follow these steps to install Visual Studio Code:
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| In Visual Studio Code, open the folder where you'll create the root directory of your Go application. To open the folder, click the Explorer icon in the Activity Bar then click **Open Folder**. | :::image type="content" source="./media/configure-visual-studio-code/open-folder-240px.png" alt-text="A screenshot showing how to create a new folder." lightbox="./media/configure-visual-studio-code/open-folder.png"::: |
-| Click **New Folder** in the Explorer panel, then Create the root director for your sample Go application named `sample-app` | :::image type="content" source="./media/configure-visual-studio-code/create-folder-240px.png" alt-text="A screenshot showing how to create a folder in vs code." lightbox="./media/configure-visual-studio-code/create-folder.png"::: |
-| Click **New File** in the Explorer panel, then name the file `main.go` | :::image type="content" source="./media/configure-visual-studio-code/create-file-240px.png" alt-text="A screenshot showing how to create a file in vs code." lightbox="./media/configure-visual-studio-code/create-file.png"::: |
+| In Visual Studio Code, open the folder where you'll create the root directory of your Go application. To open the folder, select the Explorer icon in the Activity Bar then click **Open Folder**. | :::image type="content" source="./media/configure-visual-studio-code/open-folder-240px.png" alt-text="A screenshot showing how to create a new folder." lightbox="./media/configure-visual-studio-code/open-folder.png"::: |
+| Click **New Folder** in the Explorer panel, then Create the root director for your sample Go application named `sample-app` | :::image type="content" source="./media/configure-visual-studio-code/create-folder-240px.png" alt-text="A screenshot showing how to create a folder in VS Code." lightbox="./media/configure-visual-studio-code/create-folder.png"::: |
+| Select **New File** in the Explorer panel, then name the file `main.go` | :::image type="content" source="./media/configure-visual-studio-code/create-file-240px.png" alt-text="A screenshot showing how to create a file in VS Code." lightbox="./media/configure-visual-studio-code/create-file.png"::: |
 | Open a terminal, **Terminal > New Terminal**, then run the command `go mod init sample-app` to initialize your sample Go app.   | :::image type="content" source="./media/configure-visual-studio-code/run-go-mod-240px.png" alt-text="A screenshot running the go mod init command." lightbox="./media/configure-visual-studio-code/run-go-mod.png"::: |
 | Copy the following code into the `main.go` file.   | :::image type="content" source="./media/configure-visual-studio-code/visual-studio-code-240px.png" alt-text="A screenshot displaying a sample Go program." lightbox="./media/configure-visual-studio-code/visual-studio-code.png"::: |
 
@@ -78,12 +78,14 @@ func main() {
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| Create a break point on line 7 by left clicking to the left of the numbered line. Or place your cursor on line 7 and hit F9. | :::image type="content" source="./media/configure-visual-studio-code/create-breakpoint-240px.png" alt-text="A screenshot showing how to set a breakpoint." lightbox="./media/configure-visual-studio-code/create-breakpoint.png"::: |
+| Create a break point on line 7 by clicking to the left of the numbered line. Or place your cursor on line 7 and hit F9. | :::image type="content" source="./media/configure-visual-studio-code/create-breakpoint-240px.png" alt-text="A screenshot showing how to set a breakpoint." lightbox="./media/configure-visual-studio-code/create-breakpoint.png"::: |
 | Bring up the Debug view by clicking on the debug icon in the Activity Bar on the side of Visual Studio Code. Or use keyboard shortcut (Ctrl+Shift+D). | :::image type="content" source="./media/configure-visual-studio-code/run-debugger-240px.png" alt-text="A screenshot showing how to navigate to the debug panel." lightbox="./media/configure-visual-studio-code/run-debugger.png"::: |
-| Click *Run and Debug*, or hit F5 to run the debugger. Then Hover over the variable `name` on line 7 to see its value. Exit the debugger by clicking **Continue** on the debugger bar or hit F5. | :::image type="content" source="./media/configure-visual-studio-code/debug-variable-240px.png" alt-text="A screenshot showing running the debugger in VS code." lightbox="./media/configure-visual-studio-code/debug-variable.png"::: |
+| Select *Run and Debug*, or hit F5 to run the debugger. Then Hover over the variable `name` on line 7 to see its value. Exit the debugger by clicking **Continue** on the debugger bar or hit F5. | :::image type="content" source="./media/configure-visual-studio-code/debug-variable-240px.png" alt-text="A screenshot showing running the debugger in VS Code." lightbox="./media/configure-visual-studio-code/debug-variable.png"::: |
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Go in Visual Studio Code](https://code.visualstudio.com/docs/languages/go)
 > [!div class="nextstepaction"]
 > [Key Azure Services for Go Developers](key-azure-services-for-go.md)
 > [!div class="nextstepaction"]

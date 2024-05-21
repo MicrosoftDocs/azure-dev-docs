@@ -239,13 +239,15 @@ First, create a service principal using the [az ad sp create-for-rbac](/cli/azur
 az ad sp create-for-rbac
 ```
 
-```bash
+This command produces output similar to the following example:
+
+```output
 {
-  "appId": "626dd8ea-042d-4043-a8df-4ef56273670f",
+  "appId": "<app-ID>",
   "displayName": "azure-cli-2018-09-28-22-19-34",
   "name": "http://azure-cli-2018-09-28-22-19-34",
-  "password": "1ceb4df3-c567-4fb6-955e-f95ac9460297",
-  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
+  "password": "<password>",
+  "tenant": "<tenant-ID>"
 }
 ```
 

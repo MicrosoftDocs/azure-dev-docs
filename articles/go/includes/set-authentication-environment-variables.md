@@ -1,6 +1,6 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 ms.topic: include
 ms.date: 08/10/2021
 ---
@@ -13,7 +13,7 @@ Using your Azure authentication information, set the appropriate environment var
 
     ```bash
     export AZURE_SUBSCRIPTION_ID="<azure_subscription_id>"
-    export AZURE_TENANT_ID="<active_directory_tenant_id"
+    export AZURE_TENANT_ID="<active_directory_tenant_id>"
     export AZURE_CLIENT_ID="<service_principal_appid>"
     export AZURE_CLIENT_SECRET="<service_principal_password>"
     ```
@@ -24,7 +24,7 @@ Using your Azure authentication information, set the appropriate environment var
     . ~/.bashrc
     ```
 
-1. Once the environment variables have been set, you can verify their values as follows:
+1. Once the environment variables are set, you can verify their values as follows:
 
     ```bash
     printenv | grep ^AZURE*

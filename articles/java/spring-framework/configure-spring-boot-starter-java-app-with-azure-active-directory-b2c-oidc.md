@@ -1,14 +1,11 @@
 ---
 title: Add sign-in with Azure Active Directory B2C to a Spring Web App
 description: Shows you how to create a Java app with sign-in capability by using the Spring Boot Starter for Microsoft Entra ID.
-services: active-directory-b2c
 author: KarlErickson
-ms.author: xiada
+ms.author: hangwan
 ms.date: 01/18/2023
-ms.service: active-directory
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
-ms.subservice: B2C
 ---
 
 # Add sign-in with Azure Active Directory B2C to a Spring web app
@@ -45,8 +42,6 @@ In this tutorial, you learn how to:
    * Under **Spring Boot**, select **2.7.11**.
    * Under **Group**, **Artifact** and **Name** enter the same value, using a short descriptive string. The UI may automatically fill in some of these fields as you type.
    * In the **Dependencies** pane, select **Add Dependencies**. Use the UI to add dependencies on **Spring Web** and **Spring Security**.
-
-   :::image type="content" source="media/spring-initializer/2.7.1/mvn-java8-azure-web-security.png" alt-text="Screenshot of Spring Initializr with basic options.":::
 
    > [!NOTE]
    > Spring Security 5.5.1, 5.4.7, 5.3.10 and 5.2.11 have been released to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using the older version, please upgrade it.

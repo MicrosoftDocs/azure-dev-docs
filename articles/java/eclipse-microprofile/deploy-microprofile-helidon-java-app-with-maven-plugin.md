@@ -1,9 +1,9 @@
 ---
 title: Deploy a Helidon Web App to Azure App Service with Maven
 description: Learn how to deploy a Helidon App to App Service on Linux using the Maven Plugin for Azure Web App.
-services: app-service
+author: KarlErickson
+ms.author: jialuogan
 ms.date: 06/10/2020
-ms.service: app-service
 ms.topic: article
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-helidon, devx-track-azurecli, devx-track-extended-java, linux-related-content
 #Customer intent: As a Java developer, I want to deploy MicroProfile apps to Azure so that I don't have to deal with app server configuration and management.
@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-helidon, devx-t
 
 In this quickstart, you'll use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Helidon application to [Azure App Service on Linux](/azure/app-service/containers/). You'll want to choose Java SE deployment over [Tomcat and WAR files](/azure/app-service/containers/quickstart-java) when you want to consolidate your app's dependencies, runtime, and configuration into a single deployable artifact.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -236,13 +236,9 @@ Maven will deploy your web app to Azure. If the web app or web app plan doesn't 
 
 When your web has been deployed, you can manage it through the [Azure portal].
 
-Your web app will be listed in **App Services**, as shown in the following screenshot:
+Your web app will be listed in **App Services**.
 
-:::image type="content" source="media/helidon/azure-portal-app-service-screen.png" alt-text="Screenshot of Azure portal with web app listed on App Services screen." lightbox="media/helidon/azure-portal-app-service-screen.png":::
-
-You can access to your web app by selecting **Browse** on the **Overview** page for your web app:
-
-:::image type="content" source="media/helidon/azure-portal-app-service-overview.png" alt-text="Screenshot of Azure portal showing the web app overview page." lightbox="media/helidon/azure-portal-app-service-overview.png":::
+You can access to your web app by selecting **Browse** on the **Overview** page for your web app.
 
 Verify that the deployment was successful by using the same cURL command as before(`/data/hello`), using your web app URL from the Portal instead of `localhost`. You should see the following message displayed: **Hello World**
 

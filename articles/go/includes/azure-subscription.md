@@ -1,5 +1,5 @@
 ---
- ms.service: go
+ ms.service: azure-go
  ms.topic: include
  ms.date: 08/17/2021
 ---

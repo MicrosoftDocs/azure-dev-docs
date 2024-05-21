@@ -143,7 +143,7 @@ If you'd like to migrate a Web app on Tomcat to Azure Spring Apps, first convert
 |--------------------------------------------------------|---------------------------|--------------------------|-----------------------------|----------------------------|-------------------------|---------------------|---------------------|
 | Spring Boot /<br>JAR applications                      | N/A                       | N/A                      | N/A                         | N/A                        | [guidance][16]          | N/A                 | N/A                 |
 | Spring Cloud /<br>applications                         | N/A                       | N/A                      | N/A                         | N/A                        | [guidance][15]          | guidance<br>planned | guidance<br>planned |
-| Web applications<br>on Tomcat                          | N/A                       | [guidance][2]            | N/A                         | [guidance][22]             | [guidance][17]          | [guidance][3]       | guidance<br>planned |
+| Web applications<br>on Tomcat                          | N/A                       | [guidance][2]            | N/A                         | [guidance][22]             | N/A                     | [guidance][3]       | guidance<br>planned |
 
 **Java EE applications**
 
@@ -171,7 +171,6 @@ Use the rows below to find your Java EE application type running on a specific a
 [13]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
 [15]: migrate-spring-cloud-to-azure-spring-apps.md
 [16]: migrate-spring-boot-to-azure-spring-apps.md
-[17]: migrate-tomcat-to-azure-spring-apps.md
 [18]: migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
 [19]: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
 [20]: migrate-websphere-to-jboss-eap-on-azure-app-service.md

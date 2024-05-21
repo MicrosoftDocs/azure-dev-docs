@@ -9,6 +9,9 @@ ms.custom: devx-track-ansible, linux-related-content
 
 # Create a Linux virtual machines in Azure using Ansible
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
 This article presents a sample Ansible playbook for configuring a Linux virtual machine.
 
 In this article, you learn how to:

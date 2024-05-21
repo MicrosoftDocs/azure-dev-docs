@@ -1,15 +1,16 @@
 ---
 title: Scale Azure OpenAI for Python chat sample using RAG
 description: Learn how to add load balancing to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. 
-ms.date: 03/08/2024
+ms.date: 05/13/2024
 ms.topic: get-started
+ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
 # CustomerIntent: As a python developer new to Azure OpenAI, I want to scale my OpenAI capacity to avoid rate limit errors.
 ---
 
 # Scale Azure OpenAI for Python chat using RAG with Azure Container Apps
 
-[!INCLUDE [aca-load-balancer-intro](../intro/includes/scaling-load-balancer-introduction-azure-container-apps.md)]
+[!INCLUDE [aca-load-balancer-intro](../ai/includes/scaling-load-balancer-introduction-azure-container-apps.md)]
 
 ## Prerequisites
 
@@ -31,15 +32,15 @@ ms.custom: devx-track-python, devx-track-python-ai
     
     ---
 
-[!INCLUDE [scaling-load-balancer-aca-procedure.md](../intro/includes/scaling-load-balancer-procedure-azure-container-apps.md)]
+[!INCLUDE [scaling-load-balancer-aca-procedure.md](../ai/includes/scaling-load-balancer-procedure-azure-container-apps.md)]
 
-[!INCLUDE [py-deployment-procedure](../intro/includes/redeploy-procedure-chat.md)]
+[!INCLUDE [py-deployment-procedure](../ai/includes/redeploy-procedure-chat.md)]
 
-[!INCLUDE [logs](../intro/includes/scaling-load-balancer-logs-azure-container-apps.md)]
+[!INCLUDE [logs](../ai/includes/scaling-load-balancer-logs-azure-container-apps.md)]
 
-[!INCLUDE [capacity.md](../intro/includes/scaling-load-balancer-capacity.md)]
+[!INCLUDE [capacity.md](../ai/includes/scaling-load-balancer-capacity.md)]
 
-[!INCLUDE [py-aca-cleanup](../intro/includes/scaling-load-balancer-cleanup-azure-container-apps.md)]
+[!INCLUDE [py-aca-cleanup](../ai/includes/scaling-load-balancer-cleanup-azure-container-apps.md)]
 
 ## Sample code
 

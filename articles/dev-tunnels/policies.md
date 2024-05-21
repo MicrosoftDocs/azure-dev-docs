@@ -11,7 +11,7 @@ ms.date: 03/27/2024
 
 # Configure and deploy Group Policy Administrative Templates for Dev Tunnels
 
-IT Administrators in organizations may want to control certain aspects of Dev Tunnels to achieve consistency or compliance across their organization. An easy way to accomplish this level of control is to configure and then deploy group policy settings to the client machines. The [Dev Tunnels in Visual Studio](https://aka.ms/devtunnels/vs), [port forwarding built into Visual Studio Code](https://code.visualstudio.com/docs/editor/port-forwarding), [the Visual Studio Code Remote - Tunnels extension](https://code.visualstudio.com/docs/remote/tunnels), and `devtunnel` CLI policies are consolidated in the [Administrator Template files (ADMX/ADML) for Dev Tunnels](https://aka.ms/devtunnels/policies).
+IT Administrators in organizations may want to control certain aspects of Dev Tunnels to achieve consistency or compliance across their organization. An easy way to accomplish this level of control is to configure and then deploy group policy settings to the client machines. The [Dev Tunnels in Visual Studio](https://aka.ms/devtunnels/vs), [port forwarding built into Visual Studio Code](https://code.visualstudio.com/docs/editor/port-forwarding), [the Visual Studio Code Remote - Tunnels extension](https://code.visualstudio.com/docs/remote/tunnels), and `devtunnel` CLI policies are consolidated in the [Administrator Template files (ADMX/ADML) for Dev Tunnels](https://aka.ms/devtunnels/policies/download).
 
 In this quickstart, you'll learn how to configure and deploy Dev Tunnels group policy settings across your organization.
 
@@ -30,13 +30,13 @@ In this quickstart, you'll learn how to configure and deploy Dev Tunnels group p
 
 - **Disable anonymous tunnel access**: Disallow anonymous tunnel access. Enabling this policy enforces users to select either private or organization for tunnel access. This means users cannot connect to an existing tunnel with anonymous access control, host an existing tunnel with anonymous access control, or add anonymous access to existing or new tunnels.
 - **Disable Dev Tunnels**: Disallow users from using the Dev Tunnels service. All commands, with few exceptions, should be denied access when this policy is enabled. Exceptions: unset, echo, ping, and user.
-- **Allow only selected Microsoft Entra ID or MSA tenants**: Users must authenticate within the given tenant list to access Dev Tunnels. When enabling this policy, multiple tenant IDs can be added by using a semicolon or comma to separate each. All commands, with few exceptions, should be denied access when this policy is enabled and the user's tenant ID isn't in the list of allowed tenant IDs. Exceptions: unset, echo, ping, and user.
+- **Allow only selected Microsoft Entra tenant IDs**: Users must authenticate within the given tenant list to access Dev Tunnels. When enabling this policy, multiple tenant IDs can be added by using a semicolon or comma to separate each. All commands, with few exceptions, should be denied access when this policy is enabled and the user's tenant ID isn't in the list of allowed tenant IDs. Exceptions: unset, echo, ping, and user. Follow the steps in [this article to find your Microsoft Entra tenant ID](/entra/fundamentals/how-to-find-tenant).
 
 ## Configure policies with Local Group Policy Editor
 
 ### Download the Administrator Template files
 
-1. Head over to the Microsoft Download Center and download the [Administrator Template files (ADMX/ADML) for Dev Tunnels](https://aka.ms/devtunnels/policies).
+1. Head over to the Microsoft Download Center and download the [Administrator Template files (ADMX/ADML) for Dev Tunnels](https://aka.ms/devtunnels/policies/download).
 1. Navigate to the `C:\Windows\PolicyDefinitions` folder and add the `TunnelsPolicies.admx` file.
 1. Navigate to the `C:\Windows\PolicyDefinitions\en-US` folder and add the `TunnelsPolicies.adml` file.
 
