@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli, build-2023
 
 # Deploy to an AI/ML studio online endpoint using the Azure Developer CLI
 
-The Azure Developer CLI enables you to quickly and easily deploy to an [Azure ML Studio](https://ml.azure.com) or [Azure AI Studio](https://ai.azure.com) online endpoint. This feature is enabled and configured using the `azure.yaml` template file. `azd` supports the following AI/ML studio features:
+The Azure Developer CLI enables you to quickly and easily deploy to an [Azure ML Studio](https://ml.azure.com) or [Azure AI Studio](https://ai.azure.com) online endpoint. `azd` supports the following AI/ML studio features, which you'll learn to configure in the sections ahead:
 
 * Custom environments
   * Environments can be viewed with [Azure ML Studio](https://ml.azure.com/) under the `Environments` section.
@@ -23,6 +23,18 @@ The Azure Developer CLI enables you to quickly and easily deploy to an [Azure ML
 * Online deployments (within Online-Endpoint)
   * Deployments can be viewed with [Azure ML Studio](https://ml.azure.com/) under the `deployments` section.
   * Deployments can be viewed with [Azure AI Studio](https://ai.azure.com/) under the `deployments` section.
+
+## Prerequisites
+
+To work with AI/ML studio online endpoints, you'll need the following infrastructure resources:
+
+* [AI Hub Resource](/azure/ai-studio/concepts/ai-resources)
+* [AI Project](/azure/ai-studio/how-to/create-projects)
+* [OpenAI Service](/azure/ai-services/openai/)
+* [Online Endpoint](/azure/machine-learning/concept-endpoints-online)
+* [AI Search Service](/azure/search/) (Optional, enabled by default)
+
+The [AI Studio Starter template](/Azure-Samples/azd-aistudio-starter) can help create all the required infrastructure to get started with AI Studio endpoints.
 
 ## Configure the AI/ML studio online endpoint
 
