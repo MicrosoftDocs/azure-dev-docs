@@ -1,15 +1,16 @@
 ---
 title: Scale Azure OpenAI for Python with Azure API Management
 description: Learn how to add load balancing with Azure API Management to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. 
-ms.date: 03/08/2024
+ms.date: 05/16/2024
 ms.topic: get-started
-ms.custom: devx-track-python, devx-track-python-ai
+ms.subservice: intelligent-apps
+ms.custom: devx-track-python, devx-track-python-ai, build-2024-intelligent-apps
 # CustomerIntent: As a python developer new to Azure OpenAI, I want to scale my OpenAI capacity to avoid rate limit errors.
 ---
 
 # Scale Azure OpenAI for Python with Azure API Management
 
-[!INCLUDE [aca-load-balancer-intro](../intro/includes/scaling-load-balancer-introduction-azure-api-management.md)]
+[!INCLUDE [aca-load-balancer-intro](../ai/includes/scaling-load-balancer-introduction-azure-api-management.md)]
 
 ## Prerequisites
 
@@ -25,19 +26,19 @@ ms.custom: devx-track-python, devx-track-python-ai
     * Only a [GitHub account](https://www.github.com/login) is required to use Codespaces
     
     #### [Visual Studio Code](#tab/visual-studio-code)
-    * [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
     * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-    * [Visual Studio Code](https://code.visualstudio.com/) with [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+    * [Visual Studio Code](https://code.visualstudio.com/)
+    * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
     
     ---
 
-[!INCLUDE [scaling-load-balancer-aca-procedure.md](../intro/includes/scaling-load-balancer-procedure-azure-api-management.md)]
+[!INCLUDE [scaling-load-balancer-aca-procedure.md](../ai/includes/scaling-load-balancer-procedure-azure-api-management.md)]
 
-[!INCLUDE [py-deployment-procedure](../intro/includes/redeploy-procedure-chat-azure-api-management.md)]
+[!INCLUDE [py-deployment-procedure](../ai/includes/redeploy-procedure-chat-azure-api-management.md)]
 
-[!INCLUDE [capacity.md](../intro/includes/scaling-load-balancer-capacity.md)]
+[!INCLUDE [capacity.md](../ai/includes/scaling-load-balancer-capacity.md)]
 
-[!INCLUDE [py-apim-cleanup](../intro/includes/scaling-load-balancer-cleanup-azure-api-management.md)]
+[!INCLUDE [py-apim-cleanup](../ai/includes/scaling-load-balancer-cleanup-azure-api-management.md)]
 
 ## Sample code
 

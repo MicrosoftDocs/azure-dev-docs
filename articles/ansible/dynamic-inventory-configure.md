@@ -11,6 +11,9 @@ ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell, 
 
 [!INCLUDE [ansible-28-note.md](includes/ansible-28-note.md)]
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
 The [Ansible dynamic inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html) feature removes the burden of maintaining static inventory files.
 
 In this tutorial, you'll use Azure's dynamic-inventory plug-in to populate your Ansible inventory.

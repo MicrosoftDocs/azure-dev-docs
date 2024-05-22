@@ -1,10 +1,9 @@
 ---
 title: Sign-in instructions for the Azure Toolkit for Eclipse
 description: Learn how to sign into Microsoft Azure by using the Azure Toolkit for Eclipse.
-documentationcenter: java
+author: KarlErickson
+ms.author: jialuogan
 ms.date: 02/01/2018
-ms.service: azure-java
-ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
@@ -31,8 +30,6 @@ This section walks you through the Azure sign in process by device login.
       :::image type="content" source="media/sign-in-instructions/eclipse-azure-signin.png" alt-text="Sign in to Azure in Eclipse IDE.":::
 
 1. In the **Azure Sign In** window, select **Device Login**, and then click **Sign in**.
-
-   ![The Azure Sign In window with device login selected][I02]
 
 1. Click **Copy&Open** in **Azure Device Login** dialog .
 
@@ -63,8 +60,6 @@ This section walks you through creating a credentials file that contains your se
 
 3. In the **Azure Sign In** window, select **Service Principal**. If you do not have the service principal authentication file yet, click **New** to create one. Otherwise you can click **Browse** to open it and jump to step 8.
 
-   ![The Azure Sign In window with service principal selected][A02]
-
 4. Click **Copy&Open** in **Azure Device Login** dialog.
 
 > [!NOTE]
@@ -83,8 +78,6 @@ This section walks you through creating a credentials file that contains your se
 7. In the **Service Principal Creation Status** dialog box, click **OK** after your files have been created successfully.
 
 8. Address of the created file will be automatically filled in the **Azure Sign In** window, now click **Sign in**.
-
-   ![Azure Log In Dialog Box][A06]
 
 9. Finally, in the **Select Subscriptions** dialog box, select the subscriptions that you want to use, then click **OK**.
 
@@ -106,7 +99,3 @@ After you have configured your account by preceding steps, you will be automatic
 
 <!-- IMG List -->
 
-[I02]: media/sign-in-instructions/I02.png
-
-[A02]: media/sign-in-instructions/A02.png
-[A06]: media/sign-in-instructions/A06.png

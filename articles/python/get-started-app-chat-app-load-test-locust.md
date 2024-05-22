@@ -1,20 +1,25 @@
 ---
 title: Get started load testing Python enterprise chat sample using RAG
-description: Get started load testing Python chat app 
-ms.date: 03/18/2024
+description: Get started load testing Python chat app. 
+ms.date: 05/16/2024
 ms.topic: get-started
-ms.custom: devx-track-python, devx-track-python-ai
+ms.subservice: intelligent-apps
+ms.custom: devx-track-python, devx-track-python-ai, build-2024-intelligent-apps
 # CustomerIntent: As a python developer new to Azure OpenAI, I want to load test my scaled app past rate limiting.
 ---
 
 # Load testing Python chat app using RAG with Locust
 
-This article provides the process to perform load testing on a Python chat application using the RAG pattern with Locust, a popular open-source load testing tool. The primary objective of load testing is to ensure that the expected load on your chat application does not exceed the current Azure OpenAI Transactions Per Minute (TPM) quota. By simulating user behavior under heavy load, you can identify potential bottlenecks and scalability issues in your application. This process is crucial for ensuring that your chat application remains responsive and reliable, even when faced with a high volume of user requests.
+This article provides the process to perform load testing on a Python chat application using the RAG pattern with Locust, a popular open-source load testing tool. The primary objective of load testing is to ensure that the expected load on your chat application doesn't exceed the current Azure OpenAI Transactions Per Minute (TPM) quota. By simulating user behavior under heavy load, you can identify potential bottlenecks and scalability issues in your application. This process is crucial for ensuring that your chat application remains responsive and reliable, even when faced with a high volume of user requests.
 
 Watch the demonstration video to understand more about load testing the chat app. 
 * [Video](https://www.youtube.com/watch?v=-oMqb6kBdDw)
 
+> [!NOTE]
+> This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+
 ## Prerequisites
+
 * Azure subscription.  [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true) 
 * Access granted to Azure OpenAI in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
@@ -25,21 +30,18 @@ Watch the demonstration video to understand more about load testing the chat app
     * You only need a [GitHub account](https://github.com/login)
     
     #### [Visual Studio Code](#tab/visual-studio-code)
-    
-    * [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
+    * [Azure Developer CLI](/azure/developer/azure-developer-cli)
     * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-    * [Visual Studio Code](https://code.visualstudio.com/) with [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+    * [Visual Studio Code](https://code.visualstudio.com/)
+    * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
         
     ---
 
-* [Python chat app with RAG](get-started-app-chat-template.md) - if you configured your chat app to use one of the load balancing solutions, this article will help you test the load balancing. The load balancing solutions includ [Azure Container Apps](get-started-app-chat-scaling-with-azure-container-apps.md).
-
-
-
+* [Python chat app with RAG](get-started-app-chat-template.md) - if you configured your chat app to use one of the load balancing solutions, this article will help you test the load balancing. The load balancing solutions include [Azure Container Apps](get-started-app-chat-scaling-with-azure-container-apps.md).
 
 ## Open Load test sample app
 
-The load test is in Python chat app repository. You need to return to that dev container to complete these steps.
+The load test is in [Python chat app](get-started-app-chat-template.md) solution as a [Locust test](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/locustfile.py). You need to return to that article, deploy the solution, then use that dev container development environment to complete the following steps.
 
 ## Run the test
 
@@ -72,7 +74,7 @@ The load test is in Python chat app repository. You need to return to that dev c
 
 ## Clean up resources
 
-When you're done with load testing, clean up the resources. The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges. After you delete resource specific to this article, remember to return to the other chat app tutorial and follow the clean up steps.
+When you're done with load testing, clean up the resources. The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges. After you delete resource specific to this article, remember to return to the other chat app tutorial and follow the clean-up steps.
 
 Return to the chat app article to [clean up](get-started-app-chat-template.md#clean-up-resources) those resources.
 

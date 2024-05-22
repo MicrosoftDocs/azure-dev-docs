@@ -8,7 +8,7 @@ items:
   - name: Host applications on Azure
     href: hosting-apps-on-azure.md
   - name: Develop apps that use Azure AI services
-    href: azure-ai-for-developers.md
+    href: ../ai/index.yml
   - name: Connect apps to Azure services
     href: connect-to-azure-services.md
   - name: Create Azure resources
@@ -116,6 +116,8 @@ items:
                 href: /azure/key-vault/general/tutorial-net-create-vault-azure-web-app?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - name: How-To
             items:
+              - name: Azure OpenAI
+                href: ../ai/passwordless-connections.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json&tabs=csharp
               - name: App Service
                 href: /azure/app-service/overview-managed-identity?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
               - name: Blob Storage
@@ -194,6 +196,10 @@ items:
                 href: /azure/app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
               - name: Container Apps with PostgreSQL
                 href: /azure/container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
+          - name: How-to
+            items: 
+            - name: Azure OpenAI
+              href: ../ai/passwordless-connections.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json&tabs=java
       - name: Node.js
         items:
         - name: Quickstarts
@@ -218,6 +224,10 @@ items:
             href: /azure/storage/blobs/storage-quickstart-blobs-nodejs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - name: Storage - Queues
             href: /azure/storage/queues/storage-quickstart-queues-nodejs?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        - name: How-to
+          items: 
+          - name: Azure OpenAI
+            href: ../ai/passwordless-connections.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json&tabs=javascript
       - name: Python
         items:
         - name: Quickstarts
@@ -242,5 +252,11 @@ items:
             href: /azure/storage/blobs/storage-quickstart-blobs-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - name: Storage - Queues
             href: /azure/storage/queues/storage-quickstart-queues-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        - name: How-to
+          items: 
+          - name: Azure OpenAI
+            href: ../ai/passwordless-connections.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json&tabs=python
+
   - name: Versioning policy for Azure services, SDKs, and CLI tools
     href: azure-service-sdk-tool-versioning.md
+

@@ -3,9 +3,9 @@ title: Code, deploy, and scale Java your way
 titleSuffix: Azure
 description: This article provides an overview to a collection of articles that describe the tooling options for coding, deploying, and scaling Java applications with Azure.
 author: KarlErickson
-ms.author: karler
+ms.author: asirveda
 ms.topic: conceptual
-ms.date: 02/02/2024
+ms.date: 04/10/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -15,13 +15,15 @@ Today, Java developers are looking at how they can bring their existing Java app
 
 - Continue writing code using the Java tools and frameworks they already know and love.
 - Deploy their Java applications using their preferred application servers and open-source software.
-- Scale their Java applications easily and confidently including necessities such as security, supporting data and messaging services, caching, monitoring, and automation.
+- Scale their Java applications easily and confidently, including necessities such as security, supporting data and messaging services, caching, monitoring, and automation.
+- Choose Azure services based on application needs, considering use case, business goals, security, and budget for a flexible approach.
 
 Microsoft Azure supports all these needs. As a company, Microsoft is committed to making Java developers as efficient and productive as possible, empowering them to use any tool, framework, and application server on any operating system. In the following articles, we examine how Azure delivers on this commitment, letting Java developers continue working the same way they do today - and continue using the tools and software of their choice - while using the power of managed services in the cloud:
 
 - [Code using the Java tools you know and love](code.md)
 - [Deploy Java applications with confidence and ease](deploy.md)
 - [Scale with end-to-end security, monitoring, and automation](scale.md)
+- [Choose the right Azure services for your Java applications](choose.md)
 
 Moving your Java applications to Azure is simple and intuitive, allowing you to benefit from all the cloud has to offer without having to learn new skills or adopt new tools or frameworks. You can continue using familiar tools like IntelliJ, Eclipse, VS Code, GitHub, Maven, and Gradle, and have more time for coding since you don't have to deploy or manage infrastructure.
 

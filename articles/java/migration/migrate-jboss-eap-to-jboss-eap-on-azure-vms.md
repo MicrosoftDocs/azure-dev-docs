@@ -47,9 +47,9 @@ In both options, for license portability, you're asked for the *Pool ID* from Re
 The prebuilt Azure Marketplace offers include support for Red Hat Satellite for license management. For an overview on Red Hat Satellite, see [Red Hat Satellite](https://aka.ms/red-hat-satellite).
 
 > [!NOTE]
-> If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Write down the account details for use as the *RHSM username* and *RHSM password* in the prebuilt Azure Marketplace offers.
+> If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Save aside the account details for use as the *RHSM username* and *RHSM password* in the prebuilt Azure Marketplace offers.
 >
-> The steps for discovering your *Pool ID* are explained in the [Prerequisites](../ee/jboss-eap-single-server-azure-vm.md#prerequisites) section in [Quickstart: Deploy JBoss EAP Server on an Azure virtual machine using the Azure portal](../ee/jboss-eap-single-server-azure-vm.md).
+> The steps for discovering your *Pool ID* are explained in the [Prerequisites](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm#prerequisites) section in [Quickstart: Deploy JBoss EAP Server on an Azure virtual machine using the Azure portal](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm).
 
 [!INCLUDE [inventory-server-capacity-aks](includes/inventory-server-capacity-aks.md)]
 

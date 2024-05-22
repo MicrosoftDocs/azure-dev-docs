@@ -2,10 +2,9 @@
 title: Migrate an application to use passwordless connections with Azure Event Hubs for Kafka
 description: Learn how to migrate existing applications using Azure Event Hubs for Kafka away from authentication patterns such as connection strings to more secure approaches like Managed Identity.
 author: KarlErickson
-ms.author: yiliu6
+ms.author: hangwan
 ms.topic: how-to
 ms.date: 11/16/2022
-ms.service: event-hubs
 ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure, devx-track-java, devx-track-azurecli, devx-track-extended-java
 ---
 

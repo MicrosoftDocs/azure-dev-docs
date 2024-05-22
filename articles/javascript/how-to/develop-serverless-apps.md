@@ -85,7 +85,7 @@ app.http('status', {
 #### [v4 JavaScript](#tab/v4-js)
 
 ```javascript
-import { app } = from "@azure/functions";
+import { app } from "@azure/functions";
 
 async function status(request, context) {
     context.log(`Http function processed request for url "${request.url}"`);

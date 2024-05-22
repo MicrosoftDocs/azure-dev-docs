@@ -2,11 +2,10 @@
 title: Dev tunnels command-line reference
 titleSuffix: Microsoft dev tunnels
 description: Reference documentation for how to use the dev tunnel command line tool to create publicly accessible ports for local services.
-author: curib
-ms.author: cauribeg
+author: derekbekoe
+ms.author: debekoe
 ms.topic: reference
 ms.service: azure-dev-tunnels
-ms.custom: build-2023
 ms.date: 11/17/2023 
 ---
 

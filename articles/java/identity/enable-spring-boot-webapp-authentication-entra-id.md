@@ -2,11 +2,11 @@
 title: Secure Java Spring Boot apps using Microsoft Entra ID
 titleSuffix: Azure
 description: Shows you how to develop a Java Spring Boot web app that supports sign-in by Microsoft Entra account.
-services: active-directory
+author: KarlErickson
+ms.author: bbanerjee
 ms.date: 03/11/2024
-ms.service: active-directory
 ms.topic: article
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
 # Secure Java Spring Boot apps using Microsoft Entra ID
@@ -21,7 +21,7 @@ The client app uses the Microsoft Entra ID Spring Boot Starter client library fo
 
 ## Prerequisites
 
-[!INCLUDE [prerequisites-spring-boot.md](includes/prerequisites-spring-boot.md)]
+[!INCLUDE [prerequisites-spring-boot-updated-version.md](includes/prerequisites-spring-boot-updated-version.md)]
 
 [!INCLUDE [spring-boot-overview-recommendations.md](includes/spring-boot-overview-recommendations.md)]
 
@@ -270,24 +270,35 @@ The app has some simple logic in the UI template pages for determining content t
 
 ### Protect routes with AADWebSecurityConfigurerAdapter
 
-By default, the app protects the **ID Token Details** page so that only signed-in users can access it. The app configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, you can extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
+By default, the app protects the **ID Token Details** page so that only signed-in users can access it. The app configures these routes by using the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, apply the `AadWebApplicationHttpSecurityConfigurer#aadWebApplication` method to the `HttpSecurity` instance. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
 
 ```java
+@Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class SecurityConfig extends AADWebSecurityConfigurerAdapter{
-  @Value( "${app.protect.authenticated}" )
-  private String[] protectedRoutes;
-
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
-    // use required configuration form AADWebSecurityAdapter.configure:
-    super.configure(http);
-    // add custom configuration:
-    http.authorizeRequests()
-      .antMatchers(protectedRoutes).authenticated()     // limit these pages to authenticated users (default: /token_details)
-      .antMatchers("/**").permitAll();                  // allow all other routes.
+@EnableMethodSecurity
+public class SecurityConfig  {
+    
+    @Value("${app.protect.authenticated}")
+    private String[] allowedOrigins;
+    
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        // @formatter:off
+        http.apply(AadWebApplicationHttpSecurityConfigurer.aadWebApplication())
+            .and()
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers(allowedOrigins).authenticated()
+                .anyRequest().permitAll()
+                );
+        // @formatter:on
+        return http.build();
     }
+
+    @Bean
+    @RequestScope
+    public ServletUriComponentsBuilder urlBuilder() {
+        return ServletUriComponentsBuilder.fromCurrentRequest();
+    }    
 }
 ```
 

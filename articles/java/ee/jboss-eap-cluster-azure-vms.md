@@ -20,7 +20,7 @@ This article uses the Azure Marketplace offer for JBoss EAP Cluster to accelerat
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 - Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for JBoss EAP. This entitlement lets the Azure portal install the Red Hat tested and certified JBoss EAP version.
   > [!NOTE]
-  > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Write down the account details, which you use as the *RHSM username* and *RHSM password* in the next section.
+  > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Save aside the account details, which you use as the *RHSM username* and *RHSM password* in the next section.
 - After you're registered, you can find the necessary credentials (*Pool IDs*) by using the following steps. You also use the *Pool IDs* as the *RHSM Pool ID with EAP entitlement* later in this article.
   1. Sign in to your [Red Hat account](https://sso.redhat.com).
   1. The first time you sign in, you're asked to complete your profile. Make sure you select **Personal** for **Account Type**, as shown in the following screenshot.
@@ -29,7 +29,7 @@ This article uses the Azure Marketplace offer for JBoss EAP Cluster to accelerat
 
   1. In the tab where you're signed in, open [Red Hat Developer Subscription for Individuals](https://aka.ms/red-hat-individual-dev-sub). This link takes you to all of the subscriptions in your account for the appropriate SKU.
   1. Select the first subscription from the **All purchased Subscriptions** table.
-  1. Copy and write down the value following **Master Pools** from **Pool IDs**.
+  1. Copy and save aside the value following **Master Pools** from **Pool IDs**.
 - A Java JDK, version 11. In this guide, we recommend the [Red Hat Build of OpenJDK](https://developers.redhat.com/products/openjdk/download). Ensure that your `JAVA_HOME` environment variable is set correctly in the shells in which you run the commands.
 - [Git](https://git-scm.com/downloads). Use `git --version` to test whether `git` works. This tutorial was tested with version 2.34.1.
 - [Maven](https://maven.apache.org/download.cgi). Use `mvn -version` to test whether `mvn` works. This tutorial was tested with version 3.8.6.
@@ -129,7 +129,7 @@ The following steps show you how to fill out the **JBoss EAP Settings** pane sho
 
 1. Leave the default option **Managed domain** for **Use managed domain or standalone hosts to form a cluster**.
 1. Leave the default value **jbossadmin** for **JBoss EAP Admin username**.
-1. Provide a JBoss EAP password for **JBoss EAP password**. Use the same value for **Confirm password**. Write down the value for later use.
+1. Provide a JBoss EAP password for **JBoss EAP password**. Use the same value for **Confirm password**. Save aside the value for later use.
 1. Leave the default option **No** for **Connect to an existing Red Hat Satellite Server?**.
 1. Provide your RHSM username for **RHSM username**. The value is the same one that was prepared in the prerequisites section.
 1. Provide your RHSM password for **RHSM password**. Use the same value for **Confirm password**. The value is the same one that was prepared in the prerequisites section.

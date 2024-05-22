@@ -2,7 +2,7 @@
 title: Azure Cosmos DB dev guide
 description: This guide describes the features, issues, workarounds, and diagnostic steps to be aware of when you use the Spring Data Azure Cosmos DB SDK.
 author: KarlErickson
-ms.author: karler
+ms.author: hangwan
 ms.topic: conceptual
 ms.date: 01/18/2023
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
