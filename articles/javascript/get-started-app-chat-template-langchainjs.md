@@ -2,7 +2,7 @@
 title: "Get started with Serverless AI Chat using LangChain.js"
 description: "Use LangChainjs to simplify the interaction between the Azure OpenAI and Azure AI Search to answer a chat answer."
 ms.topic: get-started 
-ms.date: 05/20/2024
+ms.date: 05/22/2024
 ms.subservice: intelligent-apps
 ms.custom: build-2024-intelligent-apps
 #customer intent: As a TypeScript developer, I want deploy and use a serverless chat app so that I can understand how langchainjs helps a chat app.
@@ -154,18 +154,20 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ---
 
-## Provision
+## Deploy and run
 
-The first step to deploying the application is to create the Azure resources. 
+The sample repository contains all the code and configuration files you need to deploy the serverless chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
+
+### Deploy chat app to Azure
 
 > [!IMPORTANT]
 > Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed.
 
-1. To create the Azure resources, run the following command.
+1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
 
-```bash
-azd provision
-```
+    ```bash
+    azd up
+    ```
 
 1. Use the following table to answer the prompts:
 
@@ -176,38 +178,17 @@ azd provision
     |Location (for hosting)|Select a location near you from the list.|
     |Location for the OpenAI model|Select a location near you from the list. If the same location is available as your first location, select that.|
 
-1. Wait until resources are provisioned before continuing.
-
-## Update loads to Azure Storage
-
-The second part of deploying the application is to upload the documents to Azure Storage. In a terminal at the root of the project, run the following script:
-
-```bash
-npm run upload:docs
-```
-
-## Deploy chat app to Azure
-
-The third part of deploying the application is to upload the application itself.
-
-1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
-
-    ```bash
-    azd up
-    ```
-
 1. Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
-
 1. After the application has been successfully deployed, you see two URLs displayed in the terminal.
 1. Select that URL labeled `Deploying service webapp` to open the chat application in a browser.
 
-## Use chat app to get answers from PDF files
+### Use chat app to get answers from PDF files
 
 The chat app is preloaded with rental information from a [PDF file catalog](https://github.com/Azure-Samples/serverless-chat-langchainjs/tree/main/data). You can use the chat app to ask questions about the rental process. The following steps walk you through the process of using the chat app.
 
 1. In the browser, select or enter **What is the refund policy**.
 
-    :::image type="content" source="./media/get-started-app-chat-langchainjs/first-prompt-chat.png" lightbox="./media/get-started-app-chat-langchainjs/first-prompt-chat.png" alt-text="Screenshot of chat app's first answer.":::
+    :::image type="content" source="./media/get-started-app-chat-langchainjs/first-prompt-chat.png" lightbox="./media/get-started-app-chat-langchainjs/first-prompt-chat.png" alt-text="Screenshot of chat app's first question and answer.":::
 
 1. Select a follow-up question.
 
