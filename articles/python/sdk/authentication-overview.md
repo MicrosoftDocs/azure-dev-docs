@@ -1,7 +1,7 @@
 ---
 title: 'Overview: Authenticate Python apps to Azure using the Azure SDK'
 description: This article provides an overview of how to authenticate applications to Azure services when you use the Azure SDK for Python in both server environments and in local development.
-ms.date: 02/24/2024
+ms.date: 05/22/2024
 ms.topic: overview
 ms.custom: devx-track-python
 ---
@@ -89,12 +89,12 @@ Internally, `DefaultAzureCredential` implements a chain of credential providers 
 
 The order in which `DefaultAzureCredential` looks for credentials is shown in the following diagram and table:
 
-:::image type="content" source="./media/default-azure-credential-auth-flow.svg" alt-text="A diagram that shows the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="./media/default-azure-credential-auth-flow.svg":::
+:::image type="content" source="./media/default-azure-credential-auth-flow.svg" alt-text="A diagram that shows the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="./media/default-azure-credential-auth-flow-big.png":::
 
 | Credential type               | Description |
 |-------------------------------|-------------|
 | Environment | The `DefaultAzureCredential` object reads a set of environment variables to determine if an application service principal (application user) was set for the app. If so, `DefaultAzureCredential` uses these values to authenticate the app to Azure.<br><br>This method is most often used in server environments, but you can also use it when you develop locally.             |
-| Workload identity              | If the application is deployed to Azure Kubernetes Service (AKS) with managed identity enabled, `DefaultAzureCredential` authenticates the app to Azure by using that managed identity. Workload identity represents a trust relationahip between a user-assigned managed identity and an AKS service account. Authentication by using a workload identity is discussed in the AKS article [Use Microsoft Entra Workload ID with Azure Kubernetes Service](/azure/aks/workload-identity-overview?tabs=python).|
+| Workload identity              | In Azure Kubernetes Service (AKS), a workload identity represents a trust relationship between a managed identity and a Kubernetes service account. If an application deployed to AKS is configured with a Kubernetes service account in such a relationship, `DefaultAzureCredential` authenticates the app to Azure by using the managed identity. Authentication by using a workload identity is discussed in [Use Microsoft Entra Workload ID with Azure Kubernetes Service](/azure/aks/workload-identity-overview?tabs=python).|
 | Managed identity              | If the application is deployed to an Azure host with managed identity enabled, `DefaultAzureCredential` authenticates the app to Azure by using that managed identity. Authentication by using a managed identity is discussed in the section [Authentication in server environments](#authentication-in-server-environments).<br><br>This method is only available when an application is hosted in Azure by using a service like Azure App Service, Azure Functions, or Azure Virtual Machines. |
 | Azure CLI                     | If you've authenticated to Azure by using the `az login` command in the Azure CLI, `DefaultAzureCredential` authenticates the app to Azure by using that same account. |
 | Azure PowerShell              | If you've authenticated to Azure by using the `Connect-AzAccount` cmdlet from Azure PowerShell, `DefaultAzureCredential` authenticates the app to Azure by using that same account.            |
@@ -103,3 +103,7 @@ The order in which `DefaultAzureCredential` looks for credentials is shown in th
 
 > [!NOTE]
 > Due to a [known issue](https://github.com/Azure/azure-sdk-for-python/issues/23249), `VisualStudioCodeCredential` has been removed from the `DefaultAzureCredential` token chain. When the issue is resolved in a future release, this change will be reverted. For more information, see [Azure Identity client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity).
+
+## Related content
+
+- [Azure Identity client library for Python README on GitHub](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/identity/azure-identity/README.md)
