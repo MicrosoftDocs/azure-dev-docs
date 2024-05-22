@@ -114,6 +114,7 @@ Your simple Spring Boot application is now ready for editing.
    ```properties
    # Specify the DNS URI of your Azure Cosmos DB.
    spring.cloud.azure.cosmos.endpoint=https://contosoaccounttest.documents.azure.com:443/
+   spring.cloud.azure.cosmos.key=your-cosmosdb-account-key
 
    # Specify the name of your database.
    spring.cloud.azure.cosmos.database=contosoaccounttest
