@@ -65,6 +65,8 @@ landingContent:
             url: migrate-weblogic-with-app-gateway.md
           - text: "Tutorial: WebLogic to Azure VMs with high availability and disaster recovery"
             url: migrate-weblogic-to-vms-with-ha-dr.md
+          - text: "Tutorial: WebLogic to AKS with KEDA scaler based on Prometheus Metrics"
+            url: migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics.md
           - text: WebLogic Server to JBoss EAP on App Service
             url: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
   - title: Migrate WildFly to Azure
