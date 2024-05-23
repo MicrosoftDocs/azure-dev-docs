@@ -1,7 +1,7 @@
 ---
 title: "Get started with chat document security trimming"
 description: "Secure your chat app documents with user authentication and document security trimming to ensure users receive answers based on their permissions."
-ms.date: 05/13/2024
+ms.date: 05/23/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
@@ -154,6 +154,17 @@ If you get an error about your tenant's conditional access policy, you need a se
 
 * Your first tenant, associated with your user account, is used for the `AZURE_TENANT_ID` environment variable.
 * Your second tenant, without conditional access, is used for the `AZURE_AUTH_TENANT_ID` environment variable to access Microsoft Graph. For tenants with a conditional access policy, find the ID of a second tenant without a conditional access policy or [create a new tenant](/entra/fundamentals/create-new-tenant).
+
+## Determine security configuration
+
+The solution provides environment variables which work together to provide distinct security profiles. Use the table below to select a security profile and understand which environment variables should be set. 
+
+|Profile|Description| Settings|
+|--|--|--|
+|**Most secure**: Required account + document filter|Each user of the site **must** login, the site does contain content which is public to all users. The document level security filter is applied to all requests.|AZURE_USE_AUTHENTCIATION<br>AZURE_ENABLE_GLOBAL_DOCUMENT_ACCESS<br>AZURE_ENFORCE_ACCESS_CONTROL|
+|**Optionally secure**: Optional account + document filter|Each user of the site **may** login, the site does contain content which is public to all users.The document level security filter is applied to all requests.|AZURE_USE_AUTHENTCIATION<br>AZURE_ENABLE_GLOBAL_DOCUMENT_ACCESS<br>AZURE_ENFORCE_ACCESS_CONTROL<br> AZURE_ENABLE_UNAUTHENTICATED_ACCESS|
+|**Least secure**: Optional account + optional document filter |Each user of the site **may** login, the site does contain secure documents. The document security may be applied.|AZURE_USE_AUTHENTCIATION|
+
 
 ## Set environment variables
 
