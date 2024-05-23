@@ -23,7 +23,7 @@ This article requires you to deploy two separate samples:
 * Load balancer app
 
 > [!NOTE]
-> This article uses one or more [AI app templates](/azure/developer/ai/includes/intelligent-app-templates) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+> This article uses one or more [AI app templates](/azure/developer/ai/includes/intelligent-app-templates-dotnet) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
 ## Architecture for load balancing Azure OpenAI with Azure Container Apps
 
