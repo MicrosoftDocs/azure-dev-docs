@@ -357,7 +357,7 @@
 | Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure-tools/test-utils/v/1.0.1) |  |  |
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.3.0) |  |  |
 | Unknown Display Name | npm [0.42.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.42.0) |  |  |
-| Unknown Display Name | npm [0.42.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.42.0) |  |  |
+| Unknown Display Name | npm [0.42.1](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.42.1) |  |  |
 | Unknown Display Name | npm [0.7.1](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.7.1) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.2.0) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.2.0) |  |  |
@@ -447,7 +447,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240520.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240520.3) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240523.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240523.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
