@@ -115,7 +115,7 @@ To send messages to and receive messages from Service Bus, configure the applica
    ```
 
    > [!TIP]
-   > Here we use Service Bus queue as an example. To use topic/subscription, you need to add the `spring.cloud.azure.servicebus.processor.subscription-name` and `spring.cloud.azure.servicebus.consumer.subscription-name` properties and change the `entity-type` value to `topic`.
+   > Here we use Service Bus queue as an example. To use topic/subscription, you need to add the `spring.cloud.azure.servicebus.processor.subscription-name` property and change the `entity-type` value to `topic`.
 
 1. Create a new `ServiceBusProcessorClientConfiguration` Java class as shown in the following example. This class is used to register the message and error handler of `ServiceBusProcessorClient`.
 
