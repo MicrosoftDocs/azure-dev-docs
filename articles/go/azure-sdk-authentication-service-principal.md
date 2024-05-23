@@ -10,7 +10,7 @@ ms.custom: devx-track-go
 
 In this tutorial, you use the Azure SDK for Go to authenticate to Azure with an Azure service principal using either a secret or a certificate.
 
-Azure service principals define the access policy and permissions in a Microsoft Entra tenant, enabling core features such as authentication during sign-on and authorization during resource access. They remove the need to use personal accounts to access Azure resources. You can assign a service principal the exact permissions needed for your app and develop against those permissions, rather than using a personal account, which might have more privileges in your tenant than the app requires. You can also use service principals for apps that are hosted on-premise that need to use Azure resources. The Azure SDK for Go [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) module provides a convenient way to authenticate to Azure with a service principal using environment variables, and a secret or a certificate.
+Azure service principals define the access policy and permissions in a Microsoft Entra tenant, enabling core features such as authentication during sign-on and authorization during resource access. They remove the need to use personal accounts to access Azure resources. You can assign a service principal the exact permissions needed for your app and develop against those permissions, rather than using a personal account, which might have more privileges in your tenant than the app requires. You can also use service principals for apps that are hosted on-premises that need to use Azure resources. The Azure SDK for Go [Azure Identity](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/azidentity) module provides a convenient way to authenticate to Azure with a service principal using environment variables, and a secret or a certificate.
 
 Follow this tutorial to create and authenticate with the Azure SDK for Go using a service principal.
 
@@ -104,7 +104,7 @@ $sp.AppId
 
 Replace `<servicePrincipalName>`, and `<keyVaultId>` with the appropriate value.
 
-Note down the Password , App ID, and Tenant ID. You need them in the next section.
+Note down the Password, App ID, and Tenant ID. You need them in the next section.
 
 ---
 
