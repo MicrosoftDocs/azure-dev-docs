@@ -159,12 +159,111 @@ If you get an error about your tenant's conditional access policy, you need a se
 
 The solution provides environment variables which work together to provide distinct security profiles. Use the table below to select a security profile and understand which environment variables should be set. 
 
+<!-->
 |Profile|Description| Settings|
 |--|--|--|
-|**Most secure**: Required account + document filter|Each user of the site **must** login, the site does contain content which is public to all users. The document level security filter is applied to all requests.|AZURE_USE_AUTHENTCIATION<br>AZURE_ENABLE_GLOBAL_DOCUMENT_ACCESS<br>AZURE_ENFORCE_ACCESS_CONTROL|
-|**Optionally secure**: Optional account + document filter|Each user of the site **may** login, the site does contain content which is public to all users.The document level security filter is applied to all requests.|AZURE_USE_AUTHENTCIATION<br>AZURE_ENABLE_GLOBAL_DOCUMENT_ACCESS<br>AZURE_ENFORCE_ACCESS_CONTROL<br> AZURE_ENABLE_UNAUTHENTICATED_ACCESS|
-|**Least secure**: Optional account + optional document filter |Each user of the site **may** login, the site does contain secure documents. The document security may be applied.|AZURE_USE_AUTHENTCIATION|
+|**Enterprise**: Required account + document filter|Each user of the site **must** login, the site does contain content which is public to all users. The document level security filter is applied to all requests.|AZURE_USE_AUTHENTCIATION<br>AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS<br>AZURE_ENFORCE_ACCESS_CONTROL|
+|**Mixed use**: Optional account + document filter|Each user of the site **may** login, the site does contain content which is public to all users.The document level security filter is applied to all requests.|AZURE_USE_AUTHENTCIATION<br>AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS<br>AZURE_ENFORCE_ACCESS_CONTROL<br> AZURE_ENABLE_UNAUTHENTICATED_ACCESS|
+|**Public**: Optional account + optional document filter |Each user of the site **may** login, the site does contain secure documents. The document security may be applied.|AZURE_USE_AUTHENTCIATION|
+-->
 
+:::row:::
+   :::column:::
+      **Profile**
+   :::column-end:::
+   :::column:::
+      **Description**
+   :::column-end:::
+   :::column:::
+      **Settings**
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column:::
+      **Enterprise**: Required account + document filter
+   :::column-end:::
+   :::column:::
+      Each user of the site **must** login, the site does contain content which is public to all users. The document level security filter is applied to all requests.
+   :::column-end:::
+   :::column:::
+      :::row:::
+         :::column:::
+            AZURE_USE_AUTHENTCIATION
+         :::column-end:::
+         :::column:::
+            AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS
+         :::column-end:::
+         :::column:::
+            AZURE_ENFORCE_ACCESS_CONTROL
+         :::column-end:::
+      :::row-end:::
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column:::
+      **Mixed use**: Optional account + document filter
+   :::column-end:::
+   :::column:::
+      Each user of the site **may** login, the site does contain content which is public to all users.The document level security filter is applied to all requests.
+   :::column-end:::
+   :::column:::
+      :::row:::
+         :::column:::
+            AZURE_USE_AUTHENTCIATION
+         :::column-end:::
+         :::column:::
+            AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS
+         :::column-end:::
+         :::column:::
+            AZURE_ENFORCE_ACCESS_CONTROL
+         :::column-end:::
+         :::column:::
+            AZURE_ENABLE_UNAUTHENTICATED_ACCESS
+         :::column-end:::
+      :::row-end:::
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column:::
+      **Public**: Optional account + optional document filter
+   :::column-end:::
+   :::column:::
+      Each user of the site **may** login, the site does contain secure documents. The document security may be applied.
+   :::column-end:::
+   :::column:::
+      :::row:::
+         :::column:::
+            AZURE_USE_AUTHENTCIATION
+         :::column-end:::
+      :::row-end:::
+   :::column-end:::
+:::row-end:::
+<!-->
+:::row:::
+   :::column span="":::
+      Content...
+   :::column-end:::
+   :::column span="":::
+      :::row:::
+   :::column span="":::
+      Content...
+   :::column-end::
+   :::column span="":::
+      More content...
+   :::column-end:::
+   :::column span="":::
+      More content...
+   :::column-end:::
+:::row-end:::
+   :::column-end:::
+   :::column span="":::
+      More content...
+   :::column-end:::
+:::row-end:::
+-->
 
 ## Set environment variables
 
