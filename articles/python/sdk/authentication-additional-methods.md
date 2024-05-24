@@ -3,7 +3,7 @@ title: Additional methods to authenticate to Azure resources from Python apps
 description: This article describes additional, less common methods you can use to authenticate your Python app to Azure resources. 
 ms.date: 05/20/2024
 ms.topic: how-to
-ms.custom: devx-track-python
+ms.custom: devx-track-python, passwordless-python
 ---
 
 # Additional methods to authenticate to Azure resources from Python apps
@@ -41,7 +41,7 @@ For more exact control, such as setting redirect URIs, you can supply specific a
 
 ## Interactive brokered authentication
 
-This method interactively authenticates an application through [`InteractiveBrowserBrokerCredential`](/python/api/azure-identity-broker/azure.identity.broker.interactivebrowserbrokercredential) by collecting user credentials using the system authentication broker.
+This method interactively authenticates an application through [`InteractiveBrowserBrokerCredential`](/python/api/azure-identity-broker/azure.identity.broker.interactivebrowserbrokercredential) by collecting user credentials using the system authentication broker. This credential type is provided in the Azure Identity Broker plugin, [azure-identity-broker](https://pypi.org/project/azure-identity-broker/).
 
 A system authentication broker is an app running on a user’s machine that manages the authentication handshakes and token maintenance for all connected accounts. Currently, only the Windows authentication broker, Web Account Manager (WAM), is supported. Users on macOS and Linux will be authenticated through a browser.
 
@@ -89,7 +89,7 @@ from azure.storage.blob import BlobServiceClient
 # Get the handle of the current window
 current_window_handle = win32gui.GetForegroundWindow()
 
-# To autheticate and authorize with an app, use the following line to get a credential and
+# To authenticate and authorize with an app, use the following line to get a credential and
 # substitute the <app_id> and <tenant_id> placeholders with the values for your app and tenant.
 # credential = InteractiveBrowserBrokerCredential(parent_window_handle=current_window_handle, client_id=<app_id>, tenant_id=<tenant_id>)
 credential = InteractiveBrowserBrokerCredential(parent_window_handle=current_window_handle)
@@ -102,7 +102,37 @@ for container in client.list_containers():
 
 For more exact control, such as setting a timeout, you can supply specific arguments to `InteractiveBrowserBrokerCredential` such as `timeout`.
 
-For the code to run successfully, your user account and app (if specified) must be assigned an Azure role on the storage account that allows access to blob containers like "Storage Account Data Contributor". If an app is specified, it must have API Permissions set for Azure Storage (step 6 in the previous section).
+For the code to run successfully, your user account must be assigned an Azure role on the storage account that allows access to blob containers like "Storage Account Data Contributor". If an app is specified, it must have API Permissions set for **user_impersonaation Access Azure Storage** (step 6 in the previous section). This API permission allows the app to access Azure storage on behalf of the signed-in user after consent is granted during sign-in.
+
+The following screenshot shows the user sign-in consent experience for an example app:
+
+:::image type="content" source="./media/sign-in-consent-experience.png" alt-text="A screenshot that shows the consent experience for an app when using the interactive browser broker credential to autheticate a user." :::
+
+### Authenticate the default system account via WAM
+
+Many people always sign in to Windows with the same user account and, therefore, only ever want to authenticate using that account. Forcing such individuals to repeatedly select their sole account from an account picker can be aggravating. Fortunately, `InteractiveBrowserBrokerCredential` offers a way for you to enable such individuals to sign in silently with the default system account, which, on Windows, is the signed-in user.
+
+To enable sign in with the default system account:
+
+- Make sure you use `azure-identity-broker` version 1.1.0 or greater.
+
+- Set the `use_default_broker_account` argument to `True` in the call to `InteractiveBrowserBrokerCredential`.  
+
+```python
+import win32gui
+from azure.identity.broker import InteractiveBrowserBrokerCredential
+
+# code omitted for brevity
+
+window_handle = win32gui.GetForegroundWindow()
+
+credential = InteractiveBrowserBrokerCredential(
+    parent_window_handle=window_handle,
+    use_default_broker_account=True
+)
+```
+
+Once you opt into this behavior, the credential type attempts to sign in by asking the underlying Microsoft Authentication Library (MSAL) to perform the sign-in for the default system account. If the sign-in fails, the credential type falls back to displaying the account picker dialog, from which the user can select the appropriate account.
 
 ## Device code authentication
 
@@ -121,8 +151,9 @@ Device code authentication in a development environment enables the application 
 
 This method authenticates an application using previous-collected credentials and the [`UsernamePasswordCredential`](/python/api/azure-identity/azure.identity.usernamepasswordcredential) object.
 
-This method of authentication is discouraged because it's less secure than other flows. Also, this method isn't interactive and is therefore **not compatible with any form of multi-factor authentication or consent prompting.** The application must already have consent from the user or a directory administrator.
-
-Furthermore, this method authenticates only work and school accounts; Microsoft accounts aren't supported. For more information, see [Sign up your organization to use Microsoft Entra ID](/azure/active-directory/fundamentals/sign-up-organization).
+> [!IMPORTANT]
+> This method of authentication is discouraged because it's less secure than other flows. Also, this method isn't interactive and is therefore **not compatible with any form of multi-factor authentication or consent prompting.** The application must already have consent from the user or a directory administrator.
+>
+> Furthermore, this method authenticates only work and school accounts; Microsoft accounts aren't supported. For more information, see [Sign up your organization to use Microsoft Entra ID](/azure/active-directory/fundamentals/sign-up-organization).
 
 :::code language="python" source="~/../python-sdk-docs-examples/show_subscription/use_username_password.py":::
