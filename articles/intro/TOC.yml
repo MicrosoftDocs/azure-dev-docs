@@ -37,7 +37,7 @@ items:
       - name: Developer guide
         href: /azure/storage/common/multiple-identity-scenarios?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: Managed identity best practices
-        href: /azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
+        href: /entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
       - name: Delete passwords and migrate
         items:
           - name: Azure SQL Database with .NET
