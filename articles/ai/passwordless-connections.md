@@ -363,12 +363,19 @@ For more information on `DefaultAzureCredential` for JavaScript, see [Azure Iden
 
 
 ```javascript
-import { DefaultAzureCredential } from "@azure/identity";
-import { OpenAIClient } from "@azure/openai";
+import { DefaultAzureCredential, getBearerTokenProvider } from "@azure/identity";
+import { AzureOpenAI } from "openai";
 
-const AZURE_OPENAI_ENDPOINT = process.env.AZURE_OPENAI_ENDPOINT;
+const credential = new DefaultAzureCredential();
+const scope = "https://cognitiveservices.azure.com/.default";
+const azureADTokenProvider = getBearerTokenProvider(credential, scope);
 
-const credential = new OpenAIClient(AZURE_OPENAI_ENDPOINT, new DefaultAzureCredential());
+const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] || "<endpoint>";
+const deployment = "Your Azure OpenAI deployment";
+const apiVersion = "2024-04-01-preview";
+const options = { azureADTokenProvider, deployment, apiVersion, endpoint }
+
+const client = new AzureOpenAI(options);
 ```
 
 ### [Python](#tab/python)
