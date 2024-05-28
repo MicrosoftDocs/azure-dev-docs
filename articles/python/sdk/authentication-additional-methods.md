@@ -1,7 +1,7 @@
 ---
 title: Additional methods to authenticate to Azure resources from Python apps
 description: This article describes additional, less common methods you can use to authenticate your Python app to Azure resources. 
-ms.date: 05/20/2024
+ms.date: 05/28/2024
 ms.topic: how-to
 ms.custom: devx-track-python, passwordless-python
 ---
@@ -104,9 +104,9 @@ For more exact control, such as setting a timeout, you can supply specific argum
 
 For the code to run successfully, your user account must be assigned an Azure role on the storage account that allows access to blob containers like "Storage Account Data Contributor". If an app is specified, it must have API Permissions set for **user_impersonaation Access Azure Storage** (step 6 in the previous section). This API permission allows the app to access Azure storage on behalf of the signed-in user after consent is granted during sign-in.
 
-The following screenshot shows the user sign-in consent experience for an example app:
+The following screenshot shows the user sign-in experience:
 
-:::image type="content" source="./media/sign-in-consent-experience.png" alt-text="A screenshot that shows the consent experience for an app when using the interactive browser broker credential to autheticate a user." :::
+:::image type="content" source="./media/wam-sign-in-account-picker.png" alt-text="A screenshot that shows the sign-in experience when using the interactive browser broker credential to autheticate a user." :::
 
 ### Authenticate the default system account via WAM
 
