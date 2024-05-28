@@ -2,7 +2,7 @@
 title: Use passwordless connections with Azure OpenAI
 description: Use passwordless connections for authentication and authorization to Azure OpenAI.
 ms.topic: how-to
-ms.date: 05/15/2024
+ms.date: 05/28/2024
 ms.reviewer: scaddie
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python, passwordless-go, build-2024-intelligent-apps
 #customer intent: As a developer, I want to use passwordless connections so that I don't leak secrets.
@@ -372,7 +372,7 @@ const azureADTokenProvider = getBearerTokenProvider(credential, scope);
 
 const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] || "<endpoint>";
 const deployment = "Your Azure OpenAI deployment";
-const apiVersion = "2024-04-01-preview";
+const apiVersion = "2024-05-01-preview";
 const options = { azureADTokenProvider, deployment, apiVersion, endpoint }
 
 const client = new AzureOpenAI(options);
