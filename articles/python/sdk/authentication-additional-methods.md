@@ -8,13 +8,13 @@ ms.custom: devx-track-python, passwordless-python
 
 # Additional methods to authenticate to Azure resources from Python apps
 
-This article lists additional methods apps can use to authenticate to Azure resources. The methods on this page are less commonly used and, when possible, we encourage you to use one of the methods outlined in the [authenticating Python apps to Azure using the Azure SDK overview](./authentication-overview.md) article.
+This article lists additional methods that apps can use to authenticate to Azure resources. The methods in this article are less commonly used; when possible, we encourage you to use one of the methods outlined in [authenticating Python apps to Azure using the Azure SDK overview](./authentication-overview.md).
 
 ## Interactive browser authentication
 
 This method interactively authenticates an application through [`InteractiveBrowserCredential`](/python/api/azure-identity/azure.identity.interactivebrowsercredential) by collecting user credentials in the default system.
 
-Interactive browser authentication enables the application for all operations allowed by the interactive login credentials. As a result, if you're the owner or administrator of your subscription, your code has inherent access to most resources in that subscription without having to assign any specific permissions.  For this reason, the use of interactive browser authentication is discouraged for anything but experimentation.
+Interactive browser authentication enables the application for all operations allowed by the interactive login credentials. As a result, if you're the owner or administrator of your subscription, your code has inherent access to most resources in that subscription without having to assign any specific permissions. For this reason, the use of interactive browser authentication is discouraged for anything but experimentation.
 
 ### Enable applications for interactive browser authentication
 
@@ -106,17 +106,19 @@ For the code to run successfully, your user account must be assigned an Azure ro
 
 The following screenshot shows the user sign-in experience:
 
-:::image type="content" source="./media/wam-sign-in-account-picker.png" alt-text="A screenshot that shows the sign-in experience when using the interactive browser broker credential to autheticate a user." :::
+:::image type="content" source="./media/wam-sign-in-account-picker.png" alt-text="A screenshot that shows the sign-in experience when using the interactive browser broker credential to authenticate a user." :::
 
 ### Authenticate the default system account via WAM
 
 Many people always sign in to Windows with the same user account and, therefore, only ever want to authenticate using that account. Forcing such individuals to repeatedly select their sole account from an account picker can be aggravating. Fortunately, `InteractiveBrowserBrokerCredential` offers a way for you to enable such individuals to sign in silently with the default system account, which, on Windows, is the signed-in user.
 
-To enable sign in with the default system account:
+To enable sign-in with the default system account:
 
 - Make sure you use `azure-identity-broker` version 1.1.0 or greater.
 
 - Set the `use_default_broker_account` argument to `True` when you create an instance of `InteractiveBrowserBrokerCredential`.  
+
+The following example shows how to enable sign-in with the default system account:
 
 ```python
 import win32gui
