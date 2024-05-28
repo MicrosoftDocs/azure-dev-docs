@@ -32,7 +32,7 @@ Without document security feature, the enterprise chat app has a simple architec
 To add security for the documents, you need to update the enterprise chat app: 
 
 * Add client authentication to the chat app with Microsoft Entra.
-* Add server-side logic to populate a search index which corresponds to the authenticated user's identity that should have access to each document.
+* Add server-side logic to populate a search index, which corresponds to the authenticated user's identity that should have access to each document.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trim/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing a use authenticating with Microsoft Entra ID, then passing that authentication to Azure AI Search.":::
 
@@ -40,14 +40,14 @@ Azure AI Search doesn't provide _native_ document-level permissions and can't va
 
 :::image type="content" source="media/get-started-app-chat-document-security-trim/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
 
-Because the authorization isn't natively contained in Azure AI Search, you need to add a field to hold user or group information, then trim any documents which don't match the user. To implement this technique, you need to:
+Because the authorization isn't natively contained in Azure AI Search, you need to add a field to hold user or group information, then trim any documents, which don't match the user. To implement this technique, you need to:
 
 * Create a document access control field in your index dedicated to storing the details of users or groups with document access. 
 * Populate the document's access control field with the relevant user or group details.
 * Update this access control field whenever there are changes in user or group access permissions.
 * If your index updates are scheduled with an indexer, changes are picked up on the next indexer run. If you don't use an indexer, you need to manually reindex.
 
-In this article, the process of securing documents in Azure AI Search, is made possible with _example_ scripts which you as the search administrator would run. The scripts associate a single document with a single user identity. You can take these [scripts](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/scripts) and apply your own security and productionizing requirements to scale to your needs.
+In this article, the process of securing documents in Azure AI Search, is made possible with _example_ scripts, which you as the search administrator would run. The scripts associate a single document with a single user identity. You can take these [scripts](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/scripts) and apply your own security and productionizing requirements to scale to your needs.
 
 ## Prerequisites
 
@@ -157,53 +157,59 @@ If you get an error about your tenant's conditional access policy, you need a se
 
 ## Determine security configuration
 
-The solution provides environment variables which work together to provide distinct security profiles. Use the table below to select a security profile and understand which environment variables should be set. 
+The solution provides boolean environment variables to turn on features necessary for document security in this sample. 
+
+|Parameter|Purpose|
+|--|--|
+|`AZURE_USE_AUTHENTICATION`|When set to `true`, enables user sign-in to the chat app and App Service authentication. Enables `Use oid security filter` in the chat app **Developer settings**.|
+|`AZURE_ENFORCE_ACCESS_CONTROL`|When set to `true`, requires authentication for any document access. The **Developer settings** for oid and group security will be turned on and disabled so they can't be disabled from the UI.|
+|`AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS`|When set to `true`, this setting allows authenticated users to search on documents that have no access controls assigned, even when access control is required.|
+|`AZURE_ENABLE_UNAUTHENTICATED_ACCESS`|When set to `true`, this setting unauthenticated users to use the app, even when access control is enforced. |
+
+Use the following sections to select a security profile and understand which environment variables should be set. 
 
 ### Enterprise: Required account + document filter
 
-Each user of the site **must** login, the site does contain content which is public to all users. The document level security filter is applied to all requests.
+Each user of the site **must** sign in, the site does contain content, which is public to all users. The document level security filter is applied to all requests.
 
 Environment variables:
 
-* AZURE_USE_AUTHENTCIATION
-* AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS
-* AZURE_ENFORCE_ACCESS_CONTROL
+* AZURE_USE_AUTHENTICATION=true
+* AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS=true
+* AZURE_ENFORCE_ACCESS_CONTROL=true
 
 ### Mixed use: Optional account + document filter
 
-Each user of the site **may** login, the site does contain content which is public to all users.The document level security filter is applied to all requests.
+Each user of the site **may** sign in, the site does contain content, which is public to all users. The document level security filter is applied to all requests.
 
 Environment variables:
 
-* AZURE_USE_AUTHENTCIATION
-* AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS
-* AZURE_ENFORCE_ACCESS_CONTROL
-* AZURE_ENABLE_UNAUTHENTICATED_ACCESS
+* AZURE_USE_AUTHENTICATION=true
+* AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS=true
+* AZURE_ENFORCE_ACCESS_CONTROL=true
+* AZURE_ENABLE_UNAUTHENTICATED_ACCESS=true
 
 ### Public: Optional account + optional document filter
 
-Each user of the site **may** login, the site does contain secure documents. The document security may be applied.
+Each user of the site **may** sign in, the site does contain secure documents. The document security may be applied.
 
 Environment variables:
 
-* AZURE_USE_AUTHENTCIATION
+* AZURE_USE_AUTHENTICATION=true
 
 ## Set environment variables
 
-1. Run the following commands to configure environment variables for the sample to use authentication.
+1. Run the following command for each environment variable from the preceding section for the sample to use authentication. Replace `<ENVIRONMENT_VARIABLE_NAME>` with the variable name.
 
     ```console
-    azd env set AZURE_USE_AUTHENTICATION true
-    azd env set AZURE_ENFORCE_ACCESS_CONTROL true
-    azd env set AZURE_TENANT_ID <REPLACE-WITH-YOUR-TENANT-ID>
+    azd env set <ENVIRONMENT_VARIABLE_NAME> true
     ```
 
-    |Parameter|Purpose|
-    |--|--|
-    |`AZURE_USE_AUTHENTICATION`|Enables user sign-in to the chat app. Enables `Use oid security filter` in the chat app **Developer settings**.|
-    |`AZURE_ENFORCE_ACCESS_CONTROL`|Requires authentication for any document access. The **Developer settings** for oid and group security will be turned on and disabled so they can't be disabled from the UI.|
-    |`AZURE_TENANT_ID`|The tenant which authorizes your user sign in.|
+1. Run the following command to set the tenant, which authorizes the user sign in. Replace `<YOUR_TENANT_ID>` with the tenant ID.
 
+    ```console
+    azd env set AZURE_TENANT_ID <YOUR_TENANT_ID>
+    ```
 
 1. If you need to use `AZURE_AUTH_TENANT_ID` due to a conditional access policy on your user tenant, run the following command to configure the sample to use a second tenant for application hosting. 
 
@@ -381,11 +387,11 @@ Once this information is known, update the Azure AI Search index `oids` field fo
 
 ### Verify user access to the document 
 
-If you completed the steps but did not see the correct answer, verify your USER_OBJECT_ID is set correctly in Azure AI Search for that `role_library.pdf`.
+If you completed the steps but didn't see the correct answer, verify your USER_OBJECT_ID is set correctly in Azure AI Search for that `role_library.pdf`.
 
 1. Return to the chat app. You may need to sign in again. 
 1. Enter the same query so that the `role_library` content is used in the Azure OpenAI answer: `What does a product manager do?`.
-1. View the result which now includes the appropriate answer from the role library document.
+1. View the result, which now includes the appropriate answer from the role library document.
 
     :::image type="content" source="./media/get-started-app-chat-document-security-trim/role-library-access-granted.png" alt-text="Screenshot of chat app in browser showing the answer is returned.":::
 
