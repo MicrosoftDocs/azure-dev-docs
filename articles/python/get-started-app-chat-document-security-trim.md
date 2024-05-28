@@ -180,15 +180,11 @@ The solution provides environment variables which work together to provide disti
       Each user of the site **must** login, the site does contain content which is public to all users. The document level security filter is applied to all requests.
    :::column-end:::
    :::column:::
-         :::row:::
-            AZURE_USE_AUTHENTCIATION
-         :::row-end:::
-         :::row:::
-            AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS
-         :::row-end:::
-         :::row:::
+
+            AZURE_USE_AUTHENTCIATION<br>
+            AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS<br>
             AZURE_ENFORCE_ACCESS_CONTROL
-         :::row-end:::
+
    :::column-end:::
 :::row-end:::
 
@@ -199,18 +195,11 @@ The solution provides environment variables which work together to provide disti
    :::column:::
       Each user of the site **may** login, the site does contain content which is public to all users.The document level security filter is applied to all requests.
    :::column-end:::
-         :::row:::
-            AZURE_USE_AUTHENTCIATION
-         :::row-end:::
-         :::row:::
-            AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS
-         :::row-end:::
-         :::row:::
-            AZURE_ENFORCE_ACCESS_CONTROL
-         :::row-end:::
-         :::row:::
+   :::column:::
+            AZURE_USE_AUTHENTCIATION<br>
+            AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS<br>
+            AZURE_ENFORCE_ACCESS_CONTROL<br>
             AZURE_ENABLE_UNAUTHENTICATED_ACCESS
-         :::row-end:::
    :::column-end:::
 :::row-end:::
 
@@ -222,9 +211,7 @@ The solution provides environment variables which work together to provide disti
       Each user of the site **may** login, the site does contain secure documents. The document security may be applied.
    :::column-end:::
    :::column:::
-      :::row:::
             AZURE_USE_AUTHENTCIATION
-      :::row-end:::
    :::column-end:::
 :::row-end:::
 
