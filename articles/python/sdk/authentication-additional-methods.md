@@ -116,7 +116,7 @@ To enable sign in with the default system account:
 
 - Make sure you use `azure-identity-broker` version 1.1.0 or greater.
 
-- Set the `use_default_broker_account` argument to `True` in the call to `InteractiveBrowserBrokerCredential`.  
+- Set the `use_default_broker_account` argument to `True` when you create an instance of `InteractiveBrowserBrokerCredential`.  
 
 ```python
 import win32gui
