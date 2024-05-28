@@ -159,61 +159,34 @@ If you get an error about your tenant's conditional access policy, you need a se
 
 The solution provides environment variables which work together to provide distinct security profiles. Use the table below to select a security profile and understand which environment variables should be set. 
 
+### Enterprise: Required account + document filter
 
-:::row:::
-   :::column:::
-      **Profile**
-   :::column-end:::
-   :::column:::
-      **Description**
-   :::column-end:::
-   :::column:::
-      **Settings**
-   :::column-end:::
-:::row-end:::
+Each user of the site **must** login, the site does contain content which is public to all users. The document level security filter is applied to all requests.
 
-:::row:::
-   :::column:::
-      **Enterprise**: Required account + document filter
-   :::column-end:::
-   :::column:::
-      Each user of the site **must** login, the site does contain content which is public to all users. The document level security filter is applied to all requests.
-   :::column-end:::
-   :::column:::
+Environment variables:
 
-            AZURE_USE_AUTHENTCIATION<br>
-            AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS<br>
-            AZURE_ENFORCE_ACCESS_CONTROL
+* AZURE_USE_AUTHENTCIATION
+* AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS
+* AZURE_ENFORCE_ACCESS_CONTROL
 
-   :::column-end:::
-:::row-end:::
+### Mixed use: Optional account + document filter
 
-:::row:::
-   :::column:::
-      **Mixed use**: Optional account + document filter
-   :::column-end:::
-   :::column:::
-      Each user of the site **may** login, the site does contain content which is public to all users.The document level security filter is applied to all requests.
-   :::column-end:::
-   :::column:::
-            AZURE_USE_AUTHENTCIATION<br>
-            AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS<br>
-            AZURE_ENFORCE_ACCESS_CONTROL<br>
-            AZURE_ENABLE_UNAUTHENTICATED_ACCESS
-   :::column-end:::
-:::row-end:::
+Each user of the site **may** login, the site does contain content which is public to all users.The document level security filter is applied to all requests.
 
-:::row:::
-   :::column:::
-      **Public**: Optional account + optional document filter
-   :::column-end:::
-   :::column:::
-      Each user of the site **may** login, the site does contain secure documents. The document security may be applied.
-   :::column-end:::
-   :::column:::
-            AZURE_USE_AUTHENTCIATION
-   :::column-end:::
-:::row-end:::
+Environment variables:
+
+* AZURE_USE_AUTHENTCIATION
+* AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS
+* AZURE_ENFORCE_ACCESS_CONTROL
+* AZURE_ENABLE_UNAUTHENTICATED_ACCESS
+
+### Public: Optional account + optional document filter
+
+Each user of the site **may** login, the site does contain secure documents. The document security may be applied.
+
+Environment variables:
+
+* AZURE_USE_AUTHENTCIATION
 
 ## Set environment variables
 
