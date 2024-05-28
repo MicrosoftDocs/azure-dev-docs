@@ -159,13 +159,6 @@ If you get an error about your tenant's conditional access policy, you need a se
 
 The solution provides environment variables which work together to provide distinct security profiles. Use the table below to select a security profile and understand which environment variables should be set. 
 
-<!-->
-|Profile|Description| Settings|
-|--|--|--|
-|**Enterprise**: Required account + document filter|Each user of the site **must** login, the site does contain content which is public to all users. The document level security filter is applied to all requests.|AZURE_USE_AUTHENTCIATION<br>AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS<br>AZURE_ENFORCE_ACCESS_CONTROL|
-|**Mixed use**: Optional account + document filter|Each user of the site **may** login, the site does contain content which is public to all users.The document level security filter is applied to all requests.|AZURE_USE_AUTHENTCIATION<br>AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS<br>AZURE_ENFORCE_ACCESS_CONTROL<br> AZURE_ENABLE_UNAUTHENTICATED_ACCESS|
-|**Public**: Optional account + optional document filter |Each user of the site **may** login, the site does contain secure documents. The document security may be applied.|AZURE_USE_AUTHENTCIATION|
--->
 
 :::row:::
    :::column:::
@@ -187,17 +180,15 @@ The solution provides environment variables which work together to provide disti
       Each user of the site **must** login, the site does contain content which is public to all users. The document level security filter is applied to all requests.
    :::column-end:::
    :::column:::
-      :::row:::
-         :::column:::
+         :::row:::
             AZURE_USE_AUTHENTCIATION
-         :::column-end:::
-         :::column:::
+         :::row-end:::
+         :::row:::
             AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS
-         :::column-end:::
-         :::column:::
+         :::row-end:::
+         :::row:::
             AZURE_ENFORCE_ACCESS_CONTROL
-         :::column-end:::
-      :::row-end:::
+         :::row-end:::
    :::column-end:::
 :::row-end:::
 
@@ -208,21 +199,18 @@ The solution provides environment variables which work together to provide disti
    :::column:::
       Each user of the site **may** login, the site does contain content which is public to all users.The document level security filter is applied to all requests.
    :::column-end:::
-   :::column:::
-      :::row:::
-         :::column:::
+         :::row:::
             AZURE_USE_AUTHENTCIATION
-         :::column-end:::
-         :::column:::
+         :::row-end:::
+         :::row:::
             AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS
-         :::column-end:::
-         :::column:::
+         :::row-end:::
+         :::row:::
             AZURE_ENFORCE_ACCESS_CONTROL
-         :::column-end:::
-         :::column:::
+         :::row-end:::
+         :::row:::
             AZURE_ENABLE_UNAUTHENTICATED_ACCESS
-         :::column-end:::
-      :::row-end:::
+         :::row-end:::
    :::column-end:::
 :::row-end:::
 
@@ -235,35 +223,10 @@ The solution provides environment variables which work together to provide disti
    :::column-end:::
    :::column:::
       :::row:::
-         :::column:::
             AZURE_USE_AUTHENTCIATION
-         :::column-end:::
       :::row-end:::
    :::column-end:::
 :::row-end:::
-<!-->
-:::row:::
-   :::column span="":::
-      Content...
-   :::column-end:::
-   :::column span="":::
-      :::row:::
-   :::column span="":::
-      Content...
-   :::column-end::
-   :::column span="":::
-      More content...
-   :::column-end:::
-   :::column span="":::
-      More content...
-   :::column-end:::
-:::row-end:::
-   :::column-end:::
-   :::column span="":::
-      More content...
-   :::column-end:::
-:::row-end:::
--->
 
 ## Set environment variables
 
