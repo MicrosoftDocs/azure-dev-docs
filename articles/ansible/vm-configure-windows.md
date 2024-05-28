@@ -4,7 +4,7 @@ description: Learn how to create Windows virtual machine in Azure using Ansible.
 keywords: ansible, azure, devops, bash, playbook, virtual machine
 ms.topic: tutorial
 ms.service: ansible
-ms.date: 08/28/2021
+ms.date: 03/27/2024
 ms.custom: devx-track-ansible
 ---
 

@@ -16,6 +16,7 @@ This article explains how to authenticate Terraform to Azure for the following s
 - Authenticate via a service principal:
     1. If you don't have a service principal, [create a service principal](#create-a-service-principal).
     1. [Authenticate to Azure using environment variables](#specify-service-principal-credentials-in-environment-variables) or [authenticate to Azure using the Terraform provider block](#specify-service-principal-credentials-in-a-terraform-provider-block)
+- [Authenticate via Managed identities for Azure resources](#authenticate-via-managed-identities-for-azure-resources)
 
 ### Authenticate to Azure via a Microsoft account
 
@@ -254,3 +255,5 @@ provider "azurerm" {
 
 > [!CAUTION]
 > The ability to specify your Azure subscription credentials in a Terraform configuration file can be convenient - especially when testing. However, it isn't advisable to store credentials in a clear-text file that can be viewed by non-trusted individuals.
+
+### Authenticate via Managed identities for Azure resources
