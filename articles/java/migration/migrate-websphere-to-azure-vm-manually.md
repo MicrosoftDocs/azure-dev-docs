@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-
 
 # Tutorial: Manually install WebSphere Application Server Network Deployment (traditional) on Azure virtual machines
 
-This tutorial shows you how to install IBM WebSphere Application Server (WAS) Network Deployment traditional and configure a WAS cluster on Azure virtual machines (VMs) on GNU/Linux.
+This tutorial shows you how to install IBM WebSphere Application Server (WAS) Network Deployment (ND) traditional and configure a WAS cluster on Azure virtual machines (VMs) on GNU/Linux.
 
 In this tutorial, you learn how to:
 
@@ -201,7 +201,7 @@ $Env:VM_URN="RedHat:rhel-raw:86-gen2:latest"
 
 ### Create a Red Hat Enterprise Linux machine
 
-Use the following steps to create a basic VM, ensure that all the required tools are installed on it, take snapshot of its disk, and then create replicas based on the snapshot:
+Use the following steps to create a basic VM, ensure the installation of required tools, take a snapshot of its disk, and create replicas based on that snapshot:
 
 1. Create a VM by using [az vm create](/cli/azure/vm). You run the deployment manager on this VM.
 
@@ -498,7 +498,7 @@ In this section, you use the X server on `myWindowsVM` to view the graphical ins
 1. After a while, the **Password Required** pane asks you to enter your IBMid. Fill in your username and password, select **Save password**, and then select **OK**.
 
    > [!NOTE]
-   > The IBMid that you use must be entitled to run WebSphere 8.5.5. If you need help obtaining this entitlement, contact [IBM eCustomer Care](https://www-112.ibm.com/software/howtobuy/passportadvantage/homepage/ecarec).
+   > The IBMid must be entitled to run WebSphere 8.5.5. If you need help obtaining this entitlement, contact [IBM eCustomer Care](https://www-112.ibm.com/software/howtobuy/passportadvantage/homepage/ecarec).
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-username-password.png" alt-text="Screenshot of the Password Required pane for IBM WebSphere Application Server." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-passport-username-password.png":::
 
@@ -540,7 +540,7 @@ In this section, you use the X server on `myWindowsVM` to view the graphical ins
 
 1. If the WebSphere Customization Toolbox appears, close it. Close IBM Installation Manager.
 
-1. Back in the shell from which you started IBM Installation Manager, verify the correct installation path by using the following command to test for the existence of the Profile Management Tool:
+1. Go back to the shell from which you started IBM Installation Manager. Verify the correct installation path by using the following command and test for the existence of the Profile Management Tool:
 
    ```bash
    ls -la /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement/pmt.sh
@@ -668,7 +668,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
        --output tsv)
    ```
 
-Next, create `mspVM1` and `mspVM2`.
+Next, create `mspVM1`, and `mspVM2`.
 
 #### Create mspVM1
 
@@ -1464,7 +1464,7 @@ You created a custom profile and `nodeagent` running on `mspVM1`. Stop being the
 
 #### Configure the custom profile for mspVM2
 
-Go back to the beginning of the [Configure the custom profile for mspVM1](#configure-the-custom-profile-for-mspvm1) section and do the same steps for `mspVM2`. That is, wherever you used `mspVM1` or similar, do the same for `mspVM2`.
+Go back to the beginning of the [Configure the custom profile for `mspVM1`](#configure-the-custom-profile-for-mspvm1) section and do the same steps for `mspVM2`. That is, wherever you used `mspVM1` or similar, do the same for `mspVM2`.
 
 On the **Node and Host Names** pane, enter `mspvm2Node01` for **Node name** and `192.168.0.7` for **Host name**.
 
@@ -1474,7 +1474,7 @@ You prepared the custom profile for two managed servers: `mspVM1` and `mspVM2`. 
 
 In this section, you use the IBM console to create a WAS cluster and start managed servers by using the browser on `myWindowsVM`. Make sure you're still on your Windows machine. If you aren't, remotely connect to `myWindowsVM`. Then, use the following steps:
 
-1. Open the Microsoft Edge browser and go to `http://<adminvm-private-ip>:9060/ibm/console/`. In this example, the IBM console URL is `http://192.168.0.4:9060/ibm/console/`. Find the sign-in pane, and then enter your administrative username and password (`websphere/Secret123456`) to sign in to the IBM console. You can now administer clusters and servers.
+1. Open the Microsoft Edge browser and go to `http://<adminvm-private-ip>:9060/ibm/console/`. In this example, the IBM console URL is `http://192.168.0.4:9060/ibm/console/`. Find the sign-in pane. Sign in to the IBM console using your administrative username and password (`websphere/Secret123456`). You can now administer clusters and servers.
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-portal-overview.png" alt-text="Screenshot of welcome information in the IBM console." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-console-portal-overview.png":::
 
@@ -1484,7 +1484,7 @@ In this section, you use the IBM console to create a WAS cluster and start manag
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-new-cluster.png" alt-text="Screenshot of the step for entering basic cluster information in the IBM Console." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-new-cluster.png":::
 
-1. For **Step 2: Create first cluster member**, enter your member name and select the node `mspvm1Node01`. In this example, the member name is `msp1`. The node depends on your WAS version:
+1. For **Step 2: Create first cluster member**, enter your member name, and select the node `mspvm1Node01`. In this example, the member name is `msp1`. The node depends on your WAS version:
 
    - In WAS V9, the node is `mspvm1Node01 (ND 9.0.5.12)`.
    - In WAS V8.5, the node is `mspvm1Node01 (ND 8.5.5.24)`.
@@ -1493,7 +1493,7 @@ In this section, you use the IBM console to create a WAS cluster and start manag
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp1.png" alt-text="Screenshot of the step for creating a first cluster member in the IBM Console." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-cluster-member-msp1.png":::
 
-1. For **Step 3: Create additional cluster members**, enter your second member name and select node `mspvm2Node01`. In this example, the member name is `msp2`. The node depends on your WAS version:
+1. For **Step 3: Create additional cluster members**, enter your second member name, and select node `mspvm2Node01`. In this example, the member name is `msp2`. The node depends on your WAS version:
 
    - In WAS V9, the node is `mspvm2Node01 (ND 9.0.5.12)`.
    - In WAS V8.5, the node is `mspvm2Node01 (ND 8.5.5.24)`.
