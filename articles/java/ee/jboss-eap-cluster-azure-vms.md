@@ -1,16 +1,16 @@
 ---
-title: "Quickstart: Deploy a JBoss EAP cluster on Azure VMs using the Azure portal"
+title: "Quickstart: Deploy a JBoss EAP cluster on Azure virtual machines (VMs)"
 description: Shows you how to quickly stand up a JBoss EAP cluster on Azure virtual machines.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 06/30/2023
+ms.date: 05/29/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, devx-track-azurecli, linux-related-content
 ---
 
-# Quickstart: Deploy a JBoss EAP cluster on Azure virtual machines using the Azure portal
+# Quickstart: Deploy a JBoss EAP cluster on Azure virtual machines (VMs)
 
-This article shows you how to quickly deploy a JBoss EAP cluster on Azure virtual machines (VMs) using the Azure portal.
+This article shows you how to quickly deploy a JBoss Enterprise Application Platform (EAP) cluster on Azure virtual machines (VMs) using the Azure portal.
 
 This article uses the Azure Marketplace offer for JBoss EAP Cluster to accelerate your journey to Azure VMs. The offer automatically provisions a number of resources including Azure Red Hat Enterprise Linux (RHEL) VMs, JBoss EAP instances on each VM, Red Hat build of OpenJDK on each VM, a JBoss EAP management console, and optionally an Azure App Gateway instance. To see the offer, visit the [Azure portal](https://aka.ms/eap-vm-cluster-portal). If you prefer manual step-by-step guidance for installing Red Hat JBoss EAP Cluster on Azure VMs that doesn't utilize the automation enabled by the offer, see [Tutorial: Install Red Hat JBoss EAP on Azure Virtual Machines manually](../migration/migrate-jboss-eap-to-azure-vm-manually.md).
 
@@ -30,7 +30,7 @@ This article uses the Azure Marketplace offer for JBoss EAP Cluster to accelerat
   1. In the tab where you're signed in, open [Red Hat Developer Subscription for Individuals](https://aka.ms/red-hat-individual-dev-sub). This link takes you to all of the subscriptions in your account for the appropriate SKU.
   1. Select the first subscription from the **All purchased Subscriptions** table.
   1. Copy and save aside the value following **Master Pools** from **Pool IDs**.
-- A Java JDK, version 11. In this guide, we recommend the [Red Hat Build of OpenJDK](https://developers.redhat.com/products/openjdk/download). Ensure that your `JAVA_HOME` environment variable is set correctly in the shells in which you run the commands.
+- A Java Development Kit (JDK), version 11. In this guide, we recommend the [Red Hat Build of OpenJDK](https://developers.redhat.com/products/openjdk/download). Ensure that your `JAVA_HOME` environment variable is set correctly in the shells in which you run the commands.
 - [Git](https://git-scm.com/downloads). Use `git --version` to test whether `git` works. This tutorial was tested with version 2.34.1.
 - [Maven](https://maven.apache.org/download.cgi). Use `mvn -version` to test whether `mvn` works. This tutorial was tested with version 3.8.6.
 
@@ -53,7 +53,7 @@ Replace the placeholders with the following values, which are used throughout th
 
 - `<db-resource-group-name>`: The name of the resource group to use for the PostgreSQL flexible server - for example, `ejb040323postgresrg`.
 - `<database-server-name>`: The name of your PostgreSQL server, which should be unique across Azure - for example, `ejb040323postgresqlserver`.
-- `<postgresql-admin-password>`: The password of your PostgreSQL server. That password must be at least 8 characters and at most 128 characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
+- `<postgresql-admin-password>`: The password of your PostgreSQL server. That password must be at least eight characters and at most 128 characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and nonalphanumeric characters (!, $, #, %, and so on).
 
 Next, use the following steps to create an Azure Database for PostgreSQL flexible server:
 
@@ -80,7 +80,7 @@ Next, use the following steps to create an Azure Database for PostgreSQL flexibl
        --output tsv)
    ```
 
-1. Use the following command to get the JDBC connection URL of the PostgreSQL server:
+1. Use the following command to get the Java Database Connectivity (JDBC) connection URL of the PostgreSQL server:
 
    ```azurecli
    echo jdbc:postgresql://${DB_HOST}:5432/testdb
@@ -143,7 +143,7 @@ The following steps show you how to fill out the **Azure Application Gateway** p
 1. Select **Yes** for **Connect to Azure Application Gateway?**.
 1. Select **Next: Networking**.
 
-   This pane enables you to customize the virtual network and subnet into which the JBoss EAP cluster deploys. This customization is useful in situations where the CIDR space is governed. For information about virtual networks, see [Create, change, or delete a virtual network](/azure/virtual-network/manage-virtual-network). Accept the defaults on this pane.
+   This pane enables you to customize the virtual network and subnet into which the JBoss EAP cluster deploys. For information about virtual networks, see [Create, change, or delete a virtual network](/azure/virtual-network/manage-virtual-network). Accept the defaults on this pane.
 
 1. Select **Next: Database**.
 
