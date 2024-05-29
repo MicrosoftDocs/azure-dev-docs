@@ -1,17 +1,17 @@
 ---
-title: "Tutorial: Install Red Hat JBoss EAP on Azure Virtual Machines manually"
+title: "Tutorial: Install JBoss EAP on Azure virtual machines (VMs) manually"
 description: Provides step-by-step guidance to install Red Hat JBoss EAP on Azure VMs and form a cluster, expose it with Azure Application Gateway, and connect with Azure Database for PostgreSQL.
 author: KarlErickson
 ms.author: karler
 ms.topic: how-to
-ms.date: 02/05/2024
+ms.date: 05/29/2024
 recommendations: false
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, migration-java, devx-track-azurecli, linux-related-content
 ---
 
-# Tutorial: Install Red Hat JBoss EAP on Azure Virtual Machines manually
+# Tutorial: Install JBoss EAP on Azure virtual machines (VMs) manually
 
-This tutorial shows the steps to install Red Hat JBoss EAP and configure a cluster in domain mode on Azure Virtual Machines (VMs), on Red Hat Enterprise Linux (RHEL).
+This tutorial shows the steps to install Red Hat JBoss Enterprise Application Platform (EAP) and configure a cluster in domain mode on Azure Virtual Machines (VMs), on Red Hat Enterprise Linux (RHEL).
 
 In this tutorial, you learn how to do the following tasks:
 
