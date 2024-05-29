@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Manually install WebLogic Server on Azure Virtual Machines"
-description: Provides step-by-step guidance to install Oracle WebLogic Server on Azure VMs, form a cluster, and expose it with Azure Application Gateway.
+description: Provides step-by-step guidance to install Oracle WebLogic Server on Azure VMs, set up a cluster, and expose it with Azure Application Gateway.
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
@@ -17,13 +17,13 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > - Create a custom virtual network and create the VMs within the network.
-> - Provision VMs with desired JDK and WLS installed.
+> - Provision VMs with desired Java Development Kit (JDK) and WLS installed.
 > - Configure a WLS domain and a WLS cluster using the Oracle Configuration Wizard.
 > - Deploy and run a Java EE application in the cluster.
 > - Expose the application to the public internet via Azure Application Gateway.
 > - Validate the successful configuration.
 
-If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json). You can find these offers in Azure Marketplace with a [query for "WebLogic base image"](https://aka.ms/wls-vm-base-images).
+If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json). You can find these offers in the Azure Marketplace with a [query for "WebLogic base image"](https://aka.ms/wls-vm-base-images).
 
 ## Prerequisites
 
@@ -245,7 +245,7 @@ Select **Next**, then select **Create Domain Using Product Templates**. Keep the
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-templates.png" alt-text="Screenshot of Oracle Configuration Wizard - Templates." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-templates.png":::
 
-Select **Next**, then input **Administration Account**. Set the **Name** as *weblogic* and **Password** as *Secret123456*.
+Select **Next**, then input **Administration Account**. Set the **Name** as 'weblogic' and **Password** as 'Secret123456'.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-account.png" alt-text="Screenshot of Oracle Configuration Wizard - Administration Account." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-account.png":::
 
@@ -257,11 +257,11 @@ Select **Next**. For advanced configurations, select **Administration Server**, 
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-advanced-configuration.png" alt-text="Screenshot of Oracle Configuration Wizard - Advanced Configurations." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-advanced-configuration.png":::
 
-Select **Next** and fill in the **Administration Server** name with *admin*. Fill in the **Listen IP Address** with the private IP of `adminVM`. The value is *192.168.0.4* in this example.
+Select **Next** and fill in the 'Administration Server' name with 'admin'. Fill in the 'Listen IP Address' with the private IP of `adminVM`. The value is *192.168.0.4* in this example.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-server.png" alt-text="Screenshot of Oracle Configuration Wizard - Administration Server." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-server.png":::
 
-Select **Next**. For **Node Manager Type**, select **Per Domain Custom Location**, and fill in location with */u01/domains/wlsd/nodemanager*. For **Node Manager Credentials**, the username is *weblogic* and the password is *Secret123456*.
+Select **Next**. For **Node Manager Type**, select **Per Domain Custom Location**, and fill in location with */u01/domains/wlsd/nodemanager*. For **Node Manager Credentials**, the username is 'weblogic' and the password is 'Secret123456'.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-node-manager.png" alt-text="Screenshot of Oracle Configuration Wizard - Node Manager." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-node-manager.png":::
 
@@ -342,7 +342,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
    >>  succeed: close template
    ```
 
-   Use the following commands to copy */tmp/cluster.jar* to `mspVM1` and `mspVM2` using `scp`. If prompted for key fingerprint, type `yes`. Enter the password *Secret123456* when prompted.
+   Use the following commands to copy */tmp/cluster.jar* to `mspVM1` and `mspVM2` using `scp`. If prompted for key fingerprint, type `yes`. Enter the password 'Secret123456' when prompted.
 
    ```bash
    scp /tmp/cluster.jar azureuser@<mspvm1-private-ip>:/tmp/cluster.jar
@@ -360,9 +360,9 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
    ssh azureuser@%MSPVM1_IP%
    ```
 
-   You're asked for the password for the connection. For this example, the password is *Secret123456*.
+   You're asked for the password for the connection. For this example, the password is 'Secret123456'.
 
-   You're now logged into `mspVM1` with user `azureuser`. Next, use the following commands to become the root user and update file ownership of */tmp/cluster.jar* to be owned by `oracle`:
+   You're now logged into `mspVM1` with user `azureuser`. Next, use the following commands to become the root user and update file ownership of */tmp/cluster.jar* to `oracle`:
 
    ```bash
    sudo su
@@ -409,7 +409,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
    ssh azureuser@%MSPVM2_IP%
    ```
 
-   You're asked for a password for the connection. For this example, the password is *Secret123456*.
+   You're asked for a password for the connection. For this example, the password is 'Secret123456'.
 
    You're now logged into `mspVM2` with user `azureuser`. Use the following commands to change to the root user and update the file ownership of */tmp/cluster.jar* and initialize the folder for domain configuration:
 
@@ -576,7 +576,7 @@ Sep 26 07:48:15 adminVM startWebLogic.sh[26802]: <Sep 26, 2022, 7:48:15,411 AM C
 
 Press <kbd>Q</kbd> to exit the log monitoring mode.
 
-You can't access admin server before opening ports `7001` and `5556`. Run the following command to open ports:
+You can't access the admin server before opening ports `7001` and `5556`. The following commands open ports:
 
 ```bash
 sudo firewall-cmd --zone=public --add-port=7001/tcp
@@ -677,7 +677,7 @@ Sep 27 01:23:46 mspVM1 startNodeManager.sh[107592]: <Sep 27, 2022 1:23:46 AM Coo
 
 Press <kbd>Q</kbd> to exit log monitoring mode.
 
-You must open port `8001` to access application that deployed to the cluster and `5556` for communication inside the domain. Run the following command to open ports:
+You must open port `8001` to access the application that deployed to the cluster and `5556` for communication inside the domain. The following commands open ports:
 
 ```bash
 sudo firewall-cmd --zone=public --add-port=8001/tcp
@@ -807,7 +807,7 @@ The Marketplace image that you use to create the VMs is `MicrosoftWindowsServer:
 
 ### Create a Windows Server machine
 
-Next, you create a basic VM, install all the required tools on it, then take a snapshot from it and create replicas based on the snapshot.
+Next, you create a basic VM, install all the required tools on it, take a snapshot from it, and create replicas based on the snapshot.
 
 Create the basic VM using [az vm create](/cli/azure/vm). You run the WebLogic Administration Server on it.
 
@@ -872,7 +872,7 @@ This section shows you how to install WLS 14c on Windows Server.
 
 Open the download folder that contains WLS installer ZIP file. Here the file name is *fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip*. Right click the file and select **Extract all** to the default path.
 
-Open a command prompt, then run the following command to install WLS:
+Open a command prompt. The following commands install WLS:
 
 ```cmd
 set WLS_VERSION_PREFIX=fmw_14.1.1.0.0_wls_lite
@@ -926,7 +926,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
    1. First, create the OS disk for `mspVM1`. Open the snapshot you created in previous step, **snapshotAdminVMOsDisk**. Select **Create disk**. Under **Disk details**, fill in **Disk name** with *mspVM1_Os_Disk_1*. Select **Review and create**, then **Create**. It takes several seconds. When the process is complete, select **Go to resource**.
    1. Create the virtual machine `mspVM1`. Open the OS disk you created previously. In this example, its name is `mspVM1_Os_Disk_1`. Select **Create VM**. Under **Instance details**, fill in **Virtual machine name** with *mspVM1*. Select **Review and create** then **Create**. Ensure you have no errors before proceeding. The process takes several minutes.
-   1. The machine is created from the snapshot of `adminVM`, it has the same computer name as `adminVM`. To change computer name to `mspVM1`, first remote connect to the machine. The user name and password are the same as with `adminVM`. Open a PowerShell terminal, and run the following command:
+   1. The machine is created from the snapshot of `adminVM`, so it has the same computer name as `adminVM`. To change computer name to `mspVM1`, first remote connect to the machine. The user name and password are the same as with `adminVM`. Open a PowerShell terminal, and run the following command:
 
       ```powershell
       Rename-Computer -NewName mspvm1 -Restart
@@ -936,7 +936,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
    1. Create the OS disk for `mspVM2`. Open the snapshot you created previously. In this example, its name is `snapshotAdminVMOsDisk`. If you can't find the disk, search for *snapshotAdminVMOsDisk* in the **Search resources, services and docs**. Select **Create disk**. Under **Disk details**, fill in **Name** with *mspVM2_Os_Disk_1*. Select **Review and create**, then **Create**. It takes several seconds. When the process is complete, select **Go to resource**.
    1. Create virtual machine `mspVM2`. Open the OS disk you created previously, `mspVM2_Os_Disk_1`， select **Create VM**. Under **Instance details**, fill in **Virtual machine name** with *mspVM2*. Select **Review + create** then **Create**. It takes several minutes.
-   1. Remote connect to the machine. The user name and password are the same as with `adminVM`. Open a PowerShell terminal, and run the following command to change computer name:
+   1. Remote connect to the machine. The user name and password are the same as with `adminVM`. Open a PowerShell terminal. The following command changes the computer name:
 
       ```powershell
       Rename-Computer -NewName mspvm2 -Restart
@@ -960,7 +960,7 @@ Now, all the machines are ready. Next, you configure a WebLogic cluster.
 
 This section shows the steps to create a new WLS domain on `adminVM`.
 
-Connect to `adminVM`, open a command prompt, and run the following command to start Oracle Configuration Wizard:
+Connect to `adminVM`. Open a command prompt. The following commands start the Oracle Configuration Wizard:
 
 ```cmd
 cd C:\Oracle\Middleware\Oracle_Home\oracle_common\common\bin
@@ -987,7 +987,7 @@ Select **Next**. For advanced configurations, select **Administration Server**, 
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-advanced-configuration.png" alt-text="Windows - Oracle Configuration Wizard - Advanced Configurations." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-advanced-configuration.png":::
 
-Select **Next**, fill in the administration **Server Name** with *admin*. Fill in the **Listen IP Address** with the private IP for the  `adminVM` you obtained previously. In this example, the value is `192.168.0.4`.
+Select **Next**, fill in the administration 'Server Name' with 'admin'. Fill in the 'Listen IP Address' with the private IP for the  `adminVM` you obtained previously. In this example, the value is `192.168.0.4`.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-server.png" alt-text="Windows - Oracle Configuration Wizard - Administration Server." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-server.png":::
 
