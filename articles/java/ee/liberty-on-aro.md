@@ -1,15 +1,15 @@
 ---
-title: Deploy a Java Application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 Cluster
+title: Manually deploy a Java Application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 Cluster
 recommendations: false
 description: Shows you how to deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 cluster.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: conceptual
-ms.date: 10/31/2023
+ms.date: 05/29/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java, linux-related-content
 ---
 
-# Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster
+# Manually deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster
 
 This guide shows you how to run your Java, Java EE, [Jakarta EE](https://jakarta.ee/), or [MicroProfile](https://microprofile.io/) application on the Open Liberty/WebSphere Liberty runtime. The guide then shows you how to deploy the containerized application to an Azure Red Hat OpenShift 4 cluster using the Open Liberty Operator. This article walks you through preparing a Liberty application, building the application Docker image and running the containerized application on an Azure Red Hat OpenShift 4 cluster. For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
