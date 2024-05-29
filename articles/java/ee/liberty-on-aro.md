@@ -190,7 +190,7 @@ Use the `liberty:devc` command to run and test the project locally before dealin
 
 1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `https://localhost:9443/` in your browser and verify the application is accessible and all functions are working.
 
-1. Pressing <kbd>Control</kbd>+<kbd>C</kbd> stops `liberty:devc` mode.
+1. Press <kbd>Control</kbd>+<kbd>C</kbd> to stop `liberty:devc` mode.
 
 ## Prepare the application image
 
@@ -247,6 +247,8 @@ Since you have already successfully run the app in the Liberty Docker container,
 
 Now you can deploy the sample Liberty application to the Azure Red Hat OpenShift 4 cluster you created earlier when working through the prerequisites.
 
+### [Web console](#tab/deploy-console)
+
 ### Deploy the application from the web console
 
 Because we use the Open Liberty Operator to manage Liberty applications, we need to create an instance of its *Custom Resource Definition*, of type `OpenLibertyApplication`. The Operator takes care of all aspects of managing the OpenShift resources required for deployment.
@@ -294,7 +296,9 @@ Follow these steps to delete the secret from Open Shift.
 1. Select **Actions** > **Delete Secret**.
 1. Select **Delete** to delete the secret.
 
-### Deploy the application from CLI
+### [CLI](#tab/deploy-cli)
+
+### Deploy the application from the CLI
 
 Instead of using the web console GUI, you can deploy the application from the CLI. Download and install the `oc` command-line tool if needed by following the steps in Red Hat documentation: [Getting Started with the CLI](https://docs.openshift.com/container-platform/4.2/cli_reference/openshift_cli/getting-started-cli.html).
 
@@ -337,6 +341,8 @@ Delete the application and secret from the CLI by executing this command.
 oc delete -f openlibertyapplication.yaml
 oc delete -f db-secret.yaml
 ```
+
+---
 
 ## Clean up resources
 
