@@ -540,7 +540,7 @@ In this section, you use the X server on `myWindowsVM` to view the graphical ins
 
 1. If the WebSphere Customization Toolbox appears, close it. Close IBM Installation Manager.
 
-1. Go back to the shell from which you started IBM Installation Manager. Verify the correct installation path by using the following command and test for the existence of the Profile Management Tool:
+1. Go back to the shell from which you started IBM Installation Manager. Verify the correct installation path by using the following command to test for the existence of the Profile Management Tool:
 
    ```bash
    ls -la /datadrive/IBM/WebSphere/ND/V85/bin/ProfileManagement/pmt.sh
@@ -668,7 +668,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
        --output tsv)
    ```
 
-Next, create `mspVM1`, and `mspVM2`.
+Next, create `mspVM1` and `mspVM2`.
 
 #### Create mspVM1
 
@@ -1464,7 +1464,7 @@ You created a custom profile and `nodeagent` running on `mspVM1`. Stop being the
 
 #### Configure the custom profile for mspVM2
 
-Go back to the beginning of the [Configure the custom profile for `mspVM1`](#configure-the-custom-profile-for-mspvm1) section and do the same steps for `mspVM2`. That is, wherever you used `mspVM1` or similar, do the same for `mspVM2`.
+Go back to the beginning of the [Configure the custom profile for mspVM1](#configure-the-custom-profile-for-mspvm1) section and do the same steps for `mspVM2`. That is, wherever you used `mspVM1` or similar, do the same for `mspVM2`.
 
 On the **Node and Host Names** pane, enter `mspvm2Node01` for **Node name** and `192.168.0.7` for **Host name**.
 
