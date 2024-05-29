@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > - Expose the application to the public internet via Azure Application Gateway.
 > - Validate the successful configuration.
 
-If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json). You can find these offers in the Azure Marketplace with a [query for "WebLogic base image"](https://aka.ms/wls-vm-base-images).
+If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json). You can find these offers in Azure Marketplace with a [query for "WebLogic base image"](https://aka.ms/wls-vm-base-images).
 
 ## Prerequisites
 
@@ -310,7 +310,7 @@ Finally, there's an **End of Configuration** page to show the URL of the Adminis
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-end.png" alt-text="Screenshot of Oracle Configuration Wizard - End." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-end.png":::
 
-The Administration Server isn't running, so the URL doesn't resolve. Select **Next**, then **Finish**. You now finished configuring the `wlsd` domain with a cluster `cluster1` including two managed servers.
+The Administration Server isn't running, so the URL doesn't resolve. Select **Next**, then **Finish**. You finished configuring the `wlsd` domain with a cluster `cluster1`, including two managed servers.
 
 Next, apply the domain configuration to `mspVM1` and `mspVM2`.
 
@@ -428,7 +428,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
    bash unpack.sh -domain=/u01/domains/wlsd -template=/tmp/cluster.jar
    ```
 
-You now replicated the domain configuration on `mspVM1` and `mspVM2`, and you're ready to start the servers.
+You replicated the domain configuration on `mspVM1` and `mspVM2`, and you're ready to start the servers.
 
 ### Start servers
 
@@ -576,7 +576,7 @@ Sep 26 07:48:15 adminVM startWebLogic.sh[26802]: <Sep 26, 2022, 7:48:15,411 AM C
 
 Press <kbd>Q</kbd> to exit the log monitoring mode.
 
-You can't access the admin server before opening ports `7001` and `5556`. The following commands open ports:
+You can't access the admin server before opening ports `7001` and `5556`. Use the following commands to open ports:
 
 ```bash
 sudo firewall-cmd --zone=public --add-port=7001/tcp
@@ -589,7 +589,7 @@ At this point, you can access the admin server on the browser of `myWindowsVM` w
 
 #### Start msp1
 
-Go back to the command prompt that connects to `mspVM1`. If you lost it, run the following command to connect to it:
+Go back to the command prompt that connects to `mspVM1`. If you lost it, use the following command to connect to it:
 
 ```cmd
 set MSPVM1_IP="192.168.0.6"
@@ -677,7 +677,7 @@ Sep 27 01:23:46 mspVM1 startNodeManager.sh[107592]: <Sep 27, 2022 1:23:46 AM Coo
 
 Press <kbd>Q</kbd> to exit log monitoring mode.
 
-You must open port `8001` to access the application that deployed to the cluster and `5556` for communication inside the domain. The following commands open ports:
+You must open port `8001` to access the application that deployed to the cluster and `5556` for communication inside the domain. Use the following commands to open ports:
 
 ```bash
 sudo firewall-cmd --zone=public --add-port=8001/tcp
@@ -688,7 +688,7 @@ sudo systemctl restart firewalld
 
 #### Start msp2
 
-Go back to the command prompt that connects to `mspVM2`. If you lost it, run the following command to connect to it:
+Go back to the command prompt that connects to `mspVM2`. If you lost it, use the following command to connect to it:
 
 ```cmd
 set MSPVM2_IP="192.168.0.7"
@@ -794,7 +794,7 @@ Now, open the Administration Console portal from a browser in your Windows machi
 
 ### Clean up the Windows machine
 
-You now completed the WLS cluster configuration. If desired, remove the Windows machine with the following commands. Alternatively, you could shut down the Windows machine `myWindowsVM` and continue to use it as a jump box for ongoing cluster maintenance tasks.
+You completed the WLS cluster configuration. If desired, remove the Windows machine with the following commands. Alternatively, you could shut down the Windows machine `myWindowsVM` and continue to use it as a jump box for ongoing cluster maintenance tasks.
 
 [!INCLUDE [clean-up-windows-xserver-machine](includes/clean-up-windows-xserver-machine.md)]
 
@@ -872,7 +872,7 @@ This section shows you how to install WLS 14c on Windows Server.
 
 Open the download folder that contains WLS installer ZIP file. Here the file name is *fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip*. Right click the file and select **Extract all** to the default path.
 
-Open a command prompt. The following commands install WLS:
+Open a command prompt, then use the following commands to install WLS:
 
 ```cmd
 set WLS_VERSION_PREFIX=fmw_14.1.1.0.0_wls_lite
@@ -903,7 +903,7 @@ All of the listed installs should complete without error. Select the **Next** bu
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/winserv22-wls-installation-complete.png" alt-text="Windows - Oracle WebLogic Server Installation Complete." lightbox="media/migrate-weblogic-to-vm-manually/winserv22-wls-installation-complete.png":::
 
-Select **Finished**. You now finished installing Oracle WebLogic 14c and its dependencies on `adminVM`. Next, you create snapshot of `adminVM` and prepare machines for two managed severs.
+Select **Finished**. You finished installing Oracle WebLogic 14c and its dependencies on `adminVM`. Next, you create snapshot of `adminVM` and prepare machines for two managed severs.
 
 > [!NOTE]
 > For Oracle Weblogic Server Critical Patch, download the patches from [My Oracle Support](https://support.oracle.com/) and apply them following "Patch an existing installation" in [Install Patch and Upgrade](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/index.html). Make sure you've patched `adminVM` before taking a snapshot from it's OS disk. If you run into problems unzipping the patch file, see this [MyOracleSupport document](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=311444465901186&parent=EXTERNAL_SEARCH&sourceId=PROBLEM&id=2259579.1&_afrWindowMode=0&_adf.ctrl-state=14u0vzw8om_162). You can skip this step for experimentation, but do not go to production with an unpatched WLS.
@@ -936,7 +936,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
    1. Create the OS disk for `mspVM2`. Open the snapshot you created previously. In this example, its name is `snapshotAdminVMOsDisk`. If you can't find the disk, search for *snapshotAdminVMOsDisk* in the **Search resources, services and docs**. Select **Create disk**. Under **Disk details**, fill in **Name** with *mspVM2_Os_Disk_1*. Select **Review and create**, then **Create**. It takes several seconds. When the process is complete, select **Go to resource**.
    1. Create virtual machine `mspVM2`. Open the OS disk you created previously, `mspVM2_Os_Disk_1`， select **Create VM**. Under **Instance details**, fill in **Virtual machine name** with *mspVM2*. Select **Review + create** then **Create**. It takes several minutes.
-   1. Remote connect to the machine. The user name and password are the same as with `adminVM`. Open a PowerShell terminal. The following command changes the computer name:
+   1. Remote connect to the machine. The user name and password are the same as with `adminVM`. Open a PowerShell terminal. Use the following command to change the computer name:
 
       ```powershell
       Rename-Computer -NewName mspvm2 -Restart
@@ -960,7 +960,7 @@ Now, all the machines are ready. Next, you configure a WebLogic cluster.
 
 This section shows the steps to create a new WLS domain on `adminVM`.
 
-Connect to `adminVM`. Open a command prompt. The following commands start the Oracle Configuration Wizard:
+Connect to `adminVM`. Open a command prompt, then use the following commands to start the Oracle Configuration Wizard:
 
 ```cmd
 cd C:\Oracle\Middleware\Oracle_Home\oracle_common\common\bin
@@ -1040,7 +1040,7 @@ Select **Next**. Finally, the URL of the Administration Server is shown. The ser
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/winserv22-wls-configure-domain-end.png" alt-text="Windows - Oracle Configuration Wizard - End." lightbox="media/migrate-weblogic-to-vm-manually/winserv22-wls-configure-domain-end.png":::
 
-You now finished configuring the `wlsd` domain with a cluster `cluster1` including two managed servers.
+You finished configuring the `wlsd` domain with a cluster `cluster1` including two managed servers.
 
 #### Create replicas using the pack and unpack command
 
@@ -1124,7 +1124,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
 > [!NOTE]
 > The unpack command generates the *config_bootstrap.xml* file based on the *config.xml* file in the template, which may cause error `java.io.FileNotFoundException: C:\domains\wlsd\.\config\config.xml (The system cannot find the file specified)` when starting the managed server. This tutorial renames *config_bootstrap.xml* to *config.xml* to avoid this problem.
 
-You now replicated the domain configuration on `mspVM1` and `mspVM2`, so you're ready to start the servers.
+You replicated the domain configuration on `mspVM1` and `mspVM2`, so you're ready to start the servers.
 
 ### Set up the WebLogic Server as a Windows service
 
@@ -1572,7 +1572,7 @@ This section shows you how to deploy a simple application to the WLS cluster. Fi
 
 ## Test the WLS cluster configuration
 
-You now finished configuring the WLS cluster and deploying the Java EE application to it. Use the following steps to access the application to validate all the settings:
+You finished configuring the WLS cluster and deploying the Java EE application to it. Use the following steps to access the application to validate all the settings:
 
 1. Open a web browser.
 1. Navigate to the application with the URL `http://<gateway-public-ip-address>/testwebapp/`.
