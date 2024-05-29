@@ -12,7 +12,7 @@ ms.custom: devx-track-terraform, devx-track-azurepowershell
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
-[Managed identities for Azure resources](/azure/entra/identity/managed-identities-azure-resources/overview) is used to authenticate to Azure Active Directory. HashiCorp recommends using either a Service Principal or managed identity if you are running Terraform in a non-interactive manner. In this article, we'll cover examples using the two types of managed identities: [system-assigned](using-a-system-assigned-managed-identity) and [user-assigned](using-a-user-assigned-managed-identity).
+[Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview) is used to authenticate to Azure Active Directory. HashiCorp recommends using either a Service Principal or managed identity if you are running Terraform in a non-interactive manner. In this article, we'll cover examples using the two types of managed identities: [system-assigned](#using-a-system-assigned-managed-identity) and [user-assigned](#using-a-user-assigned-managed-identity).
 
 ## Using a system-assigned managed identity
 
