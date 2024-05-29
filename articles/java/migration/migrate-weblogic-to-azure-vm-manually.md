@@ -1,15 +1,15 @@
 ---
-title: "Tutorial: Manually install Oracle WebLogic Server on Azure Virtual Machines"
+title: "Tutorial: Manually install WebLogic Server on Azure Virtual Machines"
 description: Provides step-by-step guidance to install Oracle WebLogic Server on Azure VMs, form a cluster, and expose it with Azure Application Gateway.
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
-ms.date: 01/24/2024
+ms.date: 05/29/2024
 recommendations: false
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-azurecli, devx-track-extended-java
 ---
 
-# Tutorial: Manually install Oracle WebLogic Server on Azure Virtual Machines
+# Tutorial: Manually install WebLogic Server on Azure Virtual Machines
 
 This tutorial shows the steps to install Oracle WebLogic Server (WLS) and configure a WebLogic cluster on Azure Virtual Machines (VMs), on Windows or GNU/Linux.
 
