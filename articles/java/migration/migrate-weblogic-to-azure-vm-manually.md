@@ -257,7 +257,7 @@ Select **Next**. For advanced configurations, select **Administration Server**, 
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-advanced-configuration.png" alt-text="Screenshot of Oracle Configuration Wizard - Advanced Configurations." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-advanced-configuration.png":::
 
-Select **Next** and fill in the 'Administration Server' name with 'admin'. Fill in the 'Listen IP Address' with the private IP of `adminVM`. The value is *192.168.0.4* in this example.
+Select **Next** and fill in the **Administration Server** name with *admin*. Fill in the 'Listen IP Address' with the private IP of `adminVM`. The value is *192.168.0.4* in this example.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-server.png" alt-text="Screenshot of Oracle Configuration Wizard - Administration Server." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-server.png":::
 
