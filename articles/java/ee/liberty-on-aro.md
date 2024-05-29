@@ -30,7 +30,7 @@ Complete the following prerequisites to successfully use this guide.
 1. Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
 1. Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 1. Install [Azure CLI](/cli/azure/install-azure-cli) 2.0.75 or later.
-1. Check and install [`envsubst`](https://command-not-found.com/envsubst) if it's not preinstalled in your operating system.
+1. Install [`envsubst`](https://command-not-found.com/envsubst) if needed.
 1. Clone the code for this sample on your local system. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro).
 1. Follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster).
 
@@ -70,7 +70,7 @@ After creating and connecting to the cluster, install the Open Liberty Operator.
 
 Use the following steps to create an OpenShift namespace for use with your app:
 
-1. Make sure you have signed in to the OpenShift web console from your browser using the `kubeadmin` credentials.
+1. Make sure you signed in to the OpenShift web console from your browser using the `kubeadmin` credentials.
 1. Navigate to **Administration** > **Namespaces** > **Create Namespace**.
 1. Fill in `open-liberty-demo` for **Name** and select **Create**, as shown next.
 
@@ -124,7 +124,7 @@ cd open-liberty-on-aro
 git checkout 20231026
 ```
 
-If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
+If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you checked out a tag.
 
 There are a few samples in the repository. We use *open-liberty-on-aro/3-integration/connect-db/mysql*. Here's the file structure of the application:
 
@@ -154,7 +154,7 @@ In the *liberty/config* directory, the *server.xml* is used to configure the dat
 
 #### Build project
 
-Now that you have gathered the necessary properties, you can build the application. The POM file for the project reads many properties from the environment.
+Now that you gathered the necessary properties, you can build the application. The POM file for the project reads many properties from the environment.
 
 ```bash
 cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
@@ -174,7 +174,7 @@ mvn clean install
 
 Use the `liberty:devc` command to run and test the project locally before dealing with any Azure complexity. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
 
-1. Start your local docker environment if you haven't done so already. The instructions for doing this vary depending on the host operating system.
+1. Start your local docker environment if needed. The instructions for doing this vary depending on the host operating system.
 
 1. Start the application in `liberty:devc` mode
 
@@ -190,7 +190,7 @@ Use the `liberty:devc` command to run and test the project locally before dealin
 
 1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `https://localhost:9443/` in your browser and verify the application is accessible and all functions are working.
 
-1. Press <kbd>Control</kbd>+<kbd>C</kbd> to stop `liberty:devc` mode.
+1. Pressing <kbd>Control</kbd>+<kbd>C</kbd> stops `liberty:devc` mode.
 
 ## Prepare the application image
 
@@ -202,7 +202,7 @@ Complete the following steps to build the application image:
 
 Since you have already successfully run the app in the Liberty Docker container, you're going to build the image remotely on the cluster by executing the following commands.
 
-1. Make sure you have already signed in to the OpenShift CLI using the `kubeadmin` credentials.
+1. Make sure you sign in to the OpenShift CLI using the `kubeadmin` credentials.
 1. Identify the source directory and Dockerfile.
 
    ```bash
@@ -296,12 +296,12 @@ Follow these steps to delete the secret from Open Shift.
 
 ### Deploy the application from CLI
 
-Instead of using the web console GUI, you can deploy the application from the CLI. If you haven't already done so, download and install the `oc` command-line tool by following the steps in Red Hat documentation: [Getting Started with the CLI](https://docs.openshift.com/container-platform/4.2/cli_reference/openshift_cli/getting-started-cli.html).
+Instead of using the web console GUI, you can deploy the application from the CLI. Download and install the `oc` command-line tool if needed by following the steps in Red Hat documentation: [Getting Started with the CLI](https://docs.openshift.com/container-platform/4.2/cli_reference/openshift_cli/getting-started-cli.html).
 
 You can now deploy the sample Liberty application to the Azure Red Hat OpenShift 4 cluster with the following steps.
 
-1. Make sure you have already signed in to the OpenShift CLI using the `kubeadmin` credentials.
-1. Run the following commands to deploy the application.
+1. Make sure you sign in to the OpenShift CLI using the `kubeadmin` credentials.
+1. The following commands deploy the application.
 
    ```bash
    # Change directory to "<path-to-repo>/3-integration/connect-db/mysql/target"
