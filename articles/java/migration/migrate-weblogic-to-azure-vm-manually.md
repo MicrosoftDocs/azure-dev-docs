@@ -245,7 +245,7 @@ Select **Next**, then select **Create Domain Using Product Templates**. Keep the
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-templates.png" alt-text="Screenshot of Oracle Configuration Wizard - Templates." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-templates.png":::
 
-Select **Next**, then input **Administration Account**. Set the **Name** as 'weblogic' and **Password** as 'Secret123456'.
+Select **Next**, then input **Administration Account**. Set the **Name** as *weblogic* and **Password** as *Secret123456*.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-account.png" alt-text="Screenshot of Oracle Configuration Wizard - Administration Account." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-account.png":::
 
@@ -261,7 +261,7 @@ Select **Next** and fill in the 'Administration Server' name with 'admin'. Fill 
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-server.png" alt-text="Screenshot of Oracle Configuration Wizard - Administration Server." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-admin-server.png":::
 
-Select **Next**. For **Node Manager Type**, select **Per Domain Custom Location**, and fill in location with */u01/domains/wlsd/nodemanager*. For **Node Manager Credentials**, the username is 'weblogic' and the password is 'Secret123456'.
+Select **Next**. For **Node Manager Type**, select **Per Domain Custom Location**, and fill in location with */u01/domains/wlsd/nodemanager*. For **Node Manager Credentials**, the username is *weblogic* and the password is *Secret123456*.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-node-manager.png" alt-text="Screenshot of Oracle Configuration Wizard - Node Manager." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-node-manager.png":::
 
@@ -342,7 +342,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
    >>  succeed: close template
    ```
 
-   Use the following commands to copy */tmp/cluster.jar* to `mspVM1` and `mspVM2` using `scp`. If prompted for key fingerprint, type `yes`. Enter the password 'Secret123456' when prompted.
+   Use the following commands to copy */tmp/cluster.jar* to `mspVM1` and `mspVM2` using `scp`. If prompted for key fingerprint, type `yes`. Enter the password *Secret123456* when prompted.
 
    ```bash
    scp /tmp/cluster.jar azureuser@<mspvm1-private-ip>:/tmp/cluster.jar
@@ -360,7 +360,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
    ssh azureuser@%MSPVM1_IP%
    ```
 
-   You're asked for the password for the connection. For this example, the password is 'Secret123456'.
+   You're asked for the password for the connection. For this example, the password is *Secret123456*.
 
    You're now logged into `mspVM1` with user `azureuser`. Next, use the following commands to become the root user and update file ownership of */tmp/cluster.jar* to `oracle`:
 
@@ -409,7 +409,7 @@ This tutorial uses the WLS pack and unpack command to extend the domain. For mor
    ssh azureuser@%MSPVM2_IP%
    ```
 
-   You're asked for a password for the connection. For this example, the password is 'Secret123456'.
+   You're asked for a password for the connection. For this example, the password is *Secret123456*.
 
    You're now logged into `mspVM2` with user `azureuser`. Use the following commands to change to the root user and update the file ownership of */tmp/cluster.jar* and initialize the folder for domain configuration:
 
@@ -811,7 +811,7 @@ Next, you create a basic VM, install all the required tools on it, take a snapsh
 
 Create the basic VM using [az vm create](/cli/azure/vm). You run the WebLogic Administration Server on it.
 
-The following example creates a Windows Server 2022 Datacenter Azure Edition machine named `adminVM`. This example uses `azureuser` for an administrative user name and `Secret123456` for the password.
+The following example creates a Windows Server 2022 Datacenter Azure Edition machine named `adminVM`. This example uses `azureuser` for an administrative user name and *Secret123456* for the password.
 
 ```azurecli
 az vm create \
