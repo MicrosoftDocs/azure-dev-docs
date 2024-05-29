@@ -13,9 +13,9 @@ ms.custom: devx-track-azdevcli
 
 This article answers frequently asked questions about working with environment variables and the Azure Developer CLI (`azd`).
 
-### What is the difference between an `azd` environment variable and system environment variables?
+### What are the differences between `azd` environment variables and system environment variables?
 
-`azd` environment variables are stored in the `.env` file in the `.azure/<environment name>` directory of your project and are separate from your system/os environment variables. `azd` environment variables configure template provisioning and deployment tasks and can be accessed using commands such as [`azd env`](/azure/developer/azure-developer-cli/reference#azd-env) or [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values).
+`azd` environment variables are stored in the `.env` file in the `.azure/<environment name>` directory of your project and are separate from your system/os environment variables. `azd` environment variables configure template provisioning and deployment tasks and are accessible using commands such as [`azd env`](/azure/developer/azure-developer-cli/reference#azd-env) or [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values).
 
 :::image type="content" source="media/faq/environment-folders.png" alt-text="A screenshot of the environment folder structure.":::
 
@@ -29,9 +29,7 @@ Use custom shell or PowerShell scripts with `azd` [hooks](/azure/developer/azure
 
 ### What is the relationship between output variables set in the `main.bicep` file and `azd` environment variables?
 
-Output variables in the `main.bicep` file are automatically stored in the `.env` file of your `azd` template. Access them using commands such as [`azd env`](/azure/developer/azure-developer-cli/reference#azd-env) or [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values). Any output variable you set in the `main.bicep` file will be set as an `azd` environment variables in the `.env` file.
-
-Consider the following output variables in a `main.bicep` template infrastructure file:
+Output variables set in the `main.bicep` file are automatically stored in the `.env` file of your `azd` template. Consider the following output variables in a `main.bicep` template infrastructure file:
 
 ```json
 output API_BASE_URL string = api.outputs.SERVICE_API_URI
@@ -45,7 +43,7 @@ API_BASE_URL="<example-api-url>"
 output REACT_APP_WEB_BASE_URL="<example-app-url>"
 ```
 
-You can then access those variables using [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values).
+You can then access those variables from the `.env` file using [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values).
 
 ### Which environment variables are set in the `.env` file by default?
 
