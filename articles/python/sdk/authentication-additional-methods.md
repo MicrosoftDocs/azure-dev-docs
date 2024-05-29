@@ -102,7 +102,7 @@ for container in client.list_containers():
 
 For more exact control, such as setting a timeout, you can supply specific arguments to `InteractiveBrowserBrokerCredential` such as `timeout`.
 
-For the code to run successfully, your user account must be assigned an Azure role on the storage account that allows access to blob containers like "Storage Account Data Contributor". If an app is specified, it must have API Permissions set for **user_impersonaation Access Azure Storage** (step 6 in the previous section). This API permission allows the app to access Azure storage on behalf of the signed-in user after consent is granted during sign-in.
+For the code to run successfully, your user account must be assigned an Azure role on the storage account that allows access to blob containers like "Storage Account Data Contributor". If an app is specified, it must have API permissions set for **user_impersonation Access Azure Storage** (step 6 in the previous section). This API permission allows the app to access Azure storage on behalf of the signed-in user after consent is granted during sign-in.
 
 The following screenshot shows the user sign-in experience:
 
@@ -114,9 +114,9 @@ Many people always sign in to Windows with the same user account and, therefore,
 
 To enable sign-in with the default system account:
 
-- Make sure you use `azure-identity-broker` version 1.1.0 or greater.
+1. Make sure you use `azure-identity-broker` version 1.1.0 or greater.
 
-- Set the `use_default_broker_account` argument to `True` when you create an instance of `InteractiveBrowserBrokerCredential`.  
+2. Set the `use_default_broker_account` argument to `True` when you create an instance of `InteractiveBrowserBrokerCredential`.  
 
 The following example shows how to enable sign-in with the default system account:
 
