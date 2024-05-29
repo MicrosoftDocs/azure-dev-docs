@@ -512,7 +512,7 @@ az storage account create \
     --access-tier Hot
 ```
 
-Then, retrieve the storage account key for later use by using the following command. If you see an error, wait a few minutes and try again. The previous command to create the storage account may not be done yet.
+Then, retrieve the storage account key for later use by using the following command. If you see an error, wait a few minutes and try again. The previous command to create the storage account might not be done yet.
 
 ```azurecli
 export STORAGE_ACCESS_KEY=$(az storage account keys list \
@@ -1013,7 +1013,7 @@ Use the following steps to deploy Java EE Cafe sample application to the Red Hat
 
 ## Test the Red Hat JBoss EAP cluster configuration
 
-You now configured the JBoss EAP cluster and deployed the application to it. Use the following steps to access the application to validate all the settings:
+You configured the JBoss EAP cluster and deployed the application to it. Use the following steps to access the application to validate all the settings:
 
 1. Use the following command to obtain the public IP address of the Azure Application Gateway:
 
