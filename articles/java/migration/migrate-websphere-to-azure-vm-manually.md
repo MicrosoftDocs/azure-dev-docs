@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Manually install WebSphere Application Server Network Deployment (traditional) on Azure Virtual Machines"
+title: "Tutorial: Manually install WebSphere Application Server Network Deployment (traditional) on Azure virtual machines (VMs)"
 description: Get step-by-step guidance to install IBM WebSphere Application Server on Azure VMs, set up a cluster, and expose the cluster with Azure Application Gateway.
 author: KarlErickson
 ms.author: haiche
@@ -9,7 +9,7 @@ recommendations: false
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-was-vm, devx-track-javaee-was, devx-track-javaee-websphere, migration-java, linux-related-content
 ---
 
-# Tutorial: Manually install WebSphere Application Server Network Deployment (traditional) on Azure virtual machines
+# Tutorial: Manually install WebSphere Application Server Network Deployment (traditional) on Azure virtual machines (VMs)
 
 This tutorial shows you how to install IBM WebSphere Application Server (WAS) Network Deployment (ND) traditional and configure a WAS cluster on Azure virtual machines (VMs) on GNU/Linux.
 
