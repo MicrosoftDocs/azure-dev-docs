@@ -110,3 +110,9 @@ foreach ($line in (& azd env get-values)) {
 ## How do I know which `azd` variables in the `.env` file are safe to change without them being overwritten?
 
 <!-- Not actually sure of the answer to this. AZD auto populates the values to some of these, but does it overwrite them again if you change them? Is there a way to prevent that? -->
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Manage environment variables](manage-environment-variables.md)
+> [Customize workflows using command and event hooks](azd-extensibility.md)
