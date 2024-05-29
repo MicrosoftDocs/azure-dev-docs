@@ -13,19 +13,23 @@ ms.custom: devx-track-azdevcli
 
 This article answers frequently asked questions about working with environment variables and the Azure Developer CLI (`azd`).
 
-## What is the difference between an `azd` environment variable and system environment variables?
+### What is the difference between an `azd` environment variable and system environment variables?
 
-`azd` environment variables are stored in the `.env` file in the `.azure/<environment name>` directory of your project and are separate from your system/os environment variables. `azd` environment variables are used to configure template provisioning and deployment tasks and can be accessed using commands such as [`azd env`](/azure/developer/azure-developer-cli/reference#azd-env) or [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values). System environment variables are not directly accessible through `azd` commands and should be accessed through custom shell or PowerShell scripts.
+`azd` environment variables are stored in the `.env` file in the `.azure/<environment name>` directory of your project and are separate from your system/os environment variables. `azd` environment variables configure template provisioning and deployment tasks and can be accessed using commands such as [`azd env`](/azure/developer/azure-developer-cli/reference#azd-env) or [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values).
 
-## Can `azd` commands directly read and write system environment variables?
+:::image type="content" source="media/faq/environment-folders.png" alt-text="A screenshot of the environment folder structure.":::
 
-No, `azd` commands cannot read or write system environment variables. Commands such as [`azd env`](/azure/developer/azure-developer-cli/reference#azd-env) or [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values) operate on values stored in the template `.env` file for a specific `azd` environment. `azd` environments are managed using subfolders in the `.azure/<environment name>` directory of your project template, which enables your template to have multiple environments. These environment subfolders hold configuration files such as `.env` that describe an environment.
+System environment variables are not directly accessible through `azd` commands and should be managed with custom shell or PowerShell scripts, generally using `azd` [hooks](/azure/developer/azure-developer-cli/azd-extensibility).
 
-You can use custom shell or PowerShell scripts with `azd` [hooks](/azure/developer/azure-developer-cli/azd-extensibility) to read or write system level environment variables.
+### Can `azd` commands directly read and write system environment variables?
 
-## What happens to output variables set in the main Bicep file?
+No, `azd` commands cannot read or write system environment variables. Commands such as [`azd env`](/azure/developer/azure-developer-cli/reference#azd-env) or [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values) operate on values stored in the template `.env` file for a specific `azd` environment. `azd` environments are managed using subfolders in the `.azure/<environment name>` directory of your project template, which enables your template to have multiple environments. Environment subfolders hold configuration files such as `.env` that describe the environment.
 
-Output variables in the `main.bicep` file are automatically stored in the `.env` file of your `azd` template. You access them using commands such as [`azd env`](/azure/developer/azure-developer-cli/reference#azd-env) or [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values).
+Use custom shell or PowerShell scripts with `azd` [hooks](/azure/developer/azure-developer-cli/azd-extensibility) to read or write system level environment variables.
+
+### What is the relationship between output variables set in the `main.bicep` file and `azd` environment variables?
+
+Output variables in the `main.bicep` file are automatically stored in the `.env` file of your `azd` template. Access them using commands such as [`azd env`](/azure/developer/azure-developer-cli/reference#azd-env) or [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values). Any output variable you set in the `main.bicep` file will be set as an `azd` environment variables in the `.env` file.
 
 Consider the following output variables in a `main.bicep` template infrastructure file:
 
@@ -34,7 +38,7 @@ output API_BASE_URL string = api.outputs.SERVICE_API_URI
 output REACT_APP_WEB_BASE_URL string = web.outputs.SERVICE_WEB_URI
 ```
 
-`azd` writes these two variables to the `.env` file:
+`azd` writes these two variables to the `.env` file in the `.azure/<environment name>` directory of your project:
 
 ```output
 API_BASE_URL="<example-api-url>"
@@ -43,7 +47,7 @@ output REACT_APP_WEB_BASE_URL="<example-app-url>"
 
 You can then access those variables using [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values).
 
-## Which environment variables are set in the `.env` file by default?
+### Which environment variables are set in the `.env` file by default?
 
 The following environment variables are set in the `.env` file by default:
 
@@ -55,17 +59,31 @@ The following environment variables are set in the `.env` file by default:
 |`AZURE_SUBSCRIPTION_ID`    | The targeted subscription.       |  `925cff12-ffff-4e9f-9580-8c06239dcaa4`       | Right before an environment is provisioned for the first time.
 |`SERVICE_<service>_IMAGE_NAME`     | The full name of the container image published to Azure Container Registry for container app services.        | `todoapp/web-dev:azdev-deploy-1664988805`        | After a successful publishing of a `containerapp` image        |
 
-## What is the recommended way to access `azd` environment variables from the `.env` file?
+### What is the recommended approach to retrieve `azd` environment variables from the `.env` file? Why would I need to do this?
 
-You can read in `azd` environment variables using the [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values) command. Accessing `azd` environment variables is a common task in various scenarios, including the following:
+Retrieve `azd` environment variables using the [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values) command.
+
+```azdeveloper
+azd env get-values
+```
+
+Common reasons to access `azd` environment variables include the following:
 
 - Perform additional configuration in hook scripts.
 - Expose the `.env` values from the template to the application code framework, such as Node or .NET.
 - Write the `.env` values to system environment variables.
 
-## What is the recommend way to copy or write `azd` environment variables as system environment variables?
+### How do I manually set a new `azd` environment variable?
 
-You can use custom scripts to retrieve `azd` environment variables and then set them as system environment variables. It's common to run these scripts as hooks during the `azd` lifecycle, as seen in the following example:
+Set additional `azd` environment variables using the [`azd env set`](https://review.learn.microsoft.com/en-us/azure/developer/azure-developer-cli/reference?branch=pr-en-us-5900#azd-env-set) command, providing the key and value for your variable.
+
+```azdeveloper
+azd env set MyKey MyValue
+```
+
+### What is the recommend approach to copy or write `azd` environment variables as system environment variables?
+
+Use custom scripts to retrieve `azd` environment variables and then set them as system environment variables. It's common to run these scripts as hooks during the `azd` lifecycle, as seen in the following example:
 
 ```yml
 postprovision:
@@ -107,7 +125,7 @@ foreach ($line in (& azd env get-values)) {
 }
 ```
 
-## How do I know which `azd` variables in the `.env` file are safe to change without them being overwritten?
+### How do I know which `azd` variables in the `.env` file are safe to change without them being overwritten?
 
 <!-- Not actually sure of the answer to this. AZD auto populates the values to some of these, but does it overwrite them again if you change them? Is there a way to prevent that? -->
 
