@@ -811,7 +811,7 @@ Next, you create a basic VM, install all the required tools on it, take a snapsh
 
 Create the basic VM using [az vm create](/cli/azure/vm). You run the WebLogic Administration Server on it.
 
-The following example creates a Windows Server 2022 Datacenter Azure Edition machine named `adminVM`. This example uses `azureuser` for an administrative user name and *Secret123456* for the password.
+The following example creates a Windows Server 2022 Datacenter Azure Edition machine named `adminVM`. This example uses `azureuser` for an administrative user name and `Secret123456` for the password.
 
 ```azurecli
 az vm create \
