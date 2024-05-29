@@ -123,7 +123,7 @@ After a short time, you should see a JSON output that contains the following lin
 
 ## Connect to the ACR instance
 
-You need to sign in to the ACR instance before you can push an image to it. The following commands verify the connection:
+You need to sign in to the ACR instance before you can push an image to it. Use the following commands to verify the connection:
 
 ### [Bash](#tab/in-bash)
 
