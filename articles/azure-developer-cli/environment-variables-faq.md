@@ -68,7 +68,7 @@ azd env get-values
 Common reasons to access `azd` environment variables include the following:
 
 - Perform additional configuration in hook scripts.
-- Expose the `.env` values from the template to the application code framework, such as Node or .NET.
+- Expose the `.env` values from the template to the application code framework, such as Node.js or .NET.
 - Write the `.env` values to system environment variables.
 
 ### How do I manually set a new `azd` environment variable?
