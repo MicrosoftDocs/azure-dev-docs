@@ -371,7 +371,7 @@ const scope = "https://cognitiveservices.azure.com/.default";
 const azureADTokenProvider = getBearerTokenProvider(credential, scope);
 
 const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] || "<endpoint>";
-const deployment = "Your Azure OpenAI deployment";
+const deployment = "<your Azure OpenAI deployment name>";
 const apiVersion = "2024-05-01-preview";
 const options = { azureADTokenProvider, deployment, apiVersion, endpoint }
 
