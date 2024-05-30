@@ -2,7 +2,7 @@
 title: Use passwordless connections with Azure OpenAI
 description: Use passwordless connections for authentication and authorization to Azure OpenAI.
 ms.topic: how-to
-ms.date: 05/28/2024
+ms.date: 05/30/2024
 ms.reviewer: scaddie
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python, passwordless-go, build-2024-intelligent-apps
 #customer intent: As a developer, I want to use passwordless connections so that I don't leak secrets.
@@ -83,11 +83,12 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
     |--|--|
     |For Azure CLI or Azure PowerShell, you can use role name. |For Bicep, you need the role ID.|
 
-1. For many Azure OpenAI chat completion use cases, the following role and ID are suggested. 
+1. Use the following table to select a role and ID. 
 
-    |Role name|Role ID|
-    |--|--|
-    |`Cognitive Services OpenAI User`|`5e0bd9bd-7b93-4f28-af87-19fc36ad61bd`|
+    |Use case|Role name|Role ID|
+    |--|--|--|
+    |Assistants|`Cognitive Services OpenAI Contributor`|`a001fd3d-188f-4b5d-821b-7da978bf7442`|
+    |Chat completions|`Cognitive Services OpenAI User`|`5e0bd9bd-7b93-4f28-af87-19fc36ad61bd`|
 
 1. Select an identity type to use.
 
