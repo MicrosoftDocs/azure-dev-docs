@@ -75,6 +75,12 @@ Common reasons to access `azd` environment variables include the following:
 
 Set additional `azd` environment variables using the [`azd env set`](https://review.learn.microsoft.com/en-us/azure/developer/azure-developer-cli/reference?branch=pr-en-us-5900#azd-env-set) command, providing the key and value for your variable.
 
+Common reasons to set `azd` environment variables include the following:
+
+- Access Azure resource information created during provisioning that is needed during deployment.
+- Override or change default `azd` environment variable values.
+- Provide additional custom configuration values for use in provisioning, deployment, or custom scripts.
+
 ```azdeveloper
 azd env set MyKey MyValue
 ```
