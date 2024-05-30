@@ -2,7 +2,7 @@
 title: Use passwordless connections with Azure OpenAI
 description: Use passwordless connections for authentication and authorization to Azure OpenAI.
 ms.topic: how-to
-ms.date: 05/15/2024
+ms.date: 05/28/2024
 ms.reviewer: scaddie
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python, passwordless-go, build-2024-intelligent-apps
 #customer intent: As a developer, I want to use passwordless connections so that I don't leak secrets.
@@ -363,12 +363,19 @@ For more information on `DefaultAzureCredential` for JavaScript, see [Azure Iden
 
 
 ```javascript
-import { DefaultAzureCredential } from "@azure/identity";
-import { OpenAIClient } from "@azure/openai";
+import { DefaultAzureCredential, getBearerTokenProvider } from "@azure/identity";
+import { AzureOpenAI } from "openai";
 
-const AZURE_OPENAI_ENDPOINT = process.env.AZURE_OPENAI_ENDPOINT;
+const credential = new DefaultAzureCredential();
+const scope = "https://cognitiveservices.azure.com/.default";
+const azureADTokenProvider = getBearerTokenProvider(credential, scope);
 
-const credential = new OpenAIClient(AZURE_OPENAI_ENDPOINT, new DefaultAzureCredential());
+const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] || "<endpoint>";
+const deployment = "<your Azure OpenAI deployment name>";
+const apiVersion = "2024-05-01-preview";
+const options = { azureADTokenProvider, deployment, apiVersion, endpoint }
+
+const client = new AzureOpenAI(options);
 ```
 
 ### [Python](#tab/python)
