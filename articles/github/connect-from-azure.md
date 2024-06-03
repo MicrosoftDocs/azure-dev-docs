@@ -18,6 +18,8 @@ To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to f
 The Azure login action supports two different ways of authenticating with Azure:
 * [Service principal with secrets](#use-the-azure-login-action-with-a-service-principal-secret)
 * [OpenID Connect (OIDC) with an Azure service principal using a Federated Identity Credential](#use-the-azure-login-action-with-openid-connect)
+* [System-assigned Managed Identity](#use-the-azure-login-action-with-system-assigned-managed-identity)
+* [User-assigned Managed Identity](#use-the-azure-login-action-with-user-assigned-managed-identity)
 
 By default, the login action logs in with the Azure CLI and sets up the GitHub Actions runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub Actions runner environment with the Azure PowerShell module.
 
@@ -56,15 +58,15 @@ You'll need to create a Microsoft Entra application and service principal and th
     az ad app create --display-name myApp
     ```
 
-    This command will output JSON with an `appId` that is your `client-id`. The `objectId` is `APPLICATION-OBJECT-ID` and it will be used for creating federated credentials with Graph API calls.
+    This command will output JSON with an `appId` that is your `client-id`. The `id` is `application-object-id` and it will be used for creating federated credentials with Graph API calls.
 
-1. Create a service principal. Replace the `$appID` with the appId from your JSON output. This command generates JSON output with a different `objectId` will be used in the next step. The new  `objectId` is the `assignee-object-id`. 
+1. Create a service principal. Replace the `$appID` with the appId from your JSON output. This command generates JSON output with a different `id` will be used in the next step. The new `id` is the `service-principal-object-id`. 
 
     ```azurecli-interactive
      az ad sp create --id $appId
     ```
 
-1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with generated `assignee-object-id` (the newly created service principal object ID).
+1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with generated `service-principal-object-id`.
 
     ```azurecli-interactive
     az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName
@@ -79,16 +81,16 @@ You'll need to create a Microsoft Entra application and service principal and th
     New-AzADApplication -DisplayName myApp
     ```
 
-    This command will output the `AppId` property that is your `ClientId`. The `Id` property is `APPLICATION-OBJECT-ID` and it will be used for creating federated credentials with Graph API calls.
+    This command will output the `AppId` property that is your `client-id`. The `Id` property is `application-object-id` and it will be used for creating federated credentials with Graph API calls.
 
-1. Create a service principal. Replace the `$clientId` with the AppId from your output. This command generates output with a different `Id` and will be used in the next step. The new `Id` is the `ObjectId`. 
+1. Create a service principal. Replace the `$clientId` with the AppId from your output. This command generates output with a different `Id` and will be used in the next step. The new `Id` is the `service-principal-object-id`. 
 
     ```azurepowershell-interactive
     $clientId = (Get-AzADApplication -DisplayName myApp).AppId
     New-AzADServicePrincipal -ApplicationId $clientId
     ```
 
-1. Create a new role assignment. Beginning with Az PowerShell module version 7.x, `New-AzADServicePrincipal` no longer assigns the `Contributor` role to the service principal by default. Replace `$resourceGroupName` with your resource group name, and `$objectId` with generated `Id`.
+1. Create a new role assignment. Beginning with Az PowerShell module version 7.x, `New-AzADServicePrincipal` no longer assigns the `Contributor` role to the service principal by default. Replace `$resourceGroupName` with your resource group name, and `$objectId` with generated `service-principal-object-id`.
 
     ```azurepowershell-interactive
     $objectId = (Get-AzADServicePrincipal -DisplayName myApp).Id
@@ -131,15 +133,15 @@ For a more detailed overview, see [Configure an app to trust a GitHub repo](/azu
 
 Run the following command to [create a new federated identity credential](/azure/active-directory/workload-identities/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azcli) for your Microsoft Entra application.
 
-* Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Microsoft Entra application.
+* Replace `$applicationObjectId` with the **application-object-id (generated while creating app)** for your Microsoft Entra application.
 * Set a value for `CREDENTIAL-NAME` to reference later.
 * Set the `subject`. The value of this is defined by GitHub depending on your workflow:
-  * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
-  * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
-  * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
+  * Jobs in your GitHub Actions environment: `repo:<Organization/Repository>:environment:<env name>`
+  * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:<Organization/Repository>:ref:<ref path>`.  For example, `repo:octo-org/octo-repo:ref:refs/heads/my-branch` or `repo:octo-org/octo-repo:ref:refs/tags/my-tag`.
+  * For workflows triggered by a pull request event: `repo:<Organization/Repository>:pull_request`.
 
 ```azurecli
-az ad app federated-credential create --id <APPLICATION-OBJECT-ID> --parameters credential.json
+az ad app federated-credential create --id $applicationObjectId --parameters credential.json
 ("credential.json" contains the following content)
 {
     "name": "<CREDENTIAL-NAME>",
@@ -158,15 +160,15 @@ For a more detailed overview, see [Configure an app to trust an external identit
 
 Run  New-AzADAppFederatedCredential cmdlet to create a new federated identity credential for your Microsoft Entra application.
 
-* Replace `APPLICATION-OBJECT-ID` with the **Id (generated while creating app)** for your Microsoft Entra application.
+* Replace `$applicationObjectId` with the **application-object-id (generated while creating app)** for your Microsoft Entra application.
 * Set a value for `CREDENTIAL-NAME` to reference later.
 * Set the `subject`. The value of this is defined by GitHub depending on your workflow:
-  * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
-  * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
-  * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
+  * Jobs in your GitHub Actions environment: `repo:<Organization/Repository>:environment:<env name>`
+  * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:<Organization/Repository>:ref:<ref path>`.  For example, `repo:octo-org/octo-repo:ref:refs/heads/my-branch` or `repo:octo-org/octo-repo:ref:refs/tags/my-tag`.
+  * For workflows triggered by a pull request event: `repo:<Organization/Repository>:pull_request`.
 
 ```azurepowershell
-New-AzADAppFederatedCredential -ApplicationObjectId APPLICATION-OBJECT-ID -Audience api://AzureADTokenExchange -Issuer 'https://token.actions.githubusercontent.com/' -Name 'GitHub-Actions-Test' -Subject 'repo:octo-org/octo-repo:environment:Production'
+New-AzADAppFederatedCredential -ApplicationObjectId $applicationObjectId -Audience api://AzureADTokenExchange -Issuer 'https://token.actions.githubusercontent.com/' -Name 'GitHub-Actions-Test' -Subject 'repo:octo-org/octo-repo:environment:Production'
 ```
 
 For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/workload-identities/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-powershell).
@@ -188,40 +190,42 @@ The Azure login action includes an optional `audience` input parameter that defa
 
 # [Linux](#tab/linux)
 
-This workflow authenticates with OpenID Connect and uses Azure CLI to get the details of the connected subscription and list resource group.
+This workflow authenticates with OpenID Connect and uses Azure CLI to get the details of the connected subscription.
 
 ```yaml
-name: Run Azure Login with OpenID Connect
+name: Run Azure CLI Login with OpenID Connect
 on: [push]
 
 permissions:
-      id-token: write
-      contents: read
+  id-token: write
+  contents: read
       
 jobs: 
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment: Production
     steps:
-    - name: 'Az CLI login'
-      uses: azure/login@v1
+    - name: Azure CLI login
+      uses: azure/login@v2
       with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   
-    - name: 'Run Azure CLI commands'
-      run: |
+    - name: Azure CLI script
+      uses: azure/cli@v2
+      with:
+        azcliversion: latest
+        inlineScript: |
           az account show
-          az group list
-          pwd 
 ```
 
 # [Windows](#tab/windows)
 
-This workflow authenticates with OpenID Connect and uses PowerShell to output a list of resource groups tied to the connected Azure subscription.
+This workflow authenticates with OpenID Connect and uses Azure PowerShell to get the details of the connected subscription.
 
 ```yaml
-name: Run Azure Login with OpenID Connect and PowerShell
+name: Run Azure PowerShell Login with OpenID Connect
 on: [push]
 
 permissions:
@@ -231,28 +235,30 @@ permissions:
 jobs: 
   Windows-latest:
     runs-on: windows-latest
+    environment: Production
     steps:
-      - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true)
-        uses: azure/login@v1
+      - name: Azure PowerShell Login
+        uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
           enable-AzPSSession: true
 
-      - name: 'Get resource group with PowerShell action'
-        uses: azure/powershell@v1
+      - name: Azure PowerShell script
+        uses: azure/powershell@v2
         with:
+          azPSVersion: latest
           inlineScript: |
-            Get-AzResourceGroup
-          azPSVersion: "latest"
+            Get-AzContext
+          
 ```
 
 ---
 
 ### Verify successful Azure Login with OpenID 
 
-Open the `Az CLI login` action and verify that it ran successfully. You should see the message `Login successful`. If your login is unsuccessful, you'll see the message `Az CLI Login failed.`.
+Open the `Azure CLI login` action and verify that it ran successfully. You should see the message `Azure CLI login succeeds by using OIDC`. If your login is unsuccessful, you'll see the message `Login failed with Error: xxx`.
 
 :::image type="content" source="media/github-actions-successful-login.png" alt-text="GitHub Actions Azure Login successful.":::
  
