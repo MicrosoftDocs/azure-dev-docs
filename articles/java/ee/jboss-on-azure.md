@@ -14,6 +14,8 @@ This article describes the available solutions for hosting JBoss EAP on Azure, i
 
 There are three hosting options for JBoss EAP on Azure: App Service, Azure Red Hat OpenShift, and Azure Virtual Machines/VM Scale Sets. All three solutions are jointly developed and supported by Red Hat and Microsoft.
 
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing the automated solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. Our team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+
 ## JBoss EAP on Azure App Service
 
 Azure App Service is a fully managed platform for web and API applications, with built-in infrastructure maintenance, security patching, and scaling. App Service integrates with networking features such as virtual networks, Private Endpoints, and Hybrid Connections. This integration allows you to secure and isolate your infrastructure as necessary. You can deploy rapidly with GitHub Actions and Azure Pipelines integration, and monitor your applications with Azure Monitor Application Insights. For more information, see [Azure App Service overview](/azure/app-service/overview).
@@ -55,5 +57,3 @@ The following articles provide more information on getting started with these te
 - [Quickstart: Deploy a Java application with JBoss EAP on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 - [Quickstart: Deploy JBoss EAP Server on Azure VM using the Azure portal](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 - [Quickstart: Deploy a JBoss EAP cluster on Azure VMs using the Azure portal](/azure/developer/java/ee/jboss-eap-cluster-azure-vms)
-
-If you're interested in working closely on your migration scenarios with the engineering team developing these solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. Our team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
