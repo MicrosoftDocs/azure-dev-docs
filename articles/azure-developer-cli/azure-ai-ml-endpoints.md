@@ -35,7 +35,7 @@ To work with AI/ML studio online endpoints, you'll need the following:
 * [Online Endpoint](/azure/machine-learning/concept-endpoints-online)
 * [AI Search Service](/azure/search/) (Optional, enabled by default)
 
-The [AI Studio Starter template](/Azure-Samples/azd-aistudio-starter) can help create all the required infrastructure to get started with AI Studio endpoints.
+The [AI Studio Starter template](https://github.com/Azure-Samples/azd-aistudio-starter) can help create all the required infrastructure to get started with AI Studio endpoints.
 
 ## Configure the AI/ML studio online endpoint
 
