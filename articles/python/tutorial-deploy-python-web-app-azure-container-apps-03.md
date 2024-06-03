@@ -81,7 +81,7 @@ export MSYS_NO_PATHCONV=1
 
         Where:
         * *\<resource-group-name>* is the name of the resource group. If you are following this tutorial, it is "pythoncontainer-rg".
-        * *\<https://github.com/userid/repo>* is the URL of your GitHub repository. If you're following the steps in this tutorial, it will be either https://github.com/userid/msdocs-python-django-azure-container-apps or https://github.com/userid/msdocs-python-flask-azure-container-apps; where `userid` is your GitHub user ID.
+        * *\<https://github.com/userid/repo>* is the URL of your GitHub repository. If you're following the steps in this tutorial, it will be either `https://github.com/userid/msdocs-python-django-azure-container-apps` or `https://github.com/userid/msdocs-python-flask-azure-container-apps`; where `userid` is your GitHub user ID.
         * *\<registry-name>* is the existing Container Registry you created for this tutorial, or one that you can use.
         * *\<client-id>* is the value of the `appId` property from the previous `az ad sp create-for-rbac` command. The ID is a GUID of the form 00000000-0000-0000-0000-00000000.
         * *\<tenant-id>* is the value of the `tenant` property from the previous `az ad sp create-for-rbac` command. The ID is also a GUID similar to the client ID.
