@@ -12,6 +12,8 @@
     display: Azure OpenAI, OpenAI, FastApi
   - name: Configure document security
     href: get-started-app-chat-document-security-trim.md
+  - name: Secure your chat endpoint
+    href: get-started-app-chat-private-endpoint.md
   - name: Evaluate your chat app
     href: get-started-app-chat-evaluations.md
     display: Azure OpenAI
