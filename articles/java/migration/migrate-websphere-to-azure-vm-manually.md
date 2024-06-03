@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-
 
 This tutorial shows you how to step-by-step install traditional WebSphere Application Server (tWAS) Network Deployment and configure a WAS cluster on Azure virtual machines (VMs) of GNU/Linux.
 
-In this tutorial, you learn how to:
+In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 >
@@ -25,6 +25,8 @@ In this tutorial, you learn how to:
 > - Validate the successful configuration.
 
 If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy WebSphere Application Server Network Deployment Cluster on Azure Virtual Machines](../ee/traditional-websphere-application-server-virtual-machines.md). A less automated, but still accelerated, option is to skip the steps of installing Java Development Kit (JDK) and WebSphere on the operating system by using a pre-configured Red Hat Linux base image. You can find these offers in Azure Marketplace by using a [query for WebSphere Application Server image 9.0.5.x](https://aka.ms/was-vm-base-images).
+
+If you're interested in working closely on your migration scenario with the engineering team developing the Azure Marketplace solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
@@ -1992,5 +1994,3 @@ Continue to explore options to run WebSphere products on Azure.
 
 > [!div class="nextstepaction"]
 > [Learn more about the IBM WebSphere family of products on Azure](../ee/websphere-family.md)
-
-If you’re interested in keeping up to date with latest developments, select **Contact Me** on the overview page of [IBM WebSphere Product Family on Azure](https://aka.ms/websphere-on-azure-contactme) at Azure Marketplace, and register to be notified when new offers are made available.

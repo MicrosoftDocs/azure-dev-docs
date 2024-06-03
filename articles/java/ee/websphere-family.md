@@ -19,7 +19,7 @@ WebSphere products are key components in enabling enterprise Java workloads on A
 
 :::image type="content" border="false" source="media/websphere-family/websphere-family.svg" alt-text="Diagram showing the interaction of IBM products on Azure.":::
 
-If you want to provide feedback on these offers, stay-up-date on the roadmap, or work closely on your migration scenarios with the engineering team developing these offers, select **Contact Me** on the overview page of [IBM WebSphere Product Family on Azure offers](https://azuremarketplace.microsoft.com/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-02-17_websphere_offerings_contact_me?tab=Overview). Program managers, architects, and engineers will reach out to you shortly to start collaboration. The opportunity to collaborate on a migration scenario is free while the offers are under active development.
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing the Azure Marketplace solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 You can open support issues on the jointly developed offers with either IBM or Microsoft. When appropriate, IBM and Microsoft will collaborate on their resolution. Beyond the offers, Microsoft provides support for Azure. IBM similarly provides support for WebSphere, WebSphere Liberty, and Open Liberty.
 
@@ -61,3 +61,4 @@ The following articles provide more information on getting started with these te
 - [Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster](howto-deploy-java-liberty-app-manual.md)
 - [Manually install IBM WebSphere Application Server Network Deployment traditional on Azure virtual machines](/azure/developer/java/migration/migrate-websphere-to-azure-vm-manually?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 - [Deploy a Java Application with Open Liberty or WebSphere Liberty on Azure Container Apps](deploy-java-liberty-app-aca.md)
+

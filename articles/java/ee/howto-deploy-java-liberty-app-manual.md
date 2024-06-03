@@ -21,6 +21,8 @@ The Liberty Operator simplifies the deployment and management of applications ru
 
 This article is step-by-step manual guidance for running Open/WebSphere Liberty on Azure. For a more automated solution that accelerates your journey to AKS, see [Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing the Azure Marketplace solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+
 For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
@@ -708,18 +710,6 @@ az group delete --name $Env:DB_RESOURCE_GROUP_NAME --yes --no-wait
 
 ## Next steps
 
-To incorporate Azure Cache for Redis into a Java app
-
-> [!div class="nextstepaction"]
-> [Use Azure Cache for Redis in Java with Redisson Redis client](/azure/azure-cache-for-redis/cache-java-redisson-get-started?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
-
-Continue to explore options to run WebSphere products on Azure.
-
-> [!div class="nextstepaction"]
-> [Learn more about the IBM WebSphere family of products on Azure](../ee/websphere-family.md)
-
-If you’re interested in keeping up to date with latest developments, select **Contact Me** on the overview page of [IBM WebSphere Product Family on Azure](https://aka.ms/websphere-on-azure-contactme) at Azure Marketplace, and register to be notified when new offers are made available.
-
 You can learn more from references used in this guide:
 
 * [Azure Kubernetes Service](https://azure.microsoft.com/free/services/kubernetes-service/)
@@ -729,3 +719,13 @@ You can learn more from references used in this guide:
 * [Liberty Maven Plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin)
 * [Open Liberty Container Images](https://github.com/OpenLiberty/ci.docker)
 * [WebSphere Liberty Container Images](https://github.com/WASdev/ci.docker)
+
+To incorporate Azure Cache for Redis into a Java app
+
+> [!div class="nextstepaction"]
+> [Use Azure Cache for Redis in Java with Redisson Redis client](/azure/azure-cache-for-redis/cache-java-redisson-get-started?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+
+Continue to explore options to run WebSphere products on Azure.
+
+> [!div class="nextstepaction"]
+> [Learn more about the IBM WebSphere family of products on Azure](../ee/websphere-family.md)
