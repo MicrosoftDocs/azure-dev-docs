@@ -16,6 +16,8 @@ This article uses the Azure Marketplace offer for JBoss EAP Cluster to accelerat
 
 If you prefer manual step-by-step guidance for installing Red Hat JBoss EAP Cluster on Azure VMs that doesn't utilize the automation enabled by the Azure Marketplace offer, see [Tutorial: Install Red Hat JBoss EAP on Azure Virtual Machines manually](../migration/migrate-jboss-eap-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
+If you're interested in working closely on your migration scenario with the engineering team developing automated solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. Our team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -293,6 +295,3 @@ Learn more about options of deploying JBoss EAP on Azure:
 
 > [!div class="nextstepaction"]
 > [JBoss EAP on Azure](jboss-on-azure.md)
-
-If you’re interested in keeping up to date with latest developments, select **Contact Me** on the overview page of [JBoss EAP on Azure](https://aka.ms/eap-contact-me) at Azure Marketplace, and register to be notified when new offers are made available.
-

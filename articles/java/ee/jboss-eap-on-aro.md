@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-
 
 This article shows you how to deploy a Red Hat JBoss Enterprise Application Platform (EAP) application to an Azure Red Hat OpenShift cluster. The sample is a Java application backed by an SQL database. The app is deployed using [JBoss EAP Helm Charts](https://jbossas.github.io/eap-charts).
 
-In this guide, you learn how to:
+In this guide, you will learn how to:
 > [!div class="checklist"]
 >
 > * Prepare a JBoss EAP application for OpenShift.
@@ -20,6 +20,8 @@ In this guide, you learn how to:
 > * Deploy the application on an Azure Red Hat OpenShift 4 cluster by using JBoss Helm Charts and OpenShift Web Console
 
 This article is step-by-step manual guidance for running JBoss EAP app on an Azure Red Hat OpenShift 4 cluster. For a more automated solution that accelerates your journey to Azure Red Hat OpenShift 4 cluster, see [Quickstart: Deploy JBoss EAP on Azure Red Hat OpenShift using the Azure portal](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
+
+If you're interested in working closely on your migration scenario with the engineering team developing solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. Our team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 The sample is a stateful application that stores information in an HTTP session. It makes use of the JBoss EAP clustering capabilities and uses the following Jakarta EE and MicroProfile technologies:
 
@@ -361,16 +363,14 @@ If you want to delete all of the resources created by the preceding steps, delet
 
 ## Next steps
 
-Continue to explore options to run JBoss EAP on Azure.
-
-> [!div class="nextstepaction"]
-> [Learn more about JBoss EAP on Azure](../ee/jboss-on-azure.md)
-
-If you’re interested in keeping up to date with latest developments, select **Contact Me** on the overview page of [JBoss EAP on Azure](https://aka.ms/eap-contact-me) at Azure Marketplace, and register to be notified when new offers are made available.
-
 You can learn more from references used in this guide:
 
 * [Red Hat JBoss Enterprise Application Platform](https://www.redhat.com/en/technologies/jboss-middleware/application-platform)
 * [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)
 * [JBoss EAP Helm Charts](https://jbossas.github.io/eap-charts/)
 * [JBoss EAP Bootable JAR](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/using_jboss_eap_xp_3.0.0/index#the-bootable-jar_default)
+
+Continue to explore options to run JBoss EAP on Azure.
+
+> [!div class="nextstepaction"]
+> [Learn more about JBoss EAP on Azure](../ee/jboss-on-azure.md)

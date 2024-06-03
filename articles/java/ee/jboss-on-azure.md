@@ -55,3 +55,5 @@ The following articles provide more information on getting started with these te
 - [Quickstart: Deploy a Java application with JBoss EAP on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 - [Quickstart: Deploy JBoss EAP Server on Azure VM using the Azure portal](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 - [Quickstart: Deploy a JBoss EAP cluster on Azure VMs using the Azure portal](/azure/developer/java/ee/jboss-eap-cluster-azure-vms)
+
+If you're interested in working closely on your migration scenarios with the engineering team developing these solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. Our team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
