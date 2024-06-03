@@ -57,8 +57,8 @@ The solution provides boolean environment variables to turn on features necessar
 |--|--|
 |`AZURE_USE_AUTHENTICATION`|When set to `true`, enables user sign-in to the chat app and App Service authentication. Enables `Use oid security filter` in the chat app **Developer settings**.|
 |`AZURE_ENFORCE_ACCESS_CONTROL`|When set to `true`, requires authentication for any document access. The **Developer settings** for oid and group security will be turned on and disabled so they can't be disabled from the UI.|
-|`AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS`|When set to `true`, this setting allows authenticated users to search on documents that have no access controls assigned, even when access control is required.|
-|`AZURE_ENABLE_UNAUTHENTICATED_ACCESS`|When set to `true`, this setting unauthenticated users to use the app, even when access control is enforced. |
+|`AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS`|When set to `true`, this setting allows authenticated users to search on documents that have no access controls assigned, even when access control is required. This parameter should only be used when `AZURE_ENFORCE_ACCESS_CONTROL` is enabled.|
+|`AZURE_ENABLE_UNAUTHENTICATED_ACCESS`|When set to `true`, this setting allows unauthenticated users to use the app, even when access control is enforced. This parameter should only be used when `AZURE_ENFORCE_ACCESS_CONTROL` is enabled.|
 
 Use the following sections to understand the security profiles supported in this sample. This article configures the **Entreprise profile**. 
 
