@@ -27,18 +27,18 @@ If you want to replicate this sample's behavior, you can copy the *pom.xml* file
 
 The following table shows the contents of the sample project folder:
 
-| File/folder                                                        | Description                                                                                  |
-|--------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| *src/main/java/com/microsoft/azuresamples/msal4j/callgraphwebapp/* | This directory contains the classes that define the app's backend business logic.            |
-| *src/main/java/com/microsoft/azuresamples/msal4j/authservlets/*    | This directory contains the classes that are used for sign in and sign out endpoints.        |
-| *____Servlet.java*                                                 | All of the endpoints available are defined in *.java* classes ending in *____Servlet.java*.. |
-| *src/main/java/com/microsoft/azuresamples/msal4j/helpers/*         | Helper classes for authentication.                                                           |
-| *AuthenticationFilter.java*                                        | Redirects unauthenticated requests to protected endpoints to a 401 page.                     |
-| *src/main/resources/authentication.properties*                     | Microsoft Entra ID and program configuration.                                                |
-| *src/main/webapp/*                                                 | This directory contains the UI - JSP templates                                               |
-| *CHANGELOG.md*                                                     | List of changes to the sample.                                                               |
-| *CONTRIBUTING.md*                                                  | Guidelines for contributing to the sample.                                                   |
-| *LICENSE*                                                          | The license for the sample.                                                                  |
+| File/folder                                                        | Description                                                                                 |
+|--------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| *src/main/java/com/microsoft/azuresamples/msal4j/callgraphwebapp/* | This directory contains the classes that define the app's backend business logic.           |
+| *src/main/java/com/microsoft/azuresamples/msal4j/authservlets/*    | This directory contains the classes that are used for sign in and sign out endpoints.       |
+| *____Servlet.java*                                                 | All of the endpoints available are defined in *.java* classes ending in *____Servlet.java*. |
+| *src/main/java/com/microsoft/azuresamples/msal4j/helpers/*         | Helper classes for authentication.                                                          |
+| *AuthenticationFilter.java*                                        | Redirects unauthenticated requests to protected endpoints to a 401 page.                    |
+| *src/main/resources/authentication.properties*                     | Microsoft Entra ID and program configuration.                                               |
+| *src/main/webapp/*                                                 | This directory contains the UI - JSP templates                                              |
+| *CHANGELOG.md*                                                     | List of changes to the sample.                                                              |
+| *CONTRIBUTING.md*                                                  | Guidelines for contributing to the sample.                                                  |
+| *LICENSE*                                                          | The license for the sample.                                                                 |
 
 ### ConfidentialClientApplication
 
@@ -78,13 +78,13 @@ The following steps provide a walkthrough of the app's functionality:
 
    The following list describes the features of this code:
 
-   - `AuthorizationRequestUrlParameters`: Parameters that must be set in order to build an AuthorizationRequestUrl.
+   - `AuthorizationRequestUrlParameters`: Parameters that must be set in order to build an `AuthorizationRequestUrl`.
    - `REDIRECT_URI`: Where Microsoft Entra ID redirects the browser - along with the auth code - after collecting user credentials. It must match the redirect URI in the Microsoft Entra ID app registration in the [Azure portal](https://portal.azure.com)
    - `SCOPES`: [Scopes](/entra/identity-platform/access-tokens#scopes) are permissions requested by the application.
      - Normally, the three scopes `openid profile offline_access` suffice for receiving an ID token response.
-     - Full list of scopes requested by the app can be found in the *authentication.properties* file. You can add more scopes like User.Read and so on.
+     - Full list of scopes requested by the app can be found in the *authentication.properties* file. You can add more scopes such as `User.Read`.
 
-1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to the app's redirect endpoint. A valid request to this endpoint contain an [authorization code](/entra/identity-platform/v2-oauth2-auth-code-flow).
+1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to the app's redirect endpoint. A valid request to this endpoint contains an [authorization code](/entra/identity-platform/v2-oauth2-auth-code-flow).
 
 1. The `ConfidentialClientApplication` instance then exchanges this authorization code for an ID token and access token from Microsoft Entra ID.
 
@@ -134,7 +134,7 @@ app.protect.authenticated=/token_details, /call_graph
 
 When the user navigates to `/call_graph`, the application creates an instance of the `IGraphServiceClient` - from the Java Graph SDK - passing along the signed-in user's access token. The Graph client places the access token in the `Authorization` headers of its requests. The app then asks the Graph client to call the `/me` endpoint to yield details for the currently signed-in user.
 
-The following code is all that's required for an application developer to write for accessing the `/me` endpoint, provided that they already have a valid access token for Graph Service with the `User.Read` scope.
+If you already have a valid access token for Graph Service with the `User.Read` scope, you only need the following code to get access to the `/me` endpoint:
 
 ```java
 //CallGraphServlet.java

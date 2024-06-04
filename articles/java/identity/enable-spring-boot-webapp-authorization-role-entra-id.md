@@ -64,7 +64,7 @@ Alternatively, navigate to the [ms-identity-java-spring-tutorial](https://github
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
 
-### Register the sample application with your Azure Active Directory tenant
+### Register the sample application with your Microsoft Entra ID tenant
 
 There's one project in this sample. The following sections show you how to register the app using the Azure portal.
 
@@ -302,7 +302,7 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Sign-in and sign-out links
 
-For sign-in, the app makes a request to the Azure Active Directory sign-in endpoint automatically configured by Microsoft Entra ID Spring Boot Starter client library for Java, as shown in the following example:
+For sign-in, the app makes a request to the Microsoft Entra ID sign-in endpoint automatically configured by Microsoft Entra ID Spring Boot Starter client library for Java, as shown in the following example:
 
 ```html
 <a class="btn btn-success" href="/oauth2/authorization/azure">Sign In</a>
@@ -354,7 +354,7 @@ public class SecurityConfig extends AADWebSecurityConfigurerAdapter{
 
 ## More information
 
-- [Microsoft identity platform (Azure Active Directory for developers)](/entra/identity-platform/)
+- [Microsoft identity platform documentation](/entra/identity-platform/)
 - [Overview of Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview)
 - [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app)
 - [Quickstart: Configure a client application to access web APIs](/entra/identity-platform/quickstart-configure-app-access-web-apis)

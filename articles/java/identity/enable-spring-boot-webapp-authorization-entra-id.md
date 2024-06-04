@@ -44,7 +44,7 @@ Alternatively, navigate to the [ms-identity-java-spring-tutorial](https://github
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
 
-### Register the sample applications with your Azure Active Directory tenant
+### Register the sample applications with your Microsoft Entra ID tenant
 
 There's one project in this sample. The following sections show you how to register the app using the Azure portal.
 
@@ -92,7 +92,7 @@ To register the app, use the following steps:
 
 1. In the **Commonly used Microsoft APIs** section, select **Microsoft Graph**.
 
-1. In the **Delegated permissions** section, select the **User.Read** in the list. Use the search box if necessary.
+1. In the **Delegated permissions** section, select **User.Read** from the list. Use the search box if necessary.
 
 1. Select **Add permissions**.
 
@@ -221,7 +221,7 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Sign-in and sign-out links
 
-For sign-in, the app makes a request to the Azure Active Directory sign-in endpoint automatically configured by Microsoft Entra ID Spring Boot Starter client library for Java, as shown in the following example:
+For sign-in, the app makes a request to the Microsoft Entra ID sign-in endpoint automatically configured by Microsoft Entra ID Spring Boot Starter client library for Java, as shown in the following example:
 
 ```html
 <a class="btn btn-success" href="/oauth2/authorization/azure">Sign In</a>
@@ -312,13 +312,13 @@ Using `GraphServiceClient.me().buildRequest().get()`, a request is built and mad
 
 ## More information
 
-- [Microsoft identity platform (Azure Active Directory for developers)](/entra/identity-platform/)
+- [Microsoft identity platform documentation](/entra/identity-platform/)
 - [Overview of Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview)
 - [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app)
 - [Quickstart: Configure a client application to access web APIs](/entra/identity-platform/quickstart-configure-app-access-web-apis)
 - [Understanding Microsoft Entra ID application consent experiences](/entra/identity-platform/application-consent-experience)
 - [Understand user and admin consent](/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
-- [Application and service principal objects in Azure Active Directory](/entra/identity-platform/app-objects-and-service-principals)
+- [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals)
 - [National Clouds](/entra/identity-platform/authentication-national-cloud#app-registration-endpoints)
 - [MSAL code samples](/entra/identity-platform/sample-v2-code?tabs=framework#java)
 - [Azure Active Directory Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory)

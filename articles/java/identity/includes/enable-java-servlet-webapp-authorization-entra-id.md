@@ -50,8 +50,8 @@ Then, use the following steps to complete the registration:
    - Under **Supported account types**, select one of the following options:
 
      - Select **Accounts in this organizational directory only** if you're building an application for use only by users in your tenant - that is, a *single-tenant* application.
-     - Select **Accounts in any organizational directory** if you'd like users in any Microsoft Entra ID tenant to be able to use your application - that is, a *multi-tenant* application.
-     - Select **Accounts in any organizational directory and personal Microsoft accounts** for the widest set of customers - that is, a multi-tenant application that also supports Microsoft personal accounts.
+     - Select **Accounts in any organizational directory** if you'd like users in any Microsoft Entra ID tenant to be able to use your application - that is, a *multitenant* application.
+     - Select **Accounts in any organizational directory and personal Microsoft accounts** for the widest set of customers - that is, a multitenant application that also supports Microsoft personal accounts.
 
    - Select **Personal Microsoft accounts** for use only by users of personal Microsoft accounts - for example, Hotmail, Live, Skype, and Xbox accounts.
    - In the **Redirect URI** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/msal4j-servlet-graph/auth/redirect`.
@@ -118,4 +118,4 @@ To build the sample using Maven, navigate to the directory containing the *pom.x
 mvn clean package
 ```
 
-This command generates a *.war* file that you can run on a variety of application servers.
+This command generates a *.war* file that you can run on various application servers.

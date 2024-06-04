@@ -80,7 +80,7 @@ Then, use the following steps to complete the registration:
 
 1. Select **Add permissions**.
 
-1. `GroupMember.Read.All` requires admin consent, so select **Grant/revoke admin consent for {tenant}**, and then select **Yes** when you're asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a Microsoft Entra ID tenant admin to do this.
+1. `GroupMember.Read.All` requires admin consent, so select **Grant/revoke admin consent for {tenant}**, and then select **Yes** when you're asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a Microsoft Entra ID tenant admin to do this action.
 
 ---
 
@@ -146,9 +146,9 @@ To enable this option in your app, use the following steps:
 
 1. Select **Groups assigned to the application**.
 
-   Choosing additional options - such as **Security Groups** or **All groups (includes distribution lists but not groups assigned to the application)** - negates the benefits your app derives from choosing to use this option.
+   Choosing other options - such as **Security Groups** or **All groups (includes distribution lists but not groups assigned to the application)** - negates the benefits your app derives from choosing to use this option.
 
-1. Under the **ID** section, select **Group ID**. This results in Microsoft Entra ID sending the [object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID token](/entra/identity-platform/id-tokens).
+1. Under the **ID** section, select **Group ID**. This selection results in Microsoft Entra ID sending the [object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID token](/entra/identity-platform/id-tokens).
 
 1. If you're exposing a web API using the **Expose an API** option, then you can also choose the **Group ID** option under the **Access** section. This option results in Microsoft Entra ID sending the [object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [access token](/entra/identity-platform/access-tokens).
 
@@ -196,4 +196,4 @@ To build the sample using Maven, navigate to the directory containing the *pom.x
 mvn clean package
 ```
 
-This command generates a *.war* file that you can run on a variety of application servers.
+This command generates a *.war* file that you can run on various application servers.

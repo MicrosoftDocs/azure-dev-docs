@@ -124,4 +124,4 @@ To build the sample using Maven, navigate to the directory containing the *pom.x
 mvn clean package
 ```
 
-This command generates a *.war* file that you can run on a variety of application servers.
+This command generates a *.war* file that you can run on various application servers.
