@@ -24,35 +24,7 @@ Alternatively, navigate to the [ms-identity-java-servlet-webapp-authentication](
 
 ### Register the sample application with your Microsoft Entra ID tenant
 
-There's one project in this sample. To register the app on the Azure portal, you can either follow manual configuration steps or use a PowerShell script. The script does the following tasks:
-
-- Creates the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
-- Modifies the project configuration files.
-- By default, sets up an application that works with accounts in your organizational directory only.
-
-### [Use PowerShell](#tab/PowerShell)
-
-Use the following steps to run the PowerShell script:
-
-1. On Windows, open PowerShell and navigate to the root of the cloned directory.
-
-1. Use the following command to set the execution policy for PowerShell:
-
-   ```powershell
-   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-   ```
-
-1. Use the following commands to run the configuration script:
-
-   ```powershell
-   cd .\AppCreationScripts\
-   .\Configure.ps1
-   ```
-
-   > [!NOTE]
-   > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/2-Authorization-I/call-graph/AppCreationScripts/AppCreationScripts.md). The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
-
-### [Use manual steps](#tab/Manual)
+There's one project in this sample. To register the app on the Azure portal, you can follow manual configuration steps.
 
 The following sections show you how to register the app manually.
 
