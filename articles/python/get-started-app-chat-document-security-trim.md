@@ -83,14 +83,6 @@ Environment variables:
 * AZURE_ENFORCE_ACCESS_CONTROL=true
 * AZURE_ENABLE_UNAUTHENTICATED_ACCESS=true
 
-### Public: Optional account + optional document filter
-
-Each user of the site **may** sign in, the site does contain secure documents. The document security may be applied.
-
-Environment variables:
-
-* AZURE_USE_AUTHENTICATION=true
-
 ## Prerequisites
 
 A [development container](https://containers.dev/) environment is available with all [dependencies](https://github.com/azure-samples/azure-search-openai-demo?tab=readme-ov-file#azure-deployment) required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
