@@ -23,7 +23,7 @@ docker login <your-registry>
 
 ## Example scenarios
 
-You can configure `azd` to psuh and pull images from an external container registry in the `azure.yaml` file of your template. Support for additional container registries provides greater flexibility for your deployment workflows.
+You can configure `azd` to push and pull images from an external container registry in the `azure.yaml` file of your template. Support for additional container registries provides greater flexibility for your deployment workflows.
 
 ### Pull from external container registry
 

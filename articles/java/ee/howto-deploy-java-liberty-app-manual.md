@@ -1,15 +1,15 @@
 ---
-title: Manually Deploy a Java Application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service Cluster
+title: Manually Deploy a Java Application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
 recommendations: false
 description: Shows you how to manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster.
 author: KarlErickson
 ms.author: edburns
 ms.topic: conceptual
-ms.date: 04/16/2024
+ms.date: 05/29/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 ---
 
-# Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster
+# Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
 
 This article explains how to:
 
@@ -34,7 +34,7 @@ If you're interested in providing feedback or working closely on your migration 
 * Install the [Azure CLI](/cli/azure/install-azure-cli). If you're running on Windows or macOS, consider running the Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 * Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.31.0 of the Azure CLI.
-* Install a Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
+* Install a Java Standard Edition (SE) implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
 * Install [Maven](https://maven.apache.org/download.cgi) version 3.5.0 or later.
 * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 * Ensure that [Git](https://git-scm.com) is installed.
@@ -124,7 +124,7 @@ After a short time, you should see a JSON output that contains the following lin
 
 ## Connect to the ACR instance
 
-You need to sign in to the ACR instance before you can push an image to it. Run the following commands to verify the connection:
+You need to sign in to the ACR instance before you can push an image to it. Use the following commands to verify the connection:
 
 ### [Bash](#tab/in-bash)
 
@@ -384,9 +384,9 @@ java-app
 
 The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-In the *aks* directory, there are two deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication.yaml* is used to deploy the application image. In the *docker* directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
+In the *aks* directory, there are two deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with database connection credentials. The file *openlibertyapplication.yaml* is used to deploy the application image. In the *docker* directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
 
-In directory *liberty/config*, the *server.xml* is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
+In directory *liberty/config*, the *server.xml* is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster.
 
 ### Build the project
 
@@ -573,14 +573,14 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
    az aks update --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:CLUSTER_NAME --attach-acr $Env:REGISTRY_NAME
    ```
 
-1. Apply the DB secret and deployment file by running the following commands:
+1. Apply the database secret and deployment file by running the following commands:
 
    ### [Bash](#tab/in-bash)
 
    ```bash
    cd <path-to-your-repo>/java-app/target
 
-   # Apply DB secret
+   # Apply database secret
    kubectl apply -f db-secret.yaml
 
    # Apply deployment file
@@ -592,7 +592,7 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
    ```powershell
    cd <path-to-your-repo>/java-app/target
 
-   # Apply DB secret
+   # Apply database secret
    kubectl apply -f db-secret.yaml
 
    # Apply deployment file

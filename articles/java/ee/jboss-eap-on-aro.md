@@ -1,16 +1,16 @@
 ---
-title: Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster
+title: Manually deploy a Java application with JBoss EAP on an Azure Red Hat OpenShift cluster
 description: Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster.
 author: KarlErickson
 ms.author: edburns
-ms.date: 05/02/2024
+ms.date: 05/29/2024
 ms.topic: how-to
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-extended-java, linux-related-content
 ---
 
-# Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster
+# Manually deploy a Java application with JBoss EAP on an Azure Red Hat OpenShift cluster
 
-This article shows you how to deploy a Red Hat JBoss Enterprise Application Platform (JBoss EAP) app to an Azure Red Hat OpenShift 4 cluster. The sample is a Java application backed by an SQL database. The app is deployed using [JBoss EAP Helm Charts](https://jbossas.github.io/eap-charts).
+This article shows you how to deploy a Red Hat JBoss Enterprise Application Platform (EAP) application to an Azure Red Hat OpenShift cluster. The sample is a Java application backed by an SQL database. The app is deployed using [JBoss EAP Helm Charts](https://jbossas.github.io/eap-charts).
 
 The guide takes a Java application and walks you through the process of migrating it to a container orchestrator such as Azure Red Hat OpenShift. First, it describes how you can package your application as a [Bootable JAR](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/using_jboss_eap_xp_3.0.0/the-bootable-jar_default) to run it locally. Finally, it shows you how you can deploy on OpenShift with three replicas of the JBoss EAP application by using Helm Charts.
 
@@ -35,7 +35,7 @@ The sample is a stateful application that stores information in an HTTP session.
 > Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](/azure/azure-portal/supportability/per-vm-quota-requests?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json). Note that the free trial subscription isn't eligible for a quota increase, [upgrade to a Pay-As-You-Go subscription](/azure/cost-management-billing/manage/upgrade-azure-subscription?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json) before requesting a quota increase.
 
 1. Prepare a local machine with a Unix-like operating system supported by the various products installed - such as Ubuntu, macOS, or [Windows Subsystem for Linux](/windows/wsl/).
-1. Install a Java SE implementation. The local development steps in this article were tested with JDK 17 [from the Microsoft build of OpenJDK](https://www.microsoft.com/openjdk).
+1. Install a Java Standard Edition (SE) implementation. The local development steps in this article were tested with Java Development Kit (JDK) 17 [from the Microsoft build of OpenJDK](https://www.microsoft.com/openjdk).
 1. Install [Maven](https://maven.apache.org/download.cgi) 3.8.6 or later.
 1. Install [Azure CLI](/cli/azure/install-azure-cli) 2.40 or later.
 1. Clone the code for this demo application (todo-list) to your local system. The demo application is at [GitHub](https://github.com/Azure-Samples/jboss-on-aro-jakartaee).
@@ -59,7 +59,7 @@ The sample is a stateful application that stores information in an HTTP session.
    oc new-project eap-demo
    ```
 
-1. Execute the following command to add the view role to the default service account. This role is needed so the application can discover other pods and form a cluster with them:
+1. Execute the following command to add the view role to the default service account. This role is needed so the application can discover other pods and set up a cluster with them:
 
    ```bash
    oc policy add-role-to-user view system:serviceaccount:$(oc project -q):default -n $(oc project -q)
@@ -107,7 +107,7 @@ All of the other settings can be safely used from the linked article.
 
 On the **Additional settings** page, you don't have to choose the option to prepopulate the database with sample data, but there's no harm in doing so.
 
-After the database is created with the above database name, Server admin login, and password, get the value for the server name from the overview page for the newly created database resource in the portal. Hover the mouse over the value of the **Server name** field and select the copy icon that appears beside the value. Save this value aside for use later (we set a variable named `MSSQLSERVER_HOST` to this value).
+After you create the database, get the value for the server name from the overview page. Hover the mouse over the value of the **Server name** field and select the copy icon that appears beside the value. Save this value aside for use later (we set a variable named `MSSQLSERVER_HOST` to this value).
 
 > [!NOTE]
 > To keep monetary costs low, the Quickstart directs the reader to select the serverless compute tier. This tier scales to zero when there is no activity. When this happens, the database is not immediately responsive.  If, at any point when executing the steps in this article, you observe database problems, consider disabling Auto-pause. To learn how, search for Auto-pause in [Azure SQL Database serverless](/azure/azure-sql/database/serverless-tier-overview). At the time of writing, the following AZ CLI command would disable Auto-pause for the database configured in this article. `az sql db update --resource-group $RESOURCEGROUP --server <Server name, without the .database.windows.net part> --name todos_db --auto-pause-delay -1`
@@ -220,7 +220,7 @@ git checkout bootable-jar-openshift
 
 Let's do a quick review about what we changed in this branch:
 
-* We added a new Maven profile named `bootable-jar-openshift` that prepares the Bootable JAR with a specific configuration for running the server on the cloud. For example, it enables the JGroups subsystem to use TCP requests to discover other pods by using the KUBE_PING protocol.
+* We added a new Maven profile named `bootable-jar-openshift` that prepares the Bootable JAR with a specific configuration for running the server on the cloud. For example, it enables the JGroups subsystem to use network requests to discover other pods by using the KUBE_PING protocol.
 * We added a set of configuration files in the _jboss-on-aro-jakartaee/deployment_ directory. In this directory, you can find the configuration files to deploy the application.
 
 ### Deploy the application on OpenShift
@@ -316,7 +316,7 @@ At this point, we need to configure the chart to build and deploy the applicatio
 
    :::image type="content" source="media/jboss-eap-on-aro/application-running-openshift.png" alt-text="Screenshot of OpenShift application running.":::
 
-1. The application shows you the name of the pod that serves the information. To verify the clustering capabilities, you could add some Todos. Then, delete the pod with the name indicated in the **Server Host Name** field that appears on the application by using `oc delete pod <pod-name>`, and after it's deleted, create a new Todo on the same application window. You can see that the new Todo is added via an Ajax request and the **Server Host Name** field now shows a different name. Behind the scenes, the OpenShift load balancer dispatched the new request and delivered it to an available pod. The Jakarta Faces view is restored from the HTTP session copy stored in the pod that's processing the request. Indeed, you can see that the **Session ID** field didn't change. If the session isn't replicated across your pods, you get a Jakarta Faces `ViewExpiredException`, and your application doesn't work as expected.
+1. The application shows you the name of the pod that serves the information. To verify the clustering capabilities, you could add some Todos. Then, delete the pod with the name indicated in the **Server Host Name** field that appears on the application by using `oc delete pod <pod-name>`. After deleting the pod, create a new Todo on the same application window. You can see that the new Todo is added via an Ajax request and the **Server Host Name** field now shows a different name. Behind the scenes, the OpenShift load balancer dispatched the new request and delivered it to an available pod. The Jakarta Faces view is restored from the HTTP session copy stored in the pod that's processing the request. Indeed, you can see that the **Session ID** field didn't change. If the session isn't replicated across your pods, you get a Jakarta Faces `ViewExpiredException`, and your application doesn't work as expected.
 
 ## Clean up resources
 
