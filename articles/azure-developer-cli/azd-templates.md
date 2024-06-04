@@ -145,14 +145,6 @@ Please note that each template that you use with Azure Developer CLI is licensed
 
 Microsoft is not responsible for any non-Microsoft templates and does not screen these templates for security, privacy, compatibility, or performance issues. The templates you use with Azure Developer CLI, including those provided from Microsoft, are not supported by any Microsoft support program or service. Any Microsoft-provided templates are provided AS IS without warranty of any kind.
 
-## Authoring templates
-
-The Azure Developer CLI team plans to author more templates in the future to cover even more developer scenarios. If you author your own templates, you can add the `azd-templates` topic to your repository on GitHub. That way, other developers can find, fork, and build upon your template for their own use case.
-
-You can also open an issue on [our GitHub repository](https://github.com/Azure/azure-dev) if there's a use case and template that you would like to see created.
-
-[!INCLUDE [request-help](includes/request-help.md)]
-
 ## Next steps
 
 > [!div class="nextstepaction"]
