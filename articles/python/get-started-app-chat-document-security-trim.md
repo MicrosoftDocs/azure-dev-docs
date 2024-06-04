@@ -47,7 +47,7 @@ Because the authorization isn't natively contained in Azure AI Search, you need 
 * Update this access control field whenever there are changes in user or group access permissions.
 * If your index updates are scheduled with an indexer, changes are picked up on the next indexer run. If you don't use an indexer, you need to manually reindex.
 
-In this article, the process of securing documents in Azure AI Search, is made possible with _example_ scripts, which you as the search administrator would run. The scripts associate a single document with a single user identity. You can take these [scripts](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/scripts) and apply your own security and productionizing requirements to scale to your needs.
+In this article, the process of securing documents in Azure AI Search is made possible with _example_ scripts, which you as the search administrator would run. The scripts associate a single document with a single user identity. You can take these [scripts](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/scripts) and apply your own security and productionizing requirements to scale to your needs.
 
 ## Determine security configuration
 
