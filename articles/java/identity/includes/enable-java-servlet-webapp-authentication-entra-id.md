@@ -24,7 +24,7 @@ Alternatively, navigate to the [ms-identity-java-servlet-webapp-authentication](
 
 ### Register the sample application with your Microsoft Entra ID tenant
 
-There's one project in this sample. To register the app on the Azure portal, you can follow manual configuration steps.
+There's one project in this sample. This section shows you how to register the app.
 
 First, register the app in the Azure portal by following the instructions in [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app).
 
