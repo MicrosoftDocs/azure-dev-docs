@@ -1,9 +1,9 @@
 ---
 title: Azure Developer CLI templates
-description: Learn more about the role of templates with the Azure Developer CLI (azd).
+description: Learn about what Azure Developer CLI templates are, how to work with them, and how to get started using them with your apps.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 12/09/2022
+ms.date: 06/04/2024
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli, build-2023
 ms.service: azure-dev-cli
@@ -20,7 +20,9 @@ Azure Developer CLI (`azd`) templates are standard code repositories that includ
 
 ## How Azure Developer CLI templates works
 
-Azure Developer CLI templates are designed to work with `azd` commands such as `azd init` and `azd up`. The templates include configuration and infrastructure-as-code (IaC) files that are used by the commands to perform tasks such as provisioning Azure resources and deploy the app code to them.  For example, a typical `azd` workflow using an existing template includes the following steps:
+Azure Developer CLI templates are designed to work with `azd` commands such as `azd init` and `azd up`. The templates include configuration and infrastructure-as-code (IaC) files that are used by the commands to perform tasks such as provisioning Azure resources and deploy the app code to them.
+
+For example, a typical `azd` workflow using an existing template includes the following steps:
 
 1. Run the `azd init` command with the `--template` parameter to clone an existing template down from GitHub. `azd` templates are simply traditional code repositories with additional configuration and infrastructure-as-code (IaC) files included in them.
 
@@ -42,7 +44,7 @@ Azure Developer CLI templates are designed to work with `azd` commands such as `
 
 4. Once your environment is set up in Azure, you can locally modify the application features or Azure resource templates and then run `azd up` again to provision your changes.
 
-## Understand template structure
+## Understand Azure Developer CLI template structure
 
 All `azd` templates share a similar file structure based on `azd` conventions. The minimum required assets generally include the following:
 
@@ -61,25 +63,25 @@ For example, a common `azd` template might match the following folder structure:
 
 :::image type="content" source="media/make-azd-compatible/azd-template-structure.png" alt-text="A screenshot showing an Azure Developer CLI template structure.":::
 
-## Create or choose an existing template
+## Start with an existing template or create you own
 
 There are two main approaches to working with `azd` templates:
 
-- Start with an existing `azd` template
-- Create your own `azd` template
+- Start with an existing `azd` template to use as a starting point for a new app
+- Convert an existing project to an `azd` template
 
 The following sections provide more information on these two options.
 
 ### Start with an existing template
 
-A large selection of `azd` templates is available on the [Awesome AZD]() template gallery. These templates provide starter infrastructure and application code for various development scenarios, language frameworks, and Azure services. If you find a template that aligns with your local application stack or desired architecture, you can use it as a starting point. For example, you can find templates for the following types of scenarios and beyond:
+A broad selection of `azd` templates is available on the [Awesome AZD]() template gallery. These templates provide starter infrastructure and application code for various development scenarios, language frameworks, and Azure services. If you find a template that aligns with your local application stack or desired architecture, you can use it as a starting point. For example, you can find templates for the following types of scenarios and beyond:
 
-- A NodeJS application hosted on Azure App Service that connects to and consumes Azure AI services
-- A .NET application hosted on Azure Container Apps connected to database and storage services
-- Starter projects for working with Azure AI studio
-- Python API and web service apps that utilize Redis and messaging services
+- A NodeJS application hosted on Azure App Service that connects to and consumes Azure AI services.
+- A .NET application hosted on Azure Container Apps connected to database and storage services.
+- Starter projects for getting started with Azure AI studio.
+- Python API and web service apps that utilize Redis and messaging services.
 
-The following templates are examples of common app architectures and frameworks:
+The following `azd` templates provide examples of common app architectures and frameworks:
 
 ### [C#](#tab/csharp)
 
@@ -123,7 +125,7 @@ The following templates are examples of common app architectures and frameworks:
 
 ---
 
-### Convert your existing app to an `azd` template
+### Create a new `azd` template for your app
 
 You can also convert an existing app into an `azd` template to enhance the repository with provisioning and deployment capabilities. This approach allows for the most control and produces a reusable solution for future development work on the app. The high level steps to create your own template are as follows:
 
@@ -139,7 +141,7 @@ The following resources provide more information about creating your own templat
 
 ### Guidelines for using `azd` templates
 
-Please note that each template that you use with Azure Developer CLI is licensed by its respective owner (which may or may not be Microsoft) under the agreement which accompanies the template. It is your responsibility to determine what license applies to any template you choose to use. 
+Please note that each template that you use with Azure Developer CLI is licensed by its respective owner (which may or may not be Microsoft) under the agreement which accompanies the template. It is your responsibility to determine what license applies to any template you choose to use.
 
 Microsoft is not responsible for any non-Microsoft templates and does not screen these templates for security, privacy, compatibility, or performance issues. The templates you use with Azure Developer CLI, including those provided from Microsoft, are not supported by any Microsoft support program or service. Any Microsoft-provided templates are provided AS IS without warranty of any kind.
 
