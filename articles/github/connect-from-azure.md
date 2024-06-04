@@ -254,13 +254,6 @@ jobs:
           
 ```
 
----
-
-### Verify successful Azure Login with OpenID 
-
-Open the `Azure CLI login` action and verify that it ran successfully. You should see the message `Azure CLI login succeeds by using OIDC`. If your login is unsuccessful, you'll see the message `Login failed with Error: xxx`.
-
-:::image type="content" source="media/github-actions-successful-login.png" alt-text="GitHub Actions Azure Login successful.":::
  
 ## Use the Azure login action with a service principal secret
 
@@ -304,26 +297,23 @@ In this example, you will create a secret named `AZURE_CREDENTIALS` that you can
 
 Use the service principal secret with the [Azure Login action](https://github.com/Azure/login) to authenticate to Azure.
 
-In this workflow, you authenticate using the Azure login action with the service principal details stored in `secrets.AZURE_CREDENTIALS`. Then, you run an Azure CLI action. For more information about referencing GitHub secrets in a workflow file, see [Using encrypted secrets in a workflow](https://docs.github.com/en/actions/reference/encrypted-secrets#using-encrypted-secrets-in-a-workflow) in GitHub Docs.
+In this workflow, you authenticate using the Azure login action with the service principal details stored in `secrets.AZURE_CREDENTIALS`. Then, you run an Azure CLI action. For more information about referencing GitHub secrets in a workflow file, see [Using secrets in a workflow](https://docs.github.com/actions/security-guides/using-secrets-in-github-actions#using-secrets-in-a-workflow) in GitHub Docs.
 
 Once you have a working Azure login step, you can use the [Azure PowerShell](https://github.com/Azure/PowerShell) or [Azure CLI](https://github.com/Azure/CLI) actions. You can also use other Azure actions, like [Azure webapp deploy](https://github.com/Azure/webapps-deploy) and [Azure functions](https://github.com/Azure/functions-action).
 
 ```yaml
+name: Run Azure Login With a Service Principal Secret
 on: [push]
-
-name: AzureLoginSample
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
 
-      - name: Log in with Azure
-        uses: azure/login@v1
-        with:
-          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+    - name: Azure Login Action
+      uses: azure/login@v2
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 ```
 
 ### Use the Azure PowerShell action
@@ -332,7 +322,6 @@ In this example, you log in with the [Azure Login action](https://github.com/Azu
 
 ```yaml
 name: AzureLoginSample
-
 on: [push]
 
 jobs:
@@ -342,17 +331,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Log in with Azure
-        uses: azure/login@v1
+      - name:  Azure Login Action
+        uses: azure/login@v2
         with:
-          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
           enable-AzPSSession: true
 
       - name: Azure PowerShell Action
-        uses: Azure/powershell@v1
+        uses: azure/powershell@v2
         with:
           inlineScript: Get-AzResourceGroup -Name "< YOUR RESOURCE GROUP >"
-          azPSVersion: "latest"
+          azPSVersion: latest
 ```
 
 ### Use the Azure CLI action
@@ -362,7 +351,6 @@ In this example, you log in with the [Azure Login action](https://github.com/Azu
 
 ```yaml
 name: AzureLoginSample
-
 on: [push]
 
 jobs:
@@ -372,18 +360,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Log in with Azure
-        uses: azure/login@v1
+      - name: Azure Login Action
+        uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Azure CLI script
-        uses: azure/CLI@v1
+        uses: azure/cli@v2
         with:
-          azcliversion: 2.0.72
+          azcliversion: latest
           inlineScript: |
-            az account show
-            az storage -h
+            az group show --name "< YOUR RESOURCE GROUP >"
 ```
 
 ### Connect to Azure Government and Azure Stack Hub clouds
@@ -391,14 +378,15 @@ jobs:
 To log in to one of the Azure Government clouds, set the optional parameter environment with supported cloud names `AzureUSGovernment` or `AzureChinaCloud`. If this parameter is not specified, it takes the default value `AzureCloud` and connects to the Azure Public Cloud.
 
 ```yaml
-   - name: Login to Azure US Gov Cloud with CLI
-     uses: azure/login@v1
+   - name: Login to Azure US Gov Cloud with Azure CLI
+     uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_US_GOV_CREDENTIALS }}
           environment: 'AzureUSGovernment'
           enable-AzPSSession: false
-   - name: Login to Azure US Gov Cloud with Az Powershell
-      uses: azure/login@v1
+          
+   - name: Login to Azure US Gov Cloud with Azure Powershell
+      uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_US_GOV_CREDENTIALS }}
           environment: 'AzureUSGovernment'
