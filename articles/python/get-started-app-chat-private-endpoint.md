@@ -39,9 +39,9 @@ Now that the virtual machine is in the same VNET, use Azure Bastion to connect. 
 
 ## Deployment steps
 
-This article deploys the solution twice. The first deployment creates all the chat resources and allows you to test the chat app with the public endpoint.
+This article deploys the solution twice. The first deployment creates all the chat resources, including the VNET. This means the second deployment goes quicker because it doesn't need to create the resources again. The first deploy has a publicly accessible chat app which allows you to test the chat app from any browser.
 
-Then the second deployment creates the VPN and secures the chat app to the VPN with access from the VM. You test this access by connecting to the VM with RDP.
+The second deployment secures the chat app. You test this access by connecting to the VM with RDP then use the VM's browser to access the chat app.
 
 ## Prerequisites
 
@@ -161,6 +161,8 @@ This solution configures and deploys the infrastructure based on custom settings
 
 ## Deploy the chat app
 
+The first deployment creates the resources and provides a publicly accessible endpoint.
+
 1. Run the following command to configure this solution for public access.
 
     ```console
@@ -169,13 +171,13 @@ This solution configures and deploys the infrastructure based on custom settings
 
     When asked for an environment name, remember that the environment name is used to create the resource group. Enter a meaningful name. If you are on a team or in an organization, include your name: `morgan-chat-private-endpoints`. Make note of the environment name displayed in the console. You need it to find the resources in the Azure portal later.
 
-1. Run the following command to configure this solution for private endpoints. You provision the VPN resources but the deployment doesn't restrict the access.
+1. Run the following command to include provisioning the VPN resources. Remember the deployment doesn't restrict the access until the second deployment.
 
     ```console
     azd env set AZURE_USE_PRIVATE_ENDPOINT true
     ```
 
-    Provisioning resources is the most time consuming part of this process. If you know you intend to secure the chat app, you can create the VPN resources. 
+    Provisioning resources is the most time consuming part of the deployment process. 
 
 1. Deploy the solution with the following command:
 
@@ -191,7 +193,7 @@ This solution configures and deploys the infrastructure based on custom settings
 
 ## Deploy chat app to Azure with private access
 
-Change the solution configuration for private access and change the chat app to use it.
+Change the deployment configuration to secure the chat app for private access.
 
 1. Run the following command to turn off public access.
 
