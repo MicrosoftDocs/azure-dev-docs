@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json). You can find these offers in Azure Marketplace with a [query for "WebLogic base image"](https://aka.ms/wls-vm-base-images).
 
-If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing these solutions, fill out this short [survey on WebLogic migration](https://aka.ms/wls-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebLogic on Azure solutions, fill out this short [survey on WebLogic migration](https://aka.ms/wls-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
@@ -863,7 +863,7 @@ Open the download folder that contains JDK installer. Here the installer name is
 After the installation finishes, you can validate its version in a command prompt by running the command `java -version`, with output similar to the following example:
 
 ```output
-java version "11.0.16" 2022-07-19 LTS
+Java version "11.0.16" 2022-07-19 LTS
 Java(TM) SE Runtime Environment 18.9 (build 11.0.16+11-LTS-199)
 Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.16+11-LTS-199, mixed mode)
 ```
@@ -1593,7 +1593,6 @@ Continue to explore options to run WebLogic Server on Azure.
 
 * [WebLogic Server on virtual machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 * [WebLogic Server on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
-* [Migrate WebLogic Server applications to Azure Kubernetes Service](/azure/developer/java/migration/migrate-weblogic-to-virtual-machines?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 * [Explore options for day 2 and beyond](https://aka.ms/wls-vms-day2)
 
-To find more about Oracle WebLogic offers at Azure Marketplace, visit the overview page of [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all _Bring-Your-Own-License_. They assume you've already got the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
+To find more about Oracle WebLogic offers, visit the overview page of [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all _Bring-Your-Own-License_. They assume you've already got the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
