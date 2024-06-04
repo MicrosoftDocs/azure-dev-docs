@@ -27,13 +27,13 @@ Once you complete this procedure, you can start modifying the new project with y
 
 The default deployment creates a chat app with public endpoints. 
 
-:::image type="content" source="media/get-started-app-chat-private-endpoints/simple-architecture-diagram-chat-app.png" alt-text="Diagram showing network architecture using Azure Bastion to connect to private virtual machines using the Azure portal.":::
+:::image type="content" source="media/get-started-app-chat-private-endpoints/simple-architecture-diagram-chat-app.png" alt-text="Diagram showing network architecture of basic RAG chat app.":::
 
-For chat apps enriched with private data, you should secure access to your chat app. This article shows one solution: use a virtual private network (VPN).
+For chat apps enriched with private data, you should secure access to your chat app. This article shows one solution: use a virtual private network (VPN). Deploy the sample with private connectivity that uses a combination of VNETs and Private Endpoints to connect the solution resources to the VNET. You now have a problem: You can't access the chat app anymore because you (your client browser) are not in the VNET. To fix this, you create a virtual machine inside the VNET. 
 
 :::image type="content" source="media/get-started-app-chat-private-endpoints/diagram-azure-bastion-private-endpoint.png" alt-text="Diagram showing network architecture using Azure Bastion to connect to private virtual machines using the Azure portal.":::
 
-From the Azure portal, use the VM remote desktop (RDP) to access the chat app. The VM is a Windows server with a Microsoft Edge browser. Use the same chat app endpoint, just through the VM's browser.
+Now that the virtual machine is in the same VNET, use Azure Bastion to connect. From the Azure portal, use the VM remote desktop (RDP) to access the chat app. The VM is a Windows server with a Microsoft Edge browser. Use the same chat app endpoint, just through the VM's browser.
 
 :::image type="content" source="media/get-started-app-chat-private-endpoints/simple-architecture-diagram-vpn-chat-app.png" alt-text="Diagram showing network architecture using Azure Bastion to RDP connect to private virtual machine which in term connects to the Chat app.":::
 
@@ -219,7 +219,7 @@ Change the solution configuration for private access and change the chat app to 
 
 ## Use private chat app
 
-1. Open the [Azure portal](http://portal.azure.com) and search for your resource group. 
+1. Open the [Azure portal](https://portal.azure.com) and search for your resource group. 
 1. Select your resource group to see the resources within it. 
 1. Find the VM resource and select it. 
 1. Select **Connect -> Bastion**. 
