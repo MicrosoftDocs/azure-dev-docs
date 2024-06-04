@@ -195,7 +195,6 @@ The following table shows the contents of the sample project folder:
 
 | File/folder                                                                   | Description                                                                               |
 |-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| *AppCreationScripts/*                                                         | Scripts to automatically configure Microsoft Entra ID app registrations.                  |
 | *pom.xml*                                                                     | Application dependencies.                                                                 |
 | *src/main/resources/templates/*                                               | Thymeleaf Templates for UI.                                                               |
 | *src/main/resources/application.yml*                                          | Application and Microsoft Entra ID Boot Starter Library Configuration.                    |

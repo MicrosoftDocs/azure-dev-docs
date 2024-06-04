@@ -34,7 +34,6 @@ The following table shows the contents of the sample project folder:
 
 | File/folder                                                     | Description                                                                                 |
 |-----------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| *AppCreationScripts/*                                           | Scripts to automatically configure Microsoft Entra ID app registrations.                    |
 | *src/main/java/com/microsoft/azuresamples/msal4j/groupswebapp/* | This directory contains the classes that define the app's backend business logic.           |
 | *src/main/java/com/microsoft/azuresamples/msal4j/authservlets/* | This directory contains the classes that are used for sign in and sign out endpoints.       |
 | *____Servlet.java*                                              | All of the endpoints available are defined in *.java* classes ending in *____Servlet.java*. |
