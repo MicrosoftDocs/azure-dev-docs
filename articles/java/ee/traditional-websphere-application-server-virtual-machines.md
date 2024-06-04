@@ -1,4 +1,4 @@
-    ---
+---
 title: "Quickstart: Deploy WebSphere Application Server Network Deployment Cluster on Azure Virtual Machines"
 description: Shows you how to deploy a traditional WebSphere Application Server cluster on Azure Virtual Machines using Azure Marketplace offer.
 author: KarlErickson
