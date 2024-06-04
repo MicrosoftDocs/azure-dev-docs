@@ -17,7 +17,7 @@ This article uses the Azure Marketplace offer for WebSphere Application Server C
 
 If you prefer manual step-by-step guidance for installing WebSphere Application Server Cluster that doesn't utilize the automation enabled by the offer, see [Tutorial: Manually install IBM WebSphere Application Server Network Deployment traditional on Azure Virtual Machines](../migration/migrate-websphere-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
-If you're interested in providing feedback or working closely on your migration scenario with the engineering team developing WebSphere on Azure Marketplace solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+If you're interested in providing feedback or working closely on your migration scenario with the engineering team developing WebSphere on WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
