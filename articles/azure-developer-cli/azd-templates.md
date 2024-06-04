@@ -24,7 +24,7 @@ Azure Developer CLI templates are designed to work with `azd` commands such as `
 
 For example, a typical `azd` workflow using an existing template includes the following steps:
 
-1. Run the `azd init` command with the `--template` parameter to clone an existing template down from GitHub. `azd` templates are simply traditional code repositories with additional configuration and infrastructure-as-code (IaC) files included in them.
+1. Run the `azd init` command with the `--template` parameter to clone an existing template down from GitHub.
 
     ```azdeveloper
     `azd` init --template todo-nodejs-mongo
@@ -67,14 +67,18 @@ For example, a common `azd` template might match the following folder structure:
 
 There are two main approaches to working with `azd` templates:
 
-- Start with an existing `azd` template to use as a starting point for a new app
-- Convert an existing project to an `azd` template
+- **Start with an existing `azd` template.**
+  - This is a good choice when you're looking for a template to use as a starting point for a new app with similar architecture and frameworks.
+- **Convert an existing project to an `azd` template.**
+  - This is a good choice when you already have an existing app but you want to make it compatible with `azd` capabilities.
 
 The following sections provide more information on these two options.
 
 ### Start with an existing template
 
-A broad selection of `azd` templates is available on the [Awesome AZD]() template gallery. These templates provide starter infrastructure and application code for various development scenarios, language frameworks, and Azure services. If you find a template that aligns with your local application stack or desired architecture, you can use it as a starting point. For example, you can find templates for the following types of scenarios and beyond:
+A broad selection of `azd` templates is available on the [Awesome AZD]() template gallery. These templates provide starter infrastructure and application code for various development scenarios, language frameworks, and Azure services. If you find a template that aligns with your local application stack or desired architecture, you can use it as a starting point.
+
+For example, you can find templates for the following types of scenarios and beyond:
 
 - A NodeJS application hosted on Azure App Service that connects to and consumes Azure AI services.
 - A .NET application hosted on Azure Container Apps connected to database and storage services.
@@ -136,10 +140,10 @@ You can also convert an existing app into an `azd` template to enhance the repos
 
 The following resources provide more information about creating your own templates:
 
-- [Build your first Azure Developer CLI template](/training/modules/build-first-azd-template/) training module
-- [Make your project compatible with `azd` guide](/azure/developer/azure-developer-cli/make-azd-compatible) documentation
+- [Build your first Azure Developer CLI template](/training/modules/build-first-azd-template/)
+- [Make your project compatible with `azd` guide](/azure/developer/azure-developer-cli/make-azd-compatible)
 
-### Guidelines for using `azd` templates
+## Guidelines for using `azd` templates
 
 Please note that each template that you use with Azure Developer CLI is licensed by its respective owner (which may or may not be Microsoft) under the agreement which accompanies the template. It is your responsibility to determine what license applies to any template you choose to use.
 
