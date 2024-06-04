@@ -46,7 +46,7 @@ Use the following free extensions to use Azure services directly in Visual Studi
 Other resources:
 
 * [All Azure extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance)
-* [Docker](https://marketplace.visualstudio.com/items?itemName=formulahendry.docker-explorer)
+* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
 * [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 * [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
 

@@ -243,7 +243,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 ## Get help
 
-This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/serverless-chat-langchainjs/README.md#troubleshooting).
+This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/serverless-chat-langchainjs/blob/main/README.md#troubleshooting).
 
 If your issue isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/serverless-chat-langchainjs/issues).
 
