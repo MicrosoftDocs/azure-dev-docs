@@ -25,11 +25,17 @@ Once you complete this procedure, you can start modifying the new project with y
 
 ## Architectural overview
 
-The default deployment creates a chat app with public endpoints. For chat apps enriched with private data, you should secure access to your chat app. This article shows one solution: use a virtual private network (VPN).
+The default deployment creates a chat app with public endpoints. 
 
-:::image type="content" source="media/get-started-app-chat=private-endpoints/diagram-azure-bastion-private-endpoint.png" alt-text="Diagram showing network architecture using Azure Bastion to connect to private virtual machines using the Azure portal.":::
+:::image type="content" source="media/get-started-app-chat-private-endpoints/simple-architecture-diagram-chat-app.png" alt-text="Diagram showing network architecture using Azure Bastion to connect to private virtual machines using the Azure portal.":::
 
-When the chat app is secured with a VPN, the chat app is on its own subnet. A virtual machine (VM) is created on a separate subnet. From the Azure portal, use the VM remote desktop (RDP) to access the chat app. The VM is a Windows server with a Microsoft Edge browser. Use the same chat app endpoint, just through the VM's browser.
+For chat apps enriched with private data, you should secure access to your chat app. This article shows one solution: use a virtual private network (VPN).
+
+:::image type="content" source="media/get-started-app-chat-private-endpoints/diagram-azure-bastion-private-endpoint.png" alt-text="Diagram showing network architecture using Azure Bastion to connect to private virtual machines using the Azure portal.":::
+
+From the Azure portal, use the VM remote desktop (RDP) to access the chat app. The VM is a Windows server with a Microsoft Edge browser. Use the same chat app endpoint, just through the VM's browser.
+
+:::image type="content" source="media/get-started-app-chat-private-endpoints/simple-architecture-diagram-vpn-chat-app.png" alt-text="Diagram showing network architecture using Azure Bastion to RDP connect to private virtual machine which in term connects to the Chat app.":::
 
 ## Deployment steps
 
