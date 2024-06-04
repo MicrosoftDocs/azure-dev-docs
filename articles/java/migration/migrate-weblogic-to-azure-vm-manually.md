@@ -863,7 +863,7 @@ Open the download folder that contains JDK installer. Here the installer name is
 After the installation finishes, you can validate its version in a command prompt by running the command `java -version`, with output similar to the following example:
 
 ```output
-Java version "11.0.16" 2022-07-19 LTS
+java version "11.0.16" 2022-07-19 LTS
 Java(TM) SE Runtime Environment 18.9 (build 11.0.16+11-LTS-199)
 Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.16+11-LTS-199, mixed mode)
 ```
