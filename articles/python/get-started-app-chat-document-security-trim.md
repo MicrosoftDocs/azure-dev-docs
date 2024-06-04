@@ -308,7 +308,7 @@ Once this information is known, update the Azure AI Search index `oids` field fo
     |Parameter|Purpose|
     |--|--|
     |-v|Verbose output.|
-    |--acl-type|Group or user (oids): `oids`|
+    |--acl-type|Group or user object IDs (oids): `oids`|
     |--acl-action|**Add** to a Search index field. Other options include `remove`, `remove_all`, `list`. |
     |--acl|Group or user's `USER_OBJECT_ID`|
     |--url|The file's location in Azure storage, such as `https://MYSTORAGENAME.blob.core.windows.net/content/role_library.pdf`. Don't surround URL with quotes in the CLI command.|
