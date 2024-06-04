@@ -74,7 +74,7 @@ Environment variables:
 
 ### Mixed use: Optional account + document filter
 
-Each user of the site **may** sign in, the site does contain content, which is public to all users. The document level security filter is applied to all requests.
+Each user of the site **may** sign in, and the site does contain content which is public to all users. The document level security filter is applied to all requests.
 
 Environment variables:
 
