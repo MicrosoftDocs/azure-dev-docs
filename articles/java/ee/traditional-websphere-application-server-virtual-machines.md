@@ -26,7 +26,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Deploy a cluster
 
-In this article, we use Azure Marketplace offer [IBM WebSphere Application Server ND Cluster on Azure VMs](https://ibm.biz/twas-cluster-portal) from the Azure portal. The offer automates common steps for deploying a traditional WebSphere Application Server Network Deployment cluster. You can find more background and a demo video on the offer page.
+In this article, we use the Azure Marketplace offer [IBM WebSphere Application Server ND Cluster on Azure VMs](https://ibm.biz/twas-cluster-portal) from the Azure portal. The offer automates common steps for deploying a traditional WebSphere Application Server Network Deployment cluster. You can find more background and a demo video on the offer page.
 
 You can start creating your deployment from the page. By default, the deployment consists of the following VMs:
 
