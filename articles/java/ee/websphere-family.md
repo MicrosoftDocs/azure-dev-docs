@@ -35,7 +35,9 @@ The offer [WebSphere Liberty or Open Liberty on AKS](https://ibm.biz/liberty-aks
 
 [WebSphere Cluster on Azure VMs](https://ibm.biz/twas-cluster-portal) and [WebSphere Single Instance on Azure VM](https://ibm.biz/twas-single-portal) are two Azure Marketplace offers that automatically provision several Azure resources, enabling a quick transition to traditional WebSphere Application Server on Azure VMs. The automatically provisioned resources include virtual network, storage, network security group, Java, Linux, WebSphere, and database connectivity (Db2, Oracle database, Azure SQL). Both offers support evaluation and Bring-Your-Own-License (BYOL) options for WebSphere. With minimal effort, you can provision a fully functional, highly available WebSphere ND cluster, including the Deployment Manager and any number of servers. You can also have the cluster offer provision IBM HTTP Server or Azure App Gateway as a load-balancer. The Deployment Manager and all servers are started by default, which allows you to begin managing the cluster right away using the Admin Console. Similarly, the single instance offer easily provisions a WebSphere (Base) server on a VM with the Console fully functional.
 
-Besides, IBM and Microsoft also provide basic VM images for WebSphere ND and Base:
+### WebSphere virtual machine base images
+
+IBM and Microsoft also provide base VM images for WebSphere ND and Base:
 - [IBM WebSphere Application Server VM base image](https://ibm.biz/twas-base-portal)
 - [IBM WebSphere Application Server ND VM base image](https://ibm.biz/twas-nd-portal)
 
