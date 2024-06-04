@@ -207,13 +207,13 @@ If you get an error about your tenant's conditional access policy, you need a se
     azd env set AZURE_ENFORCE_ACCESS_CONTROL true
     ```
 
-1. Run the following command to set the tenant, which authorizes the user sign in. Replace `<YOUR_TENANT_ID>` with the tenant ID.
+1. Run the following command to set the tenant, which authorizes the user sign in to the hosted application environment. Replace `<YOUR_TENANT_ID>` with the tenant ID.
 
     ```console
     azd env set AZURE_TENANT_ID <YOUR_TENANT_ID>
     ```
 
-1. If you need to use `AZURE_AUTH_TENANT_ID` due to a conditional access policy on your user tenant, run the following command to configure the sample to use a second tenant for application hosting. 
+1. If you need to use `AZURE_AUTH_TENANT_ID` due to a conditional access policy on your user tenant, run the following command to configure the sample to use a second tenant for the authentication tenant. 
 
     ```console
     azd env set AZURE_AUTH_TENANT_ID <REPLACE-WITH-YOUR-TENANT-ID>
