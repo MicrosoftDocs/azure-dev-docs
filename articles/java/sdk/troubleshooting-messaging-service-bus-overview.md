@@ -64,23 +64,36 @@ When you submit a bug, the log messages from classes in the following packages a
   * The exception is that you can ignore the `onDelivery` message in `ReceiveLinkHandler`.
 * `com.azure.messaging.servicebus.implementation`
 
-## Concurrency in ProcessorClient
+## Concurrency in ServiceBusProcessorClient
 
-`ProcessorClient` enables the application to configure how many calls to the message handler should happen concurrently. This configuration makes it possible to process multiple messages in parallel. For a `ProcessorClient` consuming messages from a non-session entity, the application can configure the desired concurrency using the `maxConcurrentCalls` API. For a session enabled entity, the desired concurrency is `maxConcurrentSessions` times `maxConcurrentCalls`.
+`ServiceBusProcessorClient` enables the application to configure how many calls to the message handler should happen concurrently. This configuration makes it possible to process multiple messages in parallel. For a `ServiceBusProcessorClient` consuming messages from a non-session entity, the application can configure the desired concurrency using the `maxConcurrentCalls` API. For a session enabled entity, the desired concurrency is `maxConcurrentSessions` times `maxConcurrentCalls`.
 
 If the application observes fewer concurrent calls to the message handler than the configured concurrency, it might be because the thread pool is not sized appropriately.
 
-`ProcessorClient` uses daemon threads from the Reactor global [boundedElastic](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html#boundedElastic--) thread pool to invoke the message handler. The maximum number of concurrent threads in this pool is limited by a cap. By default, this cap is ten times the number of available CPU cores. For the `ProcessorClient` to effectively support the application's desired concurrency (`maxConcurrentCalls` or `maxConcurrentSessions` times `maxConcurrentCalls`), you must have a `boundedElastic` pool cap value that's higher than the desired concurrency. You can override the default cap by setting the system property `reactor.schedulers.defaultBoundedElasticSize`.
+`ServiceBusProcessorClient` uses daemon threads from the Reactor global [boundedElastic](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html#boundedElastic--) thread pool to invoke the message handler. The maximum number of concurrent threads in this pool is limited by a cap. By default, this cap is ten times the number of available CPU cores. For the `ServiceBusProcessorClient` to effectively support the application's desired concurrency (`maxConcurrentCalls` or `maxConcurrentSessions` times `maxConcurrentCalls`), you must have a `boundedElastic` pool cap value that's higher than the desired concurrency. You can override the default cap by setting the system property `reactor.schedulers.defaultBoundedElasticSize`.
 
-You should tune the thread pool and CPU allocation on a case-by-case basis. However, when you override the pool cap, as a starting point, limit the concurrent threads to approximately 20-30 per CPU core. We recommend that you cap the desired concurrency per `ProcessorClient` instance to approximately 20-30. Profile and measure your specific use case and tune the concurrency aspects accordingly. For high load scenarios, consider running multiple `ProcessorClient` instances where each instance is built from a new `ServiceBusClientBuilder` instance. Also, consider running each `ProcessorClient` in a dedicated host - such as a container or VM - so that downtime in one host doesn't impact the overall message processing.
+You should tune the thread pool and CPU allocation on a case-by-case basis. However, when you override the pool cap, as a starting point, limit the concurrent threads to approximately 20-30 per CPU core. We recommend that you cap the desired concurrency per `ServiceBusProcessorClient` instance to approximately 20-30. Profile and measure your specific use case and tune the concurrency aspects accordingly. For high load scenarios, consider running multiple `ServiceBusProcessorClient` instances where each instance is built from a new `ServiceBusClientBuilder` instance. Also, consider running each `ServiceBusProcessorClient` in a dedicated host - such as a container or VM - so that downtime in one host doesn't impact the overall message processing.
 
 Keep in mind that setting a high value for the pool cap on a host with few CPU cores would have adverse effects. Some signs of low CPU resources or a pool with too many threads on fewer CPUs are: frequent timeouts, lock lost, deadlock, or lower throughput. If you're running the Java application on a container, then we recommend using two or more vCPU cores. We don't recommend selecting anything less than 1 vCPU core when running Java application on containerized environments. For in-depth recommendations on resourcing, see [Containerize your Java applications](../containers/overview.md).
+
+## Connection sharing bottleneck
+
+All the clients created from a shared `ServiceBusClientBuilder` instance will share the same connection to the Service Bus namespace.
+
+
+While using shared connection allows multiplexing operations among clients on one connection, sharing can also become a bottleneck if there are many clients, or the clients together generate high load. Each connection has one IO-Thread associated with it. When sharing connection, the clients put their work in this shared IO-Thread's work-queue and the progress of each client depends on the timely completion of its work in the queue. The IO-Thread handles the enqueued work serially, which means, if the IO-Thread work-queue of a shared connection ends up with a lot of pending work to deal with, then the symptoms will be similar to those of low CPU described in the previous section on concurrency, i.e., clients stalling, timeout, lost lock or slowdown in recovery path.
+
+Service Bus SDK uses `reactor-executor-*` naming pattern for the IO-Thread. When the application experiences the shared connection bottleneck then it may be reflected in IO-Thread's CPU usage. Also, in the heap dump or in live memory, the object `ReactorDispatcher$workQueue` is the work-queue of the IO-Thread. A long work-queue in the memory snapshot during the bottleneck period may indicate that the shared IO-Thread is overloaded with pending works.
+
+Hence, if the application load to a Service Bus endpoint is reasonably high (in terms of overall number of sent-received messages or payload size), use a separate builder instance for each client you build. For example, for each entity (queue or topic and subscription), you can create a new `ServiceBusClientBuilder` and build a client from it. In case of extremely high load to a specific entity, you might want to either create multiple client instances for that entity or run clients in multiple hosts (e.g., containers, VM) to load balance.
+
+
 
 ## Upgrade to 7.15.x or latest
 
 If you encounter any issues, you should first attempt to solve them by upgrading to the latest version of the Service Bus SDK. Version 7.15.x is a major redesign, resolving long-standing performance and reliability concerns.
 
-Version 7.15.x and later reduces thread hopping, removes locks, optimizes code in hot paths, and reduces memory allocations. These changes result in up to 45-50 times greater throughput on the `ServiceBusProcessor` client.
+Version 7.15.x and later reduces thread hopping, removes locks, optimizes code in hot paths, and reduces memory allocations. These changes result in up to 45-50 times greater throughput on the `ServiceBusProcessorClient`.
 
 Version 7.15.x and later also comes with various reliability improvements. It addresses several race conditions (such as prefetch and credit calculations) and improved error handling. These changes result in better reliability in the presence of transient issues across various client types.
 
@@ -103,7 +116,7 @@ ServiceBusSessionReceiverClient sessionReceiver = new ServiceBusClientBuilder()
     .buildClient();
 ```
 
-The following table lists the client types and corresponding configuration names, and indicates whether the client is currently enabled by default to use the V2-Stack in the latest version 7.16.0. For a client that isn't on the V2-Stack by default, you can use the example just shown to opt-in.
+The following table lists the client types and corresponding configuration names, and indicates whether the client is currently enabled by default to use the V2-Stack in the latest version 7.17.0. For a client that isn't on the V2-Stack by default, you can use the example just shown to opt-in.
 
 | Client type                                       | Configuration name                                                 | Is on V2-Stack by default? |
 |---------------------------------------------------|--------------------------------------------------------------------|----------------------------|
