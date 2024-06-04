@@ -64,7 +64,7 @@ Use the following sections to understand the security profiles supported in this
 
 ### Enterprise: Required account + document filter
 
-Each user of the site **must** sign in, the site does contain content, which is public to all users. The document level security filter is applied to all requests.
+Each user of the site **must** sign in, and the site does contain content which is public to all users. The document level security filter is applied to all requests.
 
 Environment variables:
 
