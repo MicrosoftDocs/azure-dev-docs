@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-
 
 This tutorial shows you how to install IBM WebSphere Application Server (WAS) Network Deployment (ND) traditional and configure a WAS cluster on Azure virtual machines (VMs) on GNU/Linux.
 
-In this tutorial, you will learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
