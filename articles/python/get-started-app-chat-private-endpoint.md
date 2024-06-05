@@ -97,7 +97,7 @@ Begin now with a development environment that has all the dependencies installed
 
 1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**
 
-    :::image type="content" source="./media/get-started-app-chat-template/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
+    :::image type="content" source="./media/get-started-app-chat-private-endpoints/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
@@ -236,3 +236,47 @@ Change the deployment configuration to secure the chat app for private access.
 1. To validate that only the VM has access, open a browser on your host computer (not the VM) and paste in the same URL.
 
     :::image type="content" source="./media/get-started-app-chat-private-endpoints/edge-browser-error-secured-endpoint.png" alt-text="Screenshot of Edge browser on host machine getting a 403 Forbidden error because it doesn't have access to chat app inside virtual network."::: 
+
+### Clean up GitHub Codespaces
+
+#### [GitHub Codespaces](#tab/github-codespaces)
+
+Deleting the GitHub Codespaces environment ensures that you can maximize the amount of free per-core hours entitlement you get for your account.
+
+> [!IMPORTANT]
+> For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+
+1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
+
+1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
+
+    :::image type="content" source="./media/get-started-app-chat-private-endpoints/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
+
+1. Open the context menu for the codespace and then select **Delete**.
+
+    :::image type="content" source="./media/get-started-app-chat-private-endpoints/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
+
+#### [Visual Studio Code](#tab/visual-studio-code)
+
+You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
+
+1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
+
+    :::image type="content" source="./get-started-app-chat-private-endpoints/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+
+> [!TIP]
+> Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
+
+---
+
+## Get help
+
+This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main#troubleshooting).
+
+If your issue isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-demo/issues).
+
+## Next step
+
+* [Enterprise chat app GitHub repository](https://github.com/Azure-Samples/azure-search-openai-demo)
+* [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat) best practice solution architecture
+* [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
