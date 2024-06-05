@@ -38,7 +38,7 @@ Instance count/max replicas : 1
 CPU count         : 1
 Memory size(GB)   : 2
 Confirm to save all the above configurations (Y/n):
-[INFO] Configurations are saved to: /home/user/ms-identity-java-spring-tutorial/1-Authentication/sign-in/pom.    xml
+[INFO] Configurations are saved to: /home/user/ms-identity-msal-java-samples/4-spring-web-app/1-Authentication/sign-in/pom.    xml
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------

@@ -78,12 +78,11 @@ Use the following grid to identify potential destinations for your application t
 
 | Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓                              | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Spring<br>Apps | Azure Container Apps | AKS           | Virtual<br>Machines |
 |-------------------------------------------------------------------------------------|---------------------------|--------------------------|-----------------------------|-------------------------|----------------------|---------------|---------------------|
-| Spring Boot / JAR applications                                                      |                           |                          |                             | &#x2714;                |                      |               |                     |
-| Spring Cloud applications                                                           |                           |                          |                             | &#x2714;                | &#x2714;             | &#x2714;      | &#x2714;            |
-| Web applications                                                                    |                           | &#x2714;                 | &#x2714;                    | &#x2714;                | &#x2714;             | &#x2714;      | &#x2714;            |
-| Java EE applications                                                                |                           |                          | &#x2714;                    |                         |                      | &#x2714;      | &#x2714;            |
+| Spring Boot / JAR applications | &#x2714; |   |   | &#x2714; | &#x2714; | &#x2714; | &#x2714;  |
+| Spring Cloud applications      |  &#x2714; |   | &#x2714;  | &#x2714;  | &#x2714; | &#x2714; | &#x2714; |
+| Web applications (WAR)                                                                   |                           | &#x2714;                 | &#x2714;                    |                 | &#x2714;             | &#x2714;      | &#x2714;            |
+| Java EE applications (WAR \| EAR)                                                               |                           |                          | &#x2714;                    |                         |  &#x2714;                    | &#x2714;      | &#x2714;            |
 | Commercial application servers<br>(such as Oracle WebLogic Server or IBM WebSphere) |                           |                          |                             |                         | &#x2714;             | &#x2714;      | &#x2714;            |
-| Long-term persistence on local filesystem                                           | &#x2714;                  | &#x2714;                 | &#x2714;                    |                         |                      | &#x2714;      | &#x2714;            |
 | Application server-level clustering                                                 |                           |                          | &#x2714;                    |                         |                      | &#x2714;      | &#x2714;            |
 | Batch / scheduled jobs                                                              |                           |                          |                             | &#x2714;                | &#x2714;             | &#x2714;      | &#x2714;            |
 | VNet Integration/Hybrid Connectivity                                                | &#x2714;                  | &#x2714;                 | &#x2714;                    | &#x2714;                | &#x2714;             | &#x2714;      | &#x2714;            |
@@ -111,7 +110,7 @@ Tasks indicated with ![Azure][1] are managed entirely or mostly by Azure. Your t
 | Detecting and restarting failed instances                                   | ![Azure][1]    | ![Azure][1]             | ![Azure][1]                | ![Azure][1]             | &#x1F449;           |
 | Implementing draining and rolling restart for updates                       | ![Azure][1]    | ![Azure][1]             | ![Azure][1]                | ![Azure][1]             | &#x1F449;           |
 | Infrastructure management                                                   | ![Azure][1]    | ![Azure][1]             | &#x1F449;                  | &#x1F449;               | &#x1F449;           |
-| Monitoring and alert management                                             | &#x1F449;      | &#x1F449;               | &#x1F449;                  | &#x1F449;               |                     |
+| Monitoring and alert management                                             | &#x1F449;      | &#x1F449;               | &#x1F449;                  | &#x1F449;               |  &#x1F449;                     |
 
 <sup>1</sup> Some security updates might require node reboots, which aren't done automatically. For more information, see [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](/azure/aks/node-updates-kured).
 
