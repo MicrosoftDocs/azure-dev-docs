@@ -13,11 +13,11 @@ The following sections show you how to set up the sample application.
 To clone the sample, open a Bash window and use the following command:
 
 ```bash
-git clone https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication.git
-cd 3-Authorization-II/roles
+git clone https://github.com/Azure-Samples/ms-identity-msal-java-samples.git
+cd 3-java-servlet-web-app/3-Authorization-II/roles
 ```
 
-Alternatively, navigate to the [ms-identity-java-servlet-webapp-authentication](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication) repository, then download it as a *.zip* file and extract it to your hard drive.
+Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a *.zip* file and extract it to your hard drive.
 
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
@@ -106,7 +106,7 @@ Use the following steps to configure the app:
 
 1. Open the project in your IDE.
 
-1. Open the [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/3-Authorization-II/roles/src/main/resources/authentication.properties) file.
+1. Open the [authentication.properties](https://github.com/Azure-Samples/ms-identity-msal-java-samples/blob/main/3-java-servlet-web-app/3-Authorization-II/roles/src/main/resources/authentication.properties) file.
 
 1. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with your Microsoft Entra ID tenant ID.
 

@@ -34,12 +34,11 @@ The following sections show you how to set up the sample application.
 To clone the sample, open a Bash window and use the following command:
 
 ```bash
-git clone https://github.com/Azure-Samples/ms-identity-java-spring-tutorial.git
-cd ms-identity-java-spring-tutorial
-cd 2-Authorization-I/call-graph
+git clone https://github.com/Azure-Samples/ms-identity-msal-java-samples.git
+cd 4-spring-web-app/2-Authorization-I/call-graph
 ```
 
-Alternatively, navigate to the [ms-identity-java-spring-tutorial](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial) repository, then download it as a *.zip* file and extract it to your hard drive.
+Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a *.zip* file and extract it to your hard drive.
 
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
@@ -207,7 +206,7 @@ The following table shows the contents of the sample project folder:
 
 ### ID token claims
 
-To extract token details, the app makes use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping, as shown in the following example. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for the full details of how this app makes use of ID token claims.
+To extract token details, the app makes use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping, as shown in the following example. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-msal-java-samples/blob/main/4-spring-web-app/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for the full details of how this app makes use of ID token claims.
 
 ```java
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
@@ -250,7 +249,7 @@ The app has some simple logic in the UI template pages for determining content t
 
 ### Protect routes with AADWebSecurityConfigurerAdapter
 
-By default, the app protects the **ID Token Details** and **Call Graph** pages so that only signed-in users can access them. The app configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, you can extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
+By default, the app protects the **ID Token Details** and **Call Graph** pages so that only signed-in users can access them. The app configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, you can extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-msal-java-samples/blob/main/4-spring-web-app/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
 
 ```java
 @EnableWebSecurity
