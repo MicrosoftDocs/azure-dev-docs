@@ -224,9 +224,15 @@ Change the deployment configuration to secure the chat app for private access.
 1. Open the [Azure portal](https://portal.azure.com) and search for your resource group. 
 1. Select your resource group to see the resources within it. 
 1. Find the VM resource and select it. 
-1. Select **Connect -> Bastion**. 
+1. Select **Connect -> Bastion**.
+
+    :::image type="content" source="./media/get-started-app-chat-private-endpoints/azure-portal-virtual-machine-bastion.png" lightbox="./media/get-started-app-chat-private-endpoints/azure-portal-virtual-machine-bastion.png" alt-text="Screenshot of Azure portal for the Virtual Machine with the Connect page displayed":::
+
 1. Select **VM Password** for Authentication Type.
 1. Enter your user name and password and select **Connect**.
-1. When the RDP session to the Windows server opens, find the **Edge** browser.
-1. Paste the chat endpoint into the browser to use the chat app.
+1. When the RDP session to the Windows server opens, use the windows search box on the tool bar to search for **Edge** browser.
+1. In the Edge browser, paste the chat endpoint into the browser to open the chat app.
 1. When the chat app displays, use one of the cards to get an answer. 
+1. To validate that only the VM has access, open a browser on your host computer (not the VM) and paste in the same URL.
+
+    :::image type="content" source="./media/get-started-app-chat-private-endpoints/edge-browser-error-secured-endpoint.png" alt-text="Screenshot of Edge browser on host machine getting a 403 Forbidden error because it doesn't have access to chat app inside virtual network."::: 
