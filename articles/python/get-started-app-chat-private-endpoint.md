@@ -95,11 +95,11 @@ Begin now with a development environment that has all the dependencies installed
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)
 
-1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**
+1. On the **Create codespace** page, review the Codespace configuration settings and then select **Create new codespace**
 
     :::image type="content" source="./media/get-started-app-chat-private-endpoints/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
-1. Wait for the codespace to start. This startup process can take a few minutes.
+1. Wait for the Codespace to start. This startup process can take a few minutes.
 
 1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
 
@@ -155,8 +155,8 @@ This solution configures and deploys the infrastructure based on custom settings
 |--|----|
 |`AZURE_PUBLIC_NETWORK_ACCESS`|Controls the value of public network access on supported Azure resources. Valid values are `Enabled` or `Disabled`.|
 |`AZURE_USE_PRIVATE_ENDPOINT`|Controls deployment of private endpoints, which connect Azure resources to the virtual network. `TRUE` means private endpoints are deployed for connectivity even when AZURE_PUBLIC_NETWORK_ACCESS is 'Disabled'.|
-|`AZURE_PROVISION_VM`|Controls deployment of a [virtual machine](/azure/virtual-machines/overview) and [Azure Bastion](/azure/bastion/bastion-overview). Azure Bastion allows you to securely connect to the virtual machine, without being connected to the virtual network. Since the virtual machine is connected to the virtual network, you're able to access the chat app. You must set `AZURE_VM_USERNAME` and `AZURE_VM_PASSWORD` to provision the built-in administrator account with the virtual machine so you can sign in through Azure Bastion.|
-|`AZURE_VM_USERNAME`| Sets the VM user name.|
+|`AZURE_PROVISION_VM`|Controls deployment of a [virtual machine](/azure/virtual-machines/overview) and [Azure Bastion](/azure/bastion/bastion-overview). Azure Bastion allows you to securely connect to the virtual machine, without connecting to the virtual network. Since the virtual machine is connected to the virtual network, you're able to access the chat app. You must set `AZURE_VM_USERNAME` and `AZURE_VM_PASSWORD` to provision the built-in administrator account with the virtual machine so you can sign in through Azure Bastion.|
+|`AZURE_VM_USERNAME`| Sets the VM username.|
 |`AZURE_VM_PASSWORD`| Sets the VM password.|
 
 ## Deploy the chat app
@@ -171,13 +171,13 @@ The first deployment creates the resources and provides a publicly accessible en
 
     When asked for an environment name, remember that the environment name is used to create the resource group. Enter a meaningful name. If you are on a team or in an organization, include your name: `morgan-chat-private-endpoints`. Make note of the environment name displayed in the console. You need it to find the resources in the Azure portal later.
 
-1. Run the following command to include provisioning the VPN resources. Remember the deployment doesn't restrict the access until the second deployment.
+1. Run the following command to include provisioning the VPN resources. Remember the deployment doesn't restrict access until the second deployment.
 
     ```console
     azd env set AZURE_USE_PRIVATE_ENDPOINT true
     ```
 
-    Provisioning resources is the most time consuming part of the deployment process. 
+    Provisioning resources is the most time-consuming part of the deployment process. 
 
 1. Deploy the solution with the following command:
 
@@ -201,7 +201,7 @@ Change the deployment configuration to secure the chat app for private access.
     azd env set AZURE_PUBLIC_NETWORK_ACCESS Disabled
     ```
 
-1. Run the following command to configure the VM user name using the correct [username requirements](/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-). Replace `<MY-USER-NAME>` with the user name.
+1. Run the following command to configure the VM username using the correct [username requirements](/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-). Replace `<MY-USER-NAME>` with the username.
 
     ```console
     azd env set AZURE_VM_USERNAME <MY-USER-NAME>
@@ -229,7 +229,7 @@ Change the deployment configuration to secure the chat app for private access.
     :::image type="content" source="./media/get-started-app-chat-private-endpoints/azure-portal-virtual-machine-bastion.png" lightbox="./media/get-started-app-chat-private-endpoints/azure-portal-virtual-machine-bastion.png" alt-text="Screenshot of Azure portal for the Virtual Machine with the Connect page displayed":::
 
 1. Select **VM Password** for Authentication Type.
-1. Enter your user name and password and select **Connect**.
+1. Enter your username and password and select **Connect**.
 1. When the RDP session to the Windows server opens, use the windows search box on the tool bar to search for `Edge` browser.
 1. In the Microsoft Edge browser, paste the chat endpoint into the browser to open the chat app.
 1. When the chat app displays, use one of the cards to get an answer. 
@@ -255,7 +255,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
     :::image type="content" source="./media/get-started-app-chat-private-endpoints/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
-1. Open the context menu for the codespace and then select **Delete**.
+1. Open the context menu for the Codespace and then select **Delete**.
 
     :::image type="content" source="./media/get-started-app-chat-private-endpoints/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
 
