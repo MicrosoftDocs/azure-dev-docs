@@ -206,7 +206,7 @@ If you get an error about your tenant's conditional access policy, you need a se
     ```
 
 > [!NOTE]
-> If you have a conditional access policy on your user tenant, you need to specify a second tenant. These instructions are in the troubleshooting section.
+> If you have a conditional access policy on your user tenant, you need to [specify a authentication tenant](#provide-authentication-tenant).
 
 ## Deploy chat app to Azure
 
@@ -453,7 +453,7 @@ When your authentication is in a separate tenant from your hosting application, 
     azd up
     ``` 
 
-## Next steps
+## Next step
 
 * [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat) best practice solution architecture
 * [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
