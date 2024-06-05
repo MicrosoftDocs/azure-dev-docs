@@ -233,6 +233,9 @@ Change the deployment configuration to secure the chat app for private access.
 1. When the RDP session to the Windows server opens, use the windows search box on the tool bar to search for **Edge** browser.
 1. In the Edge browser, paste the chat endpoint into the browser to open the chat app.
 1. When the chat app displays, use one of the cards to get an answer. 
+
+    :::image type="content" source="./media/get-started-app-chat-private-endpoints/virtual-machine-edge-browser-chat-app.png" lightbox="./media/get-started-app-chat-private-endpoints/virtual-machine-edge-browser-chat-app" alt-text="Screenshot of virtual machine with Edge browser displaying chap app with answer.":::
+
 1. To validate that only the VM has access, open a browser on your host computer (not the VM) and paste in the same URL.
 
     :::image type="content" source="./media/get-started-app-chat-private-endpoints/edge-browser-error-secured-endpoint.png" alt-text="Screenshot of Edge browser on host machine getting a 403 Forbidden error because it doesn't have access to chat app inside virtual network."::: 
