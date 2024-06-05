@@ -60,7 +60,7 @@ The solution provides boolean environment variables to turn on features necessar
 |`AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS`|When set to `true`, this setting allows authenticated users to search on documents that have no access controls assigned, even when access control is required. This parameter should only be used when `AZURE_ENFORCE_ACCESS_CONTROL` is enabled.|
 |`AZURE_ENABLE_UNAUTHENTICATED_ACCESS`|When set to `true`, this setting allows unauthenticated users to use the app, even when access control is enforced. This parameter should only be used when `AZURE_ENFORCE_ACCESS_CONTROL` is enabled.|
 
-Use the following sections to understand the security profiles supported in this sample. This article configures the **Entreprise profile**. 
+Use the following sections to understand the security profiles supported in this sample. This article configures the **Enterprise profile**. 
 
 ### Enterprise: Required account + document filter
 
@@ -206,7 +206,7 @@ If you get an error about your tenant's conditional access policy, you need a se
     ```
 
 > [!NOTE]
-> If you have a conditional access policy on your user tenant, you need to [specify a authentication tenant](#provide-authentication-tenant).
+> If you have a conditional access policy on your user tenant, you need to [specify an authentication tenant](#provide-authentication-tenant).
 
 ## Deploy chat app to Azure
 
@@ -300,7 +300,7 @@ Once this information is known, update the Azure AI Search index `oids` field fo
     |Parameter|Purpose|
     |--|--|
     |-v|Verbose output.|
-    |--acl-type|Group or user object IDs (oids): `oids`|
+    |--acl-type|Group or user object IDs (OIDs): `oids`|
     |--acl-action|**Add** to a Search index field. Other options include `remove`, `remove_all`, `list`. |
     |--acl|Group or user's `USER_OBJECT_ID`|
     |--url|The file's location in Azure storage, such as `https://MYSTORAGENAME.blob.core.windows.net/content/role_library.pdf`. Don't surround URL with quotes in the CLI command.|
@@ -453,7 +453,7 @@ When your authentication is in a separate tenant from your hosting application, 
     azd up
     ``` 
 
-## Next step
+## Next steps
 
 * [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat) best practice solution architecture
 * [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
