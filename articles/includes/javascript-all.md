@@ -202,7 +202,7 @@
 | Resource Management - Device Provisioning Services | npm [5.1.0](https://www.npmjs.com/package/@azure/arm-deviceprovisioningservices/v/5.1.0)<br>npm [6.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-deviceprovisioningservices/v/6.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-deviceprovisioningservices-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/deviceprovisioningservices/arm-deviceprovisioningservices) |
 | Resource Management - Device Update | npm [1.2.0](https://www.npmjs.com/package/@azure/arm-deviceupdate/v/1.2.0) | [docs](/javascript/api/overview/azure/arm-deviceupdate-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-deviceupdate_1.2.0/sdk/deviceupdate/arm-deviceupdate/) |
 | Resource Management - Deviceregistry | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-deviceregistry/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-deviceregistry-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-deviceregistry_1.0.0-beta.1/sdk/deviceregistry/arm-deviceregistry/) |
-| Resource Management - Devopsinfrastructure | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-devopsinfrastructure/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-devopsinfrastructure_1.0.0-beta.1/sdk/devopsinfrastructure/arm-devopsinfrastructure/) |
+| Resource Management - Devopsinfrastructure | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-devopsinfrastructure/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-devopsinfrastructure-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-devopsinfrastructure_1.0.0-beta.1/sdk/devopsinfrastructure/arm-devopsinfrastructure/) |
 | Resource Management - DevTest Labs | npm [4.1.0](https://www.npmjs.com/package/@azure/arm-devtestlabs/v/4.1.0) | [docs](/javascript/api/overview/azure/arm-devtestlabs-readme) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/devtestlabs/arm-devtestlabs) |
 | Resource Management - Digital Twins | npm [3.3.0](https://www.npmjs.com/package/@azure/arm-digitaltwins/v/3.3.0) | [docs](/javascript/api/overview/azure/arm-digitaltwins-readme) | GitHub [3.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/digitaltwins/arm-digitaltwins) |
 | Resource Management - DNS | npm [5.1.0](https://www.npmjs.com/package/@azure/arm-dns/v/5.1.0) | [docs](/javascript/api/overview/azure/arm-dns-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/dns/arm-dns) |
@@ -232,7 +232,7 @@
 | Resource Management - Hybrid Kubernetes | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-hybridkubernetes/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-hybridkubernetes-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridkubernetes_2.1.0/sdk/hybridkubernetes/arm-hybridkubernetes/) |
 | Resource Management - Hybrid Network | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-hybridnetwork/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-hybridnetwork-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hybridnetwork_1.0.0-beta.1/sdk/hybridnetwork/arm-hybridnetwork/) |
 | Resource Management - Image Builder | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-imagebuilder/v/4.0.0) | [docs](/javascript/api/overview/azure/arm-imagebuilder-readme) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-imagebuilder_4.0.0/sdk/imagebuilder/arm-imagebuilder/) |
-| Resource Management - Informaticadatamanagement | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-informaticadatamanagement/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-informaticadatamanagement_1.0.0-beta.1/sdk/informatica/arm-informaticadatamanagement/) |
+| Resource Management - Informaticadatamanagement | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-informaticadatamanagement/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-informaticadatamanagement-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-informaticadatamanagement_1.0.0-beta.1/sdk/informatica/arm-informaticadatamanagement/) |
 | Resource Management - IoT Central | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-iotcentral/v/6.0.0)<br>npm [7.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-iotcentral/v/7.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-iotcentral-readme) | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iotcentral/arm-iotcentral) |
 | Resource Management - IoT Firmware Defense | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-iotfirmwaredefense/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-iotfirmwaredefense-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-iotfirmwaredefense_1.0.0/sdk/iotfirmwaredefense/arm-iotfirmwaredefense/) |
 | Resource Management - IoT Hub | npm [6.3.0](https://www.npmjs.com/package/@azure/arm-iothub/v/6.3.0) | [docs](/javascript/api/overview/azure/arm-iothub-readme) | GitHub [6.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub) |
@@ -385,7 +385,7 @@
 | Batch | npm [11.1.0](https://www.npmjs.com/package/@azure/batch/v/11.1.0) |  | GitHub [11.1.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
 | Communication Calling | npm [1.25.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.25.1) |  | GitHub [1.25.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
-| Communication Signaling | npm [1.0.0-beta.26](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.26) |  | GitHub [1.0.0-beta.26](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| Communication Signaling | npm [1.0.0-beta.27](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.27) |  | GitHub [1.0.0-beta.27](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Computer Vision | npm [8.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.2.0) |  |  |
 | Content Safety | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  |  |
 | Core - Client - AMQP Common | npm [1.0.0-preview.17](https://www.npmjs.com/package/@azure/amqp-common/v/1.0.0-preview.17) |  | GitHub [1.0.0-preview.17](https://github.com/Azure/azure-sdk-for-js/tree/@azure/amqp-common_1.0.0-preview.17/sdk/core/amqp-common/) |
@@ -452,7 +452,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240602.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240602.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240604.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240604.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -502,7 +502,7 @@
 | @azure-tools/rlc-common | npm [0.29.0](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.29.0) |  |  |
 | @azure-tools/sdk-generation-lib | npm [1.0.5](https://www.npmjs.com/package/@azure-tools/sdk-generation-lib/v/1.0.5) |  |  |
 | @azure-tools/test-credential | npm [1.1.0](https://www.npmjs.com/package/@azure-tools/test-credential/v/1.1.0) |  |  |
-| @azure-tools/test-recorder | npm [3.5.0](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.5.0) |  |  |
+| @azure-tools/test-recorder | npm [3.5.1](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.5.1) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.2.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.2.0) |  |  |
 | @azure/static-web-apps-cli | npm [1.1.8](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/1.1.8) |  |  |

@@ -34,7 +34,6 @@ The following table shows the contents of the sample project folder:
 
 | File/folder                                                     | Description                                                                                 |
 |-----------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| *AppCreationScripts/*                                           | Scripts to automatically configure Microsoft Entra ID app registrations.                    |
 | *src/main/java/com/microsoft/azuresamples/msal4j/groupswebapp/* | This directory contains the classes that define the app's backend business logic.           |
 | *src/main/java/com/microsoft/azuresamples/msal4j/authservlets/* | This directory contains the classes that are used for sign in and sign out endpoints.       |
 | *____Servlet.java*                                              | All of the endpoints available are defined in *.java* classes ending in *____Servlet.java*. |
@@ -68,7 +67,7 @@ The object ID of the security groups the signed-in user is member of is returned
 
 To ensure that the token size doesn't exceed HTTP header size limits, the Microsoft identity platform limits the number of object IDs that it includes in the groups claim.
 
-The overage limit is 150 for SAML tokens, 200 for JWT tokens, and 6 for Single Page applications. If a user is member of more groups than the overage limit, then the Microsoft identity platform does not emit the group IDs in the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the [Microsoft Graph API](https://graph.microsoft.com) to retrieve the user's group membership, as shown in the following example:
+The overage limit is 150 for SAML tokens, 200 for JWT tokens, and 6 for Single Page applications. If a user is member of more groups than the overage limit, then the Microsoft identity platform doesn't emit the group IDs in the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the [Microsoft Graph API](https://graph.microsoft.com) to retrieve the user's group membership, as shown in the following example:
 
 ```json
 {
@@ -96,9 +95,9 @@ To create the overage scenario, you can use the following steps:
 
 1. We strongly advise that you use the group filtering feature, if possible, to avoid running into group overages. For more information, see the section [Configure your application to receive the groups claim values from a filtered set of groups a user might be assigned to](#configure-your-application-to-receive-the-groups-claim-values-from-a-filtered-set-of-groups-a-user-might-be-assigned-to).
 
-1. In case you cannot avoid running into group overage, we suggest you use the following steps to process the groups claim in your token:
+1. In case you can't avoid running into group overage, we suggest you use the following steps to process the groups claim in your token:
 
-   1. Check for the claim `_claim_names` with one of the values being *groups*. This indicates overage.
+   1. Check for the claim `_claim_names` with one of the values being *groups*. This claim indicates overage.
    1. If found, make a call to the endpoint specified in `_claim_sources` to fetch user's groups.
    1. If none found, look into the *groups*  claim for user's groups.
 
@@ -149,9 +148,9 @@ The following steps provide a walkthrough of the app's functionality:
    - `REDIRECT_URI`: Where Microsoft Entra redirects the browser - along with the auth code - after collecting user credentials. It must match the redirect URI in the Microsoft Entra ID app registration in the [Azure portal](https://portal.azure.com).
    - `SCOPES`: [Scopes](/entra/identity-platform/access-tokens#scopes) are permissions requested by the application.
      - Normally, the three scopes `openid profile offline_access` suffice for receiving an ID token response.
-     - Full list of scopes requested by the app can be found in the *authentication.properties* file. You can add more scopes like User.Read and so on.
+     - Full list of scopes requested by the app can be found in the *authentication.properties* file. You can add more scopes, such as `User.Read`.
 
-1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to the app's redirect endpoint. A valid request to this endpoint contain an [authorization code](/entra/identity-platform/v2-oauth2-auth-code-flow).
+1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to the app's redirect endpoint. A valid request to this endpoint contains an [authorization code](/entra/identity-platform/v2-oauth2-auth-code-flow).
 
 1. The `ConfidentialClientApplication` instance then exchanges this authorization code for an ID token and access token from Microsoft Entra ID.
 
@@ -193,7 +192,7 @@ The following steps provide a walkthrough of the app's functionality:
 
 1. After previous step, you can extract group memberships by calling `context.getGroups()` using an instance of `IdentityContextData`.
 
-1. If the user is a member of too many groups - more than 200 - a call to `context.getGroups()` might have been empty if it weren't for the call to `handleGroupsOverage()`. Meanwhile, `context.getGroupsOverage()` returns `true`, signalling that an overage has occurred, and that getting the full list of groups requires a call to Microsoft Graph. See the `handleGroupsOverage()` method in *AuthHelper.java* to see how this application uses `context.setGroups()` when there's an overage.
+1. If the user is a member of too many groups - more than 200 - a call to `context.getGroups()` might be empty if not for the call to `handleGroupsOverage()`. Meanwhile, `context.getGroupsOverage()` returns `true`, signaling that an overage occurred, and that getting the full list of groups requires a call to Microsoft Graph. See the `handleGroupsOverage()` method in *AuthHelper.java* to see how this application uses `context.setGroups()` when there's an overage.
 
 ### Protect the routes
 

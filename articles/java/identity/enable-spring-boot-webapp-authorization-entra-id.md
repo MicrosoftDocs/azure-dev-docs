@@ -34,50 +34,18 @@ The following sections show you how to set up the sample application.
 To clone the sample, open a Bash window and use the following command:
 
 ```bash
-git clone https://github.com/Azure-Samples/ms-identity-java-spring-tutorial.git
-cd ms-identity-java-spring-tutorial
-cd 2-Authorization-I/call-graph
+git clone https://github.com/Azure-Samples/ms-identity-msal-java-samples.git
+cd 4-spring-web-app/2-Authorization-I/call-graph
 ```
 
-Alternatively, navigate to the [ms-identity-java-spring-tutorial](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial) repository, then download it as a *.zip* file and extract it to your hard drive.
+Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a *.zip* file and extract it to your hard drive.
 
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
 
-### Register the sample applications with your Azure Active Directory tenant
+### Register the sample applications with your Microsoft Entra ID tenant
 
-There's one project in this sample. To register the app on the Azure portal, you can either follow manual configuration steps or use a PowerShell script. The script does the following tasks:
-
-- Creates the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
-- Modifies the project configuration files.
-
-### [Use PowerShell](#tab/PowerShell)
-
-Use the following steps to run the PowerShell script:
-
-1. On Windows, run PowerShell as administrator and navigate to the root of the cloned directory.
-
-1. If you're new to Azure AD PowerShell, see [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/AppCreationScripts/AppCreationScripts.md) in the source repository to ensure that your environment is prepared correctly.
-
-1. Use the following command to set the execution policy for PowerShell:
-
-   ```powershell
-   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-   ```
-
-1. Use the following commands to run the configuration script:
-
-   ```powershell
-   cd .\AppCreationScripts\
-   .\Configure.ps1
-   ```
-
-   > [!NOTE]
-   > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/AppCreationScripts/AppCreationScripts.md). The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
-
-### [Use manual steps](#tab/Manual)
-
-The following sections show you how to register the app manually.
+There's one project in this sample. The following sections show you how to register the app using the Azure portal.
 
 #### Choose the Microsoft Entra ID tenant where you want to create your applications
 
@@ -123,7 +91,7 @@ To register the app, use the following steps:
 
 1. In the **Commonly used Microsoft APIs** section, select **Microsoft Graph**.
 
-1. In the **Delegated permissions** section, select the **User.Read** in the list. Use the search box if necessary.
+1. In the **Delegated permissions** section, select **User.Read** from the list. Use the search box if necessary.
 
 1. Select **Add permissions**.
 
@@ -224,7 +192,6 @@ The following table shows the contents of the sample project folder:
 
 | File/folder                                                                   | Description                                                                               |
 |-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| *AppCreationScripts/*                                                         | Scripts to automatically configure Microsoft Entra ID app registrations.                  |
 | *pom.xml*                                                                     | Application dependencies.                                                                 |
 | *src/main/resources/templates/*                                               | Thymeleaf Templates for UI.                                                               |
 | *src/main/resources/application.yml*                                          | Application and Microsoft Entra ID Boot Starter Library Configuration.                    |
@@ -239,7 +206,7 @@ The following table shows the contents of the sample project folder:
 
 ### ID token claims
 
-To extract token details, the app makes use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping, as shown in the following example. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for the full details of how this app makes use of ID token claims.
+To extract token details, the app makes use of Spring Security's `AuthenticationPrincipal` and `OidcUser` object in a request mapping, as shown in the following example. See the [Sample Controller](https://github.com/Azure-Samples/ms-identity-msal-java-samples/blob/main/4-spring-web-app/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SampleController.java) for the full details of how this app makes use of ID token claims.
 
 ```java
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
@@ -253,7 +220,7 @@ public String tokenDetails(@AuthenticationPrincipal OidcUser principal) {
 
 ### Sign-in and sign-out links
 
-For sign-in, the app makes a request to the Azure Active Directory sign-in endpoint automatically configured by Microsoft Entra ID Spring Boot Starter client library for Java, as shown in the following example:
+For sign-in, the app makes a request to the Microsoft Entra ID sign-in endpoint automatically configured by Microsoft Entra ID Spring Boot Starter client library for Java, as shown in the following example:
 
 ```html
 <a class="btn btn-success" href="/oauth2/authorization/azure">Sign In</a>
@@ -282,7 +249,7 @@ The app has some simple logic in the UI template pages for determining content t
 
 ### Protect routes with AADWebSecurityConfigurerAdapter
 
-By default, the app protects the **ID Token Details** and **Call Graph** pages so that only signed-in users can access them. The app configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, you can extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/blob/main/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
+By default, the app protects the **ID Token Details** and **Call Graph** pages so that only signed-in users can access them. The app configures these routes from the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, you can extend `AADWebSecurityConfigurationAdapter` in one of your classes. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-msal-java-samples/blob/main/4-spring-web-app/2-Authorization-I/call-graph/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
 
 ```java
 @EnableWebSecurity
@@ -344,13 +311,13 @@ Using `GraphServiceClient.me().buildRequest().get()`, a request is built and mad
 
 ## More information
 
-- [Microsoft identity platform (Azure Active Directory for developers)](/entra/identity-platform/)
+- [Microsoft identity platform documentation](/entra/identity-platform/)
 - [Overview of Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview)
 - [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app)
 - [Quickstart: Configure a client application to access web APIs](/entra/identity-platform/quickstart-configure-app-access-web-apis)
 - [Understanding Microsoft Entra ID application consent experiences](/entra/identity-platform/application-consent-experience)
 - [Understand user and admin consent](/entra/identity-platform/howto-convert-app-to-be-multi-tenant#understand-user-and-admin-consent-and-make-appropriate-code-changes)
-- [Application and service principal objects in Azure Active Directory](/entra/identity-platform/app-objects-and-service-principals)
+- [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals)
 - [National Clouds](/entra/identity-platform/authentication-national-cloud#app-registration-endpoints)
 - [MSAL code samples](/entra/identity-platform/sample-v2-code?tabs=framework#java)
 - [Azure Active Directory Spring Boot Starter client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory)
