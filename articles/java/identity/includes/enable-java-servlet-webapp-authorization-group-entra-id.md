@@ -17,7 +17,7 @@ git clone https://github.com/Azure-Samples/ms-identity-msal-java-samples.git
 cd 3-java-servlet-web-app/3-Authorization-II/groups
 ```
 
-Alternatively, navigate to the [ms-identity-msal-java-samples](hhttps://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a *.zip* file and extract it to your hard drive.
+Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a *.zip* file and extract it to your hard drive.
 
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
