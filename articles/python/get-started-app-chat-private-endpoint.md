@@ -1,6 +1,6 @@
 ---
 title: "Get started with chat private endpoints"
-description: "Secure the chat app with Azure VPN and access the chat app with a secured Azure VM. "
+description: "Secure the chat app with a virtual network (VNET) and access the chat app with a secured Azure VM. "
 ms.date: 06/03/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
@@ -10,14 +10,13 @@ ms.custom: devx-track-python, devx-track-python-ai, devx-track-extended-azdevcli
 
 # Get started with chat private endpoints for Python
 
-This article shows you how to deploy and run the [Enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo) accessible by private endpoints. Use a Bastion RDP from the Azure portal to access the virtual machine. Use a web browser on the virtual machine to access the chat app.
+This article shows you how to deploy and run the [Enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo) accessible by private endpoints. Create a virtual machine, then connect via Azure Bastion from the Azure portal to access the virtual machine. Use a web browser on the virtual machine to access the chat app.
 
 This sample implements a chat app using Python, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about employee benefits at a fictitious company. The app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations.
 
 By following the instructions in this article, you will:
 
 - Deploy a chat app to Azure for public access in a web browser.
-- Configure private endpoints.
 - Redeploy chat app with private endpoints.
 - Access chat app through a VM with Bastion.
 
@@ -29,7 +28,7 @@ The default deployment creates a chat app with public endpoints.
 
 :::image type="content" source="media/get-started-app-chat-private-endpoints/simple-architecture-diagram-chat-app.png" alt-text="Diagram showing network architecture of basic RAG chat app.":::
 
-For chat apps enriched with private data, you should secure access to your chat app. This article shows one solution: use a virtual private network (VPN). Deploy the sample with private connectivity that uses a combination of VNETs and Private Endpoints. You now have a problem: You can't access the chat app anymore because your client browser isn't in the virtual network. To fix this, you create a virtual machine inside the virtual network. 
+For chat apps enriched with private data, securing access to your chat app is crucial. This article presents a solution using a virtual network (VNET). Deploying the sample with a virtual network introduces a problem. You can't access the chat app anymore because your client browser isn't in the virtual network. To resolve this issue, you need to create a virtual machine inside the virtual network.
 
 :::image type="content" source="media/get-started-app-chat-private-endpoints/diagram-vpn-subnets.png" alt-text="Diagram showing network architecture using Azure Bastion to connect to private virtual machines using the Azure portal.":::
 
@@ -39,9 +38,7 @@ Now that the virtual machine is in the same virtual network, use Azure Bastion t
 
 ## Deployment steps
 
-This article deploys the solution twice. The first deployment creates all the chat resources, including the virtual network. This means the second deployment goes quicker because it doesn't need to create the resources again. The first deploy has a publicly accessible chat app which allows you to test the chat app from any browser.
-
-The second deployment secures the chat app. You test this access by connecting to the VM with RDP then use the VM's browser to access the chat app.
+It's recommended to deploy the solution twice, once with public access to validate the chat app is working correctly, and again with private access to secure your chat app using a virtual network.
 
 ## Prerequisites
 
@@ -154,10 +151,13 @@ This solution configures and deploys the infrastructure based on custom settings
 |Setting|Description|
 |--|----|
 |`AZURE_PUBLIC_NETWORK_ACCESS`|Controls the value of public network access on supported Azure resources. Valid values are `Enabled` or `Disabled`.|
-|`AZURE_USE_PRIVATE_ENDPOINT`|Controls deployment of private endpoints, which connect Azure resources to the virtual network. `TRUE` means private endpoints are deployed for connectivity even when AZURE_PUBLIC_NETWORK_ACCESS is 'Disabled'.|
+|`AZURE_USE_PRIVATE_ENDPOINT`|Controls deployment of private endpoints, which connect Azure resources to the virtual network. `TRUE` means private endpoints are deployed for connectivity.|
 |`AZURE_PROVISION_VM`|Controls deployment of a [virtual machine](/azure/virtual-machines/overview) and [Azure Bastion](/azure/bastion/bastion-overview). Azure Bastion allows you to securely connect to the virtual machine, without connecting to the virtual network. Since the virtual machine is connected to the virtual network, you're able to access the chat app. You must set `AZURE_VM_USERNAME` and `AZURE_VM_PASSWORD` to provision the built-in administrator account with the virtual machine so you can sign in through Azure Bastion.|
 |`AZURE_VM_USERNAME`| Sets the VM username.|
 |`AZURE_VM_PASSWORD`| Sets the VM password.|
+
+> [!CAUTION]
+> This solution stores the unencrypted password in the local Azure Developer CLI environment. 
 
 ## Deploy the chat app
 
@@ -171,13 +171,11 @@ The first deployment creates the resources and provides a publicly accessible en
 
     When asked for an environment name, remember that the environment name is used to create the resource group. Enter a meaningful name. If you are on a team or in an organization, include your name: `morgan-chat-private-endpoints`. Make note of the environment name displayed in the console. You need it to find the resources in the Azure portal later.
 
-1. Run the following command to include provisioning the VPN resources. Remember the deployment doesn't restrict access until the second deployment.
+1. Run the following command to include provisioning the virtual network resources. Remember the deployment doesn't restrict access until the second deployment.
 
     ```console
     azd env set AZURE_USE_PRIVATE_ENDPOINT true
     ```
-
-    Provisioning resources is the most time-consuming part of the deployment process. 
 
 1. Deploy the solution with the following command:
 
@@ -185,7 +183,7 @@ The first deployment creates the resources and provides a publicly accessible en
     azd up
     ```
 
-    Wait for the deployment to complete before continuing.
+    Provisioning resources is the most time-consuming part of the deployment process. Wait for the deployment to complete before continuing.
 
 1. At the end of the deployment process, the app endpoint is shown. Copy that endpoint into a browser to open the chat app. Select one of the questions on the cards then wait for the answer.
 
@@ -213,7 +211,7 @@ Change the deployment configuration to secure the chat app for private access.
     azd env set AZURE_VM_PASSWORD <MY-PASSWORD>
     ```
 
-1. Run the following command to redeploy the solution to secure the chat app to the VM.
+1. Run the following command to create the VM and change the resource configuration. This command doesn't redeploy the application code because that code hasn't changed.
 
     ```console
     azd provision
@@ -230,7 +228,7 @@ Change the deployment configuration to secure the chat app for private access.
 
 1. Select **VM Password** for Authentication Type.
 1. Enter your username and password and select **Connect**.
-1. When the RDP session to the Windows server opens, use the windows search box on the tool bar to search for `Edge` browser.
+1. When the RDP session to the Windows server opens, use the Windows search box on the tool bar to search for `Edge` browser.
 1. In the Microsoft Edge browser, paste the chat endpoint into the browser to open the chat app.
 1. When the chat app displays, use one of the cards to get an answer. 
 
