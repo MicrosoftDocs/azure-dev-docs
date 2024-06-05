@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-tr
 
 This tutorial shows the steps to install Red Hat JBoss Enterprise Application Platform (EAP) and configure a cluster in domain mode on Azure Virtual Machines (VMs), on Red Hat Enterprise Linux (RHEL).
 
-In this tutorial, you will learn how to do the following tasks:
+In this tutorial, you learn how to do the following tasks:
 
 > [!div class="checklist"]
 >
@@ -25,7 +25,7 @@ In this tutorial, you will learn how to do the following tasks:
 > - Expose the application to the public internet via Azure Application Gateway.
 > - Validate the successful configuration.
 
-If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy a JBoss EAP cluster on Red Hat Linux VMs using the Azure portal](../ee/jboss-eap-cluster-azure-vms.md).
+If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy a JBoss EAP cluster on Red Hat Linux VMs using the Azure portal](/azure/developer/java/ee/jboss-eap-cluster-azure-vms).
 
 If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing JBoss EAP on Azure solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
@@ -1069,4 +1069,4 @@ az group delete --name abc1110rg --yes --no-wait
 Continue to explore options to run JBoss EAP on Azure.
 
 > [!div class="nextstepaction"]
-> [Learn more about JBoss EAP on Azure](../ee/jboss-on-azure.md)
+> [Learn more about JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure)

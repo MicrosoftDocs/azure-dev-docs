@@ -1,6 +1,6 @@
 ---
 title: Manually deploy a Java application with JBoss EAP on an Azure Red Hat OpenShift cluster
-description: Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster.
+description: Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift cluster.
 author: KarlErickson
 ms.author: edburns
 ms.date: 05/29/2024
@@ -17,7 +17,7 @@ In this guide, you will learn how to:
 >
 > * Prepare a JBoss EAP application for OpenShift.
 > * Create an single database instance of Azure SQL Database.
-> * Deploy the application on an Azure Red Hat OpenShift 4 cluster by using JBoss Helm Charts and OpenShift Web Console
+> * Deploy the application on an Azure Red Hat OpenShift cluster by using JBoss Helm Charts and OpenShift Web Console
 
 The sample application is a stateful application that stores information in an HTTP session. It makes use of the JBoss EAP clustering capabilities and uses the following Jakarta EE and MicroProfile technologies:
 
@@ -26,7 +26,7 @@ The sample application is a stateful application that stores information in an H
 * Jakarta Persistence
 * MicroProfile Health
 
-This article is step-by-step manual guidance for running JBoss EAP app on an Azure Red Hat OpenShift 4 cluster. For a more automated solution that accelerates your journey to Azure Red Hat OpenShift 4 cluster, see [Quickstart: Deploy JBoss EAP on Azure Red Hat OpenShift using the Azure portal](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
+This article is step-by-step manual guidance for running JBoss EAP app on an Azure Red Hat OpenShift cluster. For a more automated solution that accelerates your journey to Azure Red Hat OpenShift cluster, see [Quickstart: Deploy JBoss EAP on Azure Red Hat OpenShift using the Azure portal](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
 If you're interested in providing feedback or working closely on your migration scenario with the engineering team developing JBoss EAP on Azure solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
@@ -373,4 +373,4 @@ You can learn more from references used in this guide:
 Continue to explore options to run JBoss EAP on Azure.
 
 > [!div class="nextstepaction"]
-> [Learn more about JBoss EAP on Azure](../ee/jboss-on-azure.md)
+> [Learn more about JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure)

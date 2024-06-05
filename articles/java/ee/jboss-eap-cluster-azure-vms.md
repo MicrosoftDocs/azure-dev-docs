@@ -14,7 +14,7 @@ This article shows you how to quickly deploy a JBoss Enterprise Application Plat
 
 This article uses the Azure Marketplace offer for JBoss EAP Cluster to accelerate your journey to Azure VMs. The offer automatically provisions a number of resources including Azure Red Hat Enterprise Linux (RHEL) VMs, JBoss EAP instances on each VM, Red Hat build of OpenJDK on each VM, a JBoss EAP management console, and optionally an Azure App Gateway instance. To see the offer, visit the solution [JBoss EAP Cluster on RHEL VMs](https://aka.ms/eap-vm-cluster-portal) using the Azure portal.
 
-If you prefer manual step-by-step guidance for installing Red Hat JBoss EAP Cluster on Azure VMs that doesn't utilize the automation enabled by the Azure Marketplace offer, see [Tutorial: Install Red Hat JBoss EAP on Azure Virtual Machines manually](../migration/migrate-jboss-eap-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
+If you prefer manual step-by-step guidance for installing Red Hat JBoss EAP Cluster on Azure VMs that doesn't utilize the automation enabled by the Azure Marketplace offer, see [Tutorial: Install Red Hat JBoss EAP on Azure Virtual Machines manually](/azure/developer/java/migration/migrate-jboss-eap-to-azure-vm-manually?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
 If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing JBoss EAP on Azure solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
@@ -291,7 +291,7 @@ az group delete --name $RG_NAME --yes --no-wait
 
 ## Next steps
 
-Learn more about options of deploying JBoss EAP on Azure:
+Learn more about your options for deploying JBoss EAP on Azure:
 
 > [!div class="nextstepaction"]
 > [JBoss EAP on Azure](jboss-on-azure.md)
