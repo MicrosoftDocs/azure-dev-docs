@@ -1,6 +1,6 @@
 ---
-title: "Get started with chat document security trimming"
-description: "Secure your chat app documents with user authentication and document security trimming to ensure users receive answers based on their permissions."
+title: "Get started with chat document security filtering"
+description: "Secure your chat app documents with user authentication and document security filtering to ensure users receive answers based on their permissions."
 ms.date: 05/29/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
@@ -40,7 +40,7 @@ Azure AI Search doesn't provide _native_ document-level permissions and can't va
 
 :::image type="content" source="media/get-started-app-chat-document-security-trim/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
 
-Because the authorization isn't natively contained in Azure AI Search, you need to add a field to hold user or group information, then trim any documents that don't match. To implement this technique, you need to:
+Because the authorization isn't natively contained in Azure AI Search, you need to add a field to hold user or group information, then [filter](/azure/search/search-security-trimming-for-azure-search) any documents that don't match. To implement this technique, you need to:
 
 * Create a document access control field in your index dedicated to storing the details of users or groups with document access. 
 * Populate the document's access control field with the relevant user or group details.
@@ -205,16 +205,8 @@ If you get an error about your tenant's conditional access policy, you need a se
     azd env set AZURE_TENANT_ID <YOUR_TENANT_ID>
     ```
 
-1. If you need to use `AZURE_AUTH_TENANT_ID` due to a conditional access policy on your user tenant, run the following command to configure the sample to use a second tenant for the authentication tenant. 
-
-    ```console
-    azd env set AZURE_AUTH_TENANT_ID <REPLACE-WITH-YOUR-TENANT-ID>
-    ```
-
-    |Parameter|Purpose|
-    |--|--|
-    |`AZURE_AUTH_TENANT_ID`|If `AZURE_AUTH_TENANT_ID` is set, it's the tenant that hosts the app.|
-     
+> [!NOTE]
+> If you have a conditional access policy on your user tenant, you need to specify a second tenant. These instructions are in the troubleshooting section.
 
 ## Deploy chat app to Azure
 
@@ -436,6 +428,30 @@ You aren't necessarily required to clean up your local environment, but you can 
 ## Get help
 
 This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main#troubleshooting).
+
+### Troubleshooting
+
+This section offers troubleshooting for issues specific to this article. 
+
+#### Provide authentication tenant
+
+When your authentication is in a separate tenant from your hosting application, you need to set that authentication tenant with the following process.
+
+1. Run the following command to configure the sample to use a second tenant for the authentication tenant. 
+
+    ```console
+    azd env set AZURE_AUTH_TENANT_ID <REPLACE-WITH-YOUR-TENANT-ID>
+    ```
+
+    |Parameter|Purpose|
+    |--|--|
+    |`AZURE_AUTH_TENANT_ID`|If `AZURE_AUTH_TENANT_ID` is set, it's the tenant that hosts the app.|
+   
+2. Redeploy the solution with the following command.
+
+    ```console
+    azd up
+    ``` 
 
 ## Next steps
 
