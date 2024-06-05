@@ -29,17 +29,17 @@ The default deployment creates a chat app with public endpoints.
 
 :::image type="content" source="media/get-started-app-chat-private-endpoints/simple-architecture-diagram-chat-app.png" alt-text="Diagram showing network architecture of basic RAG chat app.":::
 
-For chat apps enriched with private data, you should secure access to your chat app. This article shows one solution: use a virtual private network (VPN). Deploy the sample with private connectivity that uses a combination of VNETs and Private Endpoints. You now have a problem: You can't access the chat app anymore because your client browser is not in the VNET. To fix this, you create a virtual machine inside the VNET. 
+For chat apps enriched with private data, you should secure access to your chat app. This article shows one solution: use a virtual private network (VPN). Deploy the sample with private connectivity that uses a combination of VNETs and Private Endpoints. You now have a problem: You can't access the chat app anymore because your client browser isn't in the virtual network. To fix this, you create a virtual machine inside the virtual network. 
 
 :::image type="content" source="media/get-started-app-chat-private-endpoints/diagram-vpn-subnets.png" alt-text="Diagram showing network architecture using Azure Bastion to connect to private virtual machines using the Azure portal.":::
 
-Now that the virtual machine is in the same VNET, use Azure Bastion to connect. From the Azure portal, use the VM remote desktop (RDP) to access the chat app. The VM is a Windows server with a Microsoft Edge browser. Use the same chat app endpoint, just through the VM's browser.
+Now that the virtual machine is in the same virtual network, use Azure Bastion to connect. From the Azure portal, use the VM remote desktop (RDP) to access the chat app. The VM is a Windows server with a Microsoft Edge browser. Use the same chat app endpoint, just through the VM's browser.
 
-:::image type="content" source="media/get-started-app-chat-private-endpoints/simple-architecture-diagram-vpn-chat-app.png" alt-text="Diagram showing network architecture using Azure Bastion to RDP connect to private virtual machine which in term connects to the Chat app.":::
+:::image type="content" source="media/get-started-app-chat-private-endpoints/simple-architecture-diagram-vpn-chat-app.png" alt-text="Diagram showing network architecture using Azure Bastion to RDP connect to private virtual machine which connects to the Chat app.":::
 
 ## Deployment steps
 
-This article deploys the solution twice. The first deployment creates all the chat resources, including the VNET. This means the second deployment goes quicker because it doesn't need to create the resources again. The first deploy has a publicly accessible chat app which allows you to test the chat app from any browser.
+This article deploys the solution twice. The first deployment creates all the chat resources, including the virtual network. This means the second deployment goes quicker because it doesn't need to create the resources again. The first deploy has a publicly accessible chat app which allows you to test the chat app from any browser.
 
 The second deployment secures the chat app. You test this access by connecting to the VM with RDP then use the VM's browser to access the chat app.
 
@@ -230,11 +230,11 @@ Change the deployment configuration to secure the chat app for private access.
 
 1. Select **VM Password** for Authentication Type.
 1. Enter your user name and password and select **Connect**.
-1. When the RDP session to the Windows server opens, use the windows search box on the tool bar to search for **Edge** browser.
-1. In the Edge browser, paste the chat endpoint into the browser to open the chat app.
+1. When the RDP session to the Windows server opens, use the windows search box on the tool bar to search for `Edge` browser.
+1. In the Microsoft Edge browser, paste the chat endpoint into the browser to open the chat app.
 1. When the chat app displays, use one of the cards to get an answer. 
 
-    :::image type="content" source="./media/get-started-app-chat-private-endpoints/virtual-machine-edge-browser-chat-app.png" lightbox="./media/get-started-app-chat-private-endpoints/virtual-machine-edge-browser-chat-app" alt-text="Screenshot of virtual machine with Edge browser displaying chap app with answer.":::
+    :::image type="content" source="./media/get-started-app-chat-private-endpoints/virtual-machine-edge-browser-chat-app.png" lightbox="./media/get-started-app-chat-private-endpoints/virtual-machine-edge-browser-chat-app.png" alt-text="Screenshot of virtual machine with the Microsoft Edge browser displaying chap app with answer.":::
 
 1. To validate that only the VM has access, open a browser on your host computer (not the VM) and paste in the same URL.
 
