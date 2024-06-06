@@ -1,11 +1,3 @@
-## AI app templates
-
-AI app templates provide you with well-maintained, easy to deploy reference implementations. These templates ensure a high-quality starting point for your AI apps.
-
-There are two categories of AI app templates, **building blocks** and **end-to-end solutions**. Building blocks are smaller-scale samples that focus on specific scenarios and tasks. End-to-end solutions are comprehensive reference samples including documention, source code, and deployment to allow you to take and extend for your own purposes.
-
-To review a list of key templates available for each programming language, see [AI app templates](/azure/developer/ai/intelligent-app-templates). To browse all available templates, see the AI app templates on the [Azure Developer CLI gallery](https://aka.ms/ai-apps).
-
 ## Resources for Azure OpenAI Service
 
 Azure OpenAI Service provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Azure OpenAI SDK for .NET, or the web-based interface in the Azure OpenAI Studio.
@@ -80,3 +72,11 @@ In addition to Azure OpenAI Service, there are many other Azure AI services that
 |Link|Description|
 |---|---|
 |[Get started with Azure AI Services](/training/paths/get-started-azure-ai/)|Azure AI Services is a collection of services that are building blocks of AI functionality you can integrate into your applications. In this learning path, you'll learn how to provision, secure, monitor, and deploy Azure AI Services resources and use them to build intelligent solutions.|
+
+## AI app templates
+
+AI app templates provide you with well-maintained, easy to deploy reference implementations. These templates ensure a high-quality starting point for your AI apps.
+
+There are two categories of AI app templates, **building blocks** and **end-to-end solutions**. Building blocks are smaller-scale samples that focus on specific scenarios and tasks. End-to-end solutions are comprehensive reference samples including documention, source code, and deployment to allow you to take and extend for your own purposes.
+
+To review a list of key templates available for each programming language, see [AI app templates](/azure/developer/ai/intelligent-app-templates). To browse all available templates, see the AI app templates on the [Azure Developer CLI gallery](https://aka.ms/ai-apps).
