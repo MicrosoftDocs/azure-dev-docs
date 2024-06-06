@@ -234,7 +234,7 @@ items:
           items:
           - name: Azure SQL Database with pyodbc
             href: /azure/azure-sql/database/azure-sql-python-quickstart?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
-          - name: Azure PostreSQL Database with psycopg2
+          - name: Azure PostreSQL with psycopg2
             href: /azure/postgresql/flexible-server/connect-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
           - name: Cosmos DB for NoSQL
             href: /azure/cosmos-db/nosql/quickstart-python?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
