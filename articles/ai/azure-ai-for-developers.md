@@ -6,8 +6,6 @@ ms.service: azure
 ms.topic: overview
 ms.date: 6/5/2024
 ms.custom: overview, devx-track-dotnet, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python, build-2024-intelligent-apps
-zone_pivot_group_filename: developer/intro/intro-zone-pivot-groups.json
-zone_pivot_groups: intelligent-apps-languages
 ---
 
 # Overview of AI app development
@@ -23,32 +21,52 @@ Generative AI opens many new possibilities for applications. As a developer, it'
 * [Augmenting a Large Language Model with Retrieval-Augmented Generation and Fine-tuning](./augment-llm-rag-fine-tuning.md)
 * [Building advanced Retrieval-Augmented Generation systems](./advanced-retrieval-augmented-generation.md)
 
-:::zone pivot="dotnet"
+## AI app templates
 
-[!INCLUDE [azure-ai-for-developers-dotnet](./includes/azure-ai-for-developers-dotnet.md)]
+There are many AI app templates that provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps. These templates include building blocks (smaller-scale samples that focus on specific scenarios and tasks) and complete end-to-end solutions for each programming language. For a list of the available templates, see [AI app templates](./intelligent-app-templates.md).
 
-:::zone-end
+One of the most popular templates is the enterprise chat sample using RAG.
 
-:::zone pivot="python"
+# [.NET](#tab/dotnet)
 
-[!INCLUDE [azure-ai-for-developers-python](./includes/azure-ai-for-developers-python.md)]
+|Article|Description|
+|---|---|
+|[Get started with the .NET enterprise chat sample](/dotnet/ai/get-started-app-chat-template?tabs=github-codespaces)|This article introduces the .NET enterprise chat app sample and guides you through the basics of deploying and using the app.|
+|[Source code](https://github.com/Azure-Samples/azure-search-openai-demo-csharp)|This GitHub repository contains the source code for the sample and more details about the sample architecture, deployment options, and how to start extending the sample to your own production app.|
+|[Video](https://aka.ms/azai/net/video)|This video provides an overview and demo of the enterprise chat app sample.|
 
-:::zone-end
+# [Java](#tab/java)
 
-:::zone pivot="javascript"
+|Article|Description|
+|---|---|
+|[Get started with the Java enterprise chat sample](/azure/developer/java/ai/get-started-app-chat-template?tabs=github-codespaces)|This article introduces the Java enterprise chat app sample and guides you through the basics of deploying and using the app.|
+|[Source code](https://github.com/Azure-Samples/azure-search-openai-demo-java)|This GitHub repository contains the source code for the sample and more details about the sample architecture, deployment options, and how to start extending the sample to your own production app.|
+|[Video](https://aka.ms/azai/java/video)|This video provides an overview and demo of the enterprise chat app sample.|
 
-[!INCLUDE [azure-ai-for-developers-javascript](./includes/azure-ai-for-developers-javascript.md)]
+# [Python](#tab/python)
 
-:::zone-end
+|Article|Description|
+|---|---|
+|[Get started with the Python enterprise chat sample](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces)|This article introduces the Python enterprise chat app sample and guides you through the basics of deploying and using the app.|
+|[Source code](https://github.com/Azure-Samples/azure-search-openai-demo)|This GitHub repository contains the source code for the sample and more details about the sample architecture, deployment options, and how to start extending the sample to your own production app.|
+|[Video](https://aka.ms/azai/py/video)|This video provides an overview and demo of the enterprise chat app sample.|
 
-:::zone pivot="java"
+# [JavaScript](#tab/javascript)
 
-[!INCLUDE [azure-ai-for-developers-java](./includes/azure-ai-for-developers-java.md)]
+|Article|Description|
+|---|---|
+|[Get started with the JavaScript enterprise chat sample](/azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces)|This article introduces the JavaScript  enterprise chat app sample and guides you through the basics of deploying and using the app.|
+|[Source code](https://github.com/Azure-Samples/azure-search-openai-javascript)|This GitHub repository contains the source code for the sample and more details about the sample architecture, deployment options, and how to start extending the sample to your own production app.|
+|[Video (full stack)](https://aka.ms/azai/js/video)|This video provides an overview and demo of the enterprise chat app sample.|
+|[Video (JavaScript frontend and Python backend)](https://aka.ms/azai/js.py/video)|This video provides an overview and demo of the enterprise chat app sample with a JavaScript frontend and Python backend.|
 
-:::zone-end
+---
 
-:::zone pivot="golang"
+## Additional resources by language
 
-[!INCLUDE [azure-ai-for-developers-go](./includes/azure-ai-for-developers-go.md)]
+Each language overview page links to popular articles, samples, documentation and more specific to your preferred programming language or platform.
 
-:::zone-end
+- [Python](../python/azure-ai-for-python-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+- [JavaScript](../javascript/azure-ai-for-javascript-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+- [Java](../java/ai/azure-ai-for-java-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+- [.NET](/dotnet/ai/azure-ai-for-dotnet-developers?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
