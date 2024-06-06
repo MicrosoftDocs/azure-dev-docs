@@ -1,8 +1,10 @@
 ## AI app templates
 
-[AI app templates](/azure/developer/ai/intelligent-app-templates) provide you with well-maintained, easy to deploy reference implementations. These templates ensure a high-quality starting point for your AI apps.
+AI app templates provide you with well-maintained, easy to deploy reference implementations. These templates ensure a high-quality starting point for your AI apps.
 
 There are two categories of AI app templates, **building blocks** and **end-to-end solutions**. Building blocks are smaller-scale samples that focus on specific scenarios and tasks. End-to-end solutions are comprehensive reference samples including documention, source code, and deployment to allow you to take and extend for your own purposes.
+
+To review a list of key templates available for each programming language, see [AI app templates](/azure/developer/ai/intelligent-app-templates). To browse all available templates, see the AI app templates on the [Azure Developer CLI gallery](https://aka.ms/ai-apps).
 
 ## Resources for Azure OpenAI Service
 
@@ -45,7 +47,7 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 
 ## Resources for other Azure AI services
 
-Azure AI Services are a collection of services (including Azure OpenAI Service) that help developers and organizations rapidly create intelligent, market-ready, and responsbile applications with out-of-the-box and prebuilt customizable APIs and models. These services include speech, vision, search, and more.
+In addition to Azure OpenAI Service, there are many other Azure AI services that help developers and organizations rapidly create intelligent, market-ready, and responsbile applications with out-of-the-box and prebuilt customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
 
 ### Samples
 
