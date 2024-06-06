@@ -76,7 +76,7 @@ In addition to Azure OpenAI Service, there are many other Azure AI services that
 
 ## AI app templates
 
-AI app templates provide you with well-maintained, easy to deploy reference implementations. These templates ensure a high-quality starting point for your AI apps.
+AI app templates provide you with well-maintained, easy to deploy reference implementations that provide a high-quality starting point for your AI apps.
 
 There are two categories of AI app templates, **building blocks** and **end-to-end solutions**. Building blocks are smaller-scale samples that focus on specific scenarios and tasks. End-to-end solutions are comprehensive reference samples including documention, source code, and deployment to allow you to take and extend for your own purposes.
 
