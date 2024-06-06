@@ -12,7 +12,7 @@ zone_pivot_groups: intelligent-apps-languages
 
 # Resources for developing AI apps
 
-This article contains organized lists of the best learning resources for developers who are getting started building AI apps, curated for each programming language. Resources include popular quickstart articles, reference samples, documentation, training courses, and so on.
+This article provides the best learning resources for developers who are getting started building AI apps for each programming language. Resources include libraries and samples, documentation, training courses, and more.
 
 :::zone pivot="dotnet"
 

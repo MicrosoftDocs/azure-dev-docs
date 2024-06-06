@@ -70,7 +70,7 @@ items:
           href: ../javascript/chat-app-with-separate-front-back-end.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
     - name: Resources
       items:
-        - name: Overview
+        - name: Resources for all languages
           href: resources-overview.md
         - name: Python
           items:

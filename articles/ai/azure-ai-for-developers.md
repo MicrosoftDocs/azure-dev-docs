@@ -33,7 +33,7 @@ One of the most popular templates is the enterprise chat sample using RAG.
 
 # [.NET](#tab/dotnet)
 
-* [Get started with the .NET enterprise chat sample](/dotnet/ai/get-started-app-chat-template?tabs=github-codespaces)
+* [Get started with the .NET enterprise chat sample](/dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 * [Source code](https://github.com/Azure-Samples/azure-search-openai-demo-csharp)
 * [Video](https://aka.ms/azai/net/video)
 
@@ -47,7 +47,7 @@ One of the most popular templates is the enterprise chat sample using RAG.
 
 # [Java](#tab/java)
 
-* [Get started with the Java enterprise chat sample](/azure/developer/java/ai/get-started-app-chat-template?tabs=github-codespaces)
+* [Get started with the Java enterprise chat sample](/azure/developer/java/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 * [Source code](https://github.com/Azure-Samples/azure-search-openai-demo-java)
 * [Video](https://aka.ms/azai/java/video)
 
@@ -61,7 +61,7 @@ One of the most popular templates is the enterprise chat sample using RAG.
 
 # [Python](#tab/python)
 
-* [Get started with the Python enterprise chat sample](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces)
+* [Get started with the Python enterprise chat sample](/azure/developer/python/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 * [Source code](https://github.com/Azure-Samples/azure-search-openai-demo)
 * [Video](https://aka.ms/azai/py/video)
 
@@ -75,7 +75,7 @@ One of the most popular templates is the enterprise chat sample using RAG.
 
 # [JavaScript](#tab/javascript)
 
-* [Get started with the JavaScript enterprise chat sample](/azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces)
+* [Get started with the JavaScript enterprise chat sample](/azure/developer/javascript/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 * [Source code](https://github.com/Azure-Samples/azure-search-openai-javascript)
 * [Video (full stack)](https://aka.ms/azai/js/video)
 * [Video (JavaScript frontend and Python backend)](https://aka.ms/azai/js.py/video)
@@ -95,7 +95,7 @@ One of the most popular templates is the enterprise chat sample using RAG.
 
 Each language overview page links to popular articles, samples, documentation and more specific to your preferred programming language or platform.
 
-- [Python](../python/azure-ai-for-python-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
-- [JavaScript](../javascript/azure-ai-for-javascript-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
-- [Java](../java/ai/azure-ai-for-java-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+- [Python](../python/azure-ai-for-python-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+- [JavaScript](../javascript/azure-ai-for-javascript-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+- [Java](../java/ai/azure-ai-for-java-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 - [.NET](/dotnet/ai/azure-ai-for-dotnet-developers?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
