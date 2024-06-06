@@ -2,6 +2,7 @@
 author: KarlErickson
 ms.author: givermei
 ms.date: 03/11/2024
+ms.custom: devx-track-azurecli
 ---
 
 The *authentication.properties* file of the application currently holds the value of your client secret in the `aad.secret` parameter. It isn't good practice to keep this value in this file. You might also be taking a risk if you commit it to a Git repository.

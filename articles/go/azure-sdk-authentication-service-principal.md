@@ -3,7 +3,7 @@ title: Azure SDK for Go authentication with a service principal
 description: In this tutorial, you use the Azure SDK for Go to authenticate to Azure with an Azure service principal using a secret or a certificate.
 ms.date: 05/17/2024
 ms.topic: how-to
-ms.custom: devx-track-go
+ms.custom: devx-track-go, devx-track-azurepowershell
 ---
 
 # Azure SDK for Go authentication with a service principal
