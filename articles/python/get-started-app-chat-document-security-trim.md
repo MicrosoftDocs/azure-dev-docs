@@ -1,7 +1,7 @@
 ---
-title: "Get started with chat document security trimming"
-description: "Secure your chat app documents with user authentication and document security trimming to ensure users receive answers based on their permissions."
-ms.date: 05/13/2024
+title: "Get started with chat document security filtering"
+description: "Secure your chat app documents with user authentication and document security filtering to ensure users receive answers based on their permissions."
+ms.date: 05/29/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
@@ -32,7 +32,7 @@ Without document security feature, the enterprise chat app has a simple architec
 To add security for the documents, you need to update the enterprise chat app: 
 
 * Add client authentication to the chat app with Microsoft Entra.
-* Add server-side logic to populate a search index which corresponds to the authenticated user's identity that should have access to each document.
+* Add server-side logic to populate a search index with user and group access.
 
 :::image type="content" source="media/get-started-app-chat-document-security-trim/trimmed-rag-chat-architecture.png" alt-text="Architectural diagram showing a use authenticating with Microsoft Entra ID, then passing that authentication to Azure AI Search.":::
 
@@ -40,14 +40,48 @@ Azure AI Search doesn't provide _native_ document-level permissions and can't va
 
 :::image type="content" source="media/get-started-app-chat-document-security-trim/azure-ai-search-with-user-authorization.png" alt-text="Architectural diagram showing that to secure the documents in Azure AI Search, each document includes user authentication, which is returned in the result set.":::
 
-Because the authorization isn't natively contained in Azure AI Search, you need to add a field to hold user or group information, then trim any documents which don't match the user. To implement this technique, you need to:
+Because the authorization isn't natively contained in Azure AI Search, you need to add a field to hold user or group information, then [filter](/azure/search/search-security-trimming-for-azure-search) any documents that don't match. To implement this technique, you need to:
 
 * Create a document access control field in your index dedicated to storing the details of users or groups with document access. 
 * Populate the document's access control field with the relevant user or group details.
 * Update this access control field whenever there are changes in user or group access permissions.
 * If your index updates are scheduled with an indexer, changes are picked up on the next indexer run. If you don't use an indexer, you need to manually reindex.
 
-In this article, the process of securing documents in Azure AI Search, is made possible with _example_ scripts which you as the search administrator would run. The scripts associate a single document with a single user identity. You can take these [scripts](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/scripts) and apply your own security and productionizing requirements to scale to your needs.
+In this article, the process of securing documents in Azure AI Search is made possible with _example_ scripts, which you as the search administrator would run. The scripts associate a single document with a single user identity. You can take these [scripts](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main/scripts) and apply your own security and productionizing requirements to scale to your needs.
+
+## Determine security configuration
+
+The solution provides boolean environment variables to turn on features necessary for document security in this sample. 
+
+|Parameter|Purpose|
+|--|--|
+|`AZURE_USE_AUTHENTICATION`|When set to `true`, enables user sign-in to the chat app and App Service authentication. Enables `Use oid security filter` in the chat app **Developer settings**.|
+|`AZURE_ENFORCE_ACCESS_CONTROL`|When set to `true`, requires authentication for any document access. The **Developer settings** for oid and group security will be turned on and disabled so they can't be disabled from the UI.|
+|`AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS`|When set to `true`, this setting allows authenticated users to search on documents that have no access controls assigned, even when access control is required. This parameter should only be used when `AZURE_ENFORCE_ACCESS_CONTROL` is enabled.|
+|`AZURE_ENABLE_UNAUTHENTICATED_ACCESS`|When set to `true`, this setting allows unauthenticated users to use the app, even when access control is enforced. This parameter should only be used when `AZURE_ENFORCE_ACCESS_CONTROL` is enabled.|
+
+Use the following sections to understand the security profiles supported in this sample. This article configures the **Enterprise profile**. 
+
+### Enterprise: Required account + document filter
+
+Each user of the site **must** sign in, and the site does contain content which is public to all users. The document level security filter is applied to all requests.
+
+Environment variables:
+
+* AZURE_USE_AUTHENTICATION=true
+* AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS=true
+* AZURE_ENFORCE_ACCESS_CONTROL=true
+
+### Mixed use: Optional account + document filter
+
+Each user of the site **may** sign in, and the site does contain content which is public to all users. The document level security filter is applied to all requests.
+
+Environment variables:
+
+* AZURE_USE_AUTHENTICATION=true
+* AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS=true
+* AZURE_ENFORCE_ACCESS_CONTROL=true
+* AZURE_ENABLE_UNAUTHENTICATED_ACCESS=true
 
 ## Prerequisites
 
@@ -157,31 +191,22 @@ If you get an error about your tenant's conditional access policy, you need a se
 
 ## Set environment variables
 
-1. Run the following commands to configure environment variables for the sample to use authentication.
+1. Run the following commands to configure the application for the **Enterprise** profile. 
 
     ```console
     azd env set AZURE_USE_AUTHENTICATION true
+    azd env set AZURE_ENABLE_GLOBAL_DOCUMENTS_ACCESS true
     azd env set AZURE_ENFORCE_ACCESS_CONTROL true
-    azd env set AZURE_TENANT_ID <REPLACE-WITH-YOUR-TENANT-ID>
     ```
 
-    |Parameter|Purpose|
-    |--|--|
-    |`AZURE_USE_AUTHENTICATION`|Enables user sign-in to the chat app. Enables `Use oid security filter` in the chat app **Developer settings**.|
-    |`AZURE_ENFORCE_ACCESS_CONTROL`|Requires authentication for any document access. The **Developer settings** for oid and group security will be turned on and disabled so they can't be disabled from the UI.|
-    |`AZURE_TENANT_ID`|The tenant which authorizes your user sign in.|
-
-
-1. If you need to use `AZURE_AUTH_TENANT_ID` due to a conditional access policy on your user tenant, run the following command to configure the sample to use a second tenant for application hosting. 
+1. Run the following command to set the tenant, which authorizes the user sign in to the hosted application environment. Replace `<YOUR_TENANT_ID>` with the tenant ID.
 
     ```console
-    azd env set AZURE_AUTH_TENANT_ID <REPLACE-WITH-YOUR-TENANT-ID>
+    azd env set AZURE_TENANT_ID <YOUR_TENANT_ID>
     ```
 
-    |Parameter|Purpose|
-    |--|--|
-    |`AZURE_AUTH_TENANT_ID`|If `AZURE_AUTH_TENANT_ID` is set, it's the tenant that hosts the app.|
-     
+> [!NOTE]
+> If you have a conditional access policy on your user tenant, you need to [specify an authentication tenant](#provide-authentication-tenant).
 
 ## Deploy chat app to Azure
 
@@ -275,7 +300,7 @@ Once this information is known, update the Azure AI Search index `oids` field fo
     |Parameter|Purpose|
     |--|--|
     |-v|Verbose output.|
-    |--acl-type|Group or user (oids): `oids`|
+    |--acl-type|Group or user object IDs (OIDs): `oids`|
     |--acl-action|**Add** to a Search index field. Other options include `remove`, `remove_all`, `list`. |
     |--acl|Group or user's `USER_OBJECT_ID`|
     |--url|The file's location in Azure storage, such as `https://MYSTORAGENAME.blob.core.windows.net/content/role_library.pdf`. Don't surround URL with quotes in the CLI command.|
@@ -348,11 +373,11 @@ Once this information is known, update the Azure AI Search index `oids` field fo
 
 ### Verify user access to the document 
 
-If you completed the steps but did not see the correct answer, verify your USER_OBJECT_ID is set correctly in Azure AI Search for that `role_library.pdf`.
+If you completed the steps but didn't see the correct answer, verify your USER_OBJECT_ID is set correctly in Azure AI Search for that `role_library.pdf`.
 
 1. Return to the chat app. You may need to sign in again. 
 1. Enter the same query so that the `role_library` content is used in the Azure OpenAI answer: `What does a product manager do?`.
-1. View the result which now includes the appropriate answer from the role library document.
+1. View the result, which now includes the appropriate answer from the role library document.
 
     :::image type="content" source="./media/get-started-app-chat-document-security-trim/role-library-access-granted.png" alt-text="Screenshot of chat app in browser showing the answer is returned.":::
 
@@ -403,6 +428,30 @@ You aren't necessarily required to clean up your local environment, but you can 
 ## Get help
 
 This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-demo/tree/main#troubleshooting).
+
+### Troubleshooting
+
+This section offers troubleshooting for issues specific to this article. 
+
+#### Provide authentication tenant
+
+When your authentication is in a separate tenant from your hosting application, you need to set that authentication tenant with the following process.
+
+1. Run the following command to configure the sample to use a second tenant for the authentication tenant. 
+
+    ```console
+    azd env set AZURE_AUTH_TENANT_ID <REPLACE-WITH-YOUR-TENANT-ID>
+    ```
+
+    |Parameter|Purpose|
+    |--|--|
+    |`AZURE_AUTH_TENANT_ID`|If `AZURE_AUTH_TENANT_ID` is set, it's the tenant that hosts the app.|
+   
+2. Redeploy the solution with the following command.
+
+    ```console
+    azd up
+    ``` 
 
 ## Next steps
 
