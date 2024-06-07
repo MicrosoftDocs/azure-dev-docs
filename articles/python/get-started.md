@@ -113,8 +113,7 @@ To create a virtual environment, follow these steps.
 
     ### [Windows](#tab/cmd)
 
-    ```bash
-    # py -3 uses the global python interpreter. You can also use python3 -m venv .venv.
+    ```cmd
     py -3 -m venv .venv
     ```
 
@@ -132,7 +131,7 @@ To create a virtual environment, follow these steps.
 
     ### [Windows](#tab/cmd)
 
-    ```bash
+    ```cmd
     .venv\Scripts\activate
     ```
 
