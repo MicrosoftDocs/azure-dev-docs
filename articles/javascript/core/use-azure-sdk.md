@@ -3,7 +3,7 @@ title: Azure SDK for JS/TS
 description: To programmatically access your Azure services, use the Azure SDKs for JavaScript or TypeScript development.
 ms.topic: how-to
 ms.date: 02/03/2022
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-ts
 ---
 
 # Use Azure SDKs for JavaScript and TypeScript
