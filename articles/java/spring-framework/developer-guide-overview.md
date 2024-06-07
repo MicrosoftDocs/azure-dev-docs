@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure developer guide
 
-**This article applies to:** ✔️ Version 4.18.0 ✔️ Version 5.12.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.12.0
 
 Spring is an open-source application framework developed by VMware that provides a simplified, modular approach for creating Java applications. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure.
 
@@ -107,7 +107,7 @@ With Gradle, you can import the `spring-cloud-azure-dependencies` BOM in the fol
 For more information, see [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/).
 
 > [!NOTE]
-> If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.18.0`.
+> If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
 > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
 > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
