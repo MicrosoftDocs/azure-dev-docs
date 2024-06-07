@@ -5,7 +5,7 @@ keywords: ai, azure openai service
 ms.service: azure
 ms.topic: overview
 ms.date: 5/14/2024
-ms.custom: overview, devx-track-dotnet, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python, build-2024-intelligent-apps
+ms.custom: overview, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, build-2024-intelligent-apps
 ---
 
 # Overview of AI app development

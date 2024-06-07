@@ -3,7 +3,7 @@ title: Introduction and prerequisites
 description: Locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action. 
 ms.topic: how-to
 ms.date: 12/08/2021
-ms.custom: devx-track-js, devx-track-azurecli 
+ms.custom: devx-track-js, devx-track-azurecli, devx-track-ts
 ---
 
 
