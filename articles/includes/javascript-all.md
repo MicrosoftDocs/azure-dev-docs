@@ -4,7 +4,7 @@
 | @azure/api-management-custom-widgets-tools | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/api-management-custom-widgets-tools/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/api-management-custom-widgets-tools-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement/api-management-custom-widgets-tools) |
 | @azure/communication-administration | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/communication-administration/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/communication-administration-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | @azure/communication-calling-effects | npm [1.0.1](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.0.1) |  | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
-| @azure/communication-react | npm [1.16.1](https://www.npmjs.com/package/@azure/communication-react/v/1.16.1) |  | GitHub [1.16.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| @azure/communication-react | npm [1.17.0](https://www.npmjs.com/package/@azure/communication-react/v/1.17.0) |  | GitHub [1.17.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | AccessControl | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/synapse-access-control-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-access-control_1.0.0-beta.3/sdk/synapse/synapse-access-control/) |
 | App Configuration | npm [1.6.0](https://www.npmjs.com/package/@azure/app-configuration/v/1.6.0) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.6.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.6.0/sdk/appconfiguration/app-configuration/) |
 | Artifacts | npm [1.0.0-beta.14](https://www.npmjs.com/package/@azure/synapse-artifacts/v/1.0.0-beta.14) | [docs](/javascript/api/overview/azure/synapse-artifacts-readme) | GitHub [1.0.0-beta.14](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.14/sdk/synapse/synapse-artifacts/) |
@@ -362,7 +362,7 @@
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.3.0) |  |  |
 | Unknown Display Name | npm [0.42.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.42.0) |  |  |
 | Unknown Display Name | npm [0.42.1](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.42.1) |  |  |
-| Unknown Display Name | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.8.0) |  |  |
+| Unknown Display Name | npm [0.8.1](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.8.1) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.2.0) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.2.0) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.2.0) |  |  |
