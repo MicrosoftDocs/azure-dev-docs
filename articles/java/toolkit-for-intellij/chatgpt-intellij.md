@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service using IntelliJ"
 description: Shows you how to get started with Azure OpenAI Service and make your first chat completions call with IntelliJ IDEA.
-ms.custom: devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
 ms.author: jialuogan
 ms.topic: quickstart
