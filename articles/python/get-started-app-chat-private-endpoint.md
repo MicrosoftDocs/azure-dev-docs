@@ -26,15 +26,15 @@ Once you complete this procedure, you can start modifying the new project with y
 
 The default deployment creates a chat app with public endpoints. 
 
-:::image type="content" source="media/get-started-app-chat-private-endpoints/simple-architecture-diagram-chat-app.png" alt-text="Diagram showing network architecture of basic RAG chat app.":::
+:::image type="content" source="media/get-started-app-chat-private-endpoints/simple-architecture-diagram-chat-app.png" lightbox="media/get-started-app-chat-private-endpoints/simple-architecture-diagram-chat-app.png" alt-text="Diagram showing network architecture of basic RAG chat app.":::
 
 For chat apps enriched with private data, securing access to your chat app is crucial. This article presents a solution using a virtual network (VNET). Deploying the sample with a virtual network introduces a problem. You can't access the chat app anymore because your client browser isn't in the virtual network. To resolve this issue, you need to create a virtual machine inside the virtual network.
 
-:::image type="content" source="media/get-started-app-chat-private-endpoints/diagram-vpn-subnets.png" alt-text="Diagram showing network architecture using Azure Bastion to connect to private virtual machines using the Azure portal.":::
+:::image type="content" source="media/get-started-app-chat-private-endpoints/diagram-vpn-subnets.png" lightbox="media/get-started-app-chat-private-endpoints/diagram-vpn-subnets.png" alt-text="Diagram showing network architecture using Azure Bastion to connect to private virtual machines using the Azure portal.":::
 
 Now that the virtual machine is in the same virtual network, use Azure Bastion to connect. From the Azure portal, use the VM remote desktop (RDP) to access the chat app. The VM is a Windows server with a Microsoft Edge browser. Use the same chat app endpoint, just through the VM's browser.
 
-:::image type="content" source="media/get-started-app-chat-private-endpoints/simple-architecture-diagram-vpn-chat-app.png" alt-text="Diagram showing network architecture using Azure Bastion to RDP connect to private virtual machine which connects to the Chat app.":::
+:::image type="content" source="media/get-started-app-chat-private-endpoints/simple-architecture-diagram-vpn-chat-app.png" lightbox="media/get-started-app-chat-private-endpoints/simple-architecture-diagram-vpn-chat-app.png" alt-text="Diagram showing network architecture using Azure Bastion to RDP connect to private virtual machine which connects to the Chat app.":::
 
 ## Deployment steps
 
@@ -92,9 +92,9 @@ Begin now with a development environment that has all the dependencies installed
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)
 
-1. On the **Create codespace** page, review the Codespace configuration settings and then select **Create new codespace**
+1. On the **Create codespace** page, review the Codespace configuration settings and then select **Create new codespace**.
 
-    :::image type="content" source="./media/get-started-app-chat-private-endpoints/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
+    :::image type="content" source="./media/get-started-app-chat-private-endpoints/github-create-codespace.png" lightbox="./media/get-started-app-chat-private-endpoints/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
 1. Wait for the Codespace to start. This startup process can take a few minutes.
 
@@ -224,7 +224,7 @@ Change the deployment configuration to secure the chat app for private access.
 1. Find the VM resource and select it. 
 1. Select **Connect -> Bastion**.
 
-    :::image type="content" source="./media/get-started-app-chat-private-endpoints/azure-portal-virtual-machine-bastion.png" lightbox="./media/get-started-app-chat-private-endpoints/azure-portal-virtual-machine-bastion.png" alt-text="Screenshot of Azure portal for the Virtual Machine with the Connect page displayed":::
+    :::image type="content" source="./media/get-started-app-chat-private-endpoints/azure-portal-virtual-machine-bastion.png" lightbox="./media/get-started-app-chat-private-endpoints/azure-portal-virtual-machine-bastion.png" alt-text="Screenshot of Azure portal for the Virtual Machine with the Connect page displayed.":::
 
 1. Select **VM Password** for Authentication Type.
 1. Enter your username and password and select **Connect**.
@@ -236,7 +236,7 @@ Change the deployment configuration to secure the chat app for private access.
 
 1. To validate that only the VM has access, open a browser on your host computer (not the VM) and paste in the same URL.
 
-    :::image type="content" source="./media/get-started-app-chat-private-endpoints/edge-browser-error-secured-endpoint.png" alt-text="Screenshot of Edge browser on host machine getting a 403 Forbidden error because it doesn't have access to chat app inside virtual network."::: 
+    :::image type="content" source="./media/get-started-app-chat-private-endpoints/edge-browser-error-secured-endpoint.png" lightbox="./media/get-started-app-chat-private-endpoints/edge-browser-error-secured-endpoint.png" alt-text="Screenshot of Edge browser on host machine getting a 403 Forbidden error because it doesn't have access to chat app inside virtual network."::: 
 
 ### Clean up GitHub Codespaces
 
@@ -251,11 +251,11 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
 
-    :::image type="content" source="./media/get-started-app-chat-private-endpoints/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
+    :::image type="content" source="./media/get-started-app-chat-private-endpoints/github-codespace-dashboard.png" lightbox="./media/get-started-app-chat-private-endpoints/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
 1. Open the context menu for the Codespace and then select **Delete**.
 
-    :::image type="content" source="./media/get-started-app-chat-private-endpoints/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
+    :::image type="content" source="./media/get-started-app-chat-private-endpoints/github-codespace-delete.png" lightbox="./media/get-started-app-chat-private-endpoints/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -263,7 +263,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="./media/get-started-app-chat-private-endpoints/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+    :::image type="content" source="./media/get-started-app-chat-private-endpoints/reopen-local-command-palette.png" lightbox="./media/get-started-app-chat-private-endpoints/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
