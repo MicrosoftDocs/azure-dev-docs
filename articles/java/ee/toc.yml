@@ -23,6 +23,8 @@ items:
         href: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Red Hat Quarkus on Azure Container Apps
         href: deploy-java-quarkus-app.md
+      - name: Red Hat Quarkus with Micrsoft Entra ID
+        href: quarkus-with-microsoft-entra-id.md
   - name: Java application servers on Azure
     expanded: true
     items:
