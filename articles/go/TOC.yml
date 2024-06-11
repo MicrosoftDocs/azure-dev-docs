@@ -28,7 +28,7 @@ items:
           href: manage-resource-groups.md
         - name: Deploy VMs 
           href: azure-sdk-qs-vm.md
-      - name: Authentication
+    - name: Authentication
       expanded: false
       items:
         - name: Authentication with the autorest package (legacy)
