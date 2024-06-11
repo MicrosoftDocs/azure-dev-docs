@@ -57,8 +57,8 @@
 | farmbeats | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/agrifood-farming/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.2/sdk/agrifood/agrifood-farming-rest/) |
 | Form Recognizer | npm [5.0.0](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [docs](/javascript/api/overview/azure/ai-form-recognizer-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_5.0.0/sdk/formrecognizer/ai-form-recognizer/) |
 | Health Insights Radiology Insights | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-radiologyinsights/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-radiologyinsights_1.0.0-beta.1/sdk/healthinsights/health-insights-radiologyinsights-rest/) |
-| Identity | npm [4.2.0](https://www.npmjs.com/package/@azure/identity/v/4.2.0)<br>npm [4.3.0-beta.1](https://www.npmjs.com/package/@azure/identity/v/4.3.0-beta.1) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [4.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.2.0/sdk/identity/identity/)<br>GitHub [4.3.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.3.0-beta.1/sdk/identity/identity/) |
-| Identity Broker | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-broker/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-broker_1.0.0/sdk/identity/identity-broker/) |
+| Identity | npm [4.2.1](https://www.npmjs.com/package/@azure/identity/v/4.2.1)<br>npm [4.3.0-beta.2](https://www.npmjs.com/package/@azure/identity/v/4.3.0-beta.2) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [4.2.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.2.1/sdk/identity/identity/)<br>GitHub [4.3.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.3.0-beta.2/sdk/identity/identity/) |
+| Identity Broker | npm [1.0.1](https://www.npmjs.com/package/@azure/identity-broker/v/1.0.1) |  | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-broker_1.0.1/sdk/identity/identity-broker/) |
 | Image Analysis | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/ai-vision-image-analysis/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-image-analysis_1.0.0-beta.2/sdk/vision/ai-vision-image-analysis-rest/) |
 | IoT Device Update | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/iot-device-update/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/iot-device-update-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/iot-device-update_1.0.0-beta.1/sdk/deviceupdate/iot-device-update/) |
 | Key Vault - Administration | npm [4.5.0](https://www.npmjs.com/package/@azure/keyvault-admin/v/4.5.0) | [docs](/javascript/api/overview/azure/keyvault-admin-readme) | GitHub [4.5.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.5.0/sdk/keyvault/keyvault-admin/) |
@@ -101,7 +101,7 @@
 | Tables | npm [13.2.2](https://www.npmjs.com/package/@azure/data-tables/v/13.2.2) | [docs](/javascript/api/overview/azure/data-tables-readme) | GitHub [13.2.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_13.2.2/sdk/tables/data-tables/) |
 | Text Analytics | npm [5.1.0](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0)<br>npm [6.0.0-beta.1](https://www.npmjs.com/package/@azure/ai-text-analytics/v/6.0.0-beta.1) | [docs](/javascript/api/overview/azure/ai-text-analytics-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-text-analytics_5.1.0/sdk/textanalytics/ai-text-analytics/)<br>GitHub [6.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-text-analytics_6.0.0-beta.1/sdk/textanalytics/ai-text-analytics/) |
 | Text Translation | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/ai-translation-text/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-translation-text_1.0.0/sdk/translation/ai-translation-text-rest/) |
-| Token Cache Persistence Plugin | npm [1.1.0](https://www.npmjs.com/package/@azure/identity-cache-persistence/v/1.1.0) | [docs](/javascript/api/overview/azure/identity-cache-persistence-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.1.0/sdk/identity/identity-cache-persistence/) |
+| Token Cache Persistence Plugin | npm [1.1.1](https://www.npmjs.com/package/@azure/identity-cache-persistence/v/1.1.1) | [docs](/javascript/api/overview/azure/identity-cache-persistence-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.1.1/sdk/identity/identity-cache-persistence/) |
 | unknown | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-cancerprofiling/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-cancerprofiling_1.0.0-beta.1/sdk/healthinsights/health-insights-cancerprofiling-rest/) |
 | unknown | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-clinicalmatching/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-clinicalmatching_1.0.0-beta.1/sdk/healthinsights/health-insights-clinicalmatching-rest/) |
 | unknown | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/ai-language-conversations/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/ai-language-conversations-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-language-conversations_1.0.0-beta.1/sdk/cognitivelanguage/ai-language-conversations/) |
@@ -356,7 +356,7 @@
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | Purview Data Map | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/purview-datamap/v/1.0.0-beta.1) |  |  |
 | tmlanguage-generator | npm [0.5.5](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.5) |  |  |
-| Unknown Display Name | npm [0.8.0](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.8.0) |  |  |
+| Unknown Display Name | npm [0.8.1](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.8.1) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
 | Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure-tools/test-utils/v/1.0.1) |  |  |
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.3.0) |  |  |
@@ -369,7 +369,7 @@
 | Unknown Display Name | npm [2.0.4429](https://www.npmjs.com/package/@microsoft.azure/autorest-core/v/2.0.4429) |  |  |
 | Unknown Display Name | npm [3.3.49](https://www.npmjs.com/package/@microsoft.azure/autorest.testserver/v/3.3.49) |  |  |
 | Unknown Display Name | npm [2.0.8](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-rulesets/v/2.0.8) |  |  |
-| Unknown Display Name | npm [1.0.0-beta.20240604.1](https://www.npmjs.com/package/@microsoft/ai-chat-protocol/v/1.0.0-beta.20240604.1) |  |  |
+| Unknown Display Name | npm [1.0.0-beta.20240610.1](https://www.npmjs.com/package/@microsoft/ai-chat-protocol/v/1.0.0-beta.20240610.1) |  |  |
 | Unknown Display Name | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
 | Unknown Display Name | npm [0.1.3](https://www.npmjs.com/package/@typespec/bundler/v/0.1.3) |  |  |
 | Unknown Display Name | npm [0.2.2](https://www.npmjs.com/package/@typespec/playground/v/0.2.2) |  |  |
@@ -453,7 +453,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240607.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240607.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240611.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240611.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
