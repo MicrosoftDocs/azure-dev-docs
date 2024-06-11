@@ -1377,8 +1377,8 @@
       "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app"
     },
     {
-      "source_path": "articles/go/azure-install-sdk.md",
-      "redirect_url": "/azure/developer/go"
+      "source_path": "articles/go/azure-sdk-install.md",
+      "redirect_url": "/azure/developer/go/"
     }    
   ]
 }
