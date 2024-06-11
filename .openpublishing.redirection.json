@@ -1378,7 +1378,7 @@
     },
     {
       "source_path": "articles/go/azure-install-sdk.md",
-      "redirect_url": "/azure/developer/go/"
+      "redirect_url": "/azure/developer/go"
     }    
   ]
 }
