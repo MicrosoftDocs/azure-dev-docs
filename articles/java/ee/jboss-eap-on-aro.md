@@ -13,6 +13,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-
 This article shows you how to deploy a Red Hat JBoss Enterprise Application Platform (EAP) application to an Azure Red Hat OpenShift cluster. The sample is a Java application backed by an SQL database. The app is deployed using [JBoss EAP Helm Charts](https://jbossas.github.io/eap-charts).
 
 In this guide, you will learn how to:
+
 > [!div class="checklist"]
 >
 > * Prepare a JBoss EAP application for OpenShift.
@@ -373,4 +374,4 @@ You can learn more from references used in this guide:
 Continue to explore options to run JBoss EAP on Azure.
 
 > [!div class="nextstepaction"]
-> [Learn more about JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure)
+> [Learn more about JBoss EAP on Azure](jboss-on-azure.md)

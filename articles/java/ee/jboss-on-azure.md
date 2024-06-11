@@ -38,11 +38,11 @@ As an alternative to the solution template, Red Hat and Microsoft also provide a
 
 ## JBoss EAP on Azure Virtual Machines
 
-Virtual machines are a mature, proven migration path to the cloud that provides maximum flexibility and control. These factors are especially important for mission-critical workloads most suited to lift-and-shift migration. Microsoft and Red Hat provide robust options for migrating JBoss EAP workloads to Azure Virtual Machines. You can launch the solutions from the Azure portal to deploy
+Virtual machines are a mature, proven migration path to the cloud that provides maximum flexibility and control. These factors are especially important for mission-critical workloads most suited to lift-and-shift migration. Microsoft and Red Hat provide robust options for migrating JBoss EAP workloads to Azure Virtual Machines. You can launch the solutions from the Azure portal to deploy the following resources:
 
 - A [single JBoss EAP instance on Azure VM](https://aka.ms/eap-vm-single-portal).
-- A [static JBoss EAP cluster on Azure VMs](https://aka.ms/eap-vm-cluster-portal), aka. a JBoss EAP cluster on a fixed number of VMs (with or without domain mode enabled). This option is very similar to traditional on-premises JBoss EAP clusters.
-- Or a [dynamic JBoss EAP cluster on Azure VM Scale Sets](https://aka.ms/eap-vm-vmss-portal). Virtual machine scale sets provide groups of load-balanced virtual machines that can be scaled up or down in response to demand. For more information, see [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/). The JBoss EAP cluster is formed using Azure Ping and is suitable for stateful applications. This option doesn't support domain mode.
+- A [static JBoss EAP cluster on Azure VMs](https://aka.ms/eap-vm-cluster-portal) - that is, a JBoss EAP cluster on a fixed number of VMs, with or without domain mode enabled. This option is very similar to traditional on-premises JBoss EAP clusters.
+- A [dynamic JBoss EAP cluster on Azure VM Scale Sets](https://aka.ms/eap-vm-vmss-portal). Virtual machine scale sets provide groups of load-balanced virtual machines that can be scaled up or down in response to demand. For more information, see [Azure Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/). The JBoss EAP cluster is formed using Azure Ping and is suitable for stateful applications. This option doesn't support domain mode.
 
 Azure solution templates help accelerate migrating JBoss EAP workloads. The solutions automatically provision several Azure resources to quickly create a JBoss EAP deployment on Azure Virtual Machines or virtual machine scale sets. The automatically provisioned resources include virtual network, storage, network security group, OpenJDK, Red Hat Enterprise Linux (RHEL), JBoss EAP, Azure App Gateway, and database connectivity (Azure SQL, Oracle Database, PostgreSQL, MySQL). The solutions support the latest versions of JBoss EAP 7, OpenJDK 8, and RHEL 8.
 
@@ -56,4 +56,4 @@ The following articles provide more information on getting started with these te
 - [Configure a Java app for Azure App Service](/azure/app-service/configure-language-java?pivots=platform-linux)
 - [Quickstart: Deploy a Java application with JBoss EAP on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 - [Quickstart: Deploy JBoss EAP Server on Azure VM using the Azure portal](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
-- [Quickstart: Deploy a JBoss EAP cluster on Azure VMs using the Azure portal](/azure/developer/java/ee/jboss-eap-cluster-azure-vms)
+- [Quickstart: Deploy a JBoss EAP cluster on Azure VMs using the Azure portal](jboss-eap-cluster-azure-vms.md)
