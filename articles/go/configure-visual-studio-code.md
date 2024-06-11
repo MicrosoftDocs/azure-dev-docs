@@ -1,22 +1,24 @@
 ---
-title: Configure Visual Studio Code for Go development
+title: Install and configure Visual Studio Code for Go development
 description: This article helps you configure Visual Studio Code for Go development.
-ms.date: 11/11/2021
+ms.date: 6/11/2024
 ms.topic: quickstart
 ms.custom: devx-track-go
 ---
 
-# Configure Visual Studio Code for Go development
+# Install and configure Visual Studio Code for Go development
 
-In this quickstart, you install and configure the [Go for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=golang.Go) extension.
+In this quickstart, you install Go from the official page on go.dev, which installs the compiler, the Standard Library, and many tools to perform various common tasks.
 
-In the [Go Developer Survey 2020 Results](https://go.dev/blog/survey2020-results), **41%** of respondents chose Visual Studio Code as their *most preferred editor* for Go. This makes Visual Studio Code the most popular editor for Go developers.
+Second, you install Visual Studio code, which provides basic code editing features.
+
+Next, you install and configure the [Go for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=golang.Go) extension.
 
 Visual Studio Code and the Go extension provide IntelliSense, code navigation, and advanced debugging. In this quickstart, you configure Visual Studio Code. Then you write, run, and debug a sample Go program.
 
 ![A screenshot showing a Go program within Visual Studio Code](./media/configure-visual-studio-code/visual-studio-code.png)
 
-<!-- retake screenshot, dir name is sample-app now -->
+Finally, you write a sample application to make sure everything is working correctly.
 
 ## 1. Install Go
 
