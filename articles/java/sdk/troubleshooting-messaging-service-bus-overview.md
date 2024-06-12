@@ -88,13 +88,13 @@ Therefore, if the application load to a Service Bus endpoint is reasonably high 
 
 ## Clients halt when using Application Gateway custom endpoint
 
-The custom endpoint address refers to an application provided HTTPs endpoint address resolvable to Service Bus or configured to route traffic to Service Bus. Azure Application Gateway makes it very easy to create a HTTPS front-end that forward traffic to Service Bus. Application may configure Service Bus SDK to use Application Gateway front-end IP address as the custom endpoint to connect to Service Bus.
+The custom endpoint address refers to an application provided HTTPS endpoint address resolvable to Service Bus or configured to route traffic to Service Bus. Azure Application Gateway makes it very easy to create a HTTPS front-end that forward traffic to Service Bus. Application may configure Service Bus SDK to use Application Gateway front-end IP address as the custom endpoint to connect to Service Bus.
 
 Application Gateway offers several security policies supporting different TLS protocol versions. There are predefined policies enforcing TLSv1.2 as the minimum version, there also exist old policies with TLSv1.0 as the minimum version. The HTTPS front-end will have a TLS policy applied.
 
 Right now, the Service Bus SDK does not recognize certain remote TCP termination by the Application Gateway front-end which uses TLSv1.0 as the minimum version. For instance, front-end sends TCP FIN, ACK packets to close the connection when its properties are updated, the SDK cannot detect this hence it won't reconnect. This means clients cannot send or receive messages anymore. Such a halt only happens when using TLSv1.0 as the minimum version. To mitigate, use a security policy with TLSv1.2 (or higher) as the minimum version for the Application Gateway front-end.
 
-Note that the support for TLSv1.0 and 1.1 across all Azure Services are already [announced](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2) to end soon, hence transitioning to TLSv1.2 is strongly recommended.
+Note that the support for TLSv1.0 and 1.1 across all Azure Services are already [announced](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2) to end by 31 October 2024, hence transitioning to TLSv1.2 is strongly recommended.
 
 ## Upgrade to 7.15.x or latest
 
