@@ -25,7 +25,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 If you're running the commands in this guide locally (instead of Azure Cloud Shell):
 
@@ -57,7 +57,7 @@ az login
 ---
 
 > [!NOTE]
-> You can run most Azure CLI commands in PowerShell the same as in Bash. The difference exists only when using variables. In the following sections, the difference will be addressed in different tabs when needed.
+> You can run most Azure CLI commands in PowerShell the same as in Bash. The difference exists only when using variables. In the following sections, the difference is addressed in different tabs when needed.
 >
 > If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can do this with the `--tenant` option - for example, `az login --tenant contoso.onmicrosoft.com`.
 >
@@ -591,7 +591,4 @@ You can learn more from the references used in this guide:
 * [Open Liberty Container Images](https://github.com/OpenLiberty/ci.docker)
 * [WebSphere Liberty Container Images](https://github.com/WASdev/ci.docker)
 
-Continue to explore options to run WebSphere products on Azure.
-
-> [!div class="nextstepaction"]
-> [Learn more about the IBM WebSphere family of products on Azure](websphere-family.md)
+To explore options to run WebSphere products on Azure, see [What are solutions to run the WebSphere family of products on Azure?](websphere-family.md)

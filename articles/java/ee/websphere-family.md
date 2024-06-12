@@ -13,11 +13,11 @@ ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-tr
 
 This article describes the solutions for running the IBM WebSphere family of products on Azure. IBM and Microsoft jointly develop and support these solutions.
 
-The IBM WebSphere product portfolio is a set of industry-leading runtimes powering some of the most mission-critical enterprise applications across geographies and environments. The WebSphere portfolio includes WebSphere (traditional) Application Server, WebSphere Liberty, and Open Liberty. 
+The IBM WebSphere product portfolio is a set of industry-leading runtimes powering some of the most mission-critical enterprise applications across geographies and environments. The WebSphere portfolio includes WebSphere (traditional) Application Server, WebSphere Liberty, and Open Liberty.
 
-WebSphere products are key components in enabling enterprise Java workloads on Azure. The jointly developed solutions of [IBM WebSphere Product Family on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-02-17_websphere_offerings_contact_me?tab=Overview) are available in Azure Marketplace. They aim to cover a range of use cases from mission-critical existing traditional workloads to cloud-native applications. The solutions target Open Liberty on Azure Red Hat OpenShift (ARO), WebSphere Liberty on ARO, Open Liberty on the Azure Kubernetes Service (AKS), WebSphere Liberty on AKS, and WebSphere Application Server on Virtual Machines. The solutions are aimed at making it as easy as possible to migrate your application to the cloud by automating most boilerplate Azure and Java resource provisioning and configuration tasks. Once initial provisioning is done, you're completely free to customize deployments further.
+WebSphere products are key components in enabling enterprise Java workloads on Azure. The jointly developed solutions of the [IBM WebSphere Product Family on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops.2021-02-17_websphere_offerings_contact_me?tab=Overview) are available in Azure Marketplace. They aim to cover a range of use cases from mission-critical existing traditional workloads to cloud-native applications. The solutions target Open Liberty on Azure Red Hat OpenShift (ARO), WebSphere Liberty on ARO, Open Liberty on the Azure Kubernetes Service (AKS), WebSphere Liberty on AKS, and WebSphere Application Server on Virtual Machines. The solutions are aimed at making it as easy as possible to migrate your application to the cloud by automating most boilerplate Azure and Java resource provisioning and configuration tasks. After initial provisioning is done, you're completely free to customize deployments further.
 
-:::image type="content" border="false" source="media/websphere-family/websphere-family.svg" alt-text="Diagram showing the interaction of IBM products on Azure.":::
+:::image type="content" border="false" source="media/websphere-family/websphere-family.svg" alt-text="Diagram showing the interaction of IBM products on Azure." lightbox="media/websphere-family/websphere-family.svg":::
 
 If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
@@ -25,7 +25,7 @@ You can open support issues on the jointly developed offers with either IBM or M
 
 ## Open Liberty and WebSphere Liberty on Azure Red Hat OpenShift (ARO)
 
-The offer [WebSphere Liberty or Open Liberty on ARO](https://ibm.biz/liberty-aro), located in the Azure Marketplace, automatically provisions several Azure resources. The offer enables a swift transition to WebSphere Liberty or Open Liberty on Azure Red Hat OpenShift (ARO). The automatically provisioned resources include an ARO cluster and the Liberty Operators. A secure OpenShift project is set up to contain your application. The offer can also deploy a sample application or a container image with your application. If you prefer a native OpenShift manual deployment experience instead of automated provisioning using the offer, IBM and Microsoft also provide basic step-by-step guidance on getting started with Open Liberty/WebSphere Liberty and ARO. For more information, see [Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](liberty-on-aro.md).
+The offer [WebSphere Liberty or Open Liberty on ARO](https://ibm.biz/liberty-aro), located in Azure Marketplace, automatically provisions several Azure resources. The offer enables a swift transition to WebSphere Liberty or Open Liberty on Azure Red Hat OpenShift (ARO). The automatically provisioned resources include an ARO cluster and the Liberty Operators. A secure OpenShift project is set up to contain your application. The offer can also deploy a sample application or a container image with your application. If you prefer a native OpenShift manual deployment experience instead of automated provisioning using the offer, IBM and Microsoft also provide basic step-by-step guidance on getting started with Open Liberty/WebSphere Liberty and ARO. For more information, see [Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster](liberty-on-aro.md).
 
 ## Open Liberty and WebSphere Liberty on AKS
 
@@ -37,7 +37,8 @@ The offer [WebSphere Liberty or Open Liberty on AKS](https://ibm.biz/liberty-aks
 
 ### WebSphere virtual machine base images
 
-IBM and Microsoft also provide base VM images for WebSphere ND and Base:
+IBM and Microsoft also provide the following base VM images for WebSphere ND and Base:
+
 - [IBM WebSphere Application Server VM base image](https://ibm.biz/twas-base-portal)
 - [IBM WebSphere Application Server ND VM base image](https://ibm.biz/twas-nd-portal)
 
@@ -55,7 +56,8 @@ Explore the currently available WebSphere on Azure offers at Azure Marketplace:
 - [IBM WebSphere Application Server Cluster](https://ibm.biz/twas-cluster-portal)
 - [IBM WebSphere Application Server Single Instance](https://ibm.biz/twas-single-portal)
 
-The following articles provide more information on getting started with these technologies.
+The following articles provide more information on getting started with these technologies:
+
 - [How-to guides: Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 - [Quickstart: Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster](/azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 - [Quickstart: Deploy WebSphere Application Server (traditional) Cluster on Azure Virtual Machines](traditional-websphere-application-server-virtual-machines.md)

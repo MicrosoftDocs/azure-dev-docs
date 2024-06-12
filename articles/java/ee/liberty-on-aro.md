@@ -11,7 +11,9 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 # Manually deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster
 
-In this guide, you will learn how to:
+This article provides step-by-step manual guidance for running Open/WebSphere Liberty on an Azure Red Hat OpenShift cluster. It walks you through preparing a Liberty application, building the application Docker image and running the containerized application on an Azure Red Hat OpenShift cluster. 
+
+Specifically, you learn how to accomplish the following tasks:
 
 > [!div class="checklist"]
 >
@@ -19,7 +21,7 @@ In this guide, you will learn how to:
 > * Build the application image
 > * Run the containerized application on an Azure Red Hat OpenShift cluster using the GUI and the CLI
 
-This article is step-by-step manual guidance for running Open/WebSphere Liberty on an Azure Red Hat OpenShift cluster. It walks you through preparing a Liberty application, building the application Docker image and running the containerized application on an Azure Red Hat OpenShift cluster. For a more automated solution that accelerates your journey to Azure Red Hat OpenShift cluster, see [Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json) using Azure Marketplace offer.
+For a more automated solution that accelerates your journey to Azure Red Hat OpenShift cluster, see [Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json) using Azure Marketplace offer.
 
 For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
@@ -369,7 +371,4 @@ You can learn more from references used in this guide:
 * [Open Liberty Container Images](https://github.com/OpenLiberty/ci.docker)
 * [WebSphere Liberty Container Images](https://github.com/WASdev/ci.docker)
 
-Continue to explore options to run WebSphere products on Azure.
-
-> [!div class="nextstepaction"]
-> [Learn more about the IBM WebSphere family of products on Azure](websphere-family.md)
+To explore options to run WebSphere products on Azure, see [What are solutions to run the WebSphere family of products on Azure?](websphere-family.md)

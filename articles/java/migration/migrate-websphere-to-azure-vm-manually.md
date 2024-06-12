@@ -30,7 +30,7 @@ If you're interested in working closely on your migration scenario with the engi
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Install Azure CLI version 2.46.0 or later](/cli/azure/install-azure-cli) to run Azure CLI commands.
   - This article provides instructions for invoking Azure CLI commands on Windows PowerShell or UNIX Bash. Either way, you must install the Azure CLI.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
@@ -1990,7 +1990,4 @@ az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
 
 ## Next steps
 
-Continue to explore options to run WebSphere products on Azure.
-
-> [!div class="nextstepaction"]
-> [Learn more about the IBM WebSphere family of products on Azure](../ee/websphere-family.md)
+To explore options to run WebSphere products on Azure, see [What are solutions to run the WebSphere family of products on Azure?](websphere-family.md)

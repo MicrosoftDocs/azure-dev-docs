@@ -16,7 +16,7 @@ This article demonstrates the steps that are required to create a basic Hello Wo
 >
 > If you prefer using IntelliJ IDEA, check out our [similar tutorial for IntelliJ][intellij-hello-world].
 >
->[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+> [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 >
 > Don't forget to clean up the resources after you complete this tutorial. In that case, running this guide will not exceed your free account quota.
 >

@@ -8,9 +8,9 @@ items:
       - name: IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift
         href: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: IBM WebSphere Liberty and Open Liberty on AKS
-        href: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json  
+        href: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: IBM WebSphere (Traditional) cluster on Azure VMs
-        href: traditional-websphere-application-server-virtual-machines.md        
+        href: traditional-websphere-application-server-virtual-machines.md
       - name: Oracle WebLogic Server on Azure VM
         href: /azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Oracle WebLogic Server on AKS

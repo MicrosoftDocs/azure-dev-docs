@@ -60,7 +60,7 @@ Each field on this page has an information icon that gives you more information 
 
 ---
 
-After you’ve completed this configuration, select **Next: Cluster configuration**.
+After you've completed this configuration, select **Next: Cluster configuration**.
 
 :::image type="content" source="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-configuration-tab.png" alt-text="Azure portal screenshot with IBM WebSphere Application Server Cluster offering showing 'Cluster configuration' pane." lightbox="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-configuration-tab.png":::
 
@@ -102,13 +102,13 @@ Then, sign in to the IHS console. After the IHS console loads, you should see th
 
 ## Trying out an application
 
-Follow these instructions if you’d like to try out an application in the cluster.
+Follow these instructions if you'd like to try out an application in the cluster.
 
 1. On the administrative console that you signed into earlier, select **Applications > New Application** and then select **New Enterprise Application**.
 
 2. On the next panel, select **Remote file system** and then select **Browse…**. You're given the option to browse the file systems of your installed servers.
 
-3. Select the system that begins with **Dmgr**. You're shown the Deployment Manager’s file system. From there, select **V9** and then **installableApps**. In that directory, you should see many applications available to install. Select **DefaultApplication.ear** and then select **OK**.
+3. Select the system that begins with **Dmgr**. You're shown the Deployment Manager's file system. From there, select **V9** and then **installableApps**. In that directory, you should see many applications available to install. Select **DefaultApplication.ear** and then select **OK**.
 
 Then, you're taken back to the page for selecting the application, which should look like the following screenshot:
 
@@ -124,7 +124,7 @@ You should see new entries in the table under the **Server** column. These entri
 
 :::image type="content" source="media/traditional-websphere-application-server-virtual-machines/map-modules-to-servers-outcome-page.png" alt-text="Screenshot of IBM WebSphere 'Install New Application' dialog with 'Step 2: Map modules to servers' pane showing and 'Server' table column highlighted." lightbox="media/traditional-websphere-application-server-virtual-machines/map-modules-to-servers-outcome-page.png":::
 
-After you’ve completed all the steps, select **Finish**, and then on the next page select **Save**.
+After you've completed all the steps, select **Finish**, and then on the next page select **Save**.
 
 Next, you need to start the application. Go to **Applications > All Applications**. Select the checkbox for **DefaultApplication.ear**, ensure the **Action** is set to **Start**, and then select **Submit Action**.
 
@@ -148,7 +148,4 @@ az group delete --name <resource-group-name> --yes --no-wait
 
 ## Next steps
 
-Continue to explore options to run WebSphere products on Azure.
-
-> [!div class="nextstepaction"]
-> [Learn more about the IBM WebSphere family of products on Azure](websphere-family.md)
+To explore options to run WebSphere products on Azure, see [What are solutions to run the WebSphere family of products on Azure?](websphere-family.md)

@@ -40,7 +40,7 @@ This tutorial was written with Azure Site Recovery and the Azure SQL Database se
 
 ## Prerequisites
 
-* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 * Make sure you have the `Contributor` role in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 * Prepare a local machine with Windows, Linux, or macOS installed.
 * Install and set up [Git](/devops/develop/git/install-and-set-up-git).
