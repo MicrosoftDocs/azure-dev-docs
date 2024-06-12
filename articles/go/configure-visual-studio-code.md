@@ -8,19 +8,11 @@ ms.custom: devx-track-go
 
 # Install and configure Visual Studio Code for Go development
 
-In this quickstart, you install Go from the official page. This installs the compiler, the Standard Library, and many tools to perform various common tasks during Go development.
-
-Second, you install Visual Studio Code, which provides basic code editing functionality.
-
-Next, you install and configure the [Go for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=golang.Go) extension. Visual Studio Code and the Go extension provide IntelliSense, code navigation, and advanced debugging.
-
-![A screenshot showing a Go program within Visual Studio Code](./media/configure-visual-studio-code/visual-studio-code.png)
-
-Finally, you write, run, and debug a sample Go program to make sure everything is working correctly.
+In this quickstart, you will install the Go compiler and tools, install Visual Studio Code to write Go code, and install the Go for Visual Studio Code extension which provides support while writing Go. Once configured, you'll create an application, run it, and use the debugging tool to pause execution and observe the value of variables.
 
 ## 1. Install Go
 
-To install Go, follow these steps:
+Install Go from the official page. This installs the compiler, the Standard Library, and many tools to perform various common tasks during Go development. To install Go, follow these steps:
 
 1. In a web browser, go to [go.dev/doc/install](https://go.dev/doc/install).
 1. Download the version for your operating system.
@@ -29,13 +21,15 @@ To install Go, follow these steps:
 
 ## 2. Install Visual Studio Code
 
-Follow these steps to install Visual Studio Code:
+Next, install Visual Studio Code, which provides basic code editing functionality. Follow these steps to install Visual Studio Code:
 
 1. Open a web browser and go to [code.visualstudio.com](https://code.visualstudio.com/).
-1. Download the version for your operating system, supports Windows, Linux, and macOS.
+1. Download the version for your operating system. Visual Studio Code supports Windows, Linux, and macOS.
 1. Once downloaded, run the installer.
 
 ## 3. Install the Go extension
+
+Install and configure the [Go for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=golang.Go) extension. Visual Studio Code and the Go extension provide IntelliSense, code navigation, and advanced debugging.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -52,6 +46,8 @@ Follow these steps to install Visual Studio Code:
 | Wait for the Go tools to finish updating.  | :::image type="content" source="./media/configure-visual-studio-code/go-tools-install-240x.png" alt-text="A screenshot showing all the Go tools that were updated." lightbox="./media/configure-visual-studio-code/go-tools-install.png"::: |
 
 ## 5. Write a sample Go program
+
+In this step, you write and run a sample Go program to make sure everything is working correctly.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -75,6 +71,8 @@ func main() {
 ```
 
 ## 6. Run the debugger
+
+Finally, create a break point and use the debugger tool to step through code line by line and view the values stored in variables while the application is paused.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
