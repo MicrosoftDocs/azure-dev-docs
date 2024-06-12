@@ -33,6 +33,8 @@
       href: use-terraform-for-azd.md
     - name: Use third-party container registries
       href: use-external-registry.md
+    - name: Use Helm and Kustomize
+      href: helm-kustomize-support.md
     - name: Configure template sources
       href: configure-template-sources.md
   - name: Create templates

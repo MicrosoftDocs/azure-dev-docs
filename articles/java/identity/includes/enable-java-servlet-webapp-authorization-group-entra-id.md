@@ -13,48 +13,18 @@ The following sections show you how to set up the sample application.
 To clone the sample, open a Bash window and use the following command:
 
 ```bash
-git clone https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication.git
-cd 3-Authorization-II/groups
+git clone https://github.com/Azure-Samples/ms-identity-msal-java-samples.git
+cd 3-java-servlet-web-app/3-Authorization-II/groups
 ```
 
-Alternatively, navigate to the [ms-identity-java-servlet-webapp-authentication](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication) repository, then download it as a *.zip* file and extract it to your hard drive.
+Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a *.zip* file and extract it to your hard drive.
 
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
 
 ### Register the sample application with your Microsoft Entra ID tenant
 
-There's one project in this sample. To register the app on the Azure portal, you can either follow manual configuration steps or use a PowerShell script. The script does the following tasks:
-
-- Creates the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
-- Modifies the project configuration files.
-- By default, sets up an application that works with accounts in your organizational directory only.
-
-### [Use PowerShell](#tab/PowerShell)
-
-Use the following steps to run the PowerShell script:
-
-1. On Windows, open PowerShell and navigate to the root of the cloned directory.
-
-1. Use the following command to set the execution policy for PowerShell:
-
-   ```powershell
-   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-   ```
-
-1. Use the following commands to run the configuration script:
-
-   ```powershell
-   cd .\AppCreationScripts\
-   .\Configure.ps1
-   ```
-
-   > [!NOTE]
-   > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/3-Authorization-II/groups/AppCreationScripts/AppCreationScripts.md). The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
-
-### [Use manual steps](#tab/Manual)
-
-The following sections show you how to register the app manually.
+There's one project in this sample. The following sections show you how to register the app using the Azure portal.
 
 #### Choose the Microsoft Entra ID tenant where you want to create your applications
 
@@ -110,7 +80,7 @@ Then, use the following steps to complete the registration:
 
 1. Select **Add permissions**.
 
-1. `GroupMember.Read.All` requires admin consent, so select **Grant/revoke admin consent for {tenant}**, and then select **Yes** when you're asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a Microsoft Entra ID tenant admin to do this.
+1. `GroupMember.Read.All` requires admin consent, so select **Grant/revoke admin consent for {tenant}**, and then select **Yes** when you're asked if you want to grant consent for the requested permissions for all accounts in the tenant. You need to be a Microsoft Entra ID tenant admin to do this action.
 
 ---
 
@@ -176,9 +146,9 @@ To enable this option in your app, use the following steps:
 
 1. Select **Groups assigned to the application**.
 
-   Choosing additional options - such as **Security Groups** or **All groups (includes distribution lists but not groups assigned to the application)** - negates the benefits your app derives from choosing to use this option.
+   Choosing other options - such as **Security Groups** or **All groups (includes distribution lists but not groups assigned to the application)** - negates the benefits your app derives from choosing to use this option.
 
-1. Under the **ID** section, select **Group ID**. This results in Microsoft Entra ID sending the [object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID token](/entra/identity-platform/id-tokens).
+1. Under the **ID** section, select **Group ID**. This selection results in Microsoft Entra ID sending the [object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [ID token](/entra/identity-platform/id-tokens).
 
 1. If you're exposing a web API using the **Expose an API** option, then you can also choose the **Group ID** option under the **Access** section. This option results in Microsoft Entra ID sending the [object ID](/graph/api/resources/group) of the groups the user is assigned to in the groups claim of the [access token](/entra/identity-platform/access-tokens).
 
@@ -226,4 +196,4 @@ To build the sample using Maven, navigate to the directory containing the *pom.x
 mvn clean package
 ```
 
-This command generates a *.war* file that you can run on a variety of application servers.
+This command generates a *.war* file that you can run on various application servers.

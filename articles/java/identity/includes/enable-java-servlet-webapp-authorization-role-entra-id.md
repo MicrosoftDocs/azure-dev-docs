@@ -13,48 +13,18 @@ The following sections show you how to set up the sample application.
 To clone the sample, open a Bash window and use the following command:
 
 ```bash
-git clone https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication.git
-cd 3-Authorization-II/roles
+git clone https://github.com/Azure-Samples/ms-identity-msal-java-samples.git
+cd 3-java-servlet-web-app/3-Authorization-II/roles
 ```
 
-Alternatively, navigate to the [ms-identity-java-servlet-webapp-authentication](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication) repository, then download it as a *.zip* file and extract it to your hard drive.
+Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a *.zip* file and extract it to your hard drive.
 
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
 
 ### Register the sample application with your Microsoft Entra ID tenant
 
-There's one project in this sample. To register the app on the Azure portal, you can either follow manual configuration steps or use a PowerShell script. The script does the following tasks:
-
-- Creates the Microsoft Entra ID applications and related objects, such as passwords, permissions, and dependencies.
-- Modifies the project configuration files.
-- By default, sets up an application that works with accounts in your organizational directory only.
-
-### [Use PowerShell](#tab/PowerShell)
-
-Use the following steps to run the PowerShell script:
-
-1. On Windows, open PowerShell and navigate to the root of the cloned directory.
-
-1. Use the following command to set the execution policy for PowerShell:
-
-   ```powershell
-   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-   ```
-
-1. Use the following commands to run the configuration script:
-
-   ```powershell
-   cd .\AppCreationScripts\
-   .\Configure.ps1
-   ```
-
-   > [!NOTE]
-   > Other ways of running the scripts are described in [App Creation Scripts](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/3-Authorization-II/roles/AppCreationScripts/AppCreationScripts.md). The scripts also provide a guide to automated application registration, configuration, and removal, which can help in your CI/CD scenarios.
-
-### [Use manual steps](#tab/Manual)
-
-The following sections show you how to register the app manually.
+There's one project in this sample. The following sections show you how to register the app using the Azure portal.
 
 #### Choose the Microsoft Entra ID tenant where you want to create your applications
 
@@ -136,7 +106,7 @@ Use the following steps to configure the app:
 
 1. Open the project in your IDE.
 
-1. Open the [authentication.properties](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/3-Authorization-II/roles/src/main/resources/authentication.properties) file.
+1. Open the [authentication.properties](https://github.com/Azure-Samples/ms-identity-msal-java-samples/blob/main/3-java-servlet-web-app/3-Authorization-II/roles/src/main/resources/authentication.properties) file.
 
 1. Find the string `{enter-your-tenant-id-here}`. Replace the existing value with your Microsoft Entra ID tenant ID.
 
@@ -154,4 +124,4 @@ To build the sample using Maven, navigate to the directory containing the *pom.x
 mvn clean package
 ```
 
-This command generates a *.war* file that you can run on a variety of application servers.
+This command generates a *.war* file that you can run on various application servers.

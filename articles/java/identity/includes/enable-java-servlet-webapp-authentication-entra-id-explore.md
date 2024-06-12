@@ -27,19 +27,18 @@ If you want to replicate this sample's behavior, you can copy the *pom.xml* file
 
 The following table shows the contents of the sample project folder:
 
-| File/folder                                                     | Description                                                                                  |
-|-----------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| *AppCreationScripts/*                                           | Scripts to automatically configure Microsoft Entra ID app registrations.                     |
-| *src/main/java/com/microsoft/azuresamples/msal4j/authwebapp/*   | This directory contains the classes that define the app's backend business logic.            |
-| *src/main/java/com/microsoft/azuresamples/msal4j/authservlets/* | This directory contains the classes that are used for sign in and sign out endpoints.        |
-| *____Servlet.java*                                              | All of the endpoints available are defined in *.java* classes ending in *____Servlet.java*.. |
-| *src/main/java/com/microsoft/azuresamples/msal4j/helpers/*      | Helper classes for authentication.                                                           |
-| *AuthenticationFilter.java*                                     | Redirects unauthenticated requests to protected endpoints to a 401 page.                     |
-| *src/main/resources/authentication.properties*                  | Microsoft Entra ID and program configuration.                                                |
-| *src/main/webapp/*                                              | This directory contains the UI - JSP templates                                               |
-| *CHANGELOG.md*                                                  | List of changes to the sample.                                                               |
-| *CONTRIBUTING.md*                                               | Guidelines for contributing to the sample.                                                   |
-| *LICENSE*                                                       | The license for the sample.                                                                  |
+| File/folder                                                     | Description                                                                                 |
+|-----------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| *src/main/java/com/microsoft/azuresamples/msal4j/authwebapp/*   | This directory contains the classes that define the app's backend business logic.           |
+| *src/main/java/com/microsoft/azuresamples/msal4j/authservlets/* | This directory contains the classes that are used for sign in and sign out endpoints.       |
+| *____Servlet.java*                                              | All of the endpoints available are defined in *.java* classes ending in *____Servlet.java*. |
+| *src/main/java/com/microsoft/azuresamples/msal4j/helpers/*      | Helper classes for authentication.                                                          |
+| *AuthenticationFilter.java*                                     | Redirects unauthenticated requests to protected endpoints to a 401 page.                    |
+| *src/main/resources/authentication.properties*                  | Microsoft Entra ID and program configuration.                                               |
+| *src/main/webapp/*                                              | This directory contains the UI - JSP templates                                              |
+| *CHANGELOG.md*                                                  | List of changes to the sample.                                                              |
+| *CONTRIBUTING.md*                                               | Guidelines for contributing to the sample.                                                  |
+| *LICENSE*                                                       | The license for the sample.                                                                 |
 
 ### ConfidentialClientApplication
 
@@ -85,7 +84,7 @@ The following steps provide a walkthrough of the app's functionality:
 
      You can find a full list of scopes requested by the app in the *authentication.properties* file. You can add more scopes, such as `User.Read`.
 
-1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to the app's redirect endpoint. A valid request to this endpoint contain an [authorization code](/entra/identity-platform/v2-oauth2-auth-code-flow).
+1. The user is presented with a sign-in prompt by Microsoft Entra ID. If the sign-in attempt is successful, the user's browser is redirected to the app's redirect endpoint. A valid request to this endpoint contains an [authorization code](/entra/identity-platform/v2-oauth2-auth-code-flow).
 
 1. The `ConfidentialClientApplication` instance then exchanges this authorization code for an ID token and access token from Microsoft Entra ID.
 

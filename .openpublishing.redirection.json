@@ -1375,6 +1375,10 @@
     {
       "source_path": "articles/javascript/how-to/with-visual-studio-code/install-run-debug-nodejs.md",
       "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app"
-    }
+    },
+    {
+      "source_path": "articles/go/azure-sdk-install.md",
+      "redirect_url": "/azure/developer/go/"
+    }    
   ]
 }
