@@ -139,9 +139,6 @@ public class WelcomePage {
 From the [welcome page](https://github.com/majguo/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/templates/welcome.qute.html), users can sign in to the app to access the profile page. The welcome page has links to sign in as a user or as an admin. The links are at `/profile/user` and `/profile/admin`, respectively.
 
 ```html
-. The welcome page has links to sign in as a user or as an admin. The links are at `/profile/user` and `/profile/admin`, respectively.
-
-```html
 <html>
     <head>
         <meta charset="UTF-8">
@@ -159,7 +156,7 @@ From the [welcome page](https://github.com/majguo/quarkus-azure/blob/main/entra-
 </html>
 ```
 
-The [profile page resource](https://github.com/majguo/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/no/kantega/ProfilePage.java) is accessible only to authenticated users by using the `@Authenticated` annotation. The `@Authenticated` annotation specifies that only authenticated users can access the `/profile` path.
+Both links `/profile/user` and `/profile/admin` point to the [profile page resource](https://github.com/majguo/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/no/kantega/ProfilePage.java), which is accessible only to authenticated users by using the `@Authenticated` annotation. The `@Authenticated` annotation specifies that only authenticated users can access the `/profile` path.
 
 ```java
 @Path("/profile")
@@ -262,4 +259,5 @@ You can learn more from references used in this guide:
 * [OpenID Connect authentication with Microsoft Entra ID](/entra/architecture/auth-oidc)
 * [Microsoft identity platform and OAuth 2.0 authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow)
 * [PROTECT A WEB APPLICATION BY USING OPENID CONNECT (OIDC) AUTHORIZATION CODE FLOW](https://quarkus.io/guides/security-oidc-code-flow-authentication-tutorial)
+* [OPENID CONNECT AUTHORIZATION CODE FLOW MECHANISM FOR PROTECTING WEB APPLICATIONS](https://quarkus.io/guides/security-oidc-code-flow-authentication)
 * [OPENID CONNECT (OIDC) CONFIGURATION PROPERTIES](https://quarkus.io/guides/security-oidc-configuration-properties-reference)
