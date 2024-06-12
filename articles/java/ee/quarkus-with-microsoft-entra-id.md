@@ -206,7 +206,7 @@ public class ProfilePage {
 
 Moreover, the profile page resource enables role-based access control (RBAC) by using the `@RolesAllowed` annotation. The `@RolesAllowed` annotation specifies that only users with the `admin` role can access the `/profile/admin` path, and users with the `user` or `admin` role can access the `/profile/user` path.
 
-The [profile page](https://github.com/majguo/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/templates/profile.qute.html) displays the user's name, roles, and scopes. The profile page also has a logout link at `/logout`, which redirects the user to OIDC provider to log out.
+Both endpoints `/profile/admin` and `/profile/user` return the [profile page](https://github.com/majguo/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/templates/profile.qute.html). It displays the user's name, roles, and scopes. The profile page also has a logout link at `/logout`, which redirects the user to OIDC provider to log out.
 
 ```html
 <html>
@@ -254,3 +254,12 @@ To use Microsoft Entra ID as the OpenID Connect provider, you need to configure 
 - `quarkus.oidc.logout.post-logout-path`: The relative path of the application endpoint where the user should be redirected to after logging out from the OpenID Connect Provider. Use `/`.
 
 You can see the configuration in the [application.properties](https://github.com/majguo/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/application.properties) file.
+
+## Next steps
+
+You can learn more from references used in this guide:
+
+* [OpenID Connect authentication with Microsoft Entra ID](/entra/architecture/auth-oidc)
+* [Microsoft identity platform and OAuth 2.0 authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow)
+* [PROTECT A WEB APPLICATION BY USING OPENID CONNECT (OIDC) AUTHORIZATION CODE FLOW](https://quarkus.io/guides/security-oidc-code-flow-authentication-tutorial)
+* [OPENID CONNECT (OIDC) CONFIGURATION PROPERTIES](https://quarkus.io/guides/security-oidc-configuration-properties-reference)
