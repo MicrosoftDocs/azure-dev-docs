@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-t
 
 # Secure Quarkus applications with Microsoft Entra ID using OpenID Connect
 
-This article shows you how to secure Red Hat Quarkus applications with Microsoft Entra ID using OpenID Connect with a simple web application.
+This article shows you how to secure Red Hat Quarkus applications with Microsoft Entra ID using OpenID Connect (OIDC) with a simple web application.
 
 In this article, you learn how to:
 
@@ -47,7 +47,7 @@ First, create two users in your Microsoft Entra tenant by following steps in [Ho
       :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-admin-user.png" alt-text="Screenshot of creating an user acting as admin." lightbox="media/quarkus-with-microsoft-entra-id/create-admin-user.png":::
 
    1. Select **Review + create** > **Create**. Wait until the user is created.
-   1. Refresh the page and you should see the new user in the list.
+   1. Select **Refresh** and you should see the new user in the list.
 
    1. Repeat the above steps to create a second user.
 
@@ -93,6 +93,164 @@ Then, add app roles to your application by following steps in [Add app roles to 
 1. When you reach the section [Assign users and groups to Microsoft Entra roles](/entra/identity-platform/howto-add-app-roles-in-apps#assign-users-and-groups-to-microsoft-entra-roles):
    1. Select **Add user/group**. In **Add Assignment** pane, select user **Admin** for **Users** and select role **Admin** for **Select a role**. Select **Assign**. Wait until the application assignment succeeded.
    1. Repeat the above steps to assign the **User** role to user **User**.
-   1. You should see the users and roles assigned in the **Users and groups** pane.
+   1. Select **Refresh** and you should see the users and roles assigned in the **Users and groups** pane.
 
       :::image type="content" source="media/quarkus-with-microsoft-entra-id/users-and-roles-assigned.png" alt-text="Screenshot of users and roles assigned." lightbox="media/quarkus-with-microsoft-entra-id/users-and-roles-assigned.png":::
+
+## Protect a Quarkus app by using OpenID Connect
+
+In this section, you secure a Quarkus app that authenticates and authorizes users in your Microsoft Entra tenant by using OpenID Connect. You also learn how to give users access to certain parts of the app using role-based access control (RBAC).
+
+### Prepare the Quarkus app
+
+Use the following command to clone the sample Quarkus app for this quickstart. The sample is on [GitHub](https://github.com/majguo/quarkus-azure).
+
+```bash
+git clone https://github.com/majguo/quarkus-azure
+cd quarkus-azure
+cd entra-id-quarkus
+```
+
+If you see a message about being in *detached HEAD* state, this message is safe to ignore. Because this article doesn't require any commits, detached HEAD state is appropriate.
+
+### Enable authentication and authorization to secure app
+
+The app has a [welcome page resource](https://github.com/majguo/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/no/kantega/WelcomePage.java) that is accessible to unauthenticated users. The root path of the welcome page is at `/`.
+
+```java
+@Path("/")
+public class WelcomePage {
+
+    private final Template welcome;
+
+    public WelcomePage(Template welcome) {
+        this.welcome = requireNonNull(welcome, "welcome page is required");
+    }
+
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    public TemplateInstance get() {
+        return welcome.instance();
+    }
+
+}
+```
+
+From the [welcome page](https://github.com/majguo/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/templates/welcome.qute.html), users can sign in to the app to access the profile page. The welcome page has links to sign in as a user or as an admin. The links are at `/profile/user` and `/profile/admin`, respectively.
+
+```html
+. The welcome page has links to sign in as a user or as an admin. The links are at `/profile/user` and `/profile/admin`, respectively.
+
+```html
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Greeting</title>
+    </head>
+    <body>
+        <h1>Hello, welcome to Quarkus and Microsoft Entra ID integration!</h1>
+        <h1>
+            <a href="/profile/user">Login as user</a>
+        </h1>
+        <h1>
+            <a href="/profile/admin">Login as admin</a>
+        </h1>
+    </body>
+</html>
+```
+
+The [profile page resource](https://github.com/majguo/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/no/kantega/ProfilePage.java) is accessible only to authenticated users by using the `@Authenticated` annotation. The `@Authenticated` annotation specifies that only authenticated users can access the `/profile` path.
+
+```java
+@Path("/profile")
+@Authenticated
+public class ProfilePage {
+
+    private final Template profile;
+
+    @Inject
+    SecurityIdentity identity;
+
+    @Inject
+    JsonWebToken accessToken;
+
+    public ProfilePage(Template profile) {
+        this.profile = requireNonNull(profile, "profile page is required");
+    }
+
+    @Path("/admin")
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    @RolesAllowed("admin")
+    public TemplateInstance getAdmin() {
+        return getProfile();
+    }
+
+    @Path("/user")
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    @RolesAllowed({"user","admin"})
+    public TemplateInstance getUser() {
+        return getProfile();
+    }
+
+    private TemplateInstance getProfile() {
+        return profile
+                .data("name", identity.getPrincipal().getName())
+                .data("roles", identity.getRoles())
+                .data("scopes", accessToken.getClaim("scp"));
+    }
+
+}
+```
+
+Moreover, the profile page resource enables role-based access control (RBAC) by using the `@RolesAllowed` annotation. The `@RolesAllowed` annotation specifies that only users with the `admin` role can access the `/profile/admin` path, and users with the `user` or `admin` role can access the `/profile/user` path.
+
+The [profile page](https://github.com/majguo/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/templates/profile.qute.html) displays the user's name, roles, and scopes. The profile page also has a logout link at `/logout`, which redirects the user to OIDC provider to log out.
+
+```html
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Profile</title>
+    </head>
+    <body>
+        <h1>Hello, {name}</h1>
+        <h2>Roles</h2>
+        <ul>
+            {#if roles}
+                {#for role in roles}
+                    <li>{role}</li>
+                {/for}
+            {#else}
+                <li>No roles found!</li>
+            {/if}
+        </ul>
+        <h2>Scopes</h2>
+        <p>
+            {scopes}
+        </p>
+        <h1>
+            <b><a href="/logout">Logout</a></b>
+        </h1>
+    </body>
+</html>
+```
+
+### Configure the Quarkus app
+
+To use Microsoft Entra ID as the OpenID Connect provider, you need to configure the Quarkus app with the following values:
+
+- `quarkus.oidc.client-id`: The client ID of the registered application. Use the **Application (client) ID** value you wrote down earlier.
+- `quarkus.oidc.client-secret`: The client secret of the registered application. Use the **Client secret** value you wrote down earlier.
+- `quarkus.oidc.auth-server-url`: The base URL of the OpenID Connect (OIDC) server. For Microsoft Entra ID, use `https://login.microsoftonline.com/{tenant-id}/v2.0`. Replace `{tenant-id}` with the **Directory (tenant) ID** value you wrote down earlier.
+- `quarkus.oidc.application-type`: The application type. Use `web-app` to tell Quarkus that you want to enable the OIDC authorization code flow so that your users are redirected to the OIDC provider to authenticate.
+- `quarkus.oidc.authentication.redirect-path`: The relative path for calculating a `redirect_uri` query parameter. Use `/`.
+- `quarkus.oidc.authentication.restore-path-after-redirect`: Whether to restore the path after redirect. Use `true`.
+- `quarkus.oidc.roles-claim`: The claim that contains the roles of the authenticated user. For Microsoft Entra ID, use `roles`.
+- `quarkus.oidc.provider`: Well known OpenId Connect provider identifier. For Microsoft Entra ID, use `microsoft`.
+- `quarkus.oidc.token.customizer-name`: The name of the token customizer. For Microsoft Entra ID, use `azure-access-token-customizer`.
+- `quarkus.oidc.logout.path`: The relative path of the logout endpoint at the application. Use `/logout`.
+- `quarkus.oidc.logout.post-logout-path`: The relative path of the application endpoint where the user should be redirected to after logging out from the OpenID Connect Provider. Use `/`.
+
+You can see the configuration in the [application.properties](https://github.com/majguo/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/application.properties) file.
