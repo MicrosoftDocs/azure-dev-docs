@@ -89,41 +89,41 @@ A local development environment is a great choice for traditional development wo
 
 1. Run the `azd init` command and specify the template you want to use as a parameter:
 
-  ::: zone pivot="programming-language-nodejs"
-
-  ```azdeveloper
-  azd init --template todo-nodejs-mongo
-  ```
+    ::: zone pivot="programming-language-nodejs"
+  
+    ```azdeveloper
+    azd init --template todo-nodejs-mongo
+    ```
+  
+    ::: zone-end
+  
+    ::: zone pivot="programming-language-python"
+  
+    ```azdeveloper
+    azd init --template todo-python-mongo
+    ```
+  
+    ::: zone-end
+  
+    ::: zone pivot="programming-language-csharp"
+  
+    ```azdeveloper
+    azd init --template todo-csharp-cosmos-sql
+    ```
+  
+    ::: zone-end
+  
+    ::: zone pivot="programming-language-java"
+  
+    ```azdeveloper
+    azd init --template todo-java-mongo
+    ```
 
   ::: zone-end
 
-  ::: zone pivot="programming-language-python"
+  Enter an environment name when prompted, such as `azdquickstart`, which sets a naming prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
 
-  ```azdeveloper
-  azd init --template todo-python-mongo
-  ```
-
-  ::: zone-end
-
-  ::: zone pivot="programming-language-csharp"
-
-  ```azdeveloper
-  azd init --template todo-csharp-cosmos-sql
-  ```
-
-  ::: zone-end
-
-  ::: zone pivot="programming-language-java"
-
-  ```azdeveloper
-  azd init --template todo-java-mongo
-  ```
-
-  ::: zone-end
-
-1. Enter an environment name when prompted, such as `azdquickstart`, which sets a naming prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
-
-    After you specify the environment, `azd` clones the template project to your machine and initializes the project.
+  After you specify the environment, `azd` clones the template project to your machine and initializes the project.
 
 ### Provision and deploy the app resources
 
@@ -181,7 +181,7 @@ Codespaces are a great option for developers who prefer to work in containerized
 1. In your browser, navigate to the [React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo) template (or select one from [Awesome AZD](https://azure.github.io/awesome-azd/))
 ::: zone-end
 
-1. Above the file list, click **Use this template** > **Open in a Codespace**.
+2. Above the file list, click **Use this template** > **Open in a Codespace**.
 
   :::image type="content" source="media/get-started/codespaces-template-dropdown.png" alt-text="Screenshot demonstrating selecting the option to open a template in a Codespace via the GitHub repo UI.":::
 
@@ -193,7 +193,7 @@ Codespaces are a great option for developers who prefer to work in containerized
 
 1. Once your Codespace is created, right-click **azure.yaml** in the root directory. From the options, select **up (provision resources, and deploy code to Azure)**.
 
-    :::image type="content" source="media/get-started/codespaces-up-command.png" alt-text="Screenshot showing the azure.yaml menu option for running azd up.":::
+  :::image type="content" source="media/get-started/codespaces-up-command.png" alt-text="Screenshot showing the azure.yaml menu option for running azd up.":::
 
 1. When you run the `azd up` command, you'll be prompted to provide the following information and to sign in using a web browser and an authentication code:
 
@@ -205,15 +205,15 @@ Codespaces are a great option for developers who prefer to work in containerized
   | `Azure Location`   | The Azure location where your resources will be deployed. |
   | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
   
-  This process may take some time to complete, as the `azd up` command:
+  This process may take some time to complete, as the `azd up` command handles the following tasks:
 
-  - Creates and configures all necessary Azure resources (`azd provision`), including:
-  - Access policies and roles for your account
-  - Service-to-service communication with Managed Identities
-  - Packages and deploys the code (`azd deploy`)
-
+  - Creates and configures all necessary Azure resources (`azd provision`).
+  - Configures access policies and roles for your account.
+  - Implements service-to-service communication with Managed Identities.
+  - Packages and deploys the code (`azd deploy`).
+  
   Once you've provided the necessary parameters and the `azd up` command completes, the CodeSpaces terminal displays two Azure portal links to view resources created:
-
+  
   - ToDo API app
   - ToDo web app frontend
 
