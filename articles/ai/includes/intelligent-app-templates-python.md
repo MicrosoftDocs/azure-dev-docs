@@ -90,7 +90,7 @@ This template demonstrates the use of these features.
 
 ### Function calling with Prompty, LangChain and Elastic Search
 
-This template is an application that uses Prompty, Langchain, and Elasticsearch to build a large language model (LLM) search agent. This agent with Retrieval Augmented Generation (RAG) technology is is capable of answering user questions based on the provided data by integrating real-time information retrieval with generative responses.
+This template is an application that uses Prompty, Langchain, and Elasticsearch to build a large language model (LLM) search agent. This agent with Retrieval Augmented Generation (RAG) technology is capable of answering user questions based on the provided data by integrating real-time information retrieval with generative responses.
 
 To access the source code and read in-depth details about the template, see the [agent-python-openai-prompty-langchain](https://github.com/Azure-Samples/agent-python-openai-prompty-langchain) GitHub repo.
 
@@ -110,7 +110,7 @@ This template demonstrates the use of these features.
 
 ### Function calling with Prompty, LangChain and Pinecone
 
-This template utilizes the new Prompty tool, Langchain, and Pinecone to build a large language model (LLM) search agent. This agent with Retrieval Augmented Generation (RAG) technologyis is capable of answering user questions based on the provided data by integrating real-time information retrieval with generative responses.
+This template utilizes the new Prompty tool, Langchain, and Pinecone to build a large language model (LLM) search agent. This agent with Retrieval Augmented Generation (RAG) technology is capable of answering user questions based on the provided data by integrating real-time information retrieval with generative responses.
 
 To access the source code and read in-depth details about the template, see the [agent-openai-python-prompty-langchain-pinecone](https://github.com/Azure-Samples/agent-openai-python-prompty-langchain-pinecone) GitHub repo.
 
