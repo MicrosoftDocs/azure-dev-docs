@@ -89,43 +89,49 @@ A local development environment is a great choice for traditional development wo
 
 1. Run the `azd init` command and specify the template you want to use as a parameter:
 
-  ::: zone pivot="programming-language-nodejs"
-
-  ```azdeveloper
-  azd init --template todo-nodejs-mongo
-  ```
-
-  ::: zone-end
-
-  ::: zone pivot="programming-language-python"
-
-  ```azdeveloper
-  azd init --template todo-python-mongo
-  ```
-
-  ::: zone-end
-
-  ::: zone pivot="programming-language-csharp"
-
-  ```azdeveloper
-  azd init --template todo-csharp-cosmos-sql
-  ```
-
-  ::: zone-end
-
-  ::: zone pivot="programming-language-java"
-
-  ```azdeveloper
-  azd init --template todo-java-mongo
-  ```
-
-  ::: zone-end
-
-  Enter an environment name when prompted, such as `azdquickstart`, which sets a naming prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
-
-  After you specify the environment, `azd` clones the template project to your machine and initializes the project.
+    ::: zone pivot="programming-language-nodejs"
+  
+    ```azdeveloper
+    azd init --template todo-nodejs-mongo
+    ```
+  
+    ::: zone-end
+  
+    ::: zone pivot="programming-language-python"
+  
+    ```azdeveloper
+    azd init --template todo-python-mongo
+    ```
+  
+    ::: zone-end
+  
+    ::: zone pivot="programming-language-csharp"
+  
+    ```azdeveloper
+    azd init --template todo-csharp-cosmos-sql
+    ```
+  
+    ::: zone-end
+  
+    ::: zone pivot="programming-language-java"
+  
+    ```azdeveloper
+    azd init --template todo-java-mongo
+    ```
+  
+    ::: zone-end
+  
+    Enter an environment name when prompted, such as `azdquickstart`, which sets a naming prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
+  
+    After you specify the environment, `azd` clones the template project to your machine and initializes the project.
 
 ### Provision and deploy the app resources
+
+1. Run the `azd auth login` command and `azd` launches a browser for you to complete the sign-in process.
+
+    ```azdeveloper
+    azd auth login
+    ```
 
 1. Run the `azd up` command:
 
@@ -137,27 +143,27 @@ A local development environment is a great choice for traditional development wo
 
 1. Once you are signed-in to Azure, you will be prompted for the following information:
 
-  | Parameter | Description |
-  | --------- | ----------- |
-  | `Azure Location`   | The Azure location where your resources will be deployed. |
-  | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
-
-  Select your desired values and press enter. The `azd up` command handles the following tasks for you using the template configuration and infrastructure files:
-
-- Creates and configures all necessary Azure resources (`azd provision`), including:
-- Access policies and roles for your account
-- Service-to-service communication with Managed Identities
-- Packages and deploys the code (`azd deploy`)
-
-When the `azd up` command completes successfully, the CLI displays two links to view resources created:
-
-- ToDo API app
-- ToDo web app frontend
-
-:::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
-
-> [!NOTE]
-> You can call `azd up` as many times as you like to both provision and deploy updates to your application.
+    | Parameter | Description |
+    | --------- | ----------- |
+    | `Azure Location`   | The Azure location where your resources will be deployed. |
+    | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
+  
+    Select your desired values and press enter. The `azd up` command handles the following tasks for you using the template configuration and infrastructure files:
+  
+  - Creates and configures all necessary Azure resources (`azd provision`), including:
+  - Access policies and roles for your account
+  - Service-to-service communication with Managed Identities
+  - Packages and deploys the code (`azd deploy`)
+  
+  When the `azd up` command completes successfully, the CLI displays two links to view resources created:
+  
+  - ToDo API app
+  - ToDo web app frontend
+  
+  :::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
+  
+  > [!NOTE]
+  > You can call `azd up` as many times as you like to both provision and deploy updates to your application.
 
 ## [Codespaces](#tab/codespaces)
 
@@ -248,7 +254,6 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 
 - [Install the Azure Developer CLI](./install-azd.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 3.8](https://www.python.org/downloads/)
 - [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
 
 ::: zone-end
@@ -269,55 +274,54 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 
 ::: zone-end
 
-### Initialize project
+### Initialize the project
 
 1. Open a terminal, create a new empty directory, and change into it.
 
 1. Run the following command to initialize the project:
   
-  ::: zone pivot="programming-language-nodejs"
-
-  ```azdeveloper
-  azd init --template todo-nodejs-mongo
-  ```
-
-  ::: zone-end
+    ::: zone pivot="programming-language-nodejs"
   
-  ::: zone pivot="programming-language-python"
-
-  ```azdeveloper
-  azd init --template todo-python-mongo
-  ```
-
-  ::: zone-end
+    ```azdeveloper
+    azd init --template todo-nodejs-mongo
+    ```
   
-  ::: zone pivot="programming-language-csharp"
+    ::: zone-end
 
-  ```azdeveloper
-  azd init --template todo-csharp-cosmos-sql
-  ```
-
-  ::: zone-end
+    ::: zone pivot="programming-language-python"
   
-  ::: zone pivot="programming-language-java"
+    ```azdeveloper
+    azd init --template todo-python-mongo
+    ```
+  
+    ::: zone-end
 
-  ```azdeveloper
-  azd init --template todo-java-mongo
-  ```
+    ::: zone pivot="programming-language-csharp"
+  
+    ```azdeveloper
+    azd init --template todo-csharp-cosmos-sql
+    ```
+  
+    ::: zone-end
 
-  ::: zone-end
+    ::: zone pivot="programming-language-java"
+  
+    ```azdeveloper
+    azd init --template todo-java-mongo
+    ```
+  
+    ::: zone-end
 
-### Provide parameters
+    When you run the `azd init` command, you'll be prompted to provide the following information:
 
-When you run the `azd init` command, you'll be prompted to provide the following information:
+    | Parameter | Description |
+    | --------- | ----------- |
+    | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name) You can always create a new environment with `azd env new`. |
 
-| Parameter | Description |
-| --------- | ----------- |
-| `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name) You can always create a new environment with `azd env new`. |
+### Open the DevContainer
 
-### Open DevContainer
-
-Open the project in VS Code, hit F1 and choose: `Remote-Containers: Rebuild and Reopen in Container`
+1. Open the project in VS Code.
+1. Press F1 and choose: `Remote-Containers: Rebuild and Reopen in Container`
 
 ### Run `up` command
 
