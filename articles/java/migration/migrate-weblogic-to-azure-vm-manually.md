@@ -1595,4 +1595,4 @@ Continue to explore options to run WebLogic Server on Azure.
 * [WebLogic Server on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 * [Explore options for day 2 and beyond](https://aka.ms/wls-vms-day2)
 
-To find more about Oracle WebLogic offers, visit the overview page of [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all _Bring-Your-Own-License_. They assume you've already got the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
+For more information about Oracle WebLogic offers, see [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all *Bring-Your-Own-License*. They assume you've already got the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
