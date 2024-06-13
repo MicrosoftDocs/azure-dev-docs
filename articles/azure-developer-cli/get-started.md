@@ -14,11 +14,11 @@ zone_pivot_groups: azd-languages-set
 
 # Quickstart: Deploy an Azure Developer CLI template
 
-In this quickstart, you'll learn how to provision and deploy app resources to Azure using an [Azure Developer CLI (`azd`) templates](/azure/developer/azure-developer-cli/azd-templates) using only a few `azd` commands.  `azd` templates are standard code repositories that include your application source code, as well as `azd` configuration and infrastructure files to provision Azure resources. Visit the [What are Azure Developer CLI templates?](/azure/developer/azure-developer-cli/azd-templates) page to learn more about `azd` templates and how they can accelerate your Azure provisioning and deployment process.
+In this quickstart, you'll learn how to provision and deploy app resources to Azure using an [Azure Developer CLI (`azd`) template](/azure/developer/azure-developer-cli/azd-templates) and only a few `azd` commands.  `azd` templates are standard code repositories that include your application source code, as well as `azd` configuration and infrastructure files to provision Azure resources. Visit the [What are Azure Developer CLI templates?](/azure/developer/azure-developer-cli/azd-templates) page to learn more about `azd` templates and how they can accelerate your Azure provisioning and deployment process.
 
 ## Select and deploy the template
 
-For the steps ahead, use the following template to provision and deploy an app on Azure:
+For the steps ahead, you'll use the following template to provision and deploy an app on Azure:
 
 ::: zone pivot="programming-language-nodejs"
 [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo)
@@ -36,7 +36,7 @@ For the steps ahead, use the following template to provision and deploy an app o
 [React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo)
 ::: zone-end
 
-You can also select a template that matches your preferences from the [Awesome AZD](https://azure.github.io/awesome-azd/) template gallery site. Regardless of which template you use, you'll end up with the available code in your development environment and be able to run commands to build, redeploy, and monitor the app in Azure.
+You can also select a template that matches your preferences from the [Awesome AZD](https://azure.github.io/awesome-azd/) template gallery site. Regardless of which template you use, you'll end up with the template code in your development environment and be able to run commands to build, redeploy, and monitor the app in Azure.
 
 Select your preferred environment to continue:
 
@@ -69,7 +69,7 @@ A local development environment is a great choice for traditional development wo
 
 - [Install the Azure Developer CLI](./install-azd.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [.NET 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+- [.NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
 - [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
 
 ::: zone-end
@@ -78,7 +78,7 @@ A local development environment is a great choice for traditional development wo
 
 - [Install the Azure Developer CLI](./install-azd.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [OpenJDK 17](https://learn.microsoft.com/en-us/java/openjdk/download#openjdk-17)
+- [OpenJDK 17](https://learn.microsoft.com/java/openjdk/download#openjdk-17)
 - [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
 
 ::: zone-end
@@ -137,16 +137,16 @@ A local development environment is a great choice for traditional development wo
 
 1. Once you are signed-in to Azure, you will be prompted for the following information:
 
-| Parameter | Description |
-| --------- | ----------- |
-| `Azure Location`   | The Azure location where your resources will be deployed. |
-| `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
+  | Parameter | Description |
+  | --------- | ----------- |
+  | `Azure Location`   | The Azure location where your resources will be deployed. |
+  | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
 
-After you provide these values, the `azd up` command:
+  Select your desired values and press enter. The `azd up` command handles the following tasks for you using the template configuration and infrastructure files:
 
 - Creates and configures all necessary Azure resources (`azd provision`), including:
-  - Access policies and roles for your account
-  - Service-to-service communication with Managed Identities
+- Access policies and roles for your account
+- Service-to-service communication with Managed Identities
 - Packages and deploys the code (`azd deploy`)
 
 When the `azd up` command completes successfully, the CLI displays two links to view resources created:
@@ -183,9 +183,9 @@ Codespaces are a great option for developers who prefer to work in containerized
 
 1. Above the file list, click **Use this template** > **Open in a Codespace**.
 
-   :::image type="content" source="media/get-started/codespaces-template-dropdown.png" alt-text="Screenshot demonstrating selecting the option to open a template in a Codespace via the GitHub repo UI.":::
+  :::image type="content" source="media/get-started/codespaces-template-dropdown.png" alt-text="Screenshot demonstrating selecting the option to open a template in a Codespace via the GitHub repo UI.":::
 
-  With Codespaces, all pre-requisites are installed for you, including the [`azd` Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev). 
+  With Codespaces, all pre-requisites are installed for you, including the [`azd` Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev).
 
   :::image type="content" source="media/get-started/codespaces-initial-set-up.png" alt-text="Screenshot showing what your new Codespace will look like once initiated.":::
 
