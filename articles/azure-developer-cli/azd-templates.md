@@ -18,6 +18,21 @@ Azure Developer CLI (`azd`) templates are standard code repositories that includ
 - How to decide whether to use an existing template or create one
 - Explore existing `azd` starter templates
 
+## Why use Azure Developer CLI templates?
+
+Developers often face many time consuming and challenging tasks when building properly architected and configured environment apps for the cloud. Teams must account for many different concerns in these environments, such as creating resources, applying configurations, setting up monitoring and logging, building CI/CD pipelines, and other tasks. `azd` templates reduce and streamline these responsibilities to help the developer on their journey from local development to a successfully deployed app on Azure.
+
+For example, suppose you work at a company that operates a ticket management and customer communication platform, which requires the following Azure resources:
+
+- Two App Service instances and an App Service Plan to host a front-end web app and back-end API
+- A Key Vault instance to store secure app secrets
+- A Cosmos DB database to permanently store app data
+- Azure Monitor resources such as Application Insights dashboards
+- A Service Bus to manage scalable messaging
+- CI/CD pipelines to ensure changes can be reliably deployed through an automated, repeatable process.
+
+Rather than starting from the ground up, with `azd` you can leverage existing architecture templates can provision and deploy most of the resources for you. The development team can then focus on building the app and making smaller adjustments to the template architecture.
+
 ## How Azure Developer CLI templates works
 
 Azure Developer CLI templates are designed to work with `azd` commands such as `azd init` and `azd up`. The templates include configuration and infrastructure-as-code (IaC) files that are used by the commands to perform tasks such as provisioning Azure resources and deploy the app code to them.
