@@ -125,7 +125,7 @@ In this section, you create Oracle Linux machines with JDK 11 and WebLogic 14.1.
 
 Create a VM using [az vm create](/cli/azure/vm). You run the Administration Server on this VM.
 
-The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use SSL/TLS authentication instead.
+The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use TLS/SSL authentication instead.
 
 ```azurecli
 export VM_URN=Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest
@@ -154,7 +154,7 @@ Follow these steps to provision a Windows 10 machine and install an X-server. If
 
 Create two VMs using [az vm create](/cli/azure/vm). You run the managed servers on this VM.
 
-The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use SSL/TLS authentication instead.
+The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use TLS/SSL authentication instead.
 
 ```azurecli
 export VM_URN=Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest
@@ -450,7 +450,7 @@ set ADMINVM_IP="192.168.0.4"
 ssh azureuser@%ADMINVM_IP%
 ```
 
-If you aren't working with the `oracle` user, log in with `oracle`:
+If you aren't working with the `oracle` user, sign in with `oracle`:
 
 ```bash
 sudo su - oracle
@@ -598,7 +598,7 @@ set MSPVM1_IP="192.168.0.6"
 ssh azureuser@%MSPVM1_IP%
 ```
 
-If you aren't working with `oracle` user, log in with `oracle`:
+If you aren't working with `oracle` user, sign in with `oracle`:
 
 ```bash
 sudo su - oracle
@@ -1550,16 +1550,16 @@ export APPGATEWAY_IP=$(az network public-ip show \
 echo "admin console URL is http://${APPGATEWAY_IP}/console/"
 ```
 
-Verify that you can log into the Administration Server console. If you can't, troubleshoot and resolve the problem before proceeding.
+Verify that you can sign into the Administration Server console. If you can't, troubleshoot and resolve the problem before proceeding.
 
 > [!NOTE]
-> This example sets up simple access to the WebLogic servers with HTTP. If you want secure access, configure SSL/TLS termination by follow the instructions in [End to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
+> This example sets up simple access to the WebLogic servers with HTTP. If you want secure access, configure TLS/SSL termination by follow the instructions in [End to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
 >
 > This example exposes the Administration Server console via the Application Gateway. Don't do this in a production environment.
 
 ## Deploy a sample application
 
-This section shows you how to deploy a simple application to the WebLogic Server cluster. First, download [testwebapp.war](https://aka.ms/wls-aks-testwebapp) from Oracle and save the file to your local filesystem. Then, use the following steps to deploy the application:
+This section shows you how to deploy an application to the WebLogic Server cluster. First, download [testwebapp.war](https://aka.ms/wls-aks-testwebapp) from Oracle and save the file to your local filesystem. Then, use the following steps to deploy the application:
 
 1. Open a web browser.
 1. Navigate to the Administration Console portal with the URL `http://<gateway-public-ip-address>/console/`, then sign in with your admin account and password. In this example, they're `weblogic/Secret123456`.
@@ -1595,4 +1595,4 @@ Continue to explore options to run WebLogic Server on Azure.
 * [WebLogic Server on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 * [Explore options for day 2 and beyond](https://aka.ms/wls-vms-day2)
 
-For more information about Oracle WebLogic offers, see [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all *Bring-Your-Own-License*. They assume you've already got the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
+For more information about Oracle WebLogic offers, see [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all *Bring-Your-Own-License*. They assume you already have the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
