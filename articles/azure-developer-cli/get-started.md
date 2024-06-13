@@ -89,35 +89,35 @@ A local development environment is a great choice for traditional development wo
 
 1. Run the `azd init` command and specify the template you want to use as a parameter:
 
-    ::: zone pivot="programming-language-nodejs"
-  
-    ```azdeveloper
-    azd init --template todo-nodejs-mongo
-    ```
-  
-    ::: zone-end
-  
-    ::: zone pivot="programming-language-python"
-  
-    ```azdeveloper
-    azd init --template todo-python-mongo
-    ```
-  
-    ::: zone-end
-  
-    ::: zone pivot="programming-language-csharp"
-  
-    ```azdeveloper
-    azd init --template todo-csharp-cosmos-sql
-    ```
-  
-    ::: zone-end
-  
-    ::: zone pivot="programming-language-java"
-  
-    ```azdeveloper
-    azd init --template todo-java-mongo
-    ```
+  ::: zone pivot="programming-language-nodejs"
+
+  ```azdeveloper
+  azd init --template todo-nodejs-mongo
+  ```
+
+  ::: zone-end
+
+  ::: zone pivot="programming-language-python"
+
+  ```azdeveloper
+  azd init --template todo-python-mongo
+  ```
+
+  ::: zone-end
+
+  ::: zone pivot="programming-language-csharp"
+
+  ```azdeveloper
+  azd init --template todo-csharp-cosmos-sql
+  ```
+
+  ::: zone-end
+
+  ::: zone pivot="programming-language-java"
+
+  ```azdeveloper
+  azd init --template todo-java-mongo
+  ```
 
   ::: zone-end
 
@@ -193,31 +193,31 @@ Codespaces are a great option for developers who prefer to work in containerized
 
 1. Once your Codespace is created, right-click **azure.yaml** in the root directory. From the options, select **up (provision resources, and deploy code to Azure)**.
 
-  :::image type="content" source="media/get-started/codespaces-up-command.png" alt-text="Screenshot showing the azure.yaml menu option for running azd up.":::
+    :::image type="content" source="media/get-started/codespaces-up-command.png" alt-text="Screenshot showing the azure.yaml menu option for running azd up.":::
 
 1. When you run the `azd up` command, you'll be prompted to provide the following information and to sign in using a web browser and an authentication code:
 
-  :::image type="content" source="media/get-started/codespaces-parameters.png" alt-text="Screenshot showing the parameter prompts and the prompt to sign in using your browser.":::
-  
-  | Parameter | Description |
-  | --------- | ----------- |
-  | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name) You can always create a new environment with `azd env new`. |
-  | `Azure Location`   | The Azure location where your resources will be deployed. |
-  | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
-  
-  This process may take some time to complete, as the `azd up` command handles the following tasks:
+    :::image type="content" source="media/get-started/codespaces-parameters.png" alt-text="Screenshot showing the parameter prompts and the prompt to sign in using your browser.":::
 
-  - Creates and configures all necessary Azure resources (`azd provision`).
-  - Configures access policies and roles for your account.
-  - Implements service-to-service communication with Managed Identities.
-  - Packages and deploys the code (`azd deploy`).
-  
-  Once you've provided the necessary parameters and the `azd up` command completes, the CodeSpaces terminal displays two Azure portal links to view resources created:
-  
-  - ToDo API app
-  - ToDo web app frontend
+    | Parameter | Description |
+    | --------- | ----------- |
+    | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name) You can always create a new environment with `azd env new`. |
+    | `Azure Location`   | The Azure location where your resources will be deployed. |
+    | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
 
-  :::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
+    This process may take some time to complete, as the `azd up` command handles the following tasks:
+
+    - Creates and configures all necessary Azure resources (`azd provision`).
+    - Configures access policies and roles for your account.
+    - Implements service-to-service communication with Managed Identities.
+    - Packages and deploys the code (`azd deploy`).
+
+    Once you've provided the necessary parameters and the `azd up` command completes, the CodeSpaces terminal displays two Azure portal links to view resources created:
+
+    - ToDo API app
+    - ToDo web app frontend
+
+    :::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
 
 ### What happened?
 
