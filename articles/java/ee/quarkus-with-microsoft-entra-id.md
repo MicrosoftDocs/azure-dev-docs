@@ -44,7 +44,7 @@ First, create two users in your Microsoft Entra tenant by following steps in [Ho
    1. Select **Auto-generate password** for **Password** and copy the **Password** value. You use this value later when you sign in to the Quarkus app.
    1. Select **Account enabled**.
 
-      :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-admin-user.png" alt-text="Screenshot of creating an user acting as admin." lightbox="media/quarkus-with-microsoft-entra-id/create-admin-user.png":::
+      :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-admin-user.png" alt-text="Screenshot of creating a user acting as admin." lightbox="media/quarkus-with-microsoft-entra-id/create-admin-user.png":::
 
    1. Select **Review + create** > **Create**. Wait until the user is created.
    1. Select **Refresh** and you should see the new user in the list.
@@ -64,7 +64,7 @@ Next, register an application by following steps in [Quickstart: Register an app
    1. When registration finishes, write down the **Application (client) ID** and **Directory (tenant) ID**. You use these values later in the Quarkus app configuration.
 
 1. When you reach the section [Add a redirect URI](/entra/identity-platform/quickstart-register-app#add-a-redirect-uri):
-   1. Select **Web** for the **Configure platforms** and enter `http://localhost:8080` for the **Redirect URIs**.
+   1. Select **Web** for **Configure platforms** and enter `http://localhost:8080` for **Redirect URIs**.
 
 1. When you reach the section [Add credentials](/entra/identity-platform/quickstart-register-app#add-credentials), select [Add a client secret](/entra/identity-platform/quickstart-register-app#add-a-client-secret) in this quickstart.
    1. When you add a client secret, write down the **Client secret** value. You use this value later in the Quarkus app configuration.
@@ -311,18 +311,18 @@ Once the Quarkus app is running, open a web browser and navigate to `http://loca
 
 :::image type="content" source="media/quarkus-with-microsoft-entra-id/welcome-page.png" alt-text="Screenshot of welcome page." lightbox="media/quarkus-with-microsoft-entra-id/welcome-page.png":::
 
-Select the **Sign in as user** link. You are redirected to the Microsoft Entra ID sign-in page. Sign in with the regular user you created earlier. After you sign in, you are redirected to the profile page, where you see your name, roles, and scopes.
+Select the **Sign in as user** link. You're redirected to the Microsoft Entra ID sign-in page. Sign in with the regular user you created earlier. After you sign in, you're redirected to the profile page, where you see your name, roles, and scopes.
 
 :::image type="content" source="media/quarkus-with-microsoft-entra-id/user-profile.png" alt-text="Screenshot of user profile." lightbox="media/quarkus-with-microsoft-entra-id/user-profile.png":::
 
 > [!NOTE]
-> For the first time you sign in, you will be prompted to **Update your password**. Follow the instructions to update your password.
-> If you're prompted with *Your organization requires additional security information. Follow the prompts to download and set up the Microsoft Authenticator app*, you can select **Ask later** to continue the test.
-> If you're prompted to **Permissions requested**, review the permissions requested by the app. Select **Accept** to continue the test.
+> - For the first time you sign in, you will be prompted to **Update your password**. Follow the instructions to update your password.
+> - If you're prompted with *Your organization requires additional security information. Follow the prompts to download and set up the Microsoft Authenticator app*, you can select **Ask later** to continue the test.
+> - If you're prompted to **Permissions requested**, review the permissions requested by the app. Select **Accept** to continue the test.
 
-Select **Sign out** to sign out from the Quarkus app. You are redirected to Microsoft Entra ID to sign out. After you sign out, you are redirected to the welcome page.
+Select **Sign out** to sign out from the Quarkus app. You're redirected to Microsoft Entra ID to sign out. After you sign out, you're redirected to the welcome page.
 
-Select the **Sign in as admin** link. You are redirected to the Microsoft Entra ID sign-in page. Sign in with the admin user you created earlier. After you sign in, you are redirected to the similar profile page, with a different role `admin`.
+Select the **Sign in as admin** link. You're redirected to the Microsoft Entra ID sign-in page. Sign in with the admin user you created earlier. After you sign in, you're redirected to the similar profile page, with a different role `admin`.
 
 :::image type="content" source="media/quarkus-with-microsoft-entra-id/admin-profile.png" alt-text="Screenshot of admin profile." lightbox="media/quarkus-with-microsoft-entra-id/admin-profile.png":::
 
@@ -332,7 +332,7 @@ Sign out again and try to **Sign in as admin**  with the regular user you create
 
 ## Next steps
 
-You can learn more from references used in this guide:
+In this quickstart, you protect Quarkus applications with Microsoft Entra ID using OpenID Connect. Explore the following resources to learn more:
 
 * [OpenID Connect authentication with Microsoft Entra ID](/entra/architecture/auth-oidc)
 * [Microsoft identity platform and OAuth 2.0 authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow)
