@@ -12,15 +12,15 @@ zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.j
 zone_pivot_groups: azd-languages-set
 ---
 
-# Get started using Azure Developer CLI
+# Quickstart: Deploy an Azure Developer CLI template
+
+In this quickstart, you'll learn how to provision and deploy app resources to Azure using an [Azure Developer CLI (`azd`) templates](/azure/developer/azure-developer-cli/azd-templates) using only a few `azd` commands.  `azd` templates are standard code repositories that include your application source code, as well as `azd` configuration and infrastructure files to provision Azure resources. Visit the [What are Azure Developer CLI?](/azure/developer/azure-developer-cli/azd-templates) page to learn more about what `azd` templates are and how they can accelerate your Azure provisioning and deployment process.
 
 ::: zone pivot="programming-language-nodejs"
 
 ## Run a Node.js template
 
-Let's put the basic Azure Developer CLI (`azd`) commands to the test and run one of our Node.js template applications. We'll use the [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo) for this guide.
-
-Upon completion, you'll get the code in your development environment and be able to run commands to build, deploy, and monitor the app in Azure.
+Use the [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo) to complete the steps ahead. Upon completion, you'll get the code in your development environment and be able to run commands to build, deploy, and monitor the app in Azure.
 
 Select your preferred environment to continue:
 
