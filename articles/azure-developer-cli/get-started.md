@@ -14,7 +14,7 @@ zone_pivot_groups: azd-languages-set
 
 # Quickstart: Deploy an Azure Developer CLI template
 
-In this quickstart, you'll learn how to provision and deploy app resources to Azure using an [Azure Developer CLI (`azd`) templates](/azure/developer/azure-developer-cli/azd-templates) using only a few `azd` commands.  `azd` templates are standard code repositories that include your application source code, as well as `azd` configuration and infrastructure files to provision Azure resources. Visit the [What are Azure Developer CLI?](/azure/developer/azure-developer-cli/azd-templates) page to learn more about what `azd` templates are and how they can accelerate your Azure provisioning and deployment process.
+In this quickstart, you'll learn how to provision and deploy app resources to Azure using an [Azure Developer CLI (`azd`) templates](/azure/developer/azure-developer-cli/azd-templates) using only a few `azd` commands.  `azd` templates are standard code repositories that include your application source code, as well as `azd` configuration and infrastructure files to provision Azure resources. Visit the [What are Azure Developer CLI templates?](/azure/developer/azure-developer-cli/azd-templates) page to learn more about `azd` templates and how they can accelerate your Azure provisioning and deployment process.
 
 ## Select and deploy the template
 
@@ -89,29 +89,37 @@ A local development environment is a great choice for traditional development wo
 
 1. Run the `azd init` command and specify the template you want to use as a parameter:
 
-    ::: zone pivot="programming-language-nodejs"
-        ```azdeveloper
-        azd init --template todo-nodejs-mongo
-        ```
-    ::: zone-end
+  ::: zone pivot="programming-language-nodejs"
 
-    ::: zone pivot="programming-language-python"
-        ```azdeveloper
-        azd init --template todo-python-mongo
-        ```
-    ::: zone-end
+  ```azdeveloper
+  azd init --template todo-nodejs-mongo
+  ```
 
-    ::: zone pivot="programming-language-csharp"
-        ```azdeveloper
-        azd init --template todo-csharp-cosmos-sql
-        ```
-    ::: zone-end
+  ::: zone-end
 
-    ::: zone pivot="programming-language-java"
-        ```azdeveloper
-        azd init --template todo-java-mongo
-        ```
-    ::: zone-end
+  ::: zone pivot="programming-language-python"
+
+  ```azdeveloper
+  azd init --template todo-python-mongo
+  ```
+
+  ::: zone-end
+
+  ::: zone pivot="programming-language-csharp"
+
+  ```azdeveloper
+  azd init --template todo-csharp-cosmos-sql
+  ```
+
+  ::: zone-end
+
+  ::: zone pivot="programming-language-java"
+
+  ```azdeveloper
+  azd init --template todo-java-mongo
+  ```
+
+  ::: zone-end
 
 1. Enter an environment name when prompted, such as `azdquickstart`, which sets a naming prefix for the resource group that will be created to hold the Azure resources. [What is an Environment Name in `azd`?](./faq.yml#what-is-an-environment-name)
 
@@ -266,30 +274,38 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 1. Open a terminal, create a new empty directory, and change into it.
 
 1. Run the following command to initialize the project:
+  
+  ::: zone pivot="programming-language-nodejs"
 
-    ::: zone pivot="programming-language-nodejs"
-        ```azdeveloper
-        azd init --template todo-nodejs-mongo
-        ```
-    ::: zone-end
+  ```azdeveloper
+  azd init --template todo-nodejs-mongo
+  ```
 
-    ::: zone pivot="programming-language-python"
-        ```azdeveloper
-        azd init --template todo-python-mongo
-        ```
-    ::: zone-end
+  ::: zone-end
+  
+  ::: zone pivot="programming-language-python"
 
-    ::: zone pivot="programming-language-csharp"
-        ```azdeveloper
-        azd init --template todo-csharp-cosmos-sql
-        ```
-    ::: zone-end
+  ```azdeveloper
+  azd init --template todo-python-mongo
+  ```
 
-    ::: zone pivot="programming-language-java"
-        ```azdeveloper
-        azd init --template todo-java-mongo
-        ```
-    ::: zone-end
+  ::: zone-end
+  
+  ::: zone pivot="programming-language-csharp"
+
+  ```azdeveloper
+  azd init --template todo-csharp-cosmos-sql
+  ```
+
+  ::: zone-end
+  
+  ::: zone pivot="programming-language-java"
+
+  ```azdeveloper
+  azd init --template todo-java-mongo
+  ```
+
+  ::: zone-end
 
 ### Provide parameters
 
