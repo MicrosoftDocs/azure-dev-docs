@@ -11,7 +11,7 @@ ms.service: azure-dev-cli
 
 # Azure Developer CLI templates overview
 
-Azure Developer CLI (`azd`) templates are standard code repositories that include your application source code, as well as `azd` configuration and infrastructure files. `azd` templates enable you to provision Azure resources, deploy your application, configure CI/CD pipelines, and more. You can either create your own templates, or get started using an existing template from a template repository such as [Awesome AZD](https://azure.github.io/). In this article, you'll learn about the following concepts:
+Azure Developer CLI (`azd`) templates are standard code repositories that include sample application code, as well as `azd` configuration and infrastructure files. `azd` templates enable you to provision Azure resources, deploy your application, configure CI/CD pipelines, and more. You can either create your own templates, or get started using an existing template from a template repository such as [Awesome AZD](https://azure.github.io/). In this article, you'll learn about the following concepts:
 
 - How `azd` templates enable you to provision and deploy app resources
 - How `azd` templates are structured
@@ -31,7 +31,7 @@ For example, suppose you work at a company that operates a ticket management and
 - A Service Bus to manage scalable messaging
 - CI/CD pipelines to ensure changes can be reliably deployed through an automated, repeatable process.
 
-Rather than starting from the ground up, with `azd` you can leverage existing architecture templates can provision and deploy most of the resources for you. The development team can then focus on building the app and making smaller adjustments to the template architecture.
+Rather than starting from the ground up, with `azd` you can leverage existing architecture templates to provision and deploy most of the resources for you. The development team can then focus on building the app and making smaller adjustments to the template architecture.
 
 ## How Azure Developer CLI templates works
 
@@ -42,19 +42,19 @@ For example, a typical `azd` workflow using an existing template includes the fo
 1. Run the `azd init` command with the `--template` parameter to clone an existing template down from GitHub.
 
     ```azdeveloper
-    `azd` init --template todo-nodejs-mongo
+    azd init --template todo-nodejs-mongo
     ```
 
 2. Run the `azd auth login` command to authenticate to your Azure subscription.
 
     ```azdeveloper
-    `azd` auth login
+    azd auth login
     ```
 
 3. Run the `azd up` command to provision and deploy the template resources to Azure. The `azd up` command leverages the configuration and infrastructure-as-code (IaC) files in your template to provision Azure resources and deploy your application to those resources.
 
     ```azdeveloper
-    `azd` up
+    azd up
     ```
 
 4. Once your environment is set up in Azure, you can locally modify the application features or Azure resource templates and then run `azd up` again to provision your changes.
@@ -91,7 +91,7 @@ The following sections provide more information on these two options.
 
 ### Start with an existing template
 
-A broad selection of `azd` templates is available on the [Awesome AZD]() template gallery. These templates provide starter infrastructure and application code for various development scenarios, language frameworks, and Azure services. If you find a template that aligns with your local application stack or desired architecture, you can use it as a starting point.
+A broad selection of `azd` templates is available on the [awesome-azd](https://azure.github.io/awesome-azd/) template gallery. These templates provide infrastructure and application code for various development scenarios, language frameworks, and Azure services. If you find a template that aligns with your local application stack or desired architecture, you can use it as a starting point and replace the app code with your own
 
 For example, you can find templates for the following types of scenarios and beyond:
 
