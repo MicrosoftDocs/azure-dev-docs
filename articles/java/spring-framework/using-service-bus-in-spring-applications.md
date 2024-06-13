@@ -516,7 +516,7 @@ To install the Spring Messaging Azure Service Bus module, add the following depe
    ```
 
    > [!Note]
-   > If you're using a topic/subscription, change the annotation parameter of `destination` as the topic name, and add the `subscription` parameter to describe the subscription name.
+   > If you're using a topic/subscription, change the annotation parameter of `destination` as the topic name, and add the `group` parameter to describe the subscription name.
 
 1. Wire up a sender and a receiver to send and receive messages with Spring, as shown in the following example:
 
