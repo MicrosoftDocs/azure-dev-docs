@@ -51,7 +51,7 @@ First, create two users in your Microsoft Entra tenant by following steps in [Ho
 
    1. Repeat the above steps to create a second user.
 
-      :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-regular-user.png" alt-text="Screenshot of creating a user acting as normal user." lightbox="media/quarkus-with-microsoft-entra-id/create-regular-user.png":::
+      :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-regular-user.png" alt-text="Screenshot of creating a user acting as regular user." lightbox="media/quarkus-with-microsoft-entra-id/create-regular-user.png":::
 
    The first user is used as an administrator, and the second user is used as a regular user.
 
@@ -137,10 +137,10 @@ From the [welcome page](https://github.com/majguo/quarkus-azure/blob/main/entra-
     <body>
         <h1>Hello, welcome to Quarkus and Microsoft Entra ID integration!</h1>
         <h1>
-            <a href="/profile/user">Login as user</a>
+            <a href="/profile/user">Sign in as user</a>
         </h1>
         <h1>
-            <a href="/profile/admin">Login as admin</a>
+            <a href="/profile/admin">Sign in as admin</a>
         </h1>
     </body>
 </html>
@@ -193,7 +193,7 @@ public class ProfilePage {
 
 Moreover, the profile page resource enables role-based access control (RBAC) by using the `@RolesAllowed` annotation. The `@RolesAllowed` annotation specifies that only users with the `admin` role can access the `/profile/admin` path, and users with the `user` or `admin` role can access the `/profile/user` path.
 
-Both endpoints `/profile/admin` and `/profile/user` return the [profile page](https://github.com/majguo/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/templates/profile.qute.html). It displays the user's name, roles, and scopes. The profile page also has a logout link at `/logout`, which redirects the user to OIDC provider to log out.
+Both endpoints `/profile/admin` and `/profile/user` return the [profile page](https://github.com/majguo/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/templates/profile.qute.html). It displays the user's name, roles, and scopes. The profile page also has a logout link at `/logout`, which redirects the user to OIDC provider to sign out.
 
 ```html
 <html>
@@ -218,7 +218,7 @@ Both endpoints `/profile/admin` and `/profile/user` return the [profile page](ht
             {scopes}
         </p>
         <h1>
-            <b><a href="/logout">Logout</a></b>
+            <b><a href="/logout">Sign out</a></b>
         </h1>
     </body>
 </html>
@@ -304,6 +304,31 @@ You can run the Quarkus app in different modes. Select one of the following meth
   ```
 
 If you want to try different modes, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the Quarkus app and then run the Quarkus app in another mode.
+
+### Test the Quarkus app
+
+Once the Quarkus app is running, open a web browser and navigate to `http://localhost:8080`. You should see the welcome page with links to sign in as a user or as an admin.
+
+:::image type="content" source="media/quarkus-with-microsoft-entra-id/welcome-page.png" alt-text="Screenshot of welcome page." lightbox="media/quarkus-with-microsoft-entra-id/welcome-page.png":::
+
+Select the **Sign in as user** link. You are redirected to the Microsoft Entra ID sign-in page. Sign in with the regular user you created earlier. After you sign in, you are redirected to the profile page, where you see your name, roles, and scopes.
+
+:::image type="content" source="media/quarkus-with-microsoft-entra-id/user-profile.png" alt-text="Screenshot of user profile." lightbox="media/quarkus-with-microsoft-entra-id/user-profile.png":::
+
+> [!NOTE]
+> For the first time you sign in, you will be prompted to **Update your password**. Follow the instructions to update your password.
+> If you're prompted with *Your organization requires additional security information. Follow the prompts to download and set up the Microsoft Authenticator app*, you can select **Ask later** to continue the test.
+> If you're prompted to **Permissions requested**, review the permissions requested by the app. Select **Accept** to continue the test.
+
+Select **Sign out** to sign out from the Quarkus app. You are redirected to Microsoft Entra ID to sign out. After you sign out, you are redirected to the welcome page.
+
+Select the **Sign in as admin** link. You are redirected to the Microsoft Entra ID sign-in page. Sign in with the admin user you created earlier. After you sign in, you are redirected to the similar profile page, with a different role `admin`.
+
+:::image type="content" source="media/quarkus-with-microsoft-entra-id/admin-profile.png" alt-text="Screenshot of admin profile." lightbox="media/quarkus-with-microsoft-entra-id/admin-profile.png":::
+
+Sign out again and try to **Sign in as admin**  with the regular user you created earlier. You should see an error message because the regular user doesn't have the `admin` role.
+
+:::image type="content" source="media/quarkus-with-microsoft-entra-id/forbidden.png" alt-text="Screenshot of forbidden access." lightbox="media/quarkus-with-microsoft-entra-id/forbidden.png":::
 
 ## Next steps
 
