@@ -202,11 +202,9 @@ Use the `liberty:devc` command to run and test the project locally before dealin
 
 To deploy and run your Liberty application on an Azure Red Hat OpenShift cluster, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
 
-Complete the following steps to build the application image:
-
 ### Build the application and push to the image stream
 
-Since you have already successfully run the app in the Liberty Docker container, you're going to build the image remotely on the cluster by executing the following commands.
+Since you already successfully ran the app in the Liberty Docker container using the `liberty:devc` command, you're going to build the image remotely on the cluster by executing the following commands.
 
 1. Make sure you sign in to the OpenShift CLI using the `kubeadmin` credentials.
 1. Identify the source directory and Dockerfile.
