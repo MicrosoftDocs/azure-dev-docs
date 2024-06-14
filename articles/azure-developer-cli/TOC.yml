@@ -7,14 +7,14 @@
     href: overview.md
   - name: Get started
     items:
-    - name: Supported languages and environments
-      href: supported-languages-environments.md
     - name: Install or update azd
       href: install-azd.md
     - name: What are Azure Developer CLI templates?
       href: azd-templates.md
     - name: Deploy an azd template
       href: get-started.md
+    - name: Supported languages and environments
+      href: supported-languages-environments.md
   - name: Deployment
     items:
     - name: Configure deployment pipeline
