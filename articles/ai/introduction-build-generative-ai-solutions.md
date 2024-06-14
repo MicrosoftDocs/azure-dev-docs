@@ -186,7 +186,7 @@ As you get started, it’s best to start small, promise little, iterate, and bui
 
 ## Build your first generative AI solution
 
-If you want to start experimenting with building a generative AI solution immediately, we recommend taking a look at [Get started with the chat with your data sample for Python](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces). There are versions of the tutorial also available in [.NET](/dotnet/ai/get-started-app-chat-template?tabs=github-codespaces), [Java](/azure/developer/java/ai/get-started-app-chat-template?tabs=github-codespaces), and [JavaScript](/azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces).
+If you want to start experimenting with building a generative AI solution immediately, we recommend taking a look at [Get started with the chat using your own data sample for Python](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces). There are versions of the tutorial also available in [.NET](/dotnet/ai/get-started-app-chat-template?tabs=github-codespaces), [Java](/azure/developer/java/ai/get-started-app-chat-template?tabs=github-codespaces), and [JavaScript](/azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces).
 
 ## Final considerations that may influence your application design decisions
 
