@@ -212,13 +212,9 @@ Since you already successfully ran the app in the Liberty Docker container using
    ```bash
    cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
 
-   # Fetch maven artifactId as image name, maven build version as image version
-   export IMAGE_NAME=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
-   export IMAGE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+   # If you are building with the Open Liberty base image, the existing Dockerfile is ready for you
 
-   # If you are building with Open Liberty base image, the existing Dockerfile is ready for you
-
-   # If you are building with WebSphere Liberty base image, uncomment and execute the following two commands to rename Dockerfile-wlp to Dockerfile
+   # If you are building with the WebSphere Liberty base image, uncomment and execute the following two commands to rename Dockerfile-wlp to Dockerfile
    # mv Dockerfile Dockerfile.backup
    # mv Dockerfile-wlp Dockerfile
    ```
