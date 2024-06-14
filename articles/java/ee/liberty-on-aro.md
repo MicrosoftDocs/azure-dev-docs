@@ -228,19 +228,19 @@ Since you already successfully ran the app in the Liberty Docker container using
 1. Create an image stream.
 
    ```bash
-   oc create imagestream ${IMAGE_NAME}
+   oc create imagestream javaee-cafe-mysql
    ```
 
 1. Create a build configuration that specifies the image stream tag of the build output.
 
    ```bash
-   oc new-build --name ${IMAGE_NAME}-config --binary --strategy docker --to ${IMAGE_NAME}:${IMAGE_VERSION}
+   oc new-build --name javaee-cafe-mysql-config --binary --strategy docker --to javaee-cafe-mysql:v1
    ```
 
 1. Start the build to upload local contents, containerize, and output to the image stream tag specified before.
 
    ```bash
-   oc start-build ${IMAGE_NAME}-config --from-dir . --follow
+   oc start-build javaee-cafe-mysql-config --from-dir . --follow
    ```
 
 ## Deploy application on the Azure Red Hat OpenShift cluster
@@ -321,13 +321,13 @@ You can now deploy the sample Liberty application to the Azure Red Hat OpenShift
    oc create -f openlibertyapplication.yaml
 
    # Check if OpenLibertyApplication instance is created
-   oc get openlibertyapplication ${IMAGE_NAME}
+   oc get openlibertyapplication javaee-cafe-mysql
 
    # Check if deployment created by Operator is ready
-   oc get deployment ${IMAGE_NAME}
+   oc get deployment javaee-cafe-mysql
 
    # Get host of the route
-   export HOST=$(oc get route ${IMAGE_NAME} --template='{{ .spec.host }}')
+   export HOST=$(oc get route javaee-cafe-mysql --template='{{ .spec.host }}')
    echo "Route Host: https://$HOST"
    ```
 
