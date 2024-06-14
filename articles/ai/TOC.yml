@@ -127,18 +127,18 @@ items:
             - name: AI for .NET docs center
               href: /dotnet/ai
             - name: Overview
-              href: /dotnet/ai/get-started/dotnet-ai-overview
+              href: /dotnet/ai/get-started/dotnet-ai-overview?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: Learning resources and samples
-              href: /dotnet/ai/azure-ai-for-dotnet-developers
+              href: /dotnet/ai/azure-ai-for-dotnet-developers?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: Build a chat app
-              href: /dotnet/ai/quickstarts/get-started-azure-openai
+              href: /dotnet/ai/quickstarts/get-started-azure-openai?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: Create a chat app that uses your data
-              href: /dotnet/ai/quickstarts/quickstart-ai-chat-with-data
+              href: /dotnet/ai/quickstarts/quickstart-ai-chat-with-data?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: Summarize text
-              href: /dotnet/ai/quickstarts/quickstart-openai-summarize-text
+              href: /dotnet/ai/quickstarts/quickstart-openai-summarize-text?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: Generate images
-              href: /dotnet/ai/quickstarts/quickstart-openai-generate-images
+              href: /dotnet/ai/quickstarts/quickstart-openai-generate-images?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
             - name: Implement RAG using vector search
-              href: /dotnet/ai/tutorials/tutorial-ai-vector-search
+              href: /dotnet/ai/tutorials/tutorial-ai-vector-search?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
         - name: Go
           href: ../go/azure-ai-for-go-developers.md?&toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json

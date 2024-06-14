@@ -29,11 +29,11 @@ There are two categories of AI app templates, **building blocks** and **end-to-e
 
 To review a list of key templates available for each programming language, see [AI app templates](/azure/developer/ai/intelligent-app-templates). To browse all available templates, see the AI app templates on the [Azure Developer CLI gallery](https://aka.ms/ai-apps).
 
-One of the most popular templates is the enterprise chat sample using RAG.
+One of the most popular templates is the chat with your data sample using Azure OpenAI and Azure AI Search.
 
 # [.NET](#tab/dotnet)
 
-* [Get started with the .NET enterprise chat sample](/dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+* [Get started with the chat with your data sample for .NET](/dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 * [Source code](https://github.com/Azure-Samples/azure-search-openai-demo-csharp)
 * [Video](https://aka.ms/azai/net/video)
 
@@ -47,7 +47,7 @@ One of the most popular templates is the enterprise chat sample using RAG.
 
 # [Java](#tab/java)
 
-* [Get started with the Java enterprise chat sample](/azure/developer/java/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+* [Get started with the chat with your data sample for Java](/azure/developer/java/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 * [Source code](https://github.com/Azure-Samples/azure-search-openai-demo-java)
 * [Video](https://aka.ms/azai/java/video)
 
@@ -61,7 +61,7 @@ One of the most popular templates is the enterprise chat sample using RAG.
 
 # [Python](#tab/python)
 
-* [Get started with the Python enterprise chat sample](/azure/developer/python/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+* [Get started with the chat with your data sample for Python](/azure/developer/python/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 * [Source code](https://github.com/Azure-Samples/azure-search-openai-demo)
 * [Video](https://aka.ms/azai/py/video)
 
@@ -75,7 +75,7 @@ One of the most popular templates is the enterprise chat sample using RAG.
 
 # [JavaScript](#tab/javascript)
 
-* [Get started with the JavaScript enterprise chat sample](/azure/developer/javascript/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+* [Get started with the chat with your data sample for JavaScript](/azure/developer/javascript/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 * [Source code](https://github.com/Azure-Samples/azure-search-openai-javascript)
 * [Video (full stack)](https://aka.ms/azai/js/video)
 * [Video (JavaScript frontend and Python backend)](https://aka.ms/azai/js.py/video)
