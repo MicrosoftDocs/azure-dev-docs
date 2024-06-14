@@ -5,7 +5,7 @@ description: Shows you how to deploy a Java application with Open Liberty/WebSph
 author: KarlErickson
 ms.author: jiangma
 ms.topic: conceptual
-ms.date: 05/29/2024
+ms.date: 06/14/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java, linux-related-content
 ---
 
@@ -36,7 +36,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 Complete the following prerequisites to successfully use this guide.
 
-1. Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS).
+1. Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
 1. Install a Java Standard Edition (SE) implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
 1. Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
 1. Install [Docker](https://docs.docker.com/get-docker/) for your OS.
@@ -68,7 +68,7 @@ After creating and connecting to the cluster, install the Open Liberty Operator.
 1. Navigate to **Operators** > **OperatorHub** and search for **Open Liberty**.
 1. Select **Open Liberty** from the search results.
 1. Select **Install**.
-1. In the page **Install Operator**, check **v1.2** for **Update channel**, **All namespaces on the cluster (default)** for **Installation mode**, and **Automatic** for **Update approval**:
+1. In the page **Install Operator**, check **v1.3** for **Update channel**, **All namespaces on the cluster (default)** for **Installation mode**, and **Automatic** for **Update approval**:
 
    :::image type="content" source="media/liberty-on-aro/install-operator.png" alt-text="Screenshot of creating operator subscription for Open Liberty Operator." lightbox="media/liberty-on-aro/install-operator.png":::
 
@@ -91,26 +91,27 @@ Use the following steps to create an OpenShift namespace for use with your app:
 
 Use the following steps to set up an Azure Database for MySQL for use with your app.
 
-1. Create an Azure Database for MySQL flexible server by following the steps in: [Quickstart: Use the Azure portal to create an Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/quickstart-create-server-portal). Return to this document after creating the database.
+1. Create an Azure Database for MySQL flexible server by following the steps in: [Quickstart: Use the Azure portal to create an Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/quickstart-create-server-portal). You can deploy the database to the same resource group as the OpenShift cluster. Return to this document after creating the database.
 
    > [!NOTE]
    > At the **Basics** step, save aside the ***Server name**.mysql.database.azure.com*, **Admin username**, and **Password** values.
 
-1. After your database is created, open **your database** > **Networking**.
+1. After your database is created, open **your database** > **Settings** > **Networking**.
 
    1. Under **Public access**, ensure that **Allow public access to this resource through the internet using a public IP address** is selected.
    1. Select **Allow public access from any Azure service within Azure to this server**.
    1. Ensure that your client IPv4 address is in the allowlist of **Firewall rules**.
+   1. Save your changes.
 
    :::image type="content" source="media/liberty-on-aro/configure-mysql-database-networking.png" alt-text="Screenshot of configuring mysql database networking." lightbox="media/liberty-on-aro/configure-mysql-database-networking.png":::
 
-1. Open **your database** > **Connect** > Select **Connect from your app** > **JDBC**. Save aside the **Port number** following database server address. For example, **3306** is the port number in the following example.
+1. Open **your database** > **Settings** > **Connect** > Select **Connect from your app** > **JDBC**. Save aside the **Port number** following database server address. For example, **3306** is the port number in the following example.
 
    ```text
    String url="jdbc:mysql://<Server name>.mysql.database.azure.com:3306/{your_database}?useSSL=true";myDbConn=DriverManager.getConnection(url, "<Server admin username>", "{your_password}");
    ```
 
-1. Open **your database** > **Databases** > Select **Add**. Fill in a value for **Name** and select **Save** to create a new database. This database has **Scheme type** as **User** and is used for the application later.
+1. Open **your database** > **Settings** > **Databases** > Select **Add**. Fill in a value for **Name** and select **Save** to create a new database. This database has **Scheme type** as **User** and is used for the application later.
 
    > [!NOTE]
    > Save aside the **Name** for the database you created.
