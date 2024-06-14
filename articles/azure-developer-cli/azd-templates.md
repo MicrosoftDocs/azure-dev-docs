@@ -68,8 +68,8 @@ All `azd` templates share a similar file structure based on `azd` conventions. T
 - **`.azure` folder** - Contains essential Azure configurations and environment variables, such as the location to deploy resources or other subscription information.
 - **`src` folder** - Contains all of the deployable app source code. Some `azd` templates exclude the `src` folder and only provide infrastructure assets so you can add your own application code.
 
-> [!NOTE]
-> Templates that exclude the `src` folder are generally designed as infrastructure starter templates.
+  > [!NOTE]
+  > Templates that exclude the `src` folder are generally designed as infrastructure starter templates.
 
 `azd` templates also optionally include one or more of the following folders:
 
@@ -94,16 +94,9 @@ The following sections provide more information on these two options.
 
 ### Start with an existing template
 
-A broad selection of `azd` templates is available on the [awesome-azd](https://azure.github.io/awesome-azd/) template gallery. These templates provide infrastructure and application code for various development scenarios, language frameworks, and Azure services. If you find a template that aligns with your local application stack or desired architecture, you can use it as a starting point and replace the app code with your own
+A broad selection of `azd` templates is available on the [awesome-azd](https://azure.github.io/awesome-azd/) template gallery. These templates provide infrastructure and application code for various development scenarios, language frameworks, and Azure services. If you find a template that aligns with your local application stack or desired architecture, you can extend and replace the template code with your own
 
-For example, you can find templates for the following types of scenarios and beyond:
-
-- [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo)
-- [React Web App with C# API and SQL Database on Azure](https://github.com/azure-samples/todo-csharp-sql)
-- [Text Summarization using AI Cognitive Language Service with Python](https://github.com/Azure-Samples/function-python-ai-textsummarize)
-- [Retail chat app with Azure AI Studio and Promptflow](https://github.com/Azure-Samples/contoso-chat)
-
-The following `azd` templates provide examples of common app architectures and frameworks:
+For example, the following `azd` templates provide starting points for common app architectures and frameworks:
 
 ### [C#](#tab/csharp)
 
