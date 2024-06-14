@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Manually install WebLogic Server on Azure virtual machines (VMs)"
+title: "Tutorial: Manually install WebLogic Server on Azure Virtual Machines (VMs)"
 description: Provides step-by-step guidance to install Oracle WebLogic Server on Azure VMs, set up a cluster, and expose it with Azure Application Gateway.
 author: KarlErickson
 ms.author: haiche
@@ -9,7 +9,7 @@ recommendations: false
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-azurecli, devx-track-extended-java
 ---
 
-# Tutorial: Manually install WebLogic Server on Azure virtual machines (VMs)
+# Tutorial: Manually install WebLogic Server on Azure Virtual Machines (VMs)
 
 This tutorial shows the steps to install Oracle WebLogic Server (WLS) and configure a WebLogic cluster on Azure Virtual Machines (VMs), on Windows or GNU/Linux.
 
@@ -1591,7 +1591,7 @@ az group delete --name ${RESOURCE_GROUP_NAME} --yes --no-wait
 
 Continue to explore options to run WebLogic Server on Azure.
 
-* [WebLogic Server on virtual machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+* [WebLogic Server on Azure Virtual Machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 * [WebLogic Server on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 * [Explore options for day 2 and beyond](https://aka.ms/wls-vms-day2)
 

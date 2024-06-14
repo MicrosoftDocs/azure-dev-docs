@@ -294,4 +294,4 @@ az group delete --name $RG_NAME --yes --no-wait
 Learn more about your options for deploying JBoss EAP on Azure:
 
 > [!div class="nextstepaction"]
-> [JBoss EAP on Azure](jboss-on-azure.md)
+> [Explore JBoss EAP on Azure](jboss-on-azure.md)

@@ -632,10 +632,10 @@ az group delete --name <resource-group-name-that-deploys-the-offer>
 Learn more about running WLS on AKS or virtual machines by following these links:
 
 > [!div class="nextstepaction"]
-> [WLS on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks)
+> [Explore WebLogic Server on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [WLS on virtual machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
+> [Explore WebLogic Server on Azure Virtual Machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
 > [Passwordless Connections Samples for Java Apps](https://github.com/Azure-Samples/Passwordless-Connections-for-Java-Apps)
