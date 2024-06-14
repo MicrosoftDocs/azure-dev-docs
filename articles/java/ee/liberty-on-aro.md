@@ -1,7 +1,7 @@
 ---
-title: Manually deploy a Java Application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 Cluster
+title: Manually deploy a Java Application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster
 recommendations: false
-description: Shows you how to deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 cluster.
+description: Shows you how to deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: conceptual
@@ -11,17 +11,28 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 # Manually deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster
 
-This guide shows you how to run your Java, Java EE, [Jakarta EE](https://jakarta.ee/), or [MicroProfile](https://microprofile.io/) application on the Open Liberty/WebSphere Liberty runtime. The guide then shows you how to deploy the containerized application to an Azure Red Hat OpenShift 4 cluster using the Open Liberty Operator. This article walks you through preparing a Liberty application, building the application Docker image and running the containerized application on an Azure Red Hat OpenShift 4 cluster. For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
+This article provides step-by-step manual guidance for running Open/WebSphere Liberty on an Azure Red Hat OpenShift cluster. It walks you through preparing a Liberty application, building the application Docker image and running the containerized application on an Azure Red Hat OpenShift cluster. 
 
-This article is step-by-step manual guidance for running Open/WebSphere Liberty on an Azure Red Hat OpenShift 4 cluster. For a more automated solution that accelerates your journey to Azure Red Hat OpenShift 4 cluster, see [Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app).
+Specifically, you learn how to accomplish the following tasks:
+
+> [!div class="checklist"]
+>
+> * Prepare the Liberty application
+> * Build the application image
+> * Run the containerized application on an Azure Red Hat OpenShift cluster using the GUI and the CLI
+
+For a more automated solution that accelerates your journey to Azure Red Hat OpenShift cluster, see [Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json) using Azure Marketplace offer.
+
+For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+
 [!INCLUDE [aro-support](includes/aro-support.md)]
+[!INCLUDE [aro-quota](includes/aro-quota.md)]
 
 ## Prerequisites
-
-[!INCLUDE [aro-quota](includes/aro-quota.md)]
 
 Complete the following prerequisites to successfully use this guide.
 
@@ -194,7 +205,7 @@ Use the `liberty:devc` command to run and test the project locally before dealin
 
 ## Prepare the application image
 
-To deploy and run your Liberty application on an Azure Red Hat OpenShift 4 cluster, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
+To deploy and run your Liberty application on an Azure Red Hat OpenShift cluster, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
 
 Complete the following steps to build the application image:
 
@@ -243,9 +254,9 @@ Since you have already successfully run the app in the Liberty Docker container,
    oc start-build ${IMAGE_NAME}-config --from-dir . --follow
    ```
 
-## Deploy application on the Azure Red Hat OpenShift 4 cluster
+## Deploy application on the Azure Red Hat OpenShift cluster
 
-Now you can deploy the sample Liberty application to the Azure Red Hat OpenShift 4 cluster you created earlier when working through the prerequisites.
+Now you can deploy the sample Liberty application to the Azure Red Hat OpenShift cluster you created earlier when working through the prerequisites.
 
 ### [Web console](#tab/deploy-console)
 
@@ -302,7 +313,7 @@ Follow these steps to delete the secret from Open Shift.
 
 Instead of using the web console GUI, you can deploy the application from the CLI. Download and install the `oc` command-line tool if needed by following the steps in Red Hat documentation: [Getting Started with the CLI](https://docs.openshift.com/container-platform/4.2/cli_reference/openshift_cli/getting-started-cli.html).
 
-You can now deploy the sample Liberty application to the Azure Red Hat OpenShift 4 cluster with the following steps.
+You can now deploy the sample Liberty application to the Azure Red Hat OpenShift cluster with the following steps.
 
 1. Make sure you sign in to the OpenShift CLI using the `kubeadmin` credentials.
 1. The following commands deploy the application.
@@ -346,17 +357,9 @@ oc delete -f db-secret.yaml
 
 ## Clean up resources
 
-Delete the Azure Red Hat OpenShift cluster by following the steps in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-delete-cluster). Remember to similarly delete the database and any resources associated with it.
+Delete the Azure Red Hat OpenShift cluster by following the steps in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-delete-cluster)
 
 ## Next steps
-
-In this guide, you learned how to:
-
-> [!div class="checklist"]
->
-> * Prepare the Liberty application
-> * Build the application image
-> * Run the containerized application on an Azure Red Hat OpenShift 4 cluster using the GUI and the CLI
 
 You can learn more from references used in this guide:
 
@@ -367,3 +370,5 @@ You can learn more from references used in this guide:
 * [Liberty Maven Plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin)
 * [Open Liberty Container Images](https://github.com/OpenLiberty/ci.docker)
 * [WebSphere Liberty Container Images](https://github.com/WASdev/ci.docker)
+
+To explore options to run WebSphere products on Azure, see [What are solutions to run the WebSphere family of products on Azure?](websphere-family.md)
