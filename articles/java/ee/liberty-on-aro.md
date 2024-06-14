@@ -127,10 +127,7 @@ Clone the sample code for this guide. The sample is on [GitHub](https://github.c
 ```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aro.git
 cd open-liberty-on-aro
-git checkout 20231026
 ```
-
-If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you checked out a tag.
 
 There are a few samples in the repository. We use *open-liberty-on-aro/3-integration/connect-db/mysql*. Here's the file structure of the application:
 
