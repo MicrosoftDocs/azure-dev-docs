@@ -68,6 +68,9 @@ All `azd` templates share a similar file structure based on `azd` conventions. T
 - **`.azure` folder** - Contains essential Azure configurations and environment variables, such as the location to deploy resources or other subscription information.
 - **`src` folder** - Contains all of the deployable app source code. Some `azd` templates exclude the `src` folder and only provide infrastructure assets so you can add your own application code.
 
+> [!NOTE]
+> Templates that exclude the `src` folder are generally designed as infrastructure starter templates.
+
 `azd` templates also optionally include one or more of the following folders:
 
 - **`.github` folder** - Holds the CI/CD workflow files for GitHub Actions, the default CI/CD provider for azd.
@@ -83,7 +86,7 @@ For example, a common `azd` template might match the following folder structure:
 There are two main approaches to working with `azd` templates:
 
 - **Start with an existing `azd` template.**
-  - This is a good choice when you're looking for a template to use as a starting point for a new app with similar architecture and frameworks.
+  - This is a good choice if you're just getting started with `azd` or if you're looking for a template to build off of for a new app with a similar architecture and frameworks.
 - **Convert an existing project to an `azd` template.**
   - This is a good choice when you already have an existing app but you want to make it compatible with `azd` capabilities.
 
@@ -95,10 +98,10 @@ A broad selection of `azd` templates is available on the [Awesome AZD]() templat
 
 For example, you can find templates for the following types of scenarios and beyond:
 
-- A NodeJS application hosted on Azure App Service that connects to and consumes Azure AI services.
-- A .NET application hosted on Azure Container Apps connected to database and storage services.
-- Starter projects for getting started with Azure AI studio.
-- Python API and web service apps that utilize Redis and messaging services.
+- [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo)
+- [React Web App with C# API and SQL Database on Azure](https://github.com/azure-samples/todo-csharp-sql)
+- [Text Summarization using AI Cognitive Language Service with Python](https://github.com/Azure-Samples/function-python-ai-textsummarize)
+- [Retail chat app with Azure AI Studio and Promptflow](https://github.com/Azure-Samples/contoso-chat)
 
 The following `azd` templates provide examples of common app architectures and frameworks:
 
@@ -167,4 +170,4 @@ Microsoft is not responsible for any non-Microsoft templates and does not screen
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Run `azd` init with an `azd` template](./get-started.md)
+> [Select and deploy a template](./get-started.md)
