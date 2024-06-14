@@ -8,7 +8,7 @@ ms.service: azure
 
 ### Chat with your data using Azure OpenAI and Azure AI Search with Java
 
-This template is a complete end-to-end solution that demonstrates the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences. This sample supports different architectural styles. It can be deployed as standalone app on top of Azure App Service or as a microservice event driven architecture with web frontend, AI orchestration and document ingestion apps hosted by Azure Container Apps or Azure Kubernetes Service.
+This template is a complete end-to-end solution that demonstrates the Retrieval-Augmented Generation (RAG) pattern running in Azure. It uses Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
 
 To get started with this template, see [Get started with the chat using your own data sample for Java](../../java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json). To access the source code and read in-depth details about the template, see the [azure-search-openai-demo-java](https://github.com/Azure-Samples/azure-search-openai-demo-java) GitHub repo.
 
