@@ -35,28 +35,28 @@ If you're interested in providing feedback or working closely on your migration 
 > This article deploys an application by using JBoss EAP Helm Charts. At the time of writing, this feature is still offered as a [Technology Preview](https://access.redhat.com/articles/6290611). Before choosing to deploy applications with JBoss EAP Helm Charts on production environments, ensure that this feature is a supported feature for your JBoss EAP/XP product version.
 
 > [!IMPORTANT]
-> While Azure Red Hat OpenShift is jointly engineered, operated, and supported by Red Hat and Microsoft to provide an integrated support experience, the software you run on top of Azure Red Hat OpenShift, including that described in this article, is subject to its own support and license terms. For details about support of Azure Red Hat OpenShift, see [Support lifecycle for Azure Red Hat OpenShift 4](/azure/openshift/support-lifecycle?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json). For details about support of the software described in this article, see the main pages for that software as listed in the article.
+> While Azure Red Hat OpenShift is jointly engineered, operated, and supported by Red Hat and Microsoft to provide an integrated support experience, the software you run on top of Azure Red Hat OpenShift, including that described in this article, is subject to its own support and license terms. For details about support of Azure Red Hat OpenShift, see [Support lifecycle for Azure Red Hat OpenShift 4](/azure/openshift/support-lifecycle). For details about support of the software described in this article, see the main pages for that software as listed in the article.
 
 ## Prerequisites
 
 > [!NOTE]
-> Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](/azure/azure-portal/supportability/per-vm-quota-requests?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json). Note that the free trial subscription isn't eligible for a quota increase, [upgrade to a Pay-As-You-Go subscription](/azure/cost-management-billing/manage/upgrade-azure-subscription?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json) before requesting a quota increase.
+> Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](/azure/azure-portal/supportability/per-vm-quota-requests). Note that the free trial subscription isn't eligible for a quota increase, [upgrade to a Pay-As-You-Go subscription](/azure/cost-management-billing/manage/upgrade-azure-subscription) before requesting a quota increase.
 
 1. Prepare a local machine with a Unix-like operating system supported by the various products installed - such as Ubuntu, macOS, or [Windows Subsystem for Linux](/windows/wsl/).
 1. Install a Java Standard Edition (SE) implementation. The local development steps in this article were tested with Java Development Kit (JDK) 17 [from the Microsoft build of OpenJDK](https://www.microsoft.com/openjdk).
 1. Install [Maven](https://maven.apache.org/download.cgi) 3.8.6 or later.
 1. Install [Azure CLI](/cli/azure/install-azure-cli) 2.40 or later.
 1. Clone the code for this demo application (todo-list) to your local system. The demo application is at [GitHub](https://github.com/Azure-Samples/jboss-on-aro-jakartaee).
-1. Follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json).
+1. Follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster).
 
    Though the "Get a Red Hat pull secret" step is labeled as optional, **it is required for this article**. The pull secret enables your Azure Red Hat OpenShift cluster to find the JBoss EAP application images.
 
    If you plan to run memory-intensive applications on the cluster, specify the proper virtual machine size for the worker nodes using the `--worker-vm-size` parameter. For more information, see:
 
    * [Azure CLI to create a cluster](/cli/azure/aro#az-aro-create)
-   * [Supported virtual machine sizes for memory optimized](/azure/openshift/support-policies-v4#memory-optimized?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json)
+   * [Supported virtual machine sizes for memory optimized](/azure/openshift/support-policies-v4#memory-optimized)
 
-1. Connect to the cluster by following the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-connect-cluster?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json).
+1. Connect to the cluster by following the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-connect-cluster).
 
    * Follow the steps in "Install the OpenShift CLI"
    * Connect to an Azure Red Hat OpenShift cluster using the OpenShift CLI with the user `kubeadmin`
@@ -356,7 +356,7 @@ $ oc delete project eap-demo
 
 ### Delete the Azure Red Hat OpenShift cluster
 
-Delete the Azure Red Hat OpenShift cluster by following the steps in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-delete-cluster?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json).
+Delete the Azure Red Hat OpenShift cluster by following the steps in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-delete-cluster).
 
 ### Delete the resource group
 
