@@ -20,7 +20,14 @@ items:
     - name: Core concepts
       href: azure-sdk-core-concepts.md
     - name: Management libraries
-      href: management-libraries.md
+      expanded: false    
+      items:
+        - name: Overview
+          href: management-libraries.md
+        - name: Manage Resource Groups
+          href: manage-resource-groups.md
+        - name: Deploy VMs 
+          href: azure-sdk-qs-vm.md
     - name: Authentication
       expanded: false
       items:

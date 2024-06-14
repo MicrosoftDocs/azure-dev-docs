@@ -4,8 +4,8 @@ description: Deploy Java projects to Azure Container Apps using IntelliJ IDEA.
 author: KarlErickson
 ms.author: jialuogan
 ms.topic: quickstart
+ms.custom: devx-track-java, devx-track-extended-java
 ms.date: 04/11/2024
-
 ---
 
 # Quickstart: Deploy to Azure Container Apps using IntelliJ IDEA

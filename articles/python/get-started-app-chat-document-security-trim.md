@@ -4,7 +4,7 @@ description: "Secure your chat app documents with user authentication and docume
 ms.date: 05/29/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
-ms.custom: devx-track-js, devx-track-js-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
+ms.custom: devx-track-js-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps, devx-track-azurecli, devx-track-python
 # CustomerIntent: 
 ---
 

@@ -86,6 +86,16 @@ Service Bus SDK uses the `reactor-executor-*` naming pattern for the connection 
 
 Therefore, if the application load to a Service Bus endpoint is reasonably high in terms of overall number of sent-received messages or payload size, you should use a separate builder instance for each client that you build. For example, for each entity - queue or topic - you can create a new `ServiceBusClientBuilder` and build a client from it. In case of extremely high load to a specific entity, you might want to either create multiple client instances for that entity or run clients in multiple hosts - for example, containers or VMs - to load balance.
 
+## Clients halt when using Application Gateway custom endpoint
+
+The custom endpoint address refers to an application-provided HTTPS endpoint address resolvable to Service Bus or configured to route traffic to Service Bus. Azure Application Gateway makes it easy to create an HTTPS front-end that forwards traffic to Service Bus. You can configure Service Bus SDK for an application to use an Application Gateway front-end IP address as the custom endpoint to connect to Service Bus.
+
+Application Gateway offers several security policies supporting different TLS protocol versions. There are predefined policies enforcing TLSv1.2 as the minimum version, there also exist old policies with TLSv1.0 as the minimum version. The HTTPS front-end will have a TLS policy applied.
+
+Right now, the Service Bus SDK doesn't recognize certain remote TCP terminations by the Application Gateway front end, which uses TLSv1.0 as the minimum version. For instance, if the front end sends TCP FIN, ACK packets to close the connection when its properties are updated, the SDK can't detect it, so it won't reconnect, and clients can't send or receive messages anymore. Such a halt only happens when using TLSv1.0 as the minimum version. To mitigate, use a security policy with TLSv1.2 or higher as the minimum version for the Application Gateway front-end.
+
+The support for TLSv1.0 and 1.1 across all Azure Services is already [announced](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2) to end by 31 October 2024, so transitioning to TLSv1.2 is strongly recommended.
+
 ## Upgrade to 7.15.x or latest
 
 If you encounter any issues, you should first attempt to solve them by upgrading to the latest version of the Service Bus SDK. Version 7.15.x is a major redesign, resolving long-standing performance and reliability concerns.

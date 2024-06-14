@@ -6,21 +6,21 @@ items:
     expanded: true
     items:
       - name: IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift
-        href: liberty-on-aro.md
-      - name: IBM WebSphere Liberty and Open Liberty on Azure Container Apps
-        href: deploy-java-liberty-app-aca.md
+        href: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: IBM WebSphere Liberty and Open Liberty on AKS
+        href: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json  
+      - name: IBM WebSphere (Traditional) cluster on Azure VMs
+        href: traditional-websphere-application-server-virtual-machines.md        
       - name: Oracle WebLogic Server on Azure VM
         href: /azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Oracle WebLogic Server on AKS
         href: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: Traditional WebSphere on Azure VMs
-        href: traditional-websphere-application-server-virtual-machines.md
       - name: Red Hat JBoss EAP Cluster on Azure VMs
         href: jboss-eap-cluster-azure-vms.md
       - name: Red Hat JBoss EAP Server on Azure VM
         href: /azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Red Hat JBoss EAP on Azure Red Hat OpenShift
-        href: jboss-eap-on-aro.md
+        href: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Red Hat Quarkus on Azure Container Apps
         href: deploy-java-quarkus-app.md
   - name: Java application servers on Azure
@@ -37,18 +37,24 @@ items:
   - name: Deployment
     expanded: true
     items:
+      - name: IBM WebSphere Liberty/Open Liberty on Azure Red Hat OpenShift
+        href: liberty-on-aro.md
+      - name: IBM WebSphere Liberty/Open Liberty on AKS
+        href: howto-deploy-java-liberty-app-manual.md
+      - name: IBM WebSphere Liberty/Open Liberty on Azure Container Apps
+        href: deploy-java-liberty-app-aca.md
+      - name: IBM WebSphere (Traditional) on Azure VMs
+        href: ../migration/migrate-websphere-to-azure-vm-manually.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+      - name: JCache with IBM WebSphere/Open Liberty
+        href: how-to-deploy-java-liberty-jcache.md
+      - name: Red Hat JBoss EAP on Azure VMs
+        href: ../migration/migrate-jboss-eap-to-azure-vm-manually.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+      - name: Red Hat JBoss EAP on Azure Red Hat OpenShift
+        href: jboss-eap-on-aro.md
       - name: Helidon on Azure App Service
         href: ../eclipse-microprofile/deploy-microprofile-helidon-java-app-with-maven-plugin.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-      - name: WebSphere Liberty/Open Liberty on Azure Red Hat OpenShift
-        href: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: WebSphere Liberty/Open Liberty on AKS
-        href: howto-deploy-java-liberty-app-manual.md
-      - name: JCache with WebSphere/Open Liberty
-        href: how-to-deploy-java-liberty-jcache.md
       - name: Payara Micro on Azure App Service
         href: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-      - name: Traditional WebSphere on Azure VMs
-        href: traditional-websphere-application-server-virtual-machines.md
       - name: Passwordless database connections
         href: how-to-configure-passwordless-datasource.md
   - name: Migrate WebLogic to Azure
