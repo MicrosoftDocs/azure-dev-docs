@@ -253,7 +253,7 @@ Because we use the Open Liberty Operator to manage Liberty applications, we need
 1. Sign in to the OpenShift web console from your browser using the `kubeadmin` credentials.
 1. Expand **Home**, Select **Projects** > **open-liberty-demo**.
 1. Navigate to **Operators** > **Installed Operators**.
-1. In the middle of the page, you'll see **Open Liberty**.
+1. In the middle of the page, you see **Open Liberty**.
 1. From **Provided APIs**, select **OpenLibertyApplication**. The navigation of items in the user interface mirrors the actual containment hierarchy of technologies in use.
 
    <!-- Diagram source https://github.com/Azure-Samples/open-liberty-on-aro/blob/master/diagrams/aro-java-containment.vsdx -->
