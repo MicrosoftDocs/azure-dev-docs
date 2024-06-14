@@ -38,7 +38,7 @@
   - name: Create templates
     items:
     - name: Training - build and deploy azd templates
-      href: https://learn.microsoft.com/en-us/training/paths/azure-developer-cli/
+      href: /training/paths/azure-developer-cli
     - name: Make your project azd-compatible
       href: make-azd-compatible.md
   - name: Integration and remote environments
