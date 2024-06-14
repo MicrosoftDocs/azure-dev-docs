@@ -19,7 +19,7 @@ You can use `azd` with [extensible blueprint templates](./azd-templates.md) that
 
 Once you've [installed Azure Developer CLI](./install-azd.md), you can get your app running on Azure in just a few steps.
 
-1. Select an [Azure Developer CLI template](./azd-templates.md#choose-a-template).
+1. Select an [Azure Developer CLI template](./azd-templates.md#start-with-an-existing-template).
 2. Initialize the project with the template by [running `azd init`](./get-started.md)
 3. Package, provision and deploy the app by [running `azd up`](./get-started.md).
 4. Continue iterating on your application code and deploying changes as needed by running `azd deploy`
