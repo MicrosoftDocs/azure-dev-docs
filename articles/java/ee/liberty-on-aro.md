@@ -178,9 +178,9 @@ mvn clean install
 
 #### Test your application locally
 
-Use the `liberty:devc` command to run and test the project locally before dealing with any Azure complexity. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
+Use the `liberty:devc` command to run and test the project locally before dealing with any Azure complexity. This includes locally running and testing your container image. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
 
-1. Start your local docker environment if needed. The instructions for doing this vary depending on the host operating system.
+1. Start your local Docker environment if needed. The instructions for doing this vary depending on the host operating system.
 
 1. Start the application in `liberty:devc` mode
 
