@@ -66,7 +66,7 @@ Implementing a RAG system comes with its set of challenges. Data privacy is para
 
 The next article in this series, [Building advanced Retrieval-Augmented Generation systems]() provides more detail on building data and inference pipelines to enable a production-ready RAG system.
 
-If you want to start experimenting with building a generative AI solution immediately, we recommend taking a look at [Get started with the Python enterprise chat sample using RAG](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces). There are versions of the tutorial also available in [.NET](/dotnet/ai/get-started-app-chat-template?tabs=github-codespaces), [Java](/azure/developer/java/ai/get-started-app-chat-template?tabs=github-codespaces), and [JavaScript](/azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces).
+If you want to start experimenting with building a generative AI solution immediately, we recommend taking a look at [Get started with the chat using your own data sample for Python](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces). There are versions of the tutorial also available in [.NET](/dotnet/ai/get-started-app-chat-template?tabs=github-codespaces), [Java](/azure/developer/java/ai/get-started-app-chat-template?tabs=github-codespaces), and [JavaScript](/azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces).
 
 ## Fine-tuning a model
 

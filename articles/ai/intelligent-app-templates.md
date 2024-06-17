@@ -18,7 +18,7 @@ There are two categories of AI app templates, **building blocks** and **end-to-e
 
 ## Building blocks
 
-Building blocks are smaller-scale samples that focus on specific scenarios and tasks. Most building blocks demonstrate functionality that leverages the enterprise chat [end-to-end solution](#end-to-end-solutions).
+Building blocks are smaller-scale samples that focus on specific scenarios and tasks. Most building blocks demonstrate functionality that leverages the [end-to-end solution](#end-to-end-solutions) for a chat app that uses your own data.
 
 :::zone pivot="dotnet"
 

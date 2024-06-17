@@ -5,11 +5,11 @@ ms.date: 01/31/2024
 ms.service: azure
 ---
 
-### Enterprise chat with JavaScript
+### Chat with your data using Azure OpenAI and Azure AI Search with JavaScript
 
-This template is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
+This template is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure. It uses Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
 
-To get started with this template, see [Get started with the JavaScript enterprise chat sample using RAG](../../javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json). To access the source code and read in-depth details about the template, see the [azure-search-openai-javascript](https://github.com/azure-samples/azure-search-openai-javascript) GitHub repo.
+To get started with this template, see [Get started with the chat using your own data sample for JavaScript](../../javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json). To access the source code and read in-depth details about the template, see the [azure-search-openai-javascript](https://github.com/azure-samples/azure-search-openai-javascript) GitHub repo.
 
 :::row:::
    :::column:::
