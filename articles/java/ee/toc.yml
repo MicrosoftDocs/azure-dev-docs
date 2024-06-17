@@ -57,6 +57,25 @@ items:
         href: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Passwordless database connections
         href: how-to-configure-passwordless-datasource.md
+  - name: Migrate WebSphere to Azure
+    expanded: true
+    items:
+      - name: WebSphere to Azure Virtual Machines
+        href: ../migration/migrate-websphere-to-virtual-machines.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere to Azure VMs step-by-step guidance
+        href: ../migration/migrate-websphere-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere to Azure VMs with HADR
+        href: ../migration/migrate-websphere-to-azure-vm-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere to AKS with geo-redundancy
+        href: ../migration/migrate-websphere-to-aks-with-ha-geo-redundancy.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere to AKS within custom VNET
+        href: ../migration/migrate-websphere-to-aks-within-an-existing-vnet.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere to AKS with KEDA scaler based on Prometheus Metrics
+        href: ../migration/migrate-websphere-to-aks-with-keda-scaler-based-on-prometheus-metrics.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere to WildFly on AKS
+        href: ../migration/migrate-websphere-to-wildfly-on-azure-kubernetes-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere to JBoss EAP on Azure App Service
+        href: ../migration/migrate-websphere-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
   - name: Migrate WebLogic to Azure
     expanded: true
     items:
@@ -64,8 +83,10 @@ items:
         href: ../migration/migrate-weblogic-to-virtual-machines.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to Azure VMs step-by-step guidance
         href: ../migration/migrate-weblogic-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: WebLogic to Azure VMs with high availability and disaster recovery
+      - name: WebLogic to Azure VMs with HADR
         href: ../migration/migrate-weblogic-to-vms-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebLogic to AKS with geo-redundancy
+        href: ../migration/migrate-weblogic-to-aks-with-ha-geo-redundancy.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to AKS within custom VNET
         href: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to AKS with KEDA scaler based on Prometheus Metrics
