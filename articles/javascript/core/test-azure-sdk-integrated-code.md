@@ -26,7 +26,7 @@ Emulators include:
 * [Azure Cosmos DB](/azure/cosmos-db/how-to-develop-emulator)
 * [Azure SignalR](/azure/azure-signalr/signalr-howto-emulator)
 * [Azure Event Hubs](/azure/event-hubs/overview-emulator)
-* [Azure SQL Database](/azure/azure-sql/database/local-dev-experience-sql-database-emulator?view=azuresql)
+* [Azure SQL Database](/azure/azure-sql/database/local-dev-experience-sql-database-emulator)
 
 ## Unit Testing
 
