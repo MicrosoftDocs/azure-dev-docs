@@ -65,7 +65,9 @@ items:
       - name: WebSphere to Azure VMs step-by-step guidance
         href: ../migration/migrate-websphere-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebSphere to Azure VMs with HADR
-        href: ../migration/migrate-websphere-to-azure-vm-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+        href: ../migration/migrate-websphere-to-vms-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere to AKS
+        href: ../migration/migrate-websphere-to-azure-kubernetes-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebSphere to AKS with geo-redundancy
         href: ../migration/migrate-websphere-to-aks-with-ha-geo-redundancy.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebSphere to AKS within custom VNET
@@ -85,6 +87,8 @@ items:
         href: ../migration/migrate-weblogic-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to Azure VMs with HADR
         href: ../migration/migrate-weblogic-to-vms-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebLogic to AKS
+        href: ../migration/migrate-weblogic-to-azure-kubernetes-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to AKS with geo-redundancy
         href: ../migration/migrate-weblogic-to-aks-with-ha-geo-redundancy.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to AKS within custom VNET
@@ -98,9 +102,11 @@ items:
   - name: Migrate JBoss EAP to Azure
     expanded: true
     items:
-      - name: JBoss EAP to Azure App Service
-        href: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: JBoss EAP to Azure VMs
         href: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-vms.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: JBoss EAP to Azure VMs step-by-step guidance
         href: ../migration/migrate-jboss-eap-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: JBoss EAP to Azure App Service
+        href: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: JBoss EAP to Azure Red Hat OpenShift
+        href: ../migration/migrate-jboss-eap-to-azure-redhat-openshift.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
