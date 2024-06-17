@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep, build-2023
 ---
 
-
 # Make your project compatible with Azure Developer CLI
 
 The Azure Developer CLI (`azd`) is designed around a [template system](azd-templates.md) to provision and deploy app resources to the cloud. Developers add support for `azd` commands and features by converting their applications to templates. In this article, you explore the different options for building `azd` templates.
@@ -47,13 +46,21 @@ The original app resources are unchanged, but new assets were added that `azd` d
 
 ## Template creation workflows
 
-There are two primary workflows to create an `azd` template. The `azd init` command is used to initialize your application for provisioning and deploying the app resources on Azure. This command prompts you to choose between two different workflows to initialize a template that are outlined in the following sections.
+The `azd init` command is used to initialize an `azd` template for provisioning and deploying the app resources on Azure.
+
+```azdeveloper
+azd init
+```
+
+Run this command in the root of the directory you'd like to convert to an `azd template`. The command prompts you to choose between two different workflows to initialize a template that are outlined in the following sections.
+
+:::image type="content" source="media/make-azd-compatible/azd-init.png" alt-text="A screenshot showing the template init process.":::
 
 ### Use code in the current directory
 
 This option instructs `azd` to analyze the code in your directory to identity which technologies it uses, such as the programming language, framework and database system. `azd` automatically generates template assets for you, such as the `azure.yaml` service definition file and the `infra` folder with infrastructure-as-code files. The generated assets are a starting point for additional modifications.
 
-Visit the [Use your app code to create a template]() tutorial for details on how to implement this approach.
+Visit the [Use your app code to create a template](use-app-code.md) tutorial for details on how to implement this approach.
 
 ### Use an existing template
 
@@ -61,7 +68,7 @@ Select this option to use an existing template as a starting point. By default, 
 
 You can also use the `azd init` command to pull down an existing template to an empty directory and use it as a starting point for your own app. If the template includes app source code, you can either build off of that code or replace the source code directory with your own.
 
-Visit the [Use an existing template]() tutorial for details on how to implement this approach.
+Visit the [Use an existing template](use-existing-template) tutorial for details on how to implement this approach.
 
 ## See also
 
