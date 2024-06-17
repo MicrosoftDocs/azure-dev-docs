@@ -34,7 +34,7 @@ For chat apps enriched with private data, securing access to your chat app is cr
 
 Now that the virtual machine is in the same virtual network, use Azure Bastion to connect. From the Azure portal, use the VM remote desktop (RDP) to access the chat app. The VM is a Windows server with a Microsoft Edge browser. Use the same chat app endpoint, just through the VM's browser.
 
-:::image type="content" source="media/get-started-app-chat-private-endpoints/simple-architecture-diagram-vpn-chat-app.png" lightbox="media/get-started-app-chat-private-endpoints/simple-architecture-diagram-vpn-chat-app.png" alt-text="Diagram showing network architecture using Azure Bastion to RDP connect to private virtual machine which connects to the Chat app.":::
+:::image type="content" source="media/get-started-app-chat-private-endpoints/diagram-azure-bastion-private-endpoint.png" lightbox="media/get-started-app-chat-private-endpoints/diagram-azure-bastion-private-endpoint.png" alt-text="Diagram showing network architecture using Azure Bastion to RDP connect to private virtual machine which connects to the Chat app.":::
 
 ## Deployment steps
 
