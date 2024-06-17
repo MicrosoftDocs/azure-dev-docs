@@ -5,7 +5,7 @@ description: Shows you how to deploy a Java application with Open Liberty/WebSph
 author: KarlErickson
 ms.author: jiangma
 ms.topic: conceptual
-ms.date: 06/14/2024
+ms.date: 06/17/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java, linux-related-content
 ---
 
@@ -320,8 +320,8 @@ You can now deploy the sample Liberty application to the Azure Red Hat OpenShift
    # Check if OpenLibertyApplication instance is created
    oc get openlibertyapplication javaee-cafe-mysql
 
-   # Check if deployment created by Operator is ready
-   oc get deployment javaee-cafe-mysql
+   # Check if deployment created by Operator is ready. All three pods must be ready. Press Ctrl + C to exit
+   oc get deployment javaee-cafe-mysql --watch
 
    # Get host of the route
    export HOST=$(oc get route javaee-cafe-mysql --template='{{ .spec.host }}')
@@ -343,7 +343,7 @@ oc delete -f db-secret.yaml
 
 ## Clean up resources
 
-Delete the Azure Red Hat OpenShift cluster by following the steps in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-delete-cluster).
+Delete the Azure Red Hat OpenShift cluster by following the steps in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-delete-cluster). Make sure the database and any associated resources are deleted too.
 
 ## Next steps
 
