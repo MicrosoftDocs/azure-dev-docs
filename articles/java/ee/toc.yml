@@ -74,14 +74,12 @@ items:
         href: ../migration/migrate-websphere-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebSphere to AKS
         href: ../migration/migrate-websphere-to-azure-kubernetes-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: WebSphere to AKS within custom VNET
-        href: ../migration/migrate-websphere-to-aks-within-an-existing-vnet.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: WebSphere to AKS with KEDA scaler based on Prometheus Metrics
-        href: ../migration/migrate-websphere-to-aks-with-keda-scaler-based-on-prometheus-metrics.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebSphere to WildFly on AKS
         href: ../migration/migrate-websphere-to-wildfly-on-azure-kubernetes-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebSphere to JBoss EAP on Azure App Service
         href: ../migration/migrate-websphere-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere to Azure Red Hat OpenShift
+        href: ../migration/migrate-websphere-to-azure-redhat-openshift.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
   - name: Migrate WebLogic to Azure
     expanded: true
     items:
