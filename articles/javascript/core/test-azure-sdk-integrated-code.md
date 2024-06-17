@@ -1,7 +1,7 @@
 ---
 title: JavaScript test strategies with Azure SDK
 description: When developing applications integrated with Azure SDKs, you should consider the following strategies to ensure the quality of your code. 
-ms.topic: how-to
+ms.topic: overview
 ms.date: 06/17/2024
 ms.custom: devx-track-js
 ---
@@ -18,7 +18,13 @@ The inner and outer test loops are foundational concepts in software testing, es
 
 ## Testing with and without the Azure Cloud
 
-**Local Testing without Azure** involves simulating Azure services, such as using the Azure Storage Emulator, [azurite](https://www.npmjs.com/package/azurite), for blob storage or the [Cosmos DB Emulator](/azure/cosmos-db/how-to-develop-emulator?tabs=windows%2Cjavascript&pivots=api-nosql) for database testing. This approach allows developers to test changes quickly without incurring costs or network latency associated with real Azure services. On the other hand, **Cloud-Based Testing with Azure** takes advantage of actual Azure resources to validate the application's integration, security, and performance in a real cloud environment. This method is crucial for final validation in a production-like setting, ensuring that the application behaves as expected with live Azure services.
+**Local Testing without Azure** involves simulating Azure services. This approach allows developers to test changes quickly without incurring costs or network latency associated with real Azure services. On the other hand, **Cloud-Based Testing with Azure** takes advantage of actual Azure resources to validate the application's integration, security, and performance in a real cloud environment. This method is crucial for final validation in a production-like setting, ensuring that the application behaves as expected with live Azure services.
+
+Dev containers and emulators enhance local development with Azure services differently. Emulators mimic Azure services for cost-effective, early-stage testing without Azure charges, but may not fully replicate live service features. Dev containers replicate the production environment more closely, including application dependencies and services, facilitating a seamless transition to production. They suit complex applications but require more setup than emulators.
+
+### Emulators
+
+**Emulators** serve as a critical tool for developers aiming to streamline their development and testing workflows when integrating with Azure services. These lightweight, local versions of Azure services allow for rapid prototyping and testing without the need for an active internet connection or incurring costs associated with real Azure resources. Emulators like Azurite for Azure Storage, the Cosmos DB Emulator, and others provide a high-fidelity simulation of Azure services, enabling developers to catch and resolve issues early in the development cycle. This approach significantly reduces the complexity and time required to test applications, making it an essential part of a developer's toolkit for building Azure-integrated applications.
 
 Emulators include: 
 
@@ -26,7 +32,14 @@ Emulators include:
 * [Azure Cosmos DB](/azure/cosmos-db/how-to-develop-emulator)
 * [Azure SignalR](/azure/azure-signalr/signalr-howto-emulator)
 * [Azure Event Hubs](/azure/event-hubs/overview-emulator)
-* [Azure SQL Database](/azure/azure-sql/database/local-dev-experience-sql-database-emulator)
+
+### Dev containers
+
+**Docker containers** offer a powerful alternative to using emulators for local development, especially when working with Azure services. By running services in Docker containers, developers can create a local environment that closely mirrors the production environment, ensuring consistency across development, testing, and deployment stages. This approach not only facilitates smoother integration with Azure SDK but also enhances the reliability of testing by simulating real-world conditions more accurately. Containers can be configured to replicate the settings and data of Azure services, providing a robust platform for developing and testing applications without the overhead of connecting to live Azure services. This method is particularly beneficial for complex applications requiring multiple services, as it allows for easy orchestration and management of dependencies.
+
+Dev containers include:
+
+* [Azure SQL Database](https://github.com/microsoft/azuresql-devcontainers)
 
 ## Unit Testing
 
@@ -46,6 +59,7 @@ Continuous Integration (CI) testing involves automatically running tests every t
 
 End-to-end (E2E) testing validates the complete operation of an application in an environment that simulates real user scenarios. Using frameworks like [Playwright](https://playwright.dev/), developers can automate browser-based tests to interact with their applications as users would. **Scenario-Based Testing** involves creating test cases for complete user flows, such as signing up, performing a task, and logging out. This testing is crucial for verifying the application's functionality and user experience on Azure, ensuring that all components work together seamlessly from end to end.
 
+* [Playwright](https://playwright.dev/docs/intro)
 * [Run end-to-end tests at scale](/azure/playwright-testing/quickstart-run-end-to-end-tests)
 
 ## Performance Testing
@@ -53,6 +67,7 @@ End-to-end (E2E) testing validates the complete operation of an application in a
 Performance testing is essential for applications deployed on Azure to ensure they can handle expected loads and perform well under stress. **Benchmarking** involves measuring the performance of your application against defined metrics or standards. Azure Load Testing is a tool that allows developers to simulate high traffic and analyze the application's scalability and resilience. This testing helps identify bottlenecks and areas for optimization, ensuring the application can meet user demands.
 
 * [Recommendations for performance testing](/azure/well-architected/performance-efficiency/performance-test)
+* [Azure Load Testing](/azure/load-testing/)
 * [Identify performance bottlenecks in a web app](/azure/load-testing/tutorial-identify-bottlenecks-azure-portal)
 
 ## Security Testing
