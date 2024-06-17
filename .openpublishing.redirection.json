@@ -116,6 +116,10 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/javascript/core/automate-tasks-with-azure-cli.md",
+      "redirect_url": "/cli/azure/azure-cli-learn-bash"
+    },
+    {
       "source_path": "articles/javascript/how-to/with-azure-sdk/stop-start-virtual-machine.md",
       "redirect_url": "/cli/azure/vm"
     },

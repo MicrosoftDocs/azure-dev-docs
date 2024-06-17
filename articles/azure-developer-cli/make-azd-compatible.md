@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli, devx-track-bicep, build-2023
 
 # Make your project compatible with Azure Developer CLI
 
-Azure Developer CLI (`azd`) enables developers to scaffold their applications for the cloud using [templates](./azd-templates.md) hosted on GitHub. Microsoft provides [several templates](./azd-templates.md#choose-a-template) to get you started. In this article, you learn how to make your own application `azd` compatible.
+Azure Developer CLI (`azd`) enables developers to scaffold their applications for the cloud using [templates](./azd-templates.md) hosted on GitHub. Microsoft provides [several templates](./azd-templates.md#start-with-an-existing-template) to get you started. In this article, you learn how to make your own application `azd` compatible.
 
 ## Understand the template architecture
 

@@ -26,6 +26,8 @@ This application is built around two main components:
 
     - The sample's function call simulates an API call by generating a random stock ticker value based on the stock symbol sent into the Azure Function. This simulation can be replaced with a remote API in your solution.
 
+    :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/diagram-azure-openai-service-function-calling-architecture.png" alt-text="Diagram showing Azure Functions integration with Azure OpenAI where Azure OpenAI can return follow up function names which Azure Functions should call.":::
+
 ## Prerequisites
 
 A [development container](https://containers.dev/) environment is available with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
