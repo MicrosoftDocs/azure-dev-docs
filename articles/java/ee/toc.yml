@@ -45,8 +45,16 @@ items:
         href: deploy-java-liberty-app-aca.md
       - name: IBM WebSphere (Traditional) on Azure VMs
         href: ../migration/migrate-websphere-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere to Azure VMs with HADR
+        href: ../migration/migrate-websphere-to-vms-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere Liberty/Open Liberty to AKS with HADR
+        href: ../migration/migrate-liberty-to-aks-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: JCache with IBM WebSphere/Open Liberty
         href: how-to-deploy-java-liberty-jcache.md
+      - name: WebLogic to Azure VMs with HADR
+        href: ../migration/migrate-weblogic-to-vms-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebLogic to AKS with geo-redundancy
+        href: ../migration/migrate-weblogic-to-aks-with-ha-geo-redundancy.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Red Hat JBoss EAP on Azure VMs
         href: ../migration/migrate-jboss-eap-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Red Hat JBoss EAP on Azure Red Hat OpenShift
@@ -64,12 +72,8 @@ items:
         href: ../migration/migrate-websphere-to-virtual-machines.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebSphere to Azure VMs step-by-step guidance
         href: ../migration/migrate-websphere-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: WebSphere to Azure VMs with HADR
-        href: ../migration/migrate-websphere-to-vms-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebSphere to AKS
         href: ../migration/migrate-websphere-to-azure-kubernetes-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: WebSphere to AKS with geo-redundancy
-        href: ../migration/migrate-websphere-to-aks-with-ha-geo-redundancy.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebSphere to AKS within custom VNET
         href: ../migration/migrate-websphere-to-aks-within-an-existing-vnet.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebSphere to AKS with KEDA scaler based on Prometheus Metrics
@@ -85,12 +89,8 @@ items:
         href: ../migration/migrate-weblogic-to-virtual-machines.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to Azure VMs step-by-step guidance
         href: ../migration/migrate-weblogic-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: WebLogic to Azure VMs with HADR
-        href: ../migration/migrate-weblogic-to-vms-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to AKS
         href: ../migration/migrate-weblogic-to-azure-kubernetes-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: WebLogic to AKS with geo-redundancy
-        href: ../migration/migrate-weblogic-to-aks-with-ha-geo-redundancy.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to AKS within custom VNET
         href: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to AKS with KEDA scaler based on Prometheus Metrics
