@@ -130,11 +130,11 @@ You should see success messages that look similar to the ones in the following s
 
 :::image type="content" source="media/traditional-websphere-application-server-virtual-machines/start-app-message-page.png" alt-text="Screenshot of IBM WebSphere Messages pane." lightbox="media/traditional-websphere-application-server-virtual-machines/start-app-message-page.png":::
 
-When you see the success messages, you can try the app. In your browser, navigate to the DNS name of the IHS deployment and add `/snoop`. You should see information similar to the following about the server instance that processed the request.
+When you see the success messages, you can try the app. In your browser, navigate to the IHS deployment and add `/snoop`. You should see information similar to the following about the server instance that processed the request.
 
 :::image type="content" source="media/traditional-websphere-application-server-virtual-machines/test-app-running-page.png" alt-text="Screenshot of test application running in a browser.":::
 
-When you refresh the browser, the app cycles through the server instances using the **Round Robin load-balancing policy**, which is the default policy for the Static Cluster deployment.
+When you refresh the browser, the app cycles through the server instances.
 
 ## Clean up resources
 
