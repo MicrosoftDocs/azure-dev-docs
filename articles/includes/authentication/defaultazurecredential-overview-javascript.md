@@ -1,0 +1,1 @@
+When building apps for Azure, token-based authentication is strongly recommended over secrets (connection strings or keys). Token-based authentication is provided with [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential).

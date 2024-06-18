@@ -3,7 +3,7 @@ title: Get started with Python on Azure
 description: How to set up a local Python dev environment for working with Azure.
 ms.date: 07/25/2023
 ms.topic: conceptual
-ms.custom: devx-track-python, vscode-azure-extension-update-completed, devx-track-azurecli
+ms.custom: devx-track-python, vscode-azure-extension-update-completed
 ---
 
 # Get started with Python on Azure
@@ -39,7 +39,7 @@ to build your first app.
 
 To develop Python applications using Azure, you first want to configure your local development environment.  Configuration includes creating an Azure account, installing tools for Azure development, and connecting those tools to your Azure account.
 
-Developing on Azure requires [Python](https://www.python.org/downloads/) 3.7 or higher. To verify the version of Python on your workstation, in a console window type the command `python3 --version` for macOS/Linux or `py --version` for Windows.
+Developing on Azure requires [Python](https://www.python.org/downloads/) 3.8 or higher. To verify the version of Python on your workstation, in a console window type the command `python3 --version` for macOS/Linux or `py --version` for Windows.
 
 ### Create an Azure Account
 
@@ -113,8 +113,7 @@ To create a virtual environment, follow these steps.
 
     ### [Windows](#tab/cmd)
 
-    ```bash
-    # py -3 uses the global python interpreter. You can also use python3 -m venv .venv.
+    ```cmd
     py -3 -m venv .venv
     ```
 
@@ -132,7 +131,7 @@ To create a virtual environment, follow these steps.
 
     ### [Windows](#tab/cmd)
 
-    ```bash
+    ```cmd
     .venv\Scripts\activate
     ```
 

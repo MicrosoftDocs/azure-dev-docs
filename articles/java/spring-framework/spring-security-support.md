@@ -3,14 +3,14 @@ title: Spring Cloud Azure Spring Security support
 description: This article describes how Spring Cloud Azure and Spring Security can be used together.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yeyonghui
+ms.author: hangwan
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure support for Spring Security
 
-**This article applies to:** ✔️ Version 4.13.0 ✔️ Version 5.7.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.13.0
 
 This article describes how Spring Cloud Azure and Spring Security can be used together.
 
@@ -66,11 +66,14 @@ spring:
       active-directory:
         enabled: true
         profile:
-          tenant-id: ${AZURE_TENANT_ID}
+          tenant-id: <tenant>
         credential:
           client-id: ${AZURE_CLIENT_ID}
           client-secret: ${AZURE_CLIENT_SECRET}
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 Now, start your application and access your application through the browser. You'll be redirected into the Microsoft login page.
 
@@ -365,7 +368,7 @@ spring:
       active-directory:
         enabled: true
         profile:
-          tenant-id: ${AZURE_TENANT_ID}
+          tenant-id: <tenant>
         credential:
           client-id: ${AZURE_CLIENT_ID}
           client-secret: ${AZURE_CLIENT_SECRET}
@@ -373,6 +376,9 @@ spring:
           graph:
             scopes: https://graph.microsoft.com/Analytics.Read, email
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 Here, `graph` is the name of `OAuth2AuthorizedClient`, `scopes` means the scopes needed to consent when logging in.
 
@@ -406,7 +412,7 @@ spring:
       active-directory:
         enabled: true
         profile:
-          tenant-id: ${AZURE_TENANT_ID}
+          tenant-id: <tenant>
         credential:
           client-id: ${AZURE_CLIENT_ID}
           client-secret: ${AZURE_CLIENT_SECRET}
@@ -415,6 +421,9 @@ spring:
             authorization-grant-type: client_credentials # Change type to client_credentials
             scopes: https://graph.microsoft.com/Analytics.Read, email
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 ##### Access multiple resource servers
 
@@ -427,7 +436,7 @@ spring:
       active-directory:
         enabled: true
         profile:
-          tenant-id: ${AZURE_TENANT_ID}
+          tenant-id: <tenant>
         credential:
           client-id: ${AZURE_CLIENT_ID}
           client-secret: ${AZURE_CLIENT_SECRET}
@@ -437,6 +446,9 @@ spring:
           resource-server-2:
             scopes: # Scopes for resource-server-2
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 Then you can use `OAuth2AuthorizedClient` in application like this
 
@@ -645,7 +657,7 @@ spring:
         client-certificate-path: ${AZURE_CERTIFICATE_PATH}
         client-certificate-password: ${AZURE_CERTIFICATE_PASSWORD}
       profile:
-        tenant-id: ${AZURE_TENANT_ID}
+        tenant-id: <tenant>
       active-directory:
         enabled: true
         user-group:
@@ -673,6 +685,9 @@ spring:
               - ${WEB_API_B_APP_ID_URL}/.default
             authorization-grant-type: client_credentials
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 You can also configure the certificate information in the `active-directory` service properties, as shown in this example:
 
@@ -687,7 +702,7 @@ spring:
           client-certificate-path: ${AZURE_CERTIFICATE_PATH}
           client-certificate-password: ${AZURE_CERTIFICATE_PASSWORD}
         profile:
-          tenant-id: ${AZURE_TENANT_ID}
+          tenant-id: <tenant>
         user-group:
           allowed-group-names: group1,group2
           allowed-group-ids: <group1-id>,<group2-id>
@@ -713,6 +728,9 @@ spring:
               - ${WEB_API_B_APP_ID_URL}/.default
             authorization-grant-type: client_credentials
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 <a name='connecting-to-azure-ad-via-proxy'></a>
 
@@ -764,7 +782,7 @@ spring:
       active-directory:
         enabled: true
         profile:
-          tenant-id: ${AZURE_TENANT_ID}
+          tenant-id: <tenant>
         credential:
           client-id: ${AZURE_CLIENT_ID}
           client-secret: ${AZURE_CLIENT_SECRET}
@@ -773,6 +791,9 @@ spring:
             scopes:
               - https://graph.microsoft.com/User.Read
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 #### Use OAuth2AuthorizedClient in your application
 
@@ -827,7 +848,7 @@ spring:
       active-directory:
         enabled: true
         profile:
-          tenant-id: ${AZURE_TENANT_ID}
+          tenant-id: <tenant>
         credential:
           client-id: ${AZURE_CLIENT_ID}
           client-secret: ${AZURE_CLIENT_SECRET}
@@ -840,6 +861,9 @@ spring:
               - https://graph.microsoft.com/User.Read
               - https://graph.microsoft.com/Directory.Read.All
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 #### Define SecurityFilterChain
 
@@ -922,7 +946,7 @@ Configurable properties of spring-cloud-azure-starter-active-directory:
 > [!div class="mx-tdBreakAll"]
 > | Name                                                                                  | Description                                                                                                                                                                                                           |
 > |---------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | **spring.cloud.azure.active-directory**.app-id-uri                                    | App ID URI which might be used in the "aud" claim of an id_token.                                                                                                                                                     |
+> | **spring.cloud.azure.active-directory**.app-id-uri                                    | App ID URI that might be used in the "aud" claim of an id_token.                                                                                                                                                     |
 > | **spring.cloud.azure.active-directory**.application-type                              | Type of the Microsoft Entra application.                                                                                                                                                                                          |
 > | **spring.cloud.azure.active-directory**.authenticate-additional-parameters            | Add additional parameters to the Authorization URL.                                                                                                                                                                   |
 > | **spring.cloud.azure.active-directory**.authorization-clients                         | The OAuth2 authorization clients.                                                                                                                                                                                     |
@@ -936,7 +960,7 @@ Configurable properties of spring-cloud-azure-starter-active-directory:
 > | **spring.cloud.azure.active-directory**.post-logout-redirect-uri                      | The redirect uri after logout.                                                                                                                                                                                        |
 > | **spring.cloud.azure.active-directory**.profile.cloud-type                            | Name of the Azure cloud to connect to. Supported types are: AZURE, AZURE_CHINA, AZURE_GERMANY, AZURE_US_GOVERNMENT, OTHER.                                                                                            |
 > | **spring.cloud.azure.active-directory**.profile.environment                           | Properties to Microsoft Entra endpoints.                                                                                                                                                                       |
-> | **spring.cloud.azure.active-directory**.profile.tenant-id                             | Azure Tenant ID.                                                                                                                                                                                                      |
+> | **spring.cloud.azure.active-directory**.profile.tenant-id                             | Azure Tenant ID. The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID.                                                                                                                                                                          |
 > | **spring.cloud.azure.active-directory**.redirect-uri-template                         | Redirection Endpoint: Used by the authorization server to return responses containing authorization credentials to the client via the resource owner user-agent. The default value is `{baseUrl}/login/oauth2/code/`. |
 > | **spring.cloud.azure.active-directory**.resource-server.claim-to-authority-prefix-map | Configure which claim will be used to build GrantedAuthority, and prefix of the GrantedAuthority's string value. Default value is: "scp" -> "SCOPE_", "roles" -> "APPROLE_".                                      |
 > | **spring.cloud.azure.active-directory**.resource-server.principal-claim-name          | Configure which claim in access token be returned in AuthenticatedPrincipal#getName. Default value is "sub".                                                                                                          |
@@ -982,7 +1006,7 @@ Configurable properties of spring-cloud-azure-starter-active-directory-b2c:
 > [!div class="mx-tdBreakAll"]
 > | Name                                                                           | Description                                                                                  |
 > |--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-> | **spring.cloud.azure.active-directory.b2c**.app-id-uri                         | App ID URI which might be used in the "aud" claim of a token.                                |
+> | **spring.cloud.azure.active-directory.b2c**.app-id-uri                         | App ID URI that might be used in the "aud" claim of a token.                                |
 > | **spring.cloud.azure.active-directory.b2c**.authenticate-additional-parameters | Additional parameters for authentication.                                                    |
 > | **spring.cloud.azure.active-directory.b2c**.authorization-clients              | Specify client configuration.                                                                |
 > | **spring.cloud.azure.active-directory.b2c**.base-uri                           | Azure AD B2C endpoint base uri.                                                              |
@@ -1255,12 +1279,15 @@ spring:
          enabled: true
          base-uri: ${BASE_URI}             # Such as: https://xxxxb2c.b2clogin.com
          profile:
-           tenant-id: ${AZURE_TENANT_ID}
+           tenant-id: <tenant>
          authorization-clients:
            ${RESOURCE_SERVER_A_NAME}:
              authorization-grant-type: client_credentials
              scopes: ${WEB_API_A_APP_ID_URL}/.default
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 Write your `Webapp` Java code.
 
@@ -1343,13 +1370,16 @@ spring:
          enabled: true
          base-uri: ${BASE_URI}             # Such as: https://xxxxb2c.b2clogin.com
          profile:
-           tenant-id: ${AZURE_TENANT_ID}
+           tenant-id: <tenant>
          app-id-uri: ${APP_ID_URI}         # If you're using v1.0 token, configure app-id-uri for `aud` verification
          credential:
            client-id: ${AZURE_CLIENT_ID}           # If you're using v2.0 token, configure client-id for `aud` verification
          user-flows:
            sign-up-or-sign-in: ${SIGN_UP_OR_SIGN_IN_USER_FLOW_NAME}
 ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 Write your Java code.
 

@@ -111,9 +111,9 @@ To push the image, make sure you have already authenticated with DockerHub by ru
 
 ## Push local container image to Azure Container Registry
 
-Read the steps to [authenticate and push to your own Azure Container Registry](../with-azure-cli/create-container-registry-resource.md).
+Read the steps to [authenticate and push to your own Azure Container Registry](/azure/container-registry/container-registry-get-started-azure-cli).
 
 ## Next steps
 
-* [Create Azure Container Registry resource](../with-azure-cli/create-container-registry-resource.md)
+* [Create Azure Container Registry resource](/azure/container-registry/container-registry-get-started-azure-cli)
 * Learn how to use [DevContainers](https://code.visualstudio.com/docs/remote/containers-tutorial)

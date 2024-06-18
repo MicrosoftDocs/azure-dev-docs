@@ -5,7 +5,7 @@ ms.date: 02/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 author: KarlErickson
-ms.author: karler
+ms.author: jogiles
 ---
 
 # Azure SDK for Java libraries

@@ -3,21 +3,21 @@ title: Create and deploy a Python web app to Azure using an azd template
 description: Quickstart article featuring the use of an azd template to help you get started with a complete project in 15 minutes.
 ms.date: 9/18/2023
 ms.topic: conceptual
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-extended-azdevcli
 ---
 
 # Quickstart: Create and deploy a Python web app to Azure using an azd template
 
 This quickstart guides you through the easiest and fastest way to create and deploy a Python web and database solution to Azure. By following the instructions in this quickstart, you will:
 
-- Choose an azd template based on the Python web framework, Azure database platform, and Azure web hosting platform you want to build on.
-- Use CLI commands to run an azd template to create a sample web app and database, and create and configure the necessary Azure resources, then deploy the sample web app to Azure.
-- Edit the web app on your local computer and use an azd command to redeploy.
-- Use an azd command to clean up Azure resources.
+- Choose an `azd` template based on the Python web framework, Azure database platform, and Azure web hosting platform you want to build on.
+- Use CLI commands to run an `azd` template to create a sample web app and database, and create and configure the necessary Azure resources, then deploy the sample web app to Azure.
+- Edit the web app on your local computer and use an `azd` command to redeploy.
+- Use an `azd` command to clean up Azure resources.
 
 It should take less than 15 minutes to complete this tutorial. Upon completion, you can start modifying the new project with your custom code.
 
-To learn more about these azd templates for Python web app development:
+To learn more about these `azd` templates for Python web app development:
 
 - [What are these templates?](./overview-azd-templates.md#what-are-the-python-web-azd-templates)
 - [How do the templates work?](./overview-azd-templates.md#how-do-the-templates-work)
@@ -26,58 +26,60 @@ To learn more about these azd templates for Python web app development:
 
 ## Prerequisites
 
-An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
+An Azure subscription - [Create one for free](https://azure.microsoft.com/free/?azure-portal=true)
 
 You must have the following installed on your local computer:
 
-1. [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
-1. [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-1. [Visual Studio Code](https://code.visualstudio.com/)
-1. [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+- [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ## Choose a template
 
-Choose an azd template based on the Python web framework, Azure web hosting platform, and Azure database platform you want to build on.
+Choose an `azd` template based on the Python web framework, Azure web hosting platform, and Azure database platform you want to build on.
 
 1. Select a template name (first column) from the following list of templates in the following tables. You'll use the template name during the `azd init` step in the next section.
 
-**Django**
+   # [Django](#tab/django)
 
-|Template|Web Framework|Database|Hosting Platform|GitHub Repo|
-|----------|----------|----------|----------|----------|
-|azure-django-postgres-flexible-aca|Django|PostgreSQL Flexible Server|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-django-postgres-flexible-aca)|
-|azure-django-postgres-flexible-appservice|Django|PostgreSQL Flexible Server|Azure App Service|[repo](https://github.com/Azure-Samples/azure-django-postgres-flexible-appservice)|
-|azure-django-cosmos-postgres-aca|Django|Cosmos DB (PostgreSQL Adapter)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-django-cosmos-postgres-aca)|
-|azure-django-cosmos-postgres-appservice|Django|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-django-cosmos-postgres-appservice)|
-|azure-django-postgres-addon-aca|Django|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-django-postgres-addon-aca)|
+   |Template|Web Framework|Database|Hosting Platform|GitHub Repo|
+   |----------|----------|----------|----------|----------|
+   |azure-django-postgres-flexible-aca|Django|PostgreSQL Flexible Server|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-django-postgres-flexible-aca)|
+   |azure-django-postgres-flexible-appservice|Django|PostgreSQL Flexible Server|Azure App Service|[repo](https://github.com/Azure-Samples/azure-django-postgres-flexible-appservice)|
+   |azure-django-cosmos-postgres-aca|Django|Cosmos DB (PostgreSQL Adapter)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-django-cosmos-postgres-aca)|
+   |azure-django-cosmos-postgres-appservice|Django|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-django-cosmos-postgres-appservice)|
+   |azure-django-postgres-addon-aca|Django|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-django-postgres-addon-aca)|
 
-**FastAPI**
+   # [FastAPI](#tab/fastapi)
 
-|Template|Web Framework|Database|Hosting Platform|GitHub Repo|
-|----------|----------|----------|----------|----------|
-|azure-fastapi-postgres-flexible-aca|FastAPI|PostgreSQL Flexible Server|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-fastapi-postgres-flexible-aca)|
-|azure-fastapi-postgres-flexible-appservice|FastAPI|PostgreSQL Flexible Server|Azure App Service|[repo](https://github.com/Azure-Samples/azure-fastapi-postgres-flexible-appservice)|
-|azure-fastapi-cosmos-postgres-aca|FastAPI|Cosmos DB (PostgreSQL Adapter)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-fastapi-cosmos-postgres-aca)|
-|azure-fastapi-cosmos-postgres-appservice|FastAPI|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-fastapi-cosmos-postgres-appservice)|
-|azure-fastapi-postgres-addon-aca|FastAPI|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-fastapi-postgres-addon-aca)|
+   |Template|Web Framework|Database|Hosting Platform|GitHub Repo|
+   |----------|----------|----------|----------|----------|
+   |azure-fastapi-postgres-flexible-aca|FastAPI|PostgreSQL Flexible Server|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-fastapi-postgres-flexible-aca)|
+   |azure-fastapi-postgres-flexible-appservice|FastAPI|PostgreSQL Flexible Server|Azure App Service|[repo](https://github.com/Azure-Samples/azure-fastapi-postgres-flexible-appservice)|
+   |azure-fastapi-cosmos-postgres-aca|FastAPI|Cosmos DB (PostgreSQL Adapter)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-fastapi-cosmos-postgres-aca)|
+   |azure-fastapi-cosmos-postgres-appservice|FastAPI|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-fastapi-cosmos-postgres-appservice)|
+   |azure-fastapi-postgres-addon-aca|FastAPI|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-fastapi-postgres-addon-aca)|
 
-**Flask**
+   # [Flask](#tab/flask)
 
-|Template|Web Framework|Database|Hosting Platform|GitHub Repo|
-|----------|----------|----------|----------|----------|
-|azure-flask-postgres-flexible-aca|Flask|PostgreSQL Flexible Server|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-postgres-flexible-aca)|
-|azure-flask-postgres-flexible-appservice|Flask|PostgreSQL Flexible Server|Azure App Service|[repo](https://github.com/Azure-Samples/azure-flask-postgres-flexible-appservice)|
-|azure-flask-cosmos-postgres-aca|Flask|Cosmos DB (PostgreSQL Adapter)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-postgres-aca)|
-|azure-flask-cosmos-postgres-appservice|Flask|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-postgres-appservice)|
-|azure-flask-postgres-addon-aca|Flask|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-postgres-addon-aca)|
-|azure-flask-cosmos-mongodb-aca|Flask|Cosmos DB (MongoDB)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-aca)|
-|azure-flask-cosmos-mongodb-appservice|Flask|Cosmos DB (MongoDB)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-appservice)|
+   |Template|Web Framework|Database|Hosting Platform|GitHub Repo|
+   |----------|----------|----------|----------|----------|
+   |azure-flask-postgres-flexible-aca|Flask|PostgreSQL Flexible Server|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-postgres-flexible-aca)|
+   |azure-flask-postgres-flexible-appservice|Flask|PostgreSQL Flexible Server|Azure App Service|[repo](https://github.com/Azure-Samples/azure-flask-postgres-flexible-appservice)|
+   |azure-flask-cosmos-postgres-aca|Flask|Cosmos DB (PostgreSQL Adapter)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-postgres-aca)|
+   |azure-flask-cosmos-postgres-appservice|Flask|Cosmos DB (PostgreSQL Adapter)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-postgres-appservice)|
+   |azure-flask-postgres-addon-aca|Flask|Azure Container Apps PostgreSQL Add-on|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-postgres-addon-aca)|
+   |azure-flask-cosmos-mongodb-aca|Flask|Cosmos DB (MongoDB)|Azure Container Apps|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-aca)|
+   |azure-flask-cosmos-mongodb-appservice|Flask|Cosmos DB (MongoDB)|Azure App Service|[repo](https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-appservice)|
 
-   The GitHub repository (last column) is only provided for reference purposes. You should only clone the repository directly if you want to contribute changes to the template. Otherwise, follow the instructions in this quickstart to use the azd CLI to interact with the template in a normal workflow.
+   ---
+
+   The GitHub repository (last column) is only provided for reference purposes. You should only clone the repository directly if you want to contribute changes to the template. Otherwise, follow the instructions in this quickstart to use the `azd` CLI to interact with the template in a normal workflow.
 
 ## Run the template
 
-Running an azd template is the same across languages and frameworks. And, the same basic steps apply to all templates. The steps are:
+Running an `azd` template is the same across languages and frameworks. And, the same basic steps apply to all templates. The steps are:
 
 1. At a terminal, navigate to a folder on your local computer where you typically store your local git repositories, then create a new folder named *azdtest*. Then, change into that directory using the `cd` command.
 
@@ -100,7 +102,7 @@ Running an azd template is the same across languages and frameworks. And, the sa
    name. The environment name is used when naming Azure resource groups and resources. For
    best results, use a short name, lower case latters, no special characters.
 
-3. To authenticate azd to your Azure account, enter the following commands in your terminal and follow the prompt:
+3. To authenticate `azd` to your Azure account, enter the following commands in your terminal and follow the prompt:
 
    ```shell
    azd auth login
@@ -127,7 +129,7 @@ terminal and answer any prompts:
    ```
 
    >[!IMPORTANT]
-   >Once `azd up` completes successfully, the sample web app will be available on the public internet and your Azure Subscription will begin accruing charges for all resources that are created. The creators of the azd templates intentionally chose inexpensive tiers but not necessarily *free* tiers since free tiers often have restricted availability.
+   >Once `azd up` completes successfully, the sample web app will be available on the public internet and your Azure Subscription will begin accruing charges for all resources that are created. The creators of the `azd` templates intentionally chose inexpensive tiers but not necessarily *free* tiers since free tiers often have restricted availability.
 
    Follow the instructions when prompted to choose Azure Subscription to use for payment, then
    select an Azure location to use. Choose a region that is close to you geographically.
@@ -152,7 +154,7 @@ terminal and answer any prompts:
    bar of a web browser to see the sample web app project running live in Azure.
 
 7. Open a new tab in your web browser, copy the second URL from the previous step and paste it into
-   the location bar. The Azure Portal displays all of the services in your new
+   the location bar. The Azure portal displays all of the services in your new
    resource group that have been deployed to host the sample web app project.
 
 ## Edit and redeploy
@@ -183,7 +185,7 @@ The next step is to make a small change to the web app and then redeploy.
    azd deploy
    ```
 
-   Since you're using Dev Containers and are connected remotely into the container's shell, don't use Visual Studio Code's Terminal pane to run azd commands.
+   Since you're using Dev Containers and are connected remotely into the container's shell, don't use Visual Studio Code's Terminal pane to run `azd` commands.
 
 5. Once the command completes, refresh your web browser to see the update. Depending on the web hosting platform being used, it could take several minutes before your changes are visible.
 
@@ -191,7 +193,7 @@ The next step is to make a small change to the web app and then redeploy.
 
 ## Clean up resources
 
-1. Clean up the resources created by the template by running the [azd down](/azure/developer/azure-developer-cli/reference#azd-down) command.
+1. Clean up the resources created by the template by running the [`azd down`](/azure/developer/azure-developer-cli/reference#azd-down) command.
 
    ```Shell
    azd down
@@ -206,9 +208,9 @@ The next step is to make a small change to the web app and then redeploy.
 
 If you see errors during `azd up`, try the following steps:
 
-- Run `azd down` to remove any resources that may have been created. Alternatively, you can delete the resource group that was created in the Azure Portal.
+- Run `azd down` to remove any resources that may have been created. Alternatively, you can delete the resource group that was created in the Azure portal.
 - Delete the *azdtest* folder on your local computer.
-- In the Azure Portal, search for Key Vaults. Select to *Manage deleted vaults*, choose your subscription, select all key vaults that contain the name *azdtest* or whatever you named your environment, and select *Purge*.
+- In the Azure portal, search for Key Vaults. Select to *Manage deleted vaults*, choose your subscription, select all key vaults that contain the name *azdtest* or whatever you named your environment, and select *Purge*.
 - Retry the steps in this quickstart again. This time when prompted, choose a simpler name for your environment. Try a short name, lower-case letters, no numbers, no upper-case letters, no special characters.
 - When retrying the quickstart steps, choose a different location.
 
@@ -216,10 +218,10 @@ See the [FAQ](./overview-azd-templates.md#frequently-asked-questions) for a more
 
 ## Related Content
 
-- [Learn more about the Python web azd templates](./overview-azd-templates.md)
+- [Learn more about the Python web `azd` templates](./overview-azd-templates.md)
 - [Learn more about the `azd` commands.](./overview-azd-templates.md#how-do-the-templates-work)
 - Learn what each of the folders and files in the project do and [what you can edit or delete?](./overview-azd-templates.md#what-can-i-edit-or-delete)
 - [Learn more about Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers).
-- Update the Bicep templates to add or remove Azure services. Don't know Bicep? Try this [Learning Path: Fundamentals of Bicep](/training/paths/fundamentals-bicep/)
-- [Use azd to set up a GitHub Actions CI/CD pipeline to redeploy on merge to main branch](./overview-azd-templates.md)
+- [Update the Bicep templates to add or remove Azure services](./quickstart-python-scale-bicep.md). Don't know Bicep? Try this [Learning Path: Fundamentals of Bicep](/training/paths/fundamentals-bicep/)
+- [Use `azd` to set up a GitHub Actions CI/CD pipeline to redeploy on merge to main branch](./overview-azd-templates.md)
 - Set up monitoring so that you can [Monitor your app using the Azure Developer CLI](/azure/developer/azure-developer-cli/monitor-your-app)

@@ -2,8 +2,7 @@
 title: Azure for developers overview
 description: An overview of Azure from a developer's perspective.
 keywords: azure billing, azure portal
-ms.service: azure-devops
-ms.subservice: azure-devops-reference
+ms.service: azure
 ms.topic: overview
 ms.date: 08/04/2022
 ms.custom: overview
@@ -25,7 +24,7 @@ You can incorporate Azure into your application in different ways depending on y
 
 - **Application hosting on Azure -** Azure can host your entire application stack from web applications and APIs to databases to storage services. Azure supports a variety of hosting models from fully managed services to containers to virtual machines. When using fully managed Azure services, your applications can take advantage of the scalability, high-availability, and security built in to Azure.
 
-- **Consuming cloud services from existing on-premises applications -** Existing on-premises apps can incorporate Azure services to extend their capabilities.  For example, an application could use Azure Blob Storage to store files in the cloud, Azure Key Vault to securely store application secrets, or [Azure Cognitive Search](/azure/search/search-what-is-azure-search) to add full-text search capability. These services are fully managed by Azure and can be easily added to your existing apps without changing your current application architecture or deployment model.
+- **Consuming cloud services from existing on-premises applications -** Existing on-premises apps can incorporate Azure services to extend their capabilities.  For example, an application could use Azure Blob Storage to store files in the cloud, Azure Key Vault to securely store application secrets, or [Azure AI Search](/azure/search/search-what-is-azure-search) to add full-text search capability. These services are fully managed by Azure and can be easily added to your existing apps without changing your current application architecture or deployment model.
 
 - **Container based architectures -** Azure provides a variety of container based services to support your app modernization journey.  Whether you need a private registry for your container images, are containerizing an existing app for ease of deployment, deploying microservices based applications, or managing containers at scale, Azure has solutions that support your needs.
 

@@ -109,7 +109,7 @@ Use another host to perform tasks that require the docker daemon. One option is 
 
 ### Solution
 
-Upgrade Bicep CLI by running `az bicep upgrade`.
+Previously, Bicep was a preqrequisite for installing and using `azd `. `azd` now automatically installs Bicep within the local `azd` scope (not globally) and this issue should now be resolved. However, if you want to use a different version, you can set the environment variable: `AZD_BICEP_TOOL_PATH` to point to the location of the version you need.
 
 ## `azd up` or `azd provision` fails
 
@@ -169,6 +169,12 @@ An unknown exception has occurred
 You are most likely to encounter this issue when `azd` is run from a GitHub action. As a workaround, after you build your site, copy `staticwebapp.config.json` into the build folder. You can automate this step this by using a prepackage or predeploy [command hook](/azure/developer/azure-developer-cli/azd-extensibility), which allows you to execute custom scripts at various points in the azd command workflows.
 
 The product team is working to resolve this issue.
+
+## GitHub Actions error - "Does not have secrets get permission on key vault"
+
+Sharing the same environment or resource group name when provisioning resources locally and in GitHub Actions can produce the error `Does not have secrets get permission on key vault..` from the Key Vault service. Key Vault does not support incremental permissions updates through Bicep, which effectively means the GitHub Actions workflow overwrites the Access Policy permissions of the local user.
+
+The recommended solution to this issue is to use separate environment names for local development and GitHub Actions workflows. Read more about [using multiple environments](/azure/developer/azure-developer-cli/faq#what-is-an-environment-name) with the `azd env` command on the FAQ page.
 
 ## Text-based browser support
 

@@ -1,13 +1,11 @@
 ---
 title: Getting started with Logz.io for Java apps running on Azure
 description: This tutorial shows how to integrate and configure Logz.io for Java apps running on Azure.
-manager: bborges
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 05/12/2023
 author: KarlErickson
 ms.author: judubois
 ms.custom: devx-track-java, team=cloud_advocates, devx-track-extended-java
-ms.contributors: judubois-09162021
 ---
 
 # Tutorial: Getting started with monitoring and logging using Logz.io for Java apps running on Azure
@@ -24,7 +22,7 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-* [Java Developer Kit](./java-support-on-azure.md), version 8 or greater
+* [Java Developer Kit](./java-support-on-azure.md), version 11 or greater
 * A Logz.io account from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/logz.logzio-elk-as-a-service-pro)
 * An existing Java application that uses Log4J or Logback
 
@@ -34,7 +32,7 @@ First, you'll learn how to configure your Java application with a token that giv
 
 ### Get your Logz.io access token
 
-To get your token, log in to your Logz.io account, select the cog icon in the right-hand corner, then select **Settings > General**. Copy the access token displayed in your account settings so you can use it later.
+To get your token, log in to your Logz.io account, select the cog icon in the bottom left-hand corner, then select **Settings > Manage tokens** and select the **Data shipping tokens** tab. Copy the **default access token** displayed, as well as the **listener URL** so you can use them later.
 
 ### Install and configure the Logz.io library for Log4J or Logback
 
@@ -48,7 +46,7 @@ If you're using Maven, add the following dependency to your `pom.xml` file:
 <dependency>
     <groupId>io.logz.log4j2</groupId>
     <artifactId>logzio-log4j2-appender</artifactId>
-    <version>1.0.11</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 
@@ -58,7 +56,7 @@ If you're using Maven, add the following dependency to your `pom.xml` file:
 <dependency>
     <groupId>io.logz.logback</groupId>
     <artifactId>logzio-logback-appender</artifactId>
-    <version>1.0.22</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 
@@ -67,13 +65,13 @@ If you're using Gradle, add the following dependency to your build script:
 **Log4J:**
 
 ```
-implementation 'io.logz.log4j:logzio-log4j-appender:1.0.11'
+implementation 'io.logz.log4j:logzio-log4j-appender:2.0.0'
 ```
 
 **Logback:**
 
 ```
-implementation 'io.logz.logback:logzio-logback-appender:1.0.22'
+implementation 'io.logz.logback:logzio-logback-appender:2.0.0'
 ```
 
 Next, update your Log4J or Logback configuration file:
@@ -84,7 +82,7 @@ Next, update your Log4J or Logback configuration file:
 <Appenders>
     <LogzioAppender name="Logzio">
         <logzioToken><your-logz-io-token></logzioToken>
-        <logzioType>java-application</logzioType>
+        <logzioType>java</logzioType>
         <logzioUrl>https://<your-logz-io-listener-host>:8071</logzioUrl>
     </LogzioAppender>
 </Appenders>
@@ -105,7 +103,7 @@ Next, update your Log4J or Logback configuration file:
     <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
         <token><your-logz-io-token></token>
         <logzioUrl>https://<your-logz-io-listener-host>:8071</logzioUrl>
-        <logzioType>java-application</logzioType>
+        <logzioType>java</logzioType>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>INFO</level>
         </filter>
@@ -121,13 +119,13 @@ Replace the `<your-logz-io-token>` placeholder with your access token and the `<
 
 The `logzioType` element refers to a logical field in Elasticsearch that is used to separate different documents from one another. It's essential to configure this parameter properly to get the most out of Logz.io.
 
-A Logz.io "Type" is your log format (for example: Apache, NGinx, MySQL) and not your source (for example: server1, server2, server3). For this tutorial, we are calling the type `java-application` because we are configuring Java applications, and we expect those applications will all have the same format.
+A Logz.io "Type" is your log format (for example: Apache, NGinx, MySQL) and not your source (for example: server1, server2, server3). For this tutorial, we are calling the type `java` because we are configuring Java applications, and we expect those applications will all have the same format.
 
 For advanced usage, you could group your Java applications into different types, which all have their own specific log format (configurable with Log4J and Logback). For example, you could have a "spring-boot-monolith" type and a "spring-boot-microservice" type.
 
 ### Test your configuration and log analysis on Logz.io
 
-After the Logz.io library is configured, your application should now send logs directly to it. To test that everything works correctly, go to the Logz.io console, select the **Live tail** tab, then select **run**. You should see a message similar to the following, telling you the connection is working:
+After the Logz.io library is configured, your application should now send logs directly to it. To test that everything works correctly, go to the Logz.io console, select the **Logs > Live tail** tab, then select **run**. You should see a message similar to the following, telling you the connection is working:
 
 ```output
 Requesting Live Tail access...

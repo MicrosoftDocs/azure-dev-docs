@@ -1,5 +1,5 @@
 ---
-ms.custom: devx-track-js, devx-track-azurecli, contoso-real-estate
+ms.custom: devx-track-js, contoso-real-estate
 ms.topic: include
 ms.date: 11/15/2023
 ---

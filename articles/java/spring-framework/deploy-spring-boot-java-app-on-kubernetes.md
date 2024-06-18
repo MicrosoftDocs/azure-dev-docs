@@ -2,16 +2,17 @@
 title: Deploy Spring Boot Application to the Azure Kubernetes Service
 titleSuffix: Azure Kubernetes Service
 description: This tutorial will walk you though the steps to deploy a Spring Boot application in a Kubernetes cluster on Microsoft Azure.
-services: container-service
-documentationcenter: java
+author: KarlErickson
+ms.author: hangwan
 ms.date: 01/19/2022
-ms.service: azure-java
-ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.custom: mvc, devx-track-java, devx-track-azurecli, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Deploy Spring Boot Application to the Azure Kubernetes Service
+
+> [!NOTE]
+> For Spring Boot applications, we recommend using Azure Spring Apps. However, you can still choose to use Azure Kubernetes Service as a destination. For more information, see [Choose the right Azure services for your Java applications](../get-started/choose.md).
 
 This tutorial walks you through combining Kubernetes and Docker to develop and deploy a Spring Boot application to Microsoft Azure. More specifically, you use [Spring Boot] for application development, [Kubernetes] for container deployment, and the [Azure Kubernetes Service (AKS)] to host your application.
 
@@ -133,7 +134,7 @@ The following steps walk you through building a Spring Boot web application and 
    </properties>
    ```
 
-1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` element contains an entry for the `jib-maven-plugin`, as shown in the following example. Note that we are using a base image from the Microsoft Container Registry (MCR): `mcr.microsoft.com/java/jdk:8-zulu-alpine`, which contains an officially supported JDK for Azure. For other MCR base images with officially supported JDKs, see [Java SE JDK](https://hub.docker.com/_/microsoft-java-jdk), [Java SE JRE](https://hub.docker.com/_/microsoft-java-jre), [Java SE Headless JRE](https://hub.docker.com/_/microsoft-java-jre-headless), and [Java SE JDK and Maven](https://hub.docker.com/_/microsoft-java-maven).
+1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` element contains an entry for the `jib-maven-plugin`, as shown in the following example. Note that we are using a base image from the Microsoft Container Registry (MCR): `mcr.microsoft.com/openjdk/jdk:11-ubuntu`, which contains an officially supported JDK for Azure. For other MCR base images with officially supported JDKs, see [Install the Microsoft Build of OpenJDK.](/java/openjdk/containers).
 
    ```xml
    <plugin>
@@ -142,7 +143,7 @@ The following steps walk you through building a Spring Boot web application and 
      <version>${jib-maven-plugin.version}</version>
      <configuration>
         <from>
-            <image>mcr.microsoft.com/java/jdk:8-zulu-alpine</image>
+            <image>mcr.microsoft.com/openjdk/jdk:11-ubuntu</image>
         </from>
         <to>
             <image>${docker.image.prefix}/gs-spring-boot-docker</image>

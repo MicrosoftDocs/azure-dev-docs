@@ -1,7 +1,7 @@
 ---
 title: "Walkthrough: Authenticate Python apps with Azure services"
 description: A detailed walkthrough of how to authenticate a Python app with Microsoft Entra ID, Azure Key Vault, and Azure Queue Storage by using the Azure Python SDK azure-identity library.
-ms.date: 06/01/2022
+ms.date: 02/20/2024
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -14,7 +14,7 @@ After providing some background, this walkthrough explains these authentication 
 
 ## Part 1: Background
 
-Although many Azure services rely solely on role-based access control for authorization, certain services control access to their respective resources by using secrets or keys. Such services include Azure Storage, databases, Cognitive Services, Key Vault, and Event Hubs.
+Although many Azure services rely solely on role-based access control for authorization, certain services control access to their respective resources by using secrets or keys. Such services include Azure Storage, databases, Azure AI services, Key Vault, and Event Hubs.
 
 When creating a cloud app that accesses these services, you can use the Azure portal, the Azure CLI, or Azure PowerShell to create and configure keys for your app. The keys you create are tied to specific access policies and prevent access to those app-specific resources by any other unauthorized code.
 
@@ -24,7 +24,7 @@ Fortunately, Azure provides two specific services to simplify the process and pr
 
 - Azure Key Vault provides secure cloud-based storage for access keys (along with cryptographic keys and certificates, which aren't covered in this article). By using Key Vault, the app accesses such keys only at run time so that they never appear directly in source code.
 
-- With Microsoft Entra managed identities, the app needs to authenticate only once with Active Directory. The app is then automatically authenticated with other Azure services, including Key Vault. As a result, your code never needs to concern itself with keys or other credentials for those Azure services. Better still, you can run the same code both locally and in the cloud with minimal configuration requirements.
+- With [Microsoft Entra managed identities](/entra/identity/managed-identities-azure-resources/overview), an app needs to authenticate only once with Microsoft Entra ID. The app is then automatically authenticated with other Azure services, including Key Vault. As a result, your code never needs to concern itself with keys or other credentials for those Azure services. Better still, you can run the same code both locally and in the cloud with minimal configuration requirements.
 
 This walkthrough shows how to use Microsoft Entra managed identity and Key Vault together in the same app. By using Microsoft Entra ID and Key Vault together, your app never needs to authenticate itself with individual Azure services, and can easily and securely access any keys necessary for third-party services.
 

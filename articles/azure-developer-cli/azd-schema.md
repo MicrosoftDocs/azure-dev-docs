@@ -118,16 +118,16 @@ metadata:
     template: yourApp-aca@0.0.1-beta
 services:
   api:
-    project: src/api
+    project: ./src/api
     language: js
     host: containerapp
     docker:
       path: ./Dockerfile
       context: ../
-      web:
-      project: src/web
-  language: js
-  host: containerapp
+  web:
+    project: ./src/web
+    language: js
+    host: containerapp
 ```
 
 ### AKS `deployment` properties

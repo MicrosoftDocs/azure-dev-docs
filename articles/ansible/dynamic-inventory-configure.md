@@ -4,12 +4,15 @@ description: Learn how to populate your Ansible inventory dynamically from infor
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 ms.topic: tutorial
 ms.date: 05/19/2021
-ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ---
 
 # Tutorial: Configure dynamic inventories of your Azure resources using Ansible
 
 [!INCLUDE [ansible-28-note.md](includes/ansible-28-note.md)]
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 The [Ansible dynamic inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html) feature removes the burden of maintaining static inventory files.
 

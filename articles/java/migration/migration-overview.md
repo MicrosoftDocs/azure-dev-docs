@@ -78,12 +78,11 @@ Use the following grid to identify potential destinations for your application t
 
 | Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓                              | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Spring<br>Apps | Azure Container Apps | AKS           | Virtual<br>Machines |
 |-------------------------------------------------------------------------------------|---------------------------|--------------------------|-----------------------------|-------------------------|----------------------|---------------|---------------------|
-| Spring Boot / JAR applications                                                      |                           |                          |                             | &#x2714;                |                      |               |                     |
-| Spring Cloud applications                                                           |                           |                          |                             | &#x2714;                | &#x2714;             | &#x2714;      | &#x2714;            |
-| Web applications                                                                    |                           | &#x2714;                 | &#x2714;                    | &#x2714;                | &#x2714;             | &#x2714;      | &#x2714;            |
-| Java EE applications                                                                |                           |                          | &#x2714;                    |                         |                      | &#x2714;      | &#x2714;            |
+| Spring Boot / JAR applications | &#x2714; |   |   | &#x2714; | &#x2714; | &#x2714; | &#x2714;  |
+| Spring Cloud applications      |  &#x2714; |   | &#x2714;  | &#x2714;  | &#x2714; | &#x2714; | &#x2714; |
+| Web applications (WAR)                                                                   |                           | &#x2714;                 | &#x2714;                    |                 | &#x2714;             | &#x2714;      | &#x2714;            |
+| Java EE applications (WAR \| EAR)                                                               |                           |                          | &#x2714;                    |                         |  &#x2714;                    | &#x2714;      | &#x2714;            |
 | Commercial application servers<br>(such as Oracle WebLogic Server or IBM WebSphere) |                           |                          |                             |                         | &#x2714;             | &#x2714;      | &#x2714;            |
-| Long-term persistence on local filesystem                                           | &#x2714;                  | &#x2714;                 | &#x2714;                    |                         |                      | &#x2714;      | &#x2714;            |
 | Application server-level clustering                                                 |                           |                          | &#x2714;                    |                         |                      | &#x2714;      | &#x2714;            |
 | Batch / scheduled jobs                                                              |                           |                          |                             | &#x2714;                | &#x2714;             | &#x2714;      | &#x2714;            |
 | VNet Integration/Hybrid Connectivity                                                | &#x2714;                  | &#x2714;                 | &#x2714;                    | &#x2714;                | &#x2714;             | &#x2714;      | &#x2714;            |
@@ -111,7 +110,7 @@ Tasks indicated with ![Azure][1] are managed entirely or mostly by Azure. Your t
 | Detecting and restarting failed instances                                   | ![Azure][1]    | ![Azure][1]             | ![Azure][1]                | ![Azure][1]             | &#x1F449;           |
 | Implementing draining and rolling restart for updates                       | ![Azure][1]    | ![Azure][1]             | ![Azure][1]                | ![Azure][1]             | &#x1F449;           |
 | Infrastructure management                                                   | ![Azure][1]    | ![Azure][1]             | &#x1F449;                  | &#x1F449;               | &#x1F449;           |
-| Monitoring and alert management                                             | &#x1F449;      | &#x1F449;               | &#x1F449;                  | &#x1F449;               |                     |
+| Monitoring and alert management                                             | &#x1F449;      | &#x1F449;               | &#x1F449;                  | &#x1F449;               |  &#x1F449;                     |
 
 <sup>1</sup> Some security updates might require node reboots, which aren't done automatically. For more information, see [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](/azure/aks/node-updates-kured).
 
@@ -143,7 +142,7 @@ If you'd like to migrate a Web app on Tomcat to Azure Spring Apps, first convert
 |--------------------------------------------------------|---------------------------|--------------------------|-----------------------------|----------------------------|-------------------------|---------------------|---------------------|
 | Spring Boot /<br>JAR applications                      | N/A                       | N/A                      | N/A                         | N/A                        | [guidance][16]          | N/A                 | N/A                 |
 | Spring Cloud /<br>applications                         | N/A                       | N/A                      | N/A                         | N/A                        | [guidance][15]          | guidance<br>planned | guidance<br>planned |
-| Web applications<br>on Tomcat                          | N/A                       | [guidance][2]            | N/A                         | [guidance][22]             | [guidance][17]          | [guidance][3]       | guidance<br>planned |
+| Web applications<br>on Tomcat                          | N/A                       | [guidance][2]            | N/A                         | [guidance][22]             | N/A                     | [guidance][3]       | guidance<br>planned |
 
 **Java EE applications**
 
@@ -171,7 +170,6 @@ Use the rows below to find your Java EE application type running on a specific a
 [13]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
 [15]: migrate-spring-cloud-to-azure-spring-apps.md
 [16]: migrate-spring-boot-to-azure-spring-apps.md
-[17]: migrate-tomcat-to-azure-spring-apps.md
 [18]: migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
 [19]: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
 [20]: migrate-websphere-to-jboss-eap-on-azure-app-service.md

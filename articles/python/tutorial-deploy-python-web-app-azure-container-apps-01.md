@@ -2,7 +2,7 @@
 title: Overview of how to deploy a Python web app in Azure Container Apps
 description: Overview of how to create a container from a Python web app and deploy it to Azure Container Apps, a serverless platform for hosting containerized applications.
 ms.topic: conceptual
-ms.date: 08/30/2022
+ms.date: 01/31/2024
 ms.custom: devx-track-python
 ---
 
@@ -46,9 +46,9 @@ The components supporting this tutorial and shown in the diagram above are:
 
 ## Revisions and CI/CD
 
-To make code changes and push them to a container, you create a new Docker image with your change. Then, you push the image to Container Registry, and create a new [revision](/azure/container-apps/revisions) of the container app. To automate this process, an optional step in the tutorial shows you how to build a continuous integration and continuous delivery (CI/CD) pipeline with GitHub actions. The pipeline automatically builds and deploys your code to the Container App.
+To make code changes and push them to a container, you create a new Docker image with your change. Then, you push the image to Container Registry and create a new [revision](/azure/container-apps/revisions) of the container app.
 
-To automate this process, an optional step in the tutorial shows you how to build a continuous integration and continuous deployment (CI/CD) pipeline with [GitHub Actions][6]. A GitHub Actions workflow automatically builds and deploys your code to the Azure Container Apps when changes are made to a specified GitHub repository.
+To automate this process, an optional step in the tutorial shows you how to build a continuous integration and continuous delivery (CI/CD) pipeline with GitHub Actions. The pipeline automatically builds and deploys your code to the Container App whenever a new commit is pushed to your GitHub repository.
 
 ## Authentication and security
 

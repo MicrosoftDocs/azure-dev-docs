@@ -1,14 +1,14 @@
 ---
 title: 'Overview: Authenticate Python apps to Azure using the Azure SDK'
 description: This article provides an overview of how to authenticate applications to Azure services when you use the Azure SDK for Python in both server environments and in local development.
-ms.date: 10/19/2023
+ms.date: 05/22/2024
 ms.topic: overview
 ms.custom: devx-track-python
 ---
 
 # Authenticate Python apps to Azure services by using the Azure SDK for Python
 
-When an application needs to access an Azure resource like Azure Storage, Azure Key Vault, or Azure Cognitive Services, the application must be authenticated to Azure. This requirement is true for all applications, whether they're deployed to Azure, deployed on-premises, or under development on a local developer workstation. This article describes the recommended approaches to authenticate an app to Azure when you use the Azure SDK for Python.
+When an application needs to access an Azure resource like Azure Storage, Azure Key Vault, or Azure AI services, the application must be authenticated to Azure. This requirement is true for all applications, whether they're deployed to Azure, deployed on-premises, or under development on a local developer workstation. This article describes the recommended approaches to authenticate an app to Azure when you use the Azure SDK for Python.
 
 ## Recommended app authentication approach
 
@@ -89,15 +89,21 @@ Internally, `DefaultAzureCredential` implements a chain of credential providers 
 
 The order in which `DefaultAzureCredential` looks for credentials is shown in the following diagram and table:
 
-:::image type="content" source="./media/default-azure-credential-auth-flow.svg" alt-text="A diagram that shows the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="./media/default-azure-credential-auth-flow.svg":::
+:::image type="content" source="./media/default-azure-credential-auth-flow.svg" alt-text="A diagram that shows the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="./media/default-azure-credential-auth-flow-big.png":::
 
 | Credential type               | Description |
 |-------------------------------|-------------|
 | Environment | The `DefaultAzureCredential` object reads a set of environment variables to determine if an application service principal (application user) was set for the app. If so, `DefaultAzureCredential` uses these values to authenticate the app to Azure.<br><br>This method is most often used in server environments, but you can also use it when you develop locally.             |
+| Workload identity              | In Azure Kubernetes Service (AKS), a workload identity represents a trust relationship between a managed identity and a Kubernetes service account. If an application deployed to AKS is configured with a Kubernetes service account in such a relationship, `DefaultAzureCredential` authenticates the app to Azure by using the managed identity. Authentication by using a workload identity is discussed in [Use Microsoft Entra Workload ID with Azure Kubernetes Service](/azure/aks/workload-identity-overview?tabs=python).|
 | Managed identity              | If the application is deployed to an Azure host with managed identity enabled, `DefaultAzureCredential` authenticates the app to Azure by using that managed identity. Authentication by using a managed identity is discussed in the section [Authentication in server environments](#authentication-in-server-environments).<br><br>This method is only available when an application is hosted in Azure by using a service like Azure App Service, Azure Functions, or Azure Virtual Machines. |
 | Azure CLI                     | If you've authenticated to Azure by using the `az login` command in the Azure CLI, `DefaultAzureCredential` authenticates the app to Azure by using that same account. |
 | Azure PowerShell              | If you've authenticated to Azure by using the `Connect-AzAccount` cmdlet from Azure PowerShell, `DefaultAzureCredential` authenticates the app to Azure by using that same account.            |
+| Azure Developer CLI              | If you've authenticated to Azure by using the `azd auth login` command in the Azure Developer CLI, `DefaultAzureCredential` authenticates the app to Azure by using that same account.            |
 | Interactive                   | If enabled, `DefaultAzureCredential` interactively authenticates you via the current system's default browser. By default, this option is disabled. |
 
 > [!NOTE]
 > Due to a [known issue](https://github.com/Azure/azure-sdk-for-python/issues/23249), `VisualStudioCodeCredential` has been removed from the `DefaultAzureCredential` token chain. When the issue is resolved in a future release, this change will be reverted. For more information, see [Azure Identity client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity).
+
+## Related content
+
+- [Azure Identity client library for Python README on GitHub](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/identity/azure-identity/README.md)

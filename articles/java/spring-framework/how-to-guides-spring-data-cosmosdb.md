@@ -2,7 +2,7 @@
 title: Azure Cosmos DB dev guide
 description: This guide describes the features, issues, workarounds, and diagnostic steps to be aware of when you use the Spring Data Azure Cosmos DB SDK.
 author: KarlErickson
-ms.author: seal
+ms.author: hangwan
 ms.topic: conceptual
 ms.date: 01/18/2023
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
@@ -121,6 +121,10 @@ For more information, see the [test here section][address_repository_it_test].
 
 `Azure-spring-data-cosmos` supports [Spring Data custom queries][spring_data_custom_query], for example, a find operation such as `findByAFieldAndBField`. It also supports [Spring Data Pageable, Slice and Sort][spring-data-pageable-slice-sort]. For more information, see the [query, pageable and sorting section][spring-data-custom-query-pageable-and-sorting].
 
+### Using Azure Cosmos DB Java SDK through Spring Data Cosmos
+
+`Azure-spring-data-cosmos` supports using `Azure Cosmos DB Java SDK`. Users can get `CosmosClient` or `CosmosAsyncClient` bean through `ApplicationContext` and execute any operations supported by Azure Cosmos DB Java SDK. For more information, see the [using Azure Cosmos Client through Spring Data Cosmos section][using-azure-cosmos-db-java-sdk-through-spring-data-cosmos].
+
 ### Spring Data REST
 
 `Azure-spring-data-cosmos` supports [Spring Data REST](https://spring.io/projects/spring-data-rest/). For more information, see the [Azure Spring Data Azure Cosmos DB REST API section][spring-boot-starter-data-rest].
@@ -226,6 +230,7 @@ or contact [opencode@microsoft.com][coc_contact] with any other questions or com
 [optimistic-locking]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#optimistic-locking
 [spring-data-pageable-slice-sort]: https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories.special-parameters
 [spring-data-custom-query-pageable-and-sorting]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#spring-data-custom-query-pageable-and-sorting
+[using-azure-cosmos-db-java-sdk-through-spring-data-cosmos]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#using-azure-cosmos-db-java-sdk-through-spring-data-cosmos
 [spring-boot-starter-data-rest]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#spring-boot-starter-data-rest
 [spring-data-cosmos-auditing]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#auditing
 [multi-database-configuration]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/azure-spring-data-cosmos/README.md#multi-database-configuration

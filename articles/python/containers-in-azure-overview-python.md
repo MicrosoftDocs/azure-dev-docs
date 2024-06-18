@@ -2,7 +2,7 @@
 title: Overview of Python Container Apps in Azure
 description: How to get started with Python container apps in Azure using VS Code, PyCharm, and the Azure and Docker CLI.
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 1/12/2024
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 

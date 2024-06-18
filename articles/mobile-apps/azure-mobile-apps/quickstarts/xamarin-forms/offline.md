@@ -4,10 +4,8 @@ description: Add offline data sync to your Xamarin.Forms app using Azure Mobile 
 author: adrianhall
 ms.service: mobile-services
 ms.topic: article
-ms.date: 06/17/2022
+ms.date: 01/12/2024
 ms.author: adhal
-zone_pivot_group_filename: developer/mobile-apps/azure-mobile-apps/zumo-zone-pivot-groups.json
-zone_pivot_groups: vs-platform-options
 ---
 
 # Add offline data sync to your Xamarin.Forms app
@@ -22,17 +20,7 @@ To learn more about the offline sync feature, see the topic [Offline Data Sync i
 
 In online operation, you read to and write from a `IRemoteTable<T>`.  When using offline sync, you read to and write from a `IOfflineTable<T>` instead.  The `IOfflineTable` is backed by an on-device SQLite database, and synchronized with the backend database.
 
-::: zone pivot="vs2022-windows"
-
 [!INCLUDE[Update NuGet Dependencies on Windows.](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-offline-nuget.md)]
-
-::: zone-end
-
-::: zone pivot="vs2022-mac"
-
-[!INCLUDE[Update NuGet Dependencies on macOS.](~/mobile-apps/azure-mobile-apps/includes/quickstart/mac/add-offline-nuget.md)]
-
-::: zone-end
 
 [!INCLUDE[Update RemoteService](~/mobile-apps/azure-mobile-apps/includes/quickstart/windows/add-offline-code.md)]
 

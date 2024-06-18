@@ -3,14 +3,14 @@ title: Spring Cloud Azure kafka support
 description: This article describes how Spring Cloud Azure and Kafka can be used together.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yeyonghui
+ms.author: hangwan
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure Kafka support
 
-**This article applies to:** ✔️ Version 4.13.0 ✔️ Version 5.7.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.13.0
 
 From version 4.3.0, Spring Cloud Azure for Kafka supports various types of credentials to authenticate and connect to Azure Event Hubs.
 
@@ -131,7 +131,7 @@ The following table shows the Spring Boot Kafka common configuration options:
 > | spring.kafka.properties.azure.credential.password                                                            | Password to use when performing username/password authentication with Azure.                                                                                                                           |
 > | spring.kafka.properties.azure.credential.username                                                            | Username to use when performing username/password authentication with Azure.                                                                                                                           |
 > | spring.kafka.properties.azure.profile.environment.active-directory-endpoint                                  | The Microsoft Entra endpoint to connect to.                                                                                                                                                     |
-> | spring.kafka.properties.azure.profile.tenant-id                                                              | Tenant ID for Azure resources.                                                                                                                                                                         |
+> | spring.kafka.properties.azure.profile.tenant-id                                                              | Tenant ID for Azure resources. The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID.                                                                                                                                              |
 
 > [!NOTE]
 > The configuration options in different levels apply the following rules. The more specific configuration options have higher priority than the common ones. For example:

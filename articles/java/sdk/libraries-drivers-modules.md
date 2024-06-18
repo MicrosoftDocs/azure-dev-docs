@@ -82,14 +82,14 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 [Spring Data MongoDB]: https://spring.io/projects/spring-data-mongodb
 [Spring Data Apache Cassandra]: https://spring.io/projects/spring-data-cassandra
 [Spring Data Redis]: https://spring.io/projects/spring-data-redis
-[Reference]: https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis:requirements
+[Reference]: https://docs.spring.io/spring-data/data-redis/docs/current-SNAPSHOT/reference/html/#redis:requirements
 [Spring Cloud Azure Redis support]: ../spring-framework/redis-support.md
 [Spring AMQP]: https://spring.io/projects/spring-amqp
 [Spring Cloud Azure JMS support]: ../spring-framework/spring-jms-support.md
 [Spring for Apache Kafka]: https://spring.io/projects/spring-kafka
 [Spring Cloud Azure Kafka support]: ../spring-framework/kafka-support.md
 [Spring Cloud Stream Binder for Event Hubs]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-stream-binder-eventhubs
-[Spring Boot Starter for Microsoft Entra ID]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory
+[Microsoft Entra Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory
 [Azure AD B2C Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory-b2c
 [Key Vault Secrets Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-keyvault-secrets
 [Key Vault Certificates Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-keyvault-certificates

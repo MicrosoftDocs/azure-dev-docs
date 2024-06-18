@@ -4,10 +4,13 @@ description: Learn how to create a Linux virtual machine in Azure using Ansible
 keywords: ansible, azure, devops, virtual machine
 ms.topic: tutorial
 ms.date: 11/08/2021
-ms.custom: devx-track-ansible
+ms.custom: devx-track-ansible, linux-related-content
 ---
 
 # Create a Linux virtual machines in Azure using Ansible
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article presents a sample Ansible playbook for configuring a Linux virtual machine.
 

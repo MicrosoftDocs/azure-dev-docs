@@ -1,9 +1,9 @@
 ---
 title: Select Azure app hosting for JavaScript
-description: Hosting options and deployment scenarios include several services and tools for Azure. Publish your app and serve it on Azure.  
+description: Hosting options and deployment scenarios include several services and tools for Azure. Publish your app and serve it on Azure.
 ms.topic: overview
 ms.date: 08/19/2021
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperf-fy21q2
+ms.custom: devx-track-js
 # As a JavaScript Developer, I want to understand the many hosting services so that I know where to host my solution.
 ---
 
@@ -63,4 +63,3 @@ If your application has already selected some of the options such as frameworks 
 |[App Service](/azure/app-service/overview)|Traditional web server with supported languages on LTS or a container. This is a great choice when you are familiar with web servers and need to support your own stack choices.|
 |[Container apps](/azure/container-apps)|Traditional containerized apps with much of the work of managing containers managed for you. Also bring your source code such as a Micro API to a container. This is a great choice when you are familiar with containerized apps and need to support your own stack.|
 |[VMs](/azure/virtual-machines)|Full Windows or Linux virtual machine and its runtime environment. This is a good solution for legacy apps or apps which are outside LTS support and not yet containerized.|
-

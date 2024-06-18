@@ -1,3 +1,6 @@
+---
+ms.custom: devx-track-bicep
+---
 The **Select a template** workflow allows you to choose an existing `azd` template to use as a starting point. The contents of the selected template are added to the root directory of your project. Most templates provide the required set of `azd` files and folders, and some templates include complete infrastructure-as-code files to provision Azure resources for a chosen application stack. 
 
 In this example, you'll use the **Starter - Bicep** template, which includes the essential structure of an `azd` template and some useful boilerplate code to get started.

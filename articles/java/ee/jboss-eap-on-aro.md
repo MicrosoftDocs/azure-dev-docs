@@ -1,55 +1,62 @@
 ---
-title: Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster
-description: Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster.
+title: Manually deploy a Java application with JBoss EAP on an Azure Red Hat OpenShift cluster
+description: Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift cluster.
 author: KarlErickson
 ms.author: edburns
-ms.date: 12/20/2022
+ms.date: 05/29/2024
 ms.topic: how-to
-ms.service: azure-redhat-openshift
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-extended-java, linux-related-content
 ---
 
-# Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster
+# Manually deploy a Java application with JBoss EAP on an Azure Red Hat OpenShift cluster
 
-This article shows you how to deploy a Red Hat JBoss Enterprise Application Platform (JBoss EAP) app to an Azure Red Hat OpenShift 4 cluster. The application is a Jakarta EE application backed by an SQL database. The app is deployed using [JBoss EAP Helm Charts](https://jbossas.github.io/eap-charts).
+This article shows you how to deploy a Red Hat JBoss Enterprise Application Platform (EAP) application to an Azure Red Hat OpenShift cluster. The sample is a Java application backed by an SQL database. The app is deployed using [JBoss EAP Helm Charts](https://jbossas.github.io/eap-charts).
 
-The guide takes a traditional Jakarta EE application and walks you through the process of migrating it to a container orchestrator such as Azure Red Hat OpenShift. First, it describes how you can package your application as a [Bootable JAR](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/using_jboss_eap_xp_3.0.0/the-bootable-jar_default) to run it locally. Finally, it shows you how you can deploy on OpenShift with three replicas of the JBoss EAP application by using Helm Charts.
+In this guide, you will learn how to:
 
-This article is step-by-step manual guidance for running JBoss EAP app on an Azure Red Hat OpenShift 4 cluster. For a more automated solution that accelerates your journey to Azure Red Hat OpenShift 4 cluster, see [Quickstart: Deploy JBoss EAP on Azure Red Hat OpenShift using the Azure portal](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app).
+> [!div class="checklist"]
+>
+> * Prepare a JBoss EAP application for OpenShift.
+> * Create an single database instance of Azure SQL Database.
+> * Deploy the application on an Azure Red Hat OpenShift cluster by using JBoss Helm Charts and OpenShift Web Console
 
-The application is a stateful application that stores information in an HTTP Session. It makes use of the JBoss EAP clustering capabilities and uses the following Jakarta EE 8 and MicroProfile 4.0 technologies:
+The sample application is a stateful application that stores information in an HTTP session. It makes use of the JBoss EAP clustering capabilities and uses the following Jakarta EE and MicroProfile technologies:
 
 * Jakarta Server Faces
 * Jakarta Enterprise Beans
 * Jakarta Persistence
 * MicroProfile Health
 
+This article is step-by-step manual guidance for running JBoss EAP app on an Azure Red Hat OpenShift cluster. For a more automated solution that accelerates your journey to Azure Red Hat OpenShift cluster, see [Quickstart: Deploy JBoss EAP on Azure Red Hat OpenShift using the Azure portal](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
+
+If you're interested in providing feedback or working closely on your migration scenario with the engineering team developing JBoss EAP on Azure solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+
 > [!IMPORTANT]
 > This article deploys an application by using JBoss EAP Helm Charts. At the time of writing, this feature is still offered as a [Technology Preview](https://access.redhat.com/articles/6290611). Before choosing to deploy applications with JBoss EAP Helm Charts on production environments, ensure that this feature is a supported feature for your JBoss EAP/XP product version.
 
 > [!IMPORTANT]
-> While Azure Red Hat OpenShift is jointly engineered, operated, and supported by Red Hat and Microsoft to provide an integrated support experience, the software you run on top of Azure Red Hat OpenShift, including that described in this article, is subject to its own support and license terms. For details about support of Azure Red Hat OpenShift, see [Support lifecycle for Azure Red Hat OpenShift 4](/azure/openshift/support-lifecycle?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json). For details about support of the software described in this article, see the main pages for that software as listed in the article.
+> While Azure Red Hat OpenShift is jointly engineered, operated, and supported by Red Hat and Microsoft to provide an integrated support experience, the software you run on top of Azure Red Hat OpenShift, including that described in this article, is subject to its own support and license terms. For details about support of Azure Red Hat OpenShift, see [Support lifecycle for Azure Red Hat OpenShift 4](/azure/openshift/support-lifecycle). For details about support of the software described in this article, see the main pages for that software as listed in the article.
 
 ## Prerequisites
 
 > [!NOTE]
-> Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](/azure/azure-portal/supportability/per-vm-quota-requests?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json). Note that the free trial subscription isn't eligible for a quota increase, [upgrade to a Pay-As-You-Go subscription](/azure/cost-management-billing/manage/upgrade-azure-subscription?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json) before requesting a quota increase.
+> Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](/azure/azure-portal/supportability/per-vm-quota-requests). Note that the free trial subscription isn't eligible for a quota increase, [upgrade to a Pay-As-You-Go subscription](/azure/cost-management-billing/manage/upgrade-azure-subscription) before requesting a quota increase.
 
-1. Prepare a local machine with a Unix-like operating system supported by the various products installed (such as [WSL](/windows/wsl/) on Windows).
-1. Install a Java SE implementation. The local development steps in this article were tested with JDK 17 [from the Microsoft build of OpenJDK](https://www.microsoft.com/openjdk).
+1. Prepare a local machine with a Unix-like operating system supported by the various products installed - such as Ubuntu, macOS, or [Windows Subsystem for Linux](/windows/wsl/).
+1. Install a Java Standard Edition (SE) implementation. The local development steps in this article were tested with Java Development Kit (JDK) 17 [from the Microsoft build of OpenJDK](https://www.microsoft.com/openjdk).
 1. Install [Maven](https://maven.apache.org/download.cgi) 3.8.6 or later.
 1. Install [Azure CLI](/cli/azure/install-azure-cli) 2.40 or later.
 1. Clone the code for this demo application (todo-list) to your local system. The demo application is at [GitHub](https://github.com/Azure-Samples/jboss-on-aro-jakartaee).
-1. Follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json).
+1. Follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster).
 
-   Though the "Get a Red Hat pull secret" step is labeled as optional, **it is required for this article**.  The pull secret enables your Azure Red Hat OpenShift cluster to find the JBoss EAP application images.
+   Though the "Get a Red Hat pull secret" step is labeled as optional, **it is required for this article**. The pull secret enables your Azure Red Hat OpenShift cluster to find the JBoss EAP application images.
 
    If you plan to run memory-intensive applications on the cluster, specify the proper virtual machine size for the worker nodes using the `--worker-vm-size` parameter. For more information, see:
 
    * [Azure CLI to create a cluster](/cli/azure/aro#az-aro-create)
-   * [Supported virtual machine sizes for memory optimized](/azure/openshift/support-policies-v4#memory-optimized?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json)
+   * [Supported virtual machine sizes for memory optimized](/azure/openshift/support-policies-v4#memory-optimized)
 
-1. Connect to the cluster by following the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-connect-cluster?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json).
+1. Connect to the cluster by following the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-connect-cluster).
 
    * Follow the steps in "Install the OpenShift CLI"
    * Connect to an Azure Red Hat OpenShift cluster using the OpenShift CLI with the user `kubeadmin`
@@ -60,7 +67,7 @@ The application is a stateful application that stores information in an HTTP Ses
    oc new-project eap-demo
    ```
 
-1. Execute the following command to add the view role to the default service account. This role is needed so the application can discover other pods and form a cluster with them:
+1. Execute the following command to add the view role to the default service account. This role is needed so the application can discover other pods and set up a cluster with them:
 
    ```bash
    oc policy add-role-to-user view system:serviceaccount:$(oc project -q):default -n $(oc project -q)
@@ -68,26 +75,33 @@ The application is a stateful application that stores information in an HTTP Ses
 
 ## Prepare the application
 
-At this stage, you have cloned the `Todo-list` demo application and your local repository is on the `main` branch. The demo application is a simple Jakarta EE 8 application that creates, reads, updates, and deletes records on a Microsoft SQL Server. This application can be deployed as it is on a JBoss EAP server installed in your local machine. You just need to configure the server with the required database driver and data source. You also need a database server accessible from your local environment.
+Clone the sample application using the following command:
+
+```bash
+git clone https://github.com/Azure-Samples/jboss-on-aro-jakartaee
+```
+
+You cloned the `Todo-list` demo application and your local repository is on the `main` branch. The demo application is a simple Java app that creates, reads, updates, and deletes records on Azure SQL. You can deploy this application as it is on a JBoss EAP server installed in your local machine. You just need to configure the server with the required database driver and data source. You also need a database server accessible from your local environment.
 
 However, when you're targeting OpenShift, you might want to trim the capabilities of your JBoss EAP server. For example, you might want to reduce the security exposure of the provisioned server and reduce the overall footprint. You might also want to include some MicroProfile specs to make your application more suitable for running on an OpenShift environment. When you use JBoss EAP, one way to accomplish this task is by packaging your application and your server in a single deployment unit known as a Bootable JAR. Let's do that by adding the required changes to our demo application.
 
 Navigate to your demo application local repository and change the branch to `bootable-jar`:
 
 ```bash
+## cd jboss-on-aro-jakartaee
 git checkout bootable-jar
 ```
 
 Let's do a quick review of what we changed in this branch:
 
-* We have added the `wildfly-jar-maven` plugin to provision the server and the application in a single executable JAR file. The OpenShift deployment unit is our server with our application.
-* On the maven plugin, we have specified a set of Galleon layers. This configuration allows us to trim the server capabilities to only what we need. For complete documentation on Galleon, see [the WildFly documentation](https://docs.wildfly.org/galleon/).
-* Our application uses Jakarta Faces with Ajax requests, which means that there's information stored in the HTTP Session. We don't want to lose such information if a pod is removed. We could save this information on the client and send it back on each request. However, there are cases where you may decide not to distribute certain information to the clients. For this demo, we have chosen to replicate the session across all pod replicas. To do it, we have added `<distributable />` to the `web.xml`. That, together with the server clustering capabilities, makes the HTTP Session distributable across all pods.
-* We have added two MicroProfile Health Checks that allow identifying when the application is live and ready to receive requests.
+* We added the `wildfly-jar-maven` plugin to provision the server and the application in a single executable JAR file. The OpenShift deployment unit is our server with our application.
+* On the Maven plugin, we specified a set of Galleon layers. This configuration enables us to trim the server capabilities to only what we need. For complete documentation on Galleon, see [the WildFly documentation](https://docs.wildfly.org/galleon/).
+* Our application uses Jakarta Faces with Ajax requests, which means that there's information stored in the HTTP session. We don't want to lose such information if a pod is removed. We could save this information on the client and send it back on each request. However, there are cases where you may decide not to distribute certain information to the clients. For this demo, we chose to replicate the session across all pod replicas. To do it, we added `<distributable />` to the `web.xml`. That, together with the server clustering capabilities, makes the HTTP session distributable across all pods.
+* We added two MicroProfile Health Checks that enable you to identify when the application is live and ready to receive requests.
 
 ## Run the application locally
 
-Before deploying the application on OpenShift, we're going to run it locally to verify how it works. The following steps assume you have a Microsoft SQL Server running and available from your local environment.
+Before deploying the application on OpenShift, we're going to run it locally to verify how it works. The following steps assume you have Azure SQL running and available from your local environment.
 
 To create the database, follow the steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal), but use the following substitutions.
 
@@ -99,12 +113,12 @@ To create the database, follow the steps in [Quickstart: Create an Azure SQL Dat
 
 All of the other settings can be safely used from the linked article.
 
-On the **Additional settings** page, you don't have to choose the option to pre-populate the database with sample data, but there's no harm in doing so.
+On the **Additional settings** page, you don't have to choose the option to prepopulate the database with sample data, but there's no harm in doing so.
 
-Once the database has been created with the above database name, Server admin login, and password, get the value for the server name from the overview page for the newly created database resource in the portal. Hover the mouse over the value of the **Server name** field and select the copy icon that appears beside the value. Save this value aside for use later (we set a variable named `MSSQLSERVER_HOST` to this value).
+After you create the database, get the value for the server name from the overview page. Hover the mouse over the value of the **Server name** field and select the copy icon that appears beside the value. Save this value aside for use later (we set a variable named `MSSQLSERVER_HOST` to this value).
 
 > [!NOTE]
-> To keep monetary costs low, the Quickstart directs the reader to select the serverless compute tier. This tier scales to zero when there is no activity. When this happens, the database is not immediately responsive.  If, at any point when executing the steps in this article, you observe database problems, consider disabling Auto-pause. To learn how, search for Auto-pause in [Azure SQL Database serverless](/azure/azure-sql/database/serverless-tier-overview). At the time of writing, the following AZ CLI command would disable Auto-pause for the database configured in this article. `az sql db update --resource-group $RESOURCEGROUP --server $RESOURCEGROUP --name todos_db --auto-pause-delay -1`
+> To keep monetary costs low, the Quickstart directs the reader to select the serverless compute tier. This tier scales to zero when there is no activity. When this happens, the database is not immediately responsive.  If, at any point when executing the steps in this article, you observe database problems, consider disabling Auto-pause. To learn how, search for Auto-pause in [Azure SQL Database serverless](/azure/azure-sql/database/serverless-tier-overview). At the time of writing, the following AZ CLI command would disable Auto-pause for the database configured in this article. `az sql db update --resource-group $RESOURCEGROUP --server <Server name, without the .database.windows.net part> --name todos_db --auto-pause-delay -1`
 
 Follow the next steps to build and run the application locally.
 
@@ -117,7 +131,7 @@ Follow the next steps to build and run the application locally.
 
 1. Launch the Bootable JAR by using the following commands.
 
-   You must ensure that the remote MSSQL database permits network traffic from the host on which this server is running. Because you selected **Add current client IP address** when performing the steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart), if the host on which the server is running is the same host from which your browser is connecting to the Azure portal, the network traffic should be permitted. If host on which the server is running is some other host, you need to refer to [Use the Azure portal to manage server-level IP firewall rules](/azure/azure-sql/database/firewall-configure?view=azuresql&preserve-view=true#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
+   You must ensure that the Azure SQL database permits network traffic from the host on which this server is running. Because you selected **Add current client IP address** when performing the steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart), if the host on which the server is running is the same host from which your browser is connecting to the Azure portal, the network traffic should be permitted. If host on which the server is running is some other host, you need to refer to [Use the Azure portal to manage server-level IP firewall rules](/azure/azure-sql/database/firewall-configure?view=azuresql&preserve-view=true#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
    When we're launching the application, we need to pass the required environment variables to configure the data source:
 
@@ -135,15 +149,15 @@ Follow the next steps to build and run the application locally.
 
    If you receive an error with text similar to the following example:
 
-   ```bash
+   ```output
    Cannot open server '<your prefix>mysqlserver' requested by the login. Client with IP address 'XXX.XXX.XXX.XXX' is not allowed to access the server.
    ```
 
-   This message indicates that your steps to ensure that the network traffic is permitted were ineffective. Ensure the IP address from the error message is included in the firewall rules.
+   This message indicates that your steps to ensure that the network traffic is permitted didn't work. Ensure the IP address from the error message is included in the firewall rules.
 
    If you receive a message with text similar to the following example:
 
-   ```bash
+   ```output
    Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: There is already an object named 'TODOS' in the database.
    ```
 
@@ -163,14 +177,14 @@ Follow the next steps to build and run the application locally.
 
    If your cluster is working, you can see on the server console log a trace similar to the following one:
 
-   ```bash
+   ```output
    INFO  [org.infinispan.CLUSTER] (thread-6,ejb,node) ISPN000094: Received new cluster view for channel ejb
    ```
 
    > [!NOTE]
    > By default the Bootable JAR configures the JGroups subsystem to use the UDP protocol and sends messages to discover other cluster members to the 230.0.0.4 multicast address. To properly verify the clustering capabilities on your local machine, your Operating System should be capable of sending and receiving multicast datagrams and route them to the 230.0.0.4 IP through your ethernet interface. If you see warnings related to the cluster on the server logs, check your network configuration and verify it supports multicast on that address.
 
-1. Open `http://localhost:8080/` in your browser to visit the application home page. If you have created more instances, you can access them by shifting the port number, for example `http://localhost:9080/`. The application should look similar to the following image:
+1. Open `http://localhost:8080/` in your browser to visit the application home page. If you created more instances, you can access them by shifting the port number, for example `http://localhost:9080/`. The application should look similar to the following image:
 
    :::image type="content" source="media/jboss-eap-on-aro/todo-demo-application.png" alt-text="Screenshot of ToDo EAP demo Application.":::
 
@@ -204,7 +218,7 @@ Follow the next steps to build and run the application locally.
 
 ## Deploy to OpenShift
 
-To deploy the application, we're going to use the JBoss EAP Helm Charts already available in Azure Red Hat OpenShift. We also need to supply the desired configuration, for example, the database user, the database password, the driver version we want to use, and the connection information used by the data source. The following steps assume you have a Microsoft SQL database server running and accessible from your OpenShift cluster, and you have stored the database user name, password, hostname, port and database name in an OpenShift [OpenShift Secret object](https://docs.openshift.com/container-platform/4.8/nodes/pods/nodes-pods-secrets.html#nodes-pods-secrets-about_nodes-pods-secrets) named `mssqlserver-secret`.
+To deploy the application, we're going to use the JBoss EAP Helm Charts already available in Azure Red Hat OpenShift. We also need to supply the desired configuration, for example, the database user, the database password, the driver version we want to use, and the connection information used by the data source. The following steps assume you have Azure SQL running and accessible from your OpenShift cluster, and you stored the database user name, password, hostname, port, and database name in an OpenShift [OpenShift Secret object](https://docs.openshift.com/container-platform/4.8/nodes/pods/nodes-pods-secrets.html#nodes-pods-secrets-about_nodes-pods-secrets) named `mssqlserver-secret`.
 
 Navigate to your demo application local repository and change the current branch to `bootable-jar-openshift`:
 
@@ -212,14 +226,14 @@ Navigate to your demo application local repository and change the current branch
 git checkout bootable-jar-openshift
 ```
 
-Let's do a quick review about what we have changed in this branch:
+Let's do a quick review about what we changed in this branch:
 
-* We have added a new maven profile named `bootable-jar-openshift` that prepares the Bootable JAR with a specific configuration for running the server on the cloud. For example, it enables the JGroups subsystem to use TCP requests to discover other pods by using the KUBE_PING protocol.
-* We have added a set of configuration files in the _jboss-on-aro-jakartaee/deployment_ directory. In this directory, you can find the configuration files to deploy the application.
+* We added a new Maven profile named `bootable-jar-openshift` that prepares the Bootable JAR with a specific configuration for running the server on the cloud. For example, it enables the JGroups subsystem to use network requests to discover other pods by using the KUBE_PING protocol.
+* We added a set of configuration files in the _jboss-on-aro-jakartaee/deployment_ directory. In this directory, you can find the configuration files to deploy the application.
 
 ### Deploy the application on OpenShift
 
-The next steps explain how you can deploy the application with a Helm chart using the OpenShift web console. Avoid hard coding sensitive values into your Helm chart using a feature called "secrets". A secret is simply a collection of name=value pairs, where the values are specified in some known place in advance of when they're needed. In our case, the Helm chart uses two secrets, with the following name=value pairs from each.
+The next steps explain how you can deploy the application with a Helm chart using the OpenShift web console. Avoid hard coding sensitive values into your Helm chart using a feature called 'secrets'. A secret is simply a collection of name=value pairs, where the values are specified in some known place before they're needed. In our case, the Helm chart uses two secrets, with the following name=value pairs from each.
 
 * `mssqlserver-secret`
 
@@ -274,13 +288,13 @@ The next steps explain how you can deploy the application with a Helm chart usin
 
    :::image type="content" source="media/jboss-eap-on-aro/console-project-combo-box.png" alt-text="Screenshot of OpenShift console project combo box.":::
 
-1. Select **+Add**.  In the **Developer Catalog** section, select **Helm Chart**. You arrive at the Helm Chart catalog available on your Azure Red Hat OpenShift cluster. In the **Filter by keyword** box, type **eap**. You should see several options, as shown here:
+1. Select **+Add**. In the **Developer Catalog** section, select **Helm Chart**. You arrive at the Helm Chart catalog available on your Azure Red Hat OpenShift cluster. In the **Filter by keyword** box, type **eap**. You should see several options, as shown here:
 
    :::image type="content" source="media/jboss-eap-on-aro/console-eap-helm-charts.png" alt-text="Screenshot of OpenShift console EAP Helm Charts.":::
 
    Because our application uses MicroProfile capabilities, we select the Helm Chart for EAP Xp. The `Xp` stands for Expansion Pack. With the JBoss Enterprise Application Platform expansion pack, developers can use Eclipse MicroProfile application programming interfaces (APIs) to build and deploy microservices-based applications.
 
-1. Select the **EAP Xp4** Helm Chart, and then select **Install Helm Chart**.
+1. Select the **JBoss EAP XP 4** Helm Chart, and then select **Install Helm Chart**.
 
 At this point, we need to configure the chart to build and deploy the application:
 
@@ -298,11 +312,11 @@ At this point, we need to configure the chart to build and deploy the applicatio
 
    The Helm Release (abbreviated **HR**) is named **eap-todo-list-demo**. It includes a Deployment resource (abbreviated **D**) also named **eap-todo-list-demo**.
 
-   If you select the icon with two arrows in a circle at the lower left of the **D** box, you're taken to the **Logs** pane. Here you can observe the progress of the build.  To return to the topology view, select **Topology** in the left navigation pane.
+   If you select the icon with two arrows in a circle at the lower left of the **D** box, you're taken to the **Logs** pane. Here you can observe the progress of the build. To return to the topology view, select **Topology** in the left navigation pane.
 
 1. When the build is finished, the bottom-left icon displays a green check
 
-1. When the deployment is completed, the circle outline is dark blue. If you hover the mouse over the dark blue, you should see a message appear stating something similar to "3 Running".  When you see that message, you can go to application the URL (using the top-right icon) from the route associated with the deployment.
+1. When the deployment is completed, the circle outline is dark blue. If you hover the mouse over the dark blue, you should see a message appear stating something similar to `3 Running`. When you see that message, you can go to application the URL (using the top-right icon) from the route associated with the deployment.
 
    :::image type="content" source="media/jboss-eap-on-aro/console-open-application.png" alt-text="Screenshot of OpenShift console open application.":::
 
@@ -310,7 +324,7 @@ At this point, we need to configure the chart to build and deploy the applicatio
 
    :::image type="content" source="media/jboss-eap-on-aro/application-running-openshift.png" alt-text="Screenshot of OpenShift application running.":::
 
-1. The application shows you the name of the pod that's served the information. To verify the clustering capabilities, you could add some Todos. Then delete the pod with the name indicated in the **Server Host Name** field that appears on the application `(oc delete pod <pod name>)`, and once deleted, create a new Todo on the same application window. You can see that the new Todo is added via an Ajax request and the **Server Host Name** field now shows a different name. Behind the scenes, the OpenShift load balancer has dispatched the new request and delivered it to an available pod. The Jakarta Faces view is restored from the HTTP Session copy stored in the pod that's processing the request. Indeed, you can see that the **Session ID** field hasn't changed. If the session weren't replicated across your pods, you'd get a Jakarta Faces `ViewExpiredException`, and your application wouldn't work as expected.
+1. The application shows you the name of the pod that serves the information. To verify the clustering capabilities, you could add some Todos. Then, delete the pod with the name indicated in the **Server Host Name** field that appears on the application by using `oc delete pod <pod-name>`. After deleting the pod, create a new Todo on the same application window. You can see that the new Todo is added via an Ajax request and the **Server Host Name** field now shows a different name. Behind the scenes, the OpenShift load balancer dispatched the new request and delivered it to an available pod. The Jakarta Faces view is restored from the HTTP session copy stored in the pod that's processing the request. Indeed, you can see that the **Session ID** field didn't change. If the session isn't replicated across your pods, you get a Jakarta Faces `ViewExpiredException`, and your application doesn't work as expected.
 
 ## Clean up resources
 
@@ -342,7 +356,7 @@ $ oc delete project eap-demo
 
 ### Delete the Azure Red Hat OpenShift cluster
 
-Delete the Azure Red Hat OpenShift cluster by following the steps in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-delete-cluster?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json)
+Delete the Azure Red Hat OpenShift cluster by following the steps in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-delete-cluster).
 
 ### Delete the resource group
 
@@ -350,17 +364,14 @@ If you want to delete all of the resources created by the preceding steps, delet
 
 ## Next steps
 
-In this guide, you learned how to:
-> [!div class="checklist"]
->
-> * Prepare an JBoss EAP application for OpenShift.
-> * Run it locally together with a containerized Microsoft SQL Server.
-> * Deploy a Microsoft SQL Server on an Azure Red Hat OpenShift 4 by using the OpenShift CLI.
-> * Deploy the application on an Azure Red Hat OpenShift 4 by using JBoss Helm Charts and OpenShift Web Console.
-
 You can learn more from references used in this guide:
 
 * [Red Hat JBoss Enterprise Application Platform](https://www.redhat.com/en/technologies/jboss-middleware/application-platform)
 * [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)
 * [JBoss EAP Helm Charts](https://jbossas.github.io/eap-charts/)
 * [JBoss EAP Bootable JAR](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/using_jboss_eap_xp_3.0.0/index#the-bootable-jar_default)
+
+Continue to explore options to run JBoss EAP on Azure.
+
+> [!div class="nextstepaction"]
+> [Learn more about JBoss EAP on Azure](jboss-on-azure.md)

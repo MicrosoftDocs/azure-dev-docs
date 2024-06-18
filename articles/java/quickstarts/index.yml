@@ -27,7 +27,7 @@ landingContent:
         - text: Traditional WebSphere on Azure VMs
           url: ../ee/traditional-websphere-application-server-virtual-machines.md?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
         - text: WebLogic Server on Azure Virtual Machine using the Azure portal
-          url: ../ee/weblogic-server-azure-virtual-machine.md?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+          url: /azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
         - text: Deploy WebLogic Server on Azure Kubernetes Service using the Azure portal
           url: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
   - title: Serverless functions
@@ -45,7 +45,7 @@ landingContent:
       - linkListType: quickstart
         links:
         - text: Deploy your first app
-          url: /azure/spring-apps/quickstart
+          url: /azure/spring-apps/enterprise/quickstart
   - title: Storage
     linkLists:
       - linkListType: quickstart

@@ -3,14 +3,14 @@ title: Spring Cloud Azure PostgreSQL support
 description: This article describes how Spring Cloud Azure and Azure PostgreSQL can be used together.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yeyonghui
+ms.author: hangwan
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure PostgreSQL support
 
-**This article applies to:** ✔️ Version 4.13.0 ✔️ Version 5.7.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.13.0
 
 [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) is a relational database service based on the open-source Postgres database engine. It's a fully managed database-as-a-service that can handle mission-critical workloads with predictable performance, security, high availability, and dynamic scalability.
 
@@ -65,7 +65,7 @@ The following table shows the Spring Cloud Azure for PostgreSQL common configura
 > | spring.datasource.azure.credential.username                           | Username to use when performing username/password authentication with Azure.                                                                                                                           |
 > | spring.datasource.azure.profile.cloud-type                            | Name of the Azure cloud to connect to.                                                                                                                                                                 |
 > | spring.datasource.azure.profile.environment.active-directory-endpoint | The Microsoft Entra endpoint to connect to.                                                                                                                                                     |
-> | spring.datasource.azure.profile.tenant-id                             | Tenant ID for Azure resources.                                                                                                                                                                         |
+> | spring.datasource.azure.profile.tenant-id                             | Tenant ID for Azure resources. The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID.                                                                                                                                              |
 
 ## Dependency setup
 
@@ -142,13 +142,16 @@ The following sections show the classic Spring Boot application usage scenarios.
            client-id: ${AZURE_CLIENT_ID}
            client-secret: ${AZURE_CLIENT_SECRET}
          profile:
-           tenant-id: ${AZURE_TENANT_ID}
+           tenant-id: <tenant>
      datasource:
        url: jdbc:postgresql://${AZ_DATABASE_SERVER_NAME}.postgres.database.azure.com:5432/${AZ_DATABASE_NAME}?sslmode=require
        username: ${AZ_POSTGRESQL_AD_SP_USERNAME}
        azure:
          passwordless-enabled: true
    ```
+
+> [!NOTE]
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 ### Connect to Azure PostgreSQL with Managed Identity in Azure Spring Apps
 

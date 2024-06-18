@@ -1,15 +1,11 @@
 ---
 title: Use Spring Data R2DBC with Azure Database for MySQL
 description: Learn how to use Spring Data R2DBC with an Azure Database for MySQL database.
-documentationcenter: java
-ms.author: bbenz
+ms.author: hangwan
 ms.date: 07/22/2022
-ms.service: mysql
-ms.tgt_pltfrm: multiple
 author: KarlErickson
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, spring-cloud-azure, devx-track-extended-java
-ms.contributors: judubois-09162021
 ---
 
 # Use Spring Data R2DBC with Azure Database for MySQL
@@ -231,6 +227,6 @@ Congratulations! You've created a fully reactive Spring Boot application that us
 
 ## See also
 
-For more information about Spring Data R2DBC, see Spring's [reference documentation](https://docs.spring.io/spring-data/r2dbc/docs/current/reference/html/#reference).
+For more information about Spring Data R2DBC, see Spring's [reference documentation](https://docs.spring.io/spring-data/r2dbc/docs/current-SNAPSHOT/reference/html/#reference).
 
 For more information about using Azure with Java, see [Azure for Java developers](../index.yml) and [Working with Azure DevOps and Java](/azure/devops/).

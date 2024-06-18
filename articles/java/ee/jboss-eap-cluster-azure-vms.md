@@ -1,24 +1,30 @@
 ---
-title: "Quickstart: Deploy a JBoss EAP cluster on Azure VMs using the Azure portal"
-description: Shows you how to quickly stand up a JBoss EAP cluster on Azure virtual machines.
+title: "Quickstart: Deploy a JBoss EAP cluster on Azure Virtual Machines (VMs)"
+description: Shows you how to quickly stand up a JBoss EAP cluster on Azure Virtual Machines.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 06/30/2023
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, devx-track-azurecli
+ms.date: 05/29/2024
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, devx-track-azurecli, linux-related-content
 ---
 
-# Quickstart: Deploy a JBoss EAP cluster on Azure virtual machines using the Azure portal
+# Quickstart: Deploy a JBoss EAP cluster on Azure Virtual Machines (VMs)
 
-This article shows you how to quickly deploy a JBoss EAP cluster on Azure virtual machines (VMs) using the Azure portal.
+This article shows you how to quickly deploy a JBoss Enterprise Application Platform (EAP) cluster on Azure Virtual Machines (VMs) using the Azure portal.
+
+This article uses the Azure Marketplace offer for JBoss EAP Cluster to accelerate your journey to Azure VMs. The offer automatically provisions a number of resources including Azure Red Hat Enterprise Linux (RHEL) VMs, JBoss EAP instances on each VM, Red Hat build of OpenJDK on each VM, a JBoss EAP management console, and optionally an Azure App Gateway instance. To see the offer, visit the solution [JBoss EAP Cluster on RHEL VMs](https://aka.ms/eap-vm-cluster-portal) using the Azure portal.
+
+If you prefer manual step-by-step guidance for installing Red Hat JBoss EAP Cluster on Azure VMs that doesn't use the automation enabled by the Azure Marketplace offer, see [Tutorial: Install Red Hat JBoss EAP on Azure Virtual Machines manually](../migration/migrate-jboss-eap-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
+
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing JBoss EAP on Azure solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 - Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for JBoss EAP. This entitlement lets the Azure portal install the Red Hat tested and certified JBoss EAP version.
   > [!NOTE]
-  > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Write down the account details, which you use as the *RHSM username* and *RHSM password* in the next section.
+  > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Save aside the account details, which you use as the *RHSM username* and *RHSM password* in the next section.
 - After you're registered, you can find the necessary credentials (*Pool IDs*) by using the following steps. You also use the *Pool IDs* as the *RHSM Pool ID with EAP entitlement* later in this article.
   1. Sign in to your [Red Hat account](https://sso.redhat.com).
   1. The first time you sign in, you're asked to complete your profile. Make sure you select **Personal** for **Account Type**, as shown in the following screenshot.
@@ -27,8 +33,8 @@ This article shows you how to quickly deploy a JBoss EAP cluster on Azure virtua
 
   1. In the tab where you're signed in, open [Red Hat Developer Subscription for Individuals](https://aka.ms/red-hat-individual-dev-sub). This link takes you to all of the subscriptions in your account for the appropriate SKU.
   1. Select the first subscription from the **All purchased Subscriptions** table.
-  1. Copy and write down the value following **Master Pools** from **Pool IDs**.
-- A Java JDK, version 11. In this guide, we recommend the [Red Hat Build of OpenJDK](https://developers.redhat.com/products/openjdk/download). Ensure that your `JAVA_HOME` environment variable is set correctly in the shells in which you run the commands.
+  1. Copy and save aside the value following **Master Pools** from **Pool IDs**.
+- A Java Development Kit (JDK), version 11. In this guide, we recommend the [Red Hat Build of OpenJDK](https://developers.redhat.com/products/openjdk/download). Ensure that your `JAVA_HOME` environment variable is set correctly in the shells in which you run the commands.
 - [Git](https://git-scm.com/downloads). Use `git --version` to test whether `git` works. This tutorial was tested with version 2.34.1.
 - [Maven](https://maven.apache.org/download.cgi). Use `mvn -version` to test whether `mvn` works. This tutorial was tested with version 3.8.6.
 
@@ -51,7 +57,7 @@ Replace the placeholders with the following values, which are used throughout th
 
 - `<db-resource-group-name>`: The name of the resource group to use for the PostgreSQL flexible server - for example, `ejb040323postgresrg`.
 - `<database-server-name>`: The name of your PostgreSQL server, which should be unique across Azure - for example, `ejb040323postgresqlserver`.
-- `<postgresql-admin-password>`: The password of your PostgreSQL server. That password must be at least 8 characters and at most 128 characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
+- `<postgresql-admin-password>`: The password of your PostgreSQL server. That password must be at least eight characters and at most 128 characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and nonalphanumeric characters (!, $, #, %, and so on).
 
 Next, use the following steps to create an Azure Database for PostgreSQL flexible server:
 
@@ -78,7 +84,7 @@ Next, use the following steps to create an Azure Database for PostgreSQL flexibl
        --output tsv)
    ```
 
-1. Use the following command to get the JDBC connection URL of the PostgreSQL server:
+1. Use the following command to get the Java Database Connectivity (JDBC) connection URL of the PostgreSQL server:
 
    ```azurecli
    echo jdbc:postgresql://${DB_HOST}:5432/testdb
@@ -99,7 +105,7 @@ Use the following steps to find the JBoss EAP Cluster on Azure VMs offer:
 
 1. In the drop-down menu, ensure **PAYG** is selected.
 
-Alternatively, you can also go directly to the [JBoss EAP Cluster on VMs](https://aka.ms/eap-vm-cluster-portal) offer. In this case, the correct plan is already selected for you.
+Alternatively, you can also go directly to the [JBoss EAP Cluster on Azure VMs](https://aka.ms/eap-vm-cluster-portal) offer. In this case, the correct plan is already selected for you.
 
 In either case, this offer deploys a JBoss EAP cluster on Azure VMs by providing your Red Hat subscription at deployment time. The offer runs the cluster on Red Hat Enterprise Linux using a pay-as-you-go payment configuration for the base VMs.
 
@@ -127,7 +133,7 @@ The following steps show you how to fill out the **JBoss EAP Settings** pane sho
 
 1. Leave the default option **Managed domain** for **Use managed domain or standalone hosts to form a cluster**.
 1. Leave the default value **jbossadmin** for **JBoss EAP Admin username**.
-1. Provide a JBoss EAP password for **JBoss EAP password**. Use the same value for **Confirm password**. Write down the value for later use.
+1. Provide a JBoss EAP password for **JBoss EAP password**. Use the same value for **Confirm password**. Save aside the value for later use.
 1. Leave the default option **No** for **Connect to an existing Red Hat Satellite Server?**.
 1. Provide your RHSM username for **RHSM username**. The value is the same one that was prepared in the prerequisites section.
 1. Provide your RHSM password for **RHSM password**. Use the same value for **Confirm password**. The value is the same one that was prepared in the prerequisites section.
@@ -141,7 +147,7 @@ The following steps show you how to fill out the **Azure Application Gateway** p
 1. Select **Yes** for **Connect to Azure Application Gateway?**.
 1. Select **Next: Networking**.
 
-   This pane enables you to customize the virtual network and subnet into which the JBoss EAP cluster deploys. This customization is useful in situations where the CIDR space is governed. For information about virtual networks, see [Create, change, or delete a virtual network](/azure/virtual-network/manage-virtual-network). Accept the defaults on this pane.
+   This pane enables you to customize the virtual network and subnet into which the JBoss EAP cluster deploys. For information about virtual networks, see [Create, change, or delete a virtual network](/azure/virtual-network/manage-virtual-network). Accept the defaults on this pane.
 
 1. Select **Next: Database**.
 
@@ -285,7 +291,7 @@ az group delete --name $RG_NAME --yes --no-wait
 
 ## Next steps
 
-Learn more about deploying JBoss EAP on Azure by following these links:
+Learn more about your options for deploying JBoss EAP on Azure:
 
 > [!div class="nextstepaction"]
-> [Red Hat JBoss EAP on Azure](jboss-on-azure.md)
+> [Explore JBoss EAP on Azure](jboss-on-azure.md)

@@ -72,10 +72,10 @@ In this article, you learn how to create a resource group with the Azure SDK for
 
     // Define the function to create a resource group.
     func createResourceGroup(subscriptionId string, credential azcore.TokenCredential) (armresources.ResourceGroupsClientCreateOrUpdateResponse, error) {
-    	rgClient := armresources.NewResourceGroupsClient(subscriptionId, credential, nil)
+    	rgClient, _ := armresources.NewResourceGroupsClient(subscriptionId, credential, nil)
 
     	param := armresources.ResourceGroup{
-    		Location: to.StringPtr(location),
+    		Location: to.Ptr(location),
     	}
 
     	return rgClient.CreateOrUpdate(ctx, resourceGroupName, param, nil)

@@ -97,6 +97,10 @@
               items:
                 - name: Create a cluster
                   href: /azure/aks/learn/quick-kubernetes-deploy-terraform
+            - name: Azure Spring Apps
+              items:
+                - name: Deploy a cluster
+                  href: /azure/spring-apps/enterprise/quickstart-deploy-infrastructure-vnet-terraform
             - name: Batch
               items:
                 - name: Create an account
@@ -243,6 +247,14 @@
               items:
                 - name: Create a profile
                   href: /azure/traffic-manager/quickstart-create-traffic-manager-profile-terraform
+            - name: Virtual Network
+              items:
+                - name: Create a network and subnets
+                  href: /azure/virtual-network/quick-create-terraform
+                - name: Create a NAT Gateway
+                  href: /azure/nat-gateway/quickstart-create-nat-gateway-terraform
+                - name: Create a private endpoint
+                  href: /azure/private-link/create-private-endpoint-terraform
         - name: Security
           items:
             - name: Application Gateway
@@ -281,6 +293,10 @@
               items:
                 - name: Create a file system
                   href: /azure/azure-managed-lustre/create-aml-file-system-terraform
+            - name: Azure Storage
+              items:
+                - name: Deploy a static website
+                  href: /azure/storage/blobs/storage-quickstart-static-website-terraform
         - name: Web
           items:
             - name: API Management
@@ -291,6 +307,10 @@
               items:
                 - name: Create an Azure Cognitive Search service
                   href: /azure/search/search-get-started-terraform
+            - name: Azure Spring Apps
+              items:
+                - name: Deploy a cluster
+                  href: /azure/spring-apps/enterprise/quickstart-deploy-infrastructure-vnet-terraform
             - name: Content Delivery Network (CDN)
               items:
                 - name: Create a profile and endpoint

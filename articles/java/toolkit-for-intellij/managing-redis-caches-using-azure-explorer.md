@@ -4,7 +4,6 @@ description: Learn how to manage your Azure Redis caches by using the Azure Expl
 ms.date: 03/14/2022
 author: KarlErickson
 ms.author: jialuogan
-ms.service: azure-java
 ms.topic: article
 ms.custom: devx-track-java, devx-track-extended-java
 ---
@@ -98,7 +97,7 @@ For more information about Azure Redis caches, configuration settings and pricin
 [Azure Cache for Redis management FAQs]: /azure/azure-cache-for-redis/cache-management-faq
 [Redis Cache Documentation]: /azure/redis-cache
 [How to configure Azure Redis Cache]: /azure/redis-cache/cache-configure
-[Sign In Instructions for the Azure Toolkit for IntelliJ]: ./sign-in-instructions.md
+[Sign-in instructions for the Azure Toolkit for IntelliJ]: ./sign-in-instructions.md
 
 <!-- IMG List -->
 

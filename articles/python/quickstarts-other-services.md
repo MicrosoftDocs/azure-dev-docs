@@ -1,7 +1,7 @@
 ---
 title: Getting started materials for miscellaneous Azure services for Python apps
 description: Index of getting started material in the Azure documentation for miscellaneous services used with Python apps.
-ms.date: 02/28/2023
+ms.date: 03/09/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -18,7 +18,7 @@ The services referenced in this article for Python are specialized or focused on
 
 - **DevOps**:
   - [Use CI/CD with GitHub Actions to deploy a Python web app to Azure App Service on Linux](./python-web-app-github-actions-app-service.md)
-  - [Build a Python cloud app with the Azure Developer CLI (azd) open-source tool](../azure-developer-cli/get-started.md?pivots=programming-language-python)
+  - [Build and deploy a Python cloud app with the Azure Developer CLI (azd) open-source tool](../azure-developer-cli/get-started.md?pivots=programming-language-python)
   - [Build, test, and deploy Python apps with Azure Pipelines](/azure/devops/pipelines/ecosystems/python)
 
 - **Internet of Things and geographical mapping**:
@@ -26,11 +26,11 @@ The services referenced in this article for Python are specialized or focused on
   - [Tutorial: Join sensor data with weather forecast data by using Azure Notebooks](/azure/azure-maps/weather-service-tutorial)
 
 - **Burrows-Wheeler Aligner (BWA) and the Genome Analysis Toolkit (GATK)**:
-  - [Run a workflow through the Microsoft Genomics service](/azure/genomics/quickstart-run-genomics-workflow-portal)
+  - [Quickstart: Run a workflow through the Microsoft Genomics service](/azure/genomics/quickstart-run-genomics-workflow-portal)
 
 - **Resource management**:
-  - [Run your first Resource Graph query using Python](/azure/governance/resource-graph/first-query-python)
+  - [Quickstart: Run your first Resource Graph query using Python](/azure/governance/resource-graph/first-query-python)
 
 - **Virtual machine management**:
-  - [Create and manage Windows VMs in Azure using Python](/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python)
-  - [Use the Azure libraries to create a virtual machine](./sdk/examples/azure-sdk-example-virtual-machines.md)
+  - [Sample: Create and manage Windows VMs in Azure using Python](/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python)
+  - [Example: Use the Azure libraries to create a virtual machine](./sdk/examples/azure-sdk-example-virtual-machines.md)

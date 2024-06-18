@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
 ms.date: 03/17/2023
-ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, migration-java, devx-track-extended-java
+ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, migration-java, devx-track-extended-java, linux-related-content
 ---
 
 # Migrate JBoss EAP applications to Azure Red Hat OpenShift

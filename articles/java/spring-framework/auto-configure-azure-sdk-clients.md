@@ -3,14 +3,14 @@ title: Spring Cloud Azure Auto-configure Azure SDK clients
 description: This reference doc contains Spring Cloud Azure how to Auto-configure Azure SDK clients.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yeyonghui
+ms.author: hangwan
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Auto-configure Azure SDK clients
 
-**This article applies to:** ✔️ Version 4.13.0 ✔️ Version 5.7.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.13.0
 
 Spring Boot simplifies the Spring Cloud Azure development experience. Spring Cloud Azure starters are a set of convenient dependency descriptors to include in your application. The starters handle the object instantiation and configuration logic, so you don’t have to. Every starter depends on `spring-cloud-azure-starter` to provide critical bits of configuration, like the Azure cloud environment and authentication information. You can configure these as properties in, for example, a YAML file, as shown in the following example:
 
@@ -19,7 +19,7 @@ spring:
   cloud:
     azure:
       profile:
-        tenant-id: ${AZURE_TENANT_ID}
+        tenant-id: <tenant>
         cloud-type: Azure
       credential:
         client-id: ${AZURE_CLIENT_ID}
@@ -27,6 +27,7 @@ spring:
 
 > [!NOTE]
 > The `cloud` property is optional.
+> The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 These properties are optional and, if not specified, Spring Boot will try to automatically find them for you. For details on how Spring Boot finds these properties, refer to the documentation.
 

@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 03/31/2022
+ms.date: 12/13/2023
 ---
 In this method, dedicated *application service principal* objects are set up by using the app registration process for use during local development. The identity of the service principal is then stored as environment variables to be accessed by the app when it's run in local development.<br>
 <br>
@@ -9,4 +9,4 @@ This method allows you to assign the specific resource permissions needed by the
 The downside of this approach is the need to create separate service principal objects for each developer who works on an application.<br>
 <br>
 > [!div class="nextstepaction"]
-> [Learn about auth from Azure-hosted apps](../authentication-local-development-service-principal.md)
+> [Learn about auth using developer service principals](../authentication-local-development-service-principal.md)

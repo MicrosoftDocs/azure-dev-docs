@@ -92,4 +92,4 @@ The value for the [MSAL SDK](https://www.npmjs.com/package/@azure/identity)'s De
 
 * [GitHub Microsoft Authentication Library for JavaScript (MSAL.js) - includes many samples](https://github.com/AzureAD/microsoft-authentication-library-for-js)
 * [JS: Add easy authentication to your web app](/azure/app-service/scenario-secure-app-authentication-app-service-as-user)
-* [JS: Deploy Express.js with Microsoft Authentication (MSAL) to Azure App service](../with-web-app/deploy-msal-sdk-authentication-expressjs.md)
+* [JS: Deploy Express.js with Microsoft Authentication (MSAL) to Azure App service](/entra/identity-platform/quickstart-web-app-nodejs-msal-sign-in?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json)

@@ -13,4 +13,4 @@ az login
 ```
 
 > [!NOTE]
-> If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can do this with the `--tenant` option. For example, `az login --tenant contoso.onmicrosoft.com`.
+> If multiple Azure tenants are associated with your Azure credentials, you must specify which tenant you want to sign in to. You can do this by using the `--tenant` option. For example: `az login --tenant contoso.onmicrosoft.com`.

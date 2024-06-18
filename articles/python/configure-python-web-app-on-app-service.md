@@ -2,13 +2,13 @@
 title: "Configure a custom startup file for Python apps on Azure App Service on Linux"
 description: Discusses how to start a Python web app running on App Service, including specific instructions for Django, Flask, and other frameworks.
 ms.topic: conceptual
-ms.date: 06/20/2022
-ms.custom: devx-track-python
+ms.date: 01/12/2024
+ms.custom: devx-track-python, linux-related-content
 ---
 
 # Configure a custom startup file for Python apps on Azure App Service
 
-In this article, you learn about configuring a custom startup file, if needed, for a Python web app hosted on Azure App Service. For running locally, you don't need a startup file. However, when you deploy a web app to Azure App Service, your code is run in Docker container that can use any startup commands if they are present.
+In this article, you learn about configuring a custom startup file, if needed, for a Python web app hosted on Azure App Service. For running locally, you don't need a startup file. However, when you deploy a web app to Azure App Service, your code is run in a Docker container that can use any startup commands if they are present.
 
 You need a custom startup file in the following cases:
 
@@ -36,7 +36,7 @@ When you need a custom startup file, use the following steps:
 
 1. In the [Azure portal](https://portal.azure.com/), on the **Configuration** page for the App Service, select **General settings**, enter the name of your startup file (like *startup.txt* or *startup.sh*) under **Stack settings** > **Startup Command**, then select **Save**.
 
-    ![Setting the Startup Command file name in the Azure portal](media/deploy-azure/enter-startup-file-for-app-service-in-the-azure-portal.png)
+    ![Setting the Startup Command file name in the Azure portal](media/deploy-azure/configure-python-web-app-on-app-service.png)
 
     > [!NOTE]
     > Instead of using a startup command file, you can put the startup command itself directly in the **Startup Command** field on the Azure portal. Using a command file is preferable, however, because this part of your configuration is then in your repository where you can audit changes and redeploy to a different App Service instance altogether.

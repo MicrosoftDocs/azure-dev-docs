@@ -1,8 +1,8 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 ms.topic: include
-ms.date: 08/10/2021
+ms.date: 04/24/2024
 ---
 
 - **Azure subscription:** If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
@@ -11,4 +11,4 @@ ms.date: 08/10/2021
 
 - [Get the Microsoft Entra tenant ID](/azure/active-directory/fundamentals/how-to-find-tenant).
 
-- [Create a service principal](/azure/active-directory/develop/howto-create-service-principal-portal). Note the service principal's application (client) ID and secret.
+- [Create a service principal](/azure/active-directory/develop/howto-create-service-principal-portal). Note the service principal's application (client) ID and secret. Make sure you also follow the instructions to assign the Contributor role to the application.

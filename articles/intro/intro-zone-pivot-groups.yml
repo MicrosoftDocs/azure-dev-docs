@@ -14,3 +14,15 @@ groups:
     title: Java
   - id: golang
     title: Go
+- id: intelligent-apps-languages-top-four
+  title: Intelligent Apps Languages
+  prompt: Choose a programming language
+  pivots:
+  - id: dotnet
+    title: .NET
+  - id: python
+    title: Python
+  - id: javascript
+    title: JavaScript
+  - id: java
+    title: Java

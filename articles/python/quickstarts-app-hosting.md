@@ -1,7 +1,7 @@
 ---
 title: Getting started with hosting Python apps on Azure
 description: Index of getting started material in the Azure documentation for hosting Python app code.
-ms.date: 12/09/2022
+ms.date: 1/23/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -39,8 +39,8 @@ The sections in this article are arranged approximately from more managed option
   - [Create your first Service Fabric container application on Linux](/azure/service-fabric/service-fabric-get-started-containers-linux)
 
 - **Compute intensive and long running operations with Azure Batch**:
-  - [Use Python API to run an Azure Batch job](/azure/batch/quick-run-python)
-  - [Tutorial: Run a parallel workload with Azure Batch using the Python API](/azure/batch/tutorial-parallel-python)
+  - [Use Python to create and run an Azure Batch job](/azure/batch/quick-run-python)
+  - [Tutorial: Run a parallel file processing workload with Azure Batch using Python](/azure/batch/tutorial-parallel-python)
   - [Tutorial: Run Python scripts through Azure Data Factory using Azure Batch](/azure/batch/tutorial-run-python-batch-azure-data-factory)
 
 - **On-demand, scalable computing resources with Azure Virtual Machines**:
