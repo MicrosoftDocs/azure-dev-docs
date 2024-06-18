@@ -9,16 +9,20 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep, build-2023
 ---
 
-# Make your project compatible with Azure Developer CLI
+# Create Azure Developer CLI templates overview
 
-The Azure Developer CLI (`azd`) is designed around a [template system](azd-templates.md) to provision and deploy app resources to the cloud. Developers add support for `azd` commands and features by converting their applications to templates. In this article, you explore the different options for building `azd` templates.
+The Azure Developer CLI (`azd`) is designed around a [template system](azd-templates.md) to provision and deploy app resources to the cloud. Developers add support for `azd` commands and features by converting their applications to templates. This article provides a contextual overview of the different options for building `azd` templates. Once you understand the concepts in this article, visit the following resources for more detailed implementation guides:
+
+- [Use an existing template for your app](use-existing-template.md).
+- [Create a template from your app code](/samples/browse/?languages=bicep)
+- [Training - build and deploy `azd` templates](training/paths/azure-developer-cli)
 
 > [!NOTE]
 > This article assumes a general understanding of `azd` templates. Visit the [template overview](azd-templates) doc for more information about templates.
 
 ## Template creation concepts
 
-Creating an `azd` template requires adding specific configuration and infrastructure assets to your existing code base, or starting a new app with those same assets. All `azd` templates share the a similar file structure based around `azd` conventions. The following diagram gives a quick overview of the process to create an `azd` template:
+Creating an `azd` template requires adding specific configuration and infrastructure assets to your existing code base, or starting a new app from an existing template those same assets. Both workflows are explained in later sections. All `azd` templates share a similar file structure based around `azd` conventions. The following diagram gives a quick overview of the process to create an `azd` template:
 
 :::image type="content" source="media/make-azd-compatible/workflow.png" alt-text="Diagram of Azure Developer CLI template workflow.":::
 
@@ -41,41 +45,39 @@ The original app resources are unchanged, but new assets were added that `azd` d
 
 - An `infra` folder was added that includes Bicep files to create Azure resources.
 - An `azure.yaml` configuration file was added to map the app code in the `src` directory to the provision Azure resources.
-- An `.azure` folder was created to hold `azd` environment variables.
-- A `.github` folder (optional) was added to support CI/CD through GitHub actions.
+- A `.azure` folder was created to hold `azd` environment variables.
+- A `.github` folder (optional) was added to support CI/CD pipelines through GitHub actions.
 
 ## Template creation workflows
 
-The `azd init` command is used to initialize an `azd` template for provisioning and deploying the app resources on Azure.
+The `azd init` command is used to initialize an `azd` template for provisioning and deploying the app resources on Azure. The command prompts you to choose between two different workflows to initialize a template that are outlined in the following sections - **Use code in the current directory** and **Use an existing template**.
 
 ```azdeveloper
 azd init
 ```
 
-Run this command in the root of the directory you'd like to convert to an `azd template`. The command prompts you to choose between two different workflows to initialize a template that are outlined in the following sections.
+Run this command in the root of the directory you'd like to convert to an `azd template`.
 
 :::image type="content" source="media/make-azd-compatible/azd-init.png" alt-text="A screenshot showing the template init process.":::
 
 ### Use code in the current directory
 
-This option instructs `azd` to analyze the code in your directory to identity which technologies it uses, such as the programming language, framework and database system. `azd` automatically generates template assets for you, such as the `azure.yaml` service definition file and the `infra` folder with infrastructure-as-code files. The generated assets are a starting point for additional modifications.
+This option instructs `azd` to analyze the code in your directory to identity which technologies it uses, such as the programming language, framework and database system.`azd` automatically generates template assets for you, such as the `azure.yaml` service definition file and the `infra` folder with infrastructure-as-code files. The generated assets are a starting point for additional modifications. Use this approach if you plan to use common Azure services supported by `azd` scaffolding features.
 
-Visit the [Use your app code to create a template](use-app-code.md) tutorial for details on how to implement this approach.
+Visit the [Use your app code to create a template](use-app-code.md) tutorial for details on how to implement this approach and more information on which Azure resources support automatic detection and scaffolding..
 
 ### Use an existing template
 
-Select this option to use an existing template as a starting point. By default, `azd` allows you to browse templates from the Awesome AZD gallery, but you can also configure your own template galleries. When you select a template, the assets of that template will be added to your existing project directory to use as a starting point. Some starter templates include sample app code that you can replace with your own, while some are infrastructure only.  You may need to replace the source code directory with your own.
+Select this option to use an existing template that defines many of your Azure resources and architectural goals as a starting point. `azd` allows you to select a starter template or browse templates from the Awesome AZD gallery. When you select a template, the assets of that template are added to your existing project directory to use as a starting point. Some starter templates include sample app code that you can replace with your own, while some are infrastructure only.
 
-You can also use the `azd init` command to pull down an existing template to an empty directory and use it as a starting point for your own app. If the template includes app source code, you can either build off of that code or replace the source code directory with your own.
+Use the `azd init` command to pull down an existing template to an empty directory and use it as a starting point for your own app. If the template includes app source code, you can either build off of that code or replace the source code directory with your own.
 
 Visit the [Use an existing template](use-existing-template) tutorial for details on how to implement this approach.
 
 ## See also
 
-- [Create Bicep files with Visual Studio Code](/azure/azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code?tabs=CLI) for an introduction to working with Bicep files.
-- [Bicep Samples](/samples/browse/?languages=bicep)
-- [How to decompile Azure Resource Manager templates (ARM templates) to Bicep](/azure/azure-resource-manager/bicep/decompile?tabs=azure-cli)
-- [Azure Developer CLI's azure.yaml schema](./azd-schema.md)
+- [Use an existing template for your app](use-existing-template.md).
+- [Create a template from your app code](/samples/browse/?languages=bicep)
 
 [!INCLUDE [request-help](includes/request-help.md)]
 
