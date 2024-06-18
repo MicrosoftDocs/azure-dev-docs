@@ -33,10 +33,6 @@ Spring Cloud Azure can help make it easier to accomplish the following tasks in 
 - Storing unstructured data like text or binary data with [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
 - Storing files with [Azure Files](/azure/storage/files/storage-files-introduction).
 
-The following diagram provides an overview of these features:
-
-:::image type="content" source="media/spring-cloud-azure-overview/spring-cloud-azure-overview.png" alt-text="Diagram providing an overview of Spring Cloud Azure features.":::
-
 ## Benefits of using Spring Cloud Azure
 
 The following section demonstrates the benefits of using Spring Cloud Azure. In this section, the retrieval of secrets stored in Azure Key Vault is used as an example. This section compares the differences between developing a Spring Boot application with and without Spring Cloud Azure.
