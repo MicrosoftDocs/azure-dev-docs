@@ -82,4 +82,4 @@ Security testing on Azure involves identifying potential vulnerabilities in your
 Ensuring that applications comply with legal, regulatory, and policy requirements is crucial, especially in cloud environments. **Regulatory Compliance** testing verifies that your application meets standards such as GDPR, HIPAA, or SOC 2. Azure offers **Policy and Compliance Tools**, such as Azure Policy and Azure Blueprints, to help automate and enforce compliance across your Azure resources, simplifying the process of maintaining governance and compliance standards in your application deployments.
 
 * [Governance, security, and compliance in Azure](/azure/cloud-adoption-framework/ready/azure-setup-guide/govern-org-compliance?tabs=AzurePolicy)
-* [Implement compliance testing with Terraform and Azure](/azure/developer/terraform/best-practices-compliance-testing)git
+* [Implement compliance testing with Terraform and Azure](/azure/developer/terraform/best-practices-compliance-testing)
