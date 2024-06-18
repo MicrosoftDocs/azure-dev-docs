@@ -93,7 +93,7 @@ You can add a new resource to your deployment by making larger changes to the Bi
 
 1. Create a new file in the *infra* folder named *redis.bicep*. Copy and paste the following code into the new file:
 
-   ```python
+   ```bicep
    param name string
    param location string = resourceGroup().location
    param tags object = {}
@@ -183,7 +183,7 @@ You can add a new resource to your deployment by making larger changes to the Bi
 
    In the *main.bicep* file, add the following code below the ending curly braces associated with the *Web frontend* section and above the *secrets* section.
 
-   ```python
+   ```bicep
    // Caching server
    module redis 'redis.bicep' = {
      name: 'redis'
@@ -207,14 +207,14 @@ You can add a new resource to your deployment by making larger changes to the Bi
 
 3. Add output values to the bottom of the file:
 
-   ```python
+   ```bicep
    output REDIS_ID string = redis.outputs.REDIS_ID
    output REDIS_HOST string = redis.outputs.REDIS_HOST
    ```
 
 4. Confirm that the entire *main.bicep* file is identical to the following code:
 
-   ```python
+   ```bicep
    targetScope = 'subscription'
 
    @minLength(1)
