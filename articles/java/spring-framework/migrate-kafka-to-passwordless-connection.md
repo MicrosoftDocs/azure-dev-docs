@@ -366,8 +366,6 @@ The following steps show you how to assign a system-assigned managed identity fo
 
 1. On the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and IDs of the identity are never exposed in your code.
 
-   :::image type="content" source="media/passwordless-connections/migration-create-identity.png" alt-text="Screenshot of Azure portal Identity page of App Service resource with System assigned tab showing and Status field highlighted." lightbox="media/passwordless-connections/migration-create-identity.png":::
-
 ##### [Service Connector](#tab/service-connector)
 
 When you use Service Connector, it can help to assign the system-assigned managed identity to your Azure hosting environment, and then configure the *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* roles for the managed identity.
