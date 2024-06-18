@@ -26,15 +26,13 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Deploy a cluster
 
-In this article, we use the Azure Marketplace offer [IBM WebSphere Application Server ND Cluster on Azure VMs](https://ibm.biz/twas-cluster-portal) from the Azure portal. The offer automates common steps for deploying a traditional WebSphere Application Server Network Deployment cluster. You can find more background and a demo video on the offer page.
-
-You can start creating your deployment from the page. By default, the deployment consists of the following VMs:
+You can start your deployment from the Azure Marketplace offer [IBM WebSphere Application Server ND Cluster on Azure VMs](https://ibm.biz/twas-cluster-portal) in the Azure portal. By default, the deployment consists of the following:
 
 - One Deployment Manager instance for managing the applications and application servers.
-- One IBM HTTP Server instance for managing load balancing if you answer *yes* to **Configure an IBM HTTP Server**.
-- One or more WebSphere Application Server instances (nodes) for running your applications (defaults to 3 for High Availability).
+- One IBM HTTP Server instance for managing load balancing.
+- WebSphere Application Server instances (nodes) for running your applications (defaults to 3 for High Availability).
 
-Each of these VMs is automatically created with the necessary networking and storage to support the deployment. The following diagram shows the default configuration.
+The following diagram shows the default configuration.
 
 :::image type="content" source="media/traditional-websphere-application-server-virtual-machines/default-configuration-cluster-deployment.png" alt-text="Diagram showing default configuration of WebSphere Application Server (traditional) Cluster deployment.":::
 
