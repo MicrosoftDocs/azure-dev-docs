@@ -96,6 +96,26 @@ Right now, the Service Bus SDK doesn't recognize certain remote TCP terminations
 
 The support for TLSv1.0 and 1.1 across all Azure Services is already [announced](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2) to end by 31 October 2024, so transitioning to TLSv1.2 is strongly recommended.
 
+## Troubleshooting receiver issues
+
+### Message or session lock is lost
+
+A Service Bus queue or subscription in a topic will have a lock duration set at the resource level. When the receiver client pulls a message from the resource, the Service Bus broker will apply an initial lock to the message. This initial lock lasts for the lock duration set at the resource level. If the message lock is not renewed before it expires then the Service Bus broker will release the message to make it available for other receivers. When an application tries to complete or abandon a message after the lock expiration, the API call will fail with the error saying "The lock supplied is invalid. Either the lock expired, or the message has already been removed from the queue". 
+
+The Service Bus client supports renewing the message lock continuously each time before it expires. For this client will run a background task. By default, the lock renew task will run for a duration of 5 minutes, this duration can be adjusted using `ServiceBusReceiverClientBuilder::maxAutoLockRenewDuration(Duration)` API or can be turned off by setting it `Duration#ZERO`.
+
+Some of the usage patterns or host environment that can lead to this lock expired error are -
+* The lock renew task is turned off and the application's message processing time exceeds the lock duration set at the resource level.
+* The application's message processing time exceeds the configured lock renew task duration. Note that if the renewal duration is not set explicitly then it defaults to 5 minutes.
+* The host environment has occasional network problems, e.g., transient network failure, a network outage, that prevent the lock renewal task from being renewing the lock on time.
+* The host environment lacks enough CPUs or has shortages of CPU cycles intermittently that delay the lock renewal task from running on time.
+* The application is running multiple receiver clients sharing the same connection and the connection I/O Thread is overloaded, impacting I/O Thread ability to pick and execute lock renewal network calls. See the section [Connection sharing bottleneck](#connection-sharing-bottleneck).
+
+When using ServiceBusProcessorClient receiver, a higher `maxConcurrentCalls` means an equivalent number of lock renewal  tasks running in the client, which may put more stress on low CPU environments. Given each lock renewal is a network call to the Service Bus broker, a high number of lock renewal tasks making multiple lock renew calls also may have an adverse effect in Service Bus namespace throttling and on network, impacting client ability to renew the locks on time. Similarly, a higher `maxMessages` for `ServiceBusReceiverClient::receiveMessages` means an equivalent number of lock renewal tasks running in the client.
+
+
+The same observations related to locks apply for a session enabled Service Bus queue or subscription in a topic as well. When the receiver client connects to a session in the resource, the broker will apply an initial lock to the session. To maintain the lock on the session, the client's lock renew task has to keep renewing the session lock before it expires. When an application tries to complete or abandon a message after the lock expiration, the API call will fail with the error saying "The session lock was lost. Request a new session receiver". 
+
 ## Upgrade to 7.15.x or latest
 
 If you encounter any issues, you should first attempt to solve them by upgrading to the latest version of the Service Bus SDK. Version 7.15.x is a major redesign, resolving long-standing performance and reliability concerns.
