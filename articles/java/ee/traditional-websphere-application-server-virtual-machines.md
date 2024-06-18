@@ -126,7 +126,7 @@ After you complete all the steps, select **Finish**, and then on the next page s
 
 Next, you need to start the application. Go to **Applications > All Applications**. Select the checkbox for **DefaultApplication.ear**, ensure the **Action** is set to **Start**, and then select **Submit Action**.
 
-You should see success messages that look similar to the ones in the following screenshot. If you see errors, you were probably too quick, and the app and configuration haven't reached the nodes yet.
+You should see success messages that look similar to the ones in the following screenshot. If you see errors, you were probably too quick, and the app and configuration didn't reach the nodes yet.
 
 :::image type="content" source="media/traditional-websphere-application-server-virtual-machines/start-app-message-page.png" alt-text="Screenshot of IBM WebSphere Messages pane." lightbox="media/traditional-websphere-application-server-virtual-machines/start-app-message-page.png":::
 
