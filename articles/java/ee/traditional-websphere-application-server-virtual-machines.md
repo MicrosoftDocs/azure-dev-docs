@@ -26,7 +26,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Deploy a cluster
 
-You can start your deployment from the Azure Marketplace offer [IBM WebSphere Application Server ND Cluster on Azure VMs](https://ibm.biz/twas-cluster-portal) in the Azure portal. By default, the deployment consists of the following:
+Start your deployment by going to the Azure Marketplace offer [IBM WebSphere Application Server ND Cluster on Azure VMs](https://ibm.biz/twas-cluster-portal) in the Azure portal. By default, the deployment consists of the following:
 
 - One Deployment Manager instance for managing the applications and application servers.
 - One IBM HTTP Server instance for managing load balancing.
