@@ -56,8 +56,6 @@ To use the Microsoft Entra starter in this scenario, use the following steps:
 
 Set the redirect URI to *\<application-base-uri>/login/oauth2/code/*. For example: `http://localhost:8080/login/oauth2/code/`. Be sure to include the trailing `/`. For more information about the redirect URI, see [Add a redirect URI](/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri) in [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
-   :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/web-application-set-redirect-uri-1.png" alt-text="Screenshot of Azure portal showing Microsoft Entra App registrations page with sample-webapp highlighted.":::
-
    :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/web-application-set-redirect-uri-2.png" alt-text="Screenshot of Azure portal showing web app authentication page with redirect URI highlighted.":::
 
 Add the following dependencies to your *pom.xml* file.
@@ -256,8 +254,6 @@ spring:
 ```
 
 You can use both the *\<your-client-ID>* and *\<your-app-ID-URI>* values to verify the access token. You can get the *\<your-app-ID-URI>* value from the Azure portal, as shown in the following images:
-
-:::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/get-app-id-uri-1.png" alt-text="Screenshot of Azure portal showing Microsoft Entra App registrations page with sample-resource-server highlighted.":::
 
 :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/get-app-id-uri-2.png" alt-text="Screenshot of Azure portal showing web app Expose an API page with Application ID URI highlighted.":::
 
