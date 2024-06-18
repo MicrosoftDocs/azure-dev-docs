@@ -4,14 +4,14 @@ description: Shows you how to deploy a traditional WebSphere Application Server 
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 04/06/2023
+ms.date: 06/18/2024
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-was-vm, devx-track-javaee-was, devx-track-javaee-websphere
 
 ---
 
 # Quickstart: Deploy WebSphere Application Server Network Deployment Cluster on Azure Virtual Machines
 
-This article shows you how to quickly deploy a cluster of traditional WebSphere Application Server (tWAS) Network Deployment instances on Azure Virtual Machines (VMs).
+This article shows you how to quickly deploy a cluster of traditional WebSphere Application Server (tWAS) Network Deployment (ND) instances on Azure Virtual Machines (VMs).
 
 This article uses the Azure Marketplace offer for WebSphere Application Server Cluster to accelerate your journey to Azure VMs. The offer automatically provisions a number of resources including latest Red Hat Enterprise Linux (RHEL) VMs with fixes, latest WebSphere Application Server ND 9.0.5.x on each VM with fixes, latest IBM JDK 8 with fixes on each VM, a Deployment Manager on one of the VMs with Administrative Console enabled, and optionally an IBM HTTP Server (IHS) or Azure Application Gateway as load balancer. Visit Azure portal to see the offer [IBM WebSphere Application Server Network Deployment Cluster on Azure VMs](https://ibm.biz/twas-cluster-portal). 
 
