@@ -21,7 +21,7 @@ To use a system-assigned managed identity, use the following steps:
 1. Specify the `identity` block and set `type` to `SystemAssigned`.
 
     ```terraform
-    resource "azurerm_virtual_machine" "example" {
+    resource "azurerm_linux_virtual_machine" "example" {
       # ...
     
       identity {
@@ -35,15 +35,22 @@ To use a system-assigned managed identity, use the following steps:
     ```terraform
     data "azurerm_subscription" "current" {}
     
-    
-    data "azurerm_role_definition" "contributor" {
-      name = "Contributor"
+    variable "resource_group_location" {
+      type        = string
+      description = "Location of the resource group."
+      default     = "eastus"
     }
     
-    resource "azurerm_role_assignment" "example" {
-      scope              = data.azurerm_subscription.current.id
-      role_definition_id = "${data.azurerm_subscription.current.id}${data.azurerm_role_definition.contributor.id}"
-      principal_id       = azurerm_virtual_machine.example.identity[0].principal_id
+    variable "resource_group_name_prefix" {
+      type        = string
+      description = "Prefix of the resource group name that's combined with a random ID so name is unique in your Azure subscription."
+      default     = "rg"
+    }
+    
+    variable "username" {
+      type        = string
+      description = "The username for the local account that will be created on the new VM."
+      default     = "azureadmin"
     }
     ```
 
@@ -169,7 +176,37 @@ To use a system-assigned managed identity, use the following steps:
       role_definition_name = "Contributor"
       principal_id       = azurerm_linux_virtual_machine.example.identity[0].principal_id
     }
+    
     ```
+
+1. Create a file named `ssh.tf` and insert the following code.
+
+    ```terraform
+    resource "random_pet" "ssh_key_name" {
+      prefix    = "ssh"
+      separator = ""
+    }
+    
+    resource "azapi_resource_action" "ssh_public_key_gen" {
+      type        = "Microsoft.Compute/sshPublicKeys@2022-11-01"
+      resource_id = azapi_resource.ssh_public_key.id
+      action      = "generateKeyPair"
+      method      = "POST"
+    
+      response_export_values = ["publicKey", "privateKey"]
+    }
+    
+    resource "azapi_resource" "ssh_public_key" {
+      type      = "Microsoft.Compute/sshPublicKeys@2022-11-01"
+      name      = random_pet.ssh_key_name.id
+      location  = azurerm_resource_group.rg.location
+      parent_id = azurerm_resource_group.rg.id
+    }
+    
+    output "key_data" {
+      value = azapi_resource_action.ssh_public_key_gen.output.publicKey
+    }
+        ```
 
 1. Create a file named `variables.tf` and insert the following code:
 
