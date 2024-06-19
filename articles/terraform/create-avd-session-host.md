@@ -119,7 +119,7 @@ In this article, you learn how to:
     }
     ```
     
-1. Create a file named `output.tf` and insert the following code:
+1. Create a file named `outputs.tf` and insert the following code:
     
     ```
     output "location" {
