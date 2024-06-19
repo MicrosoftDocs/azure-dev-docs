@@ -278,8 +278,6 @@ Use the following steps to continue the configuration in the Azure portal.
 1. You find **Microsoft Entra Administrators (Microsoft Entra Admins)** shown in the page. Select **Add Microsoft Entra Admins**, select the account you're currently using in the Azure portal, then select **Select**.
 1. Select **Save**. It takes several seconds to create the Microsoft Entra Admin, as shown in the following screenshot.
 
-:::image type="content" source="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-authentication.png" alt-text="Screenshot of the Azure portal showing the Configure authentication on PostgreSQL Flexible Server page." lightbox="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-authentication.png":::
-
 ### [Azure SQL Database](#tab/azure-sql-database)
 
 For information on how Azure SQL Server interacts with managed identities, see [Connect using Microsoft Entra authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication).
@@ -288,9 +286,6 @@ The following example configures a Microsoft Entra administrator account to Azur
 
 1. In the [Azure portal](https://portal.azure.com/), open the Azure SQL server instance `myazuresql20130213`.
 1. Select **Settings**, then select **Microsoft Entra ID**. On the **Microsoft Entra ID** page, select **Set admin**.
-
-   :::image type="content" source="media/how-to-configure-passwordless-datasource/azure-portal-azure-sql-set-admin.png" alt-text="Screenshot of the Azure portal showing the SQL server page and the Microsoft Entra settings with the Set admin option highlighted." lightbox="media/how-to-configure-passwordless-datasource/azure-portal-azure-sql-set-admin.png":::
-
 1. On the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**.
 1. At the top of the **Microsoft Entra ID** page, select **Save**. For Microsoft Entra users and groups, the Object ID is displayed next to the admin name.
 1. The process of changing the administrator may take several minutes. Then, the new administrator appears in the **Microsoft Entra ID** box.

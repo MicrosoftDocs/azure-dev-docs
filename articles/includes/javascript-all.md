@@ -59,7 +59,7 @@
 | farmbeats | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/agrifood-farming/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.2/sdk/agrifood/agrifood-farming-rest/) |
 | Form Recognizer | npm [5.0.0](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [docs](/javascript/api/overview/azure/ai-form-recognizer-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_5.0.0/sdk/formrecognizer/ai-form-recognizer/) |
 | Health Insights Radiology Insights | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-radiologyinsights/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-radiologyinsights_1.0.0-beta.1/sdk/healthinsights/health-insights-radiologyinsights-rest/) |
-| Identity | npm [4.2.1](https://www.npmjs.com/package/@azure/identity/v/4.2.1)<br>npm [4.3.0-beta.2](https://www.npmjs.com/package/@azure/identity/v/4.3.0-beta.2) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [4.2.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.2.1/sdk/identity/identity/)<br>GitHub [4.3.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.3.0-beta.2/sdk/identity/identity/) |
+| Identity | npm [4.3.0](https://www.npmjs.com/package/@azure/identity/v/4.3.0) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [4.3.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.3.0/sdk/identity/identity/) |
 | Identity Broker | npm [1.0.1](https://www.npmjs.com/package/@azure/identity-broker/v/1.0.1) | [docs](/javascript/api/overview/azure/identity-broker-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-broker_1.0.1/sdk/identity/identity-broker/) |
 | Image Analysis | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/ai-vision-image-analysis/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-image-analysis_1.0.0-beta.2/sdk/vision/ai-vision-image-analysis-rest/) |
 | IoT Device Update | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/iot-device-update/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/iot-device-update-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/iot-device-update_1.0.0-beta.1/sdk/deviceupdate/iot-device-update/) |
@@ -504,7 +504,7 @@
 | @azure-tools/rlc-common | npm [0.29.0](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.29.0) |  |  |
 | @azure-tools/sdk-generation-lib | npm [1.0.5](https://www.npmjs.com/package/@azure-tools/sdk-generation-lib/v/1.0.5) |  |  |
 | @azure-tools/test-credential | npm [1.1.0](https://www.npmjs.com/package/@azure-tools/test-credential/v/1.1.0) |  |  |
-| @azure-tools/test-recorder | npm [3.5.1](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.5.1) |  |  |
+| @azure-tools/test-recorder | npm [3.5.2](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.5.2) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.2.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.2.0) |  |  |
 | @azure/static-web-apps-cli | npm [1.1.9](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/1.1.9) |  |  |
@@ -535,7 +535,7 @@
 | AutoRest - Go | npm [4.0.0-preview.66](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.66) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [3.0.519](https://www.npmjs.com/package/@autorest/powershell/v/3.0.519)<br>npm [4.0.0-dev.12](https://www.npmjs.com/package/@autorest/powershell/v/4.0.0-dev.12) |  | GitHub [3.0.519](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.13.19](https://www.npmjs.com/package/@autorest/python/v/6.13.19) |  | GitHub [6.13.19](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.14.0](https://www.npmjs.com/package/@autorest/python/v/6.14.0) |  | GitHub [6.14.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
