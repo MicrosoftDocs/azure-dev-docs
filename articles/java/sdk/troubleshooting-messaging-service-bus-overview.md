@@ -112,9 +112,9 @@ Some of the usage patterns or host environment that can lead to the lock lost er
 * The host system time isn't accurate, for example, the clock is skewed, that delays the lock renew task from running on time.
 * The connection I/O Thread is overloaded, impacting its ability to execute lock renew network calls on time, two scenarios that can lead to this are,
   * The application is running too many receiver clients sharing the same connection. See [Connection sharing bottleneck](#connection-sharing-bottleneck).
-  * The application has set a high `maxConcurrentCalls` value in `ServiceBusProcessorClient` or a `maxMessages` in `ServiceBusReceiverClient::receiveMessages`. See [Concurrency in ServiceBusProcessorClient](#concurrency-in-servicebusprocessorclient).
+  * The application has configured `ServiceBusReceiverClient::receiveMessages`  or `ServiceBusProcessorClient` to have a large `maxMessages` or `maxConcurrentCalls` parameter respectively. See [Concurrency in ServiceBusProcessorClient](#concurrency-in-servicebusprocessorclient).
 
-Running many lock renew tasks in the client (as a result of high ` maxConcurrentCalls` or `maxMessages`) means more network call to the Service Bus broker. A high number of lock renew tasks making multiple network calls also may have an adverse effect in Service Bus namespace throttling. 
+The number of lock renew tasks in the client will be equal to ` maxMessages ` or ` maxConcurrentCalls` parameter set for `ServiceBusProcessorClient` or `ServiceBusReceiverClient::receiveMessages` respectively. A high number of lock renew tasks making multiple network calls also may have an adverse effect in Service Bus namespace throttling. 
 
 If the host is not sufficiently resourced, the lock can still be lost even if there are only few lock renew tasks running. If you're running the Java application on a container, then we recommend using two or more vCPU cores. We don't recommend selecting anything less than 1 vCPU core when running Java applications on containerized environments. For in-depth recommendations on resourcing, see [Containerize your Java applications](../containers/overview.md).
 
