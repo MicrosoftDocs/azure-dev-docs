@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep, build-2023
 ---
 
-# Add support for the Azure Developer CLI to your project using an existing template
+# Add Azure Developer CLI support to your app using an existing template
 
 The Azure Developer CLI (`azd`) provides two different workflows to initialize a template to use with your app, which include:
 
