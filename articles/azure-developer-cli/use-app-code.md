@@ -1,9 +1,9 @@
 ---
-title: Make your project compatible with Azure Developer CLI
-description: How to convert an app to an Azure developer enabled template.
+title: Add Azure Developer CLI support to your app using code in your app directory
+description: How to add Azure Developer CLI support to your app using code in your app directory
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 12/05/2022
+ms.date: 6/19/2024
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep, build-2023

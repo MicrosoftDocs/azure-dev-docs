@@ -1,9 +1,9 @@
 ---
-title: Make your project compatible with Azure Developer CLI
-description: How to convert an app to an Azure developer enabled template.
+title: Add Azure Developer CLI support to your app using an existing template
+description: How to add Azure Developer CLI support to your app using an existing template
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 12/05/2022
+ms.date: 6/19/2024
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep, build-2023
@@ -135,7 +135,7 @@ To deploy the app, `azd` needs to know more about your app. The `azure.yaml` fil
 
 1. When the command finishes, click the link in the command output to navigate to the deployed site.
 
-Your project is now compatible with Azure Developer CLI and can be used as a template!
+Your project is now compatible with Azure Developer CLI and can be used as a template.
 
 > [!NOTE]
 > `azd` also supports using [Buildpack](https://buildpacks.io/) for containerizing your apps by default. If your `azd` template targets Azure Container Apps or Azure Kubernetes Service but does not include a Docker file, `azd` automatically generates an image using Buildpack.

@@ -1,9 +1,9 @@
 ---
-title: Make your project compatible with Azure Developer CLI
+title: Create Azure Developer CLI templates overview
 description: How to convert an app to an Azure developer enabled template.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 12/05/2022
+ms.date: 6/19/2024
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep, build-2023
@@ -14,11 +14,11 @@ ms.custom: devx-track-azdevcli, devx-track-bicep, build-2023
 The Azure Developer CLI (`azd`) is designed around a [template system](azd-templates.md) to provision and deploy app resources to the cloud. Developers add support for `azd` commands and features by converting their applications to templates. This article provides a contextual overview of the different options for building `azd` templates. Once you understand the concepts in this article, visit the following resources for more detailed implementation guides:
 
 - [Use an existing template for your app](use-existing-template.md).
-- [Create a template from your app code](/samples/browse/?languages=bicep)
+- [Create a template from your app code](use-app-code.md)
 - [Training - build and deploy `azd` templates](training/paths/azure-developer-cli)
 
 > [!NOTE]
-> This article assumes a general understanding of `azd` templates. Visit the [template overview](azd-templates) doc for more information about templates.
+> This article assumes a general understanding of `azd` templates. Visit the [template overview](azd-templates.md) doc for more information about templates.
 
 ## Template creation concepts
 
@@ -31,7 +31,7 @@ Every `azd` template requires the following minimum resources:
 - An `infra` folder that holds the infrastructure as code (Bicep or Terraform) files.
 - An `azure.yaml` configuration file that maps your application services to the provisioned infrastructure resources.
 
-Other optional directories are often included as well, such as a `.github` folder with assets to create a CI/CD pipeline. Visit the [template overview](azd-templates) doc for more information about templates.
+Other optional directories are often included as well, such as a `.github` folder with assets to create a CI/CD pipeline. Visit the [template overview](azd-templates.md) doc for more information about templates.
 
 Consider the following sample app repository:
 
