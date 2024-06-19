@@ -30,27 +30,19 @@ To use a system-assigned managed identity, use the following steps:
     }
     ```
 
-1. Grant the `Contributor` role to the identity:
+1. Grant the `Contributor` role to the identity.
 
     ```terraform
     data "azurerm_subscription" "current" {}
-    
-    variable "resource_group_location" {
-      type        = string
-      description = "Location of the resource group."
-      default     = "eastus"
+
+    data "azurerm_role_definition" "contributor" {
+      name = "Contributor"
     }
     
-    variable "resource_group_name_prefix" {
-      type        = string
-      description = "Prefix of the resource group name that's combined with a random ID so name is unique in your Azure subscription."
-      default     = "rg"
-    }
-    
-    variable "username" {
-      type        = string
-      description = "The username for the local account that will be created on the new VM."
-      default     = "azureadmin"
+    resource "azurerm_role_assignment" "example" {
+      scope              = data.azurerm_subscription.current.id
+      role_definition_name = "Contributor"
+      principal_id       = azurerm_linux_virtual_machine.example.identity[0].principal_id
     }
     ```
 
@@ -101,28 +93,28 @@ To use a system-assigned managed identity, use the following steps:
     }
     
     resource "azurerm_resource_group" "rg" {
-      name     = random_pet.rg_name.id
       location = var.resource_group_location
+      name     = random_pet.rg_name.id
     }
     
     data "azurerm_subscription" "current" {}
     
     resource "azurerm_virtual_network" "example" {
-      name                = "nanxuvnet06071"
+      name                = "myVnet"
       address_space       = ["10.0.0.0/16"]
       location            = azurerm_resource_group.rg.location
       resource_group_name = azurerm_resource_group.rg.name
     }
     
     resource "azurerm_subnet" "example" {
-      name                 = "nanxusubnet06071"
+      name                 = "mySubnet"
       resource_group_name  = azurerm_resource_group.rg.name
       virtual_network_name = azurerm_virtual_network.example.name
       address_prefixes     = ["10.0.2.0/24"]
     }
     
     resource "azurerm_network_interface" "example" {
-      name                = "nanxunic06071"
+      name                = "myNic"
       location            = azurerm_resource_group.rg.location
       resource_group_name = azurerm_resource_group.rg.name
     
@@ -134,7 +126,7 @@ To use a system-assigned managed identity, use the following steps:
     }
     
     resource "azurerm_linux_virtual_machine" "example" {
-      name                = "nanxuvm06071"
+      name                = "myVm"
       resource_group_name = azurerm_resource_group.rg.name
       location            = azurerm_resource_group.rg.location
       size                = "Standard_F2"
@@ -176,7 +168,6 @@ To use a system-assigned managed identity, use the following steps:
       role_definition_name = "Contributor"
       principal_id       = azurerm_linux_virtual_machine.example.identity[0].principal_id
     }
-    
     ```
 
 1. Create a file named `ssh.tf` and insert the following code.
