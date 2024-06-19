@@ -18,6 +18,10 @@
           "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm"
         },
         {
+          "source_path": "ee/jboss-eap-cluster-azure-vms.md",
+          "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm"
+        },
+        {
           "source_path": "ee/weblogic-server-azure-virtual-machine.md",
           "redirect_url": "/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine"
         },

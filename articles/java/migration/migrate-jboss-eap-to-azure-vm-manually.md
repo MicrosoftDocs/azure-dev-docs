@@ -25,7 +25,7 @@ In this tutorial, you learn how to do the following tasks:
 > - Expose the application to the public internet via Azure Application Gateway.
 > - Validate the successful configuration.
 
-If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy a JBoss EAP cluster on Red Hat Linux VMs using the Azure portal](/azure/developer/java/ee/jboss-eap-cluster-azure-vms).
+If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy a JBoss EAP cluster on Azure Virtual Machines (VMs)](/azure/developer/java/ee/jboss-eap-cluster-azure-vms).
 
 If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing JBoss EAP on Azure solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
@@ -38,7 +38,7 @@ If you're interested in providing feedback or working closely on your migration 
 - [Install Azure CLI version 2.51.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
-- Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for Red Hat JBoss EAP. This entitlement lets the fully automated solution (in [Deploy JBoss EAP Server on an Azure virtual machine using the Azure portal](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)) install the Red Hat tested and certified JBoss EAP version.
+- Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for Red Hat JBoss EAP. This entitlement lets the fully automated solution (in [Quickstart: Deploy a JBoss EAP cluster on Azure Virtual Machines (VMs)](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)) install the Red Hat tested and certified JBoss EAP version.
   > [!NOTE]
   > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Save aside the account details, which is used as the *RHSM username* and *RHSM password* in the next section.
 - If you're already registered, or after you complete registration, you can locate the necessary credentials (*Pool IDs*) by using the following steps. These *Pool IDs* are also used as the *RHSM Pool ID with EAP entitlement* in subsequent steps.
