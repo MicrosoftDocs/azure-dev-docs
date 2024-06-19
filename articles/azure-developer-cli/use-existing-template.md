@@ -16,7 +16,7 @@ The Azure Developer CLI (`azd`) provides two different workflows to initialize a
 - **Use code in the current directory**: This approach analyzes your app and autogenerates supported infrastructure and configuration resources.
 - **Select a template**: This approach allows you to integrate an existing template with your app, or use an existing template as a starting point for a new app.
 
-In this article, you learn how to add support for the Azure Developer CLI (`azd`) to your app through the **Select a template** approach. Both of these approaches are explored in more detail in the [Create Azure Developer CLI templates overview](make-azd-compatible).
+In this article, you learn how to add support for the Azure Developer CLI (`azd`) to your app through the **Select a template** approach. Both of these approaches are explored in more detail in the [Create Azure Developer CLI templates overview](make-azd-compatible.md).
 
 ## Select a template for your app
 
@@ -110,7 +110,7 @@ Your project now contains the core structure and assets of an `azd` template. Ho
 
 ## Update the azure.yaml file
 
-To deploy the app, `azd` needs to know more about your app. The `azure.yaml` file is used to define the source code location, language, and the Azure hosting service for each service in your app. For full details, refer to [the azure.yaml schema](../azd-schema.md).
+To deploy the app, `azd` needs to know more about your app. The `azure.yaml` file is used to define the source code location, language, and the Azure hosting service for each service in your app. For full details, refer to [the azure.yaml schema](azd-schema.md).
 
 1. Open the `azure.yaml` at the root of the project.
 

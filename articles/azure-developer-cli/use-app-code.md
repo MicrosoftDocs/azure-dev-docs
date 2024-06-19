@@ -16,9 +16,9 @@ The Azure Developer CLI (`azd`) provides two different workflows to initialize a
 - **Use code in the current directory**: This approach analyzes your app and autogenerates supported infrastructure and configuration resources.
 - **Select a template**: This approach allows you to integrate an existing template with your app, or use an existing template as a starting point for a new app.
 
-Both of these approaches are explored in the [Create Azure Developer CLI templates overview](make-azd-compatible) doc.
+Both of these approaches are explored in the [Create Azure Developer CLI templates overview](make-azd-compatible.md) doc.
 
-In this article, you learn how to add support for the Azure Developer CLI (`azd`) to your app through the **Use code in the current directory** approach. Visit the [Add `azd` support to your app using an existing template](use-existingtemplate.md) doc for more information on the alternative approach.
+In this article, you learn how to add support for the Azure Developer CLI (`azd`) to your app through the **Use code in the current directory** approach. Visit the [Add `azd` support to your app using an existing template](use-existing-template.md) doc for more information on the alternative approach.
 
 ## Use code in the current directory
 

@@ -15,7 +15,7 @@ The Azure Developer CLI (`azd`) is designed around a [template system](azd-templ
 
 - [Use an existing template for your app](use-existing-template.md).
 - [Create a template from your app code](use-app-code.md)
-- [Training - build and deploy `azd` templates](training/paths/azure-developer-cli)
+- [Training - build and deploy `azd` templates](/training/paths/azure-developer-cli)
 
 > [!NOTE]
 > This article assumes a general understanding of `azd` templates. Visit the [template overview](azd-templates.md) doc for more information about templates.
@@ -72,7 +72,7 @@ Select this option to use an existing template that defines many of your Azure r
 
 Use the `azd init` command to pull down an existing template to an empty directory and use it as a starting point for your own app. If the template includes app source code, you can either build off of that code or replace the source code directory with your own.
 
-Visit the [Use an existing template](use-existing-template) tutorial for details on how to implement this approach.
+Visit the [Use an existing template](use-existing-template.md) tutorial for details on how to implement this approach.
 
 ## See also
 
