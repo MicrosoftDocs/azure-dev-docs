@@ -11,7 +11,7 @@
       href: install-azd.md
     - name: What are Azure Developer CLI templates?
       href: azd-templates.md
-    - name: Deploy an azd template
+    - name: Quickstart - Deploy an azd template
       href: get-started.md
     - name: Supported languages and environments
       href: supported-languages-environments.md
