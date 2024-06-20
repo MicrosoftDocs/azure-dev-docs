@@ -14,11 +14,7 @@
     - name: Install the Azure Terraform Visual Studio Code extension
       href: configure-vs-code-extension-for-terraform.md
     - name: Authenticate Terraform to Azure
-      items:
-        - name: Authenticate Terraform to Azure
-          href: authenticate-to-azure.md
-        - name: Using Managed Identity
-          href: authenticate-to-azure-using-msi.md
+      href: authenticate-to-azure.md
     - name: Create a Terraform base template using Yeoman
       href: create-base-template-using-yeoman.md
     - name: Store Terraform state in Azure Storage
