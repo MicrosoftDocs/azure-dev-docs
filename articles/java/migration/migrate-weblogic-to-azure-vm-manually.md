@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Manually install WebLogic Server on Azure virtual machines (VMs)"
+title: "Tutorial: Manually install WebLogic Server on Azure Virtual Machines (VMs)"
 description: Provides step-by-step guidance to install Oracle WebLogic Server on Azure VMs, set up a cluster, and expose it with Azure Application Gateway.
 author: KarlErickson
 ms.author: haiche
@@ -9,7 +9,7 @@ recommendations: false
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-azurecli, devx-track-extended-java
 ---
 
-# Tutorial: Manually install WebLogic Server on Azure virtual machines (VMs)
+# Tutorial: Manually install WebLogic Server on Azure Virtual Machines (VMs)
 
 This tutorial shows the steps to install Oracle WebLogic Server (WLS) and configure a WebLogic cluster on Azure Virtual Machines (VMs), on Windows or GNU/Linux.
 
@@ -18,16 +18,18 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Create a custom virtual network and create the VMs within the network.
 > - Provision VMs with desired Java Development Kit (JDK) and WLS installed.
-> - Configure a WLS domain and a WLS cluster using the Oracle Configuration Wizard.
+> - Configure a WebLogic Server domain and a WebLogic Server cluster using the Oracle Configuration Wizard.
 > - Deploy and run a Java EE application in the cluster.
 > - Expose the application to the public internet via Azure Application Gateway.
 > - Validate the successful configuration.
 
 If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json). You can find these offers in Azure Marketplace with a [query for "WebLogic base image"](https://aka.ms/wls-vm-base-images).
 
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebLogic on Azure solutions, fill out this short [survey on WebLogic migration](https://aka.ms/wls-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Install Azure CLI version 2.46.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
@@ -35,11 +37,11 @@ If you prefer a fully automated solution that does all of these steps on your be
 
 ## Prepare the environment
 
-In this section, you set up the infrastructure within which you install the JDK and WLS.
+In this section, you set up the infrastructure within which you install the JDK and WebLogic Server.
 
 ### Assumptions
 
-In this tutorial, you configure a WLS cluster with an administration server and two managed servers on a total of three VMs. To configure the cluster, you need to create the following three Azure VMs within the same availability set:
+In this tutorial, you configure a WebLogic Server cluster with an administration server and two managed servers on a total of three VMs. To configure the cluster, you need to create the following three Azure VMs within the same availability set:
 
 - The admin VM (VM name `adminVM`) has the administration server running.
 - The managed VMs (VM names `mspVM1` and `mspVM2`) have two managed servers running.
@@ -73,7 +75,7 @@ az network vnet create \
     --address-prefixes 192.168.0.0/24
 ```
 
-Create a subnet for the WLS cluster by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `mySubnet`:
+Create a subnet for the WebLogic Server cluster by using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). The following example creates a subnet named `mySubnet`:
 
 ```azurecli
 az network vnet subnet create \
@@ -106,9 +108,9 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-The following sections describe the steps for installing WLS on either GNU/Linux or Windows Server. You can choose the operating system, JDK version, and WLS version according to your requirements, but you should verify that they're available in [Oracle Fusion Middleware Supported System Configurations](https://www.oracle.com/middleware/technologies/fusion-certification.html). Also, consider system and platform-specific requirements carefully before proceeding. For more information, see [System Requirements and Specifications](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/sysrs/system-requirements-and-specifications.html#GUID-A077A2B4-5967-42E0-A063-0F7A0A2254FB). Select the tab for your chosen operating system.
+The following sections describe the steps for installing WebLogic Server on either GNU/Linux or Windows Server. You can choose the operating system, JDK version, and WebLogic version according to your requirements, but you should verify that they're available in [Oracle Fusion Middleware Supported System Configurations](https://www.oracle.com/middleware/technologies/fusion-certification.html). Also, consider system and platform-specific requirements carefully before proceeding. For more information, see [System Requirements and Specifications](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/sysrs/system-requirements-and-specifications.html#GUID-A077A2B4-5967-42E0-A063-0F7A0A2254FB). Select the tab for your chosen operating system.
 
-This article uses an Azure VM image maintained by Oracle and Microsoft containing the latest supported version of the software. For the full list of WLS base images maintained by Oracle and Microsoft, see [Azure Marketplace](https://aka.ms/wls-vm-base-images). If you want to use Windows OS, the instructions start with a base Windows VM and walk you through the steps of installing all of the necessary dependencies.
+This article uses an Azure VM image maintained by Oracle and Microsoft containing the latest supported version of the software. For the full list of WebLogic Server base images maintained by Oracle and Microsoft, see [Azure Marketplace](https://aka.ms/wls-vm-base-images). If you want to use Windows OS, the instructions start with a base Windows VM and walk you through the steps of installing all of the necessary dependencies.
 
 #### [Oracle Linux](#tab/oracle-linux)
 
@@ -123,7 +125,7 @@ In this section, you create Oracle Linux machines with JDK 11 and WebLogic 14.1.
 
 Create a VM using [az vm create](/cli/azure/vm). You run the Administration Server on this VM.
 
-The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use SSL/TLS authentication instead.
+The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use TLS/SSL authentication instead.
 
 ```azurecli
 export VM_URN=Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest
@@ -142,7 +144,7 @@ az vm create \
 
 ### Create a Windows VM and set up X-server
 
-This tutorial uses the graphical interface of WebLogic Server to complete the installation and configuration. You use a Windows VM as a "jump box" and run an [X Windows System server](https://sourceforge.net/projects/vcxsrv/) to view the graphical installers on the three VMs of the WLS cluster.
+This tutorial uses the graphical interface of WebLogic Server to complete the installation and configuration. You use a Windows VM as a "jump box" and run an [X Windows System server](https://sourceforge.net/projects/vcxsrv/) to view the graphical installers on the three VMs of the WebLogic Server cluster.
 
 Follow these steps to provision a Windows 10 machine and install an X-server. If you already have a Windows machine within the same network as the Oracle Linux machine, you don't need to provision a new one from Azure. You can jump to the section that installs the X-server.
 
@@ -152,7 +154,7 @@ Follow these steps to provision a Windows 10 machine and install an X-server. If
 
 Create two VMs using [az vm create](/cli/azure/vm). You run the managed servers on this VM.
 
-The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use SSL/TLS authentication instead.
+The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use TLS/SSL authentication instead.
 
 ```azurecli
 export VM_URN=Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest
@@ -190,9 +192,9 @@ Now, you're ready to connect to the Oracle Linux machine to configure a WebLogic
 
 #### Create the domain using the configuration wizard
 
-You keep using the X-server and Oracle Configuration Wizard to create the WLS domain.
+You keep using the X-server and Oracle Configuration Wizard to create the WebLogic Server domain.
 
-The following section shows how to create a new WLS domain on the `adminVM`. Make sure you're still on your Windows machine, if not, remote connect to `myWindowsVM`.
+The following section shows how to create a new WebLogic Server domain on the `adminVM`. Make sure you're still on your Windows machine, if not, remote connect to `myWindowsVM`.
 
 1. Connect to `adminVM` from a command prompt.
 
@@ -318,7 +320,7 @@ You use the pack and unpack command to extend the domain.
 
 #### Create replicas using the pack and unpack command
 
-This tutorial uses the WLS pack and unpack command to extend the domain. For more information, see [Overview of the Pack and Unpack Commands](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.3/wldpu/overview-pack-and-unpack-commands.html#GUID-D37A439D-EB49-40AC-BDA8-0E362E35827F).
+This tutorial uses the WebLogic Server pack and unpack command to extend the domain. For more information, see [Overview of the Pack and Unpack Commands](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.3/wldpu/overview-pack-and-unpack-commands.html#GUID-D37A439D-EB49-40AC-BDA8-0E362E35827F).
 
 1. Pack the domain configuration on `adminVM` with the following steps, assuming you're still on `adminVM` and logged in with the `oracle` user:
 
@@ -448,7 +450,7 @@ set ADMINVM_IP="192.168.0.4"
 ssh azureuser@%ADMINVM_IP%
 ```
 
-If you aren't working with the `oracle` user, log in with `oracle`:
+If you aren't working with the `oracle` user, sign in with `oracle`:
 
 ```bash
 sudo su - oracle
@@ -486,7 +488,7 @@ password=Secret123456
 
 #### Enable the admin server and node manager to start automatically after VM restart
 
-Create a Linux service for the WLS admin server and node manager, to start the process automatically after reboot. For more information, see [Use systemd on Oracle Linux](https://docs.oracle.com/en/learn/use_systemd/index.html).
+Create a Linux service for the WebLogic admin server and node manager, to start the process automatically after reboot. For more information, see [Use systemd on Oracle Linux](https://docs.oracle.com/en/learn/use_systemd/index.html).
 
 Exit the `oracle` user and sign in with the `root` user.
 
@@ -596,7 +598,7 @@ set MSPVM1_IP="192.168.0.6"
 ssh azureuser@%MSPVM1_IP%
 ```
 
-If you aren't working with `oracle` user, log in with `oracle`:
+If you aren't working with `oracle` user, sign in with `oracle`:
 
 ```bash
 sudo su - oracle
@@ -794,7 +796,7 @@ Now, open the Administration Console portal from a browser in your Windows machi
 
 ### Clean up the Windows machine
 
-You completed the WLS cluster configuration. If desired, remove the Windows machine with the following commands. Alternatively, you could shut down the Windows machine `myWindowsVM` and continue to use it as a jump box for ongoing cluster maintenance tasks.
+You completed the WebLogic Server cluster configuration. If desired, remove the Windows machine with the following commands. Alternatively, you could shut down the Windows machine `myWindowsVM` and continue to use it as a jump box for ongoing cluster maintenance tasks.
 
 [!INCLUDE [clean-up-windows-xserver-machine](includes/clean-up-windows-xserver-machine.md)]
 
@@ -836,7 +838,7 @@ After you're connected, search for and open **Windows Defender Firewall**. Selec
 After the configuration is complete, lock down the WebLogic Server by following an authoritative guide on the topic, such as [Securing a Production Environment for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/lockd/secure.html).
 
 > [!NOTE]
-> To stand up the WLS cluster, open the ports to access Administration Server, Managed Servers, and form the cluster. This tutorial turns off **Windows Defender Firewall** to enable the required ports. If you don't want to turn off the firewall, make sure those ports are available inside the private virtual network: `7001` for Administration Server, `8001` for Managed Servers, and `5556` for Node Manager.
+> To stand up the WebLogic Server cluster, open the ports to access Administration Server, Managed Servers, and form the cluster. This tutorial turns off **Windows Defender Firewall** to enable the required ports. If you don't want to turn off the firewall, make sure those ports are available inside the private virtual network: `7001` for Administration Server, `8001` for Managed Servers, and `5556` for Node Manager.
 
 Next, you install the required tools with the graphical installer. The following sections guide you to install Oracle JDK 11 and Oracle WebLogic 14c Enterprise Edition.
 
@@ -868,18 +870,18 @@ Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.16+11-LTS-199, mixed mode)
 
 ### Install Oracle WebLogic Server 14c Enterprise Edition
 
-This section shows you how to install WLS 14c on Windows Server.
+This section shows you how to install WebLogic Server 14c on Windows Server.
 
-Open the download folder that contains WLS installer ZIP file. Here the file name is *fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip*. Right click the file and select **Extract all** to the default path.
+Open the download folder that contains WebLogic Server installer ZIP file. Here the file name is *fmw_14.1.1.0.0_wls_lite_Disk1_1of1.zip*. Right click the file and select **Extract all** to the default path.
 
-Open a command prompt, then use the following commands to install WLS:
+Open a command prompt, then use the following commands to install WebLogic Server:
 
 ```cmd
 set WLS_VERSION_PREFIX=fmw_14.1.1.0.0_wls_lite
 java -jar C:\Users\azureuser\Downloads\%WLS_VERSION_PREFIX%_Disk1_1of1\%WLS_VERSION_PREFIX%_wls_lite_generic.jar
 ```
 
-The command launches the WLS installer, as shown in the following screenshot:
+The command launches the WebLogic Server installer, as shown in the following screenshot:
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/winserv22-wls-installation-welcome.png" alt-text="Screenshot of Oracle WebLogic Server Installation Welcome." lightbox="media/migrate-weblogic-to-vm-manually/winserv22-wls-installation-welcome.png":::
 
@@ -910,7 +912,7 @@ Select **Finished**. You finished installing Oracle WebLogic 14c and its depende
 
 ### Create machines for managed servers
 
-Now you installed Oracle JDK 11 and Oracle WebLogic Server 14c Enterprise Edition on `adminVM`, which runs the WLS Administration Server. You still need to prepare machines to run two managed servers.
+You installed Oracle JDK 11 and Oracle WebLogic Server 14c Enterprise Edition on `adminVM`, which runs the WebLogic Administration Server. You still need to prepare machines to run two managed servers.
 
 This section introduces an approach to prepare machines with the snapshot of `adminVM`. You create the machines from the Azure portal.
 
@@ -958,7 +960,7 @@ Now, all the machines are ready. Next, you configure a WebLogic cluster.
 
 #### Create the domain using configuration wizard
 
-This section shows the steps to create a new WLS domain on `adminVM`.
+This section shows the steps to create a new WebLogic Server domain on `adminVM`.
 
 Connect to `adminVM`. Open a command prompt, then use the following commands to start the Oracle Configuration Wizard:
 
@@ -1044,7 +1046,7 @@ You finished configuring the `wlsd` domain with a cluster `cluster1` including t
 
 #### Create replicas using the pack and unpack command
 
-This tutorial uses the WLS pack and unpack command to extend the domain. For more information, see [Overview of the Pack and Unpack Commands](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.3/wldpu/overview-pack-and-unpack-commands.html#GUID-D37A439D-EB49-40AC-BDA8-0E362E35827F). Use the following steps to create the replicas:
+This tutorial uses the WebLogic Server pack and unpack command to extend the domain. For more information, see [Overview of the Pack and Unpack Commands](https://docs.oracle.com/en/middleware/fusion-middleware/12.2.1.3/wldpu/overview-pack-and-unpack-commands.html#GUID-D37A439D-EB49-40AC-BDA8-0E362E35827F). Use the following steps to create the replicas:
 
 1. First, pack the domain configuration on `adminVM` by following these instructions:
 
@@ -1399,13 +1401,13 @@ az network nsg delete --ids ${MSPVM2VM_NSG_ID}
 
 ---
 
-## Expose WLS with Azure Application Gateway
+## Expose WebLogic Server with Azure Application Gateway
 
-Now that you created the WebLogic Server (WLS) cluster on either Windows or GNU/Linux virtual machines, this section walks you through the process of exposing WLS to the internet with Azure Application Gateway.
+Now that you created the WebLogic Server (WLS) cluster on either Windows or GNU/Linux virtual machines, this section walks you through the process of exposing WebLogic Server to the internet with Azure Application Gateway.
 
 ### Create the Azure Application Gateway
 
-To expose WLS to the internet, a public IP address is required. Create the public IP address and then associate an Azure Application gateway with it. Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create it, as shown in the following example:
+To expose WebLogic Server to the internet, a public IP address is required. Create the public IP address and then associate an Azure Application gateway with it. Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create it, as shown in the following example:
 
 ```azurecli
 az network public-ip create \
@@ -1548,16 +1550,16 @@ export APPGATEWAY_IP=$(az network public-ip show \
 echo "admin console URL is http://${APPGATEWAY_IP}/console/"
 ```
 
-Verify that you can log into the Administration Server console. If you can't, troubleshoot and resolve the problem before proceeding.
+Verify that you can sign into the Administration Server console. If you can't, troubleshoot and resolve the problem before proceeding.
 
 > [!NOTE]
-> This example sets up simple access to the WebLogic servers with HTTP. If you want secure access, configure SSL/TLS termination by follow the instructions in [End to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
+> This example sets up simple access to the WebLogic servers with HTTP. If you want secure access, configure TLS/SSL termination by follow the instructions in [End to end TLS with Application Gateway](/azure/application-gateway/ssl-overview).
 >
 > This example exposes the Administration Server console via the Application Gateway. Don't do this in a production environment.
 
 ## Deploy a sample application
 
-This section shows you how to deploy a simple application to the WLS cluster. First, download [testwebapp.war](https://aka.ms/wls-aks-testwebapp) from Oracle and save the file to your local filesystem. Then, use the following steps to deploy the application:
+This section shows you how to deploy an application to the WebLogic Server cluster. First, download [testwebapp.war](https://aka.ms/wls-aks-testwebapp) from Oracle and save the file to your local filesystem. Then, use the following steps to deploy the application:
 
 1. Open a web browser.
 1. Navigate to the Administration Console portal with the URL `http://<gateway-public-ip-address>/console/`, then sign in with your admin account and password. In this example, they're `weblogic/Secret123456`.
@@ -1570,9 +1572,9 @@ This section shows you how to deploy a simple application to the WLS cluster. Fi
 1. Select **Yes**.
 1. You're shown a message saying `Start requests have been sent to the selected deployments.` The status of the application must be **Active**.
 
-## Test the WLS cluster configuration
+## Test the WebLogic Server cluster configuration
 
-You finished configuring the WLS cluster and deploying the Java EE application to it. Use the following steps to access the application to validate all the settings:
+You finished configuring the WebLogic Server cluster and deploying the Java EE application to it. Use the following steps to access the application to validate all the settings:
 
 1. Open a web browser.
 1. Navigate to the application with the URL `http://<gateway-public-ip-address>/testwebapp/`.
@@ -1587,7 +1589,10 @@ az group delete --name ${RESOURCE_GROUP_NAME} --yes --no-wait
 
 ## Next steps
 
-Continue to explore options to run WLS on Azure.
+Continue to explore options to run WebLogic Server on Azure.
 
-> [!div class="nextstepaction"]
-> [Learn more about Oracle WebLogic on Azure](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
+* [WebLogic Server on Azure Virtual Machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+* [WebLogic Server on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+* [Explore options for day 2 and beyond](https://aka.ms/wls-vms-day2)
+
+For more information about Oracle WebLogic offers, see [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all *Bring-Your-Own-License*. They assume you already have the appropriate licenses with Oracle and are properly licensed to run offers in Azure.

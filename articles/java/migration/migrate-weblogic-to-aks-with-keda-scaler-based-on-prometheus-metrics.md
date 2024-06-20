@@ -55,7 +55,7 @@ The following table shows the exported WebLogic metrics:
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - Make sure you have either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 - Prepare a local machine with either Windows with WSL, GNU/Linux, or macOS installed.
 - Install Azure CLI version 2.54.0 or higher to run Azure CLI commands.

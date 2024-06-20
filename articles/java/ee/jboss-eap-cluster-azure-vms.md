@@ -20,7 +20,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 - Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for JBoss EAP. This entitlement lets the Azure portal install the Red Hat tested and certified JBoss EAP version.
   > [!NOTE]
@@ -294,4 +294,4 @@ az group delete --name $RG_NAME --yes --no-wait
 Learn more about your options for deploying JBoss EAP on Azure:
 
 > [!div class="nextstepaction"]
-> [JBoss EAP on Azure](jboss-on-azure.md)
+> [Explore JBoss EAP on Azure](jboss-on-azure.md)
