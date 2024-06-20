@@ -1,82 +1,35 @@
 ---
-ms.author: tarcher
-ms.topic: include
-ms.date: 04/22/2023
-ms.custom: devx-track-terraform
+title: Authenticate to Azure with service principal
+description: Learn how to authenticate Terraform to Azure with a service principal
+keywords: azure devops terraform cli powershell authentication microsoft account subscription environment variables provider block
+ms.topic: how-to
+ms.date: 06/20/2024
+ms.custom: devx-track-terraform, devx-track-azurepowershell
+# Customer intent: I want to authenticate Terraform to Azure.
 ---
 
-### Terraform and Azure authentication scenarios
+# Authenticate to Azure with service principal
 
-Terraform only supports authenticating to Azure via the Azure CLI. Authenticating using Azure PowerShell isn't supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you first need to authenticate to Azure using the Azure CLI.
+This article explains how to authenticate Terraform to Azure with a service principal.
 
-This article explains how to authenticate Terraform to Azure for the following scenarios. For more information about options to authenticate Terraform to Azure, see [Authenticating using the Azure CLI](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/guides/azure_cli).
+In this article, you learn how to:
 
-- [Authenticate via a Microsoft account using Cloud Shell (with Bash or PowerShell)](#authenticate-to-azure-via-a-microsoft-account)
-- [Authenticate via a Microsoft account using Windows (with Bash or PowerShell)](#authenticate-to-azure-via-a-microsoft-account)
-- Authenticate via a service principal:
-    1. If you don't have a service principal, [create a service principal](#create-a-service-principal).
-    1. [Authenticate to Azure using environment variables](#specify-service-principal-credentials-in-environment-variables) or [authenticate to Azure using the Terraform provider block](#specify-service-principal-credentials-in-a-terraform-provider-block)
+> [!div class="checklist"]
+> * Create a service principal
+> * Specifying service principal credentials in environment variables
+> * Specify service principal credentials in a Terraform provider block
 
-### Authenticate to Azure via a Microsoft account
+## Create a service principal
 
-A Microsoft account is a username (associated with an email and its credentials) that is used to sign in to Microsoft services - such as Azure. A Microsoft account can be associated with one or more Azure subscriptions, with one of those subscriptions being the default.
-
-The following steps show you how:
-
-- Sign in to Azure interactively using a Microsoft account
-- List the account's associated Azure subscriptions (including the default)
-- Set the current subscription.
-
-1. Open a command line that has access to the Azure CLI.
-
-1. Run [az login](/cli/azure/account#az-login) without any parameters and follow the instructions to sign in to Azure.
-
-    ```azurecli
-    az login
-    ```
-
-    **Key points:**
-
-    - Upon successful sign in, `az login` displays a list of the Azure subscriptions associated with the logged-in Microsoft account, including the default subscription.
-
-1. To confirm the current Azure subscription, run [az account show](/cli/azure/account#az-account-show).
-
-    ```azurecli
-    az account show
-    ```
-
-1. To view all the Azure subscription names and IDs for a specific Microsoft account, run [az account list](/cli/azure/account#az-account-list). 
-
-    ```azurecli
-    az account list --query "[?user.name=='<microsoft_account_email>'].{Name:name, ID:id, Default:isDefault}" --output Table
-    ```
-
-    **Key points:**
-
-    - Replace the `<microsoft_account_email>` placeholder with the Microsoft account email address whose Azure subscriptions you want to list.
-    - With a Live account - such as a Hotmail or Outlook - you might need to specify the fully qualified email address. For example, if your email address is `admin@hotmail.com`, you might need to replace the placeholder with `live.com#admin@hotmail.com`.
-
-1.  To use a specific Azure subscription, run [az account set](/cli/azure/account#az-account-set).
-
-    ```azurecli
-    az account set --subscription "<subscription_id_or_subscription_name>"
-    ```
-    
-    **Key points:**
-    
-    - Replace the `<subscription_id_or_subscription_name>` placeholder with the ID or name of the subscription you want to use.
-    - Calling `az account set` doesn't display the results of switching to the specified Azure subscription. However, you can use `az account show` to confirm that the current Azure subscription has changed.
-    - If you run the `az account list` command from the previous step, you see that the default Azure subscription has changed to the subscription you specified with `az account set`.
-    
-### Create a service principal
+If you don't have access to a service principal, continue with this section to create a new service principal. If you have a service principal you can use, skip to the section, [Specify service principal credentials](#specify-service-principal-credentials).
 
 Automated tools that deploy or use Azure services - such as Terraform - should always have restricted permissions. Instead of having applications sign in as a fully privileged user, Azure offers service principals.
 
 The most common pattern is to interactively sign in to Azure, create a service principal, test the service principal, and then use that service principal for future authentication (either interactively or from your scripts).
 
-#### [Bash](#tab/bash)
+### [Bash](#tab/bash)
 
-1. To create a service principal, sign in to Azure. After [authenticating to Azure via a Microsoft account](#authenticate-to-azure-via-a-microsoft-account), return here.
+1. To create a service principal, sign in to Azure. After [authenticating to Azure via a Microsoft account](authenticate-to-azure-with-microsoft-account.md), return here.
 
 1. If you're creating a service principal from Git Bash, set the `MSYS_NO_PATHCONV` environment variable. (This step isn't necessary if you're using Cloud Shell.)
 
@@ -103,7 +56,7 @@ The most common pattern is to interactively sign in to Azure, create a service p
     - The output from creating the service principal includes sensitive credentials. Be sure that you don't include these credentials in your code or check the credentials into your source control.
     - For more information about options when creating a service principal with the Azure CLI, see the article [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?).
 
-#### [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 1. Open a PowerShell prompt.
 
@@ -168,11 +121,18 @@ The most common pattern is to interactively sign in to Azure, create a service p
     ```
 
     **Key points:**
-    
+
     - Make note of the password as it's needed to use the service principal.
     - The password can't be retrieved if lost. As such, you should store your password in a safe place. If you forget your password, you can [reset the service principal credentials](/powershell/azure/create-azure-service-principal-azureps#reset-credentials).
 
 ---
+
+## Specify service principal credentials
+
+There are a couple of ways to specify your service principal credentials. However, for security reasons, we suggest not storing credentials in the provider block. That technique is shown only for completeness and testing purposes.
+
+- [Specify service principal credentials in environment variables](#specify-service-principal-credentials-in-environment-variables)
+- [Specify service principal credentials in a Terraform provider block](#specify-service-principal-credentials-in-a-terraform-provider-block)
 
 ### Specify service principal credentials in environment variables
 
@@ -201,7 +161,9 @@ Once you create a service principal, you can specify its credentials to Terrafor
     printenv | grep ^ARM*
     ```
 
-[!INCLUDE [environment-variables-notes.md](environment-variables-notes.md)]
+    [!INCLUDE [environment-variables-notes.md](./includes/environment-variables-notes.md)]
+
+1. Skip to the section, [Next steps](#next-steps)
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
@@ -222,11 +184,16 @@ Once you create a service principal, you can specify its credentials to Terrafor
 
 1. To set the environment variables for every PowerShell session, [create a PowerShell profile](/powershell/module/microsoft.powershell.core/about/about_profiles) and set the environment variables within your profile.
 
-[!INCLUDE [environment-variables-notes.md](environment-variables-notes.md)]
+    [!INCLUDE [environment-variables-notes.md](./includes/environment-variables-notes.md)]
+
+1. Skip to the section, [Next steps](#next-steps)
 
 ---
 
 ### Specify service principal credentials in a Terraform provider block
+
+> [!CAUTION]
+> The ability to specify your Azure subscription credentials in a Terraform configuration file can be convenient - especially when testing. However, it isn't advisable to store credentials in a clear-text file that can be viewed by non-trusted individuals.
 
 The Azure provider block defines syntax that allows you to specify your Azure subscription's authentication information.
 
@@ -235,7 +202,7 @@ terraform {
   required_providers {
     azurerm = {
       source = "hashicorp/azurerm"
-      version = "~>2.0"
+      version = "~>3.0"
     }
   }
 }
@@ -252,5 +219,7 @@ provider "azurerm" {
 # Your code goes here
 ```
 
-> [!CAUTION]
-> The ability to specify your Azure subscription credentials in a Terraform configuration file can be convenient - especially when testing. However, it isn't advisable to store credentials in a clear-text file that can be viewed by non-trusted individuals.
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Verify the results](authenticate-to-azure.md#3-verify-the-results)
