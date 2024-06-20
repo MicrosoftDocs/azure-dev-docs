@@ -16,7 +16,6 @@ This article explains how to authenticate Terraform to Azure for the following s
 - Authenticate via a service principal:
     1. If you don't have a service principal, [create a service principal](#create-a-service-principal).
     1. [Authenticate to Azure using environment variables](#specify-service-principal-credentials-in-environment-variables) or [authenticate to Azure using the Terraform provider block](#specify-service-principal-credentials-in-a-terraform-provider-block)
-- [Authenticate via Managed identities for Azure resources](../authenticate-to-azure-using-msi.md)
 
 ### Authenticate to Azure via a Microsoft account
 
