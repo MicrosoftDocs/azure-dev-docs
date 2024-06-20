@@ -236,4 +236,4 @@ To use a system-assigned managed identity, use the following steps:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Your first Terraform project: Create an Azure resource group](./create-resource-group.md)
+> [Your first Terraform project: Create an Azure resource group](create-resource-group.md)
