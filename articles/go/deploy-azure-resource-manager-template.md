@@ -185,7 +185,7 @@ az login
 If there are multiple subscriptions associated with your account, use the [az account list](/cli/azure/account#az-account-list) command to get a list of those subscriptions and the [az account set](/cli/azure/account#az-account-set) command to set the active subscription. Doing so ensures that any CLI commands you issue in the rest of this article are run against your intended subscription.
 
 > [!NOTE]
-> When running locally, `DefaultAzureCredential` can also use the credentials you sign in to the Azure Developer CLI (AZD) with or an Azure service principal configured in environment variables. For information about all the credential types that `DefaultAzureCredential` supports, see [Azure authentication with the Azure Identity module for Go](azure-sdk-authentication.md).
+> `DefaultAzureCredential` also supports Azure Developer CLI (AZD) sign-in credentials or an Azure service principal configured in environment variables when running locally. To learn more about all the credential types supported by `DefaultAzureCredential`, see [Azure authentication with the Azure Identity module for Go](azure-sdk-authentication.md).
 
 ## Run the application
 
@@ -211,13 +211,13 @@ go run main.go
 
 ## Troubleshoot
 
-If an error is encountered when running the program, check the following:
+If the program returns an error related to authentication or authorization, check the following:
 
-- If the error begins with a timestamp and the following text: "failed to obtain a response: DefaultAzureCredential: failed to acquire a token.", make sure that you signed in to the Azure CLI as instructed previously.
+- If the error begins with a timestamp and the following text: `failed to obtain a response: DefaultAzureCredential: failed to acquire a token.`, make sure that you signed in to the Azure CLI as instructed previously.
 
-- If the error is an authorization (401) or forbidden (403) error, make sure your user account is in an Azure role that gives it rights to create resource groups and add resources on your subscription. For example, the *Contributor* or *Owner* [Azure built-in roles](/azure/role-based-access-control/built-in-roles). To learn how to assign roles, see [Assign Azure roles using Azure CLI](/azure/role-based-access-control/role-assignments-cli).
+- If the error is an authorization (status code 401) or forbidden (status code 403) error, make sure your user account is in an Azure role that gives it rights to create resource groups and add resources on your subscription. Examples of such roles are the *Contributor* or *Owner* [Azure built-in roles](/azure/role-based-access-control/built-in-roles). To learn how to assign Azure roles to your user, see [Assign Azure roles using Azure CLI](/azure/role-based-access-control/role-assignments-cli).
 
-- For more detailed guidance, see [Troubleshoot Azure Identity authentication issues](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azidentity/TROUBLESHOOTING.md).
+- For more detailed troubleshooting guidance, see [Troubleshoot Azure Identity authentication issues](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azidentity/TROUBLESHOOTING.md).
 
 ## Verify the resources on Azure
 
