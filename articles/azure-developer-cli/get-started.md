@@ -78,7 +78,7 @@ A local development environment is a great choice for traditional development wo
 
 - [Install the Azure Developer CLI](./install-azd.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [OpenJDK 17](https://learn.microsoft.com/java/openjdk/download#openjdk-17)
+- [OpenJDK 17](/java/openjdk/download#openjdk-17)
 - [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
 
 ::: zone-end
