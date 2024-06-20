@@ -8,7 +8,7 @@ ms.custom: devx-track-terraform, devx-track-azurepowershell
 # Customer intent: I want to authenticate Terraform to Azure.
 ---
 
-# Authenticate Terraform using Managed Identity
+# Authenticate Terraform using Managed Identity for Azure services
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 

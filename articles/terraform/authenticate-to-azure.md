@@ -61,4 +61,4 @@ Get-AzContext
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure resource group](create-resource-group.md)
+> [Your first Terraform project: Create an Azure resource group](create-resource-group.md)
