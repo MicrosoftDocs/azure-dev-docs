@@ -139,8 +139,6 @@ A local development environment is a great choice for traditional development wo
     azd up
     ```
 
-1. If you are not already signed-in to Azure, the browser will launch and ask you to sign-in.
-
 1. Once you are signed-in to Azure, you will be prompted for the following information:
 
     | Parameter | Description |
@@ -150,20 +148,20 @@ A local development environment is a great choice for traditional development wo
   
     Select your desired values and press enter. The `azd up` command handles the following tasks for you using the template configuration and infrastructure files:
   
-  - Creates and configures all necessary Azure resources (`azd provision`), including:
-  - Access policies and roles for your account
-  - Service-to-service communication with Managed Identities
-  - Packages and deploys the code (`azd deploy`)
-  
-  When the `azd up` command completes successfully, the CLI displays two links to view resources created:
-  
-  - ToDo API app
-  - ToDo web app frontend
-  
-  :::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
-  
-  > [!NOTE]
-  > You can call `azd up` as many times as you like to both provision and deploy updates to your application.
+    - Creates and configures all necessary Azure resources (`azd provision`), including:
+    - Access policies and roles for your account
+    - Service-to-service communication with Managed Identities
+    - Packages and deploys the code (`azd deploy`)
+
+    When the `azd up` command completes successfully, the CLI displays two links to view resources created:
+
+    - ToDo API app
+    - ToDo web app frontend
+
+    :::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
+
+    > [!NOTE]
+    > You can call `azd up` as many times as you like to both provision and deploy updates to your application.
 
 ## [Codespaces](#tab/codespaces)
 
