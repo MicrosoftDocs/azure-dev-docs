@@ -142,7 +142,7 @@ When pinning a specific version of Jackson, make sure to do it for all modules u
 
 Azure client libraries for Java are in the process of migration to [`azure-json`](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/serialization/azure-json). It does not depend on any 3rd party components and offers shared primitives, abstractions, and helpers for JSON.
 
-Environments like Apache Spark, Apache Flink, or Databricks may bring older versions of `azure-core` (that doesn't depend on `azure-json` yet). As a result, when using newer versions of Azure libraries in such environments, you might get errors similar to `java.lang.NoClassDefFoundError: com/azure/json/JsonSerializable`. This error could be mitigated by adding explicit dependency on `azure-json`.
+Environments like Apache Spark, Apache Flink, or Databricks may bring older versions of `azure-core` that don't depend on `azure-json` yet. As a result, when using newer versions of Azure libraries in such environments, you might get errors similar to `java.lang.NoClassDefFoundError: com/azure/json/JsonSerializable`. This error could be mitigated by adding an explicit dependency on `azure-json`.
 
 ## Next steps
 
