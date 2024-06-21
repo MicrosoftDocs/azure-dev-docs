@@ -20,7 +20,7 @@ ms.date: 06/21/2024
 
    It takes a few minutes to create the VM and supporting resources.
 
-   After the deployment finishes, install the X server and use it to configure WebLogic Server on the Oracle Linux machines by using a graphical interface.
+   After the deployment finishes, install the X server and use it to configure the application server on the Linux machines by using a graphical interface.
 
 1. Use the following steps to install and launch the X server:
 
