@@ -6,6 +6,7 @@ ms.topic: get-started
 ms.service: azure-javascript
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai
+ms.collection: ce-skilling-ai-copilot
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want to understand and deploy an app using assistants and function calling.
 ---
 # Get started with Azure OpenAI with Assistants and function calling in JavaScript
