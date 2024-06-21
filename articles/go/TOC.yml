@@ -31,6 +31,8 @@ items:
     - name: Authentication
       expanded: false
       items:
+        - name: Overview
+          href: sdk/authentication-overview.md
         - name: Authentication with the autorest package (legacy)
           href: azure-sdk-authorization.md
         - name: Auth with Azure Identity module overview
