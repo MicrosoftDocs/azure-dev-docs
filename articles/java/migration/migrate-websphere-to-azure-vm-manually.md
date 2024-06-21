@@ -4,7 +4,7 @@ description: Get step-by-step guidance to install IBM WebSphere Application Serv
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
-ms.date: 05/29/2024
+ms.date: 06/21/2024
 recommendations: false
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-was-vm, devx-track-javaee-was, devx-track-javaee-websphere, migration-java, linux-related-content
 ---
