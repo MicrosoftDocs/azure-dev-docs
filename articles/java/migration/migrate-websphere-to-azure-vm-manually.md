@@ -167,7 +167,7 @@ export VM_URN="ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2023-03-27-twas-clust
 ```
 
 ```powershell
-$Env:ADMIN_OS_DISK_ID="ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2023-03-27-twas-cluster-base-image:2023-03-27-twas-cluster-base-image:latest"
+$Env:VM_URN="ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2023-03-27-twas-cluster-base-image:2023-03-27-twas-cluster-base-image:latest"
 ```
 
 ### [WAS ND V85](#tab/was-nd-v85)
