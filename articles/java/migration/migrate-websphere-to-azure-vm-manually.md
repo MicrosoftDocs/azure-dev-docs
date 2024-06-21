@@ -284,7 +284,7 @@ Use the following steps to install the required dependencies to allow the connec
 
 1. Use the following steps to get the private IP address of `adminVM`:
 
-   1. In the Azure portal, select the resource group `abc1110rg`.
+   1. In the Azure portal, select the resource group you created before.
    1. In the list of resources, select `adminVM`.
    1. On the overview pane, select **Properties**.
    1. In the **Networking** section, copy the value of **Private IP address**. In this example, the value is `192.168.0.4`.
