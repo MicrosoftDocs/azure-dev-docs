@@ -320,7 +320,7 @@ Later, you continue to mount the data disk on `adminVM`, so keep this terminal o
 
 ### [WAS ND V9](#tab/was-nd-v9)
 
-This step is already performed for you when you use the VM base image. Set the following environment variables in the shell on `adminVM`.
+This step is already performed for you when you use the VM base image.
 
 ### [WAS ND V85](#tab/was-nd-v85)
 
