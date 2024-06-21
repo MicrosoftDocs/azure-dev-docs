@@ -138,7 +138,7 @@ When pinning a specific version of Jackson, make sure to do it for all modules u
 - `jackson-dataformat-xml`
 - `jackson-datatype-jsr310`
 
-### Migration to `azure-core`
+### Migration from Jackson to `azure-json`
 
 Azure client libraries for Java are in the process of migration to [`azure-json`](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/serialization/azure-json) which offers shared primitives, abstractions, and helpers for JSON that does not depend on 3rd party components.
 
