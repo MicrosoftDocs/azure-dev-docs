@@ -42,11 +42,11 @@ In this example, you'll use the **Starter - Bicep** template, which includes the
 
     :::image type="content" source="media/make-azd-compatible/azd-init.png" alt-text="A screenshot showing the select a template options.":::
 
-1. From the list of templates, select **Starter - Bicep**. You may need to scroll through the list using your keyboard arrow keys to find the template.
+1. From the list of templates, select **Starter - Bicep**. You can type the template name or use your keyboard arrow keys to find it.
 
 1. When prompted, enter a short environment name, such as **testenv**.
 
-1. After you run `azd init`, the following assets are added to your project:
+1. After you run `azd init`, the following assets are added to your current directory:
 
     ```txt
     ├── .azdo                                        [ Configures an Azure Pipeline ]

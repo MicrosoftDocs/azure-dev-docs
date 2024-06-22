@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli, devx-track-bicep, build-2023
 
 # Create Azure Developer CLI templates overview
 
-The Azure Developer CLI (`azd`) is designed around a [template system](azd-templates.md) to provision and deploy app resources to the cloud. Developers add support for `azd` commands and features by converting their applications to templates. This article provides a contextual overview of the different options for building `azd` templates. Once you understand the concepts in this article, visit the following resources for more detailed implementation guides:
+The Azure Developer CLI (`azd`) utilizes [templates](azd-templates.md) to provision and deploy app resources to the cloud. Developers can add support for `azd` commands and features by converting their applications to templates. This article provides a contextual overview of the different options for building `azd` templates. Once you understand the concepts in this article, visit the following resources for more detailed implementation guides:
 
 - [Use an existing template for your app](use-existing-template.md).
 - [Create a template from your app code](use-app-code.md)
@@ -62,13 +62,13 @@ Run this command in the root of the directory you'd like to convert to an `azd t
 
 ### Use code in the current directory
 
-This option instructs `azd` to analyze the code in your directory to identity which technologies it uses, such as the programming language, framework and database system.`azd` automatically generates template assets for you, such as the `azure.yaml` service definition file and the `infra` folder with infrastructure-as-code files. The generated assets are a starting point for additional modifications. Use this approach if you plan to use common Azure services supported by `azd` scaffolding features.
+This option instructs `azd` to analyze the code in your directory to identity which technologies it uses, such as the programming language, framework and database system. `azd` automatically generates template assets for you, such as the `azure.yaml` service definition file and the `infra` folder with infrastructure-as-code files. The generated assets are a starting point for additional modifications. Use this approach if you plan to use common Azure services supported by `azd` scaffolding features.
 
-Visit the [Use your app code to create a template](use-app-code.md) tutorial for details on how to implement this approach and more information on which Azure resources support automatic detection and scaffolding..
+Visit the [Use your app code to create a template](use-app-code.md) tutorial for details on how to implement this approach and more information on which Azure resources support automatic detection and scaffolding.
 
 ### Use an existing template
 
-Select this option to use an existing template that defines many of your Azure resources and architectural goals as a starting point. `azd` allows you to select a starter template or browse templates from the Awesome AZD gallery. When you select a template, the assets of that template are added to your existing project directory to use as a starting point. Some starter templates include sample app code that you can replace with your own, while some are infrastructure only.
+Select this option to use an existing template that defines many of your Azure resources and architectural goals as a starting point. `azd` will prompt you to select a starter template or another template from the [awesome-azd](https://azure.github.io/awesome-azd/) gallery. When you select a template, the assets of that template are added to your existing project directory to use as a starting point. Some templates include sample app code that you can replace with your own, while some (called "starter templates") are infrastructure only.
 
 Use the `azd init` command to pull down an existing template to an empty directory and use it as a starting point for your own app. If the template includes app source code, you can either build off of that code or replace the source code directory with your own.
 
