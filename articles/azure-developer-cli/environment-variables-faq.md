@@ -15,7 +15,7 @@ This article answers frequently asked questions about working with environment v
 
 ### What are the differences between `azd` environment variables and system environment variables?
 
-`azd` environment variables are stored in the `.env` file in the `.azure/<environment name>` directory of your project and are separate from your system/os environment variables. `azd` environment variables configure template provisioning and deployment tasks and are accessible using commands such as [`azd env`](/azure/developer/azure-developer-cli/reference#azd-env) or [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values).
+`azd` environment variables are stored in the `.env` file in the `.azure/<environment name>` directory of your project and are separate from your system/OS environment variables. `azd` environment variables configure template provisioning and deployment tasks and are accessible using commands such as [`azd env`](/azure/developer/azure-developer-cli/reference#azd-env) or [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values).
 
 :::image type="content" source="media/faq/environment-folders.png" alt-text="A screenshot of the environment folder structure.":::
 
@@ -36,7 +36,7 @@ output API_BASE_URL string = api.outputs.SERVICE_API_URI
 output REACT_APP_WEB_BASE_URL string = web.outputs.SERVICE_WEB_URI
 ```
 
-`azd` writes these two variables to the `.env` file in the `.azure/<environment name>` directory of your project:
+After a successful `azd up` or `azd provision`, `azd` writes these two variables to the `.env` file in the `.azure/<environment name>` directory of your project:
 
 ```output
 API_BASE_URL="<example-api-url>"
@@ -73,7 +73,7 @@ Common reasons to access `azd` environment variables include the following:
 
 ### How do I manually set a new `azd` environment variable?
 
-Set additional `azd` environment variables using the [`azd env set`](https://review.learn.microsoft.com/en-us/azure/developer/azure-developer-cli/reference?branch=pr-en-us-5900#azd-env-set) command, providing the key and value for your variable.
+Set additional `azd` environment variables using the [`azd env set`](https://review.learn.microsoft.com/azure/developer/azure-developer-cli/reference?branch=pr-en-us-5900#azd-env-set) command, providing the key and value for your variable.
 
 Common reasons to set `azd` environment variables include the following:
 
@@ -82,7 +82,7 @@ Common reasons to set `azd` environment variables include the following:
 - Provide additional custom configuration values for use in provisioning, deployment, or custom scripts.
 
 ```azdeveloper
-azd env set MyKey MyValue
+azd env set MY_KEY MyValue
 ```
 
 ### What is the recommend approach to copy or write `azd` environment variables as system environment variables?
