@@ -159,7 +159,7 @@ DefaultAzureCredential(exclude_interactive_browser_credential=False)
 
 ## 4 - Implement DefaultAzureCredential in your application
 
-To authenticate Azure SDK client objects to Azure, your application should use the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class from the `azure.identity` package. In this scenario, `DefaultAzureCredential` will sequentially check to see if the developer has signed-in to Azure using the Azure CLI, Azure PowerShell, or Azure developer CLI. If the developer is signed-in to Azure using any of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure.
+To authenticate Azure SDK client objects to Azure, your application should use the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class from the `azure.identity` package. In this scenario, `DefaultAzureCredential` will sequentially check to see if the developer has signed-in to Azure using the Azure CLI, Azure PowerShell, or Azure developer CLI. If the developer is signed-in to Azure using any of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure. You may also choose to use the `BlobServiceClient` from the `azure.storage.blob` package to interact with an [Azure Storage Account](https://learn.microsoft.com/azure/storage/common/storage-account-overview).
 
 Start by adding the [azure.identity](https://pypi.org/project/azure-identity/) package to your application.
 
@@ -167,11 +167,17 @@ Start by adding the [azure.identity](https://pypi.org/project/azure-identity/) p
 pip install azure-identity
 ```
 
+If your application interacts with an Azure Storage Account, add the [azure.storage.blob](https://pypi.org/project/azure-storage-blob/) package to your application.
+
+```terminal
+pip install azure-storage-blob
+```
+
 Next, for any Python code that creates an Azure SDK client object in your app, you'll want to:
 
 1. Import the `DefaultAzureCredential` class from the `azure.identity` module.
-1. Create a `DefaultAzureCredential` object.
-1. Pass the `DefaultAzureCredential` object to the Azure SDK client object constructor.
+2. Create a `DefaultAzureCredential` object.
+3. Pass the `DefaultAzureCredential` object to the Azure SDK client object constructor.
 
 An example of these steps is shown in the following code segment.
 
