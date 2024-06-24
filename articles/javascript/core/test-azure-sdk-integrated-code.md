@@ -49,11 +49,15 @@ Unit testing in JavaScript applications integrated with Azure SDKs often require
 
 Integration testing assesses the interaction between your application and Azure services, ensuring that components work together as expected. **Automated Integration Tests** can be set up using Azure Pipelines in Azure DevOps or workflows in GitHub Actions, automating the deployment and testing of components in a cloud environment. This approach is vital for identifying issues that may not be apparent during unit testing, such as network latency or service configuration errors.
 
-* [Run automated integration tests as a user](/entra/identity-platform/test-automate-integration-testing)
+* [Run automated integration tests as a user](tra/identity-platform/test-automate-integration-testing)
 
 ## Continuous Integration Testing
 
 Continuous Integration (CI) testing involves automatically running tests every time a change is made to the codebase. **CI Tools and Azure** like Azure DevOps provide integrated environments for automating builds, tests, and deployments. Configuring pipelines to include automated tests ensures that every change is verified, reducing the likelihood of bugs and regressions. Proper **Pipeline Configuration** is crucial for efficient CI processes, including setting up triggers for automatic test execution and configuring environments for different stages of testing.
+
+[**Azure Test Plans**](https://azure.microsoft.com/en-us/products/devops/test-plans) offer a comprehensive suite for manual and exploratory testing within Azure DevOps. This tool is essential for scenarios that require human judgment or are difficult to automate, providing a structured approach to manual testing. It allows teams to plan, execute, and track test activities, including capturing rich data like screenshots and videos to aid in bug reporting. Integrating Azure Test Plans into your CI/CD process ensures a holistic testing strategy that covers both automated and manual test cases.
+
+For Node.js projects, GitHub provides [example workflows](https://docs.github.com/actions/guides/building-and-testing-nodejs) that can be easily adapted to your project's needs.
 
 ## End to End Testing
 
@@ -72,7 +76,16 @@ Performance testing is essential for applications deployed on Azure to ensure th
 
 ## Security Testing
 
-Security testing on Azure involves identifying potential vulnerabilities in your application to prevent unauthorized access or data breaches. **Vulnerability Scanning** tools can automatically detect security weaknesses in your code or configurations. **Penetration Testing** simulates cyber attacks against your application to evaluate its security posture. Azure provides guidance and tools for conducting these tests, helping ensure that applications deployed on its platform are secure against threats.
+Security testing on Azure involves identifying potential vulnerabilities in your application to prevent unauthorized access or data breaches. 
+
+- **Vulnerability Scanning**: These tools are essential for automatically detecting security weaknesses in your code or configurations. By integrating GitHub Advanced Security features with traditional Static Application Security Testing (SAST) tools, you can significantly improve the security posture of applications deployed on Azure. Key features include:
+  - [**Code Scanning**](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security): Identifies vulnerabilities within the codebase before deployment.
+  - [**Secrets Scanning**](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security): Helps prevent the exposure of sensitive data.
+  - [**Supply Chain Monitoring**](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security): Protects against potentially compromised dependencies.
+  
+  These integrated security measures are designed to identify vulnerabilities early, prevent data breaches, and ensure the integrity of your application's supply chain.
+
+- **Penetration Testing** simulates cyber attacks against your application to evaluate its security posture. Azure provides guidance and tools for conducting these tests, helping ensure that applications deployed on its platform are secure against threats.
 
 * [Recommendations for security testing](/azure/well-architected/security/test)
 * [Penetration testing](/azure/security/fundamentals/pen-testing)
@@ -83,3 +96,15 @@ Ensuring that applications comply with legal, regulatory, and policy requirement
 
 * [Governance, security, and compliance in Azure](/azure/cloud-adoption-framework/ready/azure-setup-guide/govern-org-compliance?tabs=AzurePolicy)
 * [Implement compliance testing with Terraform and Azure](/azure/developer/terraform/best-practices-compliance-testing)
+
+## Accessibility Testing
+
+Accessibility testing is essential for making software inclusive and compliant with legal standards. Tools like [Accessibility Insights](https://accessibilityinsights.io/) help identify and fix accessibility issues in web and mobile apps. Integrating this tool into development workflows facilitates automated and manual checks, offering guidance and reports based on WCAG standards.
+
+## A/B Testing
+
+A/B testing, or split testing, is a method of comparing two versions of a webpage or app against each other to determine which one performs better. Azure provides several services that support A/B testing, enabling developers to deploy variations of their applications to gauge user response and effectiveness. 
+
+- **Azure App Service Deployment Slots**: Allow for staging environments where different versions can be tested without affecting the live site. [Learn more about Deployment Slots](/azure/app-service/deploy-staging-slots).
+  
+- **Azure Container Apps (ACA)**: Offer a flexible environment for running microservices-based applications, where A/B testing can be implemented to test different service versions. [Explore Azure Container Apps](/azure/container-apps/).
