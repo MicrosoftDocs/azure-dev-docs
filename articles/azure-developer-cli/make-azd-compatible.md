@@ -37,7 +37,7 @@ Consider the following sample app repository:
 
 :::image type="content" source="media/make-azd-compatible/sample-app-structure.png" alt-text="A screenshot showing the structure of the sample app.":::
 
-After converting this sample app to an `azd` template, the same app resembles the following:
+After converting this sample app to an `azd` template, the same app repository contains the following:
 
 :::image type="content" source="media/make-azd-compatible/azd-template-structure-complete.png" alt-text="A screenshot showing the completed structure of the azd template.":::
 
@@ -66,7 +66,7 @@ This option instructs `azd` to analyze the code in your directory to identity wh
 
 Visit the [Use your app code to create a template](use-app-code.md) tutorial for details on how to implement this approach and more information on which Azure resources support automatic detection and scaffolding.
 
-### Use an existing template
+### Select a template
 
 Select this option to use an existing template that defines many of your Azure resources and architectural goals as a starting point. `azd` will prompt you to select a starter template or another template from the [awesome-azd](https://azure.github.io/awesome-azd/) gallery. When you select a template, the assets of that template are added to your existing project directory to use as a starting point. Some templates include sample app code that you can replace with your own, while some (called "starter templates") are infrastructure only.
 
