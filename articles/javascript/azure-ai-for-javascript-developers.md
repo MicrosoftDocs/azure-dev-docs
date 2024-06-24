@@ -6,6 +6,7 @@ ms.subservice: intelligent-apps
 ms.topic: overview
 ms.date: 11/17/2023
 ms.custom: overview, devx-track-js, devx-track-js-ai, build-2024-intelligent-apps
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Develop AI apps with JavaScript

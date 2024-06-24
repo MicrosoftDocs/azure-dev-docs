@@ -27,7 +27,7 @@ You start the Azure Pipelines containerization process by building a Docker imag
    
 1. Copy and save the clone URL from the sample GitHub repository at [https://github.com/Azure-Samples/microprofile-hello-azure](https://github.com/Azure-Samples/microprofile-hello-azure).
    
-1. Register or log into your [Azure DevOps](https://dev.azure.com) organization, and create a new [project](/vsts/organizations/projects/create-project). 
+1. Register or log into your [Azure DevOps](https://azure.microsoft.com/products/devops) organization, and create a new [project](/vsts/organizations/projects/create-project). 
    
 1. Import the sample GitHub repository into Azure Repos:
    
