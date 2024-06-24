@@ -13,8 +13,8 @@ ms.custom: devx-track-azdevcli, devx-track-bicep, build-2023
 
 The Azure Developer CLI (`azd`) utilizes [templates](azd-templates.md) to provision and deploy app resources to the cloud. Developers can add support for `azd` commands and features by converting their applications to templates. This article provides a contextual overview of the different options for building `azd` templates. Once you understand the concepts in this article, visit the following resources for more detailed implementation guides:
 
-- [Use an existing template for your app](use-existing-template.md).
-- [Create a template from your app code](use-app-code.md)
+- [Use an existing template for your app](start-with-existing-template.md).
+- [Create a template from your app code](start-with-app-code.md)
 - [Training - build and deploy `azd` templates](/training/paths/azure-developer-cli)
 
 > [!NOTE]
