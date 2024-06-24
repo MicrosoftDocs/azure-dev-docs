@@ -64,7 +64,7 @@ azd init
 
 This option instructs `azd` to analyze the code in your directory to identity which technologies it uses, such as the programming language, framework and database system. `azd` automatically generates template assets for you, such as the `azure.yaml` service definition file and the `infra` folder with infrastructure-as-code files. The generated assets are a starting point for additional modifications. Use this approach if you plan to use common Azure services supported by `azd` scaffolding features.
 
-Visit the [Start with your app code to create a template](use-app-code.md) tutorial for details on how to implement this approach and more information on which Azure resources support automatic detection and scaffolding.
+Visit the [Start with your app code to create a template](start-with-app-code.md) tutorial for details on how to implement this approach and more information on which Azure resources support automatic detection and scaffolding.
 
 ### Select a template
 
