@@ -124,8 +124,6 @@ productDirectory:
     - title: Go
       imageSrc: /media/logos/logo_Go-lightblue.svg
       links:
-        - url: ./go/azure-sdk-install.md
-          text: Install the Azure SDK for Go
         - url: ./go/azure-sdk-authentication.md
           text: Authenticate your app
         - url: ./ai/azure-ai-for-developers.md?pivots=go

@@ -64,23 +64,67 @@ When you submit a bug, the log messages from classes in the following packages a
   * The exception is that you can ignore the `onDelivery` message in `ReceiveLinkHandler`.
 * `com.azure.messaging.servicebus.implementation`
 
-## Concurrency in ProcessorClient
+## Concurrency in ServiceBusProcessorClient
 
-`ProcessorClient` enables the application to configure how many calls to the message handler should happen concurrently. This configuration makes it possible to process multiple messages in parallel. For a `ProcessorClient` consuming messages from a non-session entity, the application can configure the desired concurrency using the `maxConcurrentCalls` API. For a session enabled entity, the desired concurrency is `maxConcurrentSessions` times `maxConcurrentCalls`.
+`ServiceBusProcessorClient` enables the application to configure how many calls to the message handler should happen concurrently. This configuration makes it possible to process multiple messages in parallel. For a `ServiceBusProcessorClient` consuming messages from a non-session entity, the application can configure the desired concurrency using the `maxConcurrentCalls` API. For a session enabled entity, the desired concurrency is `maxConcurrentSessions` times `maxConcurrentCalls`.
 
 If the application observes fewer concurrent calls to the message handler than the configured concurrency, it might be because the thread pool is not sized appropriately.
 
-`ProcessorClient` uses daemon threads from the Reactor global [boundedElastic](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html#boundedElastic--) thread pool to invoke the message handler. The maximum number of concurrent threads in this pool is limited by a cap. By default, this cap is ten times the number of available CPU cores. For the `ProcessorClient` to effectively support the application's desired concurrency (`maxConcurrentCalls` or `maxConcurrentSessions` times `maxConcurrentCalls`), you must have a `boundedElastic` pool cap value that's higher than the desired concurrency. You can override the default cap by setting the system property `reactor.schedulers.defaultBoundedElasticSize`.
+`ServiceBusProcessorClient` uses daemon threads from the Reactor global [boundedElastic](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html#boundedElastic--) thread pool to invoke the message handler. The maximum number of concurrent threads in this pool is limited by a cap. By default, this cap is ten times the number of available CPU cores. For the `ServiceBusProcessorClient` to effectively support the application's desired concurrency (`maxConcurrentCalls` or `maxConcurrentSessions` times `maxConcurrentCalls`), you must have a `boundedElastic` pool cap value that's higher than the desired concurrency. You can override the default cap by setting the system property `reactor.schedulers.defaultBoundedElasticSize`.
 
-You should tune the thread pool and CPU allocation on a case-by-case basis. However, when you override the pool cap, as a starting point, limit the concurrent threads to approximately 20-30 per CPU core. We recommend that you cap the desired concurrency per `ProcessorClient` instance to approximately 20-30. Profile and measure your specific use case and tune the concurrency aspects accordingly. For high load scenarios, consider running multiple `ProcessorClient` instances where each instance is built from a new `ServiceBusClientBuilder` instance. Also, consider running each `ProcessorClient` in a dedicated host - such as a container or VM - so that downtime in one host doesn't impact the overall message processing.
+You should tune the thread pool and CPU allocation on a case-by-case basis. However, when you override the pool cap, as a starting point, limit the concurrent threads to approximately 20-30 per CPU core. We recommend that you cap the desired concurrency per `ServiceBusProcessorClient` instance to approximately 20-30. Profile and measure your specific use case and tune the concurrency aspects accordingly. For high load scenarios, consider running multiple `ServiceBusProcessorClient` instances where each instance is built from a new `ServiceBusClientBuilder` instance. Also, consider running each `ServiceBusProcessorClient` in a dedicated host - such as a container or VM - so that downtime in one host doesn't impact the overall message processing.
 
 Keep in mind that setting a high value for the pool cap on a host with few CPU cores would have adverse effects. Some signs of low CPU resources or a pool with too many threads on fewer CPUs are: frequent timeouts, lock lost, deadlock, or lower throughput. If you're running the Java application on a container, then we recommend using two or more vCPU cores. We don't recommend selecting anything less than 1 vCPU core when running Java application on containerized environments. For in-depth recommendations on resourcing, see [Containerize your Java applications](../containers/overview.md).
+
+## Connection sharing bottleneck
+
+All the clients created from a shared `ServiceBusClientBuilder` instance share the same connection to the Service Bus namespace.
+
+Using a shared connection enables multiplexing operations among clients on one connection, but sharing can also become a bottleneck if there are many clients, or the clients together generate high load. Each connection has an I/O thread associated with it. When sharing connection, the clients put their work in this shared I/O thread's work-queue and the progress of each client depends on the timely completion of its work in the queue. The I/O thread handles the enqueued work serially. That is, if the I/O thread work-queue of a shared connection ends up with a lot of pending work to deal with, then the symptoms are similar to those of low CPU. This condition is described in the previous section on concurrency - for example, clients stalling, timeout, lost lock, or slowdown in recovery path.
+
+Service Bus SDK uses the `reactor-executor-*` naming pattern for the connection I/O thread. When the application experiences the shared connection bottleneck, then it might be reflected in the I/O thread's CPU usage. Also, in the heap dump or in live memory, the object `ReactorDispatcher$workQueue` is the work-queue of the I/O thread. A long work-queue in the memory snapshot during the bottleneck period might indicate that the shared I/O thread is overloaded with pending works.
+
+Therefore, if the application load to a Service Bus endpoint is reasonably high in terms of overall number of sent-received messages or payload size, you should use a separate builder instance for each client that you build. For example, for each entity - queue or topic - you can create a new `ServiceBusClientBuilder` and build a client from it. In case of extremely high load to a specific entity, you might want to either create multiple client instances for that entity or run clients in multiple hosts - for example, containers or VMs - to load balance.
+
+## Clients halt when using Application Gateway custom endpoint
+
+The custom endpoint address refers to an application-provided HTTPS endpoint address resolvable to Service Bus or configured to route traffic to Service Bus. Azure Application Gateway makes it easy to create an HTTPS front-end that forwards traffic to Service Bus. You can configure Service Bus SDK for an application to use an Application Gateway front-end IP address as the custom endpoint to connect to Service Bus.
+
+Application Gateway offers several security policies supporting different TLS protocol versions. There are predefined policies enforcing TLSv1.2 as the minimum version, there also exist old policies with TLSv1.0 as the minimum version. The HTTPS front-end will have a TLS policy applied.
+
+Right now, the Service Bus SDK doesn't recognize certain remote TCP terminations by the Application Gateway front end, which uses TLSv1.0 as the minimum version. For instance, if the front end sends TCP FIN, ACK packets to close the connection when its properties are updated, the SDK can't detect it, so it won't reconnect, and clients can't send or receive messages anymore. Such a halt only happens when using TLSv1.0 as the minimum version. To mitigate, use a security policy with TLSv1.2 or higher as the minimum version for the Application Gateway front-end.
+
+The support for TLSv1.0 and 1.1 across all Azure Services is already [announced](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2) to end by 31 October 2024, so transitioning to TLSv1.2 is strongly recommended.
+
+## Message or session lock is lost
+
+A Service Bus queue or topic subscription has a lock duration set at the resource level. When the receiver client pulls a message from the resource, the Service Bus broker applies an initial lock to the message. The initial lock lasts for the lock duration set at the resource level. If the message lock isn't renewed before it expires, then the Service Bus broker releases the message to make it available for other receivers. If the application tries to complete or abandon a message after the lock expiration, the API call fails with the error `com.azure.messaging.servicebus.ServiceBusException: The lock supplied is invalid. Either the lock expired, or the message has already been removed from the queue`. 
+
+The Service Bus client supports running a background lock renew task that renews the message lock continuously each time before it expires. By default, the lock renew task runs for 5 minutes. You can adjust the lock renew duration by using `ServiceBusReceiverClientBuilder::maxAutoLockRenewDuration(Duration)`. If you pass the `Duration.ZERO` value, the lock renew task is disabled.
+
+The following lists describes some of the usage patterns or host environments that can lead to the lock lost error:
+
+* The lock renew task is disabled and the application's message processing time exceeds the lock duration set at the resource level.
+* The application's message processing time exceeds the configured lock renew task duration. Note that, if the lock renew duration is not set explicitly, it defaults to 5 minutes.
+* The host environment has occasional network problems - for example, transient network failure or outage - that prevent the lock renew task from renewing the lock on time.
+* The host environment lacks enough CPUs or has shortages of CPU cycles intermittently that delays the lock renew task from running on time.
+* The host system time isn't accurate - for example, the clock is skewed - delaying the lock renew task and keeping it from running on time.
+* The connection I/O thread is overloaded, impacting its ability to execute lock renew network calls on time. The following two scenarios can cause this issue:
+
+  * The application is running too many receiver clients sharing the same connection. For more information, see the [Connection sharing bottleneck](#connection-sharing-bottleneck) section.
+  * The application has configured `ServiceBusReceiverClient::receiveMessages` or `ServiceBusProcessorClient` to have a large `maxMessages` or `maxConcurrentCalls` values. For more information, see the [Concurrency in ServiceBusProcessorClient](#concurrency-in-servicebusprocessorclient) section.
+
+The number of lock renew tasks in the client is equal to the `maxMessages` or `maxConcurrentCalls` parameter values set for `ServiceBusProcessorClient` or `ServiceBusReceiverClient::receiveMessages`. A high number of lock renew tasks making multiple network calls can also have an adverse effect in Service Bus namespace throttling.
+
+If the host is not sufficiently resourced, the lock can still be lost even if there are only a few lock renew tasks running. If you're running the Java application on a container, then we recommend using two or more vCPU cores. We don't recommend selecting anything less than 1 vCPU core when running Java applications on containerized environments. For in-depth recommendations on resourcing, see [Containerize your Java applications](../containers/overview.md).
+
+The same remarks about locks are also relevant for a Service Bus queue or a topic subscription that has session enabled. When the receiver client connects to a session in the resource, the broker applies an initial lock to the session. To maintain the lock on the session, the lock renew task in the client has to keep renewing the session lock before it expires. For a session enabled resource, the underlying partitions sometimes move to achieve load balancing across Service Bus nodes - for example, when new nodes are added to share the load. When that happens, session locks can be lost. If the application tries to complete or abandon a message after the session lock is lost, the API call fails with the error `com.azure.messaging.servicebus.ServiceBusException: The session lock was lost. Request a new session receiver`.
 
 ## Upgrade to 7.15.x or latest
 
 If you encounter any issues, you should first attempt to solve them by upgrading to the latest version of the Service Bus SDK. Version 7.15.x is a major redesign, resolving long-standing performance and reliability concerns.
 
-Version 7.15.x and later reduces thread hopping, removes locks, optimizes code in hot paths, and reduces memory allocations. These changes result in up to 45-50 times greater throughput on the `ServiceBusProcessor` client.
+Version 7.15.x and later reduces thread hopping, removes locks, optimizes code in hot paths, and reduces memory allocations. These changes result in up to 45-50 times greater throughput on the `ServiceBusProcessorClient`.
 
 Version 7.15.x and later also comes with various reliability improvements. It addresses several race conditions (such as prefetch and credit calculations) and improved error handling. These changes result in better reliability in the presence of transient issues across various client types.
 
@@ -103,7 +147,7 @@ ServiceBusSessionReceiverClient sessionReceiver = new ServiceBusClientBuilder()
     .buildClient();
 ```
 
-The following table lists the client types and corresponding configuration names, and indicates whether the client is currently enabled by default to use the V2-Stack in the latest version 7.16.0. For a client that isn't on the V2-Stack by default, you can use the example just shown to opt-in.
+The following table lists the client types and corresponding configuration names, and indicates whether the client is currently enabled by default to use the V2-Stack in the latest version 7.17.0. For a client that isn't on the V2-Stack by default, you can use the example just shown to opt-in.
 
 | Client type                                       | Configuration name                                                 | Is on V2-Stack by default? |
 |---------------------------------------------------|--------------------------------------------------------------------|----------------------------|

@@ -1,16 +1,17 @@
 ---
-title: Get started with the Python enterprise chat sample using RAG
+title: Get started with the chat using your own data sample for Python
 description: Get started with Python and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
 ms.date: 05/14/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
+ms.collection: ce-skilling-ai-copilot
 # CustomerIntent: As a python developer new to Azure OpenAI, I want deploy and use sample code to interact with app infused with my own business data so that learn from the sample code.
 ---
 
-# Get started with the Python enterprise chat sample using RAG
+# Get started with the chat using your own data sample for Python
 
-This article shows you how to deploy and run the [Enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample implements a chat app using Python, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about employee benefits at a fictitious company. The app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. 
+This article shows you how to deploy and run the [Chat with your own data sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample implements a chat app using Python, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about employee benefits at a fictitious company. The app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations.
 
 * [Demo video](https://aka.ms/azai/py/video)
 
@@ -205,17 +206,17 @@ The intelligence of the chat is determined by the OpenAI model and the settings 
 
 |Setting|Description|
 |---|---|
-|Override prompt template|This is the prompt that is used to generate the answer.|
-|Temperature|The temperature used for the final Chat Completion API call, a number between 0 and 1 that controls the "creativity" of the model.|
-| Minimum search score|The minimum score of the search results that are used to generate the answer. Range depends on [search mode used](/azure/search/hybrid-search-ranking#scores-in-a-hybrid-search-results). |
-| Minimum reranker score|The minimum score from the semantic ranker of the search results that are used to generate the answer. Ranges from 0-4. |
-|Retrieve this many search results|This is the number of search results that are used to generate the answer. You can see these sources returned in the _Thought process_ and _Supporting content_ tabs of the citation. |
-|Exclude category|This is the category of documents that are excluded from the search results.|
-|Use semantic ranker for retrieval|This is a feature of [Azure AI Search](/azure/search/semantic-search-overview#what-is-semantic-search) that uses machine learning to improve the relevance of search results.|
-|Use query-contextual summaries instead of whole documents|When both `Use semantic ranker` and `Use query-contextual summaries` are checked, the LLM uses captions extracted from key passages, instead of all the passages, in the highest ranked documents.|
-|Suggest follow-up questions|Have the chat app suggest follow-up questions based on the answer.|
-|Retrieval mode|**Vectors + Text** means that the search results are based on the text of the documents and the embeddings of the documents. **Vectors** means that the search results are based on the embeddings of the documents. **Text** means that the search results are based on the text of the documents.|
-|Stream chat completion responses|Stream response instead of waiting until the complete answer is available for a response.|
+|Override prompt template|Overrides the prompt used to generate the answer based on the question and search results.|
+|Temperature|Sets the temperature of the request to the LLM that generates the answer. Higher temperatures result in more creative responses, but they may be less grounded.|
+| Minimum search score|Sets a minimum score for search results coming back from Azure AI search. The score range depends on whether you're using [hybrid (default), vectors only, or text only](/azure/search/hybrid-search-ranking#scores-in-a-hybrid-search-results).|
+| Minimum reranker score|Sets a minimum score for search results coming back from the semantic reranker. The score always ranges between 0-4. The higher the score, the more semantically relevant the result is to the question.|
+|Retrieve this many search results|Sets the number of search results to retrieve from Azure AI search. More results may increase the likelihood of finding the correct answer, but may lead to the model getting 'lost in the middle'.You can see these sources returned in the _Thought process_ and _Supporting content_ tabs of the citation. |
+|Exclude category|Specifies a category to exclude from the search results. There are no categories used in the default data set.|
+|Use semantic ranker for retrieval|Enables the Azure AI Search [semantic ranker](/azure/search/semantic-search-overview#what-is-semantic-search), a model that re-ranks search results based on semantic similarity to the user's query.|
+|Use semantic captions|Sends semantic captions to the LLM instead of the full search result. A semantic caption is extracted from a search result during the process of semantic ranking.|
+|Suggest follow-up questions|Asks the LLM to suggest follow-up questions based on the user's query.|
+|Retrieval mode|Sets the retrieval mode for the Azure AI Search query. **Vectors + Text (Hybrid)** uses a combination of vector search and full text search, **Vectors** uses only vector search, and **Text** uses only full text search. Hybrid is generally optimal.|
+|Stream chat completion responses|Continuously streams the response to the chat UI as it is generated.|
 
 The following steps walk you through the process of changing the settings.
 
@@ -305,7 +306,7 @@ If your issue isn't addressed, log your issue to the repository's [Issues](https
 
 ## Next steps
 
-* [Enterprise chat app GitHub repository](https://github.com/Azure-Samples/azure-search-openai-demo)
+* [Get the source code for the sample used in this article](https://github.com/Azure-Samples/azure-search-openai-demo)
 * [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat) best practice solution architecture
 * [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
 * [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-an-enterprise-ready-azure-openai-solution-with-azure-api/bc-p/3935407)

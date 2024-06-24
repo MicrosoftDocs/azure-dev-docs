@@ -32,10 +32,6 @@ Spring Cloud Azure can help make it easier to accomplish the following tasks in 
 - Storing unstructured data like text or binary data with [Azure Blob Storage](/azure/storage/blobs/storage-blobs-overview).
 - Storing files with [Azure Files](/azure/storage/files/storage-files-introduction).
 
-The following diagram provides an overview of these features:
-
-:::image type="content" source="media/spring-cloud-azure-overview/spring-cloud-azure-overview.png" alt-text="Diagram providing an overview of Spring Cloud Azure features.":::
-
 ## Benefits of using Spring Cloud Azure
 
 The following section demonstrates the benefits of using Spring Cloud Azure. In this section, the retrieval of secrets stored in Azure Key Vault is used as an example. This section compares the differences between developing a Spring Boot application with and without Spring Cloud Azure.
@@ -189,7 +185,7 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.12.0</version>
+         <version>5.13.0</version>
          <type>pom</type>
          <scope>import</scope>
        </dependency>
@@ -198,7 +194,7 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
    ```
 
    > [!NOTE]
-   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.18.0`.
+   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
    > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
    > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 

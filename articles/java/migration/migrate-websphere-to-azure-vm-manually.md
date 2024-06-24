@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Manually install WebSphere Application Server Network Deployment (traditional) on Azure virtual machines (VMs)"
+title: "Tutorial: Manually install WebSphere Application Server Network Deployment (traditional) on Azure Virtual Machines (VMs)"
 description: Get step-by-step guidance to install IBM WebSphere Application Server on Azure VMs, set up a cluster, and expose the cluster with Azure Application Gateway.
 author: KarlErickson
 ms.author: haiche
@@ -9,9 +9,9 @@ recommendations: false
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-was-vm, devx-track-javaee-was, devx-track-javaee-websphere, migration-java, linux-related-content
 ---
 
-# Tutorial: Manually install WebSphere Application Server Network Deployment (traditional) on Azure virtual machines (VMs)
+# Tutorial: Manually install WebSphere Application Server Network Deployment (traditional) on Azure Virtual Machines (VMs)
 
-This tutorial shows you how to install IBM WebSphere Application Server (WAS) Network Deployment (ND) traditional and configure a WAS cluster on Azure virtual machines (VMs) on GNU/Linux.
+This tutorial shows you how to install IBM WebSphere Application Server (WAS) Network Deployment (ND) traditional and configure a WAS cluster on Azure Virtual Machines (VMs) on GNU/Linux.
 
 In this tutorial, you learn how to:
 
@@ -24,11 +24,13 @@ In this tutorial, you learn how to:
 > - Expose the application to the public internet via Azure Application Gateway.
 > - Validate the successful configuration.
 
-If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Deploy a WebSphere Application Server (traditional) cluster on Azure virtual machines](../ee/traditional-websphere-application-server-virtual-machines.md). A less automated, but still accelerated, option is to skip the steps of installing Java Development Kit (JDK) and WebSphere on the operating system by using a preconfigured Red Hat Linux base image. You can find these offers in Azure Marketplace by using a [query for WebSphere Application Server image 9.0.5.x](https://aka.ms/was-vm-base-images).
+If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy WebSphere Application Server Network Deployment Cluster on Azure Virtual Machines](../ee/traditional-websphere-application-server-virtual-machines.md). A less automated, but still accelerated, option is to skip the steps of installing Java Development Kit (JDK) and WebSphere on the operating system by using a pre-configured Red Hat Linux base image. You can find these offers in Azure Marketplace by using a [query for WebSphere Application Server image 9.0.5.x](https://aka.ms/was-vm-base-images).
+
+If you're interested in working closely on your migration scenario with the engineering team developing WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Install Azure CLI version 2.46.0 or later](/cli/azure/install-azure-cli) to run Azure CLI commands.
   - This article provides instructions for invoking Azure CLI commands on Windows PowerShell or UNIX Bash. Either way, you must install the Azure CLI.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
@@ -1988,7 +1990,4 @@ az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
 
 ## Next steps
 
-Learn more about deploying IBM WebSphere family on Azure by following this link:
-
-> [!div class="nextstepaction"]
-> [What are solutions to run the IBM WebSphere family of products on Azure?](../ee/websphere-family.md)
+To explore options to run WebSphere products on Azure, see [What are solutions to run the WebSphere family of products on Azure?](../ee/websphere-family.md)

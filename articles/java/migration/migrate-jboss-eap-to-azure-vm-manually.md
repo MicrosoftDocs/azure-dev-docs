@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Install JBoss EAP on Azure virtual machines (VMs) manually"
+title: "Tutorial: Install JBoss EAP on Azure Virtual Machines (VMs) manually"
 description: Provides step-by-step guidance to install Red Hat JBoss EAP on Azure VMs and set up a cluster, expose it with Azure Application Gateway, and connect with Azure Database for PostgreSQL.
 author: KarlErickson
 ms.author: karler
@@ -9,7 +9,7 @@ recommendations: false
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, migration-java, devx-track-azurecli, linux-related-content
 ---
 
-# Tutorial: Install JBoss EAP on Azure virtual machines (VMs) manually
+# Tutorial: Install JBoss EAP on Azure Virtual Machines (VMs) manually
 
 This tutorial shows the steps to install Red Hat JBoss Enterprise Application Platform (EAP) and configure a cluster in domain mode on Azure Virtual Machines (VMs), on Red Hat Enterprise Linux (RHEL).
 
@@ -25,14 +25,16 @@ In this tutorial, you learn how to do the following tasks:
 > - Expose the application to the public internet via Azure Application Gateway.
 > - Validate the successful configuration.
 
-If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy JBoss EAP Server on an Azure virtual machine using the Azure portal](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
+If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy a JBoss EAP cluster on Red Hat Linux VMs using the Azure portal](/azure/developer/java/ee/jboss-eap-cluster-azure-vms).
+
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing JBoss EAP on Azure solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Install Azure CLI version 2.51.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
@@ -1064,7 +1066,7 @@ az group delete --name abc1110rg --yes --no-wait
 
 ## Next steps
 
-Continue to explore options to run Red Hat JBoss EAP on Azure.
+Continue to explore options to run JBoss EAP on Azure.
 
 > [!div class="nextstepaction"]
-> [Learn more about JBoss EAP on Azure](../ee/jboss-on-azure.md)
+> [Explore JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure)

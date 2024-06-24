@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure support for Spring Security
 
-**This article applies to:** ✔️ Version 4.18.0 ✔️ Version 5.12.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.13.0
 
 This article describes how Spring Cloud Azure and Spring Security can be used together.
 
@@ -1035,8 +1035,6 @@ A *web application* is any web-based application that allows user to login with 
 
 1. Resource server accessing other resource servers.
 
-:::image type="content" source="media/spring-cloud-azure/system-diagram-b2c-web-application-web-api-overall.png" alt-text="System diagram of web application interaction with Microsoft Entra ID and resource servers." border="false":::
-
 #### Usage 1: Accessing a web application
 
 This scenario uses [The OAuth 2.0 authorization code grant](/azure/active-directory/develop/v2-oauth2-auth-code-flow) flow to log in a user with your Azure AD B2C user.
@@ -1255,8 +1253,6 @@ Select **Manifest** from the navigation pane, and then paste the following JSON 
 }
 ```
 
-:::image type="content" source="media/spring-cloud-azure/application-manifest-app-roles.png" alt-text="Azure portal screenshot showing application manifest screen with appRoles JSON highlighted." lightbox="media/spring-cloud-azure/application-manifest-app-roles.png":::
-
 Select **API permissions** \> **Add a permission** \> **My APIs**, select **WebApiA** application name, select **Application Permissions**, select **WebApiA.SampleScope** permission, and then select **Add permission** to complete the process.
 
 Grant admin consent for ***WebApiA*** permissions.
@@ -1472,8 +1468,6 @@ Referring to the previous steps, we create a `WebApiB` application and expose an
    "value": "WebApiB.SampleScope"
 }
 ```
-
-:::image type="content" source="media/spring-cloud-azure/application-manifest-app-roles-web-api-b.png" alt-text="Azure portal screenshot showing application WebApiB manifest screen with appRoles JSON highlighted." lightbox="media/spring-cloud-azure/application-manifest-app-roles-web-api-b.png":::
 
 Grant admin consent for `WebApiB` permissions.
 

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: haiche
 ms.topic: tutorial
 ms.date: 05/24/2024
-ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, migration-java
+ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, migration-java
 ---
 
 # Tutorial: Migrate Oracle WebLogic Server to AKS with KEDA scaler based on Prometheus Metrics
@@ -55,7 +55,7 @@ The following table shows the exported WebLogic metrics:
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - Make sure you have either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 - Prepare a local machine with either Windows with WSL, GNU/Linux, or macOS installed.
 - Install Azure CLI version 2.54.0 or higher to run Azure CLI commands.

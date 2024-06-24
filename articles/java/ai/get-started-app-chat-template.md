@@ -1,5 +1,5 @@
 ---
-title: Get started with the Java enterprise chat sample using RAG
+title: Get started with the chat using your own data sample for Java
 description: Get started with Java and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
 ms.date: 05/11/2024
 ms.topic: get-started
@@ -7,9 +7,9 @@ ms.custom: devx-track-java, devx-track-java-ai, devx-track-extended-java, devx-t
 # CustomerIntent: As a Java developer new to Azure OpenAI, I want deploy and use sample code to interact with app infused with my own business data so that learn from the sample code.
 ---
 
-# Get started with the Java enterprise chat sample using RAG
+# Get started with the chat using your own data sample for Java
 
-This article shows you how to deploy and run the [Enterprise chat app sample for Java](https://github.com/Azure-Samples/azure-search-openai-demo-java). This sample implements a chat app using Java, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about employee benefits at a fictitious company. The app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations.
+This article shows you how to deploy and run the [Chat with your data sample for Java](https://github.com/Azure-Samples/azure-search-openai-demo-java). This sample implements a chat app using Java, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about employee benefits at a fictitious company. The app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations.
 
 * [Demo video](https://aka.ms/azai/java/video)
 
@@ -280,7 +280,7 @@ If your issued isn't addressed, log your issue to the repository's [Issues](http
 
 ## Next steps
 
-* [Enterprise chat app GitHub repository](https://github.com/Azure-Samples/azure-search-openai-demo-java)
+* [Get the source code for the sample used in this article](https://github.com/Azure-Samples/azure-search-openai-demo-java)
 * [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat) best practice solution architecture
 * [Access control in Generative AI Apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408)
 * [Build an Enterprise ready OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-an-enterprise-ready-azure-openai-solution-with-azure-api/bc-p/3935407)

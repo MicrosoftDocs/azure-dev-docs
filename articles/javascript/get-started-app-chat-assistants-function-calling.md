@@ -6,6 +6,7 @@ ms.topic: get-started
 ms.service: azure-javascript
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai
+ms.collection: ce-skilling-ai-copilot
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want to understand and deploy an app using assistants and function calling.
 ---
 # Get started with Azure OpenAI with Assistants and function calling in JavaScript
@@ -25,6 +26,8 @@ This application is built around two main components:
 - A serverless API built with [Azure Functions](/azure/azure-functions/functions-overview?pivots=programming-language-javascript) and using OpenAI JavaScript SDK. The serverless app sends the assistants definition including the function call to the OpenAI endpoint. The endpoint responds with the follow-up function call and the parameters needed to complete that call. 
 
     - The sample's function call simulates an API call by generating a random stock ticker value based on the stock symbol sent into the Azure Function. This simulation can be replaced with a remote API in your solution.
+
+    :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/diagram-azure-openai-service-function-calling-architecture.png" alt-text="Diagram showing Azure Functions integration with Azure OpenAI where Azure OpenAI can return follow up function names which Azure Functions should call.":::
 
 ## Prerequisites
 

@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Deploy a JBoss EAP cluster on Azure virtual machines (VMs)"
-description: Shows you how to quickly stand up a JBoss EAP cluster on Azure virtual machines.
+title: "Quickstart: Deploy a JBoss EAP cluster on Azure Virtual Machines (VMs)"
+description: Shows you how to quickly stand up a JBoss EAP cluster on Azure Virtual Machines.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
@@ -8,15 +8,19 @@ ms.date: 05/29/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, devx-track-azurecli, linux-related-content
 ---
 
-# Quickstart: Deploy a JBoss EAP cluster on Azure virtual machines (VMs)
+# Quickstart: Deploy a JBoss EAP cluster on Azure Virtual Machines (VMs)
 
-This article shows you how to quickly deploy a JBoss Enterprise Application Platform (EAP) cluster on Azure virtual machines (VMs) using the Azure portal.
+This article shows you how to quickly deploy a JBoss Enterprise Application Platform (EAP) cluster on Azure Virtual Machines (VMs) using the Azure portal.
 
-This article uses the Azure Marketplace offer for JBoss EAP Cluster to accelerate your journey to Azure VMs. The offer automatically provisions a number of resources including Azure Red Hat Enterprise Linux (RHEL) VMs, JBoss EAP instances on each VM, Red Hat build of OpenJDK on each VM, a JBoss EAP management console, and optionally an Azure App Gateway instance. To see the offer, visit the [Azure portal](https://aka.ms/eap-vm-cluster-portal). If you prefer manual step-by-step guidance for installing Red Hat JBoss EAP Cluster on Azure VMs that doesn't utilize the automation enabled by the offer, see [Tutorial: Install Red Hat JBoss EAP on Azure Virtual Machines manually](../migration/migrate-jboss-eap-to-azure-vm-manually.md).
+This article uses the Azure Marketplace offer for JBoss EAP Cluster to accelerate your journey to Azure VMs. The offer automatically provisions a number of resources including Azure Red Hat Enterprise Linux (RHEL) VMs, JBoss EAP instances on each VM, Red Hat build of OpenJDK on each VM, a JBoss EAP management console, and optionally an Azure App Gateway instance. To see the offer, visit the solution [JBoss EAP Cluster on RHEL VMs](https://aka.ms/eap-vm-cluster-portal) using the Azure portal.
+
+If you prefer manual step-by-step guidance for installing Red Hat JBoss EAP Cluster on Azure VMs that doesn't use the automation enabled by the Azure Marketplace offer, see [Tutorial: Install Red Hat JBoss EAP on Azure Virtual Machines manually](../migration/migrate-jboss-eap-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
+
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing JBoss EAP on Azure solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 - Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for JBoss EAP. This entitlement lets the Azure portal install the Red Hat tested and certified JBoss EAP version.
   > [!NOTE]
@@ -101,7 +105,7 @@ Use the following steps to find the JBoss EAP Cluster on Azure VMs offer:
 
 1. In the drop-down menu, ensure **PAYG** is selected.
 
-Alternatively, you can also go directly to the [JBoss EAP Cluster on VMs](https://aka.ms/eap-vm-cluster-portal) offer. In this case, the correct plan is already selected for you.
+Alternatively, you can also go directly to the [JBoss EAP Cluster on Azure VMs](https://aka.ms/eap-vm-cluster-portal) offer. In this case, the correct plan is already selected for you.
 
 In either case, this offer deploys a JBoss EAP cluster on Azure VMs by providing your Red Hat subscription at deployment time. The offer runs the cluster on Red Hat Enterprise Linux using a pay-as-you-go payment configuration for the base VMs.
 
@@ -287,7 +291,7 @@ az group delete --name $RG_NAME --yes --no-wait
 
 ## Next steps
 
-Learn more about deploying JBoss EAP on Azure by following these links:
+Learn more about your options for deploying JBoss EAP on Azure:
 
 > [!div class="nextstepaction"]
-> [Red Hat JBoss EAP on Azure](jboss-on-azure.md)
+> [Explore JBoss EAP on Azure](jboss-on-azure.md)

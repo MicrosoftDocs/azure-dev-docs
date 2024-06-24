@@ -3,7 +3,7 @@ title: Authenticate Terraform to Azure
 description: Learn the various options to authenticate to Azure with a Microsoft Account
 keywords: azure devops terraform cli powershell authentication microsoft account subscription environment variables provider block
 ms.topic: how-to
-ms.date: 03/18/2023
+ms.date: 06/20/2024
 ms.custom: devx-track-terraform, devx-track-azurepowershell
 # Customer intent: I want to authenticate Terraform to Azure.
 ---
@@ -17,13 +17,9 @@ To use Terraform commands against your Azure subscription, you must first authen
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Understand common Terraform and Azure authentication scenarios
-> * Authenticate via a Microsoft account from Cloud Shell (using Bash or PowerShell)
-> * Authenticate via a Microsoft account from Windows (using Bash or PowerShell)
-> * Create a service principal using the Azure CLI
-> * Create a service principal using Azure PowerShell
-> * Specify service principal credentials in environment variables
-> * Specify service principal credentials in a Terraform provider block
+> * See a list of available authentication methods.
+> * Select select and authentication method.
+> * Verify that you're authenticated.
 
 ## 1. Configure your environment
 
@@ -33,7 +29,12 @@ In this article, you learn how to:
 
 ## 2. Authenticate Terraform to Azure
 
-[!INCLUDE [authenticate-to-azure.md](includes/authenticate-to-azure.md)]
+Terraform only supports authenticating to Azure with the Azure CLI. Authenticating using Azure PowerShell isn't supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you first need to authenticate to Azure using the Azure CLI.
+
+- [Authenticate with a Microsoft account using Cloud Shell (with Bash or PowerShell)](./authenticate-to-azure-with-microsoft-account.md)
+- [Authenticate with a Microsoft account using Windows (with Bash or PowerShell)](./authenticate-to-azure-with-microsoft-account.md)
+- [Authenticate with a service principal](./authenticate-to-azure-with-service-principle.md)
+- [Authenticate with a managed identity for Azure services](./authenticate-to-azure-with-managed-identity-for-azure-services.md)
 
 ## 3. Verify the results
 
@@ -41,7 +42,7 @@ Verify that you've authenticated to the Azure subscription by displaying the cur
 
 #### [Bash](#tab/bash)
 
-To confirm the current Azure subscription via the Azure CLI, run [az account show](/cli/azure/account#az-account-show).
+To confirm the current Azure subscription with the Azure CLI, run [az account show](/cli/azure/account#az-account-show).
 
 ```azurecli
 az account show
@@ -49,7 +50,7 @@ az account show
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
-To confirm the current Azure subscription via Azure PowerShell, run [Get-AzContext](/powershell/module/az.accounts/get-azcontext).
+To confirm the current Azure subscription with Azure PowerShell, run [Get-AzContext](/powershell/module/az.accounts/get-azcontext).
 
 ```powershell
 Get-AzContext
@@ -60,4 +61,4 @@ Get-AzContext
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure resource group](create-resource-group.md)
+> [Your first Terraform project: Create an Azure resource group](create-resource-group.md)
