@@ -42,9 +42,9 @@
     - name: Building templates overview
       href: make-azd-compatible.md
     - name: Start with an existing template
-      href: use-existing-template.md
+      href: start-with-existing-template.md
     - name: Start with your app code
-      href: use-app-code.md
+      href: start-with-app-code.md
     - name: Training - build and deploy azd templates
       href: /training/paths/azure-developer-cli
   - name: Integration and remote environments
