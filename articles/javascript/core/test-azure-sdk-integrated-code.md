@@ -108,3 +108,13 @@ A/B testing, or split testing, is a method of comparing two versions of a webpag
 - **Azure App Service Deployment Slots**: Allow for staging environments where different versions can be tested without affecting the live site. [Learn more about Deployment Slots](/azure/app-service/deploy-staging-slots).
   
 - **Azure Container Apps (ACA)**: Offer a flexible environment for running microservices-based applications, where A/B testing can be implemented to test different service versions. [Explore Azure Container Apps](/azure/container-apps/).
+
+## Azure SDK tests
+
+For developers working with Azure services, gaining proficiency with the Azure SDKs is essential for crafting robust and scalable applications. The Azure SDK tests, hosted on GitHub for the JavaScript SDKs, are invaluable resources. Exploring these tests offers insights into seamless Azure service integration, showcases best practices for Azure resource interaction, and aids in ensuring efficient and secure implementations. Explore a broader range of SDK examples for a comprehensive understanding:
+
+* [Azure Storage Blob](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob/test)
+* [Azure Event Grid](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/eventgrid/test)
+* [Azure Key Vault](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-secrets/test)
+* [Azure Functions](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/functions/arm-functions/test)
+* [Azure IoT Hub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/iot-hub/test)
