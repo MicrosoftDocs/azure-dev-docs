@@ -90,7 +90,7 @@ To use a Redis cache to store and retrieve data, configure the application by us
    ```
 
    > [!NOTE]
-   > To get the value of username, refer [Enable Microsoft Entra ID authentication on your cache](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication#enable-microsoft-entra-id-authentication-on-your-cache) and copy the username.
+   > To get the value of username, refer [Enable Microsoft Entra ID authentication on your cache](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication#enable-microsoft-entra-id-authentication-on-your-cache) and copy the username.
 
    #### [Password](#tab/Password)
 
