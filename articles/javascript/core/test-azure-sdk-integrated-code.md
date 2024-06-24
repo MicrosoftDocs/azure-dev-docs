@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # Understand how to test JavaScript Applications on Azure
 
-This article outlines various testing strategies for JavaScript applications deployed on Azure, covering both local and cloud-based testing methods. It discusses the importance of inner and outer test loops, unit and integration testing, continuous integration testing, end-to-end testing, performance testing, security testing, and compliance and governance testing. Each section provides insights into tools and practices for ensuring application quality and performance in Azure environments.
+This article outlines various testing strategies for JavaScript applications deployed on Azure, covering both local and cloud-based testing methods. It discusses the importance of inner and outer test loops, unit and integration testing, continuous integration testing, end-to-end testing, performance testing, security testing, and compliance and governance testing, CICD testing, accessibility testing, and A/B testing. Each section provides insights into tools and practices for ensuring application quality and performance in Azure environments.
 
 ## Inner and Outer Test Loop
 
@@ -49,7 +49,7 @@ Unit testing in JavaScript applications integrated with Azure SDKs often require
 
 Integration testing assesses the interaction between your application and Azure services, ensuring that components work together as expected. **Automated Integration Tests** can be set up using Azure Pipelines in Azure DevOps or workflows in GitHub Actions, automating the deployment and testing of components in a cloud environment. This approach is vital for identifying issues that may not be apparent during unit testing, such as network latency or service configuration errors.
 
-* [Run automated integration tests as a user](tra/identity-platform/test-automate-integration-testing)
+* [Run automated integration tests as a user](/entra/identity-platform/test-automate-integration-testing)
 
 ## Continuous Integration Testing
 
