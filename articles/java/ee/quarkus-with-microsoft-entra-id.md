@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-t
 
 # Secure Quarkus applications with Microsoft Entra ID using OpenID Connect
 
-This article shows you how to secure Red Hat Quarkus applications with Microsoft Entra ID using OpenID Connect (OIDC) with a simple web application.
+This article shows you how to secure Red Hat Quarkus applications with Microsoft Entra ID using OpenID Connect (OIDC).
 
 In this article, you learn how to:
 
@@ -24,7 +24,7 @@ In this article, you learn how to:
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - The Azure account must be at least a [Cloud Application Administrator](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator).
 - If you don't have an existing Microsoft Entra tenant, [set up a tenant](/entra/identity-platform/quickstart-create-new-tenant).
-- Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
+- Prepare a local machine with a Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
 - Install and set up [Git](/devops/develop/git/install-and-set-up-git).
 - Install a Java SE implementation, version 21 or later - for example, [the Microsoft build of OpenJDK](/java/openjdk).
 - Install [Maven](https://maven.apache.org/download.cgi), version 3.9.3 or later.
@@ -37,7 +37,7 @@ In this section, you set up an OpenID Connect provider with Microsoft Entra ID f
 
 First, create two users in your Microsoft Entra tenant by following steps in [How to create, invite, and delete users](/entra/fundamentals/how-to-create-delete-users). You just need the section [Create a new user](/entra/fundamentals/how-to-create-delete-users#create-a-new-user). Use the following directions as you go through the article, then return to this article after you create users in your Microsoft Entra tenant.
 
-1. When you reach the **Basics** of section [Create a new user](/entra/fundamentals/how-to-create-delete-users#create-a-new-user):
+1. When you reach the tab **Basics** in section [Create a new user](/entra/fundamentals/how-to-create-delete-users#create-a-new-user):
    1. Enter a unique username for **User principal name** and copy the **User principal name** value. You use this value later when you sign in to the Quarkus app.
    1. Select **Derive from user principal name** for **Mail nickname**.
    1. Enter the user's name for **Display name**.
@@ -49,7 +49,7 @@ First, create two users in your Microsoft Entra tenant by following steps in [Ho
    1. Select **Review + create** > **Create**. Wait until the user is created.
    1. Select **Refresh** and you should see the new user in the list.
 
-   1. Repeat the above steps to create a second user.
+   1. Repeat the above steps to create a second user as shown next.
 
       :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-regular-user.png" alt-text="Screenshot of creating a user acting as regular user." lightbox="media/quarkus-with-microsoft-entra-id/create-regular-user.png":::
 
@@ -71,7 +71,7 @@ Next, register an application by following steps in [Quickstart: Register an app
 
 ### Add app roles to your application
 
-Then, add app roles to your application by following steps in [Add app roles to your application and receive them in the token](/entra/identity-platform/howto-add-app-roles-in-apps). You just need section [Declare roles for an application](/entra/identity-platform/howto-add-app-roles-in-apps#declare-roles-for-an-application) and section [Assign users and groups to Microsoft Entra roles](/entra/identity-platform/howto-add-app-roles-in-apps#assign-users-and-groups-to-microsoft-entra-roles). Use the following directions as you go through the article, then return to this article after you declare roles for the application.
+Then, add app roles to your application by following steps in [Add app roles to your application and receive them in the token](/entra/identity-platform/howto-add-app-roles-in-apps). You just need the sections [Declare roles for an application](/entra/identity-platform/howto-add-app-roles-in-apps#declare-roles-for-an-application) and [Assign users and groups to Microsoft Entra roles](/entra/identity-platform/howto-add-app-roles-in-apps#assign-users-and-groups-to-microsoft-entra-roles). Use the following directions as you go through the article, then return to this article after you declare roles for the application.
 
 1. When you reach the section [Declare roles for an application](/entra/identity-platform/howto-add-app-roles-in-apps#declare-roles-for-an-application), in **App roles UI**:
    1. Enter `Admin` for **Display name**.
@@ -85,6 +85,11 @@ Then, add app roles to your application by following steps in [Add app roles to 
    1. Select **Apply**. Wait until the role is created.
 
    1. Repeat the steps to create a second role.
+   1. Enter `User` for **Display name**.
+   1. Select **Users/Groups** for **Allowed member types**.
+   1. Enter `user` for **Value**.
+   1. Enter `User` for **Description**.
+   1. Select **Do you want to enable this app role?**.
 
       :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-user-role.png" alt-text="Screenshot of creating a role used by regular user." lightbox="media/quarkus-with-microsoft-entra-id/create-user-role.png":::
 
@@ -146,7 +151,7 @@ From the [welcome page](https://github.com/majguo/quarkus-azure/blob/main/entra-
 </html>
 ```
 
-Both links `/profile/user` and `/profile/admin` point to the [profile page resource](https://github.com/majguo/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/no/kantega/ProfilePage.java), which is accessible only to authenticated users by using the `@Authenticated` annotation. The `@Authenticated` annotation specifies that only authenticated users can access the `/profile` path.
+Both links `/profile/user` and `/profile/admin` point to the [profile page resource](https://github.com/majguo/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/no/kantega/ProfilePage.java), which is accessible only to authenticated users by using the `@Authenticated` annotation from package `io.quarkus.security`. The `@Authenticated` annotation specifies that only authenticated users can access the `/profile` path.
 
 ```java
 @Path("/profile")
