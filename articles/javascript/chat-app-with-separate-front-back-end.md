@@ -5,6 +5,7 @@ ms.date: 05/17/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-python, devx-track-js-ai, devx-track-python-ai, build-2024-intelligent-apps
+ms.collection: ce-skilling-ai-copilot
 # CustomerIntent: As a multilanguage developer new to Azure OpenAI, I want use the JavaScript frontend with a different language backend from the reference templates.
 ---
 

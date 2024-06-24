@@ -5,6 +5,7 @@ ms.date: 05/16/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai, build-2024-intelligent-apps
+ms.collection: ce-skilling-ai-copilot
 # CustomerIntent: As a JavaScript developer new to Azure OpenAI, I want to evaluate the answers of my chat app and determine the best prompt.
 ---
 # Get started with evaluating answers in a chat app in JavaScript

@@ -5,6 +5,7 @@ ms.topic: get-started
 ms.date: 05/22/2024
 ms.subservice: intelligent-apps
 ms.custom: build-2024-intelligent-apps
+ms.collection: ce-skilling-ai-copilot
 #customer intent: As a TypeScript developer, I want deploy and use a serverless chat app so that I can understand how langchainjs helps a chat app.
 
 ---
