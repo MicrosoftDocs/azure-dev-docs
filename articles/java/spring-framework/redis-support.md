@@ -28,14 +28,14 @@ Passwordless connection uses Microsoft Entra authentication for connecting to Az
 
 ## How it works
 
-Spring Cloud Azure will first build one of the following types of credentials depending on the application authentication configuration:
+Spring Cloud Azure first builds one of the following types of credentials depending on the application authentication configuration:
 
 - `ClientSecretCredential`
 - `ClientCertificateCredential`
 - `UsernamePasswordCredential`
 - `ManagedIdentityCredential`
 
-If none of these types of credentials are found, the credential chain via `DefaultTokenCredential` will be used to obtain credentials from application properties, environment variables, managed identity, or IDEs. For more information, see [Spring Cloud Azure authentication](authentication.md).
+If none of these types of credentials are found, the credential chain via `DefaultTokenCredential` is used to obtain credentials from application properties, environment variables, managed identity, or IDEs. For more information, see [Spring Cloud Azure authentication](authentication.md).
 
 ## Configuration
 
@@ -75,19 +75,19 @@ The following sections show the classic Spring Boot application usage scenarios.
 
 #### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
 
-1. Add the following dependency to your project. This will automatically include the `spring-boot-starter` dependency in your project transitively.
+1. Add the following dependency to your project. This automatically includes the `spring-boot-starter` dependency in your project transitively.
 
-```xml
-<dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-starter-redis</artifactId>
-</dependency>
-```
+   ```xml
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>spring-cloud-azure-starter-redis</artifactId>
+   </dependency>
+   ```
 
-> [!NOTE]
-> Passwordless connections have been supported since version `4.6.0`.
->
-> Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
+   > [!NOTE]
+   > Passwordless connections have been supported since version `4.6.0`.
+   >
+   > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 1. Configure the following properties in your *application.yml* file:
 
@@ -102,28 +102,30 @@ The following sections show the classic Spring Boot application usage scenarios.
          passwordless-enabled: true
    ```
 
-> [!IMPORTANT]
-> Passwordless connection uses Microsoft Entra authentication. To use Microsoft Entra authentication, you should enable Microsoft Entra Authentication and select user(managed identity/service principal) to assign Data Owner Access Policy. See [Enable Microsoft Entra ID authentication on your cache](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication#enable-microsoft-entra-id-authentication-on-your-cache) for more information and copy the username.
+   > [!IMPORTANT]
+   > Passwordless connection uses Microsoft Entra authentication. To use Microsoft Entra authentication, you should enable Microsoft Entra Authentication and select `user(managed identity/service principal)` to assign `Data Owner Access Policy`.
+   >
+   > For more information and to get the value for `username`, see the [Enable Microsoft Entra ID authentication on your cache](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication#enable-microsoft-entra-id-authentication-on-your-cache) section of [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
 
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
-1. Add the following dependency to your project. This will automatically include the `spring-boot-starter` dependency in your project transitively.
+1. Add the following dependency to your project. This automatically includes the `spring-boot-starter` dependency in your project transitively.
 
-```xml
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-redis</artifactId>
-</dependency>
-<dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-starter-data-redis-lettuce</artifactId>
-</dependency>
-```
+   ```xml
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-data-redis</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>spring-cloud-azure-starter-data-redis-lettuce</artifactId>
+   </dependency>
+   ```
 
-> [!NOTE]
-> Passwordless connections have been supported since version `5.13.0`.
->
-> Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
+   > [!NOTE]
+   > Passwordless connections have been supported since version `5.13.0`.
+   >
+   > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 1. Configure the following properties in your *application.yml* file:
 
@@ -140,60 +142,64 @@ The following sections show the classic Spring Boot application usage scenarios.
            passwordless-enabled: true
    ```
 
-> [!IMPORTANT]
-> Passwordless connection uses Microsoft Entra authentication. To use Microsoft Entra authentication, you should enable Microsoft Entra Authentication and select user(managed identity/service principal) to assign Data Owner Access Policy. See [Enable Microsoft Entra ID authentication on your cache](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication#enable-microsoft-entra-id-authentication-on-your-cache) for more information and copy the username.
+   > [!IMPORTANT]
+   > Passwordless connection uses Microsoft Entra authentication. To use Microsoft Entra authentication, you should enable Microsoft Entra Authentication and select `user(managed identity/service principal)` to assign `Data Owner Access Policy`.
+   >
+   > For more information and to get the value for `username`, see the [Enable Microsoft Entra ID authentication on your cache](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication#enable-microsoft-entra-id-authentication-on-your-cache) section of [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
 
 ---
 
 ### Connect to Azure Cache for Redis via Azure Resource Manager
 
+Use the following steps to connect to Azure Cache for Redis:
+
 #### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
 
-1. Add the following dependency to your project. This will automatically include the `spring-boot-starter` dependency in your project transitively.
+1. Add the following dependency to your project. This automatically includes the `spring-boot-starter` dependency in your project transitively.
 
-```xml
-<dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-starter</artifactId>
-</dependency>
-<dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-resourcemanager</artifactId>
-</dependency>
-<dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-boot-starter-data-redis</artifactId>
-</dependency>
-```
+   ```xml
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>spring-cloud-azure-starter</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>spring-cloud-azure-resourcemanager</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>spring-boot-starter-data-redis</artifactId>
+   </dependency>
+   ```
 
-> [!NOTE]
-> Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
+   > [!NOTE]
+   > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
-1. Add the following dependency to your project. This will automatically include the `spring-boot-starter` dependency in your project transitively.
+1. Add the following dependency to your project. This automatically includes the `spring-boot-starter` dependency in your project transitively.
 
-```xml
-<dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-starter-data-redis-lettuce</artifactId>
-</dependency>
-<dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-resourcemanager</artifactId>
-</dependency>
-<dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-boot-starter-data-redis</artifactId>
-</dependency>
-```
+   ```xml
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>spring-cloud-azure-starter-data-redis-lettuce</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>spring-cloud-azure-resourcemanager</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>spring-boot-starter-data-redis</artifactId>
+   </dependency>
+   ```
 
-> [!NOTE]
-> Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
+   > [!NOTE]
+   > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
 ---
 
-1. Configure the following properties in your *application.yml* file:
+2. Configure the following properties in your *application.yml* file:
 
    ```yaml
    spring:

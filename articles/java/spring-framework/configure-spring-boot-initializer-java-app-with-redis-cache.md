@@ -142,12 +142,12 @@ To use a Redis cache to store and retrieve data, configure the application by us
 
 ---
 
-1. Start the application. The application will retrieve data from your Redis cache. You'll see logs similar to the following example:
+Then, start the application. The application retrieves data from your Redis cache. You should see logs similar to the following example:
 
-   ```output
-   Add a key is done
-   Return the value from the cache: Hello World
-   ```
+```output
+Add a key is done
+Return the value from the cache: Hello World
+```
 
 [!INCLUDE [deploy-to-azure-spring-apps](includes/deploy-to-azure-spring-apps.md)]
 
