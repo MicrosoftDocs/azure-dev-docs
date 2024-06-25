@@ -4,7 +4,7 @@ description: Use passwordless connections for authentication and authorization t
 ms.topic: how-to
 ms.date: 05/30/2024
 ms.reviewer: scaddie
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python, passwordless-go, build-2024-intelligent-apps
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python, passwordless-go, build-2024-intelligent-apps
 #customer intent: As a developer, I want to use passwordless connections so that I don't leak secrets.
 ---
 

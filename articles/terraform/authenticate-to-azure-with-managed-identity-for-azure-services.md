@@ -4,7 +4,7 @@ description: Learn the various options to configure and authenticate Terraform t
 keywords: azure devops terraform cli powershell authentication microsoft account subscription environment variables provider block
 ms.topic: how-to
 ms.date: 06/20/2024
-ms.custom: devx-track-terraform, devx-track-azurepowershell
+ms.custom: devx-track-terraform
 # Customer intent: I want to authenticate Terraform to Azure.
 ---
 
