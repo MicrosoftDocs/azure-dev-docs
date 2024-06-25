@@ -167,6 +167,12 @@
         "**/ai/**/*.md": "build-2024-intelligent-apps",
         "**/ai/**/*.yml": "build-2024-intelligent-apps"
       },
+      "ms.collection": {
+        "**/ai/**/*.md": "ce-skilling-ai-copilot",
+        "**/ai/**/*.yml": "ce-skilling-ai-copilot",
+        "**java/ai/**/*.md": "ce-skilling-ai-copilot",
+        "**java/ai/**/*.yml": "ce-skilling-ai-copilot"
+      },
       "ROBOTS": {
         "ux-beta/**/*.md": "NOINDEX"
       }    

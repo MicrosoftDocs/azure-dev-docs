@@ -5,6 +5,7 @@ ms.date: 06/03/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
+ms.collection: ce-skilling-ai-copilot
 # CustomerIntent: As a python developer new to Azure, I want to deploy a chat app with private access so that I understand how to secure my chat app endpoint.
 ---
 

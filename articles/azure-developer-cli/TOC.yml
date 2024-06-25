@@ -39,10 +39,14 @@
       href: configure-template-sources.md
   - name: Create templates
     items:
+    - name: Building templates overview
+      href: make-azd-compatible.md
+    - name: Start with an existing template
+      href: start-with-existing-template.md
+    - name: Start with your app code
+      href: start-with-app-code.md
     - name: Training - build and deploy azd templates
       href: /training/paths/azure-developer-cli
-    - name: Make your project azd-compatible
-      href: make-azd-compatible.md
   - name: Integration and remote environments
     items:
     - name: Remote Environment Support
