@@ -50,7 +50,7 @@ Configurable properties when using Redis support:
 > | **spring.cloud.azure.redis**.name                    | Azure Cache for Redis instance name.         |               | Yes      |
 > | **spring.cloud.azure.redis**.resource.resource-group | The resource group of Azure Cache for Redis. |               | Yes      |
 > | **spring.cloud.azure**.profile.subscription-id       | The subscription ID.                         |               | Yes      |
-> | **spring.redis.azure**.passwordless-enabled | Whether to enable passwordless for Azure Cache for Redis. |               | No      |
+> | **spring.redis.azure**.passwordless-enabled | Whether to enable passwordless for Azure Cache for Redis. | false        | No      |
 
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
@@ -218,12 +218,3 @@ See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-sprin
 See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cache/spring3-sample) repository on GitHub.
 
 ---
-
-
-
-#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-#### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
-
----
-
