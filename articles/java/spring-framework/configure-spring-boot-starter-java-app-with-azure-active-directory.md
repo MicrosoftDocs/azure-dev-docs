@@ -33,9 +33,6 @@ The following prerequisites are required to complete the steps in this article:
 1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application.
 1. Add **Dependencies** for **Spring Web**, **Microsoft Entra ID**, and **OAuth2 Client**.
 1. At the bottom of the page, select the **GENERATE** button.
-
-   :::image type="content" source="media/spring-initializer/2.7.1/mvn-java8-aad-oauth2-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
-
 1. When prompted, download the project to a path on your local computer.
 
 <a name='create-azure-active-directory-instance'></a>
