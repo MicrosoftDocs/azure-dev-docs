@@ -6,14 +6,31 @@ ms.date: 06/17/2024
 ms.custom: devx-track-js
 ---
 
-# Understand how to test JavaScript Applications on Azure
+# What is testing for JavaScript Applications on Azure
 
-This article outlines various testing strategies for JavaScript applications deployed on Azure, covering both local and cloud-based testing methods. It discusses the importance of inner and outer test loops, unit and integration testing, continuous integration testing, end-to-end testing, performance testing, security testing, and compliance and governance testing, CICD testing, accessibility testing, and A/B testing. Each section provides insights into tools and practices for ensuring application quality and performance in Azure environments.
+This article outlines various testing strategies for JavaScript applications deployed on Azure, including:
+
+- Local and cloud-based testing methods
+- The importance of inner and outer test loops
+- Unit and integration testing
+- Continuous integration testing
+- End-to-end testing
+- Performance testing
+- Security testing
+- Compliance and governance testing
+- CI/CD testing
+- Accessibility testing
+- A/B testing
+ 
+Each section provides insights into tools and practices for ensuring application quality and performance in Azure environments.
 
 ## Inner and Outer Test Loop
 
 The inner and outer test loops are foundational concepts in software testing, especially for applications deployed on cloud platforms like Azure. The **inner loop** refers to the developer's local environment where unit and integration tests are frequently run during the development phase. This loop focuses on quick feedback and iteration. The **outer loop** encompasses tests run in CI/CD pipelines, staging, and production environments, often leveraging Azure DevOps or GitHub Actions. These tests, including end-to-end, performance, and security tests, validate the application's behavior in environments that closely mirror or are identical to the final production environment. Efficient testing strategies leverage both loops to ensure comprehensive coverage and quality assurance before and after deployment.
 
+* [CI/CD: The what, why, and how](https://resources.github.com/devops/ci-cd/)
+* [A beginner’s guide to CI/CD and automation on GitHub](https://github.blog/2022-06-03-a-beginners-guide-to-ci-cd-and-automation-on-github/)
+* [GitHub action starer workflows](https://github.com/actions/starter-workflows)
 * [Use cloud-hosted browsers for locally deployed apps](/azure/playwright-testing/how-to-test-local-applications)
 
 ## Testing with and without the Azure Cloud
@@ -35,15 +52,22 @@ Emulators include:
 
 ### Dev containers
 
-**Docker containers** offer a powerful alternative to using emulators for local development, especially when working with Azure services. By running services in Docker containers, developers can create a local environment that closely mirrors the production environment, ensuring consistency across development, testing, and deployment stages. This approach not only facilitates smoother integration with Azure SDK but also enhances the reliability of testing by simulating real-world conditions more accurately. Containers can be configured to replicate the settings and data of Azure services, providing a robust platform for developing and testing applications without the overhead of connecting to live Azure services. This method is particularly beneficial for complex applications requiring multiple services, as it allows for easy orchestration and management of dependencies.
+**Dev containers** offer a powerful alternative to using emulators for local development, especially when working with Azure services. By running services in containers, developers can create a local environment that closely mirrors the production environment, ensuring consistency across development, testing, and deployment stages. This approach not only facilitates smoother integration with Azure SDK but also enhances the reliability of testing by simulating real-world conditions more accurately. Containers can be configured to replicate the settings and data of Azure services, providing a robust platform for developing and testing applications without the overhead of connecting to live Azure services. This method is particularly beneficial for complex applications requiring multiple services, as it allows for easy orchestration, cleanup, and management of dependencies.
 
 Dev containers include:
 
 * [Azure SQL Database](https://github.com/microsoft/azuresql-devcontainers)
 
+Learn more: 
+
+* [Development Containers](https://containers.dev/)
+* [Open Container Initiative](https://opencontainers.org/about/overview/)
+
 ## Unit Testing
 
 Unit testing in JavaScript applications integrated with Azure SDKs often requires selecting appropriate frameworks like Jest or Mocha. These frameworks facilitate the testing of individual components or functions in isolation. When it comes to **Mocking Azure SDK Calls**, tools such as sinon or jest-mock can simulate Azure SDK responses, allowing developers to test the logic of their applications without actual calls to Azure services. This method is particularly useful for testing error handling, edge cases, or specific data conditions.
+
+* [Azure SDK testing](#azure-sdk-tests)
 
 ## Integration Testing
 
@@ -55,9 +79,16 @@ Integration testing assesses the interaction between your application and Azure 
 
 Continuous Integration (CI) testing involves automatically running tests every time a change is made to the codebase. **CI Tools and Azure** like Azure DevOps provide integrated environments for automating builds, tests, and deployments. Configuring pipelines to include automated tests ensures that every change is verified, reducing the likelihood of bugs and regressions. Proper **Pipeline Configuration** is crucial for efficient CI processes, including setting up triggers for automatic test execution and configuring environments for different stages of testing.
 
+Learn more:
+
+* [A beginner’s guide to CI/CD and automation on GitHub](https://github.blog/2022-06-03-a-beginners-guide-to-ci-cd-and-automation-on-github/)
+* [GitHub action starer workflows](https://github.com/actions/starter-workflows)
+* [Example Node.js workflows](https://docs.github.com/actions/guides/building-and-testing-nodejs)
+
+### Azure Test Plans
+
 [**Azure Test Plans**](https://azure.microsoft.com/products/devops/test-plans) offer a comprehensive suite for manual and exploratory testing within Azure DevOps. This tool is essential for scenarios that require human judgment or are difficult to automate, providing a structured approach to manual testing. It allows teams to plan, execute, and track test activities, including capturing rich data like screenshots and videos to aid in bug reporting. Integrating Azure Test Plans into your CI/CD process ensures a holistic testing strategy that covers both automated and manual test cases.
 
-For Node.js projects, GitHub provides [example workflows](https://docs.github.com/actions/guides/building-and-testing-nodejs) that can be easily adapted to your project's needs.
 
 ## End to End Testing
 
@@ -73,7 +104,7 @@ Performance testing is essential for applications deployed on Azure to ensure th
 * [Recommendations for performance testing](/azure/well-architected/performance-efficiency/performance-test)
 * [Azure Load Testing](/azure/load-testing/)
 * [Identify performance bottlenecks in a web app](/azure/load-testing/tutorial-identify-bottlenecks-azure-portal)
-
+* [GitHub: Azure Load testing](https://github.com/microsoft/azure-load-testing)
 ## Security Testing
 
 Security testing on Azure involves identifying potential vulnerabilities in your application to prevent unauthorized access or data breaches. 
