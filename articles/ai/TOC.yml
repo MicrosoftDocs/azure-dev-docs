@@ -16,9 +16,9 @@ items:
           href: advanced-retrieval-augmented-generation.md
     - name: How-to
       items:
-        - name: Use Azure OpenAI without passwords
+        - name: Use Azure OpenAI without keys
           href: passwordless-connections.md
-        - name: Use Azure AI Search without passwords
+        - name: Use Azure AI Search without keys
           href: /azure/search/keyless-connections
     - name: AI app templates
       items:
