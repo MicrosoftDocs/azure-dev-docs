@@ -22,7 +22,7 @@ In this article, you learn how to:
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- The Azure account must be at least a [Cloud Application Administrator](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator).
+- The Azure identity you use to execute this guidance must have at least the Cloud Application Administrator role. For more information, see [List Microsoft Entra role assignments](/entra/identity/role-based-access-control/view-assignments#microsoft-entra-admin-center) and [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator).
 - If you don't have an existing Microsoft Entra tenant, [set up a tenant](/entra/identity-platform/quickstart-create-new-tenant).
 - Prepare a local machine with a Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
 - Install and set up [Git](/devops/develop/git/install-and-set-up-git).
@@ -37,24 +37,26 @@ In this section, you set up an OpenID Connect provider with Microsoft Entra ID f
 
 First, create two users in your Microsoft Entra tenant by following steps in [How to create, invite, and delete users](/entra/fundamentals/how-to-create-delete-users). You just need the section [Create a new user](/entra/fundamentals/how-to-create-delete-users#create-a-new-user). Use the following directions as you go through the article, then return to this article after you create users in your Microsoft Entra tenant.
 
+#### Create a user to serve as an "admin" in the app.
+
 1. When you reach the tab **Basics** in section [Create a new user](/entra/fundamentals/how-to-create-delete-users#create-a-new-user):
-   1. Enter a unique username for **User principal name** and copy the **User principal name** value. You use this value later when you sign in to the Quarkus app.
+   1. Enter a unique username for **User principal name** and write down the **User principal name** value. You use this value later when you sign in to the Quarkus app.
    1. Select **Derive from user principal name** for **Mail nickname**.
    1. Enter the user's name for **Display name**.
-   1. Select **Auto-generate password** for **Password** and copy the **Password** value. You use this value later when you sign in to the Quarkus app.
+   1. Select **Auto-generate password** for **Password** and copy the **Password** value. Write down the password value. You use this value later when you sign in to the Quarkus app.
    1. Select **Account enabled**.
 
       :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-admin-user.png" alt-text="Screenshot of creating a user acting as admin." lightbox="media/quarkus-with-microsoft-entra-id/create-admin-user.png":::
 
    1. Select **Review + create** > **Create**. Wait until the user is created.
-   1. Select **Refresh** and you should see the new user in the list.
+   1. Wait a minute or so and select **Refresh**. You should see the new user in the list.
 
-   1. Repeat the above steps to create a second user as shown next.
+#### Create a user to serve as a "user" in the app.
+
+   1. Repeat the steps in the previous section to create a second user as shown next.
 
       :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-regular-user.png" alt-text="Screenshot of creating a user acting as regular user." lightbox="media/quarkus-with-microsoft-entra-id/create-regular-user.png":::
-
-   The first user is used as an administrator, and the second user is used as a regular user.
-
+      
 ### Register an application in Microsoft Entra ID
 
 Next, register an application by following steps in [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app). Use the following directions as you go through the article, then return to this article after you register and configure the application.
@@ -66,7 +68,7 @@ Next, register an application by following steps in [Quickstart: Register an app
 1. When you reach the section [Add a redirect URI](/entra/identity-platform/quickstart-register-app#add-a-redirect-uri):
    1. Select **Web** for **Configure platforms** and enter `http://localhost:8080` for **Redirect URIs**.
 
-1. When you reach the section [Add credentials](/entra/identity-platform/quickstart-register-app#add-credentials), select [Add a client secret](/entra/identity-platform/quickstart-register-app#add-a-client-secret) in this quickstart.
+1. When you reach the section [Add credentials](/entra/identity-platform/quickstart-register-app#add-credentials), select the tab **[Add a client secret](/entra/identity-platform/quickstart-register-app#add-a-client-secret)**.
    1. When you add a client secret, write down the **Client secret** value. You use this value later in the Quarkus app configuration.
 
 ### Add app roles to your application
@@ -96,11 +98,13 @@ Then, add app roles to your application by following steps in [Add app roles to 
    The first role is used by the administrator, and the second role is used by the regular user.
 
 1. When you reach the section [Assign users and groups to Microsoft Entra roles](/entra/identity-platform/howto-add-app-roles-in-apps#assign-users-and-groups-to-microsoft-entra-roles):
-   1. Select **Add user/group**. In **Add Assignment** pane, select user **Admin** for **Users** and select role **Admin** for **Select a role**. Select **Assign**. Wait until the application assignment succeeded.
+   1. Select **Add user/group**. In **Add Assignment** pane, select user **Admin** for **Users** and select role **Admin** for **Select a role**. Select **Assign**. Wait until the application assignment succeeded. You may need to scroll the table sideways to see the **Role assigned** column.
    1. Repeat the above steps to assign the **User** role to user **User**.
    1. Select **Refresh** and you should see the users and roles assigned in the **Users and groups** pane.
 
       :::image type="content" source="media/quarkus-with-microsoft-entra-id/users-and-roles-assigned.png" alt-text="Screenshot of users and roles assigned." lightbox="media/quarkus-with-microsoft-entra-id/users-and-roles-assigned.png":::
+
+Do not follow any other steps in **Add app roles to your application and receive them in the token**.
 
 ## Protect a Quarkus app by using OpenID Connect
 
