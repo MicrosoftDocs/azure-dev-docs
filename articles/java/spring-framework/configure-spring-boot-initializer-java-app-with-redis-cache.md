@@ -1,5 +1,5 @@
 ---
-title: use Azure Redis Cache in Spring
+title: Use Azure Redis Cache in Spring
 description: Configure a Spring Boot application created with the Spring Initializr to use the Redis in the cloud with Azure Cache for Redis.
 author: KarlErickson
 ms.author: hangwan
@@ -14,11 +14,17 @@ ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 
 This tutorial demonstrates how to use a Redis cache to store and retrieve data in a Spring Boot application.
 
+In this tutorial, we include two authentication methods: Microsoft Entra authentication and Redis authentication. The Passwordless tab shows the Microsoft Entra authentication and the Password tab shows the Redis authentication.
+
+Microsoft Entra authentication is a mechanism for connecting to Azure Cache for Redis using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+
+Redis authentication uses passwords in Redis. If you choose to use passwords as credentials, you need to manage the passwords by yourself.
+
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/).
 
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or higher.
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 17 or higher.
 
 - [Apache Maven](http://maven.apache.org/), version 3.0 or higher.
 
@@ -28,38 +34,73 @@ This tutorial demonstrates how to use a Redis cache to store and retrieve data i
 
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**  and **Spring Data Reactive Redis** dependencies, and then select Java version 8 or higher.
 
-## Code the application
+## Caching Data to Azure Cache for Redis
 
-To use a Redis cache to store and retrieve data, configure the application by using the following steps.
+With an Azure Cache for Redis instance, you can cache data using Spring Cloud Azure.
+
+To install the Spring Cloud Azure Starter Data Redis with Lettuce module, add the following dependencies to your *pom.xml* file:
+
+  ```xml
+  <dependencies>
+   <dependency>
+     <groupId>com.azure.spring</groupId>
+     <artifactId>spring-boot-starter-web</artifactId>
+   </dependency>
+   <dependency>
+     <groupId>com.azure.spring</groupId>
+     <artifactId>spring-cloud-azure-starter-data-redis-lettuce</artifactId>
+   </dependency>
+   <dependency>
+     <groupId>com.azure.spring</groupId>
+     <artifactId>spring-boot-starter-data-redis</artifactId>
+   </dependency>
+  </dependencies>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>5.13.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  ```
+
+  > [!NOTE]
+  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This configuration ensures that all Spring Cloud Azure dependencies are using the same version. For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
+
+### Code the application
+
+To use a Redis cache to store and retrieve data, configure the application by using the following steps:
+
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 1. Configure Redis cache credentials in the *application.properties* configuration file, as shown in the following example.
 
    ```properties
-   # Specify the DNS URI of your Redis cache.
    spring.data.redis.host=<your-redis-name>.redis.cache.windows.net
-
-   # Specify the port for your Redis cache.
-   spring.data.redis.port=6379
-
-   # Specify the access key for your Redis cache.
-   spring.data.redis.password=<your-redis-access-key>
+   spring.data.redis.port=6380
+   spring.data.redis.username=<your-redis-username>
+   spring.data.redis.ssl.enabled=true
+   spring.data.redis.azure.passwordless-enabled=true
    ```
 
    > [!NOTE]
-   > If you were using a different Redis client like Jedis that enables SSL, you would specify that you want to use SSL in your *application.properties* file and use port 6380. For example:
-   >
-   > ```properties
-   > # Specify the DNS URI of your Redis cache.
-   > spring.data.redis.host=<your-redis-name>.redis.cache.windows.net
-   > # Specify the access key for your Redis cache.
-   > spring.data.redis.password=<your-redis-access-key>
-   > # Specify that you want to use SSL.
-   > spring.data.redis.ssl.enabled=true
-   > # Specify the SSL port for your Redis cache.
-   > spring.data.redis.port=6380
-   > ```
-   >
-   > For more information, see [Quickstart: Use Azure Cache for Redis in Java](/azure/redis-cache/cache-java-get-started).
+   > To get the value for `username`, follow the instructions in the [Enable Microsoft Entra ID authentication on your cache](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication#enable-microsoft-entra-id-authentication-on-your-cache) section of [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication), and copy the **username** value.
+
+#### [Password](#tab/Password)
+
+1. Configure Redis cache credentials in the *application.properties* configuration file, as shown in the following example.
+
+   ```properties
+   spring.data.redis.host=<your-redis-name>.redis.cache.windows.net
+   spring.data.redis.port=6380
+   spring.data.redis.password=<your-redis-password>
+   spring.data.redis.ssl.enabled=true
+   ```
 
 1. Edit the startup class file to show the following content. This code stores and retrieves data.
 
@@ -99,12 +140,14 @@ To use a Redis cache to store and retrieve data, configure the application by us
    }
    ```
 
-1. Start the application. The application will retrieve data from your Redis cache. You'll see logs similar to the following example:
+---
 
-   ```output
-   Add a key is done
-   Return the value from the cache: Hello World
-   ```
+Then, start the application. The application retrieves data from your Redis cache. You should see logs similar to the following example:
+
+```output
+Add a key is done
+Return the value from the cache: Hello World
+```
 
 [!INCLUDE [deploy-to-azure-spring-apps](includes/deploy-to-azure-spring-apps.md)]
 
