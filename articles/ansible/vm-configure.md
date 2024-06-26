@@ -106,9 +106,9 @@ In this article, you learn how to:
               key_data: "<key_data>"
           network_interfaces: myNIC
           image:
-            offer: CentOS
-            publisher: OpenLogic
-            sku: '7.5'
+            offer: 0001-com-ubuntu-server-jammy
+            publisher: Canonical
+            sku: 22_04-lts
             version: latest
     ```
 

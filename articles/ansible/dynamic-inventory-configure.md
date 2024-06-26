@@ -74,7 +74,7 @@ In this article, you learn how to:
         az vm create \
         --resource-group ansible-inventory-test-rg \
         --name linux-vm \
-        --image CentOS85Gen2 \
+        --image Ubuntu2204 \
         --admin-username azureuser \
         --admin-password <password>
         ```
@@ -98,7 +98,7 @@ In this article, you learn how to:
         New-AzVM `
         -ResourceGroupName ansible-inventory-test-rg `
         -Location eastus `
-        -Image CentOS85Gen2 `
+        -Image Ubuntu2204 `
         -Name linux-vm `
         -OpenPorts 22 `
         -Credential $credential
@@ -195,9 +195,9 @@ ansible-inventory -i myazure_rm.yml --list
                 "default_inventory_hostname": "linux-vm_cdb4",
                 "id": "/subscriptions/<subscriptionid>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/linux-vm",
                 "image": {
-                    "offer": "CentOS",
-                    "publisher": "OpenLogic",
-                    "sku": "7.7",
+                    "offer": "0001-com-ubuntu-server-jammy",
+                    "publisher": "Canonical",
+                    "sku": "22_04-lts-gen2",
                     "version": "latest"
                 },
                 ...,
@@ -247,7 +247,7 @@ include_vm_resource_groups:
   - ansible-inventory-test-rg
 auth_source: auto
 conditional_groups:
-  linux: "'CentOS' in image.offer"
+  linux: "'ubuntu' in image.offer"
   windows: "'WindowsServer' in image.offer"
 ```
 
@@ -283,7 +283,7 @@ include_vm_resource_groups:
   - ansible-inventory-test-rg
 auth_source: auto
 conditional_groups:
-  linux: "'CentOS' in image.offer"
+  linux: "'ubuntu' in image.offer"
   windows: "'WindowsServer' in image.offer"
 keyed_groups:
  - key: tags.applicationRole
