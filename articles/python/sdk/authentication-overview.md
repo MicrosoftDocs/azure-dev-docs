@@ -61,11 +61,20 @@ When an application runs on a developer's workstation during local development, 
 
 ## Use DefaultAzureCredential in an application
 
-To use [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) in a Python app, add the [azure.identity](https://pypi.org/project/azure-identity/) package to your application.
+To use [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) in a Python app, add the [azure.identity](https://pypi.org/project/azure-identity/) package to your application. You may also choose to use the `BlobServiceClient` from the `azure.storage.blob` package to interact with an [Azure Storage Account](https://learn.microsoft.com/azure/storage/common/storage-account-overview).
+
+Start by adding the [azure.identity](https://pypi.org/project/azure-identity/) package to your application.
 
 ```terminal
 pip install azure-identity
 ```
+
+If your application interacts with an Azure Storage Account, add the [azure.storage.blob](https://pypi.org/project/azure-storage-blob/) package to your application.
+
+```terminal
+pip install azure-storage-blob
+```
+
 
 The following code example shows how to instantiate a `DefaultAzureCredential` object and use it with an Azure SDK client class. In this case, it's a `BlobServiceClient` object used to access Azure Blob Storage.
 

@@ -113,13 +113,13 @@ For information on assigning permissions at the resource or subscription level u
 When your code is running in Azure and managed identity has been enabled on the Azure resource hosting your app, the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) determines the credentials to use in the following order:
 
 1. Check the environment for a service principal as defined by the environment variables `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and either `AZURE_CLIENT_SECRET` or `AZURE_CLIENT_CERTIFICATE_PATH` and (optionally) `AZURE_CLIENT_CERTIFICATE_PASSWORD`.
-1. Check keyword parameters for a user-assigned managed identity. You can pass in a user-assigned managed identity by specifying its client ID in the `managed_identity_client_id` parameter.
-1. Check the `AZURE_CLIENT_ID` environment variable for the client ID of a user-assigned managed identity.
-1. Use the system-assigned managed identity for the Azure resource if it's enabled.
+2. Check keyword parameters for a user-assigned managed identity. You can pass in a user-assigned managed identity by specifying its client ID in the `managed_identity_client_id` parameter.
+3. Check the `AZURE_CLIENT_ID` environment variable for the client ID of a user-assigned managed identity.
+4. Use the system-assigned managed identity for the Azure resource if it's enabled.
 
-You can exclude managed identities from the credential by setting the `exclude_managed_identity_credential` keyword parameter `True`.
+You can exclude managed identities from the credential by setting the `exclude_managed_identity_credential` keyword parameter `True`. You may also choose to use the `BlobServiceClient` from the `azure.storage.blob` package to interact with an [Azure Storage Account](https://learn.microsoft.com/azure/storage/common/storage-account-overview).
 
-In this article, we're using the system-assigned managed identity for an Azure App Service web app, so we don't need to configure a managed identity in the environment or pass it in as a parameter. The following steps show you how to use `DefaultAzureCredential`.
+In this article, we're using the system-assigned managed identity for an Azure App Service web app, so we don't need to configure a managed identity in the environment or pass it in as a parameter. The following steps show you how to use `DefaultAzureCredential` and `BlobServiceClient`.
 
 First, add the `azure.identity` package to your application.
 
@@ -127,11 +127,17 @@ First, add the `azure.identity` package to your application.
 pip install azure-identity
 ```
 
+If your application interacts with an Azure Storage Account, add the [azure.storage.blob](https://pypi.org/project/azure-storage-blob/) package to your application.
+
+```terminal
+pip install azure-storage-blob
+```
+
 Next, for any Python code that creates an Azure SDK client object in your app, you'll want to:
 
 1. Import the `DefaultAzureCredential` class from the `azure.identity` module.
-1. Create a `DefaultAzureCredential` object.
-1. Pass the `DefaultAzureCredential` object to the Azure SDK client object constructor.
+2. Create a `DefaultAzureCredential` object.
+3. Pass the `DefaultAzureCredential` object to the Azure SDK client object constructor.
 
 An example of these steps is shown in the following code segment.
 
