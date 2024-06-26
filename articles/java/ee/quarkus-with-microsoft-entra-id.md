@@ -235,26 +235,6 @@ Both endpoints `/profile/admin` and `/profile/user` return the [profile page](ht
 
 After logout, the user is redirected to the welcome page and can sign in again.
 
-### Configure the Quarkus app
-
-To use Microsoft Entra ID as the OpenID Connect provider, you need to configure the Quarkus app with the following values:
-
-| Property | Description | Value |
-| --- | --- | --- |
-| `quarkus.oidc.client-id` | The client ID of the registered application. | **Application (client) ID** value you wrote down earlier. |
-| `quarkus.oidc.credentials.secret` | The client secret of the registered application. | **Client secret** value you wrote down earlier. |
-| `quarkus.oidc.auth-server-url` | The base URL of the OpenID Connect (OIDC) server. | `https://login.microsoftonline.com/{tenant-id}/v2.0`. Replace `{tenant-id}` with the **Directory (tenant) ID** value you wrote down earlier. |
-| `quarkus.oidc.application-type` | The application type. Use `web-app` to tell Quarkus that you want to enable the OIDC authorization code flow so that your users are redirected to the OIDC provider to authenticate. | `web-app` |
-| `quarkus.oidc.authentication.redirect-path` | The relative path for calculating a `redirect_uri` query parameter. | `/` |
-| `quarkus.oidc.authentication.restore-path-after-redirect` | Whether to restore the path after redirect. | `true` |
-| `quarkus.oidc.roles-claim` | The claim that contains the roles of the authenticated user. | `roles` |
-| `quarkus.oidc.provider` | Well known OpenId Connect provider identifier. | `microsoft` |
-| `quarkus.oidc.token.customizer-name` | The name of the token customizer. | `azure-access-token-customizer` |
-| `quarkus.oidc.logout.path` | The relative path of the logout endpoint at the application. | `/logout` |
-| `quarkus.oidc.logout.post-logout-path` | The relative path of the application endpoint where the user should be redirected to after logging out from the OpenID Connect Provider. | `/` |
-
-You can see the configuration in the [application.properties](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/application.properties) file.
-
 ## Run and test the Quarkus app
 
 In this section, you run and test the Quarkus app to see how it works with Microsoft Entra ID as the OpenID Connect provider.
@@ -279,7 +259,7 @@ export QUARKUS_OIDC_CREDENTIALS_SECRET=<Client secret>
 export QUARKUS_OIDC_AUTH_SERVER_URL=https://login.microsoftonline.com/<Directory (tenant) ID>/v2.0
 ```
 
-Values for these environment variables are feed into the following configuration properties in the `application.properties` file you saw earlier:
+Values for these environment variables are interpolated into the following configuration properties in the `application.properties` file you saw earlier:
 
 ```properties
 quarkus.oidc.client-id=
@@ -312,6 +292,26 @@ You can run the Quarkus app in different modes. Select one of the following meth
   ```
 
 If you want to try different modes, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the Quarkus app and then run the Quarkus app in another mode.
+
+### Configuration reference
+
+The following values in *application.properties* configure the application for use with Microsoft Entra ID OpenID Connect. The sample you just built copies values from the environment variables to this file.
+
+| Property | Description | Value |
+| --- | --- | --- |
+| `quarkus.oidc.client-id` | The client ID of the registered application. | **Application (client) ID** value you wrote down earlier. |
+| `quarkus.oidc.credentials.secret` | The client secret of the registered application. | **Client secret** value you wrote down earlier. |
+| `quarkus.oidc.auth-server-url` | The base URL of the OpenID Connect (OIDC) server. | `https://login.microsoftonline.com/{tenant-id}/v2.0`. Replace `{tenant-id}` with the **Directory (tenant) ID** value you wrote down earlier. |
+| `quarkus.oidc.application-type` | The application type. Use `web-app` to tell Quarkus that you want to enable the OIDC authorization code flow so that your users are redirected to the OIDC provider to authenticate. | `web-app` |
+| `quarkus.oidc.authentication.redirect-path` | The relative path for calculating a `redirect_uri` query parameter. | `/` |
+| `quarkus.oidc.authentication.restore-path-after-redirect` | Whether to restore the path after redirect. | `true` |
+| `quarkus.oidc.roles-claim` | The claim that contains the roles of the authenticated user. | `roles` |
+| `quarkus.oidc.provider` | Well known OpenId Connect provider identifier. | `microsoft` |
+| `quarkus.oidc.token.customizer-name` | The name of the token customizer. | `azure-access-token-customizer` |
+| `quarkus.oidc.logout.path` | The relative path of the logout endpoint at the application. | `/logout` |
+| `quarkus.oidc.logout.post-logout-path` | The relative path of the application endpoint where the user should be redirected to after logging out from the OpenID Connect Provider. | `/` |
+
+You can see the configuration in the [application.properties](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/application.properties) file.
 
 ### Test the Quarkus app
 
