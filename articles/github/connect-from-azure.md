@@ -21,7 +21,7 @@ The Azure login action supports two different ways of authenticating with Azure:
 * [System-assigned Managed Identity](#use-the-azure-login-action-with-system-assigned-managed-identity)
 * [User-assigned Managed Identity](#use-the-azure-login-action-with-user-assigned-managed-identity)
 
-By default, the login action logs in with the Azure CLI and sets up the GitHub Actions runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This sets up the GitHub Actions runner environment with the Azure PowerShell module.
+By default, the login action logs in with the Azure CLI and sets up the GitHub Actions runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This property sets up the GitHub Actions runner environment with the Azure PowerShell module.
 
 You can use Azure login to connect to public or sovereign clouds including Azure Government and Azure Stack Hub.
 
@@ -29,27 +29,27 @@ You can use Azure login to connect to public or sovereign clouds including Azure
 
 Before you use Azure Login Action with OIDC, you need to configure a federated identity credential on a Microsoft Entra application or a user-assigned managed identity.
 
-To use Azure Login Action with OIDC, you'll need:
+To use Azure Login Action with OIDC, you need:
 
-* A [Microsoft Entra application](/azure/active-directory/develop/), with a service principal that has been assigned with an appropriate role to your subscription.
-* A Microsoft Entra application configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. You can configure this in the Azure portal or with Microsoft Graph REST APIs.
+* A [Microsoft Entra application](/azure/active-directory/develop/), with a service principal assigned with an appropriate role to your subscription.
+* A Microsoft Entra application configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. 
 * A GitHub Actions workflow that requests GitHub issue tokens to the workflow, and uses the Azure login action.
 
-or 
+Or 
 
-* A [user-assigned managed identity](/entra/identity/managed-identities-azure-resources) that has been assigned with an appropriate role to your subscription.
-* A user-assigned managed identity configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. You can configure this in the Azure portal or with Microsoft Graph REST APIs.
+* A [user-assigned managed identity](/entra/identity/managed-identities-azure-resources) assigned with an appropriate role to your subscription.
+* A user-assigned managed identity configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. 
 * A GitHub Actions workflow that requests GitHub issue tokens to the workflow, and uses the Azure login action.
 
 <a name='create-an-azure-active-directory-application-and-service-principal'></a>
 
 ### Create a Microsoft Entra application and service principal
 
-You'll need to create a Microsoft Entra application and service principal and then assign a role on your subscription to your application so that your workflow has access to your subscription.
+Create a Microsoft Entra application and service principal, then assign a role to it on your subscription to give your workflow access.
 
 # [Azure portal](#tab/azure-portal)
 
-1. If you do not have an existing application, register a [new Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). As part of this process, make sure to:
+1. If you don't have an existing application, register a [new Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). As part of this process, make sure to:
 
     * Register your application with Microsoft Entra ID and create a service principal
     * Assign a role to the application
@@ -66,7 +66,7 @@ You'll need to create a Microsoft Entra application and service principal and th
     az ad app create --display-name myApp
     ```
 
-    This command will output JSON with an `appId` that is your `client-id`.
+    This command outputs JSON with an `appId` that is your `client-id`.
 
 1. Create a service principal. Replace the `$appID` with the appId from your JSON output. This command generates JSON output with a different `id` will be used in the next step. The new `id` is the `service-principal-object-id`. 
 
@@ -74,10 +74,10 @@ You'll need to create a Microsoft Entra application and service principal and th
      az ad sp create --id $appId
     ```
 
-1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with generated `service-principal-object-id`.
+1. Create a new role assignment by subscription and object. By default, the role assignment is tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with generated `service-principal-object-id`.
 
     ```azurecli-interactive
-    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName
+    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id $assigneeObjectId --assignee-principal-type ServicePrincipal --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName
     ```
 
 1. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
@@ -90,7 +90,7 @@ You'll need to create a Microsoft Entra application and service principal and th
     New-AzADApplication -DisplayName myApp
     ```
 
-    This command will output the `AppId` property that is your `client-id`. The `Id` property is `application-object-id` and it will be used for creating federated credentials with Graph API calls.
+    This command outputs the `AppId` property that is your `client-id`. The `Id` property is `application-object-id` and it is used for creating federated credentials with Graph API calls.
 
 1. Create a service principal. Replace the `$clientId` with the AppId from your output. This command generates output with a different `Id` and will be used in the next step. The new `Id` is the `service-principal-object-id`. 
 
@@ -140,27 +140,32 @@ For a more detailed overview, see [Configure an app to trust a GitHub repo](/azu
 
 # [Azure CLI](#tab/azure-cli)
 
-Run the following command to [create a new federated identity credential](/azure/active-directory/workload-identities/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azcli) for your Microsoft Entra application.
+First, create a `credential.json` file with the following content: 
+
+* Set a value for `CREDENTIAL-NAME` to reference later.
+* Set the `subject`, as its value is defined by GitHub depending on your workflow:
+  * Jobs in your GitHub Actions environment: `repo:<Organization/Repository>:environment:<env name>`
+  * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:<Organization/Repository>:ref:<ref path>`. For example, `repo:octo-org/octo-repo:ref:refs/heads/my-branch` or `repo:octo-org/octo-repo:ref:refs/tags/my-tag`.
+  * For workflows triggered by a pull request event: `repo:<Organization/Repository>:pull_request`.
+  
+```json  
+{  
+    "name": "<CREDENTIAL-NAME>",  
+    "issuer": "https://token.actions.githubusercontent.com",  
+    "subject": "repo:octo-org/octo-repo:environment:Production",  
+    "description": "Testing",  
+    "audiences": [  
+        "api://AzureADTokenExchange"  
+    ]  
+}  
+```
+
+Then, run the following command to [create a new federated identity credential](/azure/active-directory/workload-identities/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azcli) for your Microsoft Entra application.
 
 * Replace `$clientId` with the **client-id** for your Microsoft Entra application.
-* Set a value for `CREDENTIAL-NAME` to reference later.
-* Set the `subject`. The value of this is defined by GitHub depending on your workflow:
-  * Jobs in your GitHub Actions environment: `repo:<Organization/Repository>:environment:<env name>`
-  * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:<Organization/Repository>:ref:<ref path>`.  For example, `repo:octo-org/octo-repo:ref:refs/heads/my-branch` or `repo:octo-org/octo-repo:ref:refs/tags/my-tag`.
-  * For workflows triggered by a pull request event: `repo:<Organization/Repository>:pull_request`.
 
 ```azurecli
-az ad app federated-credential create --id $clientId --parameters credential.json
-("credential.json" contains the following content)
-{
-    "name": "<CREDENTIAL-NAME>",
-    "issuer": "https://token.actions.githubusercontent.com",
-    "subject": "repo:octo-org/octo-repo:environment:Production",
-    "description": "Testing",
-    "audiences": [
-        "api://AzureADTokenExchange"
-    ]
-}
+az ad app federated-credential create --id $clientId --parameters credential.json 
 ```
 
 For a more detailed overview, see [Configure an app to trust an external identity provider](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
@@ -171,9 +176,9 @@ Run  New-AzADAppFederatedCredential cmdlet to create a new federated identity cr
 
 * Replace `$applicationObjectId` with the **application-object-id (generated while creating app)** for your Microsoft Entra application.
 * Set a value for `CREDENTIAL-NAME` to reference later.
-* Set the `subject`. The value of this is defined by GitHub depending on your workflow:
+* Set the `subject`, as its value is defined by GitHub depending on your workflow:
   * Jobs in your GitHub Actions environment: `repo:<Organization/Repository>:environment:<env name>`
-  * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:<Organization/Repository>:ref:<ref path>`.  For example, `repo:octo-org/octo-repo:ref:refs/heads/my-branch` or `repo:octo-org/octo-repo:ref:refs/tags/my-tag`.
+  * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:<Organization/Repository>:ref:<ref path>`. For example, `repo:octo-org/octo-repo:ref:refs/heads/my-branch` or `repo:octo-org/octo-repo:ref:refs/tags/my-tag`.
   * For workflows triggered by a pull request event: `repo:<Organization/Repository>:pull_request`.
 
 ```azurepowershell
@@ -194,11 +199,11 @@ For a more detailed overview, see [Configure an app to trust a GitHub repo](/azu
 Your GitHub Actions workflow uses OpenID Connect to authenticate with Azure.
 To learn more about this interaction, see the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
-In this example, you'll use OpenID Connect Azure CLI to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
+In this example, you use OpenID Connect Azure CLI to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
 
 The Azure login action includes an optional `audience` input parameter that defaults to `api://AzureADTokenExchange`. You can update this parameter for custom audience values.
 
-# [Linux](#tab/linux)
+#### The workflow sample to only run Azure CLI
 
 This workflow authenticates with OpenID Connect and uses Azure CLI to get the details of the connected subscription.
 
@@ -230,7 +235,7 @@ jobs:
           az account show
 ```
 
-# [Windows](#tab/windows)
+#### The workflow sample to run both Azure CLI and Azure PowerShell
 
 This workflow authenticates with OpenID Connect and uses Azure PowerShell to get the details of the connected subscription.
 
@@ -266,23 +271,23 @@ jobs:
 
 ### Verify successful Azure Login with OpenID 
 
-Open the `Az CLI login` action and verify that it ran successfully. You should see the message `Azure CLI login succeeds by using OIDC`. If your login is unsuccessful, you'll see the message `Login failed with Error: xxx`.
+Open the `Az CLI login` action and verify that it ran successfully. You should see the message `Azure CLI login succeeds by using OIDC`. If your login is unsuccessful, you see the message `Login failed with Error: xxx`.
 
 
 ### Create a user-assigned managed identity
 
-If you'd like to use a user-assigned mangaged identity instead of a Microsoft Entra application. You'll need to create a user-assigned managed identity and then assign a role on your subscription to your managed identity so that your workflow has access to your subscription.
+If you'd like to use a user-assigned managed identity instead of a Microsoft Entra application. You need to create a user-assigned managed identity and then assign a role on your subscription to your managed identity so that your workflow has access to your subscription.
 
 # [Azure portal](#tab/azure-portal)
 
-1. If you do not have an existing user-assigned managed identity, [create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity). As part of this process, make sure to:
+1. If you don't have an existing user-assigned managed identity, [create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity). As part of this process, make sure to:
 
     * Create a user-assigned managed identity
     * Assign a role to the managed identity
 
 1. Open **Managed Identities** in Azure portal and find your user-assigned managed identity. Copy the values for **Client ID** and **Subscription ID** to use in your GitHub Actions workflow. 
 
-1. Find **Propoties** on the left panel in Azure portal. Copy the **Tenant ID**.
+1. Find **Properties** on the left panel in Azure portal. Copy the **Tenant ID**.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -292,13 +297,13 @@ If you'd like to use a user-assigned mangaged identity instead of a Microsoft En
     az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
     ```
 
-    This command will output JSON with a `clientId`. The `principalId` is `service-principal-object-id` and it will be used for role assignment. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
+    This command outputs JSON with a `clientId`. The `principalId` is `service-principal-object-id` and it is used for role assignment. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
 
 
 1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with generated `service-principal-object-id`.
 
     ```azurecli-interactive
-    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName
+    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id $assigneeObjectId --assignee-principal-type ServicePrincipal --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName
     ```
 
 
@@ -310,7 +315,7 @@ If you'd like to use a user-assigned mangaged identity instead of a Microsoft En
     New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME> -Location <LOCATION>
     ```
 
-    This command will output JSON with a `clientId`. The `principalId` is `service-principal-object-id` and it will be used for role assignment. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
+    This command outputs JSON with a `clientId`. The `principalId` is `service-principal-object-id` and it is used for role assignment. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
 
 1. Create a new role assignment. Beginning with Az PowerShell module version 7.x, `New-AzADServicePrincipal` no longer assigns the `Contributor` role to the service principal by default. Replace `$resourceGroupName` with your resource group name, and `$objectId` with generated `service-principal-object-id`.
 
@@ -348,9 +353,9 @@ Run the following command to [create a new federated identity credential](/azure
 
 * Replace `$clientId` with the **client-id** for your user-assigned managed identity.
 * Set a value for `CREDENTIAL-NAME` to reference later.
-* Set the `subject`. The value of this is defined by GitHub depending on your workflow:
+* Set the `subject`, as its value is defined by GitHub depending on your workflow:
   * Jobs in your GitHub Actions environment: `repo:<Organization/Repository>:environment:<env name>`
-  * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:<Organization/Repository>:ref:<ref path>`.  For example, `repo:octo-org/octo-repo:ref:refs/heads/my-branch` or `repo:octo-org/octo-repo:ref:refs/tags/my-tag`.
+  * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:<Organization/Repository>:ref:<ref path>`. For example, `repo:octo-org/octo-repo:ref:refs/heads/my-branch` or `repo:octo-org/octo-repo:ref:refs/tags/my-tag`.
   * For workflows triggered by a pull request event: `repo:<Organization/Repository>:pull_request`.
 
 ```azurecli
@@ -376,12 +381,12 @@ To use [Azure login](https://github.com/marketplace/actions/azure-login) with a 
 
 ### Create a service principal
 
-In this example, you will create a secret named `AZURE_CREDENTIALS` that you can use to authenticate with Azure.  
+In this example, you create a secret named `AZURE_CREDENTIALS` that you can use to authenticate with Azure.
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) in the Azure portal or [Azure CLI](/cli/azure/install-azure-cli) locally.
 
     > [!NOTE]
-    > If you are using Azure Stack Hub, you'll need to set your SQL Management endpoint to `not supported`.
+    > If you are using Azure Stack Hub, you need to set your SQL Management endpoint to `not supported`.
     > `az cloud update -n {environmentName} --endpoint-sql-management https://notsupported`
 
 1. [Create a new service principal](/cli/azure/create-an-azure-service-principal-azure-cli) in the Azure portal for your app. The service principal must be assigned with an appropriate role.
@@ -391,7 +396,7 @@ In this example, you will create a secret named `AZURE_CREDENTIALS` that you can
                                     --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
                                     --json-auth
     ```
-   The parameter `--json-auth` outputs the result dictionary accepted by the login action, accessible in Azure CLI versions >= 2.51.0. Versions prior to this use `--sdk-auth` with a deprecation warning.
+   The parameter `--json-auth` outputs the result dictionary accepted by the login action, accessible in Azure CLI versions >= 2.51.0. Earlier versions use `--sdk-auth` with a deprecation warning.
 1. Copy the JSON object for your service principal.
 
     ```json
@@ -410,7 +415,7 @@ In this example, you will create a secret named `AZURE_CREDENTIALS` that you can
 
 ### Use the Azure login action
 
-Use the service principal secret with the [Azure Login action](https://github.com/Azure/login) to authenticate to Azure.
+Authenticate to Azure using the service principal secret with the [Azure Login action](https://github.com/Azure/login).
 
 In this workflow, you authenticate using the Azure login action with the service principal details stored in `secrets.AZURE_CREDENTIALS`. For more information about referencing GitHub secrets in a workflow file, see [Using secrets in a workflow](https://docs.github.com/actions/security-guides/using-secrets-in-github-actions#using-secrets-in-a-workflow) in GitHub Docs.
 
@@ -446,7 +451,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name:  Azure Login Action
+      - name: Azure Login Action
         uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -490,7 +495,7 @@ jobs:
 
 ### Connect to Azure Government and Azure Stack Hub clouds
 
-To log in to one of the Azure Government clouds, set the optional parameter environment with supported cloud names `AzureUSGovernment` or `AzureChinaCloud`. If this parameter is not specified, it takes the default value `AzureCloud` and connects to the Azure Public Cloud.
+To log in to one of the Azure Government clouds, set the optional parameter environment with supported cloud names `AzureUSGovernment` or `AzureChinaCloud`. If this parameter isn't specified, it takes the default value `AzureCloud` and connects to the Azure Public Cloud.
 
 ```yaml
    - name: Login to Azure US Gov Cloud with Azure CLI
@@ -514,13 +519,13 @@ To log in to one of the Azure Government clouds, set the optional parameter envi
 >
 > "Login With System-assigned Managed Identity" is only supported on GitHub self-hosted runners and the self-hosted runners need to be hosted by Azure virtual machines.
 
-Before you login with system-assigned managed identity, you need to create an Azure virtual machine to host the GitHub self-hosted runner.
+Before your login with system-assigned managed identity, you need to create an Azure virtual machine to host the GitHub self-hosted runner.
 
 - Create an Azure virtual machine
   - [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
   - [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu)
 - [Configure system-assigned managed identity on the Azure virtual machine](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)
-- Install required softwares on the Azure virtual machine
+- Install required software on the Azure virtual machine
   - [Install PowerShell](/powershell/scripting/install/installing-powershell)
   - [Install Azure CLI](/cli/azure/install-azure-cli)
     - If you want to run Azure CLI Action, [Install Docker](https://docs.docker.com/engine/install/).
@@ -529,6 +534,7 @@ Before you login with system-assigned managed identity, you need to create an Az
 
 ### Create GitHub secrets
 After it, create GitHub Action secrets for following values: (Refer to [Create GitHub Secrets](#create-github-secrets).)
+
 |GitHub secret  |System-assigned managed identity  |
 |---------|---------|
 |AZURE_SUBSCRIPTION_ID     |    Subscription ID     |
@@ -536,7 +542,7 @@ After it, create GitHub Action secrets for following values: (Refer to [Create G
 
 ### Set up Azure Login with System Assigned Managed Identity
 
-In this example, you'll use the system-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `subscription-id` and `tenant-id` values. 
+In this example, you use the system-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `subscription-id` and `tenant-id` values. 
 
 
 ```yaml
@@ -579,22 +585,23 @@ jobs:
 >
 > "Login With User-assigned Managed Identity" is only supported on GitHub self-hosted runners and the self-hosted runners need to be hosted by Azure virtual machines.
 
-Before you login with User-assigned managed identity, you need to create an Azure virtual machine to host the GitHub self-hosted runner.
+Before your login with User-assigned managed identity, you need to create an Azure virtual machine to host the GitHub self-hosted runner.
 
 - Create an Azure virtual machine
   - [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
   - [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu)
 - [Create a user-assigned managed identity and assign a role to it](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity)
 - [Configure user-assigned managed identity on the Azure virtual machine](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity)
-- Install required softwares on the Azure virtual machine
-  - [Install PowerShell](https://learn.microsoft.com/powershell/scripting/install/installing-powershell)
-  - [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
+- Install required software on the Azure virtual machine
+  - [Install PowerShell](/powershell/scripting/install/installing-powershell)
+  - [Install Azure CLI]/cli/azure/install-azure-cli)
     - If you want to run Azure CLI Action, [Install Docker](https://docs.docker.com/engine/install/).
-  - [Install Azure PowerShell](https://learn.microsoft.com/powershell/azure/install-azure-powershell)
+  - [Install Azure PowerShell](/powershell/azure/install-azure-powershell)
 - [Configure the Azure virtual machine as a GitHub self-hosted runner](https://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)
 
 ### Create GitHub secrets
 After it, create GitHub Action secrets for following values: (Refer to [Create GitHub Secrets](#create-github-secrets).)
+
 |GitHub secret  |User-assigned managed identity  |
 |---------|---------|
 |AZURE_CLIENT_ID     |    Client ID     |
@@ -603,7 +610,7 @@ After it, create GitHub Action secrets for following values: (Refer to [Create G
 
 ### Set up Azure Login with User Assigned Managed Identity
 
-In this example, you'll use the user-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `client-id`, `subscription-id` and `tenant-id` values. 
+In this example, you use the user-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `client-id`, `subscription-id` and `tenant-id` values. 
 
 ```yaml
 
