@@ -1212,7 +1212,7 @@ Use the following steps to create and configure the management profile:
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-management-profile-summary.png" alt-text="Screenshot of the Profile Creation Summary pane of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-tool-management-profile-summary.png":::
 
-1. It takes a while to finish the profile creation (it could take a few hours). When the **Profile Creation Complete** pane appears, select **Launch the First steps console**. Then select **Finish**.
+1. It takes a while to finish the profile creation. When the **Profile Creation Complete** pane appears, select **Launch the First steps console**. Then select **Finish**.
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-profile-complete.png" alt-text="Screenshot of the Profile Creation Complete pane of the IBM Profile Management Tool." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-profiles-management-profile-complete.png":::
 
