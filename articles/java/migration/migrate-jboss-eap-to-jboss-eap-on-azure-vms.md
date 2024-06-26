@@ -27,7 +27,7 @@ It's better to stick as close to pure "lift and shift" as possible, accounting f
 
 Red Hat and Microsoft have partnered to bring a set of Azure solution templates to Azure Marketplace to provide a solid starting point for migrating to Azure. You can see the list of offers in the [JBoss EAP on Azure Virtual Machines](../ee/jboss-on-azure.md#jboss-eap-on-azure-virtual-machines) section of [Red Hat JBoss EAP on Azure](../ee/jboss-on-azure.md).
 
-To get a feel for the prebuilt Azure Marketplace offer, see [Quickstart: Deploy a JBoss EAP cluster on Azure Virtual Machines (VMs)](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
+To get a feel for the prebuilt Azure Marketplace offer, see [Quickstart: Deploy a JBoss EAP cluster on Azure Virtual Machines (VMs)](/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
 If none of the existing offers are a good starting point, you have to reproduce the deployment by hand using the resources available in Azure Virtual Machines. For more information, see [What is IaaS?](https://azure.microsoft.com/overview/what-is-iaas/)
 
@@ -49,7 +49,7 @@ The prebuilt Azure Marketplace offers include support for Red Hat Satellite for 
 > [!NOTE]
 > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Save aside the account details for use as the *RHSM username* and *RHSM password* in the prebuilt Azure Marketplace offers.
 >
-> The steps for discovering your *Pool ID* are explained in the [Prerequisites](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm#prerequisites) section in [Quickstart: Deploy a JBoss EAP cluster on Azure Virtual Machines (VMs)](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm).
+> The steps for discovering your *Pool ID* are explained in the [Prerequisites](/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json#prerequisites) section in [Quickstart: Deploy a JBoss EAP cluster on Azure Virtual Machines (VMs)](/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
 [!INCLUDE [inventory-server-capacity-aks](includes/inventory-server-capacity-aks.md)]
 
