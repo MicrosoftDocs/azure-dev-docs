@@ -51,7 +51,7 @@ Learn more:
 
 ## Unit testing
 
-Unit testing in JavaScript applications integrated with Azure SDKs often requires selecting appropriate frameworks like Jest or Mocha. These frameworks facilitate the testing of individual components or functions in isolation. When it comes to **Mocking Azure SDK Calls**, tools such as sinon or jest-mock can simulate Azure SDK responses, allowing developers to test the logic of their applications without actual calls to Azure services. This method is particularly useful for testing error handling, edge cases, or specific data conditions.
+Unit testing in JavaScript applications integrated with Azure SDKs often requires selecting appropriate frameworks like [Jest](https://jestjs.io/) or [Mocha](https://mochajs.org/). These frameworks facilitate the testing of individual components or functions in isolation. When it comes to **Mocking Azure SDK Calls**, tools such as [Sinon.JS](https://sinonjs.org/) or [jest-mock](https://www.npmjs.com/package/jest-mock) can simulate Azure SDK responses, allowing developers to test the logic of their applications without actual calls to Azure services. This method is particularly useful for testing error handling, edge cases, or specific data conditions.
 
 * [Azure SDK testing](#azure-sdk-tests)
 
