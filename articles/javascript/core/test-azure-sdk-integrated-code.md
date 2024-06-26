@@ -8,21 +8,7 @@ ms.custom: devx-track-js
 
 # What is testing for JavaScript Applications on Azure
 
-This article outlines various testing strategies for JavaScript applications deployed on Azure, including:
-
-- [Inner and Outer test loop](#inner-and-outer-test-loop)
-- [Testing with and without the Azure Cloud](#testing-with-and-without-the-azure-cloud)
-- [Unit testing](#unit-testing)
-- [Integration testing](#integration-testing)
-- [Continuous integration testing](#continuous-integration-testing)
-- [End-to-end testing](#end-to-end-testing)
-- [Performance testing](#performance-testing)
-- [Security testing](#security-testing)
-- [Accessibility testing](#accessibility-testing)
-- [A/B testing](#ab-testing)
-- [Azure SDK tests](#azure-sdk-tests)
- 
-Each section provides insights into tools and practices for ensuring application quality and performance in Azure environments.
+This article outlines various testing strategies for JavaScript applications deployed on Azure. Each section provides insights into tools and practices for ensuring application quality and performance in Azure environments.
 
 ## Inner and Outer test loop
 
