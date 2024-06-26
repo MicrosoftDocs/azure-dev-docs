@@ -18,6 +18,8 @@ items:
       items:
         - name: Use Azure OpenAI without passwords
           href: passwordless-connections.md
+        - name: Use Azure AI Search without passwords
+          href: /azure/search/keyless-connections
     - name: AI app templates
       items:
         - name: Overview
