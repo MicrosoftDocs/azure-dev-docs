@@ -91,10 +91,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-        - text: Red Hat JBoss EAP Cluster on Azure VMs
-          url: jboss-eap-cluster-azure-vms.md
-        - text: Red Hat JBoss EAP Server on Azure VM
-          url: /azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+        - text: Red Hat JBoss EAP cluster on Azure VMs
+          url: /azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
         - text: Red Hat JBoss EAP on Azure Red Hat OpenShift
           url: jboss-eap-on-aro.md
       - linkListType: how-to-guide
