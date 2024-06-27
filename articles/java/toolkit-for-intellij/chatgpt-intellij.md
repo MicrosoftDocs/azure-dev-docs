@@ -6,6 +6,7 @@ author: KarlErickson
 ms.author: jialuogan
 ms.topic: quickstart
 ms.date: 01/26/2024
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Quickstart: Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service in IntelliJ
