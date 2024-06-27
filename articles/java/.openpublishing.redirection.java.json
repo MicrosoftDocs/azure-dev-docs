@@ -15,7 +15,11 @@
         },
         {
           "source_path": "ee/jboss-eap-single-server-azure-vm.md",
-          "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm"
+          "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json"
+        },
+        {
+          "source_path": "ee/jboss-eap-cluster-azure-vms.md",
+          "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json"
         },
         {
           "source_path": "ee/weblogic-server-azure-virtual-machine.md",
