@@ -15,7 +15,7 @@ Learn how to use [Azure login](https://github.com/Azure/login) with either [Azur
 
 To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to first log in with the [Azure login](https://github.com/marketplace/actions/azure-login) action.
 
-The Azure login action supports two different ways of authenticating with Azure:
+The Azure login action supports different ways of authenticating with Azure:
 * [OpenID Connect (OIDC)](#use-the-azure-login-action-with-openid-connect)
 * [Service principal with secrets](#use-the-azure-login-action-with-a-service-principal-secret)
 * [System-assigned Managed Identity](#use-the-azure-login-action-with-system-assigned-managed-identity)
@@ -82,7 +82,7 @@ Create a Microsoft Entra application and service principal, then assign a role t
 
 1. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
 
-### [Azure PowerShell](#tab/azure-powershell) 
+# [Azure PowerShell](#tab/azure-powershell) 
 
 1. Create the Microsoft Entra application.
 
@@ -170,7 +170,7 @@ az ad app federated-credential create --id $clientId --parameters credential.jso
 
 For a more detailed overview, see [Configure an app to trust an external identity provider](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
 
-### [Azure PowerShell](#tab/azure-powershell) 
+# [Azure PowerShell](#tab/azure-powershell) 
 
 Run `New-AzADAppFederatedCredential` cmdlet to create a new federated identity credential for your Microsoft Entra application.
 
@@ -265,11 +265,10 @@ jobs:
         with:
           azPSVersion: latest
           inlineScript: |
-            Get-AzContext
-          
+            Get-AzContext     
 ```
 
-### Verify successful Azure Login with OpenID 
+### Verify successful Azure Login with OIDC
 
 Open the `Az CLI login` action and verify that it ran successfully. You should see the message `Azure CLI login succeeds by using OIDC`. If your login is unsuccessful, you see the message `Login failed with Error: xxx`.
 
@@ -294,7 +293,7 @@ If you'd like to use a user-assigned managed identity instead of a Microsoft Ent
 1. Create a user-assigned managed identity.
 
     ```azurecli-interactive
-    az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
+    az identity create --resource-group <RESOURCE GROUP> --name <USER ASSIGNED IDENTITY NAME>
     ```
 
     This command outputs JSON with a `clientId`. The `principalId` is `service-principal-object-id` and it's used for role assignment. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
@@ -307,7 +306,7 @@ If you'd like to use a user-assigned managed identity instead of a Microsoft Ent
     ```
 
 
-### [Azure PowerShell](#tab/azure-powershell) 
+# [Azure PowerShell](#tab/azure-powershell) 
 
 1. Create a user-assigned managed identity.
 
@@ -379,7 +378,7 @@ az ad app federated-credential create --id $clientId --parameters credential.jso
 
 For a more detailed overview, see [Configure a user-assigned managed identity to trust an external identity provider](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity?pivots=identity-wif-mi-methods-azcli).
 
-### [Azure PowerShell](#tab/azure-powershell) 
+# [Azure PowerShell](#tab/azure-powershell) 
 
 Run `New-AzFederatedCredential` cmdlet to create a new federated identity credential for your Microsoft Entra application.
 
@@ -396,6 +395,7 @@ New-AzFederatedCredential -IdentityName $identityName -Audience api://AzureADTok
 
 For a more detailed overview, see [Configure a user-assigned managed identity to trust an external identity provider](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity?pivots=identity-wif-mi-methods-powershell).
 
+---
 ## Use the Azure login action with a service principal secret
 
 To use [Azure login](https://github.com/marketplace/actions/azure-login) with a service principal, you first need to add your Azure service principal as a secret to your GitHub repository.
