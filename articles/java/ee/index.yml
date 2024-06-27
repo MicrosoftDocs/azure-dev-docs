@@ -81,7 +81,7 @@ landingContent:
             url: ../migration/migrate-weblogic-to-azure-vm-manually.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic to Azure VMs with high availability and disaster recovery
             url: ../migration/migrate-weblogic-to-vms-with-ha-dr.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-          - name: WebLogic to AKS with geo-redundancy
+          - text: WebLogic to AKS with geo-redundancy
             url: ../migration/migrate-weblogic-to-aks-with-ha-geo-redundancy.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: WebLogic to AKS within custom VNET
             url: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
