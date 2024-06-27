@@ -90,7 +90,7 @@ Create a Microsoft Entra application and service principal, then assign a role t
     New-AzADApplication -DisplayName myApp
     ```
 
-    This command outputs the `AppId` property that is your `client-id`. The `Id` property is `application-object-id` and it is used for creating federated credentials with Graph API calls.
+    This command outputs the `AppId` property that is your `client-id`. The `Id` property is `application-object-id` and it's used for creating federated credentials with Graph API calls.
 
 1. Create a service principal. Replace the `$clientId` with the AppId from your output. This command generates output with a different `Id` and will be used in the next step. The new `Id` is the `service-principal-object-id`. 
 
@@ -143,7 +143,7 @@ For a more detailed overview, see [Configure an app to trust a GitHub repo](/azu
 First, create a `credential.json` file with the following content: 
 
 * Set a value for `CREDENTIAL-NAME` to reference later.
-* Set the `subject`, as its value is defined by GitHub depending on your workflow:
+* Set the `subject`, as GitHub defines the value of the `subject` depending on your workflow:
   * Jobs in your GitHub Actions environment: `repo:<Organization/Repository>:environment:<env name>`
   * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:<Organization/Repository>:ref:<ref path>`. For example, `repo:octo-org/octo-repo:ref:refs/heads/my-branch` or `repo:octo-org/octo-repo:ref:refs/tags/my-tag`.
   * For workflows triggered by a pull request event: `repo:<Organization/Repository>:pull_request`.
@@ -172,11 +172,11 @@ For a more detailed overview, see [Configure an app to trust an external identit
 
 ### [Azure PowerShell](#tab/azure-powershell) 
 
-Run  New-AzADAppFederatedCredential cmdlet to create a new federated identity credential for your Microsoft Entra application.
+Run `New-AzADAppFederatedCredential` cmdlet to create a new federated identity credential for your Microsoft Entra application.
 
 * Replace `$applicationObjectId` with the **application-object-id (generated while creating app)** for your Microsoft Entra application.
 * Set a value for `CREDENTIAL-NAME` to reference later.
-* Set the `subject`, as its value is defined by GitHub depending on your workflow:
+* Set the `subject`, as GitHub defines the value of the `subject` depending on your workflow:
   * Jobs in your GitHub Actions environment: `repo:<Organization/Repository>:environment:<env name>`
   * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:<Organization/Repository>:ref:<ref path>`. For example, `repo:octo-org/octo-repo:ref:refs/heads/my-branch` or `repo:octo-org/octo-repo:ref:refs/tags/my-tag`.
   * For workflows triggered by a pull request event: `repo:<Organization/Repository>:pull_request`.
@@ -297,10 +297,10 @@ If you'd like to use a user-assigned managed identity instead of a Microsoft Ent
     az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
     ```
 
-    This command outputs JSON with a `clientId`. The `principalId` is `service-principal-object-id` and it is used for role assignment. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
+    This command outputs JSON with a `clientId`. The `principalId` is `service-principal-object-id` and it's used for role assignment. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
 
 
-1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with generated `service-principal-object-id`.
+1. Create a new role assignment by subscription and object. By default, the role assignment is tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with generated `service-principal-object-id`.
 
     ```azurecli-interactive
     az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id $assigneeObjectId --assignee-principal-type ServicePrincipal --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName
@@ -315,7 +315,7 @@ If you'd like to use a user-assigned managed identity instead of a Microsoft Ent
     New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME> -Location <LOCATION>
     ```
 
-    This command outputs JSON with a `clientId`. The `principalId` is `service-principal-object-id` and it is used for role assignment. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
+    This command outputs JSON with a `clientId`. The `principalId` is `service-principal-object-id` and it's used for role assignment. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
 
 1. Create a new role assignment. Beginning with Az PowerShell module version 7.x, `New-AzADServicePrincipal` no longer assigns the `Contributor` role to the service principal by default. Replace `$resourceGroupName` with your resource group name, and `$objectId` with generated `service-principal-object-id`.
 
@@ -345,35 +345,56 @@ You can add federated credentials in the Azure portal or with the Microsoft Grap
 |GitHub name     |     The name of the environment, branch, or tag.    |     `main`    |
 |Name     |     Identifier for the federated credential.    |    `contoso-deploy`     |
 
-For a more detailed overview, see [Configure an app to trust a GitHub repo](/azure/active-directory/develop/workload-identity-federation-create-trust-github).
+For a more detailed overview, see [Configure a user-assigned managed identity to trust an external identity provider](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity?pivots=identity-wif-mi-methods-azp).
 
 # [Azure CLI](#tab/azure-cli)
 
-Run the following command to [create a new federated identity credential](/azure/active-directory/workload-identities/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azcli) for your Microsoft Entra application.
+First, create a `credential.json` file with the following content: 
+
+* Set a value for `CREDENTIAL-NAME` to reference later.
+* Set the `subject`, as GitHub defines the value of the `subject` depending on your workflow:
+  * Jobs in your GitHub Actions environment: `repo:<Organization/Repository>:environment:<env name>`
+  * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:<Organization/Repository>:ref:<ref path>`. For example, `repo:octo-org/octo-repo:ref:refs/heads/my-branch` or `repo:octo-org/octo-repo:ref:refs/tags/my-tag`.
+  * For workflows triggered by a pull request event: `repo:<Organization/Repository>:pull_request`.
+  
+```json  
+{  
+    "name": "<CREDENTIAL-NAME>",  
+    "issuer": "https://token.actions.githubusercontent.com",  
+    "subject": "repo:octo-org/octo-repo:environment:Production",  
+    "description": "Testing",  
+    "audiences": [  
+        "api://AzureADTokenExchange"  
+    ]  
+}  
+```
+
+Then, run the following command to [create a new federated identity credential](/azure/active-directory/workload-identities/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azcli) for your Microsoft Entra application.
 
 * Replace `$clientId` with the **client-id** for your user-assigned managed identity.
+
+```azurecli
+az ad app federated-credential create --id $clientId --parameters credential.json 
+```
+
+For a more detailed overview, see [Configure a user-assigned managed identity to trust an external identity provider](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity?pivots=identity-wif-mi-methods-azcli).
+
+### [Azure PowerShell](#tab/azure-powershell) 
+
+Run `New-AzFederatedCredential` cmdlet to create a new federated identity credential for your Microsoft Entra application.
+
+* Replace `$identityName` with the name of your user-assigned managed identity.
 * Set a value for `CREDENTIAL-NAME` to reference later.
-* Set the `subject`, as its value is defined by GitHub depending on your workflow:
+* Set the `subject`, as GitHub defines the value of the `subject` depending on your workflow:
   * Jobs in your GitHub Actions environment: `repo:<Organization/Repository>:environment:<env name>`
   * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:<Organization/Repository>:ref:<ref path>`. For example, `repo:octo-org/octo-repo:ref:refs/heads/my-branch` or `repo:octo-org/octo-repo:ref:refs/tags/my-tag`.
   * For workflows triggered by a pull request event: `repo:<Organization/Repository>:pull_request`.
 
-```azurecli
-az ad app federated-credential create --id $clientId --parameters credential.json
-("credential.json" contains the following content)
-{
-    "name": "<CREDENTIAL-NAME>",
-    "issuer": "https://token.actions.githubusercontent.com",
-    "subject": "repo:octo-org/octo-repo:environment:Production",
-    "description": "Testing",
-    "audiences": [
-        "api://AzureADTokenExchange"
-    ]
-}
+```azurepowershell
+New-AzFederatedCredential -IdentityName $identityName -Audience api://AzureADTokenExchange -Issuer 'https://token.actions.githubusercontent.com/' -Name '<CREDENTIAL-NAME>' -Subject 'repo:octo-org/octo-repo:environment:Production'
 ```
 
-For a more detailed overview, see [Configure a user-assigned managed identity to trust an external identity provider](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity).
-
+For a more detailed overview, see [Configure a user-assigned managed identity to trust an external identity provider](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity?pivots=identity-wif-mi-methods-powershell).
 
 ## Use the Azure login action with a service principal secret
 
