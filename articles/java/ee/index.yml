@@ -75,6 +75,8 @@ landingContent:
           url: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - linkListType: how-to-guide
         links:
+          - text: WebLogic to AKS
+            url: ../migration/migrate-weblogic-to-azure-kubernetes-service.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic to Azure Virtual Machines
             url: ../migration/migrate-weblogic-to-virtual-machines.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic to Azure VMs step-by-step guidance
