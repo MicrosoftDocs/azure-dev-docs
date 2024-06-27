@@ -132,7 +132,7 @@ By default, Azure Entra Domain Services enables the use of TLS v1, which is cons
 
 This section walks you through how to disable TLS v1 cipher.
 
-First, get the resource ID of the Azure Domain Service instance that enables LDAP. The following example gets the ID of an Azure Domain Service instance named `aaddscontoso.com` in a resource group named `aadds-rg`.
+First, get the resource ID of the Azure Entra Domain Service managed domain that enables LDAP. The following example gets the ID of an Azure Domain Service instance named `aaddscontoso.com` in a resource group named `aadds-rg`.
 
 ```azurecli
 AADDS_ID=$(az resource show --resource-group aadds-rg --resource-type "Microsoft.AAD/DomainServices" --name aaddscontoso.com --query "id" --output tsv)
@@ -158,21 +158,23 @@ The output will display `"tlsV1": "Disabled"` for `domainSecuritySettings`, as s
 
 For more information, see [Harden a Microsoft Entra Domain Services managed domain](/azure/active-directory-domain-services/secure-your-domain).
 
+Write down the information of the Azure Entra Domain Service managed domain that will be used in later section.
+
+| Description   | Details | 
+|---------------|---------|
+| Server Host | This value is the public DNS name you saved when completing [Create and configure an Azure Entra ID Domain Services managed domain](/azure/active-directory-domain-services/tutorial-create-instance). |
+| Secure LDAP external IP address | This value is the **Secure LDAP external IP address** you saved in the [Configure DNS zone for external access](/azure/active-directory-domain-services/tutorial-configure-ldaps#configure-dns-zone-for-external-access) section.|
+| Principal   | Return to *LDP.exe*.  Do the following steps to obtain additional value for `wlsLDAPPrincipal`. <ol><li>In the **View** menu, select **Tree**.</li><li>In the **Tree View** dialog, leave **BaseDN** blank and select **OK**.</li><li>Right-click in the right side pane and select **Clear output**.</li><li>Expand the tree view on the left and select the entry that starts with "OU=AADDC Users".</li><li>In the **Browse** menu, select **Search**.</li><li>In the dialog that appears, accept the defaults and select **Run**.</li><li>After output appears in the right side pane, select **Close**, next to **Run**.</li><li>Scan the output for the **Dn** entry corresponding to the user you added to the "AAD DC Administrators" group.  It will start with **Dn: CN=&lt;user name&gt;OU=AADDC Users**.</li></ol> |
+| User Base DN and Group Base DN | For the purposes of this tutorial, the values for both of these properties are the same: the part of the **wlsLDAPPrincipal** after the first comma.|
+| Password for Principal | This value is the password for the user that has been added to the **AAD DC Administrators** group. |
+| Provider Name | This value can be left at its default.  It's used as the name of the authentication provider in WLS. |
+| Public key for Azure Entra Domain Service LDAPS connection | This value *.cer* file you were asked to save aside when you completed the step, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers).
+
 ## WLS Configuration
 
 This section helps you collect the parameter values from the Azure AD DS deployed earlier.
 
 When you deploy any of the Azure Applications listed in [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic), you can choose to have the deployment automatically connect to a pre-existing LDAP server.  Alternatively, you can configure the LDAP connection later by invoking the Active Directory integration subtemplate.  This approach is described in Appendix A of [the official documentation](https://oracle.github.io/weblogic-azure/).  Either way, you must have the necessary parameter values to pass to the ARM template.
-
-| Parameter name | Description   | Details | 
-|----------------|---------------|---------|
-| `aadsServerHost` | Server Host | This value is the public DNS name you saved when completing [Create and configure an Azure Entra ID Domain Services managed domain](/azure/active-directory-domain-services/tutorial-create-instance). |
-| `aadsPublicIP` | Secure LDAP external IP address | This value is the **Secure LDAP external IP address** you saved in the [Configure DNS zone for external access](/azure/active-directory-domain-services/tutorial-configure-ldaps#configure-dns-zone-for-external-access) section.|
-| `wlsLDAPPrincipal` | Principal   | Return to *LDP.exe*.  Do the following steps to obtain additional value for `wlsLDAPPrincipal`. <ol><li>In the **View** menu, select **Tree**.</li><li>In the **Tree View** dialog, leave **BaseDN** blank and select **OK**.</li><li>Right-click in the right side pane and select **Clear output**.</li><li>Expand the tree view on the left and select the entry that starts with "OU=AADDC Users".</li><li>In the **Browse** menu, select **Search**.</li><li>In the dialog that appears, accept the defaults and select **Run**.</li><li>After output appears in the right side pane, select **Close**, next to **Run**.</li><li>Scan the output for the **Dn** entry corresponding to the user you added to the "AAD DC Administrators" group.  It will start with **Dn: CN=&lt;user name&gt;OU=AADDC Users**.</li></ol> |
-| `wlsLDAPGroupBaseDN` and `wlsLDAPUserBaseDN` | User Base DN and Group Base DN | For the purposes of this tutorial, the values for both of these properties are the same: the part of the **wlsLDAPPrincipal** after the first comma.|
-| `wlsLDAPPrincipalPassword` | Password for Principal | This value is the password for the user that has been added to the **AAD DC Administrators** group. |
-| `wlsLDAPProviderName` | Provider Name | This value can be left at its default.  It's used as the name of the authentication provider in WLS. |
-| `wlsLDAPSSLCertificate` | Public key for Azure AD DS LDAPS connection | This value *.cer* file you were asked to save aside when you completed the step, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers).
 
 ### Integrating Azure AD DS LDAP with WLS
 
@@ -202,7 +204,7 @@ While standing up the secure LDAP in the preceding steps, we had set the source 
 
 ## Clean up resources
 
-Now it's time to follow the steps on the [Clean up resources](/azure/active-directory-domain-services/tutorial-configure-ldaps#clean-up-resources) section in [Configure secure LDAP for an Azure Entra ID Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps#clean-up-resources).
+Now it's time to follow the steps on the [Clean up resources](/azure/active-directory-domain-services/tutorial-configure-ldaps#clean-up-resources) section in [Configure secure LDAP for an Azure Entra Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps#clean-up-resources).
 
 ## Next steps
 
