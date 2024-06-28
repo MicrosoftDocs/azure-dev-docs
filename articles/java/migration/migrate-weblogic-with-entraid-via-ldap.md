@@ -179,11 +179,11 @@ This section helps you collect the parameter values from the Azure Entra Domain 
 When you deploy any of the Azure Applications listed in [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic), you can follow the steps to integrate Azure Entra Domain Service managed domain with WLS.
 
 >[!NOTE]
-> This tutorial uses TLS v1.2 and above to connet the Azure Entra Domain Service managed domain LDAP server. You've to enable TLS v1.2 deployments on JDK 8.
-> You can run the following commands to check the JDK version:
+> This tutorial demonstrates how to use TLS v1.2 to connect to the Azure Entra Domain Service managed domain LDAP server. To ensure compatibility, you need to enable TLS v1.2 for deployments on JDK 8. 
+> You can verify your JDK version by running the following commands:
 >
 > ```
-> export RESOURCE_GROUP_NAME=haiche-wls-entra-id
+> export RESOURCE_GROUP_NAME=contoso-rg
 > export ADMIN_VM_NAME=adminVM
 > # get path of setDomainEnv.sh script
 > export DOMIAN_FILE_PATH=$(az vm run-command invoke \
@@ -193,13 +193,13 @@ When you deploy any of the Azure Applications listed in [Oracle WebLogic Server 
 >      --scripts "find /u01/domains -name setDomainEnv.sh" \
 >  	 --query value[*].message[0] -otsv \
 >      | sed -n '/\[stdout\]/!b; n; p')
-> 
 > az vm run-command invoke \
       --resource-group $RESOURCE_GROUP_NAME \
       --name ${ADMIN_VM_NAME} \
       --command-id RunShellScript \
       --scripts ". ${DOMIAN_FILE_PATH}; java --version"
 > ```
+> 
 > You will find output message like "Enable succeeded: \n[stdout]\njava 11.0.11 2021-04-20 LTS\nJava(TM) SE Runtime Environment 18.9 (build 11.0.11+9-LTS-194)\nJava HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.11+9-LTS-194, mixed mode)\n\n[stderr]\n". 
 >
 > For JDK 8, run the following command to enable TLS v1.2.
