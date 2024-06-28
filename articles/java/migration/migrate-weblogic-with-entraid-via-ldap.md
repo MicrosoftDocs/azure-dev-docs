@@ -178,43 +178,30 @@ This section helps you collect the parameter values from the Azure Entra Domain 
 
 When you deploy any of the Azure Applications listed in [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic), you can follow the steps to integrate Azure Entra Domain Service managed domain with WLS.
 
+After the Azure Application deployment finishes, you can find the URL to access WebLogic Administration Console with steps:
+
+1. Open the Azure portal and go to the resource group that you provisioned.
+1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
+1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the previous section. Select the oldest deployment, whose name starts with something similar to `oracle.`.
+1. Select **Outputs**. This option shows the list of outputs from the deployment.
+1. The **adminConsole** value is the fully qualified, public Internet visible link to the WLS admin console. Select the copy icon next to the field value to copy the link to your clipboard.
+
 >[!NOTE]
 > This tutorial demonstrates how to use TLS v1.2 to connect to the Azure Entra Domain Service managed domain LDAP server. To ensure compatibility, you need to enable TLS v1.2 for deployments on JDK 8. 
-> You can verify your JDK version by running the following commands:
->
-> ```
-> export RESOURCE_GROUP_NAME=contoso-rg
-> export ADMIN_VM_NAME=adminVM
-> # get path of setDomainEnv.sh script
-> export DOMIAN_FILE_PATH=$(az vm run-command invoke \
->      --resource-group $RESOURCE_GROUP_NAME \
->      --name ${ADMIN_VM_NAME} \
->      --command-id RunShellScript \
->      --scripts "find /u01/domains -name setDomainEnv.sh" \
->  	 --query value[*].message[0] -otsv \
->      | sed -n '/\[stdout\]/!b; n; p')
-> az vm run-command invoke \
->      --resource-group $RESOURCE_GROUP_NAME \
->      --name ${ADMIN_VM_NAME} \
->      --command-id RunShellScript \
->      --scripts ". ${DOMIAN_FILE_PATH}; java --version"
-> ```
-> 
-> You will find output message like "Enable succeeded: \n[stdout]\njava 11.0.11 2021-04-20 LTS\nJava(TM) SE Runtime Environment 18.9 (build 11.0.11+9-LTS-194)\nJava HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.11+9-LTS-194, mixed mode)\n\n[stderr]\n". 
->
-> For JDK 8, run the following command to enable TLS v1.2.
->
-> ```
-> az vm run-command invoke \
->      --resource-group $RESOURCE_GROUP_NAME \
->      --name ${ADMIN_VM_NAME} \
->      --command-id RunShellScript \
->      --scripts "echo 'JAVA_OPTIONS=\"${JAVA_OPTIONS} -Djdk.tls.client.protocols=TLSv1.2\"; export JAVA_OPTIONS' >> ${DOMIAN_FILE_PATH}"
-> ```
+> You can verify your JDK version with steps:
+> - Paste the value of **adminConsole** to your browser and open the WLS admin console. 
+> - Under **Domain Structure**, select **Server** -> **admin** -> **Monitoring** -> **General**. You will find Java version next to label **Java Version**.
+> :::image type="content" source="media/migrate-weblogic-to-entraid-via-ldap/wlsconsole-java-version.png" alt-text="Browser showing how to find the Java Version.":::
+> If your Java version is 8, enable TLS v1.2 with steps:
+> - Under **Domain Structure**, select **Server** -> **admin** -> **Configuration** -> **Server Start**.
+> - In **Arguments** section, fill in option `-Djdk.tls.client.protocols=TLSv1.2`.
+> - Select **Save** to save the change.
+> - Under **Change Center**, select **Activate Changes** to enable the option.
+> :::image type="content" source="media/migrate-weblogic-to-entraid-via-ldap/wlsconsole-enable-tls-v12.png" alt-text="Browser showing how to find the Java Version.":::
 
 ### Integrating Azure Entra Domain Service managed domain with WLS
 
-With the above configuration values in hand, and the Azure Entra Domain Service managed domain deployed and secured with LDAPs, it's now possible to launch the configuration.  There are two approaches to complete this process.
+With the WebLogic admin server running, and the Azure Entra Domain Service managed domain deployed and secured with LDAPs, it's now possible to launch the configuration. 
 
 #### Upload and import the public CA
 
