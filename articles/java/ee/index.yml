@@ -75,18 +75,22 @@ landingContent:
           url: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - linkListType: how-to-guide
         links:
+          - text: WebLogic to AKS
+            url: ../migration/migrate-weblogic-to-azure-kubernetes-service.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic to Azure Virtual Machines
             url: ../migration/migrate-weblogic-to-virtual-machines.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+          - text: WebLogic with App Gateway
+            url: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic to Azure VMs step-by-step guidance
             url: ../migration/migrate-weblogic-to-azure-vm-manually.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic to Azure VMs with high availability and disaster recovery
             url: ../migration/migrate-weblogic-to-vms-with-ha-dr.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+          - text: WebLogic to AKS with geo-redundancy
+            url: ../migration/migrate-weblogic-to-aks-with-ha-geo-redundancy.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: WebLogic to AKS within custom VNET
             url: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic to AKS with KEDA scaler based on Prometheus Metrics
             url: ../migration/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
-          - text: WebLogic with App Gateway
-            url: ../migration/migrate-weblogic-with-app-gateway.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
   - title: Migrate JBoss EAP to Azure
     linkLists:
       - linkListType: quickstart

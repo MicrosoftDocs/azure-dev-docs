@@ -81,18 +81,18 @@ items:
   - name: Migrate WebLogic to Azure
     expanded: true
     items:
-      - name: WebLogic to Azure Virtual Machines
-        href: ../migration/migrate-weblogic-to-virtual-machines.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: WebLogic to Azure VMs step-by-step guidance
-        href: ../migration/migrate-weblogic-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to AKS
         href: ../migration/migrate-weblogic-to-azure-kubernetes-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebLogic to Azure Virtual Machines
+        href: ../migration/migrate-weblogic-to-virtual-machines.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebLogic with App Gateway
+        href: ../migration/migrate-weblogic-with-app-gateway.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebLogic to Azure VMs step-by-step guidance
+        href: ../migration/migrate-weblogic-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to AKS within custom VNET
         href: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to AKS with KEDA scaler based on Prometheus Metrics
         href: ../migration/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: WebLogic with App Gateway
-        href: ../migration/migrate-weblogic-with-app-gateway.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to JBoss EAP on Azure App Service
         href: ../migration/migrate-weblogic-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
   - name: Migrate JBoss EAP to Azure
