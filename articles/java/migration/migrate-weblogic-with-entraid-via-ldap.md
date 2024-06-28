@@ -35,6 +35,8 @@ This guide doesn't help you reconfigure an existing Azure Entra ID Domain Servic
   * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 * The ability to deploy Azure Entra Domain Services, see [Create and configure a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/tutorial-create-instance).
 * The ability to deploy one of the WLS Azure Applications listed at [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
+* Prepare a local machine with either Windows with WSL, GNU/Linux, or macOS installed.
+* Install Azure CLI version 2.54.0 or higher to run Azure CLI commands.
 
 ## Migration context
 
@@ -172,25 +174,68 @@ Write down the information of the Azure Entra Domain Service managed domain that
 
 ## WLS Configuration
 
-This section helps you collect the parameter values from the Azure AD DS deployed earlier.
+This section helps you collect the parameter values from the Azure Entra Domain Service managed domain deployed earlier.
 
-When you deploy any of the Azure Applications listed in [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic), you can choose to have the deployment automatically connect to a pre-existing LDAP server.  Alternatively, you can configure the LDAP connection later by invoking the Active Directory integration subtemplate.  This approach is described in Appendix A of [the official documentation](https://oracle.github.io/weblogic-azure/).  Either way, you must have the necessary parameter values to pass to the ARM template.
+When you deploy any of the Azure Applications listed in [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic), you can follow the steps to integrate Azure Entra Domain Service managed domain with WLS.
 
-### Integrating Azure AD DS LDAP with WLS
+>[!NOTE]
+> This tutorial uses TLS v1.2 and above to connet the Azure Entra Domain Service managed domain LDAP server. You've to enable TLS v1.2 deployments on JDK 8.
+> You can run the following commands to check the JDK version:
+>
+> ```
+> export RESOURCE_GROUP_NAME=haiche-wls-entra-id
+> export ADMIN_VM_NAME=adminVM
+> # get path of setDomainEnv.sh script
+> export DOMIAN_FILE_PATH=$(az vm run-command invoke \
+>      --resource-group $RESOURCE_GROUP_NAME \
+>      --name ${ADMIN_VM_NAME} \
+>      --command-id RunShellScript \
+>      --scripts "find /u01/domains -name setDomainEnv.sh" \
+>  	 --query value[*].message[0] -otsv \
+>      | sed -n '/\[stdout\]/!b; n; p')
+> 
+> az vm run-command invoke \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --name ${ADMIN_VM_NAME} \
+      --command-id RunShellScript \
+      --scripts ". ${DOMIAN_FILE_PATH}; java --version"
+> ```
+> You will find output message like "Enable succeeded: \n[stdout]\njava 11.0.11 2021-04-20 LTS\nJava(TM) SE Runtime Environment 18.9 (build 11.0.11+9-LTS-194)\nJava HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.11+9-LTS-194, mixed mode)\n\n[stderr]\n". 
+>
+> For JDK 8, run the following command to enable TLS v1.2.
+>
+> ```
+> az vm run-command invoke \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --name ${ADMIN_VM_NAME} \
+      --command-id RunShellScript \
+      --scripts "echo 'JAVA_OPTIONS=\"${JAVA_OPTIONS} -Djdk.tls.client.protocols=TLSv1.2\"; export JAVA_OPTIONS' >> ${DOMIAN_FILE_PATH}"
+> ```
 
-With the above configuration values in hand, and the Azure AD DS LDAP deployed, it's now possible to launch the configuration.  There are two approaches to complete this process.
+### Integrating Azure Entra Domain Service managed domain with WLS
 
-#### During WLS deployment
+With the above configuration values in hand, and the Azure Entra Domain Service managed domain deployed and secured with LDAPs, it's now possible to launch the configuration.  There are two approaches to complete this process.
+
+#### Upload and import the public CA
 
 Visit [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic) and select the admin or either of the cluster offers.  While deploying the offer, one of the tabs in the deployment process will be **Azure Entra ID**.  Toggle the **Connect to Azure Entra ID** to **Yes**.  Fill out the values based using the information collected in the preceding section.  For the certificate, you must upload the `.cer` file directly.
 
-#### After WLS deployment
+>[!NOTE]
+> Java 11 and not java 11.
+
+#### Configure DNS zone for external access
+
+
+
+#### Create and configure LDAP authentication provider
 
 If you didn't toggle the **Connect to Azure Entra ID** to **Yes** at deployment time, you can use the values you collected in the preceding section to do the configuration later.  More details are in [the official documentation](https://oracle.github.io/weblogic-azure/).
 
-### Validate the deployment
+#### Restart admin server
 
-After deploying WLS and configuring LDAP using one of the above two methods, follow these steps to verify the integration was successful.
+### Validation
+
+After deploying WLS and configuring LDAP, follow these steps to verify the integration was successful.
 
 1. Visit the WLS Admin console.
 1. In the left navigator, expand the tree to select **Security Realms** -> **myrealm** -> **Providers**.
