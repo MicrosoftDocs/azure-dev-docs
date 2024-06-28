@@ -194,10 +194,10 @@ When you deploy any of the Azure Applications listed in [Oracle WebLogic Server 
 >  	 --query value[*].message[0] -otsv \
 >      | sed -n '/\[stdout\]/!b; n; p')
 > az vm run-command invoke \
-      --resource-group $RESOURCE_GROUP_NAME \
-      --name ${ADMIN_VM_NAME} \
-      --command-id RunShellScript \
-      --scripts ". ${DOMIAN_FILE_PATH}; java --version"
+>      --resource-group $RESOURCE_GROUP_NAME \
+>      --name ${ADMIN_VM_NAME} \
+>      --command-id RunShellScript \
+>      --scripts ". ${DOMIAN_FILE_PATH}; java --version"
 > ```
 > 
 > You will find output message like "Enable succeeded: \n[stdout]\njava 11.0.11 2021-04-20 LTS\nJava(TM) SE Runtime Environment 18.9 (build 11.0.11+9-LTS-194)\nJava HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.11+9-LTS-194, mixed mode)\n\n[stderr]\n". 
@@ -206,10 +206,10 @@ When you deploy any of the Azure Applications listed in [Oracle WebLogic Server 
 >
 > ```
 > az vm run-command invoke \
-      --resource-group $RESOURCE_GROUP_NAME \
-      --name ${ADMIN_VM_NAME} \
-      --command-id RunShellScript \
-      --scripts "echo 'JAVA_OPTIONS=\"${JAVA_OPTIONS} -Djdk.tls.client.protocols=TLSv1.2\"; export JAVA_OPTIONS' >> ${DOMIAN_FILE_PATH}"
+>      --resource-group $RESOURCE_GROUP_NAME \
+>      --name ${ADMIN_VM_NAME} \
+>      --command-id RunShellScript \
+>      --scripts "echo 'JAVA_OPTIONS=\"${JAVA_OPTIONS} -Djdk.tls.client.protocols=TLSv1.2\"; export JAVA_OPTIONS' >> ${DOMIAN_FILE_PATH}"
 > ```
 
 ### Integrating Azure Entra Domain Service managed domain with WLS
