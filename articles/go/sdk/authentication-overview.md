@@ -24,11 +24,11 @@ The specific type of token-based authentication an app uses to authenticate to A
 
 ### DefaultAzureCredential
 
-The [DefaultAzureCredential](#use-defaultazurecredential-in-an-application) class provided by the Azure SDK allows apps to use different authentication methods depending on the environment in which they're run. In this way, apps can be promoted from local development to test environments to production without code changes.
+The [DefaultAzureCredential](#use-defaultazurecredential-in-an-application) type provided by the Azure SDK allows apps to use different authentication methods depending on the environment in which they're run. In this way, apps can be promoted from local development to test environments to production without code changes.
 
 You configure the appropriate authentication method for each environment, and `DefaultAzureCredential` automatically detects and uses that authentication method. The use of `DefaultAzureCredential` is preferred over manually coding conditional logic or feature flags to use different authentication methods in different environments.
 
-Details about using the `DefaultAzureCredential` class are discussed in the section [Use DefaultAzureCredential in an application](#use-defaultazurecredential-in-an-application).
+Details about using the `DefaultAzureCredential` type are discussed in the section [Use DefaultAzureCredential in an application](#use-defaultazurecredential-in-an-application).
 
 ### Advantages of token-based authentication
 
@@ -67,7 +67,7 @@ To use [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-fo
 go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
 ```
 
-The following code example shows how to instantiate a Azure SDK client with `DefaultAzureCredential`. In this case, it's [`azblob`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob) client used to access Azure Blob Storage.
+The following code example shows how to create an instance of Azure SDK client with `DefaultAzureCredential`. In this case, it's [`azblob`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob) client used to access Azure Blob Storage.
 
 ```go
 import (
@@ -78,7 +78,7 @@ import (
 )
 
 const (
-	account       = "https://MYSTORAGEACCOUNT.blob.core.windows.net/"
+	account       = "https://<replace_with_your_storage_account_name>.blob.core.windows.net/"
 	containerName = "sample-container"
 	blobName      = "sample-blob"
 	sampleFile    = "path/to/sample/file"
