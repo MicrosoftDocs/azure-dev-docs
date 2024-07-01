@@ -116,7 +116,7 @@ Create a Microsoft Entra application and service principal, then assign a role t
 ---
 ### Add federated credentials for a Microsoft Entra application
 
-You can add federated credentials in the Azure portal or with the Microsoft Graph REST API.
+You can add federated credentials using the Azure portal, Azure CLI, or Azure PowerShell.
 
 # [Azure portal](#tab/azure-portal)
 
@@ -124,7 +124,7 @@ You can add federated credentials in the Azure portal or with the Microsoft Grap
 1. Within the app, go to **Certificates and secrets**.  
     :::image type="content" source="media/federated-certificates-secrets.png" alt-text="Select Certificates & secrets.":::
 1. In the **Federated credentials** tab, select **Add credential**.
-    :::image type="content" source="media/add-federated-credential.png" alt-text="Add the federated credential":::
+    :::image type="content" source="media/add-federated-credential.png" alt-text="Add the federated crYou can add federated credentials using the Azure portal, Azure CLI, or Azure PowerShell.edential":::
 1. Select the credential scenario **GitHub Actions deploying Azure resources**. Generate your credential by entering your credential details.
     
 |Field  |Description  |Example  |
@@ -339,7 +339,7 @@ If you'd like to use a user-assigned managed identity instead of a Microsoft Ent
 ---
 ### Add federated credentials for a user-assigned managed identity
 
-You can add federated credentials in the Azure portal or with the Microsoft Graph REST API.
+You can add federated credentials using the Azure portal, Azure CLI, or Azure PowerShell.
 
 # [Azure portal](#tab/azure-portal)
 
