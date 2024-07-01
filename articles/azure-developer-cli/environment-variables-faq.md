@@ -23,7 +23,7 @@ System environment variables are not directly accessible through `azd` commands 
 
 ### Can `azd` commands directly read and write system environment variables?
 
-No, `azd` commands cannot read or write system environment variables. Commands such as [`azd env`](/azure/developer/azure-developer-cli/reference#azd-env) or [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values) operate on values stored in the template `.env` file for a specific `azd` environment. `azd` environments are managed using subfolders in the `.azure/<environment name>` directory of your project template, which enables your template to have multiple environments. Environment subfolders hold configuration files such as `.env` that describe the environment.
+No, `azd` commands cannot read or write system environment variables. Commands such as [`azd env set`](/azure/developer/azure-developer-cli/reference#azd-env) or [`azd env get-values`](/azure/developer/azure-developer-cli/reference#azd-env-get-values) operate on values stored in the template `.env` file for a specific `azd` environment. `azd` environments are managed using subfolders in the `.azure/<environment name>` directory of your project template, which enables your template to have multiple environments. Environment subfolders hold configuration files such as `.env` that describe the environment.
 
 Use custom shell or PowerShell scripts with `azd` [hooks](/azure/developer/azure-developer-cli/azd-extensibility) to read or write system level environment variables.
 
@@ -70,6 +70,9 @@ Common reasons to access `azd` environment variables include the following:
 - Perform additional configuration in hook scripts.
 - Expose the `.env` values from the template to the application code framework, such as Node.js or .NET.
 - Write the `.env` values to system environment variables.
+
+> [!TIP]
+> Use caution when setting system environment variables, as they can cause conflicts with other templates that share the same environment variable names.
 
 ### How do I manually set a new `azd` environment variable?
 
