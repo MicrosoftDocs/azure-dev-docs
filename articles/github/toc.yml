@@ -7,7 +7,16 @@
     - name: Introduction to GitHub Actions for Azure
       href: github-actions.md 
     - name: Authenticate to Azure from GitHub  
-      href: connect-from-azure.md
+      expanded: true
+      items:
+      - name: Authenticatication menthods
+        href: connect-from-azure.md
+      - name: Sign in with OpenID Connect
+        href: connect-from-azure-oidc.md
+      - name: Sign in with a service principal secret
+        href: connect-from-azure-secret.md
+      - name: Sign in with a managed identity
+        href: connect-from-azure-identity.md
     - name: Deploy apps to Azure 
       href: deploy-to-azure.md 
     - name: Deploy databases to Azure
