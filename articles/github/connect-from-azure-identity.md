@@ -9,10 +9,10 @@ ms.date: 07/01/2024
 ms.custom: github-actions-azure, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ---
 
-## Use the Azure login action with Managed Identity
-On resources configured for [managed identities](/entra/identity/managed-identities-azure-resources/overview) in Azure, you can sign in [Azure login](https://github.com/marketplace/actions/azure-login) using the managed identity. There's no need to manage credentials, as they are not accessible to you. You can use two types of managed identities: System-assigned or User-assigned.
+# Use the Azure login action with Managed Identity
+On resources configured for [managed identities](/entra/identity/managed-identities-azure-resources/overview) in Azure, you can sign in [Azure login](https://github.com/marketplace/actions/azure-login) using the managed identity. There's no need to manage credentials, as they are not accessible to you. You can use two types of managed identities: **System-assigned** or **User-assigned**.
 
-## Use the Azure login action with System Assigned Managed Identity
+## Use the Azure login action with System-Assigned Managed Identity
 
 > [!NOTE]
 >
@@ -25,21 +25,25 @@ Before your login with system-assigned managed identity, you need to create an A
   - [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu)
 - [Configure system-assigned managed identity on the Azure virtual machine](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)
 - Install required software on the Azure virtual machine
-  - [Install PowerShell](/powershell/scripting/install/installing-powershell)
   - [Install Azure CLI](/cli/azure/install-azure-cli)
-    - If you want to run Azure CLI Action, [Install Docker](https://docs.docker.com/engine/install/).
+    - To run the [Azure CLI Action](https://github.com/Azure/CLI), you don't need to pre-install the Azure CLI. However, you must [install Docker](https://docs.docker.com/engine/install/).
+  - [Install PowerShell](/powershell/scripting/install/installing-powershell)
   - [Install Azure PowerShell](/powershell/azure/install-azure-powershell)
 - [Configure the Azure virtual machine as a GitHub self-hosted runner](https://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)
 
 ### Create GitHub secrets
-After it, create GitHub Action secrets for following values: (Refer to [Create GitHub Secrets](#create-github-secrets).)
+1. Open your GitHub repository and go to **Settings**.
+
+1. Select **Security > Secrets and variables > Actions > New repository secret**.
+
+1. Create secrets for `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your User-Assigned Managed Identity for your GitHub secrets:
 
 |GitHub secret  |System-assigned managed identity  |
 |---------|---------|
 |AZURE_SUBSCRIPTION_ID     |    Subscription ID     |
 |AZURE_TENANT_ID    |    Tenant ID   |
 
-### Set up Azure Login with System Assigned Managed Identity
+### Set up Azure Login with System-Assigned Managed Identity
 
 In this example, you use the system-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `subscription-id` and `tenant-id` values. 
 
@@ -78,7 +82,7 @@ jobs:
             Get-AzResourceGroup
 ```
 
-## Use the Azure login action with User Assigned Managed Identity
+## Use the Azure login action with User-Assigned Managed Identity
 
 > [!NOTE]
 >
@@ -92,14 +96,19 @@ Before your login with User-assigned managed identity, you need to create an Azu
 - [Create a user-assigned managed identity and assign a role to it](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity)
 - [Configure user-assigned managed identity on the Azure virtual machine](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity)
 - Install required software on the Azure virtual machine
+  - [Install Azure CLI](/cli/azure/install-azure-cli) or [Using Azure CLI action](https://github.com/Azure/CLI)
+    - To run the [Azure CLI Action](https://github.com/Azure/CLI), you don't need to pre-install the Azure CLI. However, you must [install Docker](https://docs.docker.com/engine/install/).
   - [Install PowerShell](/powershell/scripting/install/installing-powershell)
-  - [Install Azure CLI](/cli/azure/install-azure-cli)
-    - If you want to run Azure CLI Action, [Install Docker](https://docs.docker.com/engine/install/).
   - [Install Azure PowerShell](/powershell/azure/install-azure-powershell)
 - [Configure the Azure virtual machine as a GitHub self-hosted runner](https://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)
 
 ### Create GitHub secrets
-After it, create GitHub Action secrets for following values: (Refer to [Create GitHub Secrets](#create-github-secrets).)
+
+1. Open your GitHub repository and go to **Settings**.
+
+1. Select **Security > Secrets and variables > Actions > New repository secret**.
+
+1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your User-Assigned Managed Identity for your GitHub secrets:
 
 |GitHub secret  |User-assigned managed identity  |
 |---------|---------|
@@ -107,7 +116,7 @@ After it, create GitHub Action secrets for following values: (Refer to [Create G
 |AZURE_SUBSCRIPTION_ID     |    Subscription ID     |
 |AZURE_TENANT_ID    |    Tenant ID   |
 
-### Set up Azure Login with User Assigned Managed Identity
+### Set up Azure Login with User-Assigned Managed Identity
 
 In this example, you use the user-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `client-id`, `subscription-id` and `tenant-id` values. 
 

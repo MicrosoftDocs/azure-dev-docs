@@ -34,7 +34,7 @@ To use OIDC with a Microsoft Entra application, you need to:
 
 1. [Create a Microsoft Entra application and service principal](#create-a-microsoft-entra-application-and-service-principal)
 
-1. [Add federated credentials](#add-federated-credentials-for-a-microsoft-entra-application)
+1. [Add federated credentials for Microsoft Entra application](#add-federated-credentials-for-a-microsoft-entra-application)
 
 1. [Create GitHub secrets](#create-github-secrets)
 
@@ -287,7 +287,7 @@ To use OIDC with a user-assigned managed identity, you need to:
 1. [Verify successful Azure Login with OIDC](#verify-successful-azure-login-with-oidc)
 
 
-## Create a user-assigned managed identity
+### Create a user-assigned managed identity
 
 If you'd like to use a user-assigned managed identity instead of a Microsoft Entra application. You need to create a user-assigned managed identity and then assign a role on your subscription to your managed identity so that your workflow has access to your subscription.
 

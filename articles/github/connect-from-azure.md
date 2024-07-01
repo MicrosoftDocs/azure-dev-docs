@@ -16,7 +16,7 @@ Learn how to use [Azure login](https://github.com/Azure/login) with either [Azur
 To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to first log in with the [Azure login](https://github.com/marketplace/actions/azure-login) action.
 
 The Azure login action supports different ways of authenticating with Azure:
-* [OpenID Connect (OIDC)](connect-from-azure-oidc.md) (Recommended)
+* [OpenID Connect](connect-from-azure-oidc.md) (Recommended)
 * [Service principal with secrets](connect-from-azure-secret.md)
 * [Managed Identity](connect-from-azure-identity.md)
 

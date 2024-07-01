@@ -59,7 +59,7 @@ To configure the workflow, you need to authorize a service principal to deploy t
    This command, optionally creates a GitHub repository and pushes code to the new repo.
 
    > [!NOTE]
-   > By default, `azd pipeline config` uses [OpenID Connect (OIDC)](../github/connect-from-azure.md#use-the-azure-login-action-with-openid-connect), called **federated** credentials. If you'd rather not use OIDC, run `azd pipeline config --auth-type client-credentials`. 
+   > By default, `azd pipeline config` uses [OpenID Connect (OIDC)](../github/connect-from-azure-oidc.md), called **federated** credentials. If you'd rather not use OIDC, run `azd pipeline config --auth-type client-credentials`. 
    >
    > OIDC/federated credentials are **not** supported for Terraform.
    >

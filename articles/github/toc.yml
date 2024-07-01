@@ -9,7 +9,7 @@
     - name: Authenticate to Azure from GitHub  
       expanded: true
       items:
-      - name: Authenticatication menthods
+      - name: Authenticatication methods
         href: connect-from-azure.md
       - name: Sign in with OpenID Connect
         href: connect-from-azure-oidc.md
