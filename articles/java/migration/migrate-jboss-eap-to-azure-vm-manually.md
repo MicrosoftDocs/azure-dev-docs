@@ -876,16 +876,16 @@ Use the following steps to create the database instance:
    DB_SERVER_NAME="jbossdb$(date +%s)"
    echo "DB_SERVER_NAME=${DB_SERVER_NAME}"
    az postgres flexible-server create \
-            --resource-group abc1110rg \
-            --name ${DB_SERVER_NAME}  \
-            --location westus \
-            --admin-user ${DATA_BASE_USER} \
-            --admin-password ${DATA_BASE_PASSWORD} \
-            --version 16 \
-            --public-access 0.0.0.0 \
-            --tier Burstable \
-            --sku-name Standard_B1ms \
-            --yes
+       --resource-group abc1110rg \
+       --name ${DB_SERVER_NAME}  \
+       --location westus \
+       --admin-user ${DATA_BASE_USER} \
+       --admin-password ${DATA_BASE_PASSWORD} \
+       --version 16 \
+       --public-access 0.0.0.0 \
+       --tier Burstable \
+       --sku-name Standard_B1ms \
+       --yes
    ```
 
 1. Use the following commands to allow access from Azure services:
