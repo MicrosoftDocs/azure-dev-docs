@@ -153,7 +153,7 @@ Follow these steps to provision a Windows 10 machine and install an X-server. If
 
 ### Create Oracle Linux machines for managed servers
 
-Create two VMs using [az vm create](/cli/azure/vm). You run the managed servers on this VM.
+Create two VMs using [az vm create](/cli/azure/vm). You run the managed servers on these VMs.
 
 The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use TLS/SSL authentication instead.
 
