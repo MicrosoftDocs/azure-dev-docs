@@ -2,7 +2,7 @@
 title: End-user Authorization and Authentication with Azure Entra ID for Migrating Java Apps on WebLogic Server to Azure
 description: This guide describes how to configure Oracle WebLogic Server to connect with Azure Entra ID Domain Services via LDAP
 author: KarlErickson
-ms.author: edburns
+ms.author: edburns,haiche
 ms.topic: tutorial
 ms.date: 06/27/2024
 recommendations: false
@@ -169,7 +169,6 @@ Write down the information of the Azure Entra Domain Service managed domain that
 | Principal   | Return to *LDP.exe*.  Do the following steps to obtain additional value for `wlsLDAPPrincipal`. <ol><li>In the **View** menu, select **Tree**.</li><li>In the **Tree View** dialog, leave **BaseDN** blank and select **OK**.</li><li>Right-click in the right side pane and select **Clear output**.</li><li>Expand the tree view on the left and select the entry that starts with "OU=AADDC Users".</li><li>In the **Browse** menu, select **Search**.</li><li>In the dialog that appears, accept the defaults and select **Run**.</li><li>After output appears in the right side pane, select **Close**, next to **Run**.</li><li>Scan the output for the **Dn** entry corresponding to the user you added to the "AAD DC Administrators" group.  It will start with **Dn: CN=&lt;user name&gt;OU=AADDC Users**.</li></ol> |
 | User Base DN and Group Base DN | For the purposes of this tutorial, the values for both of these properties are the same: the part of the **wlsLDAPPrincipal** after the first comma.|
 | Password for Principal | This value is the password for the user that has been added to the **AAD DC Administrators** group. |
-| Provider Name | This value can be left at its default.  It's used as the name of the authentication provider in WLS. |
 | Public key for Azure Entra Domain Service LDAPS connection | This value *.cer* file you were asked to save aside when you completed the step, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers).
 
 ## WLS Configuration
@@ -306,7 +305,7 @@ With certifcate imported and secure LDAP access traffic resolved, you are able t
 * In the provider list, select **AzureEntraIDLDAPProvider**.
   - For **Configuration** -> **Common**:
     - For **Control Flag**, select **SUFFICIENT**.
-  - For **Configuration** -> **Provider Specific**, input the Entra Domain Services managed domain connection information you obtain previously. Steps to obtain the value are listed in the table of [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](#create-and-configure-an-azure-entra-domain-services-managed-domain).
+  - For **Configuration** -> **Provider Specific**, input the Entra Domain Services managed domain connection information you obtained previously. Steps to obtain the value are listed in the table of [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](#create-and-configure-an-azure-entra-domain-services-managed-domain).
     - Under **Connection** section:
       - For **Host**, fill in the managed domain DNS, this tutorial uses `ldaps.aaddscontoso.com`.
       - For **Port**, fill in `636`.
