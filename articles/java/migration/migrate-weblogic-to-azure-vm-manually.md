@@ -199,7 +199,7 @@ The following section shows how to create a new WebLogic Server domain on the `a
 
 1. Connect to `adminVM` from a command prompt.
 
-   Run the following commands on your Windows machine `myWindowsVM`:
+   Run the following commands on your Windows machine `myWindowsVM`. Replace 192.168.0.4 with your adminVM private IP address:
 
    ```cmd
    set ADMINVM_IP="192.168.0.4"
