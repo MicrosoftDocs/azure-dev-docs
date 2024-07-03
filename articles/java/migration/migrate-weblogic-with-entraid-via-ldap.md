@@ -192,6 +192,7 @@ After the Azure Application deployment finishes, you can find the URL to access 
 > - Paste the value of **adminConsole** to your browser and open the WLS admin console. 
 > - Under **Domain Structure**, select **Server** -> **admin** -> **Monitoring** -> **General**. You will find Java version next to label **Java Version**.
 > :::image type="content" source="media/migrate-weblogic-to-entraid-via-ldap/wlsconsole-java-version.png" alt-text="Browser showing how to find the Java Version.":::
+> 
 > If your Java version is 8, enable TLS v1.2 with steps:
 > - Under **Domain Structure**, select **Server** -> **admin** -> **Configuration** -> **Server Start**.
 > - In **Arguments** section, fill in option `-Djdk.tls.client.protocols=TLSv1.2`.
@@ -207,8 +208,72 @@ With the WebLogic admin server running, and the Azure Entra Domain Service manag
 
 Visit [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic) and select the admin or either of the cluster offers.  While deploying the offer, one of the tabs in the deployment process will be **Azure Entra ID**.  Toggle the **Connect to Azure Entra ID** to **Yes**.  Fill out the values based using the information collected in the preceding section.  For the certificate, you must upload the `.cer` file directly.
 
+Upload and import the certificate to the VM that runs admin server with steps:
+
+* Enable access to **adminVM** following [Connect to the virtual machine](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine#connect-to-the-virtual-machine).
+* Capture the public IP of **adminVM**:
+  - Open the resource group you provision WebLogic Server.
+  - Select **adminVM**, and copy the value next to **Public IP address**.
+* Run the following command to upload the certificate. Replace the **ADMIN_VM_USER** with the user name you used to deploy WebLogic Server. You are required to input the password that used to connect the machine.
+
+   ```shell
+   export CER_FILE_NAME=azure-ad-ds-client.cer
+   export ADMIN_VM_IP=<admin-vm-public-ip>
+   export ADMIN_VM_USER=weblogic
+
+   scp <path-to-cert>/${CER_FILE_NAME} ${ADMIN_VM_USER}@${ADMIN_VM_IP}:/home/${ADMIN_VM_USER}/${CER_FILE_NAME}
+   ```
+* Once the certificate is uploaded, you need to move the domain path and change its ownership.
+
+   ```azurecli
+   export RESOURCE_GROUP_NAME=contoso-rg
+   export ADMIN_VM_NAME=adminVM
+   export CA_PATH=/u01/domains/${CER_FILE_NAME}
+
+   az vm run-command invoke \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --name ${ADMIN_VM_NAME} \
+      --command-id RunShellScript \
+      --scripts "mv /home/${ADMIN_VM_USER}/${CER_FILE_NAME} /u01/domains; chown oracle:oracle ${CA_PATH}"
+   ```
+* Import the certificate to your keysore. The Azure application provisions the WebLogic Server with default trust store in `<jvm-path-to-security>/cacerts`. You can import the Entra Domain Service public CA using the following command. Pay attention to your Java version, which you have checked in previous section. 
+
+   Query the script that used to set domain environment variables.
+
+   ```azurecli
+   export DOMIAN_FILE_PATH=$(az vm run-command invoke \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --name ${ADMIN_VM_NAME} \
+      --command-id RunShellScript \
+      --scripts "find /u01/domains -name setDomainEnv.sh" \
+      --query value[*].message -otsv \
+      | sed -n '/\[stdout\]/!b; n; p')
+   ```
+
+   ##### [Java 11 and above](#tab/java11)
+
+   ```azurecli
+   az vm run-command invoke \
+         --resource-group $RESOURCE_GROUP_NAME \
+         --name ${ADMIN_VM_NAME} \
+         --command-id RunShellScript \
+         --scripts ". ${DOMIAN_FILE_PATH};export JVM_CER_PATH=${JAVA_HOME}/lib/security/cacerts;${JAVA_HOME}/bin/keytool -noprompt -import -alias aadtrust -file ${CA_PATH} -keystore ${JVM_CER_PATH} -storepass changeit"
+   ```
+
+   ##### [Older Java version](#tab/oldjava)
+
+   ```azurecli
+   az vm run-command invoke \
+         --resource-group $RESOURCE_GROUP_NAME \
+         --name ${ADMIN_VM_NAME} \
+         --command-id RunShellScript \
+         --scripts ". ${DOMIAN_FILE_PATH};export JVM_CER_PATH=${JAVA_HOME}/jre/lib/security/cacerts;${JAVA_HOME}/bin/keytool -noprompt -import -alias aadtrust -file ${CA_PATH} -keystore ${JVM_CER_PATH} -storepass changeit"
+   ```
+
+   ---
+
 >[!NOTE]
-> Java 11 and not java 11.
+> If you customize the trust store, you've to import the Entra Domain Service public CA to your trust keystore.
 
 #### Configure DNS zone for external access
 
