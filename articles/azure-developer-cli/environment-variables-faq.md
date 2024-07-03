@@ -76,7 +76,7 @@ Common reasons to access `azd` environment variables include the following:
 
 ### How do I manually set a new `azd` environment variable?
 
-Set additional `azd` environment variables using the [`azd env set`](https://review.learn.microsoft.com/azure/developer/azure-developer-cli/reference?branch=pr-en-us-5900#azd-env-set) command, providing the key and value for your variable.
+Set additional `azd` environment variables using the [`azd env set`](/azure/developer/azure-developer-cli/reference#azd-env-set) command, providing the key and value for your variable.
 
 Common reasons to set `azd` environment variables include the following:
 
