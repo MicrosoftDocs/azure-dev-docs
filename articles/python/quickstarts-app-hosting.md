@@ -45,4 +45,3 @@ The sections in this article are arranged approximately from more managed option
 
 - **On-demand, scalable computing resources with Azure Virtual Machines**:
   - [Quickstart: Use the Azure CLI to deploy a Linux virtual machine (VM) in Azure](/azure/virtual-machines/linux/quick-create-cli)
-  - [Azure Virtual Machines Management Samples - Python](/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python)
