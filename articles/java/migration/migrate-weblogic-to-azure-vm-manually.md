@@ -315,9 +315,7 @@ Finally, there's an **End of Configuration** page to show the URL of the Adminis
 
 The Administration Server isn't running, so the URL doesn't resolve. Select **Next**, then **Finish**. You finished configuring the `wlsd` domain with a cluster `cluster1`, including two managed servers.
 
-Next, apply the domain configuration to `mspVM1` and `mspVM2`.
-
-You use the pack and unpack command to extend the domain.
+Next, you apply the domain configuration to `mspVM1` and `mspVM2`.
 
 #### Create replicas using the pack and unpack command
 
