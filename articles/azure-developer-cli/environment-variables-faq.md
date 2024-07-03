@@ -88,9 +88,12 @@ Common reasons to set `azd` environment variables include the following:
 azd env set MY_KEY MyValue
 ```
 
-### What is the recommend approach to copy or write `azd` environment variables as system environment variables?
+### How do I copy or write `azd` environment variables as system environment variables?
 
-Use custom scripts to retrieve `azd` environment variables and then set them as system environment variables. It's common to run these scripts as hooks during the `azd` lifecycle, as seen in the following example:
+In some scenarios you may want to copy `azd` environment variables to another environment file or to your system environment for use by language frameworks. For example, you may want to use endpoint URLs from provisioned Azure services to connect to those services in your app code. Use custom scripts to retrieve `azd` environment variables and then set them as system environment variables. It's common to run these scripts as hooks during the `azd` lifecycle, as seen in the following example:
+
+> [!NOTE]
+> Use caution when copying `azd` environment variables to your local system or other operating environments. System environment variables with matching names can be picked up by `azd` and cause conflicts between different `azd` templates or different `azd` environments.
 
 ```yml
 postprovision:
