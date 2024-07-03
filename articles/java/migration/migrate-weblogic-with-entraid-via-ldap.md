@@ -295,17 +295,70 @@ az vm run-command invoke \
 
 #### Create and configure LDAP authentication provider
 
-If you didn't toggle the **Connect to Azure Entra ID** to **Yes** at deployment time, you can use the values you collected in the preceding section to do the configuration later.  More details are in [the official documentation](https://oracle.github.io/weblogic-azure/).
+With certifcate imported and secure LDAP access traffic resolved, you are able to configure LDAP provider from WLS console.
+
+* Paste the value of **adminConsole** to your browser and login the WLS admin console. 
+* Under **Change Center**, select **Lock & Edit**.
+* Under **Domain Structure**, select **Security Realms** - > **Providers** -> **New**, to create a new authentication provider.
+  - For **Name**, fill in `AzureEntraIDLDAPProvider`.
+  - For **Type**, select `ActiveDirectoryAuthenticator`.
+  - Select **OK** to save the change.
+* In the provider list, select **AzureEntraIDLDAPProvider**.
+  - For **Configuration** -> **Common**:
+    - For **Control Flag**, select **SUFFICIENT**.
+  - For **Configuration** -> **Provider Specific**, input the Entra Domain Services managed domain connection information you obtain previously. Steps to obtain the value are listed in the table of [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](#create-and-configure-an-azure-entra-domain-services-managed-domain).
+    - Under **Connection** section:
+      - For **Host**, fill in the managed domain DNS, this tutorial uses `ldaps.aaddscontoso.com`.
+      - For **Port**, fill in `636`.
+      - For **Principal**, fill in the principal of your cloud only user, this tutorial uses `CN=WLSTest,OU=AADDC Users,DC=aaddscontoso,DC=com`. 
+      - For **Credential**, fill in the credential of your cloud only user.
+      - Check **SSLEnabled**.
+    - Under **Users** section:
+      - For **User Base DN**, fill in the user base DN, this tutorial uses `OU=AADDC Users,DC=aaddscontoso,DC=com`.
+      - For **User From Name Filter**, fill in `(&(sAMAccountName=%u)(objectclass=user))`.
+      - For **User Name Attribute**, fill in `sAMAccountName`.
+      - For **User Object Class**, fill in `user`.
+      - Keep other fields with default vaule.
+    - Under **Groups** section:
+      - For **Group Base DN**, fill in group base DN, this tutorial uses the sample value with user base DN `OU=AADDC Users,DC=aaddscontoso,DC=com`.
+      - Keep other fields with default vaule.
+  - For **Performance**:
+    - Check **Enable Group Membership Lookup Hierarchy Caching**.
+    - Check **Enable SID To Group Lookup Caching**.
+  - Select **Save** to save the configuration.
+* Select **Activate Changes** to invoke the changes.
+
+You have to restart the admin to make provider work.
 
 #### Restart admin server
 
+Run the following command to stop and start the admin server:
+
+```
+az vm run-command invoke \
+         --resource-group $RESOURCE_GROUP_NAME \
+         --name ${ADMIN_VM_NAME} \
+         --command-id RunShellScript \
+         --scripts "systemctl stop wls_admin"
+```
+
+```
+export LDAPS_DNS=ldaps.aaddscontoso.com
+export LDAPS_EXTERNAL_IP=<entra-domain-services-manged-domain-external-ip>
+az vm run-command invoke \
+         --resource-group $RESOURCE_GROUP_NAME \
+         --name ${ADMIN_VM_NAME} \
+         --command-id RunShellScript \
+         --scripts "systemctl start wls_admin"
+```
+
 ### Validation
 
-After deploying WLS and configuring LDAP, follow these steps to verify the integration was successful.
+After restarting admin server, follow these steps to verify the integration was successful.
 
 1. Visit the WLS Admin console.
 1. In the left navigator, expand the tree to select **Security Realms** -> **myrealm** -> **Providers**.
-1. If the integration was successful, you'll find the Azure AD provider for example `AzureActiveDirectoryProvider`.
+1. If the integration was successful, you'll find the Azure AD provider for example `AzureEntraIDLDAPProvider`.
 1. In the left navigator, expand the tree to select **Security Realms** -> **myrealm** -> **Users and Groups**.
 1. If the integration was successful, you'll find users from the Azure AD provider.
 
