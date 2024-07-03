@@ -342,8 +342,6 @@ az vm run-command invoke \
 ```
 
 ```
-export LDAPS_DNS=ldaps.aaddscontoso.com
-export LDAPS_EXTERNAL_IP=<entra-domain-services-manged-domain-external-ip>
 az vm run-command invoke \
          --resource-group $RESOURCE_GROUP_NAME \
          --name ${ADMIN_VM_NAME} \
