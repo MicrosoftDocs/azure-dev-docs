@@ -1573,14 +1573,14 @@ This section shows you how to deploy an application to the WebLogic Server clust
 
 ## Test the WebLogic Server cluster configuration
 
-You finished configuring the WebLogic Server cluster and deploying the Java EE application to it. Use the following steps to access the application to validate all the settings:
+You finished configuring the WebLogic Server cluster and deploying the Java application to it. Use the following steps to access the application to validate all the settings:
 
 1. Open a web browser.
 1. Navigate to the application with the URL `http://<gateway-public-ip-address>/testwebapp/`.
 
 ## Clean up resources
 
-Delete `abc1110rg` with the following command:
+Delete the resource group with the following command:
 
 ```azurecli
 az group delete --name ${RESOURCE_GROUP_NAME} --yes --no-wait
@@ -1592,6 +1592,5 @@ Continue to explore options to run WebLogic Server on Azure.
 
 * [WebLogic Server on Azure Virtual Machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 * [WebLogic Server on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
-* [Explore options for day 2 and beyond](https://aka.ms/wls-vms-day2)
 
 For more information about Oracle WebLogic offers, see [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all *Bring-Your-Own-License*. They assume you already have the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
