@@ -1567,7 +1567,7 @@ This section shows you how to deploy an application to the WebLogic Server clust
 1. Ensure that **Install this deployment as an application** is selected. Select **Next**.
 1. Under **Available targets for testwebapp**, select deployment target `cluster1`, select **Next**, then select **Finish**.
 1. Under the **Change Center**, if such a button exists, select **Activate Changes**. You must complete this step. Failure to complete this step causes the changes you made to not take effect. If this button doesn't exist, verify that some text such as `Future changes will automatically be activated as you modify, add or delete items in this domain` exists under **Change Center**.
-1. Under **Domain Structure**, select **Deployments** then **Control**. Select **cargo-tracker** then select **Start**, **Servicing all requests**.
+1. Under **Domain Structure**, select **Deployments** then **Control**. Select **testwebapp** then select **Start**, **Servicing all requests**.
 1. Select **Yes**.
 1. You're shown a message saying `Start requests have been sent to the selected deployments.` The status of the application must be **Active**.
 
