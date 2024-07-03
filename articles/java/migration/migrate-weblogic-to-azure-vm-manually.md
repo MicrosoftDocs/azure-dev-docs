@@ -4,7 +4,7 @@ description: Provides step-by-step guidance to install Oracle WebLogic Server on
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
-ms.date: 05/29/2024
+ms.date: 07/03/2024
 recommendations: false
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-azurecli, devx-track-extended-java
 ---
