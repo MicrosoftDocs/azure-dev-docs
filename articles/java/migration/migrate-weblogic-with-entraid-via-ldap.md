@@ -236,7 +236,7 @@ Upload and import the certificate to the VM that runs admin server with steps:
       --command-id RunShellScript \
       --scripts "mv /home/${ADMIN_VM_USER}/${CER_FILE_NAME} /u01/domains; chown oracle:oracle ${CA_PATH}"
    ```
-* Import the certificate to your keysore. The Azure application provisions the WebLogic Server with default trust store in `<jvm-path-to-security>/cacerts`. You can import the Entra Domain Service public CA using the following command. Pay attention to your Java version, which you have checked in previous section. 
+* Import the certificate to your keysore. The Azure application provisions the WebLogic Server with default trust store in `<jvm-path-to-security>/cacerts`. You can import the Entra Domain Service public CA using the following command. 
 
    Query the script that used to set domain environment variables.
 
@@ -249,6 +249,8 @@ Upload and import the certificate to the VM that runs admin server with steps:
       --query value[*].message -otsv \
       | sed -n '/\[stdout\]/!b; n; p')
    ```
+
+   Import the CA. Pay attention to your Java version, which you have checked in previous section. 
 
    ##### [Java 11 and above](#tab/java11)
 
@@ -275,9 +277,21 @@ Upload and import the certificate to the VM that runs admin server with steps:
 >[!NOTE]
 > If you customize the trust store, you've to import the Entra Domain Service public CA to your trust keystore.
 
-#### Configure DNS zone for external access
+#### Resolves traffic for secure LDAP access
 
+With secure LDAP access enabled over the internet, you can update the your DNS zone so that client computers can find this managed domain. The **Secure LDAP external IP address** is listed on the **Properties** tab for your managed domain, see [Configure DNS zone for external access](/entra/identity/domain-services/tutorial-configure-ldaps#configure-dns-zone-for-external-access).
 
+If you don't have a registerd DNS zone, you can add an entry in the **adminVM** hosts file,to resolves traffic for `ldaps.aaddscontoso.com` to the external IP address. Change the value with yours before running the command.
+
+```
+export LDAPS_DNS=ldaps.aaddscontoso.com
+export LDAPS_EXTERNAL_IP=<entra-domain-services-manged-domain-external-ip>
+az vm run-command invoke \
+         --resource-group $RESOURCE_GROUP_NAME \
+         --name ${ADMIN_VM_NAME} \
+         --command-id RunShellScript \
+         --scripts "echo \"${LDAPS_EXTERNAL_IP} ${LDAPS_DNS}\" >> /etc/hosts"
+```
 
 #### Create and configure LDAP authentication provider
 
