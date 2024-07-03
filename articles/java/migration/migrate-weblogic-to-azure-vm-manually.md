@@ -29,7 +29,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Prerequisites
 
-- A local machine with a Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
+- A local machine with a Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Install Azure CLI version 2.46.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
   - When prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
@@ -199,7 +199,7 @@ The following section shows how to create a new WebLogic Server domain on the `a
 
 1. Connect to `adminVM` from a command prompt.
 
-   Run the following commands on your Windows machine `myWindowsVM`. Replace 192.168.0.4 with your adminVM private IP address:
+   Run the following commands on your Windows machine `myWindowsVM`. Replace `192.168.0.4` with your `adminVM` private IP address:
 
    ```cmd
    set ADMINVM_IP="192.168.0.4"
