@@ -1565,7 +1565,7 @@ This section shows you how to deploy an application to the WebLogic Server clust
 1. Under the **Change Center**, if such a button exists, select **Lock and Edit**. If this button doesn't exist, verify that some text such as "Future changes will automatically be activated as you modify, add or delete items in this domain" exists under **Change Center**.
 1. Under **Domain Structure**, select **Deployments**. If you see an error message similar to `Unexpected error encountered while obtaining monitoring information for applications.`, you can safely ignore it. Select **Configuration** then **Install**. Nestled within the text is a hyperlink with the text **Upload your files**. Select it. Select **Choose file** , then select the *testwebapp.war* built in the preceding step. Select **Next** then **Next**.
 1. Ensure that **Install this deployment as an application** is selected. Select **Next**.
-1. Under **Available targets for cargo-tracker**, select deployment target `cluster1`, select **Next**, then select **Finish**.
+1. Under **Available targets for testwebapp**, select deployment target `cluster1`, select **Next**, then select **Finish**.
 1. Under the **Change Center**, if such a button exists, select **Activate Changes**. You must complete this step. Failure to complete this step causes the changes you made to not take effect. If this button doesn't exist, verify that some text such as `Future changes will automatically be activated as you modify, add or delete items in this domain` exists under **Change Center**.
 1. Under **Domain Structure**, select **Deployments** then **Control**. Select **cargo-tracker** then select **Start**, **Servicing all requests**.
 1. Select **Yes**.
