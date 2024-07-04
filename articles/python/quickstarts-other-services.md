@@ -32,5 +32,4 @@ The services referenced in this article for Python are specialized or focused on
   - [Quickstart: Run your first Resource Graph query using Python](/azure/governance/resource-graph/first-query-python)
 
 - **Virtual machine management**:
-  - [Sample: Create and manage Windows VMs in Azure using Python](/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python)
   - [Example: Use the Azure libraries to create a virtual machine](./sdk/examples/azure-sdk-example-virtual-machines.md)
