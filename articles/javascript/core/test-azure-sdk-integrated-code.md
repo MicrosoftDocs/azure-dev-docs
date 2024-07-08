@@ -16,7 +16,7 @@ The inner and outer test loops are foundational concepts in software testing, es
 
 * [CI/CD: The what, why, and how](https://resources.github.com/devops/ci-cd/)
 * [A beginner’s guide to CI/CD and automation on GitHub](https://github.blog/2022-06-03-a-beginners-guide-to-ci-cd-and-automation-on-github/)
-* [GitHub action starer workflows](https://github.com/actions/starter-workflows)
+* [GitHub action starter workflows](https://github.com/actions/starter-workflows)
 * [Use cloud-hosted browsers for locally deployed apps](/azure/playwright-testing/how-to-test-local-applications)
 
 ## Testing with and without the Azure cloud
