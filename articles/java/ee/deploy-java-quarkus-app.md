@@ -15,18 +15,16 @@ This article shows you how to quickly deploy Red Hat Quarkus on Microsoft Azure 
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Azure Cloud Shell has all of these prerequisites preinstalled. For more, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
-- If you're running the commands in this guide locally (instead of using Azure Cloud Shell), complete the following steps:
-  - Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
-  - Install a Java SE implementation version 17 or later (for example, [Microsoft build of OpenJDK](/java/openjdk)).
-  - Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
-  - Install [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/docs/installation) for your OS.
-  - Install [jq](https://jqlang.github.io/jq/download/).
-  - Install [cURL](https://curl.se/download.html).
-  - Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling) 3.4.1 or higher.
+- Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
+- Install a Java SE implementation version 17 or later (for example, [Microsoft build of OpenJDK](/java/openjdk)).
+- Install [Maven](https://maven.apache.org/download.cgi) 3.9.8 or higher.
+- Install [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/docs/installation) for your OS.
+- Install [jq](https://jqlang.github.io/jq/download/).
+- Install [cURL](https://curl.se/download.html).
+- Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling) 3.12.1 or higher.
 - Azure CLI for Unix-like environments. This article requires only the Bash variant of Azure CLI.
   - [!INCLUDE [azure-cli-login](../../includes/azure-cli-login.md)]
-  - This article requires at least version 2.31.0 of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
+  - This article requires at least version 2.61.0 of Azure CLI.
 
 ## Create the app project
 
