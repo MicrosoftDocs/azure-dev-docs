@@ -32,6 +32,7 @@ The following `azd` command hooks are available:
 The following service lifecycle event hooks are available:
 
 * `prerestore` and `postrestore`: Run before and after the service packages and dependencies are restored.
+* `prebuild` and `postbuild`: Run before and after the service source code or container is built
 * `prepackage` and `postpackage`: Run before and after the app is packaged for deployment.
 * `predeploy` and `postdeploy`: Run before and after the service code is deployed to Azure.
 
