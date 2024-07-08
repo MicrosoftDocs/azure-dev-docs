@@ -268,6 +268,7 @@
 | Resource Management - Mixed Reality | npm [4.0.1](https://www.npmjs.com/package/@azure/arm-mixedreality/v/4.0.1)<br>npm [4.1.0-beta.1](https://www.npmjs.com/package/@azure/arm-mixedreality/v/4.1.0-beta.1) | [docs](/javascript/api/overview/azure/arm-mixedreality-readme) | GitHub [4.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mixedreality/arm-mixedreality) |
 | Resource Management - ML Web Services | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-webservices/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-webservices-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-webservices) |
 | Resource Management - Mobile Network | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-mobilenetwork/v/6.0.0) | [docs](/javascript/api/overview/azure/arm-mobilenetwork-readme) | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mobilenetwork_6.0.0/sdk/mobilenetwork/arm-mobilenetwork/) |
+| Resource Management - Mongocluster | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-mongocluster/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mongocluster_1.0.0-beta.1/sdk/mongocluster/arm-mongocluster/) |
 | Resource Management - Monitor | npm [7.0.0](https://www.npmjs.com/package/@azure/arm-monitor/v/7.0.0)<br>npm [8.0.0-beta.5](https://www.npmjs.com/package/@azure/arm-monitor/v/8.0.0-beta.5) | [docs](/javascript/api/overview/azure/arm-monitor-readme) | GitHub [7.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/arm-monitor) |
 | Resource Management - MySQL | npm [5.1.0](https://www.npmjs.com/package/@azure/arm-mysql/v/5.1.0) | [docs](/javascript/api/overview/azure/arm-mysql-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/mysql/arm-mysql) |
 | Resource Management - MySQL Flexible | npm [3.1.0](https://www.npmjs.com/package/@azure/arm-mysql-flexible/v/3.1.0)<br>npm [4.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-mysql-flexible/v/4.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-mysql-flexible-readme) | GitHub [3.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mysql-flexible_3.1.0/sdk/mysql/arm-mysql-flexible/)<br>GitHub [4.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-mysql-flexible_4.0.0-beta.2/sdk/mysql/arm-mysql-flexible/) |
@@ -282,7 +283,7 @@
 | Resource Management - Notification Hubs | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-notificationhubs/v/2.1.0)<br>npm [3.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-notificationhubs/v/3.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-notificationhubs-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/notificationhubs/arm-notificationhubs) |
 | Resource Management - Oep | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-oep/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-oep-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-oep_1.0.0-beta.3/sdk/oep/arm-oep/) |
 | Resource Management - Operations Management | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-operations/v/3.0.0)<br>npm [4.0.0-beta.4](https://www.npmjs.com/package/@azure/arm-operations/v/4.0.0-beta.4) | [docs](/javascript/api/overview/azure/arm-operations-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationsmanagement/arm-operations) |
-| Resource Management - Oracle Database | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-oracledatabase/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-oracledatabase-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-oracledatabase_1.0.0-beta.2/sdk/oracledatabase/arm-oracledatabase/) |
+| Resource Management - Oracle Database | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-oracledatabase/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-oracledatabase-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-oracledatabase_1.0.0/sdk/oracledatabase/arm-oracledatabase/) |
 | Resource Management - Orbital | npm [2.0.0](https://www.npmjs.com/package/@azure/arm-orbital/v/2.0.0) | [docs](/javascript/api/overview/azure/arm-orbital-readme) | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-orbital_2.0.0/sdk/orbital/arm-orbital/) |
 | Resource Management - Palo Alto Networks - Next Generation Firewall | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-paloaltonetworksngfw/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-paloaltonetworksngfw-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-paloaltonetworksngfw_1.1.0/sdk/paloaltonetworksngfw/arm-paloaltonetworksngfw/) |
 | Resource Management - Peering | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-peering/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-peering-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/peering/arm-peering) |
@@ -366,7 +367,7 @@
 | Unknown Display Name | npm [0.4.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.4.0) |  |  |
 | Unknown Display Name | npm [0.43.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.43.0) |  |  |
 | Unknown Display Name | npm [0.43.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.43.0) |  |  |
-| Unknown Display Name | npm [0.9.1](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.9.1) |  |  |
+| Unknown Display Name | npm [0.9.2](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.9.2) |  |  |
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.3.0) |  |  |
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |
@@ -388,7 +389,7 @@
 | Azure Functions | npm [4.0.0](https://www.npmjs.com/package/@azure/functions/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-functions-nodejs-library) |
 | Batch | npm [11.1.0](https://www.npmjs.com/package/@azure/batch/v/11.1.0) |  | GitHub [11.1.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
-| Communication Calling | npm [1.25.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.25.1) |  | GitHub [1.25.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| Communication Calling | npm [1.26.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.26.1) |  | GitHub [1.26.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Communication Signaling | npm [1.0.0-beta.27](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.27) |  | GitHub [1.0.0-beta.27](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Computer Vision | npm [8.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.2.0) |  |  |
 | Content Safety | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  |  |
@@ -456,7 +457,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240703.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240703.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240707.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240707.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -537,7 +538,7 @@
 | AutoRest - Go | npm [4.0.0-preview.66](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.66) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.14.3](https://www.npmjs.com/package/@autorest/python/v/6.14.3) |  | GitHub [6.14.3](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.15.0](https://www.npmjs.com/package/@autorest/python/v/6.15.0) |  | GitHub [6.15.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
