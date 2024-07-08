@@ -47,7 +47,7 @@ Quarkus supports the automatic provisioning of unconfigured services in developm
 
 Make sure your container environment, Docker or Podman, is running and use the following command to enter Quarkus dev mode:
 
-```azurecli-interactive
+```bash
 quarkus dev
 ```
 
@@ -83,7 +83,7 @@ Try selecting a few todo items in the todo list. The UI indicates selection with
 
 Access the RESTful API (`/api`) to get all todo items that store in the local PostgreSQL database:
 
-```azurecli-interactive
+```bash
 curl --verbose http://localhost:8080/api | jq .
 ```
 
@@ -154,7 +154,7 @@ The steps in this section show you how to create the following Azure resources t
 
 Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE`, `LOCATION` and `DB_PASSWORD` with your own values and run the commands in your terminal.
 
-```azurecli-interactive
+```bash
 export UNIQUE_VALUE=<your unique value, such as ejb091223>
 export RESOURCE_GROUP_NAME=${UNIQUE_VALUE}rg
 export LOCATION=<your desired Azure region for deploying your resources. For example, eastus>
@@ -196,16 +196,16 @@ It takes a few minutes to create the server, database, admin user, and firewall 
 
 ```output
 {
-  "connectionString": "postgresql://quarkus:REDACTED@<DB_SERVER_NAME>.postgres.database.azure.com/todo?sslmode=require",
-  "databaseName": "todo",
+  "connectionString": "postgresql://<DB_ADMIN>:<DB_PASSWORD>@<DB_SERVER_NAME>.postgres.database.azure.com/<DB_NAME>?sslmode=require",
+  "databaseName": "<DB_NAME>",
   "firewallName": "AllowAllAzureServicesAndResourcesWithinAzureIps_2024-7-5_14-39-45",
   "host": "<DB_SERVER_NAME>.postgres.database.azure.com",
   "id": "/subscriptions/REDACTED/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.DBforPostgreSQL/flexibleServers/<DB_SERVER_NAME>",
   "location": "East US",
-  "password": "REDACTED",
+  "password": "<DB_PASSWORD>",
   "resourceGroup": "<RESOURCE_GROUP_NAME>",
   "skuname": "Standard_D2s_v3",
-  "username": "quarkus",
+  "username": "<DB_ADMIN>",
   "version": "13"
 }
 ```
@@ -279,7 +279,7 @@ As a cloud native technology, Quarkus offers the ability to automatically genera
 
 To generate the container image, use the following command to add the `container-image-jib` extension in your local terminal:
 
-```azurecli-interactive
+```bash
 quarkus ext add container-image-jib
 ```
 
@@ -307,7 +307,7 @@ The `%prod.` prefix indicates that these properties are active when running in t
 
 #### Examine the database configuration
 
-The database connection related properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username` and `%prod.quarkus.datasource.password` are intentionally left empty because they're provided at runtime by the Azure Container Apps environment for security reasons.
+Add the following database configuration variables. The database connection related properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username` and `%prod.quarkus.datasource.password` are intentionally left empty because they're provided at runtime by the Azure Container Apps environment for security reasons.
 
 ```yaml
 # Database configurations
@@ -339,7 +339,7 @@ As a cloud native technology, Quarkus supports generating OCI container images c
 
 Now, use the following command to build the application itself. This command uses the Jib extension to build the container image.
 
-```azurecli-interactive
+```bash
 quarkus build --no-tests
 ```
 
@@ -354,7 +354,7 @@ docker images | grep todo-quarkus-aca
 
 Push the container images to Container Registry by using the following command:
 
-```azurecli-interactive
+```bash
 export TODO_QUARKUS_TAG=$(docker images | grep todo-quarkus-aca | head -n1 | cut -d " " -f1):1.0
 echo ${TODO_QUARKUS_TAG}
 docker push ${TODO_QUARKUS_TAG}
@@ -418,7 +418,7 @@ Open a new web browser to the value of `${QUARKUS_URL}`. Then, add a new todo it
 
 Access the RESTful API (`/api`) to get all todo items stored in the Azure Database for PostgreSQL, as shown in the following example:
 
-```azurecli-interactive
+```bash
 curl --verbose -k ${QUARKUS_URL}/api | jq .
 ```
 
@@ -452,7 +452,7 @@ Open Azure Cloud Shell in the Azure portal by selecting the **Cloud Shell** icon
 
 Run the following command locally and paste the result into Azure Cloud Shell:
 
-```azurecli-interactive
+```bash
 echo psql --host=${DB_SERVER_NAME}.postgres.database.azure.com --port=5432 --username=${DB_ADMIN} --dbname=${DB_NAME}
 ```
 
