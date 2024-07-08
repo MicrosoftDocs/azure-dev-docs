@@ -154,7 +154,7 @@ The steps in this section show you how to create the following Azure resources t
 - Azure Container Registry
 - Azure Container Apps
 
-Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values with your own values and run the commands in your terminal.
+Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE`, `LOCATION` and `DB_PASSWORD` with your own values and run the commands in your terminal.
 
 ```azurecli-interactive
 export UNIQUE_VALUE=<your unique value, such as ejb091223>
@@ -162,7 +162,9 @@ export RESOURCE_GROUP_NAME=${UNIQUE_VALUE}rg
 export LOCATION=<your desired Azure region for deploying your resources. For example, eastus>
 export REGISTRY_NAME=${UNIQUE_VALUE}reg
 export DB_SERVER_NAME=${UNIQUE_VALUE}db
-export DB_PASSWORD=<your desired password for the database server. For example, Secret123456>
+export DB_NAME=demodb
+export DB_ADMIN=demouser
+export DB_PASSWORD='<your desired password for the database server. For example, Secret123456>'
 export ACA_ENV=${UNIQUE_VALUE}env
 export ACA_NAME=${UNIQUE_VALUE}aca
 ```
@@ -185,14 +187,14 @@ Next, create an Azure Database for PostgreSQL flexible server instance with the 
 az postgres flexible-server create \
     --name $DB_SERVER_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
-    --admin-user quarkus \
+    --admin-user $DB_ADMIN \
     --admin-password $DB_PASSWORD \
-    --database-name todo \
+    --database-name $DB_NAME \
     --public-access 0.0.0.0 \
     --yes
 ```
 
-It takes a few minutes to create the server. If the command is successful, the output looks similar to the following example:
+It takes a few minutes to create the server, database, admin user, and firewall rules. If the command is successful, the output looks similar to the following example:
 
 ```output
 {
@@ -209,8 +211,6 @@ It takes a few minutes to create the server. If the command is successful, the o
   "version": "13"
 }
 ```
-
-The PostgreSQL server that you created includes a database called `todo` that can be accessed by the user `quarkus`. They are used in the Quarkus application to store the todo items.
 
 ### Create a Microsoft Azure Container Registry instance
 
@@ -307,16 +307,16 @@ The remaining steps in this section direct you to uncomment and customize values
 
 The `%prod.` prefix indicates that these properties are active when running in the `prod` profile. For more information on configuration profiles, see the [Quarkus documentation](https://access.redhat.com/search/?q=Quarkus+Using+configuration+profiles).
 
-#### Customize the database configuration
+#### Examine the database configuration
 
-Add the following database configuration variables. Replace the value of `<DB_SERVER_NAME_VALUE>` with the actual value of the `${DB_SERVER_NAME}` environment variable. The `%prod.quarkus.datasource.password` property is intentionally left empty because the password is provided at runtime by the Azure Container Apps environment for security reasons.
+The database connection related properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username` and `%prod.quarkus.datasource.password` are intentionally left empty because they're provided at runtime by the Azure Container Apps environment for security reasons.
 
 ```yaml
 # Database configurations
 %prod.quarkus.datasource.db-kind=postgresql
-%prod.quarkus.datasource.jdbc.url=jdbc:postgresql://<DB_SERVER_NAME_VALUE>.postgres.database.azure.com:5432/todo
 %prod.quarkus.datasource.jdbc.driver=org.postgresql.Driver
-%prod.quarkus.datasource.username=quarkus
+%prod.quarkus.datasource.jdbc.url=
+%prod.quarkus.datasource.username=
 %prod.quarkus.datasource.password=
 %prod.quarkus.hibernate-orm.database.generation=create
 %prod.quarkus.hibernate-orm.sql-load-script=no-file
@@ -379,6 +379,7 @@ e0bac91f0f10: Pushed
 Now that you've pushed the app image to Container Registry, use the following command to create a Container Apps instance to run the app after pulling the image from the Container Registry:
 
 ```azurecli-interactive
+export DATASOURCE_JDBC_URL=jdbc:postgresql://${DB_SERVER_NAME}.postgres.database.azure.com:5432/${DB_NAME}?sslmode=require
 az containerapp create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $ACA_NAME \
@@ -389,13 +390,17 @@ az containerapp create \
     --registry-password $PASSWORD \
     --target-port 8080 \
     --secrets \
+        jdbcurl=${DATASOURCE_JDBC_URL} \
+        dbusername=${DB_ADMIN} \
         dbpassword=${DB_PASSWORD} \
     --env-vars \
+        QUARKUS_DATASOURCE_JDBC_URL=secretref:jdbcurl \
+        QUARKUS_DATASOURCE_USERNAME=secretref:dbusername \
         QUARKUS_DATASOURCE_PASSWORD=secretref:dbpassword \
     --ingress 'external'
 ```
 
-The `--secrets` option is used to create a secret and reference it in the environment variable `QUARKUS_DATASOURCE_PASSWORD`. The value of the environment variable is passed to property `%prod.quarkus.datasource.password`, which is used in the Quarkus application in order to connect to the Azure Database for PostgreSQL Flexible Server.
+The `--secrets` option is used to create secrets that're referenced by database connection related environment variables `QUARKUS_DATASOURCE_JDBC_URL`, `QUARKUS_DATASOURCE_USERNAME` and `QUARKUS_DATASOURCE_PASSWORD`. The values of these environment variables are passed to properties `%prod.quarkus.datasource.password`, `%prod.quarkus.datasource.username` and `%prod.quarkus.datasource.password`, which are used in the Quarkus application in order to connect to the Azure Database for PostgreSQL Flexible Server.
 
 Successful output is a JSON object including the property `"type": "Microsoft.App/containerApps"`.
 
@@ -450,7 +455,7 @@ Open Azure Cloud Shell in the Azure portal by selecting the **Cloud Shell** icon
 Run the following command locally and paste the result into Azure Cloud Shell:
 
 ```azurecli-interactive
-echo psql --host=${DB_SERVER_NAME}.postgres.database.azure.com --port=5432 --username=quarkus --dbname=todo
+echo psql --host=${DB_SERVER_NAME}.postgres.database.azure.com --port=5432 --username=${DB_ADMIN} --dbname=${DB_NAME}
 ```
 
 When asked for the password, use the value you used when you created the database.
