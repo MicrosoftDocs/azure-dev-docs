@@ -244,7 +244,21 @@ A [dev container](https://code.visualstudio.com/docs/remote/containers) is a Doc
 
 ::: zone-end
 
-## Updating the Azure Developer CLI
+## Verify your installation
+
+Verify your `azd` installation completed successfully by running the `azd version` command in a terminal:
+
+```azdeveloper
+azd version
+```
+
+`azd` prints out the current version:
+
+```output
+azd version 1.9.4 (commit 60d7a770c73289e303a539babf5965e638843227)
+```
+
+## Update the Azure Developer CLI
 
 When working with an out of date version of `azd`, you will see a warning to upgrade to the latest version. Follow the instructions in the warning to update to the latest version.
 
