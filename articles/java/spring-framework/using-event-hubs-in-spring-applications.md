@@ -62,7 +62,7 @@ To install the Spring Cloud Azure Event Hubs Starter module, add the following d
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.13.0</version>
+         <version>5.14.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -392,7 +392,7 @@ To install the Spring Messaging Azure Event Hubs module, add the following depen
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.13.0</version>
+         <version>5.14.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -523,7 +523,7 @@ To install the Spring Cloud Azure Event Hubs Integration Starter module, add the
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.13.0</version>
+         <version>5.14.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -712,7 +712,7 @@ To install the Spring Cloud Azure Event Hubs Stream Binder module, add the follo
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.13.0</version>
+         <version>5.14.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -820,7 +820,7 @@ To install the Spring Cloud Azure starter and Spring Kafka modules, adding the f
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.13.0</version>
+         <version>5.14.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -922,7 +922,7 @@ To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka m
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.13.0</version>
+         <version>5.14.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
