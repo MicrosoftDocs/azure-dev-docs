@@ -46,7 +46,7 @@
 | Core - Paging | npm [1.6.2](https://www.npmjs.com/package/@azure/core-paging/v/1.6.2) | [docs](/javascript/api/overview/azure/core-paging-readme) | GitHub [1.6.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.6.2/sdk/core/core-paging/) |
 | Cosmos DB | npm [4.0.0](https://www.npmjs.com/package/@azure/cosmos/v/4.0.0)<br>npm [4.0.1-beta.3](https://www.npmjs.com/package/@azure/cosmos/v/4.0.1-beta.3) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.0.0/sdk/cosmosdb/cosmos/)<br>GitHub [4.0.1-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.0.1-beta.3/sdk/cosmosdb/cosmos/) |
 | Defender EASM | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/defender-easm/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/defender-easm_1.0.0-beta.1/sdk/easm/defender-easm-rest/) |
-| Dev Center | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/developer-devcenter/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/developer-devcenter_1.0.0-beta.3/sdk/devcenter/developer-devcenter-rest/) |
+| Dev Center | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/developer-devcenter/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/developer-devcenter_1.0.0/sdk/devcenter/developer-devcenter-rest/) |
 | Device Update | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/iot-device-update/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/iot-device-update_1.0.0/sdk/deviceupdate/iot-device-update-rest/) |
 | Digital Twins - Core | npm [1.1.0](https://www.npmjs.com/package/@azure/digital-twins-core/v/1.1.0) | [docs](/javascript/api/overview/azure/digital-twins-core-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/digital-twins-core_1.1.0/sdk/digitaltwins/digital-twins-core/) |
 | Digital Twins Definition Language Parser | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/dtdl-parser/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/dtdl-parser-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/dtdl-parser_1.0.0-beta.2/sdk/digitaltwins/dtdl-parser/) |
@@ -447,7 +447,7 @@
 | Visual Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-visualsearch/v/3.0.1) |  |  |
 | Web Apps Framework Detection | npm [0.1.0](https://www.npmjs.com/package/@azure/web-apps-framework-detection/v/0.1.0) |  |  |
 | Web PubSub | npm [0.0.1-security.3](https://www.npmjs.com/package/azure-web-pubsub/v/0.0.1-security.3) |  |  |
-| Web PubSub Socket.IO | npm [1.1.0](https://www.npmjs.com/package/@azure/web-pubsub-socket.io/v/1.1.0) |  |  |
+| Web PubSub Socket.IO | npm [1.2.0](https://www.npmjs.com/package/@azure/web-pubsub-socket.io/v/1.2.0) |  |  |
 | Web Search | npm [3.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-websearch/v/3.0.1) |  |  |
 | Web PubSub CloudEvents Handlers for Express | npm [0.0.1-security.3](https://www.npmjs.com/package/azure-web-pubsub-express/v/0.0.1-security.3) |  |  |
 |  | npm [2.5.6](https://www.npmjs.com/package/ms-rest/v/2.5.6) |  |  |
