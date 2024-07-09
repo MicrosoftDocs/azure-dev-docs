@@ -10,23 +10,21 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-t
 
 # Deploy a Java application with Quarkus on an Azure Container Apps
 
-This article shows you how to quickly deploy Red Hat Quarkus on Microsoft Azure Container Apps with a simple CRUD application. The application is a "to do list" with a JavaScript front end and a REST endpoint. Azure Database for PostgreSQL provides the persistence layer for the app. The article shows you how to test your app locally and deploy it to Container Apps.
+This article shows you how to quickly deploy Red Hat Quarkus on Microsoft Azure Container Apps with a simple CRUD application. The application is a "to do list" with a JavaScript front end and a REST endpoint. Azure Database for PostgreSQL Flexible Server provides the persistence layer for the app. The article shows you how to test your app locally and deploy it to Container Apps.
 
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Azure Cloud Shell has all of these prerequisites preinstalled. For more, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
-- If you're running the commands in this guide locally (instead of using Azure Cloud Shell), complete the following steps:
-  - Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
-  - Install a Java SE implementation version 17 or later (for example, [Microsoft build of OpenJDK](/java/openjdk)).
-  - Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
-  - Install [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/docs/installation) for your OS.
-  - Install [jq](https://jqlang.github.io/jq/download/).
-  - Install [cURL](https://curl.se/download.html).
-  - Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling) 3.4.1 or higher.
+- Prepare a local machine with Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
+- Install a Java SE implementation version 17 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
+- Install [Maven](https://maven.apache.org/download.cgi), version 3.9.8 or higher.
+- Install [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/docs/installation) for your OS.
+- Install [jq](https://jqlang.github.io/jq/download/).
+- Install [cURL](https://curl.se/download.html).
+- Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling), version 3.12.1 or higher.
 - Azure CLI for Unix-like environments. This article requires only the Bash variant of Azure CLI.
   - [!INCLUDE [azure-cli-login](../../includes/azure-cli-login.md)]
-  - This article requires at least version 2.31.0 of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
+  - This article requires at least version 2.61.0 of Azure CLI.
 
 ## Create the app project
 
@@ -35,7 +33,7 @@ Use the following command to clone the sample Java project for this article. The
 ```bash
 git clone https://github.com/Azure-Samples/quarkus-azure
 cd quarkus-azure
-git checkout 2023-09-13
+git checkout 2024-07-08
 cd aca-quarkus
 ```
 
@@ -49,7 +47,7 @@ Quarkus supports the automatic provisioning of unconfigured services in developm
 
 Make sure your container environment, Docker or Podman, is running and use the following command to enter Quarkus dev mode:
 
-```azurecli-interactive
+```bash
 quarkus dev
 ```
 
@@ -85,7 +83,7 @@ Try selecting a few todo items in the todo list. The UI indicates selection with
 
 Access the RESTful API (`/api`) to get all todo items that store in the local PostgreSQL database:
 
-```azurecli-interactive
+```bash
 curl --verbose http://localhost:8080/api | jq .
 ```
 
@@ -150,62 +148,65 @@ Press <kbd>q</kbd> to exit Quarkus dev mode.
 
 The steps in this section show you how to create the following Azure resources to run the Quarkus sample app:
 
-- Microsoft Azure Database for PostgreSQL
-- Microsoft Azure Container Registry
-- Container Apps
+- Azure Database for PostgreSQL Flexible Server
+- Azure Container Registry
+- Azure Container Apps
 
-Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". Use the following commands to define some environment variables to use later:
+Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE`, `LOCATION` and `DB_PASSWORD` with your own values and run the commands in your terminal.
 
-```azurecli-interactive
+```bash
 export UNIQUE_VALUE=<your unique value, such as ejb091223>
 export RESOURCE_GROUP_NAME=${UNIQUE_VALUE}rg
-export LOCATION=<your desired Azure region for deploying your resources. For example, eastus>
+export LOCATION=<your desired Azure region for deploying your resources - for example, eastus>
 export REGISTRY_NAME=${UNIQUE_VALUE}reg
 export DB_SERVER_NAME=${UNIQUE_VALUE}db
-export DB_PASSWORD=Secret123456
+export DB_NAME=demodb
+export DB_ADMIN=demouser
+export DB_PASSWORD='<your desired password for the database server - for example, Secret123456>'
 export ACA_ENV=${UNIQUE_VALUE}env
 export ACA_NAME=${UNIQUE_VALUE}aca
 ```
 
-### Create an Azure Database for PostgreSQL
+### Create an Azure Database for PostgreSQL Flexible Server
 
-Azure Database for PostgreSQL is a managed service to run, manage, and scale highly available PostgreSQL databases in the Azure cloud. This section directs you to a separate quickstart that shows you how to create a single Azure Database for PostgreSQL server and connect to it. However, when you follow the steps in the quickstart, you need to use the settings in the following table to customize the database deployment for the sample Quarkus app. Replace the environment variables with their actual values when filling out the fields in the Azure portal.
+Azure Database for PostgreSQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. This section shows you how to create an Azure Database for PostgreSQL Flexible Server instance using the Azure CLI. For more information, see [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server instance using Azure CLI](/azure/postgresql/flexible-server/quickstart-create-server-cli).
 
-| Setting            | Value                    | Description                                                                                                                                |
-|:-------------------|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
-| **Resource group** | `${RESOURCE_GROUP_NAME}` | Select **Create new**. The deployment creates this new resource group.                                                                     |
-| **Server name**    | `${DB_SERVER_NAME}`      | This value forms part of the hostname for the database server.                                                                             |
-| **Location**       | `${LOCATION}`            | Select a location from the dropdown list. Take note of the location. You must use this same location for other Azure resources you create. |
-| **Admin username** | *quarkus*                | The sample code assumes this value.                                                                                                        |
-| **Password**       | `${DB_PASSWORD}`         | Your password must be at least 8 characters and at most 128 characters. Your password must contain characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, etc.). Your password can't contain all or part of the sign-in name. Part of a sign-in name is defined as three or more consecutive alphanumeric characters. |
+First, create a resource group to contain the database server and other resources by using the following command:
 
-With these value substitutions in mind, follow the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/single-server/quickstart-create-server-database-portal) up to the "Configure a firewall rule" section. Then, in the "Configure a firewall rule" section, be sure to select **Yes** for **Allow access to Azure services**, then select **Save**. If you neglect to do this, your Quarkus app can't access the database and simply fails to ever start.
-
-After you complete the steps in the quickstart through the "Configure a firewall rule" section, including the step to allow access to Azure services, return to this article.
-
-### Create a Todo database in Azure Database for PostgreSQL
-
-The PostgreSQL server that you created earlier is empty. It doesn't have any database that you can use with the Quarkus application. Create a new database called `todo` by using the following command:
-
-```azurecli-interactive
-az postgres db create \
-    --resource-group ${RESOURCE_GROUP_NAME} \
-    --name todo \
-    --server-name ${DB_SERVER_NAME}
+```azurecli
+az group create \
+    --name $RESOURCE_GROUP_NAME \
+    --location $LOCATION
 ```
 
-You must use `todo` as the name of the database because the sample code assumes that database name.
+Next, create an Azure Database for PostgreSQL flexible server instance by using the following command:
 
-If the command is successful, the output looks similar to the following example:
+```azurecli
+az postgres flexible-server create \
+    --name $DB_SERVER_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --admin-user $DB_ADMIN \
+    --admin-password $DB_PASSWORD \
+    --database-name $DB_NAME \
+    --public-access 0.0.0.0 \
+    --yes
+```
+
+It takes a few minutes to create the server, database, admin user, and firewall rules. If the command is successful, the output looks similar to the following example:
 
 ```output
 {
-  "charset": "UTF8",
-  "collation": "English_United States.1252",
-  "id": "/subscriptions/REDACTED/resourceGroups/ejb091223rg/providers/Microsoft.DBforPostgreSQL/servers/ejb091223db/databases/todo",
-  "name": "todo",
-  "resourceGroup": "ejb091223rg",
-  "type": "Microsoft.DBforPostgreSQL/servers/databases"
+  "connectionString": "postgresql://<DB_ADMIN>:<DB_PASSWORD>@<DB_SERVER_NAME>.postgres.database.azure.com/<DB_NAME>?sslmode=require",
+  "databaseName": "<DB_NAME>",
+  "firewallName": "AllowAllAzureServicesAndResourcesWithinAzureIps_2024-7-5_14-39-45",
+  "host": "<DB_SERVER_NAME>.postgres.database.azure.com",
+  "id": "/subscriptions/REDACTED/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.DBforPostgreSQL/flexibleServers/<DB_SERVER_NAME>",
+  "location": "East US",
+  "password": "<DB_PASSWORD>",
+  "resourceGroup": "<RESOURCE_GROUP_NAME>",
+  "skuname": "Standard_D2s_v3",
+  "username": "<DB_ADMIN>",
+  "version": "13"
 }
 ```
 
@@ -215,7 +216,7 @@ Because Quarkus is a cloud native technology, it has built-in support for creati
 
 Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the Container Registry instance. The following example creates n Container Registry instance named with the value of your environment variable `${REGISTRY_NAME}`:
 
-```azurecli-interactive
+```azurecli
 az acr create \
     --resource-group $RESOURCE_GROUP_NAME \
     --location ${LOCATION} \
@@ -236,7 +237,7 @@ After a short time, you should see JSON output that contains the following lines
 
 Sign in to the Container Registry instance. Signing in lets you push an image. Use the following commands to verify the connection:
 
-```azurecli-interactive
+```azurecli
 export LOGIN_SERVER=$(az acr show \
     --name $REGISTRY_NAME \
     --query 'loginServer' \
@@ -263,7 +264,7 @@ If you've signed into the Container Registry instance successfully, you should s
 
 An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. Use the [az containerapp env create](/cli/azure/containerapp/env#az-containerapp-env-create) command to create an environment, as shown in the following example:
 
-```azurecli-interactive
+```azurecli
 az containerapp env create \
     --resource-group $RESOURCE_GROUP_NAME \
     --location $LOCATION \
@@ -274,11 +275,11 @@ If you're asked to install an extension, answer <kbd>Y</kbd>.
 
 ### Customize the cloud native configuration
 
-As a cloud native technology, Quarkus offers the ability to automatically generate container images. For more information, see [Container Images](https://quarkus.io/guides/container-image). Developers can then deploy the application image to a target containerized platform, for example, Azure Container Apps.
+As a cloud native technology, Quarkus offers the ability to automatically generate container images. For more information, see [Container Images](https://quarkus.io/guides/container-image). Developers can then deploy the application image to a target containerized platform - for example, Azure Container Apps.
 
 To generate the container image, use the following command to add the `container-image-jib` extension in your local terminal:
 
-```azurecli-interactive
+```bash
 quarkus ext add container-image-jib
 ```
 
@@ -304,17 +305,17 @@ The remaining steps in this section direct you to uncomment and customize values
 
 The `%prod.` prefix indicates that these properties are active when running in the `prod` profile. For more information on configuration profiles, see the [Quarkus documentation](https://access.redhat.com/search/?q=Quarkus+Using+configuration+profiles).
 
-#### Customize the database configuration
+#### Examine the database configuration
 
-Add the following database configuration variables. Replace the values of `<DB_SERVER_NAME_VALUE>` and `<DB_PASSWORD_VALUE>` with the actual values of the `${DB_SERVER_NAME}` and `${DB_PASSWORD}` environment variables, respectively.
+Add the following database configuration variables. The database connection related properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username`, and `%prod.quarkus.datasource.password` are intentionally left empty because they're provided at runtime by the Azure Container Apps environment for security reasons.
 
 ```yaml
 # Database configurations
 %prod.quarkus.datasource.db-kind=postgresql
-%prod.quarkus.datasource.jdbc.url=jdbc:postgresql://<DB_SERVER_NAME_VALUE>.postgres.database.azure.com:5432/todo
 %prod.quarkus.datasource.jdbc.driver=org.postgresql.Driver
-%prod.quarkus.datasource.username=quarkus@<DB_SERVER_NAME_VALUE>
-%prod.quarkus.datasource.password=<DB_PASSWORD_VALUE>
+%prod.quarkus.datasource.jdbc.url=
+%prod.quarkus.datasource.username=
+%prod.quarkus.datasource.password=
 %prod.quarkus.hibernate-orm.database.generation=create
 %prod.quarkus.hibernate-orm.sql-load-script=no-file
 ```
@@ -338,7 +339,7 @@ As a cloud native technology, Quarkus supports generating OCI container images c
 
 Now, use the following command to build the application itself. This command uses the Jib extension to build the container image.
 
-```azurecli-interactive
+```bash
 quarkus build --no-tests
 ```
 
@@ -348,12 +349,12 @@ You can verify whether the container image is generated as well by using the `do
 
 ```output
 docker images | grep todo-quarkus-aca
-<LOGIN_SERVER_VALUE>/<USER_NAME_VALUE>/todo-quarkus-aca   1.0       0804dfd834fd   2 minutes ago   402MB
+<LOGIN_SERVER_VALUE>/<USER_NAME_VALUE>/todo-quarkus-aca   1.0       0804dfd834fd   2 minutes ago   407MB
 ```
 
 Push the container images to Container Registry by using the following command:
 
-```azurecli-interactive
+```bash
 export TODO_QUARKUS_TAG=$(docker images | grep todo-quarkus-aca | head -n1 | cut -d " " -f1):1.0
 echo ${TODO_QUARKUS_TAG}
 docker push ${TODO_QUARKUS_TAG}
@@ -375,7 +376,8 @@ e0bac91f0f10: Pushed
 
 Now that you've pushed the app image to Container Registry, use the following command to create a Container Apps instance to run the app after pulling the image from the Container Registry:
 
-```azurecli-interactive
+```azurecli
+export DATASOURCE_JDBC_URL=jdbc:postgresql://${DB_SERVER_NAME}.postgres.database.azure.com:5432/${DB_NAME}?sslmode=require
 az containerapp create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $ACA_NAME \
@@ -385,14 +387,24 @@ az containerapp create \
     --registry-username $USER_NAME \
     --registry-password $PASSWORD \
     --target-port 8080 \
+    --secrets \
+        jdbcurl=${DATASOURCE_JDBC_URL} \
+        dbusername=${DB_ADMIN} \
+        dbpassword=${DB_PASSWORD} \
+    --env-vars \
+        QUARKUS_DATASOURCE_JDBC_URL=secretref:jdbcurl \
+        QUARKUS_DATASOURCE_USERNAME=secretref:dbusername \
+        QUARKUS_DATASOURCE_PASSWORD=secretref:dbpassword \
     --ingress 'external'
 ```
+
+The `--secrets` option is used to create secrets that're referenced by database connection related environment variables `QUARKUS_DATASOURCE_JDBC_URL`, `QUARKUS_DATASOURCE_USERNAME` and `QUARKUS_DATASOURCE_PASSWORD`. The values of these environment variables are passed to properties `%prod.quarkus.datasource.password`, `%prod.quarkus.datasource.username` and `%prod.quarkus.datasource.password`. Quarkus knows to look up values from corresponding environment variables if there is no value in the `application.properties` file.
 
 Successful output is a JSON object including the property `"type": "Microsoft.App/containerApps"`.
 
 Get a fully qualified url to access the Todo application by using the following command:
 
-```azurecli-interactive
+```azurecli
 export QUARKUS_URL=https://$(az containerapp show \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $ACA_NAME \
@@ -406,7 +418,7 @@ Open a new web browser to the value of `${QUARKUS_URL}`. Then, add a new todo it
 
 Access the RESTful API (`/api`) to get all todo items stored in the Azure Database for PostgreSQL, as shown in the following example:
 
-```azurecli-interactive
+```bash
 curl --verbose -k ${QUARKUS_URL}/api | jq .
 ```
 
@@ -440,8 +452,8 @@ Open Azure Cloud Shell in the Azure portal by selecting the **Cloud Shell** icon
 
 Run the following command locally and paste the result into Azure Cloud Shell:
 
-```azurecli-interactive
-echo psql --host=${DB_SERVER_NAME}.postgres.database.azure.com --port=5432 --username=quarkus@${DB_SERVER_NAME} --dbname=todo
+```bash
+echo psql --host=${DB_SERVER_NAME}.postgres.database.azure.com --port=5432 --username=${DB_ADMIN} --dbname=${DB_NAME}
 ```
 
 When asked for the password, use the value you used when you created the database.
@@ -462,7 +474,7 @@ Enter *\q* to exit from the `psql` program and return to the Cloud Shell.
 
 To avoid Azure charges, you should clean up unneeded resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
 
-```azurecli-interactive
+```azurecli
 git reset --hard
 docker rmi ${TODO_QUARKUS_TAG}
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait

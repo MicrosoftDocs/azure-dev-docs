@@ -27,6 +27,8 @@
     items:
     - name: Manage environment variables
       href: manage-environment-variables.md
+    - name: Environment variables FAQ
+      href: environment-variables-faq.md
     - name: Customize workflows using command and event hooks
       href: azd-extensibility.md
     - name: Switch to Terraform as IaC provider
