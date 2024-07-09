@@ -112,7 +112,7 @@ The **Networking** pane pane enables you to customize the virtual network and su
 
 The following steps show you how to fill out the **Database** pane shown in the following screenshot, and start the deployment.
    
-:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-database-tab.png" alt-text="Screenshot of the Azure portal showing the IBM WAS ND cluster on Azure VMs Networking pane." lightbox="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-database-tab.png":::
+:::image type="content" source="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-database-tab.png" alt-text="Screenshot of the Azure portal showing the IBM WAS ND cluster on Azure VMs Database pane." lightbox="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-database-tab.png":::
 
 1. Use the default option **No** for **Connect to database?** in this quickstart.
 
