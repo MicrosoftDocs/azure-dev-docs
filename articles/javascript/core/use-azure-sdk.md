@@ -68,7 +68,7 @@ Learn more about paging and iterators on Azure:
 
 ## Long running operations
 
-An SDK method can return a long running operation (LRO) [_response_](/javascript/api/@azure/core-lro/lroresponse). This response includes information including:
+An SDK method can return a long running operation (LRO) [raw response](/javascript/api/%40azure/core-lro/rawresponse). This response includes information including:
 
 * Your request completed
 * Your request is still in process 
