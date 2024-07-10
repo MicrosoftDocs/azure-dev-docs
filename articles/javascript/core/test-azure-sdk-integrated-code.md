@@ -167,7 +167,6 @@ For developers who work with Azure services, gaining proficiency with the Azure 
 * [Azure Storage](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob/test)
 * [Azure Event Grid](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/eventgrid/test)
 * [Azure Key Vault](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-secrets/test)
-* [Azure Functions](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/functions/arm-functions/test)
-* [Azure IoT Hub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/iot-hub/test)
+* [Azure IoT Hub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/iothub/arm-iothub/test)
 
 Exploring these tests offers insights into seamless Azure service integration, showcases best practices for Azure resource interaction, and aids in ensuring efficient and secure implementations. Explore a broader range of SDK examples for a comprehensive understanding.

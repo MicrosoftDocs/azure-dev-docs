@@ -43,7 +43,7 @@ Use the following table to understand what information you can learn about your 
 
         * How busy is the service?
         * What errors is the service producing?
-        * Is my service so busy it isn't able to keep up with demand?
+        * Is my service so busy that it isn't able to keep up with demand?
         * Have I reached the transaction quota for my pricing tier?
     :::column-end:::
 :::row-end:::
@@ -52,7 +52,7 @@ Use the following table to understand what information you can learn about your 
       **Azure SDK**
     :::column-end:::
     :::column span="2":::
-      The Azure SDK provides access to Azure from many programming languages. The SDKs provides logging to allow you to ask questions such as:
+      The Azure SDKs provide access to Azure from many programming languages. The SDKs provide logging so that you can ask questions such as:
 
         * What is the SDK itself doing?
         * What is my code doing?
@@ -65,9 +65,9 @@ Use the following table to understand what information you can learn about your 
     :::column span="2":::
       To understand how your own code or container is working, integrate Application Insights from [Azure Monitor](/azure/azure-monitor/overview). You can use Application Insights to capture logs across services for a single application to ask questions such as:
 
-        * What exceptions is your code throwing?
-        * What events is your code triggering?
-        * How is your code interacting with dependencies?
+        * What exceptions is my code throwing?
+        * What events is my code triggering?
+        * How is my code interacting with dependencies?
     :::column-end:::
 :::row-end:::
 
@@ -75,7 +75,7 @@ Use the following table to understand what information you can learn about your 
 
 |Type|Availability|Description|
 |--|--|--|
-|Metrics|Provided without configuration| Start with metrics because every Azure service has some metrics so you can see how it's performing.|
+|Metrics|Provided without configuration| Start with metrics because every Azure service has some metrics to help you evaluate how it's performing.|
 |Alerts|Configurable|Configure alerts to be notified when negative or quota-expiring behaviors happen.|
 |Logging|Configurable|Some services, such as hosting services, have logging to help you understand how your code or container is behaving. You might need to configure logging before you can open log files. |
 |Custom logging|Configurable via code|From your own code, you can log to Azure Monitor by using the Application Insights SDK for [server](/azure/azure-monitor/app/nodejs) and [client](/azure/azure-monitor/app/javascript?tabs=snippet) applications. The code doesn't have to be hosted on Azure to log to Azure Monitor.|
@@ -84,7 +84,7 @@ Use the following table to understand what information you can learn about your 
 
 To view metrics for your resource on a scheduled basis, open the [Azure portal](https://portal.azure.com) and go to **Monitoring** > **Metrics**.
 
-:::image type="content" source="../media/logging-metrics/view-resource-metrics-in-azure-portal.png" alt-text="Screenshot that shows selections for viewing metrics for Cognitive Services in the Azure portal. ":::
+:::image type="content" source="../media/logging-metrics/view-resource-metrics-in-azure-portal.png" alt-text="Screenshot that shows selections for viewing metrics for Azure Cognitive Services in the Azure portal. ":::
 
 ## View alerts in the Azure portal
 
@@ -104,7 +104,7 @@ You can configure hosted applications and containers to log information about:
 * Startup
 * Runtime
 
-Turn on these logs to understand how your hosted application behaves. These logs are probably the first place you'll learn that your deployment failed or your startup configuration is incorrectly configured or missing dependencies.
+Turn on these logs to understand how your hosted application behaves. These logs are probably the first place where you'll learn that your deployment failed or your startup configuration is incorrectly configured or is missing dependencies.
 
 ## Log to stdout and stderr
 
@@ -138,18 +138,18 @@ To turn on application host logging in the Azure portal:
 1. Set the **Retention Period (Days)** value to a default, such as **3** or **7**.
 1. Select **Save** to begin capturing host logs.
 
-## View application logs for App Service
+### View application logs for App Service
 
 When you turn on application logs, the logs are stored in the **Logs** folder of your web app host. View the logs from either the Azure portal or the Visual Studio Code extension for App Service.
 
-Log file name formats include:
+Name formats for log files include:
 
 * Deployment: `{DATE-TIME}_{RANDOM-CHARS}_{docker}.log`
 * Startup and runtime: `{DATE-TIME}_{RANDOM-CHARS}_default_docker.log`
 
-## Stream logs for App Service
+### Stream logs for App Service
 
-For App Service, use the following table to learn more about how to stream logs:
+For App Service, use the following table to learn more about how to stream logs.
 
 |Method|Description|
 |--|--|
@@ -162,11 +162,11 @@ See the [earlier steps to turn on host logging for App Service](#turn-on-applica
 
 ## Turn on application logging for Azure Functions (consumption)
 
-With a consumption-based function app, if you use logging provided by the context object in your source code, those logs appear under each function's **Monitor** section. The Azure portal also gives you the option to stream the logs as requests come into the function.
+With a consumption-based function app, if you use the logging that the context object in your source code provides, those logs appear under each function's **Monitor** section. The Azure portal also gives you the option to stream the logs as requests come into the function.
 
 ## Query your Application Insights logs by using Kusto Query Language
 
-When you use `context.log` in a function app or `console.log` in a web app, and you have Application Insights turned on, those custom logs are added to your Application Insights resource in the **Trace** table. If you prefix your custom log with a specific string, such as `JavaScript`, you can search the **Trace** table for any messages that contain that prefix when you want to reduce your log to just those custom entries, by using the [Kusto query language](/azure/data-explorer/kusto/query/).
+When you use `context.log` in a function app or `console.log` in a web app, and you have Application Insights turned on, those custom logs are added to your Application Insights resource in the **Trace** table. If you prefix your custom log with a specific string, such as `JavaScript`, you can use [Kusto Query Language](/azure/data-explorer/kusto/query/) to search the **Trace** table for any messages that contain that prefix when you want to reduce your log to just those custom entries.
 
 ```kusto
 traces
@@ -181,7 +181,7 @@ If you're trying out Application Insights by running code locally, and that code
 
 ## View app failure data in Application Insights
 
-To view failures for Application Insights monitored resources, use the **Failures** pane.
+To view failures for resources that you monitor in Application Insights, use the **Failures** pane.
 
 :::image type="content" source="../media/logging-metrics/view-resource-failure-in-application-insights.png" alt-text="Screenshot of the pane for viewing failures for Application Insights monitored resources.":::
 
