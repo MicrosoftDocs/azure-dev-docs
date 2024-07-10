@@ -24,7 +24,7 @@ Use the following table to understand what information you can learn about your 
 :::row-end:::
 :::row:::
     :::column:::
-      **Azure hosting**
+      Azure hosting
     :::column-end:::
     :::column span="2":::
       Hosting services such as Azure App Service and Azure Functions provide several forms of feedback to answer questions such as:
@@ -36,20 +36,20 @@ Use the following table to understand what information you can learn about your 
 :::row-end:::
 :::row:::
     :::column:::
-      **Azure service**
+      Azure service
     :::column-end:::
     :::column span="2":::
       Azure offers metrics for services, so you can get answers to questions such as:
 
         * How busy is the service?
         * What errors is the service producing?
-        * Is my service so busy that it isn't able to keep up with demand?
+        * Is my service so busy that it can't keep up with demand?
         * Have I reached the transaction quota for my pricing tier?
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-      **Azure SDK**
+      Azure SDK
     :::column-end:::
     :::column span="2":::
       The Azure SDKs provide access to Azure from many programming languages. The SDKs provide logging so that you can ask questions such as:
@@ -60,7 +60,7 @@ Use the following table to understand what information you can learn about your 
 :::row-end:::
 :::row:::
     :::column:::
-      **Your code or container**
+      Your code or container
     :::column-end:::
     :::column span="2":::
       To understand how your own code or container is working, integrate Application Insights from [Azure Monitor](/azure/azure-monitor/overview). You can use Application Insights to capture logs across services for a single application to ask questions such as:
@@ -104,11 +104,11 @@ You can configure hosted applications and containers to log information about:
 * Startup
 * Runtime
 
-Turn on these logs to understand how your hosted application behaves. These logs are probably the first place where you'll learn that your deployment failed or your startup configuration is incorrectly configured or is missing dependencies.
+Turn on these logs to understand how your hosted application behaves. These logs are probably the first place where you'll learn that your deployment failed or that your startup configuration is incorrectly configured or missing dependencies.
 
 ## Log to stdout and stderr
 
-Azure web apps and Azure functions automatically provide custom logging to standard output (`stdout`) and standard error (`stderr`), if you use the correct logging functions:
+Azure web apps and Azure functions automatically provide custom logging to `stdout` and `stderr`, if you use the correct logging functions:
 
 * Web apps use `console.log('your message here')`.
 * Function apps use `context.log('your message here')`.
@@ -162,7 +162,7 @@ See the [earlier steps to turn on host logging for App Service](#turn-on-applica
 
 ## Turn on application logging for Azure Functions (consumption)
 
-With a consumption-based function app, if you use the logging that the context object in your source code provides, those logs appear under each function's **Monitor** section. The Azure portal also gives you the option to stream the logs as requests come into the function.
+With a consumption-based function app, if you use the logging that the context object in your source code provides, those logs appear under each function's **Monitor** section. The Azure portal also gives you the option to stream the logs as requests come in to the function.
 
 ## Query your Application Insights logs by using Kusto Query Language
 

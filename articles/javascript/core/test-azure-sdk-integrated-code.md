@@ -18,7 +18,7 @@ Inner and outer test loops are foundational concepts in software testing, especi
 
 * The *outer loop* encompasses tests that developers run in continuous integration and continuous delivery (CI/CD) pipelines, staging, and production environments. These tests often take advantage of Azure DevOps or GitHub Actions.
 
-These tests include end-to-end (E2E), performance, and security tests. They validate the application's behavior in environments that closely mirror or are identical to the final production environment. Efficient testing strategies take advantage of both loops to help ensure comprehensive coverage and quality assurance before and after deployment.
+These tests include end-to-end (E2E), performance, and security tests. They validate the application's behavior in environments that closely mirror or are identical to the final production environment. Efficient testing strategies use both loops to help ensure comprehensive coverage and quality assurance before and after deployment.
 
 Learn more:
 
@@ -54,7 +54,7 @@ Development containers offer a powerful alternative to using emulators for local
 
 By running services in containers, you can create a local environment that closely mirrors the production environment to provide consistency across development, testing, and deployment stages. This approach facilitates smoother integration with Azure SDKs. It also enhances the reliability of testing by simulating real-world conditions more accurately.
 
-You can configure containers to replicate the settings and data of Azure services. In this way, containers provide a robust platform for developing and testing applications without the overhead of connecting to live Azure services. This method is particularly beneficial for complex applications that require multiple services, because it allows for easy orchestration, cleanup, and management of dependencies.
+You can configure containers to replicate the settings and data of Azure services. In this way, containers provide a robust platform for developing and testing applications without the overhead of connecting to live Azure services. This method is beneficial for complex applications that require multiple services, because it allows for easy orchestration, cleanup, and management of dependencies.
 
 Development containers include [Azure SQL Database](https://github.com/microsoft/azuresql-devcontainers).
 
@@ -67,7 +67,7 @@ Learn more:
 
 Unit testing in JavaScript applications that are integrated with Azure SDKs often requires selecting appropriate frameworks like [Jest](https://jestjs.io/) or [Mocha](https://mochajs.org/). These frameworks facilitate the testing of individual components or functions in isolation.
 
-Tools such as [Sinon.JS](https://sinonjs.org/) or [jest-mock](https://www.npmjs.com/package/jest-mock) can simulate Azure SDK responses, so you can test the logic of your applications without actual calls to Azure services. This method is particularly useful for testing error handling, edge cases, or specific data conditions.
+Tools such as [Sinon.JS](https://sinonjs.org/) or [jest-mock](https://www.npmjs.com/package/jest-mock) can simulate Azure SDK responses, so you can test the logic of your applications without actual calls to Azure services. This method is useful for testing error handling, edge cases, or specific data conditions.
 
 For more information, see the [Azure SDK tests](#azure-sdk-tests) section later in this article.
 
@@ -99,7 +99,7 @@ This service can help in scenarios that require human judgment or are difficult 
 
 End-to-end testing validates the complete operation of an application in an environment that simulates real user scenarios. By using frameworks like [Playwright](https://playwright.dev/), you can automate browser-based tests to interact with your applications as users would.
 
-*Scenario-based testing* involves creating test cases for complete user flows, such as signing up, performing a task, and logging out. You can use this testing to verify the application's functionality and user experience on Azure, which helps ensure that all components work together seamlessly from end to end.
+*Scenario-based testing* involves creating test cases for complete user flows, such as signing up, performing a task, and signing out. You can use this testing to verify the application's functionality and user experience on Azure, which helps ensure that all components work together seamlessly from end to end.
 
 Learn more:
 
@@ -123,14 +123,15 @@ Learn more:
 
 Security testing on Azure involves identifying potential vulnerabilities in your application to prevent unauthorized access or data breaches.
 
-* *Vulnerability scanning* tools are essential for automatically detecting security weaknesses in your code or configurations. By integrating [GitHub Advanced Security](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security) features with traditional Static Application Security Testing (SAST) tools, you can improve the security posture of applications deployed on Azure. Key features include:
-  * *Code scanning*: Identifies vulnerabilities within the codebase before deployment.
-  * *Secret scanning*: Helps prevent the exposure of sensitive data.
-  * *Supply chain monitoring*: Helps protect against potentially compromised dependencies.
-  
-  These integrated security measures can help you identify vulnerabilities early, prevent data breaches, and ensure the integrity of your application's supply chain.
+*Vulnerability scanning* tools are essential for automatically detecting security weaknesses in your code or configurations. By integrating [GitHub Advanced Security](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security) features with traditional Static Application Security Testing (SAST) tools, you can improve the security posture of applications deployed on Azure. Key features include:
 
-* *Penetration testing* simulates cyberattacks against your application to evaluate its security posture. Azure provides guidance and tools for conducting these tests, to help ensure that applications deployed on the platform are secure against threats.
+* *Code scanning*: Identifies vulnerabilities within the codebase before deployment.
+* *Secret scanning*: Helps prevent the exposure of sensitive data.
+* *Supply chain monitoring*: Helps protect against potentially compromised dependencies.
+  
+These integrated security measures can help you identify vulnerabilities early, prevent data breaches, and ensure the integrity of your application's supply chain.
+
+*Penetration testing* simulates cyberattacks against your application to evaluate its security posture. Azure provides guidance and tools for conducting these tests, to help ensure that applications deployed on the platform are secure against threats.
 
 Learn more:
 
@@ -150,15 +151,17 @@ Learn more:
 
 ## Accessibility testing
 
-Accessibility testing is essential for making software inclusive and compliant with legal standards. Tools like [Accessibility Insights](https://accessibilityinsights.io/) help identify and fix accessibility issues in web and mobile apps. Integrating this tool into development workflows facilitates automated and manual checks by offering guidance and reports based on Web Content Accessibility Guidelines (WCAG) standards.
+Accessibility testing is essential for making software inclusive and compliant with legal standards. Tools like [Accessibility Insights](https://accessibilityinsights.io/) help identify and fix accessibility issues in web and mobile apps. Integrating Accessibility Insights into development workflows facilitates automated and manual checks by offering guidance and reports based on Web Content Accessibility Guidelines (WCAG) standards.
 
 ## A/B testing
 
-A/B testing, or split testing, is a method of comparing two versions of a webpage or app against each other to determine which one performs better. Azure provides the following services that support A/B testing. You can use them to deploy variations of your applications and then gauge user response and effectiveness.
+A/B testing, or split testing, is a method of comparing two versions of a webpage or app against each other to determine which one performs better. Azure provides the following services that support A/B testing:
 
 * [Azure App Service](/azure/app-service/deploy-staging-slots): Offers deployment slots to allow for staging environments where you can test app versions without affecting the live app.
   
 * [Azure Container Apps](/azure/container-apps/): Offers a flexible environment for running microservices-based applications. You can implement A/B testing in this environment to test app versions.
+
+You can use these services to deploy variations of your applications and then gauge user response and effectiveness.
 
 ## Azure SDK tests
 
