@@ -8,7 +8,7 @@ ms.custom: devx-track-python, vscode-azure-extension-update-completed
 
 # Get started with Python on Azure
 
-If you're new to developing applications for the cloud, this short series of articles with videos help you get up to speed quickly.
+If you're new to developing applications for the cloud, this short series of 8 articles is the best place to start.
 
 * Part 1: [Azure for developers overview](/azure/developer/intro/azure-developer-overview)
 * Part 2: [Key Azure services for developers](/azure/developer/intro/azure-developer-key-services)
@@ -56,7 +56,6 @@ You can also use the [Azure Management Libraries for Python](https://azure.githu
 * [Create and query a database](./sdk/examples/azure-sdk-example-database.md)
 * [Create a virtual machine](./sdk/examples/azure-sdk-example-virtual-machines.md)
 
-
 ## Write your Python app
 
 Developing on Azure requires [Python](https://www.python.org/downloads/) 3.8 or higher. To verify the version of Python on your workstation, in a console window type the command `python3 --version` for macOS/Linux or `py --version` for Windows.
@@ -71,16 +70,16 @@ As you're getting started, the articles instruct you on which Python on Azure li
 
 At some point, you might want to [install and reference](./sdk/azure-sdk-install.md) the [Azure SDK for Python client libraries](https://azure.github.io/azure-sdk/releases/latest/python.html) without follow the instructions in an article. The [Azure SDK Overview](./sdk/azure-sdk-overview.md) is a great starting point.
 
-### Authentication
+### Authenticate your app to Azure
 
 When you use the Azure SDK for Python, your app must authenticate itself. How your app authenticates depends on whether you're running your app locally during development and testing, hosting the app on your own servers, or hosting the app in Azure. Read [Authenticate Python apps to Azure services by using the Azure SDK for Python](./sdk/authentication-overview.md) to understand more about authentication on Azure.
 
 You'll also need to set up access policies that control what identities (service principals and/or application IDs) are able to access those resources. Access policies are managed through Azure [Role-Based Access Control (RBAC)](/azure/role-based-access-control/overview); some services have more specific access controls as well. As a cloud developer working with Azure, make sure to familiarize yourself with Azure RBAC because you use it with just about any resource that has security concerns.
 
-### Cross-cutting concerns
+### Add cross-cutting concerns
 
-- [Manage application secrets](/azure/key-vault/secrets/quick-create-python)
-- [Logging](./sdk/azure-sdk-logging.md)
+- Manage your application secrets using [Azure Key Vault](/azure/key-vault/secrets/quick-create-python)
+- Gain visibility into your app by logging with [Azure Monitor](./sdk/azure-sdk-logging.md)
 
 ## Host your Python app
 
