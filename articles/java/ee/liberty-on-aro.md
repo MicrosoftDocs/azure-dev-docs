@@ -178,7 +178,7 @@ In the *liberty/config* directory, the *server.xml* is used to configure the dat
 
 #### Build project
 
-Now that you gathered the necessary properties, replace the placeholders in the following commands with your own values and run the commands in your terminal to build the project. The POM file for the project reads many properties from the environment.
+Now that you gathered the necessary properties, replace the placeholders in the following commands with same values you used to create the Azure Database for MySQL Flexible Server instance. Run the commands in your terminal to build the project. The POM file for the project reads many properties from the environment.
 
 ```bash
 cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
@@ -198,7 +198,7 @@ mvn clean install
 
 Optionally, you can run the application locally to verify that it works as expected. First, you need to add a firewall rule to allow your local machine to connect to the Azure Database for MySQL Flexible Server instance. Use the following instructions to add the firewall rule:
 
-1. Open the Azure portal and navigate to the Azure Database for MySQL Flexible Server instance you created earlier.
+1. Sign in to the Azure portal and navigate to the Azure Database for MySQL Flexible Server instance you created earlier.
 1. In the left pane, select **Networking**.
 1. Select **Add current client IP address**. Select **Save** and wait for the firewall rule to be added.
 
