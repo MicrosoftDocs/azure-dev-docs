@@ -24,15 +24,10 @@ landingContent:
             url: core/what-is-azure-for-javascript-development.md
           - text: Azure Fundamentals
             url: /training/modules/intro-to-azure-fundamentals/            
-          - text: Install Node.js
-            url: core/install-nodejs-develop-azure-sdk-project.md
           - text: Set up development environment
             url: core/configure-local-development-environment.md
           - text: Authenticate to Azure SDK
             url: /azure/developer/javascript/sdk/authentication/local-development-environment-service-principal
-          - text: Authenticate your web app users
-            url: how-to/with-authentication/getting-started.md?tabs=no-code%2Cno-code-credential
-
 
   - title: Use Azure client libraries (SDK)
     linkLists:
@@ -51,10 +46,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Enterprise chat with RAG
+          - text: Deploy Enterprise chat with RAG
             url: get-started-app-chat-template.md?tabs=github-codespaces
-          - text: Evaluate chat app
-            url: get-started-app-chat-evaluations.md
           - text: Use serverless AI Chat with RAG using LangChain.js 
             url: get-started-app-chat-template-langchainjs.md
           - text: Use Azure OpenAI Assistants and function calling in JavaScript
@@ -63,6 +56,8 @@ landingContent:
             url: get-started-app-chat-scaling-with-azure-container-apps.md
           - text: Scale Azure OpenAI with Azure API Management
             url: get-started-app-chat-scaling-with-azure-api-management.md
+          - text: Evaluate chat app
+            url: get-started-app-chat-evaluations.md
 
   - title: Azure SDK client library tutorials
     linkLists: 
