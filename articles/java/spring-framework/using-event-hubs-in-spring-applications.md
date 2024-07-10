@@ -434,13 +434,6 @@ To send messages to and receive messages from Event Hubs, configure the applicat
    spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name=<your-storage-account-container-name>
    ```
 
-1. Add *spring.factories* for the autoconfiguration for `@EventHubsListener`. You need to create a directory called *META-INF* under the application's *resource* directory. Then, create a file named *spring.factories* under *META-INF* and add the following content:
-
-   ```properties
-   org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-   com.azure.spring.cloud.autoconfigure.messaging.AzureMessagingListenerAutoConfiguration
-   ```
-
 1. Create a new `ConsumerService` Java class as shown in the following example. This class is used to define a message receiver. Be sure to replace the `<your-event-hub-name>` placeholder with your actual value.
 
    ```java
