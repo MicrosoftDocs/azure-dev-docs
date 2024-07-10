@@ -79,7 +79,7 @@ The following [JavaScript example](https://github.com/Azure-Samples/js-e2e/blob/
 
 Learn more about long running operations on Azure:
 
-* [@azure/core-lro](/javascript/api/@azure/core-lro)
+* [@azure/core-lro](/javascript/api/overview/azure/core-lro-readme)
 
 ## Canceling async operations
 
