@@ -91,18 +91,12 @@ landingContent:
         links:
           - text: Select a hosting service
             url: how-to/deploy-web-app.md            
-          - text: "Client: JamStack upload image to Storage"
-            url: tutorial/browser-file-upload-azure-storage-blob.md
-          - text: "Client: JamStack + auth"
+          - text: Static front-end apps
             url: how-to/with-web-app/static-web-app-with-swa-cli/introduction.md            
-          - text: "Migrate to serverless"
-            url: /azure/azure-functions/shift-expressjs?tabs=javascript?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-          - text: "Serverless: Getting started"
+          - text: Serverless apps
             url: how-to/develop-serverless-apps.md          
-          - text: "Server: Deploy Express.js"
+          - text: Server apps
             url: /learn/modules/javascript-deploy-expressjs-app-service/
-          - text: "Server from VM: Express.js with NGINX"
-            url: tutorial/nodejs-virtual-machine-vm/introduction.md
 
   - title: Developer Guides
     linkLists:
@@ -133,10 +127,6 @@ landingContent:
             url: https://github.com/Azure/static-web-apps-cli
           - text: Azure Functions core tools CLI
             url: https://github.com/Azure/azure-functions-core-tools
-          - text: Windows Terminal
-            url: https://aka.ms/terminal
-          - text: Windows Subsystem for Linux (WSL)
-            url: /windows/wsl/install-win10#install-your-linux-distribution-of-choice
 
   - title: End to end development
     linkLists:
