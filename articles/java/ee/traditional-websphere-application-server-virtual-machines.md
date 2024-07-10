@@ -192,6 +192,7 @@ When you refresh the browser, the app cycles through the server instances of the
 
 To avoid Azure charges, you should clean up unnecessary resources. When you no longer need the cluster, use the following steps to delete the resource groups to clean up the resources used in this tutorial:
 
+1. Sign in to the Azure portal.
 1. Enter the resource group name of your WAS ND cluster - for example, `jiangma070924wasndcluster` - in the search box at the top of the Azure portal, and select the matched resource group from the search results.
 1. Select **Delete resource group**.
 1. In **Enter resource group name to confirm deletion**, enter the resource group name.
