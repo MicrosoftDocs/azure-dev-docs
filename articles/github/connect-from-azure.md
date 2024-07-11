@@ -16,6 +16,7 @@ Learn how to use [Azure login](https://github.com/Azure/login) with either [Azur
 To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to first log in with the [Azure login](https://github.com/marketplace/actions/azure-login) action.
 
 The Azure login action supports different ways of authenticating with Azure:
+
 * [OpenID Connect](connect-from-azure-oidc.md) 
 * [Managed Identity](connect-from-azure-identity.md)
 * [Service principal with secrets](connect-from-azure-secret.md) (Not recommended)
@@ -24,25 +25,16 @@ By default, the login action logs in with the Azure CLI and sets up the GitHub A
 
 You can use Azure login to connect to public or sovereign clouds including Azure Government and Azure Stack Hub.
 
-# Connect with other Azure services
+## Connect with other Azure services
 
-The following articles provide details on connecting to GitHub from Azure and other services.  
+The following articles provide details on connecting from GitHub to Azure and other services.  
 
-## Microsoft Entra ID 
-
-- [Sign in to GitHub Enterprise with Microsoft Entra ID (single sign-on)](/azure/active-directory/saas-apps/github-tutorial)
-
-## Power BI
-
-- [Connect Power BI with GitHub](/power-bi/service-connect-to-github)
-
-## Connectors
-
-- [GitHub connector for Azure Logic Apps, Power Automate and Power Apps](/connectors/github/)
-
-## Azure Databricks
-
-- [Use GitHub as version control for notebooks](/azure/databricks/notebooks/github-version-control) 
+| Service | Tutorial |
+|-|-|
+| Microsoft Entra ID | [Sign in to GitHub Enterprise with Microsoft Entra ID (single sign-on)](/azure/active-directory/saas-apps/github-tutorial)
+| Power BI | [Connect Power BI with GitHub](/power-bi/service-connect-to-github)
+| GitHub Connectors | [GitHub connector for Azure Logic Apps, Power Automate and Power Apps](/connectors/github/)
+| Azure Databricks | [Use GitHub as version control for notebooks](/azure/databricks/notebooks/github-version-control) 
 
 > [!div class="nextstepaction"]
 > [Deploy apps from GitHub to Azure](deploy-to-azure.md)

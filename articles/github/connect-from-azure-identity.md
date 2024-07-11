@@ -16,8 +16,8 @@ On a VM configured for [managed identities](/entra/identity/managed-identities-a
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * [Create GitHub secrets for System/User-Assigned Managed Identity]
-> * [Set up Azure Login for System/User-Assigned Managed Identity in GitHub Action workflows]
+> * Create GitHub secrets for System/User-Assigned Managed Identity
+> * Set up Azure Login for System/User-Assigned Managed Identity in GitHub Action workflows
 
 > [!NOTE]
 >
@@ -89,7 +89,7 @@ jobs:
             Get-AzResourceGroup
 ```
 
-### Create GitHub secrets for User-Assigned Managed Identity
+## Create GitHub secrets for User-Assigned Managed Identity
 
 1. Open your GitHub repository and go to **Settings**.
 
@@ -103,7 +103,7 @@ jobs:
 |AZURE_SUBSCRIPTION_ID     |    Subscription ID     |
 |AZURE_TENANT_ID    |    Tenant ID   |
 
-### Set up Azure Login with User-Assigned Managed Identity
+## Set up Azure Login with User-Assigned Managed Identity
 
 In this example, you use the user-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `client-id`, `subscription-id` and `tenant-id` values. 
 

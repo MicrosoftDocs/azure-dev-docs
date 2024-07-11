@@ -16,9 +16,9 @@ This article teaches you how to create a service principal with a client secret 
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * [Create a service principal with a client secret]
-> * [Add the credential as a GitHub secret]
-> * [Set up Azure Login for service principal secret in GitHub Action workflows]
+> * Create a service principal with a client secret
+> * Add the credential as a GitHub secret
+> * Set up Azure Login for service principal secret in GitHub Action workflows
 
 > [!WARNING]
 > To use this method, carefully manage your secret to prevent any leaks.
