@@ -157,7 +157,7 @@ Platform logs are provided for you:
 * To understand the health of the environment.
 * Let you scale to a different pricing tier, or across regions. 
 
-Application logs _may_ be provided for you if you use the [default logging functions](node-sdk-logging.md#custom-logging-to-azure).
+Application logs _may_ be provided for you if you use the [default logging functions](node-sdk-logging.md#add-custom-logging).
 
 ## Configure database and storage
 

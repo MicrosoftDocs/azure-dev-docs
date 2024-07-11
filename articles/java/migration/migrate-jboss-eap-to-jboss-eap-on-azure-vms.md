@@ -106,7 +106,7 @@ Virtual Machine Scale Sets provide groups of load-balanced, highly scalable virt
 
 ### JBoss EAP on Clustered Virtual Machines
 
-If you prefer, a traditional cluster of VMs using the JBoss EAP clustering mechanism is suitable for a lift and shift from deployments that are already using this feature. For more information, see [Configuring a Red Hat JBoss EAP 7 Cluster](https://aka.ms/eap-vm-docs-cluster) in the JBoss EAP documentation. The prebuilt Azure Marketplace offer includes support for domain mode. For an overview of EAP Domains and domain mode, see [Domain Management](https://aka.ms/eap-vms-domain-mode).
+If you prefer, a traditional cluster of VMs using the JBoss EAP clustering mechanism is suitable for a lift and shift from deployments that are already using this feature. For more information, see [Clustering in Web Applications](https://docs.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html/development_guide/clustering_in_web_applications) in the JBoss EAP documentation. The prebuilt Azure Marketplace offer includes support for domain mode. For an overview of EAP Domains and domain mode, see [Domain Management](https://aka.ms/eap-vms-domain-mode).
 
 ### JBoss EAP Single Server
 
