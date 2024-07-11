@@ -256,9 +256,11 @@ Azure Cosmos DB provides a MongoDB API to provide a familiar integration point.
     |--|--|--|
     |Select an Azure Database Server|Azure Cosmos DB for MongoDB API||
     |Provide an Azure Cosmos DB account name.|`cosmosdb-mongodb-database`|Postpend three characters to create a unique name. The name becomes part of the API's URL.|
-    |Select a capacity model.|Serverless||
-    |Select a resource group for new resources.|**azure-tutorial-first-function**|Select the resource group you created in a previous section.|
-    |Select a location for new resources.|Select the recommended region.||
+    |Select a capacity model.|`Serverless`||
+    |Select MongoDB version.| Select latest version.||
+    |Select a resource group for new resources.|Select the resource group you created in the [previous step](#create-an-azure-resource-group).|Select the resource group you created in a previous section.|
+
+1. Wait until the resource is ceated. You can see the status in the **Azure** section of the results pane.
 
 ## Install mongoose dependency
 
@@ -371,8 +373,6 @@ npm install mongoose
 
     * Isn't deployed to Azure because its included in the `./.funcignore` file.
     * Isn't checked into source control because its included in the `./.gitignore` file.
-
-1. Run the application locally and test the API with the same url in the previous section.
 
 ## Add connection string to remote app
 
@@ -541,6 +541,8 @@ npm install mongoose
     curl http://localhost:7071/api/blogposts --verbose
     ```
 
+1. The response includes the JSON array of a single blog post: `:[{"author":"john","title":"my first post","body":"learn serverless node.js","created":"2024-07-11T21:30:41.688Z","id":"66904f0148b2e4d8a2b9971e"}]}`.
+
 ## View all data with Visual Studio Code extension for Azure Cosmos DB
 
 1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
@@ -573,14 +575,13 @@ To search the logs, use the Azure portal.
 
 1. From **Settings**, select **Application Insights**, then select **View Application Insights data**.
 
-    :::image type="content" source="../media/azure-function-cosmos-db-mongo-api/azure-portal-function-application-insights-link.png" alt-text="Browser screenshot showing menu choices. Select **Application Insights** from the Settings, then select **View Application Insights data**." lightbox="../media/azure-function-cosmos-db-mongo-api/azure-portal-function-application-insights-link.png":::
-
     This link takes you to your separate metrics resource created for you when you created your Azure Function with Visual Studio Code.
 
-1. From the **Monitoring** section, select **Logs**. If a **Queries** pop-up window appears, select the **X** in the top-right corner of the pop-up to close it.
+1. From the **Monitoring** section, select **Logs**. Close any pop-up windows by selecting the **X** in the top-right corner of the pop-up to close it.
 1. In the **New Query 1** pane, on the **Tables** tab, double-click the **traces** table.
 
     This enters the [Kusto query](/azure/data-explorer/kusto/query/), `traces` into the query window.
+1. Change the query mode from **Simple mode** to **KQL mode**.
 1. Edit the query to search for the custom logs:
 
     ```kusto
