@@ -27,7 +27,7 @@ Install the following software:
 
 ## Solution Architecture
 
-The solution uses an Azure Functions app to receive the data which is then sent to Azure Cosmos DB from the Mongoose SDK.
+The solution uses an Azure Functions app to receive the data, which is then sent to Azure Cosmos DB from the Mongoose SDK.
 
 :::image type="content" source="../media/azure-function-cosmos-db-mongo-api/flow-client-serverless-cosmos-db.png" alt-text="Flow chart showing path of HTTP request to pass data through Azure Functions and store in Azure Cosmos DB.":::
 
@@ -150,7 +150,7 @@ Developing functions on your local computer requires either a Storage emulator (
     azurite --silent --location ./azurite --debug ./azurite/debug.log
     ```
 
-    This is required to run the Azure Functions locally using a local Azure Storage emulator. 
+    This is required to run the Azure Functions locally using a local Azure Storage emulator.
 
 1. Update the local storage emulator is specified in the `local.settings.json` file with the **AzureWebJobsStorage** property to a value of `UseDevelopmentStorage=true`.
 
@@ -171,7 +171,7 @@ Run the Azure Functions project locally to test it before deploying to Azure.
 
 1. In Visual Studio Code, set a break point on the `return` statement, at the end of the **getBlogPosts** function.
 
-1. In Visual Studio Code, press <kbd>F5</kbd>  to launch the debugger and attach to the Azure Functions host. Enable public and private endpoints if you are prompted.
+1. In Visual Studio Code, press <kbd>F5</kbd>  to launch the debugger and attach to the Azure Functions host. Enable public and private endpoints if you're prompted.
 
     You could also use the **Debug** > **Start Debugging** menu command.
 
@@ -260,7 +260,7 @@ Azure Cosmos DB provides a MongoDB API to provide a familiar integration point.
     |Select MongoDB version.| Select latest version.||
     |Select a resource group for new resources.|Select the resource group you created in the [previous step](#create-an-azure-resource-group).|Select the resource group you created in a previous section.|
 
-1. Wait until the resource is ceated. You can see the status in the **Azure** section of the results pane.
+1. Wait until the resource is created. You can see the status in the **Azure** section of the results pane.
 
 ## Install mongoose dependency
 
@@ -383,7 +383,7 @@ npm install mongoose
 1. Enter the app setting name, `MONGODB_URI` and select Enter.
 1. Paste the value you copied and press enter.
 
-## Add APIs for create, update, and delete of blogposts
+## Add APIs for create, update, and delete of blog posts
 
 1. In Visual Studio Code, use the command palette to find and select **Azure Functions: Create function**.
 1. Select **HTTP trigger** and name it `blogpost` (singular).
