@@ -1,6 +1,6 @@
 --- 
-title:  Authenticate to Azure from GitHub Action workflows by Managed Identity
-description: Connect to GitHub from Azure with a Managed Identity
+title:  Authenticate to Azure from GitHub by Managed Identity
+description: Securely authenticate to Azure services from GitHub Actions workflows using Azure Login Action with a Managed Identity configured on a VM.
 author: MoChilia 
 ms.author: shiyingchen 
 ms.topic: reference
@@ -10,20 +10,25 @@ ms.custom: github-actions-azure, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Use the Azure login action with Managed Identity
-On resources configured for [managed identities](/entra/identity/managed-identities-azure-resources/overview) in Azure, you can sign in [Azure login](https://github.com/marketplace/actions/azure-login) using the managed identity. There's no need to manage credentials, as they are not accessible to you. You can use two types of managed identities: **System-assigned** or **User-assigned**.
 
-## Use the Azure login action with System-Assigned Managed Identity
+On a VM configured for [managed identities](/entra/identity/managed-identities-azure-resources/overview) in Azure, you can sign in [Azure login](https://github.com/marketplace/actions/azure-login) using the managed identity. There's no need to manage credentials, as they are not accessible to you. You can use two types of managed identities: **System-assigned** or **User-assigned**.
+
+In this tutorial, you:
+
+> [!div class="checklist"]
+> * [Create GitHub secrets for System/User-Assigned Managed Identity]
+> * [Set up Azure Login for System/User-Assigned Managed Identity in GitHub Action workflows]
 
 > [!NOTE]
 >
-> "Login With System-assigned Managed Identity" is only supported on GitHub self-hosted runners and the self-hosted runners need to be hosted by Azure virtual machines.
+> "Login With Managed Identity" is only supported on GitHub self-hosted runners and the self-hosted runners need to be hosted by Azure virtual machines.
 
-Before your login with system-assigned managed identity, you need to create an Azure virtual machine to host the GitHub self-hosted runner.
+## Prerequisites
 
 - Create an Azure virtual machine
   - [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
   - [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu)
-- [Configure system-assigned managed identity on the Azure virtual machine](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)
+- [Configure managed identity on the Azure virtual machine](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm)
 - Install required software on the Azure virtual machine
   - [Install Azure CLI](/cli/azure/install-azure-cli)
     - To run the [Azure CLI Action](https://github.com/Azure/CLI), you don't need to pre-install the Azure CLI. However, you must [install Docker](https://docs.docker.com/engine/install/).
@@ -31,7 +36,9 @@ Before your login with system-assigned managed identity, you need to create an A
   - [Install Azure PowerShell](/powershell/azure/install-azure-powershell)
 - [Configure the Azure virtual machine as a GitHub self-hosted runner](https://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)
 
-### Create GitHub secrets
+
+## Create GitHub secrets for System-Assigned Managed Identity
+
 1. Open your GitHub repository and go to **Settings**.
 
 1. Select **Security > Secrets and variables > Actions > New repository secret**.
@@ -43,7 +50,7 @@ Before your login with system-assigned managed identity, you need to create an A
 |AZURE_SUBSCRIPTION_ID     |    Subscription ID     |
 |AZURE_TENANT_ID    |    Tenant ID   |
 
-### Set up Azure Login with System-Assigned Managed Identity
+## Set up Azure Login with System-Assigned Managed Identity
 
 In this example, you use the system-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `subscription-id` and `tenant-id` values. 
 
@@ -82,27 +89,7 @@ jobs:
             Get-AzResourceGroup
 ```
 
-## Use the Azure login action with User-Assigned Managed Identity
-
-> [!NOTE]
->
-> "Login With User-assigned Managed Identity" is only supported on GitHub self-hosted runners and the self-hosted runners need to be hosted by Azure virtual machines.
-
-Before your login with User-assigned managed identity, you need to create an Azure virtual machine to host the GitHub self-hosted runner.
-
-- Create an Azure virtual machine
-  - [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
-  - [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu)
-- [Create a user-assigned managed identity and assign a role to it](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity)
-- [Configure user-assigned managed identity on the Azure virtual machine](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity)
-- Install required software on the Azure virtual machine
-  - [Install Azure CLI](/cli/azure/install-azure-cli) or [Using Azure CLI action](https://github.com/Azure/CLI)
-    - To run the [Azure CLI Action](https://github.com/Azure/CLI), you don't need to pre-install the Azure CLI. However, you must [install Docker](https://docs.docker.com/engine/install/).
-  - [Install PowerShell](/powershell/scripting/install/installing-powershell)
-  - [Install Azure PowerShell](/powershell/azure/install-azure-powershell)
-- [Configure the Azure virtual machine as a GitHub self-hosted runner](https://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)
-
-### Create GitHub secrets
+### Create GitHub secrets for User-Assigned Managed Identity
 
 1. Open your GitHub repository and go to **Settings**.
 

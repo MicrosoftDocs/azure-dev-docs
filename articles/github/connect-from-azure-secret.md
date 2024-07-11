@@ -1,6 +1,6 @@
 --- 
-title:  Authenticate to Azure from GitHub Action workflows by Secret
-description: Connect to GitHub from Azure with a service principal secret
+title: Authenticate to Azure from GitHub Action by Client Secret
+description: Securely authenticate to Azure services from GitHub Actions workflows using Azure Login Action with a client secret.
 author: MoChilia 
 ms.author: shiyingchen 
 ms.topic: reference
@@ -9,14 +9,21 @@ ms.date: 07/01/2024
 ms.custom: github-actions-azure, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ---
 
-# Use the Azure login action with a service principal secret
+# Use the Azure login action with a client secret
 
-To use [Azure login](https://github.com/marketplace/actions/azure-login) with a service principal, you first need to add your Azure service principal as a secret to your GitHub repository. 
+This article teaches you how to create a service principal with a client secret and securely authenticate to Azure services from GitHub Actions workflows using [Azure Login Action](https://github.com/marketplace/actions/azure-login). 
+
+In this tutorial, you:
+
+> [!div class="checklist"]
+> * [Create a service principal with a client secret]
+> * [Add the credential as a GitHub secret]
+> * [Set up Azure Login for service principal secret in GitHub Action workflows]
 
 > [!WARNING]
 > To use this method, carefully manage your secret to prevent any leaks.
 
-## Create a service principal
+## Create a service principal with a client secret
 
 In this example, you create a secret named `AZURE_CREDENTIALS` that you can use to authenticate with Azure.
 
@@ -31,11 +38,12 @@ In this example, you create a secret named `AZURE_CREDENTIALS` that you can use 
 1. [Create a new service principal](/cli/azure/create-an-azure-service-principal-azure-cli) in the Azure portal for your app. The service principal must be assigned with an appropriate role.
 
     ```azurecli-interactive
-        az ad sp create-for-rbac --name "myApp" --role contributor \
+        az ad sp create-for-rbac --name "myApp" --role reader \
                                     --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
                                     --json-auth
     ```
    The parameter `--json-auth` outputs the result dictionary accepted by the login action, accessible in Azure CLI versions >= 2.51.0. Earlier versions use `--sdk-auth` with a deprecation warning.
+
 1. Copy the JSON object for your service principal.
 
     ```json
@@ -48,7 +56,7 @@ In this example, you create a secret named `AZURE_CREDENTIALS` that you can use 
     }
     ```
 
-## Add the service principal as a GitHub secret
+## Add the credential as a GitHub secret
 
 [!INCLUDE [include](~/../articles/reusable-content/github-actions/create-secrets-service-principal.md)]
 
