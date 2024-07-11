@@ -16,37 +16,26 @@ This article teaches you how to create a service principal with a client secret 
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Create a service principal with a client secret
-> * Add the credential as a GitHub secret
+> * Create a GitHub secret for the service principal
 > * Set up Azure Login for service principal secret in GitHub Action workflows
 
 > [!WARNING]
 > To use this method, carefully manage your secret to prevent any leaks.
 
-## Create a service principal with a client secret
+## Prerequisites 
 
-In this example, you create a secret named `AZURE_CREDENTIALS` that you can use to authenticate with Azure.
+- Create a Microsoft Entra application with a service principal assigned an appropriate role by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1) or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-12.1.0#create-a-service-principal).
+- Create a new client secret for service principal by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#option-3-create-a-new-client-secret), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-2?branch=main#create-a-service-principal-containing-a-password) or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-12.1.0#password-based-authentication).
 
-1. Open [Azure Cloud Shell](/azure/cloud-shell/overview) in the Azure portal or [Azure CLI](/cli/azure/install-azure-cli) locally.
+## Create a GitHub secret for the service principal
 
-    > [!NOTE]
-    > If you are using Azure Stack Hub, you need to set your SQL Management endpoint to `not supported`.
-    > ```azurecli
-    > az cloud update -n {environmentName} --endpoint-sql-management https://notsupported`
-    > ```
+1. Open your GitHub repository and go to **Settings**.
 
-1. [Create a new service principal](/cli/azure/create-an-azure-service-principal-azure-cli) in the Azure portal for your app. The service principal must be assigned with an appropriate role.
+1. Select **Security > Secrets and variables > Actions > New repository secret**.
 
-    ```azurecli-interactive
-        az ad sp create-for-rbac --name "myApp" --role reader \
-                                    --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
-                                    --json-auth
-    ```
-   The parameter `--json-auth` outputs the result dictionary accepted by the login action, accessible in Azure CLI versions >= 2.51.0. Earlier versions use `--sdk-auth` with a deprecation warning.
+1. Create a GitHub Action secret `AZURE_CREDENTIALS` with the value like below:
 
-1. Copy the JSON object for your service principal.
-
-    ```json
+  ```json
     {
         "clientId": "<GUID>",
         "clientSecret": "<secret>",
@@ -54,11 +43,14 @@ In this example, you create a secret named `AZURE_CREDENTIALS` that you can use 
         "tenantId": "<GUID>",
         (...)
     }
-    ```
+  ```
 
-## Add the credential as a GitHub secret
-
-[!INCLUDE [include](~/../articles/reusable-content/github-actions/create-secrets-service-principal.md)]
+|GitHub secret  |Service principal  |
+|---------|---------|
+|clientId |    Client ID    |
+|clientSecret    |    Client Secret   |
+|subscriptionId    |    Subscription ID     |
+|tenantId   |    Directory (tenant) ID  |
 
 ## Set up Azure Login in GitHub Action workflows
 
@@ -107,7 +99,7 @@ jobs:
       - name: Azure PowerShell Action
         uses: azure/powershell@v2
         with:
-          inlineScript: Get-AzResourceGroup -Name "< YOUR RESOURCE GROUP >"
+          inlineScript: Get-AzResourceGroup -Name "<YOUR RESOURCE GROUP>"
           azPSVersion: latest
 ```
 
@@ -137,22 +129,15 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            az group show --name "< YOUR RESOURCE GROUP >"
+            az group show --name "<YOUR RESOURCE GROUP>"
 ```
 
 ### Connect to Azure Government and Azure Stack Hub clouds
 
 To log in to one of the Azure Government clouds, set the optional parameter environment with supported cloud names `AzureUSGovernment` or `AzureChinaCloud`. If this parameter isn't specified, it takes the default value `AzureCloud` and connects to the Azure Public Cloud.
 
-```yaml
-   - name: Login to Azure US Gov Cloud with Azure CLI
-     uses: azure/login@v2
-        with:
-          creds: ${{ secrets.AZURE_US_GOV_CREDENTIALS }}
-          environment: 'AzureUSGovernment'
-          enable-AzPSSession: false
-          
-   - name: Login to Azure US Gov Cloud with Azure Powershell
+```yaml       
+   - name: Login to Azure US Gov Cloud with both Azure CLI and Azure Powershell
       uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_US_GOV_CREDENTIALS }}

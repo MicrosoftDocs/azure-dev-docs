@@ -1,6 +1,6 @@
 --- 
 title:  Authenticate to Azure from GitHub by Managed Identity
-description: Securely authenticate to Azure services from GitHub Actions workflows using Azure Login Action with a Managed Identity configured on a VM.
+description: Securely authenticate to Azure services from GitHub Actions workflows using Azure Login Action with a Managed Identity configured on a virtual machine.
 author: MoChilia 
 ms.author: shiyingchen 
 ms.topic: reference
@@ -11,7 +11,7 @@ ms.custom: github-actions-azure, devx-track-azurecli, devx-track-azurepowershell
 
 # Use the Azure login action with Managed Identity
 
-On a VM configured for [managed identities](/entra/identity/managed-identities-azure-resources/overview) in Azure, you can sign in [Azure login](https://github.com/marketplace/actions/azure-login) using the managed identity. There's no need to manage credentials, as they are not accessible to you. You can use two types of managed identities: **System-assigned** or **User-assigned**.
+On a virtual machine configured for [managed identities](/entra/identity/managed-identities-azure-resources/overview) in Azure, you can sign in [Azure login](https://github.com/marketplace/actions/azure-login) using the managed identity. There's no need to manage credentials, as they aren't accessible to you. You can use two types of managed identities: **System-assigned** or **User-assigned**.
 
 In this tutorial, you:
 
@@ -31,7 +31,7 @@ In this tutorial, you:
 - [Configure managed identity on the Azure virtual machine](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm)
 - Install required software on the Azure virtual machine
   - [Install Azure CLI](/cli/azure/install-azure-cli)
-    - To run the [Azure CLI Action](https://github.com/Azure/CLI), you don't need to pre-install the Azure CLI. However, you must [install Docker](https://docs.docker.com/engine/install/).
+    - To run the [Azure CLI Action](https://github.com/Azure/CLI), you don't need to preinstall the Azure CLI. However, you must [install Docker](https://docs.docker.com/engine/install/).
   - [Install PowerShell](/powershell/scripting/install/installing-powershell)
   - [Install Azure PowerShell](/powershell/azure/install-azure-powershell)
 - [Configure the Azure virtual machine as a GitHub self-hosted runner](https://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)
