@@ -148,7 +148,12 @@ Use the following commands to clone the sample code for this guide. The sample i
 ```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aro.git
 cd open-liberty-on-aro
+export BASE_DIR=$PWD
+git checkout 20240710
+cd ${BASE_DIR}/3-integration/connect-db/mysql
 ```
+
+If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you checked out a tag.
 
 There are a few samples in the repository. We use *open-liberty-on-aro/3-integration/connect-db/mysql*. Here's the file structure of the application:
 
@@ -181,7 +186,7 @@ In the *liberty/config* directory, the *server.xml* is used to configure the dat
 Now that you gathered the necessary properties, replace the placeholders in the following commands with same values you used to create the Azure Database for MySQL Flexible Server instance. Run the commands in your terminal to build the project. The POM file for the project reads many properties from the environment.
 
 ```bash
-cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
+cd ${BASE_DIR}/3-integration/connect-db/mysql
 
 # The following variables are used for deployment file generation
 export DB_SERVER_NAME=<Server name>.mysql.database.azure.com
@@ -209,7 +214,7 @@ Use the following steps to run the `liberty:devc` command to locally run and tes
 1. Use the following commands to start the application in `liberty:devc` mode:
 
    ```bash
-   cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
+   cd ${BASE_DIR}/3-integration/connect-db/mysql
 
    # If you are running with Open Liberty
    mvn liberty:devc -DcontainerRunOpts="-e DB_SERVER_NAME=${DB_SERVER_NAME} -e DB_PORT_NUMBER=${DB_PORT_NUMBER} -e DB_NAME=${DB_NAME} -e DB_USER=${DB_USER} -e DB_PASSWORD=${DB_PASSWORD}" -Dcontainerfile=Dockerfile
@@ -234,7 +239,7 @@ Since you already successfully ran the app in the Liberty Docker container using
 1. Use the following commands to identify the source directory and Dockerfile:
 
    ```bash
-   cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
+   cd ${BASE_DIR}/3-integration/connect-db/mysql
 
    # If you are building with the Open Liberty base image, the existing Dockerfile is ready for you
 
@@ -333,7 +338,7 @@ You can now deploy the sample Liberty application to the Azure Red Hat OpenShift
 
    ```bash
    # Change directory to "<path-to-repo>/3-integration/connect-db/mysql/target"
-   cd <path-to-repo>/3-integration/connect-db/mysql/target
+   cd ${BASE_DIR}/3-integration/connect-db/mysql/target
 
    # Change project to "open-liberty-demo"
    oc project open-liberty-demo
