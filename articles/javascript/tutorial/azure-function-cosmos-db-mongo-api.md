@@ -16,11 +16,10 @@ In this tutorial, you'll learn how to create a serverless API using Azure Functi
 Install the following software:
 
 * Create a free [Azure subscription](https://azure.microsoft.com/free/)
-* Install [Node.js LTS](https://nodejs.org/en/download) v18+
-* [TypeScript](https://www.typescriptlang.org/) v4+
+* Install [Node.js LTS](https://nodejs.org/en/download). Select [a version supported by Azure Functions](/azure/azure-functions/functions-reference-node#supported-versions).
+* [TypeScript](https://www.typescriptlang.org/) latest version.
 * [Azurite](https://www.npmjs.com/package/azurite) installed globally for local development storage
-* [Azure Functions Runtime](/azure/azure-functions/functions-versions?pivots=programming-language-javascript&tabs=v4) v4.16+
-* [Azure Functions Core Tools](/azure/azure-functions/functions-run-local?tabs=v4%2Clinux%2Cnode%2Cportal%2Cbash) v4.0.5095+ (if running locally) installed globally for local development
+* [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) latest version installed globally for local development.
 * Install [Visual Studio Code](https://code.visualstudio.com/) and use the following extensions:
   * [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
   * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
@@ -28,20 +27,39 @@ Install the following software:
 
 ## Solution Architecture
 
-The solution uses an Azure Functions app to receive the data which is then sent to Azure Cosmos DB.
+The solution uses an Azure Functions app to receive the data which is then sent to Azure Cosmos DB from the Mongoose SDK.
 
 :::image type="content" source="../media/azure-function-cosmos-db-mongo-api/flow-client-serverless-cosmos-db.png" alt-text="Flow chart showing path of HTTP request to pass data through Azure Functions and store in Azure Cosmos DB.":::
 
+## Open the development environment
+
+1. In a terminal or command prompt, create a new folder on your local system to use as the root of the Azure functions project.
+
+    ```bash
+    mkdir <YOUR-NEW_FOLDER-NAME>
+    ```
+
+1. Change into the new folder.
+
+    ```bash
+    cd <YOUR-NEW_FOLDER-NAME>
+    ```
+
+1. Open this folder in Visual Studio Code.
+
+    ```bash
+    code .
+    ```
+
 ## Sign in to Azure in Visual Studio Code
 
-[!INCLUDE [azure-sign-in](../includes/azure-sign-in-vscode.md)]
+1. Open the Command palette. 
+1. Search for and select `Azure: Sign in`. Complete the step to authenticate to Azure.
 
 ## Create an Azure resource group
 
 A resource group is a region-based collection of resources. By creating a resource group, then creating resources in that group, at the end of the tutorial, you can delete the resource group without having to delete each resource individually.
 
-1. Create a new folder on your local system to use as the root of the Azure functions project.
-1. Open this folder in Visual Studio Code.
 1. In Visual Studio Code, open the **Azure** explorer by selecting the Azure icon in the primary side bar or use the keyboard shortcut (<kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd>).
 1. Find your subscription under **Resources** and select the **+** icon then select **Create Resource Group**.
 1. Use the following table to complete the prompts:
@@ -63,7 +81,7 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
     |--|--|--|
     |Select the folder that will contain your function project|Select the current (default) folder.||
     |Select a language|TypeScript||
-    |Select a TypeScript programming model|Model V4 (Preview)||
+    |Select a TypeScript programming model|Model V4||
     |Select a template for your project's first function|HTTP Trigger|API is invoked with an HTTP request.|
     |Provide a function name|`blogposts`|API route is `/api/blogposts`|
 
@@ -120,37 +138,32 @@ Create a local Azure Functions (serverless) application that contains an [HTTP t
 
     * The function name of `getBlobPosts`, indicating that it's a GET request, will help you isolate the function in the logs.
     * The `route` property is set to `blogposts`, which is part of the default API route provided, `/api/blogposts`.
-    * The `methods` property has been removed and is unnecessary because the `app` object's use of `get` indicates this is a GET request. The method functions are listed below. If you have a different method, you can return to using the `methods` property.
-        * `deleteRequest()`
-        * `get()`
-        * `patch()`
-        * `post()`
-        * `put()`
+    * The `methods` property has been removed and is unnecessary because the `app` object's use of `get` indicates this is a GET request.
 
 ## Start Azurite local storage emulator
 
 Developing functions on your local computer requires either a Storage emulator (free) or an Azure Storage account (paid).
 
-In a separate terminal, start the [Azurite](https://www.npmjs.com/package/azurite) local storage emulator.
+1. In a separate terminal, start the [Azurite](https://www.npmjs.com/package/azurite) local storage emulator.
 
-```bash
-azurite --silent --location ./azurite --debug ./azurite/debug.log
-```
+    ```bash
+    azurite --silent --location ./azurite --debug ./azurite/debug.log
+    ```
 
-This is required to run the Azure Functions locally using a local Azure Storage emulator. The local storage emulator is specified in the `local.settings.json` file with the **AzureWebJobsStorage** property with a value of `UseDevelopmentStorage=true`.
+    This is required to run the Azure Functions locally using a local Azure Storage emulator. 
 
-```json
-{
-    "IsEncrypted": false,
-    "Values": {
-    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "FUNCTIONS_WORKER_RUNTIME": "node",
-    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
+1. Update the local storage emulator is specified in the `local.settings.json` file with the **AzureWebJobsStorage** property to a value of `UseDevelopmentStorage=true`.
+
+    ```json
+    {
+        "IsEncrypted": false,
+        "Values": {
+        "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+        "FUNCTIONS_WORKER_RUNTIME": "node",
+        "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
+        }
     }
-}
-```
-
-The `azurite` subfolder has already been added to your `.gitignore` file.
+    ```
 
 ## Run the local serverless function
 
@@ -158,7 +171,7 @@ Run the Azure Functions project locally to test it before deploying to Azure.
 
 1. In Visual Studio Code, set a break point on the `return` statement, at the end of the **getBlogPosts** function.
 
-1. In Visual Studio Code, press <kbd>F5</kbd>  to launch the debugger and attach to the Azure Functions host.
+1. In Visual Studio Code, press <kbd>F5</kbd>  to launch the debugger and attach to the Azure Functions host. Enable public and private endpoints if you are prompted.
 
     You could also use the **Debug** > **Start Debugging** menu command.
 
@@ -169,29 +182,22 @@ Run the Azure Functions project locally to test it before deploying to Azure.
 
     :::image type="content" source="../media/azure-function-cosmos-db-mongo-api/visual-studio-code-function-extension-get-function-url.png" alt-text="Partial screenshot of Visual Studio Code, with the Azure Function's button named Copy Function URL highlighted." lightbox="../media/azure-function-cosmos-db-mongo-api/visual-studio-code-function-extension-get-function-url.png":::
 
-1. In your browser, paste the URL and select Enter or use the following cURL command in the terminal:
+1. In your browser, paste and submit the URL.
+
+    Alternatively, you can use the following cURL command in the terminal:
 
     ```bash
     curl http://localhost:7071/api/blogposts --verbose
     ```
 
-    The response of an empty array of blog posts is returned as:
+1. When the debugger stops in Visual Studio Code, you can see the empty blogposts in the Variables->Local window. Allow the debugging to continue past that break point by pressing F5 again.
+
+1. The response of an empty array of blog posts is returned as:
 
     ```console
-    *   Trying 127.0.0.1:7071...
-    * Connected to localhost (127.0.0.1) port 7071 (#0)
-    > GET /api/blogposts HTTP/1.1
-    > Host: localhost:7071
-    > User-Agent: curl/7.88.1
-    > Accept: */*
-    >
-    < HTTP/1.1 200 OK
-    < Content-Type: application/json
-    < Date: Mon, 08 May 2023 17:35:24 GMT
-    < Server: Kestrel
-    < Transfer-Encoding: chunked
-    <
-    {"blogposts":[]}* Connection #0 to host localhost left intact
+    {
+        "blogposts": []
+    }
     ```
 
 1. In VS Code, stop the debugger, <kbd>Shift</kbd> + <kbd>F5</kbd>.
@@ -206,11 +212,14 @@ In this section, you create a function app cloud resource and related resources 
 
     |Prompt|Selection|
     |--|--|
+    |**Select subscription**|Select your billing subscription.|
     |**Enter a globally unique name for the function app**| Type a name that is valid in a URL path, such as `first-function`. Postpend 3 characters to make the URL globally unique. The name you type is validated to make sure that it's unique in Azure Functions.|
-    |**Select a runtime stack**|Choose **Node.js 18 LTS** or a more recent version.|
-    |**Select an OS**|Choose **Linux**.|
-    |**Select a resource group for new resources**|Create a new resource group named **azure-tutorial-first-function**. This resource group will eventually have several resources: Azure Function, Azure Storage, and the Cosmos DB for MongoDB API.|
     |**Select a hosting plan**|Choose **Consumption**.|
+    |**Select a location for new resources**|Select a geographical location near you.|
+    |**Select a runtime stack**|Choose the latest LTS version.|
+    |**Select an OS**|Choose **Linux**.|
+    |**Select a hosting plan**|Choose **Consumption**.|
+    |**Select a resource group for new resources**|Select the resource group you created in the [previous step](#create-an-azure-resource-group).|
     |**Select a storage account**|Select **Create a new storage account** and accept the default name.|
     |**Select an Application Insights resource for your app**.|Select **Create new Application Insights resource** and accept the default name.|
 
@@ -224,15 +233,6 @@ In this section, you create a function app cloud resource and related resources 
 1. Choose the Azure icon in the Activity bar, then in the **Resources** area, right-click your function app resource and select the **Deploy to Function App**.
 1. If you're asked if you're sure you want to deploy, select **Deploy**.
 1. After deployment completes, a notification displays with severals options. Select **View Output** to view the results. If you miss the notification, select the bell icon in the lower right corner to see it again.
-
-## Add application setting to cloud app
-
-1. Choose the Azure icon in the Activity bar, then in the **Resources** area, expand your function app resource and right-click select **Application Settings**.
-1. Select **Add New Setting** and add the following setting to enable the Node.js v4 (Preview) programming model.
-
-    |Setting|Value|
-    |--|--|
-    |AzureWebJobsFeatureFlags|EnableWorkerIndexing|
 
 ## Run the remote serverless function
 
