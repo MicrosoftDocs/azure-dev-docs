@@ -81,7 +81,8 @@ export KEY_VAULT_NAME=kv-ejb010424
 az keyvault create \
     --resource-group "${RESOURCE_GROUP_NAME}" \
     --name "${KEY_VAULT_NAME}" \
-    --location eastus
+    --location eastus \
+    --enable-rbac-authorization false
 
 az keyvault secret set \
     --vault-name "${KEY_VAULT_NAME}" \
@@ -111,9 +112,9 @@ This example is based on a sample application available on GitHub. Switch to the
 ```azurecli-interactive
 git clone https://github.com/Azure/azure-microprofile.git
 cd azure-microprofile
-git checkout 20240116
+git checkout 1.0.0-beta.3
 cd integration-tests/open-liberty-sample
-mvn package liberty:run
+mvn clean package liberty:run
 ```
 
 If you see a message about `You are in 'detached HEAD' state`, this message is safe to ignore.
