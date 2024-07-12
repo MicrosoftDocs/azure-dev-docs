@@ -63,7 +63,7 @@ To learn more about this interaction, see the [GitHub Actions documentation](htt
 
 In this example, you use OpenID Connect to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets stored before for the `client-id`, `tenant-id`, and `subscription-id` values. 
 
-The Azure Login Action includes an optional `audience` input parameter that defaults to `api://AzureADTokenExchange`, available for public clouds. If you're using non-public clouds, refer to the [Microsoft Identity Platform](https://review.learn.microsoft.com/identity/microsoft-identity-platform/federated-identity-credentials#first-party-apps) for appropriate values. You can also update this parameter for custom audience values.
+The Azure Login Action includes an optional `audience` input parameter that defaults to `api://AzureADTokenExchange`, available for public clouds. For non-public clouds, update this parameter with the appropriate values. You can also customize this parameter for specific audience values.
 
 ### The workflow sample to only run Azure CLI
 
@@ -139,9 +139,9 @@ jobs:
 ```
 
 
-### Connect to Azure Government and Azure Stack Hub clouds
+### Connect to Azure Government clouds and Azure Stack Hub clouds
 
-To log in to one of the Azure Government clouds, set the optional parameter environment with supported cloud names `AzureUSGovernment` or `AzureChinaCloud`. If this parameter isn't specified, it takes the default value `AzureCloud` and connects to the Azure Public Cloud. 
+To login to one of the Azure Government clouds or Azure Stack, set the parameter `environment` to one of the supported values `AzureUSGovernment`, `AzureChinaCloud`, `AzureGermanCloud`, or `AzureStack`. If this parameter isn't specified, it takes the default value `AzureCloud` and connects to the Azure Public Cloud.
 
 ```yaml       
    - name: Login to Azure US Gov Cloud with both Azure CLI and Azure Powershell
