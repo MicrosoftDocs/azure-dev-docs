@@ -93,7 +93,7 @@
         "python/**/*.md": "bobtabor-msft",
         "terraform/**/*.md": "TomArcherMsft",
         "intro/**/*.md": "mcleanbyron",
-        "ai/**/*.md": "mcleanbyron"
+        "ai/**/*.md": "ms-johnalex"
       },
       "manager": {
         "**/*.md": "mcleans",
@@ -116,7 +116,7 @@
         "python/**/*.md": "rotabor",
         "terraform/**/*.md": "tarcher",
         "intro/**/*.md": "mcleans",
-        "ai/**/*.md": "mcleans"
+        "ai/**/*.md": "johalexander"
       },
       "ms.devlang": {
         "java/**/*.md": "java",
