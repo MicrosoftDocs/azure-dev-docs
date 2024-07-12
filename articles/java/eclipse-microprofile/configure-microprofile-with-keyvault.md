@@ -17,12 +17,12 @@ This tutorial demonstrates how to configure a [MicroProfile](http://microprofile
 - An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/).
 - Azure CLI for Unix-like environments. This article requires only the Bash variant of Azure CLI.
   - [!INCLUDE [azure-cli-login](../../includes/azure-cli-login.md)]
-  - This article requires at least version 2.55.0 of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
+  - This article requires at least version 2.61.0 of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 - Azure Cloud Shell has all of these prerequisites preinstalled. For more, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
 - If you're running the commands in this guide locally (instead of using Azure Cloud Shell), complete the following steps:
   - Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
   - Install a Java SE implementation version 17 or later (for example, [Microsoft build of OpenJDK](/java/openjdk)).
-  - Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
+  - Install [Maven](https://maven.apache.org/download.cgi) 3.9.8 or higher.
   - Install [cURL](https://curl.se/download.html).
 
 ## Connecting MicroProfile Config with Azure Key Vault
