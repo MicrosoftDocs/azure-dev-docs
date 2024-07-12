@@ -25,7 +25,7 @@ To use [Azure Login Action](https://github.com/marketplace/actions/azure-login) 
 
 **Option 1: Microsoft Entra Application**
 
-* Create a Microsoft Entra application with a service principal assigned an appropriate role by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1) or [Azure PowerShell](/entra/identity-platform/howto-authenticate-service-principal-powershell).
+* Create a Microsoft Entra application with a service principal assigned an appropriate role by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1), or [Azure PowerShell](/entra/identity-platform/howto-authenticate-service-principal-powershell).
 * [Configure a federated identity credential on a Microsoft Entra application](/entra/workload-id/workload-identity-federation-create-trust) to trust tokens issued by GitHub Actions to your GitHub repository. 
 
 **Option 2: User-assigned managed identity**
@@ -36,8 +36,10 @@ To use [Azure Login Action](https://github.com/marketplace/actions/azure-login) 
 ## Create GitHub secrets
 
 1. Open your GitHub repository and go to **Settings**.
+::image type="content" source="media/github-repo-settings.png" alt-text="Select settings in GitHub repo.":::
 
 1. Select **Security > Secrets and variables > Actions > New repository secret**.
+::image type="content" source="media/github-repo-secrets.png" alt-text="Select Secrets.":::
 
 1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Microsoft Entra application or User-Assigned Managed Identity for your GitHub secrets:
 

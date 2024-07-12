@@ -11,7 +11,7 @@ ms.custom: github-actions-azure, devx-track-azurecli, devx-track-azurepowershell
 
 # Use the Azure login action with Managed Identity
 
-On a virtual machine configured for [managed identities](/entra/identity/managed-identities-azure-resources/overview) in Azure, you can sign in [Azure login](https://github.com/marketplace/actions/azure-login) using the managed identity. There's no need to manage credentials, as they aren't accessible to you. You can use two types of managed identities: **System-assigned** or **User-assigned**.
+On a virtual machine configured for [managed identities](/entra/identity/managed-identities-azure-resources/overview) in Azure, you can sign in [Azure login](https://github.com/marketplace/actions/azure-login) using the managed identity. There's no need to manage credentials, as they aren't accessible to you. You can use two types of managed identities: [**System-assigned**](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities#system-assigned-managed-identity) or [**User-assigned**](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities#user-assigned-managed-identity).
 
 In this tutorial, you:
 
@@ -40,8 +40,10 @@ In this tutorial, you:
 ## Create GitHub secrets for System-Assigned Managed Identity
 
 1. Open your GitHub repository and go to **Settings**.
+::image type="content" source="media/github-repo-settings.png" alt-text="Select settings in GitHub repo.":::
 
 1. Select **Security > Secrets and variables > Actions > New repository secret**.
+::image type="content" source="media/github-repo-secrets.png" alt-text="Select Secrets.":::
 
 1. Create secrets for `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your User-Assigned Managed Identity for your GitHub secrets:
 
@@ -92,8 +94,10 @@ jobs:
 ## Create GitHub secrets for User-Assigned Managed Identity
 
 1. Open your GitHub repository and go to **Settings**.
+::image type="content" source="media/github-repo-settings.png" alt-text="Select settings in GitHub repo.":::
 
 1. Select **Security > Secrets and variables > Actions > New repository secret**.
+::image type="content" source="media/github-repo-secrets.png" alt-text="Select Secrets.":::
 
 1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your User-Assigned Managed Identity for your GitHub secrets:
 

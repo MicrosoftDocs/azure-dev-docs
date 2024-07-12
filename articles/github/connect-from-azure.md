@@ -23,7 +23,7 @@ The Azure login action supports different ways of authenticating with Azure:
 
 By default, the login action logs in with the Azure CLI and sets up the GitHub Actions runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This property sets up the GitHub Actions runner environment with the Azure PowerShell module.
 
-You can use Azure login to connect to public or sovereign clouds including Azure Government and Azure Stack Hub.
+You can also use Azure login to connect to public or sovereign clouds including Azure Government and Azure Stack Hub.
 
 ## Connect with other Azure services
 

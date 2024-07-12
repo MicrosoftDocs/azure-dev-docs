@@ -24,16 +24,18 @@ In this tutorial, you:
 
 ## Prerequisites 
 
-- Create a Microsoft Entra application with a service principal assigned an appropriate role by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1) or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-12.1.0#create-a-service-principal).
-- Create a new client secret for service principal by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#option-3-create-a-new-client-secret), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-2?branch=main#create-a-service-principal-containing-a-password) or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?view=azps-12.1.0#password-based-authentication).
+- Create a Microsoft Entra application with a service principal assigned an appropriate role by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
+- Create a client secret for your service principal by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#option-3-create-a-new-client-secret), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-2?branch=main#create-a-service-principal-containing-a-password), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps?#password-based-authentication).
 
 ## Create a GitHub secret for the service principal
 
 1. Open your GitHub repository and go to **Settings**.
+::image type="content" source="media/github-repo-settings.png" alt-text="Select settings in GitHub repo.":::
 
 1. Select **Security > Secrets and variables > Actions > New repository secret**.
+::image type="content" source="media/github-repo-secrets.png" alt-text="Select Secrets.":::
 
-1. Create a GitHub Action secret `AZURE_CREDENTIALS` with the value like below:
+1. Create a GitHub Action secret `AZURE_CREDENTIALS` in the following format:
 
   ```json
     {
