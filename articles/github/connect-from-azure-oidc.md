@@ -36,10 +36,10 @@ To use [Azure Login Action](https://github.com/marketplace/actions/azure-login) 
 ## Create GitHub secrets
 
 1. Open your GitHub repository and go to **Settings**.
-::image type="content" source="media/github-repo-settings.png" alt-text="Select settings in GitHub repo.":::
+:::image type="content" source="media/github-repo-settings.png" alt-text="Select settings tab in GitHub repository.":::
 
 1. Select **Security > Secrets and variables > Actions > New repository secret**.
-::image type="content" source="media/github-repo-secrets.png" alt-text="Select Secrets.":::
+:::image type="content" source="media/github-repo-secrets.png" alt-text="Select Security > Secrets and variables > Actions.":::
 
 1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Microsoft Entra application or User-Assigned Managed Identity for your GitHub secrets:
 

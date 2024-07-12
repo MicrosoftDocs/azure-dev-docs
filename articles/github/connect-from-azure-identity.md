@@ -40,10 +40,10 @@ In this tutorial, you:
 ## Create GitHub secrets for System-Assigned Managed Identity
 
 1. Open your GitHub repository and go to **Settings**.
-::image type="content" source="media/github-repo-settings.png" alt-text="Select settings in GitHub repo.":::
+:::image type="content" source="media/github-repo-settings.png" alt-text="Select settings tab in GitHub repository.":::
 
 1. Select **Security > Secrets and variables > Actions > New repository secret**.
-::image type="content" source="media/github-repo-secrets.png" alt-text="Select Secrets.":::
+:::image type="content" source="media/github-repo-secrets.png" alt-text="Select Security > Secrets and variables > Actions.":::
 
 1. Create secrets for `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your User-Assigned Managed Identity for your GitHub secrets:
 
@@ -54,7 +54,7 @@ In this tutorial, you:
 
 ## Set up Azure Login with System-Assigned Managed Identity
 
-In this example, you use the system-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `subscription-id` and `tenant-id` values. 
+In this example, you use the system-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `subscription-id`, and `tenant-id` values. 
 
 
 ```yaml
@@ -94,10 +94,11 @@ jobs:
 ## Create GitHub secrets for User-Assigned Managed Identity
 
 1. Open your GitHub repository and go to **Settings**.
-::image type="content" source="media/github-repo-settings.png" alt-text="Select settings in GitHub repo.":::
+:::image type="content" source="media/github-repo-settings.png" alt-text="Select settings tab in GitHub repository.":::
+
 
 1. Select **Security > Secrets and variables > Actions > New repository secret**.
-::image type="content" source="media/github-repo-secrets.png" alt-text="Select Secrets.":::
+:::image type="content" source="media/github-repo-secrets.png" alt-text="Select Security > Secrets and variables > Actions.":::
 
 1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your User-Assigned Managed Identity for your GitHub secrets:
 
@@ -109,7 +110,7 @@ jobs:
 
 ## Set up Azure Login with User-Assigned Managed Identity
 
-In this example, you use the user-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `client-id`, `subscription-id` and `tenant-id` values. 
+In this example, you use the user-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `client-id`, `subscription-id`, and `tenant-id` values. 
 
 ```yaml
 

@@ -30,10 +30,10 @@ In this tutorial, you:
 ## Create a GitHub secret for the service principal
 
 1. Open your GitHub repository and go to **Settings**.
-::image type="content" source="media/github-repo-settings.png" alt-text="Select settings in GitHub repo.":::
+:::image type="content" source="media/github-repo-settings.png" alt-text="Select settings tab in GitHub repository.":::
 
 1. Select **Security > Secrets and variables > Actions > New repository secret**.
-::image type="content" source="media/github-repo-secrets.png" alt-text="Select Secrets.":::
+:::image type="content" source="media/github-repo-secrets.png" alt-text="Select Security > Secrets and variables > Actions.":::
 
 1. Create a GitHub Action secret `AZURE_CREDENTIALS` in the following format:
 
