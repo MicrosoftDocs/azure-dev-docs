@@ -62,7 +62,7 @@ Learn how to securely authenticate to Azure services from GitHub Actions workflo
     > [!NOTE]
     > For security reasons, we recommend using GitHub Secrets rather than passing values directly to the workflow.
 
-### Set up Azure Login with System-Assigned Managed Identity
+### Set up Azure Login Action with System-Assigned Managed Identity in GitHub Action workflows
 
 In this example, you use the system-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `subscription-id`, and `tenant-id` values. 
 
@@ -72,34 +72,34 @@ name: Run Azure Login with System-assigned Managed Identity
 on: [push]
 
 jobs:
-  build-and-deploy:
+  test:
     runs-on: self-hosted
     steps:
-      - name: Azure login
-        uses: azure/login@v2
-        with:
-          auth-type: IDENTITY
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          enable-AzPSSession: true
+    - name: Azure login
+      uses: azure/login@v2
+      with:
+        auth-type: IDENTITY
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        enable-AzPSSession: true
 
-      # Azure CLI Action only supports linux self-hosted runners for now.
-      # If you want to execute the Azure CLI script on a windows self-hosted runner, you can execute it directly in `run`.
-      - name: Azure CLI script
-        uses: azure/cli@v2
-        with:
-          azcliversion: latest
-          inlineScript: |
-            az account show
-            # You can write your Azure CLI inline scripts here.
+    # Azure CLI Action only supports linux self-hosted runners for now.
+    # If you want to execute the Azure CLI script on a windows self-hosted runner, you can execute it directly in `run`.
+    - name: Azure CLI script
+      uses: azure/cli@v2
+      with:
+        azcliversion: latest
+        inlineScript: |
+          az account show
+          # You can write your Azure CLI inline scripts here.
 
-      - name: Azure PowerShell script
-        uses: azure/powershell@v2
-        with:
-          azPSVersion: latest
-          inlineScript: |
-            Get-AzContext
-            # You can write your Azure PowerShell inline scripts here.
+    - name: Azure PowerShell script
+      uses: azure/powershell@v2
+      with:
+        azPSVersion: latest
+        inlineScript: |
+          Get-AzContext
+          # You can write your Azure PowerShell inline scripts here.
 ```
 
 ## Use the Azure Login Action with User-Assigned Managed Identity
@@ -129,43 +129,42 @@ Learn how to securely authenticate to Azure services from GitHub Actions workflo
     > [!NOTE]
     > For security reasons, we recommend using GitHub Secrets rather than passing values directly to the workflow.
 
-### Set up Azure Login with User-Assigned Managed Identity
+### Set up Azure Login Action with User-Assigned Managed Identity in GitHub Action workflows
 
 In this example, you use the user-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `client-id`, `subscription-id`, and `tenant-id` values. 
 
 ```yaml
-
 name: Run Azure Login with User-assigned Managed Identity
 on: [push]
 
 jobs:
-  build-and-deploy:
+  test:
     runs-on: self-hosted
     steps:
-      - name: Azure login
-        uses: azure/login@v2
-        with:
-          auth-type: IDENTITY
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          enable-AzPSSession: true
+    - name: Azure login
+      uses: azure/login@v2
+      with:
+        auth-type: IDENTITY
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        enable-AzPSSession: true
 
-      # Azure CLI Action only supports linux self-hosted runners for now.
-      # If you want to execute the Azure CLI script on a windows self-hosted runner, you can execute it directly in `run`.
-      - name: Azure CLI script
-        uses: azure/cli@v2
-        with:
-          azcliversion: latest
-          inlineScript: |
-            az account show 
-            # You can write your Azure CLI inline scripts here.
+    # Azure CLI Action only supports linux self-hosted runners for now.
+    # If you want to execute the Azure CLI script on a windows self-hosted runner, you can execute it directly in `run`.
+    - name: Azure CLI script
+      uses: azure/cli@v2
+      with:
+        azcliversion: latest
+        inlineScript: |
+          az account show 
+          # You can write your Azure CLI inline scripts here.
 
-      - name: Azure PowerShell script
-        uses: azure/powershell@v2
-        with:
-          azPSVersion: latest
-          inlineScript: |
-            Get-AzContext
-            # You can write your Azure PowerShell inline scripts here.
+    - name: Azure PowerShell script
+      uses: azure/powershell@v2
+      with:
+        azPSVersion: latest
+        inlineScript: |
+          Get-AzContext
+          # You can write your Azure PowerShell inline scripts here.
 ```

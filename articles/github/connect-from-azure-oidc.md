@@ -55,7 +55,7 @@ To use [Azure Login Action](https://github.com/marketplace/actions/azure-login) 
     > [!NOTE]
     > For security reasons, we recommend using GitHub Secrets rather than passing values directly to the workflow.
 
-## Set up Azure Login with OpenID Connect authentication
+## Set up Azure Login Action with OpenID Connect in GitHub Action workflows
 
 Your GitHub Actions workflow uses OpenID Connect to authenticate with Azure. Once you have a working Azure Login step, you can use the [Azure PowerShell Action](https://github.com/Azure/PowerShell) or [Azure CLI Action](https://github.com/Azure/CLI). You can also use other Azure actions, like [Azure webapp deploy](https://github.com/Azure/webapps-deploy) and [Azure functions](https://github.com/Azure/functions-action).
 
@@ -75,10 +75,9 @@ on: [push]
 
 permissions:
   id-token: write # Require write permission to Fetch an OIDC token.
-  contents: read
       
 jobs: 
-  build-and-deploy:
+  test:
     runs-on: ubuntu-latest
     steps:
     - name: Azure CLI Login
@@ -102,49 +101,54 @@ jobs:
 This workflow authenticates with OpenID Connect and uses both Azure CLI and Azure PowerShell to get the details of the connected subscription.
 
 ```yaml
-name: Run Azure PowerShell Login with OpenID Connect
+name: Run Azure Login with OpenID Connect
 on: [push]
 
 permissions:
-  id-token: write
-  contents: read
+  id-token: write # Require write permission to Fetch an OIDC token.
       
 jobs: 
-  Windows-latest:
-    runs-on: windows-latest
+  test:
+    runs-on: ubuntu-latest
     steps:
-      - name: Azure Login
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
-          enable-AzPSSession: true
-      
-      - name: Azure CLI script
-        uses: azure/cli@v2
-        with:
-          azcliversion: latest
-          inlineScript: |
-            az account show
-            # You can write your Azure CLI inline scripts here.
+    - name: Azure Login
+      uses: azure/login@v2
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
+        enable-AzPSSession: true
+    
+    - name: Azure CLI script
+      uses: azure/cli@v2
+      with:
+        azcliversion: latest
+        inlineScript: |
+          az account show
+          # You can write your Azure CLI inline scripts here.
 
-      - name: Azure PowerShell script
-        uses: azure/powershell@v2
-        with:
-          azPSVersion: latest
-          inlineScript: |
-            Get-AzContext  
-            # You can write your Azure PowerShell inline scripts here.
+    - name: Azure PowerShell script
+      uses: azure/powershell@v2
+      with:
+        azPSVersion: latest
+        inlineScript: |
+          Get-AzContext  
+          # You can write your Azure PowerShell inline scripts here.
 ```
 
 
 ### Connect to Azure Government clouds and Azure Stack Hub clouds
 
-To login to one of the Azure Government clouds or Azure Stack, set the parameter `environment` to one of the supported values `AzureUSGovernment`, `AzureChinaCloud`, `AzureGermanCloud`, or `AzureStack`. If this parameter isn't specified, it takes the default value `AzureCloud` and connects to the Azure Public Cloud.
+To log in to one of the Azure Government clouds or Azure Stack, set the parameter `environment` to one of the supported values `AzureUSGovernment`, `AzureChinaCloud`, `AzureGermanCloud`, or `AzureStack`. If this parameter isn't specified, it takes the default value `AzureCloud` and connects to the Azure Public Cloud.
 
-```yaml       
-   - name: Login to Azure US Gov Cloud with both Azure CLI and Azure Powershell
+```yaml  
+jobs: 
+  test:
+    permissions:
+      id-token: write # Require write permission to Fetch an OIDC token.
+    runs-on: ubuntu-latest
+    steps:
+    - name: Login to Azure US Gov Cloud with both Azure CLI and Azure Powershell
       uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}

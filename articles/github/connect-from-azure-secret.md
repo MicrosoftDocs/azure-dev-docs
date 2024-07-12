@@ -42,11 +42,10 @@ In this tutorial, you:
 
     ```json
       {
-          "clientId": "<GUID>",
-          "clientSecret": "<secret>",
-          "subscriptionId": "<GUID>",
-          "tenantId": "<GUID>",
-          (...)
+          "clientId": "<Client ID>",
+          "clientSecret": "<Client Secret>",
+          "subscriptionId": "<Subscription ID>",
+          "tenantId": "<Tenant ID>",
       }
     ```
 
@@ -57,7 +56,7 @@ In this tutorial, you:
     |subscriptionId    |    Subscription ID     |
     |tenantId   |    Directory (tenant) ID  |
 
-## Set up Azure Login in GitHub Action workflows
+## Set up Azure Login Action with the Service Principal secret in GitHub Action workflows
 
 To authenticate to Azure in GitHub Action workflows using the service principal secret, you need to use the [Azure Login Action](https://github.com/Azure/login).
 
@@ -66,35 +65,32 @@ To authenticate to Azure in GitHub Action workflows using the service principal 
 In this workflow, you authenticate using the Azure Login Action with the service principal details stored in `secrets.AZURE_CREDENTIALS`. For more information about referencing GitHub secrets in a workflow file, see [Using secrets in a workflow](https://docs.github.com/actions/security-guides/using-secrets-in-github-actions#using-secrets-in-a-workflow) in GitHub Docs.
 
 ```yaml
-name: AzureLoginSample
+name: Run Azure Login with the Service Principal secret
 on: [push]
 
 jobs:
-  build-and-deploy:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    - name: Azure Login Action
+      uses: azure/login@v2
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        enable-AzPSSession: true
+    
+    - name: Azure CLI script
+      uses: azure/cli@v2
+      with:
+        azcliversion: latest
+        inlineScript: |
+          az group show --name "<YOUR RESOURCE GROUP>"
+          # You can write your Azure CLI inline scripts here.
 
-      - name: Azure Login Action
-        uses: azure/login@v2
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-          enable-AzPSSession: true
-      
-      - name: Azure CLI script
-        uses: azure/cli@v2
-        with:
-          azcliversion: latest
-          inlineScript: |
-            az group show --name "<YOUR RESOURCE GROUP>"
-            # You can write your Azure CLI inline scripts here.
-
-      - name: Azure PowerShell Action
-        uses: azure/powershell@v2
-        with:
-          azPSVersion: latest
-          inlineScript: |
-            Get-AzResourceGroup -Name "<YOUR RESOURCE GROUP>"
-            # You can write your Azure PowerShell inline scripts here.
+    - name: Azure PowerShell Action
+      uses: azure/powershell@v2
+      with:
+        azPSVersion: latest
+        inlineScript: |
+          Get-AzResourceGroup -Name "<YOUR RESOURCE GROUP>"
+          # You can write your Azure PowerShell inline scripts here.
 ```
