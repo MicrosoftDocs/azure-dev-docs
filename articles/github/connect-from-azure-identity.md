@@ -44,23 +44,23 @@ Learn how to securely authenticate to Azure services from GitHub Actions workflo
 ### Create GitHub secrets for System-Assigned Managed Identity
 
 1. Open your GitHub repository and go to **Settings**.
-  :::image type="content" source="media/github-repo-settings.png" alt-text="Select settings tab in GitHub repository.":::
+    :::image type="content" source="media/github-repo-settings.png" alt-text="Select settings tab in GitHub repository.":::
 
 1. Select **Security > Secrets and variables > Actions > New repository secret**.
-  :::image type="content" source="media/github-repo-secrets.png" alt-text="Select Security > Secrets and variables > Actions.":::
+    :::image type="content" source="media/github-repo-secrets.png" alt-text="Select Security > Secrets and variables > Actions.":::
 
-  > [!NOTE]
-  > To enhance workflow security in public repositories, use [environment secrets](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets) instead of repository secrets. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it.
+    > [!NOTE]
+    > To enhance workflow security in public repositories, use [environment secrets](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets) instead of repository secrets. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it.
 
 1. Create secrets for `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Copy these values from your User-Assigned Managed Identity for your GitHub secrets:
 
-  |GitHub secret  |System-assigned managed identity  |
-  |---------|---------|
-  |AZURE_SUBSCRIPTION_ID     |    Subscription ID     |
-  |AZURE_TENANT_ID    |    Directory (tenant) ID  |
+    |GitHub secret  |System-assigned managed identity  |
+    |---------|---------|
+    |AZURE_SUBSCRIPTION_ID     |    Subscription ID     |
+    |AZURE_TENANT_ID    |    Directory (tenant) ID  |
 
-  > [!NOTE]
-  > For security reasons, we recommend using GitHub Secrets rather than passing values directly to the workflow.
+    > [!NOTE]
+    > For security reasons, we recommend using GitHub Secrets rather than passing values directly to the workflow.
 
 ### Set up Azure Login with System-Assigned Managed Identity
 
@@ -91,16 +91,15 @@ jobs:
           azcliversion: latest
           inlineScript: |
             az account show
-          # You can write your Azure CLI inline scripts here.
+            # You can write your Azure CLI inline scripts here.
 
       - name: Azure PowerShell script
         uses: azure/powershell@v2
         with:
-          azPSVersion: "latest"
+          azPSVersion: latest
           inlineScript: |
             Get-AzContext
-            Get-AzResourceGroup
-          # You can write your Azure PowerShell inline scripts here.
+            # You can write your Azure PowerShell inline scripts here.
 ```
 
 ## Use the Azure Login Action with User-Assigned Managed Identity
@@ -110,25 +109,25 @@ Learn how to securely authenticate to Azure services from GitHub Actions workflo
 ### Create GitHub secrets for User-Assigned Managed Identity
 
 1. Open your GitHub repository and go to **Settings**.
-  :::image type="content" source="media/github-repo-settings.png" alt-text="Select settings tab in GitHub repository.":::
+    :::image type="content" source="media/github-repo-settings.png" alt-text="Select settings tab in GitHub repository.":::
 
 
 1. Select **Security > Secrets and variables > Actions > New repository secret**.
-  :::image type="content" source="media/github-repo-secrets.png" alt-text="Select Security > Secrets and variables > Actions.":::
+    :::image type="content" source="media/github-repo-secrets.png" alt-text="Select Security > Secrets and variables > Actions.":::
 
-  > [!NOTE]
-  > To enhance workflow security in public repositories, use [environment secrets](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets) instead of repository secrets. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it.
+    > [!NOTE]
+    > To enhance workflow security in public repositories, use [environment secrets](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets) instead of repository secrets. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it.
 
 1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Copy these values from your User-Assigned Managed Identity for your GitHub secrets:
 
-  |GitHub secret  |User-assigned managed identity  |
-  |---------|---------|
-  |AZURE_CLIENT_ID     |    Client ID     |
-  |AZURE_SUBSCRIPTION_ID     |    Subscription ID     |
-  |AZURE_TENANT_ID    |    Directory (tenant) ID   |
+    |GitHub secret  |User-assigned managed identity  |
+    |---------|---------|
+    |AZURE_CLIENT_ID     |    Client ID     |
+    |AZURE_SUBSCRIPTION_ID     |    Subscription ID     |
+    |AZURE_TENANT_ID    |    Directory (tenant) ID   |
 
-  > [!NOTE]
-  > For security reasons, we recommend using GitHub Secrets rather than passing values directly to the workflow.
+    > [!NOTE]
+    > For security reasons, we recommend using GitHub Secrets rather than passing values directly to the workflow.
 
 ### Set up Azure Login with User-Assigned Managed Identity
 
@@ -159,14 +158,14 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            az account show
-          # You can write your Azure CLI inline scripts here.
+            az account show 
+            # You can write your Azure CLI inline scripts here.
 
       - name: Azure PowerShell script
         uses: azure/powershell@v2
         with:
-          azPSVersion: "latest"
+          azPSVersion: latest
           inlineScript: |
             Get-AzContext
-          # You can write your Azure PowerShell inline scripts here.
+            # You can write your Azure PowerShell inline scripts here.
 ```

@@ -13,7 +13,7 @@
         href: connect-from-azure.md
       - name: Sign in with OpenID Connect
         href: connect-from-azure-oidc.md
-      - name: Sign in with a managed identity configured on a VM
+      - name: Sign in with a managed identity configured on a virtual machine
         href: connect-from-azure-identity.md
       - name: Sign in with a service principal and secret
         href: connect-from-azure-secret.md

@@ -20,7 +20,7 @@ In this tutorial, you:
 > * Set up Azure Login for service principal secret in GitHub Action workflows
 
 > [!WARNING]
-> Treat your client secrets with care to prevent leaks. Unauthorized disclosure can compromise security. Store secrets securely and share only with authorized personnel.
+> Treat your client secrets with care to prevent leaks. Unauthorized disclosure can compromise security. Store secrets securely and share only with authorized ones.
 
 ## Prerequisites 
 
@@ -30,38 +30,38 @@ In this tutorial, you:
 ## Create a GitHub secret for the service principal
 
 1. Open your GitHub repository and go to **Settings**.
-  :::image type="content" source="media/github-repo-settings.png" alt-text="Select settings tab in GitHub repository.":::
+    :::image type="content" source="media/github-repo-settings.png" alt-text="Select settings tab in GitHub repository.":::
 
 1. Select **Security > Secrets and variables > Actions > New repository secret**.
-  :::image type="content" source="media/github-repo-secrets.png" alt-text="Select Security > Secrets and variables > Actions.":::
+    :::image type="content" source="media/github-repo-secrets.png" alt-text="Select Security > Secrets and variables > Actions.":::
 
-  > [!NOTE]
-  > To enhance workflow security in public repositories, use [environment secrets](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets) instead of repository secrets. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it.
+    > [!NOTE]
+    > To enhance workflow security in public repositories, use [environment secrets](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets) instead of repository secrets. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it.
 
 1. Create a GitHub Action secret `AZURE_CREDENTIALS` in the following format. Copy these values from your service principal.
 
-  ```json
-    {
-        "clientId": "<GUID>",
-        "clientSecret": "<secret>",
-        "subscriptionId": "<GUID>",
-        "tenantId": "<GUID>",
-        (...)
-    }
-  ```
+    ```json
+      {
+          "clientId": "<GUID>",
+          "clientSecret": "<secret>",
+          "subscriptionId": "<GUID>",
+          "tenantId": "<GUID>",
+          (...)
+      }
+    ```
 
-  |GitHub secret  |Service principal  |
-  |---------|---------|
-  |clientId |    Client ID    |
-  |clientSecret    |    Client Secret   |
-  |subscriptionId    |    Subscription ID     |
-  |tenantId   |    Directory (tenant) ID  |
+    |GitHub secret  |Service principal  |
+    |---------|---------|
+    |clientId |    Client ID    |
+    |clientSecret    |    Client Secret   |
+    |subscriptionId    |    Subscription ID     |
+    |tenantId   |    Directory (tenant) ID  |
 
 ## Set up Azure Login in GitHub Action workflows
 
 To authenticate to Azure in GitHub Action workflows using the service principal secret, you need to use the [Azure Login Action](https://github.com/Azure/login).
 
-### Use the Azure Login Action with both Azure CLI Action and Azure Powershell Action
+### Use the Azure Login Action with both Azure CLI Action and Azure PowerShell Action
 
 In this workflow, you authenticate using the Azure Login Action with the service principal details stored in `secrets.AZURE_CREDENTIALS`. For more information about referencing GitHub secrets in a workflow file, see [Using secrets in a workflow](https://docs.github.com/actions/security-guides/using-secrets-in-github-actions#using-secrets-in-a-workflow) in GitHub Docs.
 
@@ -88,12 +88,13 @@ jobs:
           azcliversion: latest
           inlineScript: |
             az group show --name "<YOUR RESOURCE GROUP>"
-      # You can write your Azure CLI inline scripts here.
+            # You can write your Azure CLI inline scripts here.
 
       - name: Azure PowerShell Action
         uses: azure/powershell@v2
         with:
-          inlineScript: Get-AzResourceGroup -Name "<YOUR RESOURCE GROUP>"
           azPSVersion: latest
-      # You can write your Azure PowerShell inline scripts here.
+          inlineScript: |
+            Get-AzResourceGroup -Name "<YOUR RESOURCE GROUP>"
+            # You can write your Azure PowerShell inline scripts here.
 ```

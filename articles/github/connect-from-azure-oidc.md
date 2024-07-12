@@ -36,24 +36,24 @@ To use [Azure Login Action](https://github.com/marketplace/actions/azure-login) 
 ## Create GitHub secrets
 
 1. Open your GitHub repository and go to **Settings**.
-  :::image type="content" source="media/github-repo-settings.png" alt-text="Select settings tab in GitHub repository.":::
+    :::image type="content" source="media/github-repo-settings.png" alt-text="Select settings tab in GitHub repository.":::
 
 1. Select **Security > Secrets and variables > Actions > New repository secret**.
-  :::image type="content" source="media/github-repo-secrets.png" alt-text="Select Security > Secrets and variables > Actions.":::
+    :::image type="content" source="media/github-repo-secrets.png" alt-text="Select Security > Secrets and variables > Actions.":::
 
-  > [!NOTE]
-  > To enhance workflow security in public repositories, use [environment secrets](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets) instead of repository secrets. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it.
+    > [!NOTE]
+    > To enhance workflow security in public repositories, use [environment secrets](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets) instead of repository secrets. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it.
 
 1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Copy these values from your Microsoft Entra application or User-Assigned Managed Identity for your GitHub secrets:
 
-  |GitHub secret  |Microsoft Entra application or User-assigned managed identity  |
-  |---------|---------|
-  |AZURE_CLIENT_ID    |    Client ID    |
-  |AZURE_SUBSCRIPTION_ID     |    Subscription ID     |
-  |AZURE_TENANT_ID    |    Directory (tenant) ID  |
+    |GitHub secret  |Microsoft Entra application or User-assigned managed identity  |
+    |---------|---------|
+    |AZURE_CLIENT_ID    |    Client ID    |
+    |AZURE_SUBSCRIPTION_ID     |    Subscription ID     |
+    |AZURE_TENANT_ID    |    Directory (tenant) ID  |
 
-  > [!NOTE]
-  > For security reasons, we recommend using GitHub Secrets rather than passing values directly to the workflow.
+    > [!NOTE]
+    > For security reasons, we recommend using GitHub Secrets rather than passing values directly to the workflow.
 
 ## Set up Azure Login with OpenID Connect authentication
 
@@ -63,7 +63,7 @@ To learn more about this interaction, see the [GitHub Actions documentation](htt
 
 In this example, you use OpenID Connect to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets stored before for the `client-id`, `tenant-id`, and `subscription-id` values. 
 
-The Azure Login Action includes an optional `audience` input parameter that defaults to `api://AzureADTokenExchange`, available for public clouds. If you're using non-public clouds, refer to the [Microsoft Identity Platform](/identity/microsoft-identity-platform/federated-identity-credentials#first-party-apps) for appropriate values. You can also update this parameter for custom audience values.
+The Azure Login Action includes an optional `audience` input parameter that defaults to `api://AzureADTokenExchange`, available for public clouds. If you're using non-public clouds, refer to the [Microsoft Identity Platform](https://review.learn.microsoft.com/identity/microsoft-identity-platform/federated-identity-credentials#first-party-apps) for appropriate values. You can also update this parameter for custom audience values.
 
 ### The workflow sample to only run Azure CLI
 
@@ -94,7 +94,7 @@ jobs:
         azcliversion: latest
         inlineScript: |
           az account show
-        # You can write your Azure CLI inline scripts here.
+          # You can write your Azure CLI inline scripts here.
 ```
 
 ### The workflow sample to run both Azure CLI and Azure PowerShell
@@ -127,7 +127,7 @@ jobs:
           azcliversion: latest
           inlineScript: |
             az account show
-          # You can write your Azure CLI inline scripts here.
+            # You can write your Azure CLI inline scripts here.
 
       - name: Azure PowerShell script
         uses: azure/powershell@v2
@@ -135,7 +135,7 @@ jobs:
           azPSVersion: latest
           inlineScript: |
             Get-AzContext  
-          # You can write your Azure PowerShell inline scripts here.
+            # You can write your Azure PowerShell inline scripts here.
 ```
 
 

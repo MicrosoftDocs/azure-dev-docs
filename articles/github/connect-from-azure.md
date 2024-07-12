@@ -18,7 +18,7 @@ To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to f
 The Azure Login Action supports different ways of authenticating with Azure:
 
 * [Sign in with OpenID Connect](connect-from-azure-oidc.md) 
-* [Sign in with a managed Identity configured on a VM](connect-from-azure-identity.md)
+* [Sign in with a managed Identity configured on a virtual machine](connect-from-azure-identity.md)
 * [Sign in with a service principal and secret](connect-from-azure-secret.md) (Not recommended)
 
 By default, the Azure Login Action logs in with the Azure CLI and sets up the GitHub Actions runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure Login Action. This property sets up the GitHub Actions runner environment with the Azure PowerShell module.
@@ -33,7 +33,7 @@ The following articles provide details on connecting from GitHub to Azure and ot
 |-|-|
 | Microsoft Entra ID | [Sign in to GitHub Enterprise with Microsoft Entra ID (single sign-on)](/azure/active-directory/saas-apps/github-tutorial)
 | Power BI | [Connect Power BI with GitHub](/power-bi/service-connect-to-github)
-| GitHub Connectors | [GitHub connector for Azure Logic Apps, Power Automate and Power Apps](/connectors/github/)
+| GitHub Connectors | [GitHub connector for Azure Logic Apps, Power Automate, and Power Apps](/connectors/github/)
 | Azure Databricks | [Use GitHub as version control for notebooks](/azure/databricks/notebooks/github-version-control) 
 
 > [!div class="nextstepaction"]
