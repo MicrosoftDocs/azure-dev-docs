@@ -11,17 +11,17 @@ ms.custom: github-actions-azure, devx-track-azurecli, devx-track-azurepowershell
 
 # Use GitHub Actions to connect to Azure
 
-Learn how to use [Azure login](https://github.com/Azure/login) with either [Azure PowerShell](https://github.com/Azure/PowerShell) or [Azure CLI](https://github.com/Azure/CLI) to interact with your Azure resources.
+Learn how to use [Azure Login Action](https://github.com/Azure/login) with either [Azure PowerShell Action](https://github.com/Azure/PowerShell) or [Azure CLI Action](https://github.com/Azure/CLI) to interact with your Azure resources.
 
-To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to first log in with the [Azure login](https://github.com/marketplace/actions/azure-login) action.
+To use Azure PowerShell or Azure CLI in a GitHub Actions workflow, you need to first log in with the [Azure Login Action](https://github.com/marketplace/actions/azure-login) action.
 
-The Azure login action supports different ways of authenticating with Azure:
+The Azure Login Action supports different ways of authenticating with Azure:
 
-* [OpenID Connect](connect-from-azure-oidc.md) 
-* [Managed Identity](connect-from-azure-identity.md)
-* [Service principal with secrets](connect-from-azure-secret.md) (Not recommended)
+* [Sign in with OpenID Connect](connect-from-azure-oidc.md) 
+* [Sign in with a managed Identity configured on a VM](connect-from-azure-identity.md)
+* [Sign in with a service principal and secret](connect-from-azure-secret.md) (Not recommended)
 
-By default, the login action logs in with the Azure CLI and sets up the GitHub Actions runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure login action. This property sets up the GitHub Actions runner environment with the Azure PowerShell module.
+By default, the Azure Login Action logs in with the Azure CLI and sets up the GitHub Actions runner environment for Azure CLI. You can use Azure PowerShell with `enable-AzPSSession` property of the Azure Login Action. This property sets up the GitHub Actions runner environment with the Azure PowerShell module.
 
 You can also use Azure login to connect to public or sovereign clouds including Azure Government and Azure Stack Hub.
 
