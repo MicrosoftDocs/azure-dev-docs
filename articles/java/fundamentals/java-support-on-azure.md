@@ -10,14 +10,14 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Java support on Azure and Azure Stack
 
-Java developers can build, integrate, and deploy applications to a variety of Azure and Azure Stack services. Developers are free to use the distribution and version of Java of their choice for most Microsoft Azure services. Certain services will provide and manage a Java runtime on behalf of customers. This document will help you understand which services provide a Java runtime by default, and which services do not.
+Java developers can build, integrate, and deploy applications to various Azure and Azure Stack services. Developers are free to use the distribution and version of the Java Development Kit (JDK) of their choice for most Microsoft Azure services. Microsoft provides and manages the Java runtime for certain services on behalf of customers. This document helps you understand which services provide a Java runtime by default, and which services you can bring your own.
 
 > [!IMPORTANT]
 > **Update June 30th, 2021:** Zulu for Azure no longer receives updates or support since January 1st, 2022. Azure services have transitioned to [Microsoft Build of OpenJDK](/java/openjdk/install) for JDK 11 and [Eclipse Temurin](https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot) for JDK 8. For more information, see [End of Updates, Support and Availability of the Zulu for Azure builds of OpenJDK](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/).
 
 ## Supported Java versions and update schedule
 
-See [Microsoft Build of OpenJDK Support Policy](https://learn.microsoft.com/java/openjdk/support) for more information.
+For more information, see [Microsoft Build of OpenJDK Support Policy](https://learn.microsoft.com/java/openjdk/support).
 
 See specific Azure service documentation for their availability of versions of Java, and support roadmap.
 
@@ -38,11 +38,11 @@ For the following services, Microsoft manages the Java runtime or provides one b
 * Azure Managed Instance for Apache Cassandra
 * Azure Cosmos DB for Apache Cassandra
 
-For some of the services above, you may be able to change the Java runtime from the one provided by default. For more information, see the documentation of the service.
+For some of the services, you might be able to change the Java runtime from the one provided by default. For more information, see the documentation of the service.
 
 ### OpenJDK distributions deployed
 
-Microsoft may use 3rd-party Java distributions and binaries for a range of Java versions on some of its services - namely [Eclipse Temurin][temurin-link]. Microsoft will keep those 3rd-party distributions up to date for as long as there are updates available. For all other cases, Microsoft builds, supports, and deploys the [Microsoft Build of OpenJDK][msjdk-link].
+Microsoft might use 3rd-party Java distributions and binaries for a range of Java versions on some of its services - namely [Eclipse Temurin][temurin-link]. Microsoft keeps those 3rd-party distributions up to date for as long as there are updates available. For all other cases, Microsoft builds, supports, and deploys the [Microsoft Build of OpenJDK][msjdk-link].
 
 ## Services without a managed or default Java runtime
 
