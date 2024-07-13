@@ -7,7 +7,6 @@ ms.date: 07/13/2024
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-extended-java
 ---
-
 # Java support on Azure and Azure Stack
 
 Java developers can build, integrate, and deploy applications to various Azure and Azure Stack services. Developers are free to use the distribution and version of the Java Development Kit (JDK) of their choice for most Microsoft Azure services. Microsoft provides and manages the Java runtime for certain services on behalf of customers. This document helps you understand which services provide a Java runtime by default, and which services you can bring your own.
@@ -17,7 +16,7 @@ Java developers can build, integrate, and deploy applications to various Azure a
 
 ## Supported Java versions and update schedule
 
-For more information, see [Microsoft Build of OpenJDK Support Policy](https://learn.microsoft.com/java/openjdk/support).
+For more information, see [Microsoft Build of OpenJDK Support Policy](/java/openjdk/support).
 
 See specific Azure service documentation for their availability of versions of Java, and support roadmap.
 
