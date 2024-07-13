@@ -9,7 +9,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 ---
 # Java support on Azure and Azure Stack
 
-Java developers can build, integrate, and deploy applications to various Azure and Azure Stack services. Developers are free to use the distribution and version of the Java Development Kit (JDK) of their choice for most Microsoft Azure services. Microsoft provides and manages the Java runtime for certain services on behalf of customers. This document helps you understand which services provide a Java runtime by default, and which services you can bring your own.
+Java developers can build, integrate, and deploy applications to various Azure and Azure Stack services. Developers are free to use the distribution and version of the Java Development Kit (JDK) of their choice for most Microsoft Azure services. Microsoft provides and manages the Java runtime for certain services on behalf of customers. This document helps you understand which services provide a Java runtime by default, and which services you can bring your own Java runtime to.
 
 > [!IMPORTANT]
 > **Update June 30th, 2021:** Zulu for Azure no longer receives updates or support since January 1st, 2022. Azure services have transitioned to [Microsoft Build of OpenJDK](/java/openjdk/install) for JDK 11 and [Eclipse Temurin](https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot) for JDK 8. For more information, see [End of Updates, Support and Availability of the Zulu for Azure builds of OpenJDK](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/).
@@ -18,7 +18,7 @@ Java developers can build, integrate, and deploy applications to various Azure a
 
 For more information, see [Microsoft Build of OpenJDK Support Policy](/java/openjdk/support).
 
-See specific Azure service documentation for their availability of versions of Java, and support roadmap.
+For information about the Java version availability for specific Azure services, see the service documentation.
 
 ## Services with a managed or default Java runtime
 
@@ -26,7 +26,7 @@ For the following services, Microsoft manages the Java runtime or provides one b
 
 * Azure App Service on Windows
 * Azure App Service on Linux
-* Azure Container Apps (through [code to cloud](/azure/container-apps/deploy-artifact?tabs=bash))
+* Azure Container Apps, through [code to cloud](/azure/container-apps/deploy-artifact?tabs=bash)
 * Azure Functions
 * Azure Spring Apps
 * Azure Service Fabric
