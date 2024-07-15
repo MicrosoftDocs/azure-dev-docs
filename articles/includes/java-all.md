@@ -439,9 +439,9 @@
 | Spring Cloud Azure Starter - OpenAI | Maven [4.9.0-beta.1](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-openai/4.9.0-beta.1/jar/) |  |  |
 | Spring Cloud Azure Stream Binder Test | Maven [4.0.0-beta.2](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-stream-binder-test/4.0.0-beta.2/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-dapr/1.0.0/jar/) |  |  |
-| Unknown Display Name | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.microprofile/azure-microprofile-bom/1.0.0-beta.2/jar/) |  |  |
-| Unknown Display Name | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.microprofile/azure-microprofile-config-keyvault/1.0.0-beta.2/jar/) |  |  |
-| Unknown Display Name | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure.microprofile/azure-microprofile-parent/1.0.0-beta.2/jar/) |  |  |
+| Unknown Display Name | Maven [1.0.0-beta.3](https://search.maven.org/artifact/com.azure.microprofile/azure-microprofile-bom/1.0.0-beta.3/jar/) |  |  |
+| Unknown Display Name | Maven [1.0.0-beta.3](https://search.maven.org/artifact/com.azure.microprofile/azure-microprofile-config-keyvault/1.0.0-beta.3/jar/) |  |  |
+| Unknown Display Name | Maven [1.0.0-beta.3](https://search.maven.org/artifact/com.azure.microprofile/azure-microprofile-parent/1.0.0-beta.3/jar/) |  |  |
 | Unknown Display Name | Maven [0.46.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-keyvault-lib/0.46.0/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.4](https://search.maven.org/artifact/com.microsoft.azure/azureml-fs-scala-impl/1.0.4/jar/) |  |  |
 | Unknown Display Name | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/flink-connector-kusto/1.0.0/jar/) |  |  |
