@@ -13,7 +13,7 @@ ms.custom: github-actions-azure, devx-track-azurecli, devx-track-azurepowershell
 
 On a virtual machine configured for [managed identities](/entra/identity/managed-identities-azure-resources/overview) in Azure, you can sign in [Azure login](https://github.com/marketplace/actions/azure-login) using the managed identity. You don't need to manage credentials, as they aren't accessible to you. There are two types of managed identities for you to choose: [**System-assigned managed identities**](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities#system-assigned-managed-identity) or [**User-assigned managed identities**](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities#user-assigned-managed-identity).
 
-In this tutorial, you:
+In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > * Create GitHub secrets for System/User-Assigned Managed Identity

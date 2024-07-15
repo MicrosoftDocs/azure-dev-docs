@@ -13,7 +13,7 @@ ms.custom: github-actions-azure, devx-track-azurecli, devx-track-azurepowershell
 
 Learn how to create a service principal with a client secret and securely authenticate to Azure services from GitHub Actions workflows using [Azure Login Action](https://github.com/marketplace/actions/azure-login). 
 
-In this tutorial, you:
+In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > * Create a GitHub secret for the service principal

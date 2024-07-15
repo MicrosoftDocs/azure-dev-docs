@@ -13,7 +13,7 @@ ms.custom: github-actions-azure, devx-track-azurecli, devx-track-azurepowershell
 
 Learn how to securely authenticate to Azure services from GitHub Actions workflows using [Azure Login Action](https://github.com/marketplace/actions/azure-login) with [OpenID Connect (OIDC)](https://www.microsoft.com/security/business/security-101/what-is-openid-connect-oidc). 
 
-In this tutorial, you:
+In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > * Create GitHub secrets for the credentials of a Microsoft Entra application/user-assigned managed identity
@@ -139,7 +139,7 @@ jobs:
 
 ### Connect to Azure Government clouds and Azure Stack Hub clouds
 
-To log in to one of the Azure Government clouds or Azure Stack, set the parameter `environment` to one of the supported values `AzureUSGovernment`, `AzureChinaCloud`, `AzureGermanCloud`, or `AzureStack`. If this parameter isn't specified, it takes the default value `AzureCloud` and connects to the Azure Public Cloud.
+To log in to one of the Azure Government clouds or Azure Stack, set the parameter `environment` to one of the following supported values: `AzureUSGovernment`, `AzureChinaCloud`, `AzureGermanCloud`, or `AzureStack`. If this parameter isn't specified, it takes the default value `AzureCloud` and connects to the Azure Public Cloud.
 
 ```yaml  
 jobs: 
