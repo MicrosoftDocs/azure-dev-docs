@@ -13,7 +13,7 @@ ms.custom: github-actions-azure, devx-track-azurecli, devx-track-azurepowershell
 
 Learn how to securely authenticate to Azure services from GitHub Actions workflows using [Azure Login Action](https://github.com/marketplace/actions/azure-login) with [OpenID Connect (OIDC)](https://www.microsoft.com/security/business/security-101/what-is-openid-connect-oidc). 
 
-In this tutorial, you will learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create GitHub secrets for the credentials of a Microsoft Entra application/user-assigned managed identity
