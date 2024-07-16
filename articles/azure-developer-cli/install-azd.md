@@ -267,7 +267,7 @@ When working with an out of date version of `azd`, you'll see a warning to upgra
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart - Select and deploy an `azd` template](./get-started.md)
+> [Quickstart - Select and deploy an azd template](./get-started.md)
 > [!div class="nextstepaction"]
 > [What are Azure Developer CLI tempaltes?](./azd-templates.md)
 > [!div class="nextstepaction"]
