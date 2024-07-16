@@ -1361,6 +1361,10 @@
       "redirect_url": "/azure/application-gateway/quick-create-terraform"
     },
     {
+      "source_path":"articles/terraform/create-base-template-using-yeoman.md",
+      "redirect_url": "/azure/developer/terraform"
+    },
+    {
       "source_path":"articles/python/quickstarts-cognitive-services.md",
       "redirect_url": "/azure/python/quickstarts-ai-services"        
     },
