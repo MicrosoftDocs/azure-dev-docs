@@ -150,6 +150,8 @@ items:
       href: spring-integration-support.md
     - name: Spring Cloud Stream support
       href: spring-cloud-stream-support.md
+    - name: Spring Messaging support
+      href: spring-messaging-support.md
     - name: Spring JMS support
       items:
       - name: Use Azure Service Bus with JMS

@@ -1,12 +1,12 @@
 ---
 author: KarlErickson
 ms.author: haiche
-ms.date: 04/27/2023
+ms.date: 06/21/2024
 ---
 
 1. Use the following steps to create a Windows 10 VM from the Azure portal:
 
-   1. Open the resource group `abc1110rg` from the Azure portal.
+   1. Open the resource group you created before in the Azure portal.
    1. Select **Create** to create the resource.
    1. Select **Compute**, search for *windows 10*, and then select **Microsoft Windows 10**.
    1. Select the plan that you want, and then select **Create**.
@@ -20,7 +20,7 @@ ms.date: 04/27/2023
 
    It takes a few minutes to create the VM and supporting resources.
 
-   After the deployment finishes, install the X server and use it to configure WebLogic Server on the Oracle Linux machines by using a graphical interface.
+   After the deployment finishes, install the X server and use it to configure the application server on the Linux machines by using a graphical interface.
 
 1. Use the following steps to install and launch the X server:
 

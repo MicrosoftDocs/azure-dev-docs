@@ -25,7 +25,7 @@ In this tutorial, you learn how to do the following tasks:
 > - Expose the application to the public internet via Azure Application Gateway.
 > - Validate the successful configuration.
 
-If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy a JBoss EAP cluster on Red Hat Linux VMs using the Azure portal](/azure/developer/java/ee/jboss-eap-cluster-azure-vms).
+If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy a JBoss EAP cluster on Azure Virtual Machines (VMs)](/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm).
 
 If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing JBoss EAP on Azure solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
@@ -38,7 +38,7 @@ If you're interested in providing feedback or working closely on your migration 
 - [Install Azure CLI version 2.51.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
-- Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for Red Hat JBoss EAP. This entitlement lets the fully automated solution (in [Deploy JBoss EAP Server on an Azure virtual machine using the Azure portal](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)) install the Red Hat tested and certified JBoss EAP version.
+- Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for Red Hat JBoss EAP. This entitlement lets the fully automated solution (in [Quickstart: Deploy a JBoss EAP cluster on Azure Virtual Machines (VMs)](/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)) install the Red Hat tested and certified JBoss EAP version.
   > [!NOTE]
   > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Save aside the account details, which is used as the *RHSM username* and *RHSM password* in the next section.
 - If you're already registered, or after you complete registration, you can locate the necessary credentials (*Pool IDs*) by using the following steps. These *Pool IDs* are also used as the *RHSM Pool ID with EAP entitlement* in subsequent steps.
@@ -80,12 +80,12 @@ az login
 
 ### Create a resource group
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create). Resource group names must be globally unique within a subscription. For this reason, consider prepending some unique identifier to any names you create that must be unique. A useful technique is to use your initials followed by today's date in `mmdd` format. This example creates a resource group named `abc1110rg` in the `eastus` location:
+Create a resource group with [az group create](/cli/azure/group#az-group-create). Resource group names must be globally unique within a subscription. For this reason, consider prepending some unique identifier to any names you create that must be unique. A useful technique is to use your initials followed by today's date in `mmdd` format. This example creates a resource group named `abc1110rg` in the `westus` location:
 
 ```azurecli
 az group create \
     --name abc1110rg \
-    --location eastus
+    --location westus
 ```
 
 ### Create a virtual network
@@ -290,7 +290,7 @@ Use the following steps to install:
 
    ```bash
    export RHSM_USER=<your-rhsm-username>
-   export RHSM_PASSWORD="<your-rhsm-password>"
+   export RHSM_PASSWORD='<your-rhsm-password>'
    export EAP_POOL=<your-rhsm-pool-ID>
 
    sudo subscription-manager register --username ${RHSM_USER} --password ${RHSM_PASSWORD} --force
@@ -508,7 +508,7 @@ export CONTAINER_NAME=azurepingcontainerabc1110rg
 az storage account create \
     --resource-group abc1110rg \
     --name ${STORAGE_ACCOUNT_NAME} \
-    --location eastus \
+    --location westus \
     --sku Standard_LRS \
     --kind StorageV2 \
     --access-tier Hot
@@ -842,7 +842,7 @@ az network application-gateway create \
     --resource-group abc1110rg \
     --name myAppGateway \
     --public-ip-address myAGPublicIPAddress \
-    --location eastus \
+    --location westus \
     --capacity 2 \
     --http-settings-port 8080 \
     --http-settings-protocol Http \
@@ -875,46 +875,49 @@ Use the following steps to create the database instance:
 
    DB_SERVER_NAME="jbossdb$(date +%s)"
    echo "DB_SERVER_NAME=${DB_SERVER_NAME}"
-   az postgres server create \
+   az postgres flexible-server create \
        --resource-group abc1110rg \
        --name ${DB_SERVER_NAME}  \
-       --location eastus \
+       --location westus \
        --admin-user ${DATA_BASE_USER} \
-       --ssl-enforcement Enabled \
        --admin-password ${DATA_BASE_PASSWORD} \
-       --sku-name GP_Gen5_2
+       --version 16 \
+       --public-access 0.0.0.0 \
+       --tier Burstable \
+       --sku-name Standard_B1ms \
+       --yes
    ```
 
 1. Use the following commands to allow access from Azure services:
 
    ```azurecli
    # Save aside the following names for later use
-   export fullyQualifiedDomainName=$(az postgres server show \
+   export fullyQualifiedDomainName=$(az postgres flexible-server show \
        --resource-group abc1110rg \
        --name ${DB_SERVER_NAME} \
        --query "fullyQualifiedDomainName" \
        --output tsv)
-   export name=$(az postgres server show \
+   export name=$(az postgres flexible-server show \
        --resource-group abc1110rg \
        --name ${DB_SERVER_NAME} \
        --query "name" \
        --output tsv)
 
-   az postgres server firewall-rule create \
+   az postgres flexible-server firewall-rule create \
        --resource-group abc1110rg \
-       --server ${DB_SERVER_NAME} \
-       --name "AllowAllAzureIps" \
-       --start-ip-address 0.0.0.0 \
-       --end-ip-address 0.0.0.0
+       --name ${DB_SERVER_NAME} \
+       --rule-name "AllowAllWindowsAzureIps" \
+       --start-ip-address "0.0.0.0" \
+       --end-ip-address "0.0.0.0"
    ```
 
 1. Use the following command to create the database:
 
    ```azurecli
-   az postgres db create \
+   az postgres flexible-server db create \
        --resource-group abc1110rg \
-       --server ${DB_SERVER_NAME} \
-       --name testdb
+       --server-name ${DB_SERVER_NAME} \
+       --database-name testdb
    ```
 
 ### Install driver
@@ -958,7 +961,7 @@ You started the database server, obtained the necessary resource ID, and install
    ```bash
    # Replace the following values with your own
    export DATA_SOURCE_CONNECTION_STRING=jdbc:postgresql://<database-fully-qualified-domain-name>:5432/testdb
-   export DATA_BASE_USER=jboss@<database-server-name>
+   export DATA_BASE_USER=jboss
    export JDBC_DATA_SOURCE_NAME=dataSource-postgresql
    export JDBC_JNDI_NAME=java:jboss/datasources/JavaEECafeDB
    export DATA_BASE_PASSWORD=Secret123456

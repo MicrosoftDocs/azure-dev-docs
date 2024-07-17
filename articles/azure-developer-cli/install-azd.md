@@ -1,6 +1,6 @@
 ---
 title: Install the Azure Developer CLI
-description: Install the Azure Developer CLI (azd) with all the pre-requisites for your local environment.
+description: Install the Azure Developer CLI (azd) with all the prerequisites for your local environment.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 12/11/2022
@@ -78,7 +78,7 @@ powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' 
 
 ### Uninstall `azd`
 
-Once you've installed the MSI versions, using the uninstall script to remove `azd` will leave some items behind on the machine. **Instead, for version 0.5.0-beta.1 and later:** 
+Using the uninstall script to remove `azd` leaves some items behind on the machine. **Instead, for version 0.5.0-beta.1 and later:** 
 
 1. Search for **Add or remove programs** in Windows.
 
@@ -104,7 +104,7 @@ brew tap azure/azd && brew install azd
 
 The `brew tap azure/azd` command only needs to be run once to configure the tap in `brew`.
 
-If using `brew` to upgrade `azd` from a version not installed using `brew`, remove the existing version of `azd` using the uninstall script (if installed to the default location) or by deleting the `azd` binary manually. This will automatically install the correct version.
+If you're using `brew` to upgrade `azd` from a version not installed using `brew`, remove the existing version of `azd` using the uninstall script (if installed to the default location) or by deleting the `azd` binary manually. This will automatically install the correct version.
 
 ### Update `azd`
 ```bash
@@ -155,7 +155,7 @@ curl -fsSL https://aka.ms/install-azd.sh | bash
 curl -fsSL https://aka.ms/install-azd.sh | bash
 ```
 
-When you install `azd`, the following tools are installed within `azd` scope (meaning they are not installed globally) and are removed if azd is uninstalled:
+When you install `azd`, the following tools are installed within `azd` scope (meaning they aren't installed globally) and are removed if azd is uninstalled:
 
 - The [Git CLI](https://cli.github.com/)
 - The [Bicep CLI](/azure/azure-resource-manager/bicep/install)
@@ -211,7 +211,7 @@ yum remove -y azd
 
 ::: zone pivot="env-dev-container"
 
-## Pre-requisites
+## Prerequisites
 
 Before you get started using `azd`, ensure you have:
 
@@ -244,15 +244,31 @@ A [dev container](https://code.visualstudio.com/docs/remote/containers) is a Doc
 
 ::: zone-end
 
-## Updating the Azure Developer CLI
+## Verify your installation
 
-When working with an out of date version of `azd`, you will see a warning to upgrade to the latest version. Follow the instructions in the warning to update to the latest version.
+Verify your `azd` installation completed successfully by running the `azd version` command in a terminal:
+
+```azdeveloper
+azd version
+```
+
+`azd` prints the current version:
+
+```output
+azd version 1.9.5 (commit cd2b7af9995d358aab33c782614f801ac1997dde)
+```
+
+## Update the Azure Developer CLI
+
+When working with an out of date version of `azd`, you'll see a warning to upgrade to the latest version. Follow the instructions in the warning to update to the latest version.
 
 [!INCLUDE [request-help](includes/request-help.md)]
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Choose an azd template](./azd-templates.md)
+> [Quickstart - Select and deploy an azd template](./get-started.md)
+> [!div class="nextstepaction"]
+> [What are Azure Developer CLI templates?](./azd-templates.md)
 > [!div class="nextstepaction"]
 > [Azure Developer CLI FAQ](./faq.yml)

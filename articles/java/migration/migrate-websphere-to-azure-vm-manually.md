@@ -4,7 +4,7 @@ description: Get step-by-step guidance to install IBM WebSphere Application Serv
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
-ms.date: 05/29/2024
+ms.date: 06/21/2024
 recommendations: false
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-was-vm, devx-track-javaee-was, devx-track-javaee-websphere, migration-java, linux-related-content
 ---
@@ -167,7 +167,7 @@ export VM_URN="ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2023-03-27-twas-clust
 ```
 
 ```powershell
-$Env:ADMIN_OS_DISK_ID="ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2023-03-27-twas-cluster-base-image:2023-03-27-twas-cluster-base-image:latest"
+$Env:VM_URN="ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops:2023-03-27-twas-cluster-base-image:2023-03-27-twas-cluster-base-image:latest"
 ```
 
 ### [WAS ND V85](#tab/was-nd-v85)
@@ -284,7 +284,7 @@ Use the following steps to install the required dependencies to allow the connec
 
 1. Use the following steps to get the private IP address of `adminVM`:
 
-   1. In the Azure portal, select the resource group `abc1110rg`.
+   1. In the Azure portal, select the resource group you created before.
    1. In the list of resources, select `adminVM`.
    1. On the overview pane, select **Properties**.
    1. In the **Networking** section, copy the value of **Private IP address**. In this example, the value is `192.168.0.4`.
@@ -320,7 +320,7 @@ Later, you continue to mount the data disk on `adminVM`, so keep this terminal o
 
 ### [WAS ND V9](#tab/was-nd-v9)
 
-This step is already performed for you when you use the VM base image. Set the following environment variables in the shell on `adminVM`.
+This step is already performed for you when you use the VM base image.
 
 ### [WAS ND V85](#tab/was-nd-v85)
 
