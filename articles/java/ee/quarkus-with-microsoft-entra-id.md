@@ -62,7 +62,7 @@ First, create two users in your Microsoft Entra tenant by following steps in [Ho
 Next, register an application by following steps in [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app). Use the following directions as you go through the article, then return to this article after you register and configure the application.
 
 1. When you reach the section [Register an application](/entra/identity-platform/quickstart-register-app#register-an-application):
-   1. Select **Accounts in this organizational directory only (Personal only - Single tenant)** for **Supported account types** in this quickstart.
+   1. Select **Accounts in this organizational directory only (Default directory only - Single tenant)** for **Supported account types** in this quickstart.
    1. When registration finishes, write down the **Application (client) ID** and **Directory (tenant) ID**. You use these values later in the Quarkus app configuration.
 
 1. When you reach the section [Add a redirect URI](/entra/identity-platform/quickstart-register-app#add-a-redirect-uri):
@@ -75,27 +75,27 @@ Next, register an application by following steps in [Quickstart: Register an app
 
 Then, add app roles to your application by following steps in [Add app roles to your application and receive them in the token](/entra/identity-platform/howto-add-app-roles-in-apps). You just need the sections [Declare roles for an application](/entra/identity-platform/howto-add-app-roles-in-apps#declare-roles-for-an-application) and [Assign users and groups to Microsoft Entra roles](/entra/identity-platform/howto-add-app-roles-in-apps#assign-users-and-groups-to-microsoft-entra-roles). Use the following directions as you go through the article, then return to this article after you declare roles for the application.
 
-1. When you reach the section [Declare roles for an application](/entra/identity-platform/howto-add-app-roles-in-apps#declare-roles-for-an-application), in **App roles UI**:
-   1. Enter `Admin` for **Display name**.
-   1. Select **Users/Groups** for **Allowed member types**.
-   1. Enter `admin` for **Value**.
-   1. Enter `Admin` for **Description**.
-   1. Select **Do you want to enable this app role?**.
+1. When you reach the section [Declare roles for an application](/entra/identity-platform/howto-add-app-roles-in-apps#declare-roles-for-an-application), use the **App roles** UI to create roles for the administrator and the regular user.
 
-      :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-admin-role.png" alt-text="Screenshot of creating a role used by admin." lightbox="media/quarkus-with-microsoft-entra-id/create-admin-role.png":::
+   1. Create an administrator user role.
+      1. Enter `Admin` for **Display name**.
+      1. Select **Users/Groups** for **Allowed member types**.
+      1. Enter `admin` for **Value**.
+      1. Enter `Admin` for **Description**.
+      1. Select **Do you want to enable this app role?**.
 
-   1. Select **Apply**. Wait until the role is created.
+         :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-admin-role.png" alt-text="Screenshot of creating a role used by admin." lightbox="media/quarkus-with-microsoft-entra-id/create-admin-role.png":::
 
-   1. Repeat the steps to create a second role.
-   1. Enter `User` for **Display name**.
-   1. Select **Users/Groups** for **Allowed member types**.
-   1. Enter `user` for **Value**.
-   1. Enter `User` for **Description**.
-   1. Select **Do you want to enable this app role?**.
+      1. Select **Apply**. Wait until the role is created.
+      
+   1. Create a regular user role.
+      1. Enter `User` for **Display name**.
+      1. Select **Users/Groups** for **Allowed member types**.
+      1. Enter `user` for **Value**.
+      1. Enter `User` for **Description**.
+      1. Select **Do you want to enable this app role?**.
 
-      :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-user-role.png" alt-text="Screenshot of creating a role used by regular user." lightbox="media/quarkus-with-microsoft-entra-id/create-user-role.png":::
-
-   The first role is used by the administrator, and the second role is used by the regular user.
+         :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-user-role.png" alt-text="Screenshot of creating a role used by regular user." lightbox="media/quarkus-with-microsoft-entra-id/create-user-role.png":::
 
 1. When you reach the section [Assign users and groups to Microsoft Entra roles](/entra/identity-platform/howto-add-app-roles-in-apps#assign-users-and-groups-to-microsoft-entra-roles):
    1. Select **Add user/group**. In **Add Assignment** pane, select user **Admin** for **Users** and select role **Admin** for **Select a role**. Select **Assign**. Wait until the application assignment succeeded. You may need to scroll the table sideways to see the **Role assigned** column.
@@ -157,11 +157,11 @@ From the [welcome page](https://github.com/Azure-Samples/quarkus-azure/blob/main
 </html>
 ```
 
-Both links `/profile/user` and `/profile/admin` point to the [profile page resource](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/no/kantega/ProfilePage.java), which is accessible only to authenticated users by using the `@Authenticated` annotation from package `io.quarkus.security`. The `@Authenticated` annotation specifies that only authenticated users can access the `/profile` path.
+Both links `/profile/user` and `/profile/admin` point to the [profile page resource](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/no/kantega/ProfilePage.java), which is accessible only to authenticated users by using the `@RolesAllowed("**")` annotation from package `jakarta.annotation.security.RolesAllowed`. The `@RolesAllowed("**")` annotation specifies that only authenticated users can access the `/profile` path.
 
 ```java
 @Path("/profile")
-@Authenticated
+@RolesAllowed("**")
 public class ProfilePage {
 
     private final Template profile;
@@ -202,9 +202,9 @@ public class ProfilePage {
 }
 ```
 
-Moreover, the profile page resource enables role-based access control (RBAC) by using the `@RolesAllowed` annotation. The `@RolesAllowed` annotation specifies that only users with the `admin` role can access the `/profile/admin` path, and users with the `user` or `admin` role can access the `/profile/user` path.
+The profile page resource enables role-based access control (RBAC) by using the `@RolesAllowed` annotation. The arguments to the `@RolesAllowed` annotation specify that only users with the `admin` role can access the `/profile/admin` path, and users with the `user` or `admin` role can access the `/profile/user` path.
 
-Both endpoints `/profile/admin` and `/profile/user` return the [profile page](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/templates/profile.qute.html). It displays the user's name, roles, and scopes. The profile page also has a logout link at `/logout`, which redirects the user to OIDC provider to sign out.
+Both endpoints `/profile/admin` and `/profile/user` return the [profile page](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/templates/profile.qute.html). It displays the user's name, roles, and scopes. The profile page also has a logout link at `/logout`, which redirects the user to OIDC provider to sign out. The profile page is written using the Qute templating engine. Note the use of `{}` expressions in the page. These expressions make use of the values passed tothe `TemplateInstance` using the `data()` method. For more information on Qute, see [Qute templating engine](https://quarkus.io/guides/qute).
 
 ```html
 <html>
@@ -261,7 +261,7 @@ export QUARKUS_OIDC_CREDENTIALS_SECRET=<Client secret>
 export QUARKUS_OIDC_AUTH_SERVER_URL=https://login.microsoftonline.com/<Directory (tenant) ID>/v2.0
 ```
 
-Recall the configuration properties in the `application.properties` file you saw earlier:
+These environment variables provide the values for the built-in support of OpenID Connect in Quarkus. The corresponding properties in `application.properties` are shown next.
 
 ```properties
 quarkus.oidc.client-id=
@@ -269,11 +269,11 @@ quarkus.oidc.credentials.secret=
 quarkus.oidc.auth-server-url=
 ```
 
-If the value of such a property is blank in `application.properties`, Quarkus converts the property name into an environment variable and reads the value from the environment. For details on the naming conversion, see [the MicroProfile Config specification](https://download.eclipse.org/microprofile/microprofile-config-3.0/microprofile-config-spec-3.0.html#default_configsources.env.mapping).
+If the value of a property is blank in `application.properties`, Quarkus converts the property name into an environment variable and reads the value from the environment. For details on the naming conversion, see [the MicroProfile Config specification](https://download.eclipse.org/microprofile/microprofile-config-3.0/microprofile-config-spec-3.0.html#default_configsources.env.mapping).
 
 ### Run the Quarkus app
 
-You can run the Quarkus app in different modes. Select one of the following methods to run the Quarkus app:
+You can run the Quarkus app in different modes. Select one of the following methods to run the Quarkus app. Make sure to run the command in the shell in which you have defined the environment variables shown earlier.
 
 * Run the Quarkus app in development mode:
 
@@ -299,9 +299,25 @@ If you want to try different modes, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the
 
 ### Test the Quarkus app
 
-Once the Quarkus app is running, open a web browser and navigate to `http://localhost:8080`. You should see the welcome page with links to sign in as a user or as an admin.
+Once the Quarkus app is running, open a web browser with a private tab and navigate to `http://localhost:8080`. You should see the welcome page with links to sign in as a user or as an admin. Using a private tab avoids polluting any existing Microsoft Entra ID activity you may have in your regular browser.
 
 :::image type="content" source="media/quarkus-with-microsoft-entra-id/welcome-page.png" alt-text="Screenshot of welcome page." lightbox="media/quarkus-with-microsoft-entra-id/welcome-page.png":::
+
+#### Gather the credentials for the two users
+
+In this article, Microsoft Entra ID uses the email address of each user as the user id for signing in. Follow the steps in this section to get the email address for the admin user and regular user.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least a [Cloud Application Administrator](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator).
+1. If you have access to multiple tenants, use the **Settings** icon :::image type="icon" source="/entra/identity-platform/media/common/admin-center-settings-icon.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application from the **Directories + subscriptions** menu.
+1. Browse to **Identity > Users > All Users**.
+1. Locate the admin user in the list and select it.
+1. Locate the **User principal name** field.
+1. Use the copy icon next to the value of the field to save the email address of the user to the clipboard. Write it down.
+1. To get the email address for the regular user follow the same steps as above.
+
+Use the passwords for the admin user and regular user that you set when creating the users.
+
+#### Exercise the functionality of the app
 
 Select the **Sign in as user** link. Sign in with the regular user you created earlier. After you sign in, Entra ID redirects you to the profile page, where you see your name, roles, and scopes.
 
@@ -324,12 +340,13 @@ Sign out again and try to **Sign in as admin**  with the regular user you create
 
 ## Clean up resources
 
-This article does not direct you to deploy your Quarkus app on Azure. There are no resources to clean up for the Quarkus app. You can follow the guidance referenced in the next section to deploy a Quarkus app on Azure and adapt it to this app.
+This article does not direct you to deploy your Quarkus app on Azure. There are no resources to clean up for the Quarkus app. To deploy a Quarkus app on Azure, you can follow the guidance referenced in the next section.
 
 If you are done with the resources for this sample app, the steps in this section guide you to clean up the Entra ID resources. Removing unused Entra ID resources is an important security best practice.
 
 1. Remove the app registration you created by following the steps in [Remove an application registered with the Microsoft identity platform](/entra/identity-platform/howto-remove-app). You only need to follow the steps in the section **Remove an application authored by you or your organization**.
 1. The act of removing the app registration should also delete the enterprise application. For more information about deleting enterprise applications, see [Delete an enterprise application](/entra/identity/enterprise-apps/delete-application-portal).
+1. Delete the users you created by following the steps in [How to create, invite, and delete users](/entra/fundamentals/how-to-create-delete-users).
 
 ## Next steps
 
