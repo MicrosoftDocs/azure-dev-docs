@@ -53,7 +53,7 @@ First, create two users in your Microsoft Entra tenant by following steps in [Ho
 
 #### Create a user to serve as a "user" in the app.
 
-   1. Repeat the steps in the previous section to create a second user as shown next.
+   1. To create a user to serve as a "user" in the app, repeat the steps in the previous section to create a second user as shown next.
 
       :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-regular-user.png" alt-text="Screenshot of creating a user acting as regular user." lightbox="media/quarkus-with-microsoft-entra-id/create-regular-user.png":::
       
@@ -303,7 +303,7 @@ Once the Quarkus app is running, open a web browser and navigate to `http://loca
 
 :::image type="content" source="media/quarkus-with-microsoft-entra-id/welcome-page.png" alt-text="Screenshot of welcome page." lightbox="media/quarkus-with-microsoft-entra-id/welcome-page.png":::
 
-Select the **Sign in as user** link. You're redirected to the Microsoft Entra ID sign-in page. Sign in with the regular user you created earlier. After you sign in, you're redirected to the profile page, where you see your name, roles, and scopes.
+Select the **Sign in as user** link. Sign in with the regular user you created earlier. After you sign in, Entra ID redirects you to the profile page, where you see your name, roles, and scopes.
 
 :::image type="content" source="media/quarkus-with-microsoft-entra-id/user-profile.png" alt-text="Screenshot of user profile." lightbox="media/quarkus-with-microsoft-entra-id/user-profile.png":::
 
@@ -312,9 +312,9 @@ Select the **Sign in as user** link. You're redirected to the Microsoft Entra ID
 > - If you're prompted with *Your organization requires additional security information. Follow the prompts to download and set up the Microsoft Authenticator app*, you can select **Ask later** to continue the test.
 > - If you're prompted to **Permissions requested**, review the permissions requested by the app. Select **Accept** to continue the test.
 
-Select **Sign out** to sign out from the Quarkus app. You're redirected to Microsoft Entra ID to sign out. After you sign out, you're redirected to the welcome page.
+Select **Sign out** to sign out from the Quarkus app. Microsoft Entra ID performs the sign out. After you sign out, Entra ID redirects you to to the welcome page.
 
-Select the **Sign in as admin** link. You're redirected to the Microsoft Entra ID sign-in page. Sign in with the admin user you created earlier. After you sign in, you're redirected to the similar profile page, with a different role `admin`.
+Select the **Sign in as admin** link. Microsoft Entra ID redirects you to the sign-in page. Sign in with the admin user you created earlier. After you sign in, Microsoft Entra ID redirects you to the similar profile page, with a different role `admin`.
 
 :::image type="content" source="media/quarkus-with-microsoft-entra-id/admin-profile.png" alt-text="Screenshot of admin profile." lightbox="media/quarkus-with-microsoft-entra-id/admin-profile.png":::
 
@@ -324,9 +324,9 @@ Sign out again and try to **Sign in as admin**  with the regular user you create
 
 ## Clean up resources
 
-Because you have not yet deployed your Quarkus app on Azure, there are no resources to clean up for the Quarkus app. You can follow the guidance referenced in the next section to deploy a Quarkus app on Azure and adapt it to this app.
+This article does not direct you to deploy your Quarkus app on Azure. There are no resources to clean up for the Quarkus app. You can follow the guidance referenced in the next section to deploy a Quarkus app on Azure and adapt it to this app.
 
-If you are completely done with the resources for this sample, app, the steps in this section will guide you to clean up the Entra ID resources. Removing unused Entra ID resources is a very important security best practice.
+If you are done with the resources for this sample app, the steps in this section guide you to clean up the Entra ID resources. Removing unused Entra ID resources is an important security best practice.
 
 1. Remove the app registration you created by following the steps in [Remove an application registered with the Microsoft identity platform](/entra/identity-platform/howto-remove-app). You only need to follow the steps in the section **Remove an application authored by you or your organization**.
 1. The act of removing the app registration should also delete the enterprise application. For more information about deleting enterprise applications, see [Delete an enterprise application](/entra/identity/enterprise-apps/delete-application-portal).
