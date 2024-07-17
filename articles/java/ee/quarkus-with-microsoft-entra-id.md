@@ -4,7 +4,7 @@ description: Shows how to secure Quarkus applications with Microsoft Entra ID us
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 06/14/2024
+ms.date: 07/17/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-entra-id, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -103,6 +103,8 @@ Then, add app roles to your application by following steps in [Add app roles to 
    1. Select **Refresh** and you should see the users and roles assigned in the **Users and groups** pane.
 
       :::image type="content" source="media/quarkus-with-microsoft-entra-id/users-and-roles-assigned.png" alt-text="Screenshot of users and roles assigned." lightbox="media/quarkus-with-microsoft-entra-id/users-and-roles-assigned.png":::
+      
+      You may need to adjust the width of the column headers to make your view look like the image.
 
 Do not follow any other steps in **Add app roles to your application and receive them in the token**.
 
@@ -246,7 +248,7 @@ First, use the following command to clone the sample Quarkus app from GitHub and
 ```bash
 git clone https://github.com/Azure-Samples/quarkus-azure
 cd quarkus-azure/entra-id-quarkus
-git checkout 2024-06-25
+git checkout 2024-07-17
 ```
 
 If you see a message about being in *detached HEAD* state, this message is safe to ignore. Because this article doesn't require any commits, detached HEAD state is appropriate.
@@ -259,13 +261,15 @@ export QUARKUS_OIDC_CREDENTIALS_SECRET=<Client secret>
 export QUARKUS_OIDC_AUTH_SERVER_URL=https://login.microsoftonline.com/<Directory (tenant) ID>/v2.0
 ```
 
-Values for these environment variables are interpolated into the following configuration properties in the `application.properties` file you saw earlier:
+Recall the configuration properties in the `application.properties` file you saw earlier:
 
 ```properties
 quarkus.oidc.client-id=
 quarkus.oidc.credentials.secret=
 quarkus.oidc.auth-server-url=
 ```
+
+If the value of such a property is blank in `application.properties`, Quarkus converts the property name into an environment variable and reads the value from the environment. For details on the naming conversion, see [the MicroProfile Config specification](https://download.eclipse.org/microprofile/microprofile-config-3.0/microprofile-config-spec-3.0.html#default_configsources.env.mapping).
 
 ### Run the Quarkus app
 
@@ -293,26 +297,6 @@ You can run the Quarkus app in different modes. Select one of the following meth
 
 If you want to try different modes, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the Quarkus app and then run the Quarkus app in another mode.
 
-### Configuration reference
-
-The following values in *application.properties* configure the application for use with Microsoft Entra ID OpenID Connect. The sample you just built copies values from the environment variables to this file.
-
-| Property | Description | Value |
-| --- | --- | --- |
-| `quarkus.oidc.client-id` | The client ID of the registered application. | **Application (client) ID** value you wrote down earlier. |
-| `quarkus.oidc.credentials.secret` | The client secret of the registered application. | **Client secret** value you wrote down earlier. |
-| `quarkus.oidc.auth-server-url` | The base URL of the OpenID Connect (OIDC) server. | `https://login.microsoftonline.com/{tenant-id}/v2.0`. Replace `{tenant-id}` with the **Directory (tenant) ID** value you wrote down earlier. |
-| `quarkus.oidc.application-type` | The application type. Use `web-app` to tell Quarkus that you want to enable the OIDC authorization code flow so that your users are redirected to the OIDC provider to authenticate. | `web-app` |
-| `quarkus.oidc.authentication.redirect-path` | The relative path for calculating a `redirect_uri` query parameter. | `/` |
-| `quarkus.oidc.authentication.restore-path-after-redirect` | Whether to restore the path after redirect. | `true` |
-| `quarkus.oidc.roles-claim` | The claim that contains the roles of the authenticated user. | `roles` |
-| `quarkus.oidc.provider` | Well known OpenId Connect provider identifier. | `microsoft` |
-| `quarkus.oidc.token.customizer-name` | The name of the token customizer. | `azure-access-token-customizer` |
-| `quarkus.oidc.logout.path` | The relative path of the logout endpoint at the application. | `/logout` |
-| `quarkus.oidc.logout.post-logout-path` | The relative path of the application endpoint where the user should be redirected to after logging out from the OpenID Connect Provider. | `/` |
-
-You can see the configuration in the [application.properties](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/application.properties) file.
-
 ### Test the Quarkus app
 
 Once the Quarkus app is running, open a web browser and navigate to `http://localhost:8080`. You should see the welcome page with links to sign in as a user or as an admin.
@@ -338,12 +322,22 @@ Sign out again and try to **Sign in as admin**  with the regular user you create
 
 :::image type="content" source="media/quarkus-with-microsoft-entra-id/forbidden.png" alt-text="Screenshot of forbidden access." lightbox="media/quarkus-with-microsoft-entra-id/forbidden.png":::
 
+## Clean up resources
+
+Because you have not yet deployed your Quarkus app on Azure, there are no resources to clean up for the Quarkus app. You can follow the guidance referenced in the next section to deploy a Quarkus app on Azure and adapt it to this app.
+
+If you are completely done with the resources for this sample, app, the steps in this section will guide you to clean up the Entra ID resources. Removing unused Entra ID resources is a very important security best practice.
+
+1. Remove the app registration you created by following the steps in [Remove an application registered with the Microsoft identity platform](/entra/identity-platform/howto-remove-app). You only need to follow the steps in the section **Remove an application authored by you or your organization**.
+1. The act of removing the app registration should also delete the enterprise application. For more information about deleting enterprise applications, see [Delete an enterprise application](/entra/identity/enterprise-apps/delete-application-portal).
+
 ## Next steps
 
 In this quickstart, you protect Quarkus applications with Microsoft Entra ID using OpenID Connect. Explore the following resources to learn more:
 
+* [Deploy a Java application with Quarkus on an Azure Container Apps](/azure/developer/java/ee/deploy-java-quarkus-app)
 * [OpenID Connect authentication with Microsoft Entra ID](/entra/architecture/auth-oidc)
 * [Microsoft identity platform and OAuth 2.0 authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow)
-* [PROTECT A WEB APPLICATION BY USING OPENID CONNECT (OIDC) AUTHORIZATION CODE FLOW](https://quarkus.io/guides/security-oidc-code-flow-authentication-tutorial)
-* [OPENID CONNECT AUTHORIZATION CODE FLOW MECHANISM FOR PROTECTING WEB APPLICATIONS](https://quarkus.io/guides/security-oidc-code-flow-authentication)
-* [OPENID CONNECT (OIDC) CONFIGURATION PROPERTIES](https://quarkus.io/guides/security-oidc-configuration-properties-reference)
+* [Protect a web application by using OpenId Connect (OIDC) authorization code flow](https://quarkus.io/guides/security-oidc-code-flow-authentication-tutorial)
+* [OpenID Connect authorization code flow mechanism for protecting web applications](https://quarkus.io/guides/security-oidc-code-flow-authentication)
+* [OpenID Connect (OIDC) configuration properties](https://quarkus.io/guides/security-oidc-configuration-properties-reference)
