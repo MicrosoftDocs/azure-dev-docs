@@ -106,7 +106,7 @@ Then, add app roles to your application by following steps in [Add app roles to 
       
       You may need to adjust the width of the column headers to make your view look like the image.
 
-Do not follow any other steps in **Add app roles to your application and receive them in the token**.
+Don't follow any other steps in **Add app roles to your application and receive them in the token**.
 
 ## Protect a Quarkus app by using OpenID Connect
 
@@ -204,7 +204,7 @@ public class ProfilePage {
 
 The profile page resource enables role-based access control (RBAC) by using the `@RolesAllowed` annotation. The arguments to the `@RolesAllowed` annotation specify that only users with the `admin` role can access the `/profile/admin` path, and users with the `user` or `admin` role can access the `/profile/user` path.
 
-Both endpoints `/profile/admin` and `/profile/user` return the [profile page](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/templates/profile.qute.html). It displays the user's name, roles, and scopes. The profile page also has a logout link at `/logout`, which redirects the user to OIDC provider to sign out. The profile page is written using the Qute templating engine. Note the use of `{}` expressions in the page. These expressions make use of the values passed tothe `TemplateInstance` using the `data()` method. For more information on Qute, see [Qute templating engine](https://quarkus.io/guides/qute).
+Both endpoints `/profile/admin` and `/profile/user` return the [profile page](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/templates/profile.qute.html). It displays the user's name, roles, and scopes. The profile page also has a logout link at `/logout`, which redirects the user to OIDC provider to sign out. The profile page is written using the Qute templating engine. Note the use of `{}` expressions in the page. These expressions make use of the values passed to the `TemplateInstance` using the `data()` method. For more information on Qute, see [Qute templating engine](https://quarkus.io/guides/qute).
 
 ```html
 <html>
@@ -273,7 +273,7 @@ If the value of a property is blank in `application.properties`, Quarkus convert
 
 ### Run the Quarkus app
 
-You can run the Quarkus app in different modes. Select one of the following methods to run the Quarkus app. Make sure to run the command in the shell in which you have defined the environment variables shown earlier.
+You can run the Quarkus app in different modes. Select one of the following methods to run the Quarkus app. To allow Quarkus to connect to Microsoft Entra ID, make sure to run the command in the shell in which you defined the environment variables shown in the preceding section.
 
 * Run the Quarkus app in development mode:
 
@@ -313,7 +313,7 @@ In this article, Microsoft Entra ID uses the email address of each user as the u
 1. Locate the admin user in the list and select it.
 1. Locate the **User principal name** field.
 1. Use the copy icon next to the value of the field to save the email address of the user to the clipboard. Write it down.
-1. To get the email address for the regular user follow the same steps as above.
+1. To get the email address for the regular user, follow the same steps as above.
 
 Use the passwords for the admin user and regular user that you set when creating the users.
 
@@ -328,7 +328,7 @@ Select the **Sign in as user** link. Sign in with the regular user you created e
 > - If you're prompted with *Your organization requires additional security information. Follow the prompts to download and set up the Microsoft Authenticator app*, you can select **Ask later** to continue the test.
 > - If you're prompted to **Permissions requested**, review the permissions requested by the app. Select **Accept** to continue the test.
 
-Select **Sign out** to sign out from the Quarkus app. Microsoft Entra ID performs the sign out. After you sign out, Entra ID redirects you to to the welcome page.
+Select **Sign out** to sign out from the Quarkus app. Microsoft Entra ID performs the sign out. After you sign out, Entra ID redirects you to the welcome page.
 
 Select the **Sign in as admin** link. Microsoft Entra ID redirects you to the sign-in page. Sign in with the admin user you created earlier. After you sign in, Microsoft Entra ID redirects you to the similar profile page, with a different role `admin`.
 
@@ -340,17 +340,17 @@ Sign out again and try to **Sign in as admin**  with the regular user you create
 
 ## Clean up resources
 
-This article does not direct you to deploy your Quarkus app on Azure. There are no resources to clean up for the Quarkus app. To deploy a Quarkus app on Azure, you can follow the guidance referenced in the next section.
+This article doesn't direct you to deploy your Quarkus app on Azure. There are no resources to clean up for the Quarkus app. To deploy a Quarkus app on Azure, you can follow the guidance referenced in the next section.
 
-If you are done with the resources for this sample app, the steps in this section guide you to clean up the Entra ID resources. Removing unused Entra ID resources is an important security best practice.
+If you're done with the resources for this sample app, the steps in this section guide you to clean up the Entra ID resources. Removing unused Entra ID resources is an important security best practice.
 
-1. Remove the app registration you created by following the steps in [Remove an application registered with the Microsoft identity platform](/entra/identity-platform/howto-remove-app). You only need to follow the steps in the section **Remove an application authored by you or your organization**.
+1. Remove the app registration you created by following the steps in [Remove an application registered with the Microsoft identity platform](/entra/identity-platform/howto-remove-app). You only need to follow the steps in the section **Remove an application authored by your organization**.
 1. The act of removing the app registration should also delete the enterprise application. For more information about deleting enterprise applications, see [Delete an enterprise application](/entra/identity/enterprise-apps/delete-application-portal).
 1. Delete the users you created by following the steps in [How to create, invite, and delete users](/entra/fundamentals/how-to-create-delete-users).
 
 ## Next steps
 
-In this quickstart, you protect Quarkus applications with Microsoft Entra ID using OpenID Connect. Explore the following resources to learn more:
+In this quickstart, you protect Quarkus applications with Microsoft Entra ID using OpenID Connect. To learn more, explore the following resources:
 
 * [Deploy a Java application with Quarkus on an Azure Container Apps](/azure/developer/java/ee/deploy-java-quarkus-app)
 * [OpenID Connect authentication with Microsoft Entra ID](/entra/architecture/auth-oidc)
