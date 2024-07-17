@@ -116,7 +116,7 @@ The sample Quarkus app for this quickstart is on [GitHub](https://github.com/Azu
 
 ### Enable authentication and authorization to secure app
 
-The app has a [welcome page resource](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/no/kantega/WelcomePage.java) that is accessible to unauthenticated users. The root path of the welcome page is at `/`.
+The app has a [welcome page resource](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/com/example/WelcomePage.java) that is accessible to unauthenticated users. The root path of the welcome page is at `/`.
 
 ```java
 @Path("/")
@@ -157,7 +157,7 @@ From the [welcome page](https://github.com/Azure-Samples/quarkus-azure/blob/main
 </html>
 ```
 
-Both links `/profile/user` and `/profile/admin` point to the [profile page resource](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/no/kantega/ProfilePage.java), which is accessible only to authenticated users by using the `@RolesAllowed("**")` annotation from package `jakarta.annotation.security.RolesAllowed`. The `@RolesAllowed("**")` annotation specifies that only authenticated users can access the `/profile` path.
+Both links `/profile/user` and `/profile/admin` point to the [profile page resource](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/com/example/ProfilePage.java), which is accessible only to authenticated users by using the `@RolesAllowed("**")` annotation from package `jakarta.annotation.security.RolesAllowed`. The `@RolesAllowed("**")` annotation specifies that only authenticated users can access the `/profile` path.
 
 ```java
 @Path("/profile")
