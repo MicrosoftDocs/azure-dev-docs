@@ -255,7 +255,7 @@ azd version
 `azd` prints the current version:
 
 ```output
-azd version 1.9.4 (commit 60d7a770c73289e303a539babf5965e638843227)
+azd version 1.9.5 (commit cd2b7af9995d358aab33c782614f801ac1997dde)
 ```
 
 ## Update the Azure Developer CLI
