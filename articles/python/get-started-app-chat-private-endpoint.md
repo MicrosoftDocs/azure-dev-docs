@@ -207,7 +207,7 @@ Change the deployment configuration to secure the chat app for private access.
 
 ## Access the chat app
 
-To access the chat app, use a tool such as [Azure VPN Gateway](/azure/vpn-gateway/) or [Azure Virtual Desktop](https://learn.microsoft.com/azure/virtual-desktop/users/). Remember that any tool used for accessing the app must be secure and compliant with your organization's security policies.
+To access the chat app, use a tool such as [Azure VPN Gateway](/azure/vpn-gateway/) or [Azure Virtual Desktop](/azure/virtual-desktop/users/). Remember that any tool used for accessing the app must be secure and compliant with your organization's security policies.
 
 ### Clean up GitHub Codespaces
 
