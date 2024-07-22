@@ -34,11 +34,11 @@ For chat apps enriched with private data, securing access to your chat app is cr
 
 Within the VNET, there is a separate subnet for the App Service app versus the other backend Azure services. This makes it easy to apply different network security group rules to each subnet.
 
-::image type="content" source="media/get-started-app-chat-private-endpoints/diagram-subnets.png" lightbox="media/get-started-app-chat-private-endpoints/diagram-subnets.png" alt-text="Diagram showing a chat app subnet and a backend subnet within the virtual network.":::
+:::image type="content" source="media/get-started-app-chat-private-endpoints/diagram-subnets.png" lightbox="media/get-started-app-chat-private-endpoints/diagram-subnets.png" alt-text="Diagram showing a chat app subnet and a backend subnet within the virtual network.":::
 
 Within the VNET, the services use private endpoints to communicate with each other. Each private endpoint is associated with a private DNS zone to resolve the private endpoint's name to an IP address within the VNET.
 
-::image type="content" source="media/get-started-app-chat-private-endpoints/diagram-private-endpoint-openai.png" lightbox="media/get-started-app-chat-private-endpoints/diagram-private-endpoint-openai.png" alt-text="Diagram showing the private endpoint and private DNS zone for Azure OpenAI within the VNET.":::
+:::image type="content" source="media/get-started-app-chat-private-endpoints/diagram-private-endpoint-openai.png" lightbox="media/get-started-app-chat-private-endpoints/diagram-private-endpoint-openai.png" alt-text="Diagram showing the private endpoint and private DNS zone for Azure OpenAI within the VNET.":::
 
 ## Deployment steps
 
