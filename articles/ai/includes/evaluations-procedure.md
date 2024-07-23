@@ -98,7 +98,7 @@ Update the environment values and configuration information with the information
 
 ### Use the Microsoft AI Chat Protocol for configuration information
 
-   The chat app implements the `Microsoft AI Chat Protocol specification`, an open-source, Cloud, and language agnostic AI endpoint API contract for both consumption and evaluation. When your client and middle tier endpoints adhere to this API spec, you can consistently consume and run evaluations on your AI backends.
+   The **chat app** and the **evaluations app** both implement the `Microsoft AI Chat Protocol specification`, an open-source, Cloud, and language agnostic AI endpoint API contract used for consumption and evaluation. When your client and middle tier endpoints adhere to this API spec, you can consistently consume and run evaluations on your AI backends.
 
 1. Create a new file named `my_config.json` and copy the following content into it:
 
