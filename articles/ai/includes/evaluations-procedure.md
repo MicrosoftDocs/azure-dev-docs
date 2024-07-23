@@ -1,15 +1,15 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 05/15/2024
-ms.author: diberry
-author: diberry
+ms.date:  07/23/2024
+ms.author: johalexander
+author: ms-johnalex
 ms.service: azure
 ---
 
 ## Open development environment
 
-Begin now with a development environment that has all the dependencies installed to complete this article. You should arrange your monitor workspace so you can see both this documentation and the development environment at the same time. 
+Begin now with a development environment that has all the dependencies installed to complete this article. You should arrange your monitor workspace so you can see both this documentation and the development environment at the same time.
 
 This article was tested with the `switzerlandnorth` region for the evaluation deployment.
 
@@ -21,11 +21,11 @@ This article was tested with the `switzerlandnorth` region for the evaluation de
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/ai-rag-chat-evaluator`](https://github.com/Azure-Samples/ai-rag-chat-evaluator) GitHub repository.
-1. Right-click on the following button, and select _Open link in new window_ in order to have both the development environment and the documentation available at the same time. 
+1. To display the development environment and the documentation available at the same time, right-click on the following button, and select _Open link in new window_.
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/ai-rag-chat-evaluator)
 
-1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**
+1. On the **Create codespace** page, review the codespace configuration settings, and then select **Create new codespace**
 
     :::image type="content" source="../media/get-started-app-chat-evaluations/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
@@ -45,7 +45,7 @@ This article was tested with the `switzerlandnorth` region for the evaluation de
     azd up
     ```
 
-    This doesn't deploy the evaluations app, but it does create the **Azure OpenAI** resource with a GPT-4 deployment that's required to run the evaluations locally in the development environment.
+    This AZD command doesn't deploy the evaluations app, but it does create the **Azure OpenAI** resource with a required GPT-4 deployment to run the evaluations in the local development environment.
 
 1. The remaining tasks in this article take place in the context of this development container.
 1. The name of the GitHub repository is shown in the search bar. This visual indicator helps you distinguish between this evaluations app from the chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
@@ -94,11 +94,13 @@ Update the environment values and configuration information with the information
     AZURE_SEARCH_INDEX="<index-name>"
     ```
 
-    The `AZURE_SEARCH_KEY` value is the **query key** for the Azure AI Search instance. 
+    The `AZURE_SEARCH_KEY` value is the **query key** for the Azure AI Search instance.
 
+### Use the Microsoft AI Chat Protocol for configuration information
+
+   The chat app implements the Microsoft AI Chat Protocol specification, an open-source, Cloud, and language agnostic AI endpoint API contract for both consumption and evaluation. When your client and middle tier endpoints adhere to this API spec, you can consistently consume and run evaluations on your AI backends.
 
 1. Create a new file named `my_config.json` and copy the following content into it:
-
 
     ```json
     {
@@ -116,6 +118,15 @@ Update the environment values and configuration information with the information
 
     The evaluation script creates the `my_results` folder.
 
+    The `overrides` object contains any configuration settings needed for the application. Each application defines its' own set of settings properties.
+
+1. Use the following table to understand the meaning of the settings properties used for the evaluation application.
+
+    |Settings Property|Description|
+    |---|---|
+    |semantic_ranker|Use [semantic ranker](/azure/search/semantic-search-overview#what-is-semantic-search), a model that reranks search results based on semantic similarity to the user's query.|
+    |prompt_template|Overrides the prompt used to generate the answer based on the question and search results.|
+
 1. Change the `target_url` to the URI value of your **chat app**, which you gathered in the [prerequisites](#prerequisites) section. The chat app must conform to the chat protocol. The URI has the following format `https://CHAT-APP-URL/chat`. Make sure the protocol and the `chat` route are part of the URI.
 
 ## Generate sample data
@@ -130,7 +141,7 @@ In order to evaluate new answers, they must be compared to a "ground truth" answ
     python3 -m scripts generate --output=my_input/qa.jsonl --numquestions=14 --persource=2
     ```
 
-The question/answer pairs are generated and stored in `my_input/qa.jsonl` (in [JSONL format](https://jsonlines.org/)) as input to the evaluator used in the next step. For a production evaluation, you would generate more QA pairs, more than 200 for this dataset. 
+The question/answer pairs are generated and stored in `my_input/qa.jsonl` (in [JSONL format](https://jsonlines.org/)) as input to the evaluator used in the next step. For a production evaluation, you would generate more QA pairs, more than 200 for this dataset.
 
 > [!NOTE]
 > The few number of questions and answers per source is meant to allow you to quickly complete this procedure. It isn't meant to be a production evaluation which should have more questions and answers per source.
@@ -168,7 +179,7 @@ The question/answer pairs are generated and stored in `my_input/qa.jsonl` (in [J
     |--|--|
     | `eval_results.jsonl`| Each question and answer, along with the GPT metrics for each QA pair.|
     | `summary.json`| The overall results, like the average GPT metrics.|
-    
+
 ## Run second evaluation with a weak prompt
 
 1. Edit the `my_config.json` config file properties:
@@ -192,7 +203,7 @@ The question/answer pairs are generated and stored in `my_input/qa.jsonl` (in [J
 
 ## Run third evaluation with a specific temperature
 
-Use a prompt which allows for more creativity. 
+Use a prompt that allows for more creativity.
 
 1. Edit the `my_config.json` config file properties:
 
@@ -204,14 +215,13 @@ Use a prompt which allows for more creativity.
 
     The default temperature is 0.7. The higher the temperature, the more creative the answers.
 
-    The ignore prompt is short: 
+    The `ignore` prompt is short:
 
     ```text
     Your job is to answer questions to the best of your ability. You will be given sources but you should IGNORE them. Be creative!
     ```
 
-
-1. The config object should like the following except use your own `results_dir`:
+1. The config object should look like the following except replace `results_dir` with your path:
 
     ```json
     {
@@ -236,15 +246,15 @@ Use a prompt which allows for more creativity.
 
 ## Review the evaluation results
 
-You have performed three evaluations based on different prompts and app settings. The results are stored in the `my_results` folder. Review how the results differ based on the settings.
+You performed three evaluations based on different prompts and app settings. The results are stored in the `my_results` folder. Review how the results differ based on the settings.
 
-1. Use the review tool to see the results of the evaluations: 
+1. Use the review tool to see the results of the evaluations:
 
     ```bash
     python3 -m review_tools summary my_results
     ```
-    
-1. The results look _something_ like: 
+
+1. The results look _something_ like:
 
     :::image type="content" source="../media/get-started-app-chat-evaluations/evaluations-review-summary.png" alt-text="Screenshot of evaluations review tool showing the three evaluations.":::
 
@@ -260,14 +270,14 @@ You have performed three evaluations based on different prompts and app settings
     | Citation | This indicates if the answer was returned in the format requested in the prompt.|
     | Length | This measures the length of the response.|
 
-1. The results should indicate all 3 evaluations had high relevance while the `experiment_ignoresources_temp09` had the lowest relevance.
+1. The results should indicate all three evaluations had high relevance while the `experiment_ignoresources_temp09` had the lowest relevance.
 
 1. Select the folder to see the configuration for the evaluation.
 1. Enter <kbd>Ctrl</kbd> + <kbd>C</kbd> exit the app and return to the terminal.
 
 ## Compare the answers
 
-Compare the returned answers from the evaluations. 
+Compare the returned answers from the evaluations.
 
 1. Select two of the evaluations to compare, then use the same review tool to compare the answers:
 
@@ -275,7 +285,7 @@ Compare the returned answers from the evaluations.
     python3 -m review_tools diff my_results/experiment_refined my_results/experiment_ignoresources_temp09
     ```
 
-1. Review the results. Your results may vary. 
+1. Review the results. Your results might vary.
 
     :::image type="content" source="../media/get-started-app-chat-evaluations/evaluations-difference-between-evaluation-answers.png" alt-text="Screenshot of comparison of evaluation answers between evaluations.":::
 
@@ -285,18 +295,17 @@ Compare the returned answers from the evaluations.
 
 * Edit the prompts in `my_input` to tailor the answers such as subject domain, length, and other factors.
 * Edit the `my_config.json` file to change the parameters such as `temperature`, and `semantic_ranker` and rerun experiments.
-* Compare different answers to understand how the prompt and question impact the answer quality.
+* Compare different answers to understand how the prompt and question affect the answer quality.
 * Generate a separate set of questions and ground truth answers for each document in the Azure AI Search index. Then rerun the evaluations to see how the answers differ.
-* Alter the prompts to indicate shorter or longer answers by adding the requirement to the end of the prompt. For example, `Please answer in about 3 sentences.` 
+* Alter the prompts to indicate shorter or longer answers by adding the requirement to the end of the prompt. For example, `Please answer in about 3 sentences.`.
 
-
-## Clean up resources
+## Clean up resources and dependencies
 
 ### Clean up Azure resources
 
 The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
 
-Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
+To delete the Azure resources and remove the source code, run the following Azure Developer CLI command:
 
 ```bash
 azd down --purge
@@ -334,11 +343,10 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 
 ---
 
-Return to the chat app article to clean up those resources. 
+Return to the chat app article to clean up those resources.
 
 * [JavaScript](/azure/developer/javascript/get-started-app-chat-template#clean-up-resources)
 * [Python](/azure/developer/python/get-started-app-chat-template#clean-up-resources)
-
 
 ## Next steps
 
