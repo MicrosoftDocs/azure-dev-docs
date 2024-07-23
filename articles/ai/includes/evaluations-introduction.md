@@ -31,4 +31,4 @@ Key components of the architecture include:
 - **Review tool** allows you to review the results of the evaluations.
 - **Diff tool** allows you to compare the answers between evaluations.
 
-When you deploy this evaluation to Azure, the Azure OpenAI endpoint is created for the GPT-4 model with its own [capacity](/azure/ai-services/openai/quotas-limits#regional-quota-limits). When evaluating chat applications, it's important that the evaluator has its own OpenAI resource using GPT-4 with its own capacity.
+When you deploy this evaluation to Azure, the **Azure OpenAI** endpoint is created for the `GPT-4` model with its own [capacity](/azure/ai-services/openai/quotas-limits#regional-quota-limits). When evaluating chat applications, it's important that the evaluator has its own OpenAI resource using `GPT-4` with its own capacity.

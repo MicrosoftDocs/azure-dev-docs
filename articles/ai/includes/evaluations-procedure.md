@@ -31,7 +31,7 @@ This article was tested with the `switzerlandnorth` region for the evaluation de
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
-1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
+1. In the terminal at the bottom of the screen, sign in to Azure with the **Azure Developer CLI**.
 
     ```bash
     azd auth login --use-device-code
@@ -39,16 +39,16 @@ This article was tested with the `switzerlandnorth` region for the evaluation de
 
 1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
 
-1. Provision the required Azure resource, Azure OpenAI, for the evaluations app.
+1. Provision the required Azure resource, **Azure OpenAI**, for the **evaluations app**.
 
     ```bash
     azd up
     ```
 
-    This AZD command doesn't deploy the evaluations app, but it does create the **Azure OpenAI** resource with a required GPT-4 deployment to run the evaluations in the local development environment.
+    This `AZD command` doesn't deploy the **evaluations app**, but it does create the **Azure OpenAI** resource with a required `GPT-4` deployment to run the evaluations in the local development environment.
 
 1. The remaining tasks in this article take place in the context of this development container.
-1. The name of the GitHub repository is shown in the search bar. This visual indicator helps you distinguish between this evaluations app from the chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
+1. The name of the GitHub repository is shown in the search bar. This visual indicator helps you distinguish the **evaluations app** from the **chat app**. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -58,7 +58,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 1. [![Open this project in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/Azure-Samples/ai-rag-chat-evaluator)
 
-1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
+1. In the terminal at the bottom of the screen, sign in to Azure with the **Azure Developer CLI**.
 
     ```bash
     azd auth login --use-device-code
@@ -66,22 +66,22 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
     Follow the instructions to authenticate with your Azure account.
 
-1. Provision the required Azure resource, Azure OpenAI, for the evaluations app.
+1. Provision the required Azure resource, **Azure OpenAI**, for the **evaluations app**.
 
     ```bash
     azd up
     ```
 
 1. The remaining exercises in this project take place in the context of this development container.
-1. The name of the GitHub repository is shown in the bottom left corner Visual Studio Code. This visual indicator helps you distinguish between this evaluations app from the chat app. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
+1. The name of the GitHub repository is shown in the bottom left corner Visual Studio Code. This visual indicator helps you distinguish between this evaluations app from the **chat app**. This `ai-rag-chat-evaluator` repo is referred to as the **Evaluations app** in this article.
 
 ---
 
 ## Prepare environment values and configuration information
 
-Update the environment values and configuration information with the information you gathered during [Prerequisites](#prerequisites) for the evaluations app.
+Update the environment values and configuration information with the information you gathered during [Prerequisites](#prerequisites) for the **evaluations app**.
 
-1. Use the following command to get the **Evaluations** app resource information into a `.env` file:
+1. Use the following command to get the **Evaluations app** resource information into a `.env` file:
 
     ```bash
     azd env get-values > .env
@@ -94,11 +94,11 @@ Update the environment values and configuration information with the information
     AZURE_SEARCH_INDEX="<index-name>"
     ```
 
-    The `AZURE_SEARCH_KEY` value is the **query key** for the Azure AI Search instance.
+    The `AZURE_SEARCH_KEY` value is the **query key** for the **Azure AI Search** instance.
 
 ### Use the Microsoft AI Chat Protocol for configuration information
 
-   The chat app implements the Microsoft AI Chat Protocol specification, an open-source, Cloud, and language agnostic AI endpoint API contract for both consumption and evaluation. When your client and middle tier endpoints adhere to this API spec, you can consistently consume and run evaluations on your AI backends.
+   The chat app implements the `Microsoft AI Chat Protocol specification`, an open-source, Cloud, and language agnostic AI endpoint API contract for both consumption and evaluation. When your client and middle tier endpoints adhere to this API spec, you can consistently consume and run evaluations on your AI backends.
 
 1. Create a new file named `my_config.json` and copy the following content into it:
 
@@ -120,18 +120,18 @@ Update the environment values and configuration information with the information
 
     The `overrides` object contains any configuration settings needed for the application. Each application defines its' own set of settings properties.
 
-1. Use the following table to understand the meaning of the settings properties used for the evaluation application.
+1. Use the following table to understand the meaning of the settings properties used for the **evaluation app**.
 
     |Settings Property|Description|
     |---|---|
     |semantic_ranker|Use [semantic ranker](/azure/search/semantic-search-overview#what-is-semantic-search), a model that reranks search results based on semantic similarity to the user's query.|
     |prompt_template|Overrides the prompt used to generate the answer based on the question and search results.|
 
-1. Change the `target_url` to the URI value of your **chat app**, which you gathered in the [prerequisites](#prerequisites) section. The chat app must conform to the chat protocol. The URI has the following format `https://CHAT-APP-URL/chat`. Make sure the protocol and the `chat` route are part of the URI.
+1. Change the `target_url` to the URI value of your **chat app**, which you gathered in the [prerequisites](#prerequisites) section. The **chat app** must conform to the **chat protocol**. The URI has the following format `https://CHAT-APP-URL/chat`. Make sure the protocol and the `chat` route are part of the URI.
 
 ## Generate sample data
 
-In order to evaluate new answers, they must be compared to a "ground truth" answer, which is the ideal answer for a particular question. Generate questions and answers from documents stored in Azure AI Search for the **chat app**.
+In order to evaluate new answers, they must be compared to a "ground truth" answer, which is the ideal answer for a particular question. Generate questions and answers from documents stored in **Azure AI Search** for the **chat app**.
 
 1. Copy the `example_input` folder into a new folder named`my_input`.
 
@@ -213,7 +213,7 @@ Use a prompt that allows for more creativity.
     |Existing|prompt_template|`<READFILE>my_input/prompt_ignoresources.txt`|
     |New| temperature | `0.9`|
 
-    The default temperature is 0.7. The higher the temperature, the more creative the answers.
+    The default `temperature` is 0.7. The higher the temperature, the more creative the answers.
 
     The `ignore` prompt is short:
 
@@ -248,7 +248,7 @@ Use a prompt that allows for more creativity.
 
 You performed three evaluations based on different prompts and app settings. The results are stored in the `my_results` folder. Review how the results differ based on the settings.
 
-1. Use the review tool to see the results of the evaluations:
+1. Use the **review tool** to see the results of the evaluations:
 
     ```bash
     python3 -m review_tools summary my_results
@@ -279,7 +279,7 @@ You performed three evaluations based on different prompts and app settings. The
 
 Compare the returned answers from the evaluations.
 
-1. Select two of the evaluations to compare, then use the same review tool to compare the answers:
+1. Select two of the evaluations to compare, then use the same **review tool** to compare the answers:
 
     ```bash
     python3 -m review_tools diff my_results/experiment_refined my_results/experiment_ignoresources_temp09
@@ -296,7 +296,7 @@ Compare the returned answers from the evaluations.
 * Edit the prompts in `my_input` to tailor the answers such as subject domain, length, and other factors.
 * Edit the `my_config.json` file to change the parameters such as `temperature`, and `semantic_ranker` and rerun experiments.
 * Compare different answers to understand how the prompt and question affect the answer quality.
-* Generate a separate set of questions and ground truth answers for each document in the Azure AI Search index. Then rerun the evaluations to see how the answers differ.
+* Generate a separate set of questions and ground truth answers for each document in the **Azure AI Search** index. Then rerun the evaluations to see how the answers differ.
 * Alter the prompts to indicate shorter or longer answers by adding the requirement to the end of the prompt. For example, `Please answer in about 3 sentences.`.
 
 ## Clean up resources and dependencies
@@ -305,7 +305,7 @@ Compare the returned answers from the evaluations.
 
 The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
 
-To delete the Azure resources and remove the source code, run the following Azure Developer CLI command:
+To delete the Azure resources and remove the source code, run the following **Azure Developer CLI** command:
 
 ```bash
 azd down --purge
@@ -343,7 +343,7 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 
 ---
 
-Return to the chat app article to clean up those resources.
+Return to the **chat app** article to clean up those resources.
 
 * [JavaScript](/azure/developer/javascript/get-started-app-chat-template#clean-up-resources)
 * [Python](/azure/developer/python/get-started-app-chat-template#clean-up-resources)
