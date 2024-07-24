@@ -1,6 +1,6 @@
 --- 
-title: Authenticate to Azure from GitHub Action by OpenID Connect
-description: Securely authenticate to Azure services from GitHub Actions workflows using Azure Login Action with OpenID Connect (OIDC).
+title: Authenticate to Azure from GitHub Actions by OpenID Connect
+description: Securely authenticate to Azure services from GitHub Actions workflows using Azure Login action with OpenID Connect (OIDC).
 author: MoChilia 
 ms.author: shiyingchen 
 ms.topic: reference
@@ -9,28 +9,32 @@ ms.date: 07/01/2024
 ms.custom: github-actions-azure, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ---
 
-# Use the Azure Login Action with OpenID Connect
+# Use the Azure Login action with OpenID Connect
 
-Learn how to securely authenticate to Azure services from GitHub Actions workflows using [Azure Login Action](https://github.com/marketplace/actions/azure-login) with [OpenID Connect (OIDC)](https://www.microsoft.com/security/business/security-101/what-is-openid-connect-oidc). 
+Learn how to securely authenticate to Azure services from GitHub Actions workflows using [Azure Login action](https://github.com/marketplace/actions/azure-login) with [OpenID Connect (OIDC)](https://www.microsoft.com/security/business/security-101/what-is-openid-connect-oidc). 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create GitHub secrets for the credentials of a Microsoft Entra application/user-assigned managed identity
-> * Set up Azure Login with OpenID Connect authentication in GitHub Action workflows
+> * Set up Azure Login with OpenID Connect authentication in GitHub Actions workflows
 
 ## Prerequisites
 
-To use [Azure Login Action](https://github.com/marketplace/actions/azure-login) with OIDC, you need to configure a federated identity credential on a Microsoft Entra application or a user-assigned managed identity.
+To use [Azure Login action](https://github.com/marketplace/actions/azure-login) with OIDC, you need to configure a federated identity credential on a Microsoft Entra application or a user-assigned managed identity.
 
-**Option 1: Microsoft Entra Application**
+**Option 1: Microsoft Entra application**
 
-* Create a Microsoft Entra application with a service principal assigned an appropriate role by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1), or [Azure PowerShell](/entra/identity-platform/howto-authenticate-service-principal-powershell).
+* Create a Microsoft Entra application with a service principal by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1#create-a-service-principal), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
+*  Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
+* Assign an appropriate role to your service principal by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#assign-a-role-to-the-application), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-5#create-or-remove-a-role-assignment), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#manage-service-principal-roles).
 * [Configure a federated identity credential on a Microsoft Entra application](/entra/workload-id/workload-identity-federation-create-trust) to trust tokens issued by GitHub Actions to your GitHub repository. 
 
 **Option 2: User-assigned managed identity**
 
-* [Create a user-assigned managed identity assigned an appropriate role](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
+* [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
+*  Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
+* [Assign an appropriate role to your user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#manage-access-to-user-assigned-managed-identities).
 * [Configure a federated identity credential on a user-assigned managed identity](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity) to trust tokens issued by GitHub Actions to your GitHub repository. 
 
 ## Create GitHub secrets
@@ -44,9 +48,9 @@ To use [Azure Login Action](https://github.com/marketplace/actions/azure-login) 
     > [!NOTE]
     > To enhance workflow security in public repositories, use [environment secrets](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets) instead of repository secrets. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it.
 
-1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Copy these values from your Microsoft Entra application or User-Assigned Managed Identity for your GitHub secrets:
+1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Copy these values from your Microsoft Entra application or user-assigned managed identity for your GitHub secrets:
 
-    |GitHub secret  |Microsoft Entra application or User-assigned managed identity  |
+    |GitHub secret  |Microsoft Entra application or user-assigned managed identity  |
     |---------|---------|
     |AZURE_CLIENT_ID    |    Client ID    |
     |AZURE_SUBSCRIPTION_ID     |    Subscription ID     |
@@ -55,15 +59,15 @@ To use [Azure Login Action](https://github.com/marketplace/actions/azure-login) 
     > [!NOTE]
     > For security reasons, we recommend using GitHub Secrets rather than passing values directly to the workflow.
 
-## Set up Azure Login Action with OpenID Connect in GitHub Action workflows
+## Set up Azure Login action with OpenID Connect in GitHub Actions workflows
 
-Your GitHub Actions workflow uses OpenID Connect to authenticate with Azure. Once you have a working Azure Login step, you can use the [Azure PowerShell Action](https://github.com/Azure/PowerShell) or [Azure CLI Action](https://github.com/Azure/CLI). You can also use other Azure actions, like [Azure webapp deploy](https://github.com/Azure/webapps-deploy) and [Azure functions](https://github.com/Azure/functions-action).
+Your GitHub Actions workflow uses OpenID Connect to authenticate with Azure. Once you have a working Azure Login step, you can use the [Azure PowerShell action](https://github.com/Azure/PowerShell) or [Azure CLI action](https://github.com/Azure/CLI). You can also use other Azure actions, like [Azure webapp deploy](https://github.com/Azure/webapps-deploy) and [Azure functions](https://github.com/Azure/functions-action).
 
 To learn more about this interaction, see the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
 In this example, you use OpenID Connect to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets stored before for the `client-id`, `tenant-id`, and `subscription-id` values. 
 
-The Azure Login Action includes an optional `audience` input parameter that defaults to `api://AzureADTokenExchange`, available for public clouds. For non-public clouds, update this parameter with the appropriate values. You can also customize this parameter for specific audience values.
+The Azure Login action includes an optional `audience` input parameter that defaults to `api://AzureADTokenExchange`, available for public clouds. For non-public clouds, update this parameter with the appropriate values. You can also customize this parameter for specific audience values.
 
 ### The workflow sample to only run Azure CLI
 
