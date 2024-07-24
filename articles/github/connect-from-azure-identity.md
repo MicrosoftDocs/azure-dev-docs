@@ -11,7 +11,7 @@ ms.custom: github-actions-azure, devx-track-azurecli, devx-track-azurepowershell
 
 # Use the Azure Login action with a managed identity
 
-On a virtual machine configured for [managed identities](/entra/identity/managed-identities-azure-resources/overview) in Azure, you can sign in [Azure login](https://github.com/marketplace/actions/azure-login) using the managed identity. You don't need to manage credentials, as they aren't accessible to you. There are two types of managed identities for you to choose: [**system-assigned managed identities**](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities#system-assigned-managed-identity) or [**user-assigned managed identities**](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities#user-assigned-managed-identity).
+On a virtual machine configured with [managed identities](/entra/identity/managed-identities-azure-resources/overview) in Azure, you can sign in [Azure Login action](https://github.com/marketplace/actions/azure-login) using the managed identity. You don't need to manage credentials, as they aren't accessible to you. There are two types of managed identities for you to choose: [**system-assigned managed identities**](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities#system-assigned-managed-identity) or [**user-assigned managed identities**](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities#user-assigned-managed-identity).
 
 In this tutorial, you learn how to:
 
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 - [Configure managed identity on the Azure virtual machine](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm)
 - Install required software on the Azure virtual machine
   - [Install Azure CLI](/cli/azure/install-azure-cli)
-  - [install Docker](https://docs.docker.com/engine/install/).
+  - [install Docker](https://docs.docker.com/engine/install/)
   - [Install PowerShell](/powershell/scripting/install/installing-powershell)
   - [Install Azure PowerShell](/powershell/azure/install-azure-powershell)
 - [Configure the Azure virtual machine as a GitHub self-hosted runner](https://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)
@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 
 ## Use the Azure Login action with system-assigned managed identity
 
-Learn how to securely authenticate to Azure services from GitHub Actions workflows using [Azure Login action](https://github.com/marketplace/actions/azure-login) with [system-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities#system-assigned-managed-identity) configured on a virtual machine. 
+Learn how to securely authenticate to Azure services from GitHub Actions workflows using [Azure Login action](https://github.com/marketplace/actions/azure-login) with [system-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities#system-assigned-managed-identity) that configured on a virtual machine. 
 
 ### Create GitHub secrets for system-assigned managed identity
 
@@ -64,7 +64,7 @@ Learn how to securely authenticate to Azure services from GitHub Actions workflo
 
 ### Set up Azure Login action with system-assigned managed identity in GitHub Actions workflows
 
-In this example, you use the system-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `subscription-id`, and `tenant-id` values, and assigns `self-hosted` as the label of the self-hosted runner.
+In this example, you use the system-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `subscription-id`, and `tenant-id` values. The self-hosted runner has been labeled `self-hosted` on GitHub.
 
 
 ```yaml
@@ -104,7 +104,7 @@ jobs:
 
 ## Use the Azure Login action with user-assigned managed identity
 
-Learn how to securely authenticate to Azure services from GitHub Actions workflows using [Azure Login action](https://github.com/marketplace/actions/azure-login) with [user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities#user-assigned-managed-identity) configured on a virtual machine. 
+Learn how to securely authenticate to Azure services from GitHub Actions workflows using [Azure Login action](https://github.com/marketplace/actions/azure-login) with [user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities#user-assigned-managed-identity) that configured on a virtual machine. 
 
 ### Create GitHub secrets for user-assigned managed identity
 
@@ -131,7 +131,7 @@ Learn how to securely authenticate to Azure services from GitHub Actions workflo
 
 ### Set up Azure Login action with user-assigned managed identity in GitHub Actions workflows
 
-In this example, you use the user-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `client-id`, `subscription-id`, and `tenant-id` values. 
+In this example, you use the user-assigned managed identity to authenticate with Azure with the [Azure login](https://github.com/marketplace/actions/azure-login) action. The example uses GitHub secrets for the `client-id`, `subscription-id`, and `tenant-id` values. The self-hosted runner has been labeled `self-hosted` on GitHub.
 
 ```yaml
 name: Run Azure Login with user-assigned managed identity
@@ -139,7 +139,7 @@ on: [push]
 
 jobs:
   test:
-    runs-on: self-hosted
+    runs-on: [self-hosted] # Specify the label of your self-hosted runner here
     steps:
     - name: Azure login
       uses: azure/login@v2
