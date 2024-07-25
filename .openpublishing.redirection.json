@@ -117,7 +117,7 @@
     },
     {
       "source_path": "articles/javascript/contoso-real-estate-test-ui-solution.md",
-      "redirect_url": "https://playwright.dev/docs/intro"
+      "redirect_url": "/azure/developer/javascript/end-to-end/contoso-real-estate-test-api-solution"
     },
     {
       "source_path": "articles/javascript/core/automate-tasks-with-azure-cli.md",
