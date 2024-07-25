@@ -116,7 +116,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/javascript/contoso-real-estate-test-ui-solution.md",
+      "source_path": "articles/javascript/end-to-end/contoso-real-estate-test-ui-solution.md",
       "redirect_url": "/azure/developer/javascript/end-to-end/contoso-real-estate-test-api-solution"
     },
     {
