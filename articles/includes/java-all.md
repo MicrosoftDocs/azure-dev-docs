@@ -525,8 +525,8 @@
 | IoT Hub - X509 Provider | Maven [2.0.2](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot.provisioning.security/x509-provider/2.0.2/jar/)<br>Maven [2.0.0-preview-001](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot.provisioning.security/x509-provider/2.0.0-preview-001/jar/) |  |  |
 | IoT Plug and Play - Device Client | Maven [2.5.0](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-device-client/2.5.0/jar/)<br>Maven [2.0.0-preview-002](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-device-client/2.0.0-preview-002/jar/) |  |  |
 | IoT Service Client | Maven [2.1.7](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-service-client/2.1.7/jar/)<br>Maven [2.0.0-preview-002](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-service-client/2.0.0-preview-002/jar/) | [docs](/java/api/overview/azure/iot) |  |
-| Kusto Data | Maven [5.1.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-data/5.1.0/jar/) |  |  |
-| Kusto Ingest | Maven [5.1.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-ingest/5.1.0/jar/) |  |  |
+| Kusto Data | Maven [5.1.1](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-data/5.1.1/jar/) |  |  |
+| Kusto Ingest | Maven [5.1.1](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-ingest/5.1.1/jar/) |  |  |
 | Kusto Spark | Maven [5.1.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-spark_3.0_2.12/5.1.0/jar/) |  |  |
 | LUIS Authoring | Maven [1.0.4-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring/1.0.4-beta/jar/) |  | GitHub [1.0.4-beta](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-luis-authoring) |
 | LUIS Runtime | Maven [1.0.2-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime/1.0.2-beta/jar/) |  | GitHub [1.0.2-beta](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-luis-runtime) |
