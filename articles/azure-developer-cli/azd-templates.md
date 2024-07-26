@@ -33,7 +33,7 @@ For example, suppose you work at a company that operates a ticket management and
 
 Rather than starting from the ground up, with `azd` you can leverage existing architecture templates to provision and deploy most of the resources for you. The development team can then focus on building the app and making smaller adjustments to the template architecture.
 
-## How Azure Developer CLI templates works
+## How Azure Developer CLI templates work
 
 Azure Developer CLI templates are designed to work with `azd` commands such as `azd init` and `azd up`. The templates include configuration and infrastructure-as-code (IaC) files that are used by the commands to perform tasks such as provisioning Azure resources and deploy the app code to them.
 
@@ -81,7 +81,7 @@ For example, a common `azd` template might match the following folder structure:
 
 :::image type="content" source="media/make-azd-compatible/azd-template-structure.png" alt-text="A screenshot showing an Azure Developer CLI template structure.":::
 
-## Start with an existing template or create you own
+## Start with an existing template or create your own
 
 There are two main approaches to working with `azd` templates:
 
