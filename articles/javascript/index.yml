@@ -77,9 +77,7 @@ landingContent:
           - text: Storage on Azure
             url: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
           - text: Full stack serverless with Mongoose
-            url: /azure/static-web-apps/add-mongoose
-          - text: Serverless API + DB
-            url: tutorial/azure-function-cosmos-db-mongo-api.md                 
+            url: /azure/static-web-apps/add-mongoose             
           - text: Express.js + MongoDB (training)
             url: /training/modules/javascript-deploy-expressjs-app-service-with-database
           - text: Express.js + MongoDB (docs)
