@@ -4,9 +4,20 @@ description: A developer focused overview of how billing works on Azure.
 keywords: azure billing, azure portal
 ms.service: azure
 ms.topic: overview
-ms.date: 08/04/2022
+ms.date: 07/29/2024
 ms.custom: overview
 ---
+
+This is part seven in a short series of 8 articles to help developers get started with Azure.
+
+* Part 1: [Azure for developers overview](azure-developer-overview.md)
+* Part 2: [Key Azure services for developers](azure-developer-key-services.md)
+* Part 3: [Hosting applications on Azure](hosting-apps-on-azure.md)
+* Part 4: [Connect your app to Azure services](connect-to-azure-services.md)
+* Part 5: [How do I create and manage resources in Azure?](azure-developer-create-resources.md)
+* Part 6: [Key concepts for building Azure apps](azure-developer-key-concepts.md)
+* Part 7: **How am I billed?**
+* Part 8: [Versioning policy for Azure services, SDKs, and CLI tools](azure-service-sdk-tool-versioning.md)
 
 # How am I billed?
 
@@ -89,3 +100,8 @@ Learn more about cost alerts and **Azure Cost Management**:
 - [Use cost alerts to monitor usage and spending](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending)
 - [What is Azure Cost Management + Billing?](/azure/cost-management-billing/cost-management-billing-overview)
 - [How to optimize your cloud investment with Azure Cost Management](/azure/cost-management-billing/costs/cost-mgt-best-practices)
+
+
+> [!div class="nextstepaction"]
+> [Continue to part 8: Versioning policy for Azure services, SDKs, and CLI tools](azure-service-sdk-tool-versioning.md)
+

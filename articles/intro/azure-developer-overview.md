@@ -12,7 +12,7 @@ ms.custom: overview
 
 If you're new to developing applications for the cloud, this short series of 8 articles is the best place to start.
 
-* Part 1: [Azure for developers overview](azure-developer-overview.md)
+* Part 1: **Azure for developers overview**
 * Part 2: [Key Azure services for developers](azure-developer-key-services.md)
 * Part 3: [Hosting applications on Azure](hosting-apps-on-azure.md)
 * Part 4: [Connect your app to Azure services](connect-to-azure-services.md)
@@ -42,4 +42,4 @@ You can incorporate Azure into your application in different ways depending on y
 - **Modern serverless architectures -** Azure Functions simplify building solutions to handle event-driven workflows, whether responding to HTTP requests, handling file uploads in Blob storage, or processing events in a queue.  You write only the code necessary to handle your event without worrying about servers or framework code.  Further, you can take advantage of over 250 connectors to other Azure and third-party services to tackle your toughest integration problems.
 
 > [!div class="nextstepaction"]
-> [Continue to "Key Azure services for developers"](azure-developer-key-services.md)
+> [Continue to part 2: Key Azure services for developers](azure-developer-key-services.md)

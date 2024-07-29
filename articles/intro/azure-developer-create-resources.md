@@ -4,9 +4,20 @@ description: An overview of techniques that developers use to provision resource
 keywords: azure portal, azure cli, azure powershell, azure sdk, azure rest apis
 ms.service: azure
 ms.topic: overview
-ms.date: 08/04/2022
+ms.date: 07/29/2024
 ms.custom: overview
 ---
+
+This is part five in a short series of 8 articles to help developers get started with Azure.
+
+* Part 1: [Azure for developers overview](azure-developer-overview.md)
+* Part 2: [Key Azure services for developers](azure-developer-key-services.md)
+* Part 3: [Hosting applications on Azure](hosting-apps-on-azure.md)
+* Part 4: [Connect your app to Azure services](connect-to-azure-services.md)
+* Part 5: **How do I create and manage resources in Azure?**
+* Part 6: [Key concepts for building Azure apps](azure-developer-key-concepts.md)
+* Part 7: [How am I billed?](azure-developer-billing.md)
+* Part 8: [Versioning policy for Azure services, SDKs, and CLI tools](azure-service-sdk-tool-versioning.md)
 
 # How do I create and manage resources in Azure?
 
@@ -239,3 +250,7 @@ Azure resources can also be created programmatically from code.  This allows you
 
 > [!div class="nextstepaction"]
 > [Using the Azure REST APIs](/rest/api/azure/)
+
+
+> [!div class="nextstepaction"]
+> [Continue to part 8: Key concepts for building Azure apps](azure-developer-key-concepts.md)
