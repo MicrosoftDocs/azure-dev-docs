@@ -4,7 +4,7 @@ description: Shows you how to secure Red Hat Quarkus applications with Microsoft
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 07/26/2024
+ms.date: 07/30/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-entra-id, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -114,7 +114,7 @@ The sample Quarkus app for this quickstart is on GitHub in the [quarkus-azure](h
 
 ### Enable authentication and authorization to secure app
 
-The app has a [welcome page resource](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/com/example/WelcomePage.java) that is accessible to unauthenticated users. The root path of the welcome page is at `/`.
+The app has a welcome page resource defined in [WelcomePage.java](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/com/example/WelcomePage.java), which is shown in the following example code. This page is accessible to unauthenticated users. The root path of the welcome page is at `/`.
 
 ```java
 @Path("/")
@@ -135,7 +135,7 @@ public class WelcomePage {
 }
 ```
 
-From the [welcome page](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/templates/welcome.qute.html), users can sign in to the app to access the profile page. The welcome page has links to sign in as a user or as an admin. The links are at `/profile/user` and `/profile/admin`, respectively.
+From the welcome page, users can sign in to the app to access the profile page. The welcome page has links to sign in as a user or as an admin. The links are at `/profile/user` and `/profile/admin`, respectively. The welcome page UI is defined in [welcome.qute.html](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/templates/welcome.qute.html) and shown in the following example:
 
 ```html
 <html>
@@ -155,7 +155,7 @@ From the [welcome page](https://github.com/Azure-Samples/quarkus-azure/blob/main
 </html>
 ```
 
-Both links `/profile/user` and `/profile/admin` point to the [profile page resource](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/com/example/ProfilePage.java), which is accessible only to authenticated users by using the `@RolesAllowed("**")` annotation from package `jakarta.annotation.security.RolesAllowed`. The `@RolesAllowed("**")` annotation specifies that only authenticated users can access the `/profile` path.
+Both `/profile/user` and `/profile/admin` links point to the profile page resource, defined in [ProfilePage.java](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/com/example/ProfilePage.java), as shown in the following example code. This page is accessible only to authenticated users by using the `@RolesAllowed("**")` annotation from the `jakarta.annotation.security.RolesAllowed` package. The `@RolesAllowed("**")` annotation specifies that only authenticated users can access the `/profile` path.
 
 ```java
 @Path("/profile")
@@ -202,7 +202,7 @@ public class ProfilePage {
 
 The profile page resource enables RBAC by using the `@RolesAllowed` annotation. The arguments to the `@RolesAllowed` annotation specify that only users with the `admin` role can access the `/profile/admin` path, and users with the `user` or `admin` role can access the `/profile/user` path.
 
-Both endpoints `/profile/admin` and `/profile/user` return the [profile page](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/templates/profile.qute.html). It displays the user's name, roles, and scopes. The profile page also has a sign-out link at `/logout`, which redirects the user to OIDC provider to sign out. The profile page is written using the Qute templating engine. Note the use of `{}` expressions in the page. These expressions make use of the values passed to the `TemplateInstance` using the `data()` method. For more information on Qute, see [Qute templating engine](https://quarkus.io/guides/qute).
+Both the `/profile/admin` and `/profile/user` endpoints return the profile page. The profile page UI is defined in [profile.qute.html](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/templates/profile.qute.html), as shown in the following example. This page displays the user's name, roles, and scopes. The profile page also has a sign-out link at `/logout`, which redirects the user to OIDC provider to sign out. The profile page is written using the Qute templating engine. Note the use of `{}` expressions in the page. These expressions make use of the values passed to the `TemplateInstance` using the `data()` method. For more information on Qute, see [Qute templating engine](https://quarkus.io/guides/qute).
 
 ```html
 <html>
@@ -303,14 +303,14 @@ After the Quarkus app is running, open a web browser with a private tab and navi
 
 #### Gather the credentials for the two users
 
-In this article, Microsoft Entra ID uses the email address of each user as the user ID for signing in. Follow the steps in this section to get the email address for the admin user and regular user.
+In this article, Microsoft Entra ID uses the email address of each user as the user ID for signing in. Use the following steps to get the email address for the admin user and regular user:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least a [Cloud Application Administrator](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator).
-1. If you have access to multiple tenants, use the **Settings** icon :::image type="icon" source="/entra/identity-platform/media/common/admin-center-settings-icon.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application from the **Directories + subscriptions** menu.
+1. If you have access to multiple tenants, use the **Settings** icon (:::image type="icon" source="/entra/identity-platform/media/common/admin-center-settings-icon.png" border="false":::) in the top menu to switch to the tenant in which you want to register the application from the **Directories + subscriptions** menu.
 1. Browse to **Identity > Users > All Users**.
 1. Locate the admin user in the list and select it.
 1. Locate the **User principal name** field.
-1. Use the copy icon next to the value of the field to save the email address of the user to the clipboard. Write it down.
+1. Use the copy icon next to the value of the field to save the email address of the user to the clipboard. Save the value for later use.
 1. To get the email address for the regular user, follow the same steps.
 
 Use the passwords for the admin user and regular user that you set when creating the users.
@@ -322,9 +322,11 @@ Select the **Sign in as user** link. Sign in with the regular user you created e
 :::image type="content" source="media/quarkus-with-microsoft-entra-id/user-profile.png" alt-text="Screenshot of the sample application that shows the user profile." lightbox="media/quarkus-with-microsoft-entra-id/user-profile.png":::
 
 > [!NOTE]
-> - The first time you sign in, you're prompted to update your password. Follow the instructions to update your password.
-> - If you're prompted with **Your organization requires additional security information. Follow the prompts to download and set up the Microsoft Authenticator app**, you can select **Ask later** to continue the test.
-> - If you're prompted with **Permissions requested**, review the permissions requested by the app. Select **Accept** to continue the test.
+> The first time you sign in, you're prompted to update your password. Follow the instructions to update your password.
+>
+> If you're prompted with **Your organization requires additional security information. Follow the prompts to download and set up the Microsoft Authenticator app**, you can select **Ask later** to continue the test.
+>
+> If you're prompted with **Permissions requested**, review the permissions requested by the app. Select **Accept** to continue the test.
 
 Select **Sign out** to sign out from the Quarkus app. Microsoft Entra ID performs the sign out. After you sign out, Microsoft Entra ID redirects you to the welcome page.
 
@@ -350,9 +352,9 @@ When you finish with the resources for this sample app, use the following steps 
 
 In this quickstart, you protect Quarkus applications with Microsoft Entra ID using OpenID Connect. To learn more, explore the following resources:
 
-* [Deploy a Java application with Quarkus on an Azure Container Apps](/azure/developer/java/ee/deploy-java-quarkus-app)
-* [OpenID Connect authentication with Microsoft Entra ID](/entra/architecture/auth-oidc)
-* [Microsoft identity platform and OAuth 2.0 authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow)
-* [Protect a web application by using OpenId Connect (OIDC) authorization code flow](https://quarkus.io/guides/security-oidc-code-flow-authentication-tutorial)
-* [OpenID Connect authorization code flow mechanism for protecting web applications](https://quarkus.io/guides/security-oidc-code-flow-authentication)
-* [OpenID Connect (OIDC) configuration properties](https://quarkus.io/guides/security-oidc-configuration-properties-reference)
+- [Deploy a Java application with Quarkus on an Azure Container Apps](/azure/developer/java/ee/deploy-java-quarkus-app)
+- [OpenID Connect authentication with Microsoft Entra ID](/entra/architecture/auth-oidc)
+- [Microsoft identity platform and OAuth 2.0 authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow)
+- [Protect a web application by using OpenId Connect (OIDC) authorization code flow](https://quarkus.io/guides/security-oidc-code-flow-authentication-tutorial)
+- [OpenID Connect authorization code flow mechanism for protecting web applications](https://quarkus.io/guides/security-oidc-code-flow-authentication)
+- [OpenID Connect (OIDC) configuration properties](https://quarkus.io/guides/security-oidc-configuration-properties-reference)
