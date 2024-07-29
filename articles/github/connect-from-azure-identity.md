@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 > [!NOTE]
 >
-> Login with managed identity is only supported for self-hosted runners on Azure virtual machines. For other users, please refer to [Sign in with OpenID Connect](connect-from-azure-oidc.md) or [Sign in with a service principal and secret](connect-from-azure-secret.md). 
+> Login with managed identity is only supported for self-hosted runners on Azure virtual machines. For other uses, please refer to [Sign in with OpenID Connect](connect-from-azure-oidc.md) or [Sign in with a service principal and secret](connect-from-azure-secret.md). 
 
 ## Prerequisites
 
