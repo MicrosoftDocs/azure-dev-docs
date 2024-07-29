@@ -2,7 +2,7 @@
 title: More resources for Azure developers using Java
 description: Learn about information and technologies useful for Java in Azure development, such as the Spring Framework and Apache Tomcat.
 author: KarlErickson
-ms.author: sreea
+ms.author: karler
 ms.topic: overview
 ms.date: 01/05/2023
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, kr2b-contr-experiment

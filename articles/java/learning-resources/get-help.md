@@ -2,7 +2,7 @@
 title: Get help from Microsoft on Java migration to Azure
 description: Get Help from Microsoft in your journey to Azure. Learn how to migrate your Java app or Spring Cloud app, starting with our questionnaire.
 author: KarlErickson
-ms.author: sreea
+ms.author: karler
 ms.topic: overview
 ms.date: 05/20/2022
 ms.custom: devx-track-java, kr2b-contr-experiment, devx-track-extended-java

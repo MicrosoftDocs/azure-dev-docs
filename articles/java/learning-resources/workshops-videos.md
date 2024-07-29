@@ -2,7 +2,7 @@
 title: Workshops and videos for Java on Azure
 description: Java on Azure workshops and videos.
 author: KarlErickson
-ms.author: sreea
+ms.author: karler
 ms.topic: article
 ms.date: 03/29/2021
 ms.custom: devx-track-java, devx-track-extended-java
