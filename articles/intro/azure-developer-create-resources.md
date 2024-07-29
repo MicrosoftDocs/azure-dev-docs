@@ -253,4 +253,4 @@ Azure resources can also be created programmatically from code.  This allows you
 
 
 > [!div class="nextstepaction"]
-> [Continue to part 8: Key concepts for building Azure apps](azure-developer-key-concepts.md)
+> [Continue to part 6: Key concepts for building Azure apps](azure-developer-key-concepts.md)

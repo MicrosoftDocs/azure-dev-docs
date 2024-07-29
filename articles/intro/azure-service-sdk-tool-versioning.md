@@ -75,6 +75,3 @@ The Azure command line tools may occasionally expose preview features. These com
 - [Microsoft REST API guidelines](https://github.com/microsoft/api-guidelines)
 - [Azure SDK general guidelines](https://azure.github.io/azure-sdk/general_introduction.html)
 
-
-> [!div class="nextstepaction"]
-> [Continue to part 8: Versioning policy for Azure services, SDKs, and CLI tools](azure-service-sdk-tool-versioning.md)
