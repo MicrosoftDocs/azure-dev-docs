@@ -27,7 +27,7 @@ Azure supports the most popular programming languages in use today, including Py
 
 ## Application development scenarios on Azure
 
-You can incorporate Azure into your application in different ways depending on your needs.
+You can incorporate Azure into your application in different ways depending on your needs. The following video provides a helpful overview of the most popular development scenarios for Azure developers:
 
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50LmJ]
