@@ -172,7 +172,7 @@ The sample repository contains all the code and configuration files you need to 
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
 1. Select that URL labeled `Deploying service web` to open the chat application in a browser.
 
-    :::image type="content" source="../media/get-started-app-chat-template/browser-chat-with-your-data.png" lightbox="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+    :::image type="content" source="../media/get-started-app-chat-template/browser-chat-with-your-data.png" lightbox="../media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
 ### Use chat app to get answers from markdown files
 
@@ -180,11 +180,11 @@ The chat app is preloaded with rental information from a [markdown file catalog]
 
 1. In the browser, select or enter **What is the refund policy** in the text box at the bottom of the page.
 
-    :::image type="content" source="../media/get-started-app-chat-template/browser-chat-initial-answer.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer.png" alt-text="Screenshot of chat app's first answer.":::
+    :::image type="content" source="../media/get-started-app-chat-template/browser-chat-initial-answer.png" lightbox="../media/get-started-app-chat-template/browser-chat-initial-answer.png" alt-text="Screenshot of chat app's first answer.":::
 
 1. From the answer, select **Show thought process**.
 
-    :::image type="content" source="../media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with Show thought process highlighted in a red box.":::
+    :::image type="content" source="../media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" lightbox="../media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with Show thought process highlighted in a red box.":::
 
 1. In the right-pane, use the tabs to understand how the answer was generated.
 

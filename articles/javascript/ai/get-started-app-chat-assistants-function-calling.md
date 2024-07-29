@@ -112,7 +112,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     > [!TIP]
     > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
     >
-    > :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/open-terminal-option.png" lightbox="./media/get-started-app-chat-assistants-function-calling/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
+    > :::image type="content" source="../media/get-started-app-chat-assistants-function-calling/open-terminal-option.png" lightbox="../media/get-started-app-chat-assistants-function-calling/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
 
 1. Sign in to Azure with the Azure Developer CLI.
 
@@ -168,7 +168,7 @@ You can use the assistant app to get the stock market price of `MSFT`. The follo
     
 1. Select the **Run** button. Your results should look _similar_ to the following response.
 
-    :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-demo.png" alt-text="Screenshot of assistant app's first answer.":::
+    :::image type="content" source="../media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-demo.png" alt-text="Screenshot of assistant app's first answer.":::
 
 ## Clean up resources
 
@@ -195,7 +195,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-openai-assistant-javascript`](https://github.com/Azure-Samples/azure-openai-assistant-javascript) GitHub repository.
 
-    :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
+    :::image type="content" source="../media/get-started-app-chat-assistants-function-calling/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
 1. Open the context menu, `...`, for the codespace and then select **Delete**.
 
@@ -205,7 +205,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+    :::image type="content" source="../media/get-started-app-chat-assistants-function-calling/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
@@ -220,4 +220,4 @@ If your issued isn't addressed, log your issue to the repository's [Issues](http
 
 ## Related content
 
-* [Get started with evaluating answers in a chat app in JavaScript](ai/get-started-app-chat-evaluations.md)
+* [Get started with evaluating answers in a chat app in JavaScript](get-started-app-chat-evaluations.md)

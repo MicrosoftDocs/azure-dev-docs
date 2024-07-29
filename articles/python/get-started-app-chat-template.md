@@ -29,7 +29,7 @@ Other articles in the collection include:
 
 * [.NET](/dotnet/ai/get-started-app-chat-template)
 * [Java](../java/quickstarts/get-started-app-chat-template.md)
-* [JavaScript](../javascript/get-started-app-chat-template.md)
+* [JavaScript](../javascript/ai/get-started-app-chat-template.md)
 * [JavaScript frontend  + Python backend](../javascript/ai/chat-app-with-separate-front-back-end.md)
 
 > [!NOTE]

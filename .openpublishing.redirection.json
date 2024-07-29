@@ -142,7 +142,11 @@
     {
       "source_path": "articles/javascript/get-started-app-chat-template-langchainjs.md",
       "redirect_url": "/azure/javascript/ai/get-started-app-chat-template-langchainjs"
-    },    
+    },   
+    {
+      "source_path": "articles/javascript/get-started-app-chat-template.md",
+      "redirect_url": "/azure/javascript/ai/get-started-app-chat-template"
+    },     
     {
       "source_path": "articles/javascript/tutorial/azure-function-cosmos-db-mongo-api.md",
       "redirect_url": "/azure/azure-functions/functions-add-output-binding-cosmos-db-vs-code?pivots=programming-language-javascript"
