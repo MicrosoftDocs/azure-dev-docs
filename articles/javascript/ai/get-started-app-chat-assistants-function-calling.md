@@ -17,7 +17,7 @@ This article shows you how to deploy and run the [serverless Azure OpenAI Assist
 
 Azure OpenAI Assistants allows you to create AI assistants tailored to your needs through custom instructions and augmented by advanced tools like code interpreter, and custom functions. In this article, we provide an in-depth walkthrough of getting started with the Assistants API.
 
-:::image type="content" source="./media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
+:::image type="content" source="../media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
 This application is built around two main components:
 
@@ -27,7 +27,7 @@ This application is built around two main components:
 
     - The sample's function call simulates an API call by generating a random stock ticker value based on the stock symbol sent into the Azure Function. This simulation can be replaced with a remote API in your solution.
 
-    :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/diagram-azure-openai-service-function-calling-architecture.png" alt-text="Diagram showing Azure Functions integration with Azure OpenAI where Azure OpenAI can return follow up function names which Azure Functions should call.":::
+    :::image type="content" source="../media/get-started-app-chat-assistants-function-calling/diagram-azure-openai-service-function-calling-architecture.png" alt-text="Diagram showing Azure Functions integration with Azure OpenAI where Azure OpenAI can return follow up function names which Azure Functions should call.":::
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ To use this article, you need the following prerequisites:
 1. Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
 1. Access granted to Azure OpenAI in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
-1. [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
+1. [Azure Developer CLI](../../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
 1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
 1. [Git](https://git-scm.com/downloads) 
 1. [Visual Studio Code](https://code.visualstudio.com/)
@@ -220,4 +220,4 @@ If your issued isn't addressed, log your issue to the repository's [Issues](http
 
 ## Related content
 
-* [Get started with evaluating answers in a chat app in JavaScript](get-started-app-chat-evaluations.md)
+* [Get started with evaluating answers in a chat app in JavaScript](ai/get-started-app-chat-evaluations.md)

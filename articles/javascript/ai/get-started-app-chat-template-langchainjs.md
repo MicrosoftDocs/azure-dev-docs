@@ -16,10 +16,10 @@ Creating AI apps can be complex. With LangChain.js, Azure Functions, and Serverl
 
 The code includes sample data for a fictitious company, Contoso Real Estate. Customers can ask support questions about the company's products. The data includes documents on the company's terms of service, privacy policy, and support guide.
 
-:::image type="content" source="./media/get-started-app-chat-langchainjs/demo.gif" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+:::image type="content" source="../media/get-started-app-chat-langchainjs/demo.gif" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
 > [!NOTE]
-> This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+> This article uses one or more [AI app templates](../../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
 ## Architectural overview
 
@@ -35,7 +35,7 @@ The user interacts with the application:
 
 A simple architecture of the chat app is shown in the following diagram:
 
-:::image type="content" source="./media/get-started-app-chat-langchainjs/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
+:::image type="content" source="../media/get-started-app-chat-langchainjs/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
 ### LangChainjs simplifies the complexity between services
 
@@ -250,4 +250,4 @@ If your issue isn't addressed, log your issue to the repository's [Issues](https
 
 ## Related content
 
-- [Get started with evaluating answers in a chat app in JavaScript](get-started-app-chat-evaluations.md)
+- [Get started with evaluating answers in a chat app in JavaScript](ai/get-started-app-chat-evaluations.md)

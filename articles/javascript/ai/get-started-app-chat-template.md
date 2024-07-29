@@ -27,17 +27,17 @@ Once you complete this article, you can start modifying the new project with you
 This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Service and Azure AI Search. Other articles in the collection include: 
 
 * [.NET](/dotnet/ai/get-started-app-chat-template)
-* [Java](../java/quickstarts/get-started-app-chat-template.md)
-* [Python](../python/get-started-app-chat-template.md)
+* [Java](../../java/quickstarts/get-started-app-chat-template.md)
+* [Python](../../python/get-started-app-chat-template.md)
 
 > [!NOTE]
-> This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+> This article uses one or more [AI app templates](../../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
 ## Architectural overview
 
 A simple architecture of the chat app is shown in the following diagram:
 
-:::image type="content" source="./media/get-started-app-chat-template/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
+:::image type="content" source="../media/get-started-app-chat-template/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
 The chat sample application is built for a fictitious company called _Contoso Real Estate_, and the intelligent chat experience allows its customers to ask support questions about the usage of its products. The sample data includes a set of documents that describe its terms of service, privacy policy and a support guide. The documents are ingested into the architecture during deployment.
 
@@ -47,7 +47,7 @@ The application is made from multiple components, including:
 - **Indexer service**: the service that indexes the data and creates the search indexes.
 - **Web app**: the frontend web application that provides the user interface and orchestrates the interaction between the user and the backend services.
 
-:::image type="content" source="./media/get-started-app-chat-template/app-architecture-azure-services.png" alt-text="Diagram showing Azure services and their integration flow for the front-end app, the search, and the document ingestion.":::
+:::image type="content" source="../media/get-started-app-chat-template/app-architecture-azure-services.png" alt-text="Diagram showing Azure services and their integration flow for the front-end app, the search, and the document ingestion.":::
 
 
 ## Cost 
@@ -100,7 +100,7 @@ Begin now with a development environment that has all the dependencies installed
 
 1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**
 
-    :::image type="content" source="./media/get-started-app-chat-template/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
+    :::image type="content" source="../media/get-started-app-chat-template/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
@@ -172,7 +172,7 @@ The sample repository contains all the code and configuration files you need to 
 1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
 1. Select that URL labeled `Deploying service web` to open the chat application in a browser.
 
-    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" lightbox="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+    :::image type="content" source="../media/get-started-app-chat-template/browser-chat-with-your-data.png" lightbox="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
 ### Use chat app to get answers from markdown files
 
@@ -180,11 +180,11 @@ The chat app is preloaded with rental information from a [markdown file catalog]
 
 1. In the browser, select or enter **What is the refund policy** in the text box at the bottom of the page.
 
-    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer.png" alt-text="Screenshot of chat app's first answer.":::
+    :::image type="content" source="../media/get-started-app-chat-template/browser-chat-initial-answer.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer.png" alt-text="Screenshot of chat app's first answer.":::
 
 1. From the answer, select **Show thought process**.
 
-    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with Show thought process highlighted in a red box.":::
+    :::image type="content" source="../media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with Show thought process highlighted in a red box.":::
 
 1. In the right-pane, use the tabs to understand how the answer was generated.
 
@@ -200,7 +200,7 @@ The chat app is preloaded with rental information from a [markdown file catalog]
 
 The intelligence of the chat app is determined by the OpenAI model and the settings that are used to interact with the model. 
 
-:::image type="content" source="./media/get-started-app-chat-template/browser-chat-developer-settings-chat-pane.png" alt-text="Screenshot of chat developer settings":::
+:::image type="content" source="../media/get-started-app-chat-template/browser-chat-developer-settings-chat-pane.png" alt-text="Screenshot of chat developer settings":::
 
 |Setting|Description|
 |---|---|
@@ -249,11 +249,11 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-javascript`](https://github.com/Azure-Samples/azure-search-openai-javascript) GitHub repository.
 
-    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
+    :::image type="content" source="../media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
 1. Open the context menu for the codespace and then select **Delete**.
 
-    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
+    :::image type="content" source="../media/get-started-app-chat-template/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -261,7 +261,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="./media/get-started-app-chat-template/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+    :::image type="content" source="../media/get-started-app-chat-template/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.

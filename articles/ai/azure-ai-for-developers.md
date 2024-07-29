@@ -63,6 +63,6 @@ One of the most popular templates is the chat with your data sample using Azure 
 Each language overview page links to popular articles, samples, documentation and more specific to your preferred programming language or platform.
 
 - [Python](../python/azure-ai-for-python-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
-- [JavaScript](../javascript/azure-ai-for-javascript-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+- [JavaScript](../javascript/ai/azure-ai-for-javascript-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 - [Java](../java/ai/azure-ai-for-java-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 - [.NET](/dotnet/ai/azure-ai-for-dotnet-developers?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)

@@ -116,6 +116,34 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/javascript/azure-ai-for-javascript-developers.md",
+      "redirect_url": "/azure/javascript/ai/azure-ai-for-javascript-developers"
+    },
+    {
+      "source_path": "articles/javascript/chat-app-with-separate-front-back-end.md",
+      "redirect_url": "/azure/javascript/ai/chat-app-with-separate-front-back-end"
+    },
+    {
+      "source_path": "articles/javascript/get-started-app-chat-assistants-function-calling.md",
+      "redirect_url": "/azure/javascript/ai/get-started-app-chat-assistants-function-calling"
+    },
+    {
+      "source_path": "articles/javascript/get-started-app-chat-evaluations.md",
+      "redirect_url": "/azure/javascript/ai/get-started-app-chat-evaluations"
+    },
+    {
+      "source_path": "articles/javascript/get-started-app-chat-scaling-with-azure-api-management.md",
+      "redirect_url": "/azure/javascript/ai/get-started-app-chat-scaling-with-azure-api-management"
+    },    
+    {
+      "source_path": "articles/javascript/get-started-app-chat-scaling-with-azure-container-apps.md",
+      "redirect_url": "/azure/javascript/ai/get-started-app-chat-scaling-with-azure-container-apps"
+    },
+    {
+      "source_path": "articles/javascript/get-started-app-chat-template-langchainjs.md",
+      "redirect_url": "/azure/javascript/ai/get-started-app-chat-template-langchainjs"
+    },    
+    {
       "source_path": "articles/javascript/tutorial/azure-function-cosmos-db-mongo-api.md",
       "redirect_url": "/azure/azure-functions/functions-add-output-binding-cosmos-db-vs-code?pivots=programming-language-javascript"
     },
