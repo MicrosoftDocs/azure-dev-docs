@@ -40,9 +40,9 @@ First, create two users in your Microsoft Entra tenant by following the steps in
 To create a user to serve as an "admin" in the app, use the following steps:
 
 1. When you reach the **Basics** tab in the [Create a new user](/entra/fundamentals/how-to-create-delete-users#create-a-new-user) section, use the following steps:
-   1. For **User principal name**, enter a unique username. Save the value so you can use it later when you sign in to the Quarkus app.
+   1. For **User principal name**, enter *admin*. Save the value so you can use it later when you sign in to the Quarkus app.
    1. For **Mail nickname**, select **Derive from user principal name** 
-   1. For **Display name**, enter the user's name 
+   1. For **Display name**, enter *Admin*.
    1. For **Password**, select **Auto-generate password**. Copy and save the **Password** value to use later when you sign in to the Quarkus app.
    1. Select **Account enabled**.
 
@@ -51,7 +51,10 @@ To create a user to serve as an "admin" in the app, use the following steps:
    1. Select **Review + create** > **Create**. Wait until the user is created.
    1. Wait a minute or so and select **Refresh**. You should see the new user in the list.
 
-To create a user to serve as a "user" in the app, repeat these steps.
+To create a user to serve as a "user" in the app, repeat these steps, but use the following values:
+
+- For **User principal name**, enter *user*.
+- For **Display name**, enter *User*.
 
 :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-regular-user.png" alt-text="Screenshot of the Azure portal that shows the Create new user Basics pane for a regular user." lightbox="media/quarkus-with-microsoft-entra-id/create-regular-user.png":::
 
@@ -74,25 +77,23 @@ Then, add app roles to your application by following steps in [Add app roles to 
 
 1. When you reach the [Declare roles for an application](/entra/identity-platform/howto-add-app-roles-in-apps#declare-roles-for-an-application) section, use the **App roles** UI to create roles for the administrator and the regular user.
 
-   1. Create an administrator user role by using the following steps:
-      1. For **Display name**, enter *Admin*.
-      1. For **Allowed member types**, select **Users/Groups**.
-      1. For **Value**, enter *admin*.
-      1. For **Description**, enter *Admin*.
-      1. Select **Do you want to enable this app role?**.
+   1. Create an administrator user role by using the following values:
+      - For **Display name**, enter *Admin*.
+      - For **Allowed member types**, select **Users/Groups**.
+      - For **Value**, enter *admin*.
+      - For **Description**, enter *Admin*.
+      - Select **Do you want to enable this app role?**.
 
-         :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-admin-role.png" alt-text="Screenshot of the Azure portal that shows the Create app role pane for the admin user." lightbox="media/quarkus-with-microsoft-entra-id/create-admin-role.png":::
+      :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-admin-role.png" alt-text="Screenshot of the Azure portal that shows the Create app role pane for the admin user." lightbox="media/quarkus-with-microsoft-entra-id/create-admin-role.png":::
 
-      1. Select **Apply**. Wait until the role is created.
-      
-   1. Create a regular user role by using the following steps:
-      1. For **Display name**, enter *User*.
-      1. For **Allowed member types**, select **Users/Groups**.
-      1. For **Value**, enter *user*.
-      1. For **Description**, enter *User*.
-      1. Select **Do you want to enable this app role?**.
+   1. Select **Apply**. Wait until the role is created.
 
-         :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-user-role.png" alt-text="Screenshot of the Azure portal that shows the Create app role pane for the regular user." lightbox="media/quarkus-with-microsoft-entra-id/create-user-role.png":::
+   1. Create a regular user role by using the same steps, but with the following values:
+      - For **Display name**, enter *User*.
+      - For **Value**, enter *user*.
+      - For **Description**, enter *User*.
+
+      :::image type="content" source="media/quarkus-with-microsoft-entra-id/create-user-role.png" alt-text="Screenshot of the Azure portal that shows the Create app role pane for the regular user." lightbox="media/quarkus-with-microsoft-entra-id/create-user-role.png":::
 
 1. When you reach the [Assign users and groups to Microsoft Entra roles](/entra/identity-platform/howto-add-app-roles-in-apps#assign-users-and-groups-to-microsoft-entra-roles), section, use the following steps:
    1. Select **Add user/group**.
@@ -239,35 +240,37 @@ After sign out, the user is redirected to the welcome page and can sign in again
 
 In this section, you run and test the Quarkus app to see how it works with Microsoft Entra ID as the OpenID Connect provider.
 
-### Clone the Quarkus app
+### Prepare the sample
 
-First, use the following command to clone the sample Quarkus app from GitHub and navigate to the `entra-id-quarkus` directory:
+Use the following steps to prepare the sample Quarkus app:
 
-```bash
-git clone https://github.com/Azure-Samples/quarkus-azure
-cd quarkus-azure/entra-id-quarkus
-git checkout 2024-07-17
-```
+1. Use the following commands to clone the sample Quarkus app from GitHub and navigate to the `entra-id-quarkus` directory:
 
-If you see a message about being in *detached HEAD* state, this message is safe to ignore. Because this article doesn't require any commits, detached HEAD state is appropriate.
+   ```bash
+   git clone https://github.com/Azure-Samples/quarkus-azure
+   cd quarkus-azure/entra-id-quarkus
+   git checkout 2024-07-17
+   ```
 
-Next, use the following commands to define the following environment variables with the values you wrote down earlier:
+   If you see a message about being in *detached HEAD* state, this message is safe to ignore. Because this article doesn't require any commits, detached HEAD state is appropriate.
 
-```bash
-export QUARKUS_OIDC_CLIENT_ID=<application/client-ID>
-export QUARKUS_OIDC_CREDENTIALS_SECRET=<client-secret>
-export QUARKUS_OIDC_AUTH_SERVER_URL=https://login.microsoftonline.com/<directory/tenant-ID>/v2.0
-```
+1. Use the following commands to define the following environment variables with the values you wrote down earlier:
 
-These environment variables provide the values for the built-in support of OpenID Connect in Quarkus. The corresponding properties in `application.properties` are shown in the following example.
+   ```bash
+   export QUARKUS_OIDC_CLIENT_ID=<application/client-ID>
+   export QUARKUS_OIDC_CREDENTIALS_SECRET=<client-secret>
+   export QUARKUS_OIDC_AUTH_SERVER_URL=https://login.microsoftonline.com/<directory/tenant-ID>/v2.0
+   ```
 
-```properties
-quarkus.oidc.client-id=
-quarkus.oidc.credentials.secret=
-quarkus.oidc.auth-server-url=
-```
+   These environment variables provide the values for the built-in support of OpenID Connect in Quarkus. The corresponding properties in `application.properties` are shown in the following example.
 
-If the value of a property is blank in `application.properties`, Quarkus converts the property name into an environment variable and reads the value from the environment. For details on the naming conversion, see [the MicroProfile Config specification](https://download.eclipse.org/microprofile/microprofile-config-3.0/microprofile-config-spec-3.0.html#default_configsources.env.mapping).
+   ```properties
+   quarkus.oidc.client-id=
+   quarkus.oidc.credentials.secret=
+   quarkus.oidc.auth-server-url=
+   ```
+
+   If the value of a property is blank in `application.properties`, Quarkus converts the property name into an environment variable and reads the value from the environment. For details on the naming conversion, see [the MicroProfile Config specification](https://download.eclipse.org/microprofile/microprofile-config-3.0/microprofile-config-spec-3.0.html#default_configsources.env.mapping).
 
 ### Run the Quarkus app
 
@@ -317,26 +320,27 @@ Use the passwords for the admin user and regular user that you set when creating
 
 #### Exercise the functionality of the app
 
-Select the **Sign in as user** link. Sign in with the regular user you created earlier. After you sign in, Microsoft Entra ID redirects you to the profile page, where you see your name, roles, and scopes.
+Use the following steps to exercise the functionality:
 
-:::image type="content" source="media/quarkus-with-microsoft-entra-id/user-profile.png" alt-text="Screenshot of the sample application that shows the user profile." lightbox="media/quarkus-with-microsoft-entra-id/user-profile.png":::
+1. Select the **Sign in as user** link. Sign in with the regular user you created earlier. After you sign in, Microsoft Entra ID redirects you to the profile page, where you see your name, roles, and scopes.
 
-> [!NOTE]
-> The first time you sign in, you're prompted to update your password. Follow the instructions to update your password.
->
-> If you're prompted with **Your organization requires additional security information. Follow the prompts to download and set up the Microsoft Authenticator app**, you can select **Ask later** to continue the test.
->
-> If you're prompted with **Permissions requested**, review the permissions requested by the app. Select **Accept** to continue the test.
+   :::image type="content" source="media/quarkus-with-microsoft-entra-id/user-profile.png" alt-text="Screenshot of the sample application that shows the user profile." lightbox="media/quarkus-with-microsoft-entra-id/user-profile.png":::
 
-Select **Sign out** to sign out from the Quarkus app. Microsoft Entra ID performs the sign out. After you sign out, Microsoft Entra ID redirects you to the welcome page.
+1. If this is the first time you sign in, you're prompted to update your password. Follow the instructions to update your password.
 
-Select the **Sign in as admin** link. Microsoft Entra ID redirects you to the sign-in page. Sign in with the admin user you created earlier. After you sign in, Microsoft Entra ID redirects you to the similar profile page, with a different role `admin`.
+1. If you're prompted with **Your organization requires additional security information. Follow the prompts to download and set up the Microsoft Authenticator app**, you can select **Ask later** to continue the test.
 
-:::image type="content" source="media/quarkus-with-microsoft-entra-id/admin-profile.png" alt-text="Screenshot of the sample application that shows the admin profile." lightbox="media/quarkus-with-microsoft-entra-id/admin-profile.png":::
+1. If you're prompted with **Permissions requested**, review the permissions requested by the app. Select **Accept** to continue the test.
 
-Sign out again and try to **Sign in as admin**  with the regular user you created earlier. You should see an error message because the regular user doesn't have the `admin` role.
+1. Select **Sign out** to sign out from the Quarkus app. Microsoft Entra ID performs the sign out. After you sign out, Microsoft Entra ID redirects you to the welcome page.
 
-:::image type="content" source="media/quarkus-with-microsoft-entra-id/forbidden.png" alt-text="Screenshot of the sample application that shows the access denied message." lightbox="media/quarkus-with-microsoft-entra-id/forbidden.png":::
+1. Select the **Sign in as admin** link. Microsoft Entra ID redirects you to the sign-in page. Sign in with the admin user you created earlier. After you sign in, Microsoft Entra ID redirects you to the similar profile page, with a different role `admin`.
+
+   :::image type="content" source="media/quarkus-with-microsoft-entra-id/admin-profile.png" alt-text="Screenshot of the sample application that shows the admin profile." lightbox="media/quarkus-with-microsoft-entra-id/admin-profile.png":::
+
+1. Sign out again and try to **Sign in as admin**  with the regular user you created earlier. You should see an error message because the regular user doesn't have the `admin` role.
+
+   :::image type="content" source="media/quarkus-with-microsoft-entra-id/forbidden.png" alt-text="Screenshot of the sample application that shows the access denied message." lightbox="media/quarkus-with-microsoft-entra-id/forbidden.png":::
 
 ## Clean up resources
 
