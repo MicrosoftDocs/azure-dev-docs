@@ -8,6 +8,8 @@ ms.date: 07/29/2024
 ms.custom: overview
 ---
 
+# How am I billed?
+
 This is part seven in a short series of 8 articles to help developers get started with Azure.
 
 * Part 1: [Azure for developers overview](azure-developer-overview.md)
@@ -18,8 +20,6 @@ This is part seven in a short series of 8 articles to help developers get starte
 * Part 6: [Key concepts for building Azure apps](azure-developer-key-concepts.md)
 * Part 7: **How am I billed?**
 * Part 8: [Versioning policy for Azure services, SDKs, and CLI tools](azure-service-sdk-tool-versioning.md)
-
-# How am I billed?
 
 When creating applications that use Azure, you need to understand the factors that influence the cost of the solutions you create.  You will also want to understand how you can estimate the cost of a solution, how you're billed, and how you can monitor the costs incurred in your Azure subscriptions.
 

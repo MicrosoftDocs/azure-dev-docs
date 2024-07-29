@@ -6,6 +6,8 @@ ms.topic: article
 ms.date: 07/29/2024
 ---
 
+# Connect your app to Azure Services
+
 This is part four in a short series of 8 articles to help developers get started with Azure.
 
 * Part 1: [Azure for developers overview](azure-developer-overview.md)
@@ -16,8 +18,6 @@ This is part four in a short series of 8 articles to help developers get started
 * Part 6: [Key concepts for building Azure apps](azure-developer-key-concepts.md)
 * Part 7: [How am I billed?](azure-developer-billing.md)
 * Part 8: [Versioning policy for Azure services, SDKs, and CLI tools](azure-service-sdk-tool-versioning.md)
-
-# Connect your app to Azure Services
 
 Azure offers a variety of services that applications can take advantage of regardless of whether they are hosted in Azure or on-premises. For example you could:
 

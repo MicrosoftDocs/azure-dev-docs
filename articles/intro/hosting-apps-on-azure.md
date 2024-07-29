@@ -9,6 +9,8 @@ ms.date: 07/29/2024
 #CustomerIntent: As an experienced developer, I want to select the correct hosting services for my applications so that I can get the level of control versus responsibility to meet my business and team needs.
 ---
 
+# Hosting applications on Azure
+
 This is part three in a short series of 8 articles to help developers get started with Azure.
 
 * Part 1: [Azure for developers overview](azure-developer-overview.md)
@@ -19,8 +21,6 @@ This is part three in a short series of 8 articles to help developers get starte
 * Part 6: [Key concepts for building Azure apps](azure-developer-key-concepts.md)
 * Part 7: [How am I billed?](azure-developer-billing.md)
 * Part 8: [Versioning policy for Azure services, SDKs, and CLI tools](azure-service-sdk-tool-versioning.md)
-
-# Hosting applications on Azure
 
 Azure provides a variety of different ways to host your application depending on your needs. This article suggests services to match requirements. It isn't proscriptive. You can mix and match services to meet your needs. Most production environments use a combination of services to meet their business and organizational needs.
 
