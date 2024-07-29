@@ -10,7 +10,7 @@ ms.custom: overview
 
 # How am I billed?
 
-This is part seven in a short series of 8 articles to help developers get started with Azure.
+This is part final installment in a short series of 8 articles to help developers get started with Azure.
 
 * Part 1: [Azure for developers overview](azure-developer-overview.md)
 * Part 2: [Key Azure services for developers](azure-developer-key-services.md)
@@ -19,7 +19,6 @@ This is part seven in a short series of 8 articles to help developers get starte
 * Part 5: [How do I create and manage resources in Azure?](azure-developer-create-resources.md)
 * Part 6: [Key concepts for building Azure apps](azure-developer-key-concepts.md)
 * Part 7: **How am I billed?**
-* Part 8: [Versioning policy for Azure services, SDKs, and CLI tools](azure-service-sdk-tool-versioning.md)
 
 When creating applications that use Azure, you need to understand the factors that influence the cost of the solutions you create.  You will also want to understand how you can estimate the cost of a solution, how you're billed, and how you can monitor the costs incurred in your Azure subscriptions.
 
@@ -100,8 +99,4 @@ Learn more about cost alerts and **Azure Cost Management**:
 - [Use cost alerts to monitor usage and spending](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending)
 - [What is Azure Cost Management + Billing?](/azure/cost-management-billing/cost-management-billing-overview)
 - [How to optimize your cloud investment with Azure Cost Management](/azure/cost-management-billing/costs/cost-mgt-best-practices)
-
-
-> [!div class="nextstepaction"]
-> [Continue to part 8: Versioning policy for Azure services, SDKs, and CLI tools](azure-service-sdk-tool-versioning.md)
 

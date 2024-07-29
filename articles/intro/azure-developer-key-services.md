@@ -10,7 +10,7 @@ ms.custom: overview
 
 # Key Azure services for developers
 
-This is part two in a short series of 8 articles to help developers get started with Azure.
+This is part two in a short series of 7 articles to help developers get started with Azure.
 
 * Part 1: [Azure for developers overview](azure-developer-overview.md)
 * **Part 2: Key Azure services for developers**
@@ -19,7 +19,6 @@ This is part two in a short series of 8 articles to help developers get started 
 * Part 5: [How do I create and manage resources in Azure?](azure-developer-create-resources.md)
 * Part 6: [Key concepts for building Azure apps](azure-developer-key-concepts.md)
 * Part 7: [How am I billed?](azure-developer-billing.md)
-* Part 8: [Versioning policy for Azure services, SDKs, and CLI tools](azure-service-sdk-tool-versioning.md)
 
 This article introduces some of the key Azure services that are used most frequently as a developer. For a comprehensive list of all Azure services, see the [Azure documentation hub page](/azure/?product=featured#browse-azure-products).
 

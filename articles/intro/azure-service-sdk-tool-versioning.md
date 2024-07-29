@@ -10,17 +10,6 @@ ms.date: 07/29/2024
 
 # Versioning policy for Azure services, SDKs, and CLI tools
 
-This is the final installment in a short series of 8 articles to help developers get started with Azure.
-
-* Part 1: [Azure for developers overview](azure-developer-overview.md)
-* Part 2: [Key Azure services for developers](azure-developer-key-services.md)
-* Part 3: [Hosting applications on Azure](hosting-apps-on-azure.md)
-* Part 4: [Connect your app to Azure services](connect-to-azure-services.md)
-* Part 5: [How do I create and manage resources in Azure?](azure-developer-create-resources.md)
-* Part 6: [Key concepts for building Azure apps](azure-developer-key-concepts.md)
-* Part 7: [How am I billed?](azure-developer-billing.md)
-* Part 8: **Versioning policy for Azure services, SDKs, and CLI tools**
-
 Most Azure services let you programmatically control and manage their resources with REST APIs. Services evolve through new published versions of their APIs with different contracts that add new features and/or modify their behaviors.
 
 This article outlines the policy that the Azure service, SDK, and CLI teams use for versioning the Azure REST APIs. While Azure teams make every effort to adhere to this policy, deviations may occasionally occur.

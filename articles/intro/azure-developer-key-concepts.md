@@ -9,7 +9,7 @@ ms.custom: overview
 ---
 
 # Key concepts for building Azure apps
-This is part six in a short series of 8 articles to help developers get started with Azure.
+This is part six in a short series of 7 articles to help developers get started with Azure.
 
 * Part 1: [Azure for developers overview](azure-developer-overview.md)
 * Part 2: [Key Azure services for developers](azure-developer-key-services.md)
@@ -18,7 +18,6 @@ This is part six in a short series of 8 articles to help developers get started 
 * Part 5: [How do I create and manage resources in Azure?](azure-developer-create-resources.md)
 * Part 6: **Key concepts for building Azure apps**
 * Part 7: [How am I billed?](azure-developer-billing.md)
-* Part 8: [Versioning policy for Azure services, SDKs, and CLI tools](azure-service-sdk-tool-versioning.md)
 
 Before you get too far in designing your application to run on Azure, chances are you'll need to do a little planning ahead of time.  As you get started, there are some basic Azure concepts that you need to understand to make the best decisions for your scenario.  Considerations include:
 

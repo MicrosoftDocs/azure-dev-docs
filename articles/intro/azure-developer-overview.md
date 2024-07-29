@@ -10,7 +10,7 @@ ms.custom: overview
 
 # Azure for developers overview
 
-If you're new to developing applications for the cloud, this short series of 8 articles is the best place to start.
+If you're new to developing applications for the cloud, this short series of 7 articles is the best place to start.
 
 * Part 1: **Azure for developers overview**
 * Part 2: [Key Azure services for developers](azure-developer-key-services.md)
@@ -19,7 +19,6 @@ If you're new to developing applications for the cloud, this short series of 8 a
 * Part 5: [How do I create and manage resources in Azure?](azure-developer-create-resources.md)
 * Part 6: [Key concepts for building Azure apps](azure-developer-key-concepts.md)
 * Part 7: [How am I billed?](azure-developer-billing.md)
-* Part 8: [Versioning policy for Azure services, SDKs, and CLI tools](azure-service-sdk-tool-versioning.md)
 
 Azure is a cloud platform designed to simplify the process of building modern applications. Whether you choose to host your applications entirely in Azure or extend your on-premises applications with Azure services, Azure helps you create applications that are scalable, reliable, and maintainable.
 

@@ -11,7 +11,7 @@ ms.date: 07/29/2024
 
 # Hosting applications on Azure
 
-This is part three in a short series of 8 articles to help developers get started with Azure.
+This is part three in a short series of 7 articles to help developers get started with Azure.
 
 * Part 1: [Azure for developers overview](azure-developer-overview.md)
 * Part 2: [Key Azure services for developers](azure-developer-key-services.md)
@@ -20,7 +20,6 @@ This is part three in a short series of 8 articles to help developers get starte
 * Part 5: [How do I create and manage resources in Azure?](azure-developer-create-resources.md)
 * Part 6: [Key concepts for building Azure apps](azure-developer-key-concepts.md)
 * Part 7: [How am I billed?](azure-developer-billing.md)
-* Part 8: [Versioning policy for Azure services, SDKs, and CLI tools](azure-service-sdk-tool-versioning.md)
 
 Azure provides a variety of different ways to host your application depending on your needs. This article suggests services to match requirements. It isn't proscriptive. You can mix and match services to meet your needs. Most production environments use a combination of services to meet their business and organizational needs.
 
