@@ -21,8 +21,6 @@ landingContent:
         links:
           - text: Get started
             url: get-started.md
-          - text: Set up your local dev environment
-            url: get-started.md#phase-2-configure-your-local-python-environment-for-azure-development
           - text: Get to know the Azure libraries
             url: sdk/azure-sdk-overview.md
           - text: Learn library usage patterns

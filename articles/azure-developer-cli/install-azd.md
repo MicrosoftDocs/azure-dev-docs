@@ -255,7 +255,7 @@ azd version
 `azd` prints the current version:
 
 ```output
-azd version 1.9.4 (commit 60d7a770c73289e303a539babf5965e638843227)
+azd version 1.9.5 (commit cd2b7af9995d358aab33c782614f801ac1997dde)
 ```
 
 ## Update the Azure Developer CLI
@@ -267,6 +267,8 @@ When working with an out of date version of `azd`, you'll see a warning to upgra
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Choose an azd template](./azd-templates.md)
+> [Quickstart - Select and deploy an azd template](./get-started.md)
+> [!div class="nextstepaction"]
+> [What are Azure Developer CLI templates?](./azd-templates.md)
 > [!div class="nextstepaction"]
 > [Azure Developer CLI FAQ](./faq.yml)
