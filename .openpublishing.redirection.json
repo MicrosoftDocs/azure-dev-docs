@@ -116,6 +116,10 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/javascript/end-to-end/contoso-real-estate-test-ui-solution.md",
+      "redirect_url": "/azure/developer/javascript/end-to-end/contoso-real-estate-test-api-solution"
+    },
+    {
       "source_path": "articles/javascript/core/automate-tasks-with-azure-cli.md",
       "redirect_url": "/cli/azure/azure-cli-learn-bash"
     },
