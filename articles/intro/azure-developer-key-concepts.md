@@ -9,7 +9,7 @@ ms.custom: overview
 ---
 
 # Key concepts for building Azure apps
-This is part six in a short series of 7 articles to help developers get started with Azure.
+This is part six in a series of 7 articles to help developers get started with Azure.
 
 * Part 1: [Azure for developers overview](azure-developer-overview.md)
 * Part 2: [Key Azure services for developers](azure-developer-key-services.md)

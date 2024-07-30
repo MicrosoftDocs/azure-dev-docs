@@ -10,7 +10,7 @@ ms.custom: overview
 
 # Azure for developers overview
 
-If you're new to developing applications for the cloud, this short series of 7 articles is the best place to start.
+If you're new to developing applications for the cloud, this series of 7 articles is the best place to start.
 
 * Part 1: **Azure for developers overview**
 * Part 2: [Key Azure services for developers](azure-developer-key-services.md)

@@ -8,7 +8,7 @@ ms.date: 07/29/2024
 
 # Connect your app to Azure Services
 
-This is part four in a short series of 7 articles to help developers get started with Azure.
+This is part four in a series of 7 articles to help developers get started with Azure.
 
 * Part 1: [Azure for developers overview](azure-developer-overview.md)
 * Part 2: [Key Azure services for developers](azure-developer-key-services.md)
