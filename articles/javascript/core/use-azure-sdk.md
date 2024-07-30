@@ -3,7 +3,7 @@ title: Azure SDK for JS/TS
 description: To programmatically access your Azure services, use the Azure SDKs for JavaScript or TypeScript development.
 ms.topic: how-to
 ms.date: 02/03/2022
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-ts
 ---
 
 # Use Azure SDKs for JavaScript and TypeScript
@@ -68,7 +68,7 @@ Learn more about paging and iterators on Azure:
 
 ## Long running operations
 
-An SDK method can return a long running operation (LRO) [_response_](/javascript/api/@azure/core-lro/lroresponse). This response includes information including:
+An SDK method can return a long running operation (LRO) [raw response](/javascript/api/%40azure/core-lro/rawresponse). This response includes information including:
 
 * Your request completed
 * Your request is still in process 
@@ -79,7 +79,7 @@ The following [JavaScript example](https://github.com/Azure-Samples/js-e2e/blob/
 
 Learn more about long running operations on Azure:
 
-* [@azure/core-lro](/javascript/api/@azure/core-lro)
+* [@azure/core-lro](/javascript/api/overview/azure/core-lro-readme)
 
 ## Canceling async operations
 
@@ -119,4 +119,3 @@ Learn about bundling with the Azure SDK:
 * [List subscriptions with **@azure/arm-subscriptions** SDK](../sdk/authentication/local-development-environment-service-principal.md)
 * [List recent resource operations with **@azure/arm-monitor** SDK](../how-to/with-azure-sdk/list-resource-operation-history.md)
 * [Create a virtual machine with **@azure/arm-compute** SDK ](../how-to/with-azure-sdk/create-manage-virtual-machine.md)
-* [Stop, start, get status for your virtual machine with **@azure/arm-compute** SDK ](../how-to/with-azure-sdk/stop-start-virtual-machine.md)

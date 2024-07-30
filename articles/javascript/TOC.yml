@@ -22,22 +22,29 @@
       - name: Configure app settings
         href: how-to/configure-web-app-settings.md
       - name: Configure domain name
-        href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json              
-      - name: Use Key Vault secrets
-        href: how-to/with-web-app/use-secret-environment-variables.md
+        href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
   - name: Azure AI apps 
     items: 
     - name: Develop with Azure AI Services
       href: azure-ai-for-javascript-developers.md    
     - name: Get started with Enterprise chat
       href: get-started-app-chat-template.md
+    - name: Get started with serverless chat with LangChainjs
+      href: get-started-app-chat-template-langchainjs.md
       display: Azure OpenAI, OpenAI, AI
+    - name: Serverless Azure OpenAI Assistant with function calling
+      href: get-started-app-chat-assistants-function-calling.md
+      display: Azure OpenAI, OpenAI, AI, function calling, assistants
     - name: JavaScript frontend + Python backend
       href: chat-app-with-separate-front-back-end.md
       display: building block, frontend, backend
-    - name: Generate text completions
-      href: /azure/ai-services/openai/quickstart?tabs=command-line&pivots=programming-language-javascript&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-      display: Azure OpenAI, OpenAI, AI
+    - name: Evaluate your chat app
+      href: get-started-app-chat-evaluations.md
+      display: Azure OpenAI
+    - name: Scale Azure OpenAI with Azure Container Apps
+      href: get-started-app-chat-scaling-with-azure-container-apps.md
+    - name: Scale Azure OpenAI with Azure API Management
+      href: get-started-app-chat-scaling-with-azure-api-management.md
   - name: Developer Guides
     items: 
     - name: GraphQL developer guide
@@ -46,14 +53,14 @@
       href: /azure/azure-functions/functions-reference?tabs=blob&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Storage developer guide
       href: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-    - name: Database developer guide
-      href: database-developer-guide.md
-    - name: Secrets
-      items: 
-      - name: Key Vault Keys
-        href: /azure/key-vault/keys/javascript-developer-guide-get-started?tabs=developer-auth%2Caz-login-terminal-bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-      - name: Key Vault Secrets
-        href: /azure/key-vault/secrets/javascript-developer-guide-get-started?tabs=developer-auth%2Caz-login-terminal-bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+    - name: Cosmos DB for NoSQL developer guide
+      href: /azure/cosmos-db/nosql/how-to-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+    - name: Cosmos DB for MongoDB developer guide
+      href: /azure/cosmos-db/mongodb/how-to-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+    - name: Key Vault Keys
+      href: /azure/key-vault/keys/javascript-developer-guide-get-started?tabs=developer-auth%2Caz-login-terminal-bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+    - name: Key Vault Secrets
+      href: /azure/key-vault/secrets/javascript-developer-guide-get-started?tabs=developer-auth%2Caz-login-terminal-bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
   - name: End to end development
     items: 
     - name: What is Contoso Real Estate? 
@@ -90,67 +97,22 @@
       href: how-to/create-static-web-app.md
     - name: Create Static web app
       href: how-to/with-web-app/static-web-app-with-swa-cli.md
-    - name: Add custom domain
-      href: /azure/static-web-apps/custom-domain?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-    - name: Connect to database
-      items: 
-      - name: with Data API builder
-        href: /azure/static-web-apps/database-overview?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-      - name: Azure Cosmos DB
-        href: /azure/static-web-apps/database-azure-cosmos-db?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-      - name: Azure SQL
-        href: /azure/static-web-apps/database-azure-sql?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-      - name: Azure Database for MySQL
-        href: /azure/static-web-apps/database-mysql?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-      - name: Azure Database for PostgreSQL
-        href: /azure/static-web-apps/database-postgresql?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Add search to website
       href: /azure/search/tutorial-javascript-overview?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: "Upload image to Storage"
       href: tutorial/browser-file-upload-azure-storage-blob.md
     - name: Add image analysis
       href: tutorial/static-web-app-image-analysis.md  
-    - name: Authentication and identity
-      items:  
-      - name: Easy auth with Static Web Apps
-        href: how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md         
-      - name: Vanilla JS
-        href: /azure/active-directory/develop/tutorial-v2-javascript-auth-code?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-      - name: "Angular: Add a Login button for Microsoft Identity provider"
-        href: /azure/active-directory/develop/tutorial-v2-angular-auth-code?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-      - name: Add custom auth with MSAL.js
-        items:
-        - name: Introduction
-          href: how-to/with-authentication/static-web-app-with-api/introduction.md
-        - name: Create app registration
-          href: how-to/with-authentication/static-web-app-with-api/register-application-with-identity.md
-        - name: Create local Static web app
-          href: how-to/with-authentication/static-web-app-with-api/configure-source-code-for-msal.md
-        - name: Add MongoDB to API
-          href: how-to/with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md
-        - name: Deploy to Azure
-          href: how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md
-
-                                  
-  - name: Migrate to Serverless
-    items: 
-    - name: "Training: Migrate to Azure Functions"
-      href: /training/modules/shift-nodejs-express-apis-serverless?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-    - name: "Docs: Migrate to Azure Functions"
-      href: /azure/azure-functions/shift-expressjs?tabs=javascript?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
   - name: Serverless apps
     items: 
     - name: Develop Azure Functions
       href: how-to/develop-serverless-apps.md
-    - name: Store data in MongoDB 
-      href: tutorial/azure-function-cosmos-db-mongo-api.md
     - name: Upload file to Storage - model v3
       items: 
       - name: with trigger and bindings
         href: /azure/storage/blobs/blob-upload-function-trigger-javascript?tabs=storage-resource-visual-studio-code%2Ccomputer-vision-azure-portal&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Resource management API
       href: how-to/with-web-app/azure-function-resource-group-management.md
-            
   - name: Monolithic apps
     items:
     - name: "Express.js with MongoDB"
@@ -171,55 +133,24 @@
       href: /azure/container-apps/communicate-between-microservices?tabs=bash&pivots=acr-remote&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Microservice with DAPR
       href: /azure/container-apps/microservices-dapr?tabs=bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-    - name: Create container registry
-      href: how-to/with-azure-cli/create-container-registry-resource.md
     - name: Create container from local project
-      href: how-to/with-visual-studio-code/containerize-local-project.md              
+      href: how-to/with-visual-studio-code/containerize-local-project.md
   - name: Virtual machine web apps
     items:
     - name: "Express.js VM"
       href: tutorial/run-nodejs-virtual-machine.md
     - name: "Create and delete VM with SDK"
       href: how-to/with-azure-sdk/create-manage-virtual-machine.md
-    - name: "Manage VM with SDK"
-      href: how-to/with-azure-sdk/stop-start-virtual-machine.md                          
   - name: Development with Visual Studio Code
     items:
-    - name: Install and debug local project
-      href: how-to/with-visual-studio-code/install-run-debug-nodejs.md
     - name: Clone a GitHub repo for changes
       href: how-to/with-visual-studio-code/clone-github-repository.md
     - name: Create an Azure database
       href: how-to/with-visual-studio-code/create-azure-database.md
-  - name: Build an AI conversational CLI
-    href: openai-cli.md
-    display: Azure OpenAI, OpenAI, AI
-  - name: Automation with Azure CLI
-    items:
-    - name: Get started
-      href: core/automate-tasks-with-azure-cli.md
-      displayName: az login --identity, az login --service-principal, az login -u, az group create, az staticwebapp create, az staticwebapp delete, az storage account create, az functionapp create, az functionapp deployment slot create, az functionapp deployment source config, az functionapp deployment slot swap, az functionapp delete               
   - name: Authentication and identity
     items: 
     - name: Getting started
       href: how-to/with-authentication/getting-started.md
-    - name: Static web apps
-      items: 
-      - name: Vanilla JS
-        href: /azure/active-directory/develop/tutorial-v2-javascript-auth-code?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-      - name: "Angular: Add a Login button for Microsoft Identity provider"
-        href: /azure/active-directory/develop/tutorial-v2-angular-auth-code?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-    - name: Azure Functions
-      items: 
-        - name: Triggers and bindings
-          href: /azure/azure-functions/functions-identity-based-connections-tutorial-2?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-    - name: App Service
-      items: 
-      - name: Express.js only
-        href: /azure/active-directory/develop/tutorial-v2-nodejs-webapp-msal?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-      - name: Express.js upload file to Blob Storage
-      - name: Express.js to Key Vault with managed identity
-        href: /azure/app-service/tutorial-connect-msi-key-vault-javascript?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Electron
       href: /azure/active-directory/develop/tutorial-v2-nodejs-desktop?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Node.js console daemon
@@ -256,10 +187,7 @@
         items: 
         - name: "List subscriptions"
           href: ./sdk/authentication/local-development-environment-service-principal.md?tabs=azure-sdk-for-javascript.md
-        - name: "View subscription history"
-          href: how-to/with-azure-sdk/list-resource-operation-history.md 
-
-  - name: Training
+  - name: Training and certification
     href: learn-azure-javascript.md  
   - name: Samples
     items: 

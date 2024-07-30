@@ -4,7 +4,7 @@ description: Learn how to facilitate continuous integration and deployment (CI/C
 keywords: jenkins, azure, devops, virtual machine, cicd, azure devops services
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.custom: devx-track-jenkins, devx-track-js
+ms.custom: devx-track-jenkins, devx-track-js, linux-related-content
 ---
 
 # Tutorial: Deploy to Linux virtual machine using Jenkins and Azure DevOps Services

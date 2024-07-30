@@ -2,10 +2,9 @@
 title: Migrate an application to use passwordless connections with Azure Event Hubs for Kafka
 description: Learn how to migrate existing applications using Azure Event Hubs for Kafka away from authentication patterns such as connection strings to more secure approaches like Managed Identity.
 author: KarlErickson
-ms.author: yiliu6
+ms.author: hangwan
 ms.topic: how-to
 ms.date: 11/16/2022
-ms.service: event-hubs
 ms.custom: passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, spring-cloud-azure, devx-track-java, devx-track-azurecli, devx-track-extended-java
 ---
 
@@ -251,7 +250,7 @@ Next, use the following steps to update your Spring Kafka application to use pas
        @Override
        public Set<String> scope() {
            // Referring to https://docs.microsoft.com/azure/active-directory/develop/access-tokens#payload-claims, the scp
-           // claim is a String which is presented as a space separated list.
+           // claim is a String, which is presented as a space separated list.
            return Optional.ofNullable(claims.getClaim("scp"))
                    .map(s -> Arrays.stream(((String) s)
                    .split(" "))
@@ -365,8 +364,6 @@ The following steps show you how to assign a system-assigned managed identity fo
 1. On the main overview page of your Azure App Service instance, select **Identity** from the navigation pane.
 
 1. On the **System assigned** tab, make sure to set the **Status** field to **on**. A system assigned identity is managed by Azure internally and handles administrative tasks for you. The details and IDs of the identity are never exposed in your code.
-
-   :::image type="content" source="media/passwordless-connections/migration-create-identity.png" alt-text="Screenshot of Azure portal Identity page of App Service resource with System assigned tab showing and Status field highlighted." lightbox="media/passwordless-connections/migration-create-identity.png":::
 
 ##### [Service Connector](#tab/service-connector)
 

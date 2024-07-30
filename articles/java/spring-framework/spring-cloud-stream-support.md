@@ -3,14 +3,14 @@ title: Spring Cloud Stream support
 description: This article describes how Spring Cloud Azure and Spring Cloud Stream can be used together.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yeyonghui
+ms.author: hangwan
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure support for Spring Cloud Stream
 
-**This article applies to:** ✔️ Version 4.14.0 ✔️ Version 5.8.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.14.0
 
 Spring Cloud Stream is a framework for building highly scalable event-driven microservices connected with shared messaging systems.
 
@@ -126,6 +126,9 @@ The following options are divided into four sections: Consumer Properties, Advan
 
 These properties are exposed via `EventHubsConsumerProperties`.
 
+> [!NOTE]
+> To avoid repetition, since version 4.19.0 and 5.14.0, Spring Cloud Azure Stream Binder Event Hubs supports setting values for all channels, in the format of `spring.cloud.stream.eventhubs.default.consumer.<property>=<value>`.
+
 Consumer configurable properties of spring-cloud-azure-stream-binder-eventhubs:
 
 > [!div class="mx-tdBreakAll"]
@@ -144,7 +147,7 @@ Consumer configurable properties of spring-cloud-azure-stream-binder-eventhubs:
 > | **spring.cloud.stream.eventhubs.bindings.binding-name.consumer**.initial-partition-event-position                       | Map with the key as the partition ID, and values of `StartPositionProperties` | The map containing the event position to use for each partition if a checkpoint for the partition does not exist in checkpoint store. This map is keyed off of the partition ID. |
 
 > [!NOTE]
-> The `initial-partition-event-position` configuration accepts a `map` to specify the initial position for each event hub. Thus, its key is the partition ID, and the value is of `StartPositionProperties` which includes properties of offset, sequence number, enqueued date time and whether inclusive. For example, you can set it as
+> The `initial-partition-event-position` configuration accepts a `map` to specify the initial position for each event hub. Thus, its key is the partition ID, and the value is of `StartPositionProperties`, which includes properties of offset, sequence number, enqueued date time and whether inclusive. For example, you can set it as
 
 ```yaml
 spring:
@@ -172,6 +175,9 @@ The above [connection](#connection-configuration-properties), [checkpoint](#chec
 ##### Producer properties
 
 These properties are exposed via `EventHubsProducerProperties`.
+
+> [!NOTE]
+> To avoid repetition, since version 4.19.0 and 5.14.0, Spring Cloud Azure Stream Binder Event Hubs supports setting values for all channels, in the format of `spring.cloud.stream.eventhubs.default.producer.<property>=<value>`.
 
 Producer configurable properties of spring-cloud-azure-stream-binder-eventhubs:
 
@@ -772,6 +778,9 @@ Configurations, Producer Properties and Advanced Producer Configurations.
 
 These properties are exposed via `ServiceBusConsumerProperties`.
 
+> [!NOTE]
+> To avoid repetition, since version 4.19.0 and 5.14.0, Spring Cloud Azure Stream Binder Service Bus supports setting values for all channels, in the format of `spring.cloud.stream.servicebus.default.consumer.<property>=<value>`.
+
 Consumer configurable properties of spring-cloud-azure-stream-binder-servicebus:
 
 > [!div class="mx-tdBreakAll"]
@@ -787,6 +796,9 @@ Consumer configurable properties of spring-cloud-azure-stream-binder-servicebus:
 > | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.receive-mode                 | ServiceBusReceiveMode | peek_lock | The receive mode of the Service Bus processor client.                                                       |
 > | **spring.cloud.stream.servicebus.bindings.binding-name.consumer**.auto-complete                | Boolean               | true      | Whether to settle messages automatically. If set as false, a message header of `Checkpointer` will be added to enable developers to settle messages manually.     |
 
+> [!IMPORTANT]
+> When you use the [Azure Resource Manager](resource-manager.md) (ARM), you must configure the `spring.cloud.stream.servicebus.bindings.<binding-name>.consume.entity-type` property. For more information, see the [servicebus-queue-binder-arm](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-cloud-azure-stream-binder-servicebus/servicebus-queue-binder-arm) sample on GitHub.
+
 ##### Advanced consumer configuration
 
 The above [connection](#connection-configuration-properties-1) and [common Azure SDK client](configuration.md) configuration support customization for each binder consumer, which you can configure with the prefix `spring.cloud.stream.servicebus.bindings.<binding-name>.consumer.`.
@@ -794,6 +806,9 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
 ##### Producer properties
 
 These properties are exposed via `ServiceBusProducerProperties`.
+
+> [!NOTE]
+> To avoid repetition, since version 4.19.0 and 5.14.0, Spring Cloud Azure Stream Binder Service Bus supports setting values for all channels, in the format of `spring.cloud.stream.servicebus.default.producer.<property>=<value>`.
 
 Producer configurable properties of spring-cloud-azure-stream-binder-servicebus:
 

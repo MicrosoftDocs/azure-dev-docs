@@ -50,21 +50,25 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: WebLogic Server to AKS
-            url: migrate-weblogic-to-azure-kubernetes-service.md
-          - text: WebLogic Server to WildFly on AKS
-            url: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
+            url: migrate-weblogic-to-azure-kubernetes-service.md          
           - text: WebLogic Server to Azure Virtual Machines
             url: migrate-weblogic-to-virtual-machines.md
-          - text: "Tutorial: WebLogic to Azure VMs manual guidance"
-            url: migrate-weblogic-to-azure-vm-manually.md
-          - text: "Tutorial: WebLogic to AKS within a custom virtual network"
-            url: migrate-weblogic-to-aks-within-an-existing-vnet.md
           - text: "Tutorial: WebLogic Server with App Gateway"
             url: migrate-weblogic-with-app-gateway.md
+          - text: "Tutorial: WebLogic to Azure VMs manual guidance"
+            url: migrate-weblogic-to-azure-vm-manually.md          
+          - text: "Tutorial: WebLogic to AKS within a custom virtual network"
+            url: migrate-weblogic-to-aks-within-an-existing-vnet.md          
           - text: "Tutorial: WebLogic to Azure VMs with high availability and disaster recovery"
             url: migrate-weblogic-to-vms-with-ha-dr.md
+          - text: "Tutorial: WebLogic to AKS with geo-redundancy"
+            url: migrate-weblogic-to-aks-with-ha-geo-redundancy.md
+          - text: "Tutorial: WebLogic to AKS with KEDA scaler based on Prometheus Metrics"
+            url: migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics.md
           - text: WebLogic Server to JBoss EAP on App Service
             url: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
+          - text: WebLogic Server to WildFly on AKS
+            url: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
   - title: Migrate WildFly to Azure
     linkLists:
       - linkListType: how-to-guide
@@ -77,6 +81,8 @@ landingContent:
         links:
           - text: WebSphere Application Server to AKS
             url: migrate-websphere-to-azure-kubernetes-service.md
+          - text: "Tutorial: WebSphere Liberty/Open Liberty to AKS with high availability and disaster recovery"
+            url: migrate-liberty-to-aks-with-ha-dr.md
           - text: WebSphere Application Server to Azure Red Hat OpenShift
             url: migrate-websphere-to-azure-redhat-openshift.md
           - text: WebSphere Application Server to Azure Virtual Machines
@@ -87,6 +93,8 @@ landingContent:
             url: migrate-websphere-to-jboss-eap-on-azure-app-service.md
           - text: "Tutorial: WebSphere to Azure VMs manual guidance"
             url: migrate-websphere-to-azure-vm-manually.md
+          - text: "Tutorial: WebSphere to Azure VMs with high availability and disaster recovery"
+            url: migrate-websphere-to-vms-with-ha-dr.md
   - title: Migrate JBoss EAP to Azure
     linkLists:
       - linkListType: how-to-guide

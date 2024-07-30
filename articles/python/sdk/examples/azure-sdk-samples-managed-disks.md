@@ -2,7 +2,7 @@
 title: Use Azure Managed Disks through the Azure SDK for Python
 description: Use the Azure Python SDK to create, resize, and update managed disks standalone, in a virtual machine, or in a Virtual Machine Scale Set.
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 03/10/2024
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
@@ -10,9 +10,13 @@ ms.custom: devx-track-python, py-fresh-zinc
 
 Azure Managed Disks are high-performance, durable block storage designed to be used with Azure Virtual Machines and Azure VMware Solution. Azure Managed Disks provide simplified disk management, enhanced scalability, improved security, and better scaling without having to work directly with storage accounts. For more information, see [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview).
 
-You use the [`azure-mgmt-compute`](/python/api/overview/azure/virtualmachines) library to administer Managed Disks for an existing virtual machine. The samples shown here were tested against [azure-mgmt-compute.v2022_08_01.models](/python/api/azure-mgmt-compute/azure.mgmt.compute.v2022_08_01.models#module-azure.mgmt.compute.v2022_08_01.models).
+You use the [`azure-mgmt-compute`](/python/api/overview/azure/virtualmachines) library to administer Managed Disks for an existing virtual machine.
 
-For an example of how to create a virtual machine with the `azure-mgmt-compute` library, see [Example - Create a virtual machine](azure-sdk-example-virtual-machines.md). For more complete examples of how to use the `azure-mgmt-compute` library, see [Azure SDK for Python samples for compute](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/compute) in GitHub.
+For an example of how to create a virtual machine with the `azure-mgmt-compute` library, see [Example - Create a virtual machine](azure-sdk-example-virtual-machines.md).
+
+The code examples in this article demonstrate how to perform some common tasks with managed disks using the `azure-mgmt-compute` library. They aren't runnable as-is, but are designed for you to incorporate into your own code. You can consult **Example - Create a virtual machine** to learn how to create an instance of `azure.mgmt.compute ComputeManagementClient` in your code to run the examples.
+
+For more complete examples of how to use the `azure-mgmt-compute` library, see [Azure SDK for Python samples for compute](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/compute) in GitHub.
 
 ## Standalone Managed Disks
 
@@ -42,7 +46,7 @@ The managed disk image is created from a virtual hard disk (VHD) stored as a blo
 
 You can create a Virtual Machine with an implicit Managed Disk for a specific disk image, which relieves you from specifying all the details.
 
-A Managed Disk is created implicitly when creating VM from an OS image in Azure. In the `storage_profile` parameter, the `os_disk` is optional and you don't have to create a storage account as required precondition to create a Virtual Machine.
+A Managed Disk is created implicitly when creating a VM from an OS image in Azure. In the `storage_profile` parameter, the `os_disk` is optional and you don't have to create a storage account as required precondition to create a Virtual Machine.
 
 :::code language="python" source="~/../python-sdk-docs-examples/managed_disk/vm_with_managed_disks.py":::
 
@@ -58,7 +62,7 @@ You can easily attach a previously provisioned Managed Disk:
 
 ## Virtual Machine Scale Sets with Managed Disks
 
-Before Managed Disks, you needed to create a storage account manually for all the VMs you wanted inside your Scale Set, and then use the list parameter `vhd_containers` to provide all the storage account name to the Scale Set RestAPI. (For a migration guide, see [Convert a scale set template to a manage disk scale set template](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md).)
+Before Managed Disks, you needed to create a storage account manually for all the VMs you wanted inside your Scale Set, and then use the list parameter `vhd_containers` to provide all the storage account name to the Scale Set RestAPI.
 
 Because you don't have to manage storage accounts with Azure Managed Disks, your `storage_profile` for [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) can now be exactly the same as the one used in VM creation:
 

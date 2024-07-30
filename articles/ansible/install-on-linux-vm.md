@@ -4,10 +4,13 @@ description: Learn how to install and configure Ansible on an Azure VM for manag
 keywords: ansible, azure, devops, bash, cloudshell, playbook, azure cli, powershell, azure powershell
 ms.topic: quickstart
 ms.date: 07/19/2022
-ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell, mode-portal
+ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell, mode-portal, linux-related-content
 ---
 
 # Get Started: Configure Ansible on an Azure VM
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article shows how to install [Ansible](https://docs.ansible.com/) on a Centos VM in Azure.
 
@@ -170,7 +173,7 @@ Configure the Ansible credentials using one of the following techniques:
 
 In this section, you create a local credentials file to provide credentials to Ansible. For security reasons, credential files should only be used in development environments.
 
-For more information about defining Ansible credentials, see [Providing Credentials to Azure Modules](https://docs.ansible.com/ansible/latest/scenario_guides/guide_azure.html).
+For more information about defining Ansible credentials, see [Providing Credentials to Azure Modules](https://docs.ansible.com/ansible/latest/scenario_guides/guides.html).
 
 1. Once you've successfully connected to the host virtual machine, create and open a file named `credentials`:
 

@@ -5,7 +5,6 @@ author: KarlErickson
 ms.author: edburns
 ms.topic: conceptual
 ms.date: 09/30/2022
-keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes, jcache, redisson
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-extended-java
 #Customer intent: As a Java developer, I want to migrate my on-premise WebLogic Server workload to WebLogic on Azure Kubernetes Service
 ---
@@ -35,6 +34,8 @@ Once you've decided that AKS is the appropriate deployment target, you must acce
 If you don't use the prebuilt Azure Marketplace offer, you must learn how to use the operator directly. Mastering the operator is beyond the scope of this article. The complete documentation for the WLS Kubernetes Operator is available at [Oracle](https://aka.ms/wlsoperator).
 
 The remainder of this section provides some considerations for deciding to use the prebuilt Azure Marketplace offer or using the operator directly.
+
+#### Decide whether to use the prebuilt Azure Marketplace offer
 
 First, you have to understand the concept of the WLS "domain". A domain is a logically related group of WLS resources. For the canonical definition of WLS domain, see [the Oracle documentation](https://aka.ms/javaee/wls/domains). Running WLS on AKS requires deciding how AKS deals with domains. The various choices are referred to as "domain home source type". The WLS Kubernetes operator supports three choices of domain home source type. The prebuilt Azure Marketplace offer uses the first one in this table.
 

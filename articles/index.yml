@@ -30,7 +30,7 @@ highlightedContent:
       url: ./intro/connect-to-azure-services.md
     - title: Develop apps that use Azure AI services
       itemType: overview
-      url: ./intro/azure-ai-for-developers.md
+      url: ./ai/azure-ai-for-developers.md
     - title: Create resources in Azure
       itemType: concept
       url: ./intro/azure-developer-create-resources.md
@@ -64,7 +64,7 @@ productDirectory:
     - title: JavaScript
       imageSrc: /media/logos/logo_js.svg
       links:
-        - url: /azure/developer/intro/azure-ai-for-developers?pivots=javascript
+        - url: ./ai/azure-ai-for-developers.md?pivots=javascript
           text: Develop Azure AI apps with JavaScript
         - url: /azure/static-web-apps/getting-started?tabs=vanilla-javascript
           text: Develop a static website
@@ -81,7 +81,7 @@ productDirectory:
       links:
         - url: ./java/fundamentals/java-jdk-install.md
           text: Install the JDK for Azure and Azure Stack
-        - url: /azure/spring-apps/quickstart
+        - url: /azure/spring-apps/enterprise/quickstart
           text: Deploy an app to Azure Spring Apps by using the Azure portal
         - url: /azure/app-service/app-service-web-get-started-java
           text: Create a Java app in Azure App Service
@@ -106,29 +106,27 @@ productDirectory:
           text: Azure SDK for .NET          
         - url: /dotnet/azure/
           text: See more in the .NET developer center
-    - title: Azure AI for Developers
+    - title: Azure AI for developers
       imageSrc: ./intro/media/azure-openai.png
       links:
-        - url: ./intro/azure-ai-for-developers.md
-          text: Develop apps that use Azure AI services
-        - url: /azure/developer/python/get-started-app-chat-template?tabs=github-codespaces
-          text: Python enterprise chat sample using RAG 
-        - url: /dotnet/azure/ai/get-started-app-chat-template?tabs=github-codespaces
-          text: .NET enterprise chat sample using RAG
-        - url: /azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces
-          text: JavaScript enterprise chat sample using RAG
-        - url: /azure/developer/java/quickstarts/get-started-app-chat-template?tabs=github-codespaces
-          text: Java enterprise chat sample using RAG
+        - url: ./ai/azure-ai-for-developers.md
+          text: Overview of AI apps
+        - url: ./python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+          text: Chat with your data using Python
+        - url: ./javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+          text: Chat with your data using JavaScript
+        - url: ./java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+          text: Chat with your data using Java
+        - url: /dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+          text: Chat with your data using .NET
         - url: /azure/ai-services/
           text: Azure AI services documentation
     - title: Go
       imageSrc: /media/logos/logo_Go-lightblue.svg
       links:
-        - url: ./go/azure-sdk-install.md
-          text: Install the Azure SDK for Go
         - url: ./go/azure-sdk-authentication.md
           text: Authenticate your app
-        - url: /azure/developer/intro/azure-ai-for-developers?pivots=go
+        - url: ./ai/azure-ai-for-developers.md?pivots=go
           text: Develop Azure AI apps with Go
         - url: /azure/storage/blobs/storage-quickstart-blobs-go
           text: Use Blob storage
@@ -169,12 +167,29 @@ productDirectory:
     - title: Azure Developer CLI (azd)
       imageSrc: https://static.docs.com/ui/media/product/azure/azure-developer-cli.svg
       links:
-        - url: ./azure-developer-cli/overview.md
-          text: What is Azure Developer CLI
-        - url: ./azure-developer-cli/install-azd.md
-          text: Get started
-        - url: ./azure-developer-cli/index.yml
-          text: See more in the Azure Developer CLI developer center
+        - url: /azure/developer/azure-developer-cli/overview
+          text: What is the Azure Developer CLI? (azd)
+        - url: /azure/developer/azure-developer-cli/install-azd
+          text: Install azd
+        - url: /azure/developer/azure-developer-cli/get-started
+          text: Deploy an azd template
+        - url: /azure/developer/azure-developer-cli/make-azd-compatible
+          text: Make your project compatible with azd
+        - url: /azure/developer/azure-developer-cli/supported-languages-environments
+          text: Supported languages and environments
+    - title: DevContainers
+      imageSrc: includes/media/dev-containers/dev-container.svg
+      links:
+        - url: https://containers.dev/
+          text: What are development containers?
+        - url: https://code.visualstudio.com/docs/devcontainers/tutorial
+          text: Visual Studio Code Dev Containers
+        - url: https://code.visualstudio.com/docs/devcontainers/create-dev-container
+          text: Create your own Dev Container
+        - url: https://containers.dev/features
+          text: Available Features
+        - url: https://containers.dev/templates
+          text: Available Templates
     - title: Dev tunnels
       imageSrc: ./dev-tunnels/media/index/dev-tunnels-icon.svg
       links:
@@ -184,6 +199,19 @@ productDirectory:
           text: Get started
         - url: ./dev-tunnels/index.yml
           text: See more in the dev tunnels developer center
+    - title: Dev Proxy
+      imageSrc: ./includes/media/dev-proxy/dev-proxy-icon.svg
+      links:
+        - url: /microsoft-cloud/dev/dev-proxy/overview
+          text: What is Dev Proxy?
+        - url: /microsoft-cloud/dev/dev-proxy/get-started
+          text: Get started
+        - url: /microsoft-cloud/dev/dev-proxy/tutorials/test-javascript-client-side-web-app
+          text: Test a JavaScript client-side web application
+        - url: /microsoft-cloud/dev/dev-proxy/tutorials/test-javascript-client-side-web-app-microsoft-graph
+          text: Test a JavaScript client-side web application that calls Microsoft Graph
+        - url: /microsoft-cloud/dev/dev-proxy/concepts/implement-rate-limiting-azure-api-management
+          text: How to implement rate limiting in Azure API Management
 #tools:
 #conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

@@ -11,12 +11,6 @@ items:
           href: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
         - name: Traditional WebSphere on Azure VMs
           href: ../ee/traditional-websphere-application-server-virtual-machines.md?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-    - name: Azure AI apps
-      items:
-        - name: Develop with Azure AI Services
-          href: azure-ai-for-java-developers.md
-        - name: Get started with the Java enterprise chat sample
-          href: get-started-app-chat-template.md
     - name: Compute services
       href: compute.md
     - name: Data

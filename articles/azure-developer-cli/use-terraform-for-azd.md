@@ -18,7 +18,6 @@ Azure Developer CLI (azd) supports multiple infrastructures as code (IaC) provid
 
 By default, `azd` assumes Bicep as the IaC provider. Refer to the [Comparing Terraform and Bicep](../terraform/comparing-terraform-and-bicep.md?tabs=comparing-bicep-terraform-integration-features) article for help deciding which IaC provider is best for your project.
 
-
 > [!NOTE]
 > Terraform is still in beta. Read more about alpha and beta feature support on the [feature versioning and release strategy](/azure/developer/azure-developer-cli/feature-versioning) page
 
@@ -27,10 +26,10 @@ By default, `azd` assumes Bicep as the IaC provider. Refer to the [Comparing Ter
 
 - [Install and configure Terraform](../terraform/quickstart-configure.md)
 - [Install and log into Azure CLI (v 2.38.0+)](/cli/azure/install-azure-cli)
-- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js or Python Terraform template](./azd-templates.md#choose-a-template).
+- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js or Python Terraform template](./azd-templates.md#start-with-an-existing-template).
 
 > [!NOTE]
-> While `azd` doesn't rely on an Azure CLI login, Terraform requires Azure CLI. Read more about this requirement from [Terraform's official documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/azure_cli). 
+> While `azd` doesn't rely on an Azure CLI login, Terraform requires Azure CLI. Read more about this requirement from [Terraform's official documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/azure_cli).
 
 ## Configure Terraform as the IaC provider
 
@@ -43,7 +42,7 @@ By default, `azd` assumes Bicep as the IaC provider. Refer to the [Comparing Ter
 
 1. Add all your `.tf` files to the `infra` directory found in the root of your project.
 1. Run `azd up`. 
-   
+
 > [!NOTE] 
 > Check out these two azd templates with Terraform as IaC Provider: [Node.js and Terraform](https://github.com/Azure-Samples/todo-nodejs-mongo-terraform) and [Python and Terraform](https://github.com/Azure-Samples/todo-python-mongo-terraform). 
 

@@ -3,14 +3,14 @@ title: Spring Cloud Azure support for Spring Integration
 description: This article describes how Spring Cloud Azure and Spring Integration can be used together.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yeyonghui
+ms.author: hangwan
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure support for Spring Integration
 
-**This article applies to:** ✔️ Version 4.14.0 ✔️ Version 5.8.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.14.0
 
 Spring Integration Extension for Azure provides Spring Integration adapters for the various services provided by the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java/). We provide Spring Integration support for these Azure services: Event Hubs, Service Bus, Storage Queue. The following is a list of supported adapters:
 
@@ -122,7 +122,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
        cloud:
          azure:
            eventhubs:
-             connection-string: ${AZURE_SERVICE_BUS_CONNECTION_STRING}
+             connection-string: ${AZURE_EVENT_HUBS_CONNECTION_STRING}
              processor:
                checkpoint-store:
                  container-name: ${CHECKPOINT-CONTAINER}
@@ -140,7 +140,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
              managed-identity-enabled: true
              client-id: ${AZURE_CLIENT_ID}
            eventhubs:
-             namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
+             namespace: ${AZURE_EVENT_HUBS_NAMESPACE}
              processor:
                checkpoint-store:
                  container-name: ${CONTAINER_NAME}
@@ -159,7 +159,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
            profile:
              tenant-id: <tenant>
            eventhubs:
-             namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
+             namespace: ${AZURE_EVENT_HUBS_NAMESPACE}
              processor:
                checkpoint-store:
                  container-name: ${CONTAINER_NAME}
@@ -726,7 +726,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
          azure:
            storage:
              queue:
-               connection-string: ${AZURE_SERVICE_BUS_CONNECTION_STRING}
+               connection-string: ${AZURE_STORAGE_QUEUE_CONNECTION_STRING}
      ```
 
    * For credentials as managed identities, configure the following properties in your *application.yml* file:
@@ -742,7 +742,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
              tenant-id: <tenant>
            storage:
              queue:
-               namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
+               account-name: ${AZURE_STORAGE_QUEUE_ACCOUNT_NAME}
      ```
 
 > [!NOTE]
@@ -761,7 +761,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
              tenant-id: <tenant>
            storage:
              queue:
-               namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
+               account-name: ${AZURE_STORAGE_QUEUE_ACCOUNT_NAME}
      ```
 
 > [!NOTE]

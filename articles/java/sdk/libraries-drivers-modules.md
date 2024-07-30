@@ -89,7 +89,7 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 [Spring for Apache Kafka]: https://spring.io/projects/spring-kafka
 [Spring Cloud Azure Kafka support]: ../spring-framework/kafka-support.md
 [Spring Cloud Stream Binder for Event Hubs]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-stream-binder-eventhubs
-[Spring Boot Starter for Microsoft Entra ID]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory
+[Microsoft Entra Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory
 [Azure AD B2C Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-active-directory-b2c
 [Key Vault Secrets Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-keyvault-secrets
 [Key Vault Certificates Spring Boot Starter]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-keyvault-certificates

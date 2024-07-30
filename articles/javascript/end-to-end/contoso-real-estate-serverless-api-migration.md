@@ -3,7 +3,7 @@ title: "Migrate Contoso Real Estate Serverless APIs to Node.js v4 programming mo
 description: Understand the Contoso Real Estate serverless API migration with Azure Functions to the Node.js v4 programming model with TypeScript.
 ms.topic: tutorial
 ms.date: 11/15/2023
-ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
+ms.custom: devx-track-js, devx-track-ts, contoso-real-estate, devx-track-extended-azdevcli
 # CustomerIntent: As a senior developer new to Azure, I want to migrate my v4 programming model API to v4 so that my serverless code is more idiomatic of Node.js development.
 ---
 

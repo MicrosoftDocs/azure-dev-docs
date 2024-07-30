@@ -40,9 +40,9 @@ For more information about each feature stage, see [feature versioning and relea
 | Azure Kubernetes Service | Beta (only for projects deployable via `kubectl apply -f`)    |
 | Azure Spring Apps        | Beta           |
 
-## Supported programming languages
+## Supported languages and frameworks
 
-Currently supported/planned languages:
+Currently supported languages and frameworks:
 
 | Language | Feature Stage |
 | -------- | -----------   |
@@ -56,4 +56,3 @@ For more information about each feature stage, see [feature versioning and relea
 ## Next Steps
 - [Install the Azure Developer CLI](./install-azd.md).
 - [Walk through the `azd` quickstart](./get-started.md) to see Azure Developer CLI in action.
-  

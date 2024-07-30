@@ -2,7 +2,7 @@
 title: Using Event Hubs in Spring applications
 description: This article shows you how to use Azure Event Hubs in Java applications built with Spring framework.
 author: KarlErickson
-ms.author: v-yeyonghui
+ms.author: hangwan
 ms.date: 09/11/2023
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
@@ -62,7 +62,7 @@ To install the Spring Cloud Azure Event Hubs Starter module, add the following d
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.8.0</version>
+         <version>5.14.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -71,7 +71,7 @@ To install the Spring Cloud Azure Event Hubs Starter module, add the following d
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.14.0`.
+  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
   > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
@@ -392,7 +392,7 @@ To install the Spring Messaging Azure Event Hubs module, add the following depen
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.8.0</version>
+         <version>5.14.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -401,7 +401,7 @@ To install the Spring Messaging Azure Event Hubs module, add the following depen
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.14.0`.
+  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
   > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
@@ -432,13 +432,6 @@ To send messages to and receive messages from Event Hubs, configure the applicat
    spring.cloud.azure.eventhubs.namespace=<your event-hubs-namespace>
    spring.cloud.azure.eventhubs.processor.checkpoint-store.account-name=<your-storage-account-name>
    spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name=<your-storage-account-container-name>
-   ```
-
-1. Add *spring.factories* for the autoconfiguration for `@EventHubsListener`. You need to create a directory called *META-INF* under the application's *resource* directory. Then, create a file named *spring.factories* under *META-INF* and add the following content:
-
-   ```properties
-   org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-   com.azure.spring.cloud.autoconfigure.messaging.AzureMessagingListenerAutoConfiguration
    ```
 
 1. Create a new `ConsumerService` Java class as shown in the following example. This class is used to define a message receiver. Be sure to replace the `<your-event-hub-name>` placeholder with your actual value.
@@ -523,7 +516,7 @@ To install the Spring Cloud Azure Event Hubs Integration Starter module, add the
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.8.0</version>
+         <version>5.14.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -532,7 +525,7 @@ To install the Spring Cloud Azure Event Hubs Integration Starter module, add the
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.14.0`.
+  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
   > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
@@ -712,7 +705,7 @@ To install the Spring Cloud Azure Event Hubs Stream Binder module, add the follo
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.8.0</version>
+         <version>5.14.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -721,7 +714,7 @@ To install the Spring Cloud Azure Event Hubs Stream Binder module, add the follo
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.14.0`.
+  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
   > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
@@ -820,7 +813,7 @@ To install the Spring Cloud Azure starter and Spring Kafka modules, adding the f
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.8.0</version>
+         <version>5.14.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -829,7 +822,7 @@ To install the Spring Cloud Azure starter and Spring Kafka modules, adding the f
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.14.0`.
+  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
   > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
@@ -922,7 +915,7 @@ To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka m
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.8.0</version>
+         <version>5.14.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -931,7 +924,7 @@ To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka m
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.14.0`.
+  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
   > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 

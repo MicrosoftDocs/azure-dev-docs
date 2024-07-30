@@ -3,7 +3,7 @@ title: Azure CLI virtual machine with Express.js
 description: Create an Azure Linux virtual machine, with a clone of an Express.js-based app from a GitHub repository.  
 ms.topic: how-to
 ms.date: 02/09/2023
-ms.custom: devx-track-js, devx-track-azurecli, engagement-fy23
+ms.custom: devx-track-js, devx-track-azurecli, engagement-fy23, linux-related-content
 # Must use non-internal sub
 ---
 
@@ -348,7 +348,7 @@ If you have issues, use the following table to understand how to resolve your is
 
 ## Sample code
 
-* [Express.js virtual machine sample code](https://github.com/Azure-Samples/js-e2e-vm)
+* [Express.js virtual machine sample code](https://github.com/Azure-Samples/azure-typescript-e2e-apps/tree/main/api-expressjs-vm)
 
 ## Next steps
 

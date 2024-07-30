@@ -1,9 +1,9 @@
 ---
 title: Select Azure app hosting for JavaScript
-description: Hosting options and deployment scenarios include several services and tools for Azure. Publish your app and serve it on Azure.  
+description: Hosting options and deployment scenarios include several services and tools for Azure. Publish your app and serve it on Azure.
 ms.topic: overview
 ms.date: 08/19/2021
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperf-fy21q2
+ms.custom: devx-track-js
 # As a JavaScript Developer, I want to understand the many hosting services so that I know where to host my solution.
 ---
 
@@ -22,7 +22,7 @@ For a complete overview of different hosting options, see [Decision tree for Azu
 |--|--|--|
 |[*App service](/azure/app-service/overview) - **recommended**|Client, Server, Client/Server, API, Server-render|Host your app from code or a container. This allows you to **fully configure and manage the web server** without needing to manage the underlying environment. Bring any framework stack to the service.<br><br>[**Quickstart**: Create a Node.js web app in Azure](/azure/app-service/quickstart-nodejs?pivots=platform-linux)|
 |[Static Web apps](/azure/static-web-apps/)|Static front-end, Pre-render, JAM-stack, Static front end with serverless APIs|Deploy and dynamically scale your **static client app and serverless APIs**.<br><br>[**Quickstart**: Building your first static site with Azure Static Web Apps](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)<br>[**Tutorial**: Upload an image to an Azure Storage blob](../tutorial/browser-file-upload-azure-storage-blob.md) |
-|[Functions](/azure/azure-functions/)|Serverless APIs, event-triggered background processes|Host your **serverless API endpoints** in the Azure Functions runtime. Azure provides many templates known as triggers to bootstrap common scenarios.<br><br>[**Quickstart**: Create a JavaScript function in Azure using Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-node)<br>[**Tutorial**: Store data in MongoDB](../tutorial/azure-function-cosmos-db-mongo-api.md)|
+|[Functions](/azure/azure-functions/)|Serverless APIs, event-triggered background processes|Host your **serverless API endpoints** in the Azure Functions runtime. Azure provides many templates known as triggers to bootstrap common scenarios.<br><br>[**Quickstart**: Create a JavaScript function in Azure using Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-node)|
 |[Azure Web PubSub](/azure/azure-web-pubsub/overview)|Sockets, real-time message.|Build real-time messaging web applications using WebSockets and the publish-subscribe pattern.<br><br>[**Quickstart**: Publish messages using the service SDK for the Azure Web PubSub instance](/azure/azure-web-pubsub/quickstart-use-sdk?tabs=javascript)|
 
 
@@ -63,4 +63,3 @@ If your application has already selected some of the options such as frameworks 
 |[App Service](/azure/app-service/overview)|Traditional web server with supported languages on LTS or a container. This is a great choice when you are familiar with web servers and need to support your own stack choices.|
 |[Container apps](/azure/container-apps)|Traditional containerized apps with much of the work of managing containers managed for you. Also bring your source code such as a Micro API to a container. This is a great choice when you are familiar with containerized apps and need to support your own stack.|
 |[VMs](/azure/virtual-machines)|Full Windows or Linux virtual machine and its runtime environment. This is a good solution for legacy apps or apps which are outside LTS support and not yet containerized.|
-

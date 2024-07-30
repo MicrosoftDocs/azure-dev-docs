@@ -3,14 +3,14 @@ title: Spring Cloud Azure Spring Security support
 description: This article describes how Spring Cloud Azure and Spring Security can be used together.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yeyonghui
+ms.author: hangwan
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure support for Spring Security
 
-**This article applies to:** ✔️ Version 4.14.0 ✔️ Version 5.8.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.14.0
 
 This article describes how Spring Cloud Azure and Spring Security can be used together.
 
@@ -946,7 +946,7 @@ Configurable properties of spring-cloud-azure-starter-active-directory:
 > [!div class="mx-tdBreakAll"]
 > | Name                                                                                  | Description                                                                                                                                                                                                           |
 > |---------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | **spring.cloud.azure.active-directory**.app-id-uri                                    | App ID URI which might be used in the "aud" claim of an id_token.                                                                                                                                                     |
+> | **spring.cloud.azure.active-directory**.app-id-uri                                    | App ID URI that might be used in the "aud" claim of an id_token.                                                                                                                                                     |
 > | **spring.cloud.azure.active-directory**.application-type                              | Type of the Microsoft Entra application.                                                                                                                                                                                          |
 > | **spring.cloud.azure.active-directory**.authenticate-additional-parameters            | Add additional parameters to the Authorization URL.                                                                                                                                                                   |
 > | **spring.cloud.azure.active-directory**.authorization-clients                         | The OAuth2 authorization clients.                                                                                                                                                                                     |
@@ -1006,7 +1006,7 @@ Configurable properties of spring-cloud-azure-starter-active-directory-b2c:
 > [!div class="mx-tdBreakAll"]
 > | Name                                                                           | Description                                                                                  |
 > |--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-> | **spring.cloud.azure.active-directory.b2c**.app-id-uri                         | App ID URI which might be used in the "aud" claim of a token.                                |
+> | **spring.cloud.azure.active-directory.b2c**.app-id-uri                         | App ID URI that might be used in the "aud" claim of a token.                                |
 > | **spring.cloud.azure.active-directory.b2c**.authenticate-additional-parameters | Additional parameters for authentication.                                                    |
 > | **spring.cloud.azure.active-directory.b2c**.authorization-clients              | Specify client configuration.                                                                |
 > | **spring.cloud.azure.active-directory.b2c**.base-uri                           | Azure AD B2C endpoint base uri.                                                              |
@@ -1034,8 +1034,6 @@ A *web application* is any web-based application that allows user to login with 
 1. Accessing a resource server.
 
 1. Resource server accessing other resource servers.
-
-:::image type="content" source="media/spring-cloud-azure/system-diagram-b2c-web-application-web-api-overall.png" alt-text="System diagram of web application interaction with Microsoft Entra ID and resource servers." border="false":::
 
 #### Usage 1: Accessing a web application
 
@@ -1255,8 +1253,6 @@ Select **Manifest** from the navigation pane, and then paste the following JSON 
 }
 ```
 
-:::image type="content" source="media/spring-cloud-azure/application-manifest-app-roles.png" alt-text="Azure portal screenshot showing application manifest screen with appRoles JSON highlighted." lightbox="media/spring-cloud-azure/application-manifest-app-roles.png":::
-
 Select **API permissions** \> **Add a permission** \> **My APIs**, select **WebApiA** application name, select **Application Permissions**, select **WebApiA.SampleScope** permission, and then select **Add permission** to complete the process.
 
 Grant admin consent for ***WebApiA*** permissions.
@@ -1472,8 +1468,6 @@ Referring to the previous steps, we create a `WebApiB` application and expose an
    "value": "WebApiB.SampleScope"
 }
 ```
-
-:::image type="content" source="media/spring-cloud-azure/application-manifest-app-roles-web-api-b.png" alt-text="Azure portal screenshot showing application WebApiB manifest screen with appRoles JSON highlighted." lightbox="media/spring-cloud-azure/application-manifest-app-roles-web-api-b.png":::
 
 Grant admin consent for `WebApiB` permissions.
 

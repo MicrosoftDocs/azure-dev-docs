@@ -1,13 +1,13 @@
 ---
 author: KarlErickson
 ms.author: haiche
-ms.date: 04/27/2023
-ms.custom: devx-track-azurecli
+ms.date: 01/24/2024
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 ```azurecli
 export WINDOWSVM_NIC_ID=$(az vm show \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name myWindowsVM \
     --query networkProfile.networkInterfaces[0].id \
     --output tsv)
@@ -16,17 +16,16 @@ export WINDOWSVM_NSG_ID=$(az network nic show \
     --query networkSecurityGroup.id \
     --output tsv)
 export WINDOWSVM_DISK_ID=$(az vm show \
-    --resource-group abc1110rg \
+    --resource-group ${RESOURCE_GROUP_NAME} \
     --name myWindowsVM \
     --query storageProfile.osDisk.managedDisk.id \
     --output tsv)
-export WINDOWSVM_PUBLIC_IP=$(az network nic show \
-    --ids ${WINDOWSVM_NIC_ID} \
-    --query ipConfigurations[0].publicIpAddress.id \
+export WINDOWSVM_PUBLIC_IP=$(az network public-ip list \
+    -g ${RESOURCE_GROUP_NAME} --query [0].id \
     --output tsv)
 
 echo "deleting myWindowsVM"
-az vm delete --resource-group abc1110rg --name myWindowsVM --yes
+az vm delete --resource-group ${RESOURCE_GROUP_NAME} --name myWindowsVM --yes
 echo "deleting nic ${WINDOWSVM_NIC_ID}"
 az network nic delete --ids ${WINDOWSVM_NIC_ID}
 echo "deleting public-ip ${WINDOWSVM_PUBLIC_IP}"

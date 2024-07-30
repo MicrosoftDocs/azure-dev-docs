@@ -7,43 +7,48 @@ summary: |
 metadata:
   title: Azure for Python developers
   description: Get started developing with Python and Azure using Azure Functions, Azure App Service, Azure Container Apps, Azure Machine Learning, Azure Storage, Azure Database for PostgreSQL, and the Azure SDK for Python.
-  ms.date: 7/25/2023
+  ms.date: 1/24/2024
   ms.topic: landing-page
   ms.collection: collection
-  ms.technology: azure
-  ms.product: azure-python
+  ms.service: azure-python
   ms.devlang: python
   ms.custom: devx-track-python, py-fresh-zinc
 
 landingContent:
-  - title: Serverless functions
+  - title: Azure libraries (SDK)
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: get-started
         links:
-          - text: Deploy using Visual Studio Code
-            url: /azure/azure-functions/create-first-function-vs-code-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
-          - text: Deploy using the command line
-            url: /azure/azure-functions/create-first-function-cli-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
-          - text: Connect to storage using Visual Studio Code
-            url: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python&toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
-          - text: Connect to storage using the command line
-            url: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?pivots=programming-language-python&toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
+          - text: Get started
+            url: get-started.md
+          - text: Get to know the Azure libraries
+            url: sdk/azure-sdk-overview.md
+          - text: Learn library usage patterns
+            url: sdk/azure-sdk-library-usage-patterns.md
+          - text: Authenticate with Azure services
+            url: sdk/authentication-overview.md
   - title: Web apps
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Django / Flask Web App
+          - text: Quickly create and deploy new Django / Flask / FastAPI apps
+            url: ./quickstart-python-web-azd-templates.md
+          - text: Deploy a Django or Flask Web App
             url: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
-          - text: Django / Flask Web App + PostgreSQL
+          - text: Deploy Web App with PostgreSQL
             url: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
-          - text: Django / Flask Web App + Managed Identity
+          - text: Deploy Web App with Managed Identity
             url: ./tutorial-python-managed-identity-cli.md
-          - text: GitHub Actions
+          - text: Deploy using GitHub Actions
             url: ./python-web-app-github-actions-app-service.md
-          - text: CI/CD pipeline
-            url: /azure/devops/pipelines/ecosystems/python-webapp?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
-          - text: Logs
-            url: /azure/azure-monitor/app/opencensus-python
+  - title: AI
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Develop using Azure AI services
+            url: ./azure-ai-for-python-developers.md
+          - text: Python enterprise RAG chat sample
+            url: ./get-started-app-chat-template.md
   - title: Containers
     linkLists:
       - linkListType: tutorial
@@ -80,20 +85,18 @@ landingContent:
             url: quickstarts-cognitive-services.md
           - text: Serverless, Cloud ETL
             url: ./tutorial-deploy-azure-cloud-python-etl-01-overview.md
-  - title: Azure libraries (SDK)
+  - title: Serverless functions
     linkLists:
-      - linkListType: get-started
+      - linkListType: how-to-guide
         links:
-          - text: Get started
-            url: get-started.md
-          - text: Set up your local dev environment
-            url: get-started.md#phase-2-configure-your-local-python-environment-for-azure-development
-          - text: Get to know the Azure libraries
-            url: sdk/azure-sdk-overview.md
-          - text: Learn library usage patterns
-            url: sdk/azure-sdk-library-usage-patterns.md
-          - text: Authenticate with Azure services
-            url: sdk/authentication-overview.md
+          - text: Deploy using Visual Studio Code
+            url: /azure/azure-functions/create-first-function-vs-code-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
+          - text: Deploy using the command line
+            url: /azure/azure-functions/create-first-function-cli-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
+          - text: Connect to storage using Visual Studio Code
+            url: /azure/azure-functions/functions-add-output-binding-storage-queue-vs-code?pivots=programming-language-python&toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
+          - text: Connect to storage using the command line
+            url: /azure/azure-functions/functions-add-output-binding-storage-queue-cli?pivots=programming-language-python&toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
   - title: Developer tools
     linkLists:  
       - linkListType: get-started

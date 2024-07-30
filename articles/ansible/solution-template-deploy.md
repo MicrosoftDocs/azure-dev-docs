@@ -4,10 +4,13 @@ description: In this quickstart, learn how to deploy the Ansible solution templa
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
 ms.topic: quickstart
 ms.date: 04/30/2019
-ms.custom: devx-track-ansible, mode-portal
+ms.custom: devx-track-ansible, mode-portal, linux-related-content
 ---
 
 # Quickstart: Deploy the Ansible solution template for Azure to CentOS
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 The Ansible solution template for Azure is designed to configure an Ansible instance on a CentOS virtual machine along with Ansible and a suite of tools configured to work with Azure. The tools include:
 

@@ -20,17 +20,24 @@ items:
     - name: Core concepts
       href: azure-sdk-core-concepts.md
     - name: Management libraries
-      href: management-libraries.md
+      expanded: false    
+      items:
+        - name: Overview
+          href: management-libraries.md
+        - name: Manage Resource Groups
+          href: manage-resource-groups.md
+        - name: Deploy VMs 
+          href: azure-sdk-qs-vm.md
     - name: Authentication
       expanded: false
       items:
         - name: Authentication with the autorest package (legacy)
           href: azure-sdk-authorization.md
-        - name: Auth with development environments
+        - name: Auth with Azure Identity module overview
           href: azure-sdk-authentication.md
         - name: Auth with Azure-hosted apps
           href: azure-sdk-authentication-managed-identity.md
-        - name: Auth with credentials
+        - name: Auth with service principal
           href: azure-sdk-authentication-service-principal.md
     - name: How-to guides
       expanded: false
@@ -48,7 +55,7 @@ items:
         - name: Azure SDK for Go API reference
           href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go
         - name: Packages list
-          href: https://azure.github.io/azure-sdk/releases/latest/all/go.html
+          href: azure-sdk-library-package-index.md
     - name: Resources
       items:
         - name: Visual Studio Code extension for Go

@@ -45,7 +45,7 @@ landingContent:
       - linkListType: quickstart
         links:
         - text: Deploy your first app
-          url: /azure/spring-apps/quickstart
+          url: /azure/spring-apps/enterprise/quickstart
   - title: Storage
     linkLists:
       - linkListType: quickstart

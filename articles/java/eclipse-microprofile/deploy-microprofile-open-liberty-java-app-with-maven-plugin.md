@@ -1,11 +1,11 @@
 ---
 title: Deploy an Open Liberty Web App to Azure App Service with Maven
 description: Learn how to deploy an Open Liberty App to App Service on Linux using the Maven Plugin for Azure Web App.
-services: app-service
+author: KarlErickson
+ms.author: jialuogan
 ms.date: 01/13/2022
-ms.service: app-service
 ms.topic: article
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-azurecli, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-azurecli, devx-track-extended-java, linux-related-content
 #Customer intent: As a Java developer, I want to deploy MicroProfile apps to Azure so that I don't have to deal with app server configuration and management.
 ---
 
@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 In this quickstart, you'll use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy an Open Liberty application to [Azure App Service on Linux](/azure/app-service/containers/). You'll want to choose Java SE deployment over [Tomcat and WAR files](/azure/app-service/containers/quickstart-java) when you want to consolidate your app's dependencies, runtime, and configuration into a single deployable artifact.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!IMPORTANT]
 > While Azure App Service is engineered, operated, and supported by Microsoft, the software you run on top of it is subject to its own support plan support and license terms. For details about support of the software described in this article, see the main pages for that software as listed in the article.
@@ -289,13 +289,9 @@ Maven will deploy your web app to Azure. If the web app or web app plan doesn't 
 
 When your app has been deployed, you can manage it through the [Azure portal].
 
-Your web app will be listed in the resource group, as shown in the following screenshot:
+Your web app will be listed in the resource group.
 
-:::image type="content" source="media/open-liberty/open-liberty-azure-portal-rg.png" alt-text="Screenshot of Azure portal showing resource group contents." lightbox="media/open-liberty/open-liberty-azure-portal-rg.png":::
-
-You can access your web app by selecting **Browse** on the **Overview** page for your web app. Verify that the deployment was successful and Running. You should see the following screen displayed:
-
-:::image type="content" source="media/open-liberty/open-liberty-azure-portal-manage.png" alt-text="Screenshot of Azure portal showing web app overview page." lightbox="media/open-liberty/open-liberty-azure-portal-manage.png":::
+You can access your web app by selecting **Browse** on the **Overview** page for your web app. Verify that the deployment was successful and Running. 
 
 ## Confirm the log stream from the running App Service
 

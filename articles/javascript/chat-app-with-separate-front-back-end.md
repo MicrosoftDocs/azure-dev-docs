@@ -1,9 +1,11 @@
 ---
 title: "AI Chat: JavaScript frontend + Python backend"
 description: Steps to integrate the JavaScript frontend with the Python backend in the enterprise Azure OpenAI Chat App.
-ms.date: 12/07/2023
+ms.date: 05/17/2024
 ms.topic: get-started
-ms.custom: devx-track-js, devx-track-python, devx-track-js-ai, devx-track-js
+ms.subservice: intelligent-apps
+ms.custom: devx-track-js, devx-track-python, devx-track-js-ai, devx-track-python-ai, build-2024-intelligent-apps
+ms.collection: ce-skilling-ai-copilot
 # CustomerIntent: As a multilanguage developer new to Azure OpenAI, I want use the JavaScript frontend with a different language backend from the reference templates.
 ---
 
@@ -15,11 +17,14 @@ By mixing and matching the frontend and backend, you can create a multilanguage 
 
 * [Demo](https://aka.ms/azai/js.py/video) - Configure JavaScript frontend with Python backend video
 
-This article is part of a collection of articles that show you how to build a chat app using Azure Open AI Service and Azure AI Search. Other articles in the collection include: 
+This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Service and Azure AI Search. Other articles in the collection include: 
 
-* [.NET](/dotnet/azure/ai/get-started-app-chat-template)
+* [.NET](/dotnet/ai/get-started-app-chat-template)
 * [Java](../java/quickstarts/get-started-app-chat-template.md)
 * [Python](../python/get-started-app-chat-template.md)
+
+> [!NOTE]
+> This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
 ## Prerequisites
 

@@ -14,8 +14,6 @@
       href: configure-vs-code-extension-for-terraform.md
     - name: Authenticate Terraform to Azure
       href: authenticate-to-azure.md
-    - name: Create a Terraform base template using Yeoman
-      href: create-base-template-using-yeoman.md
     - name: Store Terraform state in Azure Storage
       href: store-state-in-azure-storage.md
     - name: Test Terraform projects
@@ -100,7 +98,7 @@
             - name: Azure Spring Apps
               items:
                 - name: Deploy a cluster
-                  href: /azure/spring-apps/quickstart-deploy-infrastructure-vnet-terraform
+                  href: /azure/spring-apps/enterprise/quickstart-deploy-infrastructure-vnet-terraform
             - name: Batch
               items:
                 - name: Create an account
@@ -247,6 +245,14 @@
               items:
                 - name: Create a profile
                   href: /azure/traffic-manager/quickstart-create-traffic-manager-profile-terraform
+            - name: Virtual Network
+              items:
+                - name: Create a network and subnets
+                  href: /azure/virtual-network/quick-create-terraform
+                - name: Create a NAT Gateway
+                  href: /azure/nat-gateway/quickstart-create-nat-gateway-terraform
+                - name: Create a private endpoint
+                  href: /azure/private-link/create-private-endpoint-terraform
         - name: Security
           items:
             - name: Application Gateway
@@ -302,7 +308,7 @@
             - name: Azure Spring Apps
               items:
                 - name: Deploy a cluster
-                  href: /azure/spring-apps/quickstart-deploy-infrastructure-vnet-terraform
+                  href: /azure/spring-apps/enterprise/quickstart-deploy-infrastructure-vnet-terraform
             - name: Content Delivery Network (CDN)
               items:
                 - name: Create a profile and endpoint

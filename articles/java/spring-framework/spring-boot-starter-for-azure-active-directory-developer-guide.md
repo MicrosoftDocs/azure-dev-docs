@@ -2,16 +2,15 @@
 title: Spring Boot Starter for Microsoft Entra developer's guide
 description: This guide describes the features, issues, workarounds, and diagnostic steps to be aware of when you use the Microsoft Entra starter.
 ms.date: 04/06/2023
-ms.service: active-directory
 ms.topic: article
 author: KarlErickson
-ms.author: shaozliu
+ms.author: hangwan
 ms.custom: devx-track-java, engagement-fy23, spring-cloud-azure, devx-track-extended-java
 ---
 
 # Spring Boot Starter for Microsoft Entra developer's guide
 
-**This article applies to:** ✔️ Version 4.14.0 ✔️ Version 5.8.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.14.0
 
 This article describes the features and core scenarios of the Spring Boot Starter for Microsoft Entra ID. The article also includes guidance on common issues, workarounds, and diagnostic steps.
 
@@ -56,8 +55,6 @@ This scenario uses the [The OAuth 2.0 authorization code grant](/azure/active-di
 To use the Microsoft Entra starter in this scenario, use the following steps:
 
 Set the redirect URI to *\<application-base-uri>/login/oauth2/code/*. For example: `http://localhost:8080/login/oauth2/code/`. Be sure to include the trailing `/`. For more information about the redirect URI, see [Add a redirect URI](/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri) in [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
-
-   :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/web-application-set-redirect-uri-1.png" alt-text="Screenshot of Azure portal showing Microsoft Entra App registrations page with sample-webapp highlighted.":::
 
    :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/web-application-set-redirect-uri-2.png" alt-text="Screenshot of Azure portal showing web app authentication page with redirect URI highlighted.":::
 
@@ -257,8 +254,6 @@ spring:
 ```
 
 You can use both the *\<your-client-ID>* and *\<your-app-ID-URI>* values to verify the access token. You can get the *\<your-app-ID-URI>* value from the Azure portal, as shown in the following images:
-
-:::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/get-app-id-uri-1.png" alt-text="Screenshot of Azure portal showing Microsoft Entra App registrations page with sample-resource-server highlighted.":::
 
 :::image type="content" source="media/spring-boot-starter-for-azure-active-directory-developer-guide/get-app-id-uri-2.png" alt-text="Screenshot of Azure portal showing web app Expose an API page with Application ID URI highlighted.":::
 

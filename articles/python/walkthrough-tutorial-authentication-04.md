@@ -1,7 +1,7 @@
 ---
 title: "Walkthrough, Part 4: Authenticate Python apps with Azure services"
 description: An overview of the main app's implementation, including all its code.
-ms.date: 06/01/2022
+ms.date: 02/20/2024
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 [Previous part: Third-party API implementation](walkthrough-tutorial-authentication-03.md)
 
-The main app in our scenario is a simple Flask app that's deployed to Azure App Service. The app provides a public API endpoint named */api/v1/getcode*, which generates a code for some other purpose in the app (say, with two-factor authentication for human users). The main app also provides a simple home page that displays a link to the API endpoint.
+The main app in our scenario is a simple Flask app that's deployed to Azure App Service. The app provides a public API endpoint named */api/v1/getcode*, which generates a code for some other purpose in the app (for example, with two-factor authentication for human users). The main app also provides a simple home page that displays a link to the API endpoint.
 
 The sample's provisioning script performs the following steps:
 

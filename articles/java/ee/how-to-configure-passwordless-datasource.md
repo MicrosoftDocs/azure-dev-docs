@@ -5,7 +5,6 @@ author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
 ms.date: 01/12/2023
-keywords: java, jakartaee, javaee, database, passwordless, weblogic, vm, aks, kubernetes
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-javaee-wls-vm, has-azure-ad-ps-ref, passwordless-java
 ---
 
@@ -26,7 +25,7 @@ The offers support passwordless connections for PostgreSQL, MySQL and Azure SQL 
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the Bash environment; make sure the Azure CLI version is 2.43.0 or higher.
 
    [![Launch Cloud Shell in a new window](../../includes/media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
@@ -279,8 +278,6 @@ Use the following steps to continue the configuration in the Azure portal.
 1. You find **Microsoft Entra Administrators (Microsoft Entra Admins)** shown in the page. Select **Add Microsoft Entra Admins**, select the account you're currently using in the Azure portal, then select **Select**.
 1. Select **Save**. It takes several seconds to create the Microsoft Entra Admin, as shown in the following screenshot.
 
-:::image type="content" source="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-authentication.png" alt-text="Screenshot of the Azure portal showing the Configure authentication on PostgreSQL Flexible Server page." lightbox="media/how-to-configure-passwordless-datasource/azure-portal-postgresql-authentication.png":::
-
 ### [Azure SQL Database](#tab/azure-sql-database)
 
 For information on how Azure SQL Server interacts with managed identities, see [Connect using Microsoft Entra authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication).
@@ -289,9 +286,6 @@ The following example configures a Microsoft Entra administrator account to Azur
 
 1. In the [Azure portal](https://portal.azure.com/), open the Azure SQL server instance `myazuresql20130213`.
 1. Select **Settings**, then select **Microsoft Entra ID**. On the **Microsoft Entra ID** page, select **Set admin**.
-
-   :::image type="content" source="media/how-to-configure-passwordless-datasource/azure-portal-azure-sql-set-admin.png" alt-text="Screenshot of the Azure portal showing the SQL server page and the Microsoft Entra settings with the Set admin option highlighted." lightbox="media/how-to-configure-passwordless-datasource/azure-portal-azure-sql-set-admin.png":::
-
 1. On the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**.
 1. At the top of the **Microsoft Entra ID** page, select **Save**. For Microsoft Entra users and groups, the Object ID is displayed next to the admin name.
 1. The process of changing the administrator may take several minutes. Then, the new administrator appears in the **Microsoft Entra ID** box.
@@ -633,10 +627,10 @@ az group delete --name <resource-group-name-that-deploys-the-offer>
 Learn more about running WLS on AKS or virtual machines by following these links:
 
 > [!div class="nextstepaction"]
-> [WLS on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks)
+> [Explore WebLogic Server on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [WLS on virtual machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
+> [Explore WebLogic Server on Azure Virtual Machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
 > [Passwordless Connections Samples for Java Apps](https://github.com/Azure-Samples/Passwordless-Connections-for-Java-Apps)

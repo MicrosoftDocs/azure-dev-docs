@@ -3,7 +3,7 @@ title: Introduction and prerequisites
 description: Locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action. 
 ms.topic: how-to
 ms.date: 12/08/2021
-ms.custom: devx-track-js, devx-track-azurecli 
+ms.custom: devx-track-js, devx-track-azurecli, devx-track-ts
 ---
 
 
@@ -24,7 +24,6 @@ In this tutorial, locally build and deploy a React/TypeScript client application
 - [GitHub account](https://github.com/join) - to fork and push to a repo
 - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash environment.
 - Your Azure account must have a Cognitive Services Contributor role assigned in order for you to agree to the responsible AI terms and create a resource. To get this role assigned to your account, follow the steps in the [Assign roles](/azure/role-based-access-control/role-assignments-steps) documentation, or contact your administrator.
-- [!INCLUDE [terms-azure-portal](~/../azure-docs-pr/articles/ai-services/includes/quickstarts/terms-azure-portal.md)]
 
 ## What is an Azure Static web app
 

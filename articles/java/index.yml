@@ -8,13 +8,49 @@ metadata:
   title: Azure for Java developer documentation
   description: Get started developing apps for the cloud with these tutorials and tools for Java developers.
   ms.topic: hub-page
-  ms.date: 06/10/2021
+  ms.date: 04/10/2024
   author: KarlErickson
   ms.author: karler
   ms.custom: devx-track-java, devx-track-extended-java
 
 conceptualContent:
   items:
+
+    - title: Get started with Java on Azure
+      links:
+        - text: Code, deploy, and scale Java your way
+          itemType: overview
+          url: get-started/overview.md
+        - text: Code using the Java tools you know and love
+          itemType: get-started
+          url: get-started/code.md
+        - text: Deploy with confidence and ease
+          itemType: get-started
+          url: get-started/deploy.md
+        - text: Scale with security, monitoring, automation
+          itemType: get-started
+          url: get-started/scale.md
+        - text: Choose the right Azure services
+          itemType: get-started
+          url: get-started/choose.md
+      footerLink:
+        text: See more
+        url: get-started/index.yml
+
+    - title: Azure AI for Java
+      links:
+        - text: Develop using Azure AI services
+          itemType: overview
+          url: ai/azure-ai-for-java-developers.md
+        - text: Enterprise chat using RAG
+          itemType: get-started
+          url: ai/get-started-app-chat-template.md
+        - text: Scale chat using RAG with Azure Container Apps
+          itemType: get-started
+          url: ai/get-started-app-chat-scaling-with-azure-container-apps.md
+      footerLink:
+        text: See more
+        url: ai/index.yml
 
     - title: Java learning resources
       links:
@@ -41,7 +77,7 @@ conceptualContent:
           url: /azure/azure-functions/functions-create-first-java-maven
         - text: Deploy Spring Cloud microservices
           itemType: quickstart
-          url: /azure/spring-apps/quickstart-sample-app-introduction?pivots=programming-language-java
+          url: /azure/spring-apps/enterprise/quickstart-sample-app-introduction?pivots=programming-language-java
       footerLink:
         text: See more
         url: quickstarts/index.yml
@@ -76,21 +112,6 @@ conceptualContent:
         text: See more
         url: migration/index.yml
 
-    - title: Azure SDK for Java
-      links:
-        - text: Libraries, drivers, and Spring modules
-          itemType: reference
-          url: sdk/libraries-drivers-modules.md
-        - text: Azure development using Java
-          itemType: get-started
-          url: sdk/get-started.md
-        - text: Introducing Azure SDK for Java
-          itemType: learn
-          url: sdk/overview.md
-      footerLink:
-          text: See more
-          url: sdk/index.yml
-
     - title: Azure App Service
       links:
         - text: Create a Java app
@@ -110,16 +131,46 @@ conceptualContent:
       links:
         - text: What is Azure Spring Apps?
           itemType: overview
-          url: /azure/spring-apps/overview
+          url: /azure/spring-apps/enterprise/overview
         - text: Launch your first app
           itemType: quickstart
-          url: /azure/spring-apps/quickstart?pivots=sc-enterprise
+          url: /azure/spring-apps/enterprise/quickstart?pivots=sc-enterprise
         - text: Enterprise tier
           itemType: overview
-          url: /azure/spring-apps/overview#enterprise-tier-overview
+          url: /azure/spring-apps/enterprise/overview#enterprise-tier-overview
       footerLink:
           text: See more
           url: /azure/spring-apps
+
+    - title: Secure apps using the Microsoft identity platform
+      links:
+        - text: Overview
+          itemType: overview
+          url: identity/secure-java-apps-with-identity-platform-overview.md
+        - text: Secure Spring Boot apps
+          itemType: how-to-guide
+          url: identity/enable-spring-boot-webapp-authentication-entra-id.md
+        - text: Secure Tomcat apps
+          itemType: how-to-guide
+          url: identity/enable-java-tomcat-webapp-authentication-entra-id.md
+      footerLink:
+          text: See more
+          url: identity/index.yml
+
+    - title: Azure SDK for Java
+      links:
+        - text: Libraries, drivers, and Spring modules
+          itemType: reference
+          url: sdk/libraries-drivers-modules.md
+        - text: Azure development using Maven
+          itemType: get-started
+          url: sdk/get-started-maven.md
+        - text: Introducing Azure SDK for Java
+          itemType: learn
+          url: sdk/overview.md
+      footerLink:
+          text: See more
+          url: sdk/index.yml
 
     - title: Spring on Azure integration
       links:
@@ -131,7 +182,7 @@ conceptualContent:
           url: spring-framework/how-to-guides-spring-data-cosmosdb.md
         - text: Deploy a Spring Boot app
           itemType: quickstart
-          url: /azure/spring-apps/quickstart?pivots=sc-enterprise
+          url: /azure/spring-apps/enterprise/quickstart?pivots=sc-enterprise
       footerLink:
         text: See more
         url: spring-framework/index.yml
@@ -176,7 +227,7 @@ conceptualContent:
           url: ./fundamentals/java-get-started-with-logzio.md
         - text: Monitor Spring apps
           itemType: how-to-guide
-          url: /azure/spring-apps/diagnostic-services
+          url: /azure/spring-apps/enterprise/diagnostic-services
       footerLink:
         text: See Azure Monitor documentation
         url: /azure/azure-monitor
@@ -201,7 +252,7 @@ conceptualContent:
         - text: Oracle WebLogic Server on Azure VMs
           itemType: overview
           url: /azure/virtual-machines/workloads/oracle/oracle-weblogic
-        - text: Deploy a Java EE app to AKS AKS
+        - text: Deploy a Java EE app to AKS
           itemType: how-to-guide
           url: /azure/aks/howto-deploy-java-liberty-app
         - text: Deploy a MicroProfile App to Azure App Service

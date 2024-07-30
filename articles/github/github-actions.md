@@ -16,7 +16,7 @@ ms.custom: github-actions-azure
 
 In GitHub Actions, a [workflow](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) is an automated process that you set up in your GitHub repository. You can build, test, package, release, or deploy any project on GitHub with a workflow.
 
-Each workflow is made up of individual [actions](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions) that run after a specific event (like a pull request) occur.  The individual actions are packaged scripts that automate software development tasks.
+Each workflow is made up of individual [actions](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions) that run after a specific event (like a pull request) occur. The individual actions are packaged scripts that automate software development tasks.
 
 With GitHub Actions for Azure, you can create workflows that you can set up in your repository to build, test, package, release, and deploy to Azure. GitHub Actions for Azure supports Azure services, including Azure App Service, Azure Functions, and Azure Key Vault.
 
@@ -28,7 +28,7 @@ Watch this video from GitHub Universe 2020 to learn more about continuous delive
 
 ## Why should I use GitHub Actions for Azure
 
-GitHub Actions for Azure are developed by Microsoft and designed to be used with Azure. You can see all of the GitHub Actions for Azure in the [GitHub Marketplace](https://github.com/marketplace?query=Azure&type=actions). See [Finding and customizing actions](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions) to learn more about incorporating actions into your workflows.
+Microsoft developed GitHub Actions for Azure and designed them be used with Azure. You can see all of the GitHub Actions for Azure in the [GitHub Marketplace](https://github.com/marketplace?query=Azure&type=actions). See [Finding and customizing actions](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions) to learn more about incorporating actions into your workflows.
 
 ## What is the difference between GitHub Actions and Azure Pipelines
 
@@ -43,9 +43,11 @@ You'll need Azure and GitHub accounts:
 
 ## How do I connect GitHub Actions and Azure
 
-Depending on the action, you'll use a service principal or publish profile to connect to Azure from GitHub. You'll use a service principal each time you use the [Azure login](https://github.com/marketplace/actions/azure-login) action. The [Azure App Service action](https://github.com/marketplace/actions/azure-webapp) supports using a publish profile or service principal. See [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) to learn more about service principals.  
+Depending on the action, you can use service principal or publish profile to connect to Azure from GitHub. You'll use a service principal each time you use the [Azure login](https://github.com/marketplace/actions/azure-login) action. When you use a service principal you can use OpenID Connect or a secret.
 
-You can use the Azure login action in combination with both the [Azure CLI](https://github.com/marketplace/actions/azure-cli-action) and Azure [Azure PowerShell](https://github.com/marketplace/actions/azure-powershell-action) actions. The Azure login action also works with most other GitHub actions for Azure including [deploying to web apps](https://github.com/marketplace/actions/azure-webapp) and [accessing key vault secrets](https://github.com/marketplace/actions/enhanced-env-azure-key-vault-get-secrets).
+The [Azure App Service action](https://github.com/marketplace/actions/azure-webapp) supports using a publish profile or service principal. See [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) to learn more about service principals.  
+
+You can use the Azure login action in combination with both the [Azure CLI](https://github.com/marketplace/actions/azure-cli-action) and Azure [Azure PowerShell](https://github.com/marketplace/actions/azure-powershell-action) actions. The Azure login action also works with most other GitHub actions for Azure including [deploying to web apps](https://github.com/marketplace/actions/azure-webapp). You can also use Azure login with community-contributed actions like [Enhanced Azure key vault](https://github.com/marketplace/actions/enhanced-env-azure-key-vault-get-secrets) that aren't officially supported by Microsoft.
 
 ## What is included in a GitHub Actions workflow
 
@@ -59,6 +61,7 @@ The [Azure starter action workflows repository](https://github.com/Azure/actions
 
 Visit the [Marketplace for GitHub Actions for Azure](https://github.com/marketplace?query=Azure&type=actions) to see all the available GitHub Actions for Azure.
 
+* [Azure Spring Cloud](https://github.com/Azure/azure-spring-cloud)
 * [Deploy Bicep file or Azure Resource Manager template](https://github.com/Azure/arm-deploy)
 * [Deploy to a static web app](/azure/static-web-apps/getting-started?tabs=angular)
 * [Azure App Service settings](https://github.com/Azure/appservice-settings)  
@@ -84,10 +87,3 @@ Visit the [Marketplace for GitHub Actions for Azure](https://github.com/marketpl
 * [Manage Azure Policy](https://github.com/Azure/manage-azure-policy)
 * [Trigger an Azure Pipelines run](https://github.com/Azure/pipelines)  
 
-## Next Steps
-
-> [!div class="nextstepaction"]
-> [Learning path, Automate your workflow with GitHub Actions](/training/modules/github-actions-automate-tasks/)
-
-> [!div class="nextstepaction"]
-> [Learning Lab, Continuous Delivery with Azure](https://github.com/skills/continuous-delivery-azure)

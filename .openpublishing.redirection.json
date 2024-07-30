@@ -1,1223 +1,1404 @@
 {
-    "redirections": [
-      {
-        "source_path": "articles/java/ee/jboss-eap-single-server-azure-vm.md",
-        "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm"
-      },
-      {
-        "source_path": "articles/java/ee/weblogic-server-azure-virtual-machine.md",
-        "redirect_url": "/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine"
-      },
-      {
-        "source_path":"articles/javascript/how-to/add-custom-domain-to-web-app.md",
-        "redirect_url": "/azure/app-service/tutorial-secure-domain-certificate"
-      },
-      {
-        "source_path":"articles/javascript/composable-cloud-contoso-real-estate.md",
-        "redirect_url": "/azure/developer/javascript/end-to-end/contoso-real-estate-get-started"
-      },
-      { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md",
-        "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
-      },
-      { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md",
-        "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
-      },
-      { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-03.md",
-        "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
-      },
-      { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md",
-        "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
-      },
-      { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md",
-        "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
-      },
-      { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-06.md",
-        "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
-      },
-      { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md",
-        "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
-      },                              
-      { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md",
-        "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
-      },
-      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/introduction.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
-      },
-      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/create-github-repo.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
-      },
-      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/create-react-app.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
-      },      
-      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/create-static-web-app.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
-      }, 
-      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/create-function-api-app.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
-      },       
-      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/connect-client-to-api.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
-      },
-      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
-      },      
-      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/clean-up-swa-auth-resources.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
-      },
-      { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/add-delete-functions-redeploy.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
-      },
-      { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/clean-up-resources.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
-      },
-      { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/create-function-app.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
-      },
-      { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/deploy-azure-function-with-visual-studio-code.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
-      },
-      { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/view-query-application-logs.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
-      },
-      { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/introduction.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
-      },      
-      { "source_path": "articles/lab/index.yml",
-        "redirect_url": "/azure/developer/python" 
-      },
-      { "source_path": "articles/lab/quickstart-python-flask.md",
-        "redirect_url": "/azure/developer/python" 
-      },
-      { "source_path": "articles/lab/quickstart-python-flask-minimized.md",
-        "redirect_url": "/azure/developer/python" 
-      },
-      { "source_path": "articles/lab/quickstart-python-flask-multipage.yml",
-        "redirect_url": "/azure/developer/python" 
-      },
-      { "source_path": "articles/lab/tool-tip-metrics.md",
-        "redirect_url": "/azure/developer/python" 
-      },
-      { 
-        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/introduction.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
-      },
-      { 
-        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/create-azure-monitoring-application-insights-web-resource.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
-      },
-      { 
-        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
-      },
-      { 
-        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
-      },
-      { 
-        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
-      },      
-      { 
-        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-logs.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
-      },
-      { 
-        "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/clean-up-resources.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
-      },
-      { 
-        "source_path": "articles/javascript/whats-new-developer-advocacy.md",
-        "redirect_url": "/azure/developer/javascript" 
-      },
-      { 
-        "source_path": "articles/javascript/whats-new-docs.md",
-        "redirect_url": "/azure/developer/javascript" 
-      },          
-      { 
-        "source_path": "articles/javascript/how-to/with-database/getting-started.md",
-        "redirect_url": "/azure/developer/javascript/database-developer-guide" 
-      },
-      { 
-        "source_path": "articles/javascript/how-to/with-database/use-azure-cache-for-redis-db.md",
-        "redirect_url": "/azure/developer/javascript/database-developer-guide" 
-      },
-      { 
-        "source_path": "articles/javascript/how-to/with-database/use-cassandra-as-cosmos-db.md",
-        "redirect_url": "/azure/developer/javascript/database-developer-guide" 
-      },
-      { 
-        "source_path": "articles/javascript/how-to/with-database/use-mongodb-as-cosmosdb.md",
-        "redirect_url": "/azure/developer/javascript/database-developer-guide" 
-      },
-      { 
-        "source_path": "articles/javascript/how-to/with-database/use-mysql-mariadb.md",
-        "redirect_url": "/azure/developer/javascript/database-developer-guide" 
-      },
-      { 
-        "source_path": "articles/javascript/how-to/with-database/use-postgresql-db.md",
-        "redirect_url": "/azure/developer/javascript/database-developer-guide" 
-      },
-      { 
-        "source_path": "articles/javascript/how-to/with-database/use-sql-api-as-cosmos-db.md",
-        "redirect_url": "/azure/developer/javascript/database-developer-guide" 
-      },      
-      { 
-        "source_path": "articles/javascript/how-to/common-javascript-tasks.md",
-        "redirect_url": "/azure/developer/javascript/core/use-azure-sdk" 
-      },
-      { "source_path": "articles/javascript/core/nodejs-sdk-azure-authenticate.md",
-        "redirect_url": "/azure/developer/javascript/sdk/authentication/local-development-environment-service-principal" 
-      },
-      { "source_path": "articles/javascript/how-to/with-web-app/graphql/get-started.md",
-        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
-      },
-      { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/introduction.md",
-        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
-      },
-      { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/graphql-basics.md",
-        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
-      },
-      { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/local-development.md",
-        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
-      },
-      { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/create-configure-cosmos-db.md",
-        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
-      },
-      { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/remote-deployment.md",
-        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
-      },      
-      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md",
-        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
-      },
-      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-nextjs-graphql/create-database-upload-data.md",
-        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
-      },      
-      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-nextjs-graphql/create-translator-resource.md",
-        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
-      },      
-      { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-nextjs-graphql/deploy-trivia-game.md",
-        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
-      },    
-      { "source_path": "articles/javascript/how-to/with-web-app/graphql/azure-function-hello-world.md",
-        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
-      },    
-      { "source_path": "articles/javascript/how-to/with-web-app/graphql/azure-function-crud-mutation.md",
-        "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
-      },    
-      {
-        "source_path": "articles/javascript/how-to/with-web-app/add-authentication-to-web-app.md",
-        "redirect_url": "/azure/app-service/scenario-secure-app-authentication-app-service-as-user"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-serverless-node-01.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-install.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-serverless-node-02.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-create-local.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-serverless-node-03.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-test-local.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-serverless-node-04.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-deploy-hosting.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-serverless-node-05.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-remove-resource.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
-      },      
-      {
-        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-database-integration.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
-      }, 
-      {
-        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
-      }, 
-      {
-        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
-      },      
-      {
-        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
-      },  
-      {
-        "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
-      },  
-      {              
-        "source_path": "articles/javascript/how-to/with-azure-cli/create-postgresql-server-resource.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-postgresql-db"
-      },       
-      {
-        "source_path": "articles/javascript/how-to/with-azure-cli/create-mysql-db.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mysql-mariadb?tabs=MySQL"
-      },      
-      {
-        "source_path": "articles/javascript/how-to/with-azure-cli/create-mariadb.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mysql-mariadb?tabs=MySQL"
-      },
-      {
-        "source_path": "articles/javascript/how-to/with-azure-cli/create-cosmos-sql-api-resource.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-sql-api-as-cosmos-db"
-      },
-      {
-        "source_path": "articles/javascript/how-to/with-azure-cli/create-cassandra-db.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-cassandra-as-cosmos-db"
-      },
-      {
-        "source_path": "articles/javascript/how-to/with-azure-cli/create-cache-for-redis-db.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-azure-cache-for-redis-db"
-      },
-      {
-        "source_path": "articles/javascript/how-to/with-azure-cli/create-mongodb-cosmosdb.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mongodb-as-cosmosdb?tabs=azure-cli%2Cmongodb"
-      },
-      {
-        "source_path": "articles/javascript/how-to/with-azure-cli/configure-app-service-custom-domain-name.md",
-        "redirect_url": "/azure/app-service/app-service-web-tutorial-custom-domain"
-      },      
-      {
-        "source_path": "articles/javascript/tutorial/deploy-deno-app-azure-app-service-azure-cli.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/nodejs-virtual-machine-vm/introduction"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/static-web-app/introduction.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/static-web-app/application-architecture.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/static-web-app/run-the-react-cognitive-services-image-analyzer-app-locally.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/static-web-app/create-computer-vision-resource-use-in-code.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/static-web-app/add-computer-vision-react-app.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/static-web-app/clean-up-resources.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
-      },
-      {
-        "source_path": "articles/javascript/how-to/with-database/use-mariadb.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mysql-mariadb"
-      },
-      {
-        "source_path": "articles/javascript/how-to/with-database/use-mysql-db.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mysql-mariadb"
-      },
-      {
-        "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/view-and-query-application-logs.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management/view-query-application-logs"
-      },
-      {
-        "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/create-function-app-for-resource-groups.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management/create-function-app"
-      },      
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-06.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04#make-change-and-deploy-to-azure-app-service-from-local-git"
-      },    
-      {
-        "source_path": "articles/javascript/how-to/deploy-containers.md",
-        "redirect_url": "/azure/developer/javascript/how-to/deploy-web-app"
-      },
-      {
-        "source_path": "articles/javascript/how-to/integrate-database.md",
-        "redirect_url": "/azure/developer/javascript/how-to/with-database/getting-started"
-      },
-      {
-        "source_path": "articles/javascript/core/node-sdk-azure-authenticate.md",
-        "redirect_url": "/azure/developer/javascript/core/nodejs-sdk-azure-authenticate"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md",
-        "redirect_url": "/azure/static-web-apps/getting-started"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-02.md",
-        "redirect_url": "/azure/static-web-apps/getting-started"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-03.md",
-        "redirect_url": "/azure/static-web-apps/getting-started"
-      },    
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-04.md",
-        "redirect_url": "/azure/static-web-apps/getting-started"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/client/get-started.md",
-        "redirect_url": "/azure/developer/javascript/how-to/create-static-web-app"
-      },    
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-05.md",
-        "redirect_url": "/azure/static-web-apps/getting-started"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-06.md",
-        "redirect_url": "/azure/static-web-apps/getting-started"
-      },     
-      {
-        "source_path": "articles/javascript/core/node-sdk-azure-authenticate-principal.md",
-        "redirect_url": "/azure/developer/javascript/core/nodejs-sdk-azure-authenticate"
-      },
-      {
-        "source_path": "articles/javascript/concepts/identity-authentication-users.md",
-        "redirect_url": "/azure/developer/javascript/core/nodejs-sdk-azure-authenticate"
-      },  
-      {
-        "source_path": "articles/javascript/how-to/with-sdk/set-up-development-environment.md",
-        "redirect_url": "/azure/developer/javascript/core/nodejs-sdk-azure-authenticate"
-      },  
-      
-      {
-        "source_path": "articles/javascript/how-to/create-static-site.md",
-        "redirect_url": "/azure/developer/javascript/how-to/create-static-web-app"
-      },
-      {
-        "source_path": "articles/javascript/how-to/develop-nodejs-on-azure.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-01.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-01"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-02.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-02"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-03.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-04.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-06.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-06"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-05.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-07.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-docker-node-01.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-docker-node-02.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-docker-node-03.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-03"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-docker-node-04.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-docker-node-05.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-docker-node-06.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-06"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-docker-node-07.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-docker-node-08.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-static-website-node-01.md",
-        "redirect_url": "/azure/static-web-apps/getting-started"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-static-website-node-02.md",
-        "redirect_url": "/azure/static-web-apps/getting-started"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-static-website-node-03.md",
-        "redirect_url": "/azure/static-web-apps/getting-started"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-static-website-node-04.md",
-        "redirect_url": "/azure/static-web-apps/getting-started"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-static-website-node-05.md",
-        "redirect_url": "/azure/static-web-apps/getting-started"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-static-website-node-06.md",
-        "redirect_url": "/azure/static-web-apps/getting-started"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-01.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-02.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-03.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-04.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-05.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/deno-visual-studio-code-azure-app-service.yml",
-        "redirect_url": "/azure/developer/javascript/tutorial/deploy-deno-app-azure-app-service-azure-cli"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/browser-file-upload.yml",
-        "redirect_url": "/azure/developer/javascript/tutorial/browser-file-upload-azure-storage-blob"
-      },    
-      {
-        "source_path": "articles/javascript/tutorial/web-app-mongodb.yml",
-        "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code"
-      },
-
-      {
-        "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-04.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-03.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-02.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-01.md",
-        "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
-      },
-      {
-        "source_path": "articles/javascript/node-sdk-logging.md",
-        "redirect_url": "/azure/developer/javascript/how-to/node-sdk-logging"
-      },
-      {
-        "source_path": "articles/javascript/node-sdk-azure-authenticate.md",
-        "redirect_url": "/azure/developer/javascript/core/node-sdk-azure-authenticate"
-      },
-      {
-        "source_path": "articles/javascript/node-sdk-azure-authenticate-principal.md",
-        "redirect_url": "/azure/developer/javascript/core/node-sdk-azure-authenticate-principal"
-      },
-      {
-        "source_path": "articles/javascript/configure-local-development-environment.md",
-        "redirect_url": "/azure/developer/javascript/core/configure-local-development-environment"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-visualstudiocode-browser-file-upload-feedback.yml",
-        "redirect_url": "/azure/developer/javascript/tutorial/browser-file-upload?preview=tutorialFeedback"
-      },
-      {
-        "source_path": "articles/javascript/tutorial-visualstudiocode-azure-app-service-mongodb/tutorial-azure-web-app-mongodb-feedback.yml",
-        "redirect_url": "/azure/developer/javascript/tutorial/web-app-mongodb?preview=tutorialFeedback"
-      },
-      {
-        "source_path": "articles/javascript/node-howto-create-static-site-jamstack.md",
-        "redirect_url": "/azure/developer/javascript/how-to/create-static-site"
-      },
-      {
-        "source_path": "articles/javascript/node-howto-deploy-containers.md",
-        "redirect_url": "/azure/developer/javascript/how-to/deploy-containers"
-      },
-      {
-        "source_path": "articles/javascript/node-howto-deploy-web-app.md",
-        "redirect_url": "/azure/developer/javascript/how-to/deploy-web-app"
-      },
-      {
-        "source_path": "articles/javascript/node-howto-e2e.md",
-        "redirect_url": "/azure/developer/javascript/how-to/develop-nodejs-on-azure"
-      },
-      {
-        "source_path": "articles/javascript/node-howto-integrate-databases.md",
-        "redirect_url": "/azure/developer/javascript/how-to/integrate-database"
-      },
-      {
-        "source_path": "articles/javascript/node-howto-write-serverless-code.md",
-        "redirect_url": "/azure/developer/javascript/how-to/develop-serverless-apps"
-      },
-      {
-        "source_path": "articles/javascript/node-sdk-azure-install.md",
-        "redirect_url": "/javascript/api/?view=azure-node-latest"
-      },
-      {
-        "source_path": "articles/javascript/overview.md",
-        "redirect_url": "/azure/developer/javascript"
-      },
-      {
-        "source_path": "articles/javascript/retired/overview.md",
-        "redirect_url": "/azure/developer/javascript"
-      },
-      {
-        "source_path": "articles/javascript/retired/node-sdk-azure-get-started.md",
-        "redirect_url": "/azure/developer/javascript"
-      },
-      {
-        "source_path": "articles/javascript/node-samples-services-appservice.md",
-        "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps"
-      },
-      {
-        "source_path": "articles/javascript/node-samples-services-web-and-mobile.md",
-        "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps"
-      },
-      {
-        "source_path": "articles/javascript/node-samples-billing.md",
-        "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs"
-      },
-      {
-        "source_path": "articles/javascript/node-samples-services-compute.md",
-        "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs"
-      },
-      {
-        "source_path": "articles/javascript/node-samples-services-database.md",
-        "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-cosmos-db%2Cazure-sql-database"
-      },
-      {
-        "source_path": "articles/javascript/node-samples-services-iot.md",
-        "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central"
-      },
-      {
-        "source_path": "articles/javascript/node-samples-services-security-and-identity.md",
-        "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-active-directory%2Cazure-key-vault"
-      },
-      {
-        "source_path": "articles/javascript/node-samples-services-storage.md",
-        "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-storage"
-      },
-      {
-        "source_path": "articles/javascript/node-tutorials-services-databases.md",
-        "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-cosmos-db%2Cazure-sql-database"
-      },
-      {
-        "source_path": "articles/javascript/node-tutorials-services-enterprise.md",
-        "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central"
-      },
-      {
-        "source_path": "articles/javascript/node-tutorials-services-messaging-and-iot.md",
-        "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central"
-      },
-      {
-        "source_path": "articles/javascript/node-tutorials-services-storage.md",
-        "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-storage"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md",
-        "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05.md",
-        "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md",
-        "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md",
-        "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-02.md",
-        "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-01.md",
-        "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md",
-        "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
-      },
-      {
-        "source_path": "articles/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md",
-        "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
-      },      
-      {
-        "source_path": "articles/javascript/tutorial/single-page-application-azure-login-button-sdk-msal.md",
-        "redirect_url": "/azure/active-directory/develop/tutorial-v2-react"
-      },      
-      {
-        "source_path": "articles/python/sdk-library-api-reference.md",
-        "redirect_url": "/python/api/overview/azure/"
-      },
-      {
-        "source_path": "articles/python/sdk/index.yml",
-        "redirect_url": "/azure/developer/python/sdk/azure-sdk-overview"
-      },
-      {
-        "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-01.md",
-        "redirect_url": "/azure/developer/python/tutorial-deploy-azure-cloud-python-etl-01-overview"
-      },
-      {
-        "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-02.md",
-        "redirect_url": "/azure/developer/python/tutorial-deploy-azure-cloud-python-etl-01-overview"
-      },
-      {
-        "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-03.md",
-        "redirect_url": "/azure/developer/python/tutorial-deploy-azure-cloud-python-etl-01-overview"
-      },
-      {
-        "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-04.md",
-        "redirect_url": "/azure/developer/python/tutorial-deploy-azure-cloud-python-etl-01-overview"
-      },
-      {
-        "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-05.md",
-        "redirect_url": "/azure/developer/python/tutorial-deploy-azure-cloud-python-etl-01-overview"
-      },
-      {
-        "source_path": "articles/python/how-to-assign-role-permissions.md",
-        "redirect_url": "/azure/role-based-access-control/role-assignments-steps"
-      },
-      {
-        "source_path": "articles/python/sdk.md",
-        "redirect_url": "/azure/developer/python/sdk/azure-sdk-overview"
-      },
-      {
-        "source_path": "articles/python/python-sdk-azure-sql-database-samples.md",
-        "redirect_url": "/samples/browse/?languages=python&products=azure-cosmos-db%2Cazure-sql-database"
-      },
-      {
-        "source_path": "articles/python/python-sdk-azure-virtual-machine-samples.md",
-        "redirect_url": "/samples/browse/?languages=python&products=azure-virtual-machines"
-      },
-      {
-        "source_path": "articles/python/python-sdk-azure-web-apps-samples.md",
-        "redirect_url": "/samples/browse/?languages=python&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps"
-      },
-      {
-        "source_path": "articles/python/python-sdk-azure-release-notes.md",
-        "redirect_url": "/azure/developer/python/azure-sdk-overview"
-      },    
-      {
-        "source_path": "articles/python/python-sdk-azure-tools.md",
-        "redirect_url": "/azure/developer/python/azure-tools"
-      },
-      {
-        "source_path": "articles/python/python-azure-tools.md",
-        "redirect_url": "/azure/developer/python/azure-tools"
-      },
-      {
-        "source_path": "articles/python/python-sdk-azure-authenticate.md",
-        "redirect_url": "/azure/developer/python/azure-sdk-authenticate"
-      },
-      {
-        "source_path": "articles/python/python-sdk-azure-get-started.yml",
-        "redirect_url": "/azure/developer/python/azure-sdk-overview"
-      },
-      {
-        "source_path": "articles/python/python-sdk-azure-multi-cloud.md",
-        "redirect_url": "/azure/developer/python/azure-sdk-sovereign-domain"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-multi-cloud.md",
-        "redirect_url": "/azure/developer/python/azure-sdk-sovereign-domain"
-      },
-      {
-        "source_path": "articles/python/python-sdk-azure-operation-config.md",
-        "redirect_url": "/azure/developer/python/azure-sdk-library-usage-patterns#optional-arguments-for-client-objects-and-methods"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-operation-config.md",
-        "redirect_url": "/azure/developer/python/azure-sdk-library-usage-patterns#optional-arguments-for-client-objects-and-methods"
-      },
-      {
-        "source_path": "articles/python/python-sdk-azure-overview.md",
-        "redirect_url": "/azure/developer/python/azure-sdk-overview"
-      },
-      {
-        "source_path": "articles/python/python-sdk-azure-install.md",
-        "redirect_url": "/azure/developer/python/azure-sdk-install"
-      },
-      {
-        "source_path": "articles/python/python-sdk-azure-samples-list-images.md",
-        "redirect_url": "/azure/developer/python/azure-sdk-samples-list-images"
-      },
-      {
-        "source_path": "articles/python/python-sdk-azure-samples-logic-app-workflow.md",
-        "redirect_url": "/azure/developer/python/azure-sdk-samples-logic-app-workflow"
-      },
-      {
-        "source_path": "articles/python/python-sdk-azure-samples-managed-disks.md",
-        "redirect_url": "/azure/developer/python/azure-sdk-samples-managed-disks"
-      },
-      {
-        "source_path": "articles/python/python-sdk-azure-samples-monitor-vms.md",
-        "redirect_url": "/azure/developer/python/azure-sdk-samples-monitor-vms"
-      },
-      {
-        "source_path": "articles/python/quickstarts-messaging.md",
-        "redirect_url": "/azure/developer/python/quickstarts-messaging-iot"
-      },
-      {
-        "source_path": "articles/python/quickstarts-security-integration.md",
-        "redirect_url": "/azure/developer/python/quickstarts-identity-security"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-samples-monitor-vms.md",
-        "redirect_url": "/azure/developer/python/azure-sdk-overview"
-      },
-      {
-        "source_path": "articles/python/tutorial-vs-code-serverless-python-01.md",
-        "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
-      },
-      {
-        "source_path": "articles/python/tutorial-vs-code-serverless-python-02.md",
-        "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
-      },
-      {
-        "source_path": "articles/python/tutorial-vs-code-serverless-python-03.md",
-        "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
-      },
-      {
-        "source_path": "articles/python/tutorial-vs-code-serverless-python-04.md",
-        "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
-      },
-      {
-        "source_path": "articles/python/tutorial-vs-code-serverless-python-05.md",
-        "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
-      },
-      {
-        "source_path": "articles/python/tutorial-vs-code-serverless-python-06.md",
-        "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
-      },
-      {
-        "source_path": "articles/python/tutorial-vs-code-serverless-python-07.md",
-        "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
-      },
-      {
-        "source_path": "articles/python/tutorial-vs-code-serverless-python-08.md",
-        "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
-      },
-      {
-        "source_path": "articles/python/cloud-azure-terminology.md",
-        "redirect_url": "/azure/azure-glossary-cloud-terminology"
-      },    
-      {
-        "source_path": "articles/go/azure-sdk-go-auth-aad-samples.md",
-        "redirect_url": "/azure/developer/go/azure-sdk-auth-aad-samples"
-      },
-      {
-        "source_path": "articles/go/azure-sdk-go-authorization.md",
-        "redirect_url": "/azure/developer/go/azure-sdk-authorization"
-      },
-      {
-        "source_path": "articles/go/azure-sdk-go-compute-networking-samples.md",
-        "redirect_url": "/azure/developer/go/azure-sdk-compute-networking-samples"
-      },
-      {
-        "source_path": "articles/go/azure-sdk-go-containers-samples.md",
-        "redirect_url": "/azure/developer/go/azure-sdk-containers-samples"
-      },
-      {
-        "source_path": "articles/go/azure-sdk-go-install.md",
-        "redirect_url": "/azure/developer/go/azure-sdk-install"
-      },
-      {
-        "source_path": "articles/go/azure-sdk-go-qs-vm.md",
-        "redirect_url": "/azure/developer/go/azure-sdk-qs-vm"
-      },
-      {
-        "source_path": "articles/go/azure-sdk-go-sql-database-samples.md",
-        "redirect_url": "/azure/developer/go/azure-sdk-sql-database-samples"
-      },
-      {
-        "source_path": "articles/go/azure-sdk-go-tools.md",
-        "redirect_url": "/azure/developer/go/azure-sdk-tools"
-      },
-      {
-        "source_path": "articles/go/azure-sdk-go-compute-network-samples.md",
-        "redirect_url": "/azure/developer/go/azure-sdk-compute-network-samples"
-      },
-      {
-        "source_path": "articles/ansible/cloudshell-run-playbook.md",
-        "redirect_url": "/azure/developer/ansible/getting-started-cloud-shell"
-      },
-      {
-        "source_path": "articles/ansible/key-vault-configure-vm-security.md",
-        "redirect_url": "/azure/developer/ansible/key-vault-configure-secrets"
-      },
-      {
-        "source_path": "articles/terraform/install-configure.md",
-        "redirect_url": "/azure/developer/terraform/getting-started-cloud-shell"
-      },
-      {
-        "source_path": "articles/terraform/create-a-base-template-using-yeoman.md",
-        "redirect_url": "/azure/developer/terraform/create-base-template-using-yeoman"
-      },
-      {
-        "source_path": "articles/terraform/getting-started-cloud-shell.md",
-        "redirect_url": "/azure/developer/terraform/get-started-cloud-shell"
-      },
-      {
-        "source_path": "articles/jenkins/azure-dev-spaces-and-aks.md",
-        "redirect_url": "/azure/developer/jenkins"
-      },
-      {
-        "source_path": "articles/jenkins/deploy-from-github-to-azure-app-service.md",
-        "redirect_url": "/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli"
-      },
-      {
-        "source_path": "articles/jenkins/deploy-to-azure-app-service-using-plugin.md",
-        "redirect_url": "/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli"
-      },
-      {
-        "source_path": "articles/jenkins/deploy-to-aks-using-blue-green-deployment-pattern.md",
-        "redirect_url": "/azure/developer/jenkins/deploy-from-github-to-aks"
-      },
-      {
-        "source_path": "articles/jenkins/deploy-to-azure-spring-cloud-using-azure-cli.md",
-        "redirect_url": "/azure/developer/jenkins/deploy-to-azure-spring-apps-using-azure-cli"
-      },
-      {
-        "source_path": "articles/terraform/get-started-cloud-shell.md",
-        "redirect_url": "/azure/developer/terraform/get-started-cloud-shell-bash"
-      },
-      {
-        "source_path": "articles/go/azure-sdk-auth-aad-samples.md",
-        "redirect_url": "/azure/developer/go/azure-sdk-authentication"
-      },
-      {
-        "source_path": "articles/go/azure-sdk-compute-networking-samples.md",
-        "redirect_url": "/azure/developer/go/management-libraries"
-      },
-      {
-        "source_path": "articles/go/azure-sdk-containers-samples.md",
-        "redirect_url": "/azure/developer/go"
-      },
-      {
-        "source_path": "articles/go/azure-sdk-sql-database-samples.md",
-        "redirect_url": "/azure/developer/go"
-      },
-      {
-        "source_path": "articles/go/azure-sdk-tools.md",
-        "redirect_url": "/azure/developer/go/configure-visual-studio-code"
-      },
-      {
-        "source_path": "articles/terraform/application-gateway-quickstart.md",
-        "redirect_url": "/azure/developer/terraform/deploy-application-gateway-v2"
-      },
-      {
-        "source_path": "articles/developer/python/tutorial-python-postgresql-app-portal.md",
-        "redirect_url": "/azure/app-service/tutorial-python-postgresql-app"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-authenticate.md",
-        "redirect_url": "/azure/developer/python/sdk/authentication-overview"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-authenticate-development-environments.md",
-        "redirect_url": "/azure/developer/python/sdk/authentication-local-development-dev-accounts"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-authenticate-hosted-applications.md",
-        "redirect_url": "/azure/developer/python/sdk/authentication-azure-hosted-apps"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-authenticate-service-principals.md",
-        "redirect_url": "/azure/developer/python/sdk/authentication-on-premises-apps"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-configure-proxy.md",
-        "redirect_url": "/azure/developer/python/sdk/azure-sdk-configure-proxy"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-example-database.md",
-        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-database"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-example-list-resource-groups.md",
-        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-list-resource-groups"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-example-resource-group.md",
-        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-resource-group"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-example-storage.md",
-        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-storage"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-example-storage-use.md",
-        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-storage-use"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-example-virtual-machines.md",
-        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-virtual-machines"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-example-web-app.md",
-        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-web-app"
-      },
-
-      {
-        "source_path": "articles/python/azure-sdk-install.md",
-        "redirect_url": "/azure/developer/python/sdk/azure-sdk-install"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-library-package-index.md",
-        "redirect_url": "/azure/developer/python/sdk/azure-sdk-library-package-index"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-library-usage-patterns.md",
-        "redirect_url": "/azure/developer/python/sdk/azure-sdk-library-usage-patterns"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-logging.md",
-        "redirect_url": "/azure/developer/python/sdk/azure-sdk-logging"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-overview.md",
-        "redirect_url": "/azure/developer/python/sdk/azure-sdk-overview"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-samples-managed-disks.md",
-        "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-samples-managed-disks"
-      },
-      {
-        "source_path": "articles/python/azure-sdk-sovereign-domain.md",
-        "redirect_url": "/azure/developer/python/sdk/azure-sdk-sovereign-domain"
-      },
-      {
-        "source_path": "articles/python/azure-tools.md",
-        "redirect_url": "/azure/developer/python/configure-local-development-environment"
-      },
-      {
-        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-01.md",
-        "redirect_url": "/azure/developer/python/configure-python-web-app-local-environment"
-      },
-      {
-        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-02.md",
-        "redirect_url": "/azure/developer/python/configure-python-web-app-local-environment"
-      },
-      {
-        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-03.md",
-        "redirect_url": "/azure/app-service/quickstart-python"
-      },
-      {
-        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-04.md",
-        "redirect_url": "/azure/developer/python/configure-python-web-app-on-app-service"
-      },
-      {
-        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-05.md",
-        "redirect_url": "/azure/app-service/quickstart-python"
-      },
-      {
-        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-06.md",
-        "redirect_url": "/azure/app-service/quickstart-python"
-      },
-      {
-        "source_path": "articles/python/tutorial-deploy-app-service-on-linux-07.md",
-        "redirect_url": "/azure/app-service/quickstart-python"
-      },
-      {
-        "source_path": "articles/azure-cli/choose-the-right-azure-command-line-tool.md",
-        "redirect_url": "/cli/azure/choose-the-right-azure-command-line-tool"
-      },
-      {
-        "source_path": "articles/terraform/create-linux-virtual-machine-with-infrastructure.md",
-        "redirect_url": "/azure/virtual-machines/linux/quick-create-terraform"
-      },
-      {
-        "source_path": "articles/python/tutorial-deploy-containers-01.md",
-        "redirect_url": "/azure/developer/python/containers-in-azure-overview-python"
-      },
-      {
-        "source_path": "articles/python/tutorial-deploy-containers-02.md",
-        "redirect_url": "/azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-03"
-      },
-      {
-        "source_path": "articles/python/tutorial-deploy-containers-03.md",
-        "redirect_url": "/azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-04"
-      },
-      {
-        "source_path": "articles/python/tutorial-deploy-containers-04.md",
-        "redirect_url": "/azure/developer/python/containers-in-azure-overview-python"
-      },
-      {
-        "source_path": "articles/python/tutorial-deploy-containers-05.md",
-        "redirect_url": "/azure/developer/python/containers-in-azure-overview-python"
-      },
-      {
-        "source_path": "articles/python/how-to-create-static-sites.md",
-        "redirect_url": "/azure/developer/python/index"
-      },
-      {
-        "source_path":"articles/python/how-to-manage-service-principals.md",
-        "redirect_url": "/azure/developer/python/sdk/authentication-local-development-service-principal"
-      },
-      {
-        "source_path":"articles/terraform/get-started-powershell.md",
-        "redirect_url": "/azure/developer/terraform/get-started-windows-powershell"
-      },
-      {
-        "source_path":"articles/github/github-variable-substitution.md",
-        "redirect_url": "/azure/developer/github/"
-      },
-      {
-        "source_path":"articles/github/github-key-vault.md",
-        "redirect_url": "/azure/developer/github/"
-      },
-      {
-        "source_path":"articles/python/tutorial-python-managed-identity-01.md",
-        "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
-      },
-      {
-        "source_path":"articles/python/tutorial-python-managed-identity-02.md",
-        "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
-      },
-      {
-        "source_path":"articles/python/tutorial-python-managed-identity-03.md",
-        "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
-      },
-      {
-        "source_path":"articles/python/tutorial-python-managed-identity-04.md",
-        "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
-      },
-      {
-        "source_path":"articles/python/tutorial-python-managed-identity-05.md",
-        "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
-      },
-      {
-        "source_path":"articles/python/tutorial-python-managed-identity-06.md",
-        "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
-      },
-      {
-        "source_path":"articles/python/tutorial-python-managed-identity-07.md",
-        "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
-      },
-      {
-        "source_path":"articles/terraform/create-k8s-cluster-with-tf-and-aks.md",
-        "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-terraform"
-      },
-      {
-        "source_path":"articles/terraform/quick-kubernetes-deploy-terraform.md",
-        "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-terraform"
-      },
-      { 
-        "source_path": "articles/javascript/how-to/with-web-app/azure-function-file-upload.md",
-        "redirect_url": "/azure/storage/blobs/blob-upload-function-trigger-javascript"
-      },
-      { 
-        "source_path": "articles/javascript/how-to/with-web-app/azure-function-file-upload-v3.md",
-        "redirect_url": "/azure/storage/blobs/blob-upload-function-trigger-javascript"
-      },
-      {
-        "source_path":"articles/terraform/create-vm-cluster-with-infrastructure.md",
-        "redirect_url": "/azure/virtual-machines/linux/quick-cluster-create-terraform"
-      },
-      {
-        "source_path":"articles/terraform/create-vm-cluster-module.md",
-        "redirect_url": "/azure/virtual-machines/windows/quick-cluster-create-terraform"
-      },
-      { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-01-overview.md",
-        "redirect_url": "/azure/developer/python" 
-      },
-      { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-02-get-data.md",
-        "redirect_url": "/azure/developer/python" 
-      },
-      { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-03-process-data.md",
-        "redirect_url": "/azure/developer/python" 
-      },
-      { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-04-deploy-solution.md",
-        "redirect_url": "/azure/developer/python" 
-      },
-      { "source_path": "articles/python/cloud-development-overview.md",
-        "redirect_url": "/azure/developer/python" 
-      },
-      { "source_path": "articles/python/cloud-development-provisioning.md",
-        "redirect_url": "/azure/developer/python" 
-      },
-      { "source_path": "articles/python/cloud-development-flow.md",
-        "redirect_url": "/azure/developer/python" 
-      },
-      { "source_path": "articles/python/configure-local-development-environment.md",
-        "redirect_url": "/azure/developer/python" 
-      },
-      {
-        "source_path":"articles/terraform/create-attestation-provider.md",
-        "redirect_url": "/azure/attestation/quickstart-terraform"
-      },
-      {
-        "source_path":"articles/terraform/create-k8s-cluster-with-aks-applicationgateway-ingress.md",
-        "redirect_url": "/azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress"
-      },
-      {
-        "source_path":"articles/terraform/deploy-application-gateway-v2.md",
-        "redirect_url": "/azure/application-gateway/quick-create-terraform"
-      },
-      {
-        "source_path":"articles/python/quickstarts-cognitive-services.md",
-        "redirect_url": "/azure/python/quickstarts-ai-services"        
-      },
-      {
-        "source_path":"articles/javascript/how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md",
-        "redirect_url": "/entra/identity-platform/quickstart-web-app-nodejs-msal-sign-in"        
-      },
-      {
-        "source_path": "articles/ansible/configure-in-docker-container.md",
-        "redirect_url": "/azure/developer/ansible"
-      }
-    ]
-  }
+  "redirections": [
+    {
+      "source_path": "articles/mobile-apps/index.yml",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/choose-mobile-framework.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/choose-mobile-framework",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/mobile-cloud-development-stages.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/mobile-cloud-development-stages",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/authentication.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/data-storage.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/data-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-storage.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-content-delivery-network.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-content-delivery-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/serverless-compute.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/serverless-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/real-time-communication.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/real-time-communication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/code-hosting-services.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/code-hosting-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/devops.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/devops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/continuous-integration.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/continuous-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/test-mobile-apps.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/test-mobile-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/continuous-delivery.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/continuous-delivery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/analytics.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/diagnostics.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/diagnostics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/push-notifications.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/push-notifications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/notification-hubs-backend-service-xamarin-forms.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/notification-hubs-backend-service-xamarin-forms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/notification-hubs-backend-service-react-native.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/notification-hubs-backend-service-react-native",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/notification-hubs-backend-service-flutter.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/notification-hubs-backend-service-flutter",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/cognitive-services.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/cognitive-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-maps.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-maps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-search.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/javascript/openai-cli.md",
+      "redirect_url": "/azure/ai-services/openai"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/azure-function-cosmos-db-mongo-api.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-cosmos-db-vs-code?pivots=programming-language-javascript"
+    },
+    {
+      "source_path": "articles/javascript/end-to-end/contoso-real-estate-test-ui-solution.md",
+      "redirect_url": "/azure/developer/javascript/end-to-end/contoso-real-estate-test-api-solution"
+    },
+    {
+      "source_path": "articles/javascript/core/automate-tasks-with-azure-cli.md",
+      "redirect_url": "/cli/azure/azure-cli-learn-bash"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-azure-sdk/stop-start-virtual-machine.md",
+      "redirect_url": "/cli/azure/vm"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-azure-sdk/list-resource-operation-history.md",
+      "redirect_url": "/cli/azure/monitor"
+    },      
+    {
+      "source_path":"articles/javascript/how-to/add-custom-domain-to-web-app.md",
+      "redirect_url": "/azure/app-service/tutorial-secure-domain-certificate"
+    },
+    {
+      "source_path":"articles/javascript/how-to/with-azure-cli/create-container-registry-resource.md",
+      "redirect_url": "/azure/container-registry/container-registry-get-started-azure-cli"
+    },
+    {
+      "source_path":"articles/javascript/how-to/with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md",
+      "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+    },
+    {
+      "source_path":"articles/javascript/how-to/with-authentication/static-web-app-with-api/configure-source-code-for-msal.md",
+      "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+    },
+    {
+      "source_path":"articles/javascript/how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md",
+      "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+    }, 
+    {
+      "source_path":"articles/javascript/how-to/with-authentication/static-web-app-with-api/introduction.md",
+      "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+    },
+    {
+      "source_path":"articles/javascript/how-to/with-authentication/static-web-app-with-api/register-application-with-identity.md",
+      "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+    },
+    {
+      "source_path":"articles/javascript/how-to/with-authentication/register-application-with-identity.md",
+      "redirect_url": "/azure/active-directory-b2c/enable-authentication-react-spa-app"
+    },
+    {
+      "source_path":"articles/javascript/how-to/with-web-app/use-secret-environment-variables.md",
+      "redirect_url": "/azure/cosmos-db/store-credentials-key-vault"
+    },
+    {
+      "source_path":"articles/javascript/database-developer-guide.md",
+      "redirect_url": "https://azure.microsoft.com/product-categories/databases/"
+    },
+    {
+      "source_path":"articles/javascript/composable-cloud-contoso-real-estate.md",
+      "redirect_url": "/azure/developer/javascript/end-to-end/contoso-real-estate-get-started"
+    },
+    { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
+    },
+    { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
+    },
+    { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-03.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
+    },
+    { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
+    },
+    { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
+    },
+    { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-06.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
+    },
+    { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
+    },                              
+    { "source_path": "articles/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container?tabs=node&pivots=container-linux-vscode" 
+    },
+    { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/introduction.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
+    },
+    { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/create-github-repo.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
+    },
+    { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/create-react-app.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
+    },      
+    { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/create-static-web-app.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
+    }, 
+    { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/create-function-api-app.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
+    },       
+    { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/connect-client-to-api.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
+    },
+    { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
+    },      
+    { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli/clean-up-swa-auth-resources.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/static-web-app-with-swa-cli" 
+    },
+    { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/add-delete-functions-redeploy.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
+    },
+    { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/clean-up-resources.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
+    },
+    { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/create-function-app.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
+    },
+    { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/deploy-azure-function-with-visual-studio-code.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
+    },
+    { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/view-query-application-logs.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
+    },
+    { "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/introduction.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management" 
+    },      
+    { "source_path": "articles/lab/index.yml",
+      "redirect_url": "/azure/developer/python" 
+    },
+    { "source_path": "articles/lab/quickstart-python-flask.md",
+      "redirect_url": "/azure/developer/python" 
+    },
+    { "source_path": "articles/lab/quickstart-python-flask-minimized.md",
+      "redirect_url": "/azure/developer/python" 
+    },
+    { "source_path": "articles/lab/quickstart-python-flask-multipage.yml",
+      "redirect_url": "/azure/developer/python" 
+    },
+    { "source_path": "articles/lab/tool-tip-metrics.md",
+      "redirect_url": "/azure/developer/python" 
+    },
+    { 
+      "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/introduction.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
+    },
+    { 
+      "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/create-azure-monitoring-application-insights-web-resource.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
+    },
+    { 
+      "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/create-linux-virtual-machine-azure-cli.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
+    },
+    { 
+      "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/connect-linux-virtual-machine-ssh.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
+    },
+    { 
+      "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
+    },      
+    { 
+      "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-logs.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
+    },
+    { 
+      "source_path": "articles/javascript/tutorial/nodejs-virtual-machine-vm/clean-up-resources.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/run-nodejs-virtual-machine" 
+    },
+    { 
+      "source_path": "articles/javascript/whats-new-developer-advocacy.md",
+      "redirect_url": "/azure/developer/javascript" 
+    },
+    { 
+      "source_path": "articles/javascript/whats-new-docs.md",
+      "redirect_url": "/azure/developer/javascript" 
+    },          
+    { 
+      "source_path": "articles/javascript/how-to/with-database/getting-started.md",
+      "redirect_url": "/azure/developer/javascript/database-developer-guide" 
+    },
+    { 
+      "source_path": "articles/javascript/how-to/with-database/use-azure-cache-for-redis-db.md",
+      "redirect_url": "/azure/developer/javascript/database-developer-guide" 
+    },
+    { 
+      "source_path": "articles/javascript/how-to/with-database/use-cassandra-as-cosmos-db.md",
+      "redirect_url": "/azure/developer/javascript/database-developer-guide" 
+    },
+    { 
+      "source_path": "articles/javascript/how-to/with-database/use-mongodb-as-cosmosdb.md",
+      "redirect_url": "/azure/developer/javascript/database-developer-guide" 
+    },
+    { 
+      "source_path": "articles/javascript/how-to/with-database/use-mysql-mariadb.md",
+      "redirect_url": "/azure/developer/javascript/database-developer-guide" 
+    },
+    { 
+      "source_path": "articles/javascript/how-to/with-database/use-postgresql-db.md",
+      "redirect_url": "/azure/developer/javascript/database-developer-guide" 
+    },
+    { 
+      "source_path": "articles/javascript/how-to/with-database/use-sql-api-as-cosmos-db.md",
+      "redirect_url": "/azure/developer/javascript/database-developer-guide" 
+    },      
+    { 
+      "source_path": "articles/javascript/how-to/common-javascript-tasks.md",
+      "redirect_url": "/azure/developer/javascript/core/use-azure-sdk" 
+    },
+    { "source_path": "articles/javascript/core/nodejs-sdk-azure-authenticate.md",
+      "redirect_url": "/azure/developer/javascript/sdk/authentication/local-development-environment-service-principal" 
+    },
+    { "source_path": "articles/javascript/how-to/with-web-app/graphql/get-started.md",
+      "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+    },
+    { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/introduction.md",
+      "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+    },
+    { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/graphql-basics.md",
+      "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+    },
+    { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/local-development.md",
+      "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+    },
+    { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/create-configure-cosmos-db.md",
+      "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+    },
+    { "source_path": "articles/javascript/how-to/with-web-app/graphql/static-web-app-graphql/remote-deployment.md",
+      "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+    },      
+    { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-nextjs-graphql/getting-started.md",
+      "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+    },
+    { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-nextjs-graphql/create-database-upload-data.md",
+      "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+    },      
+    { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-nextjs-graphql/create-translator-resource.md",
+      "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+    },      
+    { "source_path": "articles/javascript/how-to/with-web-app/static-web-app-nextjs-graphql/deploy-trivia-game.md",
+      "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+    },    
+    { "source_path": "articles/javascript/how-to/with-web-app/graphql/azure-function-hello-world.md",
+      "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+    },    
+    { "source_path": "articles/javascript/how-to/with-web-app/graphql/azure-function-crud-mutation.md",
+      "redirect_url": "/azure/developer/javascript/graphql-developer-guide" 
+    },    
+    {
+      "source_path": "articles/javascript/how-to/with-web-app/add-authentication-to-web-app.md",
+      "redirect_url": "/azure/app-service/scenario-secure-app-authentication-app-service-as-user"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-01.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-install.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-02.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-create-local.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-03.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-test-local.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-04.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-deploy-hosting.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-serverless-node-05.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-serverless-node-remove-resource.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+    },      
+    {
+      "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-create-local.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-database-integration.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+    }, 
+    {
+      "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-deploy-hosting.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+    }, 
+    {
+      "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-install.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+    },      
+    {
+      "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-remove-resource.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+    },  
+    {
+      "source_path": "articles/javascript/tutorial/vscode-function-app-http-trigger/tutorial-vscode-serverless-node-test-local.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/azure-function-cosmos-db-mongo-api"
+    },  
+    {              
+      "source_path": "articles/javascript/how-to/with-azure-cli/create-postgresql-server-resource.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-database/use-postgresql-db"
+    },       
+    {
+      "source_path": "articles/javascript/how-to/with-azure-cli/create-mysql-db.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mysql-mariadb?tabs=MySQL"
+    },      
+    {
+      "source_path": "articles/javascript/how-to/with-azure-cli/create-mariadb.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mysql-mariadb?tabs=MySQL"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-azure-cli/create-cosmos-sql-api-resource.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-database/use-sql-api-as-cosmos-db"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-azure-cli/create-cassandra-db.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-database/use-cassandra-as-cosmos-db"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-azure-cli/create-cache-for-redis-db.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-database/use-azure-cache-for-redis-db"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-azure-cli/create-mongodb-cosmosdb.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mongodb-as-cosmosdb?tabs=azure-cli%2Cmongodb"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-azure-cli/configure-app-service-custom-domain-name.md",
+      "redirect_url": "/azure/app-service/app-service-web-tutorial-custom-domain"
+    },      
+    {
+      "source_path": "articles/javascript/tutorial/deploy-deno-app-azure-app-service-azure-cli.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/nodejs-virtual-machine-vm/introduction"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/static-web-app/introduction.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/static-web-app/application-architecture.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/static-web-app/run-the-react-cognitive-services-image-analyzer-app-locally.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/static-web-app/create-computer-vision-resource-use-in-code.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/static-web-app/create-static-web-app-visual-studio-code-extension.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/static-web-app/add-computer-vision-react-app.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/static-web-app/clean-up-resources.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/static-web-app-image-analysis"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-database/use-mariadb.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mysql-mariadb"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-database/use-mysql-db.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-database/use-mysql-mariadb"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/view-and-query-application-logs.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management/view-query-application-logs"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management/create-function-app-for-resource-groups.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-web-app/azure-function-resource-group-management/create-function-app"
+    },      
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-06.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04#make-change-and-deploy-to-azure-app-service-from-local-git"
+    },    
+    {
+      "source_path": "articles/javascript/how-to/deploy-containers.md",
+      "redirect_url": "/azure/developer/javascript/how-to/deploy-web-app"
+    },
+    {
+      "source_path": "articles/javascript/how-to/integrate-database.md",
+      "redirect_url": "/azure/developer/javascript/how-to/with-database/getting-started"
+    },
+    {
+      "source_path": "articles/javascript/core/node-sdk-azure-authenticate.md",
+      "redirect_url": "/azure/developer/javascript/core/nodejs-sdk-azure-authenticate"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-01.md",
+      "redirect_url": "/azure/static-web-apps/getting-started"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-02.md",
+      "redirect_url": "/azure/static-web-apps/getting-started"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-03.md",
+      "redirect_url": "/azure/static-web-apps/getting-started"
+    },    
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-04.md",
+      "redirect_url": "/azure/static-web-apps/getting-started"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/client/get-started.md",
+      "redirect_url": "/azure/developer/javascript/how-to/create-static-web-app"
+    },    
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-05.md",
+      "redirect_url": "/azure/static-web-apps/getting-started"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-static-website-node/tutorial-vscode-static-website-node-06.md",
+      "redirect_url": "/azure/static-web-apps/getting-started"
+    },     
+    {
+      "source_path": "articles/javascript/core/node-sdk-azure-authenticate-principal.md",
+      "redirect_url": "/azure/developer/javascript/core/nodejs-sdk-azure-authenticate"
+    },
+    {
+      "source_path": "articles/javascript/concepts/identity-authentication-users.md",
+      "redirect_url": "/azure/developer/javascript/core/nodejs-sdk-azure-authenticate"
+    },  
+    {
+      "source_path": "articles/javascript/how-to/with-sdk/set-up-development-environment.md",
+      "redirect_url": "/azure/developer/javascript/core/nodejs-sdk-azure-authenticate"
+    },  
+    
+    {
+      "source_path": "articles/javascript/how-to/create-static-site.md",
+      "redirect_url": "/azure/developer/javascript/how-to/create-static-web-app"
+    },
+    {
+      "source_path": "articles/javascript/how-to/develop-nodejs-on-azure.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-01.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-01"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-02.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-02"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-03.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-04.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-06.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-06"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-05.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-cli-node-07.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-01.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-02.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-02"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-03.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-03"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-04.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-04"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-05.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-05"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-06.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-06"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-07.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-07"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-docker-node-08.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-08"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-01.md",
+      "redirect_url": "/azure/static-web-apps/getting-started"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-02.md",
+      "redirect_url": "/azure/static-web-apps/getting-started"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-03.md",
+      "redirect_url": "/azure/static-web-apps/getting-started"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-04.md",
+      "redirect_url": "/azure/static-web-apps/getting-started"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-05.md",
+      "redirect_url": "/azure/static-web-apps/getting-started"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-static-website-node-06.md",
+      "redirect_url": "/azure/static-web-apps/getting-started"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-01.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-02.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-03.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-04.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-vscode-azure-app-service-node-05.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/deno-visual-studio-code-azure-app-service.yml",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-deno-app-azure-app-service-azure-cli"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/browser-file-upload.yml",
+      "redirect_url": "/azure/developer/javascript/tutorial/browser-file-upload-azure-storage-blob"
+    },    
+    {
+      "source_path": "articles/javascript/tutorial/web-app-mongodb.yml",
+      "redirect_url": "/azure/developer/javascript/tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-04.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-03.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-02.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-visual-studio-code-azure-app-service-deno-01.md",
+      "redirect_url": "/azure/developer/javascript/tutorial/deno-visual-studio-code-azure-app-service?preview=tutorialFeedback"
+    },
+    {
+      "source_path": "articles/javascript/node-sdk-logging.md",
+      "redirect_url": "/azure/developer/javascript/how-to/node-sdk-logging"
+    },
+    {
+      "source_path": "articles/javascript/node-sdk-azure-authenticate.md",
+      "redirect_url": "/azure/developer/javascript/core/node-sdk-azure-authenticate"
+    },
+    {
+      "source_path": "articles/javascript/node-sdk-azure-authenticate-principal.md",
+      "redirect_url": "/azure/developer/javascript/core/node-sdk-azure-authenticate-principal"
+    },
+    {
+      "source_path": "articles/javascript/configure-local-development-environment.md",
+      "redirect_url": "/azure/developer/javascript/core/configure-local-development-environment"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-visualstudiocode-browser-file-upload-feedback.yml",
+      "redirect_url": "/azure/developer/javascript/tutorial/browser-file-upload?preview=tutorialFeedback"
+    },
+    {
+      "source_path": "articles/javascript/tutorial-visualstudiocode-azure-app-service-mongodb/tutorial-azure-web-app-mongodb-feedback.yml",
+      "redirect_url": "/azure/developer/javascript/tutorial/web-app-mongodb?preview=tutorialFeedback"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-create-static-site-jamstack.md",
+      "redirect_url": "/azure/developer/javascript/how-to/create-static-site"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-deploy-containers.md",
+      "redirect_url": "/azure/developer/javascript/how-to/deploy-containers"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-deploy-web-app.md",
+      "redirect_url": "/azure/developer/javascript/how-to/deploy-web-app"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-e2e.md",
+      "redirect_url": "/azure/developer/javascript/how-to/develop-nodejs-on-azure"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-integrate-databases.md",
+      "redirect_url": "/azure/developer/javascript/how-to/integrate-database"
+    },
+    {
+      "source_path": "articles/javascript/node-howto-write-serverless-code.md",
+      "redirect_url": "/azure/developer/javascript/how-to/develop-serverless-apps"
+    },
+    {
+      "source_path": "articles/javascript/node-sdk-azure-install.md",
+      "redirect_url": "/javascript/api/?view=azure-node-latest"
+    },
+    {
+      "source_path": "articles/javascript/overview.md",
+      "redirect_url": "/azure/developer/javascript"
+    },
+    {
+      "source_path": "articles/javascript/retired/overview.md",
+      "redirect_url": "/azure/developer/javascript"
+    },
+    {
+      "source_path": "articles/javascript/retired/node-sdk-azure-get-started.md",
+      "redirect_url": "/azure/developer/javascript"
+    },
+    {
+      "source_path": "articles/javascript/node-samples-services-appservice.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps"
+    },
+    {
+      "source_path": "articles/javascript/node-samples-services-web-and-mobile.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps"
+    },
+    {
+      "source_path": "articles/javascript/node-samples-billing.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs"
+    },
+    {
+      "source_path": "articles/javascript/node-samples-services-compute.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs"
+    },
+    {
+      "source_path": "articles/javascript/node-samples-services-database.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-cosmos-db%2Cazure-sql-database"
+    },
+    {
+      "source_path": "articles/javascript/node-samples-services-iot.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central"
+    },
+    {
+      "source_path": "articles/javascript/node-samples-services-security-and-identity.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-active-directory%2Cazure-key-vault"
+    },
+    {
+      "source_path": "articles/javascript/node-samples-services-storage.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-storage"
+    },
+    {
+      "source_path": "articles/javascript/node-tutorials-services-databases.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-cosmos-db%2Cazure-sql-database"
+    },
+    {
+      "source_path": "articles/javascript/node-tutorials-services-enterprise.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central"
+    },
+    {
+      "source_path": "articles/javascript/node-tutorials-services-messaging-and-iot.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central"
+    },
+    {
+      "source_path": "articles/javascript/node-tutorials-services-storage.md",
+      "redirect_url": "/samples/browse/?languages=javascript%2Cnodejs&products=azure-storage"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-07.md",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-05.md",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-04.md",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-03.md",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-02.md",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/tutorial-vscode-azure-cli-node/tutorial-vscode-azure-cli-node-01.md",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/deploy-nodejs-mongodb-app-service-from-visual-studio-code.md",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code.md",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli"
+    },      
+    {
+      "source_path": "articles/javascript/tutorial/single-page-application-azure-login-button-sdk-msal.md",
+      "redirect_url": "/azure/active-directory/develop/tutorial-v2-react"
+    },      
+    {
+      "source_path": "articles/python/sdk-library-api-reference.md",
+      "redirect_url": "/python/api/overview/azure/"
+    },
+    {
+      "source_path": "articles/python/sdk/index.yml",
+      "redirect_url": "/azure/developer/python/sdk/azure-sdk-overview"
+    },
+    {
+      "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-01.md",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-azure-cloud-python-etl-01-overview"
+    },
+    {
+      "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-02.md",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-azure-cloud-python-etl-01-overview"
+    },
+    {
+      "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-03.md",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-azure-cloud-python-etl-01-overview"
+    },
+    {
+      "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-04.md",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-azure-cloud-python-etl-01-overview"
+    },
+    {
+      "source_path": "articles/python/tutorial-deploy-serverless-cloud-etl-05.md",
+      "redirect_url": "/azure/developer/python/tutorial-deploy-azure-cloud-python-etl-01-overview"
+    },
+    {
+      "source_path": "articles/python/how-to-assign-role-permissions.md",
+      "redirect_url": "/azure/role-based-access-control/role-assignments-steps"
+    },
+    {
+      "source_path": "articles/python/sdk.md",
+      "redirect_url": "/azure/developer/python/sdk/azure-sdk-overview"
+    },
+    {
+      "source_path": "articles/python/python-sdk-azure-sql-database-samples.md",
+      "redirect_url": "/samples/browse/?languages=python&products=azure-cosmos-db%2Cazure-sql-database"
+    },
+    {
+      "source_path": "articles/python/python-sdk-azure-virtual-machine-samples.md",
+      "redirect_url": "/samples/browse/?languages=python&products=azure-virtual-machines"
+    },
+    {
+      "source_path": "articles/python/python-sdk-azure-web-apps-samples.md",
+      "redirect_url": "/samples/browse/?languages=python&products=azure-functions%2Cazure-app-service%2Cazure-logic-apps"
+    },
+    {
+      "source_path": "articles/python/python-sdk-azure-release-notes.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-overview"
+    },    
+    {
+      "source_path": "articles/python/python-sdk-azure-tools.md",
+      "redirect_url": "/azure/developer/python/azure-tools"
+    },
+    {
+      "source_path": "articles/python/python-azure-tools.md",
+      "redirect_url": "/azure/developer/python/azure-tools"
+    },
+    {
+      "source_path": "articles/python/python-sdk-azure-authenticate.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-authenticate"
+    },
+    {
+      "source_path": "articles/python/python-sdk-azure-get-started.yml",
+      "redirect_url": "/azure/developer/python/azure-sdk-overview"
+    },
+    {
+      "source_path": "articles/python/python-sdk-azure-multi-cloud.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-sovereign-domain"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-multi-cloud.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-sovereign-domain"
+    },
+    {
+      "source_path": "articles/python/python-sdk-azure-operation-config.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-library-usage-patterns#optional-arguments-for-client-objects-and-methods"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-operation-config.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-library-usage-patterns#optional-arguments-for-client-objects-and-methods"
+    },
+    {
+      "source_path": "articles/python/python-sdk-azure-overview.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-overview"
+    },
+    {
+      "source_path": "articles/python/python-sdk-azure-install.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-install"
+    },
+    {
+      "source_path": "articles/python/python-sdk-azure-samples-list-images.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-samples-list-images"
+    },
+    {
+      "source_path": "articles/python/python-sdk-azure-samples-logic-app-workflow.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-samples-logic-app-workflow"
+    },
+    {
+      "source_path": "articles/python/python-sdk-azure-samples-managed-disks.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-samples-managed-disks"
+    },
+    {
+      "source_path": "articles/python/python-sdk-azure-samples-monitor-vms.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-samples-monitor-vms"
+    },
+    {
+      "source_path": "articles/python/quickstarts-messaging.md",
+      "redirect_url": "/azure/developer/python/quickstarts-messaging-iot"
+    },
+    {
+      "source_path": "articles/python/quickstarts-security-integration.md",
+      "redirect_url": "/azure/developer/python/quickstarts-identity-security"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-samples-monitor-vms.md",
+      "redirect_url": "/azure/developer/python/azure-sdk-overview"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-01.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-02.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-03.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-04.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-05.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-06.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-07.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-vs-code-serverless-python-08.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-python"
+    },
+    {
+      "source_path": "articles/python/cloud-azure-terminology.md",
+      "redirect_url": "/azure/azure-glossary-cloud-terminology"
+    },    
+    {
+      "source_path": "articles/go/azure-sdk-go-auth-aad-samples.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-auth-aad-samples"
+    },
+    {
+      "source_path": "articles/go/azure-sdk-go-authorization.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-authorization"
+    },
+    {
+      "source_path": "articles/go/azure-sdk-go-compute-networking-samples.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-compute-networking-samples"
+    },
+    {
+      "source_path": "articles/go/azure-sdk-go-containers-samples.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-containers-samples"
+    },
+    {
+      "source_path": "articles/go/azure-sdk-go-install.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-install"
+    },
+    {
+      "source_path": "articles/go/azure-sdk-go-qs-vm.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-qs-vm"
+    },
+    {
+      "source_path": "articles/go/azure-sdk-go-sql-database-samples.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-sql-database-samples"
+    },
+    {
+      "source_path": "articles/go/azure-sdk-go-tools.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-tools"
+    },
+    {
+      "source_path": "articles/go/azure-sdk-go-compute-network-samples.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-compute-network-samples"
+    },
+    {
+      "source_path": "articles/ansible/cloudshell-run-playbook.md",
+      "redirect_url": "/azure/developer/ansible/getting-started-cloud-shell"
+    },
+    {
+      "source_path": "articles/ansible/key-vault-configure-vm-security.md",
+      "redirect_url": "/azure/developer/ansible/key-vault-configure-secrets"
+    },
+    {
+      "source_path": "articles/terraform/install-configure.md",
+      "redirect_url": "/azure/developer/terraform/getting-started-cloud-shell"
+    },
+    {
+      "source_path": "articles/terraform/create-a-base-template-using-yeoman.md",
+      "redirect_url": "/azure/developer/terraform/create-base-template-using-yeoman"
+    },
+    {
+      "source_path": "articles/terraform/getting-started-cloud-shell.md",
+      "redirect_url": "/azure/developer/terraform/get-started-cloud-shell"
+    },
+    {
+      "source_path": "articles/jenkins/azure-dev-spaces-and-aks.md",
+      "redirect_url": "/azure/developer/jenkins"
+    },
+    {
+      "source_path": "articles/jenkins/deploy-from-github-to-azure-app-service.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli"
+    },
+    {
+      "source_path": "articles/jenkins/deploy-to-azure-app-service-using-plugin.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli"
+    },
+    {
+      "source_path": "articles/jenkins/deploy-to-aks-using-blue-green-deployment-pattern.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-from-github-to-aks"
+    },
+    {
+      "source_path": "articles/jenkins/deploy-to-azure-spring-cloud-using-azure-cli.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-azure-spring-apps-using-azure-cli"
+    },
+    {
+      "source_path": "articles/terraform/get-started-cloud-shell.md",
+      "redirect_url": "/azure/developer/terraform/get-started-cloud-shell-bash"
+    },
+    {
+      "source_path": "articles/go/azure-sdk-auth-aad-samples.md",
+      "redirect_url": "/azure/developer/go/azure-sdk-authentication"
+    },
+    {
+      "source_path": "articles/go/azure-sdk-compute-networking-samples.md",
+      "redirect_url": "/azure/developer/go/management-libraries"
+    },
+    {
+      "source_path": "articles/go/azure-sdk-containers-samples.md",
+      "redirect_url": "/azure/developer/go"
+    },
+    {
+      "source_path": "articles/go/azure-sdk-sql-database-samples.md",
+      "redirect_url": "/azure/developer/go"
+    },
+    {
+      "source_path": "articles/go/azure-sdk-tools.md",
+      "redirect_url": "/azure/developer/go/configure-visual-studio-code"
+    },
+    {
+      "source_path": "articles/terraform/application-gateway-quickstart.md",
+      "redirect_url": "/azure/developer/terraform/deploy-application-gateway-v2"
+    },
+    {
+      "source_path": "articles/developer/python/tutorial-python-postgresql-app-portal.md",
+      "redirect_url": "/azure/app-service/tutorial-python-postgresql-app"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-authenticate.md",
+      "redirect_url": "/azure/developer/python/sdk/authentication-overview"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-authenticate-development-environments.md",
+      "redirect_url": "/azure/developer/python/sdk/authentication-local-development-dev-accounts"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-authenticate-hosted-applications.md",
+      "redirect_url": "/azure/developer/python/sdk/authentication-azure-hosted-apps"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-authenticate-service-principals.md",
+      "redirect_url": "/azure/developer/python/sdk/authentication-on-premises-apps"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-configure-proxy.md",
+      "redirect_url": "/azure/developer/python/sdk/azure-sdk-configure-proxy"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-example-database.md",
+      "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-database"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-example-list-resource-groups.md",
+      "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-list-resource-groups"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-example-resource-group.md",
+      "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-resource-group"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-example-storage.md",
+      "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-storage"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-example-storage-use.md",
+      "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-storage-use"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-example-virtual-machines.md",
+      "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-virtual-machines"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-example-web-app.md",
+      "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-example-web-app"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-install.md",
+      "redirect_url": "/azure/developer/python/sdk/azure-sdk-install"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-library-package-index.md",
+      "redirect_url": "/azure/developer/python/sdk/azure-sdk-library-package-index"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-library-usage-patterns.md",
+      "redirect_url": "/azure/developer/python/sdk/azure-sdk-library-usage-patterns"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-logging.md",
+      "redirect_url": "/azure/developer/python/sdk/azure-sdk-logging"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-overview.md",
+      "redirect_url": "/azure/developer/python/sdk/azure-sdk-overview"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-samples-managed-disks.md",
+      "redirect_url": "/azure/developer/python/sdk/examples/azure-sdk-samples-managed-disks"
+    },
+    {
+      "source_path": "articles/python/azure-sdk-sovereign-domain.md",
+      "redirect_url": "/azure/developer/python/sdk/azure-sdk-sovereign-domain"
+    },
+    {
+      "source_path": "articles/python/azure-tools.md",
+      "redirect_url": "/azure/developer/python/configure-local-development-environment"
+    },
+    {
+      "source_path": "articles/python/tutorial-deploy-app-service-on-linux-01.md",
+      "redirect_url": "/azure/developer/python/configure-python-web-app-local-environment"
+    },
+    {
+      "source_path": "articles/python/tutorial-deploy-app-service-on-linux-02.md",
+      "redirect_url": "/azure/developer/python/configure-python-web-app-local-environment"
+    },
+    {
+      "source_path": "articles/python/tutorial-deploy-app-service-on-linux-03.md",
+      "redirect_url": "/azure/app-service/quickstart-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-deploy-app-service-on-linux-04.md",
+      "redirect_url": "/azure/developer/python/configure-python-web-app-on-app-service"
+    },
+    {
+      "source_path": "articles/python/tutorial-deploy-app-service-on-linux-05.md",
+      "redirect_url": "/azure/app-service/quickstart-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-deploy-app-service-on-linux-06.md",
+      "redirect_url": "/azure/app-service/quickstart-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-deploy-app-service-on-linux-07.md",
+      "redirect_url": "/azure/app-service/quickstart-python"
+    },
+    {
+      "source_path": "articles/azure-cli/choose-the-right-azure-command-line-tool.md",
+      "redirect_url": "/cli/azure/choose-the-right-azure-command-line-tool"
+    },
+    {
+      "source_path": "articles/terraform/create-linux-virtual-machine-with-infrastructure.md",
+      "redirect_url": "/azure/virtual-machines/linux/quick-create-terraform"
+    },
+    {
+      "source_path": "articles/python/tutorial-deploy-containers-01.md",
+      "redirect_url": "/azure/developer/python/containers-in-azure-overview-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-deploy-containers-02.md",
+      "redirect_url": "/azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-03"
+    },
+    {
+      "source_path": "articles/python/tutorial-deploy-containers-03.md",
+      "redirect_url": "/azure/developer/python/tutorial-containerize-deploy-python-web-app-azure-04"
+    },
+    {
+      "source_path": "articles/python/tutorial-deploy-containers-04.md",
+      "redirect_url": "/azure/developer/python/containers-in-azure-overview-python"
+    },
+    {
+      "source_path": "articles/python/tutorial-deploy-containers-05.md",
+      "redirect_url": "/azure/developer/python/containers-in-azure-overview-python"
+    },
+    {
+      "source_path": "articles/python/how-to-create-static-sites.md",
+      "redirect_url": "/azure/developer/python/index"
+    },
+    {
+      "source_path":"articles/python/how-to-manage-service-principals.md",
+      "redirect_url": "/azure/developer/python/sdk/authentication-local-development-service-principal"
+    },
+    {
+      "source_path":"articles/terraform/get-started-powershell.md",
+      "redirect_url": "/azure/developer/terraform/get-started-windows-powershell"
+    },
+    {
+      "source_path":"articles/github/github-variable-substitution.md",
+      "redirect_url": "/azure/developer/github/"
+    },
+    {
+      "source_path":"articles/github/github-key-vault.md",
+      "redirect_url": "/azure/developer/github/"
+    },
+    {
+      "source_path":"articles/python/tutorial-python-managed-identity-01.md",
+      "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
+    },
+    {
+      "source_path":"articles/python/tutorial-python-managed-identity-02.md",
+      "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
+    },
+    {
+      "source_path":"articles/python/tutorial-python-managed-identity-03.md",
+      "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
+    },
+    {
+      "source_path":"articles/python/tutorial-python-managed-identity-04.md",
+      "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
+    },
+    {
+      "source_path":"articles/python/tutorial-python-managed-identity-05.md",
+      "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
+    },
+    {
+      "source_path":"articles/python/tutorial-python-managed-identity-06.md",
+      "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
+    },
+    {
+      "source_path":"articles/python/tutorial-python-managed-identity-07.md",
+      "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
+    },
+    {
+      "source_path":"articles/terraform/create-k8s-cluster-with-tf-and-aks.md",
+      "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-terraform"
+    },
+    {
+      "source_path":"articles/terraform/quick-kubernetes-deploy-terraform.md",
+      "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-terraform"
+    },
+    { 
+      "source_path": "articles/javascript/how-to/with-web-app/azure-function-file-upload.md",
+      "redirect_url": "/azure/storage/blobs/blob-upload-function-trigger-javascript"
+    },
+    { 
+      "source_path": "articles/javascript/how-to/with-web-app/azure-function-file-upload-v3.md",
+      "redirect_url": "/azure/storage/blobs/blob-upload-function-trigger-javascript"
+    },
+    {
+      "source_path":"articles/terraform/create-vm-cluster-with-infrastructure.md",
+      "redirect_url": "/azure/virtual-machines/linux/quick-cluster-create-terraform"
+    },
+    {
+      "source_path":"articles/terraform/create-vm-cluster-module.md",
+      "redirect_url": "/azure/virtual-machines/windows/quick-cluster-create-terraform"
+    },
+    { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-01-overview.md",
+      "redirect_url": "/azure/developer/python" 
+    },
+    { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-02-get-data.md",
+      "redirect_url": "/azure/developer/python" 
+    },
+    { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-03-process-data.md",
+      "redirect_url": "/azure/developer/python" 
+    },
+    { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-04-deploy-solution.md",
+      "redirect_url": "/azure/developer/python" 
+    },
+    { "source_path": "articles/python/cloud-development-overview.md",
+      "redirect_url": "/azure/developer/python" 
+    },
+    { "source_path": "articles/python/cloud-development-provisioning.md",
+      "redirect_url": "/azure/developer/python" 
+    },
+    { "source_path": "articles/python/cloud-development-flow.md",
+      "redirect_url": "/azure/developer/python" 
+    },
+    { "source_path": "articles/python/configure-local-development-environment.md",
+      "redirect_url": "/azure/developer/python" 
+    },
+    {
+      "source_path":"articles/terraform/create-attestation-provider.md",
+      "redirect_url": "/azure/attestation/quickstart-terraform"
+    },
+    {
+      "source_path":"articles/terraform/create-k8s-cluster-with-aks-applicationgateway-ingress.md",
+      "redirect_url": "/azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress"
+    },
+    {
+      "source_path":"articles/terraform/deploy-application-gateway-v2.md",
+      "redirect_url": "/azure/application-gateway/quick-create-terraform"
+    },
+    {
+      "source_path":"articles/terraform/create-base-template-using-yeoman.md",
+      "redirect_url": "/azure/developer/terraform"
+    },
+    {
+      "source_path":"articles/python/quickstarts-cognitive-services.md",
+      "redirect_url": "/azure/python/quickstarts-ai-services"        
+    },
+    {
+      "source_path":"articles/javascript/how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md",
+      "redirect_url": "/entra/identity-platform/quickstart-web-app-nodejs-msal-sign-in"        
+    },
+    {
+      "source_path": "articles/ansible/configure-in-docker-container.md",
+      "redirect_url": "/azure/developer/ansible"
+    },
+    {
+      "source_path": "articles/intro/azure-ai-for-developers.md",
+      "redirect_url": "/azure/developer/ai/azure-ai-for-developers"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-visual-studio-code/install-run-debug-nodejs.md",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app"
+    },
+    {
+      "source_path": "articles/go/azure-sdk-install.md",
+      "redirect_url": "/azure/developer/go/"
+    }    
+  ]
+}

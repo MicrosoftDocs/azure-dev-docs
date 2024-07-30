@@ -2,8 +2,7 @@
 title: Developers Guide for using Spring Cloud Azure App Configuration
 description: This developer guide walks you through using Spring Cloud Azure App Configuration.
 author: KarlErickson
-ms.author: mametcal
-ms.service: azure-app-configuration
+ms.author: hangwan
 ms.topic: tutorial
 ms.date: 08/18/2023
 ms.custom: mvc, devx-track-java, devx-track-extended-java, devx-track-azurecli
@@ -64,7 +63,7 @@ To use the feature in an application, you can build it as a Spring Boot applicat
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>spring-cloud-azure-dependencies</artifactId>
-      <version>5.8.0</version>
+      <version>5.14.0</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>
@@ -96,7 +95,7 @@ To use the feature in an application, you can build it as a Spring Boot applicat
 ```
 
 > [!NOTE]
-> If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.14.0`.
+> If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
 > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 The following example shows a basic Spring Boot application using App Configuration:
@@ -229,7 +228,7 @@ You can then set the `spring.cloud.azure.appconfiguration.stores[0].connection-s
 
 ### Spring Cloud Azure configuration
 
-You can use [Spring Cloud Azure configuration](/azure/developer/java/spring-framework/configuration) to configure the library. You can use the following properties to configure the library:
+You can use [Spring Cloud Azure configuration](configuration.md) to configure the library. You can use the following properties to configure the library:
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].endpoint= <URI-of-your-configuration-store>
@@ -372,7 +371,7 @@ You can create any secret-identifier through the Azure CLI. Secret identifiers j
 
 #### Using Key Vault references
 
-You can use [Spring Cloud Azure configuration](/azure/developer/java/spring-framework/configuration) to configure the library. You can use the same credential used to connect to App Configuration to connect to Azure Key Vault.
+You can use [Spring Cloud Azure configuration](configuration.md) to configure the library. You can use the same credential used to connect to App Configuration to connect to Azure Key Vault.
 
 #### Resolve non-Key Vault secrets
 
@@ -579,7 +578,7 @@ feature-management:
 
 #### TargetingFilter
 
-This filter provides the capability to enable a feature for a target audience. For an in-depth explanation of targeting, see the [targeting section](#targeting) section. The filter parameters include an audience object that describes users, groups, and a default percentage of the user base that should have access to the feature. For each group object that is listed in the target audience, a percentage is required which defines the percentage of that group's members that have access to the feature. A user has the feature enabled in the following cases:
+This filter provides the capability to enable a feature for a target audience. For an in-depth explanation of targeting, see the [targeting section](#targeting) section. The filter parameters include an audience object that describes users, groups, and a default percentage of the user base that should have access to the feature. For each group object that is listed in the target audience, a percentage is required that defines the percentage of that group's members that have access to the feature. A user has the feature enabled in the following cases:
 
 - The user is specified in the users' section directly.
 - The user is in the included percentage of any of the group rollouts.
@@ -801,7 +800,7 @@ These interfaces allow for customization of the HTTP client and its configuratio
 > [!NOTE]
 > The `ConfigurationClientBuilder` and `SecretClientBuilder` are already set up for use when passed into `customize`. Any changes to the clients, including the credentials and retry policy, override those already in place.
 >
-> You can also do this configuration by using [Spring Cloud Azure configuration](/azure/developer/java/spring-framework/configuration).
+> You can also do this configuration by using [Spring Cloud Azure configuration](configuration.md).
 
 ```java
 public class CustomClient implements ConfigurationClientCustomizer, SecretClientCustomizer {

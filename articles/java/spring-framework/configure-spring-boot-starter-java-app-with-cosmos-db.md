@@ -1,11 +1,9 @@
 ---
 title: Access data with Azure Cosmos DB NoSQL API
 description: Learn how to configure an application created with the Spring Boot Initializer with Azure Cosmos DB for NoSQL.
-services: cosmos-db
 author: KarlErickson
-ms.author: bbenz
+ms.author: hangwan
 ms.date: 01/18/2023
-ms.service: cosmos-db
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
@@ -26,29 +24,28 @@ Use the following steps to create an Azure Cosmos DB instance:
 
 1. Select **Databases**, and then select **Azure Cosmos DB**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02.png" alt-text="Screenshot of the Azure portal showing 'Create a resource' page with search box highlighted and containing text 'Azure Cosmos DB'." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02.png":::
+1. On the **Create an Azure Cosmos DB account** screen, select **Azure Cosmos DB for NoSQL**.
 
-1. On the **Select API option** screen, select **Core (SQL)**.
-
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02-01.png" alt-text="Screenshot of the Azure portal showing 'Select API option' page with 'Core SQL' option highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ02-01.png":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/azure-cosmos-db-nosql.png" alt-text="Screenshot of the Azure portal that shows the Create an Azure Cosmos DB account page with Azure Cosmos DB for NoSQL option highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/azure-cosmos-db-nosql.png":::
 
 1. On the **Azure Cosmos DB** page, enter the following information:
 
    * Choose the **Subscription** you want to use for your database.
    * Specify whether to create a new **Resource group** for your database, or choose an existing resource group.
    * Enter a unique **Account Name**, which you use as the URI for your database. For example: *contosoaccounttest*.
-   * Choose **Core (SQL)** for the API.
    * Specify the **Location** for your database.
+   * Select **Apply Free Tier Discount** if you want to create an account for demonstration purpose only.
+   * Leave the rest of the default options and settings as is.
 
 1. Select **Review + create**, review your specifications, and select **Create**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ03.png" alt-text="Screenshot of the Azure portal showing the 'Create Azure Cosmos DB Account - Core S Q L' page." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ03.png":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/create-azure-cosmos-db-account.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Cosmos DB Account page with Azure Cosmos DB for NoSQL settings." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/create-azure-cosmos-db-account.png":::
 
 1. When your database has been created, it's listed on your Azure **Dashboard**, and under the **All Resources** and **Azure Cosmos DB** pages. To create a database and a container for a newly created Azure Cosmos DB, see the [Add a database and a container](/azure/cosmos-db/nosql/quickstart-portal#create-container-database) section of [Quickstart: Create an Azure Cosmos DB account, database, container, and items from the Azure portal](/azure/cosmos-db/nosql/quickstart-portal). You can select your database for any of those locations to open the properties page for your cache.
 
 1. When the properties page for your database is displayed, select **Keys** and copy your URI and access keys for your database. You use these values in your Spring Boot application.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ05.png" alt-text="Screenshot of the Azure portal of an Azure Cosmos DB account with the Keys page showing." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/AZ05.png":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-cosmos-db/azure-cosmos-db-keys.png" alt-text="Screenshot of the Azure portal that shows the Azure Cosmos DB account with the Keys page showing." lightbox="media/configure-spring-boot-starter-java-app-with-cosmos-db/azure-cosmos-db-keys.png":::
 
 > [!IMPORTANT]
 > In your newly created Azure Cosmos DB, assign the `Owner` role to the Azure account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
@@ -117,6 +114,7 @@ Your simple Spring Boot application is now ready for editing.
    ```properties
    # Specify the DNS URI of your Azure Cosmos DB.
    spring.cloud.azure.cosmos.endpoint=https://contosoaccounttest.documents.azure.com:443/
+   spring.cloud.azure.cosmos.key=your-cosmosdb-account-key
 
    # Specify the name of your database.
    spring.cloud.azure.cosmos.database=contosoaccounttest

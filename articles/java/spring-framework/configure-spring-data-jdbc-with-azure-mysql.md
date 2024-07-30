@@ -1,15 +1,11 @@
 ---
 title: Use Spring Data JDBC with Azure Database for MySQL
 description: Learn how to use Spring Data JDBC with an Azure Database for MySQL database.
-documentationcenter: java
-ms.service: mysql
-ms.tgt_pltfrm: multiple
 author: KarlErickson
 ms.date: 02/22/2023
-ms.author: v-yeyonghui
+ms.author: hangwan
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java, spring-cloud-azure, devx-track-extended-java
-ms.contributors: judubois-09162021
 zone_pivot_group_filename: java/java-zone-pivot-groups.json
 zone_pivot_groups: passwordless-mysql
 ---

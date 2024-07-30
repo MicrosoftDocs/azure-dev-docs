@@ -1,11 +1,9 @@
 ---
 title: Spring Cloud Stream with Azure Event Hubs
 description: Learn how to configure a Java-based Spring Cloud Stream Binder application created with the Spring Boot Initializr with Azure Event Hubs.
-services: event-hubs
-documentationcenter: java
+author: KarlErickson
+ms.author: hangwan
 ms.date: 04/06/2023
-ms.service: event-hubs
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
@@ -50,7 +48,7 @@ To install the Spring Cloud Azure Stream Binder Event Hubs module, add the follo
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.8.0</version>
+        <version>5.14.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -59,7 +57,7 @@ To install the Spring Cloud Azure Stream Binder Event Hubs module, add the follo
   ```
 
   > [!NOTE]
-  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.14.0`.
+  > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
   > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 

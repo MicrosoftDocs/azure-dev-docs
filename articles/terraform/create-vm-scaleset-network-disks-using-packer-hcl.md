@@ -5,7 +5,7 @@ ms.topic: how-to
 service: virtual-machine-scale-sets
 ms.service: virtual-machine-scale-sets
 ms.date: 10/26/2023
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, linux-related-content
 ---
 
 # Create an Azure virtual machine scale set from a Packer custom image by using Terraform

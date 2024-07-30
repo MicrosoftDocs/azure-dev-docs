@@ -1,11 +1,11 @@
 ---
 title: Install the Azure Developer CLI
-description: Install the Azure Developer CLI (azd) with all the pre-requisites for your local environment.
+description: Install the Azure Developer CLI (azd) with all the prerequisites for your local environment.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 12/11/2022
 ms.topic: how-to
-ms.custom: devx-track-azdevcli, build-2023
+ms.custom: devx-track-azdevcli, build-2023, linux-related-content
 ms.service: azure-dev-cli
 zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
 zone_pivot_groups: azd-os-env-set
@@ -17,9 +17,9 @@ Welcome to the Azure Developer CLI (`azd`)! Let's get started with installing an
 
 Start by selecting your development environment. For more information about the pros and cons of the different development environment choices, see [Azure Developer CLI (azd) supported environments](./supported-languages-environments.md#supported-development-environments).
 
-For more advanced installation scenarios and instructions, see [Azure Developer CLI Installer Scripts](https://github.com/Azure/azure-dev/blob/main/cli/installer/README.md#advanced-installation-scenarios)
+For more advanced installation scenarios and instructions, see [Azure Developer CLI Installer Scripts](https://github.com/Azure/azure-dev/blob/main/cli/installer/README.md#advanced-installation-scenarios).
 
-Note: When you install `azd`, the following tools are installed within `azd` scope (meaning they are not installed globally) and are removed if azd is uninstalled:
+Note: When you install `azd`, the following tools are installed within `azd` scope (meaning they aren't installed globally) and are removed if azd is uninstalled:
 
 - The [GitHub CLI](https://cli.github.com/)
 - The [Bicep CLI](/azure/azure-resource-manager/bicep/install)
@@ -78,7 +78,7 @@ powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' 
 
 ### Uninstall `azd`
 
-Once you've installed the MSI versions, using the uninstall script to remove `azd` will leave some items behind on the machine. **Instead, for version 0.5.0-beta.1 and later:** 
+Using the uninstall script to remove `azd` leaves some items behind on the machine. **Instead, for version 0.5.0-beta.1 and later:** 
 
 1. Search for **Add or remove programs** in Windows.
 
@@ -104,7 +104,7 @@ brew tap azure/azd && brew install azd
 
 The `brew tap azure/azd` command only needs to be run once to configure the tap in `brew`.
 
-If using `brew` to upgrade `azd` from a version not installed using `brew`, remove the existing version of `azd` using the uninstall script (if installed to the default location) or by deleting the `azd` binary manually. This will automatically install the correct version.
+If you're using `brew` to upgrade `azd` from a version not installed using `brew`, remove the existing version of `azd` using the uninstall script (if installed to the default location) or by deleting the `azd` binary manually. This will automatically install the correct version.
 
 ### Update `azd`
 ```bash
@@ -155,7 +155,7 @@ curl -fsSL https://aka.ms/install-azd.sh | bash
 curl -fsSL https://aka.ms/install-azd.sh | bash
 ```
 
-When you install `azd`, the following tools are installed within `azd` scope (meaning they are not installed globally) and are removed if azd is uninstalled:
+When you install `azd`, the following tools are installed within `azd` scope (meaning they aren't installed globally) and are removed if azd is uninstalled:
 
 - The [Git CLI](https://cli.github.com/)
 - The [Bicep CLI](/azure/azure-resource-manager/bicep/install)
@@ -210,11 +210,8 @@ yum remove -y azd
 ::: zone-end
 
 ::: zone pivot="env-dev-container"
-## Dev Container
 
-A [Dev Container](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run this app on your local machine. To get started, make sure you have the pre-requisites before choosing your azd template.
-
-## Pre-requisites
+## Prerequisites
 
 Before you get started using `azd`, ensure you have:
 
@@ -222,18 +219,56 @@ Before you get started using `azd`, ensure you have:
   - [Docker Desktop](https://aka.ms/azure-dev/docker-install) (other options coming soon.)
   - [Remote - Containers VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-  
+
+## Install `azd` in a dev container
+
+A [dev container](https://code.visualstudio.com/docs/remote/containers) is a Docker image that includes all of the prerequisites you need to run an app on your local machine. Install `azd` as a feature in your dev container via the following steps:
+
+1. Add the `azd` feature to the `devcontainer.json` file in the `.devcontainer` folder at the root of your template.
+
+    ```json
+    {
+        "name": "Azure Developer CLI",
+        "image": "mcr.microsoft.com/devcontainers/python:3.10-bullseye",
+        "features": {
+            // See https://containers.dev/features for list of features
+            "ghcr.io/devcontainers/features/docker-in-docker:2": {
+            },
+            "ghcr.io/azure/azure-dev/azd:latest": {}
+        }
+        // Rest of file omitted...
+    } 
+    ```
+
+1. Rebuild and run your dev container. In Visual Studio Code, use the [command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) to execute the **Rebuild and Reopen in Dev Container** command.
+
 ::: zone-end
 
-## Updating the Azure Developer CLI
+## Verify your installation
 
-When working with an out of date version of `azd`, you will see a warning to upgrade to the latest version. Follow the instructions in the warning to update to the latest version.
+Verify your `azd` installation completed successfully by running the `azd version` command in a terminal:
+
+```azdeveloper
+azd version
+```
+
+`azd` prints the current version:
+
+```output
+azd version 1.9.5 (commit cd2b7af9995d358aab33c782614f801ac1997dde)
+```
+
+## Update the Azure Developer CLI
+
+When working with an out of date version of `azd`, you'll see a warning to upgrade to the latest version. Follow the instructions in the warning to update to the latest version.
 
 [!INCLUDE [request-help](includes/request-help.md)]
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Choose an azd template](./azd-templates.md)
+> [Quickstart - Select and deploy an azd template](./get-started.md)
+> [!div class="nextstepaction"]
+> [What are Azure Developer CLI templates?](./azd-templates.md)
 > [!div class="nextstepaction"]
 > [Azure Developer CLI FAQ](./faq.yml)

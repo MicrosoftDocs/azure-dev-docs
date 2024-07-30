@@ -1,7 +1,7 @@
 ---
 title: Authenticate Python apps to Azure services during local development using developer accounts
 description: This article describes how to authenticate your application to Azure services when using the Azure SDK for Python during local development using developer accounts.
-ms.date: 11/29/2023
+ms.date: 02/24/2024
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -12,7 +12,7 @@ When developers create cloud applications, they typically debug and test applica
 
 :::image type="content" source="media/local-dev-dev-accounts-overview.png" alt-text="A diagram showing how a Python app during local development uses the developers credentials to connect to Azure by obtaining those credentials from locally installed development tools.":::
 
-For an app to authenticate to Azure during local development using the developer's Azure credentials, a developer must be signed-in to Azure from the Azure CLI or Azure PowerShell. The Azure SDK for Python is able to detect that the developer is signed-in from one of these tools and then obtain the necessary credentials from the credentials cache to authenticate the app to Azure as the signed-in user.
+For an app to authenticate to Azure during local development using the developer's Azure credentials, a developer must be signed-in to Azure from the Azure CLI, Azure PowerShell, or Azure Developer CLI. The Azure SDK for Python is able to detect that the developer is signed-in from one of these tools and then obtain the necessary credentials from the credentials cache to authenticate the app to Azure as the signed-in user.
 
 This approach is easiest to set up for a development team since it takes advantage of the developers' existing Azure accounts. However, a developer's account will likely have more permissions than required by the application, therefore exceeding the permissions the app will run with in production. As an alternative, you can [create application service principals to use during local development](./authentication-local-development-service-principal.md), which can be scoped to have only the access needed by the app.
 
@@ -62,12 +62,12 @@ az ad group member add \
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create app AD group step 1](<./includes/local-dev-accounts-app-ad-group-azure-portal-1.md>)] | :::image type="content" source="./media/local-dev-accounts-app-ad-group-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the top search bar in the Azure portal to search for and navigate to the Microsoft Entra ID page." lightbox="./media/local-dev-accounts-app-ad-group-azure-portal-1.png"::: |
-| [!INCLUDE [Create app AD group step 2](<./includes/local-dev-accounts-app-ad-group-azure-portal-2.md>)] | :::image type="content" source="./media/local-dev-accounts-app-ad-group-azure-portal-2-240px.png" alt-text="A screenshot showing the location of the Groups menu item in the left-hand menu of the Microsoft Entra ID Default Directory page." lightbox="./media/local-dev-accounts-app-ad-group-azure-portal-2.png"::: |
-| [!INCLUDE [Create app AD group step 3](<./includes/local-dev-accounts-app-ad-group-azure-portal-3.md>)] | :::image type="content" source="./media/local-dev-accounts-app-ad-group-azure-portal-3-240px.png" alt-text="A screenshot showing the location of the New Group button in the All groups page." lightbox="./media/local-dev-accounts-app-ad-group-azure-portal-3.png"::: |
-| [!INCLUDE [Create app AD group step 4](<./includes/local-dev-accounts-app-ad-group-azure-portal-4.md>)] | :::image type="content" source="./media/local-dev-accounts-app-ad-group-azure-portal-4-240px.png" alt-text="A screenshot showing how to fill out the form to create a new Microsoft Entra group for the application. This screenshot also shows the location of the link to select to add members to this group." lightbox="./media/local-dev-accounts-app-ad-group-azure-portal-4.png"::: |
-| [!INCLUDE [Create app AD group step 5](<./includes/local-dev-accounts-app-ad-group-azure-portal-5.md>)] | :::image type="content" source="./media/local-dev-accounts-app-ad-group-azure-portal-5-240px.png" alt-text="A screenshot of the Add members dialog box showing how to select developer accounts to be included in the group." lightbox="./media/local-dev-accounts-app-ad-group-azure-portal-5.png"::: |
-| [!INCLUDE [Create app AD group step 6](<./includes/local-dev-accounts-app-ad-group-azure-portal-6.md>)] | :::image type="content" source="./media/local-dev-accounts-app-ad-group-azure-portal-6-240px.png" alt-text="A screenshot of the New Group page showing how to complete the process by selecting the Create button." lightbox="./media/local-dev-accounts-app-ad-group-azure-portal-6.png"::: |
+| [!INCLUDE [Create app AD group step 1](<../../includes/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-1.md>)] | :::image type="content" source="../../includes/media/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the top search bar in the Azure portal to search for and navigate to the Microsoft Entra ID page." lightbox="../../includes/media/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-1.png"::: |
+| [!INCLUDE [Create app AD group step 2](<../../includes/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-2.md>)] | :::image type="content" source="../../includes/media/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-2-240px.png" alt-text="A screenshot showing the location of the Groups menu item in the left-hand menu of the Microsoft Entra ID Default Directory page." lightbox="../../includes/media/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-2.png"::: |
+| [!INCLUDE [Create app AD group step 3](<../../includes/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-3.md>)] | :::image type="content" source="../../includes/media/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-3-240px.png" alt-text="A screenshot showing the location of the New Group button in the All groups page." lightbox="../../includes/media/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-3.png"::: |
+| [!INCLUDE [Create app AD group step 4](<../../includes/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-4.md>)] | :::image type="content" source="../../includes/media/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-4-240px.png" alt-text="A screenshot showing how to create a new Microsoft Entra group. The location of the link to select to add members to this group is highlighted." lightbox="../../includes/media/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-4.png"::: |
+| [!INCLUDE [Create app AD group step 5](<../../includes/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-5.md>)] | :::image type="content" source="../../includes/media/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-5-240px.png" alt-text="A screenshot of the Add members dialog box showing how to select developer accounts to be included in the group." lightbox="../../includes/media/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-5.png"::: |
+| [!INCLUDE [Create app AD group step 6](<../../includes/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-6.md>)] | :::image type="content" source="../../includes/media/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-6-240px.png" alt-text="A screenshot of the New Group page showing how to complete the process by selecting the Create button." lightbox="../../includes/media/sdk-auth-passwordless/local-dev-accounts-app-ad-group-azure-portal-6.png"::: |
 
 ---
 
@@ -111,17 +111,17 @@ For information on assigning permissions at the resource or subscription level u
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-1.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the top search box in the Azure portal to locate and navigate to the resource group you want to assign roles (permissions) to." lightbox="./media/assign-local-dev-group-to-role-azure-portal-1.png"::: |
-| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-2.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-2-240px.png" alt-text="A screenshot of the resource group page showing the location of the Access control (IAM) menu item." lightbox="./media/assign-local-dev-group-to-role-azure-portal-2.png"::: |
-| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-3.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-3-240px.png" alt-text="A screenshot showing how to navigate to the role assignments tab and the location of the button used to add role assignments to a resource group." lightbox="./media/assign-local-dev-group-to-role-azure-portal-3.png"::: |
-| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-4.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-4-240px.png" alt-text="A screenshot showing how to filter and select role assignments to be added to the resource group." lightbox="./media/assign-local-dev-group-to-role-azure-portal-4.png"::: |
-| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-5.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-5-240px.png" alt-text="A screenshot showing the radio button to select to assign a role to a Microsoft Entra group and the link used to select the group to assign the role to." lightbox="./media/assign-local-dev-group-to-role-azure-portal-5.png"::: |
-| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-6.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-6-240px.png" alt-text="A screenshot showing how to filter for and select the Microsoft Entra group for the application in the Select members dialog box." lightbox="./media/assign-local-dev-group-to-role-azure-portal-6.png"::: |
-| [!INCLUDE [Assign dev service principal to role step 1](<./includes/assign-local-dev-group-to-role-azure-portal-7.md>)] | :::image type="content" source="./media/assign-local-dev-group-to-role-azure-portal-7-240px.png" alt-text="A screenshot showing the completed Add role assignment page and the location of the Review + assign button used to complete the process." lightbox="./media/assign-local-dev-group-to-role-azure-portal-7.png"::: |
+| [!INCLUDE [Assign dev service principal to role step 1](<../../includes/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-1.md>)] | :::image type="content" source="../../includes/media/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-1-240px.png" alt-text="A screenshot showing how to use the top search box in the Azure portal to locate and navigate to the resource group you want to assign roles (permissions) to." lightbox="../../includes/media/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-1.png"::: |
+| [!INCLUDE [Assign dev service principal to role step 1](<../../includes/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-2.md>)] | :::image type="content" source="../../includes/media/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-2-240px.png" alt-text="A screenshot of the resource group page showing the location of the Access control (IAM) menu item." lightbox="../../includes/media/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-2.png"::: |
+| [!INCLUDE [Assign dev service principal to role step 1](<../../includes/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-3.md>)] | :::image type="content" source="../../includes/media/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-3-240px.png" alt-text="A screenshot showing how to navigate to the role assignments tab and the location of the button used to add role assignments to a resource group." lightbox="../../includes/media/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-3.png"::: |
+| [!INCLUDE [Assign dev service principal to role step 1](<../../includes/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-4.md>)] | :::image type="content" source="../../includes/media/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-4-240px.png" alt-text="A screenshot showing how to filter and select role assignments to be added to the resource group." lightbox="../../includes/media/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-4.png"::: |
+| [!INCLUDE [Assign dev service principal to role step 1](<../../includes/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-5.md>)] | :::image type="content" source="../../includes/media/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-5-240px.png" alt-text="A screenshot showing the radio button to select to assign a role to a Microsoft Entra group and the link used to select the group to assign the role to." lightbox="../../includes/media/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-5.png"::: |
+| [!INCLUDE [Assign dev service principal to role step 1](<../../includes/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-6.md>)] | :::image type="content" source="../../includes/media/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-6-240px.png" alt-text="A screenshot showing how to filter for and select the Microsoft Entra group for the application in the Select members dialog box." lightbox="../../includes/media/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-6.png"::: |
+| [!INCLUDE [Assign dev service principal to role step 1](<../../includes/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-7.md>)] | :::image type="content" source="../../includes/media/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-7-240px.png" alt-text="A screenshot showing the completed Add role assignment page and the location of the Review + assign button used to complete the process." lightbox="../../includes/media/sdk-auth-passwordless/assign-local-dev-group-to-role-azure-portal-7.png"::: |
 
 ---
 
-## 3 - Sign-in to Azure using the Azure CLI, Azure PowerShell, or in a browser
+## 3 - Sign-in to Azure using the Azure CLI, Azure PowerShell, Azure Developer CLI, or in a browser
 
 ### [Azure CLI](#tab/sign-in-azure-cli)
 
@@ -139,6 +139,14 @@ Open a terminal on your developer workstation and sign-in to Azure from [Azure P
 Connect-AzAccount
 ```
 
+### [Azure Developer CLI](#tab/sign-in-azure-developer-cli)
+
+Open a terminal on your developer workstation and sign-in to Azure from [Azure Developer CLI](/azure/developer/azure-developer-cli/overview).
+
+```azdeveloper
+azd auth login
+```
+
 ### [Interactive browser](#tab/sign-in-interactive-browser)
 
 Interactive authentication is disabled in the `DefaultAzureCredential` by default and can be enabled with a keyword argument:
@@ -151,7 +159,7 @@ DefaultAzureCredential(exclude_interactive_browser_credential=False)
 
 ## 4 - Implement DefaultAzureCredential in your application
 
-To authenticate Azure SDK client objects to Azure, your application should use the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class from the `azure.identity` package. In this scenario, `DefaultAzureCredential` will sequentially check to see if the developer has signed-in to Azure using the Azure CLI, Azure PowerShell. If the developer is signed-in to Azure using either of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure.
+To authenticate Azure SDK client objects to Azure, your application should use the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class from the `azure.identity` package. In this scenario, `DefaultAzureCredential` will sequentially check to see if the developer has signed-in to Azure using the Azure CLI, Azure PowerShell, or Azure developer CLI. If the developer is signed-in to Azure using any of these tools, then the credentials used to sign into the tool will be used by the app to authenticate to Azure.
 
 Start by adding the [azure.identity](https://pypi.org/project/azure-identity/) package to your application.
 

@@ -31,7 +31,7 @@ highlightedContent:
     # Card
     - title: Deploy your first application to Azure Spring Apps
       itemType: quickstart
-      url: /azure/spring-apps/quickstart
+      url: /azure/spring-apps/enterprise/quickstart
     # Card
     - title: Secure your app using the Spring Boot Starter for Microsoft Entra ID
       itemType: tutorial
@@ -95,13 +95,13 @@ conceptualContent:
             - url: /azure/azure-app-configuration/enable-dynamic-configuration-java-spring-app
               itemType: tutorial
               text: Dynamic configuration in a Spring app
-            - url: /azure/spring-apps/how-to-config-server
+            - url: /azure/spring-apps/basic-standard/how-to-config-server
               itemType: how-to-guide
               text: Configure a managed Spring Cloud Config Server in Azure Spring Apps
-            - url: /azure/spring-apps/how-to-service-registration?pivots=programming-language-java
+            - url: /azure/spring-apps/basic-standard/how-to-service-registration?pivots=programming-language-java
               itemType: how-to-guide
               text: Discover and register your Spring Boot applications in Azure Spring Apps
-            - url: /azure/spring-apps/tutorial-circuit-breaker
+            - url: /azure/spring-apps/enterprise/tutorial-circuit-breaker
               itemType: tutorial
               text: Use Circuit Breaker Dashboard with Azure Spring Apps
         - title: Secret management
@@ -165,16 +165,16 @@ conceptualContent:
       items:
         - title: Fully managed Spring service
           links: # link number <= 12
-            - url: /azure/spring-apps/quickstart
+            - url: /azure/spring-apps/enterprise/quickstart
               itemType: quickstart
               text: Deploy your first application to Azure Spring Apps
             - url: ../spring-framework/getting-started-with-spring-cloud-function-in-azure.md
               itemType: get-started
               text: Getting started with Spring Cloud Function in Azure
-            - url: /azure/spring-apps/how-to-intellij-deploy-apps
+            - url: /azure/spring-apps/enterprise/how-to-intellij-deploy-apps
               itemType: quickstart
               text: Deploy Spring Boot applications with IntelliJ
-            - url: /azure/spring-apps/how-to-maven-deploy-apps
+            - url: /azure/spring-apps/enterprise/how-to-maven-deploy-apps
               itemType: quickstart
               text: Deploy Spring Boot applications with Apache Maven plugins
         - title: Containerization
@@ -182,7 +182,7 @@ conceptualContent:
             - url: ../containers/overview.md
               itemType: quickstart
               text: Containerize your Spring applications
-            - url: /azure/spring-apps/how-to-deploy-with-custom-container-image
+            - url: /azure/spring-apps/enterprise/how-to-deploy-with-custom-container-image
               itemType: get-started
               text: Deploy Spring Boot applications in Azure Spring Apps using a custom container image
             - url: ../spring-framework/deploy-spring-boot-java-app-on-kubernetes.md
@@ -210,21 +210,21 @@ conceptualContent:
       items:
         - title: Security
           links:
-            - url: /azure/spring-apps/secure-communications-end-to-end
+            - url: /azure/spring-apps/enterprise/secure-communications-end-to-end
               itemType: tutorial
               text: Secure communications end-to-end for Spring Boot apps in a Zero Trust environment
             - url: /azure/aks/operator-best-practices-identity
               itemType: tutorial
               text: Best practices for authentication and authorization in AKS
-            - url: /azure/spring-apps/how-to-use-tls-certificate
+            - url: /azure/spring-apps/enterprise/how-to-use-tls-certificate
               itemType: tutorial
               text: Use TLS/SSL certificates with Azure Spring Apps
         - title: Observability
           links:
-            - url: /azure/spring-apps/how-to-application-insights
+            - url: /azure/spring-apps/enterprise/how-to-application-insights
               itemType: how-to-guide
               text: Monitor Spring Boot apps with Application Insights
-            - url: /azure/spring-apps/how-to-log-streaming
+            - url: /azure/spring-apps/enterprise/how-to-log-streaming
               itemType: how-to-guide
               text: Stream Azure Spring Apps application console logs in real time
             - url: /azure/azure-monitor/containers/container-insights-livedata-overview
@@ -241,7 +241,7 @@ conceptualContent:
             - url: /azure/aks/node-upgrade-github-actions
               itemType: tutorial
               text: Automate deployments to AKS by using GitHub Actions
-            - url: /azure/spring-apps/quickstart-deploy-infrastructure-vnet-terraform
+            - url: /azure/spring-apps/enterprise/quickstart-deploy-infrastructure-vnet-terraform
               itemType: quickstart
               text: Provision Azure Spring Apps using Terraform
         - title: Migration

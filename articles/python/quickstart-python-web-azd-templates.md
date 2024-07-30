@@ -3,7 +3,7 @@ title: Create and deploy a Python web app to Azure using an azd template
 description: Quickstart article featuring the use of an azd template to help you get started with a complete project in 15 minutes.
 ms.date: 9/18/2023
 ms.topic: conceptual
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-extended-azdevcli
 ---
 
 # Quickstart: Create and deploy a Python web app to Azure using an azd template

@@ -4,7 +4,7 @@ description: Learn how to manage a Linux virtual machine in Azure using Ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: tutorial
 ms.date: 08/28/2021
-ms.custom: devx-track-ansible
+ms.custom: devx-track-ansible, linux-related-content
 ---
 
 # Manage Linux virtual machines in Azure using Ansible

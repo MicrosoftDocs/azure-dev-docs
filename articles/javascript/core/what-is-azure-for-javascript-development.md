@@ -3,7 +3,7 @@ title: What is Azure for JavaScript developers
 description: Azure concepts for JavaScript, TypeScript, and Node.js developers. 
 ms.topic: how-to
 ms.date: 08/09/2022
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-ts
 ---
 
 # What is Azure for JavaScript developers
@@ -29,7 +29,7 @@ Top service types for JavaScript developers include:
 * Authentication and authorization
 * Containers
 * VMs
-* [Databases](../database-developer-guide.md)
+* [Databases](https://azure.microsoft.com/product-categories/databases/)
 * Storage
 * [Search](/azure/search/tutorial-javascript-overview)
 * Cognitive services

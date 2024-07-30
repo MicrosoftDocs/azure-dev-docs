@@ -3,7 +3,7 @@ title: "Infrastructure management for Contoso Real Estate"
 description: Understand how Contoso Real Estate manages local and cloud services for you when you use this reference architecture.
 ms.topic: conceptual
 ms.date: 09/26/2023
-ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
+ms.custom: devx-track-js, devx-track-ts, contoso-real-estate, devx-track-extended-azdevcli
 # CustomerIntent: As a senior developer new to Azure, I want to understand how to manage the services of a complex end to end cloud application.
 ---
 
