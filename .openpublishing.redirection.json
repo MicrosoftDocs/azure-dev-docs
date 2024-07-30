@@ -116,6 +116,14 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/javascript/openai-cli.md",
+      "redirect_url": "/azure/ai-services/openai"
+    },
+    {
+      "source_path": "articles/javascript/tutorial/azure-function-cosmos-db-mongo-api.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-cosmos-db-vs-code?pivots=programming-language-javascript"
+    },
+    {
       "source_path": "articles/javascript/end-to-end/contoso-real-estate-test-ui-solution.md",
       "redirect_url": "/azure/developer/javascript/end-to-end/contoso-real-estate-test-api-solution"
     },
