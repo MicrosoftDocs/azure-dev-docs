@@ -19,6 +19,8 @@ To allow you to manage all Azure resources and features without requiring update
 | ------------- | ----------- |
 | azapi_resource | Used to fully manage any Azure (control plane) resource (API) with full CRUD. <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New preview service <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New feature added to existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existing feature / service not currently covered |
 | azapi_update_resource | Used to manage resources or parts of resources that don't have full CRUD <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update new properties on an existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update pre-created child resource - such as DNS SOA record. |
+| azapi_resource_action | Used to perform a single operation on a resource without managing the lifecycle of it <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shut down a Virtual Machine <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add a secret to a Key Vault|
+| azapi_data_plane_resource | Used to manage Azure data plane resources that are ??? <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resource Type 1<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resource Type 2 | 
 
 ## Resource configuration examples
 
@@ -52,6 +54,23 @@ resource "azapi_update_resource" "test" {
       anonymousPullEnabled = var.bool_anonymous_pull
     }
   })
+}
+```
+
+The following code snippet configures a resource action on an existing AzureRM resource:
+
+```terraform
+resource "azapi_resource_action" "vm_shutdown" {
+  type = "Microsoft.Compute/virtualMachines@2023-07-01"
+  resource_id = azurerm_linux_virtual_machine.example.id
+  action = "powerOff”
+}
+```
+
+The following code snippet configures a resource that doesn't currently exist in the AzureRM provider due to being provisioned on the data plane:
+
+```terraform
+resource "azapi_data_plane_resource" "tbd" {
 }
 ```
 
