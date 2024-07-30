@@ -12,7 +12,7 @@ items:
     - name: Connect to an Azure Database for MySQL
       href: /azure/mysql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
     - name: Query an Azure SQL database
-      href: /azure/azure-sql/database/connect-query-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
+      href: /azure/azure-sql/database/connect-query-go?view=azuresql&preserve-view=true&toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
   - name: Use the Azure SDK for Go
     items:
     - name: What is the Azure SDK for Go?
