@@ -6,6 +6,7 @@ ms.service: azure
 ms.topic: overview
 ms.date: 07/29/2024
 ms.custom: overview
+#CustomerIntent: As an experienced developer, I want an overview of Azure services since there are so many new terms and ideas. I want to see the products organized into large categories so I can make sense of them and start building a mental model.
 ---
 
 # Key Azure services for developers
@@ -30,12 +31,14 @@ Whether you need to host a web app's static resources or an API, or host long ru
 |----|-------|-----------|
 |:::image type="icon" source="media/azure-app-service.png":::| [Azure App Service](/azure/app-service/) |Host .NET, Java, Node.js, and Python web applications and APIs in a fully managed Azure service.  You only need to deploy your code to Azure.  Azure takes care of all the infrastructure management like high availability, load balancing, and autoscaling.  |
 |:::image type="icon" source="media/static-web-apps.png":::| [Azure Static Web Apps](/azure/static-web-apps/) |Host static web apps built using frameworks like Gatsby, Hugo, or VuePress, or modern web apps built using Angular, React, Svelte, or Vue.  Static web apps automatically build and deploy based off of code changes and feature API integration with Azure Functions.|
-|:::image type="icon" source="media/azure-functions.png":::| [Azure Functions](/azure/azure-functions/) |A serverless compute platform for creating small, discrete segments of code that can be triggered from a variety of different events.  Common applications include building serverless APIs or orchestrating event-drive architectures.|
 |:::image type="icon" source="media/azure-container-apps.png":::| [Azure Container Apps](/azure/container-apps/) |Azure Container Apps allows you to run containerized applications without worrying about orchestration or infrastructure via a serverless platform.|
 |:::image type="icon" source="media/azure-container-instances.png":::| [Azure Container Instances](/azure/container-instances/) |Run Docker containers on-demand in a managed, serverless Azure environment. Azure Container Instances is a solution for any scenario that can operate in isolated containers, without orchestration.|
 |:::image type="icon" source="media/azure-kubernetes-service.png":::| [Azure Kubernetes Services](/azure/aks/) |Quickly deploy a production ready Kubernetes cluster to the cloud and offload the operational overhead to Azure. Azure handles critical tasks, like health monitoring and maintenance.  You only need to manage and maintain the agent nodes.|
-|:::image type="icon" source="media/azure-spring-cloud.png":::| [Azure Spring Apps](/azure/spring-apps/) |Host Spring Boot microservice applications in Azure, no code changes required.  Azure Spring Apps provides monitoring, configuration management, service discovery, CI/CD integration and more.|
 |:::image type="icon" source="media/azure-virtual-machines.png":::| [Azure Virtual Machines](/azure/virtual-machines/) |Host your app using virtual machines in Azure when you need more control over your computing environment. Azure VMs offer a flexible, scalable computing environment for both Linux and Windows virtual machines. |
+|:::image type="icon" source="media/azure-functions.png":::| [Azure Functions](/azure/azure-functions/) |A serverless compute platform for creating small, discrete segments of code that can be triggered from a variety of different events.  Common applications include building serverless APIs or orchestrating event-drive architectures.|
+|:::image type="icon" source="media/azure-spring-cloud.png":::| [Azure Spring Apps](/azure/spring-apps/) |Host Spring Boot microservice applications in Azure, no code changes required.  Azure Spring Apps provides monitoring, configuration management, service discovery, CI/CD integration and more.|
+
+You may wonder "why so many different ways to host an application?" The answer is explained in the next article, [Hosting applications on Azure](hosting-apps-on-azure.md). 
 
 ## Azure AI services
 

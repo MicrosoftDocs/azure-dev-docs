@@ -23,6 +23,11 @@ This is part three in a short series of 7 articles to help developers get starte
 
 Azure provides a variety of different ways to host your application depending on your needs. This article suggests services to match requirements. It isn't proscriptive. You can mix and match services to meet your needs. Most production environments use a combination of services to meet their business and organizational needs.
 
+The services you choose will often come down to two considerations:
+- Do you prefer simplicity or control?
+- Do you prefer cloud-native (i.e., containers) or Azure-native (tailored tools and integrations)
+
+The following video explains the first consideration: simplicity versus control:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE50vLy title="Azure hosting services" /]
 
