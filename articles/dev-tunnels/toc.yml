@@ -8,6 +8,8 @@
   items:
   - name: Create and host a tunnel
     href: get-started.md
+  - name: Configure and deploy group policies
+    href: policies.md
 - name: Concepts
   items:
   - name: Security

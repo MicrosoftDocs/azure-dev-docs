@@ -22,38 +22,45 @@
       - name: Configure app settings
         href: how-to/configure-web-app-settings.md
       - name: Configure domain name
-        href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli              
-      - name: Use Key Vault secrets
-        href: how-to/with-web-app/use-secret-environment-variables.md
+        href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
   - name: Azure AI apps 
     items: 
     - name: Develop with Azure AI Services
       href: azure-ai-for-javascript-developers.md    
-    - name: Get started with the JavaScript enterprise chat sample
+    - name: Get started with Enterprise chat
       href: get-started-app-chat-template.md
+    - name: Get started with serverless chat with LangChainjs
+      href: get-started-app-chat-template-langchainjs.md
       display: Azure OpenAI, OpenAI, AI
-    - name: Build a conversational CLI
-      href: openai-cli.md
-      display: Azure OpenAI, OpenAI, AI
-    - name: Generate text completions
-      href: /azure/ai-services/openai/quickstart?tabs=command-line&pivots=programming-language-javascript
-      display: Azure OpenAI, OpenAI, AI
+    - name: Serverless Azure OpenAI Assistant with function calling
+      href: get-started-app-chat-assistants-function-calling.md
+      display: Azure OpenAI, OpenAI, AI, function calling, assistants
+    - name: JavaScript frontend + Python backend
+      href: chat-app-with-separate-front-back-end.md
+      display: building block, frontend, backend
+    - name: Evaluate your chat app
+      href: get-started-app-chat-evaluations.md
+      display: Azure OpenAI
+    - name: Scale Azure OpenAI with Azure Container Apps
+      href: get-started-app-chat-scaling-with-azure-container-apps.md
+    - name: Scale Azure OpenAI with Azure API Management
+      href: get-started-app-chat-scaling-with-azure-api-management.md
   - name: Developer Guides
     items: 
     - name: GraphQL developer guide
       href: graphql-developer-guide.md
     - name: Serverless developer guide
-      href: /azure/azure-functions/functions-reference?tabs=blob
+      href: /azure/azure-functions/functions-reference?tabs=blob&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Storage developer guide
-      href: /azure/storage/blobs/storage-blob-javascript-get-started
-    - name: Database developer guide
-      href: database-developer-guide.md
-    - name: Secrets
-      items: 
-      - name: Key Vault Keys
-        href: /azure/key-vault/keys/javascript-developer-guide-get-started?tabs=developer-auth%2Caz-login-terminal-bash
-      - name: Key Vault Secrets
-        href: /azure/key-vault/secrets/javascript-developer-guide-get-started?tabs=developer-auth%2Caz-login-terminal-bash
+      href: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+    - name: Cosmos DB for NoSQL developer guide
+      href: /azure/cosmos-db/nosql/how-to-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+    - name: Cosmos DB for MongoDB developer guide
+      href: /azure/cosmos-db/mongodb/how-to-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+    - name: Key Vault Keys
+      href: /azure/key-vault/keys/javascript-developer-guide-get-started?tabs=developer-auth%2Caz-login-terminal-bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+    - name: Key Vault Secrets
+      href: /azure/key-vault/secrets/javascript-developer-guide-get-started?tabs=developer-auth%2Caz-login-terminal-bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
   - name: End to end development
     items: 
     - name: What is Contoso Real Estate? 
@@ -78,8 +85,10 @@
         href: end-to-end/contoso-real-estate-serverless-api-migration.md
     - name: Deploy
       href: end-to-end/contoso-real-estate-Infrastructure.md
-      isplayName: Codespaces, GitHub, azd, bicep, deploy, local, docker
-
+      displayName: Codespaces, GitHub, azd, bicep, deploy, local, docker
+    - name: Test APIs
+      href: end-to-end/contoso-real-estate-test-api-solution.md
+      displayName: test, test API, API, playwright
     - name: Developer tools
       href: end-to-end/contoso-real-estate-developer-tools.md      
   - name: Azure Static Web Apps
@@ -88,141 +97,68 @@
       href: how-to/create-static-web-app.md
     - name: Create Static web app
       href: how-to/with-web-app/static-web-app-with-swa-cli.md
-    - name: Add custom domain
-      href: /azure/static-web-apps/custom-domain
-    - name: Connect to database
-      items: 
-      - name: with Data API builder
-        href: /azure/static-web-apps/database-overview
-      - name: Azure Cosmos DB
-        href: /azure/static-web-apps/database-azure-cosmos-db
-      - name: Azure SQL
-        href: /azure/static-web-apps/database-azure-sql
-      - name: Azure Database for MySQL
-        href: /azure/static-web-apps/database-mysql
-      - name: Azure Database for PostgreSQL
-        href: /azure/static-web-apps/database-postgresql
     - name: Add search to website
-      href: /azure/search/tutorial-javascript-overview
+      href: /azure/search/tutorial-javascript-overview?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: "Upload image to Storage"
       href: tutorial/browser-file-upload-azure-storage-blob.md
     - name: Add image analysis
       href: tutorial/static-web-app-image-analysis.md  
-    - name: Authentication and identity
-      items:  
-      - name: Easy auth with Static Web Apps
-        href: how-to/with-web-app/static-web-app-with-swa-cli/add-authentication.md         
-      - name: Vanilla JS
-        href: /azure/active-directory/develop/tutorial-v2-javascript-auth-code  
-      - name: "Angular: Add a Login button for Microsoft Identity provider"
-        href: /azure/active-directory/develop/tutorial-v2-angular-auth-code
-      - name: Add custom auth with MSAL.js
-        items:
-        - name: Introduction
-          href: how-to/with-authentication/static-web-app-with-api/introduction.md
-        - name: Create app registration
-          href: how-to/with-authentication/static-web-app-with-api/register-application-with-identity.md
-        - name: Create local Static web app
-          href: how-to/with-authentication/static-web-app-with-api/configure-source-code-for-msal.md
-        - name: Add MongoDB to API
-          href: how-to/with-authentication/static-web-app-with-api/add-mongodb-database-to-api.md
-        - name: Deploy to Azure
-          href: how-to/with-authentication/static-web-app-with-api/deploy-static-web-app-to-azure.md
-
-                                  
-  - name: Migrate to Serverless
-    items: 
-    - name: "Training: Migrate to Azure Functions"
-      href: /training/modules/shift-nodejs-express-apis-serverless
-    - name: "Docs: Migrate to Azure Functions"
-      href: /azure/azure-functions/shift-expressjs?tabs=javascript
   - name: Serverless apps
     items: 
     - name: Develop Azure Functions
       href: how-to/develop-serverless-apps.md
-    - name: Store data in MongoDB 
-      href: tutorial/azure-function-cosmos-db-mongo-api.md
     - name: Upload file to Storage - model v3
       items: 
       - name: with trigger and bindings
-        href: /azure/storage/blobs/blob-upload-function-trigger-javascript?tabs=storage-resource-visual-studio-code%2Ccomputer-vision-azure-portal
+        href: /azure/storage/blobs/blob-upload-function-trigger-javascript?tabs=storage-resource-visual-studio-code%2Ccomputer-vision-azure-portal&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Resource management API
       href: how-to/with-web-app/azure-function-resource-group-management.md
-            
   - name: Monolithic apps
     items:
     - name: "Express.js with MongoDB"
-      href: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli
+      href: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: "Express.js with MERN"
-      href: /azure/cosmos-db/mongodb/vcore/tutorial-nodejs-web-app?tabs=github-codespace
+      href: /azure/cosmos-db/mongodb/vcore/tutorial-nodejs-web-app?tabs=github-codespace&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: "Express.js convert text to speech"
       href: tutorial/convert-text-to-speech-cognitive-services.md
     - name: Add easy authentication
-      href: /azure/app-service/scenario-secure-app-authentication-app-service-as-user
+      href: /azure/app-service/scenario-secure-app-authentication-app-service-as-user?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Use Microsoft Identity provider (MSAL.js)
-      href: how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md
+      href: /entra/identity-platform/quickstart-web-app-nodejs-msal-sign-in?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
   - name: Containerized Apps
     items:
     - name: Backend microservice app
-      href: /azure/container-apps/tutorial-code-to-cloud?tabs=bash%2Cjavascript&pivots=acr-remote
+      href: /azure/container-apps/tutorial-code-to-cloud?tabs=bash%2Cjavascript&pivots=acr-remote&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Frontend microservice app
-      href: /azure/container-apps/communicate-between-microservices?tabs=bash&pivots=acr-remote
+      href: /azure/container-apps/communicate-between-microservices?tabs=bash&pivots=acr-remote&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Microservice with DAPR
-      href: /azure/container-apps/microservices-dapr?tabs=bash
-    - name: Create container registry
-      href: how-to/with-azure-cli/create-container-registry-resource.md
+      href: /azure/container-apps/microservices-dapr?tabs=bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Create container from local project
-      href: how-to/with-visual-studio-code/containerize-local-project.md              
+      href: how-to/with-visual-studio-code/containerize-local-project.md
   - name: Virtual machine web apps
     items:
     - name: "Express.js VM"
       href: tutorial/run-nodejs-virtual-machine.md
     - name: "Create and delete VM with SDK"
       href: how-to/with-azure-sdk/create-manage-virtual-machine.md
-    - name: "Manage VM with SDK"
-      href: how-to/with-azure-sdk/stop-start-virtual-machine.md                          
   - name: Development with Visual Studio Code
     items:
-    - name: Install and debug local project
-      href: how-to/with-visual-studio-code/install-run-debug-nodejs.md
     - name: Clone a GitHub repo for changes
       href: how-to/with-visual-studio-code/clone-github-repository.md
     - name: Create an Azure database
       href: how-to/with-visual-studio-code/create-azure-database.md
-  - name: Automation with Azure CLI
-    items:
-    - name: Get started
-      href: core/automate-tasks-with-azure-cli.md
-      displayName: az login --identity, az login --service-principal, az login -u, az group create, az staticwebapp create, az staticwebapp delete, az storage account create, az functionapp create, az functionapp deployment slot create, az functionapp deployment source config, az functionapp deployment slot swap, az functionapp delete               
   - name: Authentication and identity
     items: 
     - name: Getting started
       href: how-to/with-authentication/getting-started.md
-    - name: Static web apps
-      items: 
-      - name: Vanilla JS
-        href: /azure/active-directory/develop/tutorial-v2-javascript-auth-code  
-      - name: "Angular: Add a Login button for Microsoft Identity provider"
-        href: /azure/active-directory/develop/tutorial-v2-angular-auth-code
-    - name: Azure Functions
-      items: 
-        - name: Triggers and bindings
-          href: /azure/azure-functions/functions-identity-based-connections-tutorial-2
-    - name: App Service
-      items: 
-      - name: Express.js only
-        href: /azure/active-directory/develop/tutorial-v2-nodejs-webapp-msal
-      - name: Express.js upload file to Blob Storage
-      - name: Express.js to Key Vault with managed identity
-        href: /azure/app-service/tutorial-connect-msi-key-vault-javascript
     - name: Electron
-      href: /azure/active-directory/develop/tutorial-v2-nodejs-desktop
+      href: /azure/active-directory/develop/tutorial-v2-nodejs-desktop?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Node.js console daemon
-      href: /azure/active-directory/develop/tutorial-v2-nodejs-console
+      href: /azure/active-directory/develop/tutorial-v2-nodejs-console?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: MSAL.js
-      href: https://github.com/AzureAD/microsoft-authentication-library-for-js
+      href: https://github.com/AzureAD/microsoft-authentication-library-for-js?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Samples
-      href: /azure/active-directory/develop/sample-v2-code
+      href: /azure/active-directory/develop/sample-v2-code?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
   - name: Logging and metrics
     href: how-to/node-sdk-logging.md
   - name: Testing
@@ -251,10 +187,7 @@
         items: 
         - name: "List subscriptions"
           href: ./sdk/authentication/local-development-environment-service-principal.md?tabs=azure-sdk-for-javascript.md
-        - name: "View subscription history"
-          href: how-to/with-azure-sdk/list-resource-operation-history.md 
-
-  - name: Training
+  - name: Training and certification
     href: learn-azure-javascript.md  
   - name: Samples
     items: 
@@ -264,8 +197,8 @@
         href: https://github.com/Azure-Samples/contoso-real-estate
         displayName: contoso, composable, sample, example, real-estate
     - name: Azure Samples browser
-      href: /samples/browse/?languages=javascript%2cnodejs%2ctypescript
+      href: /samples/browse/?languages=javascript%2cnodejs%2ctypescript&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
   - name: npm Packages
     href: azure-sdk-library-package-index.md
   - name: npm Package Documentation
-    href: /javascript/api/overview/azure/
+    href: /javascript/api/overview/azure/?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json

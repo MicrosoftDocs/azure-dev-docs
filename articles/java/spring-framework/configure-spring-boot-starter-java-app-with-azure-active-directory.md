@@ -1,20 +1,17 @@
 ---
 title: Add sign-in with Microsoft Entra account to a Spring web app
-description: Shows you how to develop a Spring web app which supports sign-in by Microsoft Entra account.
-services: active-directory
-documentationcenter: java
+description: Shows you how to develop a Spring web app that supports sign-in by Microsoft Entra account.
+author: KarlErickson
+ms.author: hangwan
 ms.date: 01/17/2023
-ms.service: active-directory
-ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.workload: identity
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 adobe-target: true
 ---
 
 # Add sign-in with Microsoft Entra account to a Spring web app
 
-This article shows you how to develop a Spring web app which supports sign-in by [Microsoft Entra account](/azure/active-directory/fundamentals/active-directory-whatis#terminology). After finishing all steps in this article, the web app will redirect to the Microsoft Entra sign-in page when it's been accessed anonymously. The following screenshot shows the Microsoft Entra sign-in page:
+This article shows you how to develop a Spring web app that supports sign-in by [Microsoft Entra account](/azure/active-directory/fundamentals/active-directory-whatis#terminology). After finishing all steps in this article, the web app will redirect to the Microsoft Entra sign-in page when it's been accessed anonymously. The following screenshot shows the Microsoft Entra sign-in page:
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/application-login.png" alt-text="Screenshot of application 'Sign in' dialog.":::
 
@@ -36,9 +33,6 @@ The following prerequisites are required to complete the steps in this article:
 1. Specify that you want to generate a **Maven** project with **Java**, enter the **Group** and **Artifact** names for your application.
 1. Add **Dependencies** for **Spring Web**, **Microsoft Entra ID**, and **OAuth2 Client**.
 1. At the bottom of the page, select the **GENERATE** button.
-
-   :::image type="content" source="media/spring-initializer/2.7.1/mvn-java8-aad-oauth2-web.png" alt-text="Screenshot of Spring Initializr with basic options.":::
-
 1. When prompted, download the project to a path on your local computer.
 
 <a name='create-azure-active-directory-instance'></a>
@@ -59,15 +53,9 @@ If you're the administrator of an existing instance, you can skip this process.
 
    When you've finished, select **Create**. It will take a few minutes to create the new resource.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/specify-azure-active-directory-name.png" alt-text="Screenshot of the Configuration section of the Microsoft Entra ID 'Create a tenant' screen." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/specify-azure-active-directory-name.png":::
-
 1. When complete, select the displayed link to access the new directory.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/select-your-azure-account-name.png" alt-text="Screenshot of 'Create a tenant' success message.":::
-
 1. Copy the **Tenant ID**. You'll use the ID value to configure your *application.properties* file later in this tutorial.
-
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/your-tenant-id.png" alt-text="Screenshot of Microsoft Entra tenant screen with 'Tenant ID' highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/your-tenant-id.png":::
 
 ### Add an application registration for your Spring Boot app
 
@@ -76,8 +64,6 @@ If you're the administrator of an existing instance, you can skip this process.
 1. Specify your application, and then select **Register**.
 
 1. When the page for your app registration appears, copy your **Application (client) ID** and the **Directory (tenant) ID**. You'll use these values to configure your *application.properties* file later in this tutorial.
-
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/your-application-id-and-tenant-id.png" alt-text="Screenshot of application with 'Application (client) ID' and 'Directory (tenant) ID' highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/your-application-id-and-tenant-id.png":::
 
 1. Select **Certificates & secrets** in the left navigation pane.  Then select **New client secret**.
 
@@ -91,15 +77,9 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. From the main page for your app registration, select **Authentication**, and select **Add a platform**.  Then select **Web applications**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/add-web-platforms.png" alt-text="Screenshot of application Authentication screen with 'Configure platforms' section showing and Web platform highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/add-web-platforms.png":::
-
 1. Enter *http://localhost:8080/login/oauth2/code/* as a new **Redirect URI**, and then select **Configure**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/specify-redirect-uri.png" alt-text="Screenshot of application Authentication screen with 'Configure Web' section showing and 'Redirect URIs' highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/specify-redirect-uri.png":::
-
 1. If you've modified the *pom.xml* file to use a Microsoft Entra starter version earlier than 3.0.0: under **Implicit grant and hybrid flows**, select **ID tokens (used for implicit and hybrid flows)**, then select **Save**.
-
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/enable-id-tokens.png" alt-text="Screenshot of application Authentication screen with 'ID tokens' selected." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/enable-id-tokens.png":::
 
 ### Add a user account to your directory, and add that account to an appRole
 
@@ -120,21 +100,13 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. From the **Overview** page of your Microsoft Entra directory, select **Enterprise applications**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/select-enterprise-application.png" alt-text="Screenshot of Microsoft Entra ID 'Enterprise applications' screen." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/select-enterprise-application.png":::
-
 1. Select **All applications**, then select the application you added the app role to in a previous step.
-
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/select-application-to-add-role.png" alt-text="Screenshot of 'Enterprise applications' screen with 'All applications' list showing." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/select-application-to-add-role.png":::
 
 1. Select **Users and groups**, then select **Add user/group**.
 
 1. Under **Users**, select **None Selected**. Select the user you created earlier, select **Select**, then select **Assign**. If you created more than one app role earlier, select a role.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/assign-user-to-app-role.png" alt-text="Screenshot of application 'Add Assignment' screen with Users pane showing." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/assign-user-to-app-role.png":::
-
 1. Go back to the **Users** panel, select your test user, and select **Reset password**, and copy the password. You'll use the password when you log into your application later in this tutorial.
-
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/reset-user-password.png" alt-text="Screenshot of user with 'Temporary password' field highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/reset-user-password.png":::
 
 ## Configure and compile your app
 
@@ -203,8 +175,6 @@ If you're the administrator of an existing instance, you can skip this process.
    mvn clean package
    mvn spring-boot:run
    ```
-
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/build-application.png" alt-text="Screenshot of Maven build output.":::
 
 1. After your application is built and started by Maven, open `http://localhost:8080/Admin` in a web browser. You should be prompted for a user name and password.
 

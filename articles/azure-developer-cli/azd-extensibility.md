@@ -32,6 +32,7 @@ The following `azd` command hooks are available:
 The following service lifecycle event hooks are available:
 
 * `prerestore` and `postrestore`: Run before and after the service packages and dependencies are restored.
+* `prebuild` and `postbuild`: Run before and after the service source code or container is built.
 * `prepackage` and `postpackage`: Run before and after the app is packaged for deployment.
 * `predeploy` and `postdeploy`: Run before and after the service code is deployed to Azure.
 
@@ -43,7 +44,7 @@ Hooks can be registered in your `azure.yaml` file at the root or within a specif
   * *Note*: PowerShell 7 is required for `pwsh`.
 * `run`: Define an inline script or a path to a file.
 * `continueOnError`: When set will continue to execute even after a script error occurred during a command hook (default false).
-* `interactive`: When set will bind the running script to the console `stdin`, `stdout` & `stderr` (default false). This property need to be set to `true` in order to see the hook's output.
+* `interactive`: When set will bind the running script to the console `stdin`, `stdout` & `stderr` (default false).
 * `windows`: Specifies that the nested configurations will only apply on windows OS. If this configuration option is excluded, the hook executes on all platforms.
 * `posix`: Specifies that the nested configurations will only apply to POSIX based OSes (Linux & MaxOS). If this configuration option is excluded, the hook executes on all platforms.
 

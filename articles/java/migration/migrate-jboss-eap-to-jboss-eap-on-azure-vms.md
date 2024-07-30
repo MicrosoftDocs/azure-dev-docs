@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
 ms.date: 03/17/2023
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, devx-track-extended-java
+ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, migration-java, linux-related-content
 recommendations: false
 ---
 
@@ -27,7 +27,7 @@ It's better to stick as close to pure "lift and shift" as possible, accounting f
 
 Red Hat and Microsoft have partnered to bring a set of Azure solution templates to Azure Marketplace to provide a solid starting point for migrating to Azure. You can see the list of offers in the [JBoss EAP on Azure Virtual Machines](../ee/jboss-on-azure.md#jboss-eap-on-azure-virtual-machines) section of [Red Hat JBoss EAP on Azure](../ee/jboss-on-azure.md).
 
-To get a feel for the prebuilt Azure Marketplace offer, see [Quickstart: Deploy JBoss EAP Server on Azure VM using the Azure portal](../ee/jboss-eap-single-server-azure-vm.md).
+To get a feel for the prebuilt Azure Marketplace offer, see [Quickstart: Deploy a JBoss EAP cluster on Azure Virtual Machines (VMs)](/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
 If none of the existing offers are a good starting point, you have to reproduce the deployment by hand using the resources available in Azure Virtual Machines. For more information, see [What is IaaS?](https://azure.microsoft.com/overview/what-is-iaas/)
 
@@ -47,9 +47,9 @@ In both options, for license portability, you're asked for the *Pool ID* from Re
 The prebuilt Azure Marketplace offers include support for Red Hat Satellite for license management. For an overview on Red Hat Satellite, see [Red Hat Satellite](https://aka.ms/red-hat-satellite).
 
 > [!NOTE]
-> If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Write down the account details for use as the *RHSM username* and *RHSM password* in the prebuilt Azure Marketplace offers.
+> If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Save aside the account details for use as the *RHSM username* and *RHSM password* in the prebuilt Azure Marketplace offers.
 >
-> The steps for discovering your *Pool ID* are explained in the [Prerequisites](../ee/jboss-eap-single-server-azure-vm.md#prerequisites) section in [Quickstart: Deploy JBoss EAP Server on an Azure virtual machine using the Azure portal](../ee/jboss-eap-single-server-azure-vm.md).
+> The steps for discovering your *Pool ID* are explained in the [Prerequisites](/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json#prerequisites) section in [Quickstart: Deploy a JBoss EAP cluster on Azure Virtual Machines (VMs)](/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
 [!INCLUDE [inventory-server-capacity-aks](includes/inventory-server-capacity-aks.md)]
 
@@ -106,7 +106,7 @@ Virtual Machine Scale Sets provide groups of load-balanced, highly scalable virt
 
 ### JBoss EAP on Clustered Virtual Machines
 
-If you prefer, a traditional cluster of VMs using the JBoss EAP clustering mechanism is suitable for a lift and shift from deployments that are already using this feature. For more information, see [Configuring a Red Hat JBoss EAP 7 Cluster](https://aka.ms/eap-vm-docs-cluster) in the JBoss EAP documentation. The prebuilt Azure Marketplace offer includes support for domain mode. For an overview of EAP Domains and domain mode, see [Domain Management](https://aka.ms/eap-vms-domain-mode).
+If you prefer, a traditional cluster of VMs using the JBoss EAP clustering mechanism is suitable for a lift and shift from deployments that are already using this feature. For more information, see [Clustering in Web Applications](https://docs.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html/development_guide/clustering_in_web_applications) in the JBoss EAP documentation. The prebuilt Azure Marketplace offer includes support for domain mode. For an overview of EAP Domains and domain mode, see [Domain Management](https://aka.ms/eap-vms-domain-mode).
 
 ### JBoss EAP Single Server
 

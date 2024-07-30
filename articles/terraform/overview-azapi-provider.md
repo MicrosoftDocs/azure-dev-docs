@@ -80,11 +80,16 @@ This section describes some tools to help you use the AzAPI provider.
 
 The [AzAPI VS Code extension](https://marketplace.visualstudio.com/items?itemName=azapi-vscode.azapi) provides a rich authoring experience with the following benefits:
 
-- Intellisense
-- Code auto-completion
-- Hints
+- List all available resource types and API versions.
+![List all available resource types](media/overview-azapi-provider/list-all-available-resource-types.png)
+- Auto-completion of the allowed properties and values for any resource.
+![List allowed properties](media/overview-azapi-provider/list-allowed-properties.png)
+- Show hints when hovering over a property.
+![Show hint when hovering over a property](media/overview-azapi-provider/show-hint-when-hovering.png)
 - Syntax validation
-- Quick info
+![Syntax validation](media/overview-azapi-provider/syntax-validation.png)
+- Auto-completion with code samples.
+![Auto-completion with code samples](media/overview-azapi-provider/auto-completion-with-code-samples.png)
 
 ## AzAPI2AzureRM migration tool
 

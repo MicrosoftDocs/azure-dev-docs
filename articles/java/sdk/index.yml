@@ -9,7 +9,7 @@ metadata:
   ms.date: 02/02/2021
   ms.topic: landing-page
   author: KarlErickson
-  ms.author: karler
+  ms.author: jogiles
   ms.custom: devx-track-java, devx-track-extended-java
 
 landingContent:
@@ -17,10 +17,12 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Azure development using Java
-            url: get-started.md
-          - text: Get started with Apache Maven  
+          - text: Get started with Apache Maven
             url: get-started-maven.md
+          - text: Get started with Gradle
+            url: get-started-gradle.md
+          - text: Get started with IntelliJ or Eclipse
+            url: get-started-ide.md
           - text: Use the Azure SDK for Java
             url: overview.md
       - linkListType: reference

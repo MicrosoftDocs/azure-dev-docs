@@ -3,11 +3,9 @@ title: Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kub
 description: Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster.
 author: KarlErickson
 ms.author: jiangma
-ms.service: azure-kubernetes-service
 ms.topic: how-to
 ms.date: 09/21/2022
-keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes, jcache, redisson
-ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-azurecli, devx-track-extended-java
+ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 #Customer intent: As a Java developer, I want to build a Java, Java EE, Jakarta EE, or MicroProfile application with JCache session enabled and deploy it on Azure Kubernetes Service cluster so that customers can store session data in the Azure Cache for Redis for session management.
 ---
 
@@ -24,7 +22,10 @@ In this guide, you'll:
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [include](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * This article requires the latest version of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
@@ -43,7 +44,7 @@ The steps in this section guide you to create the application infrastructure on 
 
 An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az_group_create) command  in the *eastus* location. This resource group will be used later for creating the Azure Container Registry (ACR) instance and the AKS cluster.
+Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az_group_create) command  in the *eastus* location. This resource group is used later for creating the Azure Container Registry (ACR) instance and the AKS cluster.
 
 ```azurecli-interactive
 export RESOURCE_GROUP_NAME=java-liberty-project
@@ -103,7 +104,7 @@ If you see a problem signing in to the Azure container registry, see [Troublesho
 
 ### Create an AKS cluster
 
-Use the [az aks create](/cli/azure/aks#az_aks_create) command to create an AKS cluster and grant it image pull permission from the ACR instance. The following example creates a cluster named *myAKSCluster* with one node. This command will take several minutes to complete.
+Use the [az aks create](/cli/azure/aks#az_aks_create) command to create an AKS cluster and grant it image pull permission from the ACR instance. The following example creates a cluster named *myAKSCluster* with one node. This command takes several minutes to complete.
 
 ```azurecli-interactive
 export CLUSTER_NAME=myAKSCluster
@@ -266,17 +267,17 @@ To deploy and run your Liberty application on the AKS cluster, use the following
 
 1. Run `cd target` to change directory to the build of the sample.
 1. Run one of the following commands to build the application image and push it to the ACR instance.
-   * Use the following command to build with an Open Liberty base image if you prefer to use Open Liberty as a lightweight open source Java™ runtime:
+   * Use the following command to build with an Open Liberty base image if you prefer to use Open Liberty as a lightweight open source Java&trade; runtime:
 
      ```azurecli-interactive
-     # Build and tag application image. This will cause the ACR instance to pull the necessary Open Liberty base images.
+     # Build and tag application image. This causes the ACR instance to pull the necessary Open Liberty base images.
      az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME --resource-group $RESOURCE_GROUP_NAME .
      ```
 
    * Use the following command to build with a WebSphere Liberty base image if you prefer to use a commercial version of Open Liberty:
 
      ```azurecli-interactive
-     # Build and tag application image. This will cause the ACR instance to pull the necessary WebSphere Liberty base images.
+     # Build and tag application image. This causes the ACR instance to pull the necessary WebSphere Liberty base images.
      az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME --resource-group $RESOURCE_GROUP_NAME --file=Dockerfile-wlp .
      ```
 
@@ -386,3 +387,5 @@ You can learn more from references used in this guide:
 * [Configuring Liberty session persistence with JCache](https://www.ibm.com/docs/en/was-liberty/base?topic=manually-configuring-liberty-session-persistence-jcache)
 * [JCache support of Redisson](https://redisson.org/glossary/jcache.html)
 * [Open Liberty Server Configuration](https://openliberty.io/docs/ref/config/)
+
+To explore options to run WebSphere products on Azure, see [What are solutions to run the WebSphere family of products on Azure?](websphere-family.md)

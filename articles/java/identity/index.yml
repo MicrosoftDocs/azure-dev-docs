@@ -1,0 +1,94 @@
+### YamlMime:Landing
+
+title: Secure Java apps using the Microsoft identity platform
+summary: Learn how the Microsoft identity platform enables Java developers to acquire tokens from Microsoft Entra ID and Azure AD B2C, allowing applications to authenticate users and access secured web APIs, Microsoft Graph, other Microsoft APIs, third-party web APIs, and your web API.
+
+metadata:
+  title: Secure Java apps using the Microsoft identity platform
+  description: Learn how the Microsoft identity platform enables Java developers to acquire tokens from Microsoft Entra ID and Azure AD B2C, allowing applications to authenticate users and access secured web APIs, Microsoft Graph, other Microsoft APIs, third-party web APIs, and your web API.
+  author: KarlErickson
+  ms.author: karler
+  ms.date: 03/11/2024
+  ms.topic: landing-page
+
+landingContent:
+  - title: Secure your Java JBoss EAP app
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Enable sign-in with Microsoft Entra ID
+            url: enable-java-jboss-eap-webapp-authentication-entra-id.md
+          - text: Enable sign-in with Azure AD B2C
+            url: enable-java-jboss-eap-webapp-authentication-azure-ad-b2c.md
+          - text: Access user details
+            url: enable-java-jboss-eap-webapp-authorization-entra-id.md
+          - text: Use roles and role claims
+            url: enable-java-jboss-eap-webapp-authorization-role-entra-id.md
+          - text: Use groups and group claims
+            url: enable-java-jboss-eap-webapp-authorization-group-entra-id.md
+          - text: Deploy to App Service
+            url: deploy-jboss-to-app-service.md
+  - title: Secure your Java Tomcat app
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Enable sign-in with Microsoft Entra ID
+            url: enable-java-tomcat-webapp-authentication-entra-id.md
+          - text: Enable sign-in with Azure AD B2C
+            url: enable-java-tomcat-webapp-authentication-azure-ad-b2c.md
+          - text: Access user details
+            url: enable-java-tomcat-webapp-authorization-entra-id.md
+          - text: Use roles and role claims
+            url: enable-java-tomcat-webapp-authorization-role-entra-id.md
+          - text: Use groups and group claims
+            url: enable-java-tomcat-webapp-authorization-group-entra-id.md
+          - text: Deploy to App Service
+            url: deploy-tomcat-to-app-service.md
+  - title: Secure your Java WebLogic app
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Enable sign-in with Microsoft Entra ID
+            url: enable-java-weblogic-webapp-authentication-entra-id.md
+          - text: Enable sign-in with Azure AD B2C
+            url: enable-java-weblogic-webapp-authentication-azure-ad-b2c.md
+          - text: Access user details
+            url: enable-java-weblogic-webapp-authorization-entra-id.md
+          - text: Use roles and role claims
+            url: enable-java-weblogic-webapp-authorization-role-entra-id.md
+          - text: Use groups and group claims
+            url: enable-java-weblogic-webapp-authorization-group-entra-id.md
+          - text: Deploy to WebLogic on Azure VM
+            url: deploy-weblogic-to-vm.md
+  - title: Secure your Java WebSphere app
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Enable sign-in with Microsoft Entra ID
+            url: enable-java-websphere-webapp-authentication-entra-id.md
+          - text: Enable sign-in with Azure AD B2C
+            url: enable-java-websphere-webapp-authentication-azure-ad-b2c.md
+          - text: Access user details
+            url: enable-java-websphere-webapp-authorization-entra-id.md
+          - text: Use roles and role claims
+            url: enable-java-websphere-webapp-authorization-role-entra-id.md
+          - text: Use groups and group claims
+            url: enable-java-websphere-webapp-authorization-group-entra-id.md
+          - text: Deploy to WebSphere on Azure VM
+            url: deploy-websphere-to-vm.md
+  - title: Secure your Java Spring Boot app
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Enable sign-in with Microsoft Entra ID
+            url: enable-spring-boot-webapp-authentication-entra-id.md
+          - text: Enable sign-in with Azure AD B2C
+            url: enable-spring-boot-webapp-authentication-azure-ad-b2c.md
+          - text: Access user details
+            url: enable-spring-boot-webapp-authorization-entra-id.md
+          - text: Use roles and role claims
+            url: enable-spring-boot-webapp-authorization-role-entra-id.md
+          - text: Use groups and group claims
+            url: enable-spring-boot-webapp-authorization-group-entra-id.md
+          - text: Deploy to Azure Spring Apps
+            url: deploy-spring-boot-to-azure-spring-apps.md

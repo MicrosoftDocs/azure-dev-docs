@@ -2,6 +2,7 @@
 author: KarlErickson
 ms.author: haiche
 ms.date: 05/31/2023
+ms.custom: devx-track-java, devx-track-extended-java, linux-related-content
 ---
 
 ### Ensure that the target is the appropriate target for your migration effort

@@ -2,11 +2,10 @@
 title: Dev tunnels command-line reference
 titleSuffix: Microsoft dev tunnels
 description: Reference documentation for how to use the dev tunnel command line tool to create publicly accessible ports for local services.
-author: curib
-ms.author: cauribeg
+author: derekbekoe
+ms.author: debekoe
 ms.topic: reference
 ms.service: azure-dev-tunnels
-ms.custom: build-2023
 ms.date: 11/17/2023 
 ---
 
@@ -47,7 +46,7 @@ Here are some examples on use of these commands:
 |-----------------------------------|---------------------------------------------------------|
 | `devtunnel user login`     | Login with a Microsoft organization (Microsoft Entra ID) or personal account |
 | `devtunnel user login -g`  | Login with a GitHub account |
-| `devtunnel user login -d`  | Login with a GitHub account  with _device code login_, if local interactive browser login isn't possible  |
+| `devtunnel user login -d`  | Login with a Microsoft organization (Microsoft Entra ID) or personal account with _device code login_, if local interactive browser login isn't possible  |
 | `devtunnel user login -g -d`  | Login with a GitHub account with _device code login_, if local interactive browser login isn't possible |
 
 ## Host a dev tunnel

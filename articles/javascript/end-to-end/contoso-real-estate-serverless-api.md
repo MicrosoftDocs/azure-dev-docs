@@ -3,7 +3,7 @@ title: "Tutorial: Develop Contoso Real Estate Serverless APIs"
 description: Understand the Contoso Real Estate serverless API development with Azure Functions, which connect to PostGreSQL for property listings.
 ms.topic: tutorial
 ms.date: 09/22/2023
-ms.custom: devx-track-js, devx-track-ts, contoso-real-estate
+ms.custom: devx-track-js, devx-track-ts, contoso-real-estate, devx-track-extended-azdevcli
 # CustomerIntent: As a senior developer new to Azure, I want to develop a API layer with modern tools so that I can build scalable and efficient APIs that can handle high traffic loads and integrate with other Azure services seamlessly.
 ---
 

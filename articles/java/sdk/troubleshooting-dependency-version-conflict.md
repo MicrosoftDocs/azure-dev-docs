@@ -138,6 +138,12 @@ When pinning a specific version of Jackson, make sure to do it for all modules u
 - `jackson-dataformat-xml`
 - `jackson-datatype-jsr310`
 
+### Migration from Jackson to azure-json
+
+Azure client libraries for Java are in the process of migration to [azure-json](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/serialization/azure-json), which doesn't depend on any 3rd party components, and offers shared primitives, abstractions, and helpers for JSON.
+
+Environments like Apache Spark, Apache Flink, and Databricks might bring older versions of `azure-core` that don't yet depend on `azure-json`. As a result, when using newer versions of Azure libraries in such environments, you might get errors similar to `java.lang.NoClassDefFoundError: com/azure/json/JsonSerializable`. You can mitigate this error by adding an explicit dependency on `azure-json`.
+
 ## Next steps
 
 Now that you're familiar with dependency version conflicts and how to troubleshoot them, see [Dependency Management for Java](https://devblogs.microsoft.com/azure-sdk/dependency-management-for-java/) for information on the best way to prevent them.

@@ -1,6 +1,10 @@
 {
     "redirections": [
-
+        {
+          "source_path": "sdk/get-started.md",
+          "redirect_url": "/previous-versions/azure/developer/java/sdk/get-started",
+          "redirect_document_id": false
+        },
         {
             "source_path": "eclipse-microprofile/cicd-microprofile-vsts.md",
             "redirect_url": "/azure/developer/java/eclipse-microprofile/cicd-microprofile"
@@ -8,6 +12,18 @@
         {
             "source_path": "eclipse-microprofile/deploy-microprofile-to-container-instances.md",
             "redirect_url": "/azure/developer/java/eclipse-microprofile/index"
+        },
+        {
+          "source_path": "ee/jboss-eap-single-server-azure-vm.md",
+          "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json"
+        },
+        {
+          "source_path": "ee/jboss-eap-cluster-azure-vms.md",
+          "redirect_url": "/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json"
+        },
+        {
+          "source_path": "ee/weblogic-server-azure-virtual-machine.md",
+          "redirect_url": "/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine"
         },
         { 
             "source_path": "ee/weblogic-server-azure-kubernetes-service.md",
@@ -154,6 +170,11 @@
             "redirect_url": "/azure/developer/java/migration/migration-overview"
         },
         {
+          "source_path": "migration/cloud-suitability-analyzer.md",
+          "redirect_url": "/previous-versions/azure/developer/java/migration/cloud-suitability-analyzer",
+          "redirect_document_id": false
+        },
+        {
             "source_path": "migration/migrate-java-se-to-java-se-app-service.md",
             "redirect_url": "/azure/developer/java/migration/index"
         },
@@ -183,7 +204,7 @@
         },
         {
             "source_path": "migration/appcat.md",
-            "redirect_url": "/azure/migrate/appcat/java?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json",
+            "redirect_url": "/azure/migrate/appcat/java?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json"
         },
         {
             "source_path": "migration/migrate-weblogic-with-aad-ldap.md",
@@ -192,6 +213,10 @@
         {
             "source_path": "migration/migrate-weblogic-with-elk.md",
             "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-weblogic"
+        },
+        {
+            "source_path": "migration/migrate-tomcat-to-azure-spring-apps.md",
+            "redirect_url": "/azure/developer/java/migration/migrate-tomcat-to-tomcat-app-service"
         },
         {
             "source_path": "sdk/java-sdk-add-certificate-ca-store.md",
@@ -464,6 +489,34 @@
         {
             "source_path": "toolkit-for-intellij/whats-new.md",
             "redirect_url": "/azure/developer/java/toolkit-for-intellij"
+        },
+        {
+            "source_path": "quickstarts/azure-ai-for-java-developers.md",
+            "redirect_url": "/azure/developer/java/ai/azure-ai-for-java-developers"
+        },
+        {
+            "source_path": "quickstarts/get-started-app-chat-template.md",
+            "redirect_url": "/azure/developer/java/ai/get-started-app-chat-template"
+        },
+        {
+            "source_path": "quickstarts/get-started-app-chat-scaling-with-azure-container-apps.md",
+            "redirect_url": "/azure/developer/java/ai/get-started-app-chat-scaling-with-azure-container-apps"
+        },
+        {
+            "source_path": "azure-ai/index.yml",
+            "redirect_url": "/azure/developer/java/ai/index"
+        },
+        {
+            "source_path": "azure-ai/azure-ai-for-java-developers.md",
+            "redirect_url": "/azure/developer/java/ai/azure-ai-for-java-developers"
+        },
+        {
+            "source_path": "azure-ai/get-started-app-chat-scaling-with-azure-container-apps.md",
+            "redirect_url": "/azure/developer/java/ai/get-started-app-chat-scaling-with-azure-container-apps"
+        },
+        {
+            "source_path": "azure-ai/get-started-app-chat-template.md",
+            "redirect_url": "/azure/developer/java/ai/get-started-app-chat-template"
         }
     ]
 }

@@ -1,9 +1,9 @@
 ---
 title: Deployment options for Azure hosting
-description: Deploying your apps to Azure hosting services means moving a file or set of files to Azure to be served via an HTTP endpoint. 
+description: Deploying your apps to Azure hosting services means moving a file or set of files to Azure to be served via an HTTP endpoint.
 ms.topic: how-to
 ms.date: 08/31/2022
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, contperf-fy21q2, vscode-azure-extension-update-completed 
+ms.custom: vscode-azure-extension-update-completed
 ---
 
 # Deployment choices for your web app to Azure

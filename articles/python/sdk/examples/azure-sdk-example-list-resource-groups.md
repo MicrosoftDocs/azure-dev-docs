@@ -1,7 +1,7 @@
 ---
 title: List resource groups and resources using the Azure libraries for Python
 description: Use the resource management library in the Azure SDK for Python to list resource groups and resources in a group.
-ms.date: 06/24/2021
+ms.date: 01/15/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -15,13 +15,13 @@ This example demonstrates how to use the Azure SDK management libraries in a Pyt
 
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
-The [Equivalent Azure CLI command](#for-reference-equivalent-azure-cli-commands) is given later in this article.
+The [Equivalent Azure CLI commands](#for-reference-equivalent-azure-cli-commands) are listed later in this article.
 
 ## 1: Set up your local development environment
 
-If you haven't already, **follow all the instructions** on [Configure your local Python dev environment for Azure](../../configure-local-development-environment.md).
+If you haven't already, set up an environment where you can run this code. Here are some options:
 
-Be sure to create and activate a virtual environment for this project.
+[!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
 
 ## 2: Install the Azure library packages
 
@@ -29,11 +29,9 @@ Create a file named *requirements.txt* with the following contents:
 
 :::code language="txt" source="~/../python-sdk-docs-examples/resource_group/requirements.txt":::
 
-Be sure to use these versions of the libraries. Using older versions will result in errors such as "'AzureCliCredential' object object has no attribute 'signed_session'."
-
 In a terminal or command prompt with the virtual environment activated, install the requirements:
 
-```cmd
+```console
 pip install -r requirements.txt
 ```
 
@@ -55,36 +53,62 @@ By default, the code lists resources in "myResourceGroup". To use a different re
 
 ### Authentication in the code
 
-[!INCLUDE [cli-auth-note](../../includes/cli-auth-note.md)]
+Later in this article, you sign in to Azure with the Azure CLI to run the sample code. If your account has permissions to create and list resource groups in your Azure subscription, the code will run successfully.
+
+To use such code in a production script, you can set environment variables to use a service principal-based method for authentication. To learn more, see [How to authenticate Python apps with Azure services](../authentication-overview.md). You need to ensure that the service principal has sufficient permissions to create and list resource groups in your subscription by assigning it an appropriate [role in Azure](/azure/role-based-access-control/overview); for example, the *Contributor* role on your subscription.
 
 ### Reference links for classes used in the code
 
-- [AzureCliCredential (azure.identity)](/python/api/azure-identity/azure.identity.azureclicredential)
+- [DefaultAzureCredential (azure.identity)](/python/api/azure-identity/azure.identity.defaultazurecredential)
 - [ResourceManagementClient (azure.mgmt.resource)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resourcemanagementclient)
 
 ## 4: Run the scripts
 
-List all resources groups in the subscription:
+1. If you haven't already, sign in to Azure using the Azure CLI:
 
-```cmd
-python list_groups.py
-```
+    ```azurecli
+    az login
+    ```
 
-List all resources in a resource group:
+1. Set the `AZURE_SUBSCRIPTION_ID` environment variable to your subscription ID. (You can run the [az account show](/cli/azure/account#az-account-show) command and get your subscription ID from the `id` property in the output):
 
-```cmd
-python list_resources.py
-```
+    # [cmd](#tab/cmd)
+
+    ```cmd
+    set AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    ```
+
+    # [bash](#tab/bash)
+
+    ```bash
+    AZURE_SUBSCRIPTION_ID=00000000-0000-0000-0000-000000000000
+    ```
+
+    ---
+
+1. List all resources groups in the subscription:
+
+    ```console
+    python list_groups.py
+    ```
+
+1. List all resources in a resource group:
+
+    ```console
+    python list_resources.py
+    ```
+
+    By default, the code lists resources in "myResourceGroup". To use a different resource group, set the `RESOURCE_GROUP_NAME` environment variable to the desired group name.
 
 ### For reference: equivalent Azure CLI commands
 
-The following Azure CLI command lists resource groups in a subscription using JSON output:
+The following Azure CLI command lists resource groups in a subscription:
 
 ```azurecli
 az group list
 ```
 
-The following command lists resources within the "myResourceGroup" in the centralus region (the location argument is necessary to identify a specific data center):
+The following command lists resources within the "myResourceGroup" in the centralus region (the `location` argument is necessary to identify a specific data center):
 
 ```azurecli
 az resource list --resource-group myResourceGroup --location centralus

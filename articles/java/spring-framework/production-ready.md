@@ -3,14 +3,14 @@ title: Spring Cloud Azure Production ready
 description: This article describes Spring Cloud Azure Production ready.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yeyonghui
+ms.author: hangwan
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Production ready
 
-**This article applies to:** ✔️ Version 4.13.0
+**This article applies to:** ✔️ Version 4.19.0
 
 We’ve added health indicators for App Configuration, Event Hubs, Azure Cosmos DB, Key Vault, Storage Blob, Storage Queue, and Storage File, as well as Spring Cloud Sleuth support for all HTTP-based Azure SDKs. As an example, you now can probe to determine whether a storage blob is up or down via Spring Boot actuator endpoint, as well as track dependencies and latencies going from your application to Key Vault.
 

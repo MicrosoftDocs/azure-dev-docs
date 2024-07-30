@@ -21,12 +21,16 @@ items:
          href: hello-world-web-app-linux.md
     - name: Azure Functions - Get Started
       href: /azure/azure-functions/functions-create-maven-intellij?toc=/azure/developer/java/toolkit-for-intellij/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+    - name: Azure Container Apps - Get Started
+      href: create-container-apps-intellij.md
     - name: Azure Storage - Manage Storage Accounts
       href: managing-storage-accounts-using-azure-explorer.md
     - name: Azure Virtual machines - Manage Virtual Machines
       href: managing-virtual-machines-using-azure-explorer.md
     - name: Azure Redis Cache - Manage Azure Redis Cache
       href: managing-redis-caches-using-azure-explorer.md
+    - name: Azure OpenAI - Get Started
+      href: chatgpt-intellij.md
   - name: Release notes
     href: https://github.com/Microsoft/azure-tools-for-java/releases
   - name: Marketplace

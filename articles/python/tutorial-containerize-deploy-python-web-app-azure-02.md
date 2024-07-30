@@ -12,7 +12,7 @@ This article is part of a tutorial about how to containerize and deploy a contai
 
 Running a Docker image locally in your development environment requires setup beyond deployment to Azure. Think of it as an investment that can make future development cycles easier, especially when you move beyond sample apps and you start to create your own web apps. To deploy the sample apps for [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) and [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app), you can skip this step and go to the next step in this tutorial. You can always return after deploying to Azure and work through these steps.
 
-The service diagram shown below highlights the components covered in this article.
+The following service diagram highlights the components covered in this article.
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-run-local.png" alt-text="A screenshot of the Tutorial - Containerized Python App on Azure with local part highlighted." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-run-local.png":::
 
@@ -58,6 +58,9 @@ If you're using one of the framework sample apps available for [Django](https://
 
 These instructions require [Visual Studio Code](https://code.visualstudio.com/) and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). Go to the sample folder you cloned or downloaded and open VS Code with the command `code .`.
 
+> [!NOTE]
+> The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/), which starts the daemon, before proceeding.
+
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [A screenshot showing how to open the Docker extension in Visual Studio Code](<./includes/tutorial-container-web-app/build-docker-image-visual-studio-code-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-open-docker-extension-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-open-docker-extension.png" alt-text="A screenshot showing how to open the Docker extension in Visual Studio Code." ::: |
@@ -67,6 +70,9 @@ These instructions require [Visual Studio Code](https://code.visualstudio.com/) 
 ### [Docker CLI](#tab/docker-cli)
 
 These instructions require [Docker](https://docs.docker.com/get-docker/).
+
+> [!NOTE]
+> The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/), which starts the daemon, before proceeding.
 
 [!INCLUDE [Build an image with the Docker CLI](<./includes/tutorial-container-web-app/build-docker-image-docker-cli.md>)]
 
@@ -87,10 +93,26 @@ For this tutorial, you need a MongoDB database named *restaurants_reviews* and a
 
 **Step 1:** Install [MongoDB](https://www.mongodb.com/docs/manual/installation/) if it isn't already.
 
-Check if it's installed:
+You can check for the installation of MongoDB by using the [MongoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/).
 
-```
-mongo --version
+- The following command enters the shell and gives you the version of both mongosh and mongoDB server installed on your system:
+
+  ```terminal
+  mongosh
+  ```
+
+- The following command gives you just the version of MongoDB server installed on your system:
+  
+  ```terminal
+  mongosh --quiet --exec 'db.version()'
+  ```
+
+If these commands don't work, you might need to explicitly [install mongosh](https://www.mongodb.com/docs/mongodb-shell/install/) or [connect mongosh to your MongoDB server](https://www.mongodb.com/docs/mongodb-shell/connect/).
+  
+An alternative in some installations is to directly invoke the Mongo daemon.
+
+```terminal
+mongod --version
 ```
 
 **Step 2:** Edit the *mongod.cfg* file to add your computer's IP address.
@@ -109,11 +131,11 @@ Restart MongoDB to pick up changes to the configuration file.
 
 **Step 3:** Create a database and collection in the local MongoDB database.
 
-Set the database name to "restaurants_reviews" and the collection name to "restaurants_reviews". You can create a database and collection with the VS Code [MongoDB extension](https://code.visualstudio.com/docs/azure/mongodb), the [MonogoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/), or any other MondoDB-aware tool.
+Set the database name to "restaurants_reviews" and the collection name to "restaurants_reviews". You can create a database and collection with the VS Code [MongoDB extension](https://code.visualstudio.com/docs/azure/mongodb), the [MongoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/), or any other MondoDB-aware tool.
 
 For the MongoDB shell, here are example commands to create the database and collection:
 
-```
+```mongosh
 > help
 > use restaurants_reviews
 > db.restaurants_reviews.insertOne({})

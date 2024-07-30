@@ -2,126 +2,124 @@ items:
 - name: Azure SDK for Java documentation
   href: index.yml
   items:
-    - name: Getting started
-      expanded: true
+  - name: Getting started
+    items:
+    - name: Get started with Apache Maven
+      href: get-started-maven.md
+    - name: Get started with Gradle
+      href: get-started-gradle.md
+    - name: Eclipse and IntelliJ integration
+      href: get-started-ide.md
+    expanded: true
+  - name: Libraries, drivers, and Spring modules
+    href: libraries-drivers-modules.md
+  - name: Concepts
+    items:
+    - name: Overview
+      href: overview.md
+    - name: Identity and authentication
       items:
-        - name: Get started with Apache Maven
-          href: get-started-maven.md
-        - name: Get started with Gradle
-          href: get-started-gradle.md
-        - name: Eclipse and IntelliJ integration
-          href: get-started-ide.md
-        - name: Azure development using Java
-          href: get-started.md
-    - name: Libraries, drivers, and Spring modules
-      href: libraries-drivers-modules.md
-    - name: Concepts
-      expanded: true
-      items:
-        - name: Overview
-          href: overview.md
-        - name: Identity and authentication
-          expanded: false
-          items:
-            - name: Overview
-              href: identity.md
-            - name: Azure-hosted Application Authentication
-              href: identity-azure-hosted-auth.md
-            - name: Development Environment Authentication
-              href: identity-dev-env-auth.md
-            - name: Service Principal Authentication
-              href: identity-service-principal-auth.md
-            - name: User Credential Authentication
-              href: identity-user-auth.md
-        - name: Logging
-          expanded: false
-          items:
-            - name: Overview
-              href: logging-overview.md
-            - name: java.util.logging
-              href: logging-jul.md
-            - name: Logback
-              href: logging-logback.md
-            - name: Log4J
-              href: logging-log4j.md
-        - name: HTTP clients and pipeline
-          href: http-client-pipeline.md
-        - name: Asynchronous programming
-          href: async-programming.md
-        - name: Pagination and iteration
-          href: pagination.md
-        - name: Long-running operations
-          href: lro.md
-        - name: Proxying
-          href: proxying.md
-        - name: Tracing
-          href: tracing.md
-    - name: Integrations
+      - name: Overview
+        href: identity.md
+      - name: Azure-hosted Application Authentication
+        href: identity-azure-hosted-auth.md
+      - name: Development Environment Authentication
+        href: identity-dev-env-auth.md
+      - name: Service Principal Authentication
+        href: identity-service-principal-auth.md
+      - name: User Credential Authentication
+        href: identity-user-auth.md
       expanded: false
+    - name: Logging
       items:
-        - name: IntelliJ
-          href: ../toolkit-for-intellij/index.yml
-        - name: Eclipse
-          href: ../toolkit-for-eclipse/index.yml
-        - name: Spring
-          href: ../spring-framework/spring-cloud-azure-overview.md
-        - name: MicroProfile
-          href: ../eclipse-microprofile/index.yml
-    - name: Troubleshooting
+      - name: Overview
+        href: logging-overview.md
+      - name: java.util.logging
+        href: logging-jul.md
+      - name: Logback
+        href: logging-logback.md
+      - name: Log4J
+        href: logging-log4j.md
       expanded: false
+    - name: HTTP clients and pipeline
+      href: http-client-pipeline.md
+    - name: Asynchronous programming
+      href: async-programming.md
+    - name: Pagination and iteration
+      href: pagination.md
+    - name: Long-running operations
+      href: lro.md
+    - name: Proxying
+      href: proxying.md
+    - name: Tracing
+      href: tracing.md
+    expanded: true
+  - name: Integrations
+    items:
+    - name: IntelliJ
+      href: ../toolkit-for-intellij/index.yml
+    - name: Eclipse
+      href: ../toolkit-for-eclipse/index.yml
+    - name: Spring
+      href: ../spring-framework/spring-cloud-azure-overview.md
+    - name: MicroProfile
+      href: ../eclipse-microprofile/index.yml
+    expanded: false
+  - name: Troubleshooting
+    items:
+    - name: Overview
+      href: troubleshooting-overview.md
+    - name: Identity and authentication
       items:
+      - name: Overview
+        href: troubleshooting-authentication-overview.md
+      - name: Azure-hosted application authentication
+        href: troubleshooting-authentication-azure-hosted.md
+      - name: Development environment authentication
+        href: troubleshooting-authentication-dev-env.md
+      - name: Service principal authentication
+        href: troubleshooting-authentication-service-principal.md
+      - name: User credential authentication
+        href: troubleshooting-authentication-user-credential.md
+      - name: Multi-tenant authentication
+        href: troubleshooting-authentication-multi-tenant.md
+      expanded: false
+    - name: Messaging
+      items:
+      - name: Event Hubs
+        items:
         - name: Overview
-          href: troubleshooting-overview.md
-        - name: Identity and authentication
-          expanded: false
-          items:
-          - name: Overview
-            href: troubleshooting-authentication-overview.md
-          - name: Azure-hosted application authentication
-            href: troubleshooting-authentication-azure-hosted.md
-          - name: Development environment authentication
-            href: troubleshooting-authentication-dev-env.md
-          - name: Service principal authentication
-            href: troubleshooting-authentication-service-principal.md
-          - name: User credential authentication
-            href: troubleshooting-authentication-user-credential.md
-          - name: Multi-tenant authentication
-            href: troubleshooting-authentication-multi-tenant.md
-        - name: Messaging
-          expanded: false
-          items:
-            - name: Event Hubs
-              expanded: false
-              items:
-              - name: Overview
-                href: troubleshooting-messaging-event-hubs-overview.md
-              - name: Event producer
-                href: troubleshooting-messaging-event-hubs-producer.md
-              - name: Event processor
-                href: troubleshooting-messaging-event-hubs-processor.md
-              - name: Performance
-                href: troubleshooting-messaging-event-hubs-performance.md
-            - name: Service Bus
-              href: troubleshooting-messaging-service-bus-overview.md
-        - name: Dependency conflicts
-          href: troubleshooting-dependency-version-conflict.md
-        - name: Network issues
-          href: troubleshooting-network.md
-    - name: Code samples
-      items:
-        - name: Virtual machines
-          href: virtual-machine-samples.md
-        - name: Web apps
-          href: web-apps-samples.md
-        - name: SQL Database
-          href: sql-database-samples.md
-        - name: Security
-          href: security-samples.md
-        - name: Containers
-          href: containers-samples.md
-        - name: All Java samples
-          href: /samples/browse/?products=azure&languages=java
-    - name: Package index
-      href: azure-sdk-library-package-index.md
-    - name: Reference
-      href: /java/api/overview/azure/
+          href: troubleshooting-messaging-event-hubs-overview.md
+        - name: Event producer
+          href: troubleshooting-messaging-event-hubs-producer.md
+        - name: Event processor
+          href: troubleshooting-messaging-event-hubs-processor.md
+        - name: Performance
+          href: troubleshooting-messaging-event-hubs-performance.md
+        expanded: false
+      - name: Service Bus
+        href: troubleshooting-messaging-service-bus-overview.md
+      expanded: false
+    - name: Dependency conflicts
+      href: troubleshooting-dependency-version-conflict.md
+    - name: Network issues
+      href: troubleshooting-network.md
+    expanded: false
+  - name: Code samples
+    items:
+    - name: Virtual machines
+      href: virtual-machine-samples.md
+    - name: Web apps
+      href: web-apps-samples.md
+    - name: SQL Database
+      href: sql-database-samples.md
+    - name: Security
+      href: security-samples.md
+    - name: Containers
+      href: containers-samples.md
+    - name: All Java samples
+      href: /samples/browse/?products=azure&languages=java
+  - name: Package index
+    href: azure-sdk-library-package-index.md
+  - name: Reference
+    href: /java/api/overview/azure/

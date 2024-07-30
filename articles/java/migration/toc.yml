@@ -16,8 +16,6 @@ items:
     - name: Tomcat to Azure
       expanded: true
       items:
-        - name: Tomcat to Azure Spring Apps
-          href: migrate-tomcat-to-azure-spring-apps.md
         - name: Tomcat to Azure App Service
           href: migrate-tomcat-to-tomcat-app-service.md
         - name: Tomcat to Azure Container Apps
@@ -32,28 +30,38 @@ items:
         - name: WebLogic Server to AKS
           href: migrate-weblogic-to-azure-kubernetes-service.md
         - name: WebLogic Server to Azure Virtual Machines
-          href: migrate-weblogic-to-virtual-machines.md
-        - name: WebLogic Server to WildFly on AKS
-          href: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
+          href: migrate-weblogic-to-virtual-machines.md 
+        - name: "Tutorial: WebLogic Server with App Gateway"
+          href: migrate-weblogic-with-app-gateway.md       
         - name: "Tutorial: WebLogic to Azure VMs manual guidance"
           href: migrate-weblogic-to-azure-vm-manually.md
+        - name: "Tutorial: WebLogic to AKS with geo-redundancy"
+          href: migrate-weblogic-to-aks-with-ha-geo-redundancy.md
         - name: "Tutorial: WebLogic to AKS within custom virtual network"
-          href: migrate-weblogic-to-aks-within-an-existing-vnet.md
-        - name: "Tutorial: WebLogic Server with App Gateway"
-          href: migrate-weblogic-with-app-gateway.md
+          href: migrate-weblogic-to-aks-within-an-existing-vnet.md       
+        - name: "Tutorial: WebLogic to Azure VMs with high availability and disaster recovery"
+          href: migrate-weblogic-to-vms-with-ha-dr.md
+        - name: "Tutorial: WebLogic to AKS with KEDA scaler based on Prometheus Metrics"
+          href: migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics.md
         - name: WebLogic Server to JBoss EAP on Azure App Service
           href: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
+        - name: WebLogic Server to WildFly on AKS
+          href: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
     - name: WebSphere to Azure
       expanded: true
       items:
         - name: WebSphere Application Server to AKS
           href: migrate-websphere-to-azure-kubernetes-service.md
+        - name: "Tutorial: WebSphere Liberty/Open Liberty to AKS with high availability and disaster recovery"
+          href: migrate-liberty-to-aks-with-ha-dr.md
         - name: WebSphere Application Server to Azure Red Hat OpenShift
           href: migrate-websphere-to-azure-redhat-openshift.md
         - name: WebSphere Application Server to Azure Virtual Machines
           href: migrate-websphere-to-virtual-machines.md
         - name: "Tutorial: WebSphere to Azure VMs manual guidance"
           href: migrate-websphere-to-azure-vm-manually.md
+        - name: "Tutorial: WebSphere to Azure VMs with high availability and disaster recovery"
+          href: migrate-websphere-to-vms-with-ha-dr.md
         - name: WebSphere to JBoss EAP on App Service
           href: migrate-websphere-to-jboss-eap-on-azure-app-service.md
         - name: WebSphere to WildFly on AKS

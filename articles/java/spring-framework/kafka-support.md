@@ -3,14 +3,14 @@ title: Spring Cloud Azure kafka support
 description: This article describes how Spring Cloud Azure and Kafka can be used together.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yeyonghui
+ms.author: hangwan
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure Kafka support
 
-**This article applies to:** ✔️ Version 4.13.0 ✔️ Version 5.7.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.14.0
 
 From version 4.3.0, Spring Cloud Azure for Kafka supports various types of credentials to authenticate and connect to Azure Event Hubs.
 

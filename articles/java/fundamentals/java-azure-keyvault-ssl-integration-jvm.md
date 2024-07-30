@@ -95,7 +95,7 @@ az keyvault set-policy \
 
 ## Client/server side TLS/SSL examples
 
-For examples of client/server-side TLS/SSL, see the [Examples](/java/api/overview/azure/security-keyvault-jca-readme#examples) section of the [Azure Key Vault JCA client library for Java](/java/api/overview/azure/security-keyvault-jca-readme).
+For examples of client/server-side TLS/SSL, see the [Examples](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-jca/README.md#examples) section of the [Azure Key Vault JCA client library for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-jca/README.md).
 
 ## Next steps
 

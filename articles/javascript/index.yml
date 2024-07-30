@@ -11,7 +11,7 @@ metadata:
   description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
   author: diberry
   ms.author: diberry
-  ms.date: 01/25/2023
+  ms.date: 07/10/2024
   ms.topic: landing-page
   ms.custom: 2020Aug21Redesign, devx-track-js, engagement-fy23
 landingContent:
@@ -24,38 +24,40 @@ landingContent:
             url: core/what-is-azure-for-javascript-development.md
           - text: Azure Fundamentals
             url: /training/modules/intro-to-azure-fundamentals/            
-          - text: Install Node.js
-            url: core/install-nodejs-develop-azure-sdk-project.md
           - text: Set up development environment
             url: core/configure-local-development-environment.md
           - text: Authenticate to Azure SDK
             url: /azure/developer/javascript/sdk/authentication/local-development-environment-service-principal
-          - text: Authenticate your web app users
-            url: how-to/with-authentication/getting-started.md?tabs=no-code%2Cno-code-credential
-          - text: Databases for developers
-            url: database-developer-guide.md
-          - text: Storage for developers
-            url: /azure/storage/blobs/storage-blob-javascript-get-started
-          - text: Azure SDK Blog
-            url: https://devblogs.microsoft.com/azure-sdk/
-  - title: Deploy and host apps
+
+  - title: Use Azure client libraries (SDK)
     linkLists:
-      - linkListType: tutorial
+      - linkListType: get-started
         links:
-          - text: Select a hosting service
-            url: how-to/deploy-web-app.md            
-          - text: "Client: JamStack upload image to Storage"
-            url: tutorial/browser-file-upload-azure-storage-blob.md
-          - text: "Client: JamStack + auth"
-            url: how-to/with-web-app/static-web-app-with-swa-cli/introduction.md            
-          - text: "Migrate to serverless"
-            url: /azure/azure-functions/shift-expressjs?tabs=javascript
-          - text: "Serverless: Getting started"
-            url: how-to/develop-serverless-apps.md          
-          - text: "Server: Deploy Express.js"
-            url: /learn/modules/javascript-deploy-expressjs-app-service/
-          - text: "Server from VM: Express.js with NGINX"
-            url: tutorial/nodejs-virtual-machine-vm/introduction.md
+          - text: Use the Azure SDKs for JS/TS
+            url: core/use-azure-sdk.md
+          - text: SDKs
+            url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
+          - text: SDK documentation
+            url: /javascript/api/overview/azure/?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+          - text: Azure SDK Blog
+            url: https://devblogs.microsoft.com/azure-sdk/            
+
+  - title: AI
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy Enterprise chat with RAG
+            url: get-started-app-chat-template.md?tabs=github-codespaces
+          - text: Use serverless AI Chat with RAG using LangChain.js 
+            url: get-started-app-chat-template-langchainjs.md
+          - text: Use Azure OpenAI Assistants and function calling in JavaScript
+            url: get-started-app-chat-assistants-function-calling.md
+          - text: Scale Azure OpenAI with Azure Container Apps
+            url: get-started-app-chat-scaling-with-azure-container-apps.md
+          - text: Scale Azure OpenAI with Azure API Management
+            url: get-started-app-chat-scaling-with-azure-api-management.md
+          - text: Evaluate chat app
+            url: get-started-app-chat-evaluations.md
 
   - title: Azure SDK client library tutorials
     linkLists: 
@@ -73,66 +75,42 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Storage on Azure
-            url: /azure/storage/blobs/storage-blob-javascript-get-started
-          - text: Databases on Azure
-            url: database-developer-guide.md
+            url: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
           - text: Full stack serverless with Mongoose
-            url: /azure/static-web-apps/add-mongoose
-          - text: Serverless API + DB
-            url: tutorial/azure-function-cosmos-db-mongo-api.md                 
+            url: /azure/static-web-apps/add-mongoose             
           - text: Express.js + MongoDB (training)
             url: /training/modules/javascript-deploy-expressjs-app-service-with-database
           - text: Express.js + MongoDB (docs)
-            url: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli
+            url: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
 
-  - title: AI/ML
+  - title: Deploy and host apps
     linkLists:
-      - linkListType: quickstart
+      - linkListType: tutorial
         links:
-          - text: Add search to website
-            url: /azure/search/tutorial-javascript-overview
-          - text: Language detection
-            url: /azure/cognitive-services/language-service/language-detection/quickstart?pivots=programming-language-javascript
-          - text: Key phrase extraction
-            url: /azure/cognitive-services/language-service/key-phrase-extraction/quickstart?pivots=programming-language-javascript
-          - text: Speech to text
-            url: /azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-javascript
-          - text: Text to speech
-            url: ./tutorial/convert-text-to-speech-cognitive-services.md
-          - text: Image analysis
-            url: tutorial/static-web-app-image-analysis.md
-  - title: Use Azure client libraries (SDK)
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Use the Azure SDKs for JS/TS
-            url: core/use-azure-sdk.md
-          - text: SDK latest version
-            url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
-          - text: SDK Reference Documentation
-            url: /javascript/api/overview/azure/
-          - text: SDK Source code for JS
-            url: https://github.com/Azure/azure-sdk-for-js
-          - text: Samples browser
-            url: /samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
+          - text: Select a hosting service
+            url: how-to/deploy-web-app.md            
+          - text: Static front-end apps
+            url: how-to/with-web-app/static-web-app-with-swa-cli/introduction.md            
+          - text: Serverless apps
+            url: how-to/develop-serverless-apps.md          
+          - text: Server apps
+            url: /learn/modules/javascript-deploy-expressjs-app-service/
+
   - title: Developer Guides
     linkLists:
       - linkListType: get-started
         links:
+          - text: Azure Cosmos DB MongoDB
+            url: /azure/cosmos-db/mongodb/how-to-javascript-get-started
+          - text: Azure Cosmos DB no-SQL
+            url: /azure/cosmos-db/nosql/how-to-javascript-get-started?tabs=azure-cli%2Cwindows
+          - text: Key Vault Keys
+            url: /azure/key-vault/keys/javascript-developer-guide-get-started
+          - text: Key Vault Secrets
+            url: /azure/key-vault/secrets/javascript-developer-guide-get-started
           - text: Azure Storage Dev Guide
-            url: /azure/storage/blobs/storage-blob-javascript-get-started
-          - text: Azure Database Dev Guide
-            url: database-developer-guide.md
-  - title: End to end development
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Contoso Solution
-            url: end-to-end/contoso-real-estate-get-started.md
-          - text: Developer tools
-            url: end-to-end/contoso-real-estate-developer-tools.md
-          - text: Sample
-            url: https://github.com/Azure-Samples/contoso-real-estate
+            url: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+
   - title: Developer tools
     linkLists:
       - linkListType: get-started
@@ -147,7 +125,17 @@ landingContent:
             url: https://github.com/Azure/static-web-apps-cli
           - text: Azure Functions core tools CLI
             url: https://github.com/Azure/azure-functions-core-tools
-          - text: Windows Terminal
-            url: https://aka.ms/terminal
-          - text: Windows Subsystem for Linux (WSL)
-            url: /windows/wsl/install-win10#install-your-linux-distribution-of-choice
+
+  - title: End to end development
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Contoso Solution
+            url: end-to-end/contoso-real-estate-get-started.md
+          - text: Developer tools
+            url: end-to-end/contoso-real-estate-developer-tools.md
+          - text: Sample
+            url: https://github.com/Azure-Samples/contoso-real-estate
+          - text: Azure Samples browser
+            url: /samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
+

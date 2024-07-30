@@ -3,14 +3,14 @@ title: Spring Cloud Azure PostgreSQL support
 description: This article describes how Spring Cloud Azure and Azure PostgreSQL can be used together.
 ms.date: 04/06/2023
 author: KarlErickson
-ms.author: v-yeyonghui
+ms.author: hangwan
 ms.topic: reference
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Spring Cloud Azure PostgreSQL support
 
-**This article applies to:** ✔️ Version 4.13.0 ✔️ Version 5.7.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.14.0
 
 [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) is a relational database service based on the open-source Postgres database engine. It's a fully managed database-as-a-service that can handle mission-critical workloads with predictable performance, security, high availability, and dynamic scalability.
 

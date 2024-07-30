@@ -2,10 +2,10 @@
 title: Azure samples for Java
 description: Java readiness - Azure samples for Java developers.
 author: KarlErickson
-ms.author: sreea
+ms.author: karler
 ms.topic: article
 ms.date: 01/05/2023
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty-aks, devx-track-javaee-liberty-aro, devx-track-extended-java
+ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap-appsvc, devx-track-javaee-liberty-aks, devx-track-javaee-liberty-aro
 ---
 
 # Java on Azure Samples

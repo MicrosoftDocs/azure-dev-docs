@@ -10,6 +10,19 @@
   - name: Get started with the Python enterprise chat sample
     href: get-started-app-chat-template.md
     display: Azure OpenAI, OpenAI, FastApi
+  - name: Configure document security
+    href: get-started-app-chat-document-security-trim.md
+  - name: Secure your chat endpoint
+    href: get-started-app-chat-private-endpoint.md
+  - name: Evaluate your chat app
+    href: get-started-app-chat-evaluations.md
+    display: Azure OpenAI
+  - name: Scale Azure OpenAI with Azure Container Apps
+    href: get-started-app-chat-scaling-with-azure-container-apps.md
+  - name: Scale Azure OpenAI with Azure API Management
+    href: get-started-app-chat-scaling-with-azure-api-management.md
+  - name: Load test with Locust
+    href: get-started-app-chat-app-load-test-locust.md
 - name: Web
   items:
   - name: Set up local web dev environment
@@ -18,15 +31,19 @@
     items:
       - name: Overview
         href: overview-azd-templates.md
-      - name: Quickstart
+      - name: Quickstart in local env
         href: quickstart-python-web-azd-templates.md
+      - name: Quickstart in Codespaces
+        href: quickstart-python-web-azd-codespaces.md
+      - name: Scale with Bicep
+        href: quickstart-python-scale-bicep.md        
   - name: Web app solutions
     items:
     - name: Django/Flask
       href: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Django/Flask + db
       href: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
-    - name: Passwordless auth - system managed identity
+    - name: Passwordless auth - system-assigned managed identity
       href: tutorial-python-managed-identity-cli.md
     - name: Passwordless auth - user-assigned managed identity
       href: tutorial-python-managed-identity-user-assigned-cli.md
@@ -49,7 +66,7 @@
       - name: Azure Pipelines
         href: /azure/devops/pipelines/ecosystems/python-webapp?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Add sign in
-      href: /azure/active-directory/develop/web-app-quickstart?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
+      href: /entra/identity-platform/quickstart-web-app-python-sign-in?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Store and retrieve secrets
       href: /azure/key-vault/secrets/quick-create-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Set up Azure monitor
@@ -182,7 +199,7 @@
         href: sdk/azure-sdk-configure-proxy.md
       - name: Use a sovereign domain
         href: sdk/azure-sdk-sovereign-domain.md
-- name: SDK PyPi package index
+- name: SDK PyPI package index
   href: sdk/azure-sdk-library-package-index.md
 - name: SDK reference documentation
   href: /python/api/overview/azure/
@@ -192,7 +209,7 @@
     href: quickstarts-app-hosting.md
   - name: Data solutions
     href: quickstarts-data-solutions.md
-  - name: Identity and security
+  - name: Identity and access management
     href: quickstarts-identity-security.md
   - name: Machine learning
     href: quickstarts-machine-learning.md
@@ -215,8 +232,8 @@
         href: /samples/browse/?languages=python&products=azure-storage
       - name: Redis Cache
         href: /samples/browse/?languages=python&products=azure-redis-cache
-  - name: Identity &  Security
-    href: /samples/browse/?languages=python&products=azure-active-directory%2Cazure-key-vault
+  - name: Identity & Security
+    href: /samples/browse/?languages=python&products=entra%2Cazure-key-vault
   - name: IoT
     href: /samples/browse/?languages=python&products=azure-iot-hub%2Cazure-iot-edge%2Cazure-iot-central
   - name: Data science

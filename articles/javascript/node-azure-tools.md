@@ -3,7 +3,7 @@ title: Tool selection - JavaScript - Azure
 description: Install individual tools for Node.js and JavaScript development on Azure
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, devx-track-azurecli 
+ms.custom: devx-track-js, devx-track-azurecli, linux-related-content, devx-track-ts
 ---
 
 # Tools for JavaScript developers on Azure 
@@ -46,7 +46,7 @@ Use the following free extensions to use Azure services directly in Visual Studi
 Other resources:
 
 * [All Azure extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance)
-* [Docker](https://marketplace.visualstudio.com/items?itemName=formulahendry.docker-explorer)
+* [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
 * [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 * [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
 

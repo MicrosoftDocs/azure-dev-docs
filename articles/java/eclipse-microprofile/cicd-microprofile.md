@@ -1,17 +1,11 @@
 ---
 title: CI/CD for MicroProfile apps using Azure Pipelines
 description: Learn how to set up a CI/CD release cycle to deploy a MicroProfile app to an Azure Web App for Containers instance with Azure Pipelines.
-services: devops
-documentationcenter: MicroProfile
-manager: brunoborges
 author: KarlErickson
-ms.author: ruyakubu
-ms.date: 07/31/2019
-ms.tgt_pltfrm: multiple
+ms.author: jialuogan
+ms.date: 02/18/2024
 ms.topic: tutorial
-ms.workload: web
-ms.custom: devx-track-java, team=cloud_advocates, devx-track-extended-java
-ms.contributors: ruyakubu-09162021
+ms.custom: devx-track-java, team=cloud_advocates, devx-track-extended-java, linux-related-content
 ---
 
 # CI/CD for MicroProfile apps using Azure Pipelines
@@ -33,7 +27,7 @@ You start the Azure Pipelines containerization process by building a Docker imag
    
 1. Copy and save the clone URL from the sample GitHub repository at [https://github.com/Azure-Samples/microprofile-hello-azure](https://github.com/Azure-Samples/microprofile-hello-azure).
    
-1. Register or log into your [Azure DevOps](https://dev.azure.com) organization, and create a new [project](/vsts/organizations/projects/create-project). 
+1. Register or log into your [Azure DevOps](https://azure.microsoft.com/products/devops) organization, and create a new [project](/vsts/organizations/projects/create-project). 
    
 1. Import the sample GitHub repository into Azure Repos:
    

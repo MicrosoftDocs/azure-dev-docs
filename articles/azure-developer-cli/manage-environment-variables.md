@@ -69,3 +69,24 @@ User-provided variables can be declared as an infrastructure output parameter (w
 |`AZURE_RESOURCE_GROUP`    | The specific resource group to target. Type string.   |  `rg-todo-dev`       | `azd` won't perform resource group discovery, and instead references this resource group. `azd` also doesn't control the authored IaC configuration files, thus changes to IaC files may be needed. |
 |`AZURE_CONTAINER_REGISTRY_ENDPOINT`     | The Azure Container Registry endpoint to publish docker image. Type string.        |  `myexampleacr.azurecr.io`      |  Required property for deployment of a `containerapp` or `aks` service.        |
 |`SERVICE_<service>_ENDPOINTS`    | The endpoints for the particular service. Type `array` (bicep) / `list-equivalent` (terraform).      | `['endpoint1', 'endpoint2']`      | Sets the public endpoints for the particular service will be used by azd for display. By default, azd discovers the automatically assigned hostnames for a given host, such as `*.azurewebsites.net` for `appservice`.        |
+
+## Enable demo mode
+
+`azd` includes a demo mode that hides your subscription ID in the console output. This feature is useful for scenarios where you want to demo or present `azd` commands in a public setting.
+
+The demo mode introduces the environment variable: `AZD_DEMO_MODE`. To enable demo mode, run:
+
+```bash
+export AZD_DEMO_MODE true
+```
+
+If you want demo mode to persist across reboots, you can also run:
+
+```bash
+setx AZD_DEMO_MODE true
+```
+
+or in PowerShell:
+```bash
+$env:AZD_DEMO_MODE="true"
+```

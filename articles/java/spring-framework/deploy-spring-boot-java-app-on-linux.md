@@ -1,14 +1,11 @@
 ---
 title: Deploy a Spring Boot Web App to Linux on Azure App Service
 description: This tutorial walks you though the steps to deploy a Spring Boot application as a Linux web app on Microsoft Azure.
-services: azure app service
-documentationcenter: java
+author: KarlErickson
+ms.author: hangwan
 ms.date: 08/25/2021
-ms.service: app-service
-ms.tgt_pltfrm: multiple
 ms.topic: article
-ms.workload: web
-ms.custom: mvc, devx-track-java, spring-cloud-azure, devx-track-extended-java
+ms.custom: mvc, devx-track-java, spring-cloud-azure, devx-track-extended-java, linux-related-content
 ---
 
 # Deploy a Spring Boot application to Linux on Azure App Service
@@ -116,7 +113,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 1. Add [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin) to the `<plugins>` collection in the *pom.xml* file.  This example uses version 3.2.0.
 
-   Specify the base image at `<from>/<image>`, here `mcr.microsoft.com/java/jre:8-zulu-alpine`. Specify the name of the final image to be built from the base in `<to>/<image>`.  
+   Specify the base image at `<from>/<image>`, here `mcr.microsoft.com/openjdk/jdk:11-ubuntu`. Specify the name of the final image to be built from the base in `<to>/<image>`.  
 
    Authentication `{docker.image.prefix}` is the **Login server** on the registry page shown previously. The `{project.artifactId}` is the name and version number of the JAR file from the first Maven build of the project.
 
@@ -127,7 +124,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
      <version>${jib-maven-plugin.version}</version>
      <configuration>
         <from>
-            <image>mcr.microsoft.com/java/jre:8-zulu-alpine</image>
+            <image>mcr.microsoft.com/openjdk/jdk:11-ubuntu</image>
         </from>
         <to>
             <image>${docker.image.prefix}/${project.artifactId}</image>
