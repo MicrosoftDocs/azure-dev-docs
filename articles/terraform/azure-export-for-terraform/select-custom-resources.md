@@ -175,7 +175,7 @@ We could update the mapping file as follows:
 }
 ```
 
-Once you've edited the mapping file, you export the mapping file using the following command:
+Once you edit the mapping file, you export the mapping file using the following command:
 
 ```console
 aztfexport map -n "aztfexportResourceMapping.json"
@@ -195,17 +195,17 @@ aztfexport map -n "aztfexportResourceMapping.json"
 - Requires manual modifications.
 
 ## Using Terraform `import` Blocks
-When running `aztfexport` `v0.13` or greater alongside Terraform `v1.5` or greater, the `--generate-mapping-file` or `-g` command will not only generate a mapping file but also an `import.tf` file which will include import blocks for each of the resources `aztfexport` was able to map. From this point on the behavior of the configuration is identical to [the preexisting import block workflow](https://developer.hashicorp.com/terraform/language/import). To run the import block, simply specify `terraform plan` and the config will be generated.
+When running `aztfexport` `v0.13` or greater alongside Terraform `v1.5` or greater, the `--generate-mapping-file` or `-g` command generates a mapping file alongside a `import.tf` file. The `import.tf` file includes import blocks for each of the resources `aztfexport` was able to map. From this point on the behavior of the configuration is identical to [the preexisting import block workflow](https://developer.hashicorp.com/terraform/language/import). To finish, simply run `terraform plan`.
 
 To then delete or filter resources from the resulting export, you can simply delete the block containing the resource's ID and other information.
 
 ### Differences Between Import Blocks and Azure Export
-A common question is the difference between using Azure Export for Terraform and import blocks. These are the benefits of the two tools we've noticed:
-- Azure Export for Terraform aids in resource discovery. Whether it's through manual (specify a resource group) or automated (all resources under networking) methods, there are a variety of ways to discover and export the resources you want.
+A common question is the difference between using Azure Export for Terraform and import blocks. The benefits between the two tools we've noticed include:
+- Azure Export for Terraform aids in resource discovery. There are various methods available to help discover and export the resources you want.
 - Azure Export for Terraform provides resource filtering, also through manual and automated means.
 - Azure Export for Terraform auto-generates import blocks with its outputs, saving time and effort on the authoring process.
 - Terraform import blocks are natively supported in Terraform, which makes them easy to use.
-Combined together, we believe that the use of both will provide tremendous benefit for a variety of scenarios to you.
+Combined together, we believe that the use of both provides tremendous benefit to you.
 
 **Pros:**
 
