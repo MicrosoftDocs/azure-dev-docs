@@ -9,7 +9,7 @@ metadata:
   description: Get started developing Azure apps using Azure Developer CLI (azd).
   author: alexwolfmsft
   ms.author: alexwolf
-  ms.date: 07/11/2022
+  ms.date: 12/11/2023
   ms.topic: landing-page
   ms.collection: collection
   ms.service: azure-dev-cli

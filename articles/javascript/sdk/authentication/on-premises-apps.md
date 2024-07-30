@@ -73,7 +73,7 @@ A service principal is assigned a role in Azure using the [az role assignment cr
 ```azurecli
 az role assignment create --assignee "{appId}" \
     --role "{roleName}" \
-    --resource-group "{resourceGroupName}"
+    --scope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} 
 ```
 
 To get the role names that a service principal can be assigned to, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command.
@@ -89,7 +89,7 @@ For example, to allow the service principal with the appId of `00000000-0000-000
 ```azurecli
 az role assignment create --assignee "00000000-0000-0000-0000-000000000000" \
     --role "Storage Blob Data Contributor" \
-    --resource-group "msdocs-sdk-auth-example"
+    --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/msdocs-javascript-sdk-auth-example \
 ```
 
 For information on assigning permissions at the resource or subscription level using the Azure CLI, see the article [Assign Azure roles using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).

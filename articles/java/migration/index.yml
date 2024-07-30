@@ -61,6 +61,8 @@ landingContent:
             url: migrate-weblogic-to-aks-within-an-existing-vnet.md
           - text: "Tutorial: WebLogic Server with App Gateway"
             url: migrate-weblogic-with-app-gateway.md
+          - text: "Tutorial: WebLogic to Azure VMs with high availability and disaster recovery"
+            url: migrate-weblogic-to-vms-with-ha-dr.md
           - text: WebLogic Server to JBoss EAP on App Service
             url: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
   - title: Migrate WildFly to Azure

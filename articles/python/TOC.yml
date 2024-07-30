@@ -18,15 +18,19 @@
     items:
       - name: Overview
         href: overview-azd-templates.md
-      - name: Quickstart
+      - name: Quickstart in local env
         href: quickstart-python-web-azd-templates.md
+      - name: Quickstart in Codespaces
+        href: quickstart-python-web-azd-codespaces.md
+      - name: Scale with Bicep
+        href: quickstart-python-scale-bicep.md        
   - name: Web app solutions
     items:
     - name: Django/Flask
       href: /azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
     - name: Django/Flask + db
       href: /azure/app-service/tutorial-python-postgresql-app?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json
-    - name: Passwordless auth - system managed identity
+    - name: Passwordless auth - system-assigned managed identity
       href: tutorial-python-managed-identity-cli.md
     - name: Passwordless auth - user-assigned managed identity
       href: tutorial-python-managed-identity-user-assigned-cli.md
@@ -182,7 +186,7 @@
         href: sdk/azure-sdk-configure-proxy.md
       - name: Use a sovereign domain
         href: sdk/azure-sdk-sovereign-domain.md
-- name: SDK PyPi package index
+- name: SDK PyPI package index
   href: sdk/azure-sdk-library-package-index.md
 - name: SDK reference documentation
   href: /python/api/overview/azure/

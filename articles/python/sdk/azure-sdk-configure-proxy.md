@@ -20,7 +20,7 @@ To configure a proxy globally for your script or app, define `HTTP_PROXY` or `HT
 
 These environment variables are ignored if you pass the parameter `use_env_settings=False` to a client object constructor or operation method.
 
-### Set from the Azure CLI
+### Set from the command line
 
 #### [cmd](#tab/cmd)
 

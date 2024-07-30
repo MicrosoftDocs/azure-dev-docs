@@ -82,7 +82,7 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 [Spring Data MongoDB]: https://spring.io/projects/spring-data-mongodb
 [Spring Data Apache Cassandra]: https://spring.io/projects/spring-data-cassandra
 [Spring Data Redis]: https://spring.io/projects/spring-data-redis
-[Reference]: https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#redis:requirements
+[Reference]: https://docs.spring.io/spring-data/data-redis/docs/current-SNAPSHOT/reference/html/#redis:requirements
 [Spring Cloud Azure Redis support]: ../spring-framework/redis-support.md
 [Spring AMQP]: https://spring.io/projects/spring-amqp
 [Spring Cloud Azure JMS support]: ../spring-framework/spring-jms-support.md

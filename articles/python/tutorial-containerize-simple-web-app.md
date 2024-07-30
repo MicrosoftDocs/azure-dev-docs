@@ -2,7 +2,7 @@
 title: Deploy a Flask or FastAPI web app as a container in Azure Container Apps
 description: An overview of how to create and deploy a containerized Python web app (Flask or FastAPI) on Azure Container Apps.
 ms.topic: conceptual
-ms.date: 04/13/2023
+ms.date: 12/04/2023
 ms.custom: devx-track-python
 ---
 
@@ -190,7 +190,7 @@ Open the ```http://localhost:3100``` URL in your browser to see the web app runn
 
 The `--detach` option runs the container in the background. The `--publish` option maps the container port to a port on the host. The host port (external) is first in the pair, and the container port (internal) is second. For more information, see [Docker run reference][21].
 
-## Deploy to web app to Azure
+## Deploy web app to Azure
 
 To deploy the Docker image to Azure Container Apps, use the [az containerapp up][6] command. (The following commands are shown for the Bash shell. Change the continuation character (`\`) as appropriate for other shells.)
 
@@ -207,7 +207,7 @@ az containerapp up \
 ```azurecli
 az containerapp up \
   --resource-group web-fastapi-aca-rg --name web-aca-app \ 
-  --ingress external --target-port 80 --source .
+  --ingress external --target-port 3100 --source .
 ```
 
 ---
@@ -233,9 +233,19 @@ All the Azure resources created in this tutorial are in the same resource group.
 
 To remove resources, use the [az group delete][20] command.
 
+### [Flask](#tab/web-app-flask)
+
 ```azurecli
-az group delete --name web-aca-app
+az group delete --name web-flask-aca-rg
 ```
+
+### [FastAPI](#tab/web-app-fastapi)
+
+```azurecli
+az group delete --name web-fastapi-aca-rg
+```
+
+---
 
 You can also remove the group in the [Azure portal][2] or in [Visual Studio Code][3] and the [Azure Tools Extension][5].
 

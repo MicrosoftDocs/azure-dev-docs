@@ -4,7 +4,7 @@ metadata:
   description: Get answers to commonly asked questions about Azure Developer CLI.
   author: alexwolfmsft
   ms.author: alexwolf
-  ms.date: 07/11/2022
+  ms.date: 12/11/2023
   ms.topic: conceptual
   ms.custom: devx-track-azdevcli, build-2023
   ms.service: azure-dev-cli
@@ -15,25 +15,16 @@ sections:
     questions:
       - question: How do I uninstall Azure Developer CLI?
         answer: |
-          For Windows, run:
-
-          ```
-          powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/uninstall-azd.ps1' | Invoke-Expression"
-          ```
-          For Linux and macOS, run:
-
-          ```
-          curl -fsSL https://aka.ms/uninstall-azd.sh | bash
-          ```
+          There are different options for uninstalling `azd` depending on how you originally installed it. Visit the [installation page](/azure/developer/azure-developer-cli/install-azd) for details.
 
       - question: What's the difference between the Azure Developer CLI and the Azure CLI?
 
         answer: | 
           [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) (`azd`) and [Azure CLI](/cli/azure/what-is-azure-cli) (`az`) are both command-line tools, but they help you do different tasks.
 
-          [`azd`](./index.yml) focuses on the developer workflow. Apart from provisioning/managing Azure resources, `azd` helps to stitch cloud components, local development configuration, and pipeline automation together into a complete solution.
+          [`azd`](./index.yml) focuses on the high level developer workflow. Apart from provisioning/managing Azure resources, `azd` helps to stitch cloud components, local development configuration, and pipeline automation together into a complete solution.
 
-          Azure CLI is a control plane tool for creating and administering Azure infrastructure such as virtual machines, virtual networks, and storage.
+          Azure CLI is a control plane tool for creating and administering Azure infrastructure such as virtual machines, virtual networks, and storage. The Azure CLI is designed around granular commands for specific administrative tasks.
 
 
       - question: What is an environment name?

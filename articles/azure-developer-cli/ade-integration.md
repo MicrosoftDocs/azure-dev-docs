@@ -81,7 +81,7 @@ azd provision
 
 ### azd env list
 
-The `azd env list` command will display the same list of environments you would see in the [developer portal](https://devportal.azure.com).
+The `azd env list` command will display the same list of environments you would see in the developer portal.
 
 ```bash
 azd env list

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
 ms.date: 03/17/2023
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, devx-track-extended-java
+ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, migration-java
 recommendations: false
 ---
 
@@ -27,7 +27,7 @@ It's better to stick as close to pure "lift and shift" as possible, accounting f
 
 Red Hat and Microsoft have partnered to bring a set of Azure solution templates to Azure Marketplace to provide a solid starting point for migrating to Azure. You can see the list of offers in the [JBoss EAP on Azure Virtual Machines](../ee/jboss-on-azure.md#jboss-eap-on-azure-virtual-machines) section of [Red Hat JBoss EAP on Azure](../ee/jboss-on-azure.md).
 
-To get a feel for the prebuilt Azure Marketplace offer, see [Quickstart: Deploy JBoss EAP Server on Azure VM using the Azure portal](../ee/jboss-eap-single-server-azure-vm.md).
+To get a feel for the prebuilt Azure Marketplace offer, see [Quickstart: Deploy JBoss EAP Server on Azure VM using the Azure portal](/azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
 If none of the existing offers are a good starting point, you have to reproduce the deployment by hand using the resources available in Azure Virtual Machines. For more information, see [What is IaaS?](https://azure.microsoft.com/overview/what-is-iaas/)
 

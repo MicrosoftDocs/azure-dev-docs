@@ -64,6 +64,8 @@ productDirectory:
     - title: JavaScript
       imageSrc: /media/logos/logo_js.svg
       links:
+        - url: /azure/developer/intro/azure-ai-for-developers?pivots=javascript
+          text: Develop Azure AI apps with JavaScript
         - url: /azure/static-web-apps/getting-started?tabs=vanilla-javascript
           text: Develop a static website
         - url: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2cterminal-bash%2cvscode-deploy%2cdeploy-instructions-azportal%2cdeploy-zip-linux-mac%2cdeploy-instructions--zip-azcli
@@ -72,8 +74,6 @@ productDirectory:
           text: Deploy a serverless application
         - url: ./javascript/tutorial/tutorial-vscode-docker-node/tutorial-vscode-docker-node-01.md?tabs=bash
           text: Deploy Docker containers
-        - url: /azure/cosmos-db/create-mongodb-nodejs
-          text: Migrate a MongoDB app to Azure Cosmos DB
         - url: ./javascript/index.yml
           text: See more in the JavaScript developer center
     - title: Java
@@ -106,6 +106,21 @@ productDirectory:
           text: Azure SDK for .NET          
         - url: /dotnet/azure/
           text: See more in the .NET developer center
+    - title: Azure AI for Developers
+      imageSrc: ./intro/media/azure-openai.png
+      links:
+        - url: ./intro/azure-ai-for-developers.md
+          text: Develop apps that use Azure AI services
+        - url: /azure/developer/python/get-started-app-chat-template?tabs=github-codespaces
+          text: Python enterprise chat sample using RAG 
+        - url: /dotnet/azure/ai/get-started-app-chat-template?tabs=github-codespaces
+          text: .NET enterprise chat sample using RAG
+        - url: /azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces
+          text: JavaScript enterprise chat sample using RAG
+        - url: /azure/developer/java/quickstarts/get-started-app-chat-template?tabs=github-codespaces
+          text: Java enterprise chat sample using RAG
+        - url: /azure/ai-services/
+          text: Azure AI services documentation
     - title: Go
       imageSrc: /media/logos/logo_Go-lightblue.svg
       links:
@@ -113,6 +128,8 @@ productDirectory:
           text: Install the Azure SDK for Go
         - url: ./go/azure-sdk-authentication.md
           text: Authenticate your app
+        - url: /azure/developer/intro/azure-ai-for-developers?pivots=go
+          text: Develop Azure AI apps with Go
         - url: /azure/storage/blobs/storage-quickstart-blobs-go
           text: Use Blob storage
         - url: https://github.com/azure-samples/azure-sdk-for-go-samples
@@ -149,21 +166,6 @@ productDirectory:
           text: Create a virtual machine
         - url: /cli/azure/
           text: See more in the Azure CLI developer center
-    - title: Mobile
-      imageSrc: https://static.docs.com/ui/media/product/azure/devices.svg
-      links:
-        - url: ./mobile-apps/serverless-compute.md
-          text: Build a serverless mobile app
-        - url: /azure/cosmos-db/create-sql-api-xamarin-dotnet
-          text: Save data with Azure Cosmos DB
-        - url: ./mobile-apps/push-notifications.md
-          text: Send push notifications to engage users
-        - url: ./mobile-apps/authentication.md
-          text: Add authentication and manage user identities
-        - url: /azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops
-          text: Key concepts for new Azure Pipelines users
-        - url: ./mobile-apps/index.yml
-          text: See more in the Mobile app developer center
     - title: Azure Developer CLI (azd)
       imageSrc: https://static.docs.com/ui/media/product/azure/azure-developer-cli.svg
       links:

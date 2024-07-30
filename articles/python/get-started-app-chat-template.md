@@ -9,7 +9,9 @@ ms.custom: devx-track-python, devx-track-python-ai
 
 # Get started with the Python enterprise chat sample using RAG
 
-This article shows you how to deploy and run the [Enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample implements a chat app using Python, Azure OpenAI Service, and Retrieval Augmented Generation (RAG) in Azure AI Search to get answers about employee benefits at a fictitious company. The app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. [Demo Video](https://youtu.be/3acB0OWmLvM)
+This article shows you how to deploy and run the [Enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample implements a chat app using Python, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about employee benefits at a fictitious company. The app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations. 
+
+* [Demo video](https://aka.ms/azai/py/video)
 
 > [!div class="nextstepaction"]
 > [Begin now](#open-development-environment)
@@ -29,6 +31,7 @@ Other articles in the collection include:
 * [.NET](/dotnet/azure/ai/get-started-app-chat-template)
 * [Java](../java/quickstarts/get-started-app-chat-template.md)
 * [JavaScript](../javascript/get-started-app-chat-template.md)
+* [JavaScript frontend  + Python backend](../javascript/chat-app-with-separate-front-back-end.md)
 
 ## Architectural overview
 
@@ -166,7 +169,7 @@ The sample repository contains all the code and configuration files you need to 
     ```bash
     azd up
     ```
-1. When you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. Its used as part of the resource group name. 
+1. When you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. It's used as part of the resource group name. 
 1. When prompted, select a subscription to create the resources in. 
 1. When you're prompted to select a location the first time, select a location near you. This location is used for most the resources including hosting.
 1. If you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.

@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Use Azure Service Bus with JMS
 
-**This article applies to:** ✔️ Version 4.13.0 ✔️ Version 5.7.0
+**This article applies to:** ✔️ Version 4.14.0 ✔️ Version 5.8.0
 
 This article describes how to use Azure Service Bus with the JMS API integrated into the Spring JMS framework.
 
@@ -38,7 +38,7 @@ The following table describes the configurable properties when using the Spring 
 > | **spring.jms.servicebus**.topic-client-id                        | The JMS client ID. Only works for the `topicJmsListenerContainerFactory` bean.                                                                                                    |
 > | **spring.jms.servicebus**.enabled                                | A value that indicates whether to enable Servive Bus JMS autoconfiguration. The default value is `true`.                                                                          |
 > | **spring.jms.servicebus**.idle-timeout                           | The connection idle timeout duration that indicates how long the client expects Service Bus to keep a connection alive when no messages are delivered. The default value is `2m`. |
-> | **spring.jms.servicebus**.pricing-tier                           | The Azure Service Bus Price Tier.                                                                                                                                                 |
+> | **spring.jms.servicebus**.pricing-tier                           | The Azure Service Bus Price Tier. Supported values are *premium* and *standard*. Premium tier uses Java Message Service (JMS) 2.0, while standard tier use JMS 1.1 to interact with Azure Service Bus. |
 > | **spring.jms.servicebus**.listener.reply-pub-sub-domain          | A value that indicates whether the reply destination type is a topic. Only works for the `topicJmsListenerContainerFactory` bean.                                                 |
 > | **spring.jms.servicebus**.listener.phase                         | The phase in which this container should be started and stopped.                                                                                                                  |
 > | **spring.jms.servicebus**.listener.reply-qos-settings            | Configures the `QosSettings` to use when sending a reply.                                                                                                                         |
