@@ -40,7 +40,10 @@ To review, here are some common software development and deployment scenarios on
 
 - **Container based architectures -** Azure provides a variety of container based services to support your app modernization journey.  Whether you need a private registry for your container images, are containerizing an existing app for ease of deployment, deploying microservices based applications, or managing containers at scale, Azure has solutions that support your needs.
 
+- **AI driven applications -** Azure provides several services to create intelligent apps by adding machine learning and generative AI features. You can create entire data pipelines to train your machine learning models and use them to predict outcomes. You can add inference using popular models like GPT-4 to enable chat and question / answer to your applications by generating and storing vectorized data in various databases, creating an inference pipeline to ensure validity and accuracy of the responses. 
+
 - **Modern serverless architectures -** Azure Functions simplify building solutions to handle event-driven workflows, whether responding to HTTP requests, handling file uploads in Blob storage, or processing events in a queue.  You write only the code necessary to handle your event without worrying about servers or framework code.  Further, you can take advantage of over 250 connectors to other Azure and third-party services to tackle your toughest integration problems.
+
 
 How do you implement those scenarios? The next article, "Key Azure services for developers", gives you several Azure service options to implement each scenario.
 
