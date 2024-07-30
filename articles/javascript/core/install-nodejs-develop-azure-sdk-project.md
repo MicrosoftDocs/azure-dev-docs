@@ -12,7 +12,7 @@ Learn how to install and manage Node.js for Azure SDK application development. C
 
 ## Azure SDK Node.js minimum version
 
-The Azure SDK supports the Node.js [Long Term Support (LTS) version](https://nodejs.org/en/download/). Read the [Azure SDK Support Policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md#microsoft-support-policy) for more details.
+The Azure SDK supports the [Node.js Long Term Support (LTS) version](https://nodejs.org/en/download/). Read the [Azure SDK Support Policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md#microsoft-support-policy) for more details.
 
 ## Azure services Node.js minimum version
 
@@ -25,7 +25,7 @@ When you need to manage more than one version of Node.js across your local and r
 * **NVM (Node Version Manager)**: A command-line interface to set or switch your local version of Node.js.
     * macOS, Linux - [nvm](https://github.com/creationix/nvm)
     * Windows - [nvm for Windows](https://github.com/marcelklehr/nodist)
-* **Containers**: Use a container with a specific Node.js version. You can manage the version of Node.js across several environments using containers. Visual Studio Code's [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension simplifies this process.
+* **Containers**: Use a container with a specific Node.js version. You can manage the version of Node.js across several environments using containers. Visual Studio Code's [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) simplifies this process.
 
 
 ## Download and install Node.js based on your intended use
