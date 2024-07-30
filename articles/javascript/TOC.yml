@@ -147,9 +147,6 @@
       href: how-to/with-visual-studio-code/clone-github-repository.md
     - name: Create an Azure database
       href: how-to/with-visual-studio-code/create-azure-database.md
-  - name: Build an AI conversational CLI
-    href: openai-cli.md
-    display: Azure OpenAI, OpenAI, AI
   - name: Authentication and identity
     items: 
     - name: Getting started
