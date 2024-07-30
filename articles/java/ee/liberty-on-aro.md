@@ -1,6 +1,5 @@
 ---
-title: 
-Manually deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster
+title: Manually deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster
 recommendations: false
 description: Shows you how to deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift cluster.
 author: KarlErickson
@@ -43,6 +42,10 @@ If you're interested in providing feedback or working closely on your migration 
 - An Azure Red Hat OpenShift 4 cluster. To create the cluster, follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster) while using the following instructions:
 
   - Though the "Get a Red Hat pull secret" step is labeled as optional, **it's required for this article**. The pull secret enables your Azure Red Hat OpenShift cluster to find the Open Liberty Operator.
+
+  - The following environment variables defined in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster) are used later in this article.
+     - `RESOURCEGROUP`, the name of the resource group in which the cluster is deployed.
+     - `CLUSTER`, the name of the cluster.
 
   - If you plan to run memory-intensive applications on the cluster, specify the proper virtual machine size for the worker nodes using the `--worker-vm-size` parameter. For more information, see the following articles:
 
@@ -93,14 +96,14 @@ Use the following steps to create an OpenShift namespace for use with your app:
 
 Azure Database for MySQL Flexible Server deployment model is a deployment mode designed to provide more granular control and flexibility over database management functions and configuration settings than the Azure Database for MySQL single server deployment mode. This section shows you how to create an Azure Database for MySQL Flexible Server instance using the Azure CLI. For more information, see [Quickstart: Create an instance of Azure Database for MySQL - Flexible Server by using the Azure CLI](/azure/mysql/flexible-server/quickstart-create-server-cli).
 
-Replace placeholders `<server-name>`, `<resource-group-of-the-OpenShift-cluster>`, `<server-admin-username>`, `<server-admin-password>`, and `<database-name>` in the following command with your own values, and run the commands in your terminal to create an Azure Database for MySQL Flexible Server instance.
+Run this command in your terminal to create an Azure Database for MySQL Flexible Server instance. Replace `<server-admin-password>` with a password that meets the password complexity requirements for Azure Database for MySQL Flexible Server.
 
 ```azurecli
 az mysql flexible-server create \
     --name ${CLUSTER} \
     --resource-group ${RESOURCEGROUP} \
     --admin-user admin${RESOURCEGROUP} \
-    --admin-password 'Secret123456' \
+    --admin-password '<server-admin-password>' \
     --database-name ${RESOURCEGROUP}db \
     --public-access 0.0.0.0 \
     --yes
@@ -185,7 +188,7 @@ In the *liberty/config* directory, the *server.xml* is used to configure the dat
 
 #### Build the project
 
-Now that you gathered the necessary properties, replace the placeholders in the following commands with same values you used to create the Azure Database for MySQL Flexible Server instance. Run the commands in your terminal to build the project. The POM file for the project reads many properties from the environment.
+Using the environment variables defined previously, run the commands in your terminal to build the project. The POM file for the project reads many properties from the environment.
 
 ```bash
 cd ${BASE_DIR}/3-integration/connect-db/mysql
@@ -195,7 +198,7 @@ export DB_SERVER_NAME=$CLUSTER.mysql.database.azure.com
 export DB_PORT_NUMBER=3306
 export DB_NAME=${RESOURCEGROUP}db
 export DB_USER=admin${RESOURCEGROUP}
-export DB_PASSWORD='Secret123456'
+export DB_PASSWORD='<server-admin-password>'
 export NAMESPACE=open-liberty-demo
 
 mvn clean install
