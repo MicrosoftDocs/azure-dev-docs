@@ -160,12 +160,40 @@ For simpler access to a preferred `AzureRM` or `AzAPI` version, use the `--provi
 aztfexport [command] --provider-name=azapi --provider-version=1.10.0 [further options] <scope>
 ```
 
-### Choosing an Authentication Method
-If you wish to customize which credential to use when exporting, three flags support your respective preferences:
-- `--use-environment-cred` for environment credentials
-- `--use-managed-identity-cred` for Managed Identity Credentials
-- `--use-azure-cli-cred` for CLI credentials
+### Authentication
+A variety of flags exist for managing authentication configuration. Note that some of these were only added as of `v0.15`:
 
+- `--env`
+- `--tenant-id`
+- `--auxiliary-tenant-ids`
+- `--client-id`
+- `--client-id-file-path`
+- `--client-certificate`
+- `--client-certificate-path`
+- `--client-certificate-password`
+- `--client-secret`
+- `--client-secret-file-path`
+- `--oidc-request-token`
+- `--oidc-request-url`
+- `--oidc-token`
+- `--oidc-token-file-path`
+- `--use-managed-identity-cred` (defaults to false)
+- `--use-azure-cli-cred` (defaults to true)
+- `--use-oidc-cred` (defaults to false)
+
+Note that the flags above are following the naming convention as the azurerm provider. All of them are configurable via environment variables as well, which includes the same env var as is defined in the azurerm provider.
+
+The default authentication `aztfexport` will attempt to authenticate with each of the credential types, in the following order, stopping when one provides a token:
+
+1. Client secret
+2. Client certificate
+3. OIDC
+4. Managed identity
+5. Azure CLI
+
+If one or more `use-xxx-cred` is not true, then that credential type will be skipped. This behavior is the same as the provider.
+
+The provider config can override any auth config from `aztfexport`. This makes it possible for users to use different credential types between `aztfexport` and the provider.
 ### Including Role Assignments
 If you wish to include role assignments when exporting your scope of resources, use the `--include-role-assignment` command:
 ```console
