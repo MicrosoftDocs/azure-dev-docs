@@ -250,4 +250,4 @@ If your issue isn't addressed, log your issue to the repository's [Issues](https
 
 ## Related content
 
-- [Get started with evaluating answers in a chat app in JavaScript](ai/get-started-app-chat-evaluations.md)
+- [Get started with evaluating answers in a chat app in JavaScript](get-started-app-chat-evaluations.md)
