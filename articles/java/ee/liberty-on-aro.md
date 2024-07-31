@@ -41,11 +41,12 @@ If you're interested in providing feedback or working closely on your migration 
 - [Azure CLI](/cli/azure/install-azure-cli), version 2.61.0 or later.
 - An Azure Red Hat OpenShift 4 cluster. To create the cluster, follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster) while using the following instructions:
 
-  - Though the "Get a Red Hat pull secret" step is labeled as optional, **it's required for this article**. The pull secret enables your Azure Red Hat OpenShift cluster to find the Open Liberty Operator.
+  - Though the "Get a Red Hat pull secret" step is labeled as optional, it's required for this article. The pull secret enables your Azure Red Hat OpenShift cluster to find the Open Liberty Operator.
 
-  - The following environment variables defined in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster) are used later in this article.
-     - `RESOURCEGROUP`, the name of the resource group in which the cluster is deployed.
-     - `CLUSTER`, the name of the cluster.
+  - The following environment variables defined in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster) are used later in this article:
+
+    - `RESOURCEGROUP` - the name of the resource group in which the cluster is deployed.
+    - `CLUSTER`- the name of the cluster.
 
   - If you plan to run memory-intensive applications on the cluster, specify the proper virtual machine size for the worker nodes using the `--worker-vm-size` parameter. For more information, see the following articles:
 
@@ -96,7 +97,7 @@ Use the following steps to create an OpenShift namespace for use with your app:
 
 Azure Database for MySQL Flexible Server deployment model is a deployment mode designed to provide more granular control and flexibility over database management functions and configuration settings than the Azure Database for MySQL single server deployment mode. This section shows you how to create an Azure Database for MySQL Flexible Server instance using the Azure CLI. For more information, see [Quickstart: Create an instance of Azure Database for MySQL - Flexible Server by using the Azure CLI](/azure/mysql/flexible-server/quickstart-create-server-cli).
 
-Run this command in your terminal to create an Azure Database for MySQL Flexible Server instance. Replace `<server-admin-password>` with a password that meets the password complexity requirements for Azure Database for MySQL Flexible Server.
+Run the following command in your terminal to create an Azure Database for MySQL Flexible Server instance. Replace `<server-admin-password>` with a password that meets the password complexity requirements for Azure Database for MySQL Flexible Server.
 
 ```azurecli
 az mysql flexible-server create \
@@ -188,7 +189,7 @@ In the *liberty/config* directory, the *server.xml* is used to configure the dat
 
 #### Build the project
 
-Using the environment variables defined previously, run the commands in your terminal to build the project. The POM file for the project reads many properties from the environment.
+Using the environment variables defined previously, run the following commands in your terminal to build the project. The POM file for the project reads many properties from the environment.
 
 ```bash
 cd ${BASE_DIR}/3-integration/connect-db/mysql
