@@ -9,7 +9,7 @@ adobe-target: trues
 
 # Overview of the Terraform AzAPI provider
 
-The AzAPI provider is a thin layer on top of the [Azure ARM REST APIs](/rest/api/resources/). It enables you to manage any Azure resource type using any API version, enabling you to utilize latest and greatest functionality within Azure. AzAPI is a first-class provider designed to be used in tandem with the AzureRM provider or even on its own.
+The AzAPI provider is a thin layer on top of the [Azure ARM REST APIs](/rest/api/resources/). It enables you to manage any Azure resource type using any API version, enabling you to utilize latest and greatest functionality within Azure. AzAPI is a first-class provider designed to be used on its own or in tandem with the AzureRM provider.
 
 ## Resources
 
