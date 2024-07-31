@@ -140,7 +140,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. Run the following AZD command to bring the GitHub repository to your local computer.
 
     ```bash
-    azd init -t serverless-chat-langchainj
+    azd init -t serverless-chat-langchainjs
     ```
 
 1. Open the Command Palette, search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing.
