@@ -59,6 +59,7 @@
 | Face | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-vision-face/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-face_1.0.0-beta.1/sdk/face/ai-vision-face-rest/) |
 | farmbeats | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/agrifood-farming/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.2/sdk/agrifood/agrifood-farming-rest/) |
 | Form Recognizer | npm [5.0.0](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [docs](/javascript/api/overview/azure/ai-form-recognizer-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_5.0.0/sdk/formrecognizer/ai-form-recognizer/) |
+| Health Deidentification | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-deidentification/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-deidentification_1.0.0-beta.1/sdk/healthdataaiservices/azure-health-deidentification/) |
 | Health Insights Radiology Insights | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-radiologyinsights/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-radiologyinsights_1.0.0-beta.1/sdk/healthinsights/health-insights-radiologyinsights-rest/) |
 | Identity | npm [4.4.0](https://www.npmjs.com/package/@azure/identity/v/4.4.0)<br>npm [4.5.0-beta.1](https://www.npmjs.com/package/@azure/identity/v/4.5.0-beta.1) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [4.4.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.4.0/sdk/identity/identity/)<br>GitHub [4.5.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.5.0-beta.1/sdk/identity/identity/) |
 | Identity Broker | npm [1.0.1](https://www.npmjs.com/package/@azure/identity-broker/v/1.0.1) | [docs](/javascript/api/overview/azure/identity-broker-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-broker_1.0.1/sdk/identity/identity-broker/) |
@@ -465,7 +466,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240726.4](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240726.4) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240730.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240730.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -494,11 +495,11 @@
 | @azure-tools/cadl-providerhub | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.26.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.26.0) |  |  |
 | @azure-tools/cadl-python | npm [0.6.1](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.6.1) |  |  |
-| @azure-tools/cadl-ranch | npm [0.13.4](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.13.4) |  |  |
+| @azure-tools/cadl-ranch | npm [0.13.5](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.13.5) |  |  |
 | @azure-tools/cadl-ranch-api | npm [0.4.4](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.4.4) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.8.2](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.8.2) |  |  |
 | @azure-tools/cadl-ranch-expect | npm [0.14.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.14.1) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.34.9](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.34.9) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.34.10](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.34.10) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |

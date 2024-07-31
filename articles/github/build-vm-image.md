@@ -4,7 +4,7 @@ description: Learn how to build custom virtual machine images with GitHub Action
 author: juliakm 
 ms.author: jukullam 
 ms.topic: quickstart
-ms.service: virtual-machines 
+ms.service: azure-virtual-machines
 ms.subservice: imaging
 ms.date: 06/09/2023
 ms.custom: github-actions-azure, devx-track-azurecli, mode-portal, devx-track-extended-java, linux-related-content

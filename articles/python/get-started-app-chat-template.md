@@ -29,8 +29,8 @@ Other articles in the collection include:
 
 * [.NET](/dotnet/ai/get-started-app-chat-template)
 * [Java](../java/quickstarts/get-started-app-chat-template.md)
-* [JavaScript](../javascript/get-started-app-chat-template.md)
-* [JavaScript frontend  + Python backend](../javascript/chat-app-with-separate-front-back-end.md)
+* [JavaScript](../javascript/ai/get-started-app-chat-template.md)
+* [JavaScript frontend  + Python backend](../javascript/ai/chat-app-with-separate-front-back-end.md)
 
 > [!NOTE]
 > This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.

@@ -19,25 +19,25 @@ highlightedContent:
     - title: Introduction to Azure for developers
       itemType: get-started # controls the icon image and super-title text
       url: intro/azure-developer-overview.md
-    - title: Key Azure services for developers
+    - title: Key Azure services
       itemType: overview
       url: ./intro/azure-developer-key-services.md
+    - title: AI app development
+      itemType: overview
+      url: ./ai/azure-ai-for-developers.md
     - title: Host applications on Azure
       itemType: overview
       url: ./intro/hosting-apps-on-azure.md
-    - title: Connect apps to Azure services
-      itemType: overview
-      url: ./intro/connect-to-azure-services.md
-    - title: Develop apps that use Azure AI services
-      itemType: overview
-      url: ./ai/azure-ai-for-developers.md
     - title: Create resources in Azure
       itemType: concept
       url: ./intro/azure-developer-create-resources.md
-    - title: Key concepts for building Azure apps
+    - title: Connect apps to Azure resources
+      itemType: overview
+      url: ./intro/connect-to-azure-services.md
+    - title: Azure concepts
       itemType: architecture
       url: ./intro/azure-developer-key-concepts.md
-    - title: Versioning policy for Azure services, SDKs, and CLI tools
+    - title: Versioning
       itemType: concept
       url: ./intro/azure-service-sdk-tool-versioning.md
 
@@ -106,14 +106,14 @@ productDirectory:
           text: Azure SDK for .NET          
         - url: /dotnet/azure/
           text: See more in the .NET developer center
-    - title: Azure AI for developers
+    - title: AI developers
       imageSrc: ./intro/media/azure-openai.png
       links:
         - url: ./ai/azure-ai-for-developers.md
           text: Overview of AI apps
         - url: ./python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           text: Chat with your data using Python
-        - url: ./javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+        - url: ./javascript/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           text: Chat with your data using JavaScript
         - url: ./java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           text: Chat with your data using Java

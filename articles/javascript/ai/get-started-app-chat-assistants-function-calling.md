@@ -17,7 +17,7 @@ This article shows you how to deploy and run the [serverless Azure OpenAI Assist
 
 Azure OpenAI Assistants allows you to create AI assistants tailored to your needs through custom instructions and augmented by advanced tools like code interpreter, and custom functions. In this article, we provide an in-depth walkthrough of getting started with the Assistants API.
 
-:::image type="content" source="./media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
+:::image type="content" source="../media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
 This application is built around two main components:
 
@@ -27,7 +27,7 @@ This application is built around two main components:
 
     - The sample's function call simulates an API call by generating a random stock ticker value based on the stock symbol sent into the Azure Function. This simulation can be replaced with a remote API in your solution.
 
-    :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/diagram-azure-openai-service-function-calling-architecture.png" alt-text="Diagram showing Azure Functions integration with Azure OpenAI where Azure OpenAI can return follow up function names which Azure Functions should call.":::
+    :::image type="content" source="../media/get-started-app-chat-assistants-function-calling/diagram-azure-openai-service-function-calling-architecture.png" alt-text="Diagram showing Azure Functions integration with Azure OpenAI where Azure OpenAI can return follow-up function names which Azure Functions should call.":::
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ To use this article, you need the following prerequisites:
 1. Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
 1. Access granted to Azure OpenAI in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
-1. [Azure Developer CLI](../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
+1. [Azure Developer CLI](../../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
 1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
 1. [Git](https://git-scm.com/downloads) 
 1. [Visual Studio Code](https://code.visualstudio.com/)
@@ -112,7 +112,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     > [!TIP]
     > You can use the main menu to navigate to the **Terminal** menu option and then select the **New Terminal** option.
     >
-    > :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/open-terminal-option.png" lightbox="./media/get-started-app-chat-assistants-function-calling/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
+    > :::image type="content" source="../media/get-started-app-chat-assistants-function-calling/open-terminal-option.png" lightbox="../media/get-started-app-chat-assistants-function-calling/open-terminal-option.png" alt-text="Screenshot of the menu option to open a new terminal.":::
 
 1. Sign in to Azure with the Azure Developer CLI.
 
@@ -168,7 +168,7 @@ You can use the assistant app to get the stock market price of `MSFT`. The follo
     
 1. Select the **Run** button. Your results should look _similar_ to the following response.
 
-    :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-demo.png" alt-text="Screenshot of assistant app's first answer.":::
+    :::image type="content" source="../media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-demo.png" alt-text="Screenshot of assistant app's first answer.":::
 
 ## Clean up resources
 
@@ -195,7 +195,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-openai-assistant-javascript`](https://github.com/Azure-Samples/azure-openai-assistant-javascript) GitHub repository.
 
-    :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
+    :::image type="content" source="../media/get-started-app-chat-assistants-function-calling/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
 1. Open the context menu, `...`, for the codespace and then select **Delete**.
 
@@ -205,7 +205,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="./media/get-started-app-chat-assistants-function-calling/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+    :::image type="content" source="../media/get-started-app-chat-assistants-function-calling/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
