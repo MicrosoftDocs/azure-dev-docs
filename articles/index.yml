@@ -19,25 +19,25 @@ highlightedContent:
     - title: Introduction to Azure for developers
       itemType: get-started # controls the icon image and super-title text
       url: intro/azure-developer-overview.md
-    - title: Key Azure services
+    - title: Key Azure services for developers
       itemType: overview
       url: ./intro/azure-developer-key-services.md
-    - title: AI app development
-      itemType: overview
-      url: ./ai/azure-ai-for-developers.md
     - title: Host applications on Azure
       itemType: overview
       url: ./intro/hosting-apps-on-azure.md
+    - title: Connect apps to Azure services
+      itemType: overview
+      url: ./intro/connect-to-azure-services.md
+    - title: Develop apps that use Azure AI services
+      itemType: overview
+      url: ./ai/azure-ai-for-developers.md
     - title: Create resources in Azure
       itemType: concept
       url: ./intro/azure-developer-create-resources.md
-    - title: Connect apps to Azure resources
-      itemType: overview
-      url: ./intro/connect-to-azure-services.md
-    - title: Azure concepts
+    - title: Key concepts for building Azure apps
       itemType: architecture
       url: ./intro/azure-developer-key-concepts.md
-    - title: Versioning
+    - title: Versioning policy for Azure services, SDKs, and CLI tools
       itemType: concept
       url: ./intro/azure-service-sdk-tool-versioning.md
 
@@ -106,7 +106,7 @@ productDirectory:
           text: Azure SDK for .NET          
         - url: /dotnet/azure/
           text: See more in the .NET developer center
-    - title: AI developers
+    - title: Azure AI for developers
       imageSrc: ./intro/media/azure-openai.png
       links:
         - url: ./ai/azure-ai-for-developers.md
@@ -124,6 +124,8 @@ productDirectory:
     - title: Go
       imageSrc: /media/logos/logo_Go-lightblue.svg
       links:
+        - url: ./go/azure-sdk-install.md
+          text: Install the Azure SDK for Go
         - url: ./go/azure-sdk-authentication.md
           text: Authenticate your app
         - url: ./ai/azure-ai-for-developers.md?pivots=go
@@ -135,7 +137,7 @@ productDirectory:
         - url: ./go/index.yml
           text: See more in the Go developer center
     - title: Azure PowerShell
-      imageSrc: /media/logos/logo_powershell.svg
+      imageSrc: /powershell/media/index/ps_black_128.svg
       links:
         - url: /powershell/azure/new-azureps-module-az
           text: What is the new Az module?
