@@ -200,7 +200,7 @@ The chat app is preloaded with rental information from a [markdown file catalog]
 
 The intelligence of the chat app is determined by the OpenAI model and the settings that are used to interact with the model. 
 
-:::image type="content" source="../media/get-started-app-chat-template/browser-chat-developer-settings-chat-pane.png" alt-text="Screenshot of chat developer settings":::
+:::image type="content" source="../media/get-started-app-chat-template/browser-chat-developer-settings-chat-pane.png" alt-text="Screenshot of chat developer settings.":::
 
 |Setting|Description|
 |---|---|

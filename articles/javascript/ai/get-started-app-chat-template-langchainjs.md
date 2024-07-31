@@ -193,7 +193,7 @@ The chat app is preloaded with rental information from a [PDF file catalog](http
 
 1. Select a follow-up question.
 
-    :::image type="content" source="../media/get-started-app-chat-langchainjs/follow-up-suggested-prompt.png" lightbox="../media/get-started-app-chat-langchainjs/follow-up-suggested-prompt.png" alt-text="Screenshot of chat app's suggested follow up prompt and answer":::
+    :::image type="content" source="../media/get-started-app-chat-langchainjs/follow-up-suggested-prompt.png" lightbox="../media/get-started-app-chat-langchainjs/follow-up-suggested-prompt.png" alt-text="Screenshot of chat app's suggested follow-up prompt and answer.":::
 
 1. From the response, select the citation to see the document used to generate the answer. This delivers the document from Azure Storage to the client. When you're done with the new browser tab, close it to return to the serverless chat app.
 
