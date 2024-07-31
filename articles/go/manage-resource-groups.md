@@ -1,7 +1,7 @@
 ---
 title: Manage resource groups with the Azure SDK for Go
 description: In this article, you learn how to create a resource group with the Azure SDK for Go Management Library.
-ms.date: 08/13/2021
+ms.date: 07/31/2024
 ms.topic: quickstart
 ms.custom: devx-track-go, mode-api
 ---
@@ -10,14 +10,14 @@ ms.custom: devx-track-go, mode-api
 
 In this article, you learn how to create a resource group with the Azure SDK for Go management library.
 
-## 1. Configure your environment
+## 1. Set up Azure resources
 
 [!INCLUDE [configure-environment.md](includes/configure-environment.md)]
 
 > [!IMPORTANT]
 > The packages for the current version of the Azure resource management libraries are located in `sdk/**/arm**`. The packages for the previous version of the management libraries are located under [`/services`](https://github.com/Azure/azure-sdk-for-go/tree/legacy/services). If you're using the older version, see the [this Azure SDK for Go Migration Guide](https://aka.ms/azsdk/go/mgmt/migration).
 
-## 2. Authenticate to Azure
+## 2. Set authentication environment variables
 
 [!INCLUDE [set-authentication-environment-variables.md](includes/set-authentication-environment-variables.md)]
 
@@ -34,7 +34,7 @@ In this article, you learn how to create a resource group with the Azure SDK for
     **Key points:**
 
     - The `<module_path>` parameter is generally a location in a GitHub repo - such as `github.com/<your_github_account_name>/<directory>`.
-    - When you're creating a command-line app as a test and won't publish the app, the `<module_path>` doesn't have to exist.
+    - When you're creating a command-line app as a test and won't publish the app, the `<module_path>` doesn't have to exist. 
 
 1. Run [go get](https://go.dev/ref/mod#go-get) to download, build, and install the necessary Azure SDK for Go modules.
 
@@ -157,11 +157,11 @@ Get-AzResourceGroup -Name <resource_group>
     ```go
     // Update the resource group by adding a tag to it.
     func updateResourceGroup(subscriptionId string, credential azcore.TokenCredential) (armresources.ResourceGroupsClientUpdateResponse, error) {
-        rgClient := armresources.NewResourceGroupsClient(subscriptionId, credential, nil)
+        rgClient, _ := armresources.NewResourceGroupsClient(subscriptionId, credential, nil)
 
         update := armresources.ResourceGroupPatchable{
             Tags: map[string]*string{
-                "new": to.StringPtr("tag"),
+                "new": to.Ptr("tag"),
             },
         }
         return rgClient.Update(ctx, resourceGroupName, update, nil)
@@ -177,18 +177,21 @@ Get-AzResourceGroup -Name <resource_group>
     ```go
     // List all the resource groups of an Azure subscription.
     func listResourceGroups(subscriptionId string, credential azcore.TokenCredential) ([]*armresources.ResourceGroup, error) {
-        rgClient := armresources.NewResourceGroupsClient(subscriptionId, credential, nil)
+        rgClient, _ := armresources.NewResourceGroupsClient(subscriptionId, credential, nil)
 
-        pager := rgClient.List(nil)
+        pager := rgClient.NewListPager(nil)
 
         var resourceGroups []*armresources.ResourceGroup
-        for pager.NextPage(ctx) {
-            resp := pager.PageResponse()
+        for pager.More() {
+            resp, err := pager.NextPage(ctx)
+            if err != nil {
+                return nil, err
+            }
             if resp.ResourceGroupListResult.Value != nil {
                 resourceGroups = append(resourceGroups, resp.ResourceGroupListResult.Value...)
             }
         }
-        return resourceGroups, pager.Err()
+        return resourceGroups, nil
     }
     ```
 

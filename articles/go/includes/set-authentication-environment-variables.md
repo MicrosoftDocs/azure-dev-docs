@@ -9,26 +9,14 @@ Using your Azure authentication information, set the appropriate environment var
 
 #### [Bash](#tab/bash)
 
-1. Edit the `~/.bashrc` file by adding the following environment variables. Replace the placeholders with the appropriate values from the previous section.
+Set the following environment variables. Replace the placeholders with the appropriate values from the previous section.
 
-    ```bash
-    export AZURE_SUBSCRIPTION_ID="<azure_subscription_id>"
-    export AZURE_TENANT_ID="<active_directory_tenant_id>"
-    export AZURE_CLIENT_ID="<service_principal_appid>"
-    export AZURE_CLIENT_SECRET="<service_principal_password>"
-    ```
-
-1. To execute the `~/.bashrc` script, run `source ~/.bashrc` (or its abbreviated equivalent `. ~/.bashrc`).
-
-    ```bash
-    . ~/.bashrc
-    ```
-
-1. Once the environment variables are set, you can verify their values as follows:
-
-    ```bash
-    printenv | grep ^AZURE*
-    ```
+```bash
+export AZURE_SUBSCRIPTION_ID="<azure_subscription_id>"
+export AZURE_TENANT_ID="<active_directory_tenant_id>"
+export AZURE_CLIENT_ID="<service_principal_appid>"
+export AZURE_CLIENT_SECRET="<service_principal_password>"
+```
 
 #### [Windows](#tab/windows)
 
