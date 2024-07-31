@@ -16,10 +16,10 @@ Creating AI apps can be complex. With LangChain.js, Azure Functions, and Serverl
 
 The code includes sample data for a fictitious company, Contoso Real Estate. Customers can ask support questions about the company's products. The data includes documents on the company's terms of service, privacy policy, and support guide.
 
-:::image type="content" source="./media/get-started-app-chat-langchainjs/demo.gif" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+:::image type="content" source="../media/get-started-app-chat-langchainjs/demo.gif" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
 > [!NOTE]
-> This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+> This article uses one or more [AI app templates](../../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
 ## Architectural overview
 
@@ -35,7 +35,7 @@ The user interacts with the application:
 
 A simple architecture of the chat app is shown in the following diagram:
 
-:::image type="content" source="./media/get-started-app-chat-langchainjs/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
+:::image type="content" source="../media/get-started-app-chat-langchainjs/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
 ### LangChainjs simplifies the complexity between services
 
@@ -189,16 +189,16 @@ The chat app is preloaded with rental information from a [PDF file catalog](http
 
 1. In the browser, select or enter **What is the refund policy**.
 
-    :::image type="content" source="./media/get-started-app-chat-langchainjs/first-prompt-chat.png" lightbox="./media/get-started-app-chat-langchainjs/first-prompt-chat.png" alt-text="Screenshot of chat app's first question and answer.":::
+    :::image type="content" source="../media/get-started-app-chat-langchainjs/first-prompt-chat.png" lightbox="../media/get-started-app-chat-langchainjs/first-prompt-chat.png" alt-text="Screenshot of chat app's first question and answer.":::
 
 1. Select a follow-up question.
 
-    :::image type="content" source="./media/get-started-app-chat-langchainjs/follow-up-suggested-prompt.png" lightbox="./media/get-started-app-chat-langchainjs/follow-up-suggested-prompt.png" alt-text="Screenshot of chat app's suggested follow up prompt and answer":::
+    :::image type="content" source="../media/get-started-app-chat-langchainjs/follow-up-suggested-prompt.png" lightbox="../media/get-started-app-chat-langchainjs/follow-up-suggested-prompt.png" alt-text="Screenshot of chat app's suggested follow-up prompt and answer.":::
 
 1. From the response, select the citation to see the document used to generate the answer. This delivers the document from Azure Storage to the client. When you're done with the new browser tab, close it to return to the serverless chat app.
 
 
-    :::image type="content" source="./media/get-started-app-chat-langchainjs/citation-document.png" lightbox="./media/get-started-app-chat-langchainjs/citation-document.png" alt-text="Screenshot of original document containing citation.":::
+    :::image type="content" source="../media/get-started-app-chat-langchainjs/citation-document.png" lightbox="../media/get-started-app-chat-langchainjs/citation-document.png" alt-text="Screenshot of original document containing citation.":::
 
 ## Clean up resources
 
@@ -225,7 +225,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Locate your currently running Codespaces sourced from the [`Azure-Samples/serverless-chat-langchainjs`](https://github.com/Azure-Samples/serverless-chat-langchainjs) GitHub repository.
 
-    :::image type="content" source="./media/get-started-app-chat-langchainjs/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
+    :::image type="content" source="../media/get-started-app-chat-langchainjs/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
 1. Open the context menu, `...`, for the codespace and then select **Delete**.
 
@@ -235,7 +235,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="./media/get-started-app-chat-langchainjs/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+    :::image type="content" source="../media/get-started-app-chat-langchainjs/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.

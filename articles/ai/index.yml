@@ -36,7 +36,7 @@ landingContent:
           - text: Chat with your data using Python
             url: ../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Chat with your data using JavaScript
-            url: ../javascript/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+            url: ../javascript/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Chat with your data using Java
             url: ../java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Chat with your data using .NET
@@ -49,7 +49,7 @@ landingContent:
           - text: Python
             url: ../python/azure-ai-for-python-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: JavaScript
-            url: ../javascript/azure-ai-for-javascript-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+            url: ../javascript/ai/azure-ai-for-javascript-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Java
             url: ../java/ai/azure-ai-for-java-developers.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: C# and .NET
