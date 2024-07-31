@@ -47,17 +47,17 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Deploy Enterprise chat with RAG
-            url: get-started-app-chat-template.md?tabs=github-codespaces
+            url: ai/get-started-app-chat-template.md?tabs=github-codespaces
           - text: Use serverless AI Chat with RAG using LangChain.js 
-            url: get-started-app-chat-template-langchainjs.md
+            url: ai/get-started-app-chat-template-langchainjs.md
           - text: Use Azure OpenAI Assistants and function calling in JavaScript
-            url: get-started-app-chat-assistants-function-calling.md
+            url: ai/get-started-app-chat-assistants-function-calling.md
           - text: Scale Azure OpenAI with Azure Container Apps
-            url: get-started-app-chat-scaling-with-azure-container-apps.md
+            url: ai/get-started-app-chat-scaling-with-azure-container-apps.md
           - text: Scale Azure OpenAI with Azure API Management
-            url: get-started-app-chat-scaling-with-azure-api-management.md
+            url: ai/get-started-app-chat-scaling-with-azure-api-management.md
           - text: Evaluate chat app
-            url: get-started-app-chat-evaluations.md
+            url: ai/get-started-app-chat-evaluations.md
 
   - title: Azure SDK client library tutorials
     linkLists: 
