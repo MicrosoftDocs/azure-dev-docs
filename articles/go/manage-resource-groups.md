@@ -219,7 +219,7 @@ Get-AzResourceGroup -Name <resource_group>
 
 ## 8. Update the main function
 
-In this article, you've seen how to create, update, and delete a resource group. You've also seen how to list all the resource groups of an Azure subscription. To run all these functions sequentially, replace the `main` function with the following code:
+In previous sections, you've added code to `main.go` to create, update, and delete a resource group. You've also added code to list all the resource groups in an Azure subscription. To run all these functions sequentially, replace the `main` function with the following code:
 
 ```go
 func main() {
