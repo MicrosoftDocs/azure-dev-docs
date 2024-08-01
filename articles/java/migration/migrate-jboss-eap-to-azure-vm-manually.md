@@ -867,7 +867,7 @@ This section shows you how to create an Azure Database for PostgreSQL Flexible S
 
 Use the following steps to create the database instance:
 
-1. Use [az postgres flexible-server create ](/cli/azure/postgres/server#az-postgres-flexible-server-create) to provisionan Azure Database for PostgreSQL Flexible Server instance, as shown in the following example:
+1. Use [az postgres flexible-server create ](/cli/azure/postgres/server#az-postgres-flexible-server-create) to provision an Azure Database for PostgreSQL Flexible Server instance, as shown in the following example:
 
    ```azurecli
    export DATA_BASE_USER=jboss
