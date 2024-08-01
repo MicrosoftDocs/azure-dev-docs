@@ -861,7 +861,7 @@ az network application-gateway create \
 
 ## Connect Azure Database for PostgreSQL Flexible Server
 
-This section shows you how to createan Azure Database for PostgreSQL Flexible Server instance and configure a connection to PostgreSQL on your Red Hat JBoss EAP cluster.
+This section shows you how to create an Azure Database for PostgreSQL Flexible Server instance and configure a connection to PostgreSQL on your Red Hat JBoss EAP cluster.
 
 ### Create an Azure Database for PostgreSQL Flexible Server instance
 
