@@ -49,7 +49,7 @@ Before moving on to the next section, make sure you've noted down your subscript
     > [!IMPORTANT]
     > The packages for the current version of the Azure resource management libraries are located in `sdk/**/arm**`. The packages for the previous version of the management libraries are located under [`/services`](https://github.com/Azure/azure-sdk-for-go/tree/legacy/services). If you're using the older version, see the [Azure SDK for Go Migration Guide](https://aka.ms/azsdk/go/mgmt/migration).
 
-1. Create a file named `main.go` and insert the following code. Each section of code is commented to explain its purpose.
+1. Create a file named `main.go` and add the following code. Each section of code is commented to explain its purpose.
 
     ```go
     package main
