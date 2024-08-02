@@ -23,9 +23,9 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 |[Azure OpenAI Service Documentation](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
 |[Overview of the .NET + AI ecosystem](/dotnet/ai/dotnet-ai-ecosystem)|Summary of the services and tools you might need to use in your applications, with links to learn more about each of them.|
 |[Build an Azure AI chat app with .NET](/dotnet/ai/quickstarts/get-started-azure-openai)|Use Semantic Kernel or Azure OpenAI SDK to create a simple .NET 8 console chat application.|
-|[Summarize text using Azure AI chat app with .NET](/dotnet/ai/quickstarts/quickstart-openai-summarize-text)|Simiar to the previous article, but the prompt is to summarize text.|
+|[Summarize text using Azure AI chat app with .NET](/dotnet/ai/quickstarts/quickstart-openai-summarize-text)|Similar to the previous article, but the prompt is to summarize text.|
 |[Get insight about your data from an .NET Azure AI chat app](/dotnet/ai/quickstarts/quickstart-ai-chat-with-data)|Use Semantic Kernel or Azure OpenAI SDK to get analytics and information about your data.|
-|[Extend Azure AI using Tools and execute a local Function with .NET](/dotnet/ai/quickstarts/quickstart-azure-openai-tool)|Create an assistant that handles certain prompts using custom tools build in .NET.|
+|[Extend Azure AI using Tools and execute a local Function with .NET](/dotnet/ai/quickstarts/quickstart-azure-openai-tool)|Create an assistant that handles certain prompts using custom tools built in .NET.|
 |[Generate images using Azure AI with .NET](/dotnet/ai/quickstarts/quickstart-openai-generate-images)|Use the OpenAI dell-e-3 model to generate an image.|
 
 ## Resources for other Azure AI services
