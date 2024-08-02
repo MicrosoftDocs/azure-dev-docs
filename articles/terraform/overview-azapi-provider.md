@@ -17,10 +17,17 @@ To allow you to manage all Azure resources and features without requiring update
 
 | Resource Name | Description |
 | ------------- | ----------- |
-| azapi_resource | Used to fully manage any Azure (control plane) resource (API) with full CRUD. <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New preview service <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New feature added to existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existing feature / service not currently covered |
-| azapi_update_resource | Used to manage resources or parts of resources that don't have full CRUD <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update new properties on an existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update pre-created child resource - such as DNS SOA record. |
-| azapi_resource_action | Used to perform a single operation on a resource without managing the lifecycle of it <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shut down a Virtual Machine <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add a secret to a Key Vault|
-| azapi_data_plane_resource | Used to manage Azure data plane resources that are ??? <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resource Type 1<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resource Type 2 | 
+| [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource) | Used to fully manage any Azure (control plane) resource (API) with full CRUD. <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New preview service <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New feature added to existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existing feature / service not currently covered |
+| [azapi_update_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_update_resource) | Used to manage resources or parts of resources that don't have full CRUD <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update new properties on an existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update pre-created child resource - such as DNS SOA record. |
+| [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource_action) | Used to perform a single operation on a resource without managing the lifecycle of it <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shut down a Virtual Machine <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add a secret to a Key Vault|
+| [azapi_data_plane_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_data_plane_resource) | Used to manage a [specific subset](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_data_plane_resource#available-resources) of Azure data plane resources <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KeyVault Certificate Contacts<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Synapse Workspace Libraries| 
+
+### Usage Hierarchy
+Overall, usage should follow these steps:
+1. It is always recommended to start with performing as many operations as possible within `azapi_resource`. 
+2. If the resource type does not exist within `azapi_resource` but does fall under one of the types supported by `azapi_data_plane_resource`, use that instead.
+3. If the resource already exists in AzureRM or has a property that cannot be accessed within `azapi_resource`, use `azapi_update_resource` to access these specific properties. Note that resources that are not supported by `azapi_resource` or `azapi_data_plane_resource` cannot be updated through this resource.
+4. If you are desiring to perform an action that is not based on an Azure CRUD-friendly resource, `azapi_resource_action` is less straightforward than `azapi_update_resource` but more flexible.
 
 ## Resource configuration examples
 
@@ -33,12 +40,12 @@ resource "azapi_resource" "publicip" {
   parent_id = azurerm_resource_group.example.id
   location  = "westus2"
 
-  body = jsonencode({
+  body = {
     properties = {
       cidr          = "10.0.0.0/24"
       signedMessage = "Sample Message for WAN"
     }
-  })
+  }
 }
 ```
 
@@ -49,11 +56,11 @@ resource "azapi_update_resource" "test" {
   type        = "Microsoft.ContainerRegistry/registries@2020-11-01-preview"
   resource_id = azurerm_container_registry.acr.id
 
-  body = jsonencode({
+  body = jsonencode{
     properties = {
       anonymousPullEnabled = var.bool_anonymous_pull
     }
-  })
+  }
 }
 ```
 
@@ -70,7 +77,36 @@ resource "azapi_resource_action" "vm_shutdown" {
 The following code snippet configures a resource that doesn't currently exist in the AzureRM provider due to being provisioned on the data plane:
 
 ```terraform
-resource "azapi_data_plane_resource" "tbd" {
+resource "azapi_data_plane_resource" "dataset" {
+  type      = "Microsoft.Synapse/workspaces/datasets@2020-12-01"
+  parent_id = trimprefix(data.azurerm_synapse_workspace.example.connectivity_endpoints.dev, "https://")
+  name      = "example-dataset"
+  body = {
+    properties = {
+      type = "AzureBlob",
+      typeProperties = {
+        folderPath = {
+          value = "@dataset().MyFolderPath"
+          type  = "Expression"
+        }
+        fileName = {
+          value = "@dataset().MyFileName"
+          type  = "Expression"
+        }
+        format = {
+          type = "TextFormat"
+        }
+      }
+      parameters = {
+        MyFolderPath = {
+          type = "String"
+        }
+        MyFileName = {
+          type = "String"
+        }
+      }
+    }
+  }
 }
 ```
 
@@ -82,7 +118,7 @@ The AzAPI provider enables the same authentication methods as the AzureRM provid
 
 The AzAPI provider features the following benefits:
 
-- Supports all Azure services:
+- Supports all Azure control plane services:
   - Private preview services and features
   - Public preview services and features
   - All API versions
@@ -90,7 +126,7 @@ The AzAPI provider features the following benefits:
   - Properties and values are saved to state
 - No dependency on Swagger
 - Common and consistent Azure authentication
-- Robust VSCode Extension
+- [Robust VSCode Extension](https://marketplace.visualstudio.com/items?itemName=azapi-vscode.azapi)
 
 ## Experience and lifecycle of the AzAPI provider
 
