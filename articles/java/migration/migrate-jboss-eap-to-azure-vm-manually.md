@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Install JBoss EAP on Azure Virtual Machines (VMs) manually"
-description: Provides step-by-step guidance to install Red Hat JBoss EAP on Azure VMs and set up a cluster, expose it with Azure Application Gateway, and connect with Azure Database for PostgreSQL.
+description: Provides step-by-step guidance to install Red Hat JBoss EAP on Azure VMs and set up a cluster, expose it with Azure Application Gateway, and connect with Azure Database for PostgreSQL Flexible Server.
 author: KarlErickson
 ms.author: karler
 ms.topic: how-to
@@ -859,15 +859,15 @@ az network application-gateway create \
 >
 > This example exposes the host controllers at port 8080. You deploy a sample application with a database connection to the cluster in later steps.
 
-## Connect Azure Database for PostgreSQL
+## Connect Azure Database for PostgreSQL Flexible Server
 
-This section shows you how to create a PostgreSQL instance on Azure and configure a connection to PostgreSQL on your Red Hat JBoss EAP cluster.
+This section shows you how to create an Azure Database for PostgreSQL Flexible Server instance and configure a connection to PostgreSQL on your Red Hat JBoss EAP cluster.
 
-### Create an Azure Database for PostgreSQL instance
+### Create an Azure Database for PostgreSQL Flexible Server instance
 
 Use the following steps to create the database instance:
 
-1. Use [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) to provision a PostgreSQL instance on Azure, as shown in the following example:
+1. Use [az postgres flexible-server create ](/cli/azure/postgres/server#az-postgres-flexible-server-create) to provision an Azure Database for PostgreSQL Flexible Server instance, as shown in the following example:
 
    ```azurecli
    export DATA_BASE_USER=jboss
