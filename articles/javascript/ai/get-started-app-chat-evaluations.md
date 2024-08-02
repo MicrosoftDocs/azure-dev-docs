@@ -10,7 +10,7 @@ ms.collection: ce-skilling-ai-copilot
 ---
 # Get started with evaluating answers in a chat app in JavaScript
 
-[!INCLUDE [evaluations-intro](../ai/includes/evaluations-introduction.md)]
+[!INCLUDE [evaluations-intro](../../ai/includes/evaluations-introduction.md)]
 
 ## Prerequisites
 
@@ -50,4 +50,4 @@ ms.collection: ce-skilling-ai-copilot
     
     ---
 
-[!INCLUDE [evaluations-procedure](../ai/includes/evaluations-procedure.md)]
+[!INCLUDE [evaluations-procedure](../../ai/includes/evaluations-procedure.md)]

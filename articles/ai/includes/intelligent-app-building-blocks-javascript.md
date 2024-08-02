@@ -7,9 +7,9 @@ ms.service: azure
 
 | Building block | Description |
 |----------------|-------------|
-| [Evaluate chat app answers](../../javascript/get-started-app-chat-evaluations.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json) | Learn how to evaluate a chat app's answers against a set of correct or ideal answers (known as ground truth). Whenever you change your chat application in a way which affects the answers, run an evaluation to compare the changes. This demo application offers tools you can use today to make it easier to run evaluations. |
-| [Load balance with Azure Container Apps](../../javascript/get-started-app-chat-scaling-with-azure-container-apps.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json) | Learn how to add load balancing to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. This approach uses Azure Container Apps to create three Azure OpenAI endpoints, as well as a primary container to direct incoming traffic to one of the three endpoints. |
-| [Load balance with API Management](../../javascript/get-started-app-chat-scaling-with-azure-api-management.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json) | Learn how to add load balancing to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. This approach uses Azure API Management to create three Azure OpenAI endpoints, as well as a primary container to direct incoming traffic to one of the three endpoints. |
+| [Evaluate chat app answers](../../javascript/ai/get-started-app-chat-evaluations.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json) | Learn how to evaluate a chat app's answers against a set of correct or ideal answers (known as ground truth). Whenever you change your chat application in a way which affects the answers, run an evaluation to compare the changes. This demo application offers tools you can use today to make it easier to run evaluations. |
+| [Load balance with Azure Container Apps](../../javascript/ai/get-started-app-chat-scaling-with-azure-container-apps.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json) | Learn how to add load balancing to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. This approach uses Azure Container Apps to create three Azure OpenAI endpoints, as well as a primary container to direct incoming traffic to one of the three endpoints. |
+| [Load balance with API Management](../../javascript/ai/get-started-app-chat-scaling-with-azure-api-management.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json) | Learn how to add load balancing to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. This approach uses Azure API Management to create three Azure OpenAI endpoints, as well as a primary container to direct incoming traffic to one of the three endpoints. |
 
 <!--
 
@@ -19,14 +19,14 @@ Application requests to most Azure services must be authenticated with keys or [
 
 ### Load balance with Azure Container Apps 
 
-Learn how to [add load balancing to your application](../javascript/get-started-app-chat-scaling-with-azure-container-apps.md) to extend the chat app beyond the Azure OpenAI token and model quota limits. This approach uses Azure Container Apps to create three Azure OpenAI endpoints, as well as a primary container to direct incoming traffic to one of the three endpoints.
+Learn how to [add load balancing to your application](../javascript/ai/get-started-app-chat-scaling-with-azure-container-apps.md) to extend the chat app beyond the Azure OpenAI token and model quota limits. This approach uses Azure Container Apps to create three Azure OpenAI endpoints, as well as a primary container to direct incoming traffic to one of the three endpoints.
 
 ### Load balance with Azure API Management
 
-Learn how to [add load balancing to your application](../../javascript/get-started-app-chat-scaling-with-azure-api-management.md) to extend the chat app beyond the Azure OpenAI token and model quota limits. This approach uses Azure API Management to create three Azure OpenAI endpoints, as well as a primary container to direct incoming traffic to one of the three endpoints.
+Learn how to [add load balancing to your application](../../javascript/ai/get-started-app-chat-scaling-with-azure-api-management.md) to extend the chat app beyond the Azure OpenAI token and model quota limits. This approach uses Azure API Management to create three Azure OpenAI endpoints, as well as a primary container to direct incoming traffic to one of the three endpoints.
 
 ### Evaluate 
 
-Learn how to [evaluate a chat app's answers](../../javascript/get-started-app-chat-evaluations.md) against a set of correct or ideal answers (known as ground truth). Whenever you change your chat application in a way which affects the answers, run an evaluation to compare the changes. This demo application offers tools you can use today to make it easier to run evaluations.
+Learn how to [evaluate a chat app's answers](../../javascript/ai/get-started-app-chat-evaluations.md) against a set of correct or ideal answers (known as ground truth). Whenever you change your chat application in a way which affects the answers, run an evaluation to compare the changes. This demo application offers tools you can use today to make it easier to run evaluations.
 
 -->

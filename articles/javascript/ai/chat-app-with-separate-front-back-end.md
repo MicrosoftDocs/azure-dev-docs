@@ -20,11 +20,11 @@ By mixing and matching the frontend and backend, you can create a multilanguage 
 This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Service and Azure AI Search. Other articles in the collection include: 
 
 * [.NET](/dotnet/ai/get-started-app-chat-template)
-* [Java](../java/quickstarts/get-started-app-chat-template.md)
-* [Python](../python/get-started-app-chat-template.md)
+* [Java](../../java/quickstarts/get-started-app-chat-template.md)
+* [Python](../../python/get-started-app-chat-template.md)
 
 > [!NOTE]
-> This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+> This article uses one or more [AI app templates](../../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
 ## Prerequisites
 
