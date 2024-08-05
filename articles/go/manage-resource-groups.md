@@ -286,7 +286,7 @@ In previous sections, you added code to `main.go` to create, update, and delete 
     ```
 
     > [!NOTE]
-    > Deleting the resource group may take some time. Be patient.
+    > Deleting the resource group may take a few minutes.
 
 [!INCLUDE [troubleshooting.md](includes/troubleshooting.md)]
 
