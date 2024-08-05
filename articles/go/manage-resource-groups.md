@@ -1,7 +1,7 @@
 ---
 title: Manage resource groups with the Azure SDK for Go
 description: In this article, you learn how to create a resource group with the Azure SDK for Go Management Library.
-ms.date: 07/31/2024
+ms.date: 08/05/2024
 ms.topic: quickstart
 ms.custom: devx-track-go, mode-api
 ---
@@ -35,7 +35,7 @@ Before moving on to the next section, make sure you've noted down your subscript
     **Key points:**
 
     - The `<module_path>` parameter is generally a location in a GitHub repo - such as `github.com/<your_github_account_name>/<directory>`.
-    - When you're creating a command-line app as a test and won't publish the app, the `<module_path>` doesn't have to exist. 
+    - When you're creating a command-line app as a test and won't publish the app, the `<module_path>` doesn't need to refer to an actual location.
 
 1. Run [go get](https://go.dev/ref/mod#go-get) to download, build, and install the necessary Azure SDK for Go modules.
 
