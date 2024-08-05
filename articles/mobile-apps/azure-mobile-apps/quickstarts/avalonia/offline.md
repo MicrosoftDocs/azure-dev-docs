@@ -10,6 +10,9 @@ ms.author: adhal
 
 # Add offline data sync to your Avalonia app
 
+> [!NOTE]
+> This product is retired. For a replacement for projects using .NET 8 or later, see the [Community Toolkit Datasync library](https://aka.ms/azure-mobile-apps/docs).
+
 This tutorial covers the offline sync feature of Azure Mobile Apps for the Avalonia quickstart app. Offline sync allows end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there's no network connection. Changes are stored in a local database. Once the device is back online, these changes are synced with the remote backend.
 
 Before starting this tutorial, you should have completed the [Avalonia Quickstart Tutorial](./index.md), which includes creating a suitable backend service.  We also assume you have [added authentication](./authentication.md) to your application.  You can add offline capabilities to your app without authentication.

@@ -11,6 +11,9 @@ ms.author: adhal
 
 # How to use the Azure Mobile Apps client library for .NET
 
+> [!NOTE]
+> This product is retired. For a replacement for projects using .NET 8 or later, see the [Community Toolkit Datasync library](https://aka.ms/azure-mobile-apps/docs).
+
 This guide shows you how to perform common scenarios using the .NET client library for Azure Mobile Apps. Use the .NET client library in any .NET 6 or .NET Standard 2.0 application, including MAUI, Xamarin, and Windows (WPF, UWP, and WinUI).
 
 If you're new to Azure Mobile Apps, consider first completing one of the quickstart tutorials:

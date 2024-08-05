@@ -11,6 +11,9 @@ ms.author: adhal
 
 # How to use the ASP.NET Framework SDK for Azure Mobile Apps
 
+> [!NOTE]
+> This product is retired. For a replacement for projects using .NET 8 or later, see the [Community Toolkit Datasync library](https://aka.ms/azure-mobile-apps/docs).
+
 This topic shows you how to use the .NET backend server SDK in key Azure App Service Mobile Apps scenarios. The Azure Mobile Apps SDK helps you work with mobile clients from your ASP.NET application.
 
 > [!WARNING]

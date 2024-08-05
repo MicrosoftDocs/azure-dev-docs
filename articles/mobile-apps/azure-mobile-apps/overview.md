@@ -10,6 +10,9 @@ ms.author: adhal
 
 # About Azure Mobile Apps
 
+> [!NOTE]
+> This product is retired. For a replacement for projects using .NET 8 or later, see the [Community Toolkit Datasync library](https://aka.ms/azure-mobile-apps/docs).
+
 Azure Mobile Apps (also known as the Microsoft Data sync Framework) gives enterprise developers and system integrators a mobile-application development platform that's highly scalable and globally available.  The framework provides your mobile app with:
 
 * Authentication

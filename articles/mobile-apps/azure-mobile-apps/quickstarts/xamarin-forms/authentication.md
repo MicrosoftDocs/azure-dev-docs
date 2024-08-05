@@ -10,6 +10,9 @@ ms.author: adhal
 
 # Add authentication to your Xamarin.Forms app
 
+> [!NOTE]
+> This product is retired. For a replacement for projects using .NET 8 or later, see the [Community Toolkit Datasync library](https://aka.ms/azure-mobile-apps/docs).
+
 In this tutorial, you add Microsoft authentication to your app using Microsoft Entra ID. Before completing this tutorial, ensure you've [created the project and deployed the backend](./index.md).
 
 > [!NOTE]

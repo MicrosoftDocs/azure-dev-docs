@@ -11,6 +11,9 @@ ms.author: adhal
 
 # How to use the Node.js SDK for Azure Mobile Apps
 
+> [!NOTE]
+> This product is retired. For a replacement for projects using .NET 8 or later, see the [Community Toolkit Datasync library](https://aka.ms/azure-mobile-apps/docs).
+
 This article provides detailed information and examples that show how to work with a NodeJS backend for Azure Mobile Apps.
 
 ## Introduction

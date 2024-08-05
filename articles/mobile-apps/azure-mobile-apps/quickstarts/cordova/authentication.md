@@ -10,6 +10,9 @@ ms.author: adhal
 
 # Add authentication to your Apache Cordova app
 
+> [!NOTE]
+> This product is retired. For a replacement for projects using .NET 8 or later, see the [Community Toolkit Datasync library](https://aka.ms/azure-mobile-apps/docs).
+
 In this tutorial, you add Microsoft authentication to the quickstart project using Microsoft Entra ID. Before completing this tutorial, ensure you've [created the project](./index.md) and [enabled offline sync](./offline.md).
 
 [!INCLUDE [portal-configure-auth](~/mobile-apps/azure-mobile-apps/includes/quickstart-configure-authentication.md)]

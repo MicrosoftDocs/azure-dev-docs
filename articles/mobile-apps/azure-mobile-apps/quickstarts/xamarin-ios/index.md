@@ -11,6 +11,9 @@ recommendations: false
 
 # Build a Xamarin.iOS app with Azure Mobile Apps
 
+> [!NOTE]
+> This product is retired. For a replacement for projects using .NET 8 or later, see the [Community Toolkit Datasync library](https://aka.ms/azure-mobile-apps/docs).
+
 This tutorial shows you how to add a cloud-based backend service to an iOS mobile app by using Xamarin.iOS and an Azure mobile apps backend.  You'll create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
 
 You must complete this tutorial before other Xamarin.iOS tutorials using the Mobile Apps feature in Azure App Service.

@@ -11,6 +11,9 @@ ms.author: adhal
 
 # How to use the ASP.NET Core backend server SDK
 
+> [!NOTE]
+> This product is retired. For a replacement for projects using .NET 8 or later, see the [Community Toolkit Datasync library](https://aka.ms/azure-mobile-apps/docs).
+
 This article shows you have to configure and use the ASP.NET Core backend server SDK to produce a data sync server.
 
 ## Supported platforms

@@ -10,6 +10,9 @@ ms.author: adhal
 
 # Add offline data sync to your Apache Cordova app
 
+> [!NOTE]
+> This product is retired. For a replacement for projects using .NET 8 or later, see the [Community Toolkit Datasync library](https://aka.ms/azure-mobile-apps/docs).
+
 This tutorial covers the offline sync feature of Azure Mobile Apps for the Apache Cordova quickstart app. Offline sync allows end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection. Changes are stored in a local database. Once the device is back online, these changes are synced with the remote backend.
 
 Prior to starting this tutorial, you should have completed the [Apache Cordova Quickstart Tutorial](./index.md), which includes creating a suitable backend service.
