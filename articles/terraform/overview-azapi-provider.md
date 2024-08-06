@@ -24,10 +24,10 @@ To allow you to manage all Azure resources and features without requiring update
 
 ### Usage Hierarchy
 Overall, usage should follow these steps:
-1. It is always recommended to start with performing as many operations as possible within `azapi_resource`. 
-2. If the resource type does not exist within `azapi_resource` but does fall under one of the types supported by `azapi_data_plane_resource`, use that instead.
-3. If the resource already exists in AzureRM or has a property that cannot be accessed within `azapi_resource`, use `azapi_update_resource` to access these specific properties. Note that resources that are not supported by `azapi_resource` or `azapi_data_plane_resource` cannot be updated through this resource.
-4. If you are desiring to perform an action that is not based on an Azure CRUD-friendly resource, `azapi_resource_action` is less straightforward than `azapi_update_resource` but more flexible.
+1. It's always recommended to start with performing as many operations as possible within `azapi_resource`. 
+2. If the resource type doesn't exist within `azapi_resource` but does fall under one of the types supported by `azapi_data_plane_resource`, use that instead.
+3. If the resource already exists in AzureRM or has a property that can't be accessed within `azapi_resource`, use `azapi_update_resource` to access these specific properties. Resources that `azapi_resource` or `azapi_data_plane_resource` don't support can't be updated through this resource.
+4. If you're trying to perform an action that isn't based on an Azure CRUD-friendly resource, `azapi_resource_action` is less straightforward than `azapi_update_resource` but more flexible.
 
 ## Resource configuration examples
 
@@ -163,7 +163,7 @@ AzAPI2AzureRM has two modes: plan and migrate:
 - Plan displays the AzAPI resources that can be migrated.
 - Migrate migrates the AzAPI resources to AzureRM resources in both the HCL files and the state.
 
-AzAPI2AzureRM ensures after migration that your Terraform configuration and state are aligned with your actual state. You can validate the state has been updated by running `terraform plan` after completing the migration to see that nothing has changed.
+AzAPI2AzureRM ensures after migration that your Terraform configuration and state are aligned with your actual state. You can validate the update to state by running `terraform plan` after completing the migration to see that nothing has changed.
 
 ## Using the AzAPI provider
 
