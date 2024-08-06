@@ -12,7 +12,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Get started with Serverless AI Chat with RAG using LlamaIndex
 
-Creating AI apps can be complex. With LlamaIndex, Azure Functions, and Serverless technologies, you can simplify this process. These tools manage infrastructure and scale automatically, letting you focus on chatbot functionality. The chatbot uses LlamaIndex to manage the data from ingestion to response.
+Creating AI apps can be complex. With [LlamaIndex](https://docs.llamaindex.ai/), Azure Functions, and Serverless technologies, you can simplify this process. These tools manage infrastructure and scale automatically, letting you focus on chatbot functionality. The chatbot uses LlamaIndex to manage the data from ingestion to response.
 
 
 :::image type="content" source="../media/get-started-app-chat-template-llama-index/chat-app-response-in-browser.png" alt-text="Screenshot of chat app in browser showing chat input and the response.":::
@@ -29,7 +29,7 @@ A simple architecture of the chat app is shown in the following diagram:
 
 :::image type="content" source="../media/get-started-app-chat-template-llama-index/architecture-diagram-llama-index-javascript.png" alt-text="Diagram of the architecture for the LlamaIndex RAG chat app.":::
 
-You may notice that there isn't a cloud service to generate embeddings or act as a vector database. With LlamaIndex, you can generate your embeddings and retrieve them a vector store without the need for separate service. If you have a separate vector store, LlamaIndex integrates with there including Azure AI Search. This integration isn't demonstrated in this sample.  
+This sample uses LlamaIndex to generate embeddings and store in its own vector store. LlamaIndex provides [integration with vector stores](https://docs.llamaindex.ai/en/stable/community/integrations/vector_stores/) including Azure AI Search. That integration isn't demonstrated in this sample.  
 
 ### Where is Azure in this architecture?
 
@@ -46,13 +46,13 @@ To implement a RAG (Retrieval-Augmented Generation) system using LlamaIndex, key
 
 | Process | Description | LlamaIndex |
 |--|--|--|
-| Load Documents - Data Ingestion | Import data from sources like PDFs, APIs, or databases. | SimpleDirectoryReader |
-| Load Documents - Chunk Documents | Break down large documents into smaller chunks. | SentenceSplitter |
+| Data Ingestion | Import data from sources like PDFs, APIs, or databases. | SimpleDirectoryReader |
+| Chunk Documents | Break down large documents into smaller chunks. | SentenceSplitter |
 | Vector index creation | Create a vector index for efficient similarity searches. | VectorStoreIndex |
 | Recursive Retrieval (Optional) from index | Manage complex datasets with hierarchical retrieval. | |
 | Convert to Query Engine | Convert the vector index into a query engine. | asQueryEngine |
 | Advanced query setup (Optional) | Use agents for a multi-agent system. | |
-| Define retrieval | Retrieve document chunks based on user queries. | |
+| Implement the RAG pipeline | Defining an objective function that takes user queries and retrieves relevant document chunks. | |
 | Perform Retrieval | Process queries and re-rank documents. | RetrieverQueryEngine, CohereRerank |
 
 ## Prerequisites
