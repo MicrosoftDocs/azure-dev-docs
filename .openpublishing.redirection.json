@@ -1,6 +1,201 @@
 {
   "redirections": [
     {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/overview.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/howto/authentication.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/howto/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/howto/data-sync.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/howto/data-sync",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/howto/client/cordova.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/howto/client/cordova",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/howto/client/dotnet-v4.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/howto/client/dotnet-v4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/howto/client/dotnet.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/howto/client/dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/howto/server/dotnet-core.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/howto/server/dotnet-core",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/howto/server/dotnet-framework.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/howto/server/dotnet-framework",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/howto/server/nodejs.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/howto/server/nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/avalonia/authentication.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/avalonia/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/avalonia/index.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/avalonia/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/avalonia/offline.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/avalonia/offline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/cordova/authentication.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/cordova/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/cordova/index.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/cordova/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/cordova/offline.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/cordova/offline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/maui/authentication.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/maui/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/maui/index.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/maui/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/maui/offline.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/maui/offline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/uno/authentication.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/uno/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/uno/index.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/uno/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/uno/offline.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/uno/offline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/uwp/authentication.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/uwp/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/uwp/index.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/uwp/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/uwp/offline.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/uwp/offline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/winui/authentication.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/winui/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/winui/index.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/winui/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/winui/offline.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/winui/offline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/wpf/authentication.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/wpf/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/wpf/index.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/wpf/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/wpf/offline.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/wpf/offline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/xamarin-android/authentication.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-android/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/xamarin-android/index.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-android/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/xamarin-android/offline.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-android/offline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/xamarin-forms/authentication.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-forms/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/xamarin-forms/index.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-forms/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/xamarin-forms/offline.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-forms/offline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/xamarin-ios/authentication.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-ios/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/xamarin-ios/index.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-ios/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/azure-mobile-apps/quickstarts/xamarin-ios/offline.md",
+      "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-ios/offline",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mobile-apps/index.yml",
       "redirect_url": "/previous-versions/azure/developer/mobile-apps/index",
       "redirect_document_id": false
