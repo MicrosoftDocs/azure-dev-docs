@@ -11,6 +11,9 @@ recommendations: false
 
 # Build a Xamarin.Android app with Azure Mobile Apps
 
+> [!NOTE]
+> This product is retired. For a replacement for projects using .NET 8 or later, see the [Community Toolkit Datasync library](https://aka.ms/azure-mobile-apps/docs).
+
 This tutorial shows you how to add a cloud-based backend service to an Android mobile app by using Xamarin and an Azure mobile app backend.  You create both a new mobile app backend and a simple *Todo list* app that stores app data in Azure.
 
 You must complete this tutorial before other Xamarin Android tutorials about using the Mobile Apps feature in Azure App Service.

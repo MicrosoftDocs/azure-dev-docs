@@ -10,6 +10,9 @@ ms.author: adhal
 
 # How to use the Apache Cordova plugin for Azure Mobile Apps
 
+> [!NOTE]
+> This product is retired. For a replacement for projects using .NET 8 or later, see the [Community Toolkit Datasync library](https://aka.ms/azure-mobile-apps/docs).
+
 This guide teaches you to perform common scenarios using the latest [Apache Cordova Plugin for Azure Mobile Apps](https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps). If you are new to Azure Mobile Apps, first complete [Azure Mobile Apps Quick Start](../../quickstarts/cordova/index.md) to create a backend, create a table, and download a pre-built Apache Cordova project. In this guide, we focus on the client-side Apache Cordova Plugin.
 
 ## Supported platforms

@@ -10,6 +10,9 @@ ms.author: adhal
 
 # Offline data sync
 
+> [!NOTE]
+> This product is retired. For a replacement for projects using .NET 8 or later, see the [Community Toolkit Datasync library](https://aka.ms/azure-mobile-apps/docs).
+
 Offline data sync is an SDK feature of Azure Mobile Apps. Data is stored in a local store. When your app is offline, you can still create, modify, and search the data. Data is synchronized with your Azure Mobile Apps service when your device is online. The SDK supports conflict resolution when the same record is changed on both the client and the service.
 
 Offline sync has several benefits:
