@@ -12,9 +12,8 @@ ms.collection: ce-skilling-ai-copilot
 
 # Get started with Serverless AI Chat with RAG using LlamaIndex
 
-Creating AI apps can be complex. With LlamaIndex, Azure Functions, and Serverless technologies, you can simplify this process. These tools manage infrastructure and scale automatically, letting you focus on chatbot functionality. The chatbot uses enterprise documents to generate AI responses.
+Creating AI apps can be complex. With LlamaIndex, Azure Functions, and Serverless technologies, you can simplify this process. These tools manage infrastructure and scale automatically, letting you focus on chatbot functionality. The chatbot uses LlamaIndex to manage the data from ingestion to response.
 
-The code includes sample data for a fictitious company, Contoso Real Estate. Customers can ask support questions about the company's products. The data includes documents on the company's terms of service, privacy policy, and support guide.
 
 :::image type="content" source="../media/get-started-app-chat-template-llama-index/chat-app-response-in-browser.png" alt-text="Screenshot of chat app in browser showing chat input and the response.":::
 
@@ -24,11 +23,13 @@ The user interacts with the application:
 
 - With the chat interface in the client web app.
 - The client web app sends the user's query to the Serverless API via HTTP calls.
-- The Serverless API uses the LlamaIndex to process and stream the response.
+- The Serverless API uses the LlamaIndex to process and stream the response. The engine creates a connection to the Azure OpenAI LLM and the vector index loaded as a retriever from LlamaIndex. 
 
 A simple architecture of the chat app is shown in the following diagram:
 
 :::image type="content" source="../media/get-started-app-chat-template-llama-index/architecture-diagram-llama-index-javascript.png" alt-text="Diagram of the architecture for the LlamaIndex RAG chat app.":::
+
+You may notice that there isn't a cloud service to generate embeddings or act as a vector database. With LlamaIndex, you can generate your embeddings and retrieve them a vector store without the need for separate service. If you have a separate vector store, LlamaIndex integrates with there including Azure AI Search. This integration isn't demonstrated in this sample.  
 
 ### Where is Azure in this architecture?
 
@@ -41,34 +42,17 @@ The architecture of the application relies on the following services and compone
 
 ### LlamaIndex manages the data from ingestion to retrieval
 
-To implement a RAG (Retrieval-Augmented Generation) system using LlamaIndex, follow these steps:
-
-#### Data Ingestion
+To implement a RAG (Retrieval-Augmented Generation) system using LlamaIndex, key steps are identified below with the LlamaIndex functionality:
 
 | Process | Description | LlamaIndex |
 |--|--|--|
-| Load Documents | Import data from sources like PDFs, APIs, or databases. | SimpleDirectoryReader |
-| Chunk Documents | Break down large documents into smaller chunks. | SentenceSplitter |
-
-#### Index Creation
-
-| Process | Description | LlamaIndex |
-|--|--|--|
-| Create Vector Index | Create a vector index for efficient similarity searches. | VectorStoreIndex |
-| Recursive Retrieval (Optional) | Manage complex datasets with hierarchical retrieval. | |
-
-#### Query Engine Setup
-
-| Process | Description | LlamaIndex |
-|--|--|--|
+| Load Documents - Data Ingestion | Import data from sources like PDFs, APIs, or databases. | SimpleDirectoryReader |
+| Load Documents - Chunk Documents | Break down large documents into smaller chunks. | SentenceSplitter |
+| Vector index creation | Create a vector index for efficient similarity searches. | VectorStoreIndex |
+| Recursive Retrieval (Optional) from index | Manage complex datasets with hierarchical retrieval. | |
 | Convert to Query Engine | Convert the vector index into a query engine. | asQueryEngine |
-| Advanced Setup (Optional) | Use agents for a multi-agent system. | |
-
-#### Retrieval and Generation
-
-| Process | Description | LlamaIndex |
-|--|--|--|
-| Define Objective Function | Retrieve document chunks based on user queries. | |
+| Advanced query setup (Optional) | Use agents for a multi-agent system. | |
+| Define retrieval | Retrieve document chunks based on user queries. | |
 | Perform Retrieval | Process queries and re-rank documents. | RetrieverQueryEngine, CohereRerank |
 
 ## Prerequisites
@@ -192,7 +176,7 @@ The sample repository contains all the code and configuration files you need to 
 
 ### Use chat app to get answers from PDF files
 
-The chat app is preloaded with domestic postal mail information from a [PDF file catalog](https://github.com/Azure-Samples/llama-index-javascript/tree/main/data). You can use the chat app to ask questions about the mailing letter and packages. The following steps walk you through the process of using the chat app.
+The chat app is preloaded with information about the physical standards for domestic postal mail from a [PDF file catalog](https://github.com/Azure-Samples/llama-index-javascript/tree/main/data). You can use the chat app to ask questions about the mailing letter and packages. The following steps walk you through the process of using the chat app.
 
 1. In the browser, select or enter **How much does it cost to send a large package to France?**.
 
