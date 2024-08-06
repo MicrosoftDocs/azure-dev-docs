@@ -16,7 +16,7 @@ Creating AI apps can be complex. With LlamaIndex, Azure Functions, and Serverles
 
 The code includes sample data for a fictitious company, Contoso Real Estate. Customers can ask support questions about the company's products. The data includes documents on the company's terms of service, privacy policy, and support guide.
 
-:::image type="content" source="../media/get-started-app-chat-llama-index/chat-app-response-in-browser.png" alt-text="Screenshot of chat app in browser showing chat input and the response.":::
+:::image type="content" source="../media/get-started-app-chat-template-llama-index/chat-app-response-in-browser.png" alt-text="Screenshot of chat app in browser showing chat input and the response.":::
 
 ## Architectural overview
 
@@ -28,7 +28,7 @@ The user interacts with the application:
 
 A simple architecture of the chat app is shown in the following diagram:
 
-:::image type="content" source="../media/get-started-app-chat-llama-index/architecture-diagram-llama-index-javascript.png" alt-text="Diagram of the architecture for the LlamaIndex RAG chat app.":::
+:::image type="content" source="../media/get-started-app-chat-template-llama-index/architecture-diagram-llama-index-javascript.png" alt-text="Diagram of the architecture for the LlamaIndex RAG chat app.":::
 
 ### Where is Azure in this architecture?
 
@@ -196,7 +196,7 @@ The chat app is preloaded with domestic postal mail information from a [PDF file
 
 1. In the browser, select or enter **How much does it cost to send a large package to France?**.
 
-    :::image type="content" source="../media/get-started-app-chat-llama-index/chat-app-response-in-browser.png" alt-text="Screenshot of chat app in browser showing chat input and the response.":::
+    :::image type="content" source="../media/get-started-app-chat-template-llama-index/chat-app-response-in-browser.png" alt-text="Screenshot of chat app in browser showing chat input and the response.":::
 
 1. LlamaIndex derives the answer uses the PDF file and streams the response.
 
@@ -225,7 +225,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Locate your currently running Codespaces sourced from the [`Azure-Samples/llama-index-javascript`](https://github.com/Azure-Samples/llama-index-javascript) GitHub repository.
 
-    :::image type="content" source="../media/get-started-app-chat-llama-index/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
+    :::image type="content" source="../media/get-started-app-chat-template-llama-index/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
 1. Open the context menu, `...`, for the codespace and then select **Delete**.
 
@@ -235,7 +235,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="../media/get-started-app-chat-llama-index/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+    :::image type="content" source="../media/get-started-app-chat-template-llama-index/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
