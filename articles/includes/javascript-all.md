@@ -468,7 +468,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240806.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240806.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240807.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240807.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -501,7 +501,7 @@
 | @azure-tools/cadl-ranch-api | npm [0.4.4](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.4.4) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.8.2](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.8.2) |  |  |
 | @azure-tools/cadl-ranch-expect | npm [0.14.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.14.1) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.35.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.35.1) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.35.2](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.35.2) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
