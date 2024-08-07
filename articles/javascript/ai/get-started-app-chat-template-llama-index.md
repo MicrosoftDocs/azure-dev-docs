@@ -12,24 +12,23 @@ ms.collection: ce-skilling-ai-copilot
 
 # Get started with Serverless AI Chat with RAG using LlamaIndex
 
-Creating AI apps can be complex. With [LlamaIndex](https://docs.llamaindex.ai/), Azure Functions, and Serverless technologies, you can simplify this process. These tools manage infrastructure and scale automatically, letting you focus on chatbot functionality. The chatbot uses LlamaIndex to manage the data from ingestion to response.
-
+Simplify AI app development with your own data by using [LlamaIndex](https://docs.llamaindex.ai/), Azure Functions, and Serverless technologies. These tools manage infrastructure and scaling automatically, allowing you to focus on chatbot functionality. LlamaIndex handles the data pipeline all the way from ingestion to the streamed response.
 
 :::image type="content" source="../media/get-started-app-chat-template-llama-index/chat-app-response-in-browser.png" alt-text="Screenshot of chat app in browser showing chat input and the response.":::
 
 ## Architectural overview
 
-The user interacts with the application:
+The application flow includes:
 
-- With the chat interface in the client web app.
-- The client web app sends the user's query to the Serverless API via HTTP calls.
-- The Serverless API uses the LlamaIndex to process and stream the response. The engine creates a connection to the Azure OpenAI LLM and the vector index loaded as a retriever from LlamaIndex. 
+- Using the chat interface to enter a prompt.
+- Sending the user's prompt to the Serverless API via HTTP calls.
+- Receiving the user's prompt then using the LlamaIndex to process and stream the response. The serverless API uses an engine to create a connection to the Azure OpenAI large language model (LLM) and the vector index from LlamaIndex. 
 
 A simple architecture of the chat app is shown in the following diagram:
 
 :::image type="content" source="../media/get-started-app-chat-template-llama-index/architecture-diagram-llama-index-javascript.png" alt-text="Diagram of the architecture for the LlamaIndex RAG chat app.":::
 
-This sample uses LlamaIndex to generate embeddings and store in its own vector store. LlamaIndex provides [integration with vector stores](https://docs.llamaindex.ai/en/stable/community/integrations/vector_stores/) including Azure AI Search. That integration isn't demonstrated in this sample.  
+This sample uses LlamaIndex to generate embeddings and store in its own vector store. LlamaIndex also provides [integration with other vector stores](https://docs.llamaindex.ai/en/stable/community/integrations/vector_stores/) including [Azure AI Search](s/azure/search/). That integration isn't demonstrated in this sample.  
 
 ### Where is Azure in this architecture?
 
@@ -42,7 +41,7 @@ The architecture of the application relies on the following services and compone
 
 ### LlamaIndex manages the data from ingestion to retrieval
 
-To implement a RAG (Retrieval-Augmented Generation) system using LlamaIndex, key steps are identified below with the LlamaIndex functionality:
+To implement a RAG (Retrieval-Augmented Generation) system using LlamaIndex, key steps are identified below with the LlamaIndex functionality specified:
 
 | Process | Description | LlamaIndex |
 |--|--|--|
@@ -52,7 +51,7 @@ To implement a RAG (Retrieval-Augmented Generation) system using LlamaIndex, key
 | Recursive Retrieval (Optional) from index | Manage complex datasets with hierarchical retrieval. | |
 | Convert to Query Engine | Convert the vector index into a query engine. | asQueryEngine |
 | Advanced query setup (Optional) | Use agents for a multi-agent system. | |
-| Implement the RAG pipeline | Defining an objective function that takes user queries and retrieves relevant document chunks. | |
+| Implement the RAG pipeline | Define an objective function that takes user queries and retrieves relevant document chunks. | |
 | Perform Retrieval | Process queries and re-rank documents. | RetrieverQueryEngine, CohereRerank |
 
 ## Prerequisites
@@ -155,7 +154,7 @@ The sample repository contains all the code and configuration files you need to 
 > [!IMPORTANT]
 > Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed.
 
-1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
+1. To provision the Azure resources and deploy the source code, run the following Azure Developer CLI command:
 
     ```bash
     azd up
@@ -174,15 +173,22 @@ The sample repository contains all the code and configuration files you need to 
 1. After the application has been successfully deployed, you see two URLs displayed in the terminal.
 1. Select that URL labeled `Deploying service webapp` to open the chat application in a browser.
 
+    :::image type="content" source="{source}" alt-text="{alt-text}":::
+
+    :::image type="content" source="../media/get-started-app-chat-template-llama-index/azd-up.png" alt-text="Screenshot of output of deployment command showing the web application URL.":::
+
+
 ### Use chat app to get answers from PDF files
 
 The chat app is preloaded with information about the physical standards for domestic postal mail from a [PDF file catalog](https://github.com/Azure-Samples/llama-index-javascript/tree/main/data). You can use the chat app to ask questions about the mailing letter and packages. The following steps walk you through the process of using the chat app.
 
 1. In the browser, select or enter **How much does it cost to send a large package to France?**.
 
+1. LlamaIndex derives the answer uses the PDF file and streams the response.
+
     :::image type="content" source="../media/get-started-app-chat-template-llama-index/chat-app-response-in-browser.png" alt-text="Screenshot of chat app in browser showing chat input and the response.":::
 
-1. LlamaIndex derives the answer uses the PDF file and streams the response.
+    The answer comes from Azure OpenAI with influence from the PDF data ingested into the LlamaIndex vector store. 
 
 ## Clean up resources
 
