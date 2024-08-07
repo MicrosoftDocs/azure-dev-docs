@@ -14,7 +14,7 @@ ms.collection: ce-skilling-ai-copilot
 
 Simplify AI app development with your own data by using [LlamaIndex](https://docs.llamaindex.ai/), Azure Functions, and Serverless technologies. These tools manage infrastructure and scaling automatically, allowing you to focus on chatbot functionality. LlamaIndex handles the data pipeline all the way from ingestion to the streamed response.
 
-:::image type="content" source="../media/get-started-app-chat-template-llama-index/chat-app-response-in-browser.png" alt-text="Screenshot of chat app in browser showing chat input and the response.":::
+:::image type="content" source="../media/get-started-app-chat-template-llamaindex/chat-app-response-in-browser.png" alt-text="Screenshot of chat app in browser showing chat input and the response.":::
 
 ## Architectural overview
 
@@ -26,9 +26,9 @@ The application flow includes:
 
 A simple architecture of the chat app is shown in the following diagram:
 
-:::image type="content" source="../media/get-started-app-chat-template-llama-index/architecture-diagram-llama-index-javascript.png" alt-text="Diagram of the architecture for the LlamaIndex RAG chat app.":::
+:::image type="content" source="../media/get-started-app-chat-template-llamaindex/architecture-diagram-llama-index-javascript.png" alt-text="Diagram of the architecture for the LlamaIndex RAG chat app.":::
 
-This sample uses LlamaIndex to generate embeddings and store in its own vector store. LlamaIndex also provides [integration with other vector stores](https://docs.llamaindex.ai/en/stable/community/integrations/vector_stores/) including [Azure AI Search](s/azure/search/). That integration isn't demonstrated in this sample.  
+This sample uses LlamaIndex to generate embeddings and store in its own vector store. LlamaIndex also provides [integration with other vector stores](https://docs.llamaindex.ai/en/stable/community/integrations/vector_stores/) including [Azure AI Search](/azure/search/). That integration isn't demonstrated in this sample.  
 
 ### Where is Azure in this architecture?
 
@@ -173,9 +173,7 @@ The sample repository contains all the code and configuration files you need to 
 1. After the application has been successfully deployed, you see two URLs displayed in the terminal.
 1. Select that URL labeled `Deploying service webapp` to open the chat application in a browser.
 
-    :::image type="content" source="{source}" alt-text="{alt-text}":::
-
-    :::image type="content" source="../media/get-started-app-chat-template-llama-index/azd-up.png" alt-text="Screenshot of output of deployment command showing the web application URL.":::
+    :::image type="content" source="../media/get-started-app-chat-template-llamaindex/azd-up.png" alt-text="Screenshot of output of deployment command showing the web application URL.":::
 
 
 ### Use chat app to get answers from PDF files
@@ -186,7 +184,7 @@ The chat app is preloaded with information about the physical standards for dome
 
 1. LlamaIndex derives the answer uses the PDF file and streams the response.
 
-    :::image type="content" source="../media/get-started-app-chat-template-llama-index/chat-app-response-in-browser.png" alt-text="Screenshot of chat app in browser showing chat input and the response.":::
+    :::image type="content" source="../media/get-started-app-chat-template-llamaindex/chat-app-response-in-browser.png" alt-text="Screenshot of chat app in browser showing chat input and the response.":::
 
     The answer comes from Azure OpenAI with influence from the PDF data ingested into the LlamaIndex vector store. 
 
@@ -215,7 +213,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Locate your currently running Codespaces sourced from the [`Azure-Samples/llama-index-javascript`](https://github.com/Azure-Samples/llama-index-javascript) GitHub repository.
 
-    :::image type="content" source="../media/get-started-app-chat-template-llama-index/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
+    :::image type="content" source="../media/get-started-app-chat-template-llamaindex/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
 
 1. Open the context menu, `...`, for the codespace and then select **Delete**.
 
@@ -225,7 +223,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="../media/get-started-app-chat-template-llama-index/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+    :::image type="content" source="../media/get-started-app-chat-template-llamaindex/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
