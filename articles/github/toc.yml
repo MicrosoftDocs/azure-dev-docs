@@ -12,7 +12,7 @@
       - name: Authenticatication methods
         href: connect-from-azure.md
       - name: Sign in with OpenID Connect
-        href: connect-from-azure-oidc.md
+        href: connect-from-azure-openid-connect.md
       - name: Sign in with a managed identity configured on an Azure VM
         href: connect-from-azure-identity.md
       - name: Sign in with a service principal and secret
