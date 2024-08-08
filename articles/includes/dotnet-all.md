@@ -333,7 +333,7 @@
 | Resource Management - Workload Monitor | NuGet [1.0.0-beta.4](https://www.nuget.org/packages/Azure.ResourceManager.WorkloadMonitor/1.0.0-beta.4) | [docs](/dotnet/api/overview/azure/ResourceManager.WorkloadMonitor-readme?view=azure-dotnet-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.WorkloadMonitor_1.0.0-beta.4/sdk/workloadmonitor/Azure.ResourceManager.WorkloadMonitor/) |
 | Resource Management - Workloads | NuGet [1.1.0](https://www.nuget.org/packages/Azure.ResourceManager.Workloads/1.1.0)<br>NuGet [1.2.0-beta.1](https://www.nuget.org/packages/Azure.ResourceManager.Workloads/1.2.0-beta.1) | [docs](/dotnet/api/overview/azure/ResourceManager.Workloads-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Workloads_1.1.0/sdk/workloads/Azure.ResourceManager.Workloads/)<br>GitHub [1.2.0-beta.1](https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Workloads_1.2.0-beta.1/sdk/workloads/Azure.ResourceManager.Workloads/) |
 | Azure.Communication.Administration | NuGet [1.0.0-beta.3](https://www.nuget.org/packages/Azure.Communication.Administration/1.0.0-beta.3) |  |  |
-| Communication Calling Windows Client | NuGet [1.7.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.7.0)<br>NuGet [1.8.0-beta.1](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.8.0-beta.1) |  |  |
+| Communication Calling Windows Client | NuGet [1.8.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.8.0) |  |  |
 | DotNetty | NuGet [0.7.6](https://www.nuget.org/packages/DotNetty.Common/0.7.6) |  |  |
 | HTTP ASPNETCore Analyzers | NuGet [1.0.2](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore.Analyzers/1.0.2) |  |  |
 | Item Templates NetCore | NuGet [4.0.5006](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ItemTemplates.NetCore/4.0.5006) |  |  |
@@ -502,7 +502,7 @@
 | Microsoft.Azure.Functions.Worker.Extensions.RabbitMQ | NuGet [2.0.3](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.RabbitMQ/2.0.3) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.Rpc | NuGet [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Rpc/1.0.0) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.SendGrid | NuGet [3.0.3](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.SendGrid/3.0.3) |  |  |
-| Microsoft.Azure.Functions.Worker.Extensions.ServiceBus | NuGet [5.20.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus/5.20.0) |  |  |
+| Microsoft.Azure.Functions.Worker.Extensions.ServiceBus | NuGet [5.20.1](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus/5.20.1) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.SignalRService | NuGet [1.14.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.SignalRService/1.14.0) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.Sql | NuGet [3.0.534](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Sql/3.0.534)<br>NuGet [3.1.169-preview](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Sql/3.1.169-preview) |  |  |
 | Microsoft.Azure.Functions.Worker.Extensions.Storage | NuGet [6.6.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage/6.6.0) |  |  |
