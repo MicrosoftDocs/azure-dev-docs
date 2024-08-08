@@ -205,7 +205,7 @@ Run the following Azure Developer CLI command to delete the Azure resources and 
 azd down --purge
 ```
 
-### Clean up GitHub Codespaces
+### Clean up developer environments
 
 #### [GitHub Codespaces](#tab/github-codespaces)
 
@@ -222,7 +222,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Open the context menu, `...`, for the codespace and then select **Delete**.
 
-#### [Visual Studio Code](#tab/visual-studio-code)
+#### [DevContainers Visual Studio Code](#tab/visual-studio-code)
 
 You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
 
