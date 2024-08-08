@@ -34,10 +34,10 @@ This sample uses LlamaIndex to generate embeddings and store in its own vector s
 
 The architecture of the application relies on the following services and components:
 
-- Azure OpenAI represents the AI provider that we send the user's queries to.
+- [Azure OpenAI](/azure/ai-services/openai/) represents the AI provider that we send the user's queries to.
 - LlamaIndex is the framework that helps us ingest, transform and vectorize our content (PDF file) and create a search index from our data.
-- Azure Container Apps is the container environment where the application is hosted.
-- Azure Managed Identity helps us ensure best in class security and eliminates the requirements for you as a developer to deal with credentials and API keys.
+- [Azure Container Apps](/azure/container-apps/) is the container environment where the application is hosted.
+- [Azure Managed Identity](/entra/identity/managed-identities-azure-resources/) helps us ensure best in class security and eliminates the requirements for you as a developer to deal with credentials and API keys.
 
 ### LlamaIndex manages the data from ingestion to retrieval
 
