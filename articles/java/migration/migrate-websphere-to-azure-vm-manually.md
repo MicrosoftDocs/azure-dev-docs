@@ -311,7 +311,7 @@ Use the following steps to install the required dependencies to allow the connec
    yum install -y libXtst libSM libXrender
 
    # dependencies for GUI installation
-   yum install -y gtk2 gtk3 libXtst xorg-x11-fonts-Type1 mesa-libGL
+   yum install -y gtk2 libXtst xorg-x11-fonts-Type1 mesa-libGL
    ```
 
 Later, you continue to mount the data disk on `adminVM`, so keep this terminal open.
