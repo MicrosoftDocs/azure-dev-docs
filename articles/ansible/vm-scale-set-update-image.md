@@ -168,17 +168,11 @@ ansible-playbook create-vms.yml --extra-vars "resource_group=myrg"
 
 Because of the `debug` sections of the playbook, the `ansible-playbook` command will print the IP address of each VM. Copy these IP addresses for later use.
 
-![Virtual machine IP addresses](media/vm-scale-set-update-image/ip-addresses.png)
-
 ## Connect to the two VMs
 
 In this section, you connect to each VM. As mentioned in the previous section, the strings `Image A` and `Image B` mimic having two distinct VMs with different configurations.
 
-Using the IP addresses from the previous section, connect to both VMs:
-
-![Screenshot from virtual machine A](media/vm-scale-set-update-image/vm-a.png)
-
-![Screenshot from virtual machine B](media/vm-scale-set-update-image/vm-b.png)
+Using the IP addresses from the previous section, open a browser and connect to each VM.
 
 ## Create images from each VM
 
@@ -312,13 +306,9 @@ Run the playbook using the `ansible-playbook` command, replacing `myrg` with you
 ansible-playbook create-vmss.yml --extra-vars "resource_group=myrg"
 ```
 
-Because of the `debug` section of the playbook, the `ansible-playbook` command will print the IP address of the scale set. Copy this IP address for later use.
-
-![Public IP Address](media/vm-scale-set-update-image/public-ip.png)
+Due to the `debug` section of the playbook, the `ansible-playbook` command will print the IP address of the scale set. Copy this IP address for later use.
 
 ## Connect to the scale set
-
-In this section, you connect to the scale set. 
 
 Using the IP address from the previous section, connect to the scale set.
 
@@ -326,9 +316,7 @@ As mentioned in the previous section, the strings `Image A` and `Image B` mimic 
 
 The scale set references the custom image named `image_vmforimageA`. Custom image `image_vmforimageA` was created from the VM whose home page displays `Image A`.
 
-As a result, you see a home page displaying `Image A`:
-
-![The scale set is associated with the first VM.](media/vm-scale-set-update-image/initial-vm-scale-set.png)
+As a result, you see a home page displaying `Image A`.
 
 Leave your browser window open as you continue to the next section.
 
@@ -397,11 +385,7 @@ Run the playbook using the `ansible-playbook` command, replacing `myrg` with you
 ansible-playbook update-vmss-image.yml --extra-vars "resource_group=myrg"
 ```
 
-Return to the browser and refresh the page. 
-
-You see that virtual machine's underlying custom image is updated.
-
-![The scale set is associated with the second VM](media/vm-scale-set-update-image/updated-vm-scale-set.png)
+Return to the browser and refresh the page to see that the virtual machine's underlying custom image is updated.
 
 ## Clean up resources
 
