@@ -13,7 +13,7 @@ ms.author: stema
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
-In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to perform a `POST` action on a resource that isn't supported by the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). The `azapi_resource_action` will be used to shut down a [Virtual Machine](/azure/virtual-machine/).
+In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to perform a `POST` action on a resource that isn't supported by the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). The `azapi_resource_action` will be used to shut down a [Virtual Machine](/azure/virtual-machines/).
 
 > [!div class="checklist"]
 > * Define and configure the AzureRM and AzAPI providers
@@ -62,7 +62,7 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 
 #### [Azure CLI](#tab/azure-cli)
 
-Run [az vm show](https://learn.microsoft.com/en-us/cli/azure/azure-cli-vm-tutorial-4) to display the Event Hubs Namespace network rules.
+Run [az vm show](/cli/azure/azure-cli-vm-tutorial-4) to display the Event Hubs Namespace network rules.
 
 ```azurecli
 az vm show --name $vmName --resource-group $resourceGroup
@@ -70,7 +70,7 @@ az vm show --name $vmName --resource-group $resourceGroup
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
-Run [Get-AzVM](https://learn.microsoft.com/en-us/powershell/module/az.compute/get-azvm) to display the Event Hubs Namespace network rules.
+Run [Get-AzVM](/powershell/module/az.compute/get-azvm) to display the Event Hubs Namespace network rules.
 
 ```azurepowershell
 Get-AzEventHubNetworkRuleSet -ResourceGroupName <resource_group_name> -Namespace <namespace_name>
