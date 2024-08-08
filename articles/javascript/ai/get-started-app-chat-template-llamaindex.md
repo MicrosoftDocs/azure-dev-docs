@@ -1,6 +1,6 @@
 ---
 title: "Get started with Serverless AI Chat using LlamaIndex"
-description: "Use LlamaIndex to simplify..."
+description: "Use LlamaIndex to build intelligent apps. It aids in data ingestion, transformation, vectorization, and creating a searchable index for your data."
 ms.topic: get-started 
 ms.date: 05/22/2024
 ms.subservice: intelligent-apps
@@ -12,7 +12,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Get started with Serverless AI Chat with RAG using LlamaIndex
 
-Simplify AI app development with your own data by using [LlamaIndex](https://docs.llamaindex.ai/), Azure Functions, and Serverless technologies. These tools manage infrastructure and scaling automatically, allowing you to focus on chatbot functionality. LlamaIndex handles the data pipeline all the way from ingestion to the streamed response.
+Simplify [AI app development with RAG](/azure/developer/ai/augment-llm-rag-fine-tuning#understanding-rag) by using your own data managed by [LlamaIndex](https://ts.llamaindex.ai/), Azure Functions, and Serverless technologies. These tools manage infrastructure and scaling automatically, allowing you to focus on chatbot functionality. LlamaIndex handles the data pipeline all the way from ingestion to the streamed response.
 
 :::image type="content" source="../media/get-started-app-chat-template-llamaindex/chat-app-response-in-browser.png" alt-text="Screenshot of chat app in browser showing chat input and the response.":::
 
@@ -22,7 +22,7 @@ The application flow includes:
 
 - Using the chat interface to enter a prompt.
 - Sending the user's prompt to the Serverless API via HTTP calls.
-- Receiving the user's prompt then using the LlamaIndex to process and stream the response. The serverless API uses an engine to create a connection to the Azure OpenAI large language model (LLM) and the vector index from LlamaIndex. 
+- Receiving the user's prompt then using LlamaIndex framework to process and stream the response. The serverless API uses an engine to create a connection to the Azure OpenAI large language model (LLM) and the vector index from LlamaIndex. 
 
 A simple architecture of the chat app is shown in the following diagram:
 
@@ -189,6 +189,11 @@ The chat app is preloaded with information about the physical standards for dome
     The answer comes from Azure OpenAI with influence from the PDF data ingested into the LlamaIndex vector store. 
 
 ## Clean up resources
+
+To clean up resources, there are two things to address:  
+
+- Azure resources, you can clean those up with Azure Developer CLI, azd.  
+- Your developer environment whether you've used GitHub Codespaces or DevContainers via Visual Studio Code.
 
 ### Clean up Azure resources
 
