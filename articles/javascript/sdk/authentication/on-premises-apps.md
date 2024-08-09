@@ -1,7 +1,7 @@
 ---
 title: Authenticate on-premises JavaScript apps to Azure resources
 description: This article describes how to authenticate your on-premises JavaScript application to Azure services with the Azure SDK for JavaScript. 
-ms.date: 05/18/2022
+ms.date: 08/09/2024
 ms.topic: how-to
 ms.custom: devx-track-js
 ---
@@ -41,10 +41,10 @@ The output of the command will be similar to the following.  Make note of these 
 
 ```json
 {
-  "appId": "00000000-1111-2222-3333-444444444444",
+  "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "displayName": "msdocs-sdk-auth-prod",
-  "password": "abcdefghijklmnopqrstuvwxyz",
-  "tenant": "00000000-0000-0000-0000-000000000000"
+  "password": "Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2",
+  "tenant": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
 }
 ```
 
@@ -84,12 +84,12 @@ az role definition list \
     --output table
 ```
 
-For example, to allow the service principal with the appId of `00000000-0000-0000-0000-000000000000` read, write, and delete access to Azure Storage blob containers and data to all storage accounts in the *msdocs-sdk-auth-example* resource group, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
+For example, to allow the service principal with the appId of `00001111-aaaa-2222-bbbb-3333cccc4444` read, write, and delete access to Azure Storage blob containers and data to all storage accounts in the *msdocs-sdk-auth-example* resource group, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
 
 ```azurecli
-az role assignment create --assignee "00000000-0000-0000-0000-000000000000" \
+az role assignment create --assignee "00001111-aaaa-2222-bbbb-3333cccc4444" \
     --role "Storage Blob Data Contributor" \
-    --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/msdocs-javascript-sdk-auth-example \
+    --scope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/msdocs-javascript-sdk-auth-example \
 ```
 
 For information on assigning permissions at the resource or subscription level using the Azure CLI, see the article [Assign Azure roles using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
