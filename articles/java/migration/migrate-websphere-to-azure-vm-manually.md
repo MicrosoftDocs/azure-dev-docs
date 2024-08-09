@@ -902,7 +902,7 @@ Use the following steps to create `mspVM2`:
 
    ```bash
    # Get the resource ID of the managed disk.
-   export MSPVM1_OS_DISK_ID=$(az disk show \
+   export MSPVM2_OS_DISK_ID=$(az disk show \
        --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2_OsDisk_1 \
        --query '[id]' \
@@ -913,7 +913,7 @@ Use the following steps to create `mspVM2`:
 
    ```powershell
    # Get the resource ID of the managed disk.
-   $Env:MSPVM1_OS_DISK_ID=$(az disk show `
+   $Env:MSPVM2_OS_DISK_ID=$(az disk show `
        --resource-group $Env:RESOURCE_GROUP_NAME `
        --name mspVM2_OsDisk_1 `
        --query '[id]' `
@@ -929,7 +929,7 @@ Use the following steps to create `mspVM2`:
    az vm create \
        --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2 \
-       --attach-os-disk $mspVM2_OsDisk_1 \
+       --attach-os-disk $MSPVM2_OS_DISK_ID \
        --plan-publisher ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops \
        --plan-product 2023-03-27-twas-cluster-base-image \
        --plan-name 2023-03-27-twas-cluster-base-image \
@@ -945,7 +945,7 @@ Use the following steps to create `mspVM2`:
    az vm create `
        --resource-group $Env:RESOURCE_GROUP_NAME `
        --name mspVM2 `
-       --attach-os-disk $Env:mspVM2_OsDisk_1 `
+       --attach-os-disk $Env:MSPVM2_OS_DISK_ID `
        --plan-publisher ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops `
        --plan-product 2023-03-27-twas-cluster-base-image `
        --plan-name 2023-03-27-twas-cluster-base-image `
@@ -962,7 +962,7 @@ Use the following steps to create `mspVM2`:
    az vm create \
        --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2 \
-       --attach-os-disk $mspVM2_OsDisk_1 \
+       --attach-os-disk $MSPVM2_OS_DISK_ID \
        --os-type linux \
        --availability-set myAvailabilitySet \
        --public-ip-address "" \
@@ -975,7 +975,7 @@ Use the following steps to create `mspVM2`:
    az vm create `
        --resource-group $Env:RESOURCE_GROUP_NAME `
        --name mspVM2 `
-       --attach-os-disk $Env:mspVM2_OsDisk_1 `
+       --attach-os-disk $Env:MSPVM2_OS_DISK_ID `
        --os-type linux `
        --availability-set myAvailabilitySet `
        --public-ip-address '""' `
