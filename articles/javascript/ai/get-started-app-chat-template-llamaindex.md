@@ -241,6 +241,7 @@ This sample repository offers [troubleshooting information](https://github.com/A
 
 If your issue isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/llama-index-javascript/issues).
 
-## Related content
+## Next step
 
-- [Get started with evaluating answers in a chat app in JavaScript](get-started-app-chat-evaluations.md)
+> [!div class="nextstepaction"]
+> [Get started with Azure OpenAI with Assistants and function calling in JavaScript](get-started-app-chat-assistants-function-calling.md)
