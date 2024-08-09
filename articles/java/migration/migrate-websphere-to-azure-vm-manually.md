@@ -920,7 +920,7 @@ Use the following steps to create `mspVM2`:
        --output tsv)
    ```
 
-   ---
+    ---
 
    ### [WAS ND V9](#tab/was-nd-v9)
 
@@ -981,6 +981,7 @@ Use the following steps to create `mspVM2`:
        --public-ip-address '""' `
        --nsg '""'
    ```
+    ---
 
 1. Create a managed disk from the data snapshot and attach it to `mspVM2`:
 
