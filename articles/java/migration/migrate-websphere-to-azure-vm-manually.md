@@ -410,6 +410,10 @@ Use the following steps to download and install IBM Installation Manager by usin
 1. Download IBM Installation Manager by using the `curl` command, as shown in the following example. Save the installer file to */datadrive/tmp*, and then unzip the file to */datadrive/installer*.
 
    ```bash
+   yum install -y unzip
+   ```
+
+   ```bash
    mkdir /datadrive/tmp
    cd /datadrive/tmp
    curl -LO https://public.dhe.ibm.com/ibmdl/export/pub/software/im/zips/agent.installer.linux.gtk.x86_64.zip
