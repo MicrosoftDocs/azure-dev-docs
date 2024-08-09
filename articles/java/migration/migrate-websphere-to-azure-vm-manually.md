@@ -902,17 +902,34 @@ Use the following steps to create `mspVM2`:
 
    ```bash
    # Get the resource ID of the managed disk.
-   export MSPVM2_OS_DISK_ID=$(az disk show \
+   export MSPVM1_OS_DISK_ID=$(az disk show \
        --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2_OsDisk_1 \
        --query '[id]' \
        --output tsv)
+   ```
 
+   ### [PowerShell](#tab/in-powershell)
+
+   ```powershell
+   # Get the resource ID of the managed disk.
+   $Env:MSPVM1_OS_DISK_ID=$(az disk show `
+       --resource-group $Env:RESOURCE_GROUP_NAME `
+       --name mspVM2_OsDisk_1 `
+       --query '[id]' `
+       --output tsv)
+   ```
+
+   ---
+
+   ### [WAS ND V9](#tab/was-nd-v9)
+
+   ```bash
    # Create the VM by attaching the existing managed disk as an OS.
    az vm create \
        --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2 \
-       --attach-os-disk $MSPVM2_OS_DISK_ID \
+       --attach-os-disk $mspVM2_OsDisk_1 \
        --plan-publisher ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops \
        --plan-product 2023-03-27-twas-cluster-base-image \
        --plan-name 2023-03-27-twas-cluster-base-image \
@@ -922,25 +939,43 @@ Use the following steps to create `mspVM2`:
        --nsg ""
    ```
 
-   ### [PowerShell](#tab/in-powershell)
-
    ```powershell
-   # Get the resource ID of the managed disk.
-   $Env:MSPVM2_OS_DISK_ID=$(az disk show `
-       --resource-group $Env:RESOURCE_GROUP_NAME `
-       --name mspVM2_OsDisk_1 `
-       --query '[id]' `
-       --output tsv)
-
    # Create the VM by attaching the existing managed disk as an OS.
    # For `public-ip-address` and `nsg`, be sure to wrap the value "" in '' in PowerShell.
    az vm create `
        --resource-group $Env:RESOURCE_GROUP_NAME `
        --name mspVM2 `
-       --attach-os-disk $Env:MSPVM2_OS_DISK_ID `
+       --attach-os-disk $Env:mspVM2_OsDisk_1 `
        --plan-publisher ibm-usa-ny-armonk-hq-6275750-ibmcloud-aiops `
        --plan-product 2023-03-27-twas-cluster-base-image `
        --plan-name 2023-03-27-twas-cluster-base-image `
+       --os-type linux `
+       --availability-set myAvailabilitySet `
+       --public-ip-address '""' `
+       --nsg '""'
+   ```
+
+   ### [WAS ND V85](#tab/was-nd-v85)
+
+   ```bash
+   # Create the VM by attaching the existing managed disk as an OS.
+   az vm create \
+       --resource-group $RESOURCE_GROUP_NAME \
+       --name mspVM2 \
+       --attach-os-disk $mspVM2_OsDisk_1 \
+       --os-type linux \
+       --availability-set myAvailabilitySet \
+       --public-ip-address "" \
+       --nsg ""
+   ```
+
+   ```powershell
+   # Create the VM by attaching the existing managed disk as an OS.
+   # For `public-ip-address` and `nsg`, be sure to wrap the value "" in '' in PowerShell.
+   az vm create `
+       --resource-group $Env:RESOURCE_GROUP_NAME `
+       --name mspVM2 `
+       --attach-os-disk $Env:mspVM2_OsDisk_1 `
        --os-type linux `
        --availability-set myAvailabilitySet `
        --public-ip-address '""' `
