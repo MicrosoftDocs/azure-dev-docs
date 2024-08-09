@@ -244,4 +244,4 @@ If your issue isn't addressed, log your issue to the repository's [Issues](https
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Get started with Azure OpenAI with Assistants and function calling in JavaScript](get-started-app-chat-assistants-function-calling.md)
+> [Assistants and function calling in JavaScript](get-started-app-chat-assistants-function-calling.md)
