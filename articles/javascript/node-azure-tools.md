@@ -4,6 +4,7 @@ description: Install individual tools for Node.js and JavaScript development on 
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.custom: devx-track-js, devx-track-azurecli, linux-related-content, devx-track-ts
+## Customer intent
 ---
 
 # Tools for JavaScript developers on Azure 
