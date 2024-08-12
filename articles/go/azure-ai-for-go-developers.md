@@ -5,6 +5,7 @@ keywords: ai, azure openai service
 ms.topic: overview
 ms.date: 5/16/2024
 ms.custom: overview, devx-track-go, build-2024-intelligent-apps
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Develop AI apps with Go

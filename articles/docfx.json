@@ -93,7 +93,7 @@
         "python/**/*.md": "bobtabor-msft",
         "terraform/**/*.md": "TomArcherMsft",
         "intro/**/*.md": "mcleanbyron",
-        "ai/**/*.md": "mcleanbyron"
+        "ai/**/*.md": "ms-johnalex"
       },
       "manager": {
         "**/*.md": "mcleans",
@@ -116,7 +116,7 @@
         "python/**/*.md": "rotabor",
         "terraform/**/*.md": "tarcher",
         "intro/**/*.md": "mcleans",
-        "ai/**/*.md": "mcleans"
+        "ai/**/*.md": "johalexander"
       },
       "ms.devlang": {
         "java/**/*.md": "java",
@@ -166,6 +166,12 @@
       "ms.custom": {
         "**/ai/**/*.md": "build-2024-intelligent-apps",
         "**/ai/**/*.yml": "build-2024-intelligent-apps"
+      },
+      "ms.collection": {
+        "**/ai/**/*.md": "ce-skilling-ai-copilot",
+        "**/ai/**/*.yml": "ce-skilling-ai-copilot",
+        "**java/ai/**/*.md": "ce-skilling-ai-copilot",
+        "**java/ai/**/*.yml": "ce-skilling-ai-copilot"
       },
       "ROBOTS": {
         "ux-beta/**/*.md": "NOINDEX"

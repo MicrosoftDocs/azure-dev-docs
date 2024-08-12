@@ -11,7 +11,7 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 |[Azure.AI.OpenAI NuGet package](https://aka.ms/oai/net/nuget)|The NuGet version of the Azure OpenAI client library for .NET.|
 |[Get started using GPT-35-Turbo and GPT-4](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-csharp&tabs=command-line)|An article that walks you through creating a chat completion sample.|
 |[Completions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)|A collection of 10 samples that demonstrate how to use the Azure OpenAI client library for .NET to chat, stream replies, use your own data, transcribe/translate audio, generate images, etc.|
-|[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/StreamingChat.cs)|A deep link to the samples demonstrating streaming completions.|
+|Streaming Chat Completions|A deep link to the samples demonstrating streaming completions.|
 |[OpenAI with Microsoft Entra ID Role based access control](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)|A look at authentication using Microsoft Entra ID.|
 |[OpenAI with Managed Identities](/azure/ai-services/openai/how-to/managed-identity)|An article with more complex security scenarios that require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.|
 |[More samples](https://github.com/Azure-Samples/openai-dotnet-samples/blob/main/README.md)|A collection of OpenAI samples written in .NET.|
@@ -23,9 +23,9 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 |[Azure OpenAI Service Documentation](/azure/ai-services/openai/)|The hub page for Azure OpenAI Service documentation.|
 |[Overview of the .NET + AI ecosystem](/dotnet/ai/dotnet-ai-ecosystem)|Summary of the services and tools you might need to use in your applications, with links to learn more about each of them.|
 |[Build an Azure AI chat app with .NET](/dotnet/ai/quickstarts/get-started-azure-openai)|Use Semantic Kernel or Azure OpenAI SDK to create a simple .NET 8 console chat application.|
-|[Summarize text using Azure AI chat app with .NET](/dotnet/ai/quickstarts/quickstart-openai-summarize-text)|Simiar to the previous article, but the prompt is to summarize text.|
+|[Summarize text using Azure AI chat app with .NET](/dotnet/ai/quickstarts/quickstart-openai-summarize-text)|Similar to the previous article, but the prompt is to summarize text.|
 |[Get insight about your data from an .NET Azure AI chat app](/dotnet/ai/quickstarts/quickstart-ai-chat-with-data)|Use Semantic Kernel or Azure OpenAI SDK to get analytics and information about your data.|
-|[Extend Azure AI using Tools and execute a local Function with .NET](/dotnet/ai/quickstarts/quickstart-azure-openai-tool)|Create an assistant that handles certain prompts using custom tools build in .NET.|
+|[Extend Azure AI using Tools and execute a local Function with .NET](/dotnet/ai/quickstarts/quickstart-azure-openai-tool)|Create an assistant that handles certain prompts using custom tools built in .NET.|
 |[Generate images using Azure AI with .NET](/dotnet/ai/quickstarts/quickstart-openai-generate-images)|Use the OpenAI dell-e-3 model to generate an image.|
 
 ## Resources for other Azure AI services

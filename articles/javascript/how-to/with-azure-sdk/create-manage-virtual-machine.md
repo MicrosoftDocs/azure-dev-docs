@@ -101,4 +101,3 @@ Resources created in these scripts include:
 ## Next steps
 
 * [Create a VM with the Azure CLI and a cloud-init file](/azure/developer/javascript/tutorial/run-nodejs-virtual-machine)
-* [Selecting hosting for your app](../select-hosting-service.md)

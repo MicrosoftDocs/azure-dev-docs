@@ -173,7 +173,7 @@ Configure the Ansible credentials using one of the following techniques:
 
 In this section, you create a local credentials file to provide credentials to Ansible. For security reasons, credential files should only be used in development environments.
 
-For more information about defining Ansible credentials, see [Providing Credentials to Azure Modules](https://docs.ansible.com/ansible/latest/scenario_guides/guide_azure.html).
+For more information about defining Ansible credentials, see [Providing Credentials to Azure Modules](https://docs.ansible.com/ansible/latest/scenario_guides/guides.html).
 
 1. Once you've successfully connected to the host virtual machine, create and open a file named `credentials`:
 

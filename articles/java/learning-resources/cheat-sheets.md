@@ -2,7 +2,7 @@
 title: Cheat sheets
 description: Java - curated list of cheat sheets
 author: KarlErickson
-ms.author: sreea
+ms.author: karler
 ms.topic: article
 ms.date: 04/24/2024
 ms.custom: devx-track-java, devx-track-extended-java
