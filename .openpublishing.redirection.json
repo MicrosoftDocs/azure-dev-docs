@@ -311,6 +311,10 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/javascript/how-to/select-hosting-service.md",
+      "redirect_url": "/azure/developer/intro/hosting-apps-on-azure"
+    },
+    {
       "source_path": "articles/javascript/azure-ai-for-javascript-developers.md",
       "redirect_url": "/azure/javascript/ai/azure-ai-for-javascript-developers"
     },
