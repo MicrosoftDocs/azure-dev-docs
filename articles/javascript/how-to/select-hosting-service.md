@@ -2,7 +2,7 @@
 title: Select Azure app hosting for JavaScript
 description: Hosting options and deployment scenarios include several services and tools for Azure. Publish your app and serve it on Azure.
 ms.topic: overview
-ms.date: 08/19/2021
+ms.date: 08/12/2024
 ms.custom: devx-track-js
 # As a JavaScript Developer, I want to understand the many hosting services so that I know where to host my solution.
 ---
