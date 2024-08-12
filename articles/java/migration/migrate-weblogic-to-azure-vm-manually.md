@@ -4,7 +4,7 @@ description: Provides step-by-step guidance to install Oracle WebLogic Server on
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
-ms.date: 05/29/2024
+ms.date: 07/03/2024
 recommendations: false
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-azurecli, devx-track-extended-java
 ---
@@ -19,19 +19,20 @@ In this tutorial, you learn how to:
 > - Create a custom virtual network and create the VMs within the network.
 > - Provision VMs with desired Java Development Kit (JDK) and WLS installed.
 > - Configure a WebLogic Server domain and a WebLogic Server cluster using the Oracle Configuration Wizard.
-> - Deploy and run a Java EE application in the cluster.
+> - Deploy and run a Java application in the cluster.
 > - Expose the application to the public internet via Azure Application Gateway.
 > - Validate the successful configuration.
 
-If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json). You can find these offers in Azure Marketplace with a [query for "WebLogic base image"](https://aka.ms/wls-vm-base-images).
+If you prefer a fully automated solution that does all of these steps on your behalf on GNU/Linux VMs, directly from the Azure portal, see [Quickstart: Deploy WebLogic Server on Azure Virtual Machine using the Azure portal](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
 If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebLogic on Azure solutions, fill out this short [survey on WebLogic migration](https://aka.ms/wls-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
+- A local machine with a Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - [Install Azure CLI version 2.46.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
-  - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+  - When prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - You must have an Oracle account. To create an Oracle account and accept the license agreement for WebLogic Server images, follow the steps in [Oracle Container Registry](https://aka.ms/wls-aks-ocr). Make note of your Oracle Account password and email.
 
@@ -152,7 +153,7 @@ Follow these steps to provision a Windows 10 machine and install an X-server. If
 
 ### Create Oracle Linux machines for managed servers
 
-Create two VMs using [az vm create](/cli/azure/vm). You run the managed servers on this VM.
+Create two VMs using [az vm create](/cli/azure/vm). You run the managed servers on these VMs.
 
 The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use TLS/SSL authentication instead.
 
@@ -198,7 +199,7 @@ The following section shows how to create a new WebLogic Server domain on the `a
 
 1. Connect to `adminVM` from a command prompt.
 
-   Run the following commands on your Windows machine `myWindowsVM`:
+   Run the following commands on your Windows machine `myWindowsVM`. Replace `192.168.0.4` with your `adminVM` private IP address:
 
    ```cmd
    set ADMINVM_IP="192.168.0.4"
@@ -300,7 +301,7 @@ Select **Next**. For **Assign Servers to Machines**, assign server `admin` to `a
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-assign-servers-to-machines.png" alt-text="Screenshot of Oracle Configuration Wizard - Assign Servers to Machines." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-assign-servers-to-machines.png":::
 
-Select **Next**. You're shown the **Configuration Summary**, which should look like the following screenshot:
+Select **Next**. You see the **Configuration Summary**, which should look like the following screenshot:
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-gnu-linux-configuration-summary.png" alt-text="Screenshot of Oracle Configuration Wizard - Configuration Summary." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-gnu-linux-configuration-summary.png":::
 
@@ -314,9 +315,7 @@ Finally, there's an **End of Configuration** page to show the URL of the Adminis
 
 The Administration Server isn't running, so the URL doesn't resolve. Select **Next**, then **Finish**. You finished configuring the `wlsd` domain with a cluster `cluster1`, including two managed servers.
 
-Next, apply the domain configuration to `mspVM1` and `mspVM2`.
-
-You use the pack and unpack command to extend the domain.
+Next, you apply the domain configuration to `mspVM1` and `mspVM2`.
 
 #### Create replicas using the pack and unpack command
 
@@ -362,9 +361,9 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    ssh azureuser@%MSPVM1_IP%
    ```
 
-   You're asked for the password for the connection. For this example, the password is *Secret123456*.
+   Enter the password for the connection. For this example, the password is *Secret123456*.
 
-   You're now logged into `mspVM1` with user `azureuser`. Next, use the following commands to become the root user and update file ownership of */tmp/cluster.jar* to `oracle`:
+   You logged into `mspVM1` with user `azureuser`. Next, use the following commands to become the root user and update file ownership of */tmp/cluster.jar* to `oracle`:
 
    ```bash
    sudo su
@@ -411,9 +410,9 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    ssh azureuser@%MSPVM2_IP%
    ```
 
-   You're asked for a password for the connection. For this example, the password is *Secret123456*.
+   Enter the password for the connection. For this example, the password is *Secret123456*.
 
-   You're now logged into `mspVM2` with user `azureuser`. Use the following commands to change to the root user and update the file ownership of */tmp/cluster.jar* and initialize the folder for domain configuration:
+   You logged into `mspVM2` with user `azureuser`. Use the following commands to change to the root user and update the file ownership of */tmp/cluster.jar* and initialize the folder for domain configuration:
 
    ```bash
    sudo su
@@ -833,7 +832,7 @@ It takes a few minutes to create the VM and supporting resources.
 
 After the deployment completes, connect to the machine. For a detailed guide on remote connection, see [How to connect using Remote Desktop and sign on to an Azure virtual machine running Windows](/azure/virtual-machines/windows/connect-rdp). 
 
-After you're connected, search for and open **Windows Defender Firewall**. Select **Turn Windows Defender Firewall on or off** and select **Turn off Windows Defender Firewall** for both private and public network settings. Select **OK**. Close **Windows Defender Firewall**. Because numerous ports must be opened during the configuration, this step greatly simplifies the process of setting up the cluster.
+After you connect, search for and open **Windows Defender Firewall**. Select **Turn Windows Defender Firewall on or off** and select **Turn off Windows Defender Firewall** for both private and public network settings. Select **OK**. Close **Windows Defender Firewall**. Because numerous ports must be opened during the configuration, this step greatly simplifies the process of setting up the cluster.
 
 After the configuration is complete, lock down the WebLogic Server by following an authoritative guide on the topic, such as [Securing a Production Environment for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/lockd/secure.html).
 
@@ -848,7 +847,7 @@ Oracle WebLogic Server 14c (14.1.1.0.0) is certified for use with JDK 11. Suppor
 
 To download the Oracle JDK 11 and Oracle WebLogic 14c Windows installer, follow these steps:
 
-1. If you're not already connected, connect to `adminVM`, and open the Microsoft Edge browser.
+1. Connect to `adminVM` if needed, and open the Microsoft Edge browser.
 
 1. Navigate to the [Oracle JDK 11 downloads page](https://www.oracle.com/in/java/technologies/javase/jdk11-archive-downloads.html). Select the **Windows x64 Installer**, accept the Oracle License Agreement, and download EXE file. You get a file similar to *jdk-11.\*_windows-x64_bin.exe*.
 
@@ -893,15 +892,15 @@ Select installation type **WebLogic Server**.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/winserv22-wls-installation-type.png" alt-text="Windows - Oracle WebLogic Server Installation Type." lightbox="media/migrate-weblogic-to-vm-manually/winserv22-wls-installation-type.png":::
 
-Select **Next**. You're shown operating system warnings in the **Prerequisite Checks** page. Windows Server 2022 OS versions are supported on all Windows Server editions. To fix the warnings, you need to apply [Patch 34500720](https://support.oracle.com/epmos/faces/PatchDetail?patchId=34500720) after the installation.
+Select **Next**. You see operating system warnings in the **Prerequisite Checks** page. Windows Server 2022 OS versions are supported on all Windows Server editions. To fix the warnings, you need to apply [Patch 34500720](https://support.oracle.com/epmos/faces/PatchDetail?patchId=34500720) after the installation.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/winserv22-wls-installation-prerequisite-checks.png" alt-text="Windows - Oracle WebLogic Server Installation Prerequisite Checks." lightbox="media/migrate-weblogic-to-vm-manually/winserv22-wls-installation-prerequisite-checks.png":::
 
-Select **Next**, then **Install**. You're shown the installation progress as shown in the following screenshot:
+Select **Next**, then **Install**. You see the installation progress as shown in the following screenshot:
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-installation-progress.png" alt-text="Windows - Oracle WebLogic Server Installation Progress." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-installation-progress.png":::
 
-All of the listed installs should complete without error. Select the **Next** button. You're shown the **Installation Complete** page. Unselect any actions in the **Next Steps** section. You perform those steps after all the machines are ready.
+All of the listed installs should complete without error. Select the **Next** button. You see the **Installation Complete** page. Unselect any actions in the **Next Steps** section. You perform those steps after all the machines are ready.
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/winserv22-wls-installation-complete.png" alt-text="Windows - Oracle WebLogic Server Installation Complete." lightbox="media/migrate-weblogic-to-vm-manually/winserv22-wls-installation-complete.png":::
 
@@ -1030,7 +1029,7 @@ Select **Next**. For **Assign Servers to Machines**, assign server `admin` to `a
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-assign-servers-to-machines.png" alt-text="Windows - Oracle Configuration Wizard - Assign Servers to Machines." lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-domain-assign-servers-to-machines.png":::
 
-Select **Next**. You're shown the **Configuration Summary**, as shown in the following screenshot:
+Select **Next**. You see the **Configuration Summary**, as shown in the following screenshot:
 
 :::image type="content" source="media/migrate-weblogic-to-vm-manually/wls14c-configuration-summary.png" alt-text="Windows - Oracle Configuration Wizard - Configuration Summary" lightbox="media/migrate-weblogic-to-vm-manually/wls14c-configuration-summary.png":::
 
@@ -1057,7 +1056,7 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    pack.cmd -domain=C:\domains\wlsd -managed=true -template=C:\Temp\cluster.jar -template_name="wlsd"
    ```
 
-   You're shown output similar to the following example if the command completes successfully:
+   You see output similar to the following example if the command completes successfully:
 
    ```output
    C:\Oracle\Middleware\Oracle_Home\oracle_common\common\bin>pack.cmd -domain=C:\domains\wlsd -managed=true -template=C:\Temp\cluster.jar -template_name="wlsd"
@@ -1083,7 +1082,7 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    unpack.cmd -domain=C:\domains\wlsd -template=C:\Temp\cluster.jar
    ```
 
-   You're shown output similar to the following example if the command completes successfully:
+   You see output similar to the following example if the command completes successfully:
 
    ```output
    C:\Oracle\Middleware\Oracle_Home\oracle_common\common\bin>unpack.cmd -domain=C:\domains\wlsd -template=C:\Temp\cluster.jar
@@ -1566,22 +1565,22 @@ This section shows you how to deploy an application to the WebLogic Server clust
 1. Under the **Change Center**, if such a button exists, select **Lock and Edit**. If this button doesn't exist, verify that some text such as "Future changes will automatically be activated as you modify, add or delete items in this domain" exists under **Change Center**.
 1. Under **Domain Structure**, select **Deployments**. If you see an error message similar to `Unexpected error encountered while obtaining monitoring information for applications.`, you can safely ignore it. Select **Configuration** then **Install**. Nestled within the text is a hyperlink with the text **Upload your files**. Select it. Select **Choose file** , then select the *testwebapp.war* built in the preceding step. Select **Next** then **Next**.
 1. Ensure that **Install this deployment as an application** is selected. Select **Next**.
-1. Under **Available targets for cargo-tracker**, select deployment target `cluster1`, select **Next**, then select **Finish**.
+1. Under **Available targets for testwebapp**, select deployment target `cluster1`, select **Next**, then select **Finish**.
 1. Under the **Change Center**, if such a button exists, select **Activate Changes**. You must complete this step. Failure to complete this step causes the changes you made to not take effect. If this button doesn't exist, verify that some text such as `Future changes will automatically be activated as you modify, add or delete items in this domain` exists under **Change Center**.
-1. Under **Domain Structure**, select **Deployments** then **Control**. Select **cargo-tracker** then select **Start**, **Servicing all requests**.
+1. Under **Domain Structure**, select **Deployments** then **Control**. Select **testwebapp** then select **Start**, **Servicing all requests**.
 1. Select **Yes**.
-1. You're shown a message saying `Start requests have been sent to the selected deployments.` The status of the application must be **Active**.
+1. You see a message saying `Start requests have been sent to the selected deployments.` The status of the application must be **Active**.
 
 ## Test the WebLogic Server cluster configuration
 
-You finished configuring the WebLogic Server cluster and deploying the Java EE application to it. Use the following steps to access the application to validate all the settings:
+You finished configuring the WebLogic Server cluster and deploying the Java application to it. Use the following steps to access the application to validate all the settings:
 
 1. Open a web browser.
 1. Navigate to the application with the URL `http://<gateway-public-ip-address>/testwebapp/`.
 
 ## Clean up resources
 
-Delete `abc1110rg` with the following command:
+Delete the resource group with the following command:
 
 ```azurecli
 az group delete --name ${RESOURCE_GROUP_NAME} --yes --no-wait
@@ -1592,7 +1591,6 @@ az group delete --name ${RESOURCE_GROUP_NAME} --yes --no-wait
 Continue to explore options to run WebLogic Server on Azure.
 
 * [WebLogic Server on Azure Virtual Machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
-* [WebLogic Server on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
-* [Explore options for day 2 and beyond](https://aka.ms/wls-vms-day2)
+* [WebLogic Server on Azure Kubernetes Service](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 For more information about Oracle WebLogic offers, see [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all *Bring-Your-Own-License*. They assume you already have the appropriate licenses with Oracle and are properly licensed to run offers in Azure.

@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure Redis support
 
-**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.13.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.15.0
 
 This article describes how you can use Spring Cloud Azure and Spring Data Redis together and provide various types of credentials for authentication to Azure Cache for Redis.
 
@@ -123,7 +123,7 @@ The following sections show the classic Spring Boot application usage scenarios.
    ```
 
    > [!NOTE]
-   > Passwordless connections have been supported since version `5.13.0`.
+   > Passwordless connections have been supported since version `5.15.0`.
    >
    > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 

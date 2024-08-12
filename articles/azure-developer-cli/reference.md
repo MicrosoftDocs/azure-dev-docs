@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/14/2024
+ms.date: 07/02/2024
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -85,6 +85,10 @@ When run without any arguments, log in interactively using a browser. To log in 
 To log in as a service principal, pass --client-id and --tenant-id as well as one of: --client-secret,
 --client-certificate, or --federated-credential-provider.
 
+To log in using a managed identity, pass --managed-identity, which will use the system assigned managed identity.
+To use a user assigned managed identity, pass --client-id in addition to --managed-identity with the client id of
+the user assigned managed identity you wish to use.
+
 
 ```azdeveloper
 azd auth login [flags]
@@ -100,6 +104,7 @@ azd auth login [flags]
       --docs                                   Opens the documentation for azd auth login in your web browser.
       --federated-credential-provider string   The provider to use to acquire a federated token to authenticate with.
   -h, --help                                   Gets help for login.
+      --managed-identity                       Use a managed identity to authenticate.
       --redirect-port int                      Choose the port to be used as part of the redirect URI during interactive login.
       --tenant-id string                       The tenant id or domain name to authenticate with.
       --use-device-code[=true]                 When true, log in by using a device code instead of a browser.
@@ -874,15 +879,16 @@ azd pipeline config [flags]
 ### Options
 
 ```azdeveloper
-      --auth-type string             The authentication type used between the pipeline provider and Azure for deployment (Only valid for GitHub provider). Valid values: federated, client-credentials.
-      --docs                         Opens the documentation for azd pipeline config in your web browser.
-  -e, --environment string           The name of the environment to use.
-  -h, --help                         Gets help for config.
-      --principal-id string          The client id of the service principal to use to grant access to Azure resources as part of the pipeline.
-      --principal-name string        The name of the service principal to use to grant access to Azure resources as part of the pipeline.
-      --principal-role stringArray   The roles to assign to the service principal. By default the service principal will be granted the Contributor and User Access Administrator roles. (default [Contributor,User Access Administrator])
-      --provider string              The pipeline provider to use (github for Github Actions and azdo for Azure Pipelines).
-      --remote-name string           The name of the git remote to configure the pipeline to run on. (default "origin")
+  -m, --applicationServiceManagementReference string   Service Management Reference. References application or service contact information from a Service or Asset Management database. This value must be a Universally Unique Identifier (UUID). You can set this value globally by running azd config set pipeline.config.applicationServiceManagementReference <UUID>.
+      --auth-type string                               The authentication type used between the pipeline provider and Azure for deployment (Only valid for GitHub provider). Valid values: federated, client-credentials.
+      --docs                                           Opens the documentation for azd pipeline config in your web browser.
+  -e, --environment string                             The name of the environment to use.
+  -h, --help                                           Gets help for config.
+      --principal-id string                            The client id of the service principal to use to grant access to Azure resources as part of the pipeline.
+      --principal-name string                          The name of the service principal to use to grant access to Azure resources as part of the pipeline.
+      --principal-role stringArray                     The roles to assign to the service principal. By default the service principal will be granted the Contributor and User Access Administrator roles. (default [Contributor,User Access Administrator])
+      --provider string                                The pipeline provider to use (github for Github Actions and azdo for Azure Pipelines).
+      --remote-name string                             The name of the git remote to configure the pipeline to run on. (default "origin")
 ```
 
 ### Options inherited from parent commands

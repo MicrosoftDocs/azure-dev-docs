@@ -120,11 +120,11 @@ If you're the administrator of an existing instance, you can skip this process.
    # Enable related features.
    spring.cloud.azure.active-directory.enabled=true
    # Specifies your Active Directory ID:
-   spring.cloud.azure.active-directory.profile.tenant-id=22222222-2222-2222-2222-222222222222
+   spring.cloud.azure.active-directory.profile.tenant-id=<tenant-ID>
    # Specifies your App Registration's Application ID:
-   spring.cloud.azure.active-directory.credential.client-id=11111111-1111-1111-1111-1111111111111111
+   spring.cloud.azure.active-directory.credential.client-id=<client-ID>
    # Specifies your App Registration's secret key:
-   spring.cloud.azure.active-directory.credential.client-secret=AbCdEfGhIjKlMnOpQrStUvWxYz==
+   spring.cloud.azure.active-directory.credential.client-secret=<client-secret>
    ```
 
    Where:
@@ -171,7 +171,7 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. Build your Spring Boot application with Maven and run it. For example:
 
-   ```shell
+   ```bash
    mvn clean package
    mvn spring-boot:run
    ```
