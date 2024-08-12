@@ -14,7 +14,7 @@
   - name: Host and build web apps
     items:
     - name: Select hosting service
-      href: ../hosting-apps-on-azure.md
+      href: /azure/developer/intro/hosting-apps-on-azure
     - name: Select deployment process
       href: how-to/deploy-web-app.md
     - name: Configure
