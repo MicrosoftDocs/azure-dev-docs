@@ -32,6 +32,9 @@
     - name: Get started with serverless chat with LangChainjs
       href: ai/get-started-app-chat-template-langchainjs.md
       display: Azure OpenAI, OpenAI, AI
+    - name: Get started with serverless chat with LlamaIndex
+      href: ai/get-started-app-chat-template-llamaindex.md
+      display: Azure OpenAI, OpenAI, AI
     - name: Serverless Azure OpenAI Assistant with function calling
       href: ai/get-started-app-chat-assistants-function-calling.md
       display: Azure OpenAI, OpenAI, AI, function calling, assistants
