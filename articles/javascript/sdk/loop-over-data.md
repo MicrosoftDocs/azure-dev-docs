@@ -2,7 +2,7 @@
 title: Loop over data from the Azure SDK for JavaScript
 description: 
 ms.date: 08/12/2024
-ms.topic: concept
+ms.topic: concept-article
 ms.custom: devx-track-js
 ---
 
