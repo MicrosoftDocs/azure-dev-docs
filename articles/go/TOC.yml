@@ -31,6 +31,8 @@ items:
     - name: Authentication
       expanded: false
       items:
+        - name: Overview
+          href: sdk/authentication-overview.md
         - name: Auth with Azure Identity module overview
           href: azure-sdk-authentication.md
         - name: Auth with Azure-hosted apps
