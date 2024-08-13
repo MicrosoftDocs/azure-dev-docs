@@ -5,7 +5,7 @@ keywords: azure devops terraform deployment slots
 ms.topic: how-to
 service: app-service
 ms.service: app-service
-ms.date: 10/26/2023
+ms.date: 8/13/2024
 ms.custom: devx-track-terraform
 ---
 
