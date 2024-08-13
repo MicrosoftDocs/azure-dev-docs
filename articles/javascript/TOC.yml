@@ -190,8 +190,8 @@
         items: 
         - name: "List subscriptions"
           href: ./sdk/authentication/local-development-environment-service-principal.md?tabs=azure-sdk-for-javascript.md
-    - name: Looping over data 
-      href: sdk/looping-over-data.md  
+    - name: Looping over data
+      href: sdk/loop-over-data.md
   - name: Training and certification
     href: learn-azure-javascript.md  
   - name: Samples
