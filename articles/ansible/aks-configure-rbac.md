@@ -3,7 +3,7 @@ title: Tutorial - Configure role-based access control (RBAC) roles in Azure Kube
 description: Learn how to use Ansible to configure RBAC in Azure Kubernetes Service(AKS) cluster
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes, azure active directory, rbac
 ms.topic: tutorial
-ms.date: 04/30/2019
+ms.date: 08/13/2024
 ms.custom: devx-track-ansible
 ---
 
@@ -132,8 +132,6 @@ To create an RBAC binding, you first need to get the Microsoft Entra Object ID.
 1. In the **Name** column, select the link to your account.
 
 1. In the **Identity** section, copy the **Object ID**.
-
-    ![Copy the Microsoft Entra Object ID.](./media/aks-configure-rbac/ansible-aad-object-id.png)
 
 ## Create RBAC binding
 
