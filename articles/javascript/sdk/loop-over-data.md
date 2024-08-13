@@ -3,7 +3,8 @@ title: Loop over data from the Azure SDK for JavaScript
 description: 
 ms.date: 08/12/2024
 ms.topic: concept-article
-ms.custom: devx-track-js
+ms.custom: devx-track-js 
+ai-usage: ai-assisted
 ---
 
 # Loop over data returned from the Azure SDK for JavaScript
@@ -25,8 +26,6 @@ If you're new to async iterators, the following concepts are important to unders
 - **Async Functions:** Functions that return a `Promise`.
 - **Generators:** Functions that can be paused and resumed, yielding multiple values.
 - **Async Generators:** Combine the features of async functions and generators to produce async iterators.
-
-## Using Async Iterators in Azure SDKs
 
 Azure SDKs use async iterators to handle potentially large collections of data. Below are examples of how to use async iterators with various Azure services. 
 
@@ -54,6 +53,46 @@ for await (const page of containerPages) {
     }
 }
 ```
+
+## Loop over until the end
+
+For some scenarios, you may need to loop over all the data. The following JavaScript function takes a service client and a page size, then loops over all the data until the end. 
+
+```javascript
+async function listBlobsWithContinuation(containerClient, maxPageSize) {
+
+   console.log(`Listing all blobs using iterators with a page size of ${maxPageSize}`);
+
+   let continuationToken = null;
+   let pageCount = 0;
+
+   do {
+
+       console.log(`Retrieving a page of results with a continuation token`);
+       const blobPages = (continuationToken 
+           ? containerClient.listBlobsFlat().byPage({ maxPageSize, continuationToken })
+           : containerClient.listBlobsFlat().byPage({ maxPageSize }));
+
+       if(blobPages === undefined){
+           console.log("blobPages is undefined");
+       } else {
+           console.log("blobPages is defined");
+           for await (const page of blobPages) {
+
+               pageCount++;
+               console.log(`Page ${pageCount}:`);
+               for (const blob of page.segment.blobItems) {
+                   console.log(`  Blob: ${blob.name}`);
+               }
+               // Save the continuation token for the next iteration
+               continuationToken = page.continuationToken;
+           }
+       }
+
+   } while (continuationToken);
+}
+```
+
 
 ## Continue looping at a specific page
 
