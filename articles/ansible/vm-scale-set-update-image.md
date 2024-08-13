@@ -3,7 +3,7 @@ title: Tutorial - Update the custom image of Azure virtual machine scale sets us
 description: Learn how to use Ansible to update virtual machine scale sets in Azure with custom image
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
-ms.date: 08/07/2024
+ms.date: 08/13/2024
 ms.custom: devx-track-ansible
 ---
 
@@ -316,7 +316,7 @@ As mentioned in the previous section, the strings `Image A` and `Image B` mimic 
 
 The scale set references the custom image named `image_vmforimageA`. Custom image `image_vmforimageA` was created from the VM whose home page displays `Image A`.
 
-As a result, you see a home page displaying `Image A`.
+As a result, you see a home page that displays `Image A`.
 
 Leave your browser window open as you continue to the next section.
 
