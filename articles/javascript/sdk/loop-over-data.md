@@ -21,7 +21,7 @@ Using async iterators provides several advantages:
 - **On-Demand Data Fetching:** Fetch only the data you need, reducing memory usage and load on the backend.
 - **Future Compatibility:** Async iterators are a standard feature in JavaScript, ensuring compatibility with future updates and libraries.
 
-If you're new to async iterators, the following concepts are important to understand how paging works in Azure SDKs for JavaScript.
+If you're new to async iterators, the following concepts help to understand how paging works in Azure SDKs for JavaScript.
 
 - **Async Functions:** Functions that return a `Promise`.
 - **Generators:** Functions that can be paused and resumed, yielding multiple values.
