@@ -9,7 +9,7 @@ ai-usage: ai-assisted
 
 # Loop over data returned from the Azure SDK for JavaScript
 
-When working with Azure services, you often need to process large sets of data. Azure SDKs for JavaScript provide async iterators to help manage this task efficiently. This article explains what async iterators are, how to use them, and provides examples for key Azure services such as Storage, Databases, and Key Vault.
+When working with Azure services, you often need to process large sets of data. Azure SDKs for JavaScript provide async iterators to help manage this task efficiently. This article explains what async iterators are, how to use them, and provides examples for key Azure services.
 
 ## What are Async Iterators?
 
