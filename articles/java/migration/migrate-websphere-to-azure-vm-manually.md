@@ -411,9 +411,6 @@ Use the following steps to download and install IBM Installation Manager by usin
 
    ```bash
    yum install -y unzip
-   ```
-
-   ```bash
    mkdir /datadrive/tmp
    cd /datadrive/tmp
    curl -LO https://public.dhe.ibm.com/ibmdl/export/pub/software/im/zips/agent.installer.linux.gtk.x86_64.zip
