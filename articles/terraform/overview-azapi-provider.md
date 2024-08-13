@@ -9,7 +9,7 @@ adobe-target: trues
 
 # Overview of the Terraform AzAPI provider
 
-The AzAPI provider is a thin layer on top of the [Azure ARM REST APIs](/rest/api/resources/). It enables you to manage any Azure resource type using any API version, enabling you to utilize latest and greatest functionality within Azure. AzAPI is a first-class provider designed to be used on its own or in tandem with the AzureRM provider.
+The AzAPI provider is a thin layer on top of the [Azure ARM REST APIs](/rest/api/resources/). It enables you to manage any Azure resource type using any API version, enabling you to utilize the latest functionality within Azure. AzAPI is a first-class provider designed to be used on its own or in tandem with the AzureRM provider.
 
 ## Resources
 
@@ -23,6 +23,7 @@ To allow you to manage all Azure resources and features without requiring update
 | [azapi_data_plane_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_data_plane_resource) | Used to manage a [specific subset](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_data_plane_resource#available-resources) of Azure data plane resources <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KeyVault Certificate Contacts<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Synapse Workspace Libraries| 
 
 ### Usage Hierarchy
+
 Overall, usage should follow these steps:
 1. It's always recommended to start with performing as many operations as possible within `azapi_resource`. 
 2. If the resource type doesn't exist within `azapi_resource` but does fall under one of the types supported by `azapi_data_plane_resource`, use that instead.

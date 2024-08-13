@@ -41,6 +41,7 @@ The scope changes depending on the command being run, as do the available set of
 | Export using a query. | The tool supports exporting with an Azure Resource Graph query. | aztfexport query [option] &lt;ARG where predicate> |
 
 ### Providers
+
 While Azure Export defaults to the `azurerm` provider, you can also export the [`AzAPI `provider](../overview-azapi-provider.md):
 ```console
 aztfexport [command] --provider-name=azapi [further options] <scope>
