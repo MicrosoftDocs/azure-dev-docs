@@ -130,14 +130,16 @@ Next, use the [kubectl apply](https://kubernetes.io/docs/reference/generated/kub
 kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
-A Kubernetes load balancer service is created to expose the application to the internet. This process can take a few minutes. To monitor the progress of the load balancer deployment, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument. Once the *EXTERNAL-IP* address has changed from *pending* to an *IP address*, use `Control + C` to stop the kubectl watch process.
+A Kubernetes load balancer service is created to expose the application to the internet. This process can take a few minutes. To monitor the progress of the load balancer deployment, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
 
 ```console
 $ kubectl get service azure-vote-front --watch
+```
 
+Once the *EXTERNAL-IP* address has changed from *pending* to an *IP address*, use `Control + C` to stop the kubectl watch process.
+
+```
 NAME               TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
-azure-vote-front   LoadBalancer   10.0.215.27   <pending>     80:30747/TCP   22s
-azure-vote-front   LoadBalancer   10.0.215.27   40.117.57.239   80:30747/TCP   2m
 ```
 
 To see the application in action, open a web browser to the external IP address of your service. The Azure vote application is displayed, as shown in the following example:
