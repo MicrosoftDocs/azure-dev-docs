@@ -4,7 +4,7 @@ description: Learn how to use Terraform with Azure provider deployment slots.
 keywords: azure devops terraform deployment slots
 ms.topic: how-to
 service: app-service
-ms.service: app-service
+ms.service: azure-app-service
 ms.date: 10/26/2023
 ms.custom: devx-track-terraform
 ---
