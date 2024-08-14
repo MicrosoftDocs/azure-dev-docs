@@ -169,12 +169,6 @@ Before running the playbook, see the following notes:
     apt-get install sshpass
     ```
 
-    CentOS:
-
-    ```bash
-    yum install sshpass
-    ```
-
 * In some environments, you may see an error about using an SSH password instead of a key. If you do receive that error, you can disable host key checking by adding the following line to `/etc/ansible/ansible.cfg` or `~/.ansible.cfg`:
 
     ```bash
