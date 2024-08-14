@@ -3,7 +3,7 @@ title: Quickstart - Deploy the Ansible solution template for Azure to CentOS
 description: In this quickstart, learn how to deploy the Ansible solution template on a CentOS virtual machine hosted on Azure, along with tools configured to work with Azure.
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
 ms.topic: quickstart
-ms.date: 04/30/2019
+ms.date: 08/13/2024
 ms.custom: devx-track-ansible, mode-portal, linux-related-content
 ---
 
@@ -43,8 +43,6 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
    - **Resource group** - Select an existing resource group from the dropdown list, or select **Create new** and specify a name for a new resource group. For demo purposes, a new resource group named `ansiblerg` is used.
    - **Location** - Select the location from the dropdown list that is appropriate for your scenario.
 
-     ![Azure portal tab for Ansible basic settings](./media/solution-template-deploy/portal-ansible-setup-tab-1.png)
-
 1. Select **OK**.
 
 1. In the **Additional Settings** tab, enter the required information:
@@ -57,27 +55,19 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
    - **Domain name label** - Enter the public-facing domain name of the virtual machine. The name must be unique and meet naming requirements. For more information about specifying a name for the virtual machine, see [Naming conventions for Azure resources](/azure/architecture/best-practices/resource-naming).
    - **Ansible version** - Specify either a version number or the value `latest` to deploy the latest version. Select the information icon next to **Ansible version** to see more information about available versions.
 
-     ![Azure portal tab for Ansible additional settings](./media/solution-template-deploy/portal-ansible-setup-tab-2.png)
-
 1. Select **OK**.
 
 1. In the **Ansible Integration Settings** tab, specify the authentication type. For more information about securing Azure resources, see [What is managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
 
-    ![Azure portal tab for Ansible integration settings](./media/solution-template-deploy/portal-ansible-setup-tab-3.png)
-
 1. Select **OK**.
 
 1. The **Summary** page displays showing the validation process and listing the specified criteria for the Ansible deployment. A link at the bottom of the tab allows you to **Download the template and parameters** for use with supported Azure languages and platforms. 
-
-     ![Azure portal tab for Ansible Summary tab](./media/solution-template-deploy/portal-ansible-setup-tab-4.png)
 
 1. Select **OK**.
 
 1. When the **Create** tab appears, select **OK** to deploy Ansible.
 
 1. Select the **Notifications** icon at the top of the portal page to track the Ansible deployment. Once the deployment is complete, select  **Go to resource group**. 
-
-     ![Azure portal notification for Ansible deployment](./media/solution-template-deploy/portal-ansible-setup-complete.png)
 
 1. On the resource group page, get the IP address of your Ansible host and sign in to manage your Azure resources using Ansible.
 
