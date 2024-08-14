@@ -469,6 +469,7 @@ This solution, as a beginner tutorial, doesn't demonstrate secure-by-default pra
 * Azure Functions - [Securing Azure Functions](/azure/azure-functions/security-concepts)
 * Azure Storage - [Security recommendations for Blob storage](/azure/storage/blobs/security-recommendations)
 
+
 ## Next steps
 
 * [Convert text to speech in Express.js app](../../tutorial/convert-text-to-speech-cognitive-services.md)
