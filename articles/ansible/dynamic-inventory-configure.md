@@ -13,7 +13,7 @@ ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell, 
 
 The [Ansible dynamic inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html) feature removes the burden of maintaining static inventory files.
 
-In this tutorial, you'll use Azure's dynamic-inventory plug-in to populate your Ansible inventory.
+In this tutorial, you use Azure's dynamic-inventory plug-in to populate your Ansible inventory.
 
 In this article, you learn how to:
 
@@ -170,7 +170,7 @@ The following steps walk you through using the plug-in:
 Both VMs belong to the `ungrouped` group, which is a child of the `all` group in the Ansible inventory.
 
 **Key point**:
-* By default the Azure dynamic inventory plug-in returns globally unique names. That's the reason for the extra characters after the VM names. You can disable that by adding `plain_host_names: yes` to the dynamic inventory.
+* By default the Azure dynamic inventory plug-in returns globally unique names. For this reason, the VM names may contain extra characters. You can disable that behavior by adding `plain_host_names: yes` to the dynamic inventory.
 
 ## Find Azure VM hostvars
 
@@ -262,7 +262,7 @@ ansible-inventory -i myazure_rm.yml --graph
   |  |--win-vm_3211
 ```
 
-From the output, you can see the VMs are no longer associated with the `ungrouped` group. Instead, each has been assigned to a new group created by the dynamic inventory.
+From the output, you can see the VMs are no longer associated with the `ungrouped` group. Instead, each VM is assigned to a new group created by the dynamic inventory.
 
 **Key point**:
 * Conditional groups allow you to name specific groups within your inventory and populate them using `hostvars`.
@@ -304,10 +304,10 @@ ansible-inventory -i myazure_rm.yml --graph
   |  |--win-vm_3211
 ```
 
-From the output, you'll see two more groups `_message_broker` and `_web_server`. By using a keyed group, the `applicationRole` tag populated group names and group memberships.
+From the output, you see two more groups `_message_broker` and `_web_server`. By using a keyed group, the `applicationRole` tag populates the group names and group memberships.
 
 **Key point**:
-* By default, keyed groups include a separator. To remove the separator add `separator: ""` under the key property.
+* By default, keyed groups include a separator. To remove the separator, add `separator: ""` under the key property.
 
 ## Run playbooks with group name patterns
 
@@ -411,7 +411,7 @@ Use the groups created by the dynamic inventory to target subgroups.
 
 # [Azure CLI](#tab/azure-cli)
 
-1. Run [az group delete](/cli/azure/group#az-group-delete) to delete the resource group. All resources within the resource group will be deleted.
+1. Run [az group delete](/cli/azure/group#az-group-delete) to delete the resource group. All resources within the resource group are deleted.
 
     ```azurecli
     az group delete --name <resource_group>
@@ -425,7 +425,7 @@ Use the groups created by the dynamic inventory to target subgroups.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-1. Run [Remove-AzResourceGroup](/powershell/module/az.resources/Remove-AzResourceGroup) to delete the resource group. All resources within the resource group will be deleted.
+1. Run [Remove-AzResourceGroup](/powershell/module/az.resources/Remove-AzResourceGroup) to delete the resource group. All resources within the resource group are deleted.
 
     ```azurepowershell
     Remove-AzResourceGroup -Name <resource_group>
