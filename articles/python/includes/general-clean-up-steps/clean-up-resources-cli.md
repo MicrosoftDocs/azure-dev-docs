@@ -1,7 +1,7 @@
 ---
 ms.topic: include
 ms.date: 06/01/2022
-ms.service: app-service
+ms.service: azure-app-service
 ms.role: developer
 ms.devlang: python
 ms.azure.devx-azure-tooling: ['vscode-azure-tools']
