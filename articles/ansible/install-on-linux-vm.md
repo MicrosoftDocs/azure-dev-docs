@@ -3,22 +3,19 @@ title: Get Started - Configure Ansible on an Azure VM
 description: Learn how to install and configure Ansible on an Azure VM for managing Azure resources.
 keywords: ansible, azure, devops, bash, cloudshell, playbook, azure cli, powershell, azure powershell
 ms.topic: quickstart
-ms.date: 07/19/2022
+ms.date: 08/14/2024
 ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell, mode-portal, linux-related-content
 ---
 
 # Get Started: Configure Ansible on an Azure VM
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
-
-This article shows how to install [Ansible](https://docs.ansible.com/) on a Centos VM in Azure.
+This article shows how to install [Ansible](https://docs.ansible.com/) on an Ubuntu VM in Azure.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a resource group
-> * Create a CentOS virtual machine
+> * Create an Ubuntu virtual machine
 > * Install Ansible on the virtual machine
 > * Connect to the virtual machine via SSH
 > * Configure Ansible on the virtual machine
@@ -58,7 +55,7 @@ In this article, you learn how to:
     az vm create \
     --resource-group QuickstartAnsible-rg \
     --name QuickstartAnsible-vm \
-    --image CentOS85Gen2 \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --admin-password <password>
     ```
@@ -75,7 +72,7 @@ In this article, you learn how to:
     New-AzVM `
     -ResourceGroupName QuickstartAnsible-rg `
     -Location eastus `
-    -Image CentOS85Gen2 `
+    -Image Ubuntu2204 `
     -Name QuickstartAnsible-vm `
     -OpenPorts 22 `
     -Credential $credential
@@ -109,50 +106,26 @@ Replace the `<vm_ip_address>` with the appropriate value returned in previous co
 
 ## Install Ansible on the virtual machine
 
-### Ansible 2.9 with the azure_rm module
+### Ansible with azure.azcollection
 
-Run the following commands to configure Ansible 2.9 on Centos:
-
-```bash
-#!/bin/bash
-
-# Update all packages that have available updates.
-sudo yum update -y
-
-# Install Python 3 and pip.
-sudo yum install -y python3-pip
-
-# Upgrade pip3.
-sudo pip3 install --upgrade pip
-
-# Install Ansible.
-pip3 install "ansible==2.9.17"
-
-# Install Ansible azure_rm module for interacting with Azure.
-pip3 install ansible[azure]
-```
-
-### Ansible 2.10 with azure.azcollection
-
-Run the following commands to configure Ansible on Centos:
+Run the following commands to configure Ansible on [Ubuntu](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu):
 
 ```bash
 #!/bin/bash
 
-# Update all packages that have available updates.
-sudo yum update -y
+sudo apt update
 
-# Install Python 3 and pip.
-sudo yum install -y python3-pip
+sudo apt install software-properties-common
 
-# Upgrade pip3.
-sudo pip3 install --upgrade pip
+sudo add-apt-repository --yes --update ppa:ansible/ansible
 
-# Install Ansible az collection for interacting with Azure.
-ansible-galaxy collection install azure.azcollection
+sudo apt install ansible
 
-# Install Ansible modules for Azure
-sudo pip3 install -r ~/.ansible/collections/ansible_collections/azure/azcollection/requirements-azure.txt
+# Install Ansible az collection for interacting with Azure. (optional)
+ansible-galaxy collection install azure.azcollection --force 
+
+# Install Ansible modules for Azure (optional)
+sudo pip3 install -r ~/.ansible/collections/ansible_collections/azure/azcollection/requirements.txt
 ```
 
 **Key points**:
@@ -219,10 +192,8 @@ This section shows how to create a test resource group within your new Ansible c
 Run the following ad-hoc Ansible command to create a resource group:
 
 ```bash
-#Ansible 2.9 with azure_rm module
-ansible localhost -m azure_rm_resourcegroup -a "name=ansible-test location=eastus"
 
-#Ansible 2.10 with azure.azcollection
+#Ansible with azure.azcollection
 ansible localhost -m azure.azcollection.azure_rm_resourcegroup -a "name=<resource_group_name> location=<location>"
 ```
 
@@ -232,20 +203,7 @@ Replace `<resource_group_name>` and `<location>` with your values.
 
 1. Save the following code as `create_rg.yml`.
 
-    Ansible 2.9 with azure_rm module
-
-    ```yml
-    ---
-    - hosts: localhost
-      connection: local
-      tasks:
-        - name: Creating resource group
-          azure_rm_resourcegroup:
-            name: "<resource_group_name"
-            location: "<location>"
-    ```
-
-    Ansible 2.10 with azure.azcollection
+    Ansible with azure.azcollection
 
     ```yml
     - hosts: localhost
