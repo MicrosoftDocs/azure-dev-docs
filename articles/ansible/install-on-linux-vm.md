@@ -3,14 +3,11 @@ title: Get Started - Configure Ansible on an Azure VM
 description: Learn how to install and configure Ansible on an Azure VM for managing Azure resources.
 keywords: ansible, azure, devops, bash, cloudshell, playbook, azure cli, powershell, azure powershell
 ms.topic: quickstart
-ms.date: 07/19/2022
+ms.date: 08/14/2024
 ms.custom: devx-track-ansible, devx-track-azurecli, devx-track-azurepowershell, mode-portal, linux-related-content
 ---
 
 # Get Started: Configure Ansible on an Azure VM
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article shows how to install [Ansible](https://docs.ansible.com/) on an Ubuntu VM in Azure.
 
