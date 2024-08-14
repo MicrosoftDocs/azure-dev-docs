@@ -3,7 +3,7 @@ title: Tutorial - Deploy apps to virtual machine scale sets in Azure using Ansib
 description: Learn how to use Ansible to configure Azure virtual machine scale sets and deploy application on the scale set
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
-ms.date: 01/13/2020
+ms.date: 08/14/2024
 ms.custom: devx-track-ansible
 ---
 
