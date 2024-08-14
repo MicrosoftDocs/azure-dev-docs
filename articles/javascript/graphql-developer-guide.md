@@ -2,7 +2,7 @@
 title: GraphQL Developer Guide for Azure
 description: Discover the services and tools you need to build and deploy your GraphQL applications on Azure, whether you're hosting existing applications or creating new GraphQL endpoints.
 ms.topic: conceptual
-ms.date: 09/06/2023
+ms.date: 08/01/2024
 ms.custom: devx-graphql
 #CustomerIntent: As a developer new to Azure, I want to understand how to find the right services and tools to bring or build GraphQL applications with Azure so that my application runs without any more work than is necessary. 
 ---

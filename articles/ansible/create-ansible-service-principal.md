@@ -80,7 +80,7 @@ az role assignment create --assignee <appID> \
     --scope /subscriptions/<subscription_id>
 ```
 
-Replace `<appID>` with the value provided from the output of `az ad sp create-for-rba` command.
+Replace `<appID>` with the value provided from the output of `az ad sp create-for-rbac` command.
 
 >[!NOTE]
 >To improve security, change the scope of the role assignment to a resource group instead of a subscription.

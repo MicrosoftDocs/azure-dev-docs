@@ -311,7 +311,7 @@ Use the following steps to install the required dependencies to allow the connec
    yum install -y libXtst libSM libXrender
 
    # dependencies for GUI installation
-   yum install -y gtk2 gtk3 libXtst xorg-x11-fonts-Type1 mesa-libGL
+   yum install -y gtk2 libXtst xorg-x11-fonts-Type1 mesa-libGL
    ```
 
 Later, you continue to mount the data disk on `adminVM`, so keep this terminal open.
@@ -410,6 +410,7 @@ Use the following steps to download and install IBM Installation Manager by usin
 1. Download IBM Installation Manager by using the `curl` command, as shown in the following example. Save the installer file to */datadrive/tmp*, and then unzip the file to */datadrive/installer*.
 
    ```bash
+   yum install -y unzip
    mkdir /datadrive/tmp
    cd /datadrive/tmp
    curl -LO https://public.dhe.ibm.com/ibmdl/export/pub/software/im/zips/agent.installer.linux.gtk.x86_64.zip
@@ -907,7 +908,24 @@ Use the following steps to create `mspVM2`:
        --name mspVM2_OsDisk_1 \
        --query '[id]' \
        --output tsv)
+   ```
 
+   ### [PowerShell](#tab/in-powershell)
+
+   ```powershell
+   # Get the resource ID of the managed disk.
+   $Env:MSPVM2_OS_DISK_ID=$(az disk show `
+       --resource-group $Env:RESOURCE_GROUP_NAME `
+       --name mspVM2_OsDisk_1 `
+       --query '[id]' `
+       --output tsv)
+   ```
+
+    ---
+
+   ### [WAS ND V9](#tab/was-nd-v9)
+
+   ```bash
    # Create the VM by attaching the existing managed disk as an OS.
    az vm create \
        --resource-group $RESOURCE_GROUP_NAME \
@@ -922,16 +940,7 @@ Use the following steps to create `mspVM2`:
        --nsg ""
    ```
 
-   ### [PowerShell](#tab/in-powershell)
-
    ```powershell
-   # Get the resource ID of the managed disk.
-   $Env:MSPVM2_OS_DISK_ID=$(az disk show `
-       --resource-group $Env:RESOURCE_GROUP_NAME `
-       --name mspVM2_OsDisk_1 `
-       --query '[id]' `
-       --output tsv)
-
    # Create the VM by attaching the existing managed disk as an OS.
    # For `public-ip-address` and `nsg`, be sure to wrap the value "" in '' in PowerShell.
    az vm create `
@@ -946,6 +955,34 @@ Use the following steps to create `mspVM2`:
        --public-ip-address '""' `
        --nsg '""'
    ```
+
+   ### [WAS ND V85](#tab/was-nd-v85)
+
+   ```bash
+   # Create the VM by attaching the existing managed disk as an OS.
+   az vm create \
+       --resource-group $RESOURCE_GROUP_NAME \
+       --name mspVM2 \
+       --attach-os-disk $MSPVM2_OS_DISK_ID \
+       --os-type linux \
+       --availability-set myAvailabilitySet \
+       --public-ip-address "" \
+       --nsg ""
+   ```
+
+   ```powershell
+   # Create the VM by attaching the existing managed disk as an OS.
+   # For `public-ip-address` and `nsg`, be sure to wrap the value "" in '' in PowerShell.
+   az vm create `
+       --resource-group $Env:RESOURCE_GROUP_NAME `
+       --name mspVM2 `
+       --attach-os-disk $Env:MSPVM2_OS_DISK_ID `
+       --os-type linux `
+       --availability-set myAvailabilitySet `
+       --public-ip-address '""' `
+       --nsg '""'
+   ```
+    ---
 
 1. Create a managed disk from the data snapshot and attach it to `mspVM2`:
 
