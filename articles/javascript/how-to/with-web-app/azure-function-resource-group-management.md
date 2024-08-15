@@ -2,8 +2,8 @@
 title: JavaScript Resource group management API
 description: Learn how to build a TypeScript Azure Function API to manage Azure resource groups.
 ms.topic: how-to
-ms.date: 03/29/2023
-ms.custom: devx-track-ts, engagement-fy23, devx-track-js, insecure-sample-warning
+ms.date: 04/29/2023
+ms.custom: devx-track-ts, engagement-fy23, devx-track-js
 ---
 
 # Manage Azure resource groups with TypeScript Function API
@@ -468,7 +468,6 @@ This solution, as a beginner tutorial, doesn't demonstrate secure-by-default pra
 
 * Azure Functions - [Securing Azure Functions](/azure/azure-functions/security-concepts)
 * Azure Storage - [Security recommendations for Blob storage](/azure/storage/blobs/security-recommendations)
-
 
 ## Next steps
 
