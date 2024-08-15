@@ -1,13 +1,14 @@
 ---
-title: ""
-description: ""
-ms.date: 08/08/2022
+title: "Testing code depending on Azure SDK in JavaScript"
+description: "Learn testing Azure SDK integration in JavaScript apps. Understand when to use a live dependency, when to use doubles and how to use mocks with the SDKs."
+ms.date: 08/15/2022
 ms.topic: concept-article
 ms.custom: devx-track-js
 ai-usage: ai-assisted
+#customer intent: As a JavaScript or TypeScript developer new to Azure, I want understand how to test my code which depends on the Azure SDKs so that only test what is needed.
 ---
 
-## Testing integration Code for Azure SDK for JavaScript
+# Testing integration Code for Azure SDK for JavaScript
 
 Testing your integration code for the Azure SDK for JavaScript is essential to ensure your applications interact correctly with Azure services. 
 For unit tests, use tools such as Jest, Sinon, or ts-mockito. 
@@ -51,15 +52,15 @@ The choice between mocking and using live services depends on your testing strat
 
 A test double is any kind of substitute used in place of something real for testing purposes. The type of double you choose is based on what you want it to replace. The term _mock_ is often meant as any _double_ when the term is used casually. In this article, the term is used specifically and illustrated specifically in the Jest test framework. 
 
-* Mocks (also called _spies): Substitute in a function and be able to control and spy on the **behavior** of that function when it is called indirectly by some other code. 
-* Stubs: Substitute in a function's returned result data. This allows your code to call the function and get back a wide variety of good and bad state. **State verification** can include results such as failures, exceptions, and edge cases. 
-* Fakes: Substitute in functionality that you wouldn't normally use in production, such as an in-memory database instead of a cloud database.
+- Mocks (also called _spies): Substitute in a function and be able to control and spy on the **behavior** of that function when it's called indirectly by some other code. 
+- Stubs: Substitute in a function's returned result data. This substitution allows your code to call the function and get back a wide variety of good and bad state. **State verification** can include results such as failures, exceptions, and edge cases. 
+- Fakes: Substitute in functionality that you wouldn't normally use in production, such as an in-memory database instead of a cloud database.
 
-## Azure SDK example of CosmosDB
+## Azure SDK example of Cosmos DB
 
-Imagine you have an application that needs to write a new document to CosmosDB if all the information is submitted and verified. If an empty form is submitted or the information doesn't match the expected format, the application should not enter the data. 
+Imagine you have an application that needs to write a new document to Cosmos DB if all the information is submitted and verified. If an empty form is submitted or the information doesn't match the expected format, the application shouldn't enter the data. 
 
-CosmosDB is used as an example, the process and concepts apply to most of the Azure SDKs for JavaScript.
+Cosmos DB is used as an example, the process, and concepts apply to most of the Azure SDKs for JavaScript.
 
 The following function captures this functionality
 
@@ -85,27 +86,25 @@ export async function insertDocument<RawInput>(doc):Promise<
 
 The functions in this application above are:
 
-* **insertDocument** (application code): Inserts a document into the database. This is the function we want to test.
-* **inputVerified** (application code): Verifies the input data against a schema. This can be done using a package like zod to ensure data is in the correct format (examples include email addresses are valid emails, URLs are correctly formatted).
-* **cosmos.items.create** (SDK code): This is the SDK function for Azure Cosmos DB using a package like [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos). We want to mock this function because we don't need to test the SDK itself. It already has its own tests maintained by the package owners. We just want to test our code. As part of testing insertDocument, we need to verify that the CosmosDB function call was made and returned data if the incoming data passed verification.
+- **insertDocument** (application code): Inserts a document into the database. This insertion function is what we want to test.
+- **inputVerified** (application code): Verifies the input data against a schema. This verification can be done using a package like zod to ensure data is in the correct format (examples include email addresses are valid emails, URLs are correctly formatted).
+- **cosmos.items.create** (SDK code): This is the SDK function for Azure Cosmos DB using a package like [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos). We want to mock this function because we don't need to test the SDK itself. It already has its own tests maintained by the package owners. We just want to test our code. As part of testing insertDocument, we need to verify that the Cosmos DB function call was made and returned data if the incoming data passed verification.
 
-## Mocking Azure SDK example for CosmosDB
+## Mocking Azure SDK example for Cosmos DB
 
 How can we use mocks, stubs, and fakes to test the **insertDocument** function? 
 
-* Mocks: we need a mock to make sure the **behavior** of the function is tested such as:
-    * If the data does pass verification, the call to the CosmosDB function happened only 1 time
-    * If the data doesn't pass verification, the call to the CosmosDB function didn't happen
-* Stubs: 
-    * The data passed in matches the new document returned by the function.
+- Mocks: we need a mock to make sure the **behavior** of the function is tested such as:
+  - If the data does pass verification, the call to the Cosmos DB function happened only 1 time
+  - If the data doesn't pass verification, the call to the Cosmos DB function didn't happen
+ Stubs:
+  - The data passed in matches the new document returned by the function.
 
 The following Jest test file shows how to test the **insertDocument** function.
 
 ```typescript
-// insertDocument.spec.ts
-
-const { insertDocument } = require('./insertDocument');
-const { cosmosContainer } = require('@azure/cosmos');
+import { insertDocument } from './insertDocument';
+import { cosmosContainer } from '@azure/cosmos';
 
 // Mock the cosmosContainer.items.create function
 jest.mock('@azure/cosmos', () => ({
@@ -124,8 +123,8 @@ const verificationErrors = { error: 'Invalid data format' };
 const dbErrors = { error: 'Database error' };
 
 // Mock inputVerified function
-jest.mock('./path/to/your/inputVerified', () => ({
-    inputVerified: jest.fn((doc) => doc.name !== '')
+jest.mock('./inputVerified', () => ({
+    inputVerified: jest.fn((doc: { name: string }) => doc.name !== '')
 }));
 
 describe('insertDocument', () => {
@@ -134,29 +133,38 @@ describe('insertDocument', () => {
     });
 
     test('should insert document if input is verified', async () => {
-        require('./path/to/your/inputVerified').inputVerified.mockReturnValue(true);
-        cosmosContainer.items.create.mockResolvedValue(dbDocument);
+        const { inputVerified } = require('./inputVerified');
+        inputVerified.mockReturnValue(true);
+        (cosmosContainer.items.create as jest.Mock).mockResolvedValue(dbDocument);
 
         const result = await insertDocument(validDoc);
 
-        expect(require('./path/to/your/inputVerified').inputVerified).toHaveBeenCalledWith(validDoc);
+        // Test behavior
+        expect(inputVerified).toHaveBeenCalledWith(validDoc);
         expect(cosmosContainer.items.create).toHaveBeenCalledWith(validDoc);
         expect(result).toEqual(dbDocument.resource);
+
+        // Validate properties
+        expect(result.id).toBe(validDoc.id);
+        expect(result.name).toBe(validDoc.name);
     });
 
     test('should not insert document if input is not verified', async () => {
-        require('./path/to/your/inputVerified').inputVerified.mockReturnValue(false);
+        const { inputVerified } = require('./inputVerified');
+        inputVerified.mockReturnValue(false);
 
         const result = await insertDocument(invalidDoc);
 
-        expect(require('./path/to/your/inputVerified').inputVerified).toHaveBeenCalledWith(invalidDoc);
+        // Test behavior
+        expect(inputVerified).toHaveBeenCalledWith(invalidDoc);
         expect(cosmosContainer.items.create).not.toHaveBeenCalled();
         expect(result).toBeNull();
     });
 
-    test('should handle database errors', async () => {
-        require('./path/to/your/inputVerified').inputVerified.mockReturnValue(true);
-        cosmosContainer.items.create.mockRejectedValue(dbErrors);
+    test('should handle database throwing errors', async () => {
+        const { inputVerified } = require('./inputVerified');
+        inputVerified.mockReturnValue(true);
+        (cosmosContainer.items.create as jest.Mock).mockRejectedValue(dbErrors);
 
         try {
             await insertDocument(validDoc);
@@ -164,7 +172,8 @@ describe('insertDocument', () => {
             expect(error).toEqual(dbErrors);
         }
 
-        expect(require('./path/to/your/inputVerified').inputVerified).toHaveBeenCalledWith(validDoc);
+        // Test behavior
+        expect(inputVerified).toHaveBeenCalledWith(validDoc);
         expect(cosmosContainer.items.create).toHaveBeenCalledWith(validDoc);
     });
 });
