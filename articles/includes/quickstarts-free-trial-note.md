@@ -1,1 +1,1 @@
-If you don't have an [Azure subscription](../intro/azure-developer-billing.md#what-is-an-azure-subscription), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+If you don't have an [Azure subscription](/azure/developer/intro/azure-developer-billing#what-is-an-azure-subscription), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
