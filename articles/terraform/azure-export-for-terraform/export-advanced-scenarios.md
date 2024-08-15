@@ -157,7 +157,7 @@ To specify a different environment other than public cloud, use the `--env` flag
 ```console
 aztfexport [command] --env="usgovernment" [further options] <scope>
 ```
-### Changing terraform provider version
+### Changing Terraform provider version
 
 For simpler access to a preferred `AzureRM` or `AzAPI` version, use the `--provider-version` flag. For example, if you were on `AzAPI` version `1.10.0`:
 ```console

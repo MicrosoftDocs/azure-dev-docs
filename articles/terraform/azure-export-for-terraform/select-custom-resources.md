@@ -194,13 +194,13 @@ aztfexport map -n "aztfexportResourceMapping.json"
 - For simple scenarios, this technique might be overkill.
 - Requires manual modifications.
 
-## Using terraform `import` blocks
+## Using Terraform import blocks
 
 When running `aztfexport` `v0.13` or greater alongside Terraform `v1.5` or greater, the `--generate-mapping-file` or `-g` command generates a mapping file alongside a `import.tf` file. The `import.tf` file includes import blocks for each of the resources `aztfexport` was able to map. From this point on the behavior of the configuration is identical to [the preexisting import block workflow](https://developer.hashicorp.com/terraform/language/import). To finish, run `terraform plan`.
 
 To then delete or filter resources from the resulting export, you can delete the block containing the resource's ID and other information.
 
-### Compare `import` blocks and Azure Export
+### Compare import blocks and Azure Export
 
 A common question is the difference between using Azure Export for Terraform and import blocks. The benefits between the two tools we've noticed include:
 - Azure Export for Terraform aids in resource discovery. There are various methods available to help discover and export the resources you want.
