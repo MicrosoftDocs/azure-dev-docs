@@ -126,7 +126,7 @@ The AzAPI provider features the following benefits:
   - Properties and values are saved to state
 - No dependency on Swagger
 - Common and consistent Azure authentication
-- [Robust VSCode Extension](https://marketplace.visualstudio.com/items?itemName=azapi-vscode.azapi)
+- [Robust VS Code Extension](https://marketplace.visualstudio.com/items?itemName=azapi-vscode.azapi)
 
 ## Experience and lifecycle of the AzAPI provider
 
