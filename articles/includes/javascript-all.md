@@ -107,6 +107,7 @@
 | Text Translation | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/ai-translation-text/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-translation-text_1.0.0/sdk/translation/ai-translation-text-rest/) |
 | Token Cache Persistence Plugin | npm [1.1.1](https://www.npmjs.com/package/@azure/identity-cache-persistence/v/1.1.1) | [docs](/javascript/api/overview/azure/identity-cache-persistence-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.1.1/sdk/identity/identity-cache-persistence/) |
 | unknown | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/ai-translation-document/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-translation-document_1.0.0-beta.2/sdk/translation/ai-translation-document-rest/) |
+| unknown | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/batch/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/batch_1.0.0-beta.1/sdk/batch/batch-rest/) |
 | unknown | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-cancerprofiling/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-cancerprofiling_1.0.0-beta.1/sdk/healthinsights/health-insights-cancerprofiling-rest/) |
 | unknown | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-clinicalmatching/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-clinicalmatching_1.0.0-beta.1/sdk/healthinsights/health-insights-clinicalmatching-rest/) |
 | unknown | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/ai-language-conversations/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/ai-language-conversations-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-language-conversations_1.0.0-beta.1/sdk/cognitivelanguage/ai-language-conversations/) |
@@ -362,7 +363,7 @@
 | @azure/arm-template | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-template/v/1.0.0-beta.2) |  |  |
 | @azure/core-crypto | npm [1.0.0-alpha.20210122.1](https://www.npmjs.com/package/@azure/core-crypto/v/1.0.0-alpha.20210122.1) |  |  |
 | @azure/fabric-react-jsonschema-form | npm [0.1.5](https://www.npmjs.com/package/@azure/fabric-react-jsonschema-form/v/0.1.5) |  |  |
-| AI Chat Protocol | npm [1.0.0-beta.20240610.1](https://www.npmjs.com/package/@microsoft/ai-chat-protocol/v/1.0.0-beta.20240610.1) |  |  |
+| AI Chat Protocol | npm [1.0.0-beta.20240814.1](https://www.npmjs.com/package/@microsoft/ai-chat-protocol/v/1.0.0-beta.20240814.1) |  |  |
 | App Configuration Provider | npm [1.1.0](https://www.npmjs.com/package/@azure/app-configuration-provider/v/1.1.0) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | Purview Data Map | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/purview-datamap/v/1.0.0-beta.1) |  |  |
@@ -375,7 +376,7 @@
 | Unknown Display Name | npm [0.45.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.45.0) |  |  |
 | Unknown Display Name | npm [0.45.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.45.0) |  |  |
 | Unknown Display Name | npm [0.11.2](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.11.2) |  |  |
-| Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.0) |  |  |
+| Unknown Display Name | npm [0.3.1](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.1) |  |  |
 | Unknown Display Name | npm [0.4.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.4.0) |  |  |
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |
@@ -470,7 +471,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240814.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240814.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240815.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240815.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -499,11 +500,11 @@
 | @azure-tools/cadl-providerhub | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.26.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.26.0) |  |  |
 | @azure-tools/cadl-python | npm [0.6.1](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.6.1) |  |  |
-| @azure-tools/cadl-ranch | npm [0.14.2](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.14.2) |  |  |
-| @azure-tools/cadl-ranch-api | npm [0.4.5](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.4.5) |  |  |
+| @azure-tools/cadl-ranch | npm [0.14.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.14.3) |  |  |
+| @azure-tools/cadl-ranch-api | npm [0.4.6](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.4.6) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.8.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.8.3) |  |  |
 | @azure-tools/cadl-ranch-expect | npm [0.15.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.15.1) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.36.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.36.0) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.36.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.36.1) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
