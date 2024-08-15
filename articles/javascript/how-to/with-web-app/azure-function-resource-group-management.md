@@ -2,7 +2,7 @@
 title: JavaScript Resource group management API
 description: Learn how to build a TypeScript Azure Function API to manage Azure resource groups.
 ms.topic: how-to
-ms.date: 03/29/2023
+ms.date: 0/29/2023
 ms.custom: devx-track-ts, engagement-fy23, devx-track-js
 ---
 
@@ -22,7 +22,7 @@ Features and functionality:
 * Use your local and cloud APIs to create, delete, and list resource groups in your subscription
 
 > [!WARNING]
-> This tutorial is meant for quick adoption and as such it doesn't follow secure-by-default requirements. To understand more about this scenario with a secure-by-default goal, go to [Security considerations](#security-consideration).
+> This tutorial is meant for quick adoption and as such it doesn't follow secure-by-default requirements. To understand more about this scenario with a secure-by-default goal, go to [Security considerations](#security-considerations).
 
 While the source code is written with TypeScript, the source code is simple. If you're comfortable with modern JavaScript using async/await, the code will be familiar to you.
 
@@ -467,7 +467,7 @@ az ad sp delete --id <YOUR-SERVICE-PRINCIPAL-NAME>
 This solution, as a beginner tutorial, doesn't demonstrate secure-by-default practices. This is intentional to allow you to be successful in deploying the solution. The next step after that successful deployment is to secure the resources. This solution uses three Azure services, each has its own security features and considerations for secure-by-default configuration:
 
 * Azure Functions - [Securing Azure Functions](/azure/azure-functions/security-concepts)
-* Azure Storage - [Security recommendations for Blob storage](security-recommendations.md)
+* Azure Storage - [Security recommendations for Blob storage](/azure/storage/blobs/security-recommendations)
 * Azure Cognitive services - [Azure AI services security features](/azure/ai-services/security-features)
 
 ## Next steps
