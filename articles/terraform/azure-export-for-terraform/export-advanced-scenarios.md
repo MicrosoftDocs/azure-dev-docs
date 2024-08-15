@@ -151,13 +151,13 @@ If your plan runs into issues, see [Azure Export for Terraform concepts](./expor
 
 Some additional advanced flags are described below, with how to utilize them:
 
-### Selecting Cloud Environment
+### Selecting cloud environment
 
 To specify a different environment other than public cloud, use the `--env` flag. For example, for US Government:
 ```console
 aztfexport [command] --env="usgovernment" [further options] <scope>
 ```
-### Changing Terraform Provider Version
+### Changing terraform provider version
 
 For simpler access to a preferred `AzureRM` or `AzAPI` version, use the `--provider-version` flag. For example, if you were on `AzAPI` version `1.10.0`:
 ```console
@@ -199,7 +199,7 @@ The flags above follow the naming convention of the `azurerm` provider. All of t
 If one or more `use-xxx-cred` is not true, then that credential type will be skipped. This behavior is the same as the provider.
 
 The provider config can override any auth config from `aztfexport`. This makes it possible for users to use different credential types between `aztfexport` and the provider.
-### Including Role Assignments
+### Including role assignments
 
 If you wish to include role assignments when exporting your scope of resources, use the `--include-role-assignment` command:
 ```console

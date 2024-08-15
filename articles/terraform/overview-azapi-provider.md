@@ -22,7 +22,7 @@ To allow you to manage all Azure resources and features without requiring update
 | [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource_action) | Used to perform a single operation on a resource without managing the lifecycle of it <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shut down a Virtual Machine <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add a secret to a Key Vault|
 | [azapi_data_plane_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_data_plane_resource) | Used to manage a [specific subset](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_data_plane_resource#available-resources) of Azure data plane resources <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KeyVault Certificate Contacts<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Synapse Workspace Libraries| 
 
-### Usage Hierarchy
+### Usage hierarchy
 
 Overall, usage should follow these steps:
 1. It's always recommended to start with performing as many operations as possible within `azapi_resource`. 
@@ -120,8 +120,7 @@ The AzAPI provider enables the same authentication methods as the AzureRM provid
 The AzAPI provider features the following benefits:
 
 - Supports all Azure control plane services:
-  - Private preview services and features
-  - Public preview services and features
+  - Preview services and features
   - All API versions
 - Full Terraform state file fidelity
   - Properties and values are saved to state
