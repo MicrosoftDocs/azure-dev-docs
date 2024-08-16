@@ -84,20 +84,22 @@ const (
 	sampleFile    = "path/to/sample/file"
 )
 
-// create a credential
-cred, err := azidentity.NewDefaultAzureCredential(nil)
-if err != nil {
-  // TODO: handle error
+func main() {
+    // create a credential
+    cred, err := azidentity.NewDefaultAzureCredential(nil)
+    if err != nil {
+      // TODO: handle error
+    }
+    
+    // create a client for the specified storage account
+    client, err := azblob.NewClient(account, cred, nil)
+    if err != nil {
+      // TODO: handle error
+    }
+    
+    // TODO: perform some action with the azblob Client
+    // _, err = client.DownloadFile(context.TODO(), <containerName>, <blobName>, <target_file>, <DownloadFileOptions>)
 }
-
-// create a client for the specified storage account
-client, err := azblob.NewClient(account, cred, nil)
-if err != nil {
-  // TODO: handle error
-}
-
-// TODO: perform some action with the azblob Client
-// _, err = client.DownloadFile(context.TODO(), <containerName>, <blobName>, <target_file>, <DownloadFileOptions>)
 ```
 
 The `DefaultAzureCredential` type automatically detects the authentication mechanism configured for the app and obtains the necessary tokens to authenticate the app to Azure. If an application makes use of more than one SDK client, you can use the same credential object with each SDK client object.
