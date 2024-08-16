@@ -119,7 +119,7 @@
 | Web PubSub | npm [1.1.3](https://www.npmjs.com/package/@azure/web-pubsub/v/1.1.3) | [docs](/javascript/api/overview/azure/web-pubsub-readme) | GitHub [1.1.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub_1.1.3/sdk/web-pubsub/web-pubsub/) |
 | Web PubSub Client | npm [1.0.1](https://www.npmjs.com/package/@azure/web-pubsub-client/v/1.0.1) | [docs](/javascript/api/overview/azure/web-pubsub-client-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client_1.0.1/sdk/web-pubsub/web-pubsub-client/) |
 | WebPubSub Client SDK Protobuf | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/web-pubsub-client-protobuf/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/web-pubsub-client-protobuf-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client-protobuf_1.0.0-beta.2/sdk/web-pubsub/web-pubsub-client-protobuf/) |
-| OpenTelemetry Instrumentation | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/opentelemetry-instrumentation-azure-sdk/v/1.0.0-beta.5) | [docs](/javascript/api/overview/azure/opentelemetry-instrumentation-azure-sdk-readme) | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/opentelemetry-instrumentation-azure-sdk_1.0.0-beta.5/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk/) |
+| OpenTelemetry Instrumentation | npm [1.0.0-beta.6](https://www.npmjs.com/package/@azure/opentelemetry-instrumentation-azure-sdk/v/1.0.0-beta.6) | [docs](/javascript/api/overview/azure/opentelemetry-instrumentation-azure-sdk-readme) | GitHub [1.0.0-beta.6](https://github.com/Azure/azure-sdk-for-js/tree/@azure/opentelemetry-instrumentation-azure-sdk_1.0.0-beta.6/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk/) |
 | Web PubSub CloudEvents Handlers for Express | npm [1.0.5](https://www.npmjs.com/package/@azure/web-pubsub-express/v/1.0.5) | [docs](/javascript/api/overview/azure/web-pubsub-express-readme) | GitHub [1.0.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-express_1.0.5/sdk/web-pubsub/web-pubsub-express/) |
 | @azure/arm-authorization-profile-2020-09-01-hybrid | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-authorization-profile-2020-09-01-hybrid/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-authorization-profile-2020-09-01-hybrid-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-authorization-profile-2020-09-01-hybrid_2.1.0/sdk/authorization/arm-authorization-profile-2020-09-01-hybrid/) |
 | @azure/arm-commerce-profile-2020-09-01-hybrid | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-commerce-profile-2020-09-01-hybrid/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-commerce-profile-2020-09-01-hybrid-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-commerce-profile-2020-09-01-hybrid_2.1.0/sdk/commerce/arm-commerce-profile-2020-09-01-hybrid/) |
@@ -369,13 +369,13 @@
 | Purview Data Map | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/purview-datamap/v/1.0.0-beta.1) |  |  |
 | tmlanguage-generator | npm [0.5.8](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.8) |  |  |
 | Unknown Display Name | npm [0.9.0](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.9.0) |  |  |
-| Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.1.0) |  |  |
+| Unknown Display Name | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.1.1) |  |  |
 | Unknown Display Name | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
 | Unknown Display Name | npm [1.0.1](https://www.npmjs.com/package/@azure-tools/test-utils/v/1.0.1) |  |  |
 | Unknown Display Name | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.6.0) |  |  |
 | Unknown Display Name | npm [0.45.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.45.0) |  |  |
 | Unknown Display Name | npm [0.45.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.45.0) |  |  |
-| Unknown Display Name | npm [0.11.2](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.11.2) |  |  |
+| Unknown Display Name | npm [0.12.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.12.0) |  |  |
 | Unknown Display Name | npm [0.3.1](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.1) |  |  |
 | Unknown Display Name | npm [0.4.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.4.0) |  |  |
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
@@ -403,7 +403,7 @@
 | Azure Functions | npm [4.0.0](https://www.npmjs.com/package/@azure/functions/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-functions-nodejs-library) |
 | Batch | npm [11.1.0](https://www.npmjs.com/package/@azure/batch/v/11.1.0) |  | GitHub [11.1.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
-| Communication Calling | npm [1.27.4](https://www.npmjs.com/package/@azure/communication-calling/v/1.27.4) |  | GitHub [1.27.4](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| Communication Calling | npm [1.27.5](https://www.npmjs.com/package/@azure/communication-calling/v/1.27.5) |  | GitHub [1.27.5](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Communication Signaling | npm [1.0.0-beta.28](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.28) |  | GitHub [1.0.0-beta.28](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Computer Vision | npm [8.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.2.0) |  |  |
 | Content Safety | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  |  |
