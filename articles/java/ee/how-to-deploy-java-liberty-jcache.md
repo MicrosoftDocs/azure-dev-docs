@@ -27,7 +27,7 @@ If you're interested in providing feedback or working closely on your migration 
 ## Prerequisites
 
 * An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-* Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, Windows Subsystem for Linux).
+* Prepare a local machine with Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
 * [Install the Azure CLI](/cli/azure/install-azure-cli) to run Azure CLI commands.
   * Sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
   * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
@@ -48,7 +48,7 @@ An Azure resource group is a logical group in which Azure resources are deployed
 
 Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az_group_create) command  in the *eastus* location. This resource group is used later for creating the Azure Container Registry (ACR) instance and the AKS cluster.
 
-```bash
+```azurecli
 export RESOURCE_GROUP_NAME=java-liberty-project
 az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
@@ -57,7 +57,7 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 Use the [az acr create](/cli/azure/acr#az_acr_create) command to create the ACR instance. The following example creates an ACR instance named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
 
-```bash
+```azurecli
 export REGISTRY_NAME=youruniqueacrname
 az acr create \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -80,7 +80,7 @@ Alternatively, you can create an Azure container registry instance by following 
 
 You'll need to sign in to the ACR instance before you can push an image to it. Run the following commands to verify the connection:
 
-```bash
+```azurecli
 export LOGIN_SERVER=$(az acr show \
     --name $REGISTRY_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -108,7 +108,7 @@ If you see a problem signing in to the Azure container registry, see [Troublesho
 
 Use the [az aks create](/cli/azure/aks#az_aks_create) command to create an AKS cluster and grant it image pull permission from the ACR instance. The following example creates a cluster named *myAKSCluster* with one node. This command takes several minutes to complete.
 
-```bash
+```azurecli
 export CLUSTER_NAME=myAKSCluster
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -132,13 +132,13 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az_aks_install_cli) command:
 
-```bash
+```azurecli
 az aks install-cli
 ```
 
 To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-```bash
+```azurecli
 az aks get-credentials \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
@@ -271,14 +271,14 @@ To deploy and run your Liberty application on the AKS cluster, use the following
 1. Run one of the following commands to build the application image and push it to the ACR instance.
    * Use the following command to build with an Open Liberty base image if you prefer to use Open Liberty as a lightweight open source Java&trade; runtime:
 
-     ```bash
+     ```azurecli
      # Build and tag application image. This causes the ACR instance to pull the necessary Open Liberty base images.
      az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME --resource-group $RESOURCE_GROUP_NAME .
      ```
 
    * Use the following command to build with a WebSphere Liberty base image if you prefer to use a commercial version of Open Liberty:
 
-     ```bash
+     ```azurecli
      # Build and tag application image. This causes the ACR instance to pull the necessary WebSphere Liberty base images.
      az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME --resource-group $RESOURCE_GROUP_NAME --file=Dockerfile-wlp .
      ```
@@ -372,13 +372,13 @@ Finally, use the following steps to demonstrate that the session data is persist
 
 To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
 
-```bash
+```azurecli
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
 To delete the Azure Cache for Redis instance, find its resource group name and run the following command:
 
-```bash
+```azurecli
 az group delete --name <AZURE_CACHE_FOR_REDIS_RESOURCE_GROUP_NAME> --yes --no-wait
 ```
 

@@ -22,7 +22,7 @@ Features and functionality:
 * Use your local and cloud APIs to create, delete, and list resource groups in your subscription
 
 > [!WARNING]
-> This tutorial is meant for quick adoption and as such it doesn't follow secure-by-default requirements. To understand more about this scenario with a secure-by-default goal, go to [Security considerations](#security-consideration).
+> This tutorial is meant for quick adoption and as such it doesn't follow secure-by-default requirements. To understand more about this scenario with a secure-by-default goal, go to [Security considerations](#security-considerations).
 
 While the source code is written with TypeScript, the source code is simple. If you're comfortable with modern JavaScript using async/await, the code will be familiar to you.
 
