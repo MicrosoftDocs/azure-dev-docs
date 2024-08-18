@@ -60,7 +60,7 @@
 | farmbeats | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/agrifood-farming/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.2/sdk/agrifood/agrifood-farming-rest/) |
 | Form Recognizer | npm [5.0.0](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [docs](/javascript/api/overview/azure/ai-form-recognizer-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_5.0.0/sdk/formrecognizer/ai-form-recognizer/) |
 | Health Deidentification | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-deidentification/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-deidentification_1.0.0-beta.1/sdk/healthdataaiservices/azure-health-deidentification/) |
-| Health Insights Radiology Insights | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-insights-radiologyinsights/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-radiologyinsights_1.0.0-beta.1/sdk/healthinsights/health-insights-radiologyinsights-rest/) |
+| Health Insights Radiology Insights | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/health-insights-radiologyinsights/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-insights-radiologyinsights_1.0.0/sdk/healthinsights/health-insights-radiologyinsights-rest/) |
 | Identity | npm [4.4.1](https://www.npmjs.com/package/@azure/identity/v/4.4.1)<br>npm [4.5.0-beta.2](https://www.npmjs.com/package/@azure/identity/v/4.5.0-beta.2) | [docs](/javascript/api/overview/azure/identity-readme) | GitHub [4.4.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.4.1/sdk/identity/identity/)<br>GitHub [4.5.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_4.5.0-beta.2/sdk/identity/identity/) |
 | Identity Broker | npm [1.0.1](https://www.npmjs.com/package/@azure/identity-broker/v/1.0.1) | [docs](/javascript/api/overview/azure/identity-broker-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-broker_1.0.1/sdk/identity/identity-broker/) |
 | Image Analysis | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/ai-vision-image-analysis/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-image-analysis_1.0.0-beta.3/sdk/vision/ai-vision-image-analysis-rest/) |
@@ -375,7 +375,7 @@
 | Unknown Display Name | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.6.0) |  |  |
 | Unknown Display Name | npm [0.45.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.45.0) |  |  |
 | Unknown Display Name | npm [0.45.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.45.0) |  |  |
-| Unknown Display Name | npm [0.12.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.12.0) |  |  |
+| Unknown Display Name | npm [0.12.1](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.12.1) |  |  |
 | Unknown Display Name | npm [0.3.1](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.1) |  |  |
 | Unknown Display Name | npm [0.4.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.4.0) |  |  |
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
@@ -471,7 +471,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240816.4](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240816.4) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240816.5](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240816.5) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
