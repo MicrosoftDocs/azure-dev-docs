@@ -7,7 +7,7 @@ ms.custom: devx-track-js
 ai-usage: ai-assisted
 ---
 
-# Loop over data returned from the Azure SDK for JavaScript
+# Iterate over data returned from the Azure SDK for JavaScript
 
 When working with Azure services, you often need to process large sets of data. Azure client libraries provide async iterators to help manage this task efficiently. This article explains what async iterators are, how to use them, and provides examples for key Azure services.
 
