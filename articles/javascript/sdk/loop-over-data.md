@@ -27,7 +27,7 @@ If you're new to async iterators, the following concepts help to understand how 
 - **Generators:** Functions that can be paused and resumed, yielding multiple values.
 - **Async Generators:** Combine the features of async functions and generators to produce async iterators.
 
-Azure SDKs use async iterators to handle potentially large collections of data. Below are examples of how to use async iterators with various Azure services. 
+Azure client librariess use async iterators to handle potentially large collections of data. Below are examples of how to use async iterators with various Azure services. 
 
 ## Loop over a few items
 
