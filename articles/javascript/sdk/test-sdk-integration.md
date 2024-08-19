@@ -13,7 +13,7 @@ ai-usage: ai-assisted
 Testing your integration code for the Azure SDK for JavaScript is essential to ensure your applications interact correctly with Azure services. 
 For unit tests, use tools such as Jest, Sinon, or ts-mockito. 
 
-## Mocking or Cloud Services
+## Use Mocking or Live Service
 
 When deciding whether to mock out cloud service SDK calls or use a live service for testing purposes, it's important to consider the trade-offs between speed, reliability, and cost.
 
@@ -52,25 +52,127 @@ The choice between mocking and using live services depends on your testing strat
 
 A test double is any kind of substitute used in place of something real for testing purposes. The type of double you choose is based on what you want it to replace. The term _mock_ is often meant as any _double_ when the term is used casually. In this article, the term is used specifically and illustrated specifically in the Jest test framework. 
 
-- Mocks (also called _spies): Substitute in a function and be able to control and spy on the **behavior** of that function when it's called indirectly by some other code. 
-- Stubs: Substitute in a function's returned result data. This substitution allows your code to call the function and get back a wide variety of good and bad state. **State verification** can include results such as failures, exceptions, and edge cases. 
-- Fakes: Substitute in functionality that you wouldn't normally use in production, such as an in-memory database instead of a cloud database.
+### Mocks
 
-## Azure SDK example of Cosmos DB
+Mocks (also called _spies_): Substitute in a function and be able to control and spy on the **behavior** of that function when it's called indirectly by some other code. 
 
-Imagine you have an application that needs to write a new document to Cosmos DB if all the information is submitted and verified. If an empty form is submitted or the information doesn't match the expected format, the application shouldn't enter the data. 
+In the following examples, you have 2 functions: 
 
-Cosmos DB is used as an example, the process, and concepts apply to most of the Azure SDKs for JavaScript.
+- **someTestFunction**: This is the function you need to test. It calls a dependency, `dependencyFunction`, which you didn't write and don't need to test.
+- **dependencyFunctionMock**: This is a mock of the dependency.
 
-The following function captures this functionality
+```javascript
+// setup
+const dependencyFunctionMock = jest.fn();
+
+// perform test
+// Jest replaces the call to dependencyFunction with dependencyFunctionMock
+const { name } = someTestFunction()
+
+// verify behavior
+expect(dependencyFunctionMock).toHaveBeenCalled();
+```
+
+The purpose of the test is to ensure that someTestFunction behaves correctly without actually invoking the dependency code. The test validates that the mock of the dependency was called. 
+
+
+### Stubs
+
+Stubs: Replace a function's return data to simulate different scenarios. This allows your code to call the function and receive various states, including successful results, failures, exceptions, and edge cases. **State verification** ensures your code handles these scenarios correctly.
+
+```javascript
+// setup
+const dependencyFunctionMock = jest.fn();
+const fakeDatabaseData = {first: 'John', last: 'Jones'};
+dependencyFunctionMock.mockReturnValue(fakeDatabaseData);
+
+// perform test
+// date is returned by mock then transformed in SomeTestFunction()
+const { name } = someTestFunction()
+
+// verify state
+expect(name).toBe(`${first} ${last}`);
+```
+
+The purpose of the test is to ensure that the work done by `someTestFunction` meets the expected outcome. In this simple example, the function's task is to concatenate the first and last names. By using fake data, you know the expected result and can validate that the function performs the work correctly.
+
+### Fakes
+
+Fakes: Substitute in functionality that you wouldn't normally use in production, such as an in-memory database instead of a cloud database.
+
+```javascript
+// fake-in-mem-db.ts
+class FakeDatabase {
+    constructor() {
+        this.data = {};
+    }
+
+    save(key, value) {
+        this.data[key] = value;
+    }
+
+    get(key) {
+        return this.data[key];
+    }
+}
+
+// Function to test
+function someTestFunction(db, key, value) {
+    db.save(key, value);
+    return db.get(key);
+}
+
+// Jest test suite
+describe('someTestFunction', () => {
+    let fakeDb;
+    let testKey;
+    let testValue;
+
+    beforeEach(() => {
+        fakeDb = new FakeDatabase();
+        testKey = 'testKey';
+        testValue = { first: 'John', last: 'Jones', lastUpdated: new Date().toISOString() };
+
+        // Spy on the save method
+        jest.spyOn(fakeDb, 'save');
+    });
+
+    afterEach(() => {
+        // Clear all mocks
+        jest.clearAllMocks();
+    });
+
+    test('should save and return the correct value', () => {
+        // Perform test
+        const result = someTestFunction(fakeDb, testKey, testValue);
+
+        // Verify state
+        expect(result).toEqual(testValue);
+        expect(result.first).toBe('John');
+        expect(result.last).toBe('Jones');
+        expect(result.lastUpdated).toBe(testValue.lastUpdated);
+
+        // Verify behavior
+        expect(fakeDb.save).toHaveBeenCalledWith(testKey, testValue);
+    });
+});
+```
+
+The purpose of the test is to ensure that `someTestFunction` correctly interacts with the database. By using a fake in-memory database, you can test the function's logic without relying on a real database, making the tests faster and more reliable.
+
+## Scenario: Inserting a document into CosmosDB using Azure SDK
+
+Imagine you have an application that needs to write a new document to Cosmos DB _if_ all the information is submitted and verified. If an empty form is submitted or the information doesn't match the expected format, the application shouldn't enter the data.
+
+Cosmos DB is used as an example however the concepts apply to most of the Azure SDKs for JavaScript. The following simple function captures this functionality:
 
 ```typescript
 // insertDocument.ts
 
 export async function insertDocument<RawInput>(doc):Promise<
-    VerificationErrors |         // data doesn't match expected types
     DbDocument |                 // insert succeeded
-    DBErrors                     // insert failed
+    DBErrors |                   // insert failed
+    VerificationErrors           // data doesn't match expected types
 > {
 
     isVerified: bool = inputVerified(doc);
@@ -82,22 +184,26 @@ export async function insertDocument<RawInput>(doc):Promise<
 ```
 
 > [!NOTE]
-> TypeScript types are used to communicate the type of information in the function. TypeScript isn't necessary to use Jest or many other JavaScript testing frameworks but is fundamental for writing type-safe JavaScript. 
+> TypeScript types help define the kinds of data a function uses. While you don't need TypeScript to use Jest or other JavaScript testing frameworks, it is essential for writing type-safe JavaScript.
 
 The functions in this application above are:
 
-- **insertDocument** (application code): Inserts a document into the database. This insertion function is what we want to test.
-- **inputVerified** (application code): Verifies the input data against a schema. This verification can be done using a package like zod to ensure data is in the correct format (examples include email addresses are valid emails, URLs are correctly formatted).
-- **cosmos.items.create** (SDK code): This is the SDK function for Azure Cosmos DB using a package like [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos). We want to mock this function because we don't need to test the SDK itself. It already has its own tests maintained by the package owners. We just want to test our code. As part of testing insertDocument, we need to verify that the Cosmos DB function call was made and returned data if the incoming data passed verification.
+| Function | Description  |
+|--|--|
+| **insertDocument**      | Inserts a document into the database. **This is what we want to test**. |
+| **inputVerified**       | Verifies the input data against a schema using a package like zod. Ensures data is in the correct format (e.g., valid email addresses, correctly formatted URLs).|
+| **cosmos.items.create** | SDK function for Azure Cosmos DB using the [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos). **This is what we want to mock**. It already has its own tests maintained by the package owners. We need to verify that the Cosmos DB function call was made and returned data if the incoming data passed verification. |
 
-## Mocking Azure SDK example for Cosmos DB
+## Set up unit test for Azure SDK 
+
+Lets go through
 
 How can we use mocks, stubs, and fakes to test the **insertDocument** function? 
 
 - Mocks: we need a mock to make sure the **behavior** of the function is tested such as:
   - If the data does pass verification, the call to the Cosmos DB function happened only 1 time
   - If the data doesn't pass verification, the call to the Cosmos DB function didn't happen
- Stubs:
+- Stubs:
   - The data passed in matches the new document returned by the function.
 
 The following Jest test file shows how to test the **insertDocument** function.
