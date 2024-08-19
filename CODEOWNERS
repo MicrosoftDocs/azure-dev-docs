@@ -22,4 +22,4 @@
 /articles/azure-cli/ @alexwolfmsft
 
 # Azure SDK authentication topics
-/articles/python/sdk/authentication-*.md @pvaneck @xiangyan99
+/articles/python/sdk/authentication/ @scottaddie @pvaneck @xiangyan99

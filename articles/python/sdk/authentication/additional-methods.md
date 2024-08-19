@@ -106,7 +106,7 @@ For the code to run successfully, your user account must be assigned an Azure ro
 
 The following screenshot shows the user sign-in experience:
 
-:::image type="content" source="./media/web-account-manager-sign-in-account-picker.png" alt-text="A screenshot that shows the sign-in experience when using the interactive browser broker credential to authenticate a user." :::
+:::image type="content" source="../media/web-account-manager-sign-in-account-picker.png" alt-text="A screenshot that shows the sign-in experience when using the interactive browser broker credential to authenticate a user." :::
 
 ### Authenticate the default system account via WAM
 
