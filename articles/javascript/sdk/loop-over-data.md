@@ -41,7 +41,7 @@ for await (const container of blobServiceClient.listContainers()) {
 
 ## Loop over data by page
 
-If your data set is larger, you may want to return the data in pages, then iterator over items in each page. The following code loops through a data by page, then each item.
+If your data set is larger, you may want to return the data in pages, then iterate over items in each page. The following code loops through a data by page, then each item.
 
 ```javascript
 const maxPageSize = 3;
