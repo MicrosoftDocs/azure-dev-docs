@@ -3,10 +3,10 @@ title: Additional methods to authenticate to Azure resources from Go apps
 description: This article describes additional, less common methods you can use to authenticate your Go app to Azure resources. 
 ms.date: 08/20/2024
 ms.topic: how-to
-ms.custom: devx-track-go, passwordless-python
+ms.custom: devx-track-go, passwordless-go
 ---
 
-# Additional methods to authenticate to Azure resources from Python apps
+# Additional methods to authenticate to Azure resources from Go apps
 
 This article lists additional methods that apps can use to authenticate to Azure resources. The methods in this article are less commonly used; when possible, we encourage you to use one of the methods outlined in [authenticating Go apps to Azure using the Azure SDK overview](./authentication-overview.md).
 

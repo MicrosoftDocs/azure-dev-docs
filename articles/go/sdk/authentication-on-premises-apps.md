@@ -6,9 +6,9 @@ ms.topic: how-to
 ms.custom: devx-track-go
 ---
 
-# Authenticate to Azure resources from Python apps hosted on-premises
+# Authenticate to Azure resources from Go apps hosted on-premises
 
-Apps hosted outside of Azure (for example on-premises or at a third-party data center) should use an application service principal to authenticate to Azure when accessing Azure resources. Application service principal objects are created using the app registration process in Azure. When an application service principal is created, a client ID and client secret will be generated for your app. The client ID, client secret, and your tenant ID are then stored in environment variables so they can be used by the Azure SDK for Python to authenticate your app to Azure at runtime.
+Apps hosted outside of Azure (for example on-premises or at a third-party data center) should use an application service principal to authenticate to Azure when accessing Azure resources. Application service principal objects are created using the app registration process in Azure. When an application service principal is created, a client ID and client secret will be generated for your app. The client ID, client secret, and your tenant ID are then stored in environment variables so they can be used by the Azure SDK for Go to authenticate your app to Azure at runtime.
 
 A different app registration should be created for each environment the app is hosted in. This allows environment specific resource permissions to be configured for each service principal and ensures that an app deployed to one environment doesn't talk to Azure resources that are part of another environment.
 
@@ -27,7 +27,7 @@ The output of the command will be similar to the following. Make note of these v
 ```json
 {
   "appId": "00000000-0000-0000-0000-000000000000",
-  "displayName": "msdocs-python-sdk-auth-prod",
+  "displayName": "msdocs-go-sdk-auth-prod",
   "password": "abcdefghijklmnopqrstuvwxyz",
   "tenant": "33333333-3333-3333-3333-333333333333"
 }
@@ -71,11 +71,11 @@ az role definition list \
     --output table
 ```
 
-For example, to allow the service principal with the appId of `00000000-0000-0000-0000-000000000000` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *msdocs-python-sdk-auth-example* resource group in the subscription with ID `11111111-1111-1111-1111-111111111111`, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
+For example, to allow the service principal with the appId of `00000000-0000-0000-0000-000000000000` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *msdocs-go-sdk-auth-example* resource group in the subscription with ID `11111111-1111-1111-1111-111111111111`, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
 
 ```azurecli
 az role assignment create --assignee 00000000-0000-0000-0000-000000000000 \
-    --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/msdocs-python-sdk-auth-example \
+    --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/msdocs-go-sdk-auth-example \
     --role "Storage Blob Data Contributor"
 ```
 

@@ -33,6 +33,12 @@ items:
       items:
         - name: Overview
           href: sdk/authentication-overview.md
+        - name: Auth from Azure-hosted apps
+          href: sdk/authentication-azure-hosted-apps.md
+        - name: Auth from on-premises apps
+          href: sdk/authentication-on-premises-apps.md
+        - name: Additional auth methods
+          href: sdk/authentication-additional-methods.md
         - name: Auth with Azure Identity module overview
           href: azure-sdk-authentication.md
         - name: Auth with Azure-hosted apps
