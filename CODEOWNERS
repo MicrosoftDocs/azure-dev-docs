@@ -22,4 +22,5 @@
 /articles/azure-cli/ @alexwolfmsft
 
 # Azure SDK authentication topics
+/articles/javascript/sdk/authentication/ @scottaddie @KarishmaGhiya @maorleger
 /articles/python/sdk/authentication/ @scottaddie @pvaneck @xiangyan99
