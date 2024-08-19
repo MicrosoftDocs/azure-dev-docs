@@ -34,7 +34,6 @@ Azure SDKs use async iterators to handle potentially large collections of data. 
 If you result set is only a few items, you can loop through that small list. The following code loops through a small set of containers in Azure Storage:
 
 ```javascript
-const containers = blobServiceClient.listContainers();
 for await (const container of containers) {
     console.log(`Container: ${container.name}`);
 }
