@@ -55,7 +55,7 @@ for await (const page of containerPages) {
 
 ## Loop over until the end
 
-For some scenarios, you may need to loop over all the data. The following JavaScript function takes a service client and a page size, then loops over all the data until the end. 
+For some scenarios, you may need to loop over all the data. The following JavaScript function takes a service client and a page size, then loops over `maxPageSize` records. 
 
 ```javascript
 async function listBlobsWithContinuation(containerClient, maxPageSize) {
