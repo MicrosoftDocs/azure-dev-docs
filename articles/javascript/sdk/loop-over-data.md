@@ -13,7 +13,7 @@ When working with Azure services, you often need to process large sets of data. 
 
 ## What are Async Iterators?
 
-Async iterators are a feature in modern JavaScript that allow you to consume streams of data asynchronously. They're useful for handling paginated data from APIs. Async iterators use the `for-await-of` loop to iterate over data, fetching it as needed.
+Async iterators are a feature in modern JavaScript that allow you to consume streams of data or when you need to process data as it becomes available. They're useful for handling paginated data from APIs. Async iterators use the `for-await-of` loop to iterate over data, fetching it as needed.
 
 Using async iterators provides several advantages:
 
