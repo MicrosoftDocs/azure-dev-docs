@@ -1738,6 +1738,10 @@
     {
       "source_path": "articles/terraform/test-modules-using-terratest.md",
       "redirect_url": "/azure/developer/terraform"
-    }
+    },
+    {
+      "source_path": "articles/go/sdk/authentication-overview.md",
+      "redirect_url": "/azure/go/sdk/authentication/overview"
+    }    
   ]
 }
