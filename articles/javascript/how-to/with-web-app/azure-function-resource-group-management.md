@@ -468,7 +468,6 @@ This solution, as a beginner tutorial, doesn't demonstrate secure-by-default pra
 
 * Azure Functions - [Securing Azure Functions](/azure/azure-functions/security-concepts)
 * Azure Storage - [Security recommendations for Blob storage](/azure/storage/blobs/security-recommendations)
-* Azure Cognitive services - [Azure AI services security features](/azure/ai-services/security-features)
 
 ## Next steps
 
