@@ -32,7 +32,7 @@ In this tutorial, learn how to:
 
 ## What is an Azure Static web app
 
-When building static web apps, you have several choices on Azure, based on the degree of functionality and control you are interested in. This tutorial focuses on the easiest service with many of the choices made for you, so you can focus on your front-end code and not the hosting environment.
+When building static web apps, you have several choices on Azure, based on the degree of functionality and control you're interested in. This tutorial focuses on the easiest service with many of the choices made for you, so you can focus on your front-end code and not the hosting environment.
 
 The React (create-react-app) provides the following functionality:
 
@@ -108,7 +108,7 @@ az group create \
 
 ## Create a Computer Vision resource
 
-Creating a resource group allows you to easily find the resources, and delete them when you are done. This type of resource requires that you agree to the Responsible Use agreement. Use the following list to know how you can quickly create the correct resource:
+Creating a resource group allows you to easily find the resources, and delete them when you're done. This type of resource requires that you agree to the Responsible Use agreement. Use the following list to know how you can quickly create the correct resource:
 
 * [Your first Computer Vision resource](#create-your-first-computer-vision-resource) - agree to the Responsible Use agreement
 * [Additional Computer Vision](#create-an-additional-computer-vision-resource) - already agreed to the Responsible Use agreement
@@ -142,7 +142,7 @@ az cognitiveservices account create \
 
 ## Get Computer Vision resource endpoint and keys
 
-1. In the results, find and copy the `properties.endpoint`. You will need that later.
+1. In the results, find and copy the `properties.endpoint`. You'll need that later.
 
     ```json
     ...
@@ -162,7 +162,7 @@ az cognitiveservices account create \
     --resource-group rg-demo
     ```
 
-1. Copy one of the keys, you will need that later.
+1. Copy one of the keys, you'll need that later.
 
     ```json
     {
@@ -258,7 +258,7 @@ You didn't need to commit any changes because no changes were made yet.
 
 ## Update the GitHub action with secret environment variables
 
-The Computer Vision key and endpoint are in the repository's secrets collection but are not in the GitHub action yet. This step adds the key and endpoint to the action.
+The Computer Vision key and endpoint are in the repository's secrets collection but aren't in the GitHub action yet. This step adds the key and endpoint to the action.
 
 1. Pull down the changes made from creating the Azure resource, to get the GitHub action file.
 
@@ -329,7 +329,7 @@ Add methods to the React `app.js`. The image analysis and display of results are
 
 ## Clean up resources
 
-Once you have completed this tutorial, you need to remove the resource group, which includes the Computer Vision resource and Static web app, to make sure you are not billed for any more usage.
+Once you have completed this tutorial, you need to remove the resource group, which includes the Computer Vision resource and Static web app, to make sure you aren't billed for any more usage.
 
 [!INCLUDE [3 ways to delete resource group](../includes/resource-group-remove.md)]
 
