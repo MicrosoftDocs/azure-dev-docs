@@ -45,7 +45,7 @@ If your data set is larger, you may want to return the data in pages, then itera
 
 If you need to have more control over the loop, including resuming the loop, use a continuation token. The paged iterator also supports resuming from a continuation token. In the following example, we use the continuation token from the first iteration to resume iteration at the second page.
 
-:::code language="TypeScript" source="~/../node-essentials/async-iterators/src/loop-specific-page" range="43-69":::
+:::code language="TypeScript" source="~/../node-essentials/async-iterators/src/loop-specific-page.ts" range="43-69":::
 
 ## Additional resources
 
