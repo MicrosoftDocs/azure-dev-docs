@@ -2,7 +2,7 @@
 title: End-user Authorization and Authentication with Azure Entra ID for Migrating Java Apps on WebLogic Server to Azure
 description: This guide describes how to configure Oracle WebLogic Server to connect with Azure Entra ID Domain Services via LDAP
 author: KarlErickson
-ms.author: edburns,haiche
+ms.author: edburns
 ms.topic: tutorial
 ms.date: 06/27/2024
 recommendations: false
@@ -160,6 +160,9 @@ The output will display `"tlsV1": "Disabled"` for `domainSecuritySettings`, as s
 
 For more information, see [Harden a Microsoft Entra Domain Services managed domain](/azure/active-directory-domain-services/secure-your-domain).
 
+>[!NOTE]
+> Please note that if you add a lock to the resource or resource group, you will encounter an error message when attempting to update the managed domain, such as: "Message: The scope '/subscriptions/xxxxx/resourceGroups/aadds-rg/providers/Microsoft.AAD/domainServices/aaddscontoso.com' cannot perform write operation because the following scope(s) are locked: '/subscriptions/xxxxx/resourceGroups/aadds-rg'. Please remove the lock and try again." 
+
 Write down the information of the Azure Entra Domain Service managed domain that will be used in later section.
 
 | Description   | Details | 
@@ -183,21 +186,22 @@ After the Azure Application deployment finishes, you can find the URL to access 
 1. In the navigation pane, in the **Settings** section, select **Deployments**. You see an ordered list of the deployments to this resource group, with the most recent one first.
 1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the previous section. Select the oldest deployment, whose name starts with something similar to `oracle.`.
 1. Select **Outputs**. This option shows the list of outputs from the deployment.
-1. The **adminConsole** value is the fully qualified, public Internet visible link to the WLS admin console. Select the copy icon next to the field value to copy the link to your clipboard.
+1. The **adminConsole** value is the fully qualified, public Internet visible link to the WLS admin console. Select the copy icon next to the field value to copy the link to your clipboard and save it in a file.
+1. The **sshCommand** value is for SSH connection. Select the copy icon next to the field value to copy the link to your clipboard and save it in a file.
 
 >[!NOTE]
 > This tutorial demonstrates how to use TLS v1.2 to connect to the Azure Entra Domain Service managed domain LDAP server. To ensure compatibility, you need to enable TLS v1.2 for deployments on JDK 8. 
 > You can verify your JDK version with steps:
 > - Paste the value of **adminConsole** to your browser and open the WLS admin console. 
-> - Under **Domain Structure**, select **Server** -> **admin** -> **Monitoring** -> **General**. You will find Java version next to label **Java Version**.
+> - Under **Domain Structure**, select **Environment** -> **Servers** -> **admin** -> **Monitoring** -> **General**. You will find Java version next to label **Java Version**.
 > :::image type="content" source="media/migrate-weblogic-to-entraid-via-ldap/wlsconsole-java-version.png" alt-text="Browser showing how to find the Java Version.":::
 > 
 > If your Java version is 8, enable TLS v1.2 with steps:
-> - Under **Domain Structure**, select **Server** -> **admin** -> **Configuration** -> **Server Start**.
-> - In **Arguments** section, fill in option `-Djdk.tls.client.protocols=TLSv1.2`.
+> - Under **Domain Structure**, select **Environment** -> **Servers** -> **admin** -> **Configuration** -> **Server Start**.
+> - In **Arguments** section, fill in option `-Djdk.tls.client.protocols=TLSv1.2`
 > - Select **Save** to save the change.
 > - Under **Change Center**, select **Activate Changes** to enable the option.
-> :::image type="content" source="media/migrate-weblogic-to-entraid-via-ldap/wlsconsole-enable-tls-v12.png" alt-text="Browser showing how to find the Java Version.":::
+> :::image type="content" source="media/migrate-weblogic-to-entraid-via-ldap/wlsconsole-enable-tls-v12.png" alt-text="Browser showing how to set TLS v1.2.":::
 
 ### Integrating Azure Entra Domain Service managed domain with WLS
 
@@ -205,37 +209,41 @@ With the WebLogic admin server running, and the Azure Entra Domain Service manag
 
 #### Upload and import the public CA
 
-Visit [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic) and select the admin or either of the cluster offers.  While deploying the offer, one of the tabs in the deployment process will be **Azure Entra ID**.  Toggle the **Connect to Azure Entra ID** to **Yes**.  Fill out the values based using the information collected in the preceding section.  For the certificate, you must upload the `.cer` file directly.
+WLS communicates with the managed domain using Secure LDAP (LDAPS), which is LDAP over Secure Sockets Layer (SSL) or Transport Layer Security (TLS). To establish this connection, you must upload and import the public Certificate Authority (CA) certificate (.cer file) into the WLS trust keystore. 
 
 Upload and import the certificate to the VM that runs admin server with steps:
 
 * Enable access to **adminVM** following [Connect to the virtual machine](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine#connect-to-the-virtual-machine).
-* Capture the public IP of **adminVM**:
-  - Open the resource group you provision WebLogic Server.
-  - Select **adminVM**, and copy the value next to **Public IP address**.
-* Run the following command to upload the certificate. Replace the **ADMIN_VM_USER** with the user name you used to deploy WebLogic Server. You are required to input the password that used to connect the machine.
+* Open a Shell terminal, run the following command to upload the certificate. Replace value of the **ADMIN_CONNECTION_STRING** with value of **sshCommand** . You are required to input the password that used to connect the machine.
 
    ```shell
    export CER_FILE_NAME=azure-ad-ds-client.cer
-   export ADMIN_VM_IP=<admin-vm-public-ip>
-   export ADMIN_VM_USER=weblogic
-
-   scp <path-to-cert>/${CER_FILE_NAME} ${ADMIN_VM_USER}@${ADMIN_VM_IP}:/home/${ADMIN_VM_USER}/${CER_FILE_NAME}
+   export ADMIN_CONNECTION_STRING="<value-of-sshCommand>"
+   #remove key word ssh
+   ADMIN_CONNECTION_STRING=$(echo "${ADMIN_CONNECTION_STRING}" | sed 's/^ssh//' | tr -d ' ')
+   ADMIN_VM_USER=$(echo "${ADMIN_CONNECTION_STRING}" | awk -F'@' '{print $1}' | tr -d ' ')
    ```
-* Once the certificate is uploaded, you need to move the domain path and change its ownership.
 
-   ```azurecli
+   ```shell
+   #cd <path-to-cert>
+   scp ${CER_FILE_NAME} ${ADMIN_CONNECTION_STRING}:/home/${ADMIN_VM_USER}/${CER_FILE_NAME}
+   ```
+* Once the certificate is uploaded, you need to move it to the WLS domain folder `/u01/domains` and change its ownership with `oracle:oracle`.
+
+   ```shell
    export RESOURCE_GROUP_NAME=contoso-rg
    export ADMIN_VM_NAME=adminVM
    export CA_PATH=/u01/domains/${CER_FILE_NAME}
+   ```
 
+   ```azurecli
    az vm run-command invoke \
       --resource-group $RESOURCE_GROUP_NAME \
       --name ${ADMIN_VM_NAME} \
       --command-id RunShellScript \
       --scripts "mv /home/${ADMIN_VM_USER}/${CER_FILE_NAME} /u01/domains; chown oracle:oracle ${CA_PATH}"
    ```
-* Import the certificate to your keysore. The Azure application provisions the WebLogic Server with default trust store in `<jvm-path-to-security>/cacerts`. You can import the Entra Domain Service public CA using the following command. 
+* Import the certificate to your keysore. The Azure application provisions WLS with default trust store in `<jvm-path-to-security>/cacerts`. You can import the Entra Domain Service managed domain public CA using the following commands. 
 
    Query the script that used to set domain environment variables.
 
@@ -247,6 +255,8 @@ Upload and import the certificate to the VM that runs admin server with steps:
       --scripts "find /u01/domains -name setDomainEnv.sh" \
       --query value[*].message -otsv \
       | sed -n '/\[stdout\]/!b; n; p')
+
+   echo $DOMIAN_FILE_PATH
    ```
 
    Import the CA. Pay attention to your Java version, which you have checked in previous section. 
@@ -258,7 +268,7 @@ Upload and import the certificate to the VM that runs admin server with steps:
          --resource-group $RESOURCE_GROUP_NAME \
          --name ${ADMIN_VM_NAME} \
          --command-id RunShellScript \
-         --scripts ". ${DOMIAN_FILE_PATH};export JVM_CER_PATH=${JAVA_HOME}/lib/security/cacerts;${JAVA_HOME}/bin/keytool -noprompt -import -alias aadtrust -file ${CA_PATH} -keystore ${JVM_CER_PATH} -storepass changeit"
+         --scripts ". ${DOMIAN_FILE_PATH};export JVM_CER_PATH=\${JAVA_HOME}/lib/security/cacerts;\${JAVA_HOME}/bin/keytool -noprompt -import -alias aadtrust -file ${CA_PATH} -keystore \${JVM_CER_PATH} -storepass changeit"
    ```
 
    ##### [Older Java version](#tab/oldjava)
@@ -268,13 +278,29 @@ Upload and import the certificate to the VM that runs admin server with steps:
          --resource-group $RESOURCE_GROUP_NAME \
          --name ${ADMIN_VM_NAME} \
          --command-id RunShellScript \
-         --scripts ". ${DOMIAN_FILE_PATH};export JVM_CER_PATH=${JAVA_HOME}/jre/lib/security/cacerts;${JAVA_HOME}/bin/keytool -noprompt -import -alias aadtrust -file ${CA_PATH} -keystore ${JVM_CER_PATH} -storepass changeit"
+         --scripts ". ${DOMIAN_FILE_PATH};export JVM_CER_PATH=\${JAVA_HOME}/jre/lib/security/cacerts;$\{JAVA_HOME}/bin/keytool -noprompt -import -alias aadtrust -file ${CA_PATH} -keystore \${JVM_CER_PATH} -storepass changeit"
    ```
 
    ---
 
+   You will find output similar to content:
+
+   ```txt
+   {
+   "value": [
+     {
+       "code": "ProvisioningState/succeeded",
+       "displayStatus": "Provisioning succeeded",
+       "level": "Info",
+       "message": "Enable succeeded: \n[stdout]\n\n[stderr]\nWarning: use -cacerts option to access cacerts keystore\nCertificate was added to keystore\n",
+       "time": null
+     }
+    ]
+   }
+   ```
+
 >[!NOTE]
-> If you customize the trust store, you've to import the Entra Domain Service public CA to your trust keystore.
+> f you customize the trust store, you must import the Entra Domain Service managed domain public CA into your trust keystore. There is no need to import the certificate to the managed server. For more details, see [Configuring WebLogic to use LDAP](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/secmg/ldap_atn.html#GUID-A064C103-85EB-4A7B-ADAE-F01ACDC8E0B8).
 
 #### Resolves traffic for secure LDAP access
 
