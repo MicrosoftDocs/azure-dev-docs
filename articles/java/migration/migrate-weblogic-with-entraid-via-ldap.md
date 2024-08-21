@@ -214,9 +214,9 @@ WLS communicates with the managed domain using Secure LDAP (LDAPS), which is LDA
 Upload and import the certificate to the VM that runs admin server with steps:
 
 * Enable access to **adminVM** following [Connect to the virtual machine](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine#connect-to-the-virtual-machine).
-* Open a Shell terminal, run the following command to upload the certificate. Replace value of the **ADMIN_CONNECTION_STRING** with value of **sshCommand** . You are required to input the password that used to connect the machine.
+* Open a Bash terminal, run the following command to upload the certificate. Replace value of the **ADMIN_CONNECTION_STRING** with value of **sshCommand** . You are required to input the password that used to connect the machine.
 
-   ```shell
+   ```bash
    export CER_FILE_NAME=azure-ad-ds-client.cer
    export ADMIN_CONNECTION_STRING="<value-of-sshCommand>"
    #remove key word ssh
@@ -224,13 +224,13 @@ Upload and import the certificate to the VM that runs admin server with steps:
    ADMIN_VM_USER=$(echo "${ADMIN_CONNECTION_STRING}" | awk -F'@' '{print $1}' | tr -d ' ')
    ```
 
-   ```shell
+   ```bash
    #cd <path-to-cert>
    scp ${CER_FILE_NAME} ${ADMIN_CONNECTION_STRING}:/home/${ADMIN_VM_USER}/${CER_FILE_NAME}
    ```
 * Once the certificate is uploaded, you need to move it to the WLS domain folder `/u01/domains` and change its ownership with `oracle:oracle`.
 
-   ```shell
+   ```bash
    export RESOURCE_GROUP_NAME=contoso-rg
    export ADMIN_VM_NAME=adminVM
    export CA_PATH=/u01/domains/${CER_FILE_NAME}
@@ -278,7 +278,7 @@ Upload and import the certificate to the VM that runs admin server with steps:
          --resource-group $RESOURCE_GROUP_NAME \
          --name ${ADMIN_VM_NAME} \
          --command-id RunShellScript \
-         --scripts ". ${DOMIAN_FILE_PATH};export JVM_CER_PATH=\${JAVA_HOME}/jre/lib/security/cacerts;$\{JAVA_HOME}/bin/keytool -noprompt -import -alias aadtrust -file ${CA_PATH} -keystore \${JVM_CER_PATH} -storepass changeit"
+         --scripts ". ${DOMIAN_FILE_PATH};export JVM_CER_PATH=\${JAVA_HOME}/jre/lib/security/cacerts;\${JAVA_HOME}/bin/keytool -noprompt -import -alias aadtrust -file ${CA_PATH} -keystore \${JVM_CER_PATH} -storepass changeit"
    ```
 
    ---
@@ -318,7 +318,7 @@ With secure LDAP access enabled over the internet, you can update the your DNS z
 
 If you don't have a registerd DNS zone, you can add an entry in the **adminVM** hosts file,to resolves traffic for `ldaps.<managed-domain-dns-name>` (here is `ldaps.aaddscontoso.com`) to the external IP address. Change the value with yours before running the command.
 
-```shell
+```bash
 export LDAPS_DNS=ldaps.aaddscontoso.com
 export LDAPS_EXTERNAL_IP=<entra-domain-services-manged-domain-external-ip>
 ```
