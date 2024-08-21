@@ -54,7 +54,7 @@ Here are some things to consider about migrating on-premise WLS installations an
 This section walks you through all the steps to stand up an Azure Entra Domain Services managed domain integrated with WLS.  Azure Entra ID doesn't support the Lightweight Directory Access Protocol (LDAP) protocol or Secure LDAP directly. Instead, support is enabled through the Azure Entra Domain Services managed domain instance within your Azure Entra ID tenant.
 
 >[!NOTE]
-> This guide uses the "cloud-only" user account feature of Azure Entra Domain Services.  Other user account types are supported, but not described in this guide.
+> This guide uses the "cloud-only" user account feature of Azure Entra Domain Services.  Other user account types are supported, but not described in this guide. Make sure the user is in **AAD DC Administrators**.
 
 ### Create and configure an Azure Entra Domain Services managed domain
 
@@ -192,7 +192,7 @@ After the Azure Application deployment finishes, you can find the URL to access 
 >[!NOTE]
 > This tutorial demonstrates how to use TLS v1.2 to connect to the Azure Entra Domain Service managed domain LDAP server. To ensure compatibility, you need to enable TLS v1.2 for deployments on JDK 8. 
 > You can verify your JDK version with steps:
-> - Paste the value of **adminConsole** to your browser and open the WLS admin console. 
+> - Paste the value of **adminConsole** to your browser and log into the WLS admin console. 
 > - Under **Domain Structure**, select **Environment** -> **Servers** -> **admin** -> **Monitoring** -> **General**. You will find Java version next to label **Java Version**.
 > :::image type="content" source="media/migrate-weblogic-to-entraid-via-ldap/wlsconsole-java-version.png" alt-text="Browser showing how to find the Java Version.":::
 > 
@@ -300,17 +300,30 @@ Upload and import the certificate to the VM that runs admin server with steps:
    ```
 
 >[!NOTE]
-> f you customize the trust store, you must import the Entra Domain Service managed domain public CA into your trust keystore. There is no need to import the certificate to the managed server. For more details, see [Configuring WebLogic to use LDAP](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/secmg/ldap_atn.html#GUID-A064C103-85EB-4A7B-ADAE-F01ACDC8E0B8).
+> If you customize the trust store, you must import the Entra Domain Service managed domain public CA into your trust keystore. There is no need to import the certificate to the WLS managed servers. For more details, see [Configuring WebLogic to use LDAP](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/secmg/ldap_atn.html#GUID-A064C103-85EB-4A7B-ADAE-F01ACDC8E0B8).
 
-#### Resolves traffic for secure LDAP access
+#### Config WLS Hostname Verification
+
+Since [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps) uses a wildcard `*.aaddscontoso.com` for the hostname in the certificate, you must configure the WLS admin server with appropriate hostname verification. This tutorial disables the verification. You can enable it based on your certificate setting.
+
+- Paste the value of **adminConsole** to your browser and log into the WLS admin console.
+- In the **Change Center**, select **Lock & Edit**.
+- Select **Environment** -> **Servers** -> **admin** -> **SSL** -> **Advanced**.
+- Next to **Hostname Verification**, select **Wildcard Hostname Verification**.
+- Select **Save** and **Activate Changes** to save the configuration.
+
+#### Resolve traffic for secure LDAP access
 
 With secure LDAP access enabled over the internet, you can update the your DNS zone so that client computers can find this managed domain. The **Secure LDAP external IP address** is listed on the **Properties** tab for your managed domain, see [Configure DNS zone for external access](/entra/identity/domain-services/tutorial-configure-ldaps#configure-dns-zone-for-external-access).
 
-If you don't have a registerd DNS zone, you can add an entry in the **adminVM** hosts file,to resolves traffic for `ldaps.aaddscontoso.com` to the external IP address. Change the value with yours before running the command.
+If you don't have a registerd DNS zone, you can add an entry in the **adminVM** hosts file,to resolves traffic for `ldaps.<managed-domain-dns-name>` (here is `ldaps.aaddscontoso.com`) to the external IP address. Change the value with yours before running the command.
 
-```
+```shell
 export LDAPS_DNS=ldaps.aaddscontoso.com
 export LDAPS_EXTERNAL_IP=<entra-domain-services-manged-domain-external-ip>
+```
+
+```azurecli
 az vm run-command invoke \
          --resource-group $RESOURCE_GROUP_NAME \
          --name ${ADMIN_VM_NAME} \
@@ -324,55 +337,45 @@ With certifcate imported and secure LDAP access traffic resolved, you are able t
 
 * Paste the value of **adminConsole** to your browser and login the WLS admin console. 
 * Under **Change Center**, select **Lock & Edit**.
-* Under **Domain Structure**, select **Security Realms** - > **Providers** -> **New**, to create a new authentication provider.
-  - For **Name**, fill in `AzureEntraIDLDAPProvider`.
-  - For **Type**, select `ActiveDirectoryAuthenticator`.
+* Under **Domain Structure**, select **Security Realms** -> **myrealm** -> **Providers** -> **New**, to create a new authentication provider.
+  - For **Name**, fill in `AzureEntraIDLDAPProvider`
+  - For **Type**, select `ActiveDirectoryAuthenticator`
   - Select **OK** to save the change.
 * In the provider list, select **AzureEntraIDLDAPProvider**.
   - For **Configuration** -> **Common**:
     - For **Control Flag**, select **SUFFICIENT**.
   - For **Configuration** -> **Provider Specific**, input the Entra Domain Services managed domain connection information you obtained previously. Steps to obtain the value are listed in the table of [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](#create-and-configure-an-azure-entra-domain-services-managed-domain).
     - Under **Connection** section:
-      - For **Host**, fill in the managed domain DNS, this tutorial uses `ldaps.aaddscontoso.com`.
+      - For **Host**, fill in the managed domain DNS, the value is `ldaps.<managed-domain-dns-name>`. This tutorial uses `ldaps.aaddscontoso.com`
       - For **Port**, fill in `636`.
-      - For **Principal**, fill in the principal of your cloud only user, this tutorial uses `CN=WLSTest,OU=AADDC Users,DC=aaddscontoso,DC=com`. 
+      - For **Principal**, fill in the principal of your cloud only user, this tutorial uses `CN=WLSTest,OU=AADDC Users,DC=aaddscontoso,DC=com`
       - For **Credential**, fill in the credential of your cloud only user.
       - Check **SSLEnabled**.
     - Under **Users** section:
-      - For **User Base DN**, fill in the user base DN, this tutorial uses `OU=AADDC Users,DC=aaddscontoso,DC=com`.
-      - For **User From Name Filter**, fill in `(&(sAMAccountName=%u)(objectclass=user))`.
-      - For **User Name Attribute**, fill in `sAMAccountName`.
-      - For **User Object Class**, fill in `user`.
+      - For **User Base DN**, fill in the user base DN with your DN, this tutorial uses `OU=AADDC Users,DC=aaddscontoso,DC=com`
+      - For **User From Name Filter**, fill in `(&(sAMAccountName=%u)(objectclass=user))`
+      - For **User Name Attribute**, fill in `sAMAccountName`
+      - For **User Object Class**, fill in `user`
       - Keep other fields with default vaule.
     - Under **Groups** section:
-      - For **Group Base DN**, fill in group base DN, this tutorial uses the sample value with user base DN `OU=AADDC Users,DC=aaddscontoso,DC=com`.
+      - For **Group Base DN**, fill in group base DN with your DN, this tutorial uses the sample value with user base DN `OU=AADDC Users,DC=aaddscontoso,DC=com`
       - Keep other fields with default vaule.
-  - For **Performance**:
+    - Selec **Save** to save the configuration. Ignore error message "[Security:090834]No LDAP connection could be established. ldap://dscontoso.com:636 Cannot contact LDAP server". We have to restart admin server to resolve the error.
+* Seelct **Performance** next to **Configuration**:
     - Check **Enable Group Membership Lookup Hierarchy Caching**.
     - Check **Enable SID To Group Lookup Caching**.
   - Select **Save** to save the configuration.
 * Select **Activate Changes** to invoke the changes.
 
-You have to restart the admin to make provider work.
+>[!NOTE]
+> Pay attention to the hostname of the LDAP server; it should be in the format `ldaps.<managed-domain-dns-name>`. In this example, the value is `ldaps.aaddscontoso.com`.
 
 #### Restart admin server
 
 Run the following command to stop and start the admin server:
 
-```
-az vm run-command invoke \
-         --resource-group $RESOURCE_GROUP_NAME \
-         --name ${ADMIN_VM_NAME} \
-         --command-id RunShellScript \
-         --scripts "systemctl stop wls_admin"
-```
-
-```
-az vm run-command invoke \
-         --resource-group $RESOURCE_GROUP_NAME \
-         --name ${ADMIN_VM_NAME} \
-         --command-id RunShellScript \
-         --scripts "systemctl start wls_admin"
+```azurecli
+az vm restart --resource-group $RESOURCE_GROUP_NAME --name ${ADMIN_VM_NAME}
 ```
 
 ### Validation
@@ -384,6 +387,9 @@ After restarting admin server, follow these steps to verify the integration was 
 1. If the integration was successful, you'll find the Azure AD provider for example `AzureEntraIDLDAPProvider`.
 1. In the left navigator, expand the tree to select **Security Realms** -> **myrealm** -> **Users and Groups**.
 1. If the integration was successful, you'll find users from the Azure AD provider.
+
+>[!NOTE]
+> It takes minutes to load users the fist time you access **Users and Groups**. WLS will cache the users and will be faster the next access.
 
 ### Lock down and secure LDAP access over the internet
 
