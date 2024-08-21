@@ -1,5 +1,5 @@
 ---
-title: Building an Image Analysis web app with TypeScript 
+title: Building an image analysis web app with TypeScript 
 description: Locally build and run a React/TypeScript client application to an Azure Static Web App with a GitHub action. 
 ms.topic: tutorial
 ms.date: 08/20/2024
@@ -239,7 +239,7 @@ You didn't need to commit any changes because no changes were made yet.
 
 1. Select the **Azure** icon, then right-click on the **Static Web Apps** service, then select **Create Static Web App (Advanced)**.
 
-    :::image type="content" source="../media/static-web-app/visualstudiocode-storage-extension-create-static-web-resource.png" alt-text="Screenshot with Visual Studio extension":::
+    :::image type="content" source="../media/static-web-app/visualstudiocode-storage-extension-create-static-web-resource.png" alt-text="Screenshot with Visual Studio extension.":::
 
 1. If a pop-up window asks if you want to continue on the `main` branch, select **Continue**.
 
