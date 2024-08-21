@@ -26,17 +26,12 @@ The `spring-cloud-azure-testcontainers` library now supports integration testing
 
 #### Service Connections
 A service connection is a connection to any remote service. Spring Boot’s auto-configuration can consume the details of a service connection and use them to establish a connection to a remote service. When doing so, the connection details take precedence over any connection-related configuration properties.
+
 When using Testcontainers, connection details can be automatically created for a service running in a container by annotating the container field in the test class.
+
 The `@ServiceConnection` annotation are processed by `xxxContainerConnectionDetailsFactory` classes registered with `spring.factories`. These factories can create a `ConnectionDetails` bean based on a specific Container subclass, or the Docker image name. 
 
 Here are the **Connection Details Factory** supported in the **spring-cloud-azure-testcontainers** jar:
-> [!div class="mx-tdBreakAll"]
-> | Connection Details Factory Class           | Connection Details Bean         |
-> |----------------------------------------|-------------------------------------|
-> | `CosmosContainerConnectionDetailsFactory`  | `AzureCosmosConnectionDetails`     |
-> | `StorageBlobContainerConnectionDetailsFactory` | `AzureStorageBlobConnectionDetails` |
-> | `StorageQueueContainerConnectionDetailsFactory` | `AzureStorageQueueConnectionDetails` |
-
 
 | Connection Details Factory Class             |  Connection Details Bean        |
 |----------------------------------------------|---------------------------------|
