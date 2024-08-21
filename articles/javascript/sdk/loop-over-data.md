@@ -39,7 +39,7 @@ If you result set is only a few items, you can loop through that small list. The
 
 If your data set is larger, you may want to return the data in pages, then iterate over items in each page. The following code loops through a data by page, then each item.
 
-:::code language="TypeScript" source="~/../node-essentials/async-iterators/src/loop-by-page.ts" range="21-32":::
+:::code language="TypeScript" source="~/../node-essentials/async-iterators/src/loop-by-page.ts" range="22-32":::
 
 ## Continue looping at a specific page
 
@@ -49,6 +49,7 @@ If you need to have more control over the loop, including resuming the loop, use
 
 ## Additional resources
 
+- [Sample code in this article](https://github.com/MicrosoftDocs/node-essentials/tree/main/async-iterators/src)
 - [MDN documentation for iterators and generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators)
 - [MDN documentation for Symbol.asyncIterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncIterator)
 
