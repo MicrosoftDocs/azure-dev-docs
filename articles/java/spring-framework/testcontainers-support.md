@@ -30,8 +30,16 @@ When using Testcontainers, connection details can be automatically created for a
 The `@ServiceConnection` annotation are processed by `xxxContainerConnectionDetailsFactory` classes registered with `spring.factories`. These factories can create a `ConnectionDetails` bean based on a specific Container subclass, or the Docker image name. 
 
 Here are the **Connection Details Factory** supported in the **spring-cloud-azure-testcontainers** jar:
-| Connection Details Factory Class                    |  Connection Details Bean        |
-|----------------------------------------------|-----------------------------------------------|
+> [!div class="mx-tdBreakAll"]
+> | Connection Details Factory Class           | Connection Details Bean         |
+> |----------------------------------------|-------------------------------------|
+> | `CosmosContainerConnectionDetailsFactory`  | `AzureCosmosConnectionDetails`     |
+> | `StorageBlobContainerConnectionDetailsFactory` | `AzureStorageBlobConnectionDetails` |
+> | `StorageQueueContainerConnectionDetailsFactory` | `AzureStorageQueueConnectionDetails` |
+
+
+| Connection Details Factory Class             |  Connection Details Bean        |
+|----------------------------------------------|---------------------------------|
 | `CosmosContainerConnectionDetailsFactory`  | `AzureCosmosConnectionDetails`     |
 | `StorageBlobContainerConnectionDetailsFactory` | `AzureStorageBlobConnectionDetails` |
 | `StorageQueueContainerConnectionDetailsFactory` | `AzureStorageQueueConnectionDetails` |
@@ -78,8 +86,7 @@ Here are the **Connection Details Factory** supported in the **spring-cloud-azur
 </dependency>
 ```
 
-    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
-    ---
+---
 
 ### Basic usage
 
@@ -121,7 +128,6 @@ public class CosmosTestcontainersTest {
     void test() {
         // ...
     }
-
 }
 ```
 
@@ -152,7 +158,6 @@ public class StorageBlobTestcontainersTest {
         // ...
     }
 }
-
 ```
 
 With `@ServiceConnection`, the above configuration allows Storage Blob-related beans in the app to communicate with Storage Blob running inside the Testcontainers-managed Docker container. This action is done by automatically defining a `AzureStorageBlobConnectionDetails` bean, which is then used by the Storage Blob autoconfiguration, overriding any connection-related configuration properties.
@@ -183,14 +188,12 @@ public class StorageQueueTestcontainersTest {
     public void test() {
         // ...
     }
-
 }
 ```
 
 With `@ServiceConnection`, the above configuration allows Storage Queue-related beans in the app to communicate with Storage Queue running inside the Testcontainers-managed Docker container. This action is done by automatically defining a `AzureStorageQueueConnectionDetails` bean, which is then used by the Storage Queue autoconfiguration, overriding any connection-related configuration properties.
 
-    <!-- NOTE: The tab-block end-delimiter here (the "---") needs a 4-space indentation or it will be rendered as a hard rule. -->
-    ---
+---
 
 ### Samples
 
