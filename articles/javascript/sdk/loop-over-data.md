@@ -1,15 +1,15 @@
 ---
 title: Loop over data from the Azure SDK for JavaScript
 description: Loop over large sets of data using async iterators in the Azure SDK for JavaScript. This article explains async iterators, their benefits, and provides practical examples for handling paginated data from Azure services.
-ms.date: 08/12/2024
+ms.date: 08/21/2024
 ms.topic: concept-article
 ms.custom: devx-track-js 
 ai-usage: ai-assisted
 ---
 
-# Loop over data returned from the Azure SDK for JavaScript
+# Iterate over data returned from the Azure SDK for JavaScript
 
-When working with Azure services, you often need to process large sets of data. Azure SDKs for JavaScript provide async iterators to help manage this task efficiently. This article explains what async iterators are, how to use them, and provides examples for key Azure services.
+When working with Azure services, you often need to process large sets of data. Azure client libraries provide async iterators to help manage this task efficiently. This article explains what async iterators are, how to use them, and provides examples for key Azure services.
 
 ## What are Async Iterators?
 
@@ -27,106 +27,25 @@ If you're new to async iterators, the following concepts help to understand how 
 - **Generators:** Functions that can be paused and resumed, yielding multiple values.
 - **Async Generators:** Combine the features of async functions and generators to produce async iterators.
 
-Azure SDKs use async iterators to handle potentially large collections of data. Below are examples of how to use async iterators with various Azure services. 
+Azure client libraries use async iterators to handle potentially large collections of data. Below are examples of how to use async iterators with various Azure services. 
 
 ## Loop over a few items
 
 If you result set is only a few items, you can loop through that small list. The following code loops through a small set of containers in Azure Storage:
 
-```javascript
-const containers = blobServiceClient.listContainers();
-for await (const container of containers) {
-    console.log(`Container: ${container.name}`);
-}
-```
+:::code language="TypeScript" source="~/../node-essentials/async-iterators/src/loop.ts" range="19-21":::
 
 ## Loop over data by page
 
-If your data set is larger, you may want to return the data in pages, then iterator over items in each page. The following code loops through a data by page, then each item.
+If your data set is larger, you may want to return the data in pages, then iterate over items in each page. The following code loops through a data by page, then each item.
 
-```javascript
-const maxPageSize = 3;
-const containerPages = blobServiceClient.listContainers().byPage({ maxPageSize });
-for await (const page of containerPages) {
-    for (const container of page) {
-        console.log(`Container: ${container.name}`);
-    }
-}
-```
-
-## Loop over until the end
-
-For some scenarios, you may need to loop over all the data. The following JavaScript function takes a service client and a page size, then loops over all the data until the end. 
-
-```javascript
-async function listBlobsWithContinuation(containerClient, maxPageSize) {
-
-   console.log(`Listing all blobs using iterators with a page size of ${maxPageSize}`);
-
-   let continuationToken = null;
-   let pageCount = 0;
-
-   do {
-
-       console.log(`Retrieving a page of results with a continuation token`);
-       const blobPages = (continuationToken 
-           ? containerClient.listBlobsFlat().byPage({ maxPageSize, continuationToken })
-           : containerClient.listBlobsFlat().byPage({ maxPageSize }));
-
-       if(blobPages === undefined){
-           console.log("blobPages is undefined");
-       } else {
-           console.log("blobPages is defined");
-           for await (const page of blobPages) {
-
-               pageCount++;
-               console.log(`Page ${pageCount}:`);
-               for (const blob of page.segment.blobItems) {
-                   console.log(`  Blob: ${blob.name}`);
-               }
-               // Save the continuation token for the next iteration
-               continuationToken = page.continuationToken;
-           }
-       }
-
-   } while (continuationToken);
-}
-```
-
+:::code language="TypeScript" source="~/../node-essentials/async-iterators/src/loop-by-page.ts" range="21-32":::
 
 ## Continue looping at a specific page
 
 If you need to have more control over the loop, including resuming the loop, use a continuation token. The paged iterator also supports resuming from a continuation token. In the following example, we use the continuation token from the first iteration to resume iteration at the second page.
 
-```javascript
-const maxPageSize = 3;
-
-// Create iterator
-const iter = containerClient.listBlobsFlat().byPage({ maxPageSize });
-let pageNumber = 1;
-
-const result = await iter.next();
-if (result.done) {
-    throw new Error("Expected at least one page of results.");
-}
-
-const continuationToken = result.value.continuationToken;
-if (!continuationToken) {
-    throw new Error(
-        "Expected a continuation token from the blob service, but one was not returned."
-    );
-}
-
-// Continue with iterator
-const resumed = containerClient.listBlobsFlat().byPage({ continuationToken, maxPageSize });
-pageNumber = 2;
-for await (const page of resumed) {
-    console.log(`- Page ${pageNumber++}:`);
-    for (const blob of page.segment.blobItems) {
-        console.log(`  - ${blob.name}`);
-    }
-}
-```
+:::code language="TypeScript" source="~/../node-essentials/async-iterators/src/loop-specific-page" range="43-69":::
 
 ## Additional resources
 
