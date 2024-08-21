@@ -144,12 +144,12 @@ public class StorageBlobTestcontainersTest {
     private Resource blobFile;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
         AZURITE_CONTAINER.start();
     }
 
     @Test
-    public void test() throws IOException {
+    void test() {
         // ...
     }
 }
@@ -175,12 +175,12 @@ public class StorageQueueTestcontainersTest {
     private QueueClient queueClient;
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
         AZURITE_CONTAINER.start();
     }
 
     @Test
-    public void test() {
+    void test() {
         // ...
     }
 }
