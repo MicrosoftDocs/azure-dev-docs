@@ -1741,7 +1741,7 @@
     },
     {
       "source_path": "articles/go/sdk/authentication-overview.md",
-      "redirect_url": "/azure/go/sdk/authentication/overview"
+      "redirect_url": "/azure/developer/go/sdk/authentication/overview"
     }    
   ]
 }
