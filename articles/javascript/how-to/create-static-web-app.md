@@ -41,7 +41,7 @@ An Azure Static Web Apps is a hosted app with both the generated static client f
 Create the Static Web App with one of the following:
 
 * [Azure Developer CLI templates](https://azure.github.io/awesome-azd/?tags=swa)
-* [VS Code extension](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
+* [Visual Studio Code extension](/azure/static-web-apps/getting-started?tabs=vanilla-javascript)
 * [Azure CLI](/azure/static-web-apps/get-started-cli?tabs=vanilla-javascript)
 * [Azure portal](/azure/static-web-apps/get-started-portal?tabs=vanilla-javascript)
 
@@ -58,7 +58,7 @@ The [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli), also kn
 
 ## Include APIs for a full-stack app
 
-Including Azure Functions allow you to develop a full-stack web site without needing to deal with the server-side configuration of an entire web hosting environment. Learn more about [Azure Function apps with JavaScript](/azure/azure-functions/functions-reference-node).
+Including Azure Functions allows you to develop a full-stack web site without needing to deal with the server-side configuration of an entire web hosting environment. Learn more about [Azure Function apps with JavaScript](/azure/azure-functions/functions-reference-node).
 
 [Azure Function](/azure/azure-functions/) are available to the static web app in two ways:
 
@@ -72,10 +72,10 @@ Including Azure Functions allow you to develop a full-stack web site without nee
 
 ## Develop with Visual Studio Code
 
-Use the Visual Studio code [extension for Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) to create your local folder structure and initial dependencies.
+Use the Visual Studio Code [extension for Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) to create your local folder structure and initial dependencies.
 
 1. Fork one of the [GitHub templates repositories](https://github.com/staticwebdev/) for your client and API choice or [create a new repository](https://github.com/new).
-1. In VS Code, create a new Static Web App.
+1. In Visual Studio Code, create a new Static Web App.
 1. In the creation steps, select your repository fork and branch.
 
     When you push to this repository and branch, your code is also deployed to the Static Web App. It is common to have a `live` or `deploy` branch for that purpose.
@@ -155,11 +155,11 @@ The API environment variables are runtime variables configured in the Azure port
 
 * Azure portal: Under **Settings** then **Configuration**
 
-    :::image type="content" source="../media/howto-static-web-app/azure-portal-settings-configuration.png" alt-text="Azure portal: Under **Settings** then **Configuration**":::
+    :::image type="content" source="../media/howto-static-web-app/azure-portal-settings-configuration.png" alt-text="Screenshot of Azure portal: Under Settings then Configuration.":::
 
-* VSCode extension: Under **Production** then **Application Settings**
+* Visual Studio Code extension: Under **Production** then **Application Settings**
 
-    :::image type="content" source="../media/howto-static-web-app/vscode-settings-configuration.png" alt-text="VSCode extension: Under **Production** then **Application Settings**":::
+    :::image type="content" source="../media/howto-static-web-app/vs-code-settings-configuration.png" alt-text="Screenshot of VSCode extension: Under Production then Application Settings.":::
 
 * Azure CLI: Using [az staticwebapp appsettings set](/cli/azure/staticwebapp/appsettings#az-staticwebapp-appsettings-set)
 
