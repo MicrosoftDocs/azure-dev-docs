@@ -54,7 +54,7 @@ Here are some things to consider about migrating on-premise WLS installations an
 This section walks you through all the steps to stand up an Azure Entra Domain Services managed domain integrated with WLS.  Azure Entra ID doesn't support the Lightweight Directory Access Protocol (LDAP) protocol or Secure LDAP directly. Instead, support is enabled through the Azure Entra Domain Services managed domain instance within your Azure Entra ID tenant.
 
 >[!NOTE]
-> This guide uses the "cloud-only" user account feature of Azure Entra Domain Services.  Other user account types are supported, but not described in this guide. Make sure the user is in **AAD DC Administrators**.
+> This guide uses the "cloud-only" user account feature of Azure Entra Domain Services. Other user account types are supported, but not described in this guide.
 
 ### Create and configure an Azure Entra Domain Services managed domain
 
@@ -187,7 +187,6 @@ After the Azure Application deployment finishes, you can find the URL to access 
 1. Scroll to the oldest entry in this list. This entry corresponds to the deployment you started in the previous section. Select the oldest deployment, whose name starts with something similar to `oracle.`.
 1. Select **Outputs**. This option shows the list of outputs from the deployment.
 1. The **adminConsole** value is the fully qualified, public Internet visible link to the WLS admin console. Select the copy icon next to the field value to copy the link to your clipboard and save it in a file.
-1. The **sshCommand** value is for SSH connection. Select the copy icon next to the field value to copy the link to your clipboard and save it in a file.
 
 >[!NOTE]
 > This tutorial demonstrates how to use TLS v1.2 to connect to the Azure Entra Domain Service managed domain LDAP server. To ensure compatibility, you need to enable TLS v1.2 for deployments on JDK 8. 
@@ -214,19 +213,17 @@ WLS communicates with the managed domain using Secure LDAP (LDAPS), which is LDA
 Upload and import the certificate to the VM that runs admin server with steps:
 
 * Enable access to **adminVM** following [Connect to the virtual machine](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine#connect-to-the-virtual-machine).
-* Open a Bash terminal, run the following command to upload the certificate. Replace value of the **ADMIN_CONNECTION_STRING** with value of **sshCommand** . You are required to input the password that used to connect the machine.
+* Open a Bash terminal, run the following command to upload the certificate. Replace value of the **ADMIN_PUBLIC_IP** with the real value (you can find it from Azure portal) . You are required to input the password that used to connect the machine.
 
    ```bash
    export CER_FILE_NAME=azure-ad-ds-client.cer
-   export ADMIN_CONNECTION_STRING="<value-of-sshCommand>"
-   #remove key word ssh
-   ADMIN_CONNECTION_STRING=$(echo "${ADMIN_CONNECTION_STRING}" | sed 's/^ssh//' | tr -d ' ')
-   ADMIN_VM_USER=$(echo "${ADMIN_CONNECTION_STRING}" | awk -F'@' '{print $1}' | tr -d ' ')
+   export ADMIN_PUBLIC_IP="<admin-public-ip>"
+   export ADMIN_VM_USER="weblogic"
    ```
 
    ```bash
    #cd <path-to-cert>
-   scp ${CER_FILE_NAME} ${ADMIN_CONNECTION_STRING}:/home/${ADMIN_VM_USER}/${CER_FILE_NAME}
+   scp ${CER_FILE_NAME} "$ADMIN_VM_USER@$ADMIN_PUBLIC_IP":/home/${ADMIN_VM_USER}/${CER_FILE_NAME}
    ```
 * Once the certificate is uploaded, you need to move it to the WLS domain folder `/u01/domains` and change its ownership with `oracle:oracle`.
 
@@ -292,7 +289,7 @@ Upload and import the certificate to the VM that runs admin server with steps:
        "code": "ProvisioningState/succeeded",
        "displayStatus": "Provisioning succeeded",
        "level": "Info",
-       "message": "Enable succeeded: \n[stdout]\n\n[stderr]\nWarning: use -cacerts option to access cacerts keystore\nCertificate was added to keystore\n",
+       "message": "Enable succeeded: \n[stdout]\n\n[stderr]\nCertificate was added to keystore\n",
        "time": null
      }
     ]
@@ -304,12 +301,12 @@ Upload and import the certificate to the VM that runs admin server with steps:
 
 #### Config WLS Hostname Verification
 
-Since [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps) uses a wildcard `*.aaddscontoso.com` for the hostname in the certificate, you must configure the WLS admin server with appropriate hostname verification. This tutorial disables the verification. You can enable it based on your certificate setting.
+Since [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps) uses a wildcard `*.aaddscontoso.com` for the hostname in the certificate, you must configure the WLS admin server with appropriate hostname verification. This tutorial disables the verification. For WLS 14 and above, you can select **Wildcard Hostname Verification**.
 
 - Paste the value of **adminConsole** to your browser and log into the WLS admin console.
 - In the **Change Center**, select **Lock & Edit**.
 - Select **Environment** -> **Servers** -> **admin** -> **SSL** -> **Advanced**.
-- Next to **Hostname Verification**, select **Wildcard Hostname Verification**.
+- Next to **Hostname Verification**, select **None**.
 - Select **Save** and **Activate Changes** to save the configuration.
 
 #### Resolve traffic for secure LDAP access
@@ -331,6 +328,12 @@ az vm run-command invoke \
          --scripts "echo \"${LDAPS_EXTERNAL_IP} ${LDAPS_DNS}\" >> /etc/hosts"
 ```
 
+Run the following command to restart the admin server to load the configurations:
+
+```azurecli
+az vm restart --resource-group $RESOURCE_GROUP_NAME --name ${ADMIN_VM_NAME}
+```
+
 #### Create and configure LDAP authentication provider
 
 With certifcate imported and secure LDAP access traffic resolved, you are able to configure LDAP provider from WLS console.
@@ -344,6 +347,7 @@ With certifcate imported and secure LDAP access traffic resolved, you are able t
 * In the provider list, select **AzureEntraIDLDAPProvider**.
   - For **Configuration** -> **Common**:
     - For **Control Flag**, select **SUFFICIENT**.
+    - Select **Save** to save the change.
   - For **Configuration** -> **Provider Specific**, input the Entra Domain Services managed domain connection information you obtained previously. Steps to obtain the value are listed in the table of [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](#create-and-configure-an-azure-entra-domain-services-managed-domain).
     - Under **Connection** section:
       - For **Host**, fill in the managed domain DNS, the value is `ldaps.<managed-domain-dns-name>`. This tutorial uses `ldaps.aaddscontoso.com`
@@ -360,7 +364,7 @@ With certifcate imported and secure LDAP access traffic resolved, you are able t
     - Under **Groups** section:
       - For **Group Base DN**, fill in group base DN with your DN, this tutorial uses the sample value with user base DN `OU=AADDC Users,DC=aaddscontoso,DC=com`
       - Keep other fields with default vaule.
-    - Selec **Save** to save the configuration. Ignore error message "[Security:090834]No LDAP connection could be established. ldap://dscontoso.com:636 Cannot contact LDAP server". We have to restart admin server to resolve the error.
+    - Selec **Save** to save the configuration. Ignore error message "<span style="color:red">[Security:090834]No LDAP connection could be established. ldap://dscontoso.com:636 Cannot contact LDAP server</span>". We have to restart admin server to resolve the error.
 * Seelct **Performance** next to **Configuration**:
     - Check **Enable Group Membership Lookup Hierarchy Caching**.
     - Check **Enable SID To Group Lookup Caching**.
@@ -370,9 +374,9 @@ With certifcate imported and secure LDAP access traffic resolved, you are able t
 >[!NOTE]
 > Pay attention to the hostname of the LDAP server; it should be in the format `ldaps.<managed-domain-dns-name>`. In this example, the value is `ldaps.aaddscontoso.com`.
 
-#### Restart admin server
+The WLS admin server must be restarted for the changes to take effect.
 
-Run the following command to stop and start the admin server:
+Run the following command to restart the admin server:
 
 ```azurecli
 az vm restart --resource-group $RESOURCE_GROUP_NAME --name ${ADMIN_VM_NAME}
