@@ -1,7 +1,7 @@
 ---
 ms.topic: include
 ms.custom: devx-track-azurecli
-ms.date: 03/31/2022
+ms.date: 08/20/2024
 ---
 #### [Azure Container Apps](#tab/azure-container-app)
 
