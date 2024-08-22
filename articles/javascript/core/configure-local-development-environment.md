@@ -81,7 +81,7 @@ The following common local workstation installations are recommended to help wit
 
 ## One-time configuration for authentication
 
-To use the same authentication code in local development and the remote Azure hosting environment, use the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential). Learn more about this [managed identity](../intro/passwordless-overview).
+To use the same authentication code in local development and the remote Azure hosting environment, use the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential). Learn more about this [managed identity](../../intro/passwordless-overview).
 
 ## Create a resource group for your project
 
@@ -95,13 +95,13 @@ The [Azure client libraries](../azure-sdk-library-package-index.md) are provided
 Each new project using Azure should:
 - Create Azure resources.
 - Install Azure client libraries from a package manager such as [NPM](https://www.npmjs.com/package/package). 
-- Use [managed identity](../intro/passwordless-overview) to authenticate with the Azure client library, then use configuration information to access specific services.
+- Use [managed identity](../../intro/passwordless-overview) to authenticate with the Azure client library, then use configuration information to access specific services.
 
 ## Securing configuration information
 
 You have several options to store configuration information:
 
-- Azure [Key Vault](/azure/key-vault/) to create and maintain secrets, keys, and certificates that access cloud resources, which don't yet offer [managed identity access](../intro/passwordless-overview).
+- Azure [Key Vault](/azure/key-vault/) to create and maintain secrets, keys, and certificates that access cloud resources, which don't yet offer [managed identity access](../../intro/passwordless-overview).
 - [Dotenv](https://www.npmjs.com/package/dotenv) is a popular npm package to read environment variables from a `.env` file. Make sure to add the `.env` file to the `.gitignore` file so the `.env` file isn't checked into to source control. Learn more about [environment variables](../how-to/configure-web-app-settings.md) in web apps for Azure. 
 
 ### Create environment variables
