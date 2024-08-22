@@ -1,6 +1,6 @@
 ---
 title: Authenticating Azure-hosted apps to Azure resources with the Azure SDK for Go
-description: This article covers how to configure authentication for apps to Azure services when the app is hosted in an Azure service like Azure App Service, Azure Functions, or Azure Virtual Machines.
+description: This article covers how to configure authentication for apps to Azure services with the Azure SDK for Go when the app is hosted in an Azure service like Azure App Service, Azure Container Apps, or Azure Virtual Machines.
 ms.date: 08/20/2024
 ms.topic: how-to
 ms.custom: devx-track-go, devx-track-azurecli
