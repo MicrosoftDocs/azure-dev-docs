@@ -1630,6 +1630,30 @@
     {
       "source_path": "articles/go/azure-sdk-install.md",
       "redirect_url": "/azure/developer/go/"
-    }    
+    },
+    {
+      "source_path": "articles/python/sdk/authentication-additional-methods.md",
+      "redirect_url": "/azure/python/sdk/authentication/additional-methods"
+    },
+    {
+      "source_path": "articles/python/sdk/authentication-azure-hosted-apps.md",
+      "redirect_url": "/azure/python/sdk/authentication/azure-hosted-apps"
+    },
+    {
+      "source_path": "articles/python/sdk/authentication-local-development-dev-accounts.md",
+      "redirect_url": "/azure/python/sdk/authentication/local-development-dev-accounts"
+    },
+    {
+      "source_path": "articles/python/sdk/authentication-local-development-service-principal.md",
+      "redirect_url": "/azure/python/sdk/authentication/local-development-service-principal"
+    },
+    {
+      "source_path": "articles/python/sdk/authentication-on-premises-apps.md",
+      "redirect_url": "/azure/python/sdk/authentication/on-premises-apps"
+    },
+    {
+      "source_path": "articles/python/sdk/authentication-overview.md",
+      "redirect_url": "/azure/python/sdk/authentication/overview"
+    }
   ]
 }
