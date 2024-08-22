@@ -100,63 +100,7 @@ The purpose of the test is to ensure that the work done by `someTestFunction` me
 
 Fakes: Substitute in functionality that you wouldn't normally use in production, such as an in-memory database instead of a cloud database.
 
-```javascript
-// fake-in-mem-db.ts
-class FakeDatabase {
-    constructor() {
-        this.data = {};
-    }
-
-    save(key, value) {
-        this.data[key] = value;
-    }
-
-    get(key) {
-        return this.data[key];
-    }
-}
-
-// Function to test
-function someTestFunction(db, key, value) {
-    db.save(key, value);
-    return db.get(key);
-}
-
-// Jest test suite
-describe('someTestFunction', () => {
-    let fakeDb;
-    let testKey;
-    let testValue;
-
-    beforeEach(() => {
-        fakeDb = new FakeDatabase();
-        testKey = 'testKey';
-        testValue = { first: 'John', last: 'Jones', lastUpdated: new Date().toISOString() };
-
-        // Spy on the save method
-        jest.spyOn(fakeDb, 'save');
-    });
-
-    afterEach(() => {
-        // Clear all mocks
-        jest.clearAllMocks();
-    });
-
-    test('should save and return the correct value', () => {
-        // Perform test
-        const result = someTestFunction(fakeDb, testKey, testValue);
-
-        // Verify state
-        expect(result).toEqual(testValue);
-        expect(result.first).toBe('John');
-        expect(result.last).toBe('Jones');
-        expect(result.lastUpdated).toBe(testValue.lastUpdated);
-
-        // Verify behavior
-        expect(fakeDb.save).toHaveBeenCalledWith(testKey, testValue);
-    });
-});
-```
+:::code language="TypeScript" source="~/../node-essentials/unit-testing/src/fakes/fake-in-mem-db.spec.ts" :::
 
 The purpose of the test is to ensure that `someTestFunction` correctly interacts with the database. By using a fake in-memory database, you can test the function's logic without relying on a real database, making the tests faster and more reliable.
 
@@ -166,22 +110,7 @@ Imagine you have an application that needs to write a new document to Cosmos DB 
 
 Cosmos DB is used as an example however the concepts apply to most of the Azure SDKs for JavaScript. The following simple function captures this functionality:
 
-```typescript
-// insertDocument.ts
-
-export async function insertDocument<RawInput>(doc):Promise<
-    DbDocument |                 // insert succeeded
-    DBErrors |                   // insert failed
-    VerificationErrors           // data doesn't match expected types
-> {
-
-    isVerified: bool = inputVerified(doc);
-
-    return (isVerified)
-        ? await cosmos.items.create(city);
-        : null
-}
-```
+:::code language="TypeScript" source="~/../node-essentials/unit-testing/src/lib/insert.ts":::
 
 > [!NOTE]
 > TypeScript types help define the kinds of data a function uses. While you don't need TypeScript to use Jest or other JavaScript testing frameworks, it is essential for writing type-safe JavaScript.
@@ -194,9 +123,31 @@ The functions in this application above are:
 | **inputVerified**       | Verifies the input data against a schema using a package like zod. Ensures data is in the correct format (e.g., valid email addresses, correctly formatted URLs).|
 | **cosmos.items.create** | SDK function for Azure Cosmos DB using the [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos). **This is what we want to mock**. It already has its own tests maintained by the package owners. We need to verify that the Cosmos DB function call was made and returned data if the incoming data passed verification. |
 
-## Set up unit test for Azure SDK 
+## Install test framework dependency
 
-Lets go through
+This article uses [Jest](https://jestjs.io/) as the test framework. There are others which are comparable you can also use. 
+
+In the root of the application directory, install Jest:
+
+```console
+npm install jest
+```
+
+## Configure package to run test
+
+Update the `package.json` for the application with a new script to test our source code files. Source code files are usually defined by matching on partial file name and extension. Jest looks for files following the common naming convention for test files: `<file-name>.spec.[jt]s`. 
+
+Add a script to the package.json to support that test file pattern with Jest:
+
+```JSON
+"scripts": {
+    "test": "jest dist",
+}
+```
+
+The TypeScript source code is generated into the `dist` subfolder. Jest runs the `.spec.js` files found in the `dist` subfolder.
+
+## Set up unit test for Azure SDK 
 
 How can we use mocks, stubs, and fakes to test the **insertDocument** function? 
 
@@ -206,85 +157,40 @@ How can we use mocks, stubs, and fakes to test the **insertDocument** function?
 - Stubs:
   - The data passed in matches the new document returned by the function.
 
+When testing, think in terms of the test setup, the test itselt, and the verification. In terms of test vernacular, this is known as:
+
+* Arrange: set up your test conditions
+* Act: call your function to test, also known as the _system under test_ or SUT
+* Assert: validate the results. Results can be behavior or state. 
+    * Behavior indicates functionality in your tes function which can be verified. One example is that some dependency was called.
+    * State indicates the data returned from the function.  
+
+Jest, similar with other test frameworks, has test file boilerplate to define your test file. 
+
+:::code language="TypeScript" source="~/../node-essentials/unit-testing/src/test-boilerplate/boilerplate.spec.ts":::
+
+When using mocks, that boiler place needs to use mocking to test the function without calling the underlying dependency used in the function, such as the Azure client libraries. 
+
+## Create the test file
+
+The test file with mocks to simulate a call to a dependency has some extra setup in additional to the common test boilerplate code. There are several parts to the test file below:
+
+- `import`: The import statements allow you to use or mock out any of your test.
+- `jest.mock`: Create the default mock behavior you want. Each test can alter as needed. 
+- `describe`: Test group family for the `insert.ts` file.
+- `test`: Each test for the `insert.ts` file.
+
+The test file covers three tests for the `insert.ts` file which can be divided into two validation types:
+
+|Validation type|Test|
+|--|--|
+|Happy path|The mocked database method was called, and returned the altered data.|
+|Error path|Data failed validation and returned an error.|
+|Error path|The mocked database method was called, and returned an error.|
+
 The following Jest test file shows how to test the **insertDocument** function.
 
-```typescript
-import { insertDocument } from './insertDocument';
-import { cosmosContainer } from '@azure/cosmos';
-
-// Mock the cosmosContainer.items.create function
-jest.mock('@azure/cosmos', () => ({
-    cosmosContainer: {
-        items: {
-            create: jest.fn()
-        }
-    }
-}));
-
-// Fixtures for test cases
-const validDoc = { id: '1', name: 'Valid Document' };
-const invalidDoc = { id: '2', name: '' }; // Assuming name is required
-const dbDocument = { resource: { id: '1', name: 'Valid Document' } };
-const verificationErrors = { error: 'Invalid data format' };
-const dbErrors = { error: 'Database error' };
-
-// Mock inputVerified function
-jest.mock('./inputVerified', () => ({
-    inputVerified: jest.fn((doc: { name: string }) => doc.name !== '')
-}));
-
-describe('insertDocument', () => {
-    beforeEach(() => {
-        jest.clearAllMocks();
-    });
-
-    test('should insert document if input is verified', async () => {
-        const { inputVerified } = require('./inputVerified');
-        inputVerified.mockReturnValue(true);
-        (cosmosContainer.items.create as jest.Mock).mockResolvedValue(dbDocument);
-
-        const result = await insertDocument(validDoc);
-
-        // Test behavior
-        expect(inputVerified).toHaveBeenCalledWith(validDoc);
-        expect(cosmosContainer.items.create).toHaveBeenCalledWith(validDoc);
-        expect(result).toEqual(dbDocument.resource);
-
-        // Validate properties
-        expect(result.id).toBe(validDoc.id);
-        expect(result.name).toBe(validDoc.name);
-    });
-
-    test('should not insert document if input is not verified', async () => {
-        const { inputVerified } = require('./inputVerified');
-        inputVerified.mockReturnValue(false);
-
-        const result = await insertDocument(invalidDoc);
-
-        // Test behavior
-        expect(inputVerified).toHaveBeenCalledWith(invalidDoc);
-        expect(cosmosContainer.items.create).not.toHaveBeenCalled();
-        expect(result).toBeNull();
-    });
-
-    test('should handle database throwing errors', async () => {
-        const { inputVerified } = require('./inputVerified');
-        inputVerified.mockReturnValue(true);
-        (cosmosContainer.items.create as jest.Mock).mockRejectedValue(dbErrors);
-
-        try {
-            await insertDocument(validDoc);
-        } catch (error) {
-            expect(error).toEqual(dbErrors);
-        }
-
-        // Test behavior
-        expect(inputVerified).toHaveBeenCalledWith(validDoc);
-        expect(cosmosContainer.items.create).toHaveBeenCalledWith(validDoc);
-    });
-});
-```
-
+:::code language="TypeScript" source="~/../node-essentials/unit-testing/src/lib/insert.spec.ts":::
 
 ## References
 

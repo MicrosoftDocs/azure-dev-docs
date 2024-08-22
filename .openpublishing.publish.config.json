@@ -59,6 +59,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "node-essentials",
+      "url": "https://github.com/MicrosoftDocs/node-essentials",
+      "branch": "main",
+      "branch_mapping": {}
+    },    
+    {
       "path_to_root": "js-e2e-azure-function-upload-file",
       "url": "https://github.com/Azure-Samples/js-e2e-azure-function-upload-file",
       "branch": "main",
