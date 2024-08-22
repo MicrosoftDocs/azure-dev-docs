@@ -24,16 +24,18 @@ This article is intended to help you quickly get to deployment. Before going to 
 
 If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+## Prerequisites
 
-[!INCLUDE [include](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
-
-* This article requires the latest version of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
-* If you're running the commands in this guide locally (instead of Azure Cloud Shell):
-  * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, Windows Subsystem for Linux).
-  * Install a Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
-  * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
-  * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
+* An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* Prepare a local machine with Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
+* [Install the Azure CLI](/cli/azure/install-azure-cli) to run Azure CLI commands.
+  * Sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
+  * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+  * Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
+* Install a Java SE implementation version 17 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
+* Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
+* Install [Docker](https://docs.docker.com/get-docker/) for your OS.
+* Ensure that [Git](https://git-scm.com) is installed.
 * Be sure you've been assigned either `Owner` role or `Contributor` and `User Access Administrator` roles for the subscription. You can verify your assignments by following steps in [List role assignments for a user or group](/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-or-group).
 
 ## Create the infrastructure
@@ -46,7 +48,7 @@ An Azure resource group is a logical group in which Azure resources are deployed
 
 Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az_group_create) command  in the *eastus* location. This resource group is used later for creating the Azure Container Registry (ACR) instance and the AKS cluster.
 
-```azurecli-interactive
+```azurecli
 export RESOURCE_GROUP_NAME=java-liberty-project
 az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
@@ -55,7 +57,7 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 Use the [az acr create](/cli/azure/acr#az_acr_create) command to create the ACR instance. The following example creates an ACR instance named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
 
-```azurecli-interactive
+```azurecli
 export REGISTRY_NAME=youruniqueacrname
 az acr create \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -78,7 +80,7 @@ Alternatively, you can create an Azure container registry instance by following 
 
 You'll need to sign in to the ACR instance before you can push an image to it. Run the following commands to verify the connection:
 
-```azurecli-interactive
+```azurecli
 export LOGIN_SERVER=$(az acr show \
     --name $REGISTRY_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -106,7 +108,7 @@ If you see a problem signing in to the Azure container registry, see [Troublesho
 
 Use the [az aks create](/cli/azure/aks#az_aks_create) command to create an AKS cluster and grant it image pull permission from the ACR instance. The following example creates a cluster named *myAKSCluster* with one node. This command takes several minutes to complete.
 
-```azurecli-interactive
+```azurecli
 export CLUSTER_NAME=myAKSCluster
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -128,15 +130,15 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 #### Connect to the AKS cluster
 
-To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az_aks_install_cli) command:
+To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az_aks_install_cli) command:
 
-```azurecli-interactive
+```azurecli
 az aks install-cli
 ```
 
 To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-```azurecli-interactive
+```azurecli
 az aks get-credentials \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
@@ -145,7 +147,7 @@ az aks get-credentials \
 
 To verify the connection to your cluster, use the [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command to return a list of the cluster nodes.
 
-```azurecli-interactive
+```bash
 kubectl get nodes
 ```
 
@@ -160,7 +162,7 @@ aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.18.10
 
 After creating and connecting to the cluster, install the [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator/tree/main/deploy/releases/1.2.2#option-2-install-using-kustomize) by running the following commands.
 
-```azurecli-interactive
+```bash
 # Install cert-manager Operator
 CERT_MANAGER_VERSION=v1.11.2
 kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/${CERT_MANAGER_VERSION}/cert-manager.yaml
@@ -187,7 +189,7 @@ kubectl apply --server-side -k overlays/watch-all-namespaces
 1. Follow the steps in [Quickstart: Use Azure Cache for Redis in Java](/azure/azure-cache-for-redis/cache-java-get-started) up to, but not including **Understanding the Java sample**.
 1. Copy **Host name** and **Primary access key** for your Azure Cache for Redis instance, and then run the following commands to add environment variables:
 
-   ```azurecli-interactive
+   ```bash
    export REDISCACHEHOSTNAME=<YOUR_HOST_NAME>
    export REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
    ```
@@ -200,7 +202,7 @@ Follow the steps in this section to build and containerize the sample applicatio
 
 Use the following commands to clone the sample code for this guide. The sample is in the [open-liberty-on-aks](https://github.com/Azure-Samples/open-liberty-on-aks) repository on GitHub. There are a few samples in the repository. This article uses *java-app-jcache*.
 
-```azurecli-interactive
+```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
 git checkout 20230906
@@ -260,7 +262,7 @@ To deploy and run your Liberty application on the AKS cluster, use the following
 1. Use Ctrl+C to stop the application.
 1. Use the following commands to retrieve values for properties `artifactId` and `version` defined in the *pom.xml* file.
 
-   ```azurecli-interactive
+   ```bash
    export artifactId=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
    export version=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
    ```
@@ -269,14 +271,14 @@ To deploy and run your Liberty application on the AKS cluster, use the following
 1. Run one of the following commands to build the application image and push it to the ACR instance.
    * Use the following command to build with an Open Liberty base image if you prefer to use Open Liberty as a lightweight open source Java&trade; runtime:
 
-     ```azurecli-interactive
+     ```azurecli
      # Build and tag application image. This causes the ACR instance to pull the necessary Open Liberty base images.
      az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME --resource-group $RESOURCE_GROUP_NAME .
      ```
 
    * Use the following command to build with a WebSphere Liberty base image if you prefer to use a commercial version of Open Liberty:
 
-     ```azurecli-interactive
+     ```azurecli
      # Build and tag application image. This causes the ACR instance to pull the necessary WebSphere Liberty base images.
      az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME --resource-group $RESOURCE_GROUP_NAME --file=Dockerfile-wlp .
      ```
@@ -288,14 +290,14 @@ Follow the steps in this section to deploy the containerized sample application 
 1. Verify the current working directory is *java-app-jcache/target* in your local clone.
 1. Use the following commands to create a secret with Redisson configuration information. With this secret, the application can connect to the created Azure Cache for Redis instance.
 
-   ```azurecli-interactive
+   ```bash
    export REDISSON_CONFIG_SECRET_NAME=redisson-config-secret
    kubectl create secret generic ${REDISSON_CONFIG_SECRET_NAME} --from-file=$(pwd)/liberty/wlp/usr/servers/defaultServer/redisson-config.yaml
    ```
 
 1. Use the following commands to deploy your Liberty application with three replicas to the AKS cluster. The command output is also shown inline.
 
-   ```azurecli-interactive
+   ```bash
    # Set number of application replicas
    export REPLICAS=3
 
@@ -325,7 +327,7 @@ When the application runs, a Kubernetes load balancer service exposes the applic
 
 To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
 
-```azurecli-interactive
+```bash
 kubectl get service ${artifactId}-cluster --watch
 
 NAME                               TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
@@ -344,7 +346,7 @@ In the form **New coffee in session**, set values for fields **Name** and **Pric
 
 To demonstrate that the session cache is persisted across all replicas of the application, run the following command to delete the current replica with pod name `javaee-cafe-jcache-cluster-<pod id from your running app>`:
 
-```azurecli-interactive
+```bash
 kubectl delete pod javaee-cafe-jcache-cluster-77d54bccd4-5xnzx
 
 pod "javaee-cafe-jcache-cluster-77d54bccd4-5xnzx" deleted
@@ -370,13 +372,13 @@ Finally, use the following steps to demonstrate that the session data is persist
 
 To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
 
-```azurecli-interactive
+```azurecli
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
 To delete the Azure Cache for Redis instance, find its resource group name and run the following command:
 
-```azurecli-interactive
+```azurecli
 az group delete --name <AZURE_CACHE_FOR_REDIS_RESOURCE_GROUP_NAME> --yes --no-wait
 ```
 

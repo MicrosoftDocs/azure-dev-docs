@@ -64,7 +64,7 @@ landingContent:
       - linkListType: tutorial
         links: 
           - text: "Static web app: Analyze image with Computer Vision"
-            url: ./tutorial/static-web-app-image-analysis.md#add-computer-vision-code-as-separate-module
+            url: ./tutorial/static-web-app-image-analysis.md
           - text: "Static web app: Upload file to Storage Blob"
             url: tutorial/browser-file-upload-azure-storage-blob.md
           - text: "Express.js: Add Application Insights logging"
