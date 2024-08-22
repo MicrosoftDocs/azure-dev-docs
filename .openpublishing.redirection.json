@@ -351,6 +351,10 @@
       "redirect_url": "/azure/ai-services/openai"
     },
     {
+      "source_path": "articles/javascript/how-to/with-visual-studio-code/containerize-local-project.md",
+      "redirect_url": "https://code.visualstudio.com/docs/containers/quickstart-node"
+    },
+    {
       "source_path": "articles/javascript/tutorial/azure-function-cosmos-db-mongo-api.md",
       "redirect_url": "/azure/azure-functions/functions-add-output-binding-cosmos-db-vs-code?pivots=programming-language-javascript"
     },
