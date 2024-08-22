@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.custom: devx-track-js, azure-sdk-javascript-ai-text-analytics-5.0.0
 ---
 
-# Configure your local JavaScript dev environment for Azure
+# Configure your JavaScript develop environment for Azure
 
 When creating cloud applications, developers typically prefer to test code on their local workstations before deploying that code to a cloud environment like Azure. Local development gives you the advantage of a wider variety of tools along with a familiar environment.
 
@@ -16,11 +16,42 @@ This article provides setup instructions to create and validate a local developm
 
 [Azure resources](/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources?tabs=AzureManagementGroupsAndHierarchy) are created within a subscription and resource group. 
 
-|Type|Description|
-|--|--|
-|Trial subscription|Create a _free_ [trial subscription](https://azure.microsoft.com/free/).|
-|Existing subscription|If you already have a subscription, access your existing subscription in the [Azure portal](https://portal.azure.com), the [Azure CLI](/cli/azure/install-azure-cli), or [Azure SDKs for JavaScript](../azure-sdk-library-package-index.md).|
-|Across multiple subscriptions|If you need to manage multiple subscriptions, [learn how](/azure/governance/management-groups/create-management-group-javascript) to create a management group with JavaScript.|
+:::row:::
+    :::column:::
+        **Type**
+    :::column-end:::
+    :::column:::
+        **Description**
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        Trial subscription
+    :::column-end:::
+    :::column:::
+        Create a _free_ [trial subscription](https://azure.microsoft.com/free/).
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        Existing subscription
+    :::column-end:::
+    :::column:::
+        If you already have a subscription, access your existing subscription with:
+* [Azure portal](https://portal.azure.com)
+* [Azure CLI](/cli/azure/install-azure-cli)
+* [Azure SDKs for JavaScript](../azure-sdk-library-package-index.md)
+* [Visual Studio Code extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=Azure&sortBy=Relevance)
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        Across multiple subscriptions
+    :::column-end:::
+    :::column:::
+        If you need to manage multiple subscriptions, [learn how](/azure/governance/management-groups/create-management-group-javascript) to create a management group with JavaScript.
+    :::column-end:::
+:::row-end:::
 
 ## One-time software installation
 
@@ -30,6 +61,7 @@ Azure development with JavaScript on your local workstation, we suggest you inst
 |--|--|
 |[Node.js LTS](https://www.npmjs.com/)|Install latest long-term support (LTS) runtime environment for local workstation development.|
 |[Visual Studio Code](https://code.visualstudio.com/)| Visual Studio Code will give you a great JavaScript integration and coding experience but it is not required. You can use any code editor.|
+|[Visual Studio Code extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=Azure&sortBy=Relevance)|Install any relevant extensions for Azure services you intend to use.|
 
 ### Azure hosting runtime 
 
