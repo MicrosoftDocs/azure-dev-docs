@@ -14,7 +14,7 @@ zone_pivot_groups: azd-languages-set
 
 # Quickstart: Deploy an Azure Developer CLI template
 
-In this quickstart, you'll learn how to provision and deploy app resources to Azure using an [Azure Developer CLI (`azd`) template](/azure/developer/azure-developer-cli/azd-templates) and only a few `azd` commands.  `azd` templates are standard code repositories that include your application source code, as well as `azd` configuration and infrastructure files to provision Azure resources. Visit the [What are Azure Developer CLI templates?](/azure/developer/azure-developer-cli/azd-templates) page to learn more about `azd` templates and how they can accelerate your Azure provisioning and deployment process.
+In this quickstart, you'll learn how to provision and deploy app resources to Azure using an [Azure Developer CLI (`azd`) template](/azure/developer/azure-developer-cli/azd-templates) and only a few `azd` commands.  `azd` templates are standard code repositories that include your application source code, as well as `azd` configuration and infrastructure files to provision Azure resources. To learn more about `azd` templates and how they can accelerate your Azure provisioning and deployment process see [What are Azure Developer CLI templates?](/azure/developer/azure-developer-cli/azd-templates).
 
 ## Select and deploy the template
 
@@ -61,7 +61,7 @@ A local development environment is a great choice for traditional development wo
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 3.8](https://www.python.org/downloads/)
 - [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
-- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
+- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-python-mongo/blob/main/README.md).
 
 ::: zone-end
 
@@ -70,7 +70,7 @@ A local development environment is a great choice for traditional development wo
 - [Install the Azure Developer CLI](./install-azd.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [.NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
-- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
+- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-csharp-cosmos-sql/blob/main/README.md).
 
 ::: zone-end
 
@@ -79,7 +79,7 @@ A local development environment is a great choice for traditional development wo
 - [Install the Azure Developer CLI](./install-azd.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [OpenJDK 17](/java/openjdk/download#openjdk-17)
-- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
+- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-java-mongo/blob/main/README.md).
 
 ::: zone-end
 
@@ -162,6 +162,7 @@ A local development environment is a great choice for traditional development wo
 
     > [!NOTE]
     > You can call `azd up` as many times as you like to both provision and deploy updates to your application.
+    > If the deployment fails due to a resource being undeployable in the selected region, delete the `.azure` directory and try `azd up` again. When asked, select a different region.
 
 ## [Codespaces](#tab/codespaces)
 
@@ -351,7 +352,7 @@ Once you've provided the necessary parameters and the `azd up` command completes
 :::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
 
 > [!NOTE]
-> You can call `azd up` as many times as you like to both provision and deploy your application.
+> You can call `azd up` as many times as you like to both provision and deploy your application to the same regoin and with the same configuration answers you gave before the first deployment.
 
 ---
 
@@ -362,6 +363,8 @@ When you no longer need the resources created in this article, run the following
 ```azdeveloper
 azd down
 ```
+
+If you want to redeploy to a different region, delete the `.azure` directory before running `azd up` again.
 
 [!INCLUDE [request-help](includes/request-help.md)]
 
