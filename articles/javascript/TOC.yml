@@ -142,8 +142,6 @@
     items:
     - name: "Express.js VM"
       href: tutorial/run-nodejs-virtual-machine.md
-    - name: "Create and delete VM with SDK"
-      href: how-to/with-azure-sdk/create-manage-virtual-machine.md
   - name: Development with Visual Studio Code
     items:
     - name: Clone a GitHub repo for changes
