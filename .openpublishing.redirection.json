@@ -1620,6 +1620,11 @@
       "redirect_url": "/entra/identity-platform/quickstart-web-app-nodejs-msal-sign-in"        
     },
     {
+      "source_path":"articles/javascript/core/install-nodejs-develop-azure-sdk-project.md",
+      "redirect_url": "/azure/developer/javascript/core/configure-local-development-environment"        
+
+    },
+    {
       "source_path": "articles/ansible/configure-in-docker-container.md",
       "redirect_url": "/azure/developer/ansible"
     },

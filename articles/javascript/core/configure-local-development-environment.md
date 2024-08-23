@@ -78,6 +78,31 @@ The following common local workstation installations are recommended to help wit
 |[Visual Studio Code extensions for Azure](../node-azure-tools.md#visual-studio-code-extensions) |VS Code extensions to the IDE.|
 |[Git](https://git-scm.com/downloads) or [Git for Windows](https://gitforwindows.org/)| Command-line tools for source control. You can use a different source control tool if you prefer. |
 |Docker for [Windows](https://docs.docker.com/desktop/install/windows-install/) or [Mac](https://docs.docker.com/desktop/install/mac-install/)|Use [Development containers](https://containers.dev/) for consistent development environments.|
+|Node.js LTS|[Learn more](#install-nodejs)|
+
+## Install Node.js
+
+The Azure SDK supports the [Node.js Long Term Support (LTS) version](https://nodejs.org/en/download/). Read the [Azure SDK Support Policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md#microsoft-support-policy) for more details.
+
+### Azure services Node.js minimum version
+
+[!INCLUDE [Azure services Node.js minimum version](../includes/nodejs-runtime-for-azure-services.md)]
+
+### Manage multiple versions of Node.js
+
+When you need to manage more than one version of Node.js across your local and remote environments, we recommend:
+
+* **NVM (Node Version Manager)**: A command-line interface to set or switch your local version of Node.js.
+  * macOS, Linux - [nvm](https://github.com/creationix/nvm)
+  * Windows - [nvm for Windows](https://github.com/marcelklehr/nodist)
+* **Containers**: Use a container with a specific Node.js version. You can manage the version of Node.js across several environments using containers. Visual Studio Code's [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) simplifies this process.
+
+### Download and install Node.js based on your intended use
+
+You can download and install Node.js based on your requirements.
+
+* [Node.js Download page](https://nodejs.org/en/download/)
+* [Official Docker image](https://hub.docker.com/_/node/)
 
 ## One-time configuration for authentication
 
@@ -93,6 +118,7 @@ To use the same authentication code in local development and the remote Azure ho
 The [Azure client libraries](../azure-sdk-library-package-index.md) are provided individually for each service. You install each library based on the Azure service you need to use.
 
 Each new project using Azure should:
+
 - Create Azure resources.
 - Install Azure client libraries from a package manager such as [NPM](https://www.npmjs.com/package/package). 
 - Use [managed identity](../../intro/passwordless-overview.md) to authenticate with the Azure client library, then use configuration information to access specific services.
