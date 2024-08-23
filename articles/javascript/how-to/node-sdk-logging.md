@@ -2,7 +2,7 @@
 title: JavaScript Logging, metrics, alerts in Azure
 description: Learn about logging options in Azure.
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 08/22/2024
 ms.custom: devx-track-js
 ---
 

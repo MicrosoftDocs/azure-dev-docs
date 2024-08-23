@@ -344,11 +344,19 @@
     },   
     {
       "source_path": "articles/javascript/get-started-app-chat-template.md",
-      "redirect_url": "/azure/javascript/ai/get-started-app-chat-template"
+      "redirect_url": "/azure/virtual-machines"
     },     
     {
       "source_path": "articles/javascript/openai-cli.md",
       "redirect_url": "/azure/ai-services/openai"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-visual-studio-code/containerize-local-project.md",
+      "redirect_url": "https://code.visualstudio.com/docs/containers/quickstart-node"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-azure-sdk/create-manage-virtual-machine.md",
+      "redirect_url": "/azure/developer/javascript/"
     },
     {
       "source_path": "articles/javascript/tutorial/azure-function-cosmos-db-mongo-api.md",

@@ -136,14 +136,10 @@
       href: /azure/container-apps/communicate-between-microservices?tabs=bash&pivots=acr-remote&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Microservice with DAPR
       href: /azure/container-apps/microservices-dapr?tabs=bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-    - name: Create container from local project
-      href: how-to/with-visual-studio-code/containerize-local-project.md
   - name: Virtual machine web apps
     items:
     - name: "Express.js VM"
       href: tutorial/run-nodejs-virtual-machine.md
-    - name: "Create and delete VM with SDK"
-      href: how-to/with-azure-sdk/create-manage-virtual-machine.md
   - name: Development with Visual Studio Code
     items:
     - name: Clone a GitHub repo for changes
