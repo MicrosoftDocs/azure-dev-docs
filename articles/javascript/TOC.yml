@@ -17,8 +17,6 @@
       href: how-to/deploy-web-app.md
     - name: Configure
       items: 
-      - name: Configure app settings
-        href: how-to/configure-web-app-settings.md
       - name: Configure domain name
         href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
   - name: Azure AI apps 
