@@ -101,5 +101,4 @@ Learn more about [hosting options](../how-to/deploy-web-app.md).
 
 ## Next steps
 
-* [Install Node.js](install-nodejs-develop-azure-sdk-project.md)
 * [Learn recommended tools for Azure JavaScript developers](../node-azure-tools.md)
