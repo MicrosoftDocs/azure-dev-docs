@@ -376,6 +376,17 @@ With certificate imported and secure LDAP access traffic resolved, you're able t
     | **User Name Attribute** | `sAMAccountName` | `sAMAccountName` |
     | **User Object Class** | `user` | `user` |
     | **Group Base DN** | Your group base DN | `OU=AADDC Users,DC=aaddscontoso,DC=com` |
+    | **Group Membership Searching** | `limit` | `limit` |
+    | **Max Group Membership Search Level** | `1` | `1` |
+    | **Use Token Groups For Group Membership Lookup** | Checked. | - |
+    | **Connection Pool Size** | `5` | `5` |
+    | **Connect Timeout** | `120` | `120` |
+    | **Connection Retry Limit** | `5` | `5` |
+    | **Results Time Limit** | `300` | `300` |
+    | **Keep Alive Enabled** | Checked. | - |
+    | **Cache Enabled** | Checked. | - |
+    | **Cache Size** | `4000` | `4000` |
+    | **Cache TTL** | `300` | `300` |
 
   - Select **Save** to save the provider.
 * Select **Performance** next to **Configuration**:
