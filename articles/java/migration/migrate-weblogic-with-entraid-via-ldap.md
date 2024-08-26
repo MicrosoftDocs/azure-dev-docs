@@ -1,6 +1,6 @@
 ---
-title: End-user Authorization and Authentication with Azure Entra ID for Migrating Java Apps on WebLogic Server to Azure
-description: This guide describes how to configure Oracle WebLogic Server to connect with Azure Entra ID Domain Services via LDAP
+title: End-user Authorization and Authentication with Microsoft Entra ID for Migrating Java Apps on WebLogic Server to Azure
+description: This guide describes how to configure Oracle WebLogic Server to connect with Microsoft Entra ID Domain Services via LDAP
 author: KarlErickson
 ms.author: edburns
 ms.topic: tutorial
@@ -11,54 +11,54 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 
 # End-user authorization and authentication for migrating Java apps on WebLogic Server to Azure
 
-This guide helps you to enable enterprise grade end-user authentication and authorization for Java apps on WebLogic Server using Azure Entra ID.
+This guide helps you to enable enterprise grade end-user authentication and authorization for Java apps on WebLogic Server using Microsoft Entra ID.
 
-Java EE developers expect the [standard platform security mechanisms](https://javaee.github.io/tutorial/security-intro.html#BNBWJ) to "just work", even when moving their workloads to Azure. [Oracle WebLogic Server (WLS) Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic) let you populate the built-in security realm with users from Azure Entra Domain Services. Use the standard `<security-role>` element, in your Java EE on Azure applications; the user information flows from Azure Entra Domain Services through Lightweight Directory Access Protocol (LDAP).
+Java EE developers expect the [standard platform security mechanisms](https://javaee.github.io/tutorial/security-intro.html#BNBWJ) to "just work", even when moving their workloads to Azure. [Oracle WebLogic Server (WLS) Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic) let you populate the built-in security realm with users from Microsoft Entra Domain Services. Use the standard `<security-role>` element, in your Java EE on Azure applications; the user information flows from Microsoft Entra Domain Services through Lightweight Directory Access Protocol (LDAP).
 
-This guide is divided into two parts. If you already have Azure Entra Domain Services with secure LDAP exposed, you may skip straight to the second part.
+This guide is divided into two parts. If you already have Microsoft Entra Domain Services with secure LDAP exposed, you may skip straight to the second part.
 
-* [Azure Entra Domain Services managed domain configuration](#azure-entra-domain-services-managed-domain-configuration)
+* [Microsoft Entra Domain Services managed domain configuration](#azure-entra-domain-services-managed-domain-configuration)
 * [WLS configuration](#wls-configuration)
 
 In this guide you learn how to:
 
 > [!div class="checklist"]
-> * Create and configure an Azure Entra Domain Services managed domain
-> * Configure secure Lightweight Directory Access Protocol (LDAP) for an Azure Entra Domain Services managed domain
+> * Create and configure an Microsoft Entra Domain Services managed domain
+> * Configure secure Lightweight Directory Access Protocol (LDAP) for an Microsoft Entra Domain Services managed domain
 > * Enable WebLogic Server to access LDAP as its default security realm
 
-This guide doesn't help you reconfigure an existing Azure Entra ID Domain Services deployment.However, it should be possible to follow along with this guide and see which steps can be skipped.
+This guide doesn't help you reconfigure an existing Microsoft Entra ID Domain Services deployment.However, it should be possible to follow along with this guide and see which steps can be skipped.
 
 ## Prerequisites
 
 * An active Azure subscription.
   * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-* The ability to deploy Azure Entra Domain Services, see [Create and configure a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/tutorial-create-instance).
+* The ability to deploy Microsoft Entra Domain Services, see [Create and configure a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/tutorial-create-instance).
 * The ability to deploy one of the WLS Azure Applications listed at [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
 * Prepare a local machine with either Windows with WSL, GNU/Linux, or macOS installed.
 * Install Azure CLI version 2.54.0 or higher to run Azure CLI commands.
 
 ## Migration context
 
-Here are some things to consider about migrating on-premise WLS installations and Azure Entra ID.
+Here are some things to consider about migrating on-premise WLS installations and Microsoft Entra ID.
 
-* If you already have an Azure Entra ID tenant without Domain Services exposed via LDAP, this guide show how to expose the LDAP capability and integrate it with WLS.
+* If you already have an Microsoft Entra ID tenant without Domain Services exposed via LDAP, this guide show how to expose the LDAP capability and integrate it with WLS.
 * If your scenario involves an on-premises Active Directory forest, consider implementing a hybrid identity solution with Azure AD. For more information, see the [Hybrid identity documentation](/azure/active-directory/hybrid/)
 * If you already have on-premises Active Directory Domain Services (AD DS) deployment, explore migration paths by visiting [Compare self-managed Active Directory Domain Services, Microsoft Entra ID, and managed Microsoft Entra Domain Services](/azure/active-directory-domain-services/compare-identity-solutions).
-* If you're optimizing for the cloud, this guide shows you how to start from scratch with Azure Entra ID Domain Services LDAP and WLS.
+* If you're optimizing for the cloud, this guide shows you how to start from scratch with Microsoft Entra ID Domain Services LDAP and WLS.
 * For a comprehensive survey of migrating WebLogic Server to Azure Virtual Machines, see [Migrate WebLogic Server applications to Azure Virtual Machines](migrate-weblogic-to-virtual-machines.md).
 * For more information of Active Directory and Microsoft Entra ID, see [Compare Active Directory to Microsoft Entra ID](/entra/fundamentals/compare).
 
-## Azure Entra Domain Services managed domain configuration
+## Microsoft Entra Domain Services managed domain configuration
 
-This section walks you through all the steps to stand up an Azure Entra Domain Services managed domain integrated with WLS. Azure Entra ID doesn't support the Lightweight Directory Access Protocol (LDAP) protocol or Secure LDAP directly. Instead, support is enabled through the Azure Entra Domain Services managed domain instance within your Azure Entra ID tenant.
+This section walks you through all the steps to stand up an Microsoft Entra Domain Services managed domain integrated with WLS. Microsoft Entra ID doesn't support the Lightweight Directory Access Protocol (LDAP) protocol or Secure LDAP directly. Instead, support is enabled through the Microsoft Entra Domain Services managed domain instance within your Microsoft Entra ID tenant.
 
 >[!NOTE]
-> This guide uses the "cloud-only" user account feature of Azure Entra Domain Services. Other user account types are supported, but not described in this guide.
+> This guide uses the "cloud-only" user account feature of Microsoft Entra Domain Services. Other user account types are supported, but not described in this guide.
 
-### Create and configure an Azure Entra Domain Services managed domain
+### Create and configure an Microsoft Entra Domain Services managed domain
 
-This section walks you through a separate tutorial to stand up an Azure Entra Domain Services managed domain.
+This section walks you through a separate tutorial to stand up an Microsoft Entra Domain Services managed domain.
 
 Complete the tutorial [Create and configure a Microsoft Entra Domain Services managed domain](/azure/active-directory-domain-services/tutorial-create-instance) up to but not including the section [Enable user accounts for Domain Services](/azure/active-directory-domain-services/tutorial-create-instance#enable-user-accounts-for-azure-ad-ds). That section requires special treatment in the context of this tutorial, as described in the next section. Be sure to complete the DNS actions completely and correctly.
 
@@ -66,9 +66,9 @@ Note down the value you specify when completing the step "Enter a DNS domain nam
 
 ### Create users and reset passwords
 
-This section includes steps to create users and change their password, which is required to cause the users to propagate successfully through LDAP. If you have an existing Azure Entra Domain Services managed domain, this step may not be necessary.
+This section includes steps to create users and change their password, which is required to cause the users to propagate successfully through LDAP. If you have an existing Microsoft Entra Domain Services managed domain, this step may not be necessary.
 
-1. Within the Azure portal, ensure the subscription corresponding to the Azure Entra ID tenant is the currently active directory. To learn how to select the correct directory see [Associate or add an Azure subscription to your Microsoft Entra tenant](/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory). If the incorrect directory is selected, you either aren't be able to create users, or you create users in the wrong directory.
+1. Within the Azure portal, ensure the subscription corresponding to the Microsoft Entra ID tenant is the currently active directory. To learn how to select the correct directory see [Associate or add an Azure subscription to your Microsoft Entra tenant](/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory). If the incorrect directory is selected, you either aren't be able to create users, or you create users in the wrong directory.
 1. In the search box at the top of the Azure portal, enter "Users".
 1. Select **New user**.
 1. Ensure **Create user** is selected.
@@ -96,7 +96,7 @@ When you reach the section, [Lock down secure LDAP access over the internet](/az
 
 Before you execute the steps in [Test queries to the managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps#test-queries-to-the-managed-domain), do the following steps to enable the testing to succeed.
 
-   1. In the portal, visit the overview page for the Azure Entra Domain Services instance.
+   1. In the portal, visit the overview page for the Microsoft Entra Domain Services instance.
    1. In the Settings area, select **Properties**.
    1. In the right of the page, scroll down until you see **Admin group**. Under this heading should be a link for **AAD DC Administrators**. Select that link.
    1. In the **Manage** section, select **Members**.
@@ -116,25 +116,25 @@ In the section [Configure DNS zone for external access](/azure/active-directory-
 
 If the value of the **Secure LDAP external IP address** isn't readily apparent, follow these steps to get the IP address.
 
-1. In the portal, find the resource group that contains the Azure Entra Domain Services resource.
-1. In the list of resources, select the public IP resource for the Azure Entra Domain Services resource, as shown next. The public IP likely starts with `aads`.
+1. In the portal, find the resource group that contains the Microsoft Entra Domain Services resource.
+1. In the list of resources, select the public IP resource for the Microsoft Entra Domain Services resource, as shown next. The public IP likely starts with `aads`.
    :::image type="content" source="media/migrate-weblogic-to-entraid-via-ldap/alternate-secure-ip-address-technique.png" alt-text="Browser showing how to select the public IP.":::
 1. The public IP is shown next to the label, **IP address**.
 
 Don't execute the steps in [Clean-up resources](/azure/active-directory-domain-services/tutorial-configure-ldaps#clean-up-resources) until instructed to do so in this guide.
 
-With the above variations in mind, complete [Configure secure LDAP for an Azure Entra Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps). We can now collect the values necessary to provide to the WLS Configuration.
+With the above variations in mind, complete [Configure secure LDAP for an Microsoft Entra Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps). We can now collect the values necessary to provide to the WLS Configuration.
 
 >[!NOTE]
 > Please wait for the secure LDAP configuration to complete processing before moving on to the next section.
 
 ### Disable weak TLS v1
 
-By default, Azure Entra Domain Services enables the use of TLS v1, which is considered weak and not supported in WebLogic Server 14 and later. 
+By default, Microsoft Entra Domain Services enables the use of TLS v1, which is considered weak and not supported in WebLogic Server 14 and later. 
 
 This section walks you through how to disable TLS v1 cipher.
 
-First, get the resource ID of the Azure Entra Domain Service managed domain that enables LDAP. The following example gets the ID of an Azure Domain Service instance named `aaddscontoso.com` in a resource group named `aadds-rg`.
+First, get the resource ID of the Microsoft Entra Domain Service managed domain that enables LDAP. The following example gets the ID of an Azure Domain Service instance named `aaddscontoso.com` in a resource group named `aadds-rg`.
 
 ```azurecli
 AADDS_ID=$(az resource show --resource-group aadds-rg --resource-type "Microsoft.AAD/DomainServices" --name aaddscontoso.com --query "id" --output tsv)
@@ -163,22 +163,22 @@ For more information, see [Harden a Microsoft Entra Domain Services managed doma
 >[!NOTE]
 > Please note that if you add a lock to the resource or resource group, you will encounter an error message when attempting to update the managed domain, such as: "Message: The scope '/subscriptions/xxxxx/resourceGroups/aadds-rg/providers/Microsoft.AAD/domainServices/aaddscontoso.com' cannot perform write operation because the following scope(s) are locked: '/subscriptions/xxxxx/resourceGroups/aadds-rg'. Please remove the lock and try again." 
 
-Write down the information of the Azure Entra Domain Service managed domain that is used in later section.
+Write down the information of the Microsoft Entra Domain Service managed domain that is used in later section.
 
 | Description   | Details | 
 |---------------|---------|
-| Server Host | This value is the public DNS name you saved when completing [Create and configure an Azure Entra ID Domain Services managed domain](/azure/active-directory-domain-services/tutorial-create-instance). |
+| Server Host | This value is the public DNS name you saved when completing [Create and configure an Microsoft Entra ID Domain Services managed domain](/azure/active-directory-domain-services/tutorial-create-instance). |
 | Secure LDAP external IP address | This value is the **Secure LDAP external IP address** you saved in the [Configure DNS zone for external access](/azure/active-directory-domain-services/tutorial-configure-ldaps#configure-dns-zone-for-external-access) section.|
 | Principal   | Return to *LDP.exe*.  Do the following steps to obtain additional value for principal of your cloud only use. <ol><li>In the **View** menu, select **Tree**.</li><li>In the **Tree View** dialog, leave **BaseDN** blank and select **OK**.</li><li>Right-click in the right side pane and select **Clear output**.</li><li>Expand the tree view on the left and select the entry that starts with "OU=AADDC Users".</li><li>In the **Browse** menu, select **Search**.</li><li>In the dialog that appears, accept the defaults and select **Run**.</li><li>After output appears in the right side pane, select **Close**, next to **Run**.</li><li>Scan the output for the **Dn** entry corresponding to the user you added to the "AAD DC Administrators" group.  It starts with **Dn: CN=&lt;user name&gt;OU=AADDC Users**.</li></ol> |
 | User Base DN and Group Base DN | For the purposes of this tutorial, the values for both of these properties are the same: principal of "OU=AADDC Users".|
 | Password for Principal | This value is the password for the user that was added to the **AAD DC Administrators** group. |
-| Public key for Azure Entra Domain Service LDAPS connection | This value *.cer* file you were asked to save aside when you completed the step, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers).
+| Public key for Microsoft Entra Domain Service LDAPS connection | This value *.cer* file you were asked to save aside when you completed the step, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers).
 
 ## WLS Configuration
 
-This section helps you collect the parameter values from the Azure Entra Domain Service managed domain deployed earlier.
+This section helps you collect the parameter values from the Microsoft Entra Domain Service managed domain deployed earlier.
 
-When you deploy any of the Azure Applications listed in [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic), you can follow the steps to integrate Azure Entra Domain Service managed domain with WLS.
+When you deploy any of the Azure Applications listed in [Oracle WebLogic Server Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic), you can follow the steps to integrate Microsoft Entra Domain Service managed domain with WLS.
 
 After the Azure Application deployment finishes, you can find the URL to access WebLogic Administration Console with steps:
 
@@ -189,7 +189,7 @@ After the Azure Application deployment finishes, you can find the URL to access 
 1. The **adminConsole** value is the fully qualified, public Internet visible link to the WLS admin console. Select the copy icon next to the field value to copy the link to your clipboard and save it in a file.
 
 >[!NOTE]
-> This tutorial demonstrates how to use TLS v1.2 to connect to the Azure Entra Domain Service managed domain LDAP server. To ensure compatibility, you need to enable TLS v1.2 for deployments on JDK 8. 
+> This tutorial demonstrates how to use TLS v1.2 to connect to the Microsoft Entra Domain Service managed domain LDAP server. To ensure compatibility, you need to enable TLS v1.2 for deployments on JDK 8. 
 > You can verify your JDK version with steps:
 > - Paste the value of **adminConsole** to your browser and log into the WLS admin console. 
 > - Under **Domain Structure**, select **Environment** -> **Servers** -> **admin** -> **Monitoring** -> **General**. You find Java version next to label **Java Version**.
@@ -202,9 +202,9 @@ After the Azure Application deployment finishes, you can find the URL to access 
 > - Under **Change Center**, select **Activate Changes** to enable the option.
 > :::image type="content" source="media/migrate-weblogic-to-entraid-via-ldap/wlsconsole-enable-tls-v12.png" alt-text="Browser showing how to set TLS v1.2.":::
 
-### Integrating Azure Entra Domain Service managed domain with WLS
+### Integrating Microsoft Entra Domain Service managed domain with WLS
 
-With the WebLogic admin server running, and the Azure Entra Domain Service managed domain deployed and secured with LDAPs, it's now possible to launch the configuration. 
+With the WebLogic admin server running, and the Microsoft Entra Domain Service managed domain deployed and secured with LDAPs, it's now possible to launch the configuration. 
 
 #### Upload and import the public CA
 
@@ -372,7 +372,7 @@ With certificate imported and secure LDAP access traffic resolved, you're able t
       | **SSLEnabled** | Checked. | - |
 
     - Under **Users** section:
-    
+
       | Item | Value | Sample Value |
       |-------|------------|-------------|
       | **User Base DN** | Your user base DN | `OU=AADDC Users,DC=aaddscontoso,DC=com` |
@@ -432,7 +432,7 @@ While standing up the secure LDAP in the preceding steps, we set the source as *
 
 ## Clean up resources
 
-Now it's time to follow the steps on the [Clean up resources](/azure/active-directory-domain-services/tutorial-configure-ldaps#clean-up-resources) section in [Configure secure LDAP for an Azure Entra Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps#clean-up-resources).
+Now it's time to follow the steps on the [Clean up resources](/azure/active-directory-domain-services/tutorial-configure-ldaps#clean-up-resources) section in [Configure secure LDAP for an Microsoft Entra Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps#clean-up-resources).
 
 ## Next steps
 
