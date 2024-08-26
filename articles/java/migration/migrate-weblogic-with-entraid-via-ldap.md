@@ -361,29 +361,23 @@ With certificate imported and secure LDAP access traffic resolved, you're able t
     - For **Control Flag**, select **SUFFICIENT**.
     - Select **Save** to save the change.
   - For **Configuration** -> **Provider Specific**, input the Entra Domain Services managed domain connection information you obtained previously. Steps to obtain the value are listed in the table of [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](#create-and-configure-an-azure-entra-domain-services-managed-domain).
-    - Under **Connection** section:
 
-      | Item | Value | Sample Value |
-      |-------|--------------|-------------|
-      | **Host** | managed domain LDAP sever DNS, `ldaps.<managed-domain-dns-name>` | `ldaps.aaddscontoso.com` |
-      | **Port** | `636` | `636` |
-      | **Principal** | Principal of your cloud only user | `CN=WLSTest,OU=AADDC Users,DC=aaddscontoso,DC=com` |
-      | **Credential** | Credential of your cloud only user | - |
-      | **SSLEnabled** | Checked. | - |
+    Fill in the following required fields, keep other fields with default value.
 
-    - Under **Users** section:
+    | Item | Value | Sample Value |
+    |-------|--------------|-------------|
+    | **Host** | managed domain LDAP sever DNS, `ldaps.<managed-domain-dns-name>` | `ldaps.aaddscontoso.com` |
+    | **Port** | `636` | `636` |
+    | **Principal** | Principal of your cloud only user | `CN=WLSTest,OU=AADDC Users,DC=aaddscontoso,DC=com` |
+    | **Credential** | Credential of your cloud only user | - |
+    | **SSLEnabled** | Checked. | - |
+    | **User Base DN** | Your user base DN | `OU=AADDC Users,DC=aaddscontoso,DC=com` |
+    | **User From Name Filter** | `(&(sAMAccountName=%u)(objectclass=user))` | `(&(sAMAccountName=%u)(objectclass=user))` |
+    | **User Name Attribute** | `sAMAccountName` | `sAMAccountName` |
+    | **User Object Class** | `user` | `user` |
+    | **Group Base DN** | Your group base DN | `OU=AADDC Users,DC=aaddscontoso,DC=com` |
 
-      | Item | Value | Sample Value |
-      |-------|------------|-------------|
-      | **User Base DN** | Your user base DN | `OU=AADDC Users,DC=aaddscontoso,DC=com` |
-      | **User From Name Filter** | `(&(sAMAccountName=%u)(objectclass=user))` | - |
-      | **User Name Attribute** | `sAMAccountName` | - |
-      | **User Object Class** | `user` | - |
-
-    - Under **Groups** section:
-      - For **Group Base DN**, fill in group base DN with your DN, this tutorial uses the sample value with user base DN `OU=AADDC Users,DC=aaddscontoso,DC=com`
-      - Keep other fields with default value.
-    - Select **Save** to save the configuration.
+  - Select **Save** to save the provider.
 * Select **Performance** next to **Configuration**:
     - Check **Enable Group Membership Lookup Hierarchy Caching**.
     - Check **Enable SID To Group Lookup Caching**.
@@ -392,6 +386,7 @@ With certificate imported and secure LDAP access traffic resolved, you're able t
 
 >[!NOTE]
 > Pay attention to the hostname of the LDAP server; it should be in the format `ldaps.<managed-domain-dns-name>`. In this example, the value is `ldaps.aaddscontoso.com`.
+> If you encounter an error such as **[Security:090834]No LDAP connection could be established. ldap://dscontoso.com:636 Cannot contact LDAP server**, try restarting the adminVM to resolve the issue.
 
 The WLS admin server must be restarted for the changes to take effect.
 
