@@ -471,7 +471,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240823.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240823.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240826.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240826.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -570,7 +570,7 @@
 | Swagger Validation Common | npm [0.1.2](https://www.npmjs.com/package/@azure/swagger-validation-common/v/0.1.2) |  |  |
 | Tools - Azcopy Darwin | npm [10.26.0](https://www.npmjs.com/package/@azure-tools/azcopy-darwin/v/10.26.0) |  | GitHub [10.26.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Azcopy Linux | npm [10.26.0](https://www.npmjs.com/package/@azure-tools/azcopy-linux/v/10.26.0) |  | GitHub [10.26.0](https://github.com/Azure/azure-storage-azcopy) |
-| Tools - Azcopy Node | npm [3.4.1](https://www.npmjs.com/package/@azure-tools/azcopy-node/v/3.4.1) |  | GitHub [3.4.1](https://github.com/Azure/azure-storage-azcopy) |
+| Tools - Azcopy Node | npm [3.4.2](https://www.npmjs.com/package/@azure-tools/azcopy-node/v/3.4.2) |  | GitHub [3.4.2](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Azcopy Win32 | npm [10.26.0](https://www.npmjs.com/package/@azure-tools/azcopy-win32/v/10.26.0) |  | GitHub [10.26.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Azcopy Win64 | npm [10.26.0](https://www.npmjs.com/package/@azure-tools/azcopy-win64/v/10.26.0) |  | GitHub [10.26.0](https://github.com/Azure/azure-storage-azcopy) |
 | Tools - Data Store | npm [4.8.0](https://www.npmjs.com/package/@azure-tools/datastore/v/4.8.0) |  | GitHub [4.8.0](https://github.com/Azure/perks) |

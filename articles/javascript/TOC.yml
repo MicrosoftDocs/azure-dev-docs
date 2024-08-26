@@ -5,12 +5,10 @@
     items:
     - name: What is Azure?
       href: core/what-is-azure-for-javascript-development.md
-    - name: Install Node.js
-      href: core/install-nodejs-develop-azure-sdk-project.md
-    - name: Recommended Tools
-      href: node-azure-tools.md
     - name: Development environment
       href: core/configure-local-development-environment.md
+    - name: Recommended Tools
+      href: node-azure-tools.md
   - name: Host and build web apps
     items:
     - name: Select hosting service
@@ -19,8 +17,6 @@
       href: how-to/deploy-web-app.md
     - name: Configure
       items: 
-      - name: Configure app settings
-        href: how-to/configure-web-app-settings.md
       - name: Configure domain name
         href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
   - name: Azure AI apps 

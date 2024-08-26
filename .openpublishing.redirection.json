@@ -311,6 +311,10 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/javascript/how-to/configure-web-app-settings.md",
+      "redirect_url": "/azure/developer/javascript"
+    },
+    {
       "source_path": "articles/javascript/how-to/select-hosting-service.md",
       "redirect_url": "/azure/developer/intro/hosting-apps-on-azure"
     },
@@ -1622,6 +1626,11 @@
     {
       "source_path":"articles/javascript/how-to/with-web-app/deploy-msal-sdk-authentication-expressjs.md",
       "redirect_url": "/entra/identity-platform/quickstart-web-app-nodejs-msal-sign-in"        
+    },
+    {
+      "source_path":"articles/javascript/core/install-nodejs-develop-azure-sdk-project.md",
+      "redirect_url": "/azure/developer/javascript/core/configure-local-development-environment"        
+
     },
     {
       "source_path": "articles/ansible/configure-in-docker-container.md",
