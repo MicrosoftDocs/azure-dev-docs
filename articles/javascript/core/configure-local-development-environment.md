@@ -65,7 +65,7 @@ Azure development with JavaScript on your local workstation, we suggest you inst
 
 ### Azure hosting runtime 
 
-When you use an Azure resource as the hosting environment for your application, such as an Azure web app or Azure Functions, [verify your local Node.js development environment runtime version of Node.js](what-is-azure-for-javascript-development.md#4-verify-runtime-for-javascript-apps-hosted-in-azure) matches the Azure resource runtime you plan to use.
+When you use an Azure resource as the hosting environment for your application, such as an Azure web app or Azure Functions, [verify your local Node.js development environment runtime version of Node.js](what-is-azure-for-javascript-development.md#verify-runtime-for-javascript-apps-hosted-in-azure) matches the Azure resource runtime you plan to use.
 
 ### Recommended local installations
 
