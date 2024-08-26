@@ -240,7 +240,7 @@ Upload and import the certificate to the VM that runs admin server with steps:
       --command-id RunShellScript \
       --scripts "mv /home/${ADMIN_VM_USER}/${CER_FILE_NAME} /u01/domains; chown oracle:oracle ${CA_PATH}"
    ```
-* Import the certificate to your keysore. The Azure application provisions WLS with default trust store in `<jvm-path-to-security>/cacerts`. You can import the Entra Domain Service managed domain public CA using the following commands. 
+* Import the certificate to your keysore. The Azure application provisions WLS with default trust store in `<jvm-path-to-security>/cacerts`. The specific path may vary depending on the JDK version. You can import the Entra Domain Service managed domain public CA using the following commands. 
 
    Query the script that used to set domain environment variables.
 
@@ -268,7 +268,7 @@ Upload and import the certificate to the VM that runs admin server with steps:
          --scripts ". ${DOMIAN_FILE_PATH};export JVM_CER_PATH=\${JAVA_HOME}/lib/security/cacerts;\${JAVA_HOME}/bin/keytool -noprompt -import -alias aadtrust -file ${CA_PATH} -keystore \${JVM_CER_PATH} -storepass changeit"
    ```
 
-   ##### [Older Java version](#tab/oldjava)
+   ##### [Java 8](#tab/oldjava)
 
    ```azurecli
    az vm run-command invoke \
@@ -331,7 +331,19 @@ az vm run-command invoke \
 Run the following command to restart the admin server to load the configurations:
 
 ```azurecli
-az vm restart --resource-group $RESOURCE_GROUP_NAME --name ${ADMIN_VM_NAME}
+az vm run-command invoke \
+         --resource-group $RESOURCE_GROUP_NAME \
+         --name ${ADMIN_VM_NAME} \
+         --command-id RunShellScript \
+         --scripts "systemctl stop wls_admin"
+```
+
+```azurecli
+az vm run-command invoke \
+         --resource-group $RESOURCE_GROUP_NAME \
+         --name ${ADMIN_VM_NAME} \
+         --command-id RunShellScript \
+         --scripts "systemctl start wls_admin"
 ```
 
 #### Create and configure LDAP authentication provider
@@ -350,21 +362,24 @@ With certifcate imported and secure LDAP access traffic resolved, you are able t
     - Select **Save** to save the change.
   - For **Configuration** -> **Provider Specific**, input the Entra Domain Services managed domain connection information you obtained previously. Steps to obtain the value are listed in the table of [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](#create-and-configure-an-azure-entra-domain-services-managed-domain).
     - Under **Connection** section:
-      - For **Host**, fill in the managed domain DNS, the value is `ldaps.<managed-domain-dns-name>`. This tutorial uses `ldaps.aaddscontoso.com`
-      - For **Port**, fill in `636`.
-      - For **Principal**, fill in the principal of your cloud only user, this tutorial uses `CN=WLSTest,OU=AADDC Users,DC=aaddscontoso,DC=com`
-      - For **Credential**, fill in the credential of your cloud only user.
-      - Check **SSLEnabled**.
+      | Item | Value | Sample Value |
+      |-------|--------------|-------------|
+      | **Host** | managed domain LDAP sever DNS, `ldaps.<managed-domain-dns-name>` | `ldaps.aaddscontoso.com` |
+      | **Port** | `636` | `636` |
+      | **Principal** | Principal of your cloud only user | `CN=WLSTest,OU=AADDC Users,DC=aaddscontoso,DC=com` |
+      | **Credential** | Credential of your cloud only user | - |
+      | **SSLEnabled** | Checked. | - |
     - Under **Users** section:
-      - For **User Base DN**, fill in the user base DN with your DN, this tutorial uses `OU=AADDC Users,DC=aaddscontoso,DC=com`
-      - For **User From Name Filter**, fill in `(&(sAMAccountName=%u)(objectclass=user))`
-      - For **User Name Attribute**, fill in `sAMAccountName`
-      - For **User Object Class**, fill in `user`
-      - Keep other fields with default vaule.
+      | Item | Value | Sample Value |
+      |-------|------------|-------------|
+      | **User Base DN** | Your user base DN | `OU=AADDC Users,DC=aaddscontoso,DC=com` |
+      | **User From Name Filter** | `(&(sAMAccountName=%u)(objectclass=user))` | - |
+      | **User Name Attribute** | `sAMAccountName` | - |
+      | **User Object Class** | `user` | - |
     - Under **Groups** section:
       - For **Group Base DN**, fill in group base DN with your DN, this tutorial uses the sample value with user base DN `OU=AADDC Users,DC=aaddscontoso,DC=com`
       - Keep other fields with default vaule.
-    - Selec **Save** to save the configuration. Ignore error message "<span style="color:red">[Security:090834]No LDAP connection could be established. ldap://dscontoso.com:636 Cannot contact LDAP server</span>". We have to restart admin server to resolve the error.
+    - Selec **Save** to save the configuration.
 * Seelct **Performance** next to **Configuration**:
     - Check **Enable Group Membership Lookup Hierarchy Caching**.
     - Check **Enable SID To Group Lookup Caching**.
@@ -379,7 +394,19 @@ The WLS admin server must be restarted for the changes to take effect.
 Run the following command to restart the admin server:
 
 ```azurecli
-az vm restart --resource-group $RESOURCE_GROUP_NAME --name ${ADMIN_VM_NAME}
+az vm run-command invoke \
+         --resource-group $RESOURCE_GROUP_NAME \
+         --name ${ADMIN_VM_NAME} \
+         --command-id RunShellScript \
+         --scripts "systemctl stop wls_admin"
+```
+
+```azurecli
+az vm run-command invoke \
+         --resource-group $RESOURCE_GROUP_NAME \
+         --name ${ADMIN_VM_NAME} \
+         --command-id RunShellScript \
+         --scripts "systemctl start wls_admin"
 ```
 
 ### Validation
@@ -409,3 +436,4 @@ Explore other aspects of migrating WebLogic Server apps to Azure.
 
 > [!div class="nextstepaction"]
 > [Migrate WebLogic Server applications to Azure Virtual Machines](./migrate-weblogic-to-virtual-machines.md)
+> 
