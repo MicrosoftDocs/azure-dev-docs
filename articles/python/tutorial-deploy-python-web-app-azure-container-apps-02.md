@@ -427,7 +427,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** Fill out the **Networking** settings as follows:
+        **Step 4.** Fill out the **Networking** settings as follows:
 
         * **Connectivity method** &rarr; Select **Public access**.
         * **Allow public access from any Azure service** &rarr; Select the checkbox, that is, allow access. 
