@@ -362,20 +362,24 @@ With certifcate imported and secure LDAP access traffic resolved, you are able t
     - Select **Save** to save the change.
   - For **Configuration** -> **Provider Specific**, input the Entra Domain Services managed domain connection information you obtained previously. Steps to obtain the value are listed in the table of [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](#create-and-configure-an-azure-entra-domain-services-managed-domain).
     - Under **Connection** section:
-      | Item | Value | Sample Value |
-      |-------|--------------|-------------|
-      | **Host** | managed domain LDAP sever DNS, `ldaps.<managed-domain-dns-name>` | `ldaps.aaddscontoso.com` |
-      | **Port** | `636` | `636` |
-      | **Principal** | Principal of your cloud only user | `CN=WLSTest,OU=AADDC Users,DC=aaddscontoso,DC=com` |
-      | **Credential** | Credential of your cloud only user | - |
-      | **SSLEnabled** | Checked. | - |
+
+| Item | Value | Sample Value |
+|-------|--------------|-------------|
+| **Host** | managed domain LDAP sever DNS, `ldaps.<managed-domain-dns-name>` | `ldaps.aaddscontoso.com` |
+| **Port** | `636` | `636` |
+| **Principal** | Principal of your cloud only user | `CN=WLSTest,OU=AADDC Users,DC=aaddscontoso,DC=com` |
+| **Credential** | Credential of your cloud only user | - |
+| **SSLEnabled** | Checked. | - |
+
     - Under **Users** section:
-      | Item | Value | Sample Value |
-      |-------|------------|-------------|
-      | **User Base DN** | Your user base DN | `OU=AADDC Users,DC=aaddscontoso,DC=com` |
-      | **User From Name Filter** | `(&(sAMAccountName=%u)(objectclass=user))` | - |
-      | **User Name Attribute** | `sAMAccountName` | - |
-      | **User Object Class** | `user` | - |
+
+| Item | Value | Sample Value |
+|-------|------------|-------------|
+| **User Base DN** | Your user base DN | `OU=AADDC Users,DC=aaddscontoso,DC=com` |
+| **User From Name Filter** | `(&(sAMAccountName=%u)(objectclass=user))` | - |
+| **User Name Attribute** | `sAMAccountName` | - |
+| **User Object Class** | `user` | - |
+
     - Under **Groups** section:
       - For **Group Base DN**, fill in group base DN with your DN, this tutorial uses the sample value with user base DN `OU=AADDC Users,DC=aaddscontoso,DC=com`
       - Keep other fields with default vaule.
