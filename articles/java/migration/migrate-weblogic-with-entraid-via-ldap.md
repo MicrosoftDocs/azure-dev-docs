@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 
 # End-user authorization and authentication for migrating Java apps on WebLogic Server to Azure
 
-This guide will help you to enable enterprise grade end-user authentication and authorization for Java apps on WebLogic Server using Azure Entra ID.
+This guide helps you to enable enterprise grade end-user authentication and authorization for Java apps on WebLogic Server using Azure Entra ID.
 
 Java EE developers expect the [standard platform security mechanisms](https://javaee.github.io/tutorial/security-intro.html#BNBWJ) to "just work", even when moving their workloads to Azure.  [Oracle WebLogic Server (WLS) Azure Applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic) let you populate the built-in security realm with users from Azure Entra Domain Services.  Use the standard `<security-role>` element, in your Java EE on Azure applications; the user information flows from Azure Entra Domain Services through Lightweight Directory Access Protocol (LDAP).
 
@@ -62,13 +62,13 @@ This section walks you through a separate tutorial to stand up an Azure Entra Do
 
 Complete the tutorial [Create and configure a Microsoft Entra Domain Services managed domain](/azure/active-directory-domain-services/tutorial-create-instance) up to but not including the section [Enable user accounts for Domain Services](/azure/active-directory-domain-services/tutorial-create-instance#enable-user-accounts-for-azure-ad-ds).  That section requires special treatment in the context of this tutorial, as described in the next section.  Be sure to complete the DNS actions completely and correctly.
 
-Note down the value you specify when completing the step "Enter a DNS domain name for your managed domain."  You'll use it later in this article.
+Note down the value you specify when completing the step "Enter a DNS domain name for your managed domain."  You use it later in this article.
 
 ### Create users and reset passwords
 
 This section includes steps to create users and change their password, which is required to cause the users to propagate successfully through LDAP.  If you have an existing Azure Entra Domain Services managed domain, this step may not be necessary.
 
-1. Within the Azure portal, ensure the subscription corresponding to the Azure Entra ID tenant is the currently active directory.  To learn how to select the correct directory see [Associate or add an Azure subscription to your Microsoft Entra tenant](/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory).  If the incorrect directory is selected, you either won't be able to create users, or you'll create users in the wrong directory.
+1. Within the Azure portal, ensure the subscription corresponding to the Azure Entra ID tenant is the currently active directory.  To learn how to select the correct directory see [Associate or add an Azure subscription to your Microsoft Entra tenant](/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory).  If the incorrect directory is selected, you either won't be able to create users, or you create users in the wrong directory.
 1. In the search box at the top of the Azure portal, enter "Users".
 1. Select **New user**.
 1. Ensure **Create user** is selected.
@@ -79,7 +79,7 @@ This section includes steps to create users and change their password, which is 
 1. In the panel that appears, select **Reset password**.
 1. Note down the temporary password.
 1. In an "incognito" browser window, visit [the Azure portal](https://portal.azure.com/) and log in with the user's credentials and password.
-1. Change the password when prompted.  Note down the new password.  You'll use it later.
+1. Change the password when prompted.  Note down the new password.  You use it later.
 1. Log out and close the "incognito" window.
 
 Repeat the steps from "Select **New user**" through "Log and out close" for each user you want to enable.
@@ -90,9 +90,9 @@ This section walks you through a separate tutorial to extract values for use in 
 
 First, open the tutorial [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps) in a separate browser window so you can look at the below variations as you run through the tutorial.  
 
-When you reach the section, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers), take note of where you save the certificate file ending in *.cer*.  We'll use the certificate as input to the WLS configuration.
+When you reach the section, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers), take note of where you save the certificate file ending in *.cer*.  We use the certificate as input to the WLS configuration.
 
-When you reach the section, [Lock down secure LDAP access over the internet](/azure/active-directory-domain-services/tutorial-configure-ldaps#lock-down-secure-ldap-access-over-the-internet), specify **Any** as the source.  We'll tighten the security rule with a specific IP address later in this guide.
+When you reach the section, [Lock down secure LDAP access over the internet](/azure/active-directory-domain-services/tutorial-configure-ldaps#lock-down-secure-ldap-access-over-the-internet), specify **Any** as the source.  We tighten the security rule with a specific IP address later in this guide.
 
 Before you execute the steps in [Test queries to the managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps#test-queries-to-the-managed-domain), do the following steps to enable the testing to succeed.
 
@@ -112,16 +112,16 @@ Before you execute the steps in [Test queries to the managed domain](/azure/acti
    > * When logging in to LDAP with *LDP.exe*, the username is just the part before the @.  For example, if the user is `alice@contoso.onmicrosoft.com`, the username for the *LDP.exe* bind action is `alice`.  Also, leave *LDP.exe* running and logged in for use in subsequent steps.
    >
 
-In the section [Configure DNS zone for external access](/azure/active-directory-domain-services/tutorial-configure-ldaps#configure-dns-zone-for-external-access), note down the value for **Secure LDAP external IP address**.  You'll use it later.
+In the section [Configure DNS zone for external access](/azure/active-directory-domain-services/tutorial-configure-ldaps#configure-dns-zone-for-external-access), note down the value for **Secure LDAP external IP address**.  You use it later.
 
-If the value of the **Secure LDAP external IP address** is not readily apparent, follow these steps to get the IP address.
+If the value of the **Secure LDAP external IP address** isn't readily apparent, follow these steps to get the IP address.
 
 1. In the portal, find the resource group that contains the Azure Entra Domain Services resource.
 1. In the list of resources, select the public IP resource for the Azure Entra Domain Services resource, as shown next.  The public IP will likely start with `aads`.
    :::image type="content" source="media/migrate-weblogic-to-entraid-via-ldap/alternate-secure-ip-address-technique.png" alt-text="Browser showing how to select the public IP.":::
 1. The public IP is shown next to the label, **IP address**.
 
-Do not execute the steps in [Clean-up resources](/azure/active-directory-domain-services/tutorial-configure-ldaps#clean-up-resources) until instructed to do so in this guide.
+Don't execute the steps in [Clean-up resources](/azure/active-directory-domain-services/tutorial-configure-ldaps#clean-up-resources) until instructed to do so in this guide.
 
 With the above variations in mind, complete [Configure secure LDAP for an Azure Entra Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps).  We can now collect the values necessary to provide to the WLS Configuration.
 
@@ -146,7 +146,7 @@ Run the following command to disable TLS v1:
 az resource update --ids $AADDS_ID --set properties.domainSecuritySettings.tlsV1=Disabled
 ```
 
-The output will display `"tlsV1": "Disabled"` for `domainSecuritySettings`, as shown in the following example:
+The output displays `"tlsV1": "Disabled"` for `domainSecuritySettings`, as shown in the following example:
 
 ```text
 "domainSecuritySettings": {
@@ -169,8 +169,8 @@ Write down the information of the Azure Entra Domain Service managed domain that
 |---------------|---------|
 | Server Host | This value is the public DNS name you saved when completing [Create and configure an Azure Entra ID Domain Services managed domain](/azure/active-directory-domain-services/tutorial-create-instance). |
 | Secure LDAP external IP address | This value is the **Secure LDAP external IP address** you saved in the [Configure DNS zone for external access](/azure/active-directory-domain-services/tutorial-configure-ldaps#configure-dns-zone-for-external-access) section.|
-| Principal   | Return to *LDP.exe*.  Do the following steps to obtain additional value for `wlsLDAPPrincipal`. <ol><li>In the **View** menu, select **Tree**.</li><li>In the **Tree View** dialog, leave **BaseDN** blank and select **OK**.</li><li>Right-click in the right side pane and select **Clear output**.</li><li>Expand the tree view on the left and select the entry that starts with "OU=AADDC Users".</li><li>In the **Browse** menu, select **Search**.</li><li>In the dialog that appears, accept the defaults and select **Run**.</li><li>After output appears in the right side pane, select **Close**, next to **Run**.</li><li>Scan the output for the **Dn** entry corresponding to the user you added to the "AAD DC Administrators" group.  It will start with **Dn: CN=&lt;user name&gt;OU=AADDC Users**.</li></ol> |
-| User Base DN and Group Base DN | For the purposes of this tutorial, the values for both of these properties are the same: the part of the **wlsLDAPPrincipal** after the first comma.|
+| Principal   | Return to *LDP.exe*.  Do the following steps to obtain additional value for principal of your cloud only use. <ol><li>In the **View** menu, select **Tree**.</li><li>In the **Tree View** dialog, leave **BaseDN** blank and select **OK**.</li><li>Right-click in the right side pane and select **Clear output**.</li><li>Expand the tree view on the left and select the entry that starts with "OU=AADDC Users".</li><li>In the **Browse** menu, select **Search**.</li><li>In the dialog that appears, accept the defaults and select **Run**.</li><li>After output appears in the right side pane, select **Close**, next to **Run**.</li><li>Scan the output for the **Dn** entry corresponding to the user you added to the "AAD DC Administrators" group.  It starts with **Dn: CN=&lt;user name&gt;OU=AADDC Users**.</li></ol> |
+| User Base DN and Group Base DN | For the purposes of this tutorial, the values for both of these properties are the same: principal of "OU=AADDC Users".|
 | Password for Principal | This value is the password for the user that has been added to the **AAD DC Administrators** group. |
 | Public key for Azure Entra Domain Service LDAPS connection | This value *.cer* file you were asked to save aside when you completed the step, [Export a certificate for client computers](/azure/active-directory-domain-services/tutorial-configure-ldaps#export-a-certificate-for-client-computers).
 
@@ -192,7 +192,7 @@ After the Azure Application deployment finishes, you can find the URL to access 
 > This tutorial demonstrates how to use TLS v1.2 to connect to the Azure Entra Domain Service managed domain LDAP server. To ensure compatibility, you need to enable TLS v1.2 for deployments on JDK 8. 
 > You can verify your JDK version with steps:
 > - Paste the value of **adminConsole** to your browser and log into the WLS admin console. 
-> - Under **Domain Structure**, select **Environment** -> **Servers** -> **admin** -> **Monitoring** -> **General**. You will find Java version next to label **Java Version**.
+> - Under **Domain Structure**, select **Environment** -> **Servers** -> **admin** -> **Monitoring** -> **General**. You find Java version next to label **Java Version**.
 > :::image type="content" source="media/migrate-weblogic-to-entraid-via-ldap/wlsconsole-java-version.png" alt-text="Browser showing how to find the Java Version.":::
 > 
 > If your Java version is 8, enable TLS v1.2 with steps:
@@ -210,10 +210,10 @@ With the WebLogic admin server running, and the Azure Entra Domain Service manag
 
 WLS communicates with the managed domain using Secure LDAP (LDAPS), which is LDAP over Secure Sockets Layer (SSL) or Transport Layer Security (TLS). To establish this connection, you must upload and import the public Certificate Authority (CA) certificate (.cer file) into the WLS trust keystore. 
 
-Upload and import the certificate to the VM that runs admin server with steps:
+Upload and import the certificate to the virtual machine that runs admin server with steps:
 
 * Enable access to **adminVM** following [Connect to the virtual machine](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine#connect-to-the-virtual-machine).
-* Open a Bash terminal, run the following command to upload the certificate. Replace value of the **ADMIN_PUBLIC_IP** with the real value (you can find it from Azure portal) . You are required to input the password that used to connect the machine.
+* Open a Bash terminal, run the following command to upload the certificate. Replace value of the **ADMIN_PUBLIC_IP** with the real value (you can find it from Azure portal) . You're required to input the password that used to connect the machine.
 
    ```bash
    export CER_FILE_NAME=azure-ad-ds-client.cer
@@ -280,7 +280,7 @@ Upload and import the certificate to the VM that runs admin server with steps:
 
    ---
 
-   You will find output similar to content:
+   You'll find output similar to content:
 
    ```txt
    {
@@ -311,9 +311,9 @@ Since [Configure secure LDAP for a Microsoft Entra Domain Services managed domai
 
 #### Resolve traffic for secure LDAP access
 
-With secure LDAP access enabled over the internet, you can update the your DNS zone so that client computers can find this managed domain. The **Secure LDAP external IP address** is listed on the **Properties** tab for your managed domain, see [Configure DNS zone for external access](/entra/identity/domain-services/tutorial-configure-ldaps#configure-dns-zone-for-external-access).
+With secure LDAP access enabled over the internet, you can update your DNS zone so that client computers can find this managed domain. The **Secure LDAP external IP address** is listed on the **Properties** tab for your managed domain, see [Configure DNS zone for external access](/entra/identity/domain-services/tutorial-configure-ldaps#configure-dns-zone-for-external-access).
 
-If you don't have a registerd DNS zone, you can add an entry in the **adminVM** hosts file,to resolves traffic for `ldaps.<managed-domain-dns-name>` (here is `ldaps.aaddscontoso.com`) to the external IP address. Change the value with yours before running the command.
+If you don't have a registered DNS zone, you can add an entry in the **adminVM** hosts file,to resolve traffic for `ldaps.<managed-domain-dns-name>` (here's `ldaps.aaddscontoso.com`) to the external IP address. Change the value with yours before running the command.
 
 ```bash
 export LDAPS_DNS=ldaps.aaddscontoso.com
@@ -348,7 +348,7 @@ az vm run-command invoke \
 
 #### Create and configure LDAP authentication provider
 
-With certifcate imported and secure LDAP access traffic resolved, you are able to configure LDAP provider from WLS console.
+With certificate imported and secure LDAP access traffic resolved, you're able to configure LDAP provider from WLS console.
 
 * Paste the value of **adminConsole** to your browser and login the WLS admin console. 
 * Under **Change Center**, select **Lock & Edit**.
@@ -361,8 +361,7 @@ With certifcate imported and secure LDAP access traffic resolved, you are able t
     - For **Control Flag**, select **SUFFICIENT**.
     - Select **Save** to save the change.
   - For **Configuration** -> **Provider Specific**, input the Entra Domain Services managed domain connection information you obtained previously. Steps to obtain the value are listed in the table of [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](#create-and-configure-an-azure-entra-domain-services-managed-domain).
-    - Under **Connection** section:
-
+    - Under **Connection** section:<br>
       | Item | Value | Sample Value |
       |-------|--------------|-------------|
       | **Host** | managed domain LDAP sever DNS, `ldaps.<managed-domain-dns-name>` | `ldaps.aaddscontoso.com` |
@@ -371,8 +370,7 @@ With certifcate imported and secure LDAP access traffic resolved, you are able t
       | **Credential** | Credential of your cloud only user | - |
       | **SSLEnabled** | Checked. | - |
 
-    - Under **Users** section:
-
+    - Under **Users** section:<br>
       | Item | Value | Sample Value |
       |-------|------------|-------------|
       | **User Base DN** | Your user base DN | `OU=AADDC Users,DC=aaddscontoso,DC=com` |
@@ -382,9 +380,9 @@ With certifcate imported and secure LDAP access traffic resolved, you are able t
 
     - Under **Groups** section:
       - For **Group Base DN**, fill in group base DN with your DN, this tutorial uses the sample value with user base DN `OU=AADDC Users,DC=aaddscontoso,DC=com`
-      - Keep other fields with default vaule.
-    - Selec **Save** to save the configuration.
-* Seelct **Performance** next to **Configuration**:
+      - Keep other fields with default value.
+    - Select **Save** to save the configuration.
+* Select **Performance** next to **Configuration**:
     - Check **Enable Group Membership Lookup Hierarchy Caching**.
     - Check **Enable SID To Group Lookup Caching**.
   - Select **Save** to save the configuration.
@@ -419,9 +417,9 @@ After restarting admin server, follow these steps to verify the integration was 
 
 1. Visit the WLS Admin console.
 1. In the left navigator, expand the tree to select **Security Realms** -> **myrealm** -> **Providers**.
-1. If the integration was successful, you'll find the Azure AD provider for example `AzureEntraIDLDAPProvider`.
+1. If the integration was successful, you find the Azure AD provider for example `AzureEntraIDLDAPProvider`.
 1. In the left navigator, expand the tree to select **Security Realms** -> **myrealm** -> **Users and Groups**.
-1. If the integration was successful, you'll find users from the Azure AD provider.
+1. If the integration was successful, you find users from the Azure AD provider.
 
 >[!NOTE]
 > It takes minutes to load users the fist time you access **Users and Groups**. WLS will cache the users and will be faster the next access.
