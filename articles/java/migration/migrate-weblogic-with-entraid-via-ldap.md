@@ -366,7 +366,7 @@ With certificate imported and secure LDAP access traffic resolved, you're able t
 
     | Item | Value | Sample Value |
     |-------|--------------|-------------|
-    | **Host** | managed domain LDAP sever DNS, `ldaps.<managed-domain-dns-name>` | `ldaps.aaddscontoso.com` |
+    | **Host** | Managed domain LDAP sever DNS, `ldaps.<managed-domain-dns-name>` | `ldaps.aaddscontoso.com` |
     | **Port** | `636` | `636` |
     | **Principal** | Principal of your cloud only user | `CN=WLSTest,OU=AADDC Users,DC=aaddscontoso,DC=com` |
     | **Credential** | Credential of your cloud only user | - |
@@ -407,6 +407,9 @@ az vm run-command invoke \
          --command-id RunShellScript \
          --scripts "systemctl start wls_admin"
 ```
+
+>[!NOTE]
+> If you are authenticating an application in a cluster with users from Microsoft Entra ID, you must restart the managed server to activate the provider. This can be done by restarting the virtual machine hosting the server.  
 
 ### Validation
 
