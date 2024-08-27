@@ -190,9 +190,9 @@ The test file covers three tests for the `insert.ts` file, which can be divided 
 
 |Validation type|Test|
 |--|--|
-|Happy path|The mocked database method was called, and returned the altered data.|
-|Error path|Data failed validation and returned an error.|
-|Error path|The mocked database method was called, and returned an error.|
+|Happy path: `should insert document successfully`|The mocked database method was called, and returned the altered data.|
+|Error path: `should return verification error if input is not verified`|Data failed validation and returned an error.|
+|Error path:`should return error if db insert fails`|The mocked database method was called, and returned an error.|
 
 The following Jest test file shows how to test the **insertDocument** function.
 
