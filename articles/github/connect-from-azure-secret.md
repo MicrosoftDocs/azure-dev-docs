@@ -47,7 +47,7 @@ In this tutorial, you learn how to:
           "clientId": "<Client ID>",
           "clientSecret": "<Client Secret>",
           "subscriptionId": "<Subscription ID>",
-          "tenantId": "<Tenant ID>",
+          "tenantId": "<Tenant ID>"
       }
     ```
 
