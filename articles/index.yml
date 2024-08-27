@@ -288,5 +288,5 @@ additionalContent:
           url: ./chef/index.yml
         # Card
         - title: Pulumi
-          summary: Use Pulumi IaC to manage Azure cloud infrastructure in Node.js, Python, Go, .NET, Java, or YAML.
+          summary: Use Pulumi declare and manage cloud infrastructure in Node.js, Python, Go, .NET, Java, or YAML.
           url: /azure/pulumi/
