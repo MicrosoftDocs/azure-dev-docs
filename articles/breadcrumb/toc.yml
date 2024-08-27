@@ -34,6 +34,9 @@ items:
     - name: Python
       tocHref: /azure/developer/python
       topicHref: /azure/developer/python/index
+    - name: Pulumi
+      tocHref: /azure/developer/pulumi
+      topicHref: /azure/developer/pulumi/index
     - name: Terraform
       tocHref: /azure/developer/terraform
       topicHref: /azure/developer/terraform/index

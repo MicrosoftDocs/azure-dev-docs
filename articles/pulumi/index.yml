@@ -1,0 +1,166 @@
+### YamlMime:Landing
+
+title: Pulumi on Azure documentation
+summary: Learn how to define Azure resources in Node.js, Python, Go, .NET, Java, or YAML and manage their lifecycle using Pulumi.
+
+metadata:
+  title: Pulumi on Azure documentation
+  description: Learn how to use Pulumi to manage virtual machines, storage, databases and other resources on Azure.
+  ms.date: 08/27/2024
+  ms.service: pulumi
+  ms.topic: landing-page
+  ms.custom: devx-track-Pulumi
+
+landingContent:
+  # Card
+  - title: Azure providers
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Pulumi Azure Native provider
+            url: https://www.pulumi.com/registry/packages/azure-native/installation-configuration/
+          - text: Pulumi AzAPI Resource provider
+            url: https://www.pulumi.com/registry/packages/azapi/installation-configuration/
+          - text: Pulumi Azure DevOps provider
+            url: https://www.pulumi.com/registry/packages/azuredevops/installation-configuration/
+          - text: Pulumi AzureAD provider
+            url: https://www.pulumi.com/registry/packages/azuread/installation-configuration/
+  # Card
+  - title: Getting started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Deploy a blob storage container
+            url: https://www.pulumi.com/docs/clouds/azure/get-started/
+  # Card
+  - title: Popular Pulumi Azure template tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy a container service by using a Pulumi template in Node.js, Python, Go, .NET, or YAML
+            url: https://www.pulumi.com/templates/container-service/azure/
+          - text: Deploy a serverless application by using a Pulumi template in Node.js, Python, Go, .NET, or YAML
+            url: https://www.pulumi.com/templates/container-service/azure/
+          - text: Deploy an Azure static website by using a Pulumi template in Node.js, Python, Go, .NET, or YAML
+            url: https://www.pulumi.com/templates/container-service/azure/
+          - text: Deploy an Azure virtual machine by using a Pulumi template in Node.js, Python, Go, .NET, or YAML
+            url: https://www.pulumi.com/templates/container-service/azure/
+          - text: Deploy a Kubernetes cluster by using a Pulumi template in Node.js, Python, Go, .NET, or YAML
+            url: https://www.pulumi.com/templates/container-service/azure/
+
+  # Card
+  - title: Azure Native how-to guides for Serverless
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Azure Functions in in Node.js, Python, Go, .NET, or YAML
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-functions-many/
+          - text: Deploying Azure Functions in TypeScript
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-functions/
+          - text: Azure Functions on a Linux App Service Plan in C#
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-c
+          - text: Azure Cosmos DB, an API Connection, and a Logic App in TypeScript
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-cosmosdb-logicapp/
+  # Card
+  - title: Azure Native how-to guides for Containers
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Azure App Service Running Docker Containers on Linux in TypeScript
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-appservice-docker/
+          - text: Azure App Service Running Docker Containers on Linux in Python
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-appservice-docker/
+          - text: Azure App Service Running Docker Containers on Linux in Go
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-go-appservice-docker/
+          - text: Azure App Service Running Docker Containers on Linux in C#
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-appservice-docker/
+          - text: Azure Container Apps in TypeScript
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-containerapps/
+          - text: Azure Container Apps in Python
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-containerapps/
+          - text: Azure Container Instances on Linux in C#
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-aci/
+
+  # Card
+  - title: Azure Native how-to guides for Kubernetes
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Azure Kubernetes Service (AKS) Cluster and Helm Chart in Go
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-go-aks-helm/
+          - text: Azure Kubernetes Service (AKS) Cluster and Helm Chart in Python
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-aks-helm/
+          - text: Azure Kubernetes Service (AKS) Cluster and Helm Chart in TypeScript
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-aks-helm/
+          - text: Azure Kubernetes Service (AKS) Cluster with managed identity in TypeScript
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-aks-managed-identity/
+          - text: Azure Kubernetes Service (AKS) Cluster with managed identity in Python
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-aks-managed-identity/
+          - text: Azure Kubernetes Service (AKS) Cluster with managed identity in Go
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-go-aks-managed-identity/
+          - text: Multiple Azure Kubernetes Service (AKS) Clusters in Go
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-go-aks-multicluster/
+          - text: Multiple Azure Kubernetes Service (AKS) Clusters in Python
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-aks-multicluster/
+          - text: Multiple Azure Kubernetes Service (AKS) Clusters in TypeScript
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-aks-multicluster/
+          - text: A Helm chart deployed to AKS that stores TODOs in an Azure Cosmos DB MongoDB API in C#
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-aks-cosmos-helm/
+
+  # Card
+  - title: Azure Native how-to guides for VMs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Web Server Using Azure Virtual Machine in Python
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-webserver/
+          - text: Web Server Using Azure Virtual Machine in TypeScript
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-webserver/
+
+  # Card
+  - title: Azure Native how-to guides for PaaS (Platform as a Service)
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Azure App Service with SQL Database and Application Insights in TypeScript
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-appservice/
+          - text: Azure App Service with SQL Database and Application Insights in Python
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-appservice/
+          - text: Azure App Service with SQL Database and Application Insights in C#
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-appservice/
+          - text: Deploy two App Services - Front web app with VNet injection and Back web app with a Private Endpoint in TypeScript
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-webapp-privateendpoint-vnet-injection/
+          - text: A SQLServer on Azure PaaS in C#
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-sqlserver/
+          - text: Static Website Using Azure Blob Storage and CDN in Python
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-static-website/
+          - text: Static Website Using Azure Blob Storage and CDN in Go
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-go-static-website/
+          - text: Static Website Using Azure Blob Storage and CDN in TypeScript
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-static-website/
+
+  # Card
+  - title: Azure Native how-to guides for Data and Analytics
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Azure Synapse Workspace and Pools in Python
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-synapse/
+          - text: Azure Synapse Workspace and Pools in TypeScript
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-synapse/
+          - text: Azure Cosmos DB, an API Connection, and a Logic App in Python
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-cosmosdb-logicapp/
+          - text: Azure Cosmos DB, an API Connection, and a Logic App in C#
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-cosmosdb-logicapp/
+
+  # Card
+  - title: Azure Native how-to guides for Identity and Security
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Provisioning an OIDC Provider in Azure for Pulumi Cloud in TypeScript
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-oidc-provider-pulumi-cloud/
+          - text: Provisioning an OIDC Provider in Azure for Pulumi Cloud in Python
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-oidc-provider-pulumi-cloud/
+          - text: Automate the rotation of a secret for resources that use one set of authentication credentials in C#
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-credential-rotation-one-set/
