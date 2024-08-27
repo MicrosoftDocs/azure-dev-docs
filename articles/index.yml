@@ -286,3 +286,7 @@ additionalContent:
         - title: Chef
           summary: Use Chef to transform your virtual machine infrastructure on Azure into code.
           url: ./chef/index.yml
+        # Card
+        - title: Pulumi
+          summary: Use Pulumi IaC to manage Azure cloud infrastructure in Node.js, Python, Go, .NET, Java, or YAML.
+          url: /azure/pulumi/
