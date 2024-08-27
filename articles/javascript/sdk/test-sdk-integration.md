@@ -110,7 +110,7 @@ Imagine you have an application that needs to write a new document to Cosmos DB 
 
 Cosmos DB is used as an example however the concepts apply to most of the Azure SDKs for JavaScript. The following simple function captures this functionality:
 
-:::code language="TypeScript" source="~/../node-essentials/unit-testing/src/lib/insert.ts":::
+:::code language="TypeScript" source="~/../node-essentials/unit-testing/src/mock-function/lib/insert.ts":::
 
 > [!NOTE]
 > TypeScript types help define the kinds of data a function uses. While you don't need TypeScript to use Jest or other JavaScript testing frameworks, it is essential for writing type-safe JavaScript.
@@ -190,7 +190,7 @@ The test file covers three tests for the `insert.ts` file which can be divided i
 
 The following Jest test file shows how to test the **insertDocument** function.
 
-:::code language="TypeScript" source="~/../node-essentials/unit-testing/src/lib/insert.spec.ts":::
+:::code language="TypeScript" source="~/../node-essentials/unit-testing/src/mock-function/lib/insert.spec.ts":::
 
 ## References
 
