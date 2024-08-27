@@ -136,7 +136,8 @@
         "javascript/**/*.md": "azure-javascript",
         "dev-tunnels/**/*.md": "dev-tunnels",
         "intro/**/*.md": "azure",
-        "ai/**/*.md": "azure"
+        "ai/**/*.md": "azure",
+        "pulumi/**/*.md": "pulumi"
       },
       "ms.subservice": {
         "ai/**/*.md": "intelligent-apps",
@@ -150,7 +151,8 @@
         "javascript/**/*.md": "JavaScript on Azure",
         "python/**/*.md": "Python on Azure",
         "java/**/*.md": "Java on Azure",
-        "go/**/*.md": "Go on Azure"
+        "go/**/*.md": "Go on Azure",
+        "pulumi/**/*.yml": "Pulumi"
       },
       "featureFlags": {
         "javascript/**/*-feedback.yml": [
