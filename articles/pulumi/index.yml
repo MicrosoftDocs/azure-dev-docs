@@ -33,23 +33,23 @@ landingContent:
           - text: Deploy a blob storage container
             url: https://www.pulumi.com/docs/clouds/azure/get-started/
   # Card
-  - title: Popular Pulumi Azure template tutorials
+  - title: Popular Pulumi Azure solutions
     linkLists:
-      - linkListType: tutorial
+      - linkListType: quickstart
         links:
           - text: Deploy a container service by using a Pulumi template in Node.js, Python, Go, .NET, or YAML
             url: https://www.pulumi.com/templates/container-service/azure/
           - text: Deploy a serverless application by using a Pulumi template in Node.js, Python, Go, .NET, or YAML
-            url: https://www.pulumi.com/templates/container-service/azure/
+            url: https://www.pulumi.com/templates/serverless-application/azure/
           - text: Deploy an Azure static website by using a Pulumi template in Node.js, Python, Go, .NET, or YAML
-            url: https://www.pulumi.com/templates/container-service/azure/
+            url: https://www.pulumi.com/templates/static-website/azure/
           - text: Deploy an Azure virtual machine by using a Pulumi template in Node.js, Python, Go, .NET, or YAML
-            url: https://www.pulumi.com/templates/container-service/azure/
+            url: https://www.pulumi.com/templates/virtual-machine/azure/
           - text: Deploy a Kubernetes cluster by using a Pulumi template in Node.js, Python, Go, .NET, or YAML
-            url: https://www.pulumi.com/templates/container-service/azure/
+            url: https://www.pulumi.com/templates/kubernetes/azure/
 
   # Card
-  - title: Azure Native how-to guides for Serverless
+  - title: Serverless
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -62,7 +62,7 @@ landingContent:
           - text: Azure Cosmos DB, an API Connection, and a Logic App in TypeScript
             url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-cosmosdb-logicapp/
   # Card
-  - title: Azure Native how-to guides for Containers
+  - title: Containers
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -82,7 +82,7 @@ landingContent:
             url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-aci/
 
   # Card
-  - title: Azure Native how-to guides for Kubernetes
+  - title: Kubernetes
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -108,7 +108,7 @@ landingContent:
             url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-aks-cosmos-helm/
 
   # Card
-  - title: Azure Native how-to guides for VMs
+  - title: Virtual Machines
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -118,7 +118,7 @@ landingContent:
             url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-webserver/
 
   # Card
-  - title: Azure Native how-to guides for PaaS (Platform as a Service)
+  - title: Platform as a Service
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -140,7 +140,7 @@ landingContent:
             url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-static-website/
 
   # Card
-  - title: Azure Native how-to guides for Data and Analytics
+  - title: Data and Analytics
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -154,7 +154,7 @@ landingContent:
             url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-cosmosdb-logicapp/
 
   # Card
-  - title: Azure Native how-to guides for Identity and Security
+  - title: Identity and Security
     linkLists:
       - linkListType: how-to-guide
         links:

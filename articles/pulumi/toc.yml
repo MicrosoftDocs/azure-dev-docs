@@ -1,0 +1,87 @@
+items:
+- name: Pulumi on Azure documentation
+  href: index.yml
+- name: Overview
+  items:
+    - name: About Pulumi on Azure
+      href: https://www.pulumi.com/azure/
+    - name: Pulumi Azure Native provider
+      href: https://www.pulumi.com/registry/packages/azure-native/installation-configuration/
+    - name: Pulumi AzAPI Resource provider
+      href: https://www.pulumi.com/registry/packages/azapi/installation-configuration/
+    - name: Pulumi Azure DevOps provider
+      href: https://www.pulumi.com/registry/packages/azuredevops/installation-configuration/
+    - name: Pulumi AzureAD provider
+      href: https://www.pulumi.com/registry/packages/azuread/installation-configuration/
+
+- name: Install and Configure
+  href: https://www.pulumi.com/docs/install/
+
+- name: Getting started
+  items:
+    - name: Your first Pulumi project
+      href: https://www.pulumi.com/tutorials/pulumi-fundamentals/create-a-pulumi-project/
+    - name: Your first Azure deployment with Pulumi
+      href: https://www.pulumi.com/docs/clouds/azure/get-started/
+
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Use a Pulumi template in Node.js, Python, Go, .NET, or YAML
+      items:
+        - name: Deploy a container service
+          href: https://www.pulumi.com/templates/container-service/azure/
+        - name: Deploy a serverless application
+          href: https://www.pulumi.com/templates/serverless-application/azure/
+        - name: Deploy an Azure static website
+          href: https://www.pulumi.com/templates/static-website/azure/
+        - name: Deploy an Azure virtual machine
+          href: https://www.pulumi.com/templates/virtual-machine/azure/
+        - name: Deploy a Kubernetes cluster
+          href: https://www.pulumi.com/templates/kubernetes/azure/
+
+
+- name: Concepts
+  items:
+    - name: How Pulumi works
+      href: https://www.pulumi.com/docs/concepts/how-pulumi-works/
+    - name: Managing state
+      href: https://www.pulumi.com/docs/concepts/state/
+    - name: Pulumi program structure
+      items:
+        - name: Project
+          href: https://www.pulumi.com/docs/concepts/projects/
+        - name: resources
+          href: https://www.pulumi.com/docs/concepts/resources/
+        - name: Inputs and outputs
+          href: https://www.pulumi.com/docs/concepts/inputs-outputs/
+        - name: Stack
+          items:
+            - name: Overview
+              href: https://www.pulumi.com/docs/concepts/stack/
+            - name: Configuration
+              href: https://www.pulumi.com/docs/intro/concepts/config/
+            - name: Secrets
+              href: https://www.pulumi.com/docs/intro/concepts/secrets/
+
+- name: How-to guides
+  items:
+    - name: TODO
+      href: https://www.pulumi.com/TODO
+  
+- name: Reference
+  items:
+    - name: API Documentation
+      items:
+      - name: Pulumi Azure Native provider
+        href: https://www.pulumi.com/registry/packages/azure-native/api-docs/
+      - name: Pulumi AzAPI Resource provider
+        href: https://www.pulumi.com/registry/packages/azapi/api-docs/
+      - name: Pulumi Azure DevOps provider
+        href: https://www.pulumi.com/registry/packages/azuredevops/api-docs/
+      - name: Pulumi AzureAD provider
+        href: https://www.pulumi.com/registry/packages/azuread/api-docs/  
+    - name: How-to guides
+      items:
+      - name: Pulumi Azure Native provider
+        href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/
