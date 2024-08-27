@@ -1,7 +1,7 @@
 ---
 title: "Testing code depending on Azure SDK in JavaScript"
 description: "Learn testing Azure SDK integration in JavaScript apps. Understand when to use a live dependency, when to use doubles and how to use mocks with the SDKs."
-ms.date: 08/15/2022
+ms.date: 08/27/2022
 ms.topic: concept-article
 ms.custom: devx-track-js
 ai-usage: ai-assisted
