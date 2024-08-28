@@ -4,7 +4,7 @@ description: Spring Cloud Azure is a project that helps make it easier to use Az
 author: KarlErickson
 ms.author: hangwan
 ms.topic: overview
-ms.date: 04/06/2023
+ms.date: 08/28/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
