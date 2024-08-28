@@ -53,14 +53,12 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Azure Functions in in Node.js, Python, Go, .NET, or YAML
+          - text: Author Azure Functions in Node.js, Python, Go, .NET, or YAML
             url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-functions-many/
-          - text: Deploying Azure Functions in TypeScript
+          - text: Deploy an Azure Functions in TypeScript
             url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-functions/
-          - text: Azure Functions on a Linux App Service Plan in C#
+          - text: Deploy Azure Functions on a Linux App Service Plan in C#
             url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-c
-          - text: Azure Cosmos DB, an API Connection, and a Logic App in TypeScript
-            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-cosmosdb-logicapp/
   # Card
   - title: Containers
     linkLists:
@@ -104,8 +102,6 @@ landingContent:
             url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-aks-multicluster/
           - text: Multiple Azure Kubernetes Service (AKS) Clusters in TypeScript
             url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-aks-multicluster/
-          - text: A Helm chart deployed to AKS that stores TODOs in an Azure Cosmos DB MongoDB API in C#
-            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-aks-cosmos-helm/
 
   # Card
   - title: Virtual Machines
@@ -118,29 +114,43 @@ landingContent:
             url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-webserver/
 
   # Card
-  - title: Platform as a Service
+  - title: Storage
     linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Azure App Service with SQL Database and Application Insights in TypeScript
-            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-appservice/
-          - text: Azure App Service with SQL Database and Application Insights in Python
-            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-appservice/
-          - text: Azure App Service with SQL Database and Application Insights in C#
-            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-appservice/
-          - text: Deploy two App Services - Front web app with VNet injection and Back web app with a Private Endpoint in TypeScript
-            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-webapp-privateendpoint-vnet-injection/
-          - text: A SQLServer on Azure PaaS in C#
-            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-sqlserver/
+      - links:
           - text: Static Website Using Azure Blob Storage and CDN in Python
             url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-static-website/
           - text: Static Website Using Azure Blob Storage and CDN in Go
             url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-go-static-website/
           - text: Static Website Using Azure Blob Storage and CDN in TypeScript
             url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-static-website/
+          - text: Static Website Using Azure Blob Storage and CDN in C#
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-static-website/
+        linkListType: how-to-guide
+  
+  # Card
+  - title: Databases
+    linkLists:
+      - links:
+          - text: Azure Cosmos DB, an API Connection, and a Logic App in Python
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-cosmosdb-logicapp/
+          - text: Azure Cosmos DB, an API Connection, and a Logic App in C#
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-cosmosdb-logicapp/
+          - text: Azure Cosmos DB, an API Connection, and a Logic App in TypeScript
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-cosmosdb-logicapp/
+          - text: Azure App Service with SQL Database and Application Insights in TypeScript
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-appservice/
+          - text: Azure App Service with SQL Database and Application Insights in Python
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-appservice/
+          - text: Azure App Service with SQL Database and Application Insights in C#
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-appservice/
+          - text: A SQLServer on Azure PaaS in C#
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-sqlserver/
+          - text: A Helm chart deployed to AKS that stores TODOs in an Azure Cosmos DB MongoDB API in C#
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-aks-cosmos-helm/
+        linkListType: how-to-guide
 
   # Card
-  - title: Data and Analytics
+  - title: Analytics
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -148,11 +158,14 @@ landingContent:
             url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-synapse/
           - text: Azure Synapse Workspace and Pools in TypeScript
             url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-synapse/
-          - text: Azure Cosmos DB, an API Connection, and a Logic App in Python
-            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-cosmosdb-logicapp/
-          - text: Azure Cosmos DB, an API Connection, and a Logic App in C#
-            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-cosmosdb-logicapp/
 
+  # Card
+  - title: Networking
+    linkLists:
+      - links:
+          - text: Deploy two App Services - Front web app with VNet injection and Back web app with a Private Endpoint in TypeScript
+            url: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-webapp-privateendpoint-vnet-injection/
+        linkListType: how-to-guide
   # Card
   - title: Identity and Security
     linkLists:

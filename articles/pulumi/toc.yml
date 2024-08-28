@@ -13,17 +13,14 @@ items:
       href: https://www.pulumi.com/registry/packages/azuredevops/installation-configuration/
     - name: Pulumi AzureAD provider
       href: https://www.pulumi.com/registry/packages/azuread/installation-configuration/
-
 - name: Install and Configure
   href: https://www.pulumi.com/docs/install/
-
 - name: Getting started
   items:
     - name: Your first Pulumi project
       href: https://www.pulumi.com/tutorials/pulumi-fundamentals/create-a-pulumi-project/
     - name: Your first Azure deployment with Pulumi
       href: https://www.pulumi.com/docs/clouds/azure/get-started/
-
 - name: Quickstarts
   expanded: true
   items:
@@ -39,8 +36,6 @@ items:
           href: https://www.pulumi.com/templates/virtual-machine/azure/
         - name: Deploy a Kubernetes cluster
           href: https://www.pulumi.com/templates/kubernetes/azure/
-
-
 - name: Concepts
   items:
     - name: How Pulumi works
@@ -66,9 +61,125 @@ items:
 
 - name: How-to guides
   items:
-    - name: TODO
-      href: https://www.pulumi.com/TODO
-  
+    - name: Azure Functions
+      items:
+        - name: Manage Azure Functions in a supported language
+          href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-functions-many/
+        - name: Manage Azure Functions in TypeScript
+          href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-functions/
+        - name: Manage Azure Functions on a Linux App Service Plan in C#
+          href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-c
+    - name: Containers
+      items:
+        - name: Manage Azure App Service Running Docker Containers on Linux
+          items:
+            - name: Using Pulumi and TypeScript
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-appservice-docker/
+            - name: Using Pulumi and Python
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-appservice-docker/
+            - name: Using Pulumi and Go
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-go-appservice-docker/
+            - name: Using Pulumi and C#
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-appservice-docker/
+        - name: Manage Azure Container Apps
+          items:
+            - name: Using Pulumi and TypeScript
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-containerapps/
+            - name: Using Pulumi and Python
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-containerapps/
+        - name: Manage Azure Container Instances on Linux
+          items:
+            - name: Using Pulumi and TypeScript
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-aci/
+            - name: Using Pulumi and Python
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-aci/
+            - name: Using Pulumi and Go
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-go-aci/
+            - name: Using Pulumi and C#
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-aci/
+    - name: Azure Kubernetes Service (AKS)
+      items:
+        - name: Manage a Helm Chart
+          items:
+            - name: Using Pulumi and TypeScript
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-aks-helm/
+            - name: Using Pulumi and Python
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-aks-helm/
+            - name: Using Pulumi and Go
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-go-aks-helm/
+            - name: Using Pulumi and C#
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-aks-helm/
+        - name: Manage access with an Azure User Assigned Managed Identity
+          items:
+            - name: Using Pulumi and TypeScript
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-aks-managed-identity/
+            - name: Using Pulumi and Python
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-aks-managed-identity/
+            - name: Using Pulumi and Go
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-go-aks-managed-identity/
+        - name: Manage multiple AKS Clusters
+          items:
+            - name: Using Pulumi and TypeScript
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-aks-multicluster/
+            - name: Using Pulumi and Python
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-aks-multicluster/
+            - name: Using Pulumi and Go
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-go-aks-multicluster/
+            - name: Using Pulumi and C#
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-aks-multicluster/
+    - name: Virtual Machines
+      items:
+       - name: Manage a web server in a VM
+         items:
+           - name: Using Pulumi and TypeScript
+             href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-webserver/
+           - name: Using Pulumi and Python
+             href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-webserver/
+    - name: Storage
+      items:
+        - name: Manage a Static website on Azure Blob Storage and CDN
+          items:
+            - name: Using Pulumi and TypeScript
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-static-website/
+            - name: Using Pulumi and Python
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-static-website/
+            - name: Using Pulumi and Go
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-go-static-website/
+            - name: Using Pulumi and C#
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-static-website/
+    - name: Databases
+      items:
+        - name: Manage an Azure Cosmos DB with a Connection and Logic App
+          items:
+            - name: Using Pulumi and TypeScript
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-cosmosdb-logicapp/
+            - name: Using Pulumi and Python
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-cosmosdb-logicapp/
+            - name: Using Pulumi and C#
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-cosmosdb-logicapp/
+        - name: Manage an Azure App Service with a SQL Database and Application Insights
+          items:
+            - name: Using Pulumi and TypeScript
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-appservice/
+            - name: Using Pulumi and Python
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-appservice/
+            - name: Using Pulumi and C#
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-appservice/
+    - name: Networking
+      items:
+        - name: Manage two App services with Private Endpoint and VNet injection
+          href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-webapp-privateendpoint-vnet-injection/
+    - name: Identity and Security
+      items:
+        - name: Provision an OIDC Provider for Pulumi Cloud
+          items: 
+            - name: Using Pulumi and TypeScript
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-oidc-provider-pulumi-cloud/
+            - name: Using Pulumi and Python
+              href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-oidc-provider-pulumi-cloud/
+        - name: Automate secret rotation
+          href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-credential-rotation-one-set/
+
 - name: Reference
   items:
     - name: API Documentation
@@ -80,7 +191,7 @@ items:
       - name: Pulumi Azure DevOps provider
         href: https://www.pulumi.com/registry/packages/azuredevops/api-docs/
       - name: Pulumi AzureAD provider
-        href: https://www.pulumi.com/registry/packages/azuread/api-docs/  
+        href: https://www.pulumi.com/registry/packages/azuread/api-docs/
     - name: How-to guides
       items:
       - name: Pulumi Azure Native provider
