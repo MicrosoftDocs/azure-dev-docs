@@ -289,4 +289,4 @@ additionalContent:
         # Card
         - title: Pulumi
           summary: Use Pulumi declare and manage cloud infrastructure in Node.js, Python, Go, .NET, Java, or YAML.
-          url: /azure/pulumi/
+          url: ./pulumi/index.yml

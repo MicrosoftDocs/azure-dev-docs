@@ -43,6 +43,7 @@ items:
     - name: Managing state
       href: https://www.pulumi.com/docs/concepts/state/
     - name: Pulumi program structure
+      expanded: true
       items:
         - name: Project
           href: https://www.pulumi.com/docs/concepts/projects/
@@ -51,6 +52,7 @@ items:
         - name: Inputs and outputs
           href: https://www.pulumi.com/docs/concepts/inputs-outputs/
         - name: Stack
+          expanded: true
           items:
             - name: Overview
               href: https://www.pulumi.com/docs/concepts/stack/
@@ -138,6 +140,7 @@ items:
     - name: Storage
       items:
         - name: Manage a Static website on Azure Blob Storage and CDN
+          expanded: true
           items:
             - name: Using Pulumi and TypeScript
               href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-static-website/
@@ -150,6 +153,7 @@ items:
     - name: Databases
       items:
         - name: Manage an Azure Cosmos DB with a Connection and Logic App
+          expanded: true
           items:
             - name: Using Pulumi and TypeScript
               href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-cosmosdb-logicapp/
@@ -158,6 +162,7 @@ items:
             - name: Using Pulumi and C#
               href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-cosmosdb-logicapp/
         - name: Manage an Azure App Service with a SQL Database and Application Insights
+          expanded: true
           items:
             - name: Using Pulumi and TypeScript
               href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-appservice/
@@ -166,23 +171,27 @@ items:
             - name: Using Pulumi and C#
               href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-appservice/
     - name: Networking
+      expanded: true
       items:
         - name: Manage two App services with Private Endpoint and VNet injection
           href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-webapp-privateendpoint-vnet-injection/
     - name: Identity and Security
       items:
         - name: Provision an OIDC Provider for Pulumi Cloud
+          expanded: true
           items: 
             - name: Using Pulumi and TypeScript
               href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-ts-oidc-provider-pulumi-cloud/
             - name: Using Pulumi and Python
               href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-py-oidc-provider-pulumi-cloud/
         - name: Automate secret rotation
+          expanded: true
           href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/azure-cs-credential-rotation-one-set/
 
 - name: Reference
   items:
     - name: API Documentation
+      expanded: true
       items:
       - name: Pulumi Azure Native provider
         href: https://www.pulumi.com/registry/packages/azure-native/api-docs/
@@ -193,6 +202,7 @@ items:
       - name: Pulumi AzureAD provider
         href: https://www.pulumi.com/registry/packages/azuread/api-docs/
     - name: How-to guides
+      expanded: true
       items:
       - name: Pulumi Azure Native provider
         href: https://www.pulumi.com/registry/packages/azure-native/how-to-guides/

@@ -64,7 +64,8 @@
         "tutorial-vscode-azure-cli-node*.md" : "https://github.com/Azure/azure-cli/issues",
         "tutorial-vscode-docker-node*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
         "tutorial-vscode-serverless-node*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues",
-        "tutorial-vscode-static-website-node*.md": "https://github.com/Microsoft/vscode-azurestorage/issues"
+        "tutorial-vscode-static-website-node*.md": "https://github.com/Microsoft/vscode-azurestorage/issues",
+        "pulumi/**/*.md": ""
       },
       "_op_documentIdPathDepotMapping": {
         "python": {
