@@ -13,6 +13,3 @@ An Azure Database for PostgreSQL server resource provides you with a PostgreSQL 
 
 [!INCLUDE [Visual Studio Code](../../includes/visual-studio-code-database-extension.md)]
 
-## Next steps
-
-* [Configure web app settings](../configure-web-app-settings.md)

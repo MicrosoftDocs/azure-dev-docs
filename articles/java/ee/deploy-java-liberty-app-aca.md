@@ -26,17 +26,15 @@ If you're interested in providing feedback or working closely on your migration 
 ## Prerequisites
 
 * An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-If you're running the commands in this guide locally (instead of Azure Cloud Shell):
-
-* Prepare a local machine with either Windows or Linux installed.
-* Install a Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
+* Prepare a local machine with either Windows or Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
+* [Install the Azure CLI](/cli/azure/install-azure-cli) 2.53.0 or above to run Azure CLI commands.
+  * Sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
+  * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+  * Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
+* Install a Java SE implementation version 17 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
 * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
 * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
-
-* This article requires at least version 2.53.0 of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed. You can launch Azure CLI commands in either Bash or Azure PowerShell, either locally or in Azure Cloud Shell.
+* Ensure that [Git](https://git-scm.com) is installed.
 
 ## Sign in to Azure
 
@@ -212,7 +210,7 @@ After a short time, you should see a JSON output that contains the following lin
 
 In this section, you create an Azure SQL Database single database for use with your app.
 
-Create a single database in Azure SQL Database by following the Azure CLI steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli). Execute the steps up to, but not including **Query the database**. Use the following steps as you go through the article, then return to this document after you create and configure the database server:
+Create a single database in Azure SQL Database by following the Azure CLI steps in [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli). Execute the steps up to, but not including **Query the database**. Use the following steps as you go through the article, then return to this document after you create and configure the database server:
 
 When you reach the [Set parameter values](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli#set-parameter-values) section of the quickstart, output and save aside the values of variables in the code example labeled `Variable block`, including `resourceGroup`,`server`, `database`, `login`, and `password`. Define the following environment variables after replacing placeholders `<resourceGroup>`,`<server>`, `<database>`, `<login>`, and `<password>` with these values.
 
@@ -362,9 +360,6 @@ You can now use the following steps to run and test the project locally before d
 1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
 
 ### Build the image
-
-> [!NOTE]
-> If you chose to use the Bash environment in Azure Cloud Shell, use the `az acr build` command to build and push image from a Docker file. For more information, see the [Build and push image from a Dockerfile](/azure/container-registry/container-registry-quickstart-task-cli#build-and-push-image-from-a-dockerfile) section of [Quickstart: Build and run a container image using Azure Container Registry Tasks](/azure/container-registry/container-registry-quickstart-task-cli). After that, go directly to the [Deploy the application to Azure Container Apps](#deploy-the-application-to-azure-container-apps) section. If you chose to run commands locally, use the following guidance.
 
 You can now run the `docker buildx build` command to build the image, as shown in the following example:
 

@@ -5,22 +5,18 @@
     items:
     - name: What is Azure?
       href: core/what-is-azure-for-javascript-development.md
-    - name: Install Node.js
-      href: core/install-nodejs-develop-azure-sdk-project.md
-    - name: Recommended Tools
-      href: node-azure-tools.md
     - name: Development environment
       href: core/configure-local-development-environment.md
+    - name: Recommended Tools
+      href: node-azure-tools.md
   - name: Host and build web apps
     items:
     - name: Select hosting service
-      href: how-to/select-hosting-service.md
+      href: /azure/developer/intro/hosting-apps-on-azure
     - name: Select deployment process
       href: how-to/deploy-web-app.md
     - name: Configure
       items: 
-      - name: Configure app settings
-        href: how-to/configure-web-app-settings.md
       - name: Configure domain name
         href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
   - name: Azure AI apps 
@@ -31,6 +27,9 @@
       href: ai/get-started-app-chat-template.md
     - name: Get started with serverless chat with LangChainjs
       href: ai/get-started-app-chat-template-langchainjs.md
+      display: Azure OpenAI, OpenAI, AI
+    - name: Get started with serverless chat with LlamaIndex
+      href: ai/get-started-app-chat-template-llamaindex.md
       display: Azure OpenAI, OpenAI, AI
     - name: Serverless Azure OpenAI Assistant with function calling
       href: ai/get-started-app-chat-assistants-function-calling.md
@@ -133,14 +132,10 @@
       href: /azure/container-apps/communicate-between-microservices?tabs=bash&pivots=acr-remote&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Microservice with DAPR
       href: /azure/container-apps/microservices-dapr?tabs=bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-    - name: Create container from local project
-      href: how-to/with-visual-studio-code/containerize-local-project.md
   - name: Virtual machine web apps
     items:
     - name: "Express.js VM"
       href: tutorial/run-nodejs-virtual-machine.md
-    - name: "Create and delete VM with SDK"
-      href: how-to/with-azure-sdk/create-manage-virtual-machine.md
   - name: Development with Visual Studio Code
     items:
     - name: Clone a GitHub repo for changes
