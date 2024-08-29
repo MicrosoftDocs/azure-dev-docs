@@ -40,7 +40,7 @@ The sample web app needs to authenticate to two different data stores:
 
 It uses [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) to authenticate to both data stores. With `DefaultAzureCredential`, the app can be configured to run under the identity of different service principals depending on the environment it's running in without having to make changes to code. For example, in a local development environment, the app can run under the identity of the developer signed in to the Azure CLI, while in Azure, as in this tutorial, it can run under its system-assigned managed identity.
 
-In either case, the service principal that the app runs under must have a role on each Azure resource the app uses that permits it to perform the actions the app requires. In this tutorial, you use service connectors to automatically enable the system-assigned managed identity on your app in Azure and to assign that identity appropriate roles on your Azure storage account and Azure Database for PostgreSQL server.
+In either case, the security principal that the app runs under must have a role on each Azure resource the app uses that permits it to perform the actions the app requires. In this tutorial, you use service connectors to automatically enable the system-assigned managed identity on your app in Azure and to assign that identity appropriate roles on your Azure storage account and Azure Database for PostgreSQL server.
 
 After the system-assigned managed identity is enabled and is assigned appropriate roles on the data stores, you can simply use `DefaultAzureCredential` to authenticate with the required Azure resources.
 
@@ -63,6 +63,8 @@ azure_credential = DefaultAzureCredential()
 token = azure_credential.get_token("https://ossrdbms-aad.database.windows.net")
 conn = str(current_app.config.get('DATABASE_URI')).replace('PASSWORDORTOKEN', token.token)
 ```
+
+To learn more about using `DefaultAzureCredential` in your apps, see [Authenticate Python apps to Azure services by using the Azure SDK for Python](./sdk/authentication/overview.md).
 
 ## Create an Azure PostgreSQL server
 
