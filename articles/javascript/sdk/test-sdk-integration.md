@@ -144,7 +144,7 @@ npm install jest
 
 Update the `package.json` for the application with a new script to test our source code files. Source code files are defined by matching on partial file name and extension. Jest looks for files following the common naming convention for test files: `<file-name>.spec.[jt]s`. 
 
-Add a script to the package.json to support that test file pattern with Jest:
+Add a script to the *package.json* to support that test file pattern with Jest:
 
 ```JSON
 "scripts": {
