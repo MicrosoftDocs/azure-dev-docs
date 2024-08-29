@@ -311,6 +311,10 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/javascript/how-to/configure-web-app-settings.md",
+      "redirect_url": "/azure/developer/javascript"
+    },
+    {
       "source_path": "articles/javascript/how-to/select-hosting-service.md",
       "redirect_url": "/azure/developer/intro/hosting-apps-on-azure"
     },
@@ -344,11 +348,19 @@
     },   
     {
       "source_path": "articles/javascript/get-started-app-chat-template.md",
-      "redirect_url": "/azure/javascript/ai/get-started-app-chat-template"
+      "redirect_url": "/azure/virtual-machines"
     },     
     {
       "source_path": "articles/javascript/openai-cli.md",
       "redirect_url": "/azure/ai-services/openai"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-visual-studio-code/containerize-local-project.md",
+      "redirect_url": "https://code.visualstudio.com/docs/containers/quickstart-node"
+    },
+    {
+      "source_path": "articles/javascript/how-to/with-azure-sdk/create-manage-virtual-machine.md",
+      "redirect_url": "/azure/developer/javascript/"
     },
     {
       "source_path": "articles/javascript/tutorial/azure-function-cosmos-db-mongo-api.md",
@@ -1616,6 +1628,11 @@
       "redirect_url": "/entra/identity-platform/quickstart-web-app-nodejs-msal-sign-in"        
     },
     {
+      "source_path":"articles/javascript/core/install-nodejs-develop-azure-sdk-project.md",
+      "redirect_url": "/azure/developer/javascript/core/configure-local-development-environment"        
+
+    },
+    {
       "source_path": "articles/ansible/configure-in-docker-container.md",
       "redirect_url": "/azure/developer/ansible"
     },
@@ -1630,6 +1647,30 @@
     {
       "source_path": "articles/go/azure-sdk-install.md",
       "redirect_url": "/azure/developer/go/"
-    }    
+    },
+    {
+      "source_path": "articles/python/sdk/authentication-additional-methods.md",
+      "redirect_url": "/azure/python/sdk/authentication/additional-methods"
+    },
+    {
+      "source_path": "articles/python/sdk/authentication-azure-hosted-apps.md",
+      "redirect_url": "/azure/python/sdk/authentication/azure-hosted-apps"
+    },
+    {
+      "source_path": "articles/python/sdk/authentication-local-development-dev-accounts.md",
+      "redirect_url": "/azure/python/sdk/authentication/local-development-dev-accounts"
+    },
+    {
+      "source_path": "articles/python/sdk/authentication-local-development-service-principal.md",
+      "redirect_url": "/azure/python/sdk/authentication/local-development-service-principal"
+    },
+    {
+      "source_path": "articles/python/sdk/authentication-on-premises-apps.md",
+      "redirect_url": "/azure/python/sdk/authentication/on-premises-apps"
+    },
+    {
+      "source_path": "articles/python/sdk/authentication-overview.md",
+      "redirect_url": "/azure/python/sdk/authentication/overview"
+    }
   ]
 }

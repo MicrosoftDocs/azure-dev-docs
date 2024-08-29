@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an Azure Cosmos DB to Azure Container Instances'
 description: Learn how to use Terraform to deploy an Azure Cosmos DB to Azure Container Instances
 ms.topic: quickstart
 service: cosmos-db
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.date: 10/26/2023
 ms.custom: devx-track-terraform
 ---

@@ -8,7 +8,7 @@ ms.custom: devx-track-python, passwordless-python
 
 # Additional methods to authenticate to Azure resources from Python apps
 
-This article lists additional methods that apps can use to authenticate to Azure resources. The methods in this article are less commonly used; when possible, we encourage you to use one of the methods outlined in [authenticating Python apps to Azure using the Azure SDK overview](./authentication-overview.md).
+This article lists additional methods that apps can use to authenticate to Azure resources. The methods in this article are less commonly used; when possible, we encourage you to use one of the methods outlined in [authenticating Python apps to Azure using the Azure SDK overview](./overview.md).
 
 ## Interactive browser authentication
 
@@ -106,7 +106,7 @@ For the code to run successfully, your user account must be assigned an Azure ro
 
 The following screenshot shows the user sign-in experience:
 
-:::image type="content" source="./media/web-account-manager-sign-in-account-picker.png" alt-text="A screenshot that shows the sign-in experience when using the interactive browser broker credential to authenticate a user." :::
+:::image type="content" source="../media/web-account-manager-sign-in-account-picker.png" alt-text="A screenshot that shows the sign-in experience when using the interactive browser broker credential to authenticate a user." :::
 
 ### Authenticate the default system account via WAM
 

@@ -1,38 +1,38 @@
 ---
-title: Azure SDK for JS/TS
-description: To programmatically access your Azure services, use the Azure SDKs for JavaScript or TypeScript development.
-ms.topic: how-to
-ms.date: 02/03/2022
+title: Use Azure client libraries for JavaScript
+description: To programmatically access your Azure services, use the Azure client libraries (SDKs) for JavaScript or TypeScript development.
+ms.topic: concept-article
+ms.date: 08/23/2024
 ms.custom: devx-track-js, devx-track-ts
 ---
 
-# Use Azure SDKs for JavaScript and TypeScript
+# Use Azure client libraries for JavaScript and TypeScript
 
-To programmatically access your Azure services, use the Azure SDKs for JavaScript. Typically, these SDKs are scoped with the [@azure](https://www.npmjs.com/search?q=%40azure) npm package scope published by [azure-sdk](https://www.npmjs.com/~azure-sdk). 
+To programmatically access your Azure services, use the Azure client libraries for JavaScript. Typically, these libraries are scoped with the [@azure](https://www.npmjs.com/search?q=%40azure) npm package scope published by [azure-sdk](https://www.npmjs.com/~azure-sdk). 
 
-## Differences between SDKs and REST APIs
+## Differences between client libraries and REST APIs
 
-Use the following information to understand when to use which type of access mechanism.
+Use the following information to understand when to use which type of access.
 
-* The [Azure SDKs](../azure-sdk-library-package-index.md#modern-javascripttypescript-libraries) are the preferred method of accessing your Azure service. The Azure SDKs abstract away the boilerplate code required to manage cloud-based Azure platform REST requests such as authentication, retries, and logging.
+* The [Azure client libraries](../azure-sdk-library-package-index.md#modern-javascripttypescript-libraries) are the preferred method of accessing your Azure service. These libraries abstract away the boilerplate code required to manage cloud-based Azure platform REST requests such as authentication, retries, and logging.
 * [Azure REST APIs](/rest/api/azure/) are the preferred method if you are:
-    * Working with preview services that do not have Azure SDKs available. Consider your code as preview, which should be updated when the service is generally available with SDKs.
+    * Working with preview services that do not have Azure client libraries available. Consider your code as preview, which should be updated when the service is generally available with client libraries.
     * Want to make REST calls directly because you don't want the entire SDK to use a single REST API or you want deeper control over the HTTP requests.
 
 ## Azure client and management libraries
 
-The Azure SDK [releases](https://azure.github.io/azure-sdk/releases/latest/js.html) are available as:
+The Azure client library [releases](https://azure.github.io/azure-sdk/releases/latest/js.html) are available as:
 
-* [Management SDKs](https://github.com/azure/azure-sdk-for-js#management): Management libraries enable you to provision and manage Azure resources via the Azure Resource Manager (ARM). You can recognize these libraries by `@azure/arm-` in their package names. 
+* [Management](https://github.com/azure/azure-sdk-for-js#management): Management libraries enable you to create and manage Azure resources. You can recognize these libraries by `arm-` in their package names. The term ARM indicates the Azure Resource Manager.
     * [Documentation and code samples](https://aka.ms/azsdk/js/mgmt)
-* [Client SDKs](https://github.com/azure/azure-sdk-for-js#client): Given an Azure resource already exists, you would use the client libraries to consume it and interact with it.
+* [Client](https://github.com/azure/azure-sdk-for-js#client): Given an Azure resource already exists, use the client libraries to consume it and interact with it.
     * Each package README.md includes documentation and samples.
 
 ## Install Azure npm packages
 
-Azure SDKs are freely available from [NPM](https://www.npmjs.com/). Install individual SDKs needed. Each SDK provides TypeScript definitions. 
+Azure client libraries are freely available from [NPM](https://www.npmjs.com/). Install individual SDKs as needed. Each SDK provides TypeScript definitions. 
 
-For client/browser usage, Azure SDKs need to be added to your [bundling](#bundling) process. 
+For client/browser usage, Azure client libraries need to be added to your [bundling](#bundling) process. 
 
 ## Use Azure npm package sample code
 
@@ -40,17 +40,17 @@ Each package includes documentation to quickly get you started with the package.
 
 ## Provide authentication credentials
 
-The Azure SDKs require credentials [to authenticate to the Azure platform](../sdk/authentication/local-development-environment-service-principal.md). [Credential classes](https://www.npmjs.com/package/@azure/identity#credential-classes) provided by [@azure/identity](https://www.npmjs.com/package/@azure/identity) provide several benefits:
+The Azure client libraries require credentials [to authenticate to the Azure platform](../sdk/authentication/local-development-environment-service-principal.md). [Credential classes](https://www.npmjs.com/package/@azure/identity#credential-classes) provided by [@azure/identity](https://www.npmjs.com/package/@azure/identity) provide several benefits:
 * Fast onboarding
 * Most secure method
 * Separate the authentication mechanism from the code. This allows you to use the same code locally and on the Azure platform while the credentials are different. 
-* Provide chained authentication so several mechanisms can be available
+* Provide chained authentication so several mechanisms can be available.
 
 ## Create an SDK client and call methods
 
-Once you programmatically create a credential, pass the credential to your Azure SDK's client. The client may require additional information such as a subscription ID or service URL. These values are available in the Azure portal, for your resource. 
+Once you programmatically create a credential, pass the credential to your Azure client. The client may require additional information such as a subscription ID or service endpoint. These values are available in the Azure portal, for your resource. 
 
-List subscriptions which this credential has access to read. 
+The following code example uses the DefaultAzureCredential and the `arm` subscription client library to list subscriptions which this credential has access to read. 
 
 :::code language="JavaScript" source="~/../js-e2e/resources/subscriptions/list.js" highlight="28,33" :::
 
@@ -118,4 +118,3 @@ Learn about bundling with the Azure SDK:
 
 * [List subscriptions with **@azure/arm-subscriptions** SDK](../sdk/authentication/local-development-environment-service-principal.md)
 * [List recent resource operations with **@azure/arm-monitor** SDK](../how-to/with-azure-sdk/list-resource-operation-history.md)
-* [Create a virtual machine with **@azure/arm-compute** SDK ](../how-to/with-azure-sdk/create-manage-virtual-machine.md)

@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: This tutorial will walk you though the steps to deploy a Spring Boot application in a Kubernetes cluster on Microsoft Azure.
 author: KarlErickson
 ms.author: hangwan
-ms.date: 01/19/2022
+ms.date: 08/28/2024
 ms.topic: article
 ms.custom: mvc, devx-track-java, devx-track-azurecli, spring-cloud-azure, devx-track-extended-java
 ---

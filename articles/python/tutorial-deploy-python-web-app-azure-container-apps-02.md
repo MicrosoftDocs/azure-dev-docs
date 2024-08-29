@@ -427,7 +427,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** Fill out the **Networking** settings as follows:
+        **Step 4.** Fill out the **Networking** settings as follows:
 
         * **Connectivity method** &rarr; Select **Public access**.
         * **Allow public access from any Azure service** &rarr; Select the checkbox, that is, allow access. 
@@ -442,7 +442,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** Review the information and when satisfied, select **Create**.
+        **Step 5.** Review the information and when satisfied, select **Create**.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-05.png" alt-text="Screenshot showing how to finish creation of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-05.png":::

@@ -2,7 +2,7 @@
 title: Use Spring Data JDBC with Azure Database for PostgreSQL
 description: Learn how to use Spring Data JDBC with an Azure Database for PostgreSQL database.
 author: KarlErickson
-ms.date: 02/22/2023
+ms.date: 08/28/2024
 ms.author: hangwan
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java, spring-cloud-azure, devx-track-extended-java
