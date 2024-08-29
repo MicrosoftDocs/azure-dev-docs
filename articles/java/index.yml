@@ -99,9 +99,9 @@ conceptualContent:
 
     - title: Migrate to Azure
       links:
-        - text: Spring to Azure Spring Apps
+        - text: Spring to Azure Container Apps
           itemType: how-to-guide
-          url: migration/migrate-spring-boot-to-azure-spring-apps.md
+          url: migration/migrate-spring-boot-to-azure-container-apps.md
         - text: Tomcat to Azure App Service
           itemType: how-to-guide
           url: migration/migrate-tomcat-to-tomcat-app-service.md

@@ -136,24 +136,22 @@ Use the rows below to find your Java application type and the columns to find th
 
 If you'd like to migrate a JBoss EAP app to Tomcat on App Service, first convert the Java EE app to Java Web Apps (servlets) running on Tomcat, then follow the guidance indicated below.
 
-If you'd like to migrate a Web app on Tomcat to Azure Spring Apps, first convert the app into Spring Cloud applications, then follow the guidance indicated below.
-
-| Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓ | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Container<br>Apps | Azure<br>Spring<br>Apps | AKS                 | Virtual<br>Machines |
-|--------------------------------------------------------|---------------------------|--------------------------|-----------------------------|----------------------------|-------------------------|---------------------|---------------------|
-| Spring Boot /<br>JAR applications                      | N/A                       | N/A                      | N/A                         | N/A                        | [guidance][16]          | N/A                 | N/A                 |
-| Spring Cloud /<br>applications                         | N/A                       | N/A                      | N/A                         | N/A                        | [guidance][15]          | guidance<br>planned | guidance<br>planned |
-| Web applications<br>on Tomcat                          | N/A                       | [guidance][2]            | N/A                         | [guidance][22]             | N/A                     | [guidance][3]       | guidance<br>planned |
+| Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓ | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Container<br>Apps | AKS                 | Virtual<br>Machines |
+|--------------------------------------------------------|---------------------------|--------------------------|-----------------------------|----------------------------|---------------------|---------------------|---------------------|
+| Spring Boot /<br>JAR applications                      | N/A                       | N/A                      | N/A                         | N/A                        | N/A                 | N/A                 |
+| Spring Cloud /<br>applications                         | N/A                       | N/A                      | N/A                         | N/A                        | guidance<br>planned | guidance<br>planned |
+| Web applications<br>on Tomcat                          | N/A                       | [guidance][2]            | N/A                         | [guidance][22]             | [guidance][3]       | guidance<br>planned |
 
 **Java EE applications**
 
 Use the rows below to find your Java EE application type running on a specific app server. Use the columns to find the Azure service destination that will host your application.
 
-| Destination&nbsp;→<br><br>App server&nbsp;↓ | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Container<br>Apps | Azure<br>Spring<br>Apps  | AKS           | Virtual<br>Machines |
-|---------------------------------------------|---------------------------|--------------------------|-----------------------------|----------------------------|--------------------------|---------------|---------------------|
-| WildFly /<br>JBoss AS                       | N/A                       | N/A                      | [guidance][18]              | N/A                        | N/A                      | [guidance][9] | guidance<br>planned |
-| Oracle WebLogic Server                      | N/A                       | N/A                      | [guidance][19]              | N/A                        | N/A                      | [guidance][6] | [guidance][4]       |
-| IBM WebSphere                               | N/A                       | N/A                      | [guidance][20]              | N/A                        | N/A                      | [guidance][7] | guidance<br>planned |
-| Red Hat JBoss EAP                           | N/A                       | N/A                      | [guidance][18]              | N/A                        | N/A                      | [guidance][8] | [guidance][24]      |
+| Destination&nbsp;→<br><br>App server&nbsp;↓ | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Container<br>Apps | AKS           | Virtual<br>Machines |
+|---------------------------------------------|---------------------------|--------------------------|-----------------------------|----------------------------|---------------|---------------------|
+| WildFly /<br>JBoss AS                       | N/A                       | N/A                      | [guidance][18]              | N/A                        | [guidance][9] | guidance<br>planned |
+| Oracle WebLogic Server                      | N/A                       | N/A                      | [guidance][19]              | N/A                        | [guidance][6] | [guidance][4]       |
+| IBM WebSphere                               | N/A                       | N/A                      | [guidance][20]              | N/A                        | [guidance][7] | guidance<br>planned |
+| Red Hat JBoss EAP                           | N/A                       | N/A                      | [guidance][18]              | N/A                        | [guidance][8] | [guidance][24]      |
 
 <!-- reference links, for use with tables -->
 [1]: media/migration-overview/logo_azure.svg
@@ -168,8 +166,8 @@ Use the rows below to find your Java EE application type running on a specific a
 [11]: https://azure.microsoft.com/global-infrastructure/services/?products=spring-apps
 [12]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [13]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
-[15]: migrate-spring-cloud-to-azure-spring-apps.md
-[16]: migrate-spring-boot-to-azure-spring-apps.md
+[15]: migrate-spring-cloud-to-azure-container-apps.md
+[16]: migrate-spring-boot-to-azure-container-apps.md
 [18]: migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
 [19]: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
 [20]: migrate-websphere-to-jboss-eap-on-azure-app-service.md

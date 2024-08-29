@@ -22,7 +22,7 @@ Spring Boot applications using commercial brokers typically contain dependencies
 ```json
     dependencies {
       ...
-      compile("com.ibm.mq:com.ibm.mq.allclient:9.0.4.0")
+      compile("com.ibm.mq:com.ibm.mq.allclient:9.4.0.5")
       ...
     }
 ```
