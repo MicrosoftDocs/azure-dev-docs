@@ -133,7 +133,7 @@ The functions in this application above are:
 
 This article uses [Jest](https://jestjs.io/) as the test framework. There are other test frameworks, which are comparable you can also use. 
 
-In the root of the application directory, install Jest:
+In the root of the application directory, install Jest with the following command:
 
 ```console
 npm install jest
