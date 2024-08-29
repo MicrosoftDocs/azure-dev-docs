@@ -11,7 +11,7 @@ ms.service: azure-dev-cli
 
 # Azure Developer CLI templates overview
 
-Azure Developer CLI (`azd`) templates are plain old, regular code repositories that include sample application code, as well as `azd` configuration and infrastructure files. `azd` templates enable you to provision Azure resources, deploy your application, configure CI/CD pipelines, and more. You can either create your own templates, or get started using an existing template from a template repository such as [Awesome AZD](https://azure.github.io/awesome-azd/). In this article, you'll learn about the following concepts:
+Azure Developer CLI (`azd`) templates are regular code repositories that include sample application code, as well as `azd` configuration and infrastructure files. `azd` templates enable you to provision Azure resources, deploy your application, configure CI/CD pipelines, and more. You can either create your own templates, or get started using an existing template from a template repository such as [Awesome AZD](https://azure.github.io/awesome-azd/). In this article, you'll learn about the following concepts:
 
 - How `azd` templates enable you to provision and deploy app resources
 - How `azd` templates are structured
