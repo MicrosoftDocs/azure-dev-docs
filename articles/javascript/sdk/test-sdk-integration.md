@@ -92,7 +92,7 @@ const dependencyFunctionMock = jest.fn();
 const fakeDatabaseData = {first: 'John', last: 'Jones'};
 dependencyFunctionMock.mockReturnValue(fakeDatabaseData);
 
-// perform test
+// ACT
 // date is returned by mock then transformed in SomeTestFunction()
 const { name } = someTestFunction()
 
