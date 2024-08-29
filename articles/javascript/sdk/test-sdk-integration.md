@@ -100,7 +100,7 @@ const { name } = someTestFunction()
 expect(name).toBe(`${first} ${last}`);
 ```
 
-The purpose of the test is to ensure that the work done by `someTestFunction` meets the expected outcome. In this simple example, the function's task is to concatenate the first and family names. By using fake data, you know the expected result and can validate that the function performs the work correctly.
+The purpose of the preceding test is to ensure that the work done by `someTestFunction` meets the expected outcome. In this simple example, the function's task is to concatenate the first and family names. By using fake data, you know the expected result and can validate that the function performs the work correctly.
 
 ### Fakes
 
