@@ -162,7 +162,7 @@ A local development environment is a great choice for traditional development wo
 
     > [!NOTE]
     > You can call `azd up` as many times as you like to both provision and deploy updates to your application.
-    > If the deployment fails due to a resource being undeployable in the selected region, delete the `.azure` directory and try `azd up` again. When asked, select a different region.
+    > The deployment may due to a resource being undeployable in the selected region. Because this is a quick start, it is safe to delete the `.azure` directory and try `azd up` again. When asked, select a different region. In a more advanced scenario you could selectively edit files within the `.azure` directory to change the region.
 
 ## [Codespaces](#tab/codespaces)
 
@@ -364,7 +364,7 @@ When you no longer need the resources created in this article, run the following
 azd down
 ```
 
-If you want to redeploy to a different region, delete the `.azure` directory before running `azd up` again.
+If you want to redeploy to a different region, delete the `.azure` directory before running `azd up` again.  In a more advanced scenario you could selectively edit files within the `.azure` directory to change the region.
 
 [!INCLUDE [request-help](includes/request-help.md)]
 
