@@ -87,7 +87,7 @@ When you decide to mock a dependency, you can choose to mock just what you need 
 The purpose of stubs is to replace a function's return data to simulate different scenarios. This allows your code to call the function and receive various states, including successful results, failures, exceptions, and edge cases. **State verification** ensures your code handles these scenarios correctly.
 
 ```javascript
-// setup
+// ARRANGE
 const dependencyFunctionMock = jest.fn();
 const fakeDatabaseData = {first: 'John', last: 'Jones'};
 dependencyFunctionMock.mockReturnValue(fakeDatabaseData);
