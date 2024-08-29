@@ -29,10 +29,9 @@ This tutorial includes the following tasks:
     * View list of traces with Azure portal
 * Remove resources with Azure CLI
 
-[!INCLUDE [Create or use existing Azure Subscription ](../includes/environment-subscription-h2.md)]
-
 ## Prerequisites
 
+- An Azure user account and subscription: [create a free subscription](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=azure-docs-js-dev-vscode-tutorial-appservice-extension&mktingSource=azure-docs-js-dev-vscode-tutorial-appservice-extension).
 - SSH to connect to the VM: Use Azure Cloud Shell or a modern terminal such as bash shell, which includes SSH.
 [!INCLUDE [include](~/../articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
