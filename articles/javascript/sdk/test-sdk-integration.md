@@ -108,7 +108,7 @@ Fakes substitute a functionality that you wouldn't normally use in production, s
 
 :::code language="TypeScript" source="~/../node-essentials/unit-testing/src/fakes/fake-in-mem-db.spec.ts" :::
 
-The purpose of the test is to ensure that `someTestFunction` correctly interacts with the database. By using a fake in-memory database, you can test the function's logic without relying on a real database, making the tests faster and more reliable.
+The purpose of the preceding test is to ensure that `someTestFunction` correctly interacts with the database. By using a fake in-memory database, you can test the function's logic without relying on a real database, making the tests faster and more reliable.
 
 ## Scenario: Inserting a document into Cosmos DB using Azure SDK
 
