@@ -210,4 +210,4 @@ The following Jest test file shows how to test the **insertDocument** function.
 
 ## Related content
 
-- [Test serverless APIs](../end-to-end/contoso-real-estate-test-api-solution)
+- [Test serverless APIs](../end-to-end/contoso-real-estate-test-api-solution.md)
