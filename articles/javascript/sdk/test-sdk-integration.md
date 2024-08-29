@@ -8,7 +8,7 @@ ai-usage: ai-assisted
 #customer intent: As a JavaScript or TypeScript developer new to Azure, I want understand how to test my code which depends on the Azure SDKs so that only test what is needed.
 ---
 
-# Test integration Code for Azure SDK for JavaScript
+# Testing Azure SDK Integration in JavaScript Applications
 
 Testing your integration code for the Azure SDK for JavaScript is essential to ensure your applications interact correctly with Azure services. 
 
