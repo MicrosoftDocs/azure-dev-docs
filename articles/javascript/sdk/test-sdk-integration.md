@@ -7,7 +7,8 @@ ms.custom: devx-track-js
 ai-usage: ai-assisted
 #customer intent: As a JavaScript or TypeScript developer new to Azure, I want understand how to test my code which depends on the Azure SDKs so that only test what is needed.
 ---
-
+> [!NOTE]
+> For this article, you should have [Node.js installed](https://nodejs.org/en/download/package-manager). 
 # Testing integration Code for Azure SDK for JavaScript
 
 Testing your integration code for the Azure SDK for JavaScript is essential to ensure your applications interact correctly with Azure services. 
