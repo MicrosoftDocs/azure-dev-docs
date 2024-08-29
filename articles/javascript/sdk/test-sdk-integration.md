@@ -104,7 +104,7 @@ The purpose of the preceding test is to ensure that the work done by `someTestFu
 
 ### Fakes
 
-Fakes: Substitute in functionality that you wouldn't normally use in production, such as an in-memory database instead of a cloud database.
+Fakes substitute a functionality that you wouldn't normally use in production, such as using an in-memory database instead of a cloud database.
 
 :::code language="TypeScript" source="~/../node-essentials/unit-testing/src/fakes/fake-in-mem-db.spec.ts" :::
 
