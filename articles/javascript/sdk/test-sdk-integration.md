@@ -1,22 +1,22 @@
 ---
 title: "Testing code depending on Azure SDK in JavaScript"
-description: "Learn testing Azure SDK integration in JavaScript apps. Understand when to use a live dependency, when to use doubles and how to use mocks with the client libraries (SDKs)."
-ms.date: 08/27/2022
+description: "Learn to test Azure SDK integration in JavaScript apps. Understand when to use live dependencies, doubles, and mocks with client libraries (SDKs)."
+ms.date: 08/29/2022
 ms.topic: concept-article
 ms.custom: devx-track-js
 ai-usage: ai-assisted
 #customer intent: As a JavaScript or TypeScript developer new to Azure, I want understand how to test my code which depends on the Azure SDKs so that only test what is needed.
 ---
-> [!NOTE]
-> For this article, you should have [Node.js installed](https://nodejs.org/en/download/package-manager). 
-# Testing integration Code for Azure SDK for JavaScript
+
+# Test integration Code for Azure SDK for JavaScript
 
 Testing your integration code for the Azure SDK for JavaScript is essential to ensure your applications interact correctly with Azure services. 
-For unit tests, use tools such as Jest, Sinon, or ts-mockito. 
-
-## Use Mocking or Live Service
 
 When deciding whether to mock out cloud service SDK calls or use a live service for testing purposes, it's important to consider the trade-offs between speed, reliability, and cost.
+
+## Prerequisites
+
+- [Node.js LTS](https://nodejs.org/en/download/package-manager)
 
 ### Mocking Cloud Services
 
@@ -142,13 +142,11 @@ npm install jest
 
 ## Configure package to run test
 
-Update the `package.json` for the application with a new script to test our source code files. Source code files are defined by matching on partial file name and extension. Jest looks for files following the common naming convention for test files: `<file-name>.spec.[jt]s`.  This pattern means files named like the following will be interpreted as test files and run by Jest:
+Update the `package.json` for the application with a new script to test our source code files. Source code files are defined by matching on partial file name and extension. Jest looks for files following the common naming convention for test files: `<file-name>.spec.[jt]s`.  This pattern means files named like the following examples will be interpreted as test files and run by Jest:
 
 - ***.test.js**: For example, math.test.js
 - ***.spec.js**: For example, math.spec.js
 - **Files located in a *__tests__* directory**, such as __tests__/math.js
-
-to name a few valid examples.
 
 Add a script to the *package.json* to support that test file pattern with Jest:
 
@@ -205,8 +203,11 @@ The following Jest test file shows how to test the **insertDocument** function.
 
 :::code language="TypeScript" source="~/../node-essentials/unit-testing/src/mock-function/lib/insert.spec.ts":::
 
-## References
+## Additional information 
 
-* [Jest Mocking Best Practices](https://devblogs.microsoft.com/ise/jest-mocking-best-practices/)
-* [The Difference between Mocks and Stubs](https://martinfowler.com/articles/mocksArentStubs.html#TheDifferenceBetweenMocksAndStubs) by Martin Fowler
+- [Jest Mocking Best Practices](https://devblogs.microsoft.com/ise/jest-mocking-best-practices/)
+- [The Difference between Mocks and Stubs](https://martinfowler.com/articles/mocksArentStubs.html#TheDifferenceBetweenMocksAndStubs) by Martin Fowler
 
+## Related content
+
+- [Test serverless APIs](../end-to-end/contoso-real-estate-test-api-solution)
