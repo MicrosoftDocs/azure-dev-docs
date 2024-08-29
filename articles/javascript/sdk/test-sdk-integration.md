@@ -114,7 +114,7 @@ The purpose of the test is to ensure that `someTestFunction` correctly interacts
 
 Imagine you have an application that needs to write a new document to Cosmos DB _if_ all the information is submitted and verified. If an empty form is submitted or the information doesn't match the expected format, the application shouldn't enter the data.
 
-Cosmos DB is used as an example however the concepts apply to most of the Azure SDKs for JavaScript. The following simple function captures this functionality:
+Cosmos DB is used as an example, however the concepts apply to most of the Azure SDKs for JavaScript. The following function captures this functionality:
 
 :::code language="TypeScript" source="~/../node-essentials/unit-testing/src/mock-function/lib/insert.ts":::
 
