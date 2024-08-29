@@ -80,7 +80,7 @@ The purpose of the test is to ensure that someTestFunction behaves correctly wit
 When you decide to mock a dependency, you can choose to mock just what you need such as:
 
 - A function or two from a **larger dependency**. Jest offers [partial mocks](https://jestjs.io/docs/mock-functions#mocking-partials) for this purpose. 
-- All few functions of a **smaller dependency**, as show in the example in this article.
+- All functions of a **smaller dependency**, as shown in the example in this article.
 
 ### Stubs
 
