@@ -96,7 +96,7 @@ dependencyFunctionMock.mockReturnValue(fakeDatabaseData);
 // date is returned by mock then transformed in SomeTestFunction()
 const { name } = someTestFunction()
 
-// verify state
+// ASSERT
 expect(name).toBe(`${first} ${last}`);
 ```
 
