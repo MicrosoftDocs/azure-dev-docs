@@ -66,6 +66,8 @@ token = azure_credential.get_token("https://ossrdbms-aad.database.windows.net")
 conf.settings.DATABASES['default']['PASSWORD'] = token.token
 ```
 
+To learn more about using `DefaultAzureCredential` in your apps, see [Authenticate Python apps to Azure services by using the Azure SDK for Python](./sdk/authentication/overview.md).
+
 ## Create an Azure PostgreSQL flexible server
 
 1. Set up the environment variables needed for the tutorial.
