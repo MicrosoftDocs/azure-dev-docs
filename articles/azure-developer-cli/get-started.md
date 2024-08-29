@@ -352,7 +352,7 @@ Once you've provided the necessary parameters and the `azd up` command completes
 :::image type="content" source="media/get-started/urls.png" alt-text="Screenshot of command output listing endpoint URLs.":::
 
 > [!NOTE]
-> You can call `azd up` as many times as you like to both provision and deploy your application to the same regoin and with the same configuration answers you gave before the first deployment.
+> You can run `azd up` as many times as you like to both provision and deploy your application to the same region and with the same configuration values you provided on the first run.
 
 ---
 
