@@ -40,11 +40,11 @@ The sample web app needs to authenticate to two different data stores:
 
 It uses [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) to authenticate to both data stores. With `DefaultAzureCredential`, the app can be configured to run under the identity of different service principals depending on the environment it's running in without having to make changes to code. For example, in a local development environment, the app can run under the identity of the developer signed in to the Azure CLI, while in Azure, as in this tutorial, it can run under its system-assigned managed identity.
 
-In either case, the security principal that the app runs under must have a role on each Azure resource the app uses that permits it to perform the actions the app requires. In this tutorial, you use service connectors to automatically enable the system-assigned managed identity on your app in Azure and to assign that identity appropriate roles on your Azure storage account and Azure Database for PostgreSQL server.
+In either case, the security principal that the app runs under must have a role on each Azure resource the app uses that permits it to perform the actions on the resource that the app requires. In this tutorial, you use service connectors to automatically enable the system-assigned managed identity on your app in Azure and to assign that identity appropriate roles on your Azure storage account and Azure Database for PostgreSQL server.
 
 After the system-assigned managed identity is enabled and is assigned appropriate roles on the data stores, you can simply use `DefaultAzureCredential` to authenticate with the required Azure resources.
 
-The following code is used to create a blob storage client to upload photos in `app.py`. An instance of `DefaultAzureCredential` is supplied to the client, which it uses to acquire tokens to perform operations against Azure storage.
+The following code is used to create a blob storage client to upload photos in `app.py`. An instance of `DefaultAzureCredential` is supplied to the client, which it uses to acquire access tokens to perform operations against Azure storage.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -56,7 +56,7 @@ blob_service_client = BlobServiceClient(
     credential=azure_credential)
 ```
 
-An instance of `DefaultAzureCredential` is also used to get a token for Azure Database for PostgreSQL in `./azureproject/get_conn.py`. In this case, the token is acquired directly by calling [get_token](/python/api/azure-identity/azure.identity.defaultazurecredential#azure-identity-defaultazurecredential-get-token) on the credential instance and passing it the appropriate `scope` value. The token is then used in the place of the password in the PostgreSQL connection URI returned to the caller.
+An instance of `DefaultAzureCredential` is also used to get an access token for Azure Database for PostgreSQL in `./azureproject/get_conn.py`. In this case, the token is acquired directly by calling [get_token](/python/api/azure-identity/azure.identity.defaultazurecredential#azure-identity-defaultazurecredential-get-token) on the credential instance and passing it the appropriate `scope` value. The token is then used in the place of the password in the PostgreSQL connection URI returned to the caller.
 
 ```python
 azure_credential = DefaultAzureCredential()
