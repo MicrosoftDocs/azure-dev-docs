@@ -87,8 +87,8 @@
 | Models Repository | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-iot-modelsrepository/1.0.0-beta.1/jar/) | [docs](/java/api/overview/azure/iot-modelsrepository-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-iot-modelsrepository_1.0.0-beta.1/sdk/modelsrepository/azure-iot-modelsrepository/) |
 | Monitor Ingestion | Maven [1.2.4](https://search.maven.org/artifact/com.azure/azure-monitor-ingestion/1.2.4/jar/) | [docs](/java/api/overview/azure/monitor-ingestion-readme) | GitHub [1.2.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-ingestion_1.2.4/sdk/monitor/azure-monitor-ingestion/) |
 | Monitor Query | Maven [1.5.1](https://search.maven.org/artifact/com.azure/azure-monitor-query/1.5.1/jar/) | [docs](/java/api/overview/azure/monitor-query-readme) | GitHub [1.5.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query_1.5.1/sdk/monitor/azure-monitor-query/) |
-| OpenAI | Maven [1.0.0-beta.10](https://search.maven.org/artifact/com.azure/azure-ai-openai/1.0.0-beta.10/jar/) | [docs](/java/api/overview/azure/ai-openai-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.10](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai_1.0.0-beta.10/sdk/openai/azure-ai-openai/) |
-| OpenAI Assistants | Maven [1.0.0-beta.3](https://search.maven.org/artifact/com.azure/azure-ai-openai-assistants/1.0.0-beta.3/jar/) | [docs](/java/api/overview/azure/ai-openai-assistants-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai-assistants_1.0.0-beta.3/sdk/openai/azure-ai-openai-assistants/) |
+| OpenAI | Maven [1.0.0-beta.11](https://search.maven.org/artifact/com.azure/azure-ai-openai/1.0.0-beta.11/jar/) | [docs](/java/api/overview/azure/ai-openai-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.11](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai_1.0.0-beta.11/sdk/openai/azure-ai-openai/) |
+| OpenAI Assistants | Maven [1.0.0-beta.4](https://search.maven.org/artifact/com.azure/azure-ai-openai-assistants/1.0.0-beta.4/jar/) | [docs](/java/api/overview/azure/ai-openai-assistants-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-openai-assistants_1.0.0-beta.4/sdk/openai/azure-ai-openai-assistants/) |
 | OpenTelemetry Exporter | Maven [1.0.0-beta.28](https://search.maven.org/artifact/com.azure/azure-monitor-opentelemetry-exporter/1.0.0-beta.28/jar/) | [docs](/java/api/overview/azure/monitor-opentelemetry-exporter-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.28](https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-opentelemetry-exporter_1.0.0-beta.28/sdk/monitor/azure-monitor-opentelemetry-exporter/) |
 | Personalizer | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-ai-personalizer/1.0.0-beta.1/jar/) | [docs](/java/api/overview/azure/ai-personalizer-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-personalizer_1.0.0-beta.1/sdk/personalizer/azure-ai-personalizer/) |
 | Purview Account | Maven [1.0.0-beta.1](https://search.maven.org/artifact/com.azure/azure-analytics-purview-account/1.0.0-beta.1/jar/) | [docs](/java/api/overview/azure/analytics-purview-account-readme?view=azure-java-preview&amp;preserve-view=true) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-java/tree/azure-analytics-purview-account_1.0.0-beta.1/sdk/purview/azure-analytics-purview-account/) |
@@ -562,19 +562,19 @@
 | Storage - Java | Maven [10](https://search.maven.org/artifact/com.microsoft.azure/azure-storage-java/10/jar/) |  |  |
 | Support | Maven [0.1.8](https://search.maven.org/artifact/com.microsoft.azure/azure-support/0.1.8/jar/) |  |  |
 | synapseml | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml/0.9.3/jar/) |  |  |
-| synapseml_2.12 | Maven [1.0.4](https://search.maven.org/artifact/com.microsoft.azure/synapseml_2.12/1.0.4/jar/) |  |  |
+| synapseml_2.12 | Maven [1.0.5](https://search.maven.org/artifact/com.microsoft.azure/synapseml_2.12/1.0.5/jar/) |  |  |
 | synapseml-cognitive | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-cognitive/0.9.3/jar/) |  |  |
-| synapseml-cognitive_2.12 | Maven [1.0.4](https://search.maven.org/artifact/com.microsoft.azure/synapseml-cognitive_2.12/1.0.4/jar/) |  |  |
+| synapseml-cognitive_2.12 | Maven [1.0.5](https://search.maven.org/artifact/com.microsoft.azure/synapseml-cognitive_2.12/1.0.5/jar/) |  |  |
 | synapseml-core | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-core/0.9.3/jar/) |  |  |
-| synapseml-core_2.12 | Maven [1.0.4](https://search.maven.org/artifact/com.microsoft.azure/synapseml-core_2.12/1.0.4/jar/) |  |  |
+| synapseml-core_2.12 | Maven [1.0.5](https://search.maven.org/artifact/com.microsoft.azure/synapseml-core_2.12/1.0.5/jar/) |  |  |
 | synapseml-deep-learning | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-deep-learning/0.9.3/jar/) |  |  |
-| synapseml-deep-learning_2.12 | Maven [1.0.4](https://search.maven.org/artifact/com.microsoft.azure/synapseml-deep-learning_2.12/1.0.4/jar/) |  |  |
+| synapseml-deep-learning_2.12 | Maven [1.0.5](https://search.maven.org/artifact/com.microsoft.azure/synapseml-deep-learning_2.12/1.0.5/jar/) |  |  |
 | synapseml-lightgbm | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-lightgbm/0.9.3/jar/) |  |  |
-| synapseml-lightgbm_2.12 | Maven [1.0.4](https://search.maven.org/artifact/com.microsoft.azure/synapseml-lightgbm_2.12/1.0.4/jar/) |  |  |
+| synapseml-lightgbm_2.12 | Maven [1.0.5](https://search.maven.org/artifact/com.microsoft.azure/synapseml-lightgbm_2.12/1.0.5/jar/) |  |  |
 | synapseml-opencv | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-opencv/0.9.3/jar/) |  |  |
-| synapseml-opencv_2.12 | Maven [1.0.4](https://search.maven.org/artifact/com.microsoft.azure/synapseml-opencv_2.12/1.0.4/jar/) |  |  |
+| synapseml-opencv_2.12 | Maven [1.0.5](https://search.maven.org/artifact/com.microsoft.azure/synapseml-opencv_2.12/1.0.5/jar/) |  |  |
 | synapseml-vw | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-vw/0.9.3/jar/) |  |  |
-| synapseml-vw_2.12 | Maven [1.0.4](https://search.maven.org/artifact/com.microsoft.azure/synapseml-vw_2.12/1.0.4/jar/) |  |  |
+| synapseml-vw_2.12 | Maven [1.0.5](https://search.maven.org/artifact/com.microsoft.azure/synapseml-vw_2.12/1.0.5/jar/) |  |  |
 | synapseutils | Maven [1.1](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils/1.1/jar/) |  |  |
 | synapseutils_2.11 | Maven [1.5.3](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.11/1.5.3/jar/) |  |  |
 | synapseutils_2.12 | Maven [1.5.3](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.12/1.5.3/jar/) |  |  |
