@@ -8,7 +8,7 @@ ai-usage: ai-assisted
 #customer intent: As a JavaScript or TypeScript developer new to Azure, I want understand how to test my code which depends on the Azure SDKs so that only test what is needed.
 ---
 
-# Testing Azure SDK Integration in JavaScript Applications
+# Testing Azure SDK integration in JavaScript applications
 
 Testing your integration code for the Azure SDK for JavaScript is essential to ensure your applications interact correctly with Azure services. 
 
@@ -18,7 +18,7 @@ When deciding whether to mock out cloud service SDK calls or use a live service 
 
 - [Node.js LTS](https://nodejs.org/en/download/package-manager)
 
-### Mocking Cloud Services
+### Mocking cloud services
 
 **Pros:**
 
@@ -33,7 +33,7 @@ When deciding whether to mock out cloud service SDK calls or use a live service 
 - Might ignore certain features or behaviors of the live service.
 - Less realistic environment compared to production.
 
-### Using a Live Service
+### Using a live service
 
 **Pros:**
 
