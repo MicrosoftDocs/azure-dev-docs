@@ -33,7 +33,7 @@ For the steps ahead, you'll use the following template to provision and deploy a
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo-aca)
+[Containerized React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo-aca)
 ::: zone-end
 
 You can also select a template that matches your preferences from the [Awesome AZD](https://azure.github.io/awesome-azd/) template gallery site. Regardless of which template you use, you'll end up with the template code in your development environment and be able to run commands to build, redeploy, and monitor the app in Azure.
@@ -51,6 +51,7 @@ A local development environment is a great choice for traditional development wo
 - [Install the Azure Developer CLI](./install-azd.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js with npm (v 16.13.1 LTS)](https://nodejs.org/)
+- [Docker](https://docs.docker.com/get-docker/).
 - [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
 
 ::: zone-end
@@ -269,7 +270,6 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 
 - [Install the Azure Developer CLI](./install-azd.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Docker](https://docs.docker.com/get-docker/).
 - [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
 
 ::: zone-end
