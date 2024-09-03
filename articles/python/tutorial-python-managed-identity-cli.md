@@ -42,7 +42,7 @@ It uses [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defau
 
 In either case, the security principal that the app runs under must have a role on each Azure resource the app uses that permits it to perform the actions on the resource that the app requires. In this tutorial, you use service connectors to automatically enable the system-assigned managed identity on your app in Azure and to assign that identity appropriate roles on your Azure storage account and Azure Database for PostgreSQL server.
 
-After the system-assigned managed identity is enabled and is assigned appropriate roles on the data stores, you can simply use `DefaultAzureCredential` to authenticate with the required Azure resources.
+After the system-assigned managed identity is enabled and is assigned appropriate roles on the data stores, you can use `DefaultAzureCredential` to authenticate with the required Azure resources.
 
 The following code is used to create a blob storage client to upload photos in `app.py`. An instance of `DefaultAzureCredential` is supplied to the client, which it uses to acquire access tokens to perform operations against Azure storage.
 
