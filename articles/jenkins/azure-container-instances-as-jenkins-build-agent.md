@@ -60,7 +60,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 
 1. Set **Launch method** to **Launch agent by connecting to the master**.
 
-1. Verify that all required fields have been specified or entered:
+1. Verify that all required fields have been specified or entered.
 
 1. Select **Save**.
 
@@ -109,7 +109,7 @@ Now, a Jenkins build job is created to demonstrate Jenkins builds on an Azure co
 
 To test the build job and observe Azure Container Instances manually start a build.
 
-1. Select **Build Now** to start a build job. Once the job starts you see a job status:
+1. Select **Build Now** to start a build job. Once the job starts you see a job status.
 
 1. Click build **#1** in the **Build History**.
 
