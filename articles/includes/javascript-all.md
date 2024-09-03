@@ -49,7 +49,7 @@
 | Core - Client - Tracing | npm [1.1.2](https://www.npmjs.com/package/@azure/core-tracing/v/1.1.2) | [docs](/javascript/api/overview/azure/core-tracing-readme) | GitHub [1.1.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.1.2/sdk/core/core-tracing/) |
 | Core - Client - XML | npm [1.4.3](https://www.npmjs.com/package/@azure/core-xml/v/1.4.3) | [docs](/javascript/api/overview/azure/core-xml-readme) | GitHub [1.4.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.4.3/sdk/core/core-xml/) |
 | Core - Paging | npm [1.6.2](https://www.npmjs.com/package/@azure/core-paging/v/1.6.2) | [docs](/javascript/api/overview/azure/core-paging-readme) | GitHub [1.6.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.6.2/sdk/core/core-paging/) |
-| Cosmos DB | npm [4.1.0](https://www.npmjs.com/package/@azure/cosmos/v/4.1.0) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.1.0/sdk/cosmosdb/cosmos/) |
+| Cosmos DB | npm [4.1.1](https://www.npmjs.com/package/@azure/cosmos/v/4.1.1) | [docs](/javascript/api/overview/azure/cosmos-readme) | GitHub [4.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_4.1.1/sdk/cosmosdb/cosmos/) |
 | Defender EASM | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/defender-easm/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/defender-easm_1.0.0-beta.1/sdk/easm/defender-easm-rest/) |
 | Dev Center | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/developer-devcenter/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/developer-devcenter_1.0.0/sdk/devcenter/developer-devcenter-rest/) |
 | Device Update | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/iot-device-update/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/iot-device-update_1.0.0/sdk/deviceupdate/iot-device-update-rest/) |
@@ -367,7 +367,7 @@
 | @azure-tools/typespec-autorest-canonical | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.6.0) |  |  |
 | @azure-tools/typespec-azure-portal-core | npm [0.45.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.45.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.45.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.45.0) |  |  |
-| @azure-tools/typespec-client-generator-cli | npm [0.12.1](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.12.1) |  |  |
+| @azure-tools/typespec-client-generator-cli | npm [0.12.2](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.12.2) |  |  |
 | @azure-tools/typespec-go | npm [0.3.1](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.1) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.4.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.4.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
@@ -471,7 +471,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240828.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240828.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240903.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240903.2) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -500,11 +500,11 @@
 | @azure-tools/cadl-providerhub | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub/v/0.26.0) |  |  |
 | @azure-tools/cadl-providerhub-controller | npm [0.26.0](https://www.npmjs.com/package/@azure-tools/cadl-providerhub-controller/v/0.26.0) |  |  |
 | @azure-tools/cadl-python | npm [0.6.1](https://www.npmjs.com/package/@azure-tools/cadl-python/v/0.6.1) |  |  |
-| @azure-tools/cadl-ranch | npm [0.14.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.14.3) |  |  |
+| @azure-tools/cadl-ranch | npm [0.14.5](https://www.npmjs.com/package/@azure-tools/cadl-ranch/v/0.14.5) |  |  |
 | @azure-tools/cadl-ranch-api | npm [0.4.6](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.4.6) |  |  |
-| @azure-tools/cadl-ranch-coverage-sdk | npm [0.8.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.8.3) |  |  |
-| @azure-tools/cadl-ranch-expect | npm [0.15.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.15.1) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.36.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.36.1) |  |  |
+| @azure-tools/cadl-ranch-coverage-sdk | npm [0.8.4](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.8.4) |  |  |
+| @azure-tools/cadl-ranch-expect | npm [0.15.3](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.15.3) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.37.1](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.37.1) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
@@ -552,7 +552,7 @@
 | AutoRest - Go | npm [4.0.0-preview.67](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.67) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.19.0](https://www.npmjs.com/package/@autorest/python/v/6.19.0) |  | GitHub [6.19.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.20.0](https://www.npmjs.com/package/@autorest/python/v/6.20.0) |  | GitHub [6.20.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
