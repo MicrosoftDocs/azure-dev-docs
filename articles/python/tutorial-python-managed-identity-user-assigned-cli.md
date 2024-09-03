@@ -44,7 +44,7 @@ It uses [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defau
 
 In either case, the security principal that the app runs under must have a role on each Azure resource the app uses that permits it to perform the actions on the resource that the app requires. In this tutorial, you use Azure CLI commands to create a user-assigned managed identity and assign it to your app in Azure. You then manually assign that identity appropriate roles on your Azure storage account and Azure Database for PostgreSQL server. Finally, you set the `AZURE_CLIENT_ID` environment variable for your app in Azure to configure `DefaultAzureCredential` to use the managed identity.
 
-After the user-assigned managed identity is configured on your app and its runtime environment, and is assigned appropriate roles on the data stores, you can simply use `DefaultAzureCredential` to authenticate with the required Azure resources.
+After the user-assigned managed identity is configured on your app and its runtime environment, and is assigned appropriate roles on the data stores, you can use `DefaultAzureCredential` to authenticate with the required Azure resources.
 
 The following code is used to create a blob storage client to upload photos in `./restaurant_review/views.py`. An instance of `DefaultAzureCredential` is supplied to the client, which it uses to acquire access tokens to perform operations against Azure storage.
 
@@ -261,7 +261,7 @@ The sample app uses environment variables (app settings) to define connection in
 
 The sample app code uses the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class constructor without passing the user-assigned managed identity client ID to the constructor. In this scenario, the fallback is to check for the AZURE_CLIENT_ID environment variable, which you set as an app setting.
 
-If the AZURE_CLIENT_ID environment variable doesn't exist, the system-assigned managed identity will be used if it's configured. For more information, see [Introducing DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential).
+If the AZURE_CLIENT_ID environment variable doesn't exist, the system-assigned managed identity is used if it's configured. For more information, see [Introducing DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential).
 
 ## Create roles for the managed identity
 
@@ -291,7 +291,7 @@ In this section, you create role assignments for the managed identity to enable 
       --querytext "select * from pgaadauth_create_principal('"$UA_NAME"', false, false);select * from pgaadauth_list_principals(false);"
     ```
 
-    If you have trouble running the command, make sure you added your user account as Microsoft Entra admin for the PosgreSQL server and that you have allowed access to your IP address in the firewall rules. For more information, see section [Create an Azure PostgreSQL flexible server](#create-an-azure-postgresql-flexible-server).
+    If you have trouble running the command, make sure you added your user account as Microsoft Entra admin for the PosgreSQL server and that you've allowed access to your IP address in the firewall rules. For more information, see section [Create an Azure PostgreSQL flexible server](#create-an-azure-postgresql-flexible-server).
 
 ## Test the Python web app in Azure
 
