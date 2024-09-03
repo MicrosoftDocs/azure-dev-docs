@@ -36,9 +36,6 @@ For more information on Azure Container Instances, see [About Azure Container In
 
 1. Under **Agents**, specify **Fixed** port and enter the appropriate port number for your environment.
 
-    Configuration example:
-    ![Configure TCP port](./media/azure-container-instances-as-jenkins-build-agent/agent-port.png)
-
 1. Select **Save**.
 
 ## Create Jenkins work agent
@@ -65,13 +62,9 @@ For more information on Azure Container Instances, see [About Azure Container In
 
 1. Verify that all required fields have been specified or entered:
 
-    ![Example Jenkins agent configuration](./media/azure-container-instances-as-jenkins-build-agent/agent-config.png)
-
 1. Select **Save**.
 
 1. On the agent status page, you should see the `JENKINS_SECRET` and `AGENT_NAME`. The following screen shot shows how to identify the values. Both values are needed when you create the Azure Container Instance.
-
-    ![The build-agent secret is displays after its successful creation.](./media/azure-container-instances-as-jenkins-build-agent/jenkins-secret.png)
 
 ## Create Azure Container Instance with CLI
 
@@ -97,8 +90,6 @@ For more information on Azure Container Instances, see [About Azure Container In
 
 1. Return to the Jenkins dashboard and check the agent status.
 
-    ![Agent has started successfully](./media/azure-container-instances-as-jenkins-build-agent/agent-start.png)
-
     > [!NOTE]
     > Jenkins agents connect to the controller via port `5000`, ensure that port is allowed inbound to the Jenkins Controller.
 
@@ -108,15 +99,9 @@ Now, a Jenkins build job is created to demonstrate Jenkins builds on an Azure co
 
 1. Select **New Item**, give the build project a name such as **aci-demo**, select **Freestyle project**, and select **OK**.
 
-   ![Box for the name of the build job, and list of project types](./media/azure-container-instances-as-jenkins-build-agent/jenkins-new-job.png)
-
 1. Under **General**, ensure that **Restrict where this project can be run** is selected. Enter **linux** for the label expression. This configuration ensures that this build job runs on the ACI cloud.
 
-   !["General" tab with configuration details](./media/azure-container-instances-as-jenkins-build-agent/jenkins-job-01.png)
-
 1. Under **Build**, select **Add build step** and select **Execute Shell**. Enter `echo "aci-demo"` as the command.
-
-   !["Build" tab with selections for the build step](./media/azure-container-instances-as-jenkins-build-agent/jenkins-job-02.png)
 
 1. Select **Save**.
 
@@ -124,17 +109,11 @@ Now, a Jenkins build job is created to demonstrate Jenkins builds on an Azure co
 
 To test the build job and observe Azure Container Instances manually start a build.
 
-1. Select **Build Now** to start a build job. Once the job starts you'll see a status that's similar to the following image:
-
-   !["Build History" information with job status](./media/azure-container-instances-as-jenkins-build-agent/jenkins-job-status.png)
+1. Select **Build Now** to start a build job. Once the job starts you see a job status:
 
 1. Click build **#1** in the **Build History**.
 
-    !["Console Output" view the build output from the console in the Build History](./media/azure-container-instances-as-jenkins-build-agent/build-history.png)
-
 1. Select **Console Output** to view the builds output.
-
-    !["Console Output" view the build output from the console in the builds output](./media/azure-container-instances-as-jenkins-build-agent/build-console-output.png)
 
 ## Next steps
 
