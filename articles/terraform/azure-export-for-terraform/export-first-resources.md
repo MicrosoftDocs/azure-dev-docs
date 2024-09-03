@@ -43,8 +43,6 @@ You can run the `aztfexport` tool in one of two modes: interactive and non-inter
 
 1. After the tool initializes, a list of the resources to be exported is displayed. Each line has an Azure resourceID matched to the corresponding AzureRM resource type. The list of available commands displays at the bottom of the display. Using one of the commands, scroll to the bottom and verify that the expected Azure resources are properly mapped to their respective Terraform resource types.
 
-    :::image type="content" source="./media/export-first-resources/list-of-resources-to-be-exported.png" alt-text="Screenshot showing the Azure resources that would  be exported based on the command and resource specified when you run the Azure Export for Terraform tool.":::
-
 1. Press `w` to run the export.
 
     **Key points:**
