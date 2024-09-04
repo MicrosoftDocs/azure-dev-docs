@@ -379,7 +379,7 @@
 | @microsoft.azure/autorest-core | npm [2.0.4429](https://www.npmjs.com/package/@microsoft.azure/autorest-core/v/2.0.4429) |  |  |
 | @microsoft.azure/autorest.testserver | npm [3.3.50](https://www.npmjs.com/package/@microsoft.azure/autorest.testserver/v/3.3.50) |  |  |
 | @microsoft.azure/openapi-validator | npm [2.2.3](https://www.npmjs.com/package/@microsoft.azure/openapi-validator/v/2.2.3) |  |  |
-| @microsoft.azure/openapi-validator-rulesets | npm [2.0.10](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-rulesets/v/2.0.10) |  |  |
+| @microsoft.azure/openapi-validator-rulesets | npm [2.1.0](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-rulesets/v/2.1.0) |  |  |
 | @typespec/best-practices | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
 | @typespec/bundler | npm [0.1.6](https://www.npmjs.com/package/@typespec/bundler/v/0.1.6) |  |  |
 | @typespec/http-server-javascript | npm [0.58.0-alpha.2](https://www.npmjs.com/package/@typespec/http-server-javascript/v/0.58.0-alpha.2) |  |  |
@@ -401,7 +401,7 @@
 | Auto Suggest | npm [2.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-autosuggest/v/2.0.1) |  |  |
 | AutoRest | npm [3.7.1](https://www.npmjs.com/package/autorest/v/3.7.1) |  |  |
 | Azure Functions | npm [4.0.0](https://www.npmjs.com/package/@azure/functions/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-functions-nodejs-library) |
-| Batch | npm [11.1.0](https://www.npmjs.com/package/@azure/batch/v/11.1.0) |  | GitHub [11.1.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
+| Batch | npm [12.0.0](https://www.npmjs.com/package/@azure/batch/v/12.0.0) |  | GitHub [12.0.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
 | Communication Calling | npm [1.28.2](https://www.npmjs.com/package/@azure/communication-calling/v/1.28.2) |  | GitHub [1.28.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Communication Signaling | npm [1.0.0-beta.28](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.28) |  | GitHub [1.0.0-beta.28](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
@@ -471,7 +471,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240903.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240903.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240903.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240903.3) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -520,7 +520,7 @@
 | @azure-tools/python-generator-core | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/python-generator-core/v/0.1.0) |  |  |
 | @azure-tools/rlc-common | npm [0.32.0](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.32.0) |  |  |
 | @azure-tools/sdk-generation-lib | npm [1.0.5](https://www.npmjs.com/package/@azure-tools/sdk-generation-lib/v/1.0.5) |  |  |
-| @azure-tools/test-credential | npm [2.1.0](https://www.npmjs.com/package/@azure-tools/test-credential/v/2.1.0) |  |  |
+| @azure-tools/test-credential | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/test-credential/v/1.3.0) |  |  |
 | @azure-tools/test-recorder | npm [3.5.2](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.5.2) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.2.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.2.0) |  |  |
