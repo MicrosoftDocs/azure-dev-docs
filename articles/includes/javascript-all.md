@@ -161,7 +161,7 @@
 | Resource Management - Azure VMware Solution | npm [5.0.0](https://www.npmjs.com/package/@azure/arm-avs/v/5.0.0) | [docs](/javascript/api/overview/azure/arm-avs-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/avs/arm-avs) |
 | Resource Management - BareMetal Infrastructure | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-baremetalinfrastructure/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-baremetalinfrastructure-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-baremetalinfrastructure_1.0.0-beta.2/sdk/baremetalinfrastructure/arm-baremetalinfrastructure/) |
 | Resource Management - Batch | npm [9.2.0](https://www.npmjs.com/package/@azure/arm-batch/v/9.2.0) | [docs](/javascript/api/overview/azure/arm-batch-readme) | GitHub [9.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/batch/arm-batch) |
-| Resource Management - Billing | npm [4.1.0](https://www.npmjs.com/package/@azure/arm-billing/v/4.1.0) | [docs](/javascript/api/overview/azure/arm-billing-readme) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/billing/arm-billing) |
+| Resource Management - Billing | npm [5.0.0](https://www.npmjs.com/package/@azure/arm-billing/v/5.0.0) | [docs](/javascript/api/overview/azure/arm-billing-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/billing/arm-billing) |
 | Resource Management - Billing Benefits | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-billingbenefits/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-billingbenefits-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-billingbenefits_1.0.0/sdk/billingbenefits/arm-billingbenefits/) |
 | Resource Management - Bot Service | npm [4.0.0](https://www.npmjs.com/package/@azure/arm-botservice/v/4.0.0) | [docs](/javascript/api/overview/azure/arm-botservice-readme) | GitHub [4.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/botservice/arm-botservice) |
 | Resource Management - Change Analysis | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-changeanalysis/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-changeanalysis-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-changeanalysis_2.1.0/sdk/changeanalysis/arm-changeanalysis/) |
@@ -220,7 +220,7 @@
 | Resource Management - Elastic | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-elastic/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-elastic-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elastic_1.0.0-beta.3/sdk/elastic/arm-elastic/) |
 | Resource Management - Elasticsan | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-elasticsan/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-elasticsan-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-elasticsan_1.0.0/sdk/elasticsans/arm-elasticsan/) |
 | Resource Management - Event Grid | npm [14.1.0](https://www.npmjs.com/package/@azure/arm-eventgrid/v/14.1.0)<br>npm [14.2.0-beta.4](https://www.npmjs.com/package/@azure/arm-eventgrid/v/14.2.0-beta.4) | [docs](/javascript/api/overview/azure/arm-eventgrid-readme) | GitHub [14.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid) |
-| Resource Management - Event Hubs | npm [5.1.0](https://www.npmjs.com/package/@azure/arm-eventhub/v/5.1.0)<br>npm [5.2.0-beta.1](https://www.npmjs.com/package/@azure/arm-eventhub/v/5.2.0-beta.1) | [docs](/javascript/api/overview/azure/arm-eventhub-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/arm-eventhub) |
+| Resource Management - Event Hubs | npm [5.2.0](https://www.npmjs.com/package/@azure/arm-eventhub/v/5.2.0) | [docs](/javascript/api/overview/azure/arm-eventhub-readme) | GitHub [5.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/arm-eventhub) |
 | Resource Management - Extended Location | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-extendedlocation/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-extendedlocation-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-extendedlocation_1.0.0-beta.3/sdk/extendedlocation/arm-extendedlocation/) |
 | Resource Management - Features | npm [3.1.0](https://www.npmjs.com/package/@azure/arm-features/v/3.1.0) | [docs](/javascript/api/overview/azure/arm-features-readme) | GitHub [3.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/features/arm-features) |
 | Resource Management - Fluid Relay | npm [1.0.1](https://www.npmjs.com/package/@azure/arm-fluidrelay/v/1.0.1) | [docs](/javascript/api/overview/azure/arm-fluidrelay-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-fluidrelay_1.0.1/sdk/fluidrelay/arm-fluidrelay/) |
@@ -379,7 +379,7 @@
 | @microsoft.azure/autorest-core | npm [2.0.4429](https://www.npmjs.com/package/@microsoft.azure/autorest-core/v/2.0.4429) |  |  |
 | @microsoft.azure/autorest.testserver | npm [3.3.50](https://www.npmjs.com/package/@microsoft.azure/autorest.testserver/v/3.3.50) |  |  |
 | @microsoft.azure/openapi-validator | npm [2.2.3](https://www.npmjs.com/package/@microsoft.azure/openapi-validator/v/2.2.3) |  |  |
-| @microsoft.azure/openapi-validator-rulesets | npm [2.1.0](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-rulesets/v/2.1.0) |  |  |
+| @microsoft.azure/openapi-validator-rulesets | npm [2.1.1](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-rulesets/v/2.1.1) |  |  |
 | @typespec/best-practices | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
 | @typespec/bundler | npm [0.1.6](https://www.npmjs.com/package/@typespec/bundler/v/0.1.6) |  |  |
 | @typespec/http-server-javascript | npm [0.58.0-alpha.2](https://www.npmjs.com/package/@typespec/http-server-javascript/v/0.58.0-alpha.2) |  |  |
@@ -403,7 +403,7 @@
 | Azure Functions | npm [4.0.0](https://www.npmjs.com/package/@azure/functions/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-functions-nodejs-library) |
 | Batch | npm [12.0.0](https://www.npmjs.com/package/@azure/batch/v/12.0.0) |  | GitHub [12.0.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
-| Communication Calling | npm [1.28.2](https://www.npmjs.com/package/@azure/communication-calling/v/1.28.2) |  | GitHub [1.28.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| Communication Calling | npm [1.28.3](https://www.npmjs.com/package/@azure/communication-calling/v/1.28.3) |  | GitHub [1.28.3](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Communication Signaling | npm [1.0.0-beta.28](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.28) |  | GitHub [1.0.0-beta.28](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Computer Vision | npm [8.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.2.0) |  |  |
 | Content Safety | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  |  |
@@ -471,7 +471,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240903.3](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240903.3) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240904.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240904.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -481,7 +481,7 @@
 | @autorest/system-requirements | npm [1.1.0](https://www.npmjs.com/package/@autorest/system-requirements/v/1.1.0) |  |  |
 | @autorest/test-utils | npm [0.6.0](https://www.npmjs.com/package/@autorest/test-utils/v/0.6.0) |  |  |
 | @autorest/testmodeler | npm [2.6.2](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.2) |  |  |
-| @autorest/typescript | npm [6.0.26](https://www.npmjs.com/package/@autorest/typescript/v/6.0.26) |  |  |
+| @autorest/typescript | npm [6.0.27](https://www.npmjs.com/package/@autorest/typescript/v/6.0.27) |  |  |
 | @azure-tools/adl-openapi | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-openapi/v/0.3.2) |  |  |
 | @azure-tools/adl-rest | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-rest/v/0.3.2) |  |  |
 | @azure-tools/adl-rpaas | npm [0.4.2](https://www.npmjs.com/package/@azure-tools/adl-rpaas/v/0.4.2) |  |  |
@@ -518,7 +518,7 @@
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
 | @azure-tools/prettier-plugin-cadl | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/prettier-plugin-cadl/v/0.2.1) |  |  |
 | @azure-tools/python-generator-core | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/python-generator-core/v/0.1.0) |  |  |
-| @azure-tools/rlc-common | npm [0.32.0](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.32.0) |  |  |
+| @azure-tools/rlc-common | npm [0.33.0](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.33.0) |  |  |
 | @azure-tools/sdk-generation-lib | npm [1.0.5](https://www.npmjs.com/package/@azure-tools/sdk-generation-lib/v/1.0.5) |  |  |
 | @azure-tools/test-credential | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/test-credential/v/1.3.0) |  |  |
 | @azure-tools/test-recorder | npm [3.5.2](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.5.2) |  |  |
