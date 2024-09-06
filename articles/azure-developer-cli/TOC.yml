@@ -73,6 +73,8 @@
     href: feature-versioning.md
   - name: Frequently asked questions (FAQ)
     href: faq.yml
+  - name: Release blog posts
+    href: https://devblogs.microsoft.com/azure-sdk/tag/azure-developer-cli/
   - name: Reference
     items:
     - name: azure.yaml
