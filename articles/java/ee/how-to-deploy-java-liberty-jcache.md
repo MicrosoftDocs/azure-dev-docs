@@ -179,6 +179,10 @@ kubectl apply --server-side -k overlays/watch-all-namespaces
 [Azure Cache for Redis](/azure/azure-cache-for-redis/) backs the persistence of the `HttpSession` for a Java application running within an Open Liberty or WebSphere Liberty server. Follow the steps in this section to create an Azure Cache for Redis instance and note down its connection information. We'll use this information later.
 
 1. Follow the steps in [Quickstart: Use Azure Cache for Redis in Java](/azure/azure-cache-for-redis/cache-java-get-started) up to, but not including **Understanding the Java sample**.
+
+   > [!NOTE]
+   > In step 6 of section [Create an Azure Cache for Redis](/azure/azure-cache-for-redis/cache-java-get-started#create-an-azure-cache-for-redis), select **Access Keys Authentication** for the **Authentication** option. This option is required for the sample application to connect to the Azure Cache for Redis instance using the **Redisson** client library. See [Redisson Configuration](https://github.com/redisson/redisson/wiki/2.-Configuration/) for more information.
+
 1. Copy **Host name** and **Primary access key** for your Azure Cache for Redis instance, and then run the following commands to add environment variables:
 
    ```bash
