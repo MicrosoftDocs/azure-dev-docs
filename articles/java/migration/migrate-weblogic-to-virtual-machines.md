@@ -133,7 +133,7 @@ You must account for the migration of any SSL KeyStores used by your application
 
 ### Connect the JMS sources
 
-After you've connected the databases, you can configure JMS. For more information, see [Fusion Middleware Administering JMS Resources for Oracle WebLogic Server](https://docs.oracle.com/middleware/fusion-middleware/weblogic-server/12.2.1.4/jmsad/overview.html) in the WebLogic documentation.
+After you've connected the databases, you can configure JMS. For more information, see [Fusion Middleware Administering JMS Resources for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/jmsad/overview.html) in the WebLogic documentation.
 
 [!INCLUDE [account-for-authentication-and-authorization](includes/account-for-authentication-and-authorization.md)]
 
