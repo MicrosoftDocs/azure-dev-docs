@@ -4,7 +4,7 @@ description: Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azu
 author: KarlErickson
 ms.author: jiangma
 ms.topic: how-to
-ms.date: 09/21/2022
+ms.date: 09/09/2024
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 #Customer intent: As a Java developer, I want to build a Java, Java EE, Jakarta EE, or MicroProfile application with JCache session enabled and deploy it on Azure Kubernetes Service cluster so that customers can store session data in the Azure Cache for Redis for session management.
 ---
