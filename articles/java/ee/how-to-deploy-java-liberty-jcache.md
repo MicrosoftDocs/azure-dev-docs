@@ -205,7 +205,8 @@ Use the following commands to clone the sample code for this guide. The sample i
 ```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
-git checkout 20230906
+git checkout 20240909
+cd java-app-jcache
 ```
 
 If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
@@ -246,15 +247,15 @@ In the *redisson* directory, the *redisson-config.yaml* file is used to configur
 
 To deploy and run your Liberty application on the AKS cluster, use the following steps to containerize your application as a Docker image. You can use [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
 
-1. Change directory to *java-app-jcache* of your local clone.
+1. Verify the current working directory is *java-app-jcache* in your local clone.
 1. Run `mvn clean package` to package the application.
 1. Run `mvn -Predisson validate` to copy the Redisson configuration file to the specified location. This step inserts the values of the environment variables `REDISCACHEHOSTNAME` and `REDISCACHEKEY` into the *redisson-config.yaml* file, which is referenced by the *server.xml* file.
 1. Run `mvn liberty:dev` to test the application. If the test is successful, you should see `The defaultServer server is ready to run a smarter planet.` in the command output.
    You should see output similar to the following if the Redis connection is successful.
 
    ```output
-   [INFO] [err] [Default Executor-thread-5] INFO org.redisson.Version - Redisson 3.16.7
-   [INFO] [err] [redisson-netty-2-2] INFO org.redisson.connection.pool.MasterPubSubConnectionPool - 1 connections initialized for redacted.redis.cache.windows.net/20.25.90.239:6380
+   [INFO] [err] [Default Executor-thread-5] INFO org.redisson.Version - Redisson 3.23.4
+   [INFO] [err] [redisson-netty-2-7] INFO org.redisson.connection.pool.MasterPubSubConnectionPool - 1 connections initialized for redacted.redis.cache.windows.net/20.25.90.239:6380
    [INFO] [err] [redisson-netty-2-20] INFO org.redisson.connection.pool.MasterConnectionPool - 24 connections initialized for redacted.redis.cache.windows.net/20.25.90.239:6380
    ```
 
