@@ -1,0 +1,18 @@
+items:
+- name: GitHub Copilot for Azure
+  href: index.yml
+  items:
+    - name: Overview
+      href: introduction.md
+    - name: Get started
+      href: get-started.md
+    - name: QuickStart - Building, deploying and improving your application with GitHub Copilot for Azure
+      href: quickstart-build-deploy-improve-applications.md
+    - name: Tips and tricks for asking questions about your application
+      href: ask-questions-about-application.md
+    - name: Tips and tricks for adding features and deploying your application
+      href: add-features-deploying.md
+    - name: Tips and tricks for troubleshooting your application
+      href: troubleshooting.md
+    - name: Tips and tricks for optimizing your application
+      href: optimizing.md
