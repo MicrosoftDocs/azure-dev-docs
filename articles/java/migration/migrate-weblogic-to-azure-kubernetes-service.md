@@ -93,7 +93,7 @@ The prebuilt Azure Marketplace offer automatically creates a domain resource. If
 
 [!INCLUDE [determine-whether-session-replication-is-used](includes/determine-whether-session-replication-is-used.md)]
 
-The prebuilt Azure Marketplace offer supports session affinity via the Application Gateway ingress controller. When deploying the offer, select **Enable cookie based affinity**. Look for cookie based affinity in [the documentation for the offer](https://aka.ms/wls-aks-docs#networking).
+The prebuilt Azure Marketplace offer supports session affinity via the Application Gateway ingress controller. Cookie based affinity is enabled by default, you can select **Disable cookie based affinity** to disable it. Look for cookie based affinity in [the documentation for the offer](https://aka.ms/wls-aks-docs#networking).
 
 [!INCLUDE [document-datasources](includes/document-datasources.md)]
 
