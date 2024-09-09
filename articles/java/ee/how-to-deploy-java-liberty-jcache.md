@@ -86,18 +86,10 @@ export LOGIN_SERVER=$(az acr show \
     --resource-group $RESOURCE_GROUP_NAME \
     --query 'loginServer' \
     --output tsv)
-export USER_NAME=$(az acr credential show \
-    --name $REGISTRY_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --query 'username' \
-    --output tsv)
-export PASSWORD=$(az acr credential show \
-    --name $REGISTRY_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --query 'passwords[0].value' \
-    --output tsv)
 
-docker login $LOGIN_SERVER -u $USER_NAME -p $PASSWORD
+az acr login \
+    --name $REGISTRY_NAME \
+    --resource-group $RESOURCE_GROUP_NAME
 ```
 
 You should see `Login Succeeded` at the end of command output if you've signed into the ACR instance successfully.
