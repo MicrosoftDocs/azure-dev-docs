@@ -27,11 +27,10 @@ There are four primary scenarios that are enabled with more planned:
 
 |Category|Explanation|Examples|
 |---|---|---|
-|Learn|Learn about Azure services and tools from Learn content|What are the different types of Azure OpenAI models available? What is Azure AI Search and why use it? How does pricing work for Azure SQL?|
-|Deploy|Provision resources and deploy apps|Can you help me build a RAG application with Python? I need a CI/CD pipeline so I can get my app deployed. Use azd to un-deploy my project.|
-|Troubleshoot|Diagnose and troubleshoot application and resource issues|What is using up my GPT-4o model quota? Find out why my store-service-prod kube cluster is running slow. Why am I seeing 500 errors when opening my website?|
-|Optimize|Answer questions about resources including locations, settings, and resource health|How many Azure OpenAI deployments do I have? Give me a count of storage accounts in eastus by subscription sorted from largest to smallest.|
-
+|Learn|Learn about Azure services and tools from Learn content|[!INCLUDE [learn-examples](./includes/learn-examples.md)]|
+|Deploy|Provision resources and deploy apps|[!INCLUDE [deploy-examples](./includes/deploy-examples.md)]|
+|Troubleshoot|Diagnose and troubleshoot application and resource issues|[!INCLUDE [troubleshoot-examples](./includes/troubleshoot-examples.md)]|
+|Optimize|Answer questions about resources including locations, settings, and resource health|[!INCLUDE [optimize-examples](./includes/optimize-examples.md)]|
 
 This documentation will provide a quickstart tutorial and example prompts to help you harness the power of GitHub Copilot for Azure as quickly as possible.
 
@@ -43,13 +42,13 @@ The chat experience is delivered through the GitHub Copilot Chat extenion. The c
 
 ## Install GitHub Copilot for Azure
 
-1. Ensure you have an Azure account and access to an Azure Subscription. For details on how to set up an Azure account and subscription, [https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account](start here).
+1. Ensure you have an Azure account and access to an Azure Subscription. For details on how to set up an Azure account and subscription, [start here](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account).
 
-1. Ensure you have a GitHub account and a GitHub Copilot subscription. For details on how to set up a GitHub account and a GitHub Copilot subscription, see [https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github](Creating an account on GitHub) and [https://docs.github.com/en/copilot/quickstart](Quickstart for GitHub Copilot), respectively.
+1. Ensure you have a GitHub account and a GitHub Copilot subscription. For details on how to set up a GitHub account and a GitHub Copilot subscription, see [Creating an account on GitHub](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) and [Quickstart for GitHub Copilot](https://docs.github.com/en/copilot/quickstart), respectively.
 
-1. Make sure you have Visual Studio Code installed. For details on how to download and install Visual Studio Code, see [https://code.visualstudio.com/docs/setup/setup-overview](Setting up Visual Studio Code).
+1. Make sure you have Visual Studio Code installed. For details on how to download and install Visual Studio Code, see [Setting up Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview).
 
-1. Make sure you have the the GitHub Copilot extension and the GitHub Copilot Chat extension installed. For instructions on how to install these extensions, see [https://code.visualstudio.com/docs/copilot/setup](Set up GitHub Copilot in VS Code) and [https://code.visualstudio.com/docs/copilot/getting-started-chat](Getting started with GitHub Copilot Chat in VS Code), respectively.
+1. Make sure you have the the GitHub Copilot extension and the GitHub Copilot Chat extension installed. For instructions on how to install these extensions, see [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup) and [Getting started with GitHub Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/getting-started-chat), respectively.
 
 Once these pre-requisites are satisfied, you can now install the GitHub Copilot for Azure extension in Visual Studio Code.
 

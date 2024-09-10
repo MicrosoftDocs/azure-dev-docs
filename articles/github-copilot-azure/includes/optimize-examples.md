@@ -1,0 +1,2 @@
+- How many Azure OpenAI deployments do I have? 
+- Give me a count of storage accounts in eastus by subscription sorted from largest to smallest.

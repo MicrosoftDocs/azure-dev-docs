@@ -1,0 +1,3 @@
+- What are the different types of Azure OpenAI models available? 
+- What is Azure AI Search and why use it? 
+- How does pricing work for Azure SQL?
