@@ -1,14 +1,14 @@
 ---
-title: Credential chains in the Azure Identity library for Python
-description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library.
-ms.date: 09/09/2024
+title: Credential chains in the Azure Identity client library for Python
+description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library.
+ms.date: 09/10/2024
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 
-# Credential chains in the Azure Identity library for Python
+# Credential chains in the Azure Identity client library for Python
 
-The Azure Identity library provides *credentials*&mdash;public classes that implement the Azure Core library's [TokenCredential](/python/api/azure-core/azure.core.credentials.tokencredential) protocol. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
+The Azure Identity client library provides *credentials*&mdash;public classes that implement the Azure Core library's [TokenCredential](/python/api/azure-core/azure.core.credentials.tokencredential) protocol. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
 
 ## How a chained credential works
 
@@ -150,7 +150,7 @@ The preceding code sample creates a tailored credential chain comprised of two c
 
 ## Usage guidance for DefaultAzureCredential
 
-`DefaultAzureCredential` is undoubtedly the easiest way to get started with the Azure Identity library, but with that convenience comes tradeoffs. Once you deploy your app to Azure, you should understand the app's authentication requirements. For that reason, strongly consider moving from `DefaultAzureCredential` to one of the following solutions:
+`DefaultAzureCredential` is undoubtedly the easiest way to get started with the Azure Identity client library, but with that convenience comes tradeoffs. Once you deploy your app to Azure, you should understand the app's authentication requirements. For that reason, strongly consider moving from `DefaultAzureCredential` to one of the following solutions:
 
 - A specific credential implementation, such as `ManagedIdentityCredential`.
 - A pared-down `ChainedTokenCredential` implementation optimized for the Azure environment in which your app runs.
@@ -163,7 +163,7 @@ Here's why:
 
 ## Debug a chained credential
 
-To diagnose an unexpected issue or to understand what a chained credential is doing, [enable logging](../azure-sdk-logging.md) in your app. Optionally, filter the logs to only those events emitted from the Azure Identity library. For example:
+To diagnose an unexpected issue or to understand what a chained credential is doing, [enable logging](../azure-sdk-logging.md) in your app. Optionally, filter the logs to only those events emitted from the Azure Identity client library. For example:
 
 ```python
 import logging
@@ -209,4 +209,4 @@ In the preceding output, notice that:
 - The `AzureCliCredential.get_token` succeeds and the output also indicates that `DefaultAzureCredential` acquired a token from `AzureCliCredential`. Since `AzureCliCredential` succeeded, no credentials beyond it were tried.
 
 > [!NOTE]
-> In the preceding output, the logging level is set to `logging.DEBUG`. Be careful when using this logging level, as it can output sensitive information. For example, in this case, the client ID, tenant ID, and the object ID of the developer's user principal in Azure. All traceback information has been removed from the output for clarity.
+> In the preceding example, the logging level is set to `logging.DEBUG`. Be careful when using this logging level, as it can output sensitive information. For example, in this case, the client ID, tenant ID, and the object ID of the developer's user principal in Azure. All traceback information has been removed from the output for clarity.

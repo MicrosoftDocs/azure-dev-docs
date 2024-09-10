@@ -12,7 +12,7 @@ When an app needs to access an Azure resource like Azure Storage, Azure Key Vaul
 
 ## Recommended app authentication approach
 
-Use token-based authentication rather than connection strings for your apps when they authenticate to Azure resources. The Azure SDK for Python [Azure Identity client library](/python/api/overview/azure/identity-readme) provides classes that support token-based authentication and allow apps to seamlessly authenticate to Azure resources whether the app is in local development, deployed to Azure, or deployed to an on-premises server.
+Use token-based authentication rather than connection strings for your apps when they authenticate to Azure resources. The [Azure Identity client library for Python](/python/api/overview/azure/identity-readme) provides classes that support token-based authentication and allow apps to seamlessly authenticate to Azure resources whether the app is in local development, deployed to Azure, or deployed to an on-premises server.
 
 The specific type of token-based authentication an app uses to authenticate to Azure resources depends on where the app is being run. The types of token-based authentication are shown in the following diagram.
 
