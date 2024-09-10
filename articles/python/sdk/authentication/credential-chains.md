@@ -23,8 +23,8 @@ A chained credential can offer the following benefits:
 - **Environment awareness**: Automatically selects the most appropriate credential based on the environment in which the app is running. Without it, you'd have to write code like this:
 
     ```python
-    # Set up credential based on environment (production, staging, or local development)
-    if os.getenv("FLASK_ENV") in ["production", "staging"]:
+    # Set up credential based on environment (Azure or local development)
+    if os.getenv("WEBSITE_HOSTNAME"):
         credential = ManagedIdentityCredential(client_id=user_assigned_client_id)
     else:
         credential = AzureCliCredential()
