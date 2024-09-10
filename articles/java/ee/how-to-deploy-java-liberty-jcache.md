@@ -92,6 +92,9 @@ az acr login \
     --resource-group $RESOURCE_GROUP_NAME
 ```
 
+> [!NOTE]
+> The use of username and password credentials to grant access to a container registry is discouraged. If your particular usage requirements suggest credential based access is the best approach, you can obtain the username and password using `az acr credential show` and use these values with `docker login`.
+
 You should see `Login Succeeded` at the end of command output if you've signed into the ACR instance successfully.
 
 If you see a problem signing in to the Azure container registry, see [Troubleshoot registry login](/azure/container-registry/container-registry-troubleshoot-login).
