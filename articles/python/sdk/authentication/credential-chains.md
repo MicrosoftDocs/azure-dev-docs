@@ -68,6 +68,9 @@ The order in which `DefaultAzureCredential` attempts credentials follows.
 [azd-cred]: /python/api/azure-identity/azure.identity.azuredeveloperclicredential
 [int-cred]: /python/api/azure-identity/azure.identity.interactivebrowsercredential
 
+> [!NOTE]
+> Due to a [known issue](https://github.com/Azure/azure-sdk-for-python/issues/23249), `VisualStudioCodeCredential` has been removed from the `DefaultAzureCredential` token chain. When the issue is resolved in a future release, this change will be reverted. For more information, see [Azure Identity client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity).
+
 In its simplest form, you can use the parameterless version of `DefaultAzureCredential` as follows:
 
 ```python
