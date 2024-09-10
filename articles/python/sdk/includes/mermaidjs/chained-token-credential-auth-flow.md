@@ -21,7 +21,7 @@ ms.date: 08/07/2024
 }%%
 
 flowchart LR;
-    C(Managed Identity):::deployed --> D(Shared Token Cache):::developer;
+    C(Managed Identity):::deployed --> D(Azure CLI):::developer;
 
     %% Define styles for credential type boxes
     classDef deployed fill:#95C37E, stroke:#71AD4C, stroke-width:2px;

@@ -22,7 +22,13 @@ A chained credential can offer the following benefits:
 
 - **Environment awareness**: Automatically selects the most appropriate credential based on the environment in which the app is running. Without it, you'd have to write code like this:
 
-    :::code language="csharp" source="../snippets/authentication/credential-chains/Program.cs" id="snippet_NoChain":::
+    ```python
+    # Set up credential based on environment (production, staging, or local development)
+    if os.getenv("FLASK_ENV") in ["production", "staging"]:
+        credential = ManagedIdentityCredential(client_id=user_assigned_client_id)
+    else:
+        credential = AzureCliCredential()
+    ```
 
 - **Seamless transitions**: Your app can move from local development to your staging or production environment without changing authentication code.
 - **Improved resiliency**: Includes a fallback mechanism that moves to the next credential when the prior fails to acquire an access token.
@@ -54,13 +60,13 @@ The order in which `DefaultAzureCredential` attempts credentials follows.
 | 8     | [Interactive browser][int-cred]         |If enabled, interactively authenticate the developer via the current system's default browser.             | No                  |
 
 [env-cred]: /python/api/azure-identity/azure.identity.environmentcredential
-[wi-cred]: /python/azure-identity/api/azure.identity.workloadidentitycredential
-[mi-cred]: /python/azure-identity/api/azure.identity.managedidentitycredential
-[vs-cred]: /python/azure-identity/api/azure.identity.sharedtokencachecredential
-[az-cred]: /python/azure-identity/api/azure.identity.azureclicredential
-[pwsh-cred]: /python/azure-identity/api/azure.identity.azurepowershellcredential
-[azd-cred]: /python/azure-identity/api/azure.identity.azuredeveloperclicredential
-[int-cred]: /python/azure-identity/api/azure.identity.interactivebrowsercredential
+[wi-cred]: /python/api/azure-identity/azure.identity.workloadidentitycredential
+[mi-cred]: /python/api/azure-identity/azure.identity.managedidentitycredential
+[vs-cred]: /python/api/azure-identity/azure.identity.sharedtokencachecredential
+[az-cred]: /python/api/azure-identity/azure.identity.azureclicredential
+[pwsh-cred]: /python/api/azure-identity/azure.identity.azurepowershellcredential
+[azd-cred]: /python/api/azure-identity/azure.identity.azuredeveloperclicredential
+[int-cred]: /python/api/azure-identity/azure.identity.interactivebrowsercredential
 
 In its simplest form, you can use the parameterless version of `DefaultAzureCredential` as follows:
 
@@ -78,13 +84,13 @@ blob_service_client = BlobServiceClient(
 
 ### How to customize DefaultAzureCredential
 
-To remove a credential from `DefaultAzureCredential`, use the corresponding `exclude`-prefixed [keyword parameter](/python/azure-identity/api/azure.identity.defaultazurecredential#keyword-only-parameters). For example:
+To remove a credential from `DefaultAzureCredential`, use the corresponding `exclude`-prefixed [keyword parameter](/python/api/azure-identity/azure.identity.defaultazurecredential#keyword-only-parameters). For example:
 
 ```python
 credential = DefaultAzureCredential(
         exclude_environment_credential=True, 
         exclude_workload_identity_credential=True,
-         managed_identity_client_id = your_user_assigned_client_id
+        managed_identity_client_id = user_assigned_client_id
     )
 ```
 
@@ -95,7 +101,7 @@ In the preceding code sample, `EnvironmentCredential` and `WorkloadIdentityCrede
 > [!NOTE]
 > `InteractiveBrowserCredential` is excluded by default and therefore isn't shown in the preceding diagram. To include `InteractiveBrowserCredential`, set the `exclude_interactive_browser_credential`keyword parameter to `False` when you call the `DefaultAzureCredential` constructor.
 
-As more `exclude`-prefixed keyword parameters are set to `true` (credential exclusions are configured), the advantages of using `DefaultAzureCredential` diminish. In such cases, `ChainedTokenCredential` is a better choice and requires less code. To illustrate, these two code samples behave the same way:
+As more `exclude`-prefixed keyword parameters are set to `True` (credential exclusions are configured), the advantages of using `DefaultAzureCredential` diminish. In such cases, `ChainedTokenCredential` is a better choice and requires less code. To illustrate, these two code samples behave the same way:
 
 ### [DefaultAzureCredential](#tab/dac)
 
@@ -103,10 +109,10 @@ As more `exclude`-prefixed keyword parameters are set to `true` (credential excl
 credential = DefaultAzureCredential(
         exclude_environment_credential = True,
         exclude_workload_identity_credential = True,
-        exclude_azure_cli_credential = True,
+        exclude_shared_token_cache_credential = True,
         exclude_azure_powershell_credential = True,
         exclude_azure_developer_cli_credential = True,
-        managed_identity_client_id = your_user_assigned_client_id
+        managed_identity_client_id = user_assigned_client_id
     )
 ```
 
@@ -114,8 +120,8 @@ credential = DefaultAzureCredential(
 
 ```python
 credential =  ChainedTokenCredential(
-        ManagedIdentityCredential(client_id = your_user_assigned_client_id),
-        SharedTokenCacheCredential()
+        ManagedIdentityCredential(client_id = user_assigned_client_id),
+        AzureCliCredential()
     )
 ```
 
@@ -123,11 +129,16 @@ credential =  ChainedTokenCredential(
 
 ## ChainedTokenCredential overview
 
-[ChainedTokenCredential](/python/azure-identity/api/azure.identity.chainedtokencredential) is an empty chain to which you add credentials to suit your app's needs. For example:
+[ChainedTokenCredential](/python/api/azure-identity/azure.identity.chainedtokencredential) is an empty chain to which you add credentials to suit your app's needs. For example:
 
-:::code language="csharp" source="../snippets/authentication/credential-chains/Program.cs" id="snippet_Ctc":::
+```python
+credential =  ChainedTokenCredential(
+        ManagedIdentityCredential(client_id = user_assigned_client_id),
+        AzureCliCredential()
+    )
+```
 
-The preceding code sample creates a tailored credential chain comprised of two credentials. The user-assigned managed identity variant of `ManagedIdentityCredential` is attempted first, followed by `VisualStudioCredential`, if necessary. In graphical form, the chain looks like this:
+The preceding code sample creates a tailored credential chain comprised of two credentials. The user-assigned managed identity variant of `ManagedIdentityCredential` is attempted first, followed by `AzureCliCredential`, if necessary. In graphical form, the chain looks like this:
 
 :::image type="content" source="../media/mermaidjs/chained-token-credential-auth-flow.svg" alt-text="ChainedTokenCredential":::
 

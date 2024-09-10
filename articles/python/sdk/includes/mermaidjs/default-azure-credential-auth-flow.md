@@ -40,12 +40,12 @@ flowchart LR;
     classDef interactive fill:#A5A5A5, stroke:#828282, stroke-dasharray:5 5, stroke-width:2px;
 
     %% Add API ref links to credential type boxes
-    click A "https://learn.microsoft.com/python/azure-identity/api/azure.identity.environmentcredential?view=azure-python" _blank;
-    click B "https://learn.microsoft.com/python/azure-identity/api/azure.identity.workloadidentitycredential?view=azure-python" _blank;
-    click C "https://learn.microsoft.com/python/azure-identity/api/azure.identity.managedidentitycredential?view=azure-python" _blank;
-    click D "https://learn.microsoft.com/python/azure-identity/api/azure.identity.sharedtokencachecredential?view=azure-python" _blank;
-    click E "https://learn.microsoft.com/python/azure-identity/api/azure.identity.azureclicredential?view=azure-python" _blank;
-    click F "https://learn.microsoft.com/python/azure-identity/api/azure.identity.azurepowershellcredential?view=azure-python" _blank;
-    click G "https://learn.microsoft.com/python/azure-identity/api/azure.identity.azuredeveloperclicredential?view=azure-python" _blank
-    click H "https://learn.microsoft.com/python/azure-identity/api/azure.identity.interactivebrowsercredential?view=azure-python" _blank;
+    click A "https://learn.microsoft.com/python/api/azure-identity/azure.identity.environmentcredential?view=azure-python" _blank;
+    click B "https://learn.microsoft.com/python/api/azure-identity/azure.identity.workloadidentitycredential?view=azure-python" _blank;
+    click C "https://learn.microsoft.com/python/api/azure-identity/azure.identity.managedidentitycredential?view=azure-python" _blank;
+    click D "https://learn.microsoft.com/python/api/azure-identity/azure.identity.sharedtokencachecredential?view=azure-python" _blank;
+    click E "https://learn.microsoft.com/python/api/azure-identity/azure.identity.azureclicredential?view=azure-python" _blank;
+    click F "https://learn.microsoft.com/python/api/azure-identity/azure.identity.azurepowershellcredential?view=azure-python" _blank;
+    click G "https://learn.microsoft.com/python/api/azure-identity/azure.identity.azuredeveloperclicredential?view=azure-python" _blank
+    click H "https://learn.microsoft.com/python/api/azure-identity/azure.identity.interactivebrowsercredential?view=azure-python" _blank;
 ```
