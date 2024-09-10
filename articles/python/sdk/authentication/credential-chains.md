@@ -64,30 +64,60 @@ The order in which `DefaultAzureCredential` attempts credentials follows.
 
 In its simplest form, you can use the parameterless version of `DefaultAzureCredential` as follows:
 
-:::code language="csharp" source="../snippets/authentication/credential-chains/Program.cs" id="snippet_Dac":::
+```python
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient
+
+# Acquire a credential object
+credential = DefaultAzureCredential()
+
+blob_service_client = BlobServiceClient(
+        account_url="https://<my_account_name>.blob.core.windows.net",
+        credential=credential)
+```
 
 ### How to customize DefaultAzureCredential
 
 To remove a credential from `DefaultAzureCredential`, use the corresponding `exclude`-prefixed [keyword parameter](/python/azure-identity/api/azure.identity.defaultazurecredential#keyword-only-parameters). For example:
 
-:::code language="csharp" source="../snippets/authentication/credential-chains/Program.cs" id="snippet_DacExcludes" highlight="4-5":::
+```python
+credential = DefaultAzureCredential(
+        exclude_environment_credential=True, 
+        exclude_workload_identity_credential=True,
+         managed_identity_client_id = your_user_assigned_client_id
+    )
+```
 
 In the preceding code sample, `EnvironmentCredential` and `WorkloadIdentityCredential` are removed from the credential chain. As a result, the first credential to be attempted is `ManagedIdentityCredential`. The modified chain looks like this:
 
 :::image type="content" source="../media/mermaidjs/default-azure-credential-excludes.svg" alt-text="DefaultAzureCredential using Excludes properties":::
 
 > [!NOTE]
-> `InteractiveBrowserCredential` is excluded by default and therefore isn't shown in the preceding diagram. To include `InteractiveBrowserCredential`, either pass `true` to constructor <xref:Azure.Identity.DefaultAzureCredential.%23ctor%28System.Boolean%29> or set property <xref:Azure.Identity.DefaultAzureCredentialOptions.ExcludeInteractiveBrowserCredential%2A?displayProperty=nameWithType> to `false`.
+> `InteractiveBrowserCredential` is excluded by default and therefore isn't shown in the preceding diagram. To include `InteractiveBrowserCredential`, set the `exclude_interactive_browser_credential`keyword parameter to `False` when you call the `DefaultAzureCredential` constructor.
 
 As more `exclude`-prefixed keyword parameters are set to `true` (credential exclusions are configured), the advantages of using `DefaultAzureCredential` diminish. In such cases, `ChainedTokenCredential` is a better choice and requires less code. To illustrate, these two code samples behave the same way:
 
 ### [DefaultAzureCredential](#tab/dac)
 
-:::code language="csharp" source="../snippets/authentication/credential-chains/Program.cs" id="snippet_DacEquivalents":::
+```python
+credential = DefaultAzureCredential(
+        exclude_environment_credential = True,
+        exclude_workload_identity_credential = True,
+        exclude_azure_cli_credential = True,
+        exclude_azure_powershell_credential = True,
+        exclude_azure_developer_cli_credential = True,
+        managed_identity_client_id = your_user_assigned_client_id
+    )
+```
 
 ### [ChainedTokenCredential](#tab/ctc)
 
-:::code language="csharp" source="../snippets/authentication/credential-chains/Program.cs" id="snippet_CtcEquivalents":::
+```python
+credential =  ChainedTokenCredential(
+        ManagedIdentityCredential(client_id = your_user_assigned_client_id),
+        SharedTokenCacheCredential()
+    )
+```
 
 ---
 
@@ -121,11 +151,36 @@ Here's why:
 
 To diagnose an unexpected issue or to understand what a chained credential is doing, [enable logging](../azure-sdk-logging.md) in your app. Optionally, filter the logs to only those events emitted from the Azure Identity library. For example:
 
-:::code language="csharp" source="../snippets/authentication/credential-chains/Program.cs" id="snippet_FilteredLogging":::
+```python
+import logging
+from datetime import datetime, timedelta
+
+# Set up logging
+logger = logging.getLogger("azure.identity")
+logger.setLevel(logging.INFO)
+handler = logging.StreamHandler()
+handler.setLevel(logging.INFO)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+
+```
 
 For illustration purposes, assume the parameterless form of `DefaultAzureCredential` was used to authenticate a request to a Log Analytics workspace. The app ran in the local development environment, and Visual Studio was authenticated to an Azure account. The next time the app ran, the following pertinent entries appeared in the output:
 
-:::code language="output" source="../snippets/authentication/credential-chains/dac-logs.txt":::
+```output
+DefaultAzureCredential.GetToken invoked. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342
+EnvironmentCredential.GetToken invoked. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342
+EnvironmentCredential.GetToken was unable to retrieve an access token. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342 Exception: Azure.Identity.CredentialUnavailableException (0x80131500): EnvironmentCredential authentication unavailable. Environment variables are not fully configured. See the troubleshooting guide for more information. https://aka.ms/azsdk/net/identity/environmentcredential/troubleshoot
+WorkloadIdentityCredential.GetToken invoked. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342
+WorkloadIdentityCredential.GetToken was unable to retrieve an access token. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342 Exception: Azure.Identity.CredentialUnavailableException (0x80131500): WorkloadIdentityCredential authentication unavailable. The workload options are not fully configured. See the troubleshooting guide for more information. https://aka.ms/azsdk/net/identity/workloadidentitycredential/troubleshoot
+ManagedIdentityCredential.GetToken invoked. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342
+ManagedIdentityCredential.GetToken was unable to retrieve an access token. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342 Exception: Azure.Identity.CredentialUnavailableException (0x80131500): ManagedIdentityCredential authentication unavailable. No response received from the managed identity endpoint.
+VisualStudioCredential.GetToken invoked. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342
+VisualStudioCredential.GetToken succeeded. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342 ExpiresOn: 2024-08-13T17:16:50.8023621+00:00
+DefaultAzureCredential credential selected: Azure.Identity.VisualStudioCredential
+DefaultAzureCredential.GetToken succeeded. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342 ExpiresOn: 2024-08-13T17:16:50.8023621+00:00
+```
 
 In the preceding output, notice that:
 
