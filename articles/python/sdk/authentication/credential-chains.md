@@ -164,36 +164,46 @@ To diagnose an unexpected issue or to understand what a chained credential is do
 
 ```python
 import logging
-from datetime import datetime, timedelta
+from azure.identity import DefaultAzureCredential
 
-# Set up logging
+# Set the logging level for the azure.identity library
 logger = logging.getLogger("azure.identity")
 logger.setLevel(logging.INFO)
-handler = logging.StreamHandler()
-handler.setLevel(logging.INFO)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
+
+# Direct logging output to stdout. Without adding a handler,
+# no logging output is visible.
+handler = logging.StreamHandler(stream=sys.stdout)
 logger.addHandler(handler)
+
+# Optional: Output logging levels to the console.
+print(
+    f"Logger enabled for ERROR={logger.isEnabledFor(logging.ERROR)}, "
+    f"WARNING={logger.isEnabledFor(logging.WARNING)}, "
+    f"INFO={logger.isEnabledFor(logging.INFO)}, "
+    f"DEBUG={logger.isEnabledFor(logging.DEBUG)}"
+)
 
 ```
 
-For illustration purposes, assume the parameterless form of `DefaultAzureCredential` was used to authenticate a request to a Log Analytics workspace. The app ran in the local development environment, and Visual Studio was authenticated to an Azure account. The next time the app ran, the following pertinent entries appeared in the output:
+For illustration purposes, assume the parameterless form of `DefaultAzureCredential` is used to authenticate a request to a blob storage account. The app runs in the local development environment, and the developer authenticated to Azure using the Azure CLI. Assume also that the logging level is set to `logging.DEBUG`. When the app is run, the following pertinent entries appear in the output:
 
 ```output
-DefaultAzureCredential.GetToken invoked. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342
-EnvironmentCredential.GetToken invoked. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342
-EnvironmentCredential.GetToken was unable to retrieve an access token. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342 Exception: Azure.Identity.CredentialUnavailableException (0x80131500): EnvironmentCredential authentication unavailable. Environment variables are not fully configured. See the troubleshooting guide for more information. https://aka.ms/azsdk/net/identity/environmentcredential/troubleshoot
-WorkloadIdentityCredential.GetToken invoked. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342
-WorkloadIdentityCredential.GetToken was unable to retrieve an access token. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342 Exception: Azure.Identity.CredentialUnavailableException (0x80131500): WorkloadIdentityCredential authentication unavailable. The workload options are not fully configured. See the troubleshooting guide for more information. https://aka.ms/azsdk/net/identity/workloadidentitycredential/troubleshoot
-ManagedIdentityCredential.GetToken invoked. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342
-ManagedIdentityCredential.GetToken was unable to retrieve an access token. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342 Exception: Azure.Identity.CredentialUnavailableException (0x80131500): ManagedIdentityCredential authentication unavailable. No response received from the managed identity endpoint.
-VisualStudioCredential.GetToken invoked. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342
-VisualStudioCredential.GetToken succeeded. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342 ExpiresOn: 2024-08-13T17:16:50.8023621+00:00
-DefaultAzureCredential credential selected: Azure.Identity.VisualStudioCredential
-DefaultAzureCredential.GetToken succeeded. Scopes: [ https://api.loganalytics.io//.default ] ParentRequestId: d7ef15d1-50f8-451d-afeb-6b06297a3342 ExpiresOn: 2024-08-13T17:16:50.8023621+00:00
+Logger enabled for ERROR=True, WARNING=True, INFO=True, DEBUG=True
+No environment configuration found.
+ManagedIdentityCredential will use IMDS
+EnvironmentCredential.get_token failed: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
+Visit https://aka.ms/azsdk/python/identity/environmentcredential/troubleshoot to troubleshoot this issue.
+ManagedIdentityCredential.get_token failed: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.     
+SharedTokenCacheCredential.get_token failed: SharedTokenCacheCredential authentication unavailable. No accounts were found in the cache.
+AzureCliCredential.get_token succeeded
+[Authenticated account] Client ID: 00001111-aaaa-2222-bbbb-3333cccc4444. Tenant ID: aaaabbbb-0000-cccc-1111-dddd2222eeee. User Principal Name: unavailableUpn. Object ID (user): aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
+DefaultAzureCredential acquired a token from AzureCliCredential
 ```
 
 In the preceding output, notice that:
 
-- `EnvironmentCredential`, `WorkloadIdentityCredential`, and `ManagedIdentityCredential` each failed to acquire a Microsoft Entra access token, in that order.
-- The `DefaultAzureCredential credential selected:`-prefixed entry indicates the credential that was selected&mdash;`VisualStudioCredential` in this case. Since `VisualStudioCredential` succeeded, no credentials beyond it were used.
+- `EnvironmentCredential`, `ManagedIdentityCredential`, and `SharedTokenCacheCredential` each failed to acquire a Microsoft Entra access token, in that order.
+- The `AzureCliCredential.get_token` succeeds and the output also indicates that `DefaultAzureCredential` acquired a token from `AzureCliCredential`. Since `AzureCliCredential` succeeded, no credentials beyond it were tried.
+
+> [!NOTE]
+> In the preceding output, the logging level is set to `logging.DEBUG`. Be careful when using this logging level, as it can output sensitive information. For example, in this case, the client ID, tenant ID, and the object ID of the developer's user principal in Azure. All traceback information has been removed from the output for clarity.
