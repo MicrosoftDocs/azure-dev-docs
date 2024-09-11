@@ -181,10 +181,10 @@ The following diagram shows recommended Azure services for every Java applicatio
 :::image type="complex" source="media/find-match.png" alt-text="Diagram that shows recommended Azure services for every Java application type deployed as source or binaries." lightbox="media/find-match.png":::
 The following table helps you find the right Azure service for every Java app type deployed as source or binaries:
 
-|                     | Spring            | Tomcat or MicroProfile | Serverless and event-driven | JBoss EAP              | WebLogic               | WebSphere Traditional  |
-|---------------------|-------------------|------------------------|-----------------------------|------------------------|------------------------|------------------------|
-| Recommended service | Azure Spring Apps | Azure App Service      | Azure Functions             | Azure App Service      | Azure Virtual Machines | Azure Virtual Machines |
-| Alternative service | Azure App Service |                        | Azure App Service           | Azure Virtual Machines |                        |                        |
+|                     | Spring               | Tomcat or MicroProfile | Serverless and event-driven | JBoss EAP              | WebLogic               | WebSphere Traditional  |
+|---------------------|----------------------|------------------------|-----------------------------|------------------------|------------------------|------------------------|
+| Recommended service | Azure Container Apps | Azure App Service      | Azure Functions             | Azure App Service      | Azure Virtual Machines | Azure Virtual Machines |
+| Alternative service | Azure App Service    | Azure Container Apps   | Azure App Service           | Azure Virtual Machines |                        |                        |
 :::image-end:::
 
 To learn more about the services referenced in this diagram, use the links in the following table:
@@ -215,10 +215,10 @@ The following diagram shows the recommended Azure services for every Java applic
 :::image type="complex" source="media/find-match-containers.png" alt-text="Diagram that shows recommended Azure services for every Java application type deployed as containers." lightbox="media/find-match-containers.png":::
 The following table helps you find the right Azure service for every Java app type deployed as containers:
 
-|                     | Spring microservice | Spring monolith                   | Tomcat                   | JBoss EAP                | WebLogic                 | WebSphere Liberty        |
-|---------------------|---------------------|-----------------------------------|--------------------------|--------------------------|--------------------------|--------------------------|
-| Recommended service | Azure Spring Apps   | Azure Spring Apps                 | Azure App Service        | Red Hat OpenShift        | Azure Kubernetes Service | Azure Kubernetes Service |
-| Alternative service | AKS<br/>ACA         | Azure App Service<br/>AKS<br/>ACA | Azure Kubernetes Service | Azure Kubernetes Service |                          | Red Hat OpenShift        |
+|                     | Spring microservice  | Spring monolith           | Tomcat                   | JBoss EAP                | WebLogic                 | WebSphere Liberty        |
+|---------------------|----------------------|---------------------------|--------------------------|--------------------------|--------------------------|--------------------------|
+| Recommended service | Azure Container Apps | Azure Container Apps      | Azure App Service        | Red Hat OpenShift        | Azure Kubernetes Service | Azure Kubernetes Service |
+| Alternative service | AKS                  | Azure App Service<br/>AKS | Azure Kubernetes Service | Azure Kubernetes Service |                          | Red Hat OpenShift        |
 :::image-end:::
 
 To learn more about the services referenced in this diagram, use the links in the following table:

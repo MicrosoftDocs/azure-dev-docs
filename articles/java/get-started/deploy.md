@@ -69,7 +69,7 @@ Sometimes you don't need an entire Java application. For example, for real-time 
 
 Microsoft has partnered with leading vendors in the Java ecosystem to deliver best-in-class solutions for running Java on Azure - ranging from jointly developed and supported managed services to Azure Marketplace offerings for popular Java application servers. We also integrated popular application monitoring tools, which are covered later in this documentation.
 
-:::image type="content" source="media/strong-partner-ecosystem.png" alt-text="Diagram with the heading 'Strong partner ecosystem' and logos for the partners described in this article." border="false" lightbox="media/strong-partner-ecosystem.png":::
+:::image type="content" source="media/strong-partner-ecosystem.png" alt-text="Diagram with the heading 'Leverage the benefits of our strong partner ecosystem' and logos for the partners described in this article." border="false" lightbox="media/strong-partner-ecosystem.png":::
 
 ## Azure Spring Apps (Pivotal/VMware)
 
