@@ -99,7 +99,7 @@ In the preceding code sample, `EnvironmentCredential` and `WorkloadIdentityCrede
 :::image type="content" source="../media/mermaidjs/default-azure-credential-excludes.svg" alt-text="DefaultAzureCredential using Excludes properties":::
 
 > [!NOTE]
-> `InteractiveBrowserCredential` is excluded by default and therefore isn't shown in the preceding diagram. To include `InteractiveBrowserCredential`, set the `exclude_interactive_browser_credential`keyword parameter to `False` when you call the `DefaultAzureCredential` constructor.
+> `InteractiveBrowserCredential` is excluded by default and therefore isn't shown in the preceding diagram. To include `InteractiveBrowserCredential`, set the `exclude_interactive_browser_credential` keyword parameter to `False` when you call the `DefaultAzureCredential` constructor.
 
 As more `exclude`-prefixed keyword parameters are set to `True` (credential exclusions are configured), the advantages of using `DefaultAzureCredential` diminish. In such cases, `ChainedTokenCredential` is a better choice and requires less code. To illustrate, these two code samples behave the same way:
 
