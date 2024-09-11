@@ -166,7 +166,7 @@ To diagnose an unexpected issue or to understand what a chained credential is do
 import logging
 from azure.identity import DefaultAzureCredential
 
-# Set the logging level for the azure.identity library
+# Set the logging level for the Azure Identity library
 logger = logging.getLogger("azure.identity")
 logger.setLevel(logging.INFO)
 
