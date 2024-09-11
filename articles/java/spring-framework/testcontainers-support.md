@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure support for Testcontainers
 
-**This article applies to:** ✔️ Version 5.15.0
+**This article applies to:** ✔️ Version 5.16.0
 
 This article describes how to integrate Spring Cloud Azure with [Testcontainers](https://testcontainers.com/) to write effective integration tests for your applications.
 
@@ -41,7 +41,7 @@ Here are the **Connection Details Factory** supported in the **spring-cloud-azur
 
 ### Dependency setup
 
-#### [test for Cosmos](#tab/test-for-cosmos)
+#### [Cosmos](#tab/test-for-cosmos)
 ```xml
 <dependency>
   <groupId>org.testcontainers</groupId>
@@ -57,7 +57,7 @@ Here are the **Connection Details Factory** supported in the **spring-cloud-azur
 </dependency>
 ```
 
-#### [test for Storage Blob](#tab/test-for-storage-blob)
+#### [Storage Blob](#tab/test-for-storage-blob)
 ```xml
 <dependency>
   <groupId>com.azure.spring</groupId>
@@ -69,7 +69,7 @@ Here are the **Connection Details Factory** supported in the **spring-cloud-azur
 </dependency>
 ```
 
-#### [test for Storage Queue](#tab/test-for-storage-queue)
+#### [Storage Queue](#tab/test-for-storage-queue)
 ```xml
 <dependency>
   <groupId>com.azure.spring</groupId>
@@ -85,7 +85,7 @@ Here are the **Connection Details Factory** supported in the **spring-cloud-azur
 
 ### Basic usage
 
-#### [test for Cosmos](#tab/test-for-cosmos)
+#### [Cosmos](#tab/test-for-cosmos)
 ```java
 @SpringBootTest
 @Testcontainers
@@ -109,9 +109,9 @@ public class CosmosTestcontainersTest {
     Path keyStoreFile = new File(tempFolder, "azure-cosmos-emulator.keystore").toPath();
     KeyStore keyStore = cosmos.buildNewKeyStore();
     try {
-    keyStore.store(Files.newOutputStream(keyStoreFile.toFile().toPath()), cosmos.getEmulatorKey().toCharArray());
+        keyStore.store(Files.newOutputStream(keyStoreFile.toFile().toPath()), cosmos.getEmulatorKey().toCharArray());
     } catch (Exception e) {
-    throw new RuntimeException(e);
+        throw new RuntimeException(e);
     }
 
     System.setProperty("javax.net.ssl.trustStore", keyStoreFile.toString());
@@ -128,7 +128,7 @@ public class CosmosTestcontainersTest {
 
 To use `CosmosDBEmulatorContainer`, we need to prepare KeyStore for SSL, see [Azure Module in Testcontainers](https://java.testcontainers.org/modules/azure/#cosmosdb). With `@ServiceConnection`, the above configuration allows Cosmos DB-related beans in the app to communicate with Cosmos DB running inside the Testcontainers-managed Docker container. This action is done by automatically defining a `AzureCosmosConnectionDetails` bean, which is then used by the Cosmos DB autoconfiguration, overriding any connection-related configuration properties.
 
-#### [test for Storage Blob](#tab/test-for-storage-blob)
+#### [Storage Blob](#tab/test-for-storage-blob)
 ```java
 @SpringBootTest
 @Testcontainers
@@ -157,7 +157,7 @@ public class StorageBlobTestcontainersTest {
 
 With `@ServiceConnection`, the above configuration allows Storage Blob-related beans in the app to communicate with Storage Blob running inside the Testcontainers-managed Docker container. This action is done by automatically defining a `AzureStorageBlobConnectionDetails` bean, which is then used by the Storage Blob autoconfiguration, overriding any connection-related configuration properties.
 
-#### [test for Storage Queue](#tab/test-for-storage-queue)
+#### [Storage Queue](#tab/test-for-storage-queue)
 ```java
 @SpringBootTest
 @Testcontainers
