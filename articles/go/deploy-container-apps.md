@@ -131,7 +131,7 @@ Run the following commands to create an Azure Container Apps environment:
 
 ## Deploy to Azure Container Apps
 
-At this point, you've created an Azure Container Registry, built, and pushed a Docker image to it, and created an Azure Container Apps environment. All that's left is to deploy the application.
+At this point, you've created an Azure Container Registry, built and pushed a Docker image to it, and created an Azure Container Apps environment. All that's left is to deploy the application.
 
 Run the following command to deploy the Go web app to Azure Container Apps:
 
