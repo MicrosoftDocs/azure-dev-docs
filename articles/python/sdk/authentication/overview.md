@@ -63,7 +63,7 @@ When an app runs on a developer's workstation during local development, it still
 
 [DefaultAzureCredential](./credential-chains.md#defaultazurecredential-overview) is an opinionated, ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class that implements the [TokenCredential](/python/api/azure-core/azure.core.credentials.tokencredential) protocol and is known as a *credential*. At runtime, `DefaultAzureCredential` attempts to authenticate using the first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. In this way, your app can use different credentials in different environments without writing environment-specific code.
 
-To use `DefaultAzureCredential` in a Python app, add the [azure.identity](https://pypi.org/project/azure-identity/) package to your application.
+To use `DefaultAzureCredential` in a Python app, add the [azure-identity](https://pypi.org/project/azure-identity/) package to your application.
 
 ```terminal
 pip install azure-identity
