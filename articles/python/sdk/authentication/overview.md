@@ -37,7 +37,7 @@ Use token-based authentication instead of using connection strings when you buil
 - The token-based authentication methods described in this article allow you to establish the specific permissions needed by the app on the Azure resource. This practice follows the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege). In contrast, a connection string grants full rights to the Azure resource.
 - Anyone or any app with a connection string can connect to an Azure resource, but token-based authentication methods scope access to the resource to only the apps intended to access the resource.
 - With a managed identity, there's no application secret to store. The app is more secure because there's no connection string or application secret that can be compromised.
-- The [azure.identity](https://pypi.org/project/azure-identity/) package acquires and manages Microsoft Entra tokens for you. This makes using token-based authentication as easy to use as a connection string.
+- The [azure-identity](https://pypi.org/project/azure-identity/) package acquires and manages Microsoft Entra tokens for you. This makes using token-based authentication as easy to use as a connection string.
 
 Limit the use of connection strings to initial proof-of-concept apps or development prototypes that don't access production or sensitive data. Otherwise, the token-based authentication classes available in the Azure Identity client library are always preferred when they're authenticating to Azure resources.
 
