@@ -119,7 +119,7 @@ credential = DefaultAzureCredential(
 ### [ChainedTokenCredential](#tab/ctc)
 
 ```python
-credential =  ChainedTokenCredential(
+credential = ChainedTokenCredential(
         ManagedIdentityCredential(client_id = user_assigned_client_id),
         AzureCliCredential()
     )
