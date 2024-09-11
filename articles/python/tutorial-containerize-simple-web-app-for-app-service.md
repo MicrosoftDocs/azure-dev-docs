@@ -2,7 +2,7 @@
 title: Deploy a Flask or FastAPI web app as a container in Azure App Service
 description: An overview of how to create and deploy a containerized Python web app (Flask or FastAPI) on Azure App Service.
 ms.topic: conceptual
-ms.date: 04/12/2024
+ms.date: 09/11/2024
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
@@ -221,7 +221,7 @@ The `--detach` option runs the container in the background. The `--publish` opti
 1. Set an environment variable to the value of the password for the registry.
 
     ```bash
-    ACR_PASSWORD=$(az acr credential show \
+    $ACR_PASSWORD=(az acr credential show \
     --resource-group web-app-simple-rg \
     --name webappacr123 \
     --query "passwords[?name == 'password'].value" \
