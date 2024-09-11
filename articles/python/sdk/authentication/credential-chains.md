@@ -132,7 +132,7 @@ credential =  ChainedTokenCredential(
 [ChainedTokenCredential](/python/api/azure-identity/azure.identity.chainedtokencredential) is an empty chain to which you add credentials to suit your app's needs. For example:
 
 ```python
-credential =  ChainedTokenCredential(
+credential = ChainedTokenCredential(
         ManagedIdentityCredential(client_id = user_assigned_client_id),
         AzureCliCredential()
     )
