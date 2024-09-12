@@ -25,7 +25,7 @@ The following tips for better prompts comes from the article [Write effectve pro
 - [Use the feedback loop](/azure/copilot/write-effective-prompts#use-the-feedback-loop)
 
 
-## Example prompts for optimize your apps
+## Example prompts to optimize your apps
 
 Suppose you want to optimize your application running on Azure services and have decided to use GitHub Copilot for Azure to help. To begin, you can start with an open ended question and then adding details like specific services and technologies. Here are some sample prompts you can try to help you optimize the use of Azure in your apps.
 

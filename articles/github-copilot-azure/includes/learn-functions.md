@@ -1,0 +1,4 @@
+- "@azure How do I create a new Azure Function?"
+- "@azure What is the difference between Azure Functions and Azure Logic apps?"
+- "@azure Create a guide for integrating Azure Logic Apps with Azure Functions."
+- "@azure I want to create an Azure function in NodeJS."

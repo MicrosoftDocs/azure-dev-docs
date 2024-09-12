@@ -1,0 +1,6 @@
+- "@azure How do I deploy a web app in Azure?"
+- "@azure How to create an App Service app and deploy code to a staging environment using CLI?"
+- "@azure Create a script to deploy a webapp that will run in python."
+- "@azure What database options does Azure have for web apps?"
+- "@azure What serverless options does Azure have for web apps?"
+- "@azure Create a guide for maximizing Azure App Services."
