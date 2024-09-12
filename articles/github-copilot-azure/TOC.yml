@@ -8,8 +8,8 @@ items:
       href: get-started.md
     - name: QuickStart - Building, deploying and improving your application with GitHub Copilot for Azure
       href: quickstart-build-deploy-improve-applications.md
-    - name: Tips and tricks for asking questions about your application
-      href: ask-questions-about-application.md
+    - name: Learn about Azure and your application
+      href: learn-examples.md
     - name: Deploy your application
       href: deploy-examples.md
     - name: Troubleshooting your application
