@@ -106,14 +106,14 @@ Run the following commands to create an Azure Container Registry:
 Replace `<resourceGroupName>` and `<azureContainerRegistryName>` with the appropriate values. Your Azure Container Registry name needs to be globally unique.
 
 > [!NOTE]
-> If you get an error similar to the following:
+> If you get an error similar to the following when you run the `az acr login` command:
 >
 > ```output
 > You may want to use 'az acr login -n <azureContainerRegistryName> --expose-token' to get an access token, which does not require Docker to be installed.
 > 2024-09-12 17:25:25.127779 An error occurred: DOCKER_COMMAND_ERROR
 > ```
 >
-> Make sure that the Docker deamon is running on your system.
+> Make sure the Docker deamon is running on your system.
 
 ### Build and push the Docker image
 
