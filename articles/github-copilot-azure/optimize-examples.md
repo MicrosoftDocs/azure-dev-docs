@@ -1,6 +1,6 @@
 ---
-title: Tips and tricks for using GitHub Copilot for Azure to optimize cloud usage in your application
-description: This article provides example prompts to optimize how your application utilizes Azure services.
+title: GitHub Copilot for Azure prompt engineering examples for optimizing your application
+description: This article provides example prompts that can be used to help optimize your application in the cloud.
 keywords: github, copilot, ai, azure
 ms.service: azure
 ms.topic: overview
@@ -10,4 +10,35 @@ ms.custom: overview
 
 # Use GitHub Copilot for Azure to optimize your application
 
-TBD
+If you're unfamiliar with Azure or just want the tooling and AI to do most of the work, asking GitHub Copilot for Azure to help you optimize the performance of your Azure resources is a great option.
+
+As is the case with all tools based on Large Language Models (LLMs), using good prompt engineering techniques will get you the results you want.
+
+The following tips for better prompts comes from the article [Write effectve prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides great advice for prompt engineering in the context of Azure.
+
+- [Be clear and specific](/azure/copilot/write-effective-prompts#be-clear-and-specific)
+- [Set expectations](/azure/copilot/write-effective-prompts#set-expectations)
+- [Add context about your scenario](/azure/copilot/write-effective-prompts#add-context-about-your-scenario)
+- [Break down your requests](/azure/copilot/write-effective-prompts#break-down-your-requests)
+- [Customize your code](/azure/copilot/write-effective-prompts#customize-your-code)
+- [Use Azure terminology](/azure/copilot/write-effective-prompts#use-azure-terminology)
+- [Use the feedback loop](/azure/copilot/write-effective-prompts#use-the-feedback-loop)
+
+
+## Example prompts for optimize your apps
+
+Suppose you want to optimize your application running on Azure services and have decided to use GitHub Copilot for Azure to help. To begin, you can start with an open ended question and then adding details like specific services and technologies. Here are some sample prompts you can try to help you optimize the use of Azure in your apps.
+
+|Service|Optimize prompt examples|
+|---|---|
+|App Service|[!INCLUDE [optimize-app-service](./includes/optimize-app-service.md)]|
+|Azure SQL|[!INCLUDE [optimize-azure-sql](./includes/optimize-azure-sql.md)]|
+
+
+## Next steps
+
+- [Get started with GitHub Copilot for Azure](introduction.md).
+- See example prompts for learning more about Azure.
+- See example prompts for understanding your Azure account, subscription and resources.
+- See example prompts for monitoring your Azure resources.
+- See example prompts for troubleshooting your Azure resources.

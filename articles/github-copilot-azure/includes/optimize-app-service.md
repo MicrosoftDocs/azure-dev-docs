@@ -1,0 +1,4 @@
+- "@azure Any available app code optimizations?"
+- "@azure Show me how to optimize CPU usage for my Azure App Service."
+- "@azure How do I optimize code for my Azure App Service?"
+- "@azure What are the best practices for security in Azure?"
