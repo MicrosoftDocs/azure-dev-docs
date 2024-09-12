@@ -105,18 +105,18 @@ public class CosmosTestcontainersTest {
 
     @BeforeAll
     static void setup() {
-    cosmos.start();
-    Path keyStoreFile = new File(tempFolder, "azure-cosmos-emulator.keystore").toPath();
-    KeyStore keyStore = cosmos.buildNewKeyStore();
-    try {
-        keyStore.store(Files.newOutputStream(keyStoreFile.toFile().toPath()), cosmos.getEmulatorKey().toCharArray());
-    } catch (Exception e) {
-        throw new RuntimeException(e);
-    }
-
-    System.setProperty("javax.net.ssl.trustStore", keyStoreFile.toString());
-    System.setProperty("javax.net.ssl.trustStorePassword", cosmos.getEmulatorKey());
-    System.setProperty("javax.net.ssl.trustStoreType", "PKCS12");
+        cosmos.start();
+        Path keyStoreFile = new File(tempFolder, "azure-cosmos-emulator.keystore").toPath();
+        KeyStore keyStore = cosmos.buildNewKeyStore();
+        try {
+            keyStore.store(Files.newOutputStream(keyStoreFile.toFile().toPath()), cosmos.getEmulatorKey().toCharArray());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    
+        System.setProperty("javax.net.ssl.trustStore", keyStoreFile.toString());
+        System.setProperty("javax.net.ssl.trustStorePassword", cosmos.getEmulatorKey());
+        System.setProperty("javax.net.ssl.trustStoreType", "PKCS12");
     }
 
     @Test
@@ -134,6 +134,7 @@ To use `CosmosDBEmulatorContainer`, we need to prepare KeyStore for SSL, see [Az
 @Testcontainers
 @ImportAutoConfiguration(classes = { AzureGlobalPropertiesAutoConfiguration.class, AzureStorageBlobAutoConfiguration.class, AzureStorageBlobResourceAutoConfiguration.class})
 public class StorageBlobTestcontainersTest {
+
     @Container
     @ServiceConnection
     private static final GenericContainer<?> AZURITE_CONTAINER = new GenericContainer<>(
