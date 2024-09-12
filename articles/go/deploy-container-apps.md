@@ -43,7 +43,7 @@ az extension add --name containerapp --upgrade
 ```
 
 > [!NOTE]
-> Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](../articles/container-apps/whats-new.md), install the Container Apps extension with `--allow-preview true`.
+> Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](/azure/container-apps/whats-new), install the Container Apps extension with `--allow-preview true`.
 >
 > ```azurecli
 > az extension add --name containerapp --upgrade --allow-preview true
@@ -186,7 +186,7 @@ az containerapp create \
     --ingress external
 ```
 
-The `--registry-identity system` configures the system-assigned managed identity on the container app. The container app uses this identity rather than username/password to authenticate with the container registry. The registry must be an Azure Container Registry. The command also creates an 'acrpull' role assignemnt for the identity.
+The `--registry-identity system` configures the system-assigned managed identity on the container app. The container app uses this identity rather than username/password to authenticate with the container registry. The registry must be an Azure Container Registry. The command also creates an 'acrpull' role assignment for the identity.
 
 ## Verify the web app URL
 
