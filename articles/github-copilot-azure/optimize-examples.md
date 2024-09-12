@@ -8,6 +8,6 @@ ms.date: 09/03/2024
 ms.custom: overview
 ---
 
-# Tips and tricks for using GitHub Copilot for Azure to optimize cloud usage in your application
+# Use GitHub Copilot for Azure to optimize your application
 
 TBD
