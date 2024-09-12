@@ -43,6 +43,7 @@ Suppose you want to deploy your application and have decided to use GitHub Copil
 However, the more detail you add, the more fine tuned the results will be. Here are some example prompts that will give better results:
 
 |Service, technology or technique|Deploy prompt examples|
+|---|---|
 |Azure Kubernetes Service (AKS)|[!INCLUDE [deploy-aks](./includes/deploy-aks.md)]|
 |Azure App Service|[!INCLUDE [deploy-app-service](./includes/deploy-app-service.md)]|
 |Azure Container Apps (ACA)|[!INCLUDE [deploy-aca](./includes/deploy-aca.md)]|
