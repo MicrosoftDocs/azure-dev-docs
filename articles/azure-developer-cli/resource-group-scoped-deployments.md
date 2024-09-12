@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli
 
 # Resource Group Scoped Deployments
 
-Azure Developer CLI (azd) supports deployments at both a subscription scope and a resource group scope. By default, `azd` creates a resource group that contains the provisioned resources in the subscription you choose during the `azd up` workflow. However, `azd` also allows you to deploy to an existing resource group. When you choose an existing resource group, the scope of permissions needed to run `azd provision` is reduced from subscription level to the resource group scope.
+Azure Developer CLI (`azd`) supports deployments at both the subscription and resource group scopes. By default, `azd` creates a resource group that contains the provisioned resources in the subscription you choose during the `azd up` workflow. However, `azd` also allows you to deploy to an existing resource group. When you choose an existing resource group, the scope of permissions needed to run `azd provision` is reduced from subscription level to the resource group level.
 
 In this article, you learn how to modify templates to enable resource group scoped deployments.
 
@@ -21,7 +21,7 @@ In this article, you learn how to modify templates to enable resource group scop
 
 ## Modify the target scope of a template
 
-1. In `main.bicep` change `targetScope`:
+1. In `main.bicep` file of your `azd` template, change `targetScope`:
 
     ```bicep
     targetScope = 'resourceGroup'
@@ -52,7 +52,8 @@ In this article, you learn how to modify templates to enable resource group scop
     AZURE_RESOURCE_GROUP: $(AZURE_RESOURCE_GROUP)
     ```
 
-For an example of these changes applied to our [React Web App with Node.js API and MongoDB on Azure template](https://github.com/Azure-Samples/todo-nodejs-mongo), see [this GitHub comparison](https://github.com/Azure-Samples/todo-nodejs-mongo/compare/main...ellismg:todo-nodejs-mongo:ellismg/move-to-rg-scope).
+> [!NOTE]
+> For an example of these changes applied to the [React Web App with Node.js API and MongoDB on Azure template](https://github.com/Azure-Samples/todo-nodejs-mongo), see [this GitHub comparison](https://github.com/Azure-Samples/todo-nodejs-mongo/compare/main...ellismg:todo-nodejs-mongo:ellismg/move-to-rg-scope).
 
 To set the resource group to deploy to manually, you can set `AZURE_RESOURCE_GROUP` in your environment. Learn more about that [here](./manage-environment-variables.md#user-provided-environment-variables).
 
