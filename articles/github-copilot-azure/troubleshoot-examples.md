@@ -1,6 +1,6 @@
 ---
-title: Tips and tricks for using GitHub Copilot for Azure to troubleshoot your application
-description: This article provides example prompts to troubleshoot Azure services in use in by your application.
+title: GitHub Copilot for Azure prompt engineering examples for troubleshooting your application
+description: This article provides example prompts that can be used to help troubleshooting your application in the cloud.
 keywords: github, copilot, ai, azure
 ms.service: azure
 ms.topic: overview
