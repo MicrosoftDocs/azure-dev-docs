@@ -394,7 +394,7 @@
 | Purview Data Map | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/purview-datamap/v/1.0.0-beta.1) |  |  |
 | tmlanguage-generator | npm [0.5.8](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.8) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/create-microsoft-playwright-testing/v/1.0.0-beta.1) |  |  |
-| Unknown Display Name | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/microsoft-playwright-testing/v/1.0.0-beta.1) |  |  |
+| Unknown Display Name | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/microsoft-playwright-testing/v/1.0.0-beta.2) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.8](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.8) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
@@ -405,7 +405,7 @@
 | Azure Functions | npm [4.0.0](https://www.npmjs.com/package/@azure/functions/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-functions-nodejs-library) |
 | Batch | npm [12.0.0](https://www.npmjs.com/package/@azure/batch/v/12.0.0) |  | GitHub [12.0.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
-| Communication Calling | npm [1.28.3](https://www.npmjs.com/package/@azure/communication-calling/v/1.28.3) |  | GitHub [1.28.3](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| Communication Calling | npm [1.28.4](https://www.npmjs.com/package/@azure/communication-calling/v/1.28.4) |  | GitHub [1.28.4](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Communication Signaling | npm [1.0.0-beta.28](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.28) |  | GitHub [1.0.0-beta.28](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Computer Vision | npm [8.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.2.0) |  |  |
 | Content Safety | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  |  |
