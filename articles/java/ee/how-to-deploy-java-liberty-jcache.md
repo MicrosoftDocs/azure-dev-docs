@@ -4,7 +4,7 @@ description: Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azu
 author: KarlErickson
 ms.author: jiangma
 ms.topic: how-to
-ms.date: 09/21/2022
+ms.date: 09/09/2024
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 #Customer intent: As a Java developer, I want to build a Java, Java EE, Jakarta EE, or MicroProfile application with JCache session enabled and deploy it on Azure Kubernetes Service cluster so that customers can store session data in the Azure Cache for Redis for session management.
 ---
@@ -86,19 +86,14 @@ export LOGIN_SERVER=$(az acr show \
     --resource-group $RESOURCE_GROUP_NAME \
     --query 'loginServer' \
     --output tsv)
-export USER_NAME=$(az acr credential show \
-    --name $REGISTRY_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --query 'username' \
-    --output tsv)
-export PASSWORD=$(az acr credential show \
-    --name $REGISTRY_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --query 'passwords[0].value' \
-    --output tsv)
 
-docker login $LOGIN_SERVER -u $USER_NAME -p $PASSWORD
+az acr login \
+    --name $REGISTRY_NAME \
+    --resource-group $RESOURCE_GROUP_NAME
 ```
+
+> [!NOTE]
+> The use of username and password credentials to grant access to a container registry is discouraged. If your particular usage requirements suggest credential based access is the best approach, you can obtain the username and password using `az acr credential show` and use these values with `docker login`.
 
 You should see `Login Succeeded` at the end of command output if you've signed into the ACR instance successfully.
 
@@ -168,7 +163,7 @@ CERT_MANAGER_VERSION=v1.11.2
 kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/${CERT_MANAGER_VERSION}/cert-manager.yaml
 
 # Install Open Liberty Operator
-export OPERATOR_VERSION=1.2.2
+export OPERATOR_VERSION=1.3.3
 mkdir -p overlays/watch-all-namespaces
 wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/overlays/watch-all-namespaces/olo-all-namespaces.yaml -q -P ./overlays/watch-all-namespaces
 wget https://raw.githubusercontent.com/OpenLiberty/open-liberty-operator/main/deploy/releases/${OPERATOR_VERSION}/kustomize/overlays/watch-all-namespaces/cluster-roles.yaml -q -P ./overlays/watch-all-namespaces
@@ -187,6 +182,10 @@ kubectl apply --server-side -k overlays/watch-all-namespaces
 [Azure Cache for Redis](/azure/azure-cache-for-redis/) backs the persistence of the `HttpSession` for a Java application running within an Open Liberty or WebSphere Liberty server. Follow the steps in this section to create an Azure Cache for Redis instance and note down its connection information. We'll use this information later.
 
 1. Follow the steps in [Quickstart: Use Azure Cache for Redis in Java](/azure/azure-cache-for-redis/cache-java-get-started) up to, but not including **Understanding the Java sample**.
+
+   > [!NOTE]
+   > In step 6 of section [Create an Azure Cache for Redis](/azure/azure-cache-for-redis/cache-java-get-started#create-an-azure-cache-for-redis), select **Access Keys Authentication** for the **Authentication** option. This option is required for the sample application to connect to the Azure Cache for Redis instance using the **Redisson** client library. See [Redisson Configuration](https://github.com/redisson/redisson/wiki/2.-Configuration/) for more information.
+
 1. Copy **Host name** and **Primary access key** for your Azure Cache for Redis instance, and then run the following commands to add environment variables:
 
    ```bash
@@ -205,7 +204,8 @@ Use the following commands to clone the sample code for this guide. The sample i
 ```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
-git checkout 20230906
+git checkout 20240909
+cd java-app-jcache
 ```
 
 If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
@@ -246,15 +246,15 @@ In the *redisson* directory, the *redisson-config.yaml* file is used to configur
 
 To deploy and run your Liberty application on the AKS cluster, use the following steps to containerize your application as a Docker image. You can use [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
 
-1. Change directory to *java-app-jcache* of your local clone.
+1. Verify the current working directory is *java-app-jcache* in your local clone.
 1. Run `mvn clean package` to package the application.
 1. Run `mvn -Predisson validate` to copy the Redisson configuration file to the specified location. This step inserts the values of the environment variables `REDISCACHEHOSTNAME` and `REDISCACHEKEY` into the *redisson-config.yaml* file, which is referenced by the *server.xml* file.
 1. Run `mvn liberty:dev` to test the application. If the test is successful, you should see `The defaultServer server is ready to run a smarter planet.` in the command output.
    You should see output similar to the following if the Redis connection is successful.
 
    ```output
-   [INFO] [err] [Default Executor-thread-5] INFO org.redisson.Version - Redisson 3.16.7
-   [INFO] [err] [redisson-netty-2-2] INFO org.redisson.connection.pool.MasterPubSubConnectionPool - 1 connections initialized for redacted.redis.cache.windows.net/20.25.90.239:6380
+   [INFO] [err] [Default Executor-thread-5] INFO org.redisson.Version - Redisson 3.23.4
+   [INFO] [err] [redisson-netty-2-7] INFO org.redisson.connection.pool.MasterPubSubConnectionPool - 1 connections initialized for redacted.redis.cache.windows.net/20.25.90.239:6380
    [INFO] [err] [redisson-netty-2-20] INFO org.redisson.connection.pool.MasterConnectionPool - 24 connections initialized for redacted.redis.cache.windows.net/20.25.90.239:6380
    ```
 
