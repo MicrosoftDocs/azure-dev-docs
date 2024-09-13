@@ -262,7 +262,7 @@ The `--registry` option specifies the registry name, and the `--image` option sp
     --assign-identity [system] \
     --role AcrPull \
     --scope /subscriptions/$SUBSCRIPTION_ID/resourceGroups/web-app-simple-rg \
-    --acr-use-identity --acr-identity [system]
+    --acr-use-identity --acr-identity [system] \
     --container-image-name webappacr123.azurecr.io/webappsimple:latest 
     ```
 
