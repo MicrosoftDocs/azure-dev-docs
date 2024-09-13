@@ -10,7 +10,7 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 This tutorial shows you how to deploy a Python [Flask][5] or [FastAPI][6] web app to [Azure App Service][1] using the [Web App for Containers][2] feature. Web App for Containers provides an easy on-ramp for developers to take advantage of the fully managed Azure App Service platform, but who also want a single deployable artifact containing an app and all of its dependencies. For more information about using containers in Azure, see [Comparing Azure container options][3].
 
-In this tutorial, you use the [Docker CLI][7] and [Docker][12] to optionally create a Docker image and test it locally. You use the [Azure CLI][8] to create a Docker image in an [Azure Container Registry][11] and deploy it to Azure App Service. The web app is configured with its system-assigned **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) and Azure role-based access to pull the Docker image from the Azure Container Registry during deployment. You can also deploy with [Visual Studio Code][9] with the [Azure Tools Extension][10] installed. 
+In this tutorial, you use the [Docker CLI][7] and [Docker][12] to optionally create a Docker image and test it locally. You use the [Azure CLI][8] to create a Docker image in an [Azure Container Registry][11] and deploy it to Azure App Service. The web app is configured with its system-assigned **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) and Azure role-based access to pull the Docker image from the Azure Container Registry during deployment. You can also deploy with [Visual Studio Code][9] with the [Azure Tools Extension][10] installed.
 
 For an example of building and creating a Docker image to run on Azure Container Apps, see [Deploy a Flask or FastPI web app on Azure Container Apps][4].
 
@@ -286,7 +286,7 @@ The `--registry` option specifies the registry name, and the `--image` option sp
 
     * If you're using a name different than `webappacr123` for your Azure Container Registry, make sure you update the `--container-image-name` parameter appropriately.
 
-    * The `--assign-identity`, `--role`, and `--scope` parameters enable the system-assigned managed identity on the web app and assign it the `AcrPull` role on the resource group. This gives the managed identity permission to pull images from any Azure Container Registry in the resource group.
+    * The `--assign-identity`, `--role`, and `--scope` parameters enable the system-assigned managed identity on the web app and assign it the [`AcrPull` role](/azure/role-based-access-control/built-in-roles/containers#acrpull) on the resource group. This gives the managed identity permission to pull images from any Azure Container Registry in the resource group.
 
     * The `--acr-use-identity` and `--acr-identity` parameters configure the web app to use its system-assigned managed identity to pull images from the Azure Container Registry.
 
