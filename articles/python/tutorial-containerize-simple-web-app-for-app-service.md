@@ -272,7 +272,7 @@ The `--registry` option specifies the registry name, and the `--image` option sp
 
     * If you're using a name different than `webappacr123` for your Azure Container Registry, make sure you update the `--container-image-name` parameter appropriately.
 
-    * The `--assign-identity`, `--role`, and `--scope` parameters enable the system-assigned managed identity on the web app and assign it the `AcrPull` role on the resource group. This gives the identity permission to pull images from any Azure Container Registry in the resource group.
+    * The `--assign-identity`, `--role`, and `--scope` parameters enable the system-assigned managed identity on the web app and assign it the `AcrPull` role on the resource group. This gives the managed identity permission to pull images from any Azure Container Registry in the resource group.
 
     * The `--acr-use-identity` and `--acr-identity` parameters configure the web app to use its system-assigned managed identity to pull images from the Azure Container Registry. Authentication with non-Azure registries is supported via the `container-registry-user` and `--container-registry-password` parameters.
 
