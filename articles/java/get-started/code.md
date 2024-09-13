@@ -5,7 +5,7 @@ description: This article provides an overview of the tools you can use for Java
 author: KarlErickson
 ms.author: asirveda
 ms.topic: conceptual
-ms.date: 02/02/2024
+ms.date: 09/30/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-jenkins
 ---
 
@@ -23,7 +23,7 @@ Visual Studio Code (VS Code) is a lightweight, agnostic operating system that ru
 
 :::image type="content" source="media/visual-studio-code-deploy.jpg" alt-text="Screenshot of Visual Studio Code that shows a Java file and the Output window." lightbox="media/visual-studio-code-deploy.jpg":::
 
-VS Code supports and streamlines Java development workflows through a broad range of [Java extensions for Visual Studio Code](https://code.visualstudio.com/docs/java/extensions). There are several hundred extensions for Java alone, which you can search for from within the IDE itself. We packaged key extensions for fundamental Java development into the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). This extension pack includes extensions for project management, Maven integration, code editing, code completion, code navigation, refactoring, linting, formatting, debugging, running and debugging JUnit/TestNG test cases, and more. There's also a [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack) for developing and deploying Spring Boot applications - including Spring Initializr support for integration with Azure Spring Apps, a fully managed service for running Spring Boot applications on Azure.
+VS Code supports and streamlines Java development workflows through a broad range of [Java extensions for Visual Studio Code](https://code.visualstudio.com/docs/java/extensions). There are several hundred extensions for Java alone, which you can search for from within the IDE itself. We packaged key extensions for fundamental Java development into the [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). This extension pack includes extensions for project management, Maven integration, code editing, code completion, code navigation, refactoring, linting, formatting, debugging, running and debugging JUnit/TestNG test cases, and more. There's also a [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack) for developing and deploying Spring Boot applications - including Spring Initializr support.
 
 The [Azure Tools Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), built by Azure engineering teams, provides a rich set of extensions for discovering and interacting with all the Azure cloud services that help power your Java applications. You can use all the extensions from within VS Code as you're writing, debugging, and testing your Java app. When you're ready to deploy your app, the Azure Tools Extension Pack supports one-click deployment to the various compute services that Azure provides for running Java applications.
 
@@ -31,9 +31,8 @@ The [Azure Tools Extension Pack](https://marketplace.visualstudio.com/items?item
 
 [Getting Started with Java in VS Code](https://code.visualstudio.com/docs/java/java-tutorial) provides a short tutorial that covers setting-up VS Code for Java Development, including how to write and run the Hello World program. Similarly, there are short tutorials that show how to build a Java application using Visual Studio Code and then deploy it with a single click into services such as the following ones:
 
-* [Azure App Service](https://code.visualstudio.com/docs/java/java-webapp)
-* [Azure Spring Apps](https://code.visualstudio.com/docs/java/java-spring-apps)
 * [Azure Container Apps](/azure/container-apps/deploy-visual-studio-code)
+* [Azure App Service](https://code.visualstudio.com/docs/java/java-webapp)
 * [Azure Functions](/azure/azure-functions/create-first-function-vs-code-java)
 
 If you're new to Java on VS Code, try out the "Java: Tips for Beginners" command in its main Command Palette.
@@ -42,7 +41,7 @@ If you're new to Java on VS Code, try out the "Java: Tips for Beginners" command
 
 ## Azure Toolkit for IntelliJ
 
-The [Azure Toolkit for IntelliJ](../toolkit-for-intellij/index.yml) lets Java developers create, develop, test, and deploy Java applications to Azure using the IntelliJ IDE. For example, developers can use it to deploy [Java Web applications](../toolkit-for-intellij/create-hello-world-web-app.md) to Azure App Service and [custom containers](../toolkit-for-intellij/hello-world-web-app-linux.md) in Azure App Service, deploy [Spring Boot applications](/azure/spring-apps/enterprise/how-to-intellij-deploy-apps) to Azure Spring Apps, or deploy [serverless applications](/azure/azure-functions/functions-create-maven-intellij) to Azure Functions - all of these are compute services for running Java on Azure, which we cover in more detail later in this documentation. Spring Cloud Azure integrations are provided through the Spring Initializr experiences in IntelliJ. Just add the appropriate [Java libraries and drivers](../sdk/libraries-drivers-modules.md) (including Azure SDK for Java) as dependencies in your Java project.
+The [Azure Toolkit for IntelliJ](../toolkit-for-intellij/index.yml) lets Java developers create, develop, test, and deploy Java applications to Azure using the IntelliJ IDE. For example, developers can use it to deploy [Java Web applications](../toolkit-for-intellij/create-hello-world-web-app.md) to Azure App Service and [custom containers](../toolkit-for-intellij/hello-world-web-app-linux.md) in Azure App Service, deploy [containerized applications](../toolkit-for-intellij/create-container-apps-intellij.md) to Azure Container Apps, or deploy [serverless applications](/azure/azure-functions/functions-create-maven-intellij) to Azure Functions - all of these are compute services for running Java on Azure, which we cover in more detail later in this documentation. Spring Cloud Azure integrations are provided through the Spring Initializr experiences in IntelliJ. Just add the appropriate [Java libraries and drivers](../sdk/libraries-drivers-modules.md) (including Azure SDK for Java) as dependencies in your Java project.
 
 Microsoft is actively investing time and resources to provide more functionality for IntelliJ, including new experiences for cloud-native development and deeper integration with Azure services - including integrations with Azure Kubernetes Service and Application Insights.
 
@@ -53,7 +52,7 @@ Microsoft is actively investing time and resources to provide more functionality
 The Azure Toolkit for Eclipse lets Java developers create, develop, test, and deploy Java applications to Azure using the Eclipse IDE. It includes key [Java libraries and drivers](../sdk/libraries-drivers-modules.md), including the Azure SDK for Java. Developers can use the Azure Toolkit for Eclipse to accomplish the following tasks from the Eclipse IDE:
 
 * Deploy Java Web Apps to Azure App Service and custom containers in App Service.
-* Deploy Spring Boot applications to Azure Spring Apps.
+* Deploy containerized applications to Azure Container Apps.
 * Deploy serverless applications to Azure Functions using Maven or Gradle plugins.
 
 ## Dependency management and build automation - Maven, Gradle, and GitHub
@@ -62,7 +61,7 @@ Maven and Gradle are two popular project management, dependency management, and 
 
 ## Maven Plugins for Azure Services
 
-Maven plugins for Azure services let you extend your Maven development workflows to Azure, testing your Java applications locally and then deploying them to Azure services in a single step - in a way that integrates with Azure authentication methods and Azure Role-Based Access Control. The [Maven plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) helps you deploy Maven Java Web application projects to Azure App Service and to custom containers in App Service. The [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps) helps you deploy Maven Spring Boot application projects to Azure Spring Apps. And the [Maven plugin for Azure Functions](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions) helps you deploy Maven serverless Java application projects to Azure Functions.
+Maven plugins for Azure services let you extend your Maven development workflows to Azure, testing your Java applications locally and then deploying them to Azure services in a single step - in a way that integrates with Azure authentication methods and Azure Role-Based Access Control. The [Maven plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) helps you deploy Maven Java Web application projects to Azure App Service and to custom containers in App Service. The [Maven plugin for Azure Functions](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions) helps you deploy Maven serverless Java application projects to Azure Functions.
 
 :::image type="content" source="media/maven.png" alt-text="Diagram that shows a laptop screen with the text 'mvn azure-webapp:deploy' and the heading Deploy Java Web App and Dependencies in One Step." border="false":::
 
@@ -98,20 +97,19 @@ Many Microsoft customers who run Java on Azure use Jenkins - an open-source auto
 
 The Azure Command-Line Interface (CLI) is a cross-platform command-line tool for creating, connecting to, and managing Azure resources - including the execution of terminal commands via command-line prompts or scripts. You can install the Azure CLI locally on Linux, macOS, or Windows-based machines, run it from within a container, or access the Azure CLI from a browser through Azure Cloud Shell.
 
-The following example shows how to use Azure CLI to deploy apps to Azure Spring Apps:
+The following example shows you how to use Azure CLI to deploy a WAR file to Azure Container Apps:
 
 ```azurecli
-# Deploy Payment Service
-az spring app deploy \
-    --name ${PAYMENT_SERVICE_APP} \
-    --config-file-pattern payment/default \
-    --source-path apps/acme-payment
-
-# Deploy Catalog Service
-az spring app deploy \
-    --name ${CATALOG_SERVICE_APP} \
-    --config-file-pattern catalog/default \
-    --source-path apps/acme-catalog
+az containerapp up \
+    --name <CONTAINER_APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --subscription <SUBSCRIPTION_ID> \
+    --location <LOCATION> \
+    --environment <ENVIRONMENT_NAME> \
+    --artifact <JAR_FILE_PATH_AND_NAME> \
+    --ingress external \
+    --target-port 8080 \
+    --query properties.configuration.ingress.fqdn
 ```
 
 ## Summary

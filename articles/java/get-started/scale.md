@@ -5,7 +5,7 @@ description: This article provides an overview of some key Azure services and fe
 author: KarlErickson
 ms.author: asirveda
 ms.topic: conceptual
-ms.date: 02/02/2024
+ms.date: 09/30/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -67,7 +67,7 @@ That said, we realize that customers who are bringing their Java applications to
 
 :::image type="content" source="media/monitor-end-to-end.png" alt-text="Diagram with heading 'Monitor end-to-end using any tool and platform', an example screenshot, and logos for the tools described in this article." border="false" lightbox="media/monitor-end-to-end.png":::
 
-We also realize that many customers want to continue using Grafana to query, visualize, alert on, and understand their metrics. For this reason, we partnered with Grafana Labs to deliver [Azure Managed Grafana](/azure/managed-grafana), a fully managed service that lets customers run Grafana natively on Azure. The service makes it easy to deploy secure and scalable Grafana instances and connect them to open-source, cloud, and third-party data sources for visualization and analysis. The service is optimized for Azure-native data sources like Azure Monitor and Azure Data Explorer, and it includes application performance monitoring (APM) integrations with Azure compute services like Azure App Service, Azure Spring Apps, Azure Kubernetes Service, Splunk, Datadog, and Azure Virtual Machines.
+We also realize that many customers want to continue using Grafana to query, visualize, alert on, and understand their metrics. For this reason, we partnered with Grafana Labs to deliver [Azure Managed Grafana](/azure/managed-grafana), a fully managed service that lets customers run Grafana natively on Azure. The service makes it easy to deploy secure and scalable Grafana instances and connect them to open-source, cloud, and third-party data sources for visualization and analysis. The service is optimized for Azure-native data sources like Azure Monitor and Azure Data Explorer, and it includes application performance monitoring (APM) integrations with Azure compute services like Azure App Service, Azure Container Apps, Azure Kubernetes Service, Splunk, Datadog, and Azure Virtual Machines.
 
 ## Accelerate Java applications using caching
 

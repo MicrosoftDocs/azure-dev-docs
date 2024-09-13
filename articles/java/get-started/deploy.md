@@ -5,7 +5,7 @@ description: This article provides an overview of the Java deployment options av
 author: KarlErickson
 ms.author: asirveda
 ms.topic: conceptual
-ms.date: 02/02/2024
+ms.date: 09/30/2024
 ms.custom: devx-track-java, devx-track-extended-java, linux-related-content
 ---
 
@@ -53,11 +53,10 @@ All of these IaaS and CaaS deployment options let you easily deploy the Apache T
 
 Fully managed PaaS services for running Java applications on Azure include the following options:
 
-- [Azure Spring Apps](/azure/spring-apps), which makes it easy to deploy Spring Boot applications to Azure - without any code changes. The service manages all the infrastructure for Spring Boot applications. This infrastructure includes comprehensive monitoring and diagnostics, configuration management, service discovery, security, application lifecycle, publishing logs and metrics, CI/CD integration, blue-green deployments, and more. Developed in partnership with Pivotal (now part of VMware), Azure Spring Apps is jointly operated and supported by Microsoft and VMware.
-- [Azure App Service](/azure/app-service), an HTTP-based service for hosting web applications, REST APIs, and mobile back ends - with built-in security, load balancing, autoscaling, and automated management. App Service also supports comprehensive DevOps capabilities, such as continuous deployment, package management, staging environments, custom domains, and TLS/SSL certificates.
 - [Azure Container Apps](/azure/container-apps), which lets you run microservices and containerized applications on a serverless platform. Common uses include deploying API endpoints, hosting background processing applications, handling event-driven processing, and running microservices. Applications built on Azure Container Apps can dynamically scale based on HTTP traffic, event-driven processing, CPU, or memory load, or any [KEDA-supported scaler](https://keda.sh/docs/2.7/scalers).
+- [Azure App Service](/azure/app-service), an HTTP-based service for hosting web applications, REST APIs, and mobile back ends - with built-in security, load balancing, autoscaling, and automated management. App Service also supports comprehensive DevOps capabilities, such as continuous deployment, package management, staging environments, custom domains, and TLS/SSL certificates.
 
-Java runtimes for Azure Spring Apps and Azure App Service are supplied and maintained by Microsoft. They only support LTS distributions of OpenJDK, using Eclipse Adoptium Temurin for Java 8 and the Microsoft Build of OpenJDK for Java 11 and 17. That said, there are some caveats - for example, our jointly developed and supported partner offerings (discussed [later](#jointly-built-and-supported-solutions-with-java-ecosystem-partners)) use their own runtimes.
+Java runtimes for Azure Container Apps and Azure App Service are supplied and maintained by Microsoft. They only support LTS distributions of OpenJDK, using Eclipse Adoptium Temurin for Java 8 and the Microsoft Build of OpenJDK for Java 11 and 17. That said, there are some caveats - for example, our jointly developed and supported partner offerings (discussed [later](#jointly-built-and-supported-solutions-with-java-ecosystem-partners)) use their own runtimes.
 
 For Azure Container Apps, since you need to build and manage your own container images from source code, you're free to use the distribution and version of Java - and application server - of your choice.
 
@@ -70,10 +69,6 @@ Sometimes you don't need an entire Java application. For example, for real-time 
 Microsoft has partnered with leading vendors in the Java ecosystem to deliver best-in-class solutions for running Java on Azure - ranging from jointly developed and supported managed services to Azure Marketplace offerings for popular Java application servers. We also integrated popular application monitoring tools, which are covered later in this documentation.
 
 :::image type="content" source="media/strong-partner-ecosystem.png" alt-text="Diagram with the heading 'Leverage the benefits of our strong partner ecosystem' and logos for the partners described in this article." border="false" lightbox="media/strong-partner-ecosystem.png":::
-
-## Azure Spring Apps (Pivotal/VMware)
-
-Jointly developed by Microsoft and Pivotal, Azure Spring Apps is a fully managed service that solves many of the common challenges developers, IT operators, and DevOps teams face when running Spring Boot applications at scale. It abstracts away the complexity of managing infrastructure for running Spring-based applications and Spring Cloud middleware components, enabling Java developers to focus on their code while letting Azure take care of dynamic scaling, security patches, compliance standards, high availability, and so on.
 
 ## JBoss EAP (Red Hat)
 
