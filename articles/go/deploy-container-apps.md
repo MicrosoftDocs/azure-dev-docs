@@ -10,7 +10,7 @@ ms.custom: devx-track-go, devx-track-azurecli
 
 In this quickstart, you learn to deploy a containerized Go web app to Azure Container Apps.
 
-Azure Container Apps lets you execute application code packaged in any container without having to manage complicated cloud infrastructure or complex container orchestrators, and without worrying about the runtime or programming model. Common uses of Azure Container Apps include: Deploying API endpoints, hosting background processing applications, handling event-driven processing, and running microservices.
+[Azure Container Apps](/azure/container-apps/) lets you execute application code packaged in any container without having to manage complicated cloud infrastructure or complex container orchestrators, and without worrying about the runtime or programming model. Common uses of Azure Container Apps include: Deploying API endpoints, hosting background processing applications, handling event-driven processing, and running microservices.
 
 Follow this tutorial to walk through building a Docker image, deploying that image to Azure Container Registry, and deploying a Go web app to Azure Container Apps.
 
@@ -74,7 +74,7 @@ cd msdocs-go-webapp-quickstart
 
 ## Create an Azure Container Registry
 
-Azure Container Registry allows you to build, store, and manage container images. You'll use it to store the Docker image that contains the sample Go web app provided in the sample repository mentioned previously.
+[Azure Container Registry](/azure/container-registry/) allows you to build, store, and manage container images. You'll use it to store the Docker image that contains the sample Go web app provided in the sample repository mentioned previously.
 
 Run the following commands to create an Azure Container Registry:
 
@@ -106,14 +106,12 @@ Run the following commands to create an Azure Container Registry:
 Replace `<resourceGroupName>` and `<azureContainerRegistryName>` with the appropriate values. Your Azure Container Registry name needs to be globally unique.
 
 > [!NOTE]
-> If you get an error similar to the following when you run the `az acr login` command:
+> If you get an error similar to the following when you run the `az acr login` command, make sure the docker deamon is running on your system:
 >
 > ```output
 > You may want to use 'az acr login -n <azureContainerRegistryName> --expose-token' to get an access token, which does not require Docker to be installed.
 > 2024-09-12 17:25:25.127779 An error occurred: DOCKER_COMMAND_ERROR
 > ```
->
-> Make sure the Docker deamon is running on your system.
 
 ### Build and push the Docker image
 
@@ -153,7 +151,7 @@ Run the following commands build and push the image to the registry:
 
 Replace `loginServer`, `imageName`, and `azureContainerRegistryName` with the appropriate values. The image name is the Docker image that is pushed to Azure Container Registry and later used to deploy to Azure Container Apps.
 
-Now that you've got an image available in Azure Container Registry, you're ready to deploy the Azure Container App and its environment. 
+Now that you've got an image available in Azure Container Registry, you're ready to deploy the Azure Container App and its environment.
 
 ### Create an Azure Container Apps environment
 
@@ -186,7 +184,7 @@ az containerapp create \
     --ingress external
 ```
 
-The `--registry-identity system` configures the system-assigned managed identity on the container app. The container app uses this identity rather than username/password to authenticate with the container registry. The registry must be an Azure Container Registry. The command also creates an 'acrpull' role assignment for the identity.
+The `--registry-identity system` parameter configures the system-assigned **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** on the container app. The container app uses this identity rather than username/password, which is less secure, to authenticate with the container registry. The command also automatically creates an [`AcrPull` role](/azure/role-based-access-control/built-in-roles/containers#acrpull) assignment for the identity, so that it's authorized to pull images from the registry. To use managed identities for authenticaiton and authorization, the registry must be an Azure Container Registry.
 
 ## Verify the web app URL
 
