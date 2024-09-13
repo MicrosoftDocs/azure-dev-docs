@@ -19,7 +19,7 @@ In this tutorial, you use the [Docker CLI][7] and [Docker][12] to optionally cre
 
 To complete this tutorial, you need:
 
-* An Azure account where you can deploy a web app to [Azure App Service][1] and [Azure Container Registry]z[11]. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure account where you can deploy a web app to [Azure App Service][1] and [Azure Container Registry][11]. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 * [Azure CLI][8] to create a Docker image and deploy it to App Service. And optionally, [Docker][12]and the [Docker CLI][7] to create a Docker and test it in your local environment.
 
@@ -315,7 +315,7 @@ For more information, see the following resources:
 * [Deploy a Python web app on Azure Container Apps][4]
 * [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service][26]
 
-[1]: /azure/app-service/getting-started
+[1]: /azure/app-service/
 [2]: https://azure.microsoft.com/products/app-service/containers
 [3]:./containers-in-azure-overview-python.md
 [4]: ./tutorial-containerize-simple-web-app.md
@@ -325,7 +325,7 @@ For more information, see the following resources:
 [8]: /cli/azure/what-is-azure-cli
 [9]: https://code.visualstudio.com/
 [10]: https://code.visualstudio.com/docs/azure/extensions
-[11]: https://azure.microsoft.com/services/container-registry/
+[11]: /azure/container-registry/
 [12]: https://www.docker.com/
 [13]: https://docs.gunicorn.org/en/stable/index.html
 [14]: https://docs.gunicorn.org/en/stable/settings.html#config-file
