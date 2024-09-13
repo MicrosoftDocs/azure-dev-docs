@@ -149,6 +149,24 @@ The following sections show the classic Spring Boot application usage scenarios.
 
 ---
 
+### Connect to Azure Cache for Redis with Managed Identity
+
+1. To use the managed identity, you need enable the managed identity for your service and [enable Microsoft Entra authentication on your cache](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication#enable-microsoft-entra-authentication-on-your-cache).
+
+1. Then add the following properties in your *application.yml* file:
+
+   ```yaml
+   spring:
+     cloud:
+       azure:
+         credential:
+           managed-identity-enabled: true
+   ```
+
+   > [!IMPORTANT]
+   > The `redis.username` should change to the managed identity object (principal) ID.
+   > If you are using user-assigned MI, also need to add property `spring.cloud.azure.credential.client-id` with your user-assigned MI client id.
+
 ### Connect to Azure Cache for Redis via Azure Resource Manager
 
 Use the following steps to connect to Azure Cache for Redis:
