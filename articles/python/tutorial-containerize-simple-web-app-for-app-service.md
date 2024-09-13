@@ -2,7 +2,7 @@
 title: Deploy a Flask or FastAPI web app as a container in Azure App Service
 description: An overview of how to create and deploy a containerized Python web app (Flask or FastAPI) on Azure App Service.
 ms.topic: conceptual
-ms.date: 04/12/2024
+ms.date: 09/12/2024
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
@@ -31,12 +31,14 @@ In your local environment, get the code.
 
 ```bash
 git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart.git
+cd msdocs-python-flask-webapp-quickstart
 ```
 
 ### [FastAPI](#tab/web-app-fastapi)
 
 ```bash
 git clone https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quickstart.git
+cd msdocs-python-fastapi-webapp-quickstart
 ```
 
 ---
@@ -210,27 +212,13 @@ The `--detach` option runs the container in the background. The `--publish` opti
 
     ```azurecli
     az acr create --resource-group web-app-simple-rg \
-    --name webappacr123 --sku Basic --admin-enabled true
+    --name webappacr123 --sku Basic
     ```
 
     > [!NOTE]
     > The registry name must be unique in Azure. If you get an error, try a different name. Registry names can consist of 5-50 alphanumeric characters. Hyphens and underscores are not allowed. To learn more, see [Azure Container Registry name rules](/azure/azure-resource-manager/management/resource-name-rules#microsoftcontainerregistry). If you use a different name, make sure that you use your name rather than `webappacr123` in the commands that reference the registry and registry artifacts in following sections.
 
-    An Azure Container Registry is a private Docker registry that stores images for use in Azure Container Instances, Azure App Service, Azure Kubernetes Service, and other services. When creating a registry, you specify a name, SKU, and resource group. The second command saves the password to a variable with the [az credential show][20] command. The password is used to authenticate to the registry in a later step.
-
-1. Set an environment variable to the value of the password for the registry.
-
-    ```bash
-    ACR_PASSWORD=$(az acr credential show \
-    --resource-group web-app-simple-rg \
-    --name webappacr123 \
-    --query "passwords[?name == 'password'].value" \
-    --output tsv)
-    ```
-
-    The command for creating the environment variable is shown for the Bash shell. Change the syntax and continuation character (`\`) as appropriate for other shells.
-
-    You can also get the password (`ACR_PASSWORD`) from the [Azure portal][25] by going to the registry, selecting **Access keys**, and copying the password.
+    An Azure Container Registry is a private Docker registry that stores images for use in Azure Container Instances, Azure App Service, Azure Kubernetes Service, and other services. When creating a registry, you specify a name, SKU, and resource group.
 
 ## Build the image in Azure Container Registry
 
@@ -257,27 +245,40 @@ The `--registry` option specifies the registry name, and the `--image` option sp
     --is-linux
     ```
 
+1. Set an environment variable to your subscription ID. It's used in the `--scope` parameter in the next command.
+
+    ```azurecli
+    SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+    ```
+
+    The command for creating the environment variable is shown for the Bash shell. Change the syntax as appropriate for other environments.
+
 1. Create the web app with the [az webapp create][23] command.
 
     ```azurecli
     az webapp create \
     --resource-group web-app-simple-rg \
     --plan webplan --name webappsimple123 \
-    --docker-registry-server-password $ACR_PASSWORD \
-    --docker-registry-server-user webappacr123 \
-    --role acrpull \
-    --deployment-container-image-name webappacr123.azurecr.io/webappsimple:latest 
+    --assign-identity [system] \
+    --role AcrPull \
+    --scope /subscriptions/$SUBSCRIPTION_ID/resourceGroups/web-app-simple-rg \
+    --acr-use-identity --acr-identity [system]
+    --container-image-name webappacr123.azurecr.io/webappsimple:latest 
     ```
 
     Notes:
 
     * The web app name must be unique in Azure. If you get an error, try a different name. The name can consist of alphanumeric characters and hyphens, but can't start or end with a hyphen. To learn more, see [Microsoft.Web name rules](/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
 
-    * If you're using a name different than `webappacr123` for your Azure Container Registry, make sure you update the `--docker-registry-server-user` and `--deployment-container-image-name` parameters appropriately.
+    * If you're using a name different than `webappacr123` for your Azure Container Registry, make sure you update the `--container-image-name` parameter appropriately.
+
+    * The `--assign-identity`, `--role`, and `--scope` parameters enable the system-assigned managed identity on the web app and assign it the `AcrPull` role on the resource group. This gives the identity permission to pull images from any Azure Container Registry in the resource group.
+
+    * The `--acr-use-identity` and `--acr-identity` parameters configure the web app to use its system-assigned managed identity to pull images from the Azure Container Registry. Authentication with non-Azure registries is supported via the `container-registry-user` and `--container-registry-password` parameters.
 
     * It can take a few minutes for the web app to be created. You can check the deployment logs with the [az webapp log tail][27] command. For example, `az webapp log tail --resource-group web-app-simple-rg --name webappsimple123`. If you see entries with "warmup" in them, the container is being deployed.
 
-    * The URL of the web app is `<web-app-name>.azurewebsites.net`, for example, ```https://webappsimple123.azurewebsites.net```.
+    * The URL of the web app is `<web-app-name>.azurewebsites.net`, for example, `https://webappsimple123.azurewebsites.net`.
 
 ## Make updates and redeploy
 
@@ -321,7 +322,6 @@ For more information, see the following resources:
 [17]: https://docs.docker.com/engine/reference/run/
 [18]: /cli/azure/group#az-group-create
 [19]: /cli/azure/acr#az-acr-create
-[20]: /cli/azure/acr/credential#az-acr-credential-show
 [21]: /cli/azure/acr#az-acr-build
 [22]: /cli/azure/appservice/plan#az-appservice-plan-create
 [23]: /cli/azure/webapp#az-webapp-create
