@@ -184,7 +184,7 @@ az containerapp create \
     --ingress external
 ```
 
-The `--registry-identity system` parameter configures the system-assigned **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** on the container app. The container app uses this identity rather than username/password, which is less secure, to authenticate with the container registry. The command also automatically creates an [`AcrPull` role](/azure/role-based-access-control/built-in-roles/containers#acrpull) assignment for the identity, so that it's authorized to pull images from the registry. To use managed identities for authenticaiton and authorization, the registry must be an Azure Container Registry.
+The `--registry-identity system` parameter configures the system-assigned **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** on the container app. The container app uses this identity rather than username/password, which is less secure, to authenticate with the container registry. The command also automatically creates an [`AcrPull` role](/azure/role-based-access-control/built-in-roles/containers#acrpull) assignment for the identity, so that it's authorized to pull images from the registry. To use managed identities for authentication and authorization, the registry must be an Azure Container Registry.
 
 ## Verify the web app URL
 
