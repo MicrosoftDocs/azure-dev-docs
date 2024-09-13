@@ -10,7 +10,7 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 This tutorial shows you how to deploy a Python [Flask][5] or [FastAPI][6] web app to [Azure App Service][1] using the [Web App for Containers][2] feature. Web App for Containers provides an easy on-ramp for developers to take advantage of the fully managed Azure App Service platform, but who also want a single deployable artifact containing an app and all of its dependencies. For more information about using containers in Azure, see [Comparing Azure container options][3].
 
-In this tutorial, you use the [Docker CLI][7] and [Docker][12] to optionally create a Docker image and test it locally. And, you use the [Azure CLI][8] to create a Docker image in Azure and deploy it to Azure App Service. You can also deploy with [Visual Studio Code][9] with the [Azure Tools Extension][10] installed. For an example of building and creating a Docker image to run on Azure Container Apps, see [Deploy a Flask or FastPI web app on Azure Container Apps][4].
+In this tutorial, you use the [Docker CLI][7] and [Docker][12] to optionally create a Docker image and test it locally. And, you use the [Azure CLI][8] to create a Docker image in an [Azure Container Registry][11] and deploy it to Azure App Service. The web app is configured with its system-assigned **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) and Azure role-based access to pull the Docker image from the Azure Container Registry. You can also deploy with [Visual Studio Code][9] with the [Azure Tools Extension][10] installed. For an example of building and creating a Docker image to run on Azure Container Apps, see [Deploy a Flask or FastPI web app on Azure Container Apps][4].
 
 > [!NOTE]
 > This tutorial shows creating a Docker image that can then be run on App Service. This is not required to use App Service. You can deploy code directly from a local workspace to App Service without creating a Docker image. For an example, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json).
@@ -19,7 +19,7 @@ In this tutorial, you use the [Docker CLI][7] and [Docker][12] to optionally cre
 
 To complete this tutorial, you need:
 
-* An Azure account where you can deploy a web app to [Azure App Service][1] and [Azure Container Registry][11].
+* An Azure account where you can deploy a web app to [Azure App Service][1] and [Azure Container Registry]z[11]. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 * [Azure CLI][8] to create a Docker image and deploy it to App Service. And optionally, [Docker][12]and the [Docker CLI][7] to create a Docker and test it in your local environment.
 
@@ -200,6 +200,18 @@ The `--detach` option runs the container in the background. The `--publish` opti
 
 ## Create a resource group and Azure Container Registry
 
+1. Run the [az login](/cli/azure/reference-index#az-login) command to [sign in to Azure](/cli/azure/authenticate-azure-cli).
+
+    ```azurecli
+    az login
+    ```
+
+1. Run the [az upgrade](/cli/azure/reference-index#az-upgrade) command to make sure your version of the Azure CLI is current.
+
+    ```azurecli
+    az upgrade
+    ```
+
 1. Create a group with the [az group create][18] command.
 
     ```azurecli
@@ -274,7 +286,7 @@ The `--registry` option specifies the registry name, and the `--image` option sp
 
     * The `--assign-identity`, `--role`, and `--scope` parameters enable the system-assigned managed identity on the web app and assign it the `AcrPull` role on the resource group. This gives the managed identity permission to pull images from any Azure Container Registry in the resource group.
 
-    * The `--acr-use-identity` and `--acr-identity` parameters configure the web app to use its system-assigned managed identity to pull images from the Azure Container Registry. Authentication with non-Azure registries is supported via the `container-registry-user` and `--container-registry-password` parameters.
+    * The `--acr-use-identity` and `--acr-identity` parameters configure the web app to use its system-assigned managed identity to pull images from the Azure Container Registry.
 
     * It can take a few minutes for the web app to be created. You can check the deployment logs with the [az webapp log tail][27] command. For example, `az webapp log tail --resource-group web-app-simple-rg --name webappsimple123`. If you see entries with "warmup" in them, the container is being deployed.
 
