@@ -4,7 +4,7 @@ metadata:
   description: Get answers to commonly asked questions about Azure Developer CLI.
   author: alexwolfmsft
   ms.author: alexwolf
-  ms.date: 12/11/2023
+  ms.date: 9/14/2024
   ms.topic: conceptual
   ms.custom: devx-track-azdevcli, build-2023
   ms.service: azure-dev-cli

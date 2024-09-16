@@ -3,7 +3,7 @@ title: Customize your Azure Developer CLI workflows using command and event hook
 description: Explores how to use Azure Developer CLI hooks to customize deployment pipelines
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 1/27/2023
+ms.date: 9/13/2024
 ms.topic: reference
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
@@ -11,7 +11,7 @@ ms.service: azure-dev-cli
 
 # Customize your Azure Developer CLI workflows using command and event hooks
 
-The Azure Developer CLI supports various extension points to customize your workflows and deployments. The hooks middleware allows you to execute custom scripts before and after `azd` commands and service lifecycle events. hooks follow a naming convention using *pre* and *post* prefixes on the matching `azd` command or service event name. 
+The Azure Developer CLI supports various extension points to customize your workflows and deployments. The hooks middleware allows you to execute custom scripts before and after `azd` commands and service lifecycle events. hooks follow a naming convention using *pre* and *post* prefixes on the matching `azd` command or service event name.
 
 For example, you may want to run a custom script in the following scenarios:
 
