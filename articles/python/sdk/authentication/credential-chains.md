@@ -88,10 +88,10 @@ To remove a credential from `DefaultAzureCredential`, use the corresponding `exc
 
 ```python
 credential = DefaultAzureCredential(
-        exclude_environment_credential=True, 
-        exclude_workload_identity_credential=True,
-        managed_identity_client_id = user_assigned_client_id
-    )
+    exclude_environment_credential=True, 
+    exclude_workload_identity_credential=True,
+    managed_identity_client_id=user_assigned_client_id
+)
 ```
 
 In the preceding code sample, `EnvironmentCredential` and `WorkloadIdentityCredential` are removed from the credential chain. As a result, the first credential to be attempted is `ManagedIdentityCredential`. The modified chain looks like this:
