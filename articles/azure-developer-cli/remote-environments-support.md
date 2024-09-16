@@ -3,7 +3,7 @@ title: Remote Environments Support
 description: How to use remote environments in `azd` via remote state
 author: gkulin
 ms.author: gracekulin
-ms.date: 10/04/2023
+ms.date: 9/13/2024
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli

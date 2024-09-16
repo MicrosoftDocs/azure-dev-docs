@@ -3,7 +3,7 @@ title: Environment variables FAQ
 description: Discover answers to frequently asked questions about environment variables
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 05/26/2024
+ms.date: 09/13/2024
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli

@@ -3,7 +3,7 @@ title: Create Azure Developer CLI templates overview
 description: How to convert an app to an Azure developer enabled template.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 6/19/2024
+ms.date: 9/13/2024
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep, build-2023
