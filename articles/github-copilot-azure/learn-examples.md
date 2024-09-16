@@ -25,43 +25,43 @@ The following tips for better prompts comes from the article [Write effectve pro
 - [Use the feedback loop](/azure/copilot/write-effective-prompts#use-the-feedback-loop)
 
 
-## Asking general questions to learn about Azure
+## Example prompts to learn about Azure
 
 Suppose you want to learn about your options or how to utilize Azure for your application and have decided to use GitHub Copilot for Azure to help. To begin, you can start with an open ended question and then adding details like specific services and technologies. Here are some sample prompts you can try to help you learn how to use Azure in your apps.
 
-### Example general questions about system architecture on Azure
+### Learn about system architecture on Azure
 
-- "@azure How can I create a highly available architecture in Azure?
-- "@azure Explain the Azure Well-Architected Framework.
-- "@azure what types of app hosting solutions does Azure have?
-- "@azure Help me orchestrate and automate my data processing workflows.
-- "@azure How to integrate SignalR with App Gateway/APIM/etc.? 
-- "@azure How many units do you recommend? 
-- "@azure What are the benefits and applications of using Terraform?
+- "@azure How can I create a highly available architecture in Azure?"
+- "@azure Explain the Azure Well-Architected Framework."
+- "@azure what types of app hosting solutions does Azure have?"
+- "@azure Help me orchestrate and automate my data processing workflows."
+- "@azure How to integrate SignalR with App Gateway/APIM/etc.?"
+- "@azure How many units do you recommend?"
+- "@azure What are the benefits and applications of using Terraform?"
 
-### Example general questions to learn about AI on Azure
+### Learn about AI on Azure
 
-- "@azure I want to build an AI application. What services can I use?
-
-
-### Example general questions to learn about web and application hosting on Azure
-
-- "@azure Which Azure service is best for hosting a scalable web application?
-- "@azure Which service should I use to create a web site.
-- "@azure How can I use Azure to build a scalable web application?
-- "@azure For what scenarios is Azure Functions better than Web Apps?
+- "@azure I want to build an AI application. What services can I use?"
 
 
-### Example general questions to learn about containers on Azure
+### Learn about web and application hosting on Azure
 
-- "@azure What types of containerized applications are suported in Azure?
-- "@azure What are the options for managing containers in Azure?
-- "@azure When should I use AKS instead of ACA?
-- "@azure what's the difference between aca and aks?
-- "@azure Why would I choose Azure ACA over Azure AKS
+- "@azure Which Azure service is best for hosting a scalable web application?"
+- "@azure Which service should I use to create a web site."
+- "@azure How can I use Azure to build a scalable web application?"
+- "@azure For what scenarios is Azure Functions better than Web Apps?"
 
 
-### Example prompts to learn how to utilize Azure services for your app
+### Learn about containers on Azure
+
+- "@azure What types of containerized applications are suported in Azure?"
+- "@azure What are the options for managing containers in Azure?"
+- "@azure When should I use AKS instead of ACA?"
+- "@azure what's the difference between aca and aks?"
+- "@azure Why would I choose Azure ACA over Azure AKS"
+
+
+### Learn how to utilize Azure services for your app
 
 
 |Service or technology|Learn prompt examples|
