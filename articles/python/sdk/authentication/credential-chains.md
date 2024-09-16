@@ -78,8 +78,9 @@ from azure.storage.blob import BlobServiceClient
 credential = DefaultAzureCredential()
 
 blob_service_client = BlobServiceClient(
-        account_url="https://<my_account_name>.blob.core.windows.net",
-        credential=credential)
+    account_url="https://<my_account_name>.blob.core.windows.net",
+    credential=credential
+)
 ```
 
 ### How to customize DefaultAzureCredential
@@ -88,10 +89,10 @@ To remove a credential from `DefaultAzureCredential`, use the corresponding `exc
 
 ```python
 credential = DefaultAzureCredential(
-        exclude_environment_credential=True, 
-        exclude_workload_identity_credential=True,
-        managed_identity_client_id = user_assigned_client_id
-    )
+    exclude_environment_credential=True, 
+    exclude_workload_identity_credential=True,
+    managed_identity_client_id=user_assigned_client_id
+)
 ```
 
 In the preceding code sample, `EnvironmentCredential` and `WorkloadIdentityCredential` are removed from the credential chain. As a result, the first credential to be attempted is `ManagedIdentityCredential`. The modified chain looks like this:
@@ -107,22 +108,22 @@ As more `exclude`-prefixed keyword parameters are set to `True` (credential excl
 
 ```python
 credential = DefaultAzureCredential(
-        exclude_environment_credential = True,
-        exclude_workload_identity_credential = True,
-        exclude_shared_token_cache_credential = True,
-        exclude_azure_powershell_credential = True,
-        exclude_azure_developer_cli_credential = True,
-        managed_identity_client_id = user_assigned_client_id
-    )
+    exclude_environment_credential=True,
+    exclude_workload_identity_credential=True,
+    exclude_shared_token_cache_credential=True,
+    exclude_azure_powershell_credential=True,
+    exclude_azure_developer_cli_credential=True,
+    managed_identity_client_id=user_assigned_client_id
+)
 ```
 
 ### [ChainedTokenCredential](#tab/ctc)
 
 ```python
 credential = ChainedTokenCredential(
-        ManagedIdentityCredential(client_id = user_assigned_client_id),
-        AzureCliCredential()
-    )
+    ManagedIdentityCredential(client_id=user_assigned_client_id),
+    AzureCliCredential()
+)
 ```
 
 ---
@@ -133,9 +134,9 @@ credential = ChainedTokenCredential(
 
 ```python
 credential = ChainedTokenCredential(
-        ManagedIdentityCredential(client_id = user_assigned_client_id),
-        AzureCliCredential()
-    )
+    ManagedIdentityCredential(client_id=user_assigned_client_id),
+    AzureCliCredential()
+)
 ```
 
 The preceding code sample creates a tailored credential chain comprised of two credentials. The user-assigned managed identity variant of `ManagedIdentityCredential` is attempted first, followed by `AzureCliCredential`, if necessary. In graphical form, the chain looks like this:
