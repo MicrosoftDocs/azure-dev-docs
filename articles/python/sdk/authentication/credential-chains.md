@@ -134,9 +134,9 @@ credential = ChainedTokenCredential(
 
 ```python
 credential = ChainedTokenCredential(
-        ManagedIdentityCredential(client_id = user_assigned_client_id),
-        AzureCliCredential()
-    )
+    ManagedIdentityCredential(client_id=user_assigned_client_id),
+    AzureCliCredential()
+)
 ```
 
 The preceding code sample creates a tailored credential chain comprised of two credentials. The user-assigned managed identity variant of `ManagedIdentityCredential` is attempted first, followed by `AzureCliCredential`, if necessary. In graphical form, the chain looks like this:
