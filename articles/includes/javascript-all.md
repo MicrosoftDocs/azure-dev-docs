@@ -15,7 +15,7 @@
 | Attestation | npm [1.0.0](https://www.npmjs.com/package/@azure/attestation/v/1.0.0) | [docs](/javascript/api/overview/azure/attestation-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0/sdk/attestation/attestation/) |
 | Azure AI Search | npm [12.1.0](https://www.npmjs.com/package/@azure/search-documents/v/12.1.0) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [12.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.1.0/sdk/search/search-documents/) |
 | Azure Blob Storage Checkpoint Store | npm [1.0.1](https://www.npmjs.com/package/@azure/eventhubs-checkpointstore-blob/v/1.0.1)<br>npm [1.1.0-beta.1](https://www.npmjs.com/package/@azure/eventhubs-checkpointstore-blob/v/1.1.0-beta.1) | [docs](/javascript/api/overview/azure/eventhubs-checkpointstore-blob-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_1.0.1/sdk/eventhub/eventhubs-checkpointstore-blob/)<br>GitHub [1.1.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventhubs-checkpointstore-blob_1.1.0-beta.1/sdk/eventhub/eventhubs-checkpointstore-blob/) |
-| Azure Monitor OpenTelemetry | npm [1.7.0](https://www.npmjs.com/package/@azure/monitor-opentelemetry/v/1.7.0) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-readme) | GitHub [1.7.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.7.0/sdk/monitor/monitor-opentelemetry/) |
+| Azure Monitor OpenTelemetry | npm [1.7.1](https://www.npmjs.com/package/@azure/monitor-opentelemetry/v/1.7.1) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-readme) | GitHub [1.7.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry_1.7.1/sdk/monitor/monitor-opentelemetry/) |
 | Azure Remote Rendering | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/mixed-reality-remote-rendering/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/mixed-reality-remote-rendering-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/mixed-reality-remote-rendering_1.0.0-beta.1/sdk/remoterendering/mixed-reality-remote-rendering/) |
 | Batch | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/batch/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/batch_1.0.0-beta.1/sdk/batch/batch-rest/) |
 | Common | npm [1.0.0](https://www.npmjs.com/package/@azure/keyvault-common/v/1.0.0) | [docs](/javascript/api/overview/azure/keyvault-common-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-common_1.0.0/sdk/keyvault/keyvault-common/) |
@@ -93,7 +93,7 @@
 | Notification Hubs | npm [1.2.3](https://www.npmjs.com/package/@azure/notification-hubs/v/1.2.3) | [docs](/javascript/api/overview/azure/notification-hubs-readme) | GitHub [1.2.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/notification-hubs_1.2.3/sdk/notificationhubs/notification-hubs/) |
 | OpenAI | npm [2.0.0-beta.2](https://www.npmjs.com/package/@azure/openai/v/2.0.0-beta.2) | [docs](/javascript/api/overview/azure/openai-readme) | GitHub [2.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai_2.0.0-beta.2/sdk/openai/openai/) |
 | OpenAI Assistants | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/openai-assistants/v/1.0.0-beta.5) | [docs](/javascript/api/overview/azure/openai-assistants-readme) | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/openai-assistants_1.0.0-beta.5/sdk/openai/openai-assistants/) |
-| OpenTelemetry Exporter | npm [1.0.0-beta.25](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter/v/1.0.0-beta.25) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-exporter-readme) | GitHub [1.0.0-beta.25](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.25/sdk/monitor/monitor-opentelemetry-exporter/) |
+| OpenTelemetry Exporter | npm [1.0.0-beta.26](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter/v/1.0.0-beta.26) | [docs](/javascript/api/overview/azure/monitor-opentelemetry-exporter-readme) | GitHub [1.0.0-beta.26](https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.26/sdk/monitor/monitor-opentelemetry-exporter/) |
 | Personalizer | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-personalizer/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-personalizer_1.0.0-beta.1/sdk/personalizer/ai-personalizer-rest/) |
 | Purview Administration | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/purview-administration/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/purview-administration_1.0.0-beta.1/sdk/purview/purview-administration-rest/) |
 | Purview Scanning | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/purview-scanning/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/purview-scanning_1.0.0-beta.2/sdk/purview/purview-scanning-rest/) |
@@ -392,7 +392,7 @@
 | App Configuration Provider File Source | npm [1.0.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/1.0.1-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | Create - Microsoft Playwright Testing | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/create-microsoft-playwright-testing/v/1.0.0-beta.1) |  |  |
-| Microsoft Playwright Testing | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/microsoft-playwright-testing/v/1.0.0-beta.2) |  |  |
+| Microsoft Playwright Testing | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/microsoft-playwright-testing/v/1.0.0-beta.3) |  |  |
 | Purview Data Map | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/purview-datamap/v/1.0.0-beta.1) |  |  |
 | tmlanguage-generator | npm [0.5.8](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.8) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.8](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.8) |  |  |
@@ -473,7 +473,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20240904.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240904.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20240914.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20240914.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -512,7 +512,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.7.12](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.12) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.7.14](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.14) |  |  |
 | @azure-tools/json | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/json/v/1.3.0) |  |  |
 | @azure-tools/jsonschema | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.0) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
