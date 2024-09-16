@@ -168,7 +168,7 @@ from azure.identity import DefaultAzureCredential
 
 # Set the logging level for the Azure Identity library
 logger = logging.getLogger("azure.identity")
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 
 # Direct logging output to stdout. Without adding a handler,
 # no logging output is visible.
