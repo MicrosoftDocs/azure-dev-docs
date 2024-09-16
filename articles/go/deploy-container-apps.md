@@ -157,7 +157,7 @@ Now that you've got an image available in Azure Container Registry, you're ready
 
 Azure Container Apps doesn't have the complexity of a container orchestrator, but it still needs some way to establish secure boundaries, which is where Azure Container Apps environments come in. Container Apps deployed in the same environment share the same virtual network and write logs to the same Log Analytics workspace. Before you can deploy an Azure Container App, you need an environment to deploy to.
 
-1. Run the [az containerapp env create](/cli/azure/containerapp/env#az-containerapp-env-create) command to create an Azure Container Apps environment.
+- Run the [az containerapp env create](/cli/azure/containerapp/env#az-containerapp-env-create) command to create an Azure Container Apps environment.
 
     ```azurecli
     az containerapp env create \
