@@ -4,7 +4,7 @@ description: Learn how to get started with Azure Developer CLI with a template f
 keywords: azure developer cli, azd
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 10/21/2022
+ms.date: 9/13/2024
 ms.topic: quickstart
 ms.service: azure-dev-cli
 ms.custom: devx-track-azdevcli, build-2023, devx-track-extended-java, devx-track-js, devx-track-python
