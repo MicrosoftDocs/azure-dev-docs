@@ -4,7 +4,7 @@ description: Provides step-by-step guidance to install Oracle WebLogic Server on
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
-ms.date: 07/03/2024
+ms.date: 09/18/2024
 recommendations: false
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-azurecli, devx-track-extended-java
 ---
@@ -126,7 +126,19 @@ In this section, you create Oracle Linux machines with JDK 11 and WebLogic 14.1.
 
 Create a VM using [az vm create](/cli/azure/vm). You run the Administration Server on this VM.
 
-The following example creates Oracle Linux VMs using user name and password pair for the authentication. If desired, you can use TLS/SSL authentication instead.
+The following example creates Oracle Linux VMs using an SSH key pair for the authentication. If desired, you can use TLS/SSL authentication instead.
+
+If you don't have an SSH key pair, you can generate it using:
+
+```bash
+ssh-keygen -t rsa -b 2048 -f ~/.ssh/wls-vm-key
+```
+
+This will create two files:
+
+- `~/.ssh/wls-vm-key`: The private key.
+- `~/.ssh/wls-vm-key.pub`: The public key.
+
 
 ```azurecli
 export VM_URN=Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest
@@ -138,10 +150,27 @@ az vm create \
     --image ${VM_URN} \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
-    --admin-password Secret123456 \
+    --ssh-key-value ~/.ssh/wls-vm-key.pub \
     --public-ip-address "" \
     --nsg ""
 ```
+
+> [!NOTE]
+> The use of username and password credentials to grant access to a VM is discouraged. If your particular usage requirements suggest credential based access is the best approach, you can create the VM with username and password:
+>
+> ```azurecli
+> export VM_URN=Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest
+> az vm create \
+>   --resource-group ${RESOURCE_GROUP_NAME} \
+>   --name adminVM \
+>   --availability-set myAvailabilitySet \
+>   --image ${VM_URN} \
+>   --size Standard_DS1_v2 \
+>   --admin-username azureuser \
+>   --admin-password <your-password> \
+>   --public-ip-address "" \
+>   --nsg ""
+>````
 
 ### Create a Windows VM and set up X-server
 
@@ -150,6 +179,8 @@ This tutorial uses the graphical interface of WebLogic Server to complete the in
 Follow these steps to provision a Windows 10 machine and install an X-server. If you already have a Windows machine within the same network as the Oracle Linux machine, you don't need to provision a new one from Azure. You can jump to the section that installs the X-server.
 
 [!INCLUDE [create-windows-vm-and-set-up-xserver](includes/create-windows-vm-and-set-up-xserver.md)]
+
+3. Copy the SSH key `~/.ssh/wls-vm-key` to the Windows VM and save it to `C:\Users\azureuser\.ssh`.
 
 ### Create Oracle Linux machines for managed servers
 
@@ -167,7 +198,7 @@ az vm create \
     --image ${VM_URN} \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
-    --admin-password Secret123456 \
+    --ssh-key-value ~/.ssh/wls-vm-key.pub \
     --public-ip-address "" \
     --nsg ""
 
@@ -178,7 +209,7 @@ az vm create \
     --image ${VM_URN} \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
-    --admin-password Secret123456 \
+    --ssh-key-value ~/.ssh/wls-vm-key.pub \
     --public-ip-address "" \
     --nsg ""
 ```
@@ -202,8 +233,12 @@ The following section shows how to create a new WebLogic Server domain on the `a
    Run the following commands on your Windows machine `myWindowsVM`. Replace `192.168.0.4` with your `adminVM` private IP address:
 
    ```cmd
+   set SSK_KEY="C:\Users\azureuser\.ssh\wls-vm-key"
+   ```
+
+   ```cmd
    set ADMINVM_IP="192.168.0.4"
-   ssh azureuser@%ADMINVM_IP%
+   ssh -i %SSK_KEY% azureuser@%ADMINVM_IP%
    ```
 
 1. Use the following commands to initialize the folder for domain configuration:
@@ -358,7 +393,7 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
 
    ```cmd
    set MSPVM1_IP="192.168.0.6"
-   ssh azureuser@%MSPVM1_IP%
+   ssh -i %SSK_KEY% azureuser@%MSPVM1_IP%
    ```
 
    Enter the password for the connection. For this example, the password is *Secret123456*.
@@ -407,7 +442,7 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
 
    ```cmd
    set MSPVM2_IP="192.168.0.7"
-   ssh azureuser@%MSPVM2_IP%
+   ssh -i %SSK_KEY% azureuser@%MSPVM2_IP%
    ```
 
    Enter the password for the connection. For this example, the password is *Secret123456*.
@@ -446,7 +481,7 @@ Go back to the command prompt that connects to `adminVM`. If you lost it, run th
 
 ```cmd
 set ADMINVM_IP="192.168.0.4"
-ssh azureuser@%ADMINVM_IP%
+ssh -i %SSK_KEY% azureuser@%ADMINVM_IP%
 ```
 
 If you aren't working with the `oracle` user, sign in with `oracle`:
@@ -594,7 +629,7 @@ Go back to the command prompt that connects to `mspVM1`. If you lost it, use the
 
 ```cmd
 set MSPVM1_IP="192.168.0.6"
-ssh azureuser@%MSPVM1_IP%
+ssh -i %SSK_KEY% azureuser@%MSPVM1_IP%
 ```
 
 If you aren't working with `oracle` user, sign in with `oracle`:
@@ -693,7 +728,7 @@ Go back to the command prompt that connects to `mspVM2`. If you lost it, use the
 
 ```cmd
 set MSPVM2_IP="192.168.0.7"
-ssh azureuser@%MSPVM2_IP%
+ssh -i %SSK_KEY% azureuser@%MSPVM2_IP%
 ```
 
 If you aren't working with the `oracle` user, sign in with `oracle`:
