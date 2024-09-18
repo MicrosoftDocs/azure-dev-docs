@@ -170,7 +170,7 @@ az vm create \
 >   --admin-password <your-password> \
 >   --public-ip-address "" \
 >   --nsg ""
->````
+> ```
 
 ### Create a Windows VM and set up X-server
 
