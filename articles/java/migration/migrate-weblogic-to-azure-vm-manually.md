@@ -233,12 +233,9 @@ The following section shows how to create a new WebLogic Server domain on the `a
    Run the following commands on your Windows machine `myWindowsVM`. Replace `192.168.0.4` with your `adminVM` private IP address:
 
    ```cmd
-   set SSK_KEY="C:\Users\azureuser\.ssh\wls-vm-key"
-   ```
-
-   ```cmd
+   set SSH_KEY="C:\Users\azureuser\.ssh\wls-vm-key"
    set ADMINVM_IP="192.168.0.4"
-   ssh -i %SSK_KEY% azureuser@%ADMINVM_IP%
+   ssh -i %SSH_KEY% azureuser@%ADMINVM_IP%
    ```
 
 1. Use the following commands to initialize the folder for domain configuration:
@@ -392,8 +389,9 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    Open a new command prompt, and use the following commands to connect to `mspVM1`. Replace `192.168.0.6` with your `mspVM1` private IP address:
 
    ```cmd
+   set SSH_KEY="C:\Users\azureuser\.ssh\wls-vm-key"
    set MSPVM1_IP="192.168.0.6"
-   ssh -i %SSK_KEY% azureuser@%MSPVM1_IP%
+   ssh -i %SSH_KEY% azureuser@%MSPVM1_IP%
    ```
 
    Enter the password for the connection. For this example, the password is *Secret123456*.
@@ -441,8 +439,9 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    Connect `mspVM2` in a new command prompt. Replace `192.168.0.7` with your `mspVM2` private IP address:
 
    ```cmd
+   set SSH_KEY="C:\Users\azureuser\.ssh\wls-vm-key"
    set MSPVM2_IP="192.168.0.7"
-   ssh -i %SSK_KEY% azureuser@%MSPVM2_IP%
+   ssh -i %SSH_KEY% azureuser@%MSPVM2_IP%
    ```
 
    Enter the password for the connection. For this example, the password is *Secret123456*.
@@ -480,8 +479,9 @@ These two tasks aren't easily separated, so the steps for the two tasks are inte
 Go back to the command prompt that connects to `adminVM`. If you lost it, run the following command to connect to it:
 
 ```cmd
+set SSH_KEY="C:\Users\azureuser\.ssh\wls-vm-key"
 set ADMINVM_IP="192.168.0.4"
-ssh -i %SSK_KEY% azureuser@%ADMINVM_IP%
+ssh -i %SSH_KEY% azureuser@%ADMINVM_IP%
 ```
 
 If you aren't working with the `oracle` user, sign in with `oracle`:
@@ -628,8 +628,9 @@ At this point, you can access the admin server on the browser of `myWindowsVM` w
 Go back to the command prompt that connects to `mspVM1`. If you lost it, use the following command to connect to it:
 
 ```cmd
+set SSH_KEY="C:\Users\azureuser\.ssh\wls-vm-key"
 set MSPVM1_IP="192.168.0.6"
-ssh -i %SSK_KEY% azureuser@%MSPVM1_IP%
+ssh -i %SSH_KEY% azureuser@%MSPVM1_IP%
 ```
 
 If you aren't working with `oracle` user, sign in with `oracle`:
@@ -727,8 +728,9 @@ sudo systemctl restart firewalld
 Go back to the command prompt that connects to `mspVM2`. If you lost it, use the following command to connect to it:
 
 ```cmd
+set SSH_KEY="C:\Users\azureuser\.ssh\wls-vm-key"
 set MSPVM2_IP="192.168.0.7"
-ssh -i %SSK_KEY% azureuser@%MSPVM2_IP%
+ssh -i %SSH_KEY% azureuser@%MSPVM2_IP%
 ```
 
 If you aren't working with the `oracle` user, sign in with `oracle`:
