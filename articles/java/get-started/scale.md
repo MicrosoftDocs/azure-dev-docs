@@ -31,7 +31,7 @@ Azure Service Bus Premium tier supports JMS, the Java Messaging Service programm
 
 You can secure your Java applications by deploying them in an Azure Virtual Network - the fundamental building block for your own private networks in Azure. Virtual networks enable many types of Azure resources to securely communicate with each other, with the internet, and with your on-premises networks and systems. You can use a virtual network to isolate your applications and supporting backend services from the Internet and place them on your private networks. You can assume full control of ingress and egress for your applications and backend systems.
 
-:::image type="content" source="media/azure-spring-apps-reference-architecture.png" alt-text="Diagram of the Azure Spring Apps reference architecture."  border="false" lightbox="media/azure-spring-apps-reference-architecture.png":::
+:::image type="content" source="media/azure-container-apps-landing-zone-accelerator.png" alt-text="Diagram of the Azure Container Apps Landing Zone Accelerator." border="false" lightbox="media/azure-container-apps-landing-zone-accelerator.png":::
 
 ## Zero-Trust - Secure communications end-to-end
 
