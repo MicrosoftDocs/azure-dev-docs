@@ -83,6 +83,6 @@ items:
     expanded: true
     items:
     - name: Use Microsoft Entra ID OpenID Connect
-      href: /azure/developer/java/ee/quarkus-with-microsoft-entra-id?toc=/azure/developer/java/identity/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      href: ../ee/quarkus-with-microsoft-entra-id.md?toc=/azure/developer/java/identity/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
   - name: Overview of the Microsoft Authentication Library (MSAL)
     href: /entra/identity-platform/msal-overview

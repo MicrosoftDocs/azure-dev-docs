@@ -97,4 +97,4 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Use Microsoft Entra ID OpenID Connect
-            url: /azure/developer/java/ee/quarkus-with-microsoft-entra-id?toc=/azure/developer/java/identity/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+            url: ../ee/quarkus-with-microsoft-entra-id.md?toc=/azure/developer/java/identity/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
