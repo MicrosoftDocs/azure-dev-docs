@@ -126,7 +126,7 @@ In this section, you create Oracle Linux machines with JDK 11 and WebLogic 14.1.
 
 Create a VM using [az vm create](/cli/azure/vm). You run the Administration Server on this VM.
 
-The following example creates Oracle Linux VMs using an SSH key pair for the authentication. If desired, you can use TLS/SSL authentication instead.
+The following example creates Oracle Linux VMs using an SSH key pair for the authentication. If desired, you can use password authentication instead.
 
 If you don't have an SSH key pair, you can generate it using:
 
