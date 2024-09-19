@@ -183,7 +183,6 @@ print(
     f"INFO={logger.isEnabledFor(logging.INFO)}, "
     f"DEBUG={logger.isEnabledFor(logging.DEBUG)}"
 )
-
 ```
 
 For illustration purposes, assume the parameterless form of `DefaultAzureCredential` is used to authenticate a request to a blob storage account. The app runs in the local development environment, and the developer authenticated to Azure using the Azure CLI. Assume also that the logging level is set to `logging.DEBUG`. When the app is run, the following pertinent entries appear in the output:
