@@ -14,7 +14,7 @@ The Azure Identity client library provides *credentials*&mdash;public classes th
 
 At runtime, a credential chain attempts to authenticate using the sequence's first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. The following sequence diagram illustrates this behavior:
 
-:::image type="content" source="../media/mermaidjs/chain-sequence.svg" alt-text="Credential chain sequence diagram":::
+:::image type="content" source="../media/mermaidjs/chain-sequence.svg" alt-text="Diagram that shows Credential chain sequence.":::
 
 ## Why use credential chains
 
@@ -44,7 +44,7 @@ There are two disparate philosophies to credential chaining:
 
 [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) is an opinionated, preconfigured chain of credentials. It's designed to support many environments, along with the most common authentication flows and developer tools. In graphical form, the underlying chain looks like this:
 
-:::image type="content" source="../media/mermaidjs/default-azure-credential-auth-flow.svg" alt-text="DefaultAzureCredential auth flowchart":::
+:::image type="content" source="../media/mermaidjs/default-azure-credential-auth-flow.svg" alt-text="Diagram that shows DefaultAzureCredential authentication flow." lightbox="../media/mermaidjs/default-azure-credential-auth-flow.svg":::
 
 The order in which `DefaultAzureCredential` attempts credentials follows.
 
@@ -97,7 +97,7 @@ credential = DefaultAzureCredential(
 
 In the preceding code sample, `EnvironmentCredential` and `WorkloadIdentityCredential` are removed from the credential chain. As a result, the first credential to be attempted is `ManagedIdentityCredential`. The modified chain looks like this:
 
-:::image type="content" source="../media/mermaidjs/default-azure-credential-excludes.svg" alt-text="DefaultAzureCredential using Excludes properties":::
+:::image type="content" source="../media/mermaidjs/default-azure-credential-excludes.svg" alt-text="Diagram that shows authentication flow for a DefaultAzureCredential instance after using exclude-prefixed keyword parameters in the constructor to remove environment credential and workload identity credential.":::
 
 > [!NOTE]
 > `InteractiveBrowserCredential` is excluded by default and therefore isn't shown in the preceding diagram. To include `InteractiveBrowserCredential`, set the `exclude_interactive_browser_credential` keyword parameter to `False` when you call the `DefaultAzureCredential` constructor.
@@ -141,7 +141,7 @@ credential = ChainedTokenCredential(
 
 The preceding code sample creates a tailored credential chain comprised of two credentials. The user-assigned managed identity variant of `ManagedIdentityCredential` is attempted first, followed by `AzureCliCredential`, if necessary. In graphical form, the chain looks like this:
 
-:::image type="content" source="../media/mermaidjs/chained-token-credential-auth-flow.svg" alt-text="ChainedTokenCredential":::
+:::image type="content" source="../media/mermaidjs/chained-token-credential-auth-flow.svg" alt-text="Diagram that shows authentication flow for a ChainedTokenCredential instance that is composed of managed identity credential and Azure CLI credential.":::
 
 > [!TIP]
 > For improved performance, optimize credential ordering in `ChainedTokenCredential` for your production environment. Credentials intended for use in the local development environment should be added last.
