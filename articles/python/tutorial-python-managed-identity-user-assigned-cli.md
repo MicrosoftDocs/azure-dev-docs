@@ -52,7 +52,7 @@ The following code is used to create a blob storage client to upload photos in `
 from azure.identity import DefaultAzureCredential
 from azure.storage.blob import BlobServiceClient
 
-azure_credential = DefaultAzureCredential(exclude_shared_token_cache_credential=True)
+azure_credential = DefaultAzureCredential()
 blob_service_client = BlobServiceClient(
     account_url=account_url,
     credential=azure_credential)
