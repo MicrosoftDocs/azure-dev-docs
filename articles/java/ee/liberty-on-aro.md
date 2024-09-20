@@ -155,7 +155,7 @@ Use the following commands to clone the sample code for this guide. The sample i
 git clone https://github.com/Azure-Samples/open-liberty-on-aro.git
 cd open-liberty-on-aro
 export BASE_DIR=$PWD
-git checkout 20240710
+git checkout 20240920
 cd ${BASE_DIR}/3-integration/connect-db/mysql
 ```
 
