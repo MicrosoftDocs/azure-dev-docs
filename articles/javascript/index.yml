@@ -248,34 +248,19 @@ conceptualContent:
 
 additionalContent:
   sections:
-    - title: .NET and Azure community resources
+    - title: JavaScript and Azure community resources
       items:
-        - title: .NET
+        - title: JavaScript
           links:
-            - text: .NET documentation
-              url: /dotnet
-            - text: ASP.NET documentation
-              url: /aspnet
+            - text: JavaScript at Microsoft
+              url: https://developer.microsoft.com/en-us/javascript/
         - title: Webcasts and shows
           links:
-            - text: Azure Friday
-              url: https://azure.microsoft.com/resources/videos/azure-friday/
-            - text: The Cloud Native Show
-              url: /Shows/The-Cloud-Native-Show
-            - text: On .NET
-              url: /Shows/On-NET
-            - text: .NET Community Standup
-              url: https://dotnet.microsoft.com/platform/community/standup
-            - text: On .NET Live
-              url: https://dotnet.microsoft.com/live/dotnet-docs
+            - text: Azure JavaScript Developer Days 2024
+              url: https://www.youtube.com/playlist?list=PLI7iePan8aH7FRDmefj-NAnoxM9V0USZm
         - title: Open Source
           links:
-            - text: Azure SDK for .NET
-              url: https://github.com/Azure/azure-sdk-for-net
+            - text: Azure SDK for JavaScript
+              url: https://github.com/Azure/azure-sdk-for-javascript
             - text: Microsoft Identity Web
               url: https://github.com/AzureAD/microsoft-identity-web
-            - text: .NET Platform
-              url: https://github.com/dotnet/
-
-  # footer (optional)
-  footer: "Are you interested in contributing to the .NET docs? For more information, see our [contributor guide](/contribute/dotnet/dotnet-contribute)."
