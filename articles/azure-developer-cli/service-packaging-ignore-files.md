@@ -1,9 +1,9 @@
 ---
-title: Resource Group Scoped Deployments
-description: How to deploy templates that target resource group scope instead of subscription scope with the Azure Developer CLI (azd)
+title: Configure service packaging file inclusions and exclusions
+description: How to configure service packaging file inclusions and exclusions for Azure Developer CLI templates
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/18/2022
+ms.date: 9/20/2024
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli
 
 # Configure service packaging file inclusions and exclusions
 
-The Azure Developer CLI (`azd`) enables you to specify files and directories that should be excluded from the deployment package for App Service and Function Apps, providing fine-grained control at the service level. In this article, you learn how to configure specialized ignore files to gain more control over the packaging process.
+The Azure Developer CLI (`azd`) allows you to include ignore files in your templates that specify files and directories to exclude from the deployment package for App Service and Function Apps. This features provides granular control at the service level over which files are included in the packaging process.
 
 ## Understand service packaging ignore files
 
@@ -23,12 +23,13 @@ There are two different types of ignore files you can use to influence the packa
 Both types of packaging ignore files follow these standards and rules:
 
 - `.webappignore` or `.funcignore` files should be placed in the root folder of the desired service in your `azd` template.
-- If a `.webappignore` or `.funcignore` file exists in a service directory, the packaging process follows its rules, allowing granular control over which files are included or excluded in the service's zip archive. These ignore files ensure that users can independently customize file exclusions while packaging for App Services and Azure Functions.
+- If a `.webappignore` or `.funcignore` file exists in a service directory, the packaging process follows its rules, allowing granular control over which files are included or excluded in the service's zip archive.
+- These ignore files are applied based on the targeted deployment service, ensuring users can independently customize file exclusions while packaging for App Services and Azure Functions.
 - If no `.webappignore` or `.funcignore` file is present, default exclusions apply for Python (`__pycache__`, `.venv`) and Node.js (`node_modules`).
 
 ## Exclusion examples
 
-The following examples demonstrate how to include or excludes files from the packaging process using `.webappignore` or `.funcignore` files.
+In your `azd` template, add a `.webappignore` or `.funcignore` file to the root folder of the service you intend to deploy to Azure App Service or Azure Functions. Update the content of those ignore files to include or exclude files using the following patterns:
 
 # [Node.js](#tab/nodejs)
 
