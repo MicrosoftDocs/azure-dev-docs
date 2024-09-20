@@ -79,5 +79,10 @@ items:
       href: enable-java-websphere-webapp-authorization-group-entra-id.md
     - name: Deploy to WebSphere on Azure VM
       href: deploy-websphere-to-vm.md
+  - name: Secure your Java Quarkus app
+    expanded: true
+    items:
+    - name: Use Microsoft Entra ID OpenID Connect
+      href: ../ee/quarkus-with-microsoft-entra-id.md?toc=/azure/developer/java/identity/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
   - name: Overview of the Microsoft Authentication Library (MSAL)
     href: /entra/identity-platform/msal-overview
