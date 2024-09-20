@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/02/2024
+ms.date: 08/13/2024
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -512,12 +512,42 @@ Manage environments.
 
 ### See also
 
+* [azd env get-value](#azd-env-get-value): Get specific environment value.
 * [azd env get-values](#azd-env-get-values): Get all environment values.
 * [azd env list](#azd-env-list): List environments.
 * [azd env new](#azd-env-new): Create a new environment and set it as the default.
 * [azd env refresh](#azd-env-refresh): Refresh environment settings by using information from a previous infrastructure provision.
 * [azd env select](#azd-env-select): Set the default environment.
 * [azd env set](#azd-env-set): Manage your environment settings.
+* [Back to top](#azd)
+
+## azd env get-value
+
+Get specific environment value.
+
+```azdeveloper
+azd env get-value <keyName> [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs                 Opens the documentation for azd env get-value in your web browser.
+  -e, --environment string   The name of the environment to use.
+  -h, --help                 Gets help for get-value.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd env](#azd-env): Manage environments.
 * [Back to top](#azd)
 
 ## azd env get-values

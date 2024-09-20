@@ -113,3 +113,9 @@ landingContent:
         links:
           - text: Use Azure Redis Cache in Spring
             url: ./configure-spring-boot-initializer-java-app-with-redis-cache.md
+  - title: Testing
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Testcontainers
+            url: ./testcontainers-support.md

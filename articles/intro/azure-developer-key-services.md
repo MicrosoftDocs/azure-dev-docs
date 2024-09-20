@@ -4,25 +4,41 @@ description: An overview of important services that developers use when building
 keywords: azure services
 ms.service: azure
 ms.topic: overview
-ms.date: 11/20/2023
+ms.date: 07/29/2024
 ms.custom: overview
+#CustomerIntent: As an experienced developer, I want an overview of Azure services since there are so many new terms and ideas. I want to see the products organized into large categories so I can make sense of them and start building a mental model.
 ---
 
 # Key Azure services for developers
+
+This is part two in a series of 7 articles to help developers get started with Azure.
+
+* Part 1: [Azure for developers overview](azure-developer-overview.md)
+* **Part 2: Key Azure services for developers**
+* Part 3: [Hosting applications on Azure](hosting-apps-on-azure.md)
+* Part 4: [Connect your app to Azure services](connect-to-azure-services.md)
+* Part 5: [How do I create and manage resources in Azure?](azure-developer-create-resources.md)
+* Part 6: [Key concepts for building Azure apps](azure-developer-key-concepts.md)
+* Part 7: [How am I billed?](azure-developer-billing.md)
 
 This article introduces some of the key Azure services that are used most frequently as a developer. For a comprehensive list of all Azure services, see the [Azure documentation hub page](/azure/?product=featured#browse-azure-products).
 
 ## App hosting and compute
 
+Whether you need to host a web app's static resources or an API, or host long running back-end processes using containers, VMs or serverless technologies, here are the Azure services that can help you architect your entire solution.
+
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
 |----|-------|-----------|
 |:::image type="icon" source="media/azure-app-service.png":::| [Azure App Service](/azure/app-service/) |Host .NET, Java, Node.js, and Python web applications and APIs in a fully managed Azure service.  You only need to deploy your code to Azure.  Azure takes care of all the infrastructure management like high availability, load balancing, and autoscaling.  |
 |:::image type="icon" source="media/static-web-apps.png":::| [Azure Static Web Apps](/azure/static-web-apps/) |Host static web apps built using frameworks like Gatsby, Hugo, or VuePress, or modern web apps built using Angular, React, Svelte, or Vue.  Static web apps automatically build and deploy based off of code changes and feature API integration with Azure Functions.|
-|:::image type="icon" source="media/azure-functions.png":::| [Azure Functions](/azure/azure-functions/) |A serverless compute platform for creating small, discrete segments of code that can be triggered from a variety of different events.  Common applications include building serverless APIs or orchestrating event-drive architectures.|
+|:::image type="icon" source="media/azure-container-apps.png":::| [Azure Container Apps](/azure/container-apps/) |Azure Container Apps allows you to run containerized applications without worrying about orchestration or infrastructure via a serverless platform.|
 |:::image type="icon" source="media/azure-container-instances.png":::| [Azure Container Instances](/azure/container-instances/) |Run Docker containers on-demand in a managed, serverless Azure environment. Azure Container Instances is a solution for any scenario that can operate in isolated containers, without orchestration.|
 |:::image type="icon" source="media/azure-kubernetes-service.png":::| [Azure Kubernetes Services](/azure/aks/) |Quickly deploy a production ready Kubernetes cluster to the cloud and offload the operational overhead to Azure. Azure handles critical tasks, like health monitoring and maintenance.  You only need to manage and maintain the agent nodes.|
-|:::image type="icon" source="media/azure-spring-cloud.png":::| [Azure Spring Apps](/azure/spring-apps/) |Host Spring Boot microservice applications in Azure, no code changes required.  Azure Spring Apps provides monitoring, configuration management, service discovery, CI/CD integration and more.|
 |:::image type="icon" source="media/azure-virtual-machines.png":::| [Azure Virtual Machines](/azure/virtual-machines/) |Host your app using virtual machines in Azure when you need more control over your computing environment. Azure VMs offer a flexible, scalable computing environment for both Linux and Windows virtual machines. |
+|:::image type="icon" source="media/azure-functions.png":::| [Azure Functions](/azure/azure-functions/) |A serverless compute platform for creating small, discrete segments of code that can be triggered from a variety of different events.  Common applications include building serverless APIs or orchestrating event-drive architectures.|
+|:::image type="icon" source="media/azure-spring-cloud.png":::| [Azure Spring Apps](/azure/spring-apps/) |Host Spring Boot microservice applications in Azure, no code changes required.  Azure Spring Apps provides monitoring, configuration management, service discovery, CI/CD integration and more.|
+
+You may wonder "why so many different ways to host an application?" The answer is explained in the next article, [Hosting applications on Azure](hosting-apps-on-azure.md). 
 
 ## Azure AI services
 
@@ -39,6 +55,8 @@ This article introduces some of the key Azure services that are used most freque
 | :::image type="icon" source="media/document-intelligence.png"::: | [Azure AI Document Intelligence](/azure/ai-services/document-intelligence) | Document extraction service that understands your forms allowing you to quickly extract text and structure from documents. |
 
 ## Data
+
+Azure boasts a wide array of relational and NoSQL storage options, including managed versions of many popular open source database products.
 
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
 |----|-------|-----------|
@@ -71,6 +89,8 @@ These are some of the most popular services that manage sending, receiving, and 
 
 ## Identity and security
 
+One of Azure's strengths lie in its secure by default security posture. This can be enhanced for application level security with the following services.
+
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
 |----|-------|-----------|
 |:::image type="icon" source="media/active-directory.png":::| [Microsoft Entra ID](/entra/identity/) |Manage user identities and control access to your apps, data, and resources.|
@@ -79,8 +99,14 @@ These are some of the most popular services that manage sending, receiving, and 
 
 ## Management
 
+Most applications benefit from allowing DevOps, developers and admin to have deep visibility into the code running in the cloud. The following services provide insight into application performance and logging.
+
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Service|Description|
 |----|-------|-----------|
 |:::image type="icon" source="media/monitor.png":::| [Azure Monitor](/azure/azure-monitor/) |A comprehensive monitoring solution for collecting, analyzing, and responding to monitoring data from your cloud and on-premises environments.|
 |:::image type="icon" source="media/application-insights.png":::| [Application Insights](/azure/azure-monitor/app/app-insights-overview) |This feature of Azure Monitor provides Application Performance Management (APM) for enhancing the performance, reliability, and quality of your live web applications.|
 
+Now that you have an overview of the services that can be combined into a robust cloud solution, we'll take a closer look at building and hosting applications that target the cloud.
+
+> [!div class="nextstepaction"]
+> [Continue to part 3: Hosting applications on Azure](hosting-apps-on-azure.md)

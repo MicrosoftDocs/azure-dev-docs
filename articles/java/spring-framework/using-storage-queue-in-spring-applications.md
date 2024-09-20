@@ -3,7 +3,7 @@ title: Use Azure Storage Queue in Spring applications
 description: This article demonstrates how to use Azure Storage Queue in Java applications built with Spring framework.
 author: KarlErickson
 ms.author: hangwan
-ms.date: 04/06/2023
+ms.date: 08/28/2024
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, passwordless-java, devx-track-extended-java
 ---
@@ -52,7 +52,7 @@ To install the Spring Cloud Azure Storage Queue Starter module, add the followin
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.15.0</version>
+         <version>5.16.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -242,7 +242,7 @@ To install the Spring Messaging Azure Storage Queue module, add the following de
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.15.0</version>
+         <version>5.16.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -349,7 +349,7 @@ To install the Spring Integration Azure Storage Queue module, add the following 
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.15.0</version>
+         <version>5.16.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
