@@ -19,13 +19,13 @@ highlightedContent:
       url: ./core/what-is-azure-for-javascript-development
     - itemType: quickstart
       title: Set up development environment
-      url: core/configure-local-development-environment.md
+      url: ./core/configure-local-development-environment.md
     - itemType: quickstart
       title: Authenticate to Azure SDK
-      url: /azure/developer/javascript/sdk/authentication/local-development-environment-service-principal
+      url: ./sdk/authentication/local-development-environment-service-principal
     - itemType: get-started
       title: Azure SDK for JavaScript
-      url: https://learn.microsoft.com/en-us/javascript/api/overview/azure/?view=azure-node-latest&toc=%2Fazure%2Fdeveloper%2Fjavascript%2Ftoc.json&bc=%2Fazure%2Fdeveloper%2Fjavascript%2Fbreadcrumb%2Ftoc.json
+      url: /javascript/api/overview/azure/?view=azure-node-latest&toc=%2Fazure%2Fdeveloper%2Fjavascript%2Ftoc.json&bc=%2Fazure%2Fdeveloper%2Fjavascript%2Fbreadcrumb%2Ftoc.json
 
 conceptualContent:
   title: Featured content
