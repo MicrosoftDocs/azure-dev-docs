@@ -1,7 +1,7 @@
 ---
 title: Spring Cloud Azure support for Testcontainers
-description: Spring Cloud Azure support for Testcontainers to test service locally such as Event Hubs, Service Bus, and Storage Queue.
-ms.date: 08/20/2024
+description: Describes how to integrate Spring Cloud Azure with Testcontainers to write effective integration tests for your applications.
+ms.date: 09/20/2024
 author: KarlErickson
 ms.author: hangwan
 ms.topic: reference
@@ -14,34 +14,36 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article describes how to integrate Spring Cloud Azure with [Testcontainers](https://testcontainers.com/) to write effective integration tests for your applications.
 
-## Testcontainers for Spring Cloud Azure
-
-### Key concepts
-**Testcontainers** is an open-source framework for providing throwaway, lightweight instances of databases, message brokers, web browsers, or just about anything that can run in a Docker container. It integrates with JUnit, allowing you to write a test class that can start up a container before any of the tests run. Testcontainers is especially useful for writing integration tests that talk to a real backend service.
+*Testcontainers* is an open-source framework for providing throwaway, lightweight instances of databases, message brokers, web browsers, or just about anything that can run in a Docker container. It integrates with JUnit, enabling you to write a test class that can start up a container before any of the tests run. Testcontainers is especially useful for writing integration tests that talk to a real backend service.
 
 The `spring-cloud-azure-testcontainers` library now supports integration testing for the following Azure services:
-- [Cosmos DB](https://azure.microsoft.com/products/cosmos-db/)
-- [Storage Blobs](https://azure.microsoft.com/products/storage/blobs/)
-- [Storage Queues](https://azure.microsoft.com/products/storage/queues/)
 
-#### Service Connections
-A service connection is a connection to any remote service. Spring Boot’s auto-configuration can consume the details of a service connection and use them to establish a connection to a remote service. When doing so, the connection details take precedence over any connection-related configuration properties.
+- [Azure Cosmos DB](https://azure.microsoft.com/products/cosmos-db/)
+- [Azure Blob Storage](https://azure.microsoft.com/products/storage/blobs/)
+- [Azure Queue Storage](https://azure.microsoft.com/products/storage/queues/)
 
-When using Testcontainers, connection details can be automatically created for a service running in a container by annotating the container field in the test class.
+## Service connections
 
-The `@ServiceConnection` annotation are processed by `xxxContainerConnectionDetailsFactory` classes registered with `spring.factories`. These factories can create a `ConnectionDetails` bean based on a specific Container subclass, or the Docker image name. 
+A service connection is a connection to any remote service. Spring Boot's autoconfiguration can consume the details of a service connection and use them to establish a connection to a remote service. When doing so, the connection details take precedence over any connection-related configuration properties.
 
-Here are the **Connection Details Factory** supported in the **spring-cloud-azure-testcontainers** jar:
+When you use Testcontainers, you can automatically create connection details for a service running in a container by annotating the container field in the test class.
 
-| Connection Details Factory Class             |  Connection Details Bean        |
-|----------------------------------------------|---------------------------------|
-| `CosmosContainerConnectionDetailsFactory`  | `AzureCosmosConnectionDetails`     |
-| `StorageBlobContainerConnectionDetailsFactory` | `AzureStorageBlobConnectionDetails` |
+The `@ServiceConnection` annotation is processed by `xxxContainerConnectionDetailsFactory` classes registered with `spring.factories`. These factories create a `ConnectionDetails` bean based on a specific `Container` subclass or the Docker image name.
+
+The following table provides information about the connection details factory classes supported in the `spring-cloud-azure-testcontainers` JAR:
+
+| Connection details factory class                | Connection details bean              |
+|-------------------------------------------------|--------------------------------------|
+| `CosmosContainerConnectionDetailsFactory`       | `AzureCosmosConnectionDetails`       |
+| `StorageBlobContainerConnectionDetailsFactory`  | `AzureStorageBlobConnectionDetails`  |
 | `StorageQueueContainerConnectionDetailsFactory` | `AzureStorageQueueConnectionDetails` |
 
-### Dependency setup
+## Set up dependencies
 
-#### [Cosmos](#tab/test-for-cosmos)
+The following configuration sets up the required dependencies:
+
+### [Cosmos](#tab/test-for-cosmos)
+
 ```xml
 <dependency>
   <groupId>org.testcontainers</groupId>
@@ -57,7 +59,8 @@ Here are the **Connection Details Factory** supported in the **spring-cloud-azur
 </dependency>
 ```
 
-#### [Storage Blob](#tab/test-for-storage-blob)
+### [Blob Storage](#tab/test-for-storage-blob)
+
 ```xml
 <dependency>
   <groupId>com.azure.spring</groupId>
@@ -69,7 +72,8 @@ Here are the **Connection Details Factory** supported in the **spring-cloud-azur
 </dependency>
 ```
 
-#### [Storage Queue](#tab/test-for-storage-queue)
+### [Queue Storage](#tab/test-for-storage-queue)
+
 ```xml
 <dependency>
   <groupId>com.azure.spring</groupId>
@@ -83,9 +87,12 @@ Here are the **Connection Details Factory** supported in the **spring-cloud-azur
 
 ---
 
-### Basic usage
+## Use Testcontainers
 
-#### [Cosmos](#tab/test-for-cosmos)
+The following code example demonstrates the basic usage of Testcontainers:
+
+### [Cosmos](#tab/test-for-cosmos)
+
 ```java
 @SpringBootTest
 @Testcontainers
@@ -126,9 +133,10 @@ public class CosmosTestcontainersTest {
 }
 ```
 
-To use `CosmosDBEmulatorContainer`, we need to prepare KeyStore for SSL, see [Azure Module in Testcontainers](https://java.testcontainers.org/modules/azure/#cosmosdb). With `@ServiceConnection`, the above configuration allows Cosmos DB-related beans in the app to communicate with Cosmos DB running inside the Testcontainers-managed Docker container. This action is done by automatically defining a `AzureCosmosConnectionDetails` bean, which is then used by the Cosmos DB autoconfiguration, overriding any connection-related configuration properties.
+To use `CosmosDBEmulatorContainer`, we need to prepare a `KeyStore` for TLS/SSL. For more information, see [Cosmos DB Azure Module](https://java.testcontainers.org/modules/azure/#cosmosdb) in the Testcontainers documentation. With `@ServiceConnection`, this configuration enables Cosmos DB-related beans in the app to communicate with Cosmos DB running inside the Testcontainers-managed Docker container. This action is done by automatically defining a `AzureCosmosConnectionDetails` bean, which is then used by the Cosmos DB autoconfiguration, overriding any connection-related configuration properties.
 
-#### [Storage Blob](#tab/test-for-storage-blob)
+### [Blob Storage](#tab/test-for-storage-blob)
+
 ```java
 @SpringBootTest
 @Testcontainers
@@ -156,9 +164,10 @@ public class StorageBlobTestcontainersTest {
 }
 ```
 
-With `@ServiceConnection`, the above configuration allows Storage Blob-related beans in the app to communicate with Storage Blob running inside the Testcontainers-managed Docker container. This action is done by automatically defining a `AzureStorageBlobConnectionDetails` bean, which is then used by the Storage Blob autoconfiguration, overriding any connection-related configuration properties.
+With `@ServiceConnection`, this configuration enables blob-related beans in the app to communicate with Blob Storage running inside the Testcontainers-managed Docker container. This action is done by automatically defining a `AzureStorageBlobConnectionDetails` bean, which is then used by the Blob Storage autoconfiguration, overriding any connection-related configuration properties.
 
-#### [Storage Queue](#tab/test-for-storage-queue)
+### [Queue Storage](#tab/test-for-storage-queue)
+
 ```java
 @SpringBootTest
 @Testcontainers
@@ -187,10 +196,10 @@ public class StorageQueueTestcontainersTest {
 }
 ```
 
-With `@ServiceConnection`, the above configuration allows Storage Queue-related beans in the app to communicate with Storage Queue running inside the Testcontainers-managed Docker container. This action is done by automatically defining a `AzureStorageQueueConnectionDetails` bean, which is then used by the Storage Queue autoconfiguration, overriding any connection-related configuration properties.
+With `@ServiceConnection`, this configuration enables queue-related beans in the app to communicate with Queue Storage running inside the Testcontainers-managed Docker container. This action is done by automatically defining an `AzureStorageQueueConnectionDetails` bean, which is then used by the Queue Storage autoconfiguration, overriding any connection-related configuration properties.
 
 ---
 
-### Samples
+## Samples
 
 For more information, see the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/testcontainers) repository on GitHub.
