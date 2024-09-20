@@ -90,8 +90,8 @@ landingContent:
             url: enable-spring-boot-webapp-authorization-role-entra-id.md
           - text: Use groups and group claims
             url: enable-spring-boot-webapp-authorization-group-entra-id.md
-          - text: Deploy to Azure Spring Apps
-            url: deploy-spring-boot-to-azure-spring-apps.md
+          - text: Deploy to Azure Container Apps
+            url: deploy-spring-boot-to-azure-container-apps.md
   - title: Secure your Java Quarkus app
     linkLists:
       - linkListType: how-to-guide
