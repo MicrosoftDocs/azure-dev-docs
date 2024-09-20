@@ -4,7 +4,7 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: manriem
 ms.topic: conceptual
-ms.date: 2/28/2020
+ms.date: 09/20/2024
 ms.custom: devx-track-java, devx-track-azurecli, migration-java, devx-track-extended-java
 recommendations: false
 ---

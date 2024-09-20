@@ -4,7 +4,7 @@ description: This topic provides an overview of recommended strategies for migra
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.date: 09/30/2022
+ms.date: 09/20/2024
 ms.custom: devx-track-java, devx-track-javaee, migration-java, devx-track-extended-java
 recommendations: false
 ---
@@ -118,7 +118,7 @@ If you deploy the servlet container (such as Spring Boot) as part of your applic
 
 ## Ensuring on-premises connectivity
 
-If your application needs to access any of your on-premises services, you'll need to provision one of Azure's connectivity services. For more information, see [Choose a solution for connecting an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/). Alternatively, you'll need to refactor your application to use publicly available APIs that your on-premises resources expose.
+If your application needs to access any of your on-premises services, you'll need to provision one of Azure's connectivity services. For more information, see [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/). Alternatively, you'll need to refactor your application to use publicly available APIs that your on-premises resources expose.
 
 You should complete this effort before you start any migration.
 

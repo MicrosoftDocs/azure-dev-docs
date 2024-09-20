@@ -4,7 +4,7 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: haiche
 ms.topic: conceptual
-ms.date: 04/03/2023
+ms.date: 09/20/2024
 recommendations: false
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-was-vm, devx-track-javaee-was, devx-track-javaee-websphere, migration-java, linux-related-content
 ---
@@ -29,11 +29,11 @@ It's better to stick as close to pure "lift and shift" as possible, accounting f
 
 IBM and Microsoft have partnered to bring a set of Azure solution templates to Azure Marketplace to provide a solid starting point for migrating to Azure. For the list of offers, see [Run the WebSphere family of products and Liberty on Microsoft Azure](https://developer.ibm.com/blogs/run-the-websphere-family-of-products-on-microsoft-azure/), and then choose the one that most closely matches your existing deployment. You can see the list of offers in the overview article [What are solutions to run the IBM WebSphere family of products on Azure?](../ee/websphere-family.md)
 
-If none of the existing offers are a good starting point, you have to reproduce the deployment by hand using Azure Virtual Machine resources. You can find the step-by-step guidance in [Tutorial: Manually install IBM WebSphere Application Server Network Deployment traditional on Azure Virtual Machines](migrate-websphere-to-azure-vm-manually.md). For more information, see [What is IaaS?](https://azure.microsoft.com/overview/what-is-iaas/)
+If none of the existing offers are a good starting point, you have to reproduce the deployment by hand using Azure Virtual Machine resources. You can find the step-by-step guidance in [Tutorial: Manually install IBM WebSphere Application Server Network Deployment traditional on Azure Virtual Machines](migrate-websphere-to-azure-vm-manually.md). For more information, see [What is IaaS?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-iaas)
 
 ### Determine whether the WAS traditional version is compatible
 
-Your existing WAS traditional version must be compatible with the version in the IaaS offers. You can find the version information from the overview page of [IBM WebSphere Application Server Single Instance on Azure VM](https://aka.ms/twas-single-portal) and [IBM WebSphere Application Server Cluster on Azure VMs](https://aka.ms/twas-cluster-portal). If your existing WAS traditional version isn't compatible with that version, you have to reproduce the deployment by hand using Azure IaaS resources. For more information, see [What is IaaS?](https://azure.microsoft.com/overview/what-is-iaas/)
+Your existing WAS traditional version must be compatible with the version in the IaaS offers. You can find the version information from the overview page of [IBM WebSphere Application Server Single Instance on Azure VM](https://aka.ms/twas-single-portal) and [IBM WebSphere Application Server Cluster on Azure VMs](https://aka.ms/twas-cluster-portal). If your existing WAS traditional version isn't compatible with that version, you have to reproduce the deployment by hand using Azure IaaS resources. For more information, see [What is IaaS?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-iaas)
 
 [!INCLUDE [inventory-server-capacity-virtual-machines](includes/inventory-server-capacity-virtual-machines.md)]
 
