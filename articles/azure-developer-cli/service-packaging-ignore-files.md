@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ---
 
-# Configure service packaging ignore files
+# Configure service packaging file inclusions and exclusions
 
 The Azure Developer CLI (`azd`) enables you to specify files and directories that should be excluded from the deployment package for App Service and Function Apps, providing fine-grained control at the service level. In this article, you learn how to configure specialized ignore files to gain more control over the packaging process.
 
-## Understand packaging ignore files
+## Understand service packaging ignore files
 
 There are two different types of ignore files you can use to influence the packaging process:
 
@@ -30,7 +30,7 @@ Both types of packaging ignore files follow these standards and rules:
 
 The following examples demonstrate how to include or excludes files from the packaging process using `.webappignore` or `.funcignore` files.
 
-[Node.js](#tab/nodejs)
+# [Node.js](#tab/nodejs)
 
 Exclude a folder or a specific file:
 
@@ -47,7 +47,7 @@ testfile.js
 !src/**/node_modules/
 ```
 
-[Python](#tab/python)
+# [Python](#tab/python)
 
 Exclude a folder or a specific file:
 
