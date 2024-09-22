@@ -117,6 +117,20 @@ If key exists in multiple PropertySources, which will take effect is decided by 
 * If there is `SystemEnvironmentPropertySource` in PropertySource list, then `SystemEnvironmentPropertySource` have higher priority than KeyVaultPropertySource. Which means you can use environment variable to override the Key Vault secret value in your application.
 * If there are multiple KeyVaultPropertySource in PropertySource list, then the definition order is the priority order. Take above sample as example, `key-vault-property-source-1` has higher priority than `key-vault-property-source-2`.
 
+### Configure token credential for Key Vault PropertySource
+
+If you need to use a specified token credential for Key Vault PropertySource, you can register the `TokenCredential` bean in the `ConfigurableBootstrapContext` for `KeyVaultEnvironmentPostProcessor`, this feature is supported from Spring Cloud Azure 5.16.0. Here is an example to use `AzureCliCredential`:
+
+```java
+public static void main(String[] args) {
+    SpringApplication application = new SpringApplication(PropertySourceApplication.class);
+    application.addBootstrapRegistryInitializer(registry -> 
+            registry.register(TokenCredential.class, context -> new AzureCliCredentialBuilder().build()));
+
+    application.run(args);
+}
+```
+
 ### All configurable properties
 
 > [!div class="mx-tdBreakAll"]
