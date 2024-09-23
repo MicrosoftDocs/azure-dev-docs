@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli
 
 # Configure service packaging file exclusions
 
-The Azure Developer CLI (`azd`) allows you to include ignore files in your templates that specify files and directories to exclude from the deployment package for App Service and Function Apps. This features provides granular control at the service level over which files are included in the packaging process.
+The Azure Developer CLI (`azd`) allows you to add ignore files in your templates that specify files and directories to exclude from the deployment package for App Service and Function Apps. This features provides granular control at the service level over which files are included in the packaging process.
 
 ## Understand service packaging ignore files
 
@@ -20,14 +20,13 @@ There are two different types of ignore files you can use to influence the packa
 - `.webappignore` influences packaging exclusions for Azure App Service deployments.
 - `.funcignore` influences  packaging exclusions for Azure Functions deployments.
 
-Both types of packaging ignore files follow these standards and rules:
+These ignore files are applied based on the targeted deployment service, ensuring users can independently customize file exclusions when packaging for Azure App Service and Azure Functions. Both types of packaging ignore files follow these rules:
 
-- `.webappignore` or `.funcignore` files should be placed in the root folder of the desired service in your `azd` template.
+- `.webappignore` or `.funcignore` files should be placed in the root folder of the relevant service in your `azd` template.
 - If a `.webappignore` or `.funcignore` file exists in a service directory, the packaging process follows its rules, allowing granular control over which files are included or excluded in the service's zip archive.
-- These ignore files are applied based on the targeted deployment service, ensuring users can independently customize file exclusions when packaging for Azure App Service and Azure Functions.
 - If no `.webappignore` or `.funcignore` file is present, default exclusions apply:
-    - Python: `__pycache__` and `.venv`
-    - Node.js: `node_modules`
+  - Python: `__pycache__` and `.venv`
+  - Node.js: `node_modules`
 
 ## Exclusion examples
 
