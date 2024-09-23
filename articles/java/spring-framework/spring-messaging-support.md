@@ -214,6 +214,7 @@ The library provides the following configuration options for `ServiceBusTemplate
 > |-----------------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------|
 > | **spring.cloud.azure.servicebus**.enabled           | boolean | Whether an Azure Service Bus is enabled.                                                                            |
 > | **spring.cloud.azure.servicebus**.connection-string | String  | Service Bus Namespace connection string value.                                                                      |
+> | **spring.cloud.azure.servicebus**.custom-endpoint-address | String  | The custom endpoint address to use when connecting to Service Bus.                                                                      |
 > | **spring.cloud.azure.servicebus**.namespace         | String  | Service Bus Namespace value, which is the prefix of the FQDN. A FQDN should be composed of NamespaceName.DomainName |
 > | **spring.cloud.azure.servicebus**.entity-type       | String  | Entity type of an Azure Service Bus.                                                                                |
 
