@@ -42,10 +42,10 @@ logs/*
 testfile.js
 ```
 
-Include folders or files that are ignored by default using the `!` character:
+Exclude folders or files that are ignored by default when the `.webappignore` or `.funcignore` file is not present:
 
 ```text
-!src/**/node_modules/
+node_modules/
 ```
 
 # [Python](#tab/python)
@@ -54,13 +54,14 @@ Exclude a folder or a specific file:
 
 ```text
 logs/*
-testfile.js
+testfile.py
 ```
 
-Include folders or files that are ignored by default using the `!` character:
+Exclude folders or files that are ignored by default when the `.webappignore` or `.funcignore` file is not present:
 
 ```text
-!src/**/node_modules/
+__pycache__/*
+.venv/*
 ```
 
 ---
