@@ -24,6 +24,13 @@ The following tips for better prompts comes from the article [Write effectve pro
 - [Use Azure terminology](/azure/copilot/write-effective-prompts#use-azure-terminology)
 - [Use the feedback loop](/azure/copilot/write-effective-prompts#use-the-feedback-loop)
 
+## Using Copilots responsibly
+
+Using Copilots can dramatically increase developer productivity by answering questions, executing tasks and generating code. However, please remember two vital rules:
+
+- Review all AI generated responses and validate their correctness, applicability and potential impact and outcomes (such as costs, security, etc.) prior to taking action based on those responses.
+- Never save application secrets and credentials in source code.
+
 
 ## Example prompts to optimize your apps
 
