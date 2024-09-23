@@ -168,6 +168,10 @@ items:
       href: redis-support.md
     - name: Azure Resource Manager
       href: resource-manager.md
+    - name: Testing
+      items:
+      - name: Testcontainers
+        href: testcontainers-support.md
     - name: Create and configure a managed identity on Azure hosting services
       href: create-and-configure-managed-identity.md
     - name: Deploy applications to Azure hosting services
