@@ -14,7 +14,22 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article describes how to use Azure Service Bus with the JMS API integrated into the Spring JMS framework.
 
-You have to provide an Azure Service Bus connection string, which is parsed into the login username, password, and remote URI for the AMQP broker.
+## Core features
+
+### Passwordless connection
+
+Passwordless connection uses Microsoft Entra authentication for connecting to Azure services without storing any credentials in the application, its configuration files, or in environment variables. Microsoft Entra authentication is a mechanism for connecting to Azure Service Bus using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage Service Bus and other Microsoft services in a central location, which simplifies permission management.
+
+## How it works
+
+Spring Cloud Azure first builds one of the following types of credentials depending on the application authentication configuration:
+
+- `ClientSecretCredential`
+- `ClientCertificateCredential`
+- `UsernamePasswordCredential`
+- `ManagedIdentityCredential`
+
+If none of these types of credentials are found, the credential chain via `DefaultTokenCredential` is used to obtain credentials from application properties, environment variables, managed identity, or IDEs. For more information, see [Spring Cloud Azure authentication](authentication.md).
 
 ## Dependency setup
 
