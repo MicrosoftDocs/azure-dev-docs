@@ -22,14 +22,18 @@ export JAR_FILE_PATH_AND_NAME="./target/ms-identity-spring-boot-webapp-0.0.1-SNA
 
 Define the following variables in your PowerShell console.
 
-```powershell
+```azurepowershell
 $RESOURCE_GROUP="ms-identity-containerapps"
 $LOCATION="canadacentral"
 $ENVIRONMENT="env-ms-identity-containerapps"
 $API_NAME="ms-identity-api"
 ```
 
+---
+
 Create a resource group.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az group create  \
@@ -37,20 +41,48 @@ az group create  \
    --location $LOCATION \
 ```
 
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroup -Name $RESOURCE_GROUP -Location $LOCATION
+```
+
+---
+
 Create an environment with an auto-generated Log Analytics workspace.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az containerapp env create  \
    --name $ENVIRONMENT \
-   --resource-group $RESOURCE_GROUP
-   --location $LOCATION \
+   --resource-group $RESOURCE_GROUP \
+   --location $LOCATION
 ```
 
 Show the default domain of the container app environment. Please note this domain to configure in the next sections.
 
-````azurecli
+```azurecli
 az containerapp env show \
   --name $ENVIRONMENT \
-  --resource-group $RESOURCE_GROUP
+  --resource-group $RESOURCE_GROUP \
   --query properties.defaultDomain
-````
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+az containerapp env create  `
+   --name $ENVIRONMENT `
+   --resource-group $RESOURCE_GROUP `
+   --location $LOCATION
+```
+
+Show the default domain of the container app environment. Please note this domain to configure in the next sections.
+
+```azurepowershell
+az containerapp env show `
+  --name $ENVIRONMENT `
+  --resource-group $RESOURCE_GROUP `
+  --query properties.defaultDomain
+```
