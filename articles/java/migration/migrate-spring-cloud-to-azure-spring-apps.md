@@ -4,7 +4,7 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.date: 02/09/2022
+ms.date: 09/09/2024
 ms.custom: devx-track-java, migration-java, devx-track-extended-java
 recommendations: false
 zone_pivot_group_filename: java/java-zone-pivot-groups.json
@@ -193,7 +193,7 @@ To use Application Configuration Service for Tanzu, do the following steps for e
 
 Application Configuration Service for Tanzu runs on Kubernetes. To help enable a transparent local development experience, we provide the following suggestions.
 
-* If you already have a Git repository to store your externalized configuration, you can set up Spring Cloud Config Server locally as the centralized configuration for your application. After Config Server starts, it clones the Git repository and provides the repository content through its web controller. For more information, see [Spring Cloud Config](https://cloud.spring.io/spring-cloud-config/reference/html) in the Spring documentation. The `spring-cloud-config-client` provides the ability for your application to automatically pick up the external configuration from the Config Server.
+* If you already have a Git repository to store your externalized configuration, you can set up Spring Cloud Config Server locally as the centralized configuration for your application. After Config Server starts, it clones the Git repository and provides the repository content through its web controller. For more information, see [Spring Cloud Config](https://docs.spring.io/spring-cloud-config/docs/current/reference/html) in the Spring documentation. The `spring-cloud-config-client` provides the ability for your application to automatically pick up the external configuration from the Config Server.
 
 * If you don't have a Git repository or you don't want to set up Config Server locally, you can use the configuration file directly in your project. We recommend that you use a profile to isolate the configuration file so that it's used only in your development environment. For example, use `dev` as the profile. Then, you can create an *application-dev.yml* file in the *src/main/resource* folder to store the configuration. To get your app to use this configuration, start the app locally with `--spring.profiles.active=dev`.
 

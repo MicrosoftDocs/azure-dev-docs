@@ -4,7 +4,7 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.date: 1/20/2020
+ms.date: 09/20/2024
 ms.custom: devx-track-java, migration-java, devx-track-extended-java
 recommendations: false
 ---
@@ -47,7 +47,7 @@ To obtain the current version used by Azure App Service, download [Tomcat 9](htt
 <!-- App-Service-specific addendum to inventory-persistence-usage -->
 #### Dynamic or internal content
 
-For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, you can mount Azure Storage into the App Service file system. For more information, see [Serve content from Azure Storage in App Service on Linux](/azure/app-service/configure-connect-to-azure-storage).
+For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, you can mount Azure Storage into the App Service file system. For more information, see [Mount Azure Storage as a local share in App Service](/azure/app-service/configure-connect-to-azure-storage).
 
 ### Identify session persistence mechanism
 

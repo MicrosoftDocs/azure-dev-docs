@@ -4,7 +4,7 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: dbrittain
 ms.topic: conceptual
-ms.date: 01/04/2023
+ms.date: 09/20/2024
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-appsvc, migration-java, devx-track-javaee-websphere, linux-related-content
 ---
 
@@ -58,7 +58,7 @@ Any usage of the file system on the application server will require reconfigurat
 
 #### Dynamic or internal content
 
-For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, you can mount Azure Storage into your App Service file system. For more information, see [Serve content from Azure Storage in App Service on Linux](/azure/app-service/containers/how-to-serve-content-from-azure-storage#link-storage-to-your-web-app-preview).
+For files that are frequently written and read by your application (such as temporary data files), or static files that are visible only to your application, you can mount Azure Storage into your App Service file system. For more information, see [Mount Azure Storage as a local share in App Service](/azure/app-service/containers/how-to-serve-content-from-azure-storage#link-storage-to-your-web-app-preview).
 
 ### Determine whether your application relies on scheduled jobs
 
@@ -131,7 +131,7 @@ You'll need to create a Web App on your App Service Plan for every WAR file depl
 
 #### Maven applications
 
-If your application is built from a Maven POM file, use the Webapp plugin for Maven to create the Web App and deploy your application. For more information, see the [Configure the Maven plugin](/azure/app-service/containers/quickstart-java#configure-the-maven-plugin) section of [Quickstart: Create a Java app on Azure App Service](/azure/app-service/containers/quickstart-java).
+If your application is built from a Maven POM file, use the Webapp plugin for Maven to create the Web App and deploy your application. For more information, see the [Configure the Maven plugin](/azure/app-service/containers/quickstart-java#3---configure-the-maven-plugin) section of [Quickstart: Create a Java app on Azure App Service](/azure/app-service/containers/quickstart-java).
 
 #### Non-Maven applications
 
@@ -141,15 +141,15 @@ If you can't use the Maven plugin, you'll need to provision the Web App through 
 * [Azure CLI](/cli/azure/webapp#az-webapp-create)
 * [Azure PowerShell](/powershell/module/az.websites/new-azwebapp)
 
-After you've created the web app, use one of the available deployment mechanisms to deploy your application. For more information, see[Deploy files to App Service](/azure/app-service/deploy-zip).
+After you've created the web app, use one of the available deployment mechanisms to deploy your application. For more information, see [Deploy files to App Service](/azure/app-service/deploy-zip).
 
 ### Migrate JVM runtime options
 
-If your application requires specific runtime options, use the most appropriate mechanism to specify them. For more information, see the [Set Java runtime options](/azure/app-service/containers/configure-language-java#set-java-runtime-options) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
+If your application requires specific runtime options, use the most appropriate mechanism to specify them. For more information, see the [Set Java runtime options](/azure/app-service/containers/configure-language-java#set-java-runtime-options) section of [Deploy and configure a Tomcat, JBoss, or Java SE app in Azure App Service](/azure/app-service/containers/configure-language-java).
 
 ### Populate secrets
 
-Use Application Settings to store any secrets specific to your application. If you intend to use the same secret or secrets among multiple applications, or you require fine-grained access policies and audit capabilities, use Azure Key Vault references instead. For more information, see the [Use KeyVault References](/azure/app-service/containers/configure-language-java#use-keyvault-references) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
+Use Application Settings to store any secrets specific to your application. If you intend to use the same secret or secrets among multiple applications, or you require fine-grained access policies and audit capabilities, use Azure Key Vault references instead. For more information, see [Use Key Vault references as app settings in Azure App Service and Azure Functions](/azure/app-service/app-service-key-vault-references).
 
 ### Configure custom domain and SSL
 
@@ -159,11 +159,11 @@ You'll then need to bind the TLS/SSL certificate for that domain to your App Ser
 
 ### Migrate data sources, libraries, and JNDI resources
 
-To migrate data sources, follow the steps in the [Configure data sources](/azure/app-service/containers/configure-language-java#configure-data-sources) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
+To migrate data sources, follow the steps in the [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](/azure/app-service/configure-language-java-data-sources).
 
-Migrate any additional server-level classpath dependencies by following the instructions in the [JBoss EAP](/azure/app-service/containers/configure-language-java#jboss-eap-1) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
+Migrate any additional server-level classpath dependencies. For more information, see [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](/azure/app-service/containers/configure-language-java?pivots=java-jboss).
 
-Migrate any additional shared server-level JDNI resources. For more information, see the [JBoss EAP](/azure/app-service/containers/configure-language-java#jboss-eap-1) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
+Migrate any additional shared server-level JDNI resources. For more information, see [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](/azure/app-service/containers/configure-language-java?pivots=java-jboss).
 
 > [!NOTE]
 > If you're following the recommended architecture of one WAR per application, consider migrating server-level classpath libraries and JNDI resources into your application. Doing so will significantly simplify component governance and change management. If you want to deploy more than one WAR per application, you should review one of our companion guides mentioned at the beginning of this guide.

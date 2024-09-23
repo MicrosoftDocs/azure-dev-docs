@@ -4,7 +4,7 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: haiche
 ms.topic: conceptual
-ms.date: 05/31/2023
+ms.date: 09/20/2024
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, migration-java, template-how-to, linux-related-content
 #Customer intent: As a Java developer, I want to migrate my on-premise WebSphere Application Server workload to IBM WebSphere Liberty or Open Liberty that runs on Azure Red Hat OpenShift
 ---
@@ -47,8 +47,8 @@ Now that you've been introduced to the various ways to handle Liberty on Azure R
 After you have a solid inventory of secrets, consult the operator documentation regarding secrets. For more information, see the following articles:
 
 - [WebSphere Liberty: Configuring security for containerized applications](https://www.ibm.com/docs/was-liberty/base?topic=operator-configuring-security-containerized-applications)
-- [Open Liberty: user guide ](https://github.com/OpenLiberty/open-liberty-operator/blob/main/doc/user-guide-v1beta2.adoc)
-- [Using Secrets in OpenShift Container Platform](https://docs.openshift.com/container-platform/3.11/dev_guide/secrets.html)
+- [Open Liberty: user guide](https://github.com/OpenLiberty/open-liberty-operator/blob/main/doc/user-guide-v1.adoc)
+- [Providing sensitive data to pods in OpenShift Container Platform](https://docs.openshift.com/container-platform/4.13/nodes/pods/nodes-pods-secrets.html)
 - [Use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift](/azure/openshift/howto-use-key-vault-secrets)
 
 [!INCLUDE [inventory-all-certificates](includes/inventory-all-certificates.md)]
@@ -57,7 +57,7 @@ After you have a solid inventory of certificates, configure them by using the fo
 
 - [Configuring single sign-on (SSO) for WebSphere Liberty operators](https://www.ibm.com/docs/was-liberty/core?topic=applications-configuring-sso-operators)
 - [Open Liberty: Certificates](https://openliberty.io/docs/latest/single-sign-on.html)
-- [OpenShift Container Platform security and compliance](https://docs.openshift.com/container-platform/4.12/security/index.html).
+- [OpenShift Container Platform security and compliance](https://docs.openshift.com/container-platform/4.13/security/index.html).
 
 [!INCLUDE [validate-that-the-supported-java-version-works-correctly-liberty](includes/validate-that-the-supported-java-version-works-correctly-liberty.md)]
 
@@ -131,7 +131,7 @@ If your application is using local Enterprise Java Beans (EJB), you may need to 
 
 ### Account for load-balancing requirements
 
-The prebuilt Azure Marketplace offer uses an OpenShift built-in route to host the application at a public URL and account for load balancing. For more information, see [OpenShift Route configuration](https://docs.openshift.com/container-platform/4.12/networking/routes/route-configuration.html).
+The prebuilt Azure Marketplace offer uses an OpenShift built-in route to host the application at a public URL and account for load balancing. For more information, see [OpenShift Route configuration](https://docs.openshift.com/container-platform/4.13/networking/routes/route-configuration.html).
 
 ## Migration
 
@@ -151,11 +151,11 @@ After you've connected the databases, you can configure JMS by following the ins
 
 ### Account for logging
 
-You can't do cloud without mastering logging. The operator provides different approaches for monitoring. For more information, see [Monitoring the Liberty server runtime environment](https://www.ibm.com/docs/was-liberty/core?topic=monitoring-liberty-server-runtime-environment). It's helpful to master logging and monitoring system in Red Hat OpenShift. For more information, see [Understanding the logging subsystem for Red Hat OpenShift](https://docs.openshift.com/container-platform/4.12/logging/cluster-logging.html) and [About OpenShift Container Platform monitoring](https://docs.openshift.com/container-platform/4.12/monitoring/monitoring-overview.html). You can configure Azure Monitor container insights for Azure Red Hat OpenShift. For more information, see [Configure Azure Monitor container insights for Azure Red Hat OpenShift](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters). If you prefer using Elastic Stack, Azure provides great support for Elastic. For complete details, see [What is Elastic integration with Azure?](/azure/partner-solutions/elastic/overview) You can combine the knowledge in these resources to achieve an Azure-optimized logging solution for Liberty on Azure Red Hat OpenShift.
+You can't do cloud without mastering logging. The operator provides different approaches for monitoring. For more information, see [Monitoring the Liberty server runtime environment](https://www.ibm.com/docs/was-liberty/core?topic=monitoring-liberty-server-runtime-environment). It's helpful to master logging and monitoring system in Red Hat OpenShift. For more information, see [Understanding the logging subsystem for Red Hat OpenShift](https://docs.openshift.com/container-platform/4.13/observability/logging/cluster-logging.html) and [About OpenShift Container Platform monitoring](https://docs.openshift.com/container-platform/4.13/observability/monitoring/monitoring-overview.html). You can configure Azure Monitor container insights for Azure Red Hat OpenShift. For more information, see [Configure Azure Monitor container insights for Azure Red Hat OpenShift](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters). If you prefer using Elastic Stack, Azure provides great support for Elastic. For complete details, see [What is Elastic integration with Azure?](/azure/partner-solutions/elastic/overview) You can combine the knowledge in these resources to achieve an Azure-optimized logging solution for Liberty on Azure Red Hat OpenShift.
 
 ### Migrate your applications
 
-Whether or not you chose to provide an application image at deployment time, you need to update the application via CI/CD. The OpenShift documentation has samples that show how to do this update. For more information, see [OpenShift Container Platform CI/CD overview](https://docs.openshift.com/container-platform/4.12/cicd/index.html).
+Whether or not you chose to provide an application image at deployment time, you need to update the application via CI/CD. The OpenShift documentation has samples that show how to do this update. For more information, see [OpenShift Container Platform CI/CD overview](https://docs.openshift.com/container-platform/4.13/cicd/index.html).
 
 ### Configure tests
 
@@ -165,13 +165,13 @@ You must configure any in-container tests against applications to access the new
 
 After you've reached the migration goals you defined in the [pre-migration](#pre-migration) step, perform some end-to-end acceptance testing to verify that everything works as expected. The following articles provide information on post-migration enhancements:
 
-- Dynamic scaling is a key value proposition to justify the complexity of using Kubernetes. To achieve a native Kubernetes optimized scaling solution, follow the OpenShift documentation [Recommended performance and scalability practices](https://docs.openshift.com/container-platform/4.11/scalability_and_performance/recommended-host-practices.html).
+- Dynamic scaling is a key value proposition to justify the complexity of using Kubernetes. To achieve a native Kubernetes optimized scaling solution, follow the OpenShift documentation [Recommended performance and scalability practices](https://docs.redhat.com/en/documentation/openshift_container_platform/4.13/html/scalability_and_performance/recommended-performance-and-scalability-practices).
 
 - Enhance your network topology with advanced load balancing services. For more information, see [Using load-balancing services in Azure](/azure/traffic-manager/traffic-manager-load-balancing-azure).
 
 - Get Java-optimized application performance monitoring with Azure Monitor and Application Insights. For more information, see [Azure Monitor container insights for Azure Red Hat OpenShift](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters).
 
-- Use Azure Storage to serve static content mounted to Azure Red Hat OpenShift. For more information, see [Create an Azure Files StorageClass on Azure Red Hat OpenShift 4](/azure/openshift/howto-create-a-storageclass). Combine this knowledge with the OpenShift documentation [OpenShift Container Platform storage overview](https://docs.openshift.com/container-platform/4.12/storage/index.html).
+- Use Azure Storage to serve static content mounted to Azure Red Hat OpenShift. For more information, see [Create an Azure Files StorageClass on Azure Red Hat OpenShift 4](/azure/openshift/howto-create-a-storageclass). Combine this knowledge with the OpenShift documentation [OpenShift Container Platform storage overview](https://docs.openshift.com/container-platform/4.13/storage/index.html).
 
 - Deploy your applications to your migrated WAS cluster with Azure DevOps. For more information, see [Azure DevOps getting started documentation](/azure/devops/get-started).
 
