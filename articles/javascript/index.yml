@@ -41,8 +41,8 @@ conceptualContent:
           url: /azure/static-web-apps/add-api
           text: Add an API to your front-end app
         - itemType: tutorial
-          text: Microservices with Dapr
-          url: Microservices communication using Dapr
+          text: Microservices communication with Dapr
+          url: /azure/container-apps/microservices-dapr-pubsub
         - itemType: quickstart
           text: Monoliths on App Service
           url: /azure/app-service/quickstart-nodejs
