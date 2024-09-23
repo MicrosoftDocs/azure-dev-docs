@@ -678,7 +678,7 @@ MSPVM_PUBLIC_IP=$(az vm show \
     --resource-group abc1110rg \
     --name mspVM1 \
     --show-details \
-    --query publicIps)
+    --query publicIps | tr -d '"' )
 
 ssh azureuser@$MSPVM_PUBLIC_IP
 ```
@@ -787,7 +787,7 @@ az vm show \
     --resource-group abc1110rg \
     --name mspVM2 \
     --show-details \
-    --query publicIps
+    --query publicIps | tr -d '"'
 ```
 
 Repeat the previous steps on `mspVM2`, and then exit the SSH connection by typing *exit*.
