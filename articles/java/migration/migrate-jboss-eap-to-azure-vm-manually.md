@@ -197,7 +197,7 @@ Create a VM using [az vm create](/cli/azure/vm). You run the Administration Serv
 
 The following example creates a Red Hat Enterprise Linux VM using user name and password pair for the authentication. If desired, you can use TLS/SSL authentication instead.
 
-### [JBOSS EAP 7.4](#tab/jboss-eap-7.4)
+### [JBOSS EAP 7.4](#tab/jboss-eap-74)
 
 ```azurecli
 az vm create \
@@ -335,7 +335,7 @@ Use the following steps to install:
 
 1. Use the following commands to install Red Hat JBoss EAP :
 
-   ### [JBOSS EAP 7.4](#tab/jboss-eap-7.4)
+   ### [JBOSS EAP 7.4](#tab/jboss-eap-74)
 
    ```bash
    sudo subscription-manager repos --enable=jb-eap-7.4-for-rhel-8-x86_64-rpms
@@ -364,7 +364,7 @@ Use the following steps to install:
 
 1. Use the following commands to configure the environment variables:
 
-   ### [JBOSS EAP 7.4](#tab/jboss-eap-7.4)
+   ### [JBOSS EAP 7.4](#tab/jboss-eap-74)
 
    ```bash
    echo 'export EAP_RPM_CONF_DOMAIN="/etc/opt/rh/eap7/wildfly/eap7-domain.conf"' >> ~/.bash_profile
@@ -588,7 +588,7 @@ ssh azureuser@$ADMIN_VM_PUBLIC_IP
 First, use the following commands to configure the HA profile and JGroups using the `AZURE_PING` protocol:
 
 
-### [JBOSS EAP 7.4](#tab/jboss-eap-7.4)
+### [JBOSS EAP 7.4](#tab/jboss-eap-74)
 
 ```bash
 export HOST_VM_IP=$(hostname -I)
@@ -863,7 +863,7 @@ You're asked for the password for the connection. For this example, the password
 
 Use the following commands to apply host controller changes to `mspVM1`:
 
-### [JBOSS EAP 7.4](#tab/jboss-eap-7.4)
+### [JBOSS EAP 7.4](#tab/jboss-eap-74)
 
 ```bash
 # Setup host controller
@@ -1178,7 +1178,7 @@ Use the following steps to install the JDBC driver with the JBoss management CLI
    "deploy /tmp/${jdbcDriverName} --server-groups=main-server-group"
    ```
 
-   ### [JBOSS EAP 7.4](#tab/jboss-eap-7.4)
+   ### [JBOSS EAP 7.4](#tab/jboss-eap-74)
 
    The server log is located on `mspVM1` and `mspVM2` at `/var/opt/rh/eap7/lib/wildfly/domain/servers/mspvm1-server0/log/server.log`. If the deployment fails, examine this log file and resolve the problem before continuing.
 
