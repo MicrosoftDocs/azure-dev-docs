@@ -115,7 +115,7 @@ conceptualContent:
           url: /azure/azure-monitor/app/nodejs
         - itemType: concept
           text: Enable Azure Monitor Application Insights
-          url: /azure/azure-monitor/app/javascript-sdk.md
+          url: /azure/azure-monitor/app/javascript-sdk
         - itemType: concept
           text: Enable a framework extension for Application Insights
           url: /azure/azure-monitor/app/javascript-framework-extensions
