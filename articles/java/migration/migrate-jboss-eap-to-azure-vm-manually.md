@@ -228,6 +228,7 @@ az vm create \
     --subnet mySubnet
 ```
 
+---
 
 #### Install OpenJDK Red Hat JBoss EAP
 
@@ -351,6 +352,8 @@ Use the following steps to install:
 
    For the second and third commands, you should see many lines of output, ending with `Complete!`
 
+---
+
 1. Use the following commands set permission and network configurations:
 
    ```bash
@@ -361,6 +364,8 @@ Use the following steps to install:
 
 1. Use the following commands to configure the environment variables:
 
+   ### [JBOSS EAP 7.4](#tab/jboss-eap-7.4)
+
    ```bash
    echo 'export EAP_RPM_CONF_DOMAIN="/etc/opt/rh/eap7/wildfly/eap7-domain.conf"' >> ~/.bash_profile
    echo 'export EAP_HOME="/opt/rh/eap7/root/usr/share"' >> ~/.bash_profile
@@ -369,11 +374,23 @@ Use the following steps to install:
    echo 'export EAP_HOME="/opt/rh/eap7/root/usr/share"' | sudo tee -a /etc/profile.d/eap_env.sh
    ```
 
+    ### [JBOSS EAP 8](#tab/jboss-eap-8)
+    
+    ```bash
+   echo 'export EAP_RPM_CONF_DOMAIN="/etc/opt/rh/eap8/wildfly/eap8-domain.conf"' >> ~/.bash_profile
+   echo 'export EAP_HOME="/opt/rh/eap8/root/usr/share"' >> ~/.bash_profile
+   source ~/.bash_profile
+   sudo touch /etc/profile.d/eap_env.sh
+   echo 'export EAP_HOME="/opt/rh/eap8/root/usr/share"' | sudo tee -a /etc/profile.d/eap_env.sh
+   ```
+   
+---
+
 1. Exit from the SSH connection by typing *exit*.
 
 ### Create machines for managed servers
 
-You installed OpenJDK 11 and Red Hat JBoss EAP 7.4 on `adminVM`, which runs as the domain controller server. You still need to prepare machines to run the two host controller servers. Next, you create a snapshot of `adminVM` and prepare machines for two managed severs, `mspVM1` and `mspVM2`.
+You installed Red Hat JBoss EAP on `adminVM`, which runs as the domain controller server. You still need to prepare machines to run the two host controller servers. Next, you create a snapshot of `adminVM` and prepare machines for two managed severs, `mspVM1` and `mspVM2`.
 
 This section introduces an approach to prepare machines with the snapshot of `adminVM`. Return to your terminal that has Azure CLI signed in, then use the following steps:
 
@@ -443,7 +460,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
           --subnet mySubnet
       ```
 
-   1. You created `mspVM1` with OpenJDK 11 and Red Hat JBoss EAP 7.4 installed. Because the VM was created from a snapshot of the `adminVM` OS disk, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM1`:
+   1. You created `mspVM1` with Red Hat JBoss EAP installed. Because the VM was created from a snapshot of the `adminVM` OS disk, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM1`:
 
       ```azurecli
       az vm run-command invoke \
@@ -570,6 +587,9 @@ ssh azureuser@$ADMIN_VM_PUBLIC_IP
 
 First, use the following commands to configure the HA profile and JGroups using the `AZURE_PING` protocol:
 
+
+### [JBOSS EAP 7.4](#tab/jboss-eap-7.4)
+
 ```bash
 export HOST_VM_IP=$(hostname -I)
 export STORAGE_ACCOUNT_NAME=azurepingstgabc1110rg
@@ -681,6 +701,121 @@ Mar 30 02:11:44 adminVM systemd[1]: Started JBoss EAP (domain mode).
 
 Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exit*.
 
+### [JBOSS EAP 8](#tab/jboss-eap-8)
+
+```bash
+export HOST_VM_IP=$(hostname -I)
+export STORAGE_ACCOUNT_NAME=azurepingstgabc1110rg
+export CONTAINER_NAME=azurepingcontainerabc1110rg
+export STORAGE_ACCESS_KEY=<the-value-from-before-you-connected-with-SSH>
+
+
+#-Configure the HA profile and JGroups using AZURE_PING protocol
+sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
+'embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-primary.xml',\
+':write-attribute(name=name,value=domain1)',\
+'/profile=ha/subsystem=jgroups/stack=tcp:remove',\
+'/profile=ha/subsystem=jgroups/stack=tcp:add()',\
+'/profile=ha/subsystem=jgroups/stack=tcp/transport=TCP:add(socket-binding=jgroups-tcp,properties={ip_mcast=false})',\
+"/profile=ha/subsystem=jgroups/stack=tcp/protocol=azure.AZURE_PING:add(properties={storage_account_name=\"${STORAGE_ACCOUNT_NAME}\", storage_access_key=\"${STORAGE_ACCESS_KEY}\", container=\"${CONTAINER_NAME}\"})",\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=MERGE3:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=FD_SOCK:add(socket-binding=jgroups-tcp-fd)',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=FD_ALL:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=VERIFY_SUSPECT:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.NAKACK2:add(properties={use_mcast_xmit=false,use_mcast_xmit_req=false})',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=UNICAST3:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.STABLE:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.GMS:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=MFC:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=FRAG3:add',\
+'/profile=ha/subsystem=jgroups/channel=ee:write-attribute(name="stack", value="tcp")',\
+'/server-group=main-server-group:write-attribute(name="profile", value="ha")',\
+'/server-group=main-server-group:write-attribute(name="socket-binding-group", value="ha-sockets")',\
+"/host=master/subsystem=elytron/http-authentication-factory=management-http-authentication:write-attribute(name=mechanism-configurations,value=[{mechanism-name=DIGEST,mechanism-realm-configurations=[{realm-name=ManagementRealm}]}])",\
+"/host=master/interface=unsecure:add(inet-address=${HOST_VM_IP})",\
+"/host=master/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
+"/host=master/interface=public:add(inet-address=${HOST_VM_IP})"
+
+# Save a copy of the domain.xml, later you need to share it with all host controllers
+cp $EAP_HOME/wildfly/domain/configuration/domain.xml /tmp/domain.xml
+```
+
+The last stanza of output should look similar to the following example. If it doesn't, troubleshoot and resolve the problem before continuing.
+
+```output
+[domain@embedded /] /host=master/interface=public:add(inet-address=192.168.0.4 )
+{
+    "outcome" => "success",
+    "result" => undefined,
+    "server-groups" => undefined,
+    "response-headers" => {"process-state" => "reload-required"}
+}
+02:05:55,019 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0050: JBoss EAP 7.4.10.GA (WildFly Core 15.0.25.Final-redhat-00001) stopped in 28ms
+```
+
+Then, use the following commands to configure the JBoss server and set up the EAP service:
+
+```bash
+# Configure the JBoss server and setup EAP service
+echo 'WILDFLY_HOST_CONFIG=host-primary.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
+
+# Configure JBoss EAP management user
+export JBOSS_EAP_USER=jbossadmin
+export JBOSS_EAP_PASSWORD=Secret123456
+sudo $EAP_HOME/wildfly/bin/add-user.sh  -u $JBOSS_EAP_USER -p $JBOSS_EAP_PASSWORD -g 'guest,mgmtgroup'
+```
+
+The output should look similar to the following example:
+
+```output
+Added user 'jbossadmin' to file '/etc/opt/rh/eap8/wildfly/standalone/mgmt-users.properties'
+Added user 'jbossadmin' to file '/etc/opt/rh/eap8/wildfly/domain/mgmt-users.properties'
+Added user 'jbossadmin' with groups guest,mgmtgroup to file '/etc/opt/rh/eap8/wildfly/standalone/mgmt-groups.properties'
+Added user 'jbossadmin' with groups guest,mgmtgroup to file '/etc/opt/rh/eap8/wildfly/domain/mgmt-groups.properties'
+```
+
+Finally, use the following commands to start the EAP service:
+
+```bash
+# Start the JBoss server and setup EAP service
+sudo systemctl enable eap8-domain.service
+
+# Edit eap8-domain.services
+sudo sed -i 's/After=syslog.target network.target/After=syslog.target network.target NetworkManager-wait-online.service/' /usr/lib/systemd/system/eap8-domain.service
+sudo sed -i 's/Before=httpd.service/Wants=NetworkManager-wait-online.service \nBefore=httpd.service/' /usr/lib/systemd/system/eap8-domain.service
+
+# Reload and restart EAP service
+sudo systemctl daemon-reload
+sudo systemctl restart eap8-domain.service
+
+# Check the status of EAP service
+systemctl status eap8-domain.service
+```
+
+The output should look similar to the following example:
+
+```output
+● eap8-domain.service - JBoss EAP (domain mode)
+   Loaded: loaded (/usr/lib/systemd/system/eap8-domain.service; enabled; vendor>
+   Active: active (running) since Thu 2024-09-23 02:11:44 UTC; 5s ago
+ Main PID: 3855 (scl)
+    Tasks: 82 (limit: 20612)
+   Memory: 232.4M
+   CGroup: /system.slice/eap8-domain.service
+           ├─3855 /usr/bin/scl enable eap8 -- /opt/rh/eap8/root/usr/share/wildf>
+           ├─3856 /bin/bash /var/tmp/sclfYu7yW
+           ├─3858 /bin/sh /opt/rh/eap8/root/usr/share/wildfly/bin/launch.sh /us>
+           ├─3862 /bin/sh /opt/rh/eap8/root/usr/share/wildfly/bin/domain.sh --h>
+           ├─3955 /usr/lib/jvm/jre/bin/java -D[Process Controller] -server -Xms>
+           └─3967 /usr/lib/jvm/jre/bin/java -D[Host Controller] -Dorg.jboss.boo>
+
+Sep 23 02:11:44 adminVM systemd[1]: Started JBoss EAP (domain mode).
+```
+
+Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exit*.
+
+---
+
 After starting the Red Hat JBoss EAP service, you can access the management console via `http://$ADMIN_VM_PUBLIC_IP:9990` in your web browser. Sign in with the configured username `jbossadmin` and password `Secret123456`.
 
 :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/adminconsole.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform domain controller management console." lightbox="media/migrate-jboss-eap-to-vm-manually/adminconsole.png":::
@@ -727,6 +862,8 @@ sudo -u jboss scp azureuser@${DOMAIN_CONTROLLER_PRIVATE_IP}:/tmp/domain.xml $EAP
 You're asked for the password for the connection. For this example, the password is *Secret123456*.
 
 Use the following commands to apply host controller changes to `mspVM1`:
+
+### [JBOSS EAP 7.4](#tab/jboss-eap-7.4)
 
 ```bash
 # Setup host controller
@@ -799,6 +936,83 @@ Mar 30 03:02:15 mspVM1 systemd[1]: Started JBoss EAP (domain mode).
 ```
 
 Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exit*.
+
+### [JBOSS EAP 8](#tab/jboss-eap-8)
+
+```bash
+# Setup host controller
+sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
+"embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-secondary.xml",\
+"/host=${HOST_VM_NAME_LOWERCASE}/server-config=server-one:remove",\
+"/host=${HOST_VM_NAME_LOWERCASE}/server-config=server-two:remove",\
+"/host=${HOST_VM_NAME_LOWERCASE}/server-config=${HOST_VM_NAME_LOWERCASE}-server0:add(group=main-server-group)",\
+"/host=${HOST_VM_NAME_LOWERCASE}/subsystem=elytron/authentication-configuration=slave:add(authentication-name=${JBOSS_EAP_USER}, credential-reference={clear-text=${JBOSS_EAP_PASSWORD}})",\
+"/host=${HOST_VM_NAME_LOWERCASE}/subsystem=elytron/authentication-context=slave-context:add(match-rules=[{authentication-configuration=slave}])",\
+"/host=${HOST_VM_NAME_LOWERCASE}:write-attribute(name=domain-controller.remote.username, value=${JBOSS_EAP_USER})",\
+"/host=${HOST_VM_NAME_LOWERCASE}:write-attribute(name=domain-controller.remote, value={host=${DOMAIN_CONTROLLER_PRIVATE_IP}, port=9990, protocol=remote+http, authentication-context=slave-context})",\
+"/host=${HOST_VM_NAME_LOWERCASE}/core-service=discovery-options/static-discovery=primary:write-attribute(name=host, value=${DOMAIN_CONTROLLER_PRIVATE_IP})",\
+"/host=${HOST_VM_NAME_LOWERCASE}/interface=unsecured:add(inet-address=${HOST_VM_IP})",\
+"/host=${HOST_VM_NAME_LOWERCASE}/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
+"/host=${HOST_VM_NAME_LOWERCASE}/interface=public:write-attribute(name=inet-address, value=${HOST_VM_IP})"
+```
+
+The last stanza of output should look similar to the following example. If it doesn't, troubleshoot and resolve the problem before continuing.
+
+```output
+[domain@embedded /] /host=mspvm1/interface=public:write-attribute(name=inet-address, value=192.168.0.5 )
+{
+    "outcome" => "success",
+    "result" => undefined,
+    "server-groups" => undefined,
+    "response-headers" => {"process-state" => "reload-required"}
+}
+02:58:59,388 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0050: JBoss EAP 7.4.10.GA (WildFly Core 15.0.25.Final-redhat-00001) stopped in 58ms
+```
+
+Then, use the following commands to configure the JBoss server and setup EAP service:
+
+```bash
+echo 'WILDFLY_HOST_CONFIG=host-secondary.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
+
+# Enable the JBoss server and setup EAP service
+sudo systemctl enable eap8-domain.service
+
+# Edit eap8-domain.service
+sudo sed -i 's/After=syslog.target network.target/After=syslog.target network.target NetworkManager-wait-online.service/' /usr/lib/systemd/system/eap8-domain.service
+sudo sed -i 's/Before=httpd.service/Wants=NetworkManager-wait-online.service \nBefore=httpd.service/' /usr/lib/systemd/system/eap8-domain.service
+
+# Reload and restart EAP service
+sudo systemctl daemon-reload
+sudo systemctl restart eap8-domain.service
+
+# Check the status of EAP service
+systemctl status eap8-domain.service
+```
+
+The output should look similar to the following example:
+
+```output
+● eap8-domain.service - JBoss EAP (domain mode)
+   Loaded: loaded (/usr/lib/systemd/system/eap8-domain.service; enabled; vendor>
+   Active: active (running) since Thu 2023-03-30 03:02:15 UTC; 7s ago
+ Main PID: 9699 (scl)
+    Tasks: 51 (limit: 20612)
+   Memory: 267.6M
+   CGroup: /system.slice/eap8-domain.service
+           ├─9699 /usr/bin/scl enable eap8 -- /opt/rh/eap8/root/usr/share/wildf>
+           ├─9700 /bin/bash /var/tmp/sclgJ1hRD
+           ├─9702 /bin/sh /opt/rh/eap8/root/usr/share/wildfly/bin/launch.sh /us>
+           ├─9706 /bin/sh /opt/rh/eap8/root/usr/share/wildfly/bin/domain.sh --h>
+           ├─9799 /usr/lib/jvm/jre/bin/java -D[Process Controller] -server -Xms>
+           └─9811 /usr/lib/jvm/jre/bin/java -D[Host Controller] -Dorg.jboss.boo>
+
+Sep 30 03:02:15 mspVM1 systemd[1]: Started JBoss EAP (domain mode).
+```
+
+Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exit*.
+
+
+---
 
 Use SSH to connect to `mspVM2` as the `azureuser` user. Get the public IP address of the VM with the following command:
 
@@ -964,7 +1178,15 @@ Use the following steps to install the JDBC driver with the JBoss management CLI
    "deploy /tmp/${jdbcDriverName} --server-groups=main-server-group"
    ```
 
+   ### [JBOSS EAP 7.4](#tab/jboss-eap-7.4)
+
    The server log is located on `mspVM1` and `mspVM2` at `/var/opt/rh/eap7/lib/wildfly/domain/servers/mspvm1-server0/log/server.log`. If the deployment fails, examine this log file and resolve the problem before continuing.
+
+   ### [JBOSS EAP 8](#tab/jboss-eap-8)
+
+   The server log is located on `mspVM1` and `mspVM2` at `/var/opt/rh/eap8/lib/wildfly/domain/servers/mspvm1-server0/log/server.log`. If the deployment fails, examine this log file and resolve the problem before continuing.
+   
+   ---
 
 ### Configure the database connection for the Red Hat JBoss EAP cluster
 
