@@ -72,6 +72,60 @@ conceptualContent:
         - itemType: quickstart
           text: "Scale with Azure API Management"
           url: ./ai/get-started-app-chat-scaling-with-azure-api-management.md
+    - title: Work with storage & data
+      links:
+        - itemType: concept
+          text: Get started with Azure Blob Storage
+          url: /azure/storage/blobs/storage-blob-javascript-get-started
+        - itemType: quickstart
+          text: Azure Cosmos DB for NoSQL 
+          url: /azure/cosmos-db/nosql/quickstart-nodejs
+        - itemType: tutorial
+          text: Azure Cosmos DB for MongoDB
+          url: /azure/cosmos-db/mongodb/vcore/tutorial-nodejs-web-app
+        - itemType: tutorial
+          text: Azure Cosmos DB for PostgreSQL
+          url: /azure/cosmos-db/postgresql/quickstart-app-stacks-nodejs
+        - itemType: tutorial
+          text: Azure Cosmos DB for Cassandra
+          url: /azure/cosmos-db/cassandra/manage-data-nodejs
+        - itemType: tutorial
+          text: Azure Cosmos DB for Gremlin
+          url: /azure/cosmos-db/gremlin/quickstart-nodejs
+        - itemType: tutorial
+          text: Azure SQL Database with mssql
+          url: /azure/azure-sql/database/azure-sql-javascript-mssql-quickstart
+# --------------------------------------------------------------
+    - title: Authentication and security
+      links:
+        - itemType: concept
+          text: Authenticate JavaScript apps to Azure
+          url: ./sdk/authentication/overview.md
+        - itemType: tutorial
+          text: Developer accounts
+          url: ./sdk/authentication/local-development-environment-developer-account.md
+        - itemType: tutorial
+          text: Service principals
+          url: ./sdk/authentication/local-development-environment-service-principal.md
+
+    - title: Diagnostics and monitoring
+      links:
+        - itemType: concept
+          text: Monitor your Node.js services and apps with Application Insights
+          url: /azure/azure-monitor/app/nodejs
+        - itemType: concept
+          text: Enable Azure Monitor Application Insights
+          url: /azure/azure-monitor/app/javascript-sdk.md
+        - itemType: concept
+          text: Enable a framework extension for Application Insights
+          url: /azure/azure-monitor/app/javascript-framework-extensions
+        - itemType: concept
+          text: Enable Click Analytics
+          url: /azure/azure-monitor/app/javascript-feature-extensions
+        - itemType: concept
+          text: Sampling in Application Insights
+          url: /azure/azure-monitor/app/sampling-classic-api
+
     - title: Developer guides
       links:
         - itemType: concept
@@ -95,8 +149,7 @@ conceptualContent:
         - itemType: concept
           text: Key vault for keys
           url: /azure/key-vault/keys/javascript-developer-guide-get-started
-
-
+# --------------------------------------------------------------
 additionalContent:
   sections:
     - title: JavaScript and Azure community resources
