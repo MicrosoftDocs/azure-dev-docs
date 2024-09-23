@@ -349,10 +349,8 @@ Use the following steps to install:
    sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
    sudo yum groupinstall -y jboss-eap8
    ```
-
+   ---
    For the second and third commands, you should see many lines of output, ending with `Complete!`
-
----
 
 1. Use the following commands set permission and network configurations:
 
@@ -377,14 +375,13 @@ Use the following steps to install:
     ### [JBOSS EAP 8](#tab/jboss-eap-8)
     
     ```bash
-   echo 'export EAP_RPM_CONF_DOMAIN="/etc/opt/rh/eap8/wildfly/eap8-domain.conf"' >> ~/.bash_profile
-   echo 'export EAP_HOME="/opt/rh/eap8/root/usr/share"' >> ~/.bash_profile
-   source ~/.bash_profile
-   sudo touch /etc/profile.d/eap_env.sh
-   echo 'export EAP_HOME="/opt/rh/eap8/root/usr/share"' | sudo tee -a /etc/profile.d/eap_env.sh
-   ```
-   
----
+    echo 'export EAP_RPM_CONF_DOMAIN="/etc/opt/rh/eap8/wildfly/eap8-domain.conf"' >> ~/.bash_profile
+    echo 'export EAP_HOME="/opt/rh/eap8/root/usr/share"' >> ~/.bash_profile
+    source ~/.bash_profile
+    sudo touch /etc/profile.d/eap_env.sh
+    echo 'export EAP_HOME="/opt/rh/eap8/root/usr/share"' | sudo tee -a /etc/profile.d/eap_env.sh
+    ```
+    ---
 
 1. Exit from the SSH connection by typing *exit*.
 
