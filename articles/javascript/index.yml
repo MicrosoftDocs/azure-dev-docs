@@ -32,6 +32,23 @@ conceptualContent:
   summary: Learn to develop .NET apps leveraging a variety of Azure services.
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
+    - title: JS Apps on Azure
+      links:
+        - itemType: quickstart
+          text: Deploy JS front-end framework
+          url: /azure/static-web-apps/deploy-web-framework
+        - itemType: tutorial
+          url: /azure/static-web-apps/add-api
+          text: Add an API to your front-end app
+        - itemType: tutorial
+          text: Microservices with Dapr
+          url: Microservices communication using Dapr
+        - itemType: quickstart
+          text: Monoliths on App Service
+          url: /azure/app-service/quickstart-nodejs
+        - itemType: quickstart
+          text: Serverless apps
+          url: /azure/azure-functions/create-first-function-azure-developer-cli
     - title: Create AI apps
       links:
         - itemType: overview
