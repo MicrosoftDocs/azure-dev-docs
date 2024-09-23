@@ -83,6 +83,7 @@ az login
 Create a resource group with [az group create](/cli/azure/group#az-group-create). Resource group names must be globally unique within a subscription. For this reason, consider prepending some unique identifier to any names you create that must be unique. A useful technique is to use your initials followed by today's date in `mmdd` format. This example creates a resource group named `abc1110rg` in the `westus` location:
 
 ```azurecli
+export RESOURCE_GROUP_NAME=abc1110rg
 az group create \
     --name abc1110rg \
     --location westus
@@ -196,6 +197,8 @@ Create a VM using [az vm create](/cli/azure/vm). You run the Administration Serv
 
 The following example creates a Red Hat Enterprise Linux VM using user name and password pair for the authentication. If desired, you can use TLS/SSL authentication instead.
 
+### [JBOSS EAP 7.4](#tab/jboss-eap-7.4)
+
 ```azurecli
 az vm create \
     --resource-group abc1110rg \
@@ -209,8 +212,24 @@ az vm create \
     --vnet-name myVnet \
     --subnet mySubnet
 ```
+### [JBOSS EAP 8](#tab/jboss-eap-8)
 
-#### Install OpenJDK 11 and Red Hat JBoss EAP 7.4
+```azurecli
+az vm create \
+    --resource-group abc1110rg \
+    --name adminVM \
+    --image RedHat:rhel-raw:94_gen2:latest \
+    --size Standard_DS1_v2  \
+    --admin-username azureuser \
+    --admin-password Secret123456 \
+    --public-ip-sku Standard \
+    --nsg mynsg \
+    --vnet-name myVnet \
+    --subnet mySubnet
+```
+
+
+#### Install OpenJDK Red Hat JBoss EAP
 
 Use the following steps to install:
 
@@ -312,21 +331,22 @@ Use the following steps to install:
 
    > [!NOTE]
    > This command is ignored if you're using [Simple Content Access](https://access.redhat.com/articles/4903191) mode.
-   
-1. Use the following command to install OpenJDK 11:
 
-   ```bash
-   sudo yum install java-11-openjdk -y
-   ```
+1. Use the following commands to install Red Hat JBoss EAP :
 
-   You should see many lines of output, ending with `Complete!`
-
-1. Use the following commands to install Red Hat JBoss EAP 7.4:
+   ### [JBOSS EAP 7.4](#tab/jboss-eap-7.4)
 
    ```bash
    sudo subscription-manager repos --enable=jb-eap-7.4-for-rhel-8-x86_64-rpms
    sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
    sudo yum groupinstall -y jboss-eap7
+   ```
+   ### [JBOSS EAP 8](#tab/jboss-eap-8)
+
+   ```bash
+   sudo subscription-manager repos --enable=jb-eap-8.0-for-rhel-9-x86_64-rpms
+   sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
+   sudo yum groupinstall -y jboss-eap8
    ```
 
    For the second and third commands, you should see many lines of output, ending with `Complete!`
