@@ -32,36 +32,29 @@ conceptualContent:
   summary: Learn to develop .NET apps leveraging a variety of Azure services.
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
-    - title: Create web apps
+    - title: Create AI apps
       links:
         - itemType: overview
-          text: App Service overview
-          url: /azure/app-service/overview
-    - title: Create intelligent apps with AI
-      links:
-        - itemType: overview
-          url: ../ai/get-started/dotnet-ai-overview.md
-          text: AI for .NET overview
-    - title: Work with storage & data
-      links:
-        - itemType: concept
-          text: Choose the right data storage option
-          url: /azure/architecture/guide/technology-choices/data-store-overview
-    - title: Authentication and security
-      links:
-        - itemType: overview
-          text: Microsoft identity platform (Azure AD) overview
-          url: /azure/active-directory/develop/
-    - title: Messaging on Azure
-      links:
-        - itemType: overview
-          text: Storing messages with Azure queues
-          url: /azure/storage/queues/storage-queues-introduction
-    - title: Diagnostics and monitoring
-      links:
+          text: Develop AI apps with JavaScript
+          url: /ai/azure-ai-for-javascript-developers.md
         - itemType: quickstart
-          text: "Azure Monitor Application Insights quickstart"
-          url: /azure/azure-monitor/app/dotnet-quickstart
+          url: /ai/get-started-app-chat-template.md
+          text: Get started with Enterprise chat
+        - itemType: quickstart
+          text: Use RAG with LangChain.js
+          url: /ai/get-started-app-chat-template-langchainjs.md
+        - itemType: quickstart
+          text: Use RAG with with LlamaIndex
+          url: /ai/get-started-app-chat-template-llamaindex.md
+        - itemType: quickstart
+          text: Evaluate your chat app
+          url: /ai/get-started-app-chat-evaluations.md
+        - itemType: quickstart
+          text: "Scale with Azure Container Apps"
+          url: /ai/get-started-app-chat-scaling-with-azure-container-apps.md
+        - itemType: quickstart
+          text: "Scale with Azure API Management"
+          url: /ai/get-started-app-chat-scaling-with-azure-api-management.md
 
 additionalContent:
   sections:
