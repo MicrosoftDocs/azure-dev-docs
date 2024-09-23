@@ -4,7 +4,7 @@ description: This topic provides an overview of recommended strategies for migra
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.date: 09/20/2024
+ms.date: 09/30/2024
 ms.custom: devx-track-java, devx-track-javaee, migration-java, devx-track-extended-java
 recommendations: false
 ---

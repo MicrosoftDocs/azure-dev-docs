@@ -69,6 +69,4 @@ This article assumes that you completed one of the following articles using only
 
 ## Next steps
 
-For more information and other deployment options, see the following articles:
-
-- [Quickstart: Deploy your first application to Azure Spring Apps](/azure/spring-apps/enterprise/quickstart?tabs=Azure-portal%2CAzure-portal-maven-plugin-ent%2CConsumption-workload&pivots=sc-enterprise)
+For more information and other deployment options, see [Quickstart: Deploy your first application to Azure Spring Apps](/azure/spring-apps/enterprise/quickstart?tabs=Azure-portal%2CAzure-portal-maven-plugin-ent%2CConsumption-workload&pivots=sc-enterprise).

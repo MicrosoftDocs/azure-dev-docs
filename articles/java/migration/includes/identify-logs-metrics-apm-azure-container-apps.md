@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: karler
-ms.date: 4/15/2020
+ms.date: 9/30/2024
 ---
 
 #### Identify log aggregation solutions

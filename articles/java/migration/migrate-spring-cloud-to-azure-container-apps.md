@@ -4,7 +4,7 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.date: 02/09/2022
+ms.date: 09/30/2024
 ms.custom: devx-track-java, migration-java, devx-track-extended-java
 recommendations: false
 ---
@@ -34,7 +34,7 @@ If you can't meet any of these pre-migration requirements, see the following com
 
 [!INCLUDE [identify-spring-boot-versions](includes/identify-spring-boot-versions.md)]
 
-For any applications using Spring Boot versions prior to 3.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) or [Spring Boot 3.0 Migration Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide) to update them to a supported Spring Boot version. For supported versions, see the [Spring Boot and Spring Cloud versions](https://spring.io/projects/spring-cloud#overview).
+For any applications using Spring Boot versions prior to 3.x, follow the [Spring Boot 2.0 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide) or [Spring Boot 3.0 Migration Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide) to update them to a supported Spring Boot version. For supported versions, see the [Spring Cloud](https://spring.io/projects/spring-cloud#overview) documentation.
 
 #### Identify Spring Cloud versions
 
@@ -60,7 +60,7 @@ ext {
 }
 ```
 
-You need to update all applications to use supported versions of Spring Cloud. For supported versions, see the [Spring Boot and Spring Cloud versions](https://spring.io/projects/spring-cloud#overview).
+You need to update all applications to use supported versions of Spring Cloud. For supported versions, see the [Spring Cloud](https://spring.io/projects/spring-cloud#overview) documentation.
 
 [!INCLUDE [identify-logs-metrics-apm-azure-container-apps.md](includes/identify-logs-metrics-apm-azure-container-apps.md)]
 
@@ -119,7 +119,9 @@ It isn't feasible for this guide to document every possible external dependency.
 
 ### Remove restricted configurations
 
-Azure Container Apps environment offers managed Eureka Server, Config Server, and Admin. When an application is bound to the Java component, Azure Container App injects related properties as system environment variables. According to the [Spring Boot Externalized Configuration](https://docs.spring.io/spring-boot/reference/features/external-config.html) design, application properties defined in your code or packaged in artifacts are overwritten by system environment variables. If you set a property via command-line argument, a Java system property, or container's environment variable, you must remove those properties to avoid conflicts and unexpected behavior. 
+The Azure Container Apps environment offers managed Eureka Server, Config Server, and Admin. When an application is bound to the Java component, Azure Container Apps injects related properties as system environment variables. According to the [Spring Boot Externalized Configuration](https://docs.spring.io/spring-boot/reference/features/external-config.html) design, application properties defined in your code or packaged in artifacts are overwritten by system environment variables.
+
+If you set one of the following properties via command-line argument, a Java system property, or container's environment variable, you must remove it to avoid conflicts and unexpected behavior:
 
 * `SPRING_CLOUD_CONFIG_COMPONENT_URI`
 * `SPRING_CLOUD_CONFIG_URI`
@@ -133,7 +135,7 @@ Azure Container Apps environment offers managed Eureka Server, Config Server, an
 
 ### Create an Azure Container Apps managed environment and apps
 
-Provision an Azure Container Apps app in your Azure subscription on an existing managed environment or create a new for every service you are migrating. You don't need to create app running as Spring Cloud registry and Configuration servers. For instructions, see [Quickstart: Deploy your first container app using the Azure portal](/azure/container-apps/quickstart-portal).
+Provision an Azure Container Apps app in your Azure subscription on an existing managed environment or create a new one for every service you're migrating. You don't need to create apps running as Spring Cloud registry and Configuration servers. For more information, see [Quickstart: Deploy your first container app using the Azure portal](/azure/container-apps/quickstart-portal).
 
 ### Prepare the Spring Cloud Config server
 
@@ -151,23 +153,23 @@ Configure the Config server in your Azure Container Apps for Spring component. F
 You can inject secrets directly into applications through Spring by using the Azure KeyVault Spring Boot Starter. For more information, see [How to use the Spring Boot Starter for Azure Key Vault](../spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault.md).
 
 > [!NOTE]
-> Migration may require you to rename some secrets. Update your application code accordingly.
+> Migration might require you to rename some secrets. Update your application code accordingly.
 
 [!INCLUDE [migrate-all-certificates-to-keyvault-azure-container-apps](includes/migrate-all-certificates-to-keyvault-azure-container-apps.md)]
 
 ### Configure application performance management (APM) integrations
 
-Whether your app is deployed from a container image or from code, Azure Container Apps doesn't not interfere with your image or code. Therefore, integrating your application with an APM tool depends on your own preferences and implementation.
+Whether your app is deployed from a container image or from code, Azure Container Apps doesn't interfere with your image or code. Therefore, integrating your application with an APM tool depends on your own preferences and implementation.
 
-If your application isn't using a supported APM, Azure Application Insights is one option. For instructions, refer to [Using Azure Monitor Application Insights with Spring Boot](/azure/azure-monitor/app/java-spring-boot).
+If your application isn't using a supported APM, Azure Application Insights is one option. For more information, see [Using Azure Monitor Application Insights with Spring Boot](/azure/azure-monitor/app/java-spring-boot).
 
 ### Configure per-service secrets and externalized settings
 
-You can inject configuration settings into each container as environment variables. Any changes in the variables will create a new revision for the existing app. Secrets are key-value paries and remain valid across all revisions.
+You can inject configuration settings into each container as environment variables. Any changes in the variables create a new revision for the existing app. Secrets are key-value pairs and remain valid across all revisions.
 
 ### Migrate and enable the identity provider
 
-If any of the Spring Cloud applications require authentication or authorization, ensure they're configured to access the identity provider:
+If any of the Spring Cloud applications require authentication or authorization, use the following guidelines to ensure that they're configured to access the identity provider:
 
 * If the identity provider is Microsoft Entra ID, no changes should be necessary.
 * If the identity provider is an on-premises Active Directory forest, consider implementing a hybrid identity solution with Microsoft Entra ID. For guidance, see the [Hybrid identity documentation](/azure/active-directory/hybrid/).
@@ -181,13 +183,13 @@ Update the configuration of all client applications to use the published Azure C
 
 [!INCLUDE [post-migration-spring-boot-azure-container-apps](includes/post-migration-spring-boot-azure-container-apps.md)]
 
-* If your applications use legacy Spring Cloud Netflix components, consider replacing them with current alternatives:
+* If your applications use legacy Spring Cloud Netflix components, consider replacing them with current alternatives, as shown in the following table:
 
-   | Legacy                        | Current                                                |
-   |-------------------------------|--------------------------------------------------------|
-   | Spring Cloud Eureka           | Spring Cloud Service Registry                          |
-   | Spring Cloud Netflix Zuul     | Spring Cloud Gateway                                   |
-   | Spring Cloud Netflix Archaius | Spring Cloud Config Server                             |
-   | Spring Cloud Netflix Ribbon   | Spring Cloud Load Balancer (client-side load balancer) |
-   | Spring Cloud Hystrix          | Spring Cloud Circuit Breaker + Resilience4J            |
-   | Spring Cloud Netflix Turbine  | Micrometer + Prometheus                                |
+  | Legacy                        | Current                                                |
+  |-------------------------------|--------------------------------------------------------|
+  | Spring Cloud Eureka           | Spring Cloud Service Registry                          |
+  | Spring Cloud Netflix Zuul     | Spring Cloud Gateway                                   |
+  | Spring Cloud Netflix Archaius | Spring Cloud Config Server                             |
+  | Spring Cloud Netflix Ribbon   | Spring Cloud Load Balancer (client-side load balancer) |
+  | Spring Cloud Hystrix          | Spring Cloud Circuit Breaker + Resilience4J            |
+  | Spring Cloud Netflix Turbine  | Micrometer + Prometheus                                |
