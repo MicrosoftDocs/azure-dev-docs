@@ -80,12 +80,14 @@ az login
 
 ### Create a resource group
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create). Resource group names must be globally unique within a subscription. For this reason, consider prepending some unique identifier to any names you create that must be unique. A useful technique is to use your initials followed by today's date in `mmdd` format. This example creates a resource group named `abc1110rg` in the `westus` location:
+Create a resource group with [az group create](/cli/azure/group#az-group-create). Resource group names must be globally unique within a subscription. For this reason, consider prepending some unique identifier to any names you create that must be unique. A useful technique is to use your initials followed by today's date in `mmdd` format. This example creates a resource group named `$RESOURCE_GROUP_NAME` in the `westus` location:
 
 ```azurecli
-export RESOURCE_GROUP_NAME=abc1110rg
+export SUFFIX=$(date +%s)
+export RESOURCE_GROUP_NAME=rg-$SUFFIX
+echo "Resource group name: $RESOURCE_GROUP_NAME"
 az group create \
-    --name abc1110rg \
+    --name $RESOURCE_GROUP_NAME \
     --location westus
 ```
 
@@ -99,7 +101,7 @@ First, create a virtual network by using [az network vnet create](/cli/azure/net
 
 ```azurecli
 az network vnet create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name myVNet \
     --address-prefixes 192.168.0.0/24
 ```
@@ -108,7 +110,7 @@ Create a subnet for the Red Hat JBoss EAP cluster by using [az network vnet subn
 
 ```azurecli
 az network vnet subnet create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name mySubnet \
     --vnet-name myVNet \
     --address-prefixes 192.168.0.0/25
@@ -118,7 +120,7 @@ Create a subnet for Application Gateway by using [az network vnet subnet create]
 
 ```azurecli
 az network vnet subnet create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name jbossVMGatewaySubnet \
     --vnet-name myVNet \
     --address-prefixes 192.168.0.128/25
@@ -132,7 +134,7 @@ Create a network security group by using [az network nsg create](/cli/azure/netw
 
 ```azurecli
 az network nsg create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name mynsg
 ```
 
@@ -140,7 +142,7 @@ Create network security group rules by using [az network nsg rule create](/cli/a
 
 ```azurecli
 az network nsg rule create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --nsg-name mynsg \
     --name ALLOW_APPGW \
     --protocol Tcp \
@@ -152,7 +154,7 @@ az network nsg rule create \
     --direction Inbound
 
 az network nsg rule create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --nsg-name mynsg \
     --name ALLOW_HTTP_ACCESS \
     --protocol Tcp \
@@ -168,13 +170,13 @@ Associate the subnets created previously to this network security group by using
 
 ```azurecli
 az network vnet subnet update \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --vnet-name myVNet \
     --name mySubnet \
     --network-security-group mynsg
 
 az network vnet subnet update \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --vnet-name myVNet \
     --name jbossVMGatewaySubnet \
     --network-security-group mynsg
@@ -201,7 +203,7 @@ The following example creates a Red Hat Enterprise Linux VM using user name and 
 
 ```azurecli
 az vm create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name adminVM \
     --image RedHat:rhel-raw:86-gen2:latest \
     --size Standard_DS1_v2  \
@@ -216,7 +218,7 @@ az vm create \
 
 ```azurecli
 az vm create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name adminVM \
     --image RedHat:rhel-raw:94_gen2:latest \
     --size Standard_DS1_v2  \
@@ -230,7 +232,7 @@ az vm create \
 
 ---
 
-#### Install OpenJDK Red Hat JBoss EAP
+#### Install Red Hat JBoss EAP
 
 Use the following steps to install:
 
@@ -238,7 +240,7 @@ Use the following steps to install:
 
    ```azurecli
    export ADMIN_VM_PUBLIC_IP=$(az vm show \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name adminVM \
        --show-details \
        --query publicIps | tr -d '"')
@@ -394,26 +396,26 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 1. Use the following command to stop `adminVM`:
 
    ```azurecli
-   az vm stop --resource-group abc1110rg --name adminVM
+   az vm stop --resource-group $RESOURCE_GROUP_NAME --name adminVM
    ```
 
 1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` OS disk, as shown in the following example:
 
    ```azurecli
    export ADMIN_OS_DISK_ID=$(az vm show \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name adminVM \
        --query storageProfile.osDisk.managedDisk.id \
        --output tsv)
    az snapshot create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name myAdminOSDiskSnapshot \
        --source ${ADMIN_OS_DISK_ID}
    ```
 1. Use the following command to start `adminVM`:
 
    ```azurecli
-   az vm start --resource-group abc1110rg --name adminVM
+   az vm start --resource-group $RESOURCE_GROUP_NAME --name adminVM
 
 1. Use the following steps to create `mspVM1`:
 
@@ -423,14 +425,14 @@ This section introduces an approach to prepare machines with the snapshot of `ad
       #Get the snapshot ID
       export SNAPSHOT_ID=$(az snapshot show \
           --name myAdminOSDiskSnapshot \
-          --resource-group abc1110rg \
+          --resource-group $RESOURCE_GROUP_NAME \
           --query '[id]' \
           --output tsv)
 
       #Create a new Managed Disks using the snapshot Id
       #Note that managed disk is created in the same location as the snapshot
       az disk create \
-          --resource-group abc1110rg \
+          --resource-group $RESOURCE_GROUP_NAME \
           --name mspVM1_OsDisk_1 \
           --source ${SNAPSHOT_ID}
       ```
@@ -441,13 +443,13 @@ This section introduces an approach to prepare machines with the snapshot of `ad
       #Get the resource Id of the managed disk
       export MSPVM1_DISK_ID=$(az disk show \
           --name mspVM1_OsDisk_1 \
-          --resource-group abc1110rg \
+          --resource-group $RESOURCE_GROUP_NAME \
           --query '[id]' \
           --output tsv)
 
       #Create VM by attaching existing managed disks as OS
       az vm create \
-          --resource-group abc1110rg \
+          --resource-group $RESOURCE_GROUP_NAME \
           --name mspVM1 \
           --attach-os-disk ${MSPVM1_DISK_ID} \
           --os-type linux \
@@ -461,7 +463,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
       ```azurecli
       az vm run-command invoke \
-          --resource-group abc1110rg \
+          --resource-group $RESOURCE_GROUP_NAME \
           --name mspVM1 \
           --command-id RunShellScript \
           --scripts "sudo hostnamectl set-hostname mspVM1"
@@ -488,20 +490,20 @@ This section introduces an approach to prepare machines with the snapshot of `ad
    ```azurecli
    #Create a new Managed Disks for mspVM2
    az disk create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2_OsDisk_1 \
        --source ${SNAPSHOT_ID}
 
    #Get the resource Id of the managed disk
    export MSPVM2_DISK_ID=$(az disk show \
        --name mspVM2_OsDisk_1 \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --query '[id]' \
        --output tsv)
 
    #Create VM by attaching existing managed disks as OS
    az vm create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2 \
        --attach-os-disk ${MSPVM2_DISK_ID} \
        --os-type linux \
@@ -512,7 +514,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
    #Set hostname
    az vm run-command invoke \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2 \
        --command-id RunShellScript \
        --scripts "sudo hostnamectl set-hostname mspVM2"
@@ -534,13 +536,13 @@ Use the following commands to create a storage account and Blob container:
 
 ```azurecli
 # Define your storage account name
-export STORAGE_ACCOUNT_NAME=azurepingstgabc1110rg
+export STORAGE_ACCOUNT_NAME=azurepingstgabc1111rg
 # Define your Blob container name
-export CONTAINER_NAME=azurepingcontainerabc1110rg
+export CONTAINER_NAME=azurepingcontainerabc1111rg
 
 # Create storage account
 az storage account create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name ${STORAGE_ACCOUNT_NAME} \
     --location westus \
     --sku Standard_LRS \
@@ -552,7 +554,7 @@ Then, retrieve the storage account key for later use by using the following comm
 
 ```azurecli
 export STORAGE_ACCESS_KEY=$(az storage account keys list \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --account-name ${STORAGE_ACCOUNT_NAME} \
     --query "[0].value" \
     --output tsv)
@@ -589,8 +591,8 @@ First, use the following commands to configure the HA profile and JGroups using 
 
 ```bash
 export HOST_VM_IP=$(hostname -I)
-export STORAGE_ACCOUNT_NAME=azurepingstgabc1110rg
-export CONTAINER_NAME=azurepingcontainerabc1110rg
+export STORAGE_ACCOUNT_NAME=azurepingstgabc1111rg
+export CONTAINER_NAME=azurepingcontainerabc1111rg
 export STORAGE_ACCESS_KEY=<the-value-from-before-you-connected-with-SSH>
 
 
@@ -702,8 +704,8 @@ Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exi
 
 ```bash
 export HOST_VM_IP=$(hostname -I)
-export STORAGE_ACCOUNT_NAME=azurepingstgabc1110rg
-export CONTAINER_NAME=azurepingcontainerabc1110rg
+export STORAGE_ACCOUNT_NAME=azurepingstgabc1111rg
+export CONTAINER_NAME=azurepingcontainerabc1111rg
 export STORAGE_ACCESS_KEY=<the-value-from-before-you-connected-with-SSH>
 
 
@@ -827,7 +829,7 @@ Use SSH to connect to `mspVM1` as the `azureuser` user. Get the public IP addres
 
 ```bash
 MSPVM_PUBLIC_IP=$(az vm show \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name mspVM1 \
     --show-details \
     --query publicIps | tr -d '"' )
@@ -1015,7 +1017,7 @@ Use SSH to connect to `mspVM2` as the `azureuser` user. Get the public IP addres
 
 ```bash
 az vm show \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name mspVM2 \
     --show-details \
     --query publicIps | tr -d '"'
@@ -1037,7 +1039,7 @@ To expose Red Hat JBoss EAP to the internet, a public IP address is required. Cr
 
 ```azurecli
 az network public-ip create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name myAGPublicIPAddress \
     --allocation-method Static \
     --sku Standard
@@ -1047,7 +1049,7 @@ Next, add the backend servers to Application Gateway backend pool. Query for bac
 
 ```azurecli
 export MSPVM1_NIC_ID=$(az vm show \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name mspVM1 \
     --query networkProfile.networkInterfaces'[0]'.id \
     --output tsv)
@@ -1056,7 +1058,7 @@ export MSPVM1_IP=$(az network nic show \
     --query ipConfigurations'[0]'.privateIPAddress \
     --output tsv)
 export MSPVM2_NIC_ID=$(az vm show \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name mspVM2 \
     --query networkProfile.networkInterfaces'[0]'.id \
     --output tsv)
@@ -1070,7 +1072,7 @@ Next, create an Azure Application Gateway. The following example creates an appl
 
 ```azurecli
 az network application-gateway create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name myAppGateway \
     --public-ip-address myAGPublicIPAddress \
     --location westus \
@@ -1107,7 +1109,7 @@ Use the following steps to create the database instance:
    DB_SERVER_NAME="jbossdb$(date +%s)"
    echo "DB_SERVER_NAME=${DB_SERVER_NAME}"
    az postgres flexible-server create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name ${DB_SERVER_NAME}  \
        --location westus \
        --admin-user ${DATA_BASE_USER} \
@@ -1124,18 +1126,18 @@ Use the following steps to create the database instance:
    ```azurecli
    # Save aside the following names for later use
    export fullyQualifiedDomainName=$(az postgres flexible-server show \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name ${DB_SERVER_NAME} \
        --query "fullyQualifiedDomainName" \
        --output tsv)
    export name=$(az postgres flexible-server show \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name ${DB_SERVER_NAME} \
        --query "name" \
        --output tsv)
 
    az postgres flexible-server firewall-rule create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name ${DB_SERVER_NAME} \
        --rule-name "AllowAllWindowsAzureIps" \
        --start-ip-address "0.0.0.0" \
@@ -1146,7 +1148,7 @@ Use the following steps to create the database instance:
 
    ```azurecli
    az postgres flexible-server db create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --server-name ${DB_SERVER_NAME} \
        --database-name testdb
    ```
@@ -1263,7 +1265,7 @@ You configured the JBoss EAP cluster and deployed the application to it. Use the
 
    ```bash
    az network public-ip show \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name myAGPublicIPAddress \
        --query '[ipAddress]' \
        --output tsv
@@ -1282,28 +1284,28 @@ Use the following commands to unregister the Red Hat JBoss EAP servers and VMs f
 ```azurecli
 # Unregister domain controller
 az vm run-command invoke \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name adminVM \
     --command-id RunShellScript \
     --scripts "sudo subscription-manager unregister"
 
 # Unregister host controllers
 az vm run-command invoke \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name mspVM1 \
     --command-id RunShellScript \
     --scripts "sudo subscription-manager unregister"
 az vm run-command invoke \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name mspVM2 \
     --command-id RunShellScript \
     --scripts "sudo subscription-manager unregister"
 ```
 
-Use the following command to delete the resource group `abc1110rg`:
+Use the following command to delete the resource group `$RESOURCE_GROUP_NAME`:
 
 ```azurecli
-az group delete --name abc1110rg --yes --no-wait
+az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
 ## Next steps
