@@ -128,16 +128,16 @@ Create a VM using [az vm create](/cli/azure/vm). You run the Administration Serv
 
 The following example creates Oracle Linux VMs using an SSH key pair for the authentication. If desired, you can use password authentication instead.
 
-If you don't have an SSH key pair, you can generate it using:
+If you don't have an SSH key pair, you can generate it by using the following command:
 
 ```bash
 ssh-keygen -t rsa -b 2048 -f ~/.ssh/wls-vm-key
 ```
 
-This will create two files:
+This command creates the following files:
 
-- `~/.ssh/wls-vm-key`: The private key.
-- `~/.ssh/wls-vm-key.pub`: The public key.
+- *~/.ssh/wls-vm-key*: The private key.
+- *~/.ssh/wls-vm-key.pub*: The public key.
 
 
 ```azurecli
@@ -157,19 +157,18 @@ az vm create \
 
 > [!NOTE]
 > The use of username and password credentials to grant access to a VM is discouraged. If your particular usage requirements suggest credential based access is the best approach, you can create the VM with username and password:
->
 > ```azurecli
 > export VM_URN=Oracle:weblogic-141100-jdk11-ol91:owls-141100-jdk11-ol91:latest
 > az vm create \
->   --resource-group ${RESOURCE_GROUP_NAME} \
->   --name adminVM \
->   --availability-set myAvailabilitySet \
->   --image ${VM_URN} \
->   --size Standard_DS1_v2 \
->   --admin-username azureuser \
->   --admin-password <your-password> \
->   --public-ip-address "" \
->   --nsg ""
+>     --resource-group ${RESOURCE_GROUP_NAME} \
+>     --name adminVM \
+>     --availability-set myAvailabilitySet \
+>     --image ${VM_URN} \
+>     --size Standard_DS1_v2 \
+>     --admin-username azureuser \
+>     --admin-password <your-password> \
+>     --public-ip-address "" \
+>     --nsg ""
 > ```
 
 ### Create a Windows VM and set up X-server
@@ -180,7 +179,7 @@ Follow these steps to provision a Windows 10 machine and install an X-server. If
 
 [!INCLUDE [create-windows-vm-and-set-up-xserver](includes/create-windows-vm-and-set-up-xserver.md)]
 
-3. Copy the SSH key `~/.ssh/wls-vm-key` to the Windows VM and save it to `C:\Users\azureuser\.ssh`.
+3. Copy the SSH key *~/.ssh/wls-vm-key* to the Windows VM and save it to *C:\Users\azureuser\.ssh*.
 
 ### Create Oracle Linux machines for managed servers
 
