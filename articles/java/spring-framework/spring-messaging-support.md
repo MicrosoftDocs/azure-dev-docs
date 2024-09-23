@@ -337,6 +337,20 @@ Use the following steps to receive messages:
    }
    ```
 
+#### Support customize Service Bus Client Properties
+
+Developers can use `AzureServiceClientBuilderCustomizer` to customize Service Bus Client properties.
+For example, customize the `customEndpointAddress` property of `ServiceBusClientBuilder`.
+
+```java
+public class ClientBuilderCustomizer implements AzureServiceClientBuilderCustomizer<ServiceBusClientBuilder> {
+    @Override
+    public void customize(ServiceBusClientBuilder serviceBusClientBuilder) {
+        serviceBusClientBuilder.customEndpointAddress("mycustom.endpoint");
+    }
+}
+```
+
 ### Samples
 
 For more information, see the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-messaging-azure-servicebus/servicebus-spring-messaging) repository on GitHub.
