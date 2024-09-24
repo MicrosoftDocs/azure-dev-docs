@@ -123,8 +123,6 @@ The following table shows the Spring Boot Kafka common configuration options:
 > [!div class="mx-tdBreakAll"]
 > | Name                                                                                                         | Description                                                                                                                                                                                            |
 > |--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | spring.cloud.stream.kafka.binder.brokers                                                                     | Configure this to use Oauth authentication for Spring Cloud Stream binder Kafka application. The format of value should be `<NAMESPACENAME>.servicebus.windows.net:9093`.                             |
-> | spring.kafka.bootstrap-servers                                                                               | Configure this to use Oauth authentication for Spring Kafka application. The format of value should be `<NAMESPACENAME>.servicebus.windows.net:9093`.                                              |
 > | spring.kafka.properties.azure.credential.client-certificate-password                                         | Password of the certificate file.                                                                                                                                                                      |
 > | spring.kafka.properties.azure.credential.client-certificate-path                                             | Path of a PEM certificate file to use when performing service principal authentication with Azure.                                                                                                     |
 > | spring.kafka.properties.azure.credential.client-id                                                           | Client ID to use when performing service principal authentication with Azure. This is a legacy property.                                                                                               |
@@ -264,7 +262,7 @@ spring.cloud.stream.kafka.binder.brokers=<NAMESPACENAME>.servicebus.windows.net:
    ```
 
    > [!IMPORTANT]
-   > If you are using user-assigned MI, also need to add property `spring.cloud.azure.credential.client-id` with your user-assigned MI client id.
+   > If you are using user-assigned managed identity, also need to add property `spring.cloud.azure.credential.client-id` with your user-assigned managed identity client id.
 
 ##### Samples
 

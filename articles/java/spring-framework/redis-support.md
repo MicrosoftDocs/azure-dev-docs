@@ -165,7 +165,7 @@ The following sections show the classic Spring Boot application usage scenarios.
 
    > [!IMPORTANT]
    > The `redis.username` should change to the managed identity object (principal) ID.
-   > If you are using user-assigned MI, also need to add property `spring.cloud.azure.credential.client-id` with your user-assigned MI client id.
+   > If you are using user-assigned managed identity, also need to add property `spring.cloud.azure.credential.client-id` with your user-assigned managed identity client id.
 
 ### Connect to Azure Cache for Redis via Azure Resource Manager
 
