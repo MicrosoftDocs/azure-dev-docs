@@ -28,7 +28,7 @@ highlightedContent:
       url: /javascript/api/overview/azure/?view=azure-node-latest.md
 
 conceptualContent:
-  title: Featured content
+  title: I would like to...
   summary: Learn to develop JavaScript apps using various Azure services.
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
@@ -72,7 +72,7 @@ conceptualContent:
         - itemType: quickstart
           text: "Scale with Azure API Management"
           url: ./ai/get-started-app-chat-scaling-with-azure-api-management.md
-    - title: Work with storage & data
+    - title: Add storage & data
       links:
         - itemType: concept
           text: Get started with Azure Blob Storage
@@ -96,7 +96,7 @@ conceptualContent:
           text: Azure SQL Database with mssql
           url: /azure/azure-sql/database/azure-sql-javascript-mssql-quickstart
 # --------------------------------------------------------------
-    - title: Authentication and security
+    - title: Secure my app
       links:
         - itemType: concept
           text: Authenticate JavaScript apps to Azure
@@ -108,7 +108,7 @@ conceptualContent:
           text: Service principals
           url: ./sdk/authentication/local-development-environment-service-principal.md
 
-    - title: Diagnostics and monitoring
+    - title: Monitor and diagnose my app
       links:
         - itemType: concept
           text: Monitor your Node.js services and apps with Application Insights
