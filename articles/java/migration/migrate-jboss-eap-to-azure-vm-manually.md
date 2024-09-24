@@ -730,10 +730,10 @@ sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
 '/profile=ha/subsystem=jgroups/channel=ee:write-attribute(name="stack", value="tcp")',\
 '/server-group=main-server-group:write-attribute(name="profile", value="ha")',\
 '/server-group=main-server-group:write-attribute(name="socket-binding-group", value="ha-sockets")',\
-"/host=main/subsystem=elytron/http-authentication-factory=management-http-authentication:write-attribute(name=mechanism-configurations,value=[{mechanism-name=DIGEST,mechanism-realm-configurations=[{realm-name=ManagementRealm}]}])",\
-"/host=main/interface=unsecure:add(inet-address=${HOST_VM_IP})",\
-"/host=main/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
-"/host=main/interface=public:add(inet-address=${HOST_VM_IP})"
+"/host=primary/subsystem=elytron/http-authentication-factory=management-http-authentication:write-attribute(name=mechanism-configurations,value=[{mechanism-name=DIGEST,mechanism-realm-configurations=[{realm-name=ManagementRealm}]}])",\
+"/host=primary/interface=unsecure:add(inet-address=${HOST_VM_IP})",\
+"/host=primary/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
+"/host=primary/interface=public:add(inet-address=${HOST_VM_IP})"
 
 # Save a copy of the domain.xml, later you need to share it with all host controllers
 cp $EAP_HOME/wildfly/domain/configuration/domain.xml /tmp/domain.xml
