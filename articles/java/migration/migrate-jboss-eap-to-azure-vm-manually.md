@@ -416,6 +416,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
    ```azurecli
    az vm start --resource-group $RESOURCE_GROUP_NAME --name adminVM
+   ```
 
 1. Use the following steps to create `mspVM1`:
 
