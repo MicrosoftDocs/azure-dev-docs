@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: edburns
-ms.date: 1/21/2020
+ms.date: 09/09/2024
 ---
 
 ### Inventory JNDI resources

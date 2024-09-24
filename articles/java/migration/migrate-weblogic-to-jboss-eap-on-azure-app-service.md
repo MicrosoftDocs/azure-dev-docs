@@ -4,7 +4,7 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 09/09/2024
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-appsvc, migration-java, linux-related-content
 ---
 
@@ -191,7 +191,7 @@ You'll then need to bind the TLS/SSL certificate for that domain to your App Ser
 
 ### Migrate data sources, libraries, and JNDI resources
 
-To migrate data sources, follow the steps in the [Configure data sources](/azure/app-service/containers/configure-language-java#configure-data-sources) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
+To migrate data sources, follow the steps in the [Configure data sources](/azure/app-service/configure-language-java-data-sources) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
 
 Migrate any additional server-level classpath dependencies by following the instructions in the [JBoss EAP](/azure/app-service/containers/configure-language-java#jboss-eap-1) section of [Configure a Java app for Azure App Service](/azure/app-service/containers/configure-language-java).
 
