@@ -28,127 +28,131 @@ highlightedContent:
       url: /javascript/api/overview/azure/?view=azure-node-latest.md
 
 conceptualContent:
-  title: I would like to...
-  summary: Learn to develop JavaScript apps using various Azure services.
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
-  items:
-    - title: JS Apps on Azure
-      links:
-        - itemType: quickstart
-          text: Deploy JS front-end framework
-          url: /azure/static-web-apps/deploy-web-framework
-        - itemType: tutorial
-          url: /azure/static-web-apps/add-api
-          text: Add an API to your front-end app
-        - itemType: tutorial
-          text: Microservices communication with Dapr
-          url: /azure/container-apps/microservices-dapr-pubsub
-        - itemType: quickstart
-          text: Monoliths on App Service
-          url: /azure/app-service/quickstart-nodejs
-        - itemType: quickstart
-          text: Serverless apps
-          url: /azure/azure-functions/create-first-function-azure-developer-cli
-    - title: Create AI apps
-      links:
-        - itemType: overview
-          text: Develop AI apps with JavaScript
-          url: ./ai/azure-ai-for-javascript-developers.md
-        - itemType: quickstart
-          url: ./ai/get-started-app-chat-template.md
-          text: Get started with Enterprise chat
-        - itemType: quickstart
-          text: Use RAG with LangChain.js
-          url: ./ai/get-started-app-chat-template-langchainjs.md
-        - itemType: quickstart
-          text: Use RAG with LlamaIndex
-          url: ./ai/get-started-app-chat-template-llamaindex.md
-        - itemType: quickstart
-          text: Evaluate your chat app
-          url: ./ai/get-started-app-chat-evaluations.md
-        - itemType: quickstart
-          text: "Scale with Azure Container Apps"
-          url: ./ai/get-started-app-chat-scaling-with-azure-container-apps.md
-        - itemType: quickstart
-          text: "Scale with Azure API Management"
-          url: ./ai/get-started-app-chat-scaling-with-azure-api-management.md
-    - title: Add storage & data
-      links:
-        - itemType: concept
-          text: Get started with Azure Blob Storage
-          url: /azure/storage/blobs/storage-blob-javascript-get-started
-        - itemType: quickstart
-          text: Azure Cosmos DB for NoSQL 
-          url: /azure/cosmos-db/nosql/quickstart-nodejs
-        - itemType: tutorial
-          text: Azure Cosmos DB for MongoDB
-          url: /azure/cosmos-db/mongodb/vcore/tutorial-nodejs-web-app
-        - itemType: tutorial
-          text: Azure Cosmos DB for PostgreSQL
-          url: /azure/cosmos-db/postgresql/quickstart-app-stacks-nodejs
-        - itemType: tutorial
-          text: Azure Cosmos DB for Cassandra
-          url: /azure/cosmos-db/cassandra/manage-data-nodejs
-        - itemType: tutorial
-          text: Azure Cosmos DB for Gremlin
-          url: /azure/cosmos-db/gremlin/quickstart-nodejs
-        - itemType: tutorial
-          text: Azure SQL Database with mssql
-          url: /azure/azure-sql/database/azure-sql-javascript-mssql-quickstart
-# --------------------------------------------------------------
-    - title: Secure my app
-      links:
-        - itemType: concept
-          text: Authenticate JavaScript apps to Azure
-          url: ./sdk/authentication/overview.md
-        - itemType: tutorial
-          text: Developer accounts
-          url: ./sdk/authentication/local-development-environment-developer-account.md
-        - itemType: tutorial
-          text: Service principals
-          url: ./sdk/authentication/local-development-environment-service-principal.md
+  sections: 
+  - title: I would like to...
+    summary: Learn to develop JavaScript apps using various Azure services.
+  # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+    items:
+      - title: Create AI apps
+        links:
+          - itemType: overview
+            text: Develop AI apps with JavaScript
+            url: ./ai/azure-ai-for-javascript-developers.md
+          - itemType: quickstart
+            url: ./ai/get-started-app-chat-template.md
+            text: Get started with Enterprise chat
+          - itemType: quickstart
+            text: Use RAG with LangChain.js
+            url: ./ai/get-started-app-chat-template-langchainjs.md
+          - itemType: quickstart
+            text: Use RAG with LlamaIndex
+            url: ./ai/get-started-app-chat-template-llamaindex.md
+          - itemType: quickstart
+            text: Evaluate your chat app
+            url: ./ai/get-started-app-chat-evaluations.md
+          - itemType: quickstart
+            text: "Scale with Azure Container Apps"
+            url: ./ai/get-started-app-chat-scaling-with-azure-container-apps.md
+          - itemType: quickstart
+            text: "Scale with Azure API Management"
+            url: ./ai/get-started-app-chat-scaling-with-azure-api-management.md
+      - title: Add storage & data
+        links:
+          - itemType: concept
+            text: Get started with Azure Blob Storage
+            url: /azure/storage/blobs/storage-blob-javascript-get-started
+          - itemType: quickstart
+            text: Azure Cosmos DB for NoSQL 
+            url: /azure/cosmos-db/nosql/quickstart-nodejs
+          - itemType: tutorial
+            text: Azure Cosmos DB for MongoDB
+            url: /azure/cosmos-db/mongodb/vcore/tutorial-nodejs-web-app
+          - itemType: tutorial
+            text: Azure Cosmos DB for PostgreSQL
+            url: /azure/cosmos-db/postgresql/quickstart-app-stacks-nodejs
+          - itemType: tutorial
+            text: Azure Cosmos DB for Cassandra
+            url: /azure/cosmos-db/cassandra/manage-data-nodejs
+          - itemType: tutorial
+            text: Azure Cosmos DB for Gremlin
+            url: /azure/cosmos-db/gremlin/quickstart-nodejs
+          - itemType: tutorial
+            text: Azure SQL Database with mssql
+            url: /azure/azure-sql/database/azure-sql-javascript-mssql-quickstart
+  # --------------------------------------------------------------
+      - title: Secure my app
+        links:
+          - itemType: concept
+            text: Authenticate JavaScript apps to Azure
+            url: ./sdk/authentication/overview.md
+          - itemType: tutorial
+            text: Developer accounts
+            url: ./sdk/authentication/local-development-environment-developer-account.md
+          - itemType: tutorial
+            text: Service principals
+            url: ./sdk/authentication/local-development-environment-service-principal.md
 
-    - title: Monitor and diagnose my app
-      links:
-        - itemType: concept
-          text: Monitor your Node.js services and apps with Application Insights
-          url: /azure/azure-monitor/app/nodejs
-        - itemType: concept
-          text: Enable Azure Monitor Application Insights
-          url: /azure/azure-monitor/app/javascript-sdk
-        - itemType: concept
-          text: Enable a framework extension for Application Insights
-          url: /azure/azure-monitor/app/javascript-framework-extensions
-        - itemType: concept
-          text: Enable Click Analytics
-          url: /azure/azure-monitor/app/javascript-feature-extensions
-        - itemType: concept
-          text: Sampling in Application Insights
-          url: /azure/azure-monitor/app/sampling-classic-api
+      - title: Monitor and diagnose my app
+        links:
+          - itemType: concept
+            text: Monitor your Node.js services and apps with Application Insights
+            url: /azure/azure-monitor/app/nodejs
+          - itemType: concept
+            text: Enable Azure Monitor Application Insights
+            url: /azure/azure-monitor/app/javascript-sdk
+          - itemType: concept
+            text: Enable a framework extension for Application Insights
+            url: /azure/azure-monitor/app/javascript-framework-extensions
+          - itemType: concept
+            text: Enable Click Analytics
+            url: /azure/azure-monitor/app/javascript-feature-extensions
+          - itemType: concept
+            text: Sampling in Application Insights
+            url: /azure/azure-monitor/app/sampling-classic-api
 
-    - title: Developer guides
-      links:
-        - itemType: concept
-          text: GraphQL for Azure
-          url: ./graphql-developer-guide.md
-        - itemType: concept
-          url: ./ai/get-started-app-chat-template.md
-          text: Serverless on Azure
-        - itemType: concept
-          text: Storage
-          url: /azure/storage/blobs/storage-blob-javascript-get-started
-        - itemType: concept
-          text: Cosmos DB for NoSQL
-          url: /azure/cosmos-db/nosql/how-to-javascript-get-started
-        - itemType: concept
-          text: Cosmos DB for MongoDB
-          url: /azure/cosmos-db/mongodb/how-to-javascript-get-started
-        - itemType: concept
-          text: Key vault for secrets
-          url: /azure/key-vault/secrets/javascript-developer-guide-get-started
-        - itemType: concept
-          text: Key vault for keys
-          url: /azure/key-vault/keys/javascript-developer-guide-get-started
+  - title: Deep dive
+    summary: Learn more about specific Azure services and how to use them with JavaScript.
+    items:
+      - title: JS Apps on Azure
+        links:
+          - itemType: quickstart
+            text: Deploy JS front-end framework
+            url: /azure/static-web-apps/deploy-web-framework
+          - itemType: tutorial
+            url: /azure/static-web-apps/add-api
+            text: Add an API to your front-end app
+          - itemType: tutorial
+            text: Microservices communication with Dapr
+            url: /azure/container-apps/microservices-dapr-pubsub
+          - itemType: quickstart
+            text: Monoliths on App Service
+            url: /azure/app-service/quickstart-nodejs
+          - itemType: quickstart
+            text: Serverless apps
+            url: /azure/azure-functions/create-first-function-azure-developer-cli
+      - title: Developer guides
+        links:
+          - itemType: concept
+            text: GraphQL for Azure
+            url: ./graphql-developer-guide.md
+          - itemType: concept
+            url: ./ai/get-started-app-chat-template.md
+            text: Serverless on Azure
+          - itemType: concept
+            text: Storage
+            url: /azure/storage/blobs/storage-blob-javascript-get-started
+          - itemType: concept
+            text: Cosmos DB for NoSQL
+            url: /azure/cosmos-db/nosql/how-to-javascript-get-started
+          - itemType: concept
+            text: Cosmos DB for MongoDB
+            url: /azure/cosmos-db/mongodb/how-to-javascript-get-started
+          - itemType: concept
+            text: Key vault for secrets
+            url: /azure/key-vault/secrets/javascript-developer-guide-get-started
+          - itemType: concept
+            text: Key vault for keys
+            url: /azure/key-vault/keys/javascript-developer-guide-get-started
 # --------------------------------------------------------------
 additionalContent:
   sections:
