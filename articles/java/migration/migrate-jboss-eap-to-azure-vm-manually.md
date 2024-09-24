@@ -347,7 +347,7 @@ Use the following steps to install:
    ### [JBOSS EAP 8](#tab/jboss-eap-8)
 
    ```bash
-   sudo subscription-manager repos --enable=jb-eap-8.0-for-rhel-9-x86_64-rpms
+   sudo subscription-manager repos --enable=jb-eap-8.0-for-rhel-8-x86_64-rpms
    sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
    sudo yum groupinstall -y jboss-eap8
    ```
