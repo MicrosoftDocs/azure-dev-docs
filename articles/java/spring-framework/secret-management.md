@@ -115,7 +115,7 @@ If key exists in multiple PropertySources, which will take effect is decided by 
 
 * If there is no `SystemEnvironmentPropertySource` in PropertySource list, then `KeyVaultPropertySource` will take the highest priority.
 * If there is `SystemEnvironmentPropertySource` in PropertySource list, then `SystemEnvironmentPropertySource` have higher priority than KeyVaultPropertySource. Which means you can use environment variable to override the Key Vault secret value in your application.
-* If there are multiple KeyVaultPropertySource in PropertySource list, then the definition order is the priority order. Take above sample as example, `key-vault-property-source-1` has higher priority than `key-vault-property-source-2`.
+* If there are multiple key vault property sources in PropertySource list, then the definition order is the priority order. Take the above sample as example, `key-vault-property-source-1` has higher priority than `key-vault-property-source-2`.
 
 ### Configure token credential for Key Vault property source
 
