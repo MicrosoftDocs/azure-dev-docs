@@ -730,10 +730,10 @@ sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
 '/profile=ha/subsystem=jgroups/channel=ee:write-attribute(name="stack", value="tcp")',\
 '/server-group=main-server-group:write-attribute(name="profile", value="ha")',\
 '/server-group=main-server-group:write-attribute(name="socket-binding-group", value="ha-sockets")',\
-"/host=master/subsystem=elytron/http-authentication-factory=management-http-authentication:write-attribute(name=mechanism-configurations,value=[{mechanism-name=DIGEST,mechanism-realm-configurations=[{realm-name=ManagementRealm}]}])",\
-"/host=master/interface=unsecure:add(inet-address=${HOST_VM_IP})",\
-"/host=master/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
-"/host=master/interface=public:add(inet-address=${HOST_VM_IP})"
+"/host=main/subsystem=elytron/http-authentication-factory=management-http-authentication:write-attribute(name=mechanism-configurations,value=[{mechanism-name=DIGEST,mechanism-realm-configurations=[{realm-name=ManagementRealm}]}])",\
+"/host=main/interface=unsecure:add(inet-address=${HOST_VM_IP})",\
+"/host=main/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
+"/host=main/interface=public:add(inet-address=${HOST_VM_IP})"
 
 # Save a copy of the domain.xml, later you need to share it with all host controllers
 cp $EAP_HOME/wildfly/domain/configuration/domain.xml /tmp/domain.xml
@@ -795,20 +795,20 @@ The output should look similar to the following example:
 
 ```output
 ● eap8-domain.service - JBoss EAP (domain mode)
-   Loaded: loaded (/usr/lib/systemd/system/eap8-domain.service; enabled; vendor>
-   Active: active (running) since Thu 2024-09-23 02:11:44 UTC; 5s ago
- Main PID: 3855 (scl)
-    Tasks: 82 (limit: 20612)
-   Memory: 232.4M
-   CGroup: /system.slice/eap8-domain.service
-           ├─3855 /usr/bin/scl enable eap8 -- /opt/rh/eap8/root/usr/share/wildf>
-           ├─3856 /bin/bash /var/tmp/sclfYu7yW
-           ├─3858 /bin/sh /opt/rh/eap8/root/usr/share/wildfly/bin/launch.sh /us>
-           ├─3862 /bin/sh /opt/rh/eap8/root/usr/share/wildfly/bin/domain.sh --h>
-           ├─3955 /usr/lib/jvm/jre/bin/java -D[Process Controller] -server -Xms>
-           └─3967 /usr/lib/jvm/jre/bin/java -D[Host Controller] -Dorg.jboss.boo>
+     Loaded: loaded (/usr/lib/systemd/system/eap8-domain.service; enabled; pres>
+     Active: active (running) since Mon 2024-09-23 15:52:06 UTC; 42ms ago
+   Main PID: 2018 (scl)
+      Tasks: 5 (limit: 20044)
+     Memory: 1.9M
+        CPU: 15ms
+     CGroup: /system.slice/eap8-domain.service
+             ├─2018 /usr/bin/scl enable eap8 -- /opt/rh/eap8/root/usr/share/wil>
+             ├─2019 /bin/bash /var/tmp/sclTMatKT
+             ├─2022 /bin/sh /opt/rh/eap8/root/usr/share/wildfly/bin/launch.sh />
+             ├─2024 /bin/sh /opt/rh/eap8/root/usr/share/wildfly/bin/launch.sh />
+             └─2026 "[sed]"
 
-Sep 23 02:11:44 adminVM systemd[1]: Started JBoss EAP (domain mode).
+Sep 23 15:52:06 adminVM systemd[1]: Started JBoss EAP (domain mode).
 ```
 
 Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exit*.
