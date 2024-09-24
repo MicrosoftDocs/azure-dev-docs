@@ -42,6 +42,10 @@ You may be asked to log into your Azure account.
 
 The answer to your question will depend on what is currently running in Azure in your subscription. 
 
+## Setting you default subscription
+
+
+
 ## Next steps
 
 - [Understand what is GitHub Copilot for Azure and how it works](introduction.md).
