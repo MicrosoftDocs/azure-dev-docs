@@ -742,14 +742,14 @@ cp $EAP_HOME/wildfly/domain/configuration/domain.xml /tmp/domain.xml
 The last stanza of output should look similar to the following example. If it doesn't, troubleshoot and resolve the problem before continuing.
 
 ```output
-[domain@embedded /] /host=master/interface=public:add(inet-address=192.168.0.4 )
+[domain@embedded /] /host=primary/interface=public:add(inet-address=192.168.0.4 )
 {
     "outcome" => "success",
     "result" => undefined,
     "server-groups" => undefined,
     "response-headers" => {"process-state" => "reload-required"}
 }
-02:05:55,019 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0050: JBoss EAP 7.4.10.GA (WildFly Core 15.0.25.Final-redhat-00001) stopped in 28ms
+06:22:54,381 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0050: JBoss EAP 8.0 Update 3.0 (WildFly Core 21.0.10.Final-redhat-00001) stopped in 24ms
 ```
 
 Then, use the following commands to configure the JBoss server and set up the EAP service:
@@ -821,7 +821,15 @@ After starting the Red Hat JBoss EAP service, you can access the management cons
 
 Select the **Runtime** tab. In the navigation pane, select **Topology**. You should see that for now your cluster only contains one domain controller:
 
+### [JBOSS EAP 7.4](#tab/jboss-eap-74)
+
 :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with domain controller only." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin.png":::
+
+### [JBOSS EAP 8](#tab/jboss-eap-8)
+
+:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin_EAP8.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with domain controller only." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin_EAP8.png":::
+
+---
 
 #### Configure host controllers (worker nodes)
 
@@ -965,7 +973,7 @@ The last stanza of output should look similar to the following example. If it do
     "server-groups" => undefined,
     "response-headers" => {"process-state" => "reload-required"}
 }
-02:58:59,388 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0050: JBoss EAP 7.4.10.GA (WildFly Core 15.0.25.Final-redhat-00001) stopped in 58ms
+06:33:43,528 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0050: JBoss EAP 8.0 Update 3.0 (WildFly Core 21.0.10.Final-redhat-00001) stopped in 24ms
 ```
 
 Then, use the following commands to configure the JBoss server and setup EAP service:
@@ -1027,7 +1035,15 @@ Repeat the previous steps on `mspVM2`, and then exit the SSH connection by typin
 
 After two host controllers are connected to `adminVM`, you should be able to see the cluster topology, as shown in the following screenshot:
 
+### [JBOSS EAP 7.4](#tab/jboss-eap-74)
+
 :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png":::
+
+### [JBOSS EAP 8](#tab/jboss-eap-8)
+
+:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster_EAP8.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster_EAP8.png":::
+
+---
 
 ## Expose Red Hat JBoss EAP cluster with Azure Application Gateway
 
