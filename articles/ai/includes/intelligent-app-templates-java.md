@@ -26,4 +26,29 @@ This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
-|Azure App Service<br>Azure Container Apps<br>Azure Kubernetes Service|Azure OpenAI<br>Azure AI Search<br>Azure Storage<br>Azure Monitor||
+|Azure App Service<br>Azure Container Apps<br>Azure Kubernetes Service|Azure OpenAI<br>Azure AI Search<br>Azure Document Intelligence<br>Azure Storage<br>Azure App Insights<br> Azure Service Bus<br> Azure Event Grid|gpt-35-turbo|
+
+### Multi Agents Banking Assistant with Java and Semantic Kernel
+
+This project is designed as a Proof of Concept (PoC) to explore the innovative realm of generative AI within the context of multi-agent architectures. By leveraging Java and Microsoft Semantic Kernel AI orchestration framework, our aim is to build a chat web app to demonstrate the feasibility and reliability of using generative AI agents to transform user experience from web clicks to natural language conversations while maximizing reuse of the existing workload data and APIs.
+The core use case revolves around a banking personal assistant designed to revolutionize the way users interact with their bank account information, transaction history, and payment functionalities. Utilizing the power of generative AI within a multi-agent architecture, this assistant aims to provide a seamless, conversational interface through which users can effortlessly access and manage their financial data.
+
+Invoices samples are included in the data folder to make it easy to explore payments feature. The payment agent equipped with OCR tools ( Azure Document Intelligence) will lead the conversation with the user to extract the invoice data and initiate the payment process. Other account fake data as transactions, payment methods and account balance are also available to be queried by the user. All data and services are exposed as external REST APIs and consumed by the agents to provide the user with the requested information.
+
+To access the source code and read in-depth details about the template, see the [agent-openai-java-banking-assistant](https://github.com/Azure-Samples/agent-openai-java-banking-assistant) GitHub repo.
+
+
+:::row:::
+   :::column:::
+      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-agent-java.png" lightbox="../media/intelligent-app-templates/architecture-diagram-chat-java.png" alt-text="Diagram showing architecture for copilot app deployed side-by-side to business microservices.":::
+   :::column-end:::
+   :::column:::
+      :::image type="content" source="../media/intelligent-app-templates/browser-app-agent-java.png" lightbox="../media/intelligent-app-templates/browser-app-chat-java.png" alt-text="Screenshot of Java personal banking assistant chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+   :::column-end:::
+:::row-end:::
+
+This template demonstrates the use of these features.
+
+| Azure hosting solution | Technologies | AI models |
+|--|--|--|
+|Azure Container Apps|Azure OpenAI<br>Azure Document Intelligence<br>Azure Storage<br>Azure Monitor|gpt-4o<br>gpt-4o-mini|
