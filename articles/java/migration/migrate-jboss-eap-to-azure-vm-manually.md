@@ -1222,8 +1222,15 @@ Use the following steps to deploy Java EE Cafe sample application to the Red Hat
 
    1. Use the following command to clone the source code from GitHub:
 
+      ### [JBOSS EAP 7.4](#tab/jboss-eap-74)
+       
       ```bash
       git clone https://github.com/Azure/rhel-jboss-templates.git --branch 20240904 --single-branch
+      ```
+      ### [JBOSS EAP 8](#tab/jboss-eap-8)
+       
+      ```bash
+      git clone https://github.com/Azure/rhel-jboss-templates.git --branch 20240924 --single-branch
       ```
 
    1. Use the following command to build the source code:
