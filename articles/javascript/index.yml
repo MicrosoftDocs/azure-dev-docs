@@ -1,12 +1,12 @@
 ### YamlMime:Hub
 
-title: Azure SDK for JavaScript Developers - Tutorials, Samples, and API Reference
-summary: Learn to use the Azure SDK for JavaScript with comprehensive tutorials, sample code, quickstarts, and API reference.
+title: Azure SDK for JavaScript developers
+summary: Learn to use the Azure SDK for JavaScript
 brand: azure
 
 metadata:
-  title: Azure SDK for JavaScript Developers - Tutorials, Samples, and API Reference
-  description: Explore tutorials, samples, and API reference for developing JavaScript applications on Azure.
+  title: Azure SDK for JavaScript developers
+  description: Samples, tutorials, and education for JavaScript on Azure
   ms.topic: hub-page
   ms.service: azure-javascript
   ms.date: 09/25/2024
