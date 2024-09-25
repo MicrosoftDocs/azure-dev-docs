@@ -25,6 +25,13 @@ The following tips for better prompts comes from the article [Write effectve pro
 - [Use the feedback loop](/azure/copilot/write-effective-prompts#use-the-feedback-loop)
 
 
+## Using Copilots responsibly
+
+Using Copilots can dramatically increase developer productivity by answering questions, executing tasks and generating code. However, please remember two vital rules:
+
+- Review all AI generated responses and validate their correctness, applicability and potential impact and outcomes (such as costs, security, etc.) prior to taking action based on those responses.
+- Never save application secrets and credentials in source code.
+
 ## Example prompts to learn about Azure
 
 Suppose you want to learn about your options or how to utilize Azure for your application and have decided to use GitHub Copilot for Azure to help. To begin, you can start with an open ended question and then adding details like specific services and technologies. Here are some sample prompts you can try to help you learn how to use Azure in your apps.
