@@ -138,4 +138,4 @@ b''
 ```
 
 > [!NOTE]
-> If you get an authorization error, make sure the identity you're running under is assigned the "Storage Blob Data Contributor" role on your blob container. To learn more, see [4. Use blob storage from app code (Passwordless tab)](./examples/azure-sdk-storage-use.md?tab=managed-identity#4-use-blob-storage-from-app-code).
+> If you get an authorization error, make sure the identity you're running under is assigned the "Storage Blob Data Contributor" role on your blob container. To learn more, see [4. Use blob storage from app code (Passwordless tab)](./examples/azure-sdk-example-storage-use.md?tab=connection-string#4-use-blob-storage-from-app-code).
