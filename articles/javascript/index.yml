@@ -1,11 +1,11 @@
 ### YamlMime:Hub
 
-title: Azure SDK for JavaScript developers
-summary: Learn to use the Azure SDK for JavaScript
+title: Azure for JavaScript developers
+summary: Learn to use JavaScript on Azure
 brand: azure
 
 metadata:
-  title: Azure SDK for JavaScript developers
+  title: Azure for JavaScript developers
   description: Samples, tutorials, and education for JavaScript on Azure
   ms.topic: hub-page
   ms.service: azure-javascript
