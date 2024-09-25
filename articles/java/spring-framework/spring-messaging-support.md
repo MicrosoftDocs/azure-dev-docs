@@ -337,7 +337,7 @@ Use the following steps to receive messages:
    }
    ```
 
-#### Support customize Service Bus Client Properties
+#### Customize Service Bus client properties
 
 Developers can use `AzureServiceClientBuilderCustomizer` to customize Service Bus Client properties.
 For example, customize the `sessionIdleTimeout` property in `ServiceBusClientBuilder`.
