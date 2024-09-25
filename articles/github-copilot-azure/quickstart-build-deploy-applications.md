@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Build, deploy and improve your application with GitHub Copilot for Azure
+title: Quickstart - Build and deploy your application with GitHub Copilot for Azure
 description: This article walks through a scenario that demonstrates how to integrate GitHub Copilot for Azure Visual Studio Code extension into a developer's workflow.
 keywords: github, copilot, ai, azure
 ms.service: azure
@@ -8,7 +8,7 @@ ms.date: 09/03/2024
 ms.custom: overview
 ---
 
-# Quickstart: Build, deploy and improve your application with GitHub Copilot for Azure
+# Quickstart: Build and deploy your application with GitHub Copilot for Azure
 
 In this quick start you will use GitHub Copilot for Azure to help you create and deploy a new web site into Azure. This will demonstrate one way to integrate GitHub Copilot for Azure into your development and deployment workflow.
 
@@ -35,7 +35,7 @@ You will need:
 
 4. In the chat text box, enter the following prompt after `@azure` and select the Send icon or select Enter on your keyboard.
 
-```prompt example
+```prompt
 Could you help me create and deploy a simple Flask website using Python?
 ```
 
@@ -58,7 +58,7 @@ Select `Insert into Terminal`. The command will be inserted into the Terminal.
 
 Use the following prompt:
 
-```prompt example
+```prompt
 Before I execute azd init, what does it do?
 ```
 You may see a response that resembles the following screenshot.
@@ -68,7 +68,7 @@ You may see a response that resembles the following screenshot.
 
 6. Use the following prompt to learn more about the azd template:
 
-```prompt example
+```prompt
 What resources are created with this template?
 ```
 You may see a response that resembles the following screenshot.
@@ -77,7 +77,7 @@ You may see a response that resembles the following screenshot.
 
 7. Ask questions about the services that will be used with a prompt like:
 
-```prompt example
+```prompt
 What is the purpose of a VNet?
 ```
 You may see a response that resembles the following screenshot.
@@ -91,7 +91,7 @@ You may see a response that resembles the following screenshot.
 
 10. You may be prompted for information you don't know the answer to. For example, you might ask:
 
-```prompt example
+```prompt
 azd up is asking me what location I want to deploy the website into. How should I respond?
 ```
 
@@ -111,7 +111,7 @@ Depending on the azd template you are deploying and where you're doing it to, it
 
 14. You can ask GitHub Copilot for Azure how to remove all of the resources you created in the previous steps.
 
-```prompt example
+```prompt
 How do I undeploy this web site?
 ```
 

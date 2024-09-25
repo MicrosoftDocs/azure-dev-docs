@@ -19,7 +19,7 @@ landingContent:
           - text: Introduction to GitHub Copilot for Azure
             url: get-started.md
           - text: Quickstart - Building, Deploying and Improving your application with GitHub Copilot for Azure
-            url: quickstart-build-deploy-improve-applications.md
+            url: quickstart-build-deploy-applications.md
 
   - title: Prompts for Azure
     linkLists:

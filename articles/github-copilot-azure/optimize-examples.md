@@ -46,7 +46,7 @@ Suppose you want to optimize your application running on Azure services and have
 
 - [Understand what is GitHub Copilot for Azure and how it works](introduction.md).
 - [Get started](get-started.md) with GitHub Copilot for Azure by ensuring you have satisfied the pre-requisites, installed the software and write your first prompt.
-- Follow the [quickstart](quickstart-build-deploy-improve-applications.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart will instruct you to deploy services to Azure, monitor their status, and troubleshoot issues.
+- Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart will instruct you to deploy services to Azure, monitor their status, and troubleshoot issues.
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription and resources](learn-examples.md).
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
 - See example prompts for [troubleshooting your Azure resources](troubleshoot-examples.md).
