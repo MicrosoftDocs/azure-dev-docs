@@ -222,6 +222,7 @@ az ad app delete --id <AZURE_CLIENT_ID>
 
 ## See also
 
+- [Quickstart: Azure Blob Storage client library for Python](/azure/storage/blobs/storage-quickstart-blobs-python)
 - [Example: Create a resource group](azure-sdk-example-resource-group.md)
 - [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
 - [Example: Create a web app and deploy code](azure-sdk-example-web-app.md)
