@@ -38,17 +38,17 @@ Create a source file named *sample-source.txt*. This file name is what the code 
 
 ## 4: Use blob storage from app code
 
-The following two sections demonstrate two ways to access the blob container created through [Example: Create Azure Storage](azure-sdk-example-storage.md).
+This section demonstrates two ways to access the blob container created through [Example: Create Azure Storage](azure-sdk-example-storage.md).
 
-The [first method (with authentication)](#4a-use-blob-storage-with-authentication) authenticates the app with `DefaultAzureCredential` as described in [Authenticate Python apps to Azure services during local development using service principals](../authentication-local-development-service-principal.md). With this method, you must first assign the appropriate permissions to the app identity, which is the recommended practice.
+The **Passwordless (Recommended)** method authenticates the app with `DefaultAzureCredential` as described in [Authenticate Python apps to Azure services during local development using service principals](../authentication-local-development-service-principal.md). With this method, you must first assign the appropriate permissions to the app identity. which in this example, is an application service principal. [DefaultAzureCredential](../authentication/credential-chains.md#defaultazurecredential-overview) is a chained credential, which provides the ability to authenticate using several different credential types. This means your app could just as easily run under your Azure user account or, if running on Azure, a managed identity without needing to make any code changes.
 
-The [second method (with connection string)](#4b-use-blob-storage-with-a-connection-string) uses a connection string to access the storage account directly. Although this method seems simpler, it has two significant drawbacks:
+The **Connection sting** method uses a connection string to access the storage account directly. Although this method seems simpler, it has two significant drawbacks:
 
-- A connection string inherently authenticates the connecting agent with the Storage *account* rather than with individual resources within that account. As a result, a connection string grants broader authorization than might be needed.
+- A connection string authenticates the connecting agent with the Storage *account* rather than with individual resources within that account. As a result, a connection string grants broader authorization than might be needed.
 
 - A connection string contains access info in plain text and therefore presents potential vulnerabilities if it's not properly constructed or secured. If such a connection string is exposed, it can be used to access a wide range of resources within the Storage account.
 
-For these reasons, we recommend using the authentication method in production code.
+For these reasons, we recommend using the passwordless method in whenever possible.
 
 ### [Passwordless (Recommended)](#tab/managed-identity)
 
@@ -156,6 +156,9 @@ For these reasons, we recommend using the authentication method in production co
 
 For more information on role assignments, see [How to assign role permissions using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
 
+> [!NOTE]
+> When deployed to Azure, this same code can be used to authorize requests to Azure Storage from an application running in Azure. However, you'll need to enable managed identity on your app in Azure. Then configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/azure/developer/python/sdk/authentication-azure-hosted-apps) tutorial.
+
 ### [Connection String](#tab/connection-string)
 
 A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location.
@@ -199,7 +202,7 @@ If you created an environment variable named `AZURE_STORAGE_CONNECTION_STRING`, 
 az storage blob list --container-name blob-container-01
 ```
 
-If you followed the instructions to use blob storage with authentication, you can add the `--connection-string` parameter to the preceding command with the connection string for your storage account. To learn how to get the connection string, see the instructions in [4b: Use blob storage with a connection string](#4b-use-blob-storage-with-a-connection-string). Use the whole connection string including the quotes.
+If you followed the instructions to use blob storage with authentication, you can add the `--connection-string` parameter to the preceding command with the connection string for your storage account. To learn how to get the connection string, see the instructions in [4. Use blob storage from app code (Connection string tab)](#4-use-blob-storage-from-app-code). Use the whole connection string including the quotes.
 
 ## 6: Clean up resources
 
