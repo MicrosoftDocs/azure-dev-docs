@@ -25,8 +25,9 @@ These ignore files are applied based on the targeted deployment service, ensurin
 - `.webappignore` or `.funcignore` files should be placed in the root folder of the relevant service in your `azd` template.
 - If a `.webappignore` or `.funcignore` file exists in a service directory, the packaging process follows its rules, allowing granular control over which files are included or excluded in the service's zip archive.
 - If no `.webappignore` or `.funcignore` file is present, default exclusions apply:
-  - Python: `__pycache__` and `.venv`
+  - Python: `__pycache__` and any `venv` files
   - Node.js: `node_modules`
+- The syntax for the ignore files followed the standard [`gitignore` syntax](https://git-scm.com/docs/gitignore). For example, use the `!` symbol to revert an exclusion.
 
 ## Exclusion examples
 
