@@ -75,9 +75,9 @@ conceptualContent:
         - text: Create a serverless function
           itemType: quickstart
           url: /azure/azure-functions/functions-create-first-java-maven
-        - text: Deploy Spring Cloud microservices
+        - text: Launch your first app in Azure Container Apps
           itemType: quickstart
-          url: /azure/spring-apps/enterprise/quickstart-sample-app-introduction?pivots=programming-language-java
+          url: /azure/container-apps/java-get-started
       footerLink:
         text: See more
         url: quickstarts/index.yml
@@ -127,20 +127,20 @@ conceptualContent:
         text: See App Service documentation
         url: /azure/app-service/containers/
 
-    - title: Azure Spring Apps
+    - title: Azure Container Apps
       links:
-        - text: What is Azure Spring Apps?
-          itemType: overview
-          url: /azure/spring-apps/enterprise/overview
-        - text: Launch your first app
+        - text: Launch your first Java app
           itemType: quickstart
-          url: /azure/spring-apps/enterprise/quickstart?pivots=sc-enterprise
-        - text: Enterprise tier
+          url: /azure/container-apps/java-get-started
+        - text: Get started using IntelliJ
+          itemType: quickstart
+          url: toolkit-for-intellij/create-container-apps-intellij.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
+        - text: Overview
           itemType: overview
-          url: /azure/spring-apps/enterprise/overview#enterprise-tier-overview
+          url: /azure/container-apps/java-overview
       footerLink:
           text: See more
-          url: /azure/spring-apps
+          url: /azure/container-apps
 
     - title: Secure apps using the Microsoft identity platform
       links:
