@@ -42,8 +42,23 @@ You may be asked to log into your Azure account.
 
 The answer to your question will depend on what is currently running in Azure in your subscription. 
 
-## Setting you default subscription
+## Optional: Set your default subscription
 
+If you have multiple subscriptions, the Azure Resource Graph (ARG) assumes you want to search across all your subscriptions.
+ 
+You can set a default subcription which limits GitHub Copilot to query a single subscription.
+
+1. In Visual Studio Code, in the activity bar, select Extensions and scroll down to GitHub Copilot for Azure.
+
+![Screenshot displaying Visual Studio Code's activity bar with Extensions selected, and displaying the option for GitHub Copilot for Azure.](media/getstarted-extensions.png)
+
+2. Select the gear icon in the upper-left hand corner of the extension's entry and select Settings from the popup menu.
+
+![Screenshot displaying the popup menu for GitHub Copilot for Azure.](media/getstarted-settings.png)
+
+3. In the settings tab, set the ARG tenant to your desired Azure subscription Id. You can find your subscription Id (also known as the tenant Id) in the Azure portal.
+
+![Screenshot displaying the Settings tab with an option to set the ARG tenant.](media/getstarted-arg-tenant.png)
 
 
 ## Next steps
