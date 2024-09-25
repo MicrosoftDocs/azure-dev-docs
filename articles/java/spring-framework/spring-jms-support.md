@@ -119,7 +119,7 @@ spring:
    > [!IMPORTANT]
    > If you are using user-assigned managed identity, also need to add property `spring.cloud.azure.credential.client-id` with your user-assigned managed identity client id.
 
-### Connect to Azure Service Bus with JMS use connection String
+### Connect to Azure Service Bus JMS using connection string
 
 Add the following properties and you're good to go.
 
