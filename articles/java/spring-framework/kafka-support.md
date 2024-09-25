@@ -247,7 +247,7 @@ spring.cloud.stream.kafka.binder.brokers=<NAMESPACENAME>.servicebus.windows.net:
 >
 > For version after `4.4.0`, this property will be added automatically for each Kafka binder environment, so there's no need for you to add it manually.
 
-#### Use Managed Identity for OAuth authentication
+#### Use managed identity for OAuth authentication
 
 1. To use the managed identity, you need enable the managed identity for your service and assign **Azure Event Hubs Data Receiver** and **Azure Event Hubs Data Sender** role refer [Assign Azure roles for access rights](/azure/event-hubs/authorize-access-azure-active-directory#assign-azure-roles-for-access-rights).
 
