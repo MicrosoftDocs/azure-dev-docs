@@ -89,9 +89,13 @@ You may see a response that resembles the following screenshot.
 10. When you're satisfied, execute the `azd init` command in the Terminal. Answer its prompts. If you are unsure what to answer for a given prompt, ask GitHub Copilot for Azure for help.
 
 
-11. Once the new project has been initialized, you can use `azd up` to deploy the application to your subscription.
+11. Once the new project has been initialized, you can use `azd up` to deploy the application to your subscription. In the Terminal prompt execute per the instructions in the original prompt's reply:
 
-12. You may be prompted for information you don't know the answer to. For example, you might ask:
+```cmd
+azd up
+```
+
+12. `azd up` asks for information about your subscription, where to deploy the resources, and more. If you are not sure how to answer, you can ask GitHub Copilot for Azure how to  For example, you might ask:
 
 ```prompt
 azd up is asking me what location I want to deploy the website into. How should I respond?
@@ -107,7 +111,7 @@ Depending on the azd template you are deploying and where you're doing it to, it
 
 14. If `azd up` experiences errors, ask GitHub Copilot for Azure about the error and how you can resolve it.
 
-15. Upon a successful deployment, you should be able to navitate a web browser to the new website, use the Azure portal to view the resources
+15. Upon a successful deployment, you should be able to navitate a web browser to the new website, use the Azure portal to view the resources that were created.
 
 ### Cleaning up resources
 
