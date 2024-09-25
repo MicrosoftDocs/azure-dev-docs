@@ -81,7 +81,7 @@ For more information, see [Spring JMS Document](https://docs.spring.io/spring-fr
 
 ## Basic usage
 
-### Connect to Azure Service Bus with JMS use passwordless
+### Connect to Azure Service Bus JMS using passwordless
 
 Configure the following properties in your *application.yml* file:
 
