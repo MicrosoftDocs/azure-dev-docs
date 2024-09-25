@@ -669,7 +669,7 @@ public class SampleController {
 > [!NOTE]
 > When the `ServiceBusMessageHeaders.SESSION_ID` is set in the message headers, and a different `ServiceBusMessageHeaders.PARTITION_KEY` header is also set, the value of the session ID will eventually be used to overwrite the value of the partition key.
 
-#### Customize Service Bus client Properties
+#### Customize Service Bus client properties
 
 Developers can use `AzureServiceClientBuilderCustomizer` to customize Service Bus Client properties.
 For example, customize the `sessionIdleTimeout` property in `ServiceBusClientBuilder`.
