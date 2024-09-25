@@ -1,7 +1,7 @@
 ---
 title: Use Azure Storage with the Azure SDK for Python
 description: Use the Azure SDK for Python libraries to access an existing blob container in an Azure Storage account and then upload a file to that container.
-ms.date: 01/16/2024
+ms.date: 09/25/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
@@ -50,7 +50,7 @@ The [second method (with connection string)](#4b-use-blob-storage-with-a-connect
 
 For these reasons, we recommend using the authentication method in production code.
 
-### 4a: Use blob storage with authentication
+### [Passwordless (Recommended)](#tab/managed-identity)
 
 1. Create a file named *use_blob_auth.py* with the following code. The comments explain the steps.
 
@@ -156,7 +156,9 @@ For these reasons, we recommend using the authentication method in production co
 
 For more information on role assignments, see [How to assign role permissions using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
 
-### 4b: Use blob storage with a connection string
+### [Connection String](#tab/connection-string)
+
+A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location.
 
 1. Create a Python file named *use_blob_conn_string.py* with the following code. The comments explain the steps.
 
@@ -179,6 +181,11 @@ For more information on role assignments, see [How to assign role permissions us
     ```
 
 Again, although this method is simple, a connection string authorizes all operations in a storage account. With production code, it's better to use specific permissions as described in the previous section.
+
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+
+---
 
 ## 5. Verify blob creation
 
