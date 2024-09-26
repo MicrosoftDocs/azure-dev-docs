@@ -1,0 +1,6 @@
+- "@azure why would I use a blob storage?"
+- "@azure How to pull data from storage blob in React?"
+- "@azure Outline steps to secure Azure Blob Storage with private endpoints and Azure Private Link."
+- "@azure Generate Azure CLI script to create a new storage account."
+- "@azure Give me the code to create a new storage account with CLI."
+- "@azure Can you help me choose the right Azure storage solution?"

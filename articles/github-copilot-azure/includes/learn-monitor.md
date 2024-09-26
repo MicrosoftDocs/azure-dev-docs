@@ -1,0 +1,1 @@
+- "@azure Guide for using Azure Logic Apps to automate responses to Azure Monitor alerts."

@@ -1,0 +1,1 @@
+- "@azure Do static web apps support static ip addresses?"
