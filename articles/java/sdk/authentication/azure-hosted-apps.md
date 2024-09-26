@@ -18,13 +18,13 @@ This article covers the following subjects:
 * [Default Azure credential](#default-azure-credential)
 * [Managed Identity credential](#managed-identity-credential)
 
-For troubleshooting authentication issues related to Azure-hosted applications, see [Troubleshoot Azure-hosted application authentication](troubleshooting-authentication-azure-hosted.md).
+For troubleshooting authentication issues related to Azure-hosted applications, see [Troubleshoot Azure-hosted application authentication](../troubleshooting-authentication-azure-hosted.md).
 
 ## Default Azure credential
 
 `DefaultAzureCredential` is appropriate for most scenarios where the application ultimately runs in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed, with credentials that are used to authenticate in a development environment. `DefaultAzureCredential` attempts to authenticate via the following mechanisms in order:
 
-![DefaultAzureCredential authentication flow](./media/defaultazurecredential.svg)
+![DefaultAzureCredential authentication flow](../media/defaultazurecredential.svg)
 
 * Environment - `DefaultAzureCredential` reads account information specified via [environment variables](#environment-variables) and use it to authenticate.
 * Managed Identity - If the application deploys to an Azure host with Managed Identity enabled, `DefaultAzureCredential` authenticates with that account.
@@ -77,7 +77,7 @@ SecretClient client = new SecretClientBuilder()
 
 The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using `DefaultAzureCredential`, on a workstation where IntelliJ IDEA is installed, and the user has signed in with an Azure account to the Azure Toolkit for IntelliJ.
 
-For more information on configuring your IntelliJ IDEA, see [Sign in Azure Toolkit for IntelliJ for IntelliJCredential](identity-dev-env-auth.md#sign-in-azure-toolkit-for-intellij-for-intellijcredential).
+For more information on configuring your IntelliJ IDEA, see [Sign in Azure Toolkit for IntelliJ for IntelliJCredential](dev-env.md#sign-in-azure-toolkit-for-intellij-for-intellijcredential).
 
 ```java
 /**
@@ -154,13 +154,13 @@ Configuration is attempted in this order. For example, if values for a client se
 
 This article covered authentication for applications hosted in Azure. This form of authentication is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe other ways:
 
-* [Azure authentication in development environments](identity-dev-env-auth.md)
-* [Authentication with service principals](identity-service-principal-auth.md)
-* [Authentication with user credentials](identity-user-auth.md)
+* [Azure authentication in development environments](dev-env.md)
+* [Authentication with service principals](service-principal.md)
+* [Authentication with user credentials](user.md)
 
-If you run into issues related to Azure-hosted application authentication, see [Troubleshoot Azure-hosted application authentication](troubleshooting-authentication-azure-hosted.md).
+If you run into issues related to Azure-hosted application authentication, see [Troubleshoot Azure-hosted application authentication](../troubleshooting-authentication-azure-hosted.md).
 
-After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
+After you've mastered authentication, see [Configure logging in the Azure SDK for Java](../logging-overview.md) for information on the logging functionality provided by the SDK.
 
 <!-- LINKS -->
 [secrets_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets
