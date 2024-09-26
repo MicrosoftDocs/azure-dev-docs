@@ -4,7 +4,7 @@ description: Shows you how to secure Red Hat Quarkus applications with Microsoft
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 07/30/2024
+ms.date: 09/26/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-entra-id, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -21,13 +21,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- An Azure identity with at least the Cloud Application Administrator role. For more information, see [List Microsoft Entra role assignments](/entra/identity/role-based-access-control/view-assignments#microsoft-entra-admin-center) and [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator).
-- A Microsoft Entra tenant. If you don't have an existing tenant, see [Quickstart: Set up a tenant](/entra/identity-platform/quickstart-create-new-tenant).
-- A local machine with a Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
-- [Git](/devops/develop/git/install-and-set-up-git).
-- A Java SE implementation, version 21 or later - for example, [the Microsoft build of OpenJDK](/java/openjdk).
-- [Maven](https://maven.apache.org/download.cgi), version 3.9.3 or later.
+[!INCLUDE [secure-with-entra-id-prerequisites](includes/secure-with-entra-id-prerequisites.md)]
 
 ## Set up an OpenID Connect provider with Microsoft Entra ID
 
