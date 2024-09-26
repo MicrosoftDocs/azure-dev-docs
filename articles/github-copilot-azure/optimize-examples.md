@@ -13,9 +13,9 @@ ms.collection: ce-skilling-ai-copilot
 
 If you're unfamiliar with Azure or just want the tooling and AI to do most of the work, asking GitHub Copilot for Azure to help you optimize the performance of your Azure resources is a great option.
 
-As is the case with all tools based on Large Language Models (LLMs), using good prompt engineering techniques will get you the results you want.
+When working with any tool based on Large Language Models (LLMs), use good prompt engineering techniques for the best results.
 
-The following tips for better prompts comes from the article [Write effectve prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides great advice for prompt engineering in the context of Azure.
+The following tips for better prompts come from the article [Write effective prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides great advice for prompt engineering in the context of Azure.
 
 - [Be clear and specific](/azure/copilot/write-effective-prompts#be-clear-and-specific)
 - [Set expectations](/azure/copilot/write-effective-prompts#set-expectations)
@@ -25,17 +25,18 @@ The following tips for better prompts comes from the article [Write effectve pro
 - [Use Azure terminology](/azure/copilot/write-effective-prompts#use-azure-terminology)
 - [Use the feedback loop](/azure/copilot/write-effective-prompts#use-the-feedback-loop)
 
+
 ## Using Copilots responsibly
 
-Using Copilots can dramatically increase developer productivity by answering questions, executing tasks and generating code. However, please remember two vital rules:
+Using Copilots can dramatically increase developer productivity by answering questions, executing tasks, and generating code. However remember two vital rules:
 
-- Review all AI generated responses and validate their correctness, applicability and potential impact and outcomes (such as costs, security, etc.) prior to taking action based on those responses.
+- Review all AI generated responses and validate their correctness, applicability, potential outcomes (such as costs, security, etc.) before taking action based on those responses.
 - Never save application secrets and credentials in source code.
 
 
 ## Example prompts to optimize your apps
 
-Suppose you want to optimize your application running on Azure services and have decided to use GitHub Copilot for Azure to help. To begin, you can start with an open ended question and then adding details like specific services and technologies. Here are some sample prompts you can try to help you optimize the use of Azure in your apps.
+Suppose you want to optimize your application running on Azure services and decide to use GitHub Copilot for Azure to help. To begin, you can start with an open ended question and then adding details like specific services and technologies. The following example prompts help you optimize the use of Azure in your apps.
 
 |Service|Optimize prompt examples|
 |---|---|
@@ -46,8 +47,8 @@ Suppose you want to optimize your application running on Azure services and have
 ## Next steps
 
 - [Understand what is GitHub Copilot for Azure and how it works](introduction.md).
-- [Get started](get-started.md) with GitHub Copilot for Azure by ensuring you have satisfied the pre-requisites, installed the software and write your first prompt.
-- Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart will instruct you to deploy services to Azure, monitor their status, and troubleshoot issues.
-- See example prompts for [learning more about Azure and understanding your Azure account, subscription and resources](learn-examples.md).
+- [Get started](get-started.md) with GitHub Copilot for Azure by satisfying the prerequisites, which include installing the software and writing your first prompt.
+- Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart instructs you to deploy services to Azure, monitor their status, and troubleshoot issues.
+- See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
 - See example prompts for [troubleshooting your Azure resources](troubleshoot-examples.md).

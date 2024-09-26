@@ -13,9 +13,9 @@ ms.collection: ce-skilling-ai-copilot
 
 If you're unfamiliar with Azure or just want the tooling and AI to do most of the work, asking GitHub Copilot for Azure to help you deploy your application is a great option.
 
-As is the case with all tools based on Large Language Models (LLMs), using good prompt engineering techniques will get you the results you want.
+When working with any tool based on Large Language Models (LLMs), use good prompt engineering techniques for the best results.
 
-The following tips for better prompts comes from the article [Write effectve prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides great advice for prompt engineering in the context of Azure.
+The following tips for better prompts come from the article [Write effective prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides great advice for prompt engineering in the context of Azure.
 
 - [Be clear and specific](/azure/copilot/write-effective-prompts#be-clear-and-specific)
 - [Set expectations](/azure/copilot/write-effective-prompts#set-expectations)
@@ -28,16 +28,16 @@ The following tips for better prompts comes from the article [Write effectve pro
 
 ## Using Copilots responsibly
 
-Using Copilots can dramatically increase developer productivity by answering questions, executing tasks and generating code. However, please remember two vital rules:
+Using Copilots can dramatically increase developer productivity by answering questions, executing tasks, and generating code. However remember two vital rules:
 
-- Review all AI generated responses and validate their correctness, applicability and potential impact and outcomes (such as costs, security, etc.) prior to taking action based on those responses.
+- Review all AI generated responses and validate their correctness, applicability, potential outcomes (such as costs, security, etc.) before taking action based on those responses.
 - Never save application secrets and credentials in source code.
 
 ## Example prompts for deploying your apps
 
-Suppose you want to deploy your application and have decided to use GitHub Copilot for Azure to help. To begin, you can start with an open ended question. 
+Suppose you want to deploy your application and decide to use GitHub Copilot for Azure to help. To begin, you can start with an open ended question. 
 
-- "@azure help me deploy my application to azure"
+- "@azure help me deploy my application to Azure"
 - "@azure how can I deploy this app?"
 - "@azure Can you deploy my code to Azure please"
 - "@azure Can you help me deploy my project to Azure"
@@ -48,9 +48,9 @@ Suppose you want to deploy your application and have decided to use GitHub Copil
 - "@azure Get this code running on Azure"
 - "@azure Run this app on Azure"
 
-However, the more detail you add, the more fine tuned the results will be. Here are some example prompts that will give better results:
+However, add more detail to get better results. Here are some example prompts that produce better results:
 
-|Service, technology or technique|Deploy prompt examples|
+|Service, technology, or technique|Deploy prompt examples|
 |---|---|
 |Azure Kubernetes Service (AKS)|[!INCLUDE [deploy-aks](./includes/deploy-aks.md)]|
 |Azure App Service|[!INCLUDE [deploy-app-service](./includes/deploy-app-service.md)]|
@@ -62,7 +62,7 @@ However, the more detail you add, the more fine tuned the results will be. Here 
 
 ## Example prompts for undeploying your apps
 
-Similarly, you can ask GitHub Copilot for Azure with assistance in undeploying. Since it works in Visual Studio Code and has context about where and how you deployed your application to Azure, undeployment is a task it is well suited for.
+Similarly, you can ask GitHub Copilot for Azure with assistance in undeploying since it works in Visual Studio Code and has context about where and how you deployed your application to Azure.
 
 Example prompts:
 
@@ -83,8 +83,8 @@ If you used azd to deploy your application, you can ask it to use azd to undeplo
 ## Next steps
 
 - [Understand what is GitHub Copilot for Azure and how it works](introduction.md).
-- [Get started](get-started.md) with GitHub Copilot for Azure by ensuring you have satisfied the pre-requisites, installed the software and write your first prompt.
-- Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart will instruct you to deploy services to Azure, monitor their status, and troubleshoot issues.
-- See example prompts for [learning more about Azure and understanding your Azure account, subscription and resources](learn-examples.md).
+- [Get started](get-started.md) with GitHub Copilot for Azure by satisfying the prerequisites, which include installing the software and writing your first prompt.
+- Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart instructs you to deploy services to Azure, monitor their status, and troubleshoot issues.
+- See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
 - See example prompts for [optimizing your applications in Azure](optimize-examples.md).
 - See example prompts for [troubleshooting your Azure resources](troubleshoot-examples.md).
