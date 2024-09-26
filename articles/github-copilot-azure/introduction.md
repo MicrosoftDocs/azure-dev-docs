@@ -6,6 +6,7 @@ ms.service: azure
 ms.topic: overview
 ms.date: 09/03/2024
 ms.custom: overview
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # What is GitHub Copilot for Azure?
@@ -21,14 +22,14 @@ GitHub Copilot for Azure is a GitHub Copilot extension allowing developers to us
 
 GitHub Copilot for Azure is currently available for Visual Studio Code. Also, you must have access to an Azure subscription and be subscribed to GitHub Copilot.
 
-GitHub Copilot is designed to help those new to Azure to be more productive as quickly as possible. For experienced Azure users, GitHub Copilot for Azure saves time by allowing developers to access Azure functionality without needing to look up commands and arguments, and without the need to log in and navigate through the Azure portal.
+GitHub Copilot is designed to help developers new to Azure to be more productive as quickly as possible. For experienced Azure users, GitHub Copilot for Azure saves time by allowing developers to access Azure functionality without needing to look up commands and arguments or sign in and navigate through the Azure portal.
 
 There are four primary scenarios that are enabled with more planned:
 
 |Category|Explanation|Examples|
 |---|---|---|
 |Learn|Learn about Azure services and tools from latest Microsoft Learn documentation|[!INCLUDE [learn-examples](./includes/learn-examples.md)]|
-|Deploy|Provision resources and deploy apps|[!INCLUDE [deploy-examples](./includes/deploy-examples.md)]|
+|Deploy|Create Azure resources and deploy apps|[!INCLUDE [deploy-examples](./includes/deploy-examples.md)]|
 |Troubleshoot|Diagnose and troubleshoot application and resource issues|[!INCLUDE [troubleshoot-examples](./includes/troubleshoot-examples.md)]|
 |Optimize|Answer questions about resources including locations, settings, and resource health|[!INCLUDE [optimize-examples](./includes/optimize-examples.md)]|
 
@@ -36,16 +37,16 @@ The documentation provides a quickstart tutorial and example prompts to help you
 
 ## How it works
 
-GitHub Copilot for Azure is built on a foundational Large Language Model like GPT 4o, supplementing its general knowledge with continuously updated knowledge from Microsoft Learn. Furthermore, it is enhanced by intelligent agents that interact with Azure services, systems, and the Azure Resource Graph to carry out specific tasks.
+GitHub Copilot for Azure is built on a foundational Large Language Model like GPT 4o, supplementing its general knowledge with continuously updated knowledge from Microsoft Learn. Furthermore, it's intelligent agents interact with Azure services, systems, and the Azure Resource Graph to carry out specific tasks on your behalf.
 
-The chat experience is delivered through the GitHub Copilot Chat extenion. The chat extension can be accessed as a separate window pane in Visual Studio Code via "Chat" icon the primary side bar, usually docked to the left-hand side of Visual Studio Code. The chat window allows you to create a new chat, provides access to a history of previous chat sessions, the ability to open the chat session in a full editor window, and more.
+The chat experience is delivered through the GitHub Copilot Chat extenion. The chat extension can be accessed as a separate window pane in Visual Studio Code via "Chat" icon the primary side bar, docked to the left-hand side of Visual Studio Code. The chat window allows you to create a new chat, provides access to a history of previous chat sessions, the ability to open the chat session in a full editor window, and more.
 
 
 ## Next steps
 
-- [Get started](get-started.md) with GitHub Copilot for Azure by ensuring you have satisfied the pre-requisites, installed the software and write your first prompt.
-- Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart will instruct you to deploy services to Azure, monitor their status, and troubleshoot issues.
-- See example prompts for [learning more about Azure and understanding your Azure account, subscription and resources](learn-examples.md).
+- [Get started](get-started.md) with GitHub Copilot for Azure by satisfying the prerequisites, which include installing the software and writing your first prompt.
+- Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart instructs you to deploy services to Azure, monitor their status, and troubleshoot issues.
+- See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
 - See example prompts for [optimizing your applications in Azure](optimize-examples.md).
 - See example prompts for [troubleshooting your Azure resources](troubleshoot-examples.md).
