@@ -43,11 +43,11 @@ In this section, you set up an OpenID Connect provider with Microsoft Entra ID f
 
 In this section, you secure a Quarkus app that authenticates and authorizes users in your Microsoft Entra tenant by using OpenID Connect. You also learn how to give users access to certain parts of the app using role-based access control (RBAC).
 
-The sample Quarkus app for this quickstart is on GitHub in the [quarkus-azure](https://github.com/Azure-Samples/quarkus-azure) repository, and located in the [entra-id-quarkus](https://github.com/Azure-Samples/quarkus-azure/tree/main/entra-id-quarkus) directory.
+The sample Quarkus app for this quickstart is on GitHub in the [quarkus-azure](https://github.com/Azure-Samples/quarkus-azure/tree/2024-09-26) repository, and located in the [entra-id-quarkus](https://github.com/Azure-Samples/quarkus-azure/tree/2024-09-26/entra-id-quarkus) directory.
 
 ### Enable authentication and authorization to secure app
 
-The app has a welcome page resource defined in [WelcomePage.java](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/com/example/WelcomePage.java), which is shown in the following example code. This page is accessible to unauthenticated users. The root path of the welcome page is at `/`.
+The app has a welcome page resource defined in [WelcomePage.java](https://github.com/Azure-Samples/quarkus-azure/blob/2024-09-26/entra-id-quarkus/src/main/java/com/example/WelcomePage.java), which is shown in the following example code. This page is accessible to unauthenticated users. The root path of the welcome page is at `/`.
 
 ```java
 @Path("/")
@@ -68,7 +68,7 @@ public class WelcomePage {
 }
 ```
 
-From the welcome page, users can sign in to the app to access the profile page. The welcome page has links to sign in as a user or as an admin. The links are at `/profile/user` and `/profile/admin`, respectively. The welcome page UI is defined in [welcome.qute.html](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/templates/welcome.qute.html) and shown in the following example:
+From the welcome page, users can sign in to the app to access the profile page. The welcome page has links to sign in as a user or as an admin. The links are at `/profile/user` and `/profile/admin`, respectively. The welcome page UI is defined in [welcome.qute.html](https://github.com/Azure-Samples/quarkus-azure/blob/2024-09-26/entra-id-quarkus/src/main/resources/templates/welcome.qute.html) and shown in the following example:
 
 ```html
 <html>
@@ -88,7 +88,7 @@ From the welcome page, users can sign in to the app to access the profile page. 
 </html>
 ```
 
-Both `/profile/user` and `/profile/admin` links point to the profile page resource, defined in [ProfilePage.java](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/java/com/example/ProfilePage.java), as shown in the following example code. This page is accessible only to authenticated users by using the `@RolesAllowed("**")` annotation from the `jakarta.annotation.security.RolesAllowed` package. The `@RolesAllowed("**")` annotation specifies that only authenticated users can access the `/profile` path.
+Both `/profile/user` and `/profile/admin` links point to the profile page resource, defined in [ProfilePage.java](https://github.com/Azure-Samples/quarkus-azure/blob/2024-09-26/entra-id-quarkus/src/main/java/com/example/ProfilePage.java), as shown in the following example code. This page is accessible only to authenticated users by using the `@RolesAllowed("**")` annotation from the `jakarta.annotation.security.RolesAllowed` package. The `@RolesAllowed("**")` annotation specifies that only authenticated users can access the `/profile` path.
 
 ```java
 @Path("/profile")
@@ -135,7 +135,7 @@ public class ProfilePage {
 
 The profile page resource enables RBAC by using the `@RolesAllowed` annotation. The arguments to the `@RolesAllowed` annotation specify that only users with the `admin` role can access the `/profile/admin` path, and users with the `user` or `admin` role can access the `/profile/user` path.
 
-Both the `/profile/admin` and `/profile/user` endpoints return the profile page. The profile page UI is defined in [profile.qute.html](https://github.com/Azure-Samples/quarkus-azure/blob/main/entra-id-quarkus/src/main/resources/templates/profile.qute.html), as shown in the following example. This page displays the user's name, roles, and scopes. The profile page also has a sign-out link at `/logout`, which redirects the user to OIDC provider to sign out. The profile page is written using the Qute templating engine. Note the use of `{}` expressions in the page. These expressions make use of the values passed to the `TemplateInstance` using the `data()` method. For more information on Qute, see [Qute templating engine](https://quarkus.io/guides/qute).
+Both the `/profile/admin` and `/profile/user` endpoints return the profile page. The profile page UI is defined in [profile.qute.html](https://github.com/Azure-Samples/quarkus-azure/blob/2024-09-26/entra-id-quarkus/src/main/resources/templates/profile.qute.html), as shown in the following example. This page displays the user's name, roles, and scopes. The profile page also has a sign-out link at `/logout`, which redirects the user to OIDC provider to sign out. The profile page is written using the Qute templating engine. Note the use of `{}` expressions in the page. These expressions make use of the values passed to the `TemplateInstance` using the `data()` method. For more information on Qute, see [Qute templating engine](https://quarkus.io/guides/qute).
 
 ```html
 <html>
@@ -181,7 +181,7 @@ Use the following steps to prepare the sample Quarkus app:
    ```bash
    git clone https://github.com/Azure-Samples/quarkus-azure
    cd quarkus-azure/entra-id-quarkus
-   git checkout 2024-07-17
+   git checkout 2024-09-26
    ```
 
    If you see a message about being in *detached HEAD* state, this message is safe to ignore. Because this article doesn't require any commits, detached HEAD state is appropriate.
