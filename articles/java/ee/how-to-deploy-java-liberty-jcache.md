@@ -62,8 +62,7 @@ export REGISTRY_NAME=youruniqueacrname
 az acr create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $REGISTRY_NAME \
-    --sku Basic \
-    --admin-enabled
+    --sku Basic
 ```
 
 After a short time, you should see a JSON output that contains:
