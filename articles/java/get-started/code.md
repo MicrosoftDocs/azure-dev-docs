@@ -41,7 +41,13 @@ If you're new to Java on VS Code, try out the "Java: Tips for Beginners" command
 
 ## Azure Toolkit for IntelliJ
 
-The [Azure Toolkit for IntelliJ](../toolkit-for-intellij/index.yml) lets Java developers create, develop, test, and deploy Java applications to Azure using the IntelliJ IDE. For example, developers can use it to deploy [Java Web applications](../toolkit-for-intellij/create-hello-world-web-app.md) to Azure App Service and [custom containers](../toolkit-for-intellij/hello-world-web-app-linux.md) in Azure App Service, deploy [containerized applications](../toolkit-for-intellij/create-container-apps-intellij.md) to Azure Container Apps, or deploy [serverless applications](/azure/azure-functions/functions-create-maven-intellij) to Azure Functions - all of these are compute services for running Java on Azure, which we cover in more detail later in this documentation. Spring Cloud Azure integrations are provided through the Spring Initializr experiences in IntelliJ. Just add the appropriate [Java libraries and drivers](../sdk/libraries-drivers-modules.md) (including Azure SDK for Java) as dependencies in your Java project.
+The [Azure Toolkit for IntelliJ](../toolkit-for-intellij/index.yml) lets Java developers create, develop, test, and deploy Java applications to Azure using the IntelliJ IDE. For example, developers can use it to accomplish the following tasks:
+
+* Deploy [Java Web applications](../toolkit-for-intellij/create-hello-world-web-app.md) to Azure App Service and [custom containers](../toolkit-for-intellij/hello-world-web-app-linux.md) in Azure App Service.
+* Deploy Java or Spring applications, or any [containerized applications](../toolkit-for-intellij/create-container-apps-intellij.md), to Azure Container Apps.
+* Deploy [serverless applications](/azure/azure-functions/functions-create-maven-intellij) to Azure Functions.
+
+All of these examples use compute services for running Java on Azure, which we cover in more detail later in this documentation. Spring Cloud Azure integrations are provided through the Spring Initializr experiences in IntelliJ. Just add the appropriate [Java libraries and drivers](../sdk/libraries-drivers-modules.md) (including Azure SDK for Java) as dependencies in your Java project.
 
 Microsoft is actively investing time and resources to provide more functionality for IntelliJ, including new experiences for cloud-native development and deeper integration with Azure services - including integrations with Azure Kubernetes Service and Application Insights.
 
@@ -52,7 +58,7 @@ Microsoft is actively investing time and resources to provide more functionality
 The Azure Toolkit for Eclipse lets Java developers create, develop, test, and deploy Java applications to Azure using the Eclipse IDE. It includes key [Java libraries and drivers](../sdk/libraries-drivers-modules.md), including the Azure SDK for Java. Developers can use the Azure Toolkit for Eclipse to accomplish the following tasks from the Eclipse IDE:
 
 * Deploy Java Web Apps to Azure App Service and custom containers in App Service.
-* Deploy containerized applications to Azure Container Apps.
+* Deploy Java or Spring applications, or any containerized applications, to Azure Container Apps.
 * Deploy serverless applications to Azure Functions using Maven or Gradle plugins.
 
 ## Dependency management and build automation - Maven, Gradle, and GitHub
@@ -97,7 +103,7 @@ Many Microsoft customers who run Java on Azure use Jenkins - an open-source auto
 
 The Azure Command-Line Interface (CLI) is a cross-platform command-line tool for creating, connecting to, and managing Azure resources - including the execution of terminal commands via command-line prompts or scripts. You can install the Azure CLI locally on Linux, macOS, or Windows-based machines, run it from within a container, or access the Azure CLI from a browser through Azure Cloud Shell.
 
-The following example shows you how to use Azure CLI to deploy a WAR file to Azure Container Apps:
+The following example shows you how to use Azure CLI to deploy a JAR or WAR file to Azure Container Apps:
 
 ```azurecli
 az containerapp up \
