@@ -92,6 +92,12 @@ landingContent:
             url: enable-spring-boot-webapp-authorization-group-entra-id.md
           - text: Deploy to Azure Spring Apps
             url: deploy-spring-boot-to-azure-spring-apps.md
+  - title: Secure your Java WebSphere Liberty/Open Liberty app
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use Microsoft Entra ID OpenID Connect
+            url: ../ee/liberty-with-microsoft-entra-id.md?toc=/azure/developer/java/identity/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
   - title: Secure your Java Quarkus app
     linkLists:
       - linkListType: how-to-guide
