@@ -32,7 +32,7 @@ See the [Get started](get-started.md) article for complete setup instructions.
 
 4. To start a new chat session, select the plus icon + in the window's title bar.
 
-![Screenshot displaying the GitHub Copilot window.](media/quickstart-ask-copilot.png)
+:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-ask-copilot.png" alt-text="Screenshot displaying the GitHub Copilot window.":::
 
 5. In the chat text box, enter the following prompt after `@azure` and select Send (paper airplane icon) or select Enter on your keyboard.
 
@@ -44,16 +44,17 @@ After a moment, GitHub Copilot for Azure will likely suggest an azd template to 
 
 You might see a response like:
 
-![Screenshot displaying a response from GitHub Copilot from azure with instructions to use an azd template to create a web site in Azure.](media/quickstart-create.png)
+:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-create.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with instructions to use an azd template to create a web site in Azure.":::
 
 
 6. If your answer provides you with a command that begins with `azd init` in a code fence, hover your mouse cursor over the code fence to reveal a small action popup on the right hand side.
 
-![Screenshot displaying a popup menu with an option to insert the command in the code fence into Visual Studio Code's Terminal.](media/quickstart-insert.png)
+:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-insert.png" alt-text="Screenshot displaying a popup menu with an option to insert the command in the code fence into Visual Studio Code's Terminal.":::
 
 Select `Insert into Terminal` to insert the command into the Terminal.
 
-![Screenshot displaying Visual Studio Code's Terminal after the code fenced command is inserted.](media/quickstart-inserted.png)
+:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-inserted.png" alt-text="Screenshot displaying Visual Studio Code's Terminal after the code fenced command is inserted.":::
+
 
 7. Before executing the `azd init` command, you might have questions about how `azd init` affects your local computer and  your Azure subscription.
 
@@ -64,7 +65,8 @@ Before I execute azd init, what does it do?
 ```
 You might see a response that resembles the following screenshot.
 
-![Screenshot displaying a response from GitHub Copilot from azure with an explanation of what azd init does.](media/quickstart-azd-init.png)
+:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-azd-init.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an explanation of what azd init does.":::
+
 
 
 8. Use the following prompt to learn more about the azd template:
@@ -74,7 +76,8 @@ What resources are created with this template?
 ```
 You might see a response that resembles the following screenshot.
 
-![Screenshot displaying a response from GitHub Copilot from azure with an explanation of the resources created by the suggested azd template.](media/quickstart-resources.png)
+:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-resources.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an explanation of the resources created by the suggested azd template.":::
+
 
 9. Ask questions about the services used by the template with a prompt like:
 
@@ -83,7 +86,7 @@ What is the purpose of a VNet?
 ```
 You might see a response that resembles the following screenshot.
 
-![Screenshot displaying a response from GitHub Copilot from azure with an explanation of what is a VNet.](media/quickstart-location.png)
+:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-vnet.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an explanation of what is a VNet.":::
 
 10. When you're satisfied, execute the `azd init` command in the Terminal. Answer its prompts. If you're unsure what to answer for a given prompt, ask GitHub Copilot for Azure for help.
 
@@ -102,7 +105,8 @@ azd up is asking me what location I want to deploy the website into. How should 
 
 You might see a response that resembles the following screenshot.
 
-![Screenshot displaying a response from GitHub Copilot from azure with an answer that describes what Azure locations are and how to choose one.](media/quickstart-location.png)
+
+:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-location.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an answer that describes what Azure locations are and how to choose one.":::
 
 13. Continue to answer prompts from `azd up` asking GitHub Copilot for Azure questions as needed.
 
@@ -122,7 +126,7 @@ How do I undeploy this web site?
 
 You might see a response that resembles the following screenshot.
 
-![Screenshot displaying a response from GitHub Copilot from azure with instructions to undeploy the web site using azd down.](media/quickstart-undeploy.png)
+:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-undeploy.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with instructions to undeploy the web site using azd down.":::
 
 Use `azd down` to remove the website and all resources that were deployed to your Azure subscription.
 
