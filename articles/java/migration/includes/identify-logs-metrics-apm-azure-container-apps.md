@@ -10,4 +10,4 @@ Identify any log aggregation solutions in use by the applications you're migrati
 
 #### Identify application performance management (APM) agents
 
-Identify any application performance management agents used by your applications. Azure Containers Apps doesn't offer built-in support for APM integration. You need to prepare your container image or integrate APM tool directly into your code. If the application doesn't use a supported APM, consider using Application Insights. For more information, see the [Migration](#configure-application-performance-management-apm-integrations) section.
+Identify any application performance management agents used by your applications. Azure Containers Apps doesn't offer built-in support for APM integration. You need to prepare your container image or integrate APM tool directly into your code. If you want to measure your application's performance but haven't integrated any APM yet, consider using Azure Application Insights. For more information, see the [Migration](#configure-application-performance-management-apm-integrations) section.

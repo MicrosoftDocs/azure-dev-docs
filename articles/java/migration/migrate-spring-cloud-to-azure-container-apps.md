@@ -159,9 +159,7 @@ You can inject secrets directly into applications through Spring by using the Az
 
 ### Configure application performance management (APM) integrations
 
-Whether your app is deployed from a container image or from code, Azure Container Apps doesn't interfere with your image or code. Therefore, integrating your application with an APM tool depends on your own preferences and implementation.
-
-If your application isn't using a supported APM, Azure Application Insights is one option. For more information, see [Using Azure Monitor Application Insights with Spring Boot](/azure/azure-monitor/app/java-spring-boot).
+If you've already configured APM-related variables within the container, all you need to do is ensure that the connection to the target APM platform can be established. If the APM configuration references environment variables from the container, you'll need to set the runtime environment variables accordingly on Azure Container Apps. Sensitive information, such as the connection string, should be handled securely. You can either specify it as a secret or reference a secret stored in Azure Key Vault.
 
 ### Configure per-service secrets and externalized settings
 

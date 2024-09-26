@@ -22,7 +22,7 @@ If your application isn't using a supported APM, Azure Application Insights is o
 
 ### Deploy the application
 
-Deploy each of the migrated microservices (not including the Spring Cloud Config and Registry servers), as described in [Deploy Azure Container Apps with the az containerapp up command](/azure/container-apps/containerapp-up).
+Deploy each of the migrated microservices (not including Spring Cloud Config server and Spring Cloud Service Registry), as described in [Deploy Azure Container Apps with the az containerapp up command](/azure/container-apps/containerapp-up).
 
 ### Configure per-service secrets and externalized settings
 
