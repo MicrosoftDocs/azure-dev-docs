@@ -92,10 +92,8 @@ The Azure SDK supports the [Node.js Long Term Support (LTS) version](https://nod
 
 When you need to manage more than one version of Node.js across your local and remote environments, we recommend:
 
+* [**Development Containers**](https://containers.dev/): Use a container with a specific Node.js version. You can manage the version of Node.js across several environments using containers. Visual Studio Code's [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) simplifies this process.
 * **NVM (Node Version Manager)**: A command-line interface to set or switch your local version of Node.js.
-  * macOS, Linux - [nvm](https://github.com/creationix/nvm)
-  * Windows - [nvm for Windows](https://github.com/marcelklehr/nodist)
-* **Containers**: Use a container with a specific Node.js version. You can manage the version of Node.js across several environments using containers. Visual Studio Code's [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) simplifies this process.
 
 ### Download and install Node.js based on your intended use
 
