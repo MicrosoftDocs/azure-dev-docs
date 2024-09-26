@@ -51,15 +51,16 @@ You can set a default subscription which limits GitHub Copilot to query a single
 
 1. In Visual Studio Code, in the activity bar, select Extensions, and scroll down to GitHub Copilot for Azure.
 
-![Screenshot displaying Visual Studio Code's activity bar with Extensions selected, and displaying the option for GitHub Copilot for Azure.](media/getstarted-extensions.png)
+:::image type="content" source="media/get-started/getstarted-extensions.png" alt-text="Screenshot displaying Visual Studio Code's activity bar with Extensions selected, and displaying the option for GitHub Copilot for Azure.":::
 
 2. Select the gear icon in the upper-left hand corner of the extension's entry and select Settings from the popup menu.
 
-![Screenshot displaying the popup menu for GitHub Copilot for Azure.](media/getstarted-settings.png)
+:::image type="content" source="media/get-started/getstarted-settings.png" alt-text="Screenshot displaying the popup menu for GitHub Copilot for Azure.":::
+
 
 3. In the settings tab, set the ARG tenant to your desired Azure subscription ID. You can find your subscription ID (also known as the tenant ID) in the Azure portal.
 
-![Screenshot displaying the Settings tab with an option to set the ARG tenant.](media/getstarted-arg-tenant.png)
+:::image type="content" source="media/get-started/getstarted-arg-tenant.png" alt-text="Screenshot displaying the Settings tab with an option to set the ARG tenant.":::
 
 
 ## Next steps
