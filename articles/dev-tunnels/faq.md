@@ -55,7 +55,7 @@ Tunnel IDs need to be provided for all operations that refer to a tunnel, so hav
 
 ## What are the license terms for dev tunnels?
 
-When using the `devtunnel` CLI for the first time, you see a link to the dev tunnel license terms. You can also download our license terms [here](https://aka.ms/devtunnels/tos).
+When using the `devtunnel` CLI for the first time, you see a link to the dev tunnel license terms. You can also download our license terms [here](https://aka.ms/devtunnels/tos is broken).
 
 ## Where else is dev tunnels used?
 
