@@ -6,6 +6,7 @@ ms.service: azure
 ms.topic: overview
 ms.date: 09/03/2024
 ms.custom: overview
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Quickstart: Build and deploy your application with GitHub Copilot for Azure
