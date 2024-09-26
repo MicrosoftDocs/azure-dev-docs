@@ -12,13 +12,13 @@ In this article, you learn how to use the Azure client libraries in Python appli
 
 All the commands in this article work the same in Linux/macOS bash and Windows command shells unless noted.
 
-## 1: Set up your local development environment
+## 1. Set up your local development environment
 
 If you haven't already, set up an environment where you can run this code. Here are some options:
 
 [!INCLUDE [create_environment_options](../../includes/create-environment-options.md)]
 
-## 2: Install library packages
+## 2. Install library packages
 
 In your *requirements.txt* file, add lines for the client library package you'll use and save the file.
 
@@ -30,27 +30,31 @@ Then, in your terminal or command prompt, install the requirements.
 pip install -r requirements.txt
 ```
 
-## 3: Create a file to upload
+## 3. Create a file to upload
 
 Create a source file named *sample-source.txt*. This file name is what the code expects.
 
 :::code language="txt" source="~/../python-sdk-docs-examples/storage/sample-source.txt":::
 
-## 4: Use blob storage from app code
+## 4. Use blob storage from app code
 
-This section demonstrates two ways to access the blob container created through [Example: Create Azure Storage](azure-sdk-example-storage.md).
+This section demonstrates two ways to access data in the blob container created that you created in [Example: Create Azure Storage](azure-sdk-example-storage.md).
 
-The **Passwordless (Recommended)** method authenticates the app with `DefaultAzureCredential` as described in [Authenticate Python apps to Azure services during local development using service principals](../authentication-local-development-service-principal.md). With this method, you must first assign the appropriate permissions to the app identity. which in this example, is an application service principal. [DefaultAzureCredential](../authentication/credential-chains.md#defaultazurecredential-overview) is a chained credential, which provides the ability to authenticate using several different credential types. This means your app could just as easily run under your Azure user account or, if running on Azure, a managed identity without needing to make any code changes.
+To access data in the blob container, your app must be able to authenticate with Azure and be authorized to access data in the container. This section presents two ways of doing this:
 
-The **Connection sting** method uses a connection string to access the storage account directly. Although this method seems simpler, it has two significant drawbacks:
+- The **Passwordless (Recommended)** method authenticates the app by using [`DefaultAzureCredential`](../authentication/credential-chains.md#defaultazurecredential-overview). `DefaultAzureCredential` is a chained credential that can authenticate an app (or a user) using a sequence of different credentials, including developer tool credentials, application service principals, and managed identities. This means your app could just as easily run under your Azure user account or, if running on Azure, a managed identity without needing to make any code changes. With this method, you must first assign an appropriate Azure role to whichever identity you run the app under.
 
-- A connection string authenticates the connecting agent with the Storage *account* rather than with individual resources within that account. As a result, a connection string grants broader authorization than might be needed.
+- The **Connection sting** method uses a connection string to access the storage account directly. Although this method seems simpler, it has two significant drawbacks:
 
-- A connection string contains access info in plain text and therefore presents potential vulnerabilities if it's not properly constructed or secured. If such a connection string is exposed, it can be used to access a wide range of resources within the Storage account.
+  - A connection string authenticates the connecting agent with the Storage *account* rather than with individual resources within that account. As a result, a connection string grants broader authorization than might be needed.
 
-For these reasons, we recommend using the passwordless method in whenever possible.
+  - A connection string contains access info in plain text and therefore presents potential vulnerabilities if it's not properly constructed or secured. If such a connection string is exposed, it can be used to access a wide range of resources within the Storage account.
+
+For these reasons, we recommend using the passwordless method whenever possible.
 
 ### [Passwordless (Recommended)](#tab/managed-identity)
+
+You can use `DefaultAzureCredential` to authenticate and authorize your app using a number of different credential types. In the following steps, you use an application service principal as described in [Authenticate Python apps to Azure services during local development using service principals](../authentication-local-development-service-principal.md).
 
 1. Create a file named *use_blob_auth.py* with the following code. The comments explain the steps.
 
@@ -156,8 +160,11 @@ For these reasons, we recommend using the passwordless method in whenever possib
 
 For more information on role assignments, see [How to assign role permissions using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
 
-> [!NOTE]
-> When deployed to Azure, this same code can be used to authorize requests to Azure Storage from an application running in Azure. However, you'll need to enable managed identity on your app in Azure. Then configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/azure/developer/python/sdk/authentication-azure-hosted-apps) tutorial.
+You can use the same code to run the app under different identities. For example:
+
+- During development, under your Azure user account directly or through a security group as described in [Authenticate Python apps to Azure services during local development using developer accounts](../authentication/local-development-dev-accounts.md).
+
+- On an app deployed to Azure, under a managed identity that has been assigned to it as described in [Authenticating Azure-hosted apps to Azure resources with the Azure SDK for Python](/azure/developer/python/sdk/authentication-azure-hosted-apps).
 
 ### [Connection String](#tab/connection-string)
 
@@ -204,7 +211,7 @@ az storage blob list --container-name blob-container-01
 
 If you followed the instructions to use blob storage with authentication, you can add the `--connection-string` parameter to the preceding command with the connection string for your storage account. To learn how to get the connection string, see the instructions in [4. Use blob storage from app code (Connection string tab)](azure-sdk-example-storage-use.md?tab=connection-string#4-use-blob-storage-from-app-code). Use the whole connection string including the quotes.
 
-## 6: Clean up resources
+## 6. Clean up resources
 
 Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group and storage resources used in this example. Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
@@ -222,7 +229,7 @@ az ad app delete --id <AZURE_CLIENT_ID>
 
 ## See also
 
-- [Quickstart: Azure Blob Storage client library for Python](/azure/storage/blobs/storage-quickstart-blobs-python)
+- [Quickstart: Azure Blob Storage client library for Python](/azure/storage/blobs/storage-quickstart-blobs-pythongi)
 - [Example: Create a resource group](azure-sdk-example-resource-group.md)
 - [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
 - [Example: Create a web app and deploy code](azure-sdk-example-web-app.md)
