@@ -4,7 +4,7 @@ ms.author: jiangma
 ms.date: 09/26/2024
 ---
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 - An Azure identity with at least the Cloud Application Administrator role. For more information, see [List Microsoft Entra role assignments](/entra/identity/role-based-access-control/view-assignments#microsoft-entra-admin-center) and [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator).
 - A Microsoft Entra tenant. If you don't have an existing tenant, see [Quickstart: Set up a tenant](/entra/identity-platform/quickstart-create-new-tenant).
 - A local machine with a Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
