@@ -69,13 +69,13 @@ You need to update all applications to use supported versions of Spring Cloud. F
 Identify external resources, such as data sources, JMS message brokers, and URLs of other services. In Spring Cloud applications, you can typically find the configuration for such resources in one of the following locations:
 
 * In the *src/main/resources* folder, in a file typically called *application.properties* or *application.yml*.
-* In the Spring Cloud Config repository that you identified in the previous step.
+* In the Spring Cloud Config Server repository that you identified in the previous step.
 
 [!INCLUDE [inventory-databases-spring-boot](includes/inventory-databases-spring-boot.md)]
 
 [!INCLUDE [identify-jms-brokers-in-spring](includes/identify-jms-brokers-in-spring.md)]
 
-After you've identified the broker or brokers in use, find the corresponding settings. In Spring Cloud applications, you can typically find them in the *application.properties* and *application.yml* files in the application directory, or in the Spring Cloud Config server repository.
+After you've identified the broker or brokers in use, find the corresponding settings. In Spring Cloud applications, you can typically find them in the *application.properties* and *application.yml* files in the application directory, or in the Spring Cloud Config Server repository.
 
 [!INCLUDE [jms-broker-settings-examples-in-spring](includes/jms-broker-settings-examples-in-spring.md)]
 
@@ -119,7 +119,7 @@ It isn't feasible for this guide to document every possible external dependency.
 
 ### Remove restricted configurations
 
-The Azure Container Apps environment offers managed Eureka Server, Config Server, and Admin. When an application is bound to the Java component, Azure Container Apps injects related properties as system environment variables. According to the [Spring Boot Externalized Configuration](https://docs.spring.io/spring-boot/reference/features/external-config.html) design, application properties defined in your code or packaged in artifacts are overwritten by system environment variables.
+The Azure Container Apps environment offers managed Eureka Server, Spring Cloud Config Server, and Admin. When an application is bound to the Java component, Azure Container Apps injects related properties as system environment variables. According to the [Spring Boot Externalized Configuration](https://docs.spring.io/spring-boot/reference/features/external-config.html) design, application properties defined in your code or packaged in artifacts are overwritten by system environment variables.
 
 If you set one of the following properties via command-line argument, a Java system property, or container's environment variable, you must remove it to avoid conflicts and unexpected behavior:
 
@@ -137,7 +137,7 @@ If you set one of the following properties via command-line argument, a Java sys
 
 Provision an Azure Container Apps app in your Azure subscription on an existing managed environment or create a new one for every service you're migrating. You don't need to create apps running as Spring Cloud registry and Configuration servers. For more information, see [Quickstart: Deploy your first container app using the Azure portal](/azure/container-apps/quickstart-portal).
 
-### Prepare the Spring Cloud Config server
+### Prepare the Spring Cloud Config Server
 
 Configure the Config server in your Azure Container Apps for Spring component. For more information, see [Configure settings for the Config Server for Spring component in Azure Container Apps](/azure/container-apps/java-config-server-usage).
 
@@ -159,7 +159,7 @@ You can inject secrets directly into applications through Spring by using the Az
 
 ### Configure application performance management (APM) integrations
 
-If you've already configured APM-related variables within the container, all you need to do is ensure that the connection to the target APM platform can be established. If the APM configuration references environment variables from the container, you'll need to set the runtime environment variables accordingly on Azure Container Apps. Sensitive information, such as the connection string, should be handled securely. You can either specify it as a secret or reference a secret stored in Azure Key Vault.
+If you've already configured APM-related variables within the container, all you need to do is ensure that the connection to the target APM platform can be established. If the APM configuration references environment variables from the container, you need to set the runtime environment variables accordingly on Azure Container Apps. Sensitive information, such as the connection string, should be handled securely. You can either specify it as a secret or reference a secret stored in Azure Key Vault.
 
 ### Configure per-service secrets and externalized settings
 
