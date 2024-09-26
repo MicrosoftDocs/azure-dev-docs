@@ -1675,26 +1675,6 @@
     {
       "source_path": "articles/ai/passwordless-connections.md",
       "redirect_url": "/azure/developer/ai/keyless-connections"
-    },
-    {
-      "source_path": "articles/java/sdk/identity.md",
-      "redirect_url": "/azure/developer/java/sdk/authentication/overview"
-    },
-    {
-      "source_path": "articles/java/sdk/identity-azure-hosted-auth.md",
-      "redirect_url": "/azure/developer/java/sdk/authentication/azure-hosted-apps"
-    },
-    {
-      "source_path": "articles/java/sdk/identity-service-principal-auth.md",
-      "redirect_url": "/azure/developer/java/sdk/authentication/service-principal"
-    },
-    {
-      "source_path": "articles/java/sdk/identity-dev-env-auth.md",
-      "redirect_url": "/azure/developer/java/sdk/authentication/dev-env"
-    },
-    {
-      "source_path": "articles/java/sdk/identity-user-auth.md",
-      "redirect_url": "/azure/developer/java/sdk/authentication/user"
     }        
   ]
 }
