@@ -15,17 +15,17 @@ This article shows you how to secure IBM WebSphere Liberty/Open Liberty applicat
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> - Set up an OpenID Connect provider with Microsoft Entra ID.
-> - Protect a WebSphere Liberty/Open Liberty app by using OpenID Connect.
+> - Set up an OIDC provider with Microsoft Entra ID.
+> - Protect a WebSphere Liberty/Open Liberty app by using OIDC.
 > - Run and test the WebSphere Liberty/Open Liberty app.
 
 ## Prerequisites
 
 [!INCLUDE [secure-with-entra-id-prerequisites](includes/secure-with-entra-id-prerequisites.md)]
 
-## Set up an OpenID Connect provider with Microsoft Entra ID
+## Set up an OIDC provider with Microsoft Entra ID
 
-In this section, you set up an OpenID Connect provider with Microsoft Entra ID for use with your WebSphere Liberty/Open Liberty app. In a later section, you configure the WebSphere Liberty/Open Liberty app by using OpenID Connect to authenticate and authorize users in your Microsoft Entra tenant.
+OpenID Connect is an industry standard authentication protocol well supported by Microsoft Entra ID. In this section, you set up an OIDC provider with Microsoft Entra ID for use with your WebSphere Liberty/Open Liberty app. In a later section, you configure the WebSphere Liberty/Open Liberty app by using OIDC to authenticate and authorize users in your Microsoft Entra tenant.
 
 ### Create users in Microsoft Entra tenant
 
@@ -41,7 +41,7 @@ In this section, you set up an OpenID Connect provider with Microsoft Entra ID f
 
 ## Protect a WebSphere Liberty/Open Liberty app by using OpenID Connect
 
-In this section, you secure a WebSphere Liberty/Open Liberty app that authenticates and authorizes users in your Microsoft Entra tenant by using OpenID Connect. You also learn how to give users access to certain parts of the app using role-based access control (RBAC).
+In this section, you secure a WebSphere Liberty/Open Liberty app that authenticates and authorizes users in your Microsoft Entra tenant by using OIDC. You also learn how to give users access to certain parts of the app using role-based access control (RBAC).
 
 The sample WebSphere Liberty/Open Liberty app for this quickstart is on GitHub in the [liberty-entra-id](https://github.com/Azure-Samples/liberty-entra-id/tree/2024-09-26) repository.
 
@@ -178,7 +178,7 @@ public class LogoutServlet extends HttpServlet {
 
 ## Run and test the WebSphere Liberty/Open Liberty app
 
-In this section, you run and test the WebSphere Liberty/Open Liberty app to see how it works with Microsoft Entra ID as the OpenID Connect provider.
+In this section, you run and test the WebSphere Liberty/Open Liberty app to see how it works with Microsoft Entra ID as the OIDC provider.
 
 ### Prepare the sample
 
@@ -202,7 +202,7 @@ Use the following steps to prepare the sample app:
    export TENANT_ID=<directory/tenant-ID>
    ```
 
-   These environment variables provide the values for the built-in support of OpenID Connect in WebSphere Liberty/Open Liberty. The corresponding OIDC configuration in [server.xml](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/liberty/config/server.xml#L24-L29) is shown in the following example.
+   These environment variables provide the values for the built-in support of OIDC in WebSphere Liberty/Open Liberty. The corresponding OIDC configuration in [server.xml](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/liberty/config/server.xml#L24-L29) is shown in the following example.
 
    ```xml
     <oidcLogin
@@ -275,7 +275,7 @@ Use the following steps to exercise the functionality:
 
 ## Next steps
 
-In this quickstart, you protect WebSphere Liberty/Open Liberty applications with Microsoft Entra ID using OpenID Connect. To learn more, explore the following resources:
+In this quickstart, you protect WebSphere Liberty/Open Liberty applications with Microsoft Entra ID using OIDC. To learn more, explore the following resources:
 
 - [Deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps](/azure/developer/java/ee/deploy-java-liberty-app-aca)
 - [Deploy WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app)
@@ -285,3 +285,4 @@ In this quickstart, you protect WebSphere Liberty/Open Liberty applications with
 - [Authenticating users through social media providers](https://openliberty.io/guides/social-media-login.html)
 - [Social Media Login 1.0](https://openliberty.io/docs/latest/reference/feature/socialLogin-1.0.html)
 - [OpenID Connect Client 1.0](https://openliberty.io/docs/latest/reference/feature/openidConnectClient-1.0.html)
+- [What is OpenID Connect](https://openid.net/developers/how-connect-works/)
