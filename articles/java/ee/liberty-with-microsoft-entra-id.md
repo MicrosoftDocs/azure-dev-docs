@@ -145,7 +145,7 @@ The profile page is defined in [profile.jsp](https://github.com/Azure-Samples/li
 </html>
 ```
 
-When the user selects to sign out, the app calls the logout servlet, defined in [LogoutServlet.java](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/java/com/example/LogoutServlet.java), as shown in the following example code. The logout servlet calls the `request.logout()` method to log out the user, and then redirects the user to the welcome page.
+When the user selects to sign out, the app calls the sign out servlet, defined in [LogoutServlet.java](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/java/com/example/LogoutServlet.java), as shown in the following example code. The sign out servlet calls the `request.logout()` method to sign out the user, and then redirects the user to the welcome page.
 
 ```java
 package com.example;
@@ -192,7 +192,7 @@ Use the following steps to prepare the sample app:
    git checkout 2024-09-26
    ```
 
-   If you see a message about being in *detached HEAD* state, this message is safe to ignore. Because this article doesn't require any commits, detached HEAD state is appropriate.
+   If you see a message about being in *detached HEAD* state, this message is safe to ignore. This message just means you have checked out a tag.
 
 1. Use the following commands to define the following environment variables with the values you wrote down earlier:
 
@@ -217,7 +217,7 @@ Use the following steps to prepare the sample app:
 
 ### Run the WebSphere Liberty/Open Liberty app
 
-You can run the app using `liberty-maven-plugin` with different goals. Select one of the following methods to run the app. To enable WebSphere Liberty/Open Liberty to connect to Microsoft Entra ID, be sure to run the command in the shell in which you defined the environment variables shown in the preceding section.
+You can run the app using `liberty-maven-plugin`. Select one of the following methods to run the app. To enable WebSphere Liberty/Open Liberty to connect to Microsoft Entra ID, be sure to run the command in the shell in which you defined the environment variables shown in the preceding section.
 
 * Run the app in development mode:
 
@@ -225,7 +225,7 @@ You can run the app using `liberty-maven-plugin` with different goals. Select on
   mvn liberty:dev
   ```
 
-* Run the app:
+* Run the app in runtime mode:
 
   ```bash
   mvn liberty:run
