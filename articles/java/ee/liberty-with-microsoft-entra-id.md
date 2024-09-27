@@ -41,7 +41,7 @@ OpenID Connect is an industry standard authentication protocol well supported by
 
 ## Protect a WebSphere Liberty/Open Liberty app by using OpenID Connect
 
-In this section, you secure a WebSphere Liberty/Open Liberty app that authenticates and authorizes users in your Microsoft Entra tenant by using OIDC. You also learn how to give users access to certain parts of the app using role-based access control (RBAC).
+In this section, you secure a WebSphere Liberty/Open Liberty app that authenticates and authorizes users in your Microsoft Entra tenant by using OIDC. You also learn how to give users access to certain parts of the app using role-based access control (RBAC). The app uses the Programmatic Security Policy Configuration of the Jakarta Servlet specification. See the resources section for a reference to securing an RESTful web services application.
 
 The sample WebSphere Liberty/Open Liberty app for this quickstart is on GitHub in the [liberty-entra-id](https://github.com/Azure-Samples/liberty-entra-id/tree/2024-09-26) repository.
 
@@ -120,7 +120,7 @@ public class ProfileServlet extends HttpServlet {
 
 The profile servlet retrieves the user's roles from the ID token and checks if the user has the `admin` role when the user tries to access the `/profile/admin` path. If the user doesn't have the `admin` role, the servlet returns a 403 Forbidden error. In other cases, the servlet retrieves the user's name and forwards the request to the profile page with the user's name and roles.
 
-The profile page is defined in [profile.jsp](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/webapp/profile.jsp), as shown in the following example. This page displays the user's name and roles. The profile page also has a sign-out link at `/logout`. The profile page is written JSP (JavaServer Pages). Note the use of `${}` expressions in the page. The `${}` expressions are replaced with the values of the corresponding variables when the page is rendered.
+The profile page is defined in [profile.jsp](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/webapp/profile.jsp), as shown in the following example. This page displays the user's name and roles. The profile page also has a sign-out link at `/logout`. The profile page is written JSP (Jakarta Server Pages). Note the use of `${}` expressions in the page. The `${}` expressions are replaced with the values of the corresponding variables when the page is rendered.
 
 ```jsp
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
@@ -286,3 +286,5 @@ In this quickstart, you protect WebSphere Liberty/Open Liberty applications with
 - [Social Media Login 1.0](https://openliberty.io/docs/latest/reference/feature/socialLogin-1.0.html)
 - [OpenID Connect Client 1.0](https://openliberty.io/docs/latest/reference/feature/openidConnectClient-1.0.html)
 - [What is OpenID Connect](https://openid.net/developers/how-connect-works/)
+- [Programmatic Security Policy Configuration](https://jakarta.ee/specifications/servlet/6.1/jakarta-servlet-spec-6.1#programmatic-security-policy-configuration)
+- [How to Secure a RESTful Web Service Using Jakarta EE](https://jakarta.ee/learn/starter-guides/how-to-secure-a-restful-web-service/)
