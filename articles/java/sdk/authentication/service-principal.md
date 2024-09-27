@@ -17,7 +17,7 @@ This article looks at how the Azure Identity library supports Microsoft Entra to
 * [Client secret credential](#client-secret-credential)
 * [Client certificate credential](#client-certificate-credential)
 
-For more information, see [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals). For troubleshooting service principal authentication issues, see [Troubleshoot service principal authentication](troubleshooting-authentication-service-principal.md).
+For more information, see [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals). For troubleshooting service principal authentication issues, see [Troubleshoot service principal authentication](../troubleshooting-authentication-service-principal.md).
 
 ## Create a service principal with the Azure CLI
 
@@ -108,13 +108,13 @@ SecretClient client = new SecretClientBuilder()
 
 This article covered authentication via service principal. This form of authentication is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe other ways:
 
-* [Azure authentication in development environments](identity-dev-env-auth.md)
-* [Authenticating applications hosted in Azure](identity-azure-hosted-auth.md)
-* [Authentication with User Credentials](identity-user-auth.md)
+* [Azure authentication in development environments](dev-env.md)
+* [Authenticating applications hosted in Azure](azure-hosted-apps.md)
+* [Authentication with User Credentials](user.md)
 
-If you run into issues related to service principal authentication, see [Troubleshoot service principal authentication](troubleshooting-authentication-service-principal.md).
+If you run into issues related to service principal authentication, see [Troubleshoot service principal authentication](../troubleshooting-authentication-service-principal.md).
 
-After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
+After you've mastered authentication, see [Configure logging in the Azure SDK for Java](../logging-overview.md) for information on the logging functionality provided by the SDK.
 
 <!-- LINKS -->
 [secrets_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets

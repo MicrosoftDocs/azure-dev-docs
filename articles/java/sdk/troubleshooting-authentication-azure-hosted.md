@@ -11,7 +11,7 @@ ms.author: jogiles
 
 # Troubleshoot Azure-hosted application authentication
 
-This article provides guidance on dealing with issues encountered when authenticating Azure SDK for Java applications hosted on Azure, through various `TokenCredential` implementations. For more information, see [Authenticate Azure-hosted Java applications](identity-azure-hosted-auth.md).
+This article provides guidance on dealing with issues encountered when authenticating Azure SDK for Java applications hosted on Azure, through various `TokenCredential` implementations. For more information, see [Authenticate Azure-hosted Java applications](authentication/azure-hosted-apps.md).
 
 ## Troubleshoot DefaultAzureCredential
 

@@ -73,4 +73,4 @@ To find out which spans and attributes the SDK emits, see the [Azure SDK semanti
 
 ## Next steps
 
-Now that you're familiar with the core cross-cutting functionality in the Azure SDK for Java, see [Azure authentication with Java and Azure Identity](identity.md) to learn how you can create secure applications.
+Now that you're familiar with the core cross-cutting functionality in the Azure SDK for Java, see [Azure authentication with Java and Azure Identity](authentication/overview.md) to learn how you can create secure applications.
