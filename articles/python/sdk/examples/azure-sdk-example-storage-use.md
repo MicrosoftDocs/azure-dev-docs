@@ -87,17 +87,17 @@ You can use `DefaultAzureCredential` to authenticate and authorize your app usin
 1. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a new service principal for the app. The command creates the app registration for the app at the same time. Give the service principal a name of your choosing.
 
     ```azurecli
-    az ad sp create-for-rbac --name {service-principal-name}
+    az ad sp create-for-rbac --name \<service-principal-name\>
     ```
 
     The output of this command will look like the following. Make note of these values or keep this window open as you'll need these values in the next step and won't be able to view the password (client secret) value again. You can, however, add a new password later without invalidating the service principal or existing passwords if needed.
 
     ```json
     {
-      "appId": "00000000-0000-0000-0000-000000000000",
-      "displayName": "{service-principal-name}",
-      "password": "abcdefghijklmnopqrstuvwxyz",
-      "tenant": "11111111-1111-1111-1111-111111111111"
+      "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
+      "displayName": "\<service-principal-name\>",
+      "password": "Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2",
+      "tenant": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
     }
     ```
 
@@ -114,17 +114,17 @@ You can use `DefaultAzureCredential` to authenticate and authorize your app usin
     # [cmd](#tab/cmd)
 
     ```cmd
-    set AZURE_CLIENT_ID=00000000-0000-0000-0000-000000000000
-    set AZURE_TENANT_ID=11111111-1111-1111-1111-111111111111
-    set AZURE_CLIENT_SECRET=abcdefghijklmnopqrstuvwxyz
+    set AZURE_CLIENT_ID=00001111-aaaa-2222-bbbb-3333cccc4444
+    set AZURE_TENANT_ID=aaaabbbb-0000-cccc-1111-dddd2222eeee
+    set AZURE_CLIENT_SECRET=Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2
     ```
 
     # [bash](#tab/bash)
 
     ```bash
-    AZURE_CLIENT_ID=00000000-0000-0000-0000-000000000000
-    AZURE_TENANT_ID=11111111-1111-1111-1111-111111111111
-    AZURE_CLIENT_SECRET=abcdefghijklmnopqrstuvwxyz
+    AZURE_CLIENT_ID=00001111-aaaa-2222-bbbb-3333cccc4444
+    AZURE_TENANT_ID=aaaabbbb-0000-cccc-1111-dddd2222eeee
+    AZURE_CLIENT_SECRET=Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2
     ```
 
     ---
@@ -209,7 +209,7 @@ If you created an environment variable named `AZURE_STORAGE_CONNECTION_STRING`, 
 az storage blob list --container-name blob-container-01
 ```
 
-If you followed the instructions to use blob storage with authentication, you can add the `--connection-string` parameter to the preceding command with the connection string for your storage account. To learn how to get the connection string, see the instructions in [4. Use blob storage from app code (Connection string tab)](azure-sdk-example-storage-use.md?tab=connection-string#4-use-blob-storage-from-app-code). Use the whole connection string including the quotes.
+If you followed the instructions to use blob storage with authentication, you can add the `--connection-string` parameter to the preceding command with the connection string for your storage account. To learn how to get the connection string, see the instructions in [4. Use blob storage from app code (Connection string tab)](azure-sdk-example-storage-use.md?tab=connection-string:cmd#4-use-blob-storage-from-app-code). Use the whole connection string including the quotes.
 
 ## 6. Clean up resources
 
@@ -229,7 +229,7 @@ az ad app delete --id <AZURE_CLIENT_ID>
 
 ## See also
 
-- [Quickstart: Azure Blob Storage client library for Python](/azure/storage/blobs/storage-quickstart-blobs-pythongi)
+- [Quickstart: Azure Blob Storage client library for Python](/azure/storage/blobs/storage-quickstart-blobs-python)
 - [Example: Create a resource group](azure-sdk-example-resource-group.md)
 - [Example: List resource groups in a subscription](azure-sdk-example-list-resource-groups.md)
 - [Example: Create a web app and deploy code](azure-sdk-example-web-app.md)
