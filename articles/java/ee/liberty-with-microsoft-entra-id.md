@@ -180,6 +180,13 @@ public class LogoutServlet extends HttpServlet {
 
 In this section, you run and test the WebSphere Liberty/Open Liberty app to see how it works with Microsoft Entra ID as the OIDC provider.
 
+### Add a redirect URI to the app registration
+
+[!INCLUDE [secure-with-entra-id-add-redirect-uri](includes/secure-with-entra-id-add-redirect-uri.md)]
+
+1. For **Configure platforms**, select **Web**.
+1. For **Redirect URIs**, enter `https://localhost:9443/ibm/api/social-login/redirect/liberty-entra-id`.
+
 ### Prepare the sample
 
 Use the following steps to prepare the sample app:

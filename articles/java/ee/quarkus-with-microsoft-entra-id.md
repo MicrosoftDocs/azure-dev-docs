@@ -172,6 +172,13 @@ After sign out, the user is redirected to the welcome page and can sign in again
 
 In this section, you run and test the Quarkus app to see how it works with Microsoft Entra ID as the OpenID Connect provider.
 
+### Add a redirect URI to the app registration
+
+[!INCLUDE [secure-with-entra-id-add-redirect-uri](includes/secure-with-entra-id-add-redirect-uri.md)]
+
+1. For **Configure platforms**, select **Web**.
+1. For **Redirect URIs**, enter `http://localhost:8080`.
+
 ### Prepare the sample
 
 Use the following steps to prepare the sample Quarkus app:
