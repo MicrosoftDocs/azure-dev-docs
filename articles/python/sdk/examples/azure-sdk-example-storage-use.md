@@ -205,7 +205,7 @@ If you created an environment variable named `AZURE_STORAGE_CONNECTION_STRING`, 
 az storage blob list --container-name blob-container-01
 ```
 
-If you followed the instructions to passwordless authentication, you can add the `--connection-string` parameter to the preceding command with the connection string for your storage account. To learn how to get the connection string, see the instructions under the **Connection String** tab in [4. Use blob storage from app code](azure-sdk-example-storage-use.md?tab=connection-string:cmd#4-use-blob-storage-from-app-code). Use the whole connection string including the quotes.
+If you followed the instructions to use passwordless authentication, you can add the `--connection-string` parameter to the preceding command with the connection string for your storage account. To learn how to get the connection string, see the instructions under the **Connection String** tab in [4. Use blob storage from app code](azure-sdk-example-storage-use.md?tab=connection-string:cmd#4-use-blob-storage-from-app-code). Use the whole connection string including the quotes.
 
 ## 6. Clean up resources
 
