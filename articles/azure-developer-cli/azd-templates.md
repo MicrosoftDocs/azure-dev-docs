@@ -3,7 +3,7 @@ title: Azure Developer CLI templates
 description: Learn about what Azure Developer CLI templates are, how to work with them, and how to get started using them with your apps.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 06/04/2024
+ms.date: 09/13/2024
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli, build-2023
 ms.service: azure-dev-cli

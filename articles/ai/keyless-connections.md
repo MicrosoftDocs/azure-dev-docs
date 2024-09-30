@@ -1,18 +1,18 @@
 ---
-title: Use passwordless connections with Azure OpenAI
-description: Use passwordless connections for authentication and authorization to Azure OpenAI.
+title: Use keyless connections with Azure OpenAI
+description: Use keyless connections for authentication and authorization to Azure OpenAI.
 ms.topic: how-to
-ms.date: 05/30/2024
+ms.date: 09/19/2024
 ms.reviewer: scaddie
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python, passwordless-go, build-2024-intelligent-apps
-#customer intent: As a developer, I want to use passwordless connections so that I don't leak secrets.
+#customer intent: As a developer, I want to use keyless connections so that I don't leak secrets.
 ---
 
 # Use Azure OpenAI without keys 
 
-Application requests to most Azure services must be authenticated with keys or [passwordless connections](https://aka.ms/delete-passwords). Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate to the service. Passwordless authentication offers improved management and security benefits over the account key because there's no key (or connection string) to store.
+Application requests to most Azure services must be authenticated with keys or [passwordless connections](https://aka.ms/delete-passwords). Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate to the service. Keyless authentication offers improved management and security benefits over the account key because there's no key (or connection string) to store.
 
-Passwordless connections are enabled with the following steps: 
+Keyless connections are enabled with the following steps:
 
 * Configure your authentication.
 * Set environment variables, as needed. 

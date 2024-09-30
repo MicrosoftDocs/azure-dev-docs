@@ -4,7 +4,7 @@ description: This article guides you on using Azure services for Java applicatio
 author: KarlErickson
 ms.author: asirveda
 ms.topic: conceptual
-ms.date: 04/09/2024
+ms.date: 09/30/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -44,7 +44,7 @@ Bringing this mindset to Azure can lead to excessive time spent on creating a si
 
 As you transition to Azure, the cloud environment offers a flexible paradigm where you can provision and deprovision resources according to your needs, eliminating the necessity to choose between one service over another. This flexibility ushers in the A+B approach, a strategy that diverges from the traditional A or B mindset by encouraging a broader, more inclusive way of thinking. Azure facilitates this shift by making it both easy and cost-effective to blend the advantages of multiple services, and adopt an A+B mindset. This approach underscores the principle of selecting services that best align with the specific needs of your application, essentially advocating for choosing the right tool for the job at hand.
 
-The transition to an A+B mindset enables organizations to broaden their decision-making processes and technical strategies, embracing new possibilities and opportunities that this mindset affords. This article delineates the principles of the A+B mindset, enabling you to judiciously select Azure services that resonate most effectively with your application's requirements. Whether it's Azure Spring Apps, Azure App Service, Azure Container Apps (ACA), Azure Kubernetes Service, or Virtual Machines, the A+B mindset grants you the latitude to assess and choose from an array of Azure Services for hosting your applications. This philosophy is applicable universally, transcending language and framework boundaries. Although Java applications are the focus here, the A+B mindset is equally relevant and beneficial for applications developed in any programming language.
+The transition to an A+B mindset enables organizations to broaden their decision-making processes and technical strategies, embracing new possibilities and opportunities that this mindset affords. This article delineates the principles of the A+B mindset, enabling you to judiciously select Azure services that resonate most effectively with your application's requirements. Whether it's Azure Container Apps (ACA), Azure App Service, Azure Kubernetes Service, or Virtual Machines, the A+B mindset grants you the latitude to assess and choose from an array of Azure Services for hosting your applications. This philosophy is applicable universally, transcending language and framework boundaries. Although Java applications are the focus here, the A+B mindset is equally relevant and beneficial for applications developed in any programming language.
 
 By embracing the A+B mindset, you aren't confined to a single, predetermined service. Instead, you're empowered to combine services in a way that best suits the unique demands of your application. This approach not only enhances flexibility and scalability, but also optimizes cost and operational efficiency. This approach ensures that your technical strategy is as dynamic and adaptable as the cloud environment you're operating in.
 
@@ -81,7 +81,7 @@ The following table shows which infrastructure and platform responsibilities are
 
 ### Choosing the best fit for each need
 
-In this new cloud-centric world, the decision-making process becomes more about selecting the right tool for the right job, rather than trying to fit all your needs into one predetermined service. Whether it's choosing between Azure Kubernetes Service and Azure Spring Apps for Spring Boot applications, or any other set of services, the focus shifts to what best meets the requirements of each specific application.
+In this new cloud-centric world, the decision-making process becomes more about selecting the right tool for the right job, rather than trying to fit all your needs into one predetermined service. Whether it's choosing between Azure Kubernetes Service and Azure Container Apps for Spring Boot applications, or any other set of services, the focus shifts to what best meets the requirements of each specific application.
 
 ### The rise of microservices
 
@@ -147,7 +147,7 @@ The following list describes the key considerations:
 
 To streamline the selection process amidst the multitude of technology options for Java applications on Azure, we created a simple decision tree to help developers, customers, and systems integrators to their optimal Azure service.
 
-Beyond the practical guidance for considering non-functional requirements, from a technological point of view, the initial question to consider is whether you need control over infrastructure. If you don't, managed services are the best, most advisable route. The nature of the applications - whether they're Spring or App Server-based - further guides the decision: Spring applications align with Azure Spring Apps, while Azure App Service suits Tomcat or JBoss EAP applications.
+Beyond the practical guidance for considering non-functional requirements, from a technological point of view, the initial question to consider is whether you need control over infrastructure. If you don't, managed services are the best, most advisable route. The nature of the applications - whether they're Spring or App Server-based - further guides the decision: Spring applications align with Azure Container Apps, while Azure App Service suits Tomcat or JBoss EAP applications.
 
 For those requiring infrastructure control, the choice hinges on multi-cloud technology preferences: Azure Virtual Machines offers a simple transition, and for those integrated with Tanzu, the Tanzu on IaaS marketplace offerings are ideal. Customers invested in Kubernetes have the options of Azure Kubernetes Service and Azure Red Hat OpenShift. This decision-making framework is designed to simplify choices by pairing customer requirements with Azure's best suited solutions.
 
@@ -166,7 +166,7 @@ For Java applications on Azure, whether deployed directly from source code or as
 
 Consider the following three examples, which showcase how Azure caters to different Java application deployment scenarios:
 
-- Spring Applications. For developers working with Spring applications, Microsoft Azure collaborated with Tanzu by Broadcom, a leader in Spring open-source projects, to offer a premier cloud service known as Azure Spring Apps. This collaboration enhances developer experiences by integrating popular development tools like IntelliJ, VS Code, Maven, and Gradle, alongside automation tools such as Azure DevOps, GitHub Actions, and Jenkins. Observability tools such as Application Insights, New Relic, Dynatrace, App Dynamics, Grafana, Log Analytics, Elastic, and Splunk are also supported. Security is a top priority, with integrations for Key Vault handling secrets and TLS/SSL certificates, "passwordless" authentication with backing services through managed identities, and Azure role-based access control (RBAC), ensuring a secure, streamlined deployment process for Spring apps in the cloud.
+- Spring Applications. For developers working with Spring applications, we recommend using Azure Container Apps, which integrates with popular development tools like IntelliJ, VS Code, Maven, and Gradle, alongside automation tools such as Azure DevOps, GitHub Actions, and Jenkins. Observability tools such as Application Insights, New Relic, Dynatrace, App Dynamics, Grafana, Log Analytics, Elastic, and Splunk are also supported. Security is a top priority, with integrations for Key Vault handling secrets and TLS/SSL certificates, "passwordless" authentication with backing services through managed identities, and Azure role-based access control (RBAC), ensuring a secure, streamlined deployment process for Spring apps in the cloud.
 
 - Java Applications on JBoss EAP. Similarly, for Java applications using JBoss EAP, there's a tailored experience thanks to the collaboration between the Microsoft Azure team and Red Hat JBoss EAP teams. This partnership resulted in enhanced support on Azure App Service, offering a rich set of features designed for JBoss EAP applications. This support enables you to use the combined expertise of Microsoft and Red Hat, ensuring your Java applications run smoothly, securely, and efficiently on Azure.
 
@@ -181,17 +181,17 @@ The following diagram shows recommended Azure services for every Java applicatio
 :::image type="complex" source="media/find-match.png" alt-text="Diagram that shows recommended Azure services for every Java application type deployed as source or binaries." lightbox="media/find-match.png":::
 The following table helps you find the right Azure service for every Java app type deployed as source or binaries:
 
-|                     | Spring            | Tomcat or MicroProfile | Serverless and event-driven | JBoss EAP              | WebLogic               | WebSphere Traditional  |
-|---------------------|-------------------|------------------------|-----------------------------|------------------------|------------------------|------------------------|
-| Recommended service | Azure Spring Apps | Azure App Service      | Azure Functions             | Azure App Service      | Azure Virtual Machines | Azure Virtual Machines |
-| Alternative service | Azure App Service |                        | Azure App Service           | Azure Virtual Machines |                        |                        |
+|                     | Spring               | Tomcat or MicroProfile | Serverless and event-driven | JBoss EAP              | WebLogic               | WebSphere Traditional  |
+|---------------------|----------------------|------------------------|-----------------------------|------------------------|------------------------|------------------------|
+| Recommended service | Azure Container Apps | Azure App Service      | Azure Functions             | Azure App Service      | Azure Virtual Machines | Azure Virtual Machines |
+| Alternative service | Azure App Service    | Azure Container Apps   | Azure App Service           | Azure Virtual Machines |                        |                        |
 :::image-end:::
 
 To learn more about the services referenced in this diagram, use the links in the following table:
 
 | Service                                                 | Quickstart for Java apps – deployed as source or binaries                                                                                                                                      |
 |---------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Azure Spring Apps](/azure/spring-apps/index)           | [Deploy a Spring app](/azure/spring-apps/enterprise/quickstart)                                                                                                                                |
+| [Azure Container Apps](/azure/container-apps/index)     | [Deploy a Java app](/azure/container-apps/java-get-started) <br/> [Deploy a Quarkus app](/azure/container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database)             |
 | [App Service](/azure/app-service/index)                 | [Deploy a Java app on Tomcat](/azure/app-service/quickstart-java?pivots=java-maven-tomcat) <br/> [Deploy a Java app on JBoss EAP](/azure/app-service/quickstart-java?pivots=java-maven-jboss)  |
 | [Azure Functions](/azure/azure-functions/index)         | [Deploy a Java function app](/azure/azure-functions/create-first-function-cli-java)                                                                                                            |
 | [Azure Virtual Machines](/azure/virtual-machines/index) | [Oracle WebLogic Server on Azure Virtual Machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic) <br/> [IBM WebSphere family on Azure Virtual Machines](../ee/websphere-family.md) |
@@ -204,9 +204,9 @@ Azure services stand out by not only easing the delivery of containerized applic
 
 Consider the following two examples, which showcase how Azure caters to containerized Java application deployment scenarios:
 
-- Spring Applications. Azure Spring Apps is an excellent choice for containerized Spring applications. It supports multiple deployment types, including source, binaries, or container images. This flexibility enables you to shift between deployment methods easily. You might start with containers but later decide to deploy as sources or binaries. This option is advantageous because it circumvents the need for the ongoing building and maintenance of containers, which can be cumbersome, repetitive, and time intensive.
+- Spring Applications. Azure Container Apps is an excellent choice for containerized Spring applications. It supports multiple deployment types, including source, binaries, or container images. This flexibility enables you to shift between deployment methods easily. You might start with containers but later decide to deploy as sources or binaries. This option is advantageous because it circumvents the need for the ongoing building and maintenance of containers, which can be cumbersome, repetitive, and time intensive.
 
-- Java Applications on Tomcat. Azure App Service is suited for containerizing Java applications designed to run on Tomcat. It accommodates various deployment types, such as binaries or container images. Like Azure Spring Apps, this service offers flexibility to alternate between deployment strategies. You can begin with container deployment and maintain the option to later switch to deploying binaries (WARs and JARs). This versatility ensures that you can choose the most efficient deployment method for your specific scenario, streamlining the development and deployment process.
+- Java Applications on Tomcat. Azure App Service is suited for containerizing Java applications designed to run on Tomcat. It accommodates various deployment types, such as binaries or container images. Like Azure Container Apps, this service offers flexibility to alternate between deployment strategies. You can begin with container deployment and maintain the option to later switch to deploying binaries (WARs and JARs). This versatility ensures that you can choose the most efficient deployment method for your specific scenario, streamlining the development and deployment process.
 
 These examples underscore Azure's commitment to providing versatile, efficient, and developer-friendly environments for deploying Java applications, whether through traditional methods or modern containerization.
 
@@ -215,21 +215,20 @@ The following diagram shows the recommended Azure services for every Java applic
 :::image type="complex" source="media/find-match-containers.png" alt-text="Diagram that shows recommended Azure services for every Java application type deployed as containers." lightbox="media/find-match-containers.png":::
 The following table helps you find the right Azure service for every Java app type deployed as containers:
 
-|                     | Spring microservice | Spring monolith                   | Tomcat                   | JBoss EAP                | WebLogic                 | WebSphere Liberty        |
-|---------------------|---------------------|-----------------------------------|--------------------------|--------------------------|--------------------------|--------------------------|
-| Recommended service | Azure Spring Apps   | Azure Spring Apps                 | Azure App Service        | Red Hat OpenShift        | Azure Kubernetes Service | Azure Kubernetes Service |
-| Alternative service | AKS<br/>ACA         | Azure App Service<br/>AKS<br/>ACA | Azure Kubernetes Service | Azure Kubernetes Service |                          | Red Hat OpenShift        |
+|                     | Spring microservice  | Spring monolith           | Tomcat                   | JBoss EAP                | WebLogic                 | WebSphere Liberty        |
+|---------------------|----------------------|---------------------------|--------------------------|--------------------------|--------------------------|--------------------------|
+| Recommended service | Azure Container Apps | Azure Container Apps      | Azure App Service        | Red Hat OpenShift        | Azure Kubernetes Service | Azure Kubernetes Service |
+| Alternative service | AKS                  | Azure App Service<br/>AKS | Azure Kubernetes Service | Azure Kubernetes Service |                          | Red Hat OpenShift        |
 :::image-end:::
 
 To learn more about the services referenced in this diagram, use the links in the following table:
 
-| Service                                             | Quickstart for containerized Java apps                                                                                                                                |
-|-----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Azure Spring Apps](/azure/spring-apps/index)       | [Deploy a Spring app](/azure/spring-apps/enterprise/how-to-deploy-with-custom-container-image)                                                                        |
-| [App Service](/azure/app-service/index)             | [Deploy a Java app on Tomcat](/azure/app-service/quickstart-custom-container?tabs=java)                                                                               |
-| [Azure Red Hat OpenShift](/azure/openshift/index)   | [Deploy a Java app on JBoss EAP](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app)                                                        |
-| [Azure Kubernetes Service](/azure/aks/index)        | [Deploy a Java app on WebLogic Server](/azure/aks/howto-deploy-java-wls-app) <br/> [Deploy a Java app on WebSphere Liberty](/azure/aks/howto-deploy-java-liberty-app) |
-| [Azure Container Apps](/azure/container-apps/index) | [Deploy a Quarkus app](/azure/container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database)                                                      |
+| Service                                             | Quickstart for containerized Java apps                                                                                                                                             |
+|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Azure Container Apps](/azure/container-apps/index) | [Deploy a Java app](/azure/container-apps/java-get-started) <br/> [Deploy a Quarkus app](/azure/container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database) |
+| [App Service](/azure/app-service/index)             | [Deploy a Java app on Tomcat](/azure/app-service/quickstart-custom-container?tabs=java)                                                                                            |
+| [Azure Red Hat OpenShift](/azure/openshift/index)   | [Deploy a Java app on JBoss EAP](/azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app)                                                                     |
+| [Azure Kubernetes Service](/azure/aks/index)        | [Deploy a Java app on WebLogic Server](/azure/aks/howto-deploy-java-wls-app) <br/> [Deploy a Java app on WebSphere Liberty](/azure/aks/howto-deploy-java-liberty-app)              |
 
 ## Summary
 

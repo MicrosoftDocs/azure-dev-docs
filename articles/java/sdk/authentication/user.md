@@ -19,7 +19,7 @@ This article covers the following subjects:
 * [Interactive browser credential](#interactive-browser-credential)
 * [Username password credential](#username-password-credential)
 
-For troubleshooting user credential authentication issues, see [Troubleshoot user credential authentication](troubleshooting-authentication-user-credential.md).
+For troubleshooting user credential authentication issues, see [Troubleshoot user credential authentication](../troubleshooting-authentication-user-credential.md).
 
 ## Device code credential
 
@@ -120,13 +120,13 @@ For more information, see [Microsoft identity platform and OAuth 2.0 Resource Ow
 
 This article covered authentication with user credentials. This form of authentication is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe other ways:
 
-* [Azure authentication in development environments](identity-dev-env-auth.md)
-* [Authenticating applications hosted in Azure](identity-azure-hosted-auth.md)
-* [Authentication with service principals](identity-service-principal-auth.md)
+* [Azure authentication in development environments](dev-env.md)
+* [Authenticating applications hosted in Azure](azure-hosted-apps.md)
+* [Authentication with service principals](service-principal.md)
 
-If you run into issues related to user credential authentication, see [Troubleshoot user credential authentication](troubleshooting-authentication-user-credential.md).
+If you run into issues related to user credential authentication, see [Troubleshoot user credential authentication](../troubleshooting-authentication-user-credential.md).
 
-After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
+After you've mastered authentication, see [Configure logging in the Azure SDK for Java](../logging-overview.md) for information on the logging functionality provided by the SDK.
 
 <!-- LINKS -->
 [secrets_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets

@@ -21,7 +21,7 @@ This article covers the following subjects:
 * [IntelliJ credential](#intellij-credential)
 * [Visual Studio Code credential](#visual-studio-code-credential)
 
-For troubleshooting development environment authentication issues, see [Troubleshoot development environment authentication](troubleshooting-authentication-dev-env.md).
+For troubleshooting development environment authentication issues, see [Troubleshoot development environment authentication](../troubleshooting-authentication-dev-env.md).
 
 ## Device code credential
 
@@ -197,13 +197,13 @@ SecretClient client = new SecretClientBuilder()
 
 This article covered authentication during development using credentials available on your computer. This form of authentication is one of multiple ways you can authenticate in the Azure SDK for Java. The following articles describe other ways:
 
-* [Authenticating applications hosted in Azure](identity-azure-hosted-auth.md)
-* [Authentication with service principals](identity-service-principal-auth.md)
-* [Authentication with user credentials](identity-user-auth.md)
+* [Authenticating applications hosted in Azure](azure-hosted-apps.md)
+* [Authentication with service principals](service-principal.md)
+* [Authentication with user credentials](user.md)
 
-If you run into issues related to development environment authentication, see [Troubleshoot development environment authentication](troubleshooting-authentication-dev-env.md).
+If you run into issues related to development environment authentication, see [Troubleshoot development environment authentication](../troubleshooting-authentication-dev-env.md).
 
-After you've mastered authentication, see [Configure logging in the Azure SDK for Java](logging-overview.md) for information on the logging functionality provided by the SDK.
+After you've mastered authentication, see [Configure logging in the Azure SDK for Java](../logging-overview.md) for information on the logging functionality provided by the SDK.
 
 <!-- LINKS -->
 [secrets_client_library]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets

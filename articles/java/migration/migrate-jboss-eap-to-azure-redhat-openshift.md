@@ -4,7 +4,7 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 09/20/2024
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, migration-java, devx-track-extended-java, linux-related-content
 ---
 
@@ -103,7 +103,7 @@ These customizations need to be captured in the container image running on Azure
 
 ### Determine whether Java Message Service (JMS) Queues or Topics are in use
 
-If your application is using JMS Queues or Topics, you may want to migrate them to an externally hosted JMS server. Azure Service Bus and the Advanced Message Queuing Protocol can be a great migration strategy for those using JMS. For more information, see [Use JMS with Azure Service Bus and AMQP 1.0](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp).
+If your application is using JMS Queues or Topics, you may want to migrate them to an externally hosted JMS server. Azure Service Bus and the Advanced Message Queuing Protocol can be a great migration strategy for those using JMS. For more information, see [Use Java Message Service 1.1 with Azure Service Bus standard and AMQP 1.0](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp).
 
 If JMS persistent stores have been configured, you must capture their configuration and apply it after the migration.
 

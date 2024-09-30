@@ -3,7 +3,7 @@ title: Use third-party container registries
 description: How to use third-party container registries
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 03/19/2024
+ms.date: 09/13/2024
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -27,7 +27,7 @@ You can configure `azd` to push and pull images from an external container regis
 
 ### Pull from external container registry
 
-In this example, during azd deploy the container is pulled from `docker.io/username/nginx:latest` and directly referenced by the container app service.
+In this example, during `azd` deploy the container is pulled from `docker.io/username/nginx:latest` and directly referenced by the container app service.
 
 ```yml
 name: todo-nodejs-mongo-aca

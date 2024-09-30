@@ -3,7 +3,7 @@ title: Configure template sources
 description: Learn how to configure the Azure Developer CLI to use different template sources
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 04/19/2024
+ms.date: 9/13/2024
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli
