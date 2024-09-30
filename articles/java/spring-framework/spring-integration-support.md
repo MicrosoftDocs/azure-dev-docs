@@ -671,8 +671,7 @@ public class SampleController {
 
 #### Customize Service Bus client properties
 
-Developers can use `AzureServiceClientBuilderCustomizer` to customize Service Bus Client properties.
-For example, customize the `sessionIdleTimeout` property in `ServiceBusClientBuilder`.
+Developers can use `AzureServiceClientBuilderCustomizer` to customize Service Bus Client properties. The following example customizes the `sessionIdleTimeout` property in `ServiceBusClientBuilder`:
 
 ```java
 @Bean

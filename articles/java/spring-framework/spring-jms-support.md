@@ -99,7 +99,7 @@ spring:
 
 ### Connect to Azure Service Bus with JMS use Managed Identity
 
-1. To use the managed identity, refer [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](/azure/service-bus-messaging/service-bus-managed-service-identity) to enable the managed identity for your service and assign **Azure Service Bus Data Owner** role.
+1. To use the managed identity, enable the managed identity for your service and assign the `Azure Service Bus Data Owner` role. For more information, see [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](/azure/service-bus-messaging/service-bus-managed-service-identity).
 
 1. Configure the following properties in your *application.yml* file:
 
@@ -117,7 +117,7 @@ spring:
    ```
 
    > [!IMPORTANT]
-   > If you are using user-assigned managed identity, also need to add property `spring.cloud.azure.credential.client-id` with your user-assigned managed identity client id.
+   > If you're using user-assigned managed identity, also need to add the property `spring.cloud.azure.credential.client-id` with your user-assigned managed identity client ID.
 
 ### Connect to Azure Service Bus JMS using connection string
 
