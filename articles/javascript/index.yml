@@ -178,5 +178,7 @@ additionalContent:
               url: https://github.com/Azure/azure-sdk-for-js
             - text: Visual Studio Code
               url: https://github.com/microsoft/vscode
+            - text: TypeScript
+              url: https://github.com/microsoft/TypeScript
             - text: Microsoft Identity Web
               url: https://github.com/AzureAD/microsoft-identity-web
