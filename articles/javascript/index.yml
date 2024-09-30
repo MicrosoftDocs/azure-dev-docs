@@ -25,7 +25,7 @@ highlightedContent:
       url: ./sdk/authentication/local-development-environment-service-principal.md
     - itemType: get-started
       title: Azure SDK for JavaScript
-      url: /javascript/core/use-azure-sdk.md
+      url: ./core/use-azure-sdk.md
 
 conceptualContent:
   sections: 
@@ -163,11 +163,11 @@ additionalContent:
             - text: "JavaScript: Everything from Microsoft for JavaScript developers"
               url: https://developer.microsoft.com/en-us/javascript/
             - text: Developer experience
-              url: /developer-experience
+              url: https://developer.microsoft.com/developer-experience
             - text: AI for frictionless, intelligent builds with AI tools and services
               url: /ai
             - text: Code to cloud from the ground up with tools designed for developers
-              url: /code-to-cloud
+              url: https://developer.microsoft.com/code-to-cloud
         - title: Webcasts and shows
           links:
             - text: Azure JavaScript Developer Days 2024
