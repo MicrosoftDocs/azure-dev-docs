@@ -351,7 +351,9 @@ Use the following steps to install:
    sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
    sudo yum groupinstall -y jboss-eap8
    ```
+
    ---
+
    For the second and third commands, you should see many lines of output, ending with `Complete!`
 
 1. Use the following commands set permission and network configurations:
@@ -383,6 +385,7 @@ Use the following steps to install:
     sudo touch /etc/profile.d/eap_env.sh
     echo 'export EAP_HOME="/opt/rh/eap8/root/usr/share"' | sudo tee -a /etc/profile.d/eap_env.sh
     ```
+
     ---
 
 1. Exit from the SSH connection by typing *exit*.
@@ -412,6 +415,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
        --name myAdminOSDiskSnapshot \
        --source ${ADMIN_OS_DISK_ID}
    ```
+
 1. Use the following command to start `adminVM`:
 
    ```azurecli
@@ -824,11 +828,11 @@ Select the **Runtime** tab. In the navigation pane, select **Topology**. You sho
 
 ### [JBOSS EAP 7.4](#tab/jboss-eap-74)
 
-:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with domain controller only." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin.png":::
+:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology-only-with-admin.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with domain controller only." lightbox="media/migrate-jboss-eap-to-vm-manually/topology-only-with-admin.png":::
 
 ### [JBOSS EAP 8](#tab/jboss-eap-8)
 
-:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin_EAP8.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with domain controller only." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin_EAP8.png":::
+:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology-only-with-admin-eap8.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with domain controller only." lightbox="media/migrate-jboss-eap-to-vm-manually/topology-only-with-admin-eap8.png":::
 
 ---
 
@@ -1019,7 +1023,6 @@ Sep 30 03:02:15 mspVM1 systemd[1]: Started JBoss EAP (domain mode).
 
 Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exit*.
 
-
 ---
 
 Use SSH to connect to `mspVM2` as the `azureuser` user. Get the public IP address of the VM with the following command:
@@ -1038,11 +1041,11 @@ After two host controllers are connected to `adminVM`, you should be able to see
 
 ### [JBOSS EAP 7.4](#tab/jboss-eap-74)
 
-:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png":::
+:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology-with-cluster.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology-with-cluster.png":::
 
 ### [JBOSS EAP 8](#tab/jboss-eap-8)
 
-:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster_EAP8.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster_EAP8.png":::
+:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology-with-cluster-eap8.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology-with-cluster-eap8.png":::
 
 ---
 
@@ -1265,7 +1268,7 @@ Use the following steps to deploy Java EE Cafe sample application to the Red Hat
    1. From the **Deployments** tab of the Red Hat JBoss EAP management console, select **Content Repository** in the navigation pane.
    1. Select the **Add** button and then select **Upload Content**.
 
-      :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/upload_content.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform Deployments tab with the Upload Content menu option highlighted." lightbox="media/migrate-jboss-eap-to-vm-manually/upload_content.png":::
+      :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/upload-content.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform Deployments tab with the Upload Content menu option highlighted." lightbox="media/migrate-jboss-eap-to-vm-manually/upload-content.png":::
 
    1. Use the browser file chooser to select the *javaee-cafe.war* file.
    1. Select **Next**.
@@ -1279,7 +1282,7 @@ Use the following steps to deploy Java EE Cafe sample application to the Red Hat
    1. Select `main-server-group` as the server group for deploying *javaee-cafe.war*.
    1. Select **Deploy** to start the deployment. You should see a notice similar to the following screenshot:
 
-      :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/successfully_deployed.png" alt-text="Screenshot of the notice of successful deployment." lightbox="media/migrate-jboss-eap-to-vm-manually/successfully_deployed.png":::
+      :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/successfully-deployed.png" alt-text="Screenshot of the notice of successful deployment." lightbox="media/migrate-jboss-eap-to-vm-manually/successfully-deployed.png":::
 
 ## Test the Red Hat JBoss EAP cluster configuration
 
