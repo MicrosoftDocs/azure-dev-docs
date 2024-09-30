@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure for JavaScript developers
-summary: Learn to use JavaScript on Azure
+summary: Learn to use Azure with JavaScript. Browse API reference, sample code, tutorials, quickstarts, conceptual articles and more. Know that JavaScript ❤️💛💚💙 Azure.
 brand: azure
 
 metadata:
@@ -25,7 +25,7 @@ highlightedContent:
       url: ./sdk/authentication/local-development-environment-service-principal.md
     - itemType: get-started
       title: Azure SDK for JavaScript
-      url: /javascript/api/overview/azure/?view=azure-node-latest.md
+      url: /javascript/core/use-azure-sdk.md
 
 conceptualContent:
   sections: 
@@ -156,19 +156,27 @@ conceptualContent:
 # --------------------------------------------------------------
 additionalContent:
   sections:
-    - title: JavaScript and Azure community resources
+    - title: Additional resources
       items:
-        - title: JavaScript
+        - title: Microsoft Developer
           links:
-            - text: JavaScript at Microsoft
+            - text: "JavaScript: Everything from Microsoft for JavaScript developers"
               url: https://developer.microsoft.com/en-us/javascript/
+            - text: Developer experience
+              url: /developer-experience
+            - text: AI for frictionless, intelligent builds with AI tools and services
+              url: /ai
+            - text: Code to cloud from the ground up with tools designed for developers
+              url: /code-to-cloud
         - title: Webcasts and shows
           links:
             - text: Azure JavaScript Developer Days 2024
               url: https://www.youtube.com/playlist?list=PLI7iePan8aH7FRDmefj-NAnoxM9V0USZm
-        - title: Open Source
+        - title: Open source
           links:
             - text: Azure SDK for JavaScript
-              url: https://github.com/Azure/azure-sdk-for-javascript
+              url: https://github.com/Azure/azure-sdk-for-js
+            - text: Visual Studio Code
+              url: https://github.com/microsoft/vscode
             - text: Microsoft Identity Web
               url: https://github.com/AzureAD/microsoft-identity-web
