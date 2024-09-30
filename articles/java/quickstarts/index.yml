@@ -40,12 +40,12 @@ landingContent:
           url: /azure/azure-functions/functions-create-maven-intellij
         - text: Deploy using Visual Studio Code
           url: /azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java
-  - title: Azure Spring Apps
+  - title: Azure Container Apps
     linkLists:
       - linkListType: quickstart
         links:
-        - text: Deploy your first app
-          url: /azure/spring-apps/enterprise/quickstart
+        - text: Launch your first Java app
+          url: /azure/container-apps/java-get-started
   - title: Storage
     linkLists:
       - linkListType: quickstart

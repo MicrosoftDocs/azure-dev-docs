@@ -26,10 +26,10 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Spring Boot to Azure Spring Apps
-            url: migrate-spring-boot-to-azure-spring-apps.md
-          - text: Spring Cloud to Azure Spring Apps
-            url: migrate-spring-cloud-to-azure-spring-apps.md
+          - text: Spring Boot to Azure Container Apps
+            url: migrate-spring-boot-to-azure-container-apps.md
+          - text: Spring Cloud to Azure Container Apps
+            url: migrate-spring-cloud-to-azure-container-apps.md
   - title: Migrate Tomcat to Azure
     linkLists:
       - linkListType: how-to-guide
@@ -40,8 +40,6 @@ landingContent:
             url: migrate-tomcat-to-azure-container-apps.md
           - text: Tomcat to containers on AKS
             url: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
-          - text: Tomcat to Azure Spring Apps
-            url: migrate-tomcat-to-azure-spring-apps.md
           - text: "Tutorial: Containerized Tomcat to AKS"
             url: /azure/migrate/tutorial-app-containerization-java-kubernetes?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
 
