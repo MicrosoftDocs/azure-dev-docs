@@ -71,7 +71,7 @@ After you install `azd`, provision and deploy app resources to Azure in only a f
 
 ## Introductory video
 
-Check out the [Azure Developer CLI playlist](https://www.youtube.com/watch?v=_MNndbEPvYQ&list=PLq8oMtzrBmrhdtmthuGO9pOHRUqD-BmWh&index=1) for more video content.
+Check out the following video for a demonstration of working with `azd`. More `azd` video content is available on the [Microsoft Developer](https://www.youtube.com/@MicrosoftDeveloper) YouTube channel.
 
 > [!VIDEO https://www.youtube.com/embed/f_HpDpEmWZ4?si=5Vf7BuRsO1hbsn0C]
 
