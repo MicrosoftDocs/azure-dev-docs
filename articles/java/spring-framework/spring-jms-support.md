@@ -14,7 +14,22 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article describes how to use Azure Service Bus with the JMS API integrated into the Spring JMS framework.
 
-You have to provide an Azure Service Bus connection string, which is parsed into the login username, password, and remote URI for the AMQP broker.
+## Core features
+
+### Passwordless connection
+
+Passwordless connection uses Microsoft Entra authentication for connecting to Azure services without storing any credentials in the application, its configuration files, or in environment variables. Microsoft Entra authentication is a mechanism for connecting to Azure Service Bus using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage Service Bus and other Microsoft services in a central location, which simplifies permission management.
+
+## How it works
+
+Spring Cloud Azure first builds one of the following types of credentials depending on the application authentication configuration:
+
+- `ClientSecretCredential`
+- `ClientCertificateCredential`
+- `UsernamePasswordCredential`
+- `ManagedIdentityCredential`
+
+If none of these types of credentials are found, the credential chain via `DefaultTokenCredential` is used to obtain credentials from application properties, environment variables, managed identity, or IDEs. For more information, see [Spring Cloud Azure authentication](authentication.md).
 
 ## Dependency setup
 
@@ -38,6 +53,7 @@ The following table describes the configurable properties when using the Spring 
 > | **spring.jms.servicebus**.topic-client-id                        | The JMS client ID. Only works for the `topicJmsListenerContainerFactory` bean.                                                                                                    |
 > | **spring.jms.servicebus**.enabled                                | A value that indicates whether to enable Servive Bus JMS autoconfiguration. The default value is `true`.                                                                          |
 > | **spring.jms.servicebus**.idle-timeout                           | The connection idle timeout duration that indicates how long the client expects Service Bus to keep a connection alive when no messages are delivered. The default value is `2m`. |
+> | **spring.jms.servicebus**.passwordless-enabled                   | Whether to enable passwordless for Azure Servive Bus JMS. The default value is `false`. |
 > | **spring.jms.servicebus**.pricing-tier                           | The Azure Service Bus Price Tier. Supported values are *premium* and *standard*. Premium tier uses Java Message Service (JMS) 2.0, while standard tier use JMS 1.1 to interact with Azure Service Bus. |
 > | **spring.jms.servicebus**.listener.reply-pub-sub-domain          | A value that indicates whether the reply destination type is a topic. Only works for the `topicJmsListenerContainerFactory` bean.                                                 |
 > | **spring.jms.servicebus**.listener.phase                         | The phase in which this container should be started and stopped.                                                                                                                  |
@@ -65,9 +81,45 @@ For more information, see [Spring JMS Document](https://docs.spring.io/spring-fr
 
 ## Basic usage
 
-### Use Service Bus connection String
+### Connect to Azure Service Bus JMS using passwordless
 
-The simplest way to connect to Service Bus for Spring JMS application is with the connection string.
+Configure the following properties in your *application.yml* file:
+
+```yaml
+spring:
+  jms:
+    servicebus:
+      namespace: ${AZURE_SERVICEBUS_NAMESPACE}
+      pricing-tier: ${PRICING_TIER}
+      passwordless-enabled: true
+```
+
+> [!IMPORTANT]
+> Azure Service Bus JMS supports using Microsoft Entra ID to authorize requests to Service Bus resources. With Microsoft Entra ID, ensure that you've assigned the **Azure Service Bus Data Owner** role to the Microsoft Entra account you're currently using. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+
+### Connect to Azure Service Bus with JMS use Managed Identity
+
+1. To use the managed identity, enable the managed identity for your service and assign the `Azure Service Bus Data Owner` role. For more information, see [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](/azure/service-bus-messaging/service-bus-managed-service-identity).
+
+1. Configure the following properties in your *application.yml* file:
+
+   ```yaml
+   spring:
+     cloud:
+       azure:
+         credential:
+           managed-identity-enabled: true
+     jms:
+       servicebus:
+         namespace: ${AZURE_SERVICEBUS_NAMESPACE}
+         pricing-tier: ${PRICING_TIER}
+         passwordless-enabled: true
+   ```
+
+   > [!IMPORTANT]
+   > If you're using user-assigned managed identity, also need to add the property `spring.cloud.azure.credential.client-id` with your user-assigned managed identity client ID.
+
+### Connect to Azure Service Bus JMS using connection string
 
 Add the following properties and you're good to go.
 

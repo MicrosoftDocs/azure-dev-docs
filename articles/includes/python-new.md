@@ -1,5 +1,6 @@
 | Name | Package | Docs | Source |
 | ---- | ------- | ---- | ------ |
+| AI Evaluation | PyPI [1.0.0b2](https://pypi.org/project/azure-ai-evaluation/1.0.0b2) | [docs](/python/api/overview/azure/ai-evaluation-readme?view=azure-python-preview&amp;preserve-view=true) | GitHub [1.0.0b2](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-evaluation_1.0.0b2/sdk/evaluation/azure-ai-evaluation/) |
 | AI Generative | PyPI [1.0.0b9](https://pypi.org/project/azure-ai-generative/1.0.0b9) | [docs](/python/api/overview/azure/ai-generative-readme?view=azure-python-preview&amp;preserve-view=true) | GitHub [1.0.0b9](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-generative_1.0.0b9/sdk/ai/azure-ai-generative/) |
 | AI Model Inference | PyPI [1.0.0b4](https://pypi.org/project/azure-ai-inference/1.0.0b4) | [docs](/python/api/overview/azure/ai-inference-readme?view=azure-python-preview&amp;preserve-view=true) | GitHub [1.0.0b4](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-inference_1.0.0b4/sdk/ai/azure-ai-inference/) |
 | AI Resources | PyPI [1.0.0b8](https://pypi.org/project/azure-ai-resources/1.0.0b8) | [docs](/python/api/overview/azure/ai-resources-readme?view=azure-python-preview&amp;preserve-view=true) | GitHub [1.0.0b8](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-resources_1.0.0b8/sdk/ai/azure-ai-resources/) |
