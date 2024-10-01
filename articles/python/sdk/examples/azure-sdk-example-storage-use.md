@@ -54,7 +54,9 @@ For the following reasons and more, we recommend using the passwordless method w
 
 ### [Passwordless (Recommended)](#tab/managed-identity)
 
-With `DefaultAzureCredential`, you can authenticate and authorize your app using several different credential types. In the following steps, you use an application service principal as the application identity. Application service principals are suitable for use during local development or for apps hosted on-premises.
+`DefaultAzureCredential` is an opinionated, preconfigured chain of credentials. It's designed to support many environments, along with the most common authentication flows and developer tools. An instance of `DefaultAzureCredential` determines which credential types to try to get a token for based on a combination of its runtime environment, the value of certain well-known environment variables, and, optionally, parameters passed into its constructor.
+
+In the following steps, you configure an application service principal as the application identity. Application service principals are suitable for use both during local development and for apps hosted on-premises. To configure `DefaultAzureCredential` to use an application service principal, you set the following environment variables: `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET`. Notice that a client secret is configured. This is necessary for an application service principal, but, depending on your scenario, you can also configure `DefaultAzureCredential` to use credentials that don't require setting a secret or password in an environment variable. For example, in local development, if `DefaultAzureCredential` can't get a token using configured environment variables, it tries to get one using the user (already) signed into development tools like Azure CLI; for an app running in Azure, `DefaultAzureCredential` can be configured to use a managed identity. In all cases, the code in your app remains the same, only the configuration through environment variables and/or the runtime environment changes.
 
 1. Create a file named *use_blob_auth.py* with the following code. The comments explain the steps.
 
@@ -161,7 +163,7 @@ With `DefaultAzureCredential`, you can authenticate and authorize your app using
 For more information on role assignments, see [How to assign role permissions using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
 
 > [!IMPORTANT]
-> In the preceding steps, your app ran under an application service principal. An application service principal requires a client secret in its configuration. However, you can use the same code to run the app under different credential types that don't require you to explicitly configure a password or secret in the environment. For example, during development, `DefaultAzureCredential` can use developer tool credentials like the credentials you use to sign in via the Azure CLI; or, for apps hosted in Azure, it can use a [managed identity](/entra/identity/managed-identities-azure-resources/overview). To learn more, see [Authenticate Python apps to Azure services by using the Azure SDK for Python](../authentication/overview.md).
+> In the preceding steps, your app ran under an application service principal. An application service principal requires a client secret in its configuration. 2However, you can use the same code to run the app under different credential types that don't require you to explicitly configure a password or secret in the environment. For example, during development, `DefaultAzureCredential` can use developer tool credentials like the credentials you use to sign in via the Azure CLI; or, for apps hosted in Azure, it can use a [managed identity](/entra/identity/managed-identities-azure-resources/overview). To learn more, see [Authenticate Python apps to Azure services by using the Azure SDK for Python](../authentication/overview.md).
 
 ### [Connection String](#tab/connection-string)
 
