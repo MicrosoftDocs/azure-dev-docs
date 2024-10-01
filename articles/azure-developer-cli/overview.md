@@ -24,7 +24,7 @@ You can also [create your own template](./make-azd-compatible.md?pivots=azd-crea
 
 ## A sample `azd` workflow
 
-The following steps demonstrate the basics of a common `azd` workflow. Visit the [installation page](azure/developer/azure-developer-cli/install-azd) and [quickstart page](azure/developer/azure-developer-cli/get-started) for more details on installing and getting started with `azd`.
+The following steps demonstrate the basics of a common `azd` workflow. Visit the [installation page](/azure/developer/azure-developer-cli/install-azd) and [quickstart page](/azure/developer/azure-developer-cli/get-started) for more details on installing and getting started with `azd`.
 
 You can install `azd` on common platforms using a single command:
 
