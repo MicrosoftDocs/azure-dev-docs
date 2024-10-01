@@ -46,7 +46,7 @@ This section demonstrates two ways to access data in the blob container that you
 
 For the following reasons and more, we recommend using the passwordless method whenever possible:
 
-- A connection string authenticates the connecting agent with the Storage *account* rather than with individual resources within that account. As a result, a connection string grants broader authorization than might be needed. With `DefaultAzureCredential` you can grant more granular, least privileged permissions over your storage resources to the identity your app runs on using [Azure RBAC](/azure/role-based-access-control/overview).
+- A connection string authenticates the connecting agent with the Storage *account* rather than with individual resources within that account. As a result, a connection string grants broader authorization than might be needed. With `DefaultAzureCredential` you can grant more granular, least privileged permissions over your storage resources to the identity your app runs under using [Azure RBAC](/azure/role-based-access-control/overview).
 
 - A connection string contains access info in plain text and therefore presents potential vulnerabilities if it's not properly constructed or secured. If such a connection string is exposed, it can be used to access a wide range of resources within the Storage account.
 
@@ -160,7 +160,8 @@ With `DefaultAzureCredential`, you can authenticate and authorize your app using
 
 For more information on role assignments, see [How to assign role permissions using the Azure CLI](/azure/role-based-access-control/role-assignments-cli).
 
-In the preceding steps, your app ran under an application service principal. An application service principal requires a client secret in its configuration. However, you can use the same code to run the app under different credential types that don't require you to explicitly configure a password or secret. For example, during development, `DefaultAzureCredential` can use developer tool credentials like the credentials you used to sign in via the Azure CLI; or, for apps hosted in Azure, it can use a [managed identity](/entra/identity/managed-identities-azure-resources/overview). To learn more, see [Authenticate Python apps to Azure services by using the Azure SDK for Python](../authentication/overview.md).
+> [!IMPORTANT]
+> In the preceding steps, your app ran under an application service principal. An application service principal requires a client secret in its configuration. However, you can use the same code to run the app under different credential types that don't require you to explicitly configure a password or secret in the environment. For example, during development, `DefaultAzureCredential` can use developer tool credentials like the credentials you use to sign in via the Azure CLI; or, for apps hosted in Azure, it can use a [managed identity](/entra/identity/managed-identities-azure-resources/overview). To learn more, see [Authenticate Python apps to Azure services by using the Azure SDK for Python](../authentication/overview.md).
 
 ### [Connection String](#tab/connection-string)
 
