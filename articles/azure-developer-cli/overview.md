@@ -70,7 +70,7 @@ Alternatively, you can also run `azd up` whenever you make a changes to your app
 
 ## Introductory video
 
-> [!VIDEO https://www.youtube.com/watch?v=f_HpDpEmWZ4]
+> [!VIDEO https://www.youtube.com/embed/f_HpDpEmWZ4?si=5Vf7BuRsO1hbsn0C]
 Check out the [Azure Developer CLI playlist](https://www.youtube.com/watch?v=_MNndbEPvYQ&list=PLq8oMtzrBmrhdtmthuGO9pOHRUqD-BmWh&index=1) for more video content.
 
 ## Next steps
