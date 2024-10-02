@@ -34,7 +34,7 @@ items:
       items:
         - name: Overview
           href: intelligent-app-templates.md 
-        - name: Securing your AI app with keyless authentication
+        - name: Secure your AI App with keyless authentication
           href: get-started-securing-your-ai-app.md
         - name: Chat with your data
           items:
