@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
-ms.author: bappadityams
-ms.date: 09/11/2024
+ms.author: bbanerjee
+ms.date: 10/04/2024
 ---
 
 Because the redirect URI changes to your deployed app on Azure Container Apps, you also need to change the redirect URI in your Microsoft Entra ID app registration. Use the following steps to make this change:

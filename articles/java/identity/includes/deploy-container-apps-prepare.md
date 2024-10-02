@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
-ms.author: bappadityams
-ms.date: 09/11/2024
+ms.author: bbanerjee
+ms.date: 10/04/2024
 ---
 
 Use the following steps to prepare the project:

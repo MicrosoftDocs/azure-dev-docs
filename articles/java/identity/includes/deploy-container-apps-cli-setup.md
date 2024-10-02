@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
-ms.author: bappadityams
-ms.date: 09/11/2024
+ms.author: bbanerjee
+ms.date: 10/04/2024
 ---
 
 To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
@@ -49,7 +49,8 @@ az extension add --name containerapp --upgrade
 ```
 
 > [!NOTE]
-> Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](../articles/container-apps/whats-new.md), install the Container Apps extension with `--allow-preview true`.
+> Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](/azure/container-apps/whats-new), install the Container Apps extension with `--allow-preview true`.
+>
 > ```azurecli
 > az extension add --name containerapp --upgrade --allow-preview true
 > ```

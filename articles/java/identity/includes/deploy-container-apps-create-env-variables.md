@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
-ms.author: bappadityams
-ms.date: 09/11/2024
+ms.author: bbanerjee
+ms.date: 10/04/2024
 ---
 
 Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
@@ -37,8 +37,8 @@ Create a resource group.
 
 ```azurecli
 az group create  \
-   --name $RESOURCE_GROUP \
-   --location $LOCATION \
+    --name $RESOURCE_GROUP \
+    --location $LOCATION \
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -54,35 +54,35 @@ Create an environment with an auto-generated Log Analytics workspace.
 # [Bash](#tab/bash)
 
 ```azurecli
-az containerapp env create  \
-   --name $ENVIRONMENT \
-   --resource-group $RESOURCE_GROUP \
-   --location $LOCATION
+az containerapp env create \
+    --name $ENVIRONMENT \
+    --resource-group $RESOURCE_GROUP \
+    --location $LOCATION
 ```
 
 Show the default domain of the container app environment. Please note this domain to configure in the next sections.
 
 ```azurecli
 az containerapp env show \
-  --name $ENVIRONMENT \
-  --resource-group $RESOURCE_GROUP \
-  --query properties.defaultDomain
+    --name $ENVIRONMENT \
+    --resource-group $RESOURCE_GROUP \
+    --query properties.defaultDomain
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 az containerapp env create  `
-   --name $ENVIRONMENT `
-   --resource-group $RESOURCE_GROUP `
-   --location $LOCATION
+    --name $ENVIRONMENT `
+    --resource-group $RESOURCE_GROUP `
+    --location $LOCATION
 ```
 
 Show the default domain of the container app environment. Please note this domain to configure in the next sections.
 
 ```azurepowershell
 az containerapp env show `
-  --name $ENVIRONMENT `
-  --resource-group $RESOURCE_GROUP `
-  --query properties.defaultDomain
+    --name $ENVIRONMENT `
+    --resource-group $RESOURCE_GROUP `
+    --query properties.defaultDomain
 ```
