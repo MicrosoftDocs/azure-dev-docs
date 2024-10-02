@@ -51,7 +51,7 @@ A [development container](https://containers.dev/) environment is available with
 
 To use this article, you need the following prerequisites:
 
-### [GitHub Codespaces (recommended)](#tab/github-codespaces)
+#### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 
@@ -62,7 +62,7 @@ To use this article, you need the following prerequisites:
 
 - GitHub account
 
-### [Visual Studio Code](#tab/visual-studio-code)
+#### [Visual Studio Code](#tab/visual-studio-code)
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 
@@ -79,11 +79,13 @@ To use this article, you need the following prerequisites:
 
 - [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
+---
+
 ## Open development environment
 
 Begin now with a development environment with all dependencies installed to complete this article.
 
-### [GitHub Codespaces (recommended)](#tab/github-codespaces)
+#### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
 [GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
 
@@ -112,7 +114,7 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 The remaining tasks in this article take place in the context of this development container.
 
-### [Visual Studio Code](#tab/visual-studio-code)
+#### [Visual Studio Code](#tab/visual-studio-code)
 
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 

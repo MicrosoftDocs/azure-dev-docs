@@ -17,9 +17,9 @@ items:
     - name: Security concepts
       items: 
         - name: Security planning for LLM-based applications
-          href: /ai/playbook/technology-guidance/generative-ai/mlops-in-openai/security/security-plan-llm-application?source=recommendations      
+          href: /ai/playbook/technology-guidance/generative-ai/mlops-in-openai/security/security-plan-llm-application?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json     
         - name: Security guidance for Large Language Models
-          href: /ai/playbook/technology-guidance/generative-ai/mlops-in-openai/security/security-recommend
+          href: /ai/playbook/technology-guidance/generative-ai/mlops-in-openai/security/security-recommend?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
     - name: How-tos
       items:
         - name: Switch between OpenAI and Azure OpenAI endpoints with Python
@@ -34,9 +34,7 @@ items:
       items:
         - name: Overview
           href: intelligent-app-templates.md 
-        - name: Securing your AI app
-          items:
-            - name: Get started with the OpenAI security building blocks
+        - name: Securing your AI app with keyless authenication
           href: get-started-securing-your-ai-app.md
         - name: Chat with your data
           items:
