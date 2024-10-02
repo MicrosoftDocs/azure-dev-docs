@@ -487,7 +487,7 @@
 | @autorest/schemas | npm [1.3.5](https://www.npmjs.com/package/@autorest/schemas/v/1.3.5) |  |  |
 | @autorest/system-requirements | npm [1.1.0](https://www.npmjs.com/package/@autorest/system-requirements/v/1.1.0) |  |  |
 | @autorest/test-utils | npm [0.6.0](https://www.npmjs.com/package/@autorest/test-utils/v/0.6.0) |  |  |
-| @autorest/testmodeler | npm [2.6.2](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.2) |  |  |
+| @autorest/testmodeler | npm [2.6.2](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.2)<br>npm [2.6.3-ci.4104d25f8.0](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.3-ci.4104d25f8.0) |  |  |
 | @autorest/typescript | npm [6.0.27](https://www.npmjs.com/package/@autorest/typescript/v/6.0.27) |  |  |
 | @azure-tools/adl-openapi | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-openapi/v/0.3.2) |  |  |
 | @azure-tools/adl-rest | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-rest/v/0.3.2) |  |  |
