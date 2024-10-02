@@ -1,6 +1,6 @@
 ---
-title: Credential chains in the Azure Identity client library for Java
-description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library.
+title: 'Credential chains in the Azure Identity client library for Java'
+description: 'This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity library.'
 ms.date: 10/02/2024
 ms.topic: conceptual
 ---
@@ -129,9 +129,11 @@ To diagnose an unexpected issue or to understand what a chained credential is do
 For illustration purposes, assume the parameterless form of `DefaultAzureCredential` is used to authenticate a request to a Blob Storage account. The app runs in the local development environment, and the developer authenticated to Azure using the Azure CLI. When the app is run, the following pertinent entries appear in the output:
 
 ```output
-[main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential EnvironmentCredential is unavailable.[main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential WorkloadIdentityCredential is unavailable.
+[main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential EnvironmentCredential is unavailable.
+[main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential WorkloadIdentityCredential is unavailable.
 [ForkJoinPool.commonPool-worker-1] WARN com.microsoft.aad.msal4j.ConfidentialClientApplication - [Correlation ID: a8117f4a-7905-4119-868b-feb1147bb567] Execution of class com.microsoft.aad.msal4j.AcquireTokenByClientCredentialSupplier failed: java.util.concurrent.ExecutionException: com.azure.identity.CredentialUnavailableException: ManagedIdentityCredential authentication unavailable. Connection to IMDS endpoint cannot be established.
-[main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential ManagedIdentityCredential is unavailable.[main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential SharedTokenCacheCredential is unavailable.
+[main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential ManagedIdentityCredential is unavailable.
+[main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential SharedTokenCacheCredential is unavailable.
 [main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential IntelliJCredential is unavailable.
 [main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential AzureCliCredential returns a token
 ```
