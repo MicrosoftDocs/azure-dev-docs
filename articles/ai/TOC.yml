@@ -4,7 +4,7 @@ items:
   items:
     - name: Overview
       href: azure-ai-for-developers.md
-    - name: Concepts
+    - name: AI concepts
       items: 
         - name: Introduction to generative AI
           href: introduction-build-generative-ai-solutions.md      
@@ -14,16 +14,28 @@ items:
           href: augment-llm-rag-fine-tuning.md
         - name: Advanced RAG
           href: advanced-retrieval-augmented-generation.md
-    - name: How-to
+    - name: Security concepts
+      items: 
+        - name: Introduction to generative AI
+          href: introduction-build-generative-ai-solutions.md      
+    - name: How-tos
       items:
-        - name: Use Azure OpenAI without keys
-          href: keyless-connections.md
-        - name: Use Azure AI Search without keys
-          href: /azure/search/keyless-connections?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+        - name: Switch between OpenAI and Azure OpenAI endpoints with Python
+          href: /azure/ai-services/openai/how-to/switching-endpoints&bc=/azure/developer/ai/breadcrumb/toc.json    
+        - name: Security
+          items: 
+            - name: Use Azure OpenAI without keys
+              href: keyless-connections.md
+            - name: Use Azure AI Search without keys
+              href: /azure/search/keyless-connections?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
     - name: AI app templates
       items:
         - name: Overview
-          href: intelligent-app-templates.md
+          href: intelligent-app-templates.md 
+        - name: Securing your AI app
+          items:
+            - name: Get started with the OpenAI security building blocks
+          href: get-started-securing-your-ai-app.md
         - name: Chat with your data
           items:
             - name: Python
