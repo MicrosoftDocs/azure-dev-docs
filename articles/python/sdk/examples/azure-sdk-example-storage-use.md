@@ -56,7 +56,11 @@ For the following reasons and more, we recommend using the passwordless method w
 
 `DefaultAzureCredential` is an opinionated, preconfigured chain of credentials. It's designed to support many environments, along with the most common authentication flows and developer tools. An instance of `DefaultAzureCredential` determines which credential types to try to get a token for based on a combination of its runtime environment, the value of certain well-known environment variables, and, optionally, parameters passed into its constructor.
 
-In the following steps, you configure an application service principal as the application identity. Application service principals are suitable for use both during local development and for apps hosted on-premises. To configure `DefaultAzureCredential` to use the application service principal, you set the following environment variables: `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET`. Notice that a client secret is configured. This is necessary for an application service principal, but, depending on your scenario, you can also configure `DefaultAzureCredential` to use credentials that don't require setting a secret or password in an environment variable. For example, in local development, if `DefaultAzureCredential` can't get a token using configured environment variables, it tries to get one using the user (already) signed into development tools like Azure CLI; for an app hosted in Azure, `DefaultAzureCredential` can be configured to use a managed identity. In all cases, the code in your app remains the same, only the configuration and/or the runtime environment changes.
+In the following steps, you configure an application service principal as the application identity. Application service principals are suitable for use both during local development and for apps hosted on-premises. To configure `DefaultAzureCredential` to use the application service principal, you set the following environment variables: `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET`.
+
+Notice that a client secret is configured. This is necessary for an application service principal, but, depending on your scenario, you can also configure `DefaultAzureCredential` to use credentials that don't require setting a secret or password in an environment variable.
+
+For example, in local development, if `DefaultAzureCredential` can't get a token using configured environment variables, it tries to get one using the user (already) signed into development tools like Azure CLI; for an app hosted in Azure, `DefaultAzureCredential` can be configured to use a managed identity. In all cases, the code in your app remains the same, only the configuration and/or the runtime environment changes.
 
 1. Create a file named *use_blob_auth.py* with the following code. The comments explain the steps.
 
@@ -208,11 +212,24 @@ If you created an environment variable named `AZURE_STORAGE_CONNECTION_STRING`, 
 az storage blob list --container-name blob-container-01
 ```
 
-If you followed the instructions to use passwordless authentication, you can add the `--connection-string` parameter to the preceding command with the connection string for your storage account. To learn how to get the connection string, see the instructions under the **Connection String** tab in [4. Use blob storage from app code](azure-sdk-example-storage-use.md?tab=connection-string:cmd#4-use-blob-storage-from-app-code). Use the whole connection string including the quotes.
+If you followed the instructions to use passwordless authentication, you can add the `--connection-string` parameter to the preceding command with the connection string for your storage account. To get the connection string, use the [az storage account show-connection-string](/cli/azure/storage/account#az-storage-account-show-connection-string) command.
+
+```azurecli
+az storage account show-connection-string --resource-group PythonAzureExample-Storage-rg --name pythonazurestorage12345 --output tsv
+```
+
+Use the entire connection string as the value for the `--connection-string` parameter.
+
+> [!NOTE]
+> If your Azure user account has the "Storage Blob Data Contributor" role on the container, you can use the following command to list the blobs in the container:
+>
+> ```azurecli
+> az storage blob list --container-name blob-container-01 --account-name pythonazurestorage12345 --auth-mode login
+> ```
 
 ## 6. Clean up resources
 
-Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group and storage resources used in this example. Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
+Run the [az group delete](/cli/azure/group#az-group-delete) command if you don't need to keep the resource group and storage resources used in this example. Resource groups don't incur any ongoing charges in your subscription, but resources, like storage accounts, in the resource group might continure to incur charges. It's a good practice to clean up any group that you aren't actively using. The `--no-wait` argument allows the command to return immediately instead of waiting for the operation to finish.
 
 ```azurecli
 az group delete -n PythonAzureExample-Storage-rg  --no-wait
@@ -222,7 +239,7 @@ az group delete -n PythonAzureExample-Storage-rg  --no-wait
 
 If you followed the instructions to use passwordless authentication, it's a good idea to delete the application service principal you created. You can use the [az ad app delete](/cli/azure/ad/app#az-ad-app-delete) command. Replace the \<AZURE_CLIENT_ID> placeholder with the app ID of your service principal.
 
-```console
+```azurecli
 az ad app delete --id <AZURE_CLIENT_ID>
 ```
 
