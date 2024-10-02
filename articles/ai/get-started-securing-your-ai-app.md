@@ -51,7 +51,7 @@ A [development container](https://containers.dev/) environment is available with
 
 To use this article, you need the following prerequisites:
 
-### [Codespaces (recommended)](#tab/github-codespaces)
+### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 
@@ -193,17 +193,17 @@ Wait until app is deployed. Deployment usually takes between 5 and 10 minutes to
 
 ### Configuring authentication with Microsoft Entra ID managed identity
 
-In this sample, the `src\quartapp\chat.py` file begins with configuring keyless authentication. The following snippet uses the [azure.identity.aio](python/api/azure-identity/azure.identity.aio?view=azure-python) module to create a Microsoft Entra ID authentication flow via the [DefaultAzureCredential](python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) class. The `exclude_shared_token_cache_credential=True` parameter excludes the shared [token cache](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/samples/TokenCache.md) credential from the authentication flow. By excluding it, you shorten the chain of credentials that are attempted.
+In this sample, the `src\quartapp\chat.py` file begins with configuring keyless authentication. The following snippet uses the [azure.identity.aio](/python/api/azure-identity/azure.identity.aio?view=azure-python&preserve-view=true) module to create a Microsoft Entra ID authentication flow via the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python&preserve-view=true) class. The `exclude_shared_token_cache_credential=True` parameter excludes the shared [token cache](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/samples/TokenCache.md) credential from the authentication flow. By excluding it, you shorten the chain of credentials that are attempted.
 
 ```python
     default_credential = azure.identity.aio.DefaultAzureCredential(exclude_shared_token_cache_credential=True)
 ```
 
 >[!NOTE]
->For more information, check out the [Usage guidance for DefaultAzureCredential](h/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#usage-guidance-for-defaultazurecredential) article.
+>For more information, check out the [Usage guidance for DefaultAzureCredential](/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#usage-guidance-for-defaultazurecredential) article.
 
 The next line adds a dictionary entry to `client_args` with the key `azure_ad_token_provider`.
-The value is obtained by calling the [azure.identity.aio.get_bearer_token_provider](python/api/azure-identity/azure.identity.aio?view=azure-python#azure-identity-aio-get-bearer-token-provider) with two arguments:
+The value is obtained by calling the [azure.identity.aio.get_bearer_token_provider](/python/api/azure-identity/azure.identity.aio?view=azure-python#azure-identity-aio-get-bearer-token-provider&preserve-view=true) with two arguments:
 
 - `default_credential`: The **DefaultAzureCredential** instance created earlier to authenticate the request.
 
@@ -332,4 +332,4 @@ If your issue isn't addressed, log your issue to the repository's [Issues](https
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with the chat using your own data sample for Python](../../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+> [Get started with the chat using your own data sample for Python](../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
