@@ -16,8 +16,10 @@ items:
           href: advanced-retrieval-augmented-generation.md
     - name: Security concepts
       items: 
-        - name: Introduction to generative AI
-          href: introduction-build-generative-ai-solutions.md      
+        - name: Security planning for LLM-based applications
+          href: /ai/playbook/technology-guidance/generative-ai/mlops-in-openai/security/security-plan-llm-application?source=recommendations      
+        - name: Security guidance for Large Language Models
+          href: /ai/playbook/technology-guidance/generative-ai/mlops-in-openai/security/security-recommend
     - name: How-tos
       items:
         - name: Switch between OpenAI and Azure OpenAI endpoints with Python
