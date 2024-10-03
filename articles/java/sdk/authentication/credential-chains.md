@@ -22,6 +22,10 @@ A chained credential can offer the following benefits:
 - **Environment awareness**: Automatically selects the most appropriate credential based on the environment in which the app is running. Without it, you'd have to write code like this:
 
     ```java
+    import com.azure.core.credential.TokenCredential;
+    import com.azure.identity.AzureCliCredentialBuilder;
+    import com.azure.identity.ManagedIdentityCredentialBuilder;
+
     TokenCredential credential = null;
 
     // Set up credential based on environment (Azure or local development)
@@ -90,6 +94,13 @@ DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
 [ChainedTokenCredential](/java/api/com.azure.identity.chainedtokencredential) is an empty chain to which you add credentials to suit your app's needs. For example:
 
 ```java
+import com.azure.identity.AzureCliCredential;
+import com.azure.identity.AzureCliCredentialBuilder;
+import com.azure.identity.ChainedTokenCredential;
+import com.azure.identity.ChainedTokenCredentialBuilder;
+import com.azure.identity.ManagedIdentityCredential;
+import com.azure.identity.ManagedIdentityCredentialBuilder;
+
 ManagedIdentityCredential miCredential = new ManagedIdentityCredentialBuilder()
     .clientId(userAssignedClientId)
     .build();
