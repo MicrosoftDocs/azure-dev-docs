@@ -49,7 +49,7 @@ conceptualContent:
             url: ../intro/hosting-apps-on-azure.md
           - itemType: how-to-guide
             text: Deployment choices for your web app to Azure
-            url: ./how-to/deploy-web-app
+            url: ./how-to/deploy-web-app.md
       - title: Create AI apps
         links:
           - itemType: overview
@@ -185,10 +185,10 @@ conceptualContent:
             url: /azure/cosmos-db/mongodb/vcore/tutorial-nodejs-web-app
           - itemType: how-to-guide
             text: Express.js convert text to speech
-            url: /tutorial/convert-text-to-speech-cognitive-services.md
+            url: ./tutorial/convert-text-to-speech-cognitive-services.md
           - itemType: how-to-guide
             text: Express.js VM
-            url: /tutorial/run-nodejs-virtual-machine.md
+            url: ./tutorial/run-nodejs-virtual-machine.md
 # --------------------------------------------------------------
 additionalContent:
   sections:
