@@ -26,6 +26,8 @@ A chained credential can offer the following benefits:
     import com.azure.identity.AzureCliCredentialBuilder;
     import com.azure.identity.ManagedIdentityCredentialBuilder;
 
+    // Code omitted for brevity
+
     TokenCredential credential = null;
 
     // Set up credential based on environment (Azure or local development)
@@ -85,6 +87,8 @@ In its simplest form, you can use the parameterless version of `DefaultAzureCred
 import com.azure.identity.DefaultAzureCredential;
 import com.azure.identity.DefaultAzureCredentialBuilder;
 
+// Code omitted for brevity
+
 DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
     .build();
 ```
@@ -100,6 +104,8 @@ import com.azure.identity.ChainedTokenCredential;
 import com.azure.identity.ChainedTokenCredentialBuilder;
 import com.azure.identity.ManagedIdentityCredential;
 import com.azure.identity.ManagedIdentityCredentialBuilder;
+
+// Code omitted for brevity
 
 ManagedIdentityCredential miCredential = new ManagedIdentityCredentialBuilder()
     .clientId(userAssignedClientId)
