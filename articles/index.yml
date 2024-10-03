@@ -46,6 +46,21 @@ productDirectory:
 #  summary:
   items:
     # Card
+    - title: GitHub Copilot for Azure
+      imageSrc: /visualstudio/media/copilot-icon.svg
+      links:
+        - url: ./github-copilot-azure/introduction.md
+          text: What is GitHub Copilot for Azure?
+        - url: ./github-copilot-azure/get-started.md
+          text: Get Started
+        - url: ./github-copilot-azure/quickstart-build-deploy-applications.md
+          text: Quickstart - Build and deploy an app
+        - url: ./github-copilot-azure/learn-examples.md
+          text: Prompt about Azure and your application
+        - url: ./github-copilot-azure/deploy-examples.md
+          text: Prompt about Deploying your application
+        - url: ./github-copilot-azure/troubleshoot-examples.md
+          text: Prompt to troubleshoot your Azure apps
     - title: Python
       imageSrc: /media/logos/logo_python.svg
       links:
@@ -179,19 +194,6 @@ productDirectory:
           text: Make your project compatible with azd
         - url: /azure/developer/azure-developer-cli/supported-languages-environments
           text: Supported languages and environments
-    - title: DevContainers
-      imageSrc: includes/media/dev-containers/dev-container.svg
-      links:
-        - url: https://containers.dev/
-          text: What are development containers?
-        - url: https://code.visualstudio.com/docs/devcontainers/tutorial
-          text: Visual Studio Code Dev Containers
-        - url: https://code.visualstudio.com/docs/devcontainers/create-dev-container
-          text: Create your own Dev Container
-        - url: https://containers.dev/features
-          text: Available Features
-        - url: https://containers.dev/templates
-          text: Available Templates
     - title: Dev tunnels
       imageSrc: ./dev-tunnels/media/index/dev-tunnels-icon.svg
       links:
