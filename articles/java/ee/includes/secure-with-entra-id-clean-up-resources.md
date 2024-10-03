@@ -4,7 +4,7 @@ ms.author: jiangma
 ms.date: 09/26/2024
 ---
 
-This article doesn't direct you to deploy your app on Azure. There are no Azuer resources to clean up for the app, though there **are** Microsoft Entra ID resources. To deploy an app on Azure, you can follow the guidance referenced in the next section.
+This article doesn't direct you to deploy your app on Azure. There are no Azure resources to clean up for the app, though there **are** Microsoft Entra ID resources. To deploy an app on Azure, you can follow the guidance referenced in the next section.
 
 When you finish with the resources for this sample app, use the following steps to clean up the Microsoft Entra ID resources. Removing unused Microsoft Entra ID resources is an important security best practice.
 
