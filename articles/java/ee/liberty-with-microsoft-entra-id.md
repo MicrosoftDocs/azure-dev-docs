@@ -41,7 +41,7 @@ OpenID Connect is an industry standard authentication protocol well supported by
 
 ## Protect a WebSphere Liberty/Open Liberty app by using OpenID Connect
 
-In this section, you secure a WebSphere Liberty/Open Liberty app that authenticates and authorizes users in your Microsoft Entra tenant by using OIDC. You also learn how to give users access to certain parts of the app using role-based access control (RBAC). The app uses the Programmatic Security Policy Configuration of the Jakarta Servlet specification. See the resources section for a reference to securing an RESTful web services application.
+In this section, you secure a WebSphere Liberty/Open Liberty app that authenticates and authorizes users in your Microsoft Entra tenant by using OIDC. You also learn how to give users access to certain parts of the app using role-based access control (RBAC). The app uses the Programmatic Security Policy Configuration of the Jakarta Servlet specification. Jakarta EE also supports RESTful web services. See the [Next steps](#next-steps) section for a reference to an article about securing a RESTful web services application.
 
 The sample WebSphere Liberty/Open Liberty app for this quickstart is on GitHub in the [liberty-entra-id](https://github.com/Azure-Samples/liberty-entra-id/tree/2024-09-26) repository.
 
@@ -70,7 +70,7 @@ The app has a welcome page resource defined in [index.html](https://github.com/A
 
 From the welcome page, users can sign in to the app to access the profile page. The welcome page has links to sign in as a user or as an admin. The links are at `/profile/user` and `/profile/admin`, respectively.
 
-Both `/profile/user` and `/profile/admin` links point to the profile servlet, defined in [ProfileServlet.java](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/java/com/example/ProfileServlet.java), as shown in the following example code. This servlet is accessible only to authenticated users by using the annotation `jakarta.servlet.annotation.ServletSecurity` and annotation `jakarta.servlet.annotation.HttpConstraint`. The attribute `rolesAllowed = {"users"}` specifies that only authenticated users with security role `users` can access the `/profile` path. The authenciated user is automatically assigned the `users` role in the configuration file [server.xml](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/liberty/config/server.xml#L31-L38).
+Both `/profile/user` and `/profile/admin` links point to the profile servlet, defined in [ProfileServlet.java](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/java/com/example/ProfileServlet.java), as shown in the following example code. This servlet is accessible only to authenticated users by using the annotation `jakarta.servlet.annotation.ServletSecurity` and annotation `jakarta.servlet.annotation.HttpConstraint`. The attribute `rolesAllowed = {"users"}` specifies that only authenticated users with security role `users` can access the `/profile` path. The authenciated user is automatically assigned the `users` role in the Liberty configuration file [server.xml](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/liberty/config/server.xml#L31-L38).
 
 ```java
 package com.example;
@@ -120,7 +120,7 @@ public class ProfileServlet extends HttpServlet {
 
 The profile servlet retrieves the user's roles from the ID token and checks if the user has the `admin` role when the user tries to access the `/profile/admin` path. If the user doesn't have the `admin` role, the servlet returns a 403 Forbidden error. In other cases, the servlet retrieves the user's name and forwards the request to the profile page with the user's name and roles.
 
-The profile page is defined in [profile.jsp](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/webapp/profile.jsp), as shown in the following example. This page displays the user's name and roles. The profile page also has a sign-out link at `/logout`. The profile page is written JSP (Jakarta Server Pages). Note the use of `${}` expressions in the page. The `${}` expressions are replaced with the values of the corresponding variables when the page is rendered.
+The profile page is defined in [profile.jsp](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/webapp/profile.jsp), as shown in the following example. This page displays the user's name and roles. The profile page also has a sign-out link at `/logout`. The profile page is written JSP (Jakarta Server Pages). Note the use of `${}` expressions in the page. `${}` Indicates the use of Jakarta Expression Language (EL).  EL expressions are replaced with the values of the corresponding variables when the page is rendered. See the [Next steps](#next-steps) section for a reference to the EL specification.
 
 ```jsp
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
@@ -145,7 +145,7 @@ The profile page is defined in [profile.jsp](https://github.com/Azure-Samples/li
 </html>
 ```
 
-When the user selects to sign out, the app calls the sign out servlet, defined in [LogoutServlet.java](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/java/com/example/LogoutServlet.java), as shown in the following example code. The sign out servlet calls the `request.logout()` method to sign out the user, and then redirects the user to the welcome page.
+When the user selects the link to sign out, the app calls the sign out servlet, defined in [LogoutServlet.java](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/java/com/example/LogoutServlet.java), as shown in the following example code. The sign out servlet calls the `request.logout()` method to sign out the user, and then redirects the user to the welcome page.
 
 ```java
 package com.example;
@@ -209,7 +209,7 @@ Use the following steps to prepare the sample app:
    export TENANT_ID=<directory/tenant-ID>
    ```
 
-   These environment variables provide the values for the built-in support of OIDC in WebSphere Liberty/Open Liberty. The corresponding OIDC configuration in [server.xml](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/liberty/config/server.xml#L24-L29) is shown in the following example.
+   These environment variables provide the values for the built-in support of OIDC in WebSphere Liberty/Open Liberty. The corresponding OIDC configuration in the Liberty [server.xml](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/liberty/config/server.xml#L24-L29) is shown in the following example.
 
    ```xml
     <oidcLogin
@@ -224,7 +224,10 @@ Use the following steps to prepare the sample app:
 
 ### Run the WebSphere Liberty/Open Liberty app
 
-You can run the app using `liberty-maven-plugin`. Select one of the following methods to run the app. To enable WebSphere Liberty/Open Liberty to connect to Microsoft Entra ID, be sure to run the command in the shell in which you defined the environment variables shown in the preceding section.
+You can run the app using `liberty-maven-plugin`. Select one of the following methods to run the app. 
+
+> [!NOTE]
+> To enable WebSphere Liberty/Open Liberty to connect to Microsoft Entra ID, be sure to run the command in the shell in which you defined the environment variables shown in the preceding section.
 
 * Run the app in development mode:
 
@@ -295,3 +298,4 @@ In this quickstart, you protect WebSphere Liberty/Open Liberty applications with
 - [What is OpenID Connect](https://openid.net/developers/how-connect-works/)
 - [Programmatic Security Policy Configuration](https://jakarta.ee/specifications/servlet/6.1/jakarta-servlet-spec-6.1#programmatic-security-policy-configuration)
 - [How to Secure a RESTful Web Service Using Jakarta EE](https://jakarta.ee/learn/starter-guides/how-to-secure-a-restful-web-service/)
+- [Jakarta Expression Language](https://jakarta.ee/specifications/expression-language/)
