@@ -33,6 +33,23 @@ conceptualContent:
     summary: Learn to develop JavaScript apps using various Azure services.
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
     items:
+      - title: Getting started
+        links: 
+          - itemType: overview
+            text: What is Azure for JavaScript developers
+            url: ./core/what-is-azure-for-javascript-development.md
+          - itemType: how-to-guide
+            text: Configure your JavaScript develop environment for Azure
+            url: ./core/configure-local-development-environment.md
+          - itemType: how-to-guide
+            text: Tools for JavaScript developers on Azure
+            url: ./node-azure-tools.md
+          - itemType: overview
+            text: Hosting applications on Azure
+            url: ../intro/hosting-apps-on-azure.md
+          - itemType: how-to-guide
+            text: Deployment choices for your web app to Azure
+            url: ./how-to/deploy-web-app
       - title: Create AI apps
         links:
           - itemType: overview
@@ -158,6 +175,20 @@ conceptualContent:
           - itemType: concept
             text: Key vault for keys
             url: /azure/key-vault/keys/javascript-developer-guide-get-started
+      - title: Web apps on Azure
+        links: 
+          - itemType: tutorial
+            text: Express.js with MongoDB
+            url: /azure/app-service/tutorial-nodejs-mongodb-app
+          - itemType: tutorial
+            text: Express.js with MERN
+            url: /azure/cosmos-db/mongodb/vcore/tutorial-nodejs-web-app
+          - itemType: how-to-guide
+            text: Express.js convert text to speech
+            url: /tutorial/convert-text-to-speech-cognitive-services.md
+          - itemType: how-to-guide
+            text: Express.js VM
+            url: /tutorial/run-nodejs-virtual-machine.md
 # --------------------------------------------------------------
 additionalContent:
   sections:
@@ -167,7 +198,7 @@ additionalContent:
           links:
             - text: "JavaScript: Everything from Microsoft for JavaScript developers"
               url: https://developer.microsoft.com/en-us/javascript/
-            - text: Developer experience
+            - text: "Developer experience: Optimizing DevEx improves business outcomes"
               url: https://developer.microsoft.com/developer-experience
             - text: AI for frictionless, intelligent builds with AI tools and services
               url: /ai
