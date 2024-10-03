@@ -76,17 +76,17 @@ The following sections show you which service destinations meet your application
 
 Use the following grid to identify potential destinations for your application type. As you can see, Azure Kubernetes Service (AKS) and Azure Virtual Machines support all application types, but they require your team to take on more responsibilities, as shown in the next section.
 
-| Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓                              | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure<br>Spring<br>Apps | Azure Container Apps | AKS           | Virtual<br>Machines |
-|-------------------------------------------------------------------------------------|---------------------------|--------------------------|-----------------------------|-------------------------|----------------------|---------------|---------------------|
-| Spring Boot / JAR applications | &#x2714; |   |   | &#x2714; | &#x2714; | &#x2714; | &#x2714;  |
-| Spring Cloud applications      |  &#x2714; |   | &#x2714;  | &#x2714;  | &#x2714; | &#x2714; | &#x2714; |
-| Web applications (WAR)                                                                   |                           | &#x2714;                 | &#x2714;                    |                 | &#x2714;             | &#x2714;      | &#x2714;            |
-| Java EE applications (WAR \| EAR)                                                               |                           |                          | &#x2714;                    |                         |  &#x2714;                    | &#x2714;      | &#x2714;            |
-| Commercial application servers<br>(such as Oracle WebLogic Server or IBM WebSphere) |                           |                          |                             |                         | &#x2714;             | &#x2714;      | &#x2714;            |
-| Application server-level clustering                                                 |                           |                          | &#x2714;                    |                         |                      | &#x2714;      | &#x2714;            |
-| Batch / scheduled jobs                                                              |                           |                          |                             | &#x2714;                | &#x2714;             | &#x2714;      | &#x2714;            |
-| VNet Integration/Hybrid Connectivity                                                | &#x2714;                  | &#x2714;                 | &#x2714;                    | &#x2714;                | &#x2714;             | &#x2714;      | &#x2714;            |
-| Azure region availability                                                           | [Details][10]             | [Details][10]            | [Details][10]               | [Details][11]           | [Details][23]        | [Details][12] | [Details][13]       |
+| Destination&nbsp;→<br><br>Application&nbsp;type&nbsp;↓                             | App<br>Service<br>Java SE | App<br>Service<br>Tomcat | App<br>Service<br>JBoss EAP | Azure Container Apps | AKS           | Virtual<br>Machines |
+|-------------------------------------------------------------------------------------|---------------------------|--------------------------|-----------------------------|----------------------|---------------|---------------------|
+| Spring Boot / JAR applications                                                      | &#x2714;                  |                          |                             | &#x2714;             | &#x2714;      | &#x2714;            |
+| Spring Cloud applications                                                           | &#x2714;                  |                          | &#x2714;                    | &#x2714;             | &#x2714;      | &#x2714;            |
+| Web applications (WAR)                                                              |                           | &#x2714;                 | &#x2714;                    | &#x2714;             | &#x2714;      | &#x2714;            |
+| Java EE applications (WAR \| EAR)                                                   |                           |                          | &#x2714;                    | &#x2714;             | &#x2714;      | &#x2714;            |
+| Commercial application servers<br>(such as Oracle WebLogic Server or IBM WebSphere) |                           |                          |                             | &#x2714;             | &#x2714;      | &#x2714;            |
+| Application server-level clustering                                                 |                           |                          | &#x2714;                    |                      | &#x2714;      | &#x2714;            |
+| Batch / scheduled jobs                                                              |                           |                          |                             | &#x2714;             | &#x2714;      | &#x2714;            |
+| VNet Integration/Hybrid Connectivity                                                | &#x2714;                  | &#x2714;                 | &#x2714;                    | &#x2714;             | &#x2714;      | &#x2714;            |
+| Azure region availability                                                           | [Details][10]             | [Details][10]            | [Details][10]               | [Details][23]        | [Details][12] | [Details][13]       |
 
 ### Ongoing responsibility grid
 
@@ -97,20 +97,20 @@ Tasks indicated with ![Azure][1] are managed entirely or mostly by Azure. Your t
 > [!NOTE]
 > This isn't an exhaustive list of responsibilities.
 
-| Destination&nbsp;→<br><br>Task&nbsp;↓                                       | App<br>Service | Azure<br>Spring<br>Apps | Azure<br>Container<br>Apps | AKS                     | Virtual<br>Machines |
-|-----------------------------------------------------------------------------|----------------|-------------------------|----------------------------|-------------------------|---------------------|
-| Updating libraries<br>(including vulnerability remediation)                 | &#x1F449;      | &#x1F449;               | &#x1F449;                  | &#x1F449;               | &#x1F449;           |
-| Updating the application server<br>(including vulnerability remediation)    | ![Azure][1]    | ![Azure][1]             | &#x1F449;                  | &#x1F449;               | &#x1F449;           |
-| Updating the Java Runtime<br>(including vulnerability remediation)          | ![Azure][1]    | ![Azure][1]             | &#x1F449;                  | &#x1F449;               | &#x1F449;           |
-| Triggering Kubernetes updates<br>(performed by Azure with a manual trigger) | N/A            | ![Azure][1]             | ![Azure][1]                | &#x1F449;               | N/A                 |
-| Disaster Recovery                                                           | ![Azure][1]    | ![Azure][1]             | &#x1F449;                  | &#x1F449;               | ![Azure][1]         |
-| Reconciling non-backward-compatible Kubernetes API changes                  | N/A            | ![Azure][1]             | &#x1F449;                  | &#x1F449;               | N/A                 |
-| Updating container base image<br>(including vulnerability remediation)      | N/A            | ![Azure][1]             | &#x1F449;                  | &#x1F449;               | N/A                 |
-| Updating the operating system<br>(including vulnerability remediation)      | ![Azure][1]    | ![Azure][1]             | ![Azure][1]                | ![Azure][1]<sup>1</sup> | &#x1F449;           |
-| Detecting and restarting failed instances                                   | ![Azure][1]    | ![Azure][1]             | ![Azure][1]                | ![Azure][1]             | &#x1F449;           |
-| Implementing draining and rolling restart for updates                       | ![Azure][1]    | ![Azure][1]             | ![Azure][1]                | ![Azure][1]             | &#x1F449;           |
-| Infrastructure management                                                   | ![Azure][1]    | ![Azure][1]             | &#x1F449;                  | &#x1F449;               | &#x1F449;           |
-| Monitoring and alert management                                             | &#x1F449;      | &#x1F449;               | &#x1F449;                  | &#x1F449;               |  &#x1F449;                     |
+| Destination&nbsp;→<br><br>Task&nbsp;↓                                       | App<br>Service | Azure<br>Container<br>Apps | AKS                     | Virtual<br>Machines |
+|-----------------------------------------------------------------------------|----------------|----------------------------|-------------------------|---------------------|
+| Updating libraries<br>(including vulnerability remediation)                 | &#x1F449;      | &#x1F449;                  | &#x1F449;               | &#x1F449;           |
+| Updating the application server<br>(including vulnerability remediation)    | ![Azure][1]    | &#x1F449;                  | &#x1F449;               | &#x1F449;           |
+| Updating the Java Runtime<br>(including vulnerability remediation)          | ![Azure][1]    | &#x1F449;                  | &#x1F449;               | &#x1F449;           |
+| Triggering Kubernetes updates<br>(performed by Azure with a manual trigger) | N/A            | ![Azure][1]                | &#x1F449;               | N/A                 |
+| Disaster Recovery                                                           | ![Azure][1]    | &#x1F449;                  | &#x1F449;               | ![Azure][1]         |
+| Reconciling non-backward-compatible Kubernetes API changes                  | N/A            | &#x1F449;                  | &#x1F449;               | N/A                 |
+| Updating container base image<br>(including vulnerability remediation)      | N/A            | &#x1F449;                  | &#x1F449;               | N/A                 |
+| Updating the operating system<br>(including vulnerability remediation)      | ![Azure][1]    | ![Azure][1]                | ![Azure][1]<sup>1</sup> | &#x1F449;           |
+| Detecting and restarting failed instances                                   | ![Azure][1]    | ![Azure][1]                | ![Azure][1]             | &#x1F449;           |
+| Implementing draining and rolling restart for updates                       | ![Azure][1]    | ![Azure][1]                | ![Azure][1]             | &#x1F449;           |
+| Infrastructure management                                                   | ![Azure][1]    | &#x1F449;                  | &#x1F449;               | &#x1F449;           |
+| Monitoring and alert management                                             | &#x1F449;      | &#x1F449;                  | &#x1F449;               |  &#x1F449;                     |
 
 <sup>1</sup> Some security updates might require node reboots, which aren't done automatically. For more information, see [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](/azure/aks/node-updates-kured).
 
@@ -163,7 +163,6 @@ Use the rows below to find your Java EE application type running on a specific a
 [8]: migrate-jboss-eap-to-wildfly-on-azure-kubernetes-service.md
 [9]: migrate-wildfly-to-wildfly-on-azure-kubernetes-service.md
 [10]: https://azure.microsoft.com/global-infrastructure/services/?products=app-service-linux
-[11]: https://azure.microsoft.com/global-infrastructure/services/?products=spring-apps
 [12]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [13]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
 [15]: migrate-spring-cloud-to-azure-container-apps.md
