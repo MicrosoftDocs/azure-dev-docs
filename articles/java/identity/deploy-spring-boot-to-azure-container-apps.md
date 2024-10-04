@@ -32,7 +32,7 @@ This article assumes that you completed one of the following articles using only
 
 [!INCLUDE [deploy-container-apps-cli-setup.md](includes/deploy-container-apps-cli-setup.md)]
 
-## Create Container Apps Environment
+## Create the Azure Container Apps environment
 
 [!INCLUDE [deploy-container-apps-cli-setup.md](includes/deploy-container-apps-create-env-variables.md)]
 
