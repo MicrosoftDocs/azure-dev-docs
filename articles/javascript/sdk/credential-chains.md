@@ -48,7 +48,7 @@ In JavaScript, the philosophy for credential chaining is to **"build up" a chain
 
 [DefaultAzureCredential](/javascript/api/%40azure/identity/defaultazurecredential) is an opinionated, preconfigured chain of credentials. It's designed to support many environments, along with the most common authentication flows and developer tools. In graphical form, the underlying chain looks like this:
 
-TBD: image
+:::image type="content" source="https://raw.githubusercontent.com/Azure/azure-sdk-for-js/main/sdk/identity/identity/images/mermaidjs/DefaultAzureCredentialAuthFlow.svg" alt-text="Diagram of Azure Identity default credential chain flow.":::
 
 The order in which `DefaultAzureCredential` attempts credentials follows.
 
@@ -198,7 +198,7 @@ const credential = ChainedTokenCredential(
 
 The preceding code sample creates a tailored credential chain comprised of two credentials. The user-assigned managed identity variant of `ManagedIdentityCredential` is attempted first, followed by `AzureCliCredential`, if necessary. In graphical form, the chain looks like this:
 
-TBD: image
+:::image type="content" source="/azure/developer/python/sdk/media/mermaidjs/chained-token-credential-auth-flow.svg" alt-text="Diagram showing Azure Identity chain credential of managed identity and Azure CLI.":::
 
 > [!TIP]
 > For improved performance, optimize credential ordering in `ChainedTokenCredential` for your production environment. Credentials intended for use in the local development environment should be added last.
@@ -309,3 +309,7 @@ lt.
 ## Enable logging
 
 [!INCLUDE [javascript-sdk-logging](../includes/sdk-logging.md)]
+
+## More resources
+
+* [Azure CLI](/cli/azure/install-azure-cli-windows)
