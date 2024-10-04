@@ -544,7 +544,7 @@
         },
         {
           "source_path": "identity/deploy-spring-boot-to-azure-spring-apps.md",
-          "redirect_url": "/azure/developer/identity/deploy-spring-boot-to-azure-container-apps"
+          "redirect_url": "/azure/developer/java/identity/deploy-spring-boot-to-azure-container-apps"
         }
     ]
 }
