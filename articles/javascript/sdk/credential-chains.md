@@ -1,6 +1,6 @@
 ---
 title: Credential chains in the Azure Identity client library for JavaScript
-description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library.
+description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library for JavaScript.
 ms.date: 09/10/2024
 ms.topic: conceptual
 ms.custom: devx-track-js
@@ -93,7 +93,7 @@ To specify the credential selected, when more than one is available in the chain
 | [Specify system-assigned managed identity]()| [DefaultAzureCredentialResourceIdOptions](/javascript/api/%40azure/identity/defaultazurecredentialresourceidoptions) |
 | [Specify tenant](#customize-for-tenant)| [DefaultAzureCredentialOptions](/javascript/api/%40azure/identity/defaultazurecredentialoptions)   |
 
-You can specify one specific item for that part of the chain. If you need to add more than 1 type of that credential type in the chain, you should use the [ChainedTokenCredential](#chained-token-credential)
+You can specify one specific item for that part of the chain. If you need to add more than 1 type of that credential type in the chain, you should use the [ChainedTokenCredential](#use-chainedtokencredential-for-granular-credential-control)
 
 ### Customize for user-assigned managed identity
 
@@ -179,7 +179,7 @@ Here's why:
 - **Unpredictable behavior**: `DefaultAzureCredential` checks for the presence of certain [environment variables](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/azure-identity#environment-variables). It's possible that someone could add or modify these environment variables at the system level on the host machine. Those changes apply globally and therefore alter the behavior of `DefaultAzureCredential` at runtime in any app running on that machine.
 
 
-## ChainedTokenCredential overview
+## Use ChainedTokenCredential for granular credential control
 
 [ChainedTokenCredential](/javascript/api/@azure/identity/chainedtokencredential) is an empty chain to which you add credentials to suit your app's needs. For example, the following example adds a ManagedIdentityCredential, then an Azure CLI Credential. 
 
