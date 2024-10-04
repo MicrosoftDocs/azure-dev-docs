@@ -89,13 +89,13 @@ To specify the credential selected, when more than one is available in the chain
 
 | Scenario | Options  |
 |--|--|
-| Multiple Entra clients such as **user-assigned managed identity** and **service principals** | [DefaultAzureCredentialClientIdOptions](/javascript/api/%40azure/identity/defaultazurecredentialclientidoptions) |
-| Multiple Entra resources such as **system-assigned managed identity**        | [DefaultAzureCredentialResourceIdOptions](/javascript/api/%40azure/identity/defaultazurecredentialresourceidoptions) |
-| Multiple tenants| [DefaultAzureCredentialOptions](/javascript/api/%40azure/identity/defaultazurecredentialoptions)   |
+| [Specify user-assigned managed identity]() | [DefaultAzureCredentialClientIdOptions](/javascript/api/%40azure/identity/defaultazurecredentialclientidoptions) |
+| [Specify system-assigned managed identity]()| [DefaultAzureCredentialResourceIdOptions](/javascript/api/%40azure/identity/defaultazurecredentialresourceidoptions) |
+| [Specify tenant](#customize-for-tenant)| [DefaultAzureCredentialOptions](/javascript/api/%40azure/identity/defaultazurecredentialoptions)   |
 
 You can specify one specific item for that part of the chain. If you need to add more than 1 type of that credential type in the chain, you should use the [ChainedTokenCredential](#chained-token-credential)
 
-### User-assigned managed identity
+### Customize for user-assigned managed identity
 
 Use the following code to specify the user-assigned managed identity or service principal to be used by the **ManagedIdentityCredential**.
 
@@ -129,7 +129,7 @@ const blobServiceClient = new BlobServiceClient(
 );
 ```
 
-### System-assigned managed identity
+### Customize system-assigned managed identity
 
 Use the following code to specify the system-assigned managed identity to be used by the **ManagedIdentityCredential**. The resource ID specifies the Azure resource to manage.
 
@@ -138,7 +138,7 @@ const { DefaultAzureCredential } = require("@azure/identity");
 const { BlobServiceClient } = require("@azure/storage-blob");
 
 const credential = new DefaultAzureCredential({
-    managedIdentityResourceId: "YOUR_ENTRA_CLIENT_ID"
+    managedIdentityResourceId: "YOUR_RESOURCE_ID"
 });
 
 const blobServiceClient = new BlobServiceClient(
@@ -147,7 +147,7 @@ const blobServiceClient = new BlobServiceClient(
 );
 ```
 
-### Tenants
+### Customize for tenant
 
 Use the following code to specify the tenant to be used by the **ManagedIdentityCredential**. The resource ID specifies the Azure resource to such as Azure App Service or Azure Functions App.
 
@@ -156,7 +156,7 @@ const { DefaultAzureCredential } = require("@azure/identity");
 const { BlobServiceClient } = require("@azure/storage-blob");
 
 const credential = new DefaultAzureCredential({
-    managedIdentityResourceId: "YOUR_AZURE_RESOURCE_ID"
+    tenantId: "YOUR_TENANT_ID"
 });
 
 const blobServiceClient = new BlobServiceClient(
@@ -164,24 +164,6 @@ const blobServiceClient = new BlobServiceClient(
     credential
 );
 ```
-
-## ChainedTokenCredential overview
-
-[ChainedTokenCredential](/javascript/api/@azure/identity/chainedtokencredential) is an empty chain to which you add credentials to suit your app's needs. For example:
-
-```javascript
-const credential = ChainedTokenCredential(
-    ManagedIdentityCredential("<YOUR_CLIENT_ID>"),
-    AzureCliCredential()
-)
-```
-
-The preceding code sample creates a tailored credential chain comprised of two credentials. The user-assigned managed identity variant of `ManagedIdentityCredential` is attempted first, followed by `AzureCliCredential`, if necessary. In graphical form, the chain looks like this:
-
-:::image type="content" source="../media/mermaidjs/chained-token-credential-auth-flow.svg" alt-text="Diagram that shows authentication flow for a ChainedTokenCredential instance that is composed of managed identity credential and Azure CLI credential.":::
-
-> [!TIP]
-> For improved performance, optimize credential ordering in `ChainedTokenCredential` for your production environment. Credentials intended for use in the local development environment should be added last.
 
 ## Usage guidance for DefaultAzureCredential
 
@@ -193,57 +175,137 @@ The preceding code sample creates a tailored credential chain comprised of two c
 Here's why:
 
 - **Debugging challenges**: When authentication fails, it can be challenging to debug and identify the offending credential. You must enable logging to see the progression from one credential to the next and the success/failure status of each. For more information, see [Debug a chained credential](#debug-a-chained-credential).
-- **Performance overhead**: The process of sequentially trying multiple credentials can introduce performance overhead. For example, when running on a local development machine, managed identity is unavailable. Consequently, `ManagedIdentityCredential` always fails in the local development environment, unless explicitly disabled via its corresponding `exclude`-prefixed property.
+- **Performance overhead**: The process of sequentially trying multiple credentials can introduce performance overhead. For example, when running on a local development machine, managed identity is unavailable. Consequently, `ManagedIdentityCredential` always fails in the local development environment.
 - **Unpredictable behavior**: `DefaultAzureCredential` checks for the presence of certain [environment variables](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/azure-identity#environment-variables). It's possible that someone could add or modify these environment variables at the system level on the host machine. Those changes apply globally and therefore alter the behavior of `DefaultAzureCredential` at runtime in any app running on that machine.
+
+
+## ChainedTokenCredential overview
+
+[ChainedTokenCredential](/javascript/api/@azure/identity/chainedtokencredential) is an empty chain to which you add credentials to suit your app's needs. For example, the following example adds a ManagedIdentityCredential, then an Azure CLI Credential. 
+
+```javascript
+const { 
+    ChainedTokenCredential, 
+    ManagedIdentityCredential, 
+    AzureCliCredential 
+} = require("@azure/identity");
+
+const credential = ChainedTokenCredential(
+    ManagedIdentityCredential("<YOUR_CLIENT_ID>"),
+    AzureCliCredential()
+)
+```
+
+The preceding code sample creates a tailored credential chain comprised of two credentials. The user-assigned managed identity variant of `ManagedIdentityCredential` is attempted first, followed by `AzureCliCredential`, if necessary. In graphical form, the chain looks like this:
+
+TBD: image
+
+> [!TIP]
+> For improved performance, optimize credential ordering in `ChainedTokenCredential` for your production environment. Credentials intended for use in the local development environment should be added last.
 
 ## Debug a chained credential
 
-To diagnose an unexpected issue or to understand what a chained credential is doing, [enable logging](../azure-sdk-logging.md) in your app. Optionally, filter the logs to only those events emitted from the Azure Identity client library. For example:
+To diagnose an unexpected issue or to understand what a chained credential is doing, [enable logging](#enable-logging) in your app. 
 
-```javascript
-const { DefaultAzureCredential } = require("@azure/identity");
-const winston = require("winston");
+1. Create `index.js` with the following code:
 
-// Create a logger instance
-const logger = winston.createLogger({
-    level: 'debug',
-    format: winston.format.simple(),
-    transports: [
-        new winston.transports.Console()
-    ]
-});
+    ```javascript
+    const { ChainedTokenCredential, ManagedIdentityCredential, AzureCliCredential } = require("@azure/identity");
+    const { BlobServiceClient } = require("@azure/storage-blob");
+    
+    const credential = new ChainedTokenCredential(
+        new ManagedIdentityCredential(),
+        new AzureCliCredential()
+    );
+    
+    const blobServiceClient = new BlobServiceClient(
+        "https://dinaberrystor.blob.core.windows.net",
+        credential
+    );
+    
+    const containerName = "my-data";
+    
+    // get container properties
+    const containerClient = blobServiceClient.getContainerClient(containerName);
+    
+    async function main(){
+    const properties = await containerClient.getProperties();
+    console.log(properties);
+    }
+    
+    main().catch((err) => {
+        console.error("Error running sample:", err.message);
+    });
+    ```
 
-// Optional: Output logging levels to the console.
-console.log(
-    `Logger enabled for ERROR=${logger.isLevelEnabled('error')}, ` +
-    `WARNING=${logger.isLevelEnabled('warn')}, ` +
-    `INFO=${logger.isLevelEnabled('info')}, ` +
-    `DEBUG=${logger.isLevelEnabled('debug')}`
-);
+2. Install the npm dependencies.
 
-// Acquire a credential object
-const credential = new DefaultAzureCredential();
-```
+    ```bash
+    npm instal @azure/identity @azure/storage-blob
+    ```
 
-For illustration purposes, assume the parameterless form of `DefaultAzureCredential` is used to authenticate a request to a blob storage account. The app runs in the local development environment, and the developer authenticated to Azure using the Azure CLI. Assume also that the logging level is set to `logging.DEBUG`. When the app is run, the following pertinent entries appear in the output:
+3. Sign into the Azure in your local environment with Azure CLI:
+
+    ```bash
+    azure login
+    ```
+    
+
+4. Run the app in that same environment with the following command:
+
+    ```bash
+    AZURE_LOG_LEVEL=verbose node index.js
+    ```
+    
+
+When the app is run, the following pertinent entries appear in the output:
 
 ```output
-Logger enabled for ERROR=True, WARNING=True, INFO=True, DEBUG=True
-No environment configuration found.
-ManagedIdentityCredential will use IMDS
-EnvironmentCredential.get_token failed: EnvironmentCredential authentication unavailable. Environment variables are not fully configured.
-Visit https://aka.ms/azsdk/js/identity/environmentcredential/troubleshoot to troubleshoot this issue.
-ManagedIdentityCredential.get_token failed: ManagedIdentityCredential authentication unavailable, no response from the IMDS endpoint.     
-SharedTokenCacheCredential.get_token failed: SharedTokenCacheCredential authentication unavailable. No accounts were found in the cache.
-AzureCliCredential.get_token succeeded
-[Authenticated account] Client ID: 00001111-aaaa-2222-bbbb-3333cccc4444. Tenant ID: aaaabbbb-0000-cccc-1111-dddd2222eeee. User Principal Name: unavailableUpn. Object ID (user): aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
-DefaultAzureCredential acquired a token from AzureCliCredential
+azure:core-client:warning The baseUri option for SDK Clients has been deprecated, please use endpoint instead.
+azure:core-client:warning The baseUri option for SDK Clients has been deprecated, please use endpoint instead.
+azure:storage-blob:info RetryPolicy: =====> Try=1 Primary
+azure:identity:info ManagedIdentityCredential(MSAL) => getToken() => Using the MSAL provider for Managed Identity.
+azure:identity:info ManagedIdentityCredential - Token Exchange => ManagedIdentityCredential - Token Exchange: Unavailable. The environment v
+ariables needed are: AZURE_CLIENT_ID (or the client ID sent through the parameters), AZURE_TENANT_ID and AZURE_FEDERATED_TOKEN_FILE
+azure:identity:info ManagedIdentityCredential(MSAL) => getToken() => Using the IMDS endpoint to probe for availability.
+azure:identity:info ManagedIdentityCredential - IMDS => ManagedIdentityCredential - IMDS: Pinging the Azure IMDS endpoint
+azure:core-rest-pipeline retryPolicy:info Retry 0: Attempting to send request 3941fc44-d241-4efa-8e41-86b9760bb825
+azure:core-rest-pipeline:info Request: {
+  "url": "http://169.254.169.254/metadata/identity/oauth2/token",
+  "headers": {
+    "accept": "application/json",
+    "accept-encoding": "gzip,deflate",
+    "user-agent": "azsdk-js-identity/4.4.1 core-rest-pipeline/1.17.0 Node/20.13.1 OS/(x64-Windows_NT-10.0.26100)",
+    "x-ms-client-request-id": "3941fc44-d241-4efa-8e41-86b9760bb825"
+  },
+  "method": "GET",
+  "timeout": 1000,
+  "disableKeepAlive": false,
+  "withCredentials": false,
+  "tracingOptions": {
+    "tracingContext": {
+      "_contextMap": {}
+    }
+  },
+  "requestId": "3941fc44-d241-4efa-8e41-86b9760bb825",
+  "allowInsecureConnection": true,
+  "enableBrowserStreams": false
+}
+azure:core-rest-pipeline retryPolicy:error Retry 0: Received an error from request 3941fc44-d241-4efa-8e41-86b9760bb825
+azure:core-rest-pipeline retryPolicy:info Retry 0: Maximum retries reached. Returning the last received response, or throwing the last recei
+ved error.
+azure:identity:verbose ManagedIdentityCredential - IMDS => ManagedIdentityCredential - IMDS: Caught error RestError: connect ENETUNREACH 169
+.254.169.254:80
+azure:identity:info ManagedIdentityCredential - IMDS => ManagedIdentityCredential - IMDS: The Azure IMDS endpoint is unavailable
+azure:identity:error ManagedIdentityCredential(MSAL) => getToken() => ERROR. Scopes: https://storage.azure.com/.default. Error message: Mana
+gedIdentityCredential: The managed identity endpoint is not available..
+azure:identity:info AzureCliCredential => getToken() => Using the scope https://storage.azure.com/.default
+azure:identity:info AzureCliCredential => getToken() => expires_on is available and is valid, using it
+azure:identity:info AzureCliCredential => getToken() => SUCCESS. Scopes: https://storage.azure.com/.default.
+azure:identity:info ChainedTokenCredential => getToken() => Result for AzureCliCredential: SUCCESS. Scopes: https://storage.azure.com/.defau
+lt.
 ```
 
-In the preceding output, notice that:
+## Enable logging
 
-- `EnvironmentCredential`, `ManagedIdentityCredential`, and `SharedTokenCacheCredential` each failed to acquire a Microsoft Entra access token, in that order.
-- The `AzureCliCredential.get_token` call succeeds and the output also indicates that `DefaultAzureCredential` acquired a token from `AzureCliCredential`. Since `AzureCliCredential` succeeded, no credentials beyond it were tried.
-
-> [!NOTE]
-> In the preceding example, the logging level is set to `logging.DEBUG`. Be careful when using this logging level, as it can output sensitive information. For example, in this case, the client ID, tenant ID, and the object ID of the developer's user principal in Azure. All traceback information has been removed from the output for clarity.
+[!INCLUDE [javascript-sdk-logging](../includes/sdk-logging.md)]
