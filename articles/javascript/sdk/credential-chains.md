@@ -14,7 +14,7 @@ The Azure Identity client library provides *credentials*&mdash;public classes th
 
 At runtime, a credential chain attempts to authenticate using the sequence's first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. The following sequence diagram illustrates this behavior:
 
-TBD: IMAGE/Mermaid
+:::image type="content" source="/azure/developer/python/sdk/media/mermaidjs/chain-sequence.svg" alt-text="Diagram showing Azure Identity credential sequence flow.":::
 
 ## Why use credential chains
 
