@@ -8,26 +8,30 @@ ms.custom: devx-track-js
 
 # Credential chains in the Azure Identity client library for JavaScript
 
-The Azure Identity client library provides *credentials*&mdash;public classes that implement the Azure Core library's [TokenCredential](/javascript/api/azure-core/azure.core.credentials.tokencredential) protocol. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
+The Azure Identity client library provides *credentials*&mdash;public classes that implement the Azure Core library's [TokenCredential](/javascript/api/@azure/ms-rest-js/topiccredentials) protocol. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
 
 ## How a chained credential works
 
 At runtime, a credential chain attempts to authenticate using the sequence's first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. The following sequence diagram illustrates this behavior:
 
-:::image type="content" source="../media/mermaidjs/chain-sequence.svg" alt-text="Diagram that shows Credential chain sequence.":::
+TBD: IMAGE/Mermaid
 
 ## Why use credential chains
 
 A chained credential can offer the following benefits:
 
-- **Environment awareness**: Automatically selects the most appropriate credential based on the environment in which the app is running. Without it, you'd have to write code like this:
+- **Environment awareness**: Automatically selects the most appropriate credential based on the environment in which the app is running. 
+
+    _Without it_, you have to detect the environment in your code like this:
 
     ```javascript
     const { ManagedIdentityCredential, AzureCliCredential } = require("@azure/identity");
     
     let credential;
-    if (process.env.WEBSITE_HOSTNAME) {
-        credential = new ManagedIdentityCredential({ clientId: userAssignedClientId });
+
+    // Without chained credentials, you have to detect environment
+    if (process.env.production) {
+        credential = new ManagedIdentityCredential("<YOUR_CLIENT_ID>");
     } else {
         credential = new AzureCliCredential();
     }
@@ -38,16 +42,13 @@ A chained credential can offer the following benefits:
 
 ## How to choose a chained credential
 
-There are two disparate philosophies to credential chaining:
-
-- **"Tear down" a chain**: Start with a preconfigured chain and exclude what you don't need. For this approach, see the [DefaultAzureCredential overview](#defaultazurecredential-overview) section.
-- **"Build up" a chain**: Start with an empty chain and include only what you need. For this approach, see the [ChainedTokenCredential overview](#chainedtokencredential-overview) section.
+In JavaScript, the philosophy for credential chaining is to **"build up" a chain**. Start with an empty chain and include only what you need. For this approach, see the [ChainedTokenCredential overview](#chainedtokencredential-overview) section.
 
 ## DefaultAzureCredential overview
 
-[DefaultAzureCredential](/javascript/api/azure-identity/azure.identity.defaultazurecredential) is an opinionated, preconfigured chain of credentials. It's designed to support many environments, along with the most common authentication flows and developer tools. In graphical form, the underlying chain looks like this:
+[DefaultAzureCredential](/javascript/api/%40azure/identity/defaultazurecredential) is an opinionated, preconfigured chain of credentials. It's designed to support many environments, along with the most common authentication flows and developer tools. In graphical form, the underlying chain looks like this:
 
-:::image type="content" source="../media/mermaidjs/default-azure-credential-auth-flow.svg" alt-text="Diagram that shows DefaultAzureCredential authentication flow." lightbox="../media/mermaidjs/default-azure-credential-auth-flow-big.png":::
+TBD: image
 
 The order in which `DefaultAzureCredential` attempts credentials follows.
 
@@ -56,20 +57,16 @@ The order in which `DefaultAzureCredential` attempts credentials follows.
 | 1     | [Environment][env-cred]         |Reads a collection of environment variables to determine if an application service principal (application user) is configured for the app. If so, `DefaultAzureCredential` uses these values to authenticate the app to Azure. This method is most often used in server environments but can also be used when developing locally.             | Yes                 |
 | 2     | [Workload Identity][wi-cred]   |If the app is deployed to an Azure host with Workload Identity enabled, authenticate that account.             | Yes                 |
 | 3     | [Managed Identity][mi-cred]    |If the app is deployed to an Azure host with Managed Identity enabled, authenticate the app to Azure using that Managed Identity.             | Yes                 |
-| 4     | [Shared Token Cache][vs-cred]       |If the developer authenticated to Azure by logging into Visual Studio, authenticate the app to Azure using that same account. (Windows only.)           | Yes                 |
-| 5     | [Azure CLI][az-cred]           |If the developer authenticated to Azure using Azure CLI's `az login` command, authenticate the app to Azure using that same account.             | Yes                 |
-| 6     | [Azure PowerShell][pwsh-cred]    |If the developer authenticated to Azure using Azure PowerShell's `Connect-AzAccount` cmdlet, authenticate the app to Azure using that same account.             | Yes                 |
-| 7     | [Azure Developer CLI][azd-cred] |If the developer authenticated to Azure using Azure Developer CLI's `azd auth login` command, authenticate with that account.             | Yes                 |
-| 8     | [Interactive browser][int-cred]         |If enabled, interactively authenticate the developer via the current system's default browser.             | No                  |
+| 4     | [Azure CLI][az-cred]           |If the developer authenticated to Azure using Azure CLI's `az login` command, authenticate the app to Azure using that same account.             | Yes                 |
+| 5     | [Azure PowerShell][pwsh-cred]    |If the developer authenticated to Azure using Azure PowerShell's `Connect-AzAccount` cmdlet, authenticate the app to Azure using that same account.             | Yes                 |
+| 6     | [Azure Developer CLI][azd-cred] |If the developer authenticated to Azure using Azure Developer CLI's `azd auth login` command, authenticate with that account.             | Yes                 |
 
-[env-cred]: /javascript/api/azure-identity/azure.identity.environmentcredential
-[wi-cred]: /javascript/api/azure-identity/azure.identity.workloadidentitycredential
-[mi-cred]: /javascript/api/azure-identity/azure.identity.managedidentitycredential
-[vs-cred]: /javascript/api/azure-identity/azure.identity.sharedtokencachecredential
-[az-cred]: /javascript/api/azure-identity/azure.identity.azureclicredential
-[pwsh-cred]: /javascript/api/azure-identity/azure.identity.azurepowershellcredential
-[azd-cred]: /javascript/api/azure-identity/azure.identity.azuredeveloperclicredential
-[int-cred]: /javascript/api/azure-identity/azure.identity.interactivebrowsercredential
+[env-cred]: /javascript/api/@azure/identity/environmentcredential
+[wi-cred]: /javascript/api/@azure/identity/workloadidentitycredential
+[mi-cred]: /javascript/api/@azure/identity/managedidentitycredential
+[az-cred]: /javascript/api/@azure/identity/azureclicredential
+[pwsh-cred]: /javascript/api/@azure/identity/azurepowershellcredential
+[azd-cred]: /javascript/api/@azure/identity/azuredeveloperclicredential
 
 In its simplest form, you can use the parameterless version of `DefaultAzureCredential` as follows:
 
@@ -88,56 +85,93 @@ const blobServiceClient = new BlobServiceClient(
 
 ### How to customize DefaultAzureCredential
 
-To remove a credential from `DefaultAzureCredential`, use the corresponding `exclude`-prefixed [keyword parameter](/javascript/api/azure-identity/azure.identity.defaultazurecredential#keyword-only-parameters). For example:
+To specify the credential selected, when more than one is available in the chain, use the options parameter. The DefaultAzureCredential has three option types to choose from:
+
+| Scenario | Options  |
+|--|--|
+| Multiple Entra clients such as **user-assigned managed identity** and **service principals** | [DefaultAzureCredentialClientIdOptions](/javascript/api/%40azure/identity/defaultazurecredentialclientidoptions) |
+| Multiple Entra resources such as **system-assigned managed identity**        | [DefaultAzureCredentialResourceIdOptions](/javascript/api/%40azure/identity/defaultazurecredentialresourceidoptions) |
+| Multiple tenants| [DefaultAzureCredentialOptions](/javascript/api/%40azure/identity/defaultazurecredentialoptions)   |
+
+You can specify one specific item for that part of the chain. If you need to add more than 1 type of that credential type in the chain, you should use the [ChainedTokenCredential](#chained-token-credential)
+
+### User-assigned managed identity
+
+Use the following code to specify the user-assigned managed identity or service principal to be used by the **ManagedIdentityCredential**.
 
 ```javascript
+const { DefaultAzureCredential } = require("@azure/identity");
+const { BlobServiceClient } = require("@azure/storage-blob");
+
 const credential = new DefaultAzureCredential({
-    exclude_environment_credential:True, 
-    exclude_workload_identity_credential:True,
-    managed_identity_client_id:user_assigned_client_id
-})
+    managedIdentityClientId: "YOUR_ENTRA_CLIENT_ID"
+});
+
+const blobServiceClient = new BlobServiceClient(
+    "https://<my_account_name>.blob.core.windows.net",
+    credential
+);
 ```
 
-In the preceding code sample, `EnvironmentCredential` and `WorkloadIdentityCredential` are removed from the credential chain. As a result, the first credential to be attempted is `ManagedIdentityCredential`. The modified chain looks like this:
-
-:::image type="content" source="../media/mermaidjs/default-azure-credential-excludes.svg" alt-text="Diagram that shows authentication flow for a DefaultAzureCredential instance after using exclude-prefixed keyword parameters in the constructor to remove environment credential and workload identity credential.":::
-
-> [!NOTE]
-> `InteractiveBrowserCredential` is excluded by default and therefore isn't shown in the preceding diagram. To include `InteractiveBrowserCredential`, set the `exclude_interactive_browser_credential` keyword parameter to `False` when you call the `DefaultAzureCredential` constructor.
-
-As more `exclude`-prefixed keyword parameters are set to `True` (credential exclusions are configured), the advantages of using `DefaultAzureCredential` diminish. In such cases, `ChainedTokenCredential` is a better choice and requires less code. To illustrate, these two code samples behave the same way:
-
-### [DefaultAzureCredential](#tab/dac)
+Use the following code to specify the user-assigned managed identity or service principal to be used by the **WorkloadIdentityCredential**.
 
 ```javascript
-const credential = DefaultAzureCredential({
-    exclude_environment_credential:True,
-    exclude_workload_identity_credential:True,
-    exclude_shared_token_cache_credential:True,
-    exclude_azure_powershell_credential:True,
-    exclude_azure_developer_cli_credential:True,
-    managed_identity_client_id:user_assigned_client_id
-})
+const { DefaultAzureCredential } = require("@azure/identity");
+const { BlobServiceClient } = require("@azure/storage-blob");
+
+const credential = new DefaultAzureCredential({
+    workloadIdentityClientId: "YOUR_ENTRA_CLIENT_ID"
+});
+
+const blobServiceClient = new BlobServiceClient(
+    "https://<my_account_name>.blob.core.windows.net",
+    credential
+);
 ```
 
-### [ChainedTokenCredential](#tab/ctc)
+### System-assigned managed identity
+
+Use the following code to specify the system-assigned managed identity to be used by the **ManagedIdentityCredential**. The resource ID specifies the Azure resource to manage.
 
 ```javascript
-const credential = ChainedTokenCredential(
-    ManagedIdentityCredential({client_id:user_assigned_client_id}),
-    AzureCliCredential()
-)
+const { DefaultAzureCredential } = require("@azure/identity");
+const { BlobServiceClient } = require("@azure/storage-blob");
+
+const credential = new DefaultAzureCredential({
+    managedIdentityResourceId: "YOUR_ENTRA_CLIENT_ID"
+});
+
+const blobServiceClient = new BlobServiceClient(
+    "https://<my_account_name>.blob.core.windows.net",
+    credential
+);
 ```
 
----
+### Tenants
+
+Use the following code to specify the tenant to be used by the **ManagedIdentityCredential**. The resource ID specifies the Azure resource to such as Azure App Service or Azure Functions App.
+
+```javascript
+const { DefaultAzureCredential } = require("@azure/identity");
+const { BlobServiceClient } = require("@azure/storage-blob");
+
+const credential = new DefaultAzureCredential({
+    managedIdentityResourceId: "YOUR_AZURE_RESOURCE_ID"
+});
+
+const blobServiceClient = new BlobServiceClient(
+    "https://<my_account_name>.blob.core.windows.net",
+    credential
+);
+```
 
 ## ChainedTokenCredential overview
 
-[ChainedTokenCredential](/javascript/api/azure-identity/azure.identity.chainedtokencredential) is an empty chain to which you add credentials to suit your app's needs. For example:
+[ChainedTokenCredential](/javascript/api/@azure/identity/chainedtokencredential) is an empty chain to which you add credentials to suit your app's needs. For example:
 
 ```javascript
 const credential = ChainedTokenCredential(
-    ManagedIdentityCredential({client_id:user_assigned_client_id}),
+    ManagedIdentityCredential("<YOUR_CLIENT_ID>"),
     AzureCliCredential()
 )
 ```
