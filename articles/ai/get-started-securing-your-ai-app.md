@@ -10,13 +10,13 @@ ms.collection: ce-skilling-ai-copilot
 ---
 # Get started with the Azure OpenAI security building block
 
-This article shows you how to create and use the Azure OpenAI security building block sample. The purpose is to demonstrate Azure OpenAI account provisioning with a role based access control (RBAC) role permission for keyless (Microsoft Entra ID) authentication to OpenAI API SDKs.
+This article shows you how to create and use the Azure OpenAI security building block sample. The purpose is to demonstrate Azure OpenAI account provisioning with a role-based access control (RBAC) role permission for keyless (Microsoft Entra ID) authentication to OpenAI API libraries.
 
 By following the instructions in this article, you will:
 
 - Deploy a secure Azure Container chat app.
 - Use managed identity for Azure OpenAI access.
-- Chat with an Azure OpenAI Large Language Model (LLM) using the OpenAI SDK.
+- Chat with an Azure OpenAI Large Language Model (LLM) using the OpenAI library.
 
 Once you complete this article, you can start modifying the new project with your custom code and data.
 
@@ -36,7 +36,7 @@ The application architecture relies on the following services and components:
 - [Azure Managed Identity](/entra/identity/managed-identities-azure-resources/) helps us ensure best in class security and eliminates the requirements for you as a developer to deal with credentials and API keys.
 
 - A Python [Quart](https://quart.palletsprojects.com/en/latest/) that uses the [`openai`](https://pypi.org/project/openai/) package to generate responses to user messages.
-- A basic HTML/JS frontend that streams responses from the backend using [JSON Lines](http://jsonlines.org/) over a [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
+- A basic HTML/JavaScript frontend that streams responses from the backend using [JSON Lines](http://jsonlines.org/) over a [ReadableStream](https://developer.mozilla.org/docs/Web/API/ReadableStream).
 - [Bicep files](/azure/azure-resource-manager/bicep/) for provisioning Azure resources, including Azure OpenAI, Azure Container Apps, Azure Container Registry, Azure Log Analytics, and RBAC roles.
 
 ## Cost
@@ -55,7 +55,7 @@ To use this article, you need the following prerequisites:
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 
-- Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+- Azure account permissions - Your Azure Account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
 
 - Access granted to Azure OpenAI in the desired Azure subscription.
     Request access to Azure OpenAI here: [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
@@ -106,7 +106,7 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 1. Sign in to Azure with the Azure Developer CLI in the terminal at the bottom of the screen.
 
-    ```bash
+    ```azdeveloper
     azd auth login
     ```
 
@@ -193,7 +193,7 @@ Wait until app is deployed. Deployment usually takes between 5 and 10 minutes to
 
  While OpenAI and Azure OpenAI Service rely on a [common Python client library](https://github.com/openai/openai-python), small code changes are needed when using Azure OpenAI endpoints. Let's see how this sample configures keyless authentication with Microsoft Entra ID and communicates with Azure OpenAI.
 
-### Configuring authentication with Microsoft Entra ID managed identity
+### Configure authentication with managed identity
 
 In this sample, the `src\quartapp\chat.py` file begins with configuring keyless authentication. The following snippet uses the [azure.identity.aio](/python/api/azure-identity/azure.identity.aio?view=azure-python&preserve-view=true) module to create a Microsoft Entra ID authentication flow via the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python&preserve-view=true) class. The `exclude_shared_token_cache_credential=True` parameter excludes the shared [token cache](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/samples/TokenCache.md) credential from the authentication flow. By excluding it, you shorten the chain of credentials that are attempted.
 
@@ -207,7 +207,7 @@ In this sample, the `src\quartapp\chat.py` file begins with configuring keyless 
 The next line adds a dictionary entry to `client_args` with the key `azure_ad_token_provider`.
 The value is obtained by calling the [azure.identity.aio.get_bearer_token_provider](/python/api/azure-identity/azure.identity.aio?view=azure-python#azure-identity-aio-get-bearer-token-provider&preserve-view=true) with two arguments:
 
-- `default_credential`: The **DefaultAzureCredential** instance created earlier to authenticate the request.
+- `default_credential`: The `DefaultAzureCredential` instance created earlier to authenticate the request.
 
 - "https://cognitiveservices.azure.com/.default": Required one or more bearer token scopes. In this case, the **Azure Cognitive Services** endpoint.
 
@@ -281,7 +281,7 @@ Set these values before running `azd up`. Once set, return to the [Deployment st
 
 This article demonstrates how the sample uses Managed Identity for authenticating to the Azure OpenAI service.
 
-The sample also has a [GitHub Action](https://github.com/microsoft/security-devops-action) that scans the infrastructure-as-code files and generates a report containing any detected issues. To ensure continued best practices in your own repository, we recommend that anyone creating solutions based on our templates ensure that the [GitHub secret scanning setting](https://docs.github.com/en/code-security/secret-scanning/introduction/about-secret-scanning) is enabled.
+The sample also has a [GitHub Action](https://github.com/microsoft/security-devops-action) that scans the infrastructure-as-code files and generates a report containing any detected issues. To ensure continued best practices in your own repository, we recommend that anyone creating solutions based on our templates ensure that the [GitHub secret scanning setting](https://docs.github.com/code-security/secret-scanning/introduction/about-secret-scanning) is enabled.
 
 Consider other security measures, such as:
 
