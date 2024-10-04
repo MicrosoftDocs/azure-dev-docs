@@ -42,7 +42,7 @@ A chained credential can offer the following benefits:
 
 ## How to choose a chained credential
 
-In JavaScript, the philosophy for credential chaining is to **"build up" a chain**. Start with an empty chain and include only what you need. For this approach, see the [ChainedTokenCredential overview](#chainedtokencredential-overview) section.
+In JavaScript, the philosophy for credential chaining is to **"build up" a chain**. Start with an empty chain and include only what you need. For this approach, see the [ChainedTokenCredential overview](#use-chainedtokencredential-for-granular-credential-control) section.
 
 ## DefaultAzureCredential overview
 
