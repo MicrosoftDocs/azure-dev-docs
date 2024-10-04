@@ -12,22 +12,22 @@ metadata:
   ms.topic: landing-page
 
 landingContent:
-  - title: Secure your Java JBoss EAP app
+  - title: Secure your Java Spring Boot app
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Enable sign-in with Microsoft Entra ID
-            url: enable-java-jboss-eap-webapp-authentication-entra-id.md
+            url: enable-spring-boot-webapp-authentication-entra-id.md
           - text: Enable sign-in with Azure AD B2C
-            url: enable-java-jboss-eap-webapp-authentication-azure-ad-b2c.md
+            url: enable-spring-boot-webapp-authentication-azure-ad-b2c.md
           - text: Access user details
-            url: enable-java-jboss-eap-webapp-authorization-entra-id.md
+            url: enable-spring-boot-webapp-authorization-entra-id.md
           - text: Use roles and role claims
-            url: enable-java-jboss-eap-webapp-authorization-role-entra-id.md
+            url: enable-spring-boot-webapp-authorization-role-entra-id.md
           - text: Use groups and group claims
-            url: enable-java-jboss-eap-webapp-authorization-group-entra-id.md
-          - text: Deploy to App Service
-            url: deploy-jboss-to-app-service.md
+            url: enable-spring-boot-webapp-authorization-group-entra-id.md
+          - text: Deploy to Azure Container Apps
+            url: deploy-spring-boot-to-azure-container-apps.md
   - title: Secure your Java Tomcat app
     linkLists:
       - linkListType: how-to-guide
@@ -44,6 +44,22 @@ landingContent:
             url: enable-java-tomcat-webapp-authorization-group-entra-id.md
           - text: Deploy to App Service
             url: deploy-tomcat-to-app-service.md
+  - title: Secure your Java JBoss EAP app
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Enable sign-in with Microsoft Entra ID
+            url: enable-java-jboss-eap-webapp-authentication-entra-id.md
+          - text: Enable sign-in with Azure AD B2C
+            url: enable-java-jboss-eap-webapp-authentication-azure-ad-b2c.md
+          - text: Access user details
+            url: enable-java-jboss-eap-webapp-authorization-entra-id.md
+          - text: Use roles and role claims
+            url: enable-java-jboss-eap-webapp-authorization-role-entra-id.md
+          - text: Use groups and group claims
+            url: enable-java-jboss-eap-webapp-authorization-group-entra-id.md
+          - text: Deploy to App Service
+            url: deploy-jboss-to-app-service.md
   - title: Secure your Java WebLogic app
     linkLists:
       - linkListType: how-to-guide
@@ -76,22 +92,6 @@ landingContent:
             url: enable-java-websphere-webapp-authorization-group-entra-id.md
           - text: Deploy to WebSphere on Azure VM
             url: deploy-websphere-to-vm.md
-  - title: Secure your Java Spring Boot app
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Enable sign-in with Microsoft Entra ID
-            url: enable-spring-boot-webapp-authentication-entra-id.md
-          - text: Enable sign-in with Azure AD B2C
-            url: enable-spring-boot-webapp-authentication-azure-ad-b2c.md
-          - text: Access user details
-            url: enable-spring-boot-webapp-authorization-entra-id.md
-          - text: Use roles and role claims
-            url: enable-spring-boot-webapp-authorization-role-entra-id.md
-          - text: Use groups and group claims
-            url: enable-spring-boot-webapp-authorization-group-entra-id.md
-          - text: Deploy to Azure Container Apps
-            url: deploy-spring-boot-to-azure-container-apps.md
   - title: Secure your Java Quarkus app
     linkLists:
       - linkListType: how-to-guide
