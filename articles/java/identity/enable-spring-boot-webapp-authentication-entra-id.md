@@ -106,39 +106,43 @@ Use the following steps to configure the app:
 
 ## Run the sample
 
-### [Deploy to Azure Spring Apps](#tab/asa)
+### [Deploy to Azure Container Apps](#tab/aca)
 
-The following sections show you how to deploy the sample to Azure Spring Apps.
+The following sections show you how to deploy the sample to Azure Container Apps.
 
 ### Prerequisites
 
-[!INCLUDE [deploy-spring-apps-intro.md](includes/deploy-spring-apps-intro.md)]
+[!INCLUDE [deploy-container-apps-intro.md](includes/deploy-container-apps-intro.md)]
 
 ### Prepare the Spring project
 
-[!INCLUDE [deploy-spring-apps-prepare.md](includes/deploy-spring-apps-prepare.md)]
+[!INCLUDE [deploy-container-apps-prepare.md](includes/deploy-container-apps-prepare.md)]
 
-### Configure the Maven plugin
+## Setup
 
-[!INCLUDE [deploy-spring-apps-configure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
+[!INCLUDE [deploy-container-apps-cli-setup.md](includes/deploy-container-apps-cli-setup.md)]
+
+## Create the Azure Container Apps environment
+
+[!INCLUDE [deploy-container-apps-cli-setup.md](includes/deploy-container-apps-create-env-variables.md)]
 
 ### Prepare the app for deployment
 
-[!INCLUDE [deploy-spring-apps-prepare-deploy.md](includes/deploy-spring-apps-prepare-deploy.md)]
+[!INCLUDE [deploy-container-apps-prepare-deploy.md](includes/deploy-container-apps-prepare-deploy.md)]
 
-[!INCLUDE [deploy-spring-apps-secret-note.md](includes/deploy-spring-apps-secret-note.md)]
+[!INCLUDE [deploy-container-apps-secret-note.md](includes/deploy-container-apps-secret-note.md)]
 
 ### Update your Microsoft Entra ID app registration
 
-[!INCLUDE [deploy-spring-apps-update-registration.md](includes/deploy-spring-apps-update-registration.md)]
+[!INCLUDE [deploy-container-apps-update-registration.md](includes/deploy-container-apps-update-registration.md)]
 
 ### Deploy the app
 
-[!INCLUDE [deploy-spring-apps-deploy.md](includes/deploy-spring-apps-deploy.md)]
+[!INCLUDE [deploy-container-apps-deploy.md](includes/deploy-container-apps-deploy.md)]
 
 ### Validate the app
 
-[!INCLUDE [deploy-spring-apps-validate.md](includes/deploy-spring-apps-validate.md)]
+[!INCLUDE [deploy-container-apps-validate.md](includes/deploy-container-apps-validate.md)]
 
 ### [Run locally](#tab/local)
 

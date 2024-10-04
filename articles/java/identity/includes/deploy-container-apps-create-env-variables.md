@@ -33,7 +33,7 @@ az containerapp env create \
     --location $LOCATION
 ```
 
-Show the default domain of the container app environment. Please note this domain to configure in the next sections.
+Show the default domain of the container app environment. Note down this domain to use in later sections.
 
 ```azurecli
 az containerapp env show \

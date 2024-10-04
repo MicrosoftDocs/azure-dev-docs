@@ -26,7 +26,7 @@ This article assumes that you completed one of the following articles using only
 
 ## Prepare the Spring project
 
-[!INCLUDE [deploy-spring-apps-prepare.md](includes/deploy-spring-apps-prepare.md)]
+[!INCLUDE [deploy-container-apps-prepare.md](includes/deploy-container-apps-prepare.md)]
 
 ## Setup
 
@@ -38,21 +38,21 @@ This article assumes that you completed one of the following articles using only
 
 ## Prepare the app for deployment
 
-[!INCLUDE [deploy-spring-apps-prepare-deploy.md](includes/deploy-container-apps-prepare-deploy.md)]
+[!INCLUDE [deploy-container-apps-prepare-deploy.md](includes/deploy-container-apps-prepare-deploy.md)]
 
-[!INCLUDE [deploy-spring-apps-secret-note.md](includes/deploy-container-apps-secret-note.md)]
+[!INCLUDE [deploy-container-apps-secret-note.md](includes/deploy-container-apps-secret-note.md)]
 
 ## Update your Microsoft Entra ID app registration
 
-[!INCLUDE [deploy-spring-apps-update-registration.md](includes/deploy-container-apps-update-registration.md)]
+[!INCLUDE [deploy-container-apps-update-registration.md](includes/deploy-container-apps-update-registration.md)]
 
 ## Deploy the app
 
-[!INCLUDE [deploy-spring-apps-deploy.md](includes/deploy-container-apps-deploy.md)]
+[!INCLUDE [deploy-container-apps-deploy.md](includes/deploy-container-apps-deploy.md)]
 
 ## Validate the app
 
-[!INCLUDE [deploy-spring-apps-validate.md](includes/deploy-container-apps-validate.md)]
+[!INCLUDE [deploy-container-apps-validate.md](includes/deploy-container-apps-validate.md)]
 
 ## More information
 
