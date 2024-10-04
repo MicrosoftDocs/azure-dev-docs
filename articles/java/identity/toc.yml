@@ -17,8 +17,8 @@ items:
       href: enable-spring-boot-webapp-authorization-role-entra-id.md
     - name: Use groups and group claims
       href: enable-spring-boot-webapp-authorization-group-entra-id.md
-    - name: Deploy to Azure Spring Apps
-      href: deploy-spring-boot-to-azure-spring-apps.md
+    - name: Deploy to Azure Container Apps
+      href: deploy-spring-boot-to-azure-container-apps.md
   - name: Secure your Java Tomcat app
     expanded: true
     items:

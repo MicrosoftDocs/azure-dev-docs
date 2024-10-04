@@ -16,7 +16,7 @@ In Maven projects, the Spring Boot version is typically found in the `<parent>` 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.10</version>
+        <version>3.3.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 ```
@@ -27,8 +27,8 @@ In Gradle projects, the Spring Boot version will typically be found in the `plug
 
 ```gradle
 plugins {
-  id 'org.springframework.boot' version '2.7.10'
-  id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+  id 'org.springframework.boot' version '3.3.3'
+  id 'io.spring.dependency-management' version '1.1.6'
   id 'java'
 }
 ```
