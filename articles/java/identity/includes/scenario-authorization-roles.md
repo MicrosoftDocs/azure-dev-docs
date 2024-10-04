@@ -25,7 +25,7 @@ This sample application defines the following two *Application Roles*:
 
 These application roles are defined in the [Azure portal](https://portal.azure.com) in the application's registration manifest. When a user signs into the application, Microsoft Entra ID emits a roles claim for each role granted individually to the user in the form of role membership.
 
-You can assign users and groups to roles through the Azure portal or programmatically using [Microsoft Graph](https://graph.microsoft.com) and [Microsoft Azure AD PowerShell](/powershell/module/azuread/). This article describes both techniques.
+You can assign users and groups to roles through the Azure portal.
 
 > [!NOTE]
 > Role claims aren't present for guest users in a tenant if the `https://login.microsoftonline.com/common/` endpoint is used as the authority to sign in users. You need to sign in a user to a tenanted endpoint like `https://login.microsoftonline.com/tenantid`.

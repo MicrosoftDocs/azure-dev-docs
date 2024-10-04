@@ -1,16 +1,16 @@
 ---
-title: Deploy Java Spring Boot apps to Azure Spring Apps
-description: Shows you how to deploy a Java Spring Boot app with sign-in by Microsoft Entra account to Azure Spring Apps.
+title: Deploy Java Spring Boot apps to Azure Container Apps
+description: Shows you how to deploy a Java Spring Boot app with sign-in by Microsoft Entra account to Azure Container Apps.
 author: KarlErickson
-ms.author: givermei
-ms.date: 03/11/2024
+ms.author: bbanerjee
+ms.date: 10/04/2024
 ms.topic: article
 ms.custom: devx-track-identity-java, devx-track-java, devx-track-extended-java
 ---
 
-# Deploy Java Spring Boot apps to Azure Spring Apps
+# Deploy Java Spring Boot apps to Azure Container Apps
 
-This article shows you how to deploy a Java Spring Boot app with sign-in by Microsoft Entra account to Azure Spring Apps.
+This article shows you how to deploy a Java Spring Boot app with sign-in by Microsoft Entra account to Azure Container Apps.
 
 This article assumes that you completed one of the following articles using only the **Run locally** tab, and you now want to deploy to Azure. These instructions are the same as the ones in the **Deploy to Azure** tab in these articles:
 
@@ -22,33 +22,37 @@ This article assumes that you completed one of the following articles using only
 
 ## Prerequisites
 
-[!INCLUDE [deploy-spring-apps-intro.md](includes/deploy-spring-apps-intro.md)]
+[!INCLUDE [deploy-container-apps-intro](includes/deploy-container-apps-intro.md)]
 
 ## Prepare the Spring project
 
-[!INCLUDE [deploy-spring-apps-prepare.md](includes/deploy-spring-apps-prepare.md)]
+[!INCLUDE [deploy-container-apps-prepare.md](includes/deploy-container-apps-prepare.md)]
 
-## Configure the Maven plugin
+## Setup
 
-[!INCLUDE [deploy-spring-apps-configure-maven.md](includes/deploy-spring-apps-configure-maven.md)]
+[!INCLUDE [deploy-container-apps-cli-setup.md](includes/deploy-container-apps-cli-setup.md)]
+
+## Create the Azure Container Apps environment
+
+[!INCLUDE [deploy-container-apps-cli-setup.md](includes/deploy-container-apps-create-env-variables.md)]
 
 ## Prepare the app for deployment
 
-[!INCLUDE [deploy-spring-apps-prepare-deploy.md](includes/deploy-spring-apps-prepare-deploy.md)]
+[!INCLUDE [deploy-container-apps-prepare-deploy.md](includes/deploy-container-apps-prepare-deploy.md)]
 
-[!INCLUDE [deploy-spring-apps-secret-note.md](includes/deploy-spring-apps-secret-note.md)]
+[!INCLUDE [deploy-container-apps-secret-note.md](includes/deploy-container-apps-secret-note.md)]
 
 ## Update your Microsoft Entra ID app registration
 
-[!INCLUDE [deploy-spring-apps-update-registration.md](includes/deploy-spring-apps-update-registration.md)]
+[!INCLUDE [deploy-container-apps-update-registration.md](includes/deploy-container-apps-update-registration.md)]
 
 ## Deploy the app
 
-[!INCLUDE [deploy-spring-apps-deploy.md](includes/deploy-spring-apps-deploy.md)]
+[!INCLUDE [deploy-container-apps-deploy.md](includes/deploy-container-apps-deploy.md)]
 
 ## Validate the app
 
-[!INCLUDE [deploy-spring-apps-validate.md](includes/deploy-spring-apps-validate.md)]
+[!INCLUDE [deploy-container-apps-validate.md](includes/deploy-container-apps-validate.md)]
 
 ## More information
 
@@ -69,4 +73,7 @@ This article assumes that you completed one of the following articles using only
 
 ## Next steps
 
-For more information and other deployment options, see [Quickstart: Deploy your first application to Azure Spring Apps](/azure/spring-apps/enterprise/quickstart?tabs=Azure-portal%2CAzure-portal-maven-plugin-ent%2CConsumption-workload&pivots=sc-enterprise).
+For more information and other deployment options, see the following articles:
+
+- [Quickstart: Deploy your first application to Azure Container Apps](/azure/container-apps/java-get-started?pivots=jar)
+- [Quickstart: Build and deploy from local source code to Azure Container Apps](/azure/container-apps/quickstart-code-to-cloud?tabs=bash%2Ccsharp&pivots=without-dockerfile)
