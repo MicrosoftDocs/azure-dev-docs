@@ -59,7 +59,7 @@ There are two disparate philosophies to credential chaining:
 
 [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential) is an opinionated, preconfigured chain of credentials. It's designed to support many environments, along with the most common authentication flows and developer tools. In graphical form, the underlying chain looks like this:
 
-:::image type="content" source="../media/mermaidjs/default-azure-credential-auth-flow.svg" alt-text="Diagram that shows DefaultAzureCredential authentication flow." lightbox="../media/mermaidjs/default-azure-credential-auth-flow-big.png":::
+:::image type="content" source="../media/mermaidjs/default-azure-credential-auth-flow-inline.svg" alt-text="Diagram that shows DefaultAzureCredential authentication flow." lightbox="../media/mermaidjs/default-azure-credential-auth-flow-expanded.png":::
 
 The order in which `DefaultAzureCredential` attempts credentials follows.
 
