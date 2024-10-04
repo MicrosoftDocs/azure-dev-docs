@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: jiangma
-ms.date: 09/26/2024
+ms.date: 10/07/2024
 ---
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

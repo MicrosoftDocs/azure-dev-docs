@@ -4,7 +4,7 @@ description: Shows you how to secure IBM WebSphere Liberty/Open Liberty applicat
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 09/26/2024
+ms.date: 10/07/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-entra-id, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -70,7 +70,7 @@ The app has a welcome page resource defined in [index.html](https://github.com/A
 
 From the welcome page, users can sign in to the app to access the profile page. The welcome page has links to sign in as a user or as an admin. The links are at `/profile/user` and `/profile/admin`, respectively.
 
-Both `/profile/user` and `/profile/admin` links point to the profile servlet, defined in [ProfileServlet.java](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/java/com/example/ProfileServlet.java), as shown in the following example code. This servlet is accessible only to authenticated users by using the annotation `jakarta.servlet.annotation.ServletSecurity` and annotation `jakarta.servlet.annotation.HttpConstraint`. The attribute `rolesAllowed = {"users"}` specifies that only authenticated users with security role `users` can access the `/profile` path. The authenciated user is automatically assigned the `users` role in the Liberty configuration file [server.xml](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/liberty/config/server.xml#L31-L38).
+Both `/profile/user` and `/profile/admin` links point to the profile servlet, defined in [ProfileServlet.java](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/java/com/example/ProfileServlet.java), as shown in the following example code. This servlet is accessible only to authenticated users by using the annotation `jakarta.servlet.annotation.ServletSecurity` and annotation `jakarta.servlet.annotation.HttpConstraint`. The attribute `rolesAllowed = {"users"}` specifies that only authenticated users with security role `users` can access the `/profile` path. The authenticated user is automatically assigned the `users` role in the Liberty configuration file [server.xml](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/liberty/config/server.xml#L31-L38).
 
 ```java
 package com.example;
@@ -120,7 +120,7 @@ public class ProfileServlet extends HttpServlet {
 
 The profile servlet retrieves the user's roles from the ID token and checks if the user has the `admin` role when the user tries to access the `/profile/admin` path. If the user doesn't have the `admin` role, the servlet returns a 403 Forbidden error. In other cases, the servlet retrieves the user's name and forwards the request to the profile page with the user's name and roles.
 
-The profile page is defined in [profile.jsp](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/webapp/profile.jsp), as shown in the following example. This page displays the user's name and roles. The profile page also has a sign-out link at `/logout`. The profile page is written JSP (Jakarta Server Pages). Note the use of `${}` expressions in the page. `${}` Indicates the use of Jakarta Expression Language (EL).  EL expressions are replaced with the values of the corresponding variables when the page is rendered. See the [Next steps](#next-steps) section for a reference to the EL specification.
+The profile page is defined in [profile.jsp](https://github.com/Azure-Samples/liberty-entra-id/blob/2024-09-26/src/main/webapp/profile.jsp), as shown in the following example. This page displays the user's name and roles. The profile page also has a sign-out link at `/logout`. The profile page is written JSP (Jakarta Server Pages). Note the use of `${}` expressions in the page. `${}` Indicates the use of Jakarta Expression Language (EL). EL expressions are replaced with the values of the corresponding variables when the page is rendered. See the [Next steps](#next-steps) section for a reference to the EL specification.
 
 ```jsp
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
@@ -184,8 +184,8 @@ In this section, you run and test the WebSphere Liberty/Open Liberty app to see 
 
 [!INCLUDE [secure-with-entra-id-add-redirect-uri](includes/secure-with-entra-id-add-redirect-uri.md)]
 
-1. For **Configure platforms**, select **Web**.
-1. For **Redirect URIs**, enter `https://localhost:9443/ibm/api/social-login/redirect/liberty-entra-id`.
+- For **Configure platforms**, select **Web**.
+- For **Redirect URIs**, enter `https://localhost:9443/ibm/api/social-login/redirect/liberty-entra-id`.
 
 ### Prepare the sample
 
@@ -199,7 +199,7 @@ Use the following steps to prepare the sample app:
    git checkout 2024-09-26
    ```
 
-   If you see a message about being in *detached HEAD* state, this message is safe to ignore. This message just means you have checked out a tag.
+   If you see a message about being in *detached HEAD* state, this message is safe to ignore. This message just means you checked out a tag.
 
 1. Use the following commands to define the following environment variables with the values you wrote down earlier:
 
@@ -220,12 +220,11 @@ Use the following steps to prepare the sample app:
         userNameAttribute="preferred_username" />
    ```
 
-   If the value of a variable is not defined in the configuration file, WebSphere Liberty/Open Liberty reads the value from the environment variables following its naming convention. For details on the naming conversion, see [Variable substitution precedence](https://openliberty.io/docs/latest/reference/config/server-configuration-overview.html#variable-substitution).
+   If the value of a variable isn't defined in the configuration file, WebSphere Liberty/Open Liberty reads the value from the environment variables following its naming convention. For details on the naming conversion, see [Variable substitution precedence](https://openliberty.io/docs/latest/reference/config/server-configuration-overview.html#variable-substitution).
 
 ### Run the WebSphere Liberty/Open Liberty app
 
-You can run the app using `liberty-maven-plugin`. Select one of the following methods to run the app. 
-
+You can run the app using `liberty-maven-plugin`. To run the app, select one of the following methods:
 > [!NOTE]
 > To enable WebSphere Liberty/Open Liberty to connect to Microsoft Entra ID, be sure to run the command in the shell in which you defined the environment variables shown in the preceding section.
 
@@ -263,7 +262,7 @@ Use the following steps to exercise the functionality:
 
    :::image type="content" source="media/liberty-with-microsoft-entra-id/user-profile.png" alt-text="Screenshot of the sample application that shows the user profile." lightbox="media/liberty-with-microsoft-entra-id/user-profile.png":::
 
-1. If this is the first time you sign in, you're prompted to update your password. Follow the instructions to update your password.
+1. If this is the first time signing in, you're prompted to update your password. Follow the instructions to update your password.
 
 1. If you're prompted with **Your organization requires additional security information. Follow the prompts to download and set up the Microsoft Authenticator app**, you can select **Ask later** to continue the test.
 
@@ -287,7 +286,7 @@ Use the following steps to exercise the functionality:
 
 In this quickstart, you protect WebSphere Liberty/Open Liberty applications with Microsoft Entra ID using OIDC. To learn more, explore the following resources:
 
-- [Deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps](/azure/developer/java/ee/deploy-java-liberty-app-aca)
+- [Deploy a Java application with Open Liberty or WebSphere Liberty on Azure Container Apps](deploy-java-liberty-app-aca.md)
 - [Deploy WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift](/azure/openshift/howto-deploy-java-liberty-app)
 - [Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-liberty-app)
 - [OpenID Connect authentication with Microsoft Entra ID](/entra/architecture/auth-oidc)

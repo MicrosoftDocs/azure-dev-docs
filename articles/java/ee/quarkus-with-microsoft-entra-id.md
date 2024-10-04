@@ -4,7 +4,7 @@ description: Shows you how to secure Red Hat Quarkus applications with Microsoft
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 09/26/2024
+ms.date: 10/07/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-entra-id, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -176,8 +176,8 @@ In this section, you run and test the Quarkus app to see how it works with Micro
 
 [!INCLUDE [secure-with-entra-id-add-redirect-uri](includes/secure-with-entra-id-add-redirect-uri.md)]
 
-1. For **Configure platforms**, select **Web**.
-1. For **Redirect URIs**, enter `http://localhost:8080`.
+- For **Configure platforms**, select **Web**.
+- For **Redirect URIs**, enter `http://localhost:8080`.
 
 ### Prepare the sample
 

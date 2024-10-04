@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: jiangma
-ms.date: 09/26/2024
+ms.date: 10/07/2024
 ---
 
 Next, register an application by following the steps in [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app). Use the following directions as you go through the article, then return to this article after you register and configure the application.

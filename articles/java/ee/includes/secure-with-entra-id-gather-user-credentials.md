@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: jiangma
-ms.date: 09/26/2024
+ms.date: 10/07/2024
 ---
 
 In this article, Microsoft Entra ID uses the email address of each user as the user ID for signing in. Use the following steps to get the email address for the admin user and regular user:
