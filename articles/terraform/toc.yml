@@ -14,8 +14,6 @@
       href: configure-vs-code-extension-for-terraform.md
     - name: Authenticate Terraform to Azure
       href: authenticate-to-azure.md
-    - name: Create a Terraform base template using Yeoman
-      href: create-base-template-using-yeoman.md
     - name: Store Terraform state in Azure Storage
       href: store-state-in-azure-storage.md
     - name: Test Terraform projects

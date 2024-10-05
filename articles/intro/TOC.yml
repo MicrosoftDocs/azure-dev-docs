@@ -117,7 +117,7 @@ items:
           - name: How-To
             items:
               - name: Azure OpenAI
-                href: ../ai/passwordless-connections.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json&tabs=csharp
+                href: ../ai/keyless-connections.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json&tabs=csharp
               - name: App Service
                 href: /azure/app-service/overview-managed-identity?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json
               - name: Blob Storage
@@ -199,7 +199,7 @@ items:
           - name: How-to
             items: 
             - name: Azure OpenAI
-              href: ../ai/passwordless-connections.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json&tabs=java
+              href: ../ai/keyless-connections.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json&tabs=java
       - name: Node.js
         items:
         - name: Quickstarts
@@ -227,7 +227,7 @@ items:
         - name: How-to
           items: 
           - name: Azure OpenAI
-            href: ../ai/passwordless-connections.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json&tabs=javascript
+            href: ../ai/keyless-connections.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json&tabs=javascript
       - name: Python
         items:
         - name: Quickstarts
@@ -257,7 +257,7 @@ items:
         - name: How-to
           items: 
           - name: Azure OpenAI
-            href: ../ai/passwordless-connections.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json&tabs=python
+            href: ../ai/keyless-connections.md?toc=/azure/developer/intro/toc.json&bc=/azure/developer/breadcrumb/toc.json&tabs=python
 
   - name: Versioning policy for Azure services, SDKs, and CLI tools
     href: azure-service-sdk-tool-versioning.md

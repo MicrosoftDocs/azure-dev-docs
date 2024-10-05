@@ -13,6 +13,8 @@ ms.custom: devx-track-js, devx-track-ts, contoso-real-estate, devx-track-extende
 
 In this tutorial, you'll learn how the Contoso Real Estate API is developed with [Azure Functions](/azure/azure-functions/functions-overview). Azure Functions is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure. Use Azure Functions to run a script or piece of code in response to a variety of events. Azure Functions supports triggers, which are ways to start execution of your code, and bindings, which are ways to simplify coding for input and output data.
 
+> [!CAUTION]
+> Microsoft recommends that you use the most secure authentication flow avaialable. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 ## Start API in Codespaces against local database
 
@@ -122,28 +124,6 @@ Use the following steps to prepare to develop locally.
 For local development, including using the database services in the local environment, the configuration file is already using default values.
 
 1. Open the `./packages/API/config/index.ts` file to view the **getConfig** function.
-
-    ```typescript
-    configCache = {
-      observability: {
-        connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING,
-        roleName: process.env.APPLICATIONINSIGHTS_NAME,
-      },
-      database: {
-        connectionString: process.env.AZURE_COSMOS_CONNECTION_STRING_KEY || "mongodb://mongo:MongoPass@localhost:27017",
-        database: process.env.AZURE_COSMOS_DATABASE_NAME || "contosoportal",
-      },
-      strapi: {
-        database: process.env.STRAPI_DATABASE_NAME || "strapi",
-        user: process.env.STRAPI_DATABASE_USERNAME || "postgres",
-        password: process.env.STRAPI_DATABASE_PASSWORD || "PostgresPass",
-        host: process.env.STRAPI_DATABASE_HOST || "localhost",
-        port: process.env.STRAPI_DATABASE_PORT ? Number(process.env.STRAPI_DATABASE_PORT) : 5432,
-        ssl: !process.env.STRAPI_DATABASE_HOST || process.env.STRAPI_DATABASE_SSL === "false" ? false : true,
-      },
-      stripeServiceUrl: process.env.STRIPE_SERVICE_URL || "http://localhost:4242",
-    } as AppConfig;
-    ``````
 
 1. View the `./packages/API/config/pgclient.ts` file to understand how the authenticated PostGreSQL client is created and returned. 
 

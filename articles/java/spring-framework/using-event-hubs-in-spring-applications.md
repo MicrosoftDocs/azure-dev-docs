@@ -62,7 +62,7 @@ To install the Spring Cloud Azure Event Hubs Starter module, add the following d
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.13.0</version>
+         <version>5.16.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -392,7 +392,7 @@ To install the Spring Messaging Azure Event Hubs module, add the following depen
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.13.0</version>
+         <version>5.16.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -432,13 +432,6 @@ To send messages to and receive messages from Event Hubs, configure the applicat
    spring.cloud.azure.eventhubs.namespace=<your event-hubs-namespace>
    spring.cloud.azure.eventhubs.processor.checkpoint-store.account-name=<your-storage-account-name>
    spring.cloud.azure.eventhubs.processor.checkpoint-store.container-name=<your-storage-account-container-name>
-   ```
-
-1. Add *spring.factories* for the autoconfiguration for `@EventHubsListener`. You need to create a directory called *META-INF* under the application's *resource* directory. Then, create a file named *spring.factories* under *META-INF* and add the following content:
-
-   ```properties
-   org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-   com.azure.spring.cloud.autoconfigure.messaging.AzureMessagingListenerAutoConfiguration
    ```
 
 1. Create a new `ConsumerService` Java class as shown in the following example. This class is used to define a message receiver. Be sure to replace the `<your-event-hub-name>` placeholder with your actual value.
@@ -523,7 +516,7 @@ To install the Spring Cloud Azure Event Hubs Integration Starter module, add the
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.13.0</version>
+         <version>5.16.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -712,7 +705,7 @@ To install the Spring Cloud Azure Event Hubs Stream Binder module, add the follo
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.13.0</version>
+         <version>5.16.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -820,7 +813,7 @@ To install the Spring Cloud Azure starter and Spring Kafka modules, adding the f
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.13.0</version>
+         <version>5.16.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>
@@ -922,7 +915,7 @@ To install the Spring Cloud Azure starter and Spring Cloud Stream binder Kafka m
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.13.0</version>
+         <version>5.16.0</version>
          <type>pom</type>
          <scope>import</scope>
          </dependency>

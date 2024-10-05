@@ -17,12 +17,12 @@ This tutorial demonstrates how to configure a [MicroProfile](http://microprofile
 - An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) or sign up for a [free account](https://azure.microsoft.com/free/).
 - Azure CLI for Unix-like environments. This article requires only the Bash variant of Azure CLI.
   - [!INCLUDE [azure-cli-login](../../includes/azure-cli-login.md)]
-  - This article requires at least version 2.55.0 of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
+  - This article requires at least version 2.61.0 of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 - Azure Cloud Shell has all of these prerequisites preinstalled. For more, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
 - If you're running the commands in this guide locally (instead of using Azure Cloud Shell), complete the following steps:
   - Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
   - Install a Java SE implementation version 17 or later (for example, [Microsoft build of OpenJDK](/java/openjdk)).
-  - Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
+  - Install [Maven](https://maven.apache.org/download.cgi) 3.9.8 or higher.
   - Install [cURL](https://curl.se/download.html).
 
 ## Connecting MicroProfile Config with Azure Key Vault
@@ -81,7 +81,8 @@ export KEY_VAULT_NAME=kv-ejb010424
 az keyvault create \
     --resource-group "${RESOURCE_GROUP_NAME}" \
     --name "${KEY_VAULT_NAME}" \
-    --location eastus
+    --location eastus \
+    --enable-rbac-authorization false
 
 az keyvault secret set \
     --vault-name "${KEY_VAULT_NAME}" \
@@ -111,9 +112,9 @@ This example is based on a sample application available on GitHub. Switch to the
 ```azurecli-interactive
 git clone https://github.com/Azure/azure-microprofile.git
 cd azure-microprofile
-git checkout 20240116
+git checkout 1.0.0-beta.3
 cd integration-tests/open-liberty-sample
-mvn package liberty:run
+mvn clean package liberty:run
 ```
 
 If you see a message about `You are in 'detached HEAD' state`, this message is safe to ignore.

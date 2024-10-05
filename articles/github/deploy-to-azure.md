@@ -29,7 +29,7 @@ The following articles provide support to deploy apps from GitHub to Azure.
 
 ## Azure App Configuration
 
-- [Sync your GitHub repository to App Configuration](/azure/azure-app-configuration/concept-github-action)
+- [Sync your GitHub repository to App Configuration](/azure/azure-app-configuration/push-kv-github-action)
 
 ## Azure Storage
 

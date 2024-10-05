@@ -3,7 +3,7 @@ title: Azure Developer CLI templates
 description: Learn about what Azure Developer CLI templates are, how to work with them, and how to get started using them with your apps.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 06/04/2024
+ms.date: 09/13/2024
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli, build-2023
 ms.service: azure-dev-cli
@@ -11,7 +11,7 @@ ms.service: azure-dev-cli
 
 # Azure Developer CLI templates overview
 
-Azure Developer CLI (`azd`) templates are standard code repositories that include sample application code, as well as `azd` configuration and infrastructure files. `azd` templates enable you to provision Azure resources, deploy your application, configure CI/CD pipelines, and more. You can either create your own templates, or get started using an existing template from a template repository such as [Awesome AZD](https://azure.github.io/). In this article, you'll learn about the following concepts:
+Azure Developer CLI (`azd`) templates are regular code repositories that include sample application code, as well as `azd` configuration and infrastructure files. `azd` templates enable you to provision Azure resources, deploy your application, configure CI/CD pipelines, and more. You can either create your own templates, or get started using an existing template from a template repository such as [Awesome AZD](https://azure.github.io/awesome-azd/). In this article, you'll learn about the following concepts:
 
 - How `azd` templates enable you to provision and deploy app resources
 - How `azd` templates are structured
@@ -20,7 +20,7 @@ Azure Developer CLI (`azd`) templates are standard code repositories that includ
 
 ## Why use Azure Developer CLI templates?
 
-Developers often face many time consuming and challenging tasks when building properly architected and configured environment apps for the cloud. Teams must account for many different concerns in these environments, such as creating resources, applying configurations, setting up monitoring and logging, building CI/CD pipelines, and other tasks. `azd` templates reduce and streamline these responsibilities to help the developer on their journey from local development to a successfully deployed app on Azure.
+Developers often face many time consuming and challenging tasks when building properly architected and configured environment aware apps for the cloud. Teams must account for many different concerns in these environments, such as creating resources, applying configurations, setting up monitoring and logging, building CI/CD pipelines, and other tasks. `azd` templates reduce and streamline these responsibilities to help the developer on their journey from local development to a successfully deployed app on Azure.
 
 For example, suppose you work at a company that operates a ticket management and customer communication platform, which requires the following Azure resources:
 
@@ -33,7 +33,7 @@ For example, suppose you work at a company that operates a ticket management and
 
 Rather than starting from the ground up, with `azd` you can leverage existing architecture templates to provision and deploy most of the resources for you. The development team can then focus on building the app and making smaller adjustments to the template architecture.
 
-## How Azure Developer CLI templates works
+## How Azure Developer CLI templates work
 
 Azure Developer CLI templates are designed to work with `azd` commands such as `azd init` and `azd up`. The templates include configuration and infrastructure-as-code (IaC) files that are used by the commands to perform tasks such as provisioning Azure resources and deploy the app code to them.
 
@@ -61,7 +61,7 @@ For example, a typical `azd` workflow using an existing template includes the fo
 
 ## Understand Azure Developer CLI template structure
 
-All `azd` templates share a similar file structure based on `azd` conventions. The minimum required assets generally include the following:
+All `azd` templates share a similar file structure based on `azd` conventions. Here are the minimum required assets:
 
 - **`infra` folder** - Contains all of the Bicep or Terraform infrastructure as code files for the `azd` template. `azd` executes these files to create the Azure resources required to host your app.
 - **`azure.yaml` file** - A configuration file that defines one or more services in your project and maps them to Azure resources defined in the `infra` folder for deployment. For example, you might define an API service and a web front-end service and map them to different Azure resources for deployment.
@@ -81,7 +81,7 @@ For example, a common `azd` template might match the following folder structure:
 
 :::image type="content" source="media/make-azd-compatible/azd-template-structure.png" alt-text="A screenshot showing an Azure Developer CLI template structure.":::
 
-## Start with an existing template or create you own
+## Start with an existing template or create your own
 
 There are two main approaches to working with `azd` templates:
 

@@ -4,7 +4,7 @@ metadata:
   description: Get answers to commonly asked questions about Azure Developer CLI.
   author: alexwolfmsft
   ms.author: alexwolf
-  ms.date: 12/11/2023
+  ms.date: 9/14/2024
   ms.topic: conceptual
   ms.custom: devx-track-azdevcli, build-2023
   ms.service: azure-dev-cli
@@ -179,7 +179,7 @@ sections:
     questions:
       - question: What is an Azure service principal?
         answer: |
-          An Azure service principal is an identity that's created for use with apps, hosted services, and automated tools to access Azure resources. This access is restricted by the roles that are assigned to the service principal, which gives you control over which resources can be accessed and at which level. For more information about authenticating from Azure to GitHub, see [Connect GitHub and Azure | Microsoft Docs](../github/connect-from-azure.md?tabs=azure-portal%2cwindows#use-the-azure-login-action-with-a-service-principal-secret). 
+          An Azure service principal is an identity that's created for use with apps, hosted services, and automated tools to access Azure resources. This access is restricted by the roles that are assigned to the service principal, which gives you control over which resources can be accessed and at which level. For more information about authenticating from Azure to GitHub, see [Connect GitHub and Azure | Microsoft Docs](../github/connect-from-azure-secret.md). 
 
       - question: Do I need to create an Azure service principal before I run `azd pipeline config`?
         answer: |

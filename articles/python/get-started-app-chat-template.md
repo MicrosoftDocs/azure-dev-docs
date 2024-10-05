@@ -29,8 +29,8 @@ Other articles in the collection include:
 
 * [.NET](/dotnet/ai/get-started-app-chat-template)
 * [Java](../java/quickstarts/get-started-app-chat-template.md)
-* [JavaScript](../javascript/get-started-app-chat-template.md)
-* [JavaScript frontend  + Python backend](../javascript/chat-app-with-separate-front-back-end.md)
+* [JavaScript](../javascript/ai/get-started-app-chat-template.md)
+* [JavaScript frontend  + Python backend](../javascript/ai/chat-app-with-separate-front-back-end.md)
 
 > [!NOTE]
 > This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
@@ -208,6 +208,7 @@ The intelligence of the chat is determined by the OpenAI model and the settings 
 |---|---|
 |Override prompt template|Overrides the prompt used to generate the answer based on the question and search results.|
 |Temperature|Sets the temperature of the request to the LLM that generates the answer. Higher temperatures result in more creative responses, but they may be less grounded.|
+|Seed|Sets a seed to improve the reproducibility of the model's responses. The seed can be any integer.|
 | Minimum search score|Sets a minimum score for search results coming back from Azure AI search. The score range depends on whether you're using [hybrid (default), vectors only, or text only](/azure/search/hybrid-search-ranking#scores-in-a-hybrid-search-results).|
 | Minimum reranker score|Sets a minimum score for search results coming back from the semantic reranker. The score always ranges between 0-4. The higher the score, the more semantically relevant the result is to the question.|
 |Retrieve this many search results|Sets the number of search results to retrieve from Azure AI search. More results may increase the likelihood of finding the correct answer, but may lead to the model getting 'lost in the middle'.You can see these sources returned in the _Thought process_ and _Supporting content_ tabs of the citation. |

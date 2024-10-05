@@ -1,7 +1,7 @@
 ---
 title: Use Spring Data JPA with Azure Database for PostgreSQL
 description: Learn how to use Spring Data JPA with an Azure Database for PostgreSQL database.
-ms.date: 02/22/2023
+ms.date: 08/28/2024
 ms.author: hangwan
 author: KarlErickson
 ms.topic: article

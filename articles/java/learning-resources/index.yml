@@ -8,7 +8,7 @@ metadata:
   description:  Curated list of Java learning resources. 
   keywords: ramp up java, learning java, java readiness, java migration, java on Azure
   author: KarlErickson
-  ms.author: sreea
+  ms.author: karler
   ms.date: 03/19/2021
   ms.topic: landing-page
   ms.custom: seo-azure-migrate, devx-track-java, devx-track-extended-java

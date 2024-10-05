@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure support for Spring Integration
 
-**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.13.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.16.0
 
 Spring Integration Extension for Azure provides Spring Integration adapters for the various services provided by the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java/). We provide Spring Integration support for these Azure services: Event Hubs, Service Bus, Storage Queue. The following is a list of supported adapters:
 
@@ -122,7 +122,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
        cloud:
          azure:
            eventhubs:
-             connection-string: ${AZURE_SERVICE_BUS_CONNECTION_STRING}
+             connection-string: ${AZURE_EVENT_HUBS_CONNECTION_STRING}
              processor:
                checkpoint-store:
                  container-name: ${CHECKPOINT-CONTAINER}
@@ -140,7 +140,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
              managed-identity-enabled: true
              client-id: ${AZURE_CLIENT_ID}
            eventhubs:
-             namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
+             namespace: ${AZURE_EVENT_HUBS_NAMESPACE}
              processor:
                checkpoint-store:
                  container-name: ${CONTAINER_NAME}
@@ -159,7 +159,7 @@ developers can use `EventHubsContainerProperties` for the configuration. See [th
            profile:
              tenant-id: <tenant>
            eventhubs:
-             namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
+             namespace: ${AZURE_EVENT_HUBS_NAMESPACE}
              processor:
                checkpoint-store:
                  container-name: ${CONTAINER_NAME}
@@ -400,6 +400,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-ser
 > |-----------------------------------------------------|---------|-----------------------------------------------------------------------------------------------------------------------------|
 > | **spring.cloud.azure.servicebus**.enabled           | boolean | Whether an Azure Service Bus is enabled.                                                                                    |
 > | **spring.cloud.azure.servicebus**.connection-string | String  | Service Bus Namespace connection string value.                                                                              |
+> | **spring.cloud.azure.servicebus**.custom-endpoint-address | String  | The custom endpoint address to use when connecting to Service Bus.                                                                              |
 > | **spring.cloud.azure.servicebus**.namespace         | String  | Service Bus Namespace value, which is the prefix of the FQDN. A FQDN should be composed of NamespaceName.DomainName |
 > | **spring.cloud.azure.servicebus**.domain-name       | String  | Domain name of an Azure Service Bus Namespace value.                                                                        |
 
@@ -668,6 +669,17 @@ public class SampleController {
 > [!NOTE]
 > When the `ServiceBusMessageHeaders.SESSION_ID` is set in the message headers, and a different `ServiceBusMessageHeaders.PARTITION_KEY` header is also set, the value of the session ID will eventually be used to overwrite the value of the partition key.
 
+#### Customize Service Bus client properties
+
+Developers can use `AzureServiceClientBuilderCustomizer` to customize Service Bus Client properties. The following example customizes the `sessionIdleTimeout` property in `ServiceBusClientBuilder`:
+
+```java
+@Bean
+public AzureServiceClientBuilderCustomizer<ServiceBusClientBuilder.ServiceBusSessionProcessorClientBuilder> customizeBuilder() {
+    return builder -> builder.sessionIdleTimeout(Duration.ofSeconds(10));
+}
+```
+
 ### Samples
 
 For more information, see the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/servicebus/spring-cloud-azure-starter-integration-servicebus) repository on GitHub.
@@ -726,7 +738,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
          azure:
            storage:
              queue:
-               connection-string: ${AZURE_SERVICE_BUS_CONNECTION_STRING}
+               connection-string: ${AZURE_STORAGE_QUEUE_CONNECTION_STRING}
      ```
 
    * For credentials as managed identities, configure the following properties in your *application.yml* file:
@@ -742,7 +754,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
              tenant-id: <tenant>
            storage:
              queue:
-               namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
+               account-name: ${AZURE_STORAGE_QUEUE_ACCOUNT_NAME}
      ```
 
 > [!NOTE]
@@ -761,7 +773,7 @@ Connection configurable properties of spring-cloud-azure-starter-integration-sto
              tenant-id: <tenant>
            storage:
              queue:
-               namespace: ${AZURE_SERVICE_BUS_NAMESPACE}
+               account-name: ${AZURE_STORAGE_QUEUE_ACCOUNT_NAME}
      ```
 
 > [!NOTE]

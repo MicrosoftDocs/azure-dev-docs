@@ -7,7 +7,7 @@ metadata:
   description: Get started developing with the Azure SDK for Go.
   author: bobtabor-msft
   ms.author: rotabor
-  ms.date: 02/17/2023
+  ms.date: 07/30/2024
   ms.topic: landing-page
   ms.service: azure-go
   ms.collection: collection
@@ -19,33 +19,39 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Take your first steps with Go
-            url: /training/paths/go-first-steps
           - text: What is the Azure SDK for Go?
             url: overview.md
+          - text: Key Azure services for Go developers
+            url: key-azure-services-for-go.md
+          - text: Authenticate with the Azure Identity module for Go
+            url: azure-sdk-authentication.md
       - linkListType: download
         links:
           - text: Install the Azure SDK for Go
             url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go
-  - title: Data
+      - linkListType: training
+        links:
+          - text: Take your first steps with Go
+            url: /training/paths/go-first-steps
+  - title: Data and storage
     linkLists:
       - linkListType: quickstart
         links:
           - text: Use Blob Storage with Go
             url: /azure/storage/blobs/storage-quickstart-blobs-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
           - text: Connect to an Azure Database for PostgreSQL
-            url: /azure/postgresql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
+            url: /azure/postgresql/flexible-server/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
           - text: Connect to an Azure Database for MySQL
-            url: /azure/mysql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
+            url: /azure/mysql/flexible-server/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
           - text: Query an Azure SQL database
-            url: /azure/sql-database/sql-database-connect-query-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
+            url: /azure/azure-sql/database/connect-query-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
   - title: Virtual Machines
     linkLists:
       - linkListType: quickstart
         links:
           - text: Authenticate with a managed identity
             url: azure-sdk-authentication-managed-identity.md
-  - title: Serverless
+  - title: Serverless functions
     linkLists:
       - linkListType: quickstart
         links:
@@ -53,12 +59,10 @@ landingContent:
             url: /azure/azure-functions/create-first-function-vs-code-other
   - title: Containers
     linkLists:
-      - linkListType: quickstart
+      - linkListType: how-to-guide
         links:
           - text: Build and containerize a Go app
-            url: https://github.com/azure-samples/azure-go-labs/blob/master/1-app-hello-echo/README.md
-          - text: Azure Container Apps
-            url: /azure/container-apps
+            url: deploy-container-apps.md
   - title: Open source
     linkLists:
       - linkListType: reference

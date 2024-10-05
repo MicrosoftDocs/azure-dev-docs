@@ -9,20 +9,22 @@ items:
         href: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: IBM WebSphere Liberty and Open Liberty on AKS
         href: /azure/aks/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: IBM WebSphere Liberty and Open Liberty with Microsoft Entra ID
+        href: liberty-with-microsoft-entra-id.md
       - name: IBM WebSphere (Traditional) cluster on Azure VMs
         href: traditional-websphere-application-server-virtual-machines.md
       - name: Oracle WebLogic Server on Azure VM
         href: /azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Oracle WebLogic Server on AKS
         href: /azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: Red Hat JBoss EAP Cluster on Azure VMs
-        href: jboss-eap-cluster-azure-vms.md
-      - name: Red Hat JBoss EAP Server on Azure VM
-        href: /azure/virtual-machines/workloads/redhat/jboss-eap-single-server-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: Red Hat JBoss EAP cluster on Azure VMs
+        href: /azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Red Hat JBoss EAP on Azure Red Hat OpenShift
         href: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Red Hat Quarkus on Azure Container Apps
         href: deploy-java-quarkus-app.md
+      - name: Red Hat Quarkus with Microsoft Entra ID
+        href: quarkus-with-microsoft-entra-id.md
   - name: Java application servers on Azure
     expanded: true
     items:
@@ -45,8 +47,16 @@ items:
         href: deploy-java-liberty-app-aca.md
       - name: IBM WebSphere (Traditional) on Azure VMs
         href: ../migration/migrate-websphere-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere to Azure VMs with HADR
+        href: ../migration/migrate-websphere-to-vms-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere Liberty/Open Liberty to AKS with HADR
+        href: ../migration/migrate-liberty-to-aks-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: JCache with IBM WebSphere/Open Liberty
         href: how-to-deploy-java-liberty-jcache.md
+      - name: WebLogic to Azure VMs with HADR
+        href: ../migration/migrate-weblogic-to-vms-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebLogic to AKS with geo-redundancy
+        href: ../migration/migrate-weblogic-to-aks-with-ha-geo-redundancy.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Red Hat JBoss EAP on Azure VMs
         href: ../migration/migrate-jboss-eap-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Red Hat JBoss EAP on Azure Red Hat OpenShift
@@ -57,29 +67,46 @@ items:
         href: ../eclipse-microprofile/deploy-microprofile-payara-micro-java-app-with-maven-plugin.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: Passwordless database connections
         href: how-to-configure-passwordless-datasource.md
+  - name: Migrate WebSphere to Azure
+    expanded: true
+    items:
+      - name: WebSphere to Azure Virtual Machines
+        href: ../migration/migrate-websphere-to-virtual-machines.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere to Azure VMs step-by-step guidance
+        href: ../migration/migrate-websphere-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere to AKS
+        href: ../migration/migrate-websphere-to-azure-kubernetes-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere to WildFly on AKS
+        href: ../migration/migrate-websphere-to-wildfly-on-azure-kubernetes-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere to JBoss EAP on Azure App Service
+        href: ../migration/migrate-websphere-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebSphere to Azure Red Hat OpenShift
+        href: ../migration/migrate-websphere-to-azure-redhat-openshift.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
   - name: Migrate WebLogic to Azure
     expanded: true
     items:
+      - name: WebLogic to AKS
+        href: ../migration/migrate-weblogic-to-azure-kubernetes-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to Azure Virtual Machines
         href: ../migration/migrate-weblogic-to-virtual-machines.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: WebLogic with App Gateway
+        href: ../migration/migrate-weblogic-with-app-gateway.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to Azure VMs step-by-step guidance
         href: ../migration/migrate-weblogic-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: WebLogic to Azure VMs with high availability and disaster recovery
-        href: ../migration/migrate-weblogic-to-vms-with-ha-dr.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to AKS within custom VNET
         href: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to AKS with KEDA scaler based on Prometheus Metrics
         href: ../migration/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: WebLogic with App Gateway
-        href: ../migration/migrate-weblogic-with-app-gateway.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to JBoss EAP on Azure App Service
         href: ../migration/migrate-weblogic-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
   - name: Migrate JBoss EAP to Azure
     expanded: true
     items:
-      - name: JBoss EAP to Azure App Service
-        href: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: JBoss EAP to Azure VMs
         href: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-vms.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: JBoss EAP to Azure VMs step-by-step guidance
         href: ../migration/migrate-jboss-eap-to-azure-vm-manually.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: JBoss EAP to Azure App Service
+        href: ../migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+      - name: JBoss EAP to Azure Red Hat OpenShift
+        href: ../migration/migrate-jboss-eap-to-azure-redhat-openshift.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json

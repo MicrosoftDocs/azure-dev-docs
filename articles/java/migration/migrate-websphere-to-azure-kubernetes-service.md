@@ -4,7 +4,7 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: haiche
 ms.topic: conceptual
-ms.date: 05/31/2023
+ms.date: 09/20/2024
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, migration-java, template-how-to, linux-related-content
 #Customer intent: As a Java developer, I want to migrate my on-premise WebSphere Application Server workload to IBM WebSphere Liberty or Open Liberty that runs on Azure Kubernetes Service
 ---
@@ -47,7 +47,7 @@ Now that you've been introduced to the various ways to handle Liberty on AKS, yo
 After you have a solid inventory of secrets, consult the operator documentation regarding secrets. For more information, see the following articles:
 
 - [WebSphere Liberty on AKS: Configuring security for containerized applications](https://www.ibm.com/docs/was-liberty/base?topic=operator-configuring-security-containerized-applications)
-- [Open Liberty: user guide ](https://github.com/OpenLiberty/open-liberty-operator/blob/main/doc/user-guide-v1beta2.adoc)
+- [Open Liberty: user guide](https://github.com/OpenLiberty/open-liberty-operator/blob/main/doc/user-guide-v1.adoc)
 - [Security concepts for applications and clusters in Azure Kubernetes Service](/azure/aks/concepts-security)
 
 [!INCLUDE [inventory-all-certificates](includes/inventory-all-certificates.md)]

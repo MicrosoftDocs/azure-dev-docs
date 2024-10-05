@@ -137,5 +137,4 @@ az group delete -n PythonAzureExample-VM-rg --no-wait
 
 The following resources contain more comprehensive examples using Python to create a virtual machine:
 
-- [Create and manage Windows VMs in Azure using Python](/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python). You can use this example to create Linux VMs by changing the `storage_profile` parameter.
 - [Azure Virtual Machines Management Samples - Python](https://github.com/Azure-Samples/virtual-machines-python-manage) (GitHub). The sample demonstrates more management operations like starting and restarting a VM, stopping and deleting a VM, increasing the disk size, and managing data disks.

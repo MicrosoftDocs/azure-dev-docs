@@ -3,7 +3,7 @@ title: Deploy to Linux virtual machine using Jenkins and Azure DevOps Services
 description: Learn how to facilitate continuous integration and deployment (CI/CD) to deploy apps to Linux virtual machines using Jenkins and Azure DevOps Services
 keywords: jenkins, azure, devops, virtual machine, cicd, azure devops services
 ms.topic: tutorial
-ms.date: 07/31/2018
+ms.date: 08/13/2024
 ms.custom: devx-track-jenkins, devx-track-js, linux-related-content
 ---
 

@@ -5,7 +5,7 @@ author: mcleanbyron
 ms.author: mcleans
 ms.service: azure
 ms.topic: overview
-ms.date: 02/24/2023
+ms.date: 07/29/2024
 ---
 
 # Versioning policy for Azure services, SDKs, and CLI tools
@@ -63,3 +63,4 @@ The Azure command line tools may occasionally expose preview features. These com
 - [Azure REST API specifications](https://github.com/Azure/azure-rest-api-specs)
 - [Microsoft REST API guidelines](https://github.com/microsoft/api-guidelines)
 - [Azure SDK general guidelines](https://azure.github.io/azure-sdk/general_introduction.html)
+

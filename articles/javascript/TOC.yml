@@ -5,46 +5,45 @@
     items:
     - name: What is Azure?
       href: core/what-is-azure-for-javascript-development.md
-    - name: Install Node.js
-      href: core/install-nodejs-develop-azure-sdk-project.md
-    - name: Recommended Tools
-      href: node-azure-tools.md
     - name: Development environment
       href: core/configure-local-development-environment.md
+    - name: Recommended Tools
+      href: node-azure-tools.md
   - name: Host and build web apps
     items:
     - name: Select hosting service
-      href: how-to/select-hosting-service.md
+      href: /azure/developer/intro/hosting-apps-on-azure
     - name: Select deployment process
       href: how-to/deploy-web-app.md
     - name: Configure
       items: 
-      - name: Configure app settings
-        href: how-to/configure-web-app-settings.md
       - name: Configure domain name
         href: /azure/app-service/app-service-web-tutorial-custom-domain?tabs=a%2Cazurecli&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
   - name: Azure AI apps 
     items: 
     - name: Develop with Azure AI Services
-      href: azure-ai-for-javascript-developers.md    
+      href: ai/azure-ai-for-javascript-developers.md    
     - name: Get started with Enterprise chat
-      href: get-started-app-chat-template.md
+      href: ai/get-started-app-chat-template.md
     - name: Get started with serverless chat with LangChainjs
-      href: get-started-app-chat-template-langchainjs.md
+      href: ai/get-started-app-chat-template-langchainjs.md
+      display: Azure OpenAI, OpenAI, AI
+    - name: Get started with serverless chat with LlamaIndex
+      href: ai/get-started-app-chat-template-llamaindex.md
       display: Azure OpenAI, OpenAI, AI
     - name: Serverless Azure OpenAI Assistant with function calling
-      href: get-started-app-chat-assistants-function-calling.md
+      href: ai/get-started-app-chat-assistants-function-calling.md
       display: Azure OpenAI, OpenAI, AI, function calling, assistants
     - name: JavaScript frontend + Python backend
-      href: chat-app-with-separate-front-back-end.md
+      href: ai/chat-app-with-separate-front-back-end.md
       display: building block, frontend, backend
     - name: Evaluate your chat app
-      href: get-started-app-chat-evaluations.md
+      href: ai/get-started-app-chat-evaluations.md
       display: Azure OpenAI
     - name: Scale Azure OpenAI with Azure Container Apps
-      href: get-started-app-chat-scaling-with-azure-container-apps.md
+      href: ai/get-started-app-chat-scaling-with-azure-container-apps.md
     - name: Scale Azure OpenAI with Azure API Management
-      href: get-started-app-chat-scaling-with-azure-api-management.md
+      href: ai/get-started-app-chat-scaling-with-azure-api-management.md
   - name: Developer Guides
     items: 
     - name: GraphQL developer guide
@@ -86,13 +85,9 @@
     - name: Deploy
       href: end-to-end/contoso-real-estate-Infrastructure.md
       displayName: Codespaces, GitHub, azd, bicep, deploy, local, docker
-    - name: Test
-      items:
-        - name: Test Portal UI
-          href: end-to-end/contoso-real-estate-test-ui-solution.md
-        - name: Test APIs
-          href: end-to-end/contoso-real-estate-test-api-solution.md
-          displayName: test, test API, API, playwright
+    - name: Test APIs
+      href: end-to-end/contoso-real-estate-test-api-solution.md
+      displayName: test, test API, API, playwright
     - name: Developer tools
       href: end-to-end/contoso-real-estate-developer-tools.md      
   - name: Azure Static Web Apps
@@ -111,8 +106,6 @@
     items: 
     - name: Develop Azure Functions
       href: how-to/develop-serverless-apps.md
-    - name: Store data in MongoDB 
-      href: tutorial/azure-function-cosmos-db-mongo-api.md
     - name: Upload file to Storage - model v3
       items: 
       - name: with trigger and bindings
@@ -139,23 +132,16 @@
       href: /azure/container-apps/communicate-between-microservices?tabs=bash&pivots=acr-remote&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Microservice with DAPR
       href: /azure/container-apps/microservices-dapr?tabs=bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-    - name: Create container from local project
-      href: how-to/with-visual-studio-code/containerize-local-project.md
   - name: Virtual machine web apps
     items:
     - name: "Express.js VM"
       href: tutorial/run-nodejs-virtual-machine.md
-    - name: "Create and delete VM with SDK"
-      href: how-to/with-azure-sdk/create-manage-virtual-machine.md
   - name: Development with Visual Studio Code
     items:
     - name: Clone a GitHub repo for changes
       href: how-to/with-visual-studio-code/clone-github-repository.md
     - name: Create an Azure database
       href: how-to/with-visual-studio-code/create-azure-database.md
-  - name: Build an AI conversational CLI
-    href: openai-cli.md
-    display: Azure OpenAI, OpenAI, AI
   - name: Authentication and identity
     items: 
     - name: Getting started
@@ -196,6 +182,10 @@
         items: 
         - name: "List subscriptions"
           href: ./sdk/authentication/local-development-environment-service-principal.md?tabs=azure-sdk-for-javascript.md
+    - name: Test SDK integrations
+      href: sdk/test-sdk-integration.md
+    - name: Looping over data
+      href: sdk/loop-over-data.md
   - name: Training and certification
     href: learn-azure-javascript.md  
   - name: Samples

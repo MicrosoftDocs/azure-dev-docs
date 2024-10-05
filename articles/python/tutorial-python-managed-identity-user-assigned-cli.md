@@ -33,6 +33,41 @@ Use the sample Django sample application to follow along with this tutorial. Dow
     cd msdocs-django-web-app-managed-identity
     ```
 
+## Examine authentication code
+
+The sample web app needs to authenticate to two different data stores:
+
+- Azure blob storage server where it stores and retrieves photos submitted by reviewers.
+- An Azure Database for PostgreSQL - Flexible Server database where it stores restaurants and reviews.
+
+It uses [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) to authenticate to both data stores. With `DefaultAzureCredential`, the app can be configured to run under the identity of different service principals, depending on the environment it's running in, without making changes to code. For example, in a local development environment, the app can run under the identity of the developer signed in to the Azure CLI, while in Azure, as in this tutorial, it can run under a user-assigned managed identity.
+
+In either case, the security principal that the app runs under must have a role on each Azure resource the app uses that permits it to perform the actions on the resource that the app requires. In this tutorial, you use Azure CLI commands to create a user-assigned managed identity and assign it to your app in Azure. You then manually assign that identity appropriate roles on your Azure storage account and Azure Database for PostgreSQL server. Finally, you set the `AZURE_CLIENT_ID` environment variable for your app in Azure to configure `DefaultAzureCredential` to use the managed identity.
+
+After the user-assigned managed identity is configured on your app and its runtime environment, and is assigned appropriate roles on the data stores, you can use `DefaultAzureCredential` to authenticate with the required Azure resources.
+
+The following code is used to create a blob storage client to upload photos in `./restaurant_review/views.py`. An instance of `DefaultAzureCredential` is supplied to the client, which it uses to acquire access tokens to perform operations against Azure storage.
+
+```python
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient
+
+azure_credential = DefaultAzureCredential()
+blob_service_client = BlobServiceClient(
+    account_url=account_url,
+    credential=azure_credential)
+```
+
+An instance of `DefaultAzureCredential` is also used to get an access token for Azure Database for PostgreSQL in `./azureproject/get_conn.py`. In this case, the token is acquired directly by calling [get_token](/python/api/azure-identity/azure.identity.defaultazurecredential#azure-identity-defaultazurecredential-get-token) on the credential instance and passing it the appropriate `scope` value. The token is then used to set the password in the PostgreSQL connection URI.
+
+```python
+azure_credential = DefaultAzureCredential()
+token = azure_credential.get_token("https://ossrdbms-aad.database.windows.net")
+conf.settings.DATABASES['default']['PASSWORD'] = token.token
+```
+
+To learn more about authenticating your apps with Azure services, see [Authenticate Python apps to Azure services by using the Azure SDK for Python](./sdk/authentication/overview.md). To learn more about `DefaultAzureCredential`, including how to customize the credential chain it evaluates for your environment, see [DefaultAzureCredential overview](./sdk/authentication/credential-chains.md#defaultazurecredential-overview).
+
 ## Create an Azure PostgreSQL flexible server
 
 1. Set up the environment variables needed for the tutorial.
@@ -224,9 +259,9 @@ Create a user-assigned managed identity and assign it to the App Service. The ma
 
 The sample app uses environment variables (app settings) to define connection information for the database and storage account but these variables don't include passwords. Instead, authentication is done passwordless with `DefaultAzureCredential`.
 
-The sample app code uses the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class constructor without passing the user-assigned managed identity client ID to the constructor. In this scenario, the fallback is to check for the AZURE_CLIENT_ID environment variable, which you set as an app setting.
+The sample app code uses the [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential) class constructor without passing the user-assigned managed identity client ID to the constructor. In this scenario, the fallback is to check for the `AZURE_CLIENT_ID` environment variable, which you set as an app setting.
 
-If the AZURE_CLIENT_ID environment variable doesn't exist, the system-assigned managed identity will be used if it's configured. For more information, see [Introducing DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential).
+If the `AZURE_CLIENT_ID` environment variable doesn't exist, the system-assigned managed identity is used if it's configured. For more information, see [Introducing DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential).
 
 ## Create roles for the managed identity
 
@@ -256,7 +291,7 @@ In this section, you create role assignments for the managed identity to enable 
       --querytext "select * from pgaadauth_create_principal('"$UA_NAME"', false, false);select * from pgaadauth_list_principals(false);"
     ```
 
-    If you have trouble running the command, make sure you added your user account as Microsoft Entra admin for the PosgreSQL server and that you have allowed access to your IP address in the firewall rules. For more information, see section [Create an Azure PostgreSQL flexible server](#create-an-azure-postgresql-flexible-server).
+    If you have trouble running the command, make sure you added your user account as Microsoft Entra admin for the PosgreSQL server and that you've allowed access to your IP address in the firewall rules. For more information, see section [Create an Azure PostgreSQL flexible server](#create-an-azure-postgresql-flexible-server).
 
 ## Test the Python web app in Azure
 

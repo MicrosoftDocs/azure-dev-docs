@@ -124,6 +124,8 @@ productDirectory:
     - title: Go
       imageSrc: /media/logos/logo_Go-lightblue.svg
       links:
+        - url: ./go/azure-sdk-install.md
+          text: Install the Azure SDK for Go
         - url: ./go/azure-sdk-authentication.md
           text: Authenticate your app
         - url: ./ai/azure-ai-for-developers.md?pivots=go
@@ -135,7 +137,7 @@ productDirectory:
         - url: ./go/index.yml
           text: See more in the Go developer center
     - title: Azure PowerShell
-      imageSrc: /media/logos/logo_powershell.svg
+      imageSrc: /powershell/media/index/ps_black_128.svg
       links:
         - url: /powershell/azure/new-azureps-module-az
           text: What is the new Az module?

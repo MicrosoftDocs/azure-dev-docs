@@ -4,7 +4,7 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 09/20/2024
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, migration-java, devx-track-extended-java, linux-related-content
 ---
 
@@ -25,7 +25,7 @@ First, decide that Azure Red Hat OpenShift is the appropriate deployment target.
 - Red Hat and Microsoft created this offer to enable quickly provisioning JBoss EAP on Azure Red Hat OpenShift.
 - At a high level, the offer automates the following steps for you.
   - Install the EAP Operator on Azure Red Hat OpenShift.
-  - Build an application image using eap-s2i-build template. For more information about Source-to-image (S2I), see [Using OpenJDK 11 source-to-image for OpenShift](https://access.redhat.com/documentation/en-us/openjdk/11/html/using_source-to-image_for_openshift_with_red_hat_build_of_openjdk_11/index).
+  - Build an application image using eap-s2i-build template. For more information about Source-to-image (S2I), see [Using OpenJDK 11 source-to-image for OpenShift](https://docs.redhat.com/en/documentation/red_hat_build_of_openjdk/11/html/using_source-to-image_for_openshift_with_red_hat_build_of_openjdk_11/index).
   - Deploy the Java application using the EAP Operator. For more information, see the reference documentation for EAP Operator at [Red Hat](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/getting_started_with_jboss_eap_for_openshift_online/eap-operator-for-automating-application-deployment-on-openshift_default).
 
 If you don't use the prebuilt Azure Marketplace offer, you must learn how to use the EAP Operator directly. Mastering the operator is beyond the scope of this article. The complete documentation for the EAP Operator is available at [Red Hat](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/getting_started_with_jboss_eap_for_openshift_online/eap-operator-for-automating-application-deployment-on-openshift_default).
@@ -103,7 +103,7 @@ These customizations need to be captured in the container image running on Azure
 
 ### Determine whether Java Message Service (JMS) Queues or Topics are in use
 
-If your application is using JMS Queues or Topics, you may want to migrate them to an externally hosted JMS server. Azure Service Bus and the Advanced Message Queuing Protocol can be a great migration strategy for those using JMS. For more information, see [Use JMS with Azure Service Bus and AMQP 1.0](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp).
+If your application is using JMS Queues or Topics, you may want to migrate them to an externally hosted JMS server. Azure Service Bus and the Advanced Message Queuing Protocol can be a great migration strategy for those using JMS. For more information, see [Use Java Message Service 1.1 with Azure Service Bus standard and AMQP 1.0](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp).
 
 If JMS persistent stores have been configured, you must capture their configuration and apply it after the migration.
 

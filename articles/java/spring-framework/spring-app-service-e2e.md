@@ -3,7 +3,7 @@ title: Deploy a Spring/Tomcat app to App Service with Azure Database for MySQL
 description: End-to-end tutorial for Java App Service with MySQL
 author: KarlErickson
 ms.author: hangwan
-ms.date: 11/12/2019
+ms.date: 08/28/2024
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java, devx-track-azurecli
 ---

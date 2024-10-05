@@ -24,7 +24,7 @@ Once you complete this article, you can start modifying the new project with you
 This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Service and Azure AI Search. Other articles in the collection include: 
 
 * [.NET](/dotnet/ai/get-started-app-chat-template)
-* [JavaScript](../../javascript/get-started-app-chat-template.md)
+* [JavaScript](../../javascript/ai/get-started-app-chat-template.md)
 * [Python](../../python/get-started-app-chat-template.md)
 
 > [!NOTE]
