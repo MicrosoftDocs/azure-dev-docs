@@ -17,7 +17,7 @@ Java EE developers expect the [standard platform security mechanisms](https://ja
 
 This guide is divided into two parts. If you already have Microsoft Entra Domain Services with secure LDAP exposed, you may skip straight to the second part.
 
-* [Microsoft Entra Domain Services managed domain configuration](#azure-entra-domain-services-managed-domain-configuration)
+* [Microsoft Entra Domain Services managed domain configuration](#microsoft-entra-domain-services-managed-domain-configuration)
 * [WLS configuration](#wls-configuration)
 
 In this guide you learn how to:
@@ -360,7 +360,7 @@ With certificate imported and secure LDAP access traffic resolved, you're able t
   - For **Configuration** -> **Common**:
     - For **Control Flag**, select **SUFFICIENT**.
     - Select **Save** to save the change.
-  - For **Configuration** -> **Provider Specific**, input the Microsoft Entra Domain Services managed domain connection information you obtained previously. Steps to obtain the value are listed in the table of [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](#create-and-configure-an-azure-entra-domain-services-managed-domain).
+  - For **Configuration** -> **Provider Specific**, input the Microsoft Entra Domain Services managed domain connection information you obtained previously. Steps to obtain the value are listed in the table of [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](#configure-secure-ldap-for-a-microsoft-entra-domain-services-managed-domain).
 
     Fill in the following required fields, keep other fields with default value.
 
