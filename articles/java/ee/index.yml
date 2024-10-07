@@ -43,6 +43,8 @@ landingContent:
             url: /azure/openshift/howto-deploy-java-liberty-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: Java app with WebSphere Liberty/Open Liberty to AKS
             url: howto-deploy-java-liberty-app-manual.md
+          - text: Java app with WebSphere Liberty/Open Liberty using Microsoft Entra ID
+            url: liberty-with-microsoft-entra-id.md
           - text: Java app with JBoss EAP to Azure Red Hat OpenShift
             url: /azure/openshift/howto-deploy-java-jboss-enterprise-application-platform-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
           - text: Java EE JCache with WebSphere/Open Liberty

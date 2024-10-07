@@ -21,14 +21,16 @@ items:
       items:
       - name: Overview
         href: authentication/overview.md
-      - name: Azure-hosted Application Authentication
+      - name: Azure-hosted application authentication
         href: authentication/azure-hosted-apps.md
-      - name: Development Environment Authentication
+      - name: Development environment authentication
         href: authentication/dev-env.md
-      - name: Service Principal Authentication
+      - name: Service principal authentication
         href: authentication/service-principal.md
-      - name: User Credential Authentication
+      - name: User credential authentication
         href: authentication/user.md
+      - name: Credential chains
+        href: authentication/credential-chains.md
       expanded: false
     - name: Logging
       items:
