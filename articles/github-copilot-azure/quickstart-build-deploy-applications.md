@@ -34,7 +34,7 @@ See the [Get started](get-started.md) article for complete setup instructions.
 
 :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-ask-copilot.png" alt-text="Screenshot displaying the GitHub Copilot window.":::
 
-5. In the chat text box, enter the following prompt after `@azure` and select Send (paper airplane icon) or select Enter on your keyboard.
+5. In the chat text box, enter the following prompt after `@azure` then select Send (paper airplane icon) or select Enter on your keyboard.
 
 ```prompt
 Could you help me create and deploy a simple Flask website using Python?
@@ -61,7 +61,7 @@ Select `Insert into Terminal` to insert the command into the Terminal.
 Use the following prompt:
 
 ```prompt
-Before I execute azd init, what does it do?
+@azure Before I execute azd init, what does it do?
 ```
 You might see a response that resembles the following screenshot.
 
@@ -72,7 +72,7 @@ You might see a response that resembles the following screenshot.
 8. Use the following prompt to learn more about the azd template:
 
 ```prompt
-What resources are created with this template?
+@azure What resources are created with this template?
 ```
 You might see a response that resembles the following screenshot.
 
@@ -82,7 +82,7 @@ You might see a response that resembles the following screenshot.
 9. Ask questions about the services used by the template with a prompt like:
 
 ```prompt
-What is the purpose of a VNet?
+@azure What is the purpose of a VNet?
 ```
 You might see a response that resembles the following screenshot.
 
@@ -100,7 +100,7 @@ azd up
 12. `azd up` asks for information about your subscription, where to deploy the resources, and more. If you're uncertain how to answer, you can ask GitHub Copilot for Azure how to  For example, you might ask:
 
 ```prompt
-azd up is asking me what location I want to deploy the website into. How should I respond?
+@azure azd up is asking me what location I want to deploy the website into. How should I respond?
 ```
 
 You might see a response that resembles the following screenshot.
@@ -121,7 +121,7 @@ Depending on the azd template you're deploying and the location you selected, it
 16. You can ask GitHub Copilot for Azure how to remove all of the resources you created in the previous steps.
 
 ```prompt
-How do I undeploy this web site?
+@azure How do I undeploy this web site?
 ```
 
 You might see a response that resembles the following screenshot.

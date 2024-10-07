@@ -41,7 +41,7 @@ Suppose you want to learn about your options or how to utilize Azure for your ap
 
 - "@azure How can I create a highly available architecture in Azure?"
 - "@azure Explain the Azure Well-Architected Framework."
-- "@azure what types of app hosting solutions does Azure have?"
+- "@azure What types of app hosting solutions does Azure have?"
 - "@azure Help me orchestrate and automate my data processing workflows."
 - "@azure How to integrate SignalR with App Gateway/APIM/etc?"
 - "@azure How many units do you recommend?"
@@ -65,7 +65,7 @@ Suppose you want to learn about your options or how to utilize Azure for your ap
 - "@azure What types of containerized applications are supported in Azure?"
 - "@azure What are the options for managing containers in Azure?"
 - "@azure When should I use AKS instead of ACA?"
-- "@azure what's the difference between ACA and AKS?"
+- "@azure What's the difference between ACA and AKS?"
 - "@azure Why would I choose Azure ACA over Azure AKS"
 
 

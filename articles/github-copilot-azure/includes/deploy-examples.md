@@ -1,3 +1,3 @@
-- Can you help me build a RAG application with Python? 
-- I need a CI/CD pipeline so I can get my app deployed. 
-- Use azd to un-deploy my project.
+- "@azure Can you help me build a RAG application with Python?"
+- "@azure I need a CI/CD pipeline so I can get my app deployed."
+- "@azure Use azd to un-deploy my project."

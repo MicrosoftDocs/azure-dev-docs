@@ -1,5 +1,5 @@
 - "@azure What services does Azure OpenAI provide?"
-- "@azure Where is GPT-4o mini available"
+- "@azure Where is GPT-4o mini available?"
 - "@azure What are the prerequisites for integrating Azure OpenAI?"
 - "@azure Create a guide for creating and using AzureOpenAI resources."
 - "@azure What are the different types of Azure OpenAI models available?"

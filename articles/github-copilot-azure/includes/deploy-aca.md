@@ -1,1 +1,1 @@
-- "@azure How can I deploy my container app to Azure"
+- "@azure How can I deploy my container app to Azure?"

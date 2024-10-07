@@ -1,3 +1,3 @@
 - "@azure Why use Azure Cosmos DB instead of Azure SQL?"
-- "@azure I want to use CosmosDB to store my data"
+- "@azure I want to use CosmosDB to store my data."
 - "@azure Why would I use a Cosmos DB account over a SQL database?"

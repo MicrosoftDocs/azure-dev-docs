@@ -1,4 +1,4 @@
-- "@azure Use azd to deploy my project"
-- "@azure I want to use AZD to create a deployment pipeline for my application"
-- "@azure Initialize my project with the Azure Developer CLI"
-- "@azure Please start azd pipeline"
+- "@azure Use azd to deploy my project."
+- "@azure I want to use AZD to create a deployment pipeline for my application."
+- "@azure Initialize my project with the Azure Developer CLI."
+- "@azure Please start azd pipeline."

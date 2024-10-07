@@ -42,7 +42,7 @@ Suppose you want to troubleshoot your application and decide to use GitHub Copil
 
 - "@azure Where can I find metrics and logs?"
 - "@azure I want to see all the error messages in the logs."
-- "@azure I'm seeing errors with my app, look at the logs to find out why"
+- "@azure I'm seeing errors with my app, look at the logs to find out why."
 - "@azure Why are my clients being disconnected so often?"
 - "@azure Why did my last deployment fail?"
 - "@azure Help me analyze my app for high CPU usage."
@@ -53,9 +53,9 @@ Suppose you want to troubleshoot your application and decide to use GitHub Copil
 ### Asking questions about specific timeframes
 
 - "@azure Grab all the errors in the logs between yesterday and today."
-- "@azure Diagnose my app to show me what problems it encountered"
-- "@azure Tell me what goes wrong with my app 'myAppName'"
-- "@azure Troubleshoot my app for any possible issues in the last 3 hours"
+- "@azure Diagnose my app to show me what problems it encountered."
+- "@azure Tell me what goes wrong with my app 'myAppName'."
+- "@azure Troubleshoot my app for any possible issues in the last 3 hours."
 - "@azure What errors did my app 'myAppName' have in the last 24 hours?"
 
 

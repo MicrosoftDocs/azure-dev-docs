@@ -1,3 +1,3 @@
-- What is using up my GPT-4o model quota? 
-- Find out why my store-service-prod kube cluster is running slow. 
-- Why am I seeing 500 errors when opening my website?
+- "@azure What is using up my GPT-4o model quota?"
+- "@azure Find out why my store-service-prod kube cluster is running slow."
+- "@azure Why am I seeing 500 errors when opening my website?"

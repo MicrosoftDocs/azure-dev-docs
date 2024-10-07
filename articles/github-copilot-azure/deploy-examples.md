@@ -37,16 +37,16 @@ Using Copilots can dramatically increase developer productivity by answering que
 
 Suppose you want to deploy your application and decide to use GitHub Copilot for Azure to help. To begin, you can start with an open ended question. 
 
-- "@azure help me deploy my application to Azure"
-- "@azure how can I deploy this app?"
-- "@azure Can you deploy my code to Azure please"
-- "@azure Can you help me deploy my project to Azure"
-- "@azure Deploy this project to Azure"
-- "@azure Go deploy this project"
-- "@azure I'd like to deploy my app"
-- "@azure Take this project and make it deployable to Azure"
-- "@azure Get this code running on Azure"
-- "@azure Run this app on Azure"
+- "@azure Help me deploy my application to Azure."
+- "@azure How can I deploy this app?"
+- "@azure Can you deploy my code to Azure please."
+- "@azure Can you help me deploy my project to Azure."
+- "@azure Deploy this project to Azure."
+- "@azure Go deploy this project."
+- "@azure I'd like to deploy my app."
+- "@azure Take this project and make it deployable to Azure."
+- "@azure Get this code running on Azure."
+- "@azure Run this app on Azure."
 
 However, add more detail to get better results. Here are some example prompts that produce better results:
 
@@ -66,18 +66,18 @@ Similarly, you can ask GitHub Copilot for Azure with assistance in undeploying s
 
 Example prompts:
 
-- "@azure Undeploy this project from Azure"
-- "@azure I'd like to undeploy my app"
-- "@azure Stop this app on Azure"
-- "@azure Take this project down from Azure"
-- "@azure Take down my application"
-- "@azure Remove this code from running on Azure"
+- "@azure Undeploy this project from Azure."
+- "@azure I'd like to undeploy my app."
+- "@azure Stop this app on Azure."
+- "@azure Take this project down from Azure."
+- "@azure Take down my application."
+- "@azure Remove this code from running on Azure."
 
 
 If you used azd to deploy your application, you can ask it to use azd to undeploy your application as well.
 
-- "@azure Undeploy my project with the Azure Developer CLI"
-- "@azure Use azd to undeploy my project"
+- "@azure Undeploy my project with the Azure Developer CLI."
+- "@azure Use azd to undeploy my project."
 
 
 ## Next steps
