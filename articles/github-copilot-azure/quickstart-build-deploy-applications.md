@@ -88,7 +88,7 @@ See the [Get started](get-started.md) article for complete setup instructions.
    @azure What is the purpose of a VNet?
    ```
 
-You might see a response that resembles the following screenshot.
+   You might see a response that resembles the following screenshot.
 
    :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-vnet.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an explanation of what is a VNet.":::
 
@@ -106,7 +106,7 @@ You might see a response that resembles the following screenshot.
    @azure azd up is asking me what location I want to deploy the website into. How should I respond?
    ```
 
-You might see a response that resembles the following screenshot.
+   You might see a response that resembles the following screenshot.
 
 
    :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-location.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an answer that describes what Azure locations are and how to choose one.":::
