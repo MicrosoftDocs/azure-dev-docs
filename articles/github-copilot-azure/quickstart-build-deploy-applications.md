@@ -100,7 +100,9 @@ See the [Get started](get-started.md) article for complete setup instructions.
    azd up
    ```
 
-12. `azd up` asks for information about your subscription, where to deploy the resources, and more. If you're uncertain how to answer, you can ask GitHub Copilot for Azure how to  For example, you might ask:
+12. `azd up` asks for information about your subscription, where to deploy the resources, and more. 
+
+   If you're uncertain how to answer, you can ask GitHub Copilot for Azure how to  For example, you might ask:
 
    ```prompt
    @azure azd up is asking me what location I want to deploy the website into. How should I respond?
@@ -108,12 +110,11 @@ See the [Get started](get-started.md) article for complete setup instructions.
 
    You might see a response that resembles the following screenshot.
 
-
    :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-location.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an answer that describes what Azure locations are and how to choose one.":::
 
 13. Continue to answer prompts from `azd up` asking GitHub Copilot for Azure questions as needed.
 
-Depending on the azd template you're deploying and the location you selected, it might take 20-40 minutes or more to deploy. 
+   Depending on the azd template you're deploying and the location you selected, it might take 20-40 minutes or more to deploy. 
 
 14. If `azd up` experiences errors, ask GitHub Copilot for Azure about the error and how you can resolve it.
 
