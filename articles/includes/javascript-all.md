@@ -364,7 +364,7 @@
 | Resource Management - Template Specs | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-templatespecs/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-templatespecs-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-templatespecs_2.1.0/sdk/templatespecs/arm-templatespecs/) |
 | @autorest/openapi-to-typespec | npm [0.10.0](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.10.0) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
-| @azure-tools/rest-api-diff | npm [0.1.1](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.1.1) |  |  |
+| @azure-tools/rest-api-diff | npm [0.1.3](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.1.3) |  |  |
 | @azure-tools/test-perf | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
 | @azure-tools/test-utils | npm [1.0.1](https://www.npmjs.com/package/@azure-tools/test-utils/v/1.0.1) |  |  |
 | @azure-tools/typespec-autorest-canonical | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.7.0) |  |  |
