@@ -53,10 +53,7 @@ However, add more detail to get better results. Here are some example prompts th
 
 |Service, technology, or technique|Deploy prompt examples|
 |---|---|
-|Azure Kubernetes Service (AKS)|<ol><li>"@azure Can you help me create a new deployment in my AKS cluster?"</li>
-<li>"@azure What is the command to scale a deployment to 5 replicas?"</li>
-<li>"@azure Can you provide the command to expose a deployment as a service?"</li>
-<li>Test</li></ol>|
+|Azure Kubernetes Service (AKS)|<ol><li>"@azure Can you help me create a new deployment in my AKS cluster?"</li><li>"@azure What is the command to scale a deployment to 5 replicas?"</li><li>"@azure Can you provide the command to expose a deployment as a service?"</li><li>Test</li></ol>|
 |Azure App Service|[!INCLUDE [deploy-app-service](./includes/deploy-app-service.md)]|
 |Azure Container Apps (ACA)|[!INCLUDE [deploy-aca](./includes/deploy-aca.md)]|
 |Azure Developer CLI (AZD)|[!INCLUDE [deploy-azd](./includes/deploy-azd.md)]|
