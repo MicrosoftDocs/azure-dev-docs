@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure for JavaScript developers
-summary: Learn to use Azure with JavaScript. Browse API reference, sample code, tutorials, quickstarts, conceptual articles and more. Know that JavaScript ❤️💛💚💙 Azure.
+summary: Learn to use Azure with JavaScript. Browse API reference, sample code, tutorials, quickstarts, conceptual articles and more. Know that JavaScript ❤️ Azure.
 brand: azure
 
 metadata:
@@ -29,7 +29,7 @@ highlightedContent:
 
 conceptualContent:
   sections: 
-  - title: Essential developer workflows
+  - title: Get started with essential tasks
     summary: Learn to develop JavaScript apps using various Azure services.
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
     items:
@@ -115,7 +115,7 @@ conceptualContent:
             text: Sampling in Application Insights
             url: /azure/azure-monitor/app/sampling-classic-api
 
-  - title: Deep dive
+  - title: Go deeper
     summary: Learn more about specific Azure services and how to use them with JavaScript.
     items:
       - title: Build and deploy apps on Azure
