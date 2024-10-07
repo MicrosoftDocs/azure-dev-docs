@@ -32,7 +32,7 @@ See the [Get started](get-started.md) article for complete setup instructions.
 
 4. To start a new chat session, select the plus icon + in the window's title bar.
 
-:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-ask-copilot.png" alt-text="Screenshot displaying the GitHub Copilot window.":::
+  :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-ask-copilot.png" alt-text="Screenshot displaying the GitHub Copilot window.":::
 
 5. In the chat text box, enter the following prompt after `@azure` then select Send (paper airplane icon) or select Enter on your keyboard.
 
@@ -44,16 +44,16 @@ After a moment, GitHub Copilot for Azure will likely suggest an azd template to 
 
 You might see a response like:
 
-:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-create.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with instructions to use an azd template to create a web site in Azure.":::
+  :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-create.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with instructions to use an azd template to create a web site in Azure.":::
 
 
 6. If your answer provides you with a command that begins with `azd init` in a code fence, hover your mouse cursor over the code fence to reveal a small action popup on the right hand side.
 
-:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-insert.png" alt-text="Screenshot displaying a popup menu with an option to insert the command in the code fence into Visual Studio Code's Terminal.":::
+  :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-insert.png" alt-text="Screenshot displaying a popup menu with an option to insert the command in the code fence into Visual Studio Code's Terminal.":::
 
 Select `Insert into Terminal` to insert the command into the Terminal.
 
-:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-inserted.png" alt-text="Screenshot displaying Visual Studio Code's Terminal after the code fenced command is inserted.":::
+  :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-inserted.png" alt-text="Screenshot displaying Visual Studio Code's Terminal after the code fenced command is inserted.":::
 
 
 7. Before executing the `azd init` command, you might have questions about how `azd init` affects your local computer and  your Azure subscription.
@@ -65,7 +65,7 @@ Use the following prompt:
 ```
 You might see a response that resembles the following screenshot.
 
-:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-azd-init.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an explanation of what azd init does.":::
+  :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-azd-init.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an explanation of what azd init does.":::
 
 
 
@@ -76,7 +76,7 @@ You might see a response that resembles the following screenshot.
 ```
 You might see a response that resembles the following screenshot.
 
-:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-resources.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an explanation of the resources created by the suggested azd template.":::
+  :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-resources.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an explanation of the resources created by the suggested azd template.":::
 
 
 9. Ask questions about the services used by the template with a prompt like:
@@ -86,7 +86,7 @@ You might see a response that resembles the following screenshot.
 ```
 You might see a response that resembles the following screenshot.
 
-:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-vnet.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an explanation of what is a VNet.":::
+  :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-vnet.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an explanation of what is a VNet.":::
 
 10. When you're satisfied, execute the `azd init` command in the Terminal. Answer its prompts. If you're unsure what to answer for a given prompt, ask GitHub Copilot for Azure for help.
 
@@ -106,7 +106,7 @@ azd up
 You might see a response that resembles the following screenshot.
 
 
-:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-location.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an answer that describes what Azure locations are and how to choose one.":::
+  :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-location.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an answer that describes what Azure locations are and how to choose one.":::
 
 13. Continue to answer prompts from `azd up` asking GitHub Copilot for Azure questions as needed.
 
@@ -126,7 +126,7 @@ Depending on the azd template you're deploying and the location you selected, it
 
 You might see a response that resembles the following screenshot.
 
-:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-undeploy.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with instructions to undeploy the web site using azd down.":::
+  :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-undeploy.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with instructions to undeploy the web site using azd down.":::
 
 Use `azd down` to remove the website and all resources that were deployed to your Azure subscription.
 
@@ -138,4 +138,3 @@ Use `azd down` to remove the website and all resources that were deployed to you
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
 - See example prompts for [optimizing your applications in Azure](optimize-examples.md).
 - See example prompts for [troubleshooting your Azure resources](troubleshoot-examples.md).
-
