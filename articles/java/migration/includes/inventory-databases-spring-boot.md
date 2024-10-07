@@ -6,11 +6,7 @@ ms.date: 2/12/2020
 
 #### Databases
 
-For any SQL database, identify the connection string.
-
-For a Spring Boot application, connection strings typically appear in configuration files. 
-
-Here's an example from an *application.properties* file:
+For a Spring Boot application, connection strings typically appear in configuration files when it depends on an external database.  Here's an example from an *application.properties* file:
 
 ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/mysql_db

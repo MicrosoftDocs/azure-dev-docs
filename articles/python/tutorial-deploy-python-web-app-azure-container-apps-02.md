@@ -858,7 +858,7 @@ Here's an example of the sample website after adding a restaurant and two review
 
 * You forgot the Application Url to access the website.
   * In the Azure portal, go to the **Overview** page of the Container App and look for the **Application Url**.
-  * In VS Code, go to the Azure extension and select the **Container Apps** section. Expand the subscription, expand the container environment, and when you find the container app, right-click **python-container-app** and select **Browse**.
+  * In VS Code, go to the **Azure view** (Ctrl+Shift+A) and expand the subscription that you are working in. Expand the **Container Apps** node, then expand the managed environment and right-click **python-container-app** and select **Browse**. It will open the browser with the **Application Url**.
   * With Azure CLI, use the command `az containerapp show -g pythoncontainer-rg -n python-container-app --query properties.configuration.ingress.fqdn`.
 
 * In VS Code, the **Build Image in Azure** task returns an error.

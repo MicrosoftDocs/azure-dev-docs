@@ -4,7 +4,7 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: karler
 ms.topic: conceptual
-ms.date: 1/20/2020
+ms.date: 09/20/2024
 ms.custom: devx-track-java, devx-track-azurecli, migration-java, devx-track-extended-java
 recommendations: false
 ---
@@ -250,7 +250,7 @@ To execute scheduled jobs on your AKS cluster, define [Cron Jobs](https://kubern
 
 Now that you've migrated your application to AKS, you should verify that it works as you expect. Once you've done that, we have some recommendations for you that can make your application more Cloud native.
 
-* Consider adding a DNS name to the IP address allocated to your ingress controller or application load balancer. For more information, see [Create an ingress controller with a static public IP address in AKS](/azure/aks/ingress-static-ip).
+* Consider adding a DNS name to the IP address allocated to your ingress controller or application load balancer. For more information, see [Use TLS with an ingress controller on Azure Kubernetes Service (AKS)](/azure/aks/ingress-static-ip).
 
 * Consider [adding HELM charts for your application](https://helm.sh/docs/topics/charts/). A helm chart allows you to parameterize your application deployment for use and customization by a more diverse set of customers.
 
