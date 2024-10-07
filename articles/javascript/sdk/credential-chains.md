@@ -205,7 +205,7 @@ The preceding code sample creates a tailored credential chain comprised of two c
 
 ## Debug a chained credential
 
-To diagnose an unexpected issue or to understand what a chained credential is doing, [enable logging](#enable-logging) in your app. 
+To diagnose an unexpected issue or to understand what a chained credential is doing, [enable logging](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core#logging) in your app. 
 
 1. Create `index.js` with the following code:
 
