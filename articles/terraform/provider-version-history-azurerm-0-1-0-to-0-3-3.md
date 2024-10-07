@@ -1,8 +1,11 @@
 ---
-ms.author: tarcher
-ms.topic: include
-ms.date: 01/26/2024
+title: Terraform AzureRM provider version history 0.1.0 - 0.3.3
+description: View the Terraform AzureRM provider version history
+keywords: azure devops terraform change log release history what's new
+ms.topic: reference
+ms.date: 10/7/2024
 ms.custom: devx-track-terraform
+# Customer intent: I want to view the AzureRM provider version history for versions 0.1.0 - 0.3.3
 ---
 
 ### 0.3.3 (November 14, 2017)
