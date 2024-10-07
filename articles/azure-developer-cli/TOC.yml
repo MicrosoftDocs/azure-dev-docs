@@ -37,6 +37,8 @@
       href: use-external-registry.md
     - name: Use Helm and Kustomize
       href: helm-kustomize-support.md
+    - name: Configure service packaging ignore files
+      href: service-packaging-ignore-files.md
     - name: Configure template sources
       href: configure-template-sources.md
   - name: Create templates

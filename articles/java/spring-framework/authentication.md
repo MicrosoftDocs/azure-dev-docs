@@ -51,7 +51,7 @@ There are two types of managed identities:
 * *User-assigned* - You may also create a managed identity as a standalone Azure resource. You can create a user-assigned managed identity and assign it to one or more instances of an Azure service. With user-assigned managed identities, the identity is managed separately from the resources that use it.
 
 > [!NOTE]
-> When using a user-assigned managed identity, you can specify the client ID via `spring.cloud.azure.credential.managed-identity-client-id` or `spring.cloud.azure.<azure-service>.credential.managed-identity-client-id`. You don't need credential configuration if you use a system-assigned managed identity.
+> When using a user-assigned managed identity, you can specify the client ID via `spring.cloud.azure.credential.client-id` or `spring.cloud.azure.<azure-service>.credential.client-id`. You don't need credential configuration if you use a system-assigned managed identity.
 
 > [!TIP]
 > Be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Microsoft Entra ID](#authorize-access-with-azure-active-directory).

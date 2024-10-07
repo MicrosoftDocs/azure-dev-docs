@@ -20,15 +20,17 @@ items:
     - name: Identity and authentication
       items:
       - name: Overview
-        href: identity.md
-      - name: Azure-hosted Application Authentication
-        href: identity-azure-hosted-auth.md
-      - name: Development Environment Authentication
-        href: identity-dev-env-auth.md
-      - name: Service Principal Authentication
-        href: identity-service-principal-auth.md
-      - name: User Credential Authentication
-        href: identity-user-auth.md
+        href: authentication/overview.md
+      - name: Azure-hosted application authentication
+        href: authentication/azure-hosted-apps.md
+      - name: Development environment authentication
+        href: authentication/dev-env.md
+      - name: Service principal authentication
+        href: authentication/service-principal.md
+      - name: User credential authentication
+        href: authentication/user.md
+      - name: Credential chains
+        href: authentication/credential-chains.md
       expanded: false
     - name: Logging
       items:

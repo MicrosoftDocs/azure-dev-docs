@@ -5,11 +5,28 @@ summary: Learn to use Azure with JavaScript. Browse API reference, sample code, 
 brand: azure
 
 metadata:
-  title: Azure for JavaScript developers
-  description: Samples, tutorials, and education for JavaScript on Azure
-  ms.topic: hub-page
+  title: Azure for JavaScript and Node.js developers
+  description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
+  author: diberry
+  ms.author: diberry
+  ms.date: 07/10/2024
+  ms.topic: landing-page
   ms.service: azure-javascript
-  ms.date: 09/25/2024
+  ms.custom: 2020Aug21Redesign, devx-track-js, engagement-fy23
+landingContent:
+        
+  - title: New to Azure?
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is Azure?
+            url: core/what-is-azure-for-javascript-development.md
+          - text: Azure Fundamentals
+            url: /training/modules/intro-to-azure-fundamentals/            
+          - text: Set up development environment
+            url: core/configure-local-development-environment.md
+          - text: Authenticate to Azure SDK
+            url: /azure/developer/javascript/sdk/authentication/local-development-environment-service-principal
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

@@ -1,14 +1,5 @@
 # YamlMime:ZonePivotGroups
 groups:
-# Owner: karler
-- id: spring-cloud-tier-selection
-  title: Azure Spring Apps tier
-  prompt: Select an Azure Spring Apps tier
-  pivots:
-  - id: sc-standard-tier
-    title: Standard tier
-  - id: sc-enterprise-tier
-    title: Enterprise tier
 # Owner: v-yeyonghui
 - id: passwordless-mysql
   title: Azure Database for MySQL use passwordless connection
