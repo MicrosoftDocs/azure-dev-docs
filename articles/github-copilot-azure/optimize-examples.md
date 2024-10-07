@@ -41,8 +41,8 @@ Suppose you want to optimize your application running on Azure services and deci
 
 |Service|Optimize prompt examples|
 |---|---|
-|App Service|[!INCLUDE [optimize-app-service](./includes/optimize-app-service.md)]|
-|Azure SQL|[!INCLUDE [optimize-azure-sql](./includes/optimize-azure-sql.md)]|
+|App Service|<ul><li>"@azure Any available app code optimizations?"</li><li>"@azure Show me how to optimize CPU usage for my Azure App Service."</li><li>"@azure How do I optimize code for my Azure App Service?"</li><li>"@azure What are the best practices for security in Azure?"</li></ul>|
+|Azure SQL|<ul><li>"@azure How can I optimize my Azure SQL Database for better performance?"</li></ul>|
 
 
 ## Next steps

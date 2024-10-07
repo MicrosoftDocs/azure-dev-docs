@@ -1,2 +1,0 @@
-- "@azure Let's use GitHub to deploy my app to Azure."
-- "@azure Set up a GitHub Actions pipeline to deploy my app to Azure."

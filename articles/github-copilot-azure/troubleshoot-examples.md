@@ -73,16 +73,16 @@ Suppose you want to troubleshoot your application and decide to use GitHub Copil
 
 |Service, technology, or technique|Troubleshoot prompt examples|
 |---|---|
-|Azure Container Service (ACA)|[!INCLUDE [troubleshoot-aca](./includes/troubleshoot-aca.md)]|
-|Azure Kubernetes Service (AKS)|[!INCLUDE [troubleshoot-aks](./includes/troubleshoot-aks.md)]|
-|Azure App Service|[!INCLUDE [troubleshoot-app-service](./includes/troubleshoot-app-service.md)]|
-|Azure Developer CLI (AZD)|[!INCLUDE [troubleshoot-azd](./includes/troubleshoot-azd.md)]|
-|Azure SDK|[!INCLUDE [troubleshoot-azure-sdk](./includes/troubleshoot-azure-sdk.md)]|
-|Azure Event Hubs|[!INCLUDE [troubleshoot-event-hubs](./includes/troubleshoot-event-hubs.md)]|
-|Azure OpenAI|[!INCLUDE [troubleshoot-openai](./includes/troubleshoot-openai.md)]|
-|SignalR|[!INCLUDE [troubleshoot-signalr](./includes/troubleshoot-signalr.md)]|
-|Azure Storage|[!INCLUDE [troubleshoot-storage](./includes/troubleshoot-storage.md)]|
-|Azure Web PubSub|[!INCLUDE [troubleshoot-webpubsub](./includes/troubleshoot-webpubsub.md)]|
+|Azure Container Service (ACA)|<ul><li>"@azure My Container App won't start."</li><li>"@azure My users are reporting errors with my foobar container app."</li><li>"@azure Can you look at my energy-api-1 container app's logs for any 404 errors?"</li><li>"@azure Has my container app's system console logs contained any warnings recently?"</li></ul>|
+|Azure Kubernetes Service (AKS)|<ul><li>"@azure Help me troubleshoot my AKS cluster."</li><li>"@azure How do I troubleshoot my Azure Kubernetes Service (AKS)?"</li><li>"@azure How can I get the logs of a specific pod?"</li><li>"@azure Do my kube-apiserver logs show the last time a restart occured?"</li><li>"@azure My assistant-orchestrator AKS cluster is having performance problems."</li><li>"@azure Find out why my store-service-prod kube cluster is running slow."</li><li>"@azure I'd like to investigate performance issues with my kube cluster."</li></ul>|
+|Azure App Service|<ul><li>"@azure How can I improve my Azure web app's performance?"</li><li>"@azure How do I improve my app's CPU usage?"</li><li>"@azure How can I improve the performance of my Azure web app?"</li><li>"@azure Diagnose high CPU usage in my Azure App service."</li><li>"@azure Show me how to detect slow performance issues in my app service web app."</li><li>"@azure Investigate high CPU usage for my app service."</li><li>"@azure What's causing latency in my Azure Web App?"</li><li>"@azure Can you help me diagnose high CPU usage on my Azure app service?"</li><li>"@azure Why am I seeing high memory usage in my App Service?"</li><li>"@azure Help me analyze my web app downtime."</li><li>"@azure Help me diagnose slow performance in my Azure Web App."</li><li>"@azure Help me collect a memory dump from my Azure App Service."</li><li>"@azure My AppService container won't start."</li><li>"@azure Is there anything wrong with my bakery-api web app?"</li><li>"@azure Look into if my web app is having any downtime."</li><li>"@azure Troubleshoot why my web app is not responding."</li></ul>|
+|Azure Developer CLI (AZD)|<ul><li>"@azure I'm getting this error, what does it mean?"</li></ul>|
+|Azure SDK|<ul><li>"@azure Azure npm ARM sdk failing to install, what should I do?"</li></ul>|
+|Azure Event Hubs|<ul><li>"@azure My application needs help processing real-time events."</li></ul>|
+|Azure OpenAI|<ul><li>"@azure What is using up my GPT4o model quota?"</li></ul>|
+|SignalR|<ul><li>"@azure My SignalR client is not receiving messages, why?"</li><li>"@azure Why are my SignalR clients being disconnected so often?"</li><li>"@azure Where can I find metrics and logs for my SignalR app?"</li></ul>|
+|Azure Storage|<ul><li>"@azure Can you help me choose the right Azure storage solution?"</li><li>"@azure What are some ways to secure my Azure storage account?"</li><li>"@azure I got an error 403 unathorized blob listing."</li></ul>|
+|Azure Web PubSub|<ul><li>"@azure My web pubsub client is not receiving messages, why?"</li></ul>|
 
 
 ## Next steps

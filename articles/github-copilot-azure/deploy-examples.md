@@ -53,13 +53,13 @@ However, add more detail to get better results. Here are some example prompts th
 
 |Service, technology, or technique|Deploy prompt examples|
 |---|---|
-|Azure Kubernetes Service (AKS)|<ul><li>"@azure Can you help me create a new deployment in my AKS cluster?"</li><li>"@azure What is the command to scale a deployment to 5 replicas?"</li><li>"@azure Can you provide the command to expose a deployment as a service?"</li><li>Test</li></ul>|
-|Azure App Service|[!INCLUDE [deploy-app-service](./includes/deploy-app-service.md)]|
-|Azure Container Apps (ACA)|[!INCLUDE [deploy-aca](./includes/deploy-aca.md)]|
-|Azure Developer CLI (AZD)|[!INCLUDE [deploy-azd](./includes/deploy-azd.md)]|
-|Azure DevOps|[!INCLUDE [deploy-devops](./includes/deploy-devops.md)]|
-|Azure OpenAI|[!INCLUDE [deploy-openai](./includes/deploy-openai.md)]|
-|GitHub Actions|[!INCLUDE [deploy-github](./includes/deploy-github.md)]|
+|Azure Kubernetes Service (AKS)|<ul><li>"@azure Can you help me create a new deployment in my AKS cluster?"</li><li>"@azure What is the command to scale a deployment to 5 replicas?"</li><li>"@azure Can you provide the command to expose a deployment as a service?"</li></ul>|
+|Azure App Service|<ul><li>"@azure How many web app plans using the free tier do I have deployed grouped by region in my \<placeholder\> subscription?"</li><li>"@azure How many web apps do I have deployed in eastus?"</li></ul>|
+|Azure Container Apps (ACA)|<ul><li>"@azure How can I deploy my container app to Azure?"</li></ul>|
+|Azure Developer CLI (AZD)|<ul><li>"@azure Use azd to deploy my project."</li><li>"@azure I want to use AZD to create a deployment pipeline for my application."</li><li>"@azure Initialize my project with the Azure Developer CLI."</li><li>"@azure Please start azd pipeline."</li></ul>|
+|Azure DevOps|<ul><li>"@azure Create a deployment pipeline for this project."</li><li>"@azure I don't want to deploy my app from my local machine, can you setup a remote solution instead?"</li><li>"@azure I need a CI/CD pipeline so I can get my app deployed."</li><li>"@azure I need help setting up a pipeline to deploy my app to Azure."</li><li>"@azure Please help me create an automated deployment pipeline for my app."</li><li>"@azure This project is ready for automated deployment, set that up."</li></ul>|
+|Azure OpenAI|<ul><li>"@azure Create an OpenAI deployment with gpt-3.5-turbo model using Terraform template. Set the version of the model to 0613."</li></ul>|
+|GitHub Actions|<ul><li>"@azure Let's use GitHub to deploy my app to Azure."</li><li>"@azure Set up a GitHub Actions pipeline to deploy my app to Azure."</li></ul>|
 
 ## Example prompts for undeploying your apps
 

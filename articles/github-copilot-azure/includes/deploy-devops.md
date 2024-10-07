@@ -1,6 +1,0 @@
-- "@azure Create a deployment pipeline for this project."
-- "@azure I don't want to deploy my app from my local machine, can you setup a remote solution instead?"
-- "@azure I need a CI/CD pipeline so I can get my app deployed."
-- "@azure I need help setting up a pipeline to deploy my app to Azure."
-- "@azure Please help me create an automated deployment pipeline for my app."
-- "@azure This project is ready for automated deployment, set that up."

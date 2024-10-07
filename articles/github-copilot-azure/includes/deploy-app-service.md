@@ -1,2 +1,0 @@
-- "@azure How many web app plans using the free tier do I have deployed grouped by region in my \<placeholder\> subscription?"
-- "@azure How many web apps do I have deployed in eastus?"

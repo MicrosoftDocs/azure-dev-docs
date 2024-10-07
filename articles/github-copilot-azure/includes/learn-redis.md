@@ -1,1 +1,0 @@
-- "@azure Demonstrate how to configure Azure Redis Cache for high availability and disaster recovery."

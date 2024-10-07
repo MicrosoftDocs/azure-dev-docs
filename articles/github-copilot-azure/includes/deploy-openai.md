@@ -1,1 +1,0 @@
-- "@azure Create an OpenAI deployment with gpt-3.5-turbo model using Terraform template. Set the version of the model to 0613."

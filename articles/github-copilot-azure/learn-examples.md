@@ -75,27 +75,27 @@ Suppose you want to learn about your options or how to utilize Azure for your ap
 
 |Service or technology|Learn prompt examples|
 |---|---|
-|Azure AI Search|[!INCLUDE [learn-ai-search](./includes/learn-ai-search.md)]|
-|Azure API Manager|[!INCLUDE [learn-api-manager](./includes/learn-api-manager.md)]|
-|Azure App Service|[!INCLUDE [learn-app-service](./includes/learn-app-service.md)]|
-|Azure Cache for Redis|[!INCLUDE [learn-redis](./includes/learn-redis.md)]|
-|Azure Container Apps (ACA)|[!INCLUDE [learn-container-apps](./includes/learn-container-apps.md)]|
-|Azure Cosmos DB|[!INCLUDE [learn-cosmos-db](./includes/learn-cosmos-db.md)]|
-|Azure Data Factory|[!INCLUDE [learn-data-factory](./includes/learn-data-factory.md)]|
-|Azure Developer CLI (azd)|[!INCLUDE [learn-azd](./includes/learn-azd.md)]|
-|Azure Functions|[!INCLUDE [learn-functions](./includes/learn-functions.md)]|
-|Azure KeyVault|[!INCLUDE [learn-keyvault](./includes/learn-keyvault.md)]|
-|Azure Kubernetes Service (AKS)|[!INCLUDE [learn-aks](./includes/learn-aks.md)]|
-|Azure Machine Learning|[!INCLUDE [learn-machine-learning](./includes/learn-machine-learning.md)]|
-|Azure Monitor|[!INCLUDE [learn-monitor](./includes/learn-monitor.md)]|
-|Azure Network|[!INCLUDE [learn-network](./includes/learn-network.md)]|
-|Azure OpenAI|[!INCLUDE [learn-openai](./includes/learn-openai.md)]|
-|Azure SDK|[!INCLUDE [learn-azure-sdk](./includes/learn-azure-sdk.md)]|
-|Azure SignalR|[!INCLUDE [learn-signalr](./includes/learn-signalr.md)]|
-|Azure SQL|[!INCLUDE [learn-azure-sql](./includes/learn-azure-sql.md)]|
-|Azure Static Web Apps|[!INCLUDE [learn-static-web-apps](./includes/learn-static-web-apps.md)]|
-|Azure Storage|[!INCLUDE [learn-storage](./includes/learn-storage.md)]|
-|Azure Web PubSub|[!INCLUDE [learn-webpubsub](./includes/learn-webpubsub.md)]|
+|Azure AI Search|<ul><li>"@azure What is Azure AI Search and why use Azure AI Search?"</li><li>"@azure How does pricing work for Azure AI Search?"</li><li>"@azure How is Azure AI Search integrated with Azure OpenAI?"</li><li>"@azure How is Azure AI Search integrated with Azure ML?"</li><li>"@azure When should I use hybrid search, vector search, vs. semantic ranker in Azure AI Search?"</li><li>"@azure Is Azure AI Search a vector database? How does Azure AI Search ensure the accuracy and relevance of vector search results?"</li><li>"@azure What support do you have for high scale multi-tenant applications in Azure AI Search?"</li><li>"@azure What is integrated vectorization feature in Azure AI Search? From which data sources can I extract data and utilize integrated vectorization?"</li><li>"@azure What is Azure AI Search AI enrichment? How does AI enrichment work? What are the benefits of using AI enrichment?"</li><li>"@azure What is semantic ranker in Azure AI Search? How is it different from vector search?"</li><li>"@azure What are top recommended code samples or solution accelerator for Azure AI Search?"</li><li>"@azure What are some real world examples of businesses leveraging Azure AI Search?"</li></ul>|
+|Azure API Manager|<ul><li>"@azure What are the benefits and applications of Azure API Management?"</li></ul>|
+|Azure App Service|<ul><li>"@azure How do I deploy a web app in Azure?"</li><li>"@azure How to create an App Service app and deploy code to a staging environment using CLI?"</li><li>"@azure Create a script to deploy a webapp that will run in python."</li><li>"@azure What database options does Azure have for web apps?"</li><li>"@azure What serverless options does Azure have for web apps?"</li><li>"@azure Create a guide for maximizing Azure App Services."</li></ul>|
+|Azure Cache for Redis|<ul><li>"@azure Demonstrate how to configure Azure Redis Cache for high availability and disaster recovery."</li></ul>|
+|Azure Container Apps (ACA)|<ul><li>"@azure What is Azure's aca service?"</li><li>"@azure Tell me the difference between a container app and a container app environment?"</li></ul>|
+|Azure Cosmos DB|<ul><li>"@azure Why use Azure Cosmos DB instead of Azure SQL?"</li><li>"@azure I want to use CosmosDB to store my data."</li><li>"@azure Why would I use a Cosmos DB account over a SQL database?"</li></ul>|
+|Azure Data Factory|<ul><li>"@azure How do I create data pipelines with Azure Data Factory?"</li></ul>|
+|Azure Developer CLI (azd)|<ul><li>"@azure Do you have example deployment models for Azure? SaaS, PaaS, etc."</li><li>"@azure What is the best infrastructure for my application?"</li><li>"@azure How do I set up my Azure environment?"</li><li>"@azure What are ARM Templates and how do I use them?"</li><li>"@azure How do I manage environments with the Azure Developer CLI?"</li><li>"@azure What is the Azure Developer CLI?"</li><li>"@azure What is the difference between Bicep and ARM?"</li><li>"@azure How do I make sure my environments have the best security patterns?"</li><li>"@azure How do I deploy using my CI/CD pipeline?"</li></ul>|
+|Azure Functions|<ul><li>"@azure How do I create a new Azure Function?"</li><li>"@azure What is the difference between Azure Functions and Azure Logic apps?"</li><li>"@azure Create a guide for integrating Azure Logic Apps with Azure Functions."</li><li>"@azure I want to create an Azure function in NodeJS."</li></ul>|
+|Azure KeyVault|<ul></li>"@azure Explain how and why I should use Azure Key Vaults."</li></ul>|
+|Azure Kubernetes Service (AKS)|<ul><li>"@azure How do I get the status of all nodes in my AKS cluster?"</li><li>"@azure What’s the command to set a context for my AKS cluster?"</li></ul>|
+|Azure Machine Learning|<ul><li>"@azure Generate a PowerShell script to create a new Azure Machine Learning workspace."</li><li>"@azure What is the difference between Azure AI services and Azure Machine Learning?"</li></ul>|
+|Azure Monitor|<ul><li>"@azure Guide for using Azure Logic Apps to automate responses to Azure Monitor alerts."</li></ul>|
+|Azure Network|<ul><li>"@azure How do I balance inbound network traffic to my application?"</li></ul>|
+|Azure OpenAI|<ul><li>"@azure What services does Azure OpenAI provide?"</li><li>"@azure Where is GPT-4o mini available?"</li><li>"@azure What are the prerequisites for integrating Azure OpenAI?"</li><li>"@azure Create a guide for creating and using AzureOpenAI resources."</li><li>"@azure What are the different types of Azure OpenAI models available?"</li></ul>|
+|Azure SDK|<ul><li>"@azure Can I use Azure SDKs in the browser?"</li><li>"@azure Does the C# storage SDK support chunked blob uploads and downloads?"</li></ul>|
+|Azure SignalR|<ul><li>"@azure How to host and scale SignalR on multiple servers?"</li><li>"@azure How to do real-time communication in .NET?"</li><li>"@azure How to push real-time updates to clients?"</li><li>"@azure How to synchronize data across clients?"</li><li>"@azure How to stream data to clients?"</li><li>"@azure How to manage and scale WebSocket connections?"</li><li>"@azure How to host and scale Socket.IO?"</li><li>"@azure What do I need to do to configure my SignalR code to work with Azure SignalR service?"</li><li>"@azure Evaluate my use of SignalR, is it following the best security practices?"</li><li>"@azure How to stress test SignalR?"</li><li>"@azure How to configure networking in Azure SignalR?"</li><li>"@azure How to configure web pubsub event handler?"</li><li>"@azure Evaluate my use of SignalR, is it following the best security practices?"</li></ul>|
+|Azure SQL|<ul><li>"@azure Create a Terraform configuration to deploy an Azure SQL database."</li><li>"@azure Design a strategy for migrating on-premises SQL Server databases to Azure SQL Managed Instance."</li></ul>|
+|Azure Static Web Apps|<ul><li>"@azure Do static web apps support static ip addresses?"</li></ul>|
+|Azure Storage|<ul><li>"@azure why would I use a blob storage?"</li><li>"@azure How to pull data from storage blob in React?"</li><li>"@azure Outline steps to secure Azure Blob Storage with private endpoints and Azure Private Link."</li><li>"@azure Generate Azure CLI script to create a new storage account."</li><li>"@azure Give me the code to create a new storage account with CLI."</li><li>"@azure Can you help me choose the right Azure storage solution?"</li></ul>|
+|Azure Web PubSub|<ul><li>"@azure How to authenticate with Web PubSub?"</li><li>"@azure What do I need to do to host my Socket.IO app on Azure?"</li><li>"@azure How to stress test the Web PubSub?"</li></ul>|
 
 ## Next steps
 
