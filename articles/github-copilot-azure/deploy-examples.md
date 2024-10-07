@@ -1,5 +1,5 @@
 ---
-title: GitHub Copilot for Azure prompt engineering examples for deploying your application
+title: GitHub Copilot for Azure Preview prompt engineering examples for deploying your application
 description: This article provides example prompts that can be used to help deploy your application to the cloud.
 keywords: github, copilot, ai, azure
 ms.service: azure
@@ -9,9 +9,9 @@ ms.custom: overview
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Use GitHub Copilot for Azure to deploy your application
+# Use GitHub Copilot for Azure Preview to deploy your application
 
-If you're unfamiliar with Azure or just want the tooling and AI to do most of the work, asking GitHub Copilot for Azure to help you deploy your application is a great option.
+If you're unfamiliar with Azure or just want the tooling and AI to do most of the work, asking GitHub Copilot for Azure Preview to help you deploy your application is a great option.
 
 When working with any tool based on Large Language Models (LLMs), use good prompt engineering techniques for the best results.
 
@@ -35,7 +35,7 @@ Using Copilots can dramatically increase developer productivity by answering que
 
 ## Example prompts for deploying your apps
 
-Suppose you want to deploy your application and decide to use GitHub Copilot for Azure to help. To begin, you can start with an open ended question. 
+Suppose you want to deploy your application and decide to use GitHub Copilot for Azure Preview to help. To begin, you can start with an open ended question. 
 
 - "@azure Help me deploy my application to Azure."
 - "@azure How can I deploy this app?"
@@ -62,7 +62,7 @@ However, add more detail to get better results. Here are some example prompts th
 
 ## Example prompts for undeploying your apps
 
-Similarly, you can ask GitHub Copilot for Azure with assistance in undeploying since it works in Visual Studio Code and has context about where and how you deployed your application to Azure.
+Similarly, you can ask GitHub Copilot for Azure Preview with assistance in undeploying since it works in Visual Studio Code and has context about where and how you deployed your application to Azure.
 
 Example prompts:
 
@@ -82,9 +82,9 @@ If you used azd to deploy your application, you can ask it to use azd to undeplo
 
 ## Next steps
 
-- [Understand what is GitHub Copilot for Azure and how it works](introduction.md).
-- [Get started](get-started.md) with GitHub Copilot for Azure by satisfying the prerequisites, which include installing the software and writing your first prompt.
-- Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart instructs you to deploy services to Azure, monitor their status, and troubleshoot issues.
+- [Understand what is GitHub Copilot for Azure Preview and how it works](introduction.md).
+- [Get started](get-started.md) with GitHub Copilot for Azure Preview by satisfying the prerequisites, which include installing the software and writing your first prompt.
+- Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure Preview in your software development workflow. The quickstart instructs you to deploy services to Azure, monitor their status, and troubleshoot issues.
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
 - See example prompts for [optimizing your applications in Azure](optimize-examples.md).
 - See example prompts for [troubleshooting your Azure resources](troubleshoot-examples.md).

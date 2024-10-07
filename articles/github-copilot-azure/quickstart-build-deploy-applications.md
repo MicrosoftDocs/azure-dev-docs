@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Build and deploy your application with GitHub Copilot for Azure
-description: This article walks through a scenario that demonstrates how to integrate GitHub Copilot for Azure Visual Studio Code extension into a developer's workflow.
+title: Quickstart - Build and deploy your application with GitHub Copilot for Azure Preview
+description: This article walks through a scenario that demonstrates how to integrate GitHub Copilot for Azure Preview Visual Studio Code extension into a developer's workflow.
 keywords: github, copilot, ai, azure
 ms.service: azure
 ms.topic: overview
@@ -9,9 +9,9 @@ ms.custom: overview
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Quickstart: Build and deploy your application with GitHub Copilot for Azure
+# Quickstart: Build and deploy your application with GitHub Copilot for Azure Preview
 
-This quickstart guides you to use GitHub Copilot for Azure to help you create and deploy a new web site into Azure. It demonstrates one way to integrate GitHub Copilot for Azure into your development and deployment workflow.
+This quickstart guides you to use GitHub Copilot for Azure Preview to help you create and deploy a new web site into Azure. It demonstrates one way to integrate GitHub Copilot for Azure into your development and deployment workflow.
 
 ## Prerequisites
 
@@ -19,10 +19,10 @@ See the [Get started](get-started.md) article for complete setup instructions.
 
 - A GitHub Copilot account
 - The GitHub Copilot extension for Visual Studio Code
-- The GitHub Copilot for Azure extension for Visual Studio Code
+- The GitHub Copilot for Azure Preview extension for Visual Studio Code
 - An Azure subscription (if you don't have one, GitHub Copilot for Azure can help)
 
-## Create and deploy a website using GitHub Copilot for Azure
+## Create and deploy a website using GitHub Copilot for Azure Preview
 
 1. Create a new folder on your local computer where you can `git clone`.
 
@@ -132,8 +132,8 @@ Use `azd down` to remove the website and all resources that were deployed to you
 
 ## Next steps
 
-- [Understand what is GitHub Copilot for Azure and how it works](introduction.md).
-- [Get started](get-started.md) with GitHub Copilot for Azure by satisfying the prerequisites, which include installing the software and writing your first prompt.
+- [Understand what is GitHub Copilot for Azure Preview and how it works](introduction.md).
+- [Get started](get-started.md) with GitHub Copilot for Azure Preview by satisfying the prerequisites, which include installing the software and writing your first prompt.
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
 - See example prompts for [optimizing your applications in Azure](optimize-examples.md).
