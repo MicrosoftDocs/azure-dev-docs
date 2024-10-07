@@ -26,23 +26,23 @@ There are four primary scenarios that are enabled with more planned:
 
 |Category|Explanation|Examples|
 |---|---|---|
-|Learn|Learn about Azure services and tools from latest Microsoft Learn documentation|[!INCLUDE [learn-examples](./includes/learn-examples.md)]|
-|Deploy|Create Azure resources and deploy apps|[!INCLUDE [deploy-examples](./includes/deploy-examples.md)]|
-|Troubleshoot|Diagnose and troubleshoot application and resource issues|[!INCLUDE [troubleshoot-examples](./includes/troubleshoot-examples.md)]|
-|Optimize|Answer questions about resources including locations, settings, and resource health|[!INCLUDE [optimize-examples](./includes/optimize-examples.md)]|
+|Learn|Learn about Azure services and tools from latest Microsoft Learn documentation.|[!INCLUDE [learn-examples](./includes/learn-examples.md)]|
+|Deploy|Create Azure resources and deploy apps.|[!INCLUDE [deploy-examples](./includes/deploy-examples.md)]|
+|Troubleshoot|Diagnose and troubleshoot application and resource issues.|[!INCLUDE [troubleshoot-examples](./includes/troubleshoot-examples.md)]|
+|Optimize|Answer questions about resources including locations, settings, and resource health.|[!INCLUDE [optimize-examples](./includes/optimize-examples.md)]|
 
-The documentation provides a quickstart tutorial and example prompts to help you harness the power of GitHub Copilot for Azure as quickly as possible.
+The documentation provides a quickstart and example prompts to help you harness the power of GitHub Copilot for Azure as quickly as possible.
 
 ## How it works
 
-GitHub Copilot for Azure Preview is built on a foundational Large Language Model like GPT 4o, supplementing its general knowledge with continuously updated knowledge from Microsoft Learn. Furthermore, it's intelligent agents interact with Azure services, systems, and the Azure Resource Graph to carry out specific tasks on your behalf.
+GitHub Copilot for Azure Preview is built on a foundational Large Language Model (LLM) like GPT 4o, supplementing the LLM's general knowledge with continuously updated knowledge from Microsoft Learn. Furthermore, it's intelligent agents interact with Azure services, systems, and the Azure Resource Graph to carry out specific tasks on your behalf.
 
-The chat experience is delivered through the GitHub Copilot Chat extenion. The chat extension can be accessed as a separate window pane in Visual Studio Code via "Chat" icon the primary side bar, docked to the left-hand side of Visual Studio Code. The chat window allows you to create a new chat, provides access to a history of previous chat sessions, the ability to open the chat session in a full editor window, and more.
+The chat experience is delivered through the GitHub Copilot Chat extenion. The chat extension can be accessed as a separate window pane in Visual Studio Code via "Chat" icon the primary side bar on the left-hand side. The chat window allows you to create a new chat, provides access to a history of previous chat sessions, the ability to open the chat session in a full editor window, and more.
 
 
 ## Next steps
 
-- [Get started](get-started.md) with GitHub Copilot for Azure Preview by satisfying the prerequisites, which include installing the software and writing your first prompt.
+- [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.
 - Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure Preview in your software development workflow. The quickstart instructs you to deploy services to Azure, monitor their status, and troubleshoot issues.
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
 - See example prompts for [deploying your application to Azure](deploy-examples.md).

@@ -24,7 +24,7 @@ See the [Get started](get-started.md) article for complete setup instructions.
 
 ## Create and deploy a website using GitHub Copilot for Azure Preview
 
-1. Create a new folder on your local computer where you can `git clone`.
+1. Create a new folder on your local computer where you can create a local clone of a GitHub repository.
 
 2. Open Visual Studio Code. Open the Terminal window. Navigate to the new folder in Terminal. 
 
@@ -36,11 +36,14 @@ See the [Get started](get-started.md) article for complete setup instructions.
 
 5. In the chat text box, enter the following prompt after `@azure` then select Send (paper airplane icon) or select Enter on your keyboard.
 
-```prompt
-Could you help me create and deploy a simple Flask website using Python?
-```
+  ```prompt
+  Could you help me create and deploy a simple Flask website using Python?
+  ```
 
-After a moment, GitHub Copilot for Azure will likely suggest an azd template to use. The exact wording of the response is different each time it answers due to how Large Language Models generate responses.
+After a moment, GitHub Copilot for Azure will likely suggest an azd template to use. 
+
+  >[!IMPORTANT]
+  > The exact wording of the response is different each time it answers due to how Large Language Models generate responses.
 
 You might see a response like:
 
@@ -60,20 +63,20 @@ Select `Insert into Terminal` to insert the command into the Terminal.
 
 Use the following prompt:
 
-```prompt
-@azure Before I execute azd init, what does it do?
-```
+  ```prompt
+  @azure Before I execute azd init, what does it do?
+  ```
+
 You might see a response that resembles the following screenshot.
 
   :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-azd-init.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an explanation of what azd init does.":::
 
-
-
 8. Use the following prompt to learn more about the azd template:
 
-```prompt
-@azure What resources are created with this template?
-```
+  ```prompt
+  @azure What resources are created with this template?
+  ```
+
 You might see a response that resembles the following screenshot.
 
   :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-resources.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an explanation of the resources created by the suggested azd template.":::
@@ -81,27 +84,27 @@ You might see a response that resembles the following screenshot.
 
 9. Ask questions about the services used by the template with a prompt like:
 
-```prompt
-@azure What is the purpose of a VNet?
-```
+  ```prompt
+  @azure What is the purpose of a VNet?
+  ```
+
 You might see a response that resembles the following screenshot.
 
   :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-vnet.png" alt-text="Screenshot displaying a response from GitHub Copilot from azure with an explanation of what is a VNet.":::
 
 10. When you're satisfied, execute the `azd init` command in the Terminal. Answer its prompts. If you're unsure what to answer for a given prompt, ask GitHub Copilot for Azure for help.
 
-
 11. Once the new project is initialized, use `azd up` to deploy the application to your subscription. In the Terminal prompt execute per the instructions in the original prompt's reply:
 
-```cmd
-azd up
-```
+  ```cmd
+  azd up
+  ```
 
 12. `azd up` asks for information about your subscription, where to deploy the resources, and more. If you're uncertain how to answer, you can ask GitHub Copilot for Azure how to  For example, you might ask:
 
-```prompt
-@azure azd up is asking me what location I want to deploy the website into. How should I respond?
-```
+  ```prompt
+  @azure azd up is asking me what location I want to deploy the website into. How should I respond?
+  ```
 
 You might see a response that resembles the following screenshot.
 
@@ -118,11 +121,11 @@ Depending on the azd template you're deploying and the location you selected, it
 
 ### Cleaning up resources
 
-16. You can ask GitHub Copilot for Azure how to remove all of the resources you created in the previous steps.
+You can ask GitHub Copilot for Azure how to remove all of the resources you created in the previous steps.
 
-```prompt
-@azure How do I undeploy this web site?
-```
+  ```prompt
+  @azure How do I undeploy this web site?
+  ```
 
 You might see a response that resembles the following screenshot.
 
@@ -133,7 +136,7 @@ Use `azd down` to remove the website and all resources that were deployed to you
 ## Next steps
 
 - [Understand what is GitHub Copilot for Azure Preview and how it works](introduction.md).
-- [Get started](get-started.md) with GitHub Copilot for Azure Preview by satisfying the prerequisites, which include installing the software and writing your first prompt.
+- [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
 - See example prompts for [optimizing your applications in Azure](optimize-examples.md).

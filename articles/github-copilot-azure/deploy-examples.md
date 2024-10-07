@@ -32,6 +32,7 @@ Using Copilots can dramatically increase developer productivity by answering que
 
 - Review all AI generated responses and validate their correctness, applicability, potential outcomes (such as costs, security, etc.) before taking action based on those responses.
 - Never save application secrets and credentials in source code.
+- Never submit application secrets and/or credentials in questions or code when you ask Copilot questions.
 
 ## Example prompts for deploying your apps
 
@@ -83,7 +84,7 @@ If you used azd to deploy your application, you can ask it to use azd to undeplo
 ## Next steps
 
 - [Understand what is GitHub Copilot for Azure Preview and how it works](introduction.md).
-- [Get started](get-started.md) with GitHub Copilot for Azure Preview by satisfying the prerequisites, which include installing the software and writing your first prompt.
+- [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.
 - Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure Preview in your software development workflow. The quickstart instructs you to deploy services to Azure, monitor their status, and troubleshoot issues.
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
 - See example prompts for [optimizing your applications in Azure](optimize-examples.md).

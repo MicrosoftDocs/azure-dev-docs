@@ -32,10 +32,11 @@ Using Copilots can dramatically increase developer productivity by answering que
 
 - Review all AI generated responses and validate their correctness, applicability, potential outcomes (such as costs, security, etc.) before taking action based on those responses.
 - Never save application secrets and credentials in source code.
+- Never submit application secrets and/or credentials in questions or code when you ask Copilot questions.
 
 ## Example prompts to learn about Azure
 
-Suppose you want to learn about your options or how to utilize Azure for your application and decide to use GitHub Copilot for Azure Preview to help. To begin, you can start with an open ended question and then adding details like specific services and technologies. The following example prompts you can try to help you learn how to use Azure in your apps.
+Suppose you want to learn about your options or how to utilize Azure for your application and decide to use GitHub Copilot for Azure Preview to help. To begin, you can start with an open ended question and then add details like specific services and technologies. The following example prompts you can try to help you learn how to use Azure in your apps.
 
 ### Learn about system architecture on Azure
 
@@ -99,7 +100,7 @@ Suppose you want to learn about your options or how to utilize Azure for your ap
 ## Next steps
 
 - [Understand what is GitHub Copilot for Azure Preview and how it works](introduction.md).
-- [Get started](get-started.md) with GitHub Copilot for Azure Preview by satisfying the prerequisites, which include installing the software and writing your first prompt.
+- [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.
 - Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure Preview in your software development workflow. The quickstart instructs you to deploy services to Azure, monitor their status, and troubleshoot issues.
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
 - See example prompts for [optimizing your applications in Azure](optimize-examples.md).

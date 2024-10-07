@@ -32,11 +32,12 @@ Using Copilots can dramatically increase developer productivity by answering que
 
 - Review all AI generated responses and validate their correctness, applicability, potential outcomes (such as costs, security, etc.) before taking action based on those responses.
 - Never save application secrets and credentials in source code.
+- Never submit application secrets and/or credentials in questions or code when you ask Copilot questions.
 
 
 ## Example prompts for troubleshooting your apps
 
-Suppose you want to troubleshoot your application and decide to use GitHub Copilot for Azure Preview to help. To begin, you can start with an open ended question and then adding details like specific timeframes, specific errors, or specific services and technologies. 
+Suppose you want to troubleshoot your application and decide to use GitHub Copilot for Azure Preview to help. To begin, you can start with an open ended question and then add details like specific timeframes, specific errors, or specific services and technologies. 
 
 ### Asking open-ended questions
 
@@ -87,7 +88,7 @@ Suppose you want to troubleshoot your application and decide to use GitHub Copil
 ## Next steps
 
 - [Understand what is GitHub Copilot for Azure Preview and how it works](introduction.md).
-- [Get started](get-started.md) with GitHub Copilot for Azure Preview by satisfying the prerequisites, which include installing the software and writing your first prompt.
+- [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.
 - Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure Preview in your software development workflow. The quickstart instructs you to deploy services to Azure, monitor their status, and troubleshoot issues.
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
