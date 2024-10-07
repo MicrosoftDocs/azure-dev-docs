@@ -8,7 +8,9 @@ ms.custom: devx-track-terraform
 # Customer intent: I want to view the AzureRM provider version history for versions 2.0.0 - 2.99.0
 ---
 
-### 2.99.0 (March 11, 2022)
+# Versions 2.0.0 - 2.99.0
+
+## 2.99.0 (March 11, 2022)
 
 NOTES
 
@@ -66,7 +68,7 @@ BUG FIXES:
 * `azurerm_storage_data_lake_gen2_filesystem` - support configuring the `group` and `owner` properties ([#15598](https://github.com/hashicorp/terraform-provider-azurerm/issues/15598))
 * `azurerm_virtual_network_gateway` - prevent a panic with `bgp_settings.0.peering_address` ([#15689](https://github.com/hashicorp/terraform-provider-azurerm/issues/15689))
 
-### 2.98.0 (February 25, 2022)
+## 2.98.0 (February 25, 2022)
 
 FEATURES:
 
@@ -86,7 +88,7 @@ BUG FIXES:
 * `azurerm_cosmosdb_mongo_collection` - can now set the `autoscale_settings` property without setting a `shard_key` when creating an Azure Cosmos DB MongoDB collection ([#15529](https://github.com/hashicorp/terraform-provider-azurerm/issues/15529))
 * `azurerm_firewall_policy` - will not wait for resource to finish provisioning after creation ([#15561](https://github.com/hashicorp/terraform-provider-azurerm/issues/15561))
 
-### 2.97.0 (February 18, 2022)
+## 2.97.0 (February 18, 2022)
 
 UPGRADE NOTES:
 
@@ -132,7 +134,7 @@ BUG FIXES:
 * `azurerm_virtual_machine_data_disk_attachment` - fixing a panic when an incorrect `disk_id` is provided ([#15470](https://github.com/hashicorp/terraform-provider-azurerm/issues/15470))
 * `azurerm_web_application_firewall_policy` - `disabled_rules` is now optional ([#15386](https://github.com/hashicorp/terraform-provider-azurerm/issues/15386))
 
-### 2.96.0 (February 11, 2022)
+## 2.96.0 (February 11, 2022)
 
 FEATURES: 
 
@@ -170,7 +172,7 @@ BUG FIXES:
 * `azurerm_orchestrated_virtual_machine_scale_set` - fixing a crash when the `computer_name_prefix` wasn't specified ([#15312](https://github.com/hashicorp/terraform-provider-azurerm/issues/15312))
 * `azurerm_recovery_services_vault` - fixing an issue where the subscription couldn't be found when running in Azure Government ([#15316](https://github.com/hashicorp/terraform-provider-azurerm/issues/15316))
 
-### 2.95.0 (February 04, 2022)
+## 2.95.0 (February 04, 2022)
 
 FEATURES: 
 
@@ -209,7 +211,7 @@ BUG FIXES:
 * `azurerm_static_site` - fixing the creation of a Free tier Static Site ([#15141](https://github.com/hashicorp/terraform-provider-azurerm/issues/15141))
 * `azurerm_storage_share` - fixing the `ShareBeingDeleted` error when the Storage Share is recreated ([#15180](https://github.com/hashicorp/terraform-provider-azurerm/issues/15180))
 * 
-### 2.94.0 (January 28, 2022)
+## 2.94.0 (January 28, 2022)
 
 UPGRADE NOTES:
 
@@ -246,13 +248,13 @@ BUG FIXES:
 * `azurerm_template_deployment` - fixes a potential bug occuring during the deletion of a template deployment ([#15085](https://github.com/hashicorp/terraform-provider-azurerm/issues/15085))
 * `azurerm_eventhub` - the `partition_count` property can now be changed when using Premium `sku` ([#15088](https://github.com/hashicorp/terraform-provider-azurerm/issues/15088))
 
-### 2.93.1 (January 24, 2022)
+## 2.93.1 (January 24, 2022)
 
 BUG FIXES:
 
 * `azurerm_app_service` - fix name availability check request ([#15062](https://github.com/hashicorp/terraform-provider-azurerm/issues/15062))
 
-### 2.93.0 (January 21, 2022)
+## 2.93.0 (January 21, 2022)
 
 FEATURES:
 
@@ -278,7 +280,7 @@ BUG FIXES:
 * `azurerm_linux_function_app` - (beta) fix potential panic in `application_stack` when that block is not in config ([#14844](https://github.com/hashicorp/terraform-provider-azurerm/issues/14844))
 * `azurerm_storage_share_file` changing the `content_md5` property will now trigger recreation and the `content_length` property of share file will now be set when updating properties. ([#15007](https://github.com/hashicorp/terraform-provider-azurerm/issues/15007))
 
-### 2.92.0 (January 14, 2022)
+## 2.92.0 (January 14, 2022)
 
 FEATURES:
 
@@ -312,7 +314,7 @@ BUG FIXES:
 * `azurerm_iothub_dps` - fixed default value of `allocation_weight` to match azure default ([#14943](https://github.com/hashicorp/terraform-provider-azurerm/issues/14943))
 * `azurerm_iothub` - now exports `event_hub_events_namespace` and has a fallback route by default ([#14942](https://github.com/hashicorp/terraform-provider-azurerm/issues/14942))
 
-### 2.91.0 (January 07, 2022)
+## 2.91.0 (January 07, 2022)
 
 FEATURES:
 
@@ -370,7 +372,7 @@ BUG FIXES:
 * `azurerm_network_interface_security_group_association` - checking the ID matches the expected format during import ([#14753](https://github.com/hashicorp/terraform-provider-azurerm/issues/14753))
 * `azurerm_storage_management_policy` - handle the unexpected deletion of the storage account ([#14799](https://github.com/hashicorp/terraform-provider-azurerm/issues/14799))
 
-### 2.90.0 (December 17, 2021)
+## 2.90.0 (December 17, 2021)
 
 FEATURES:
 
@@ -412,7 +414,7 @@ BUG FIXES:
 * `azurerm_postgresql_configuration` - now locks during write operations to prevent conflicts ([#14619](https://github.com/hashicorp/terraform-provider-azurerm/issues/14619))
 * `azurerm_postgresql_flexible_server_configuration` - now locks during write operations to prevent conflicts ([#14607](https://github.com/hashicorp/terraform-provider-azurerm/issues/14607))
 
-### 2.89.0 (December 10, 2021)
+## 2.89.0 (December 10, 2021)
 
 FEATURES:
 
@@ -459,7 +461,7 @@ A number of properties in the App Service Beta resources have been renamed for c
 * `client_cert_enabled` renamed to `client_certificate_enabled`
 * `client_cert_mode` renamed to `client_certificate_mode`
 
-### 2.88.1 (December 03, 2021)
+## 2.88.1 (December 03, 2021)
 
 BUG FIXES
 
@@ -479,7 +481,7 @@ BUG FIXES
 * `azurerm_kusto_cluster` - fixing a bug where the Managed Identity ID's weren't parsed correctly ([#14469](https://github.com/hashicorp/terraform-provider-azurerm/issues/14469))
 * `azurerm_mssql_server` - fixing a bug where the Managed Identity ID's weren't parsed correctly ([#14469](https://github.com/hashicorp/terraform-provider-azurerm/issues/14469))
 
-### 2.88.0 (December 02, 2021)
+## 2.88.0 (December 02, 2021)
 
 FEATURES:
 
@@ -508,7 +510,7 @@ BUG FIXES:
 * `azurerm_kubernetes_cluster_nodepool` reverting the computed behaviour of `node_taints` and `eviction_policy` ([#14378](https://github.com/hashicorp/terraform-provider-azurerm/issues/14378))
 * `azurerm_storage_account` - populating the account cache on creation, which fixes an issue when the storage account occasionally couldn't be found ([#14361](https://github.com/hashicorp/terraform-provider-azurerm/issues/14361))
 
-### 2.87.0 (November 26, 2021)
+## 2.87.0 (November 26, 2021)
 
 FEATURES:
 
@@ -547,7 +549,7 @@ BUG FIXES:
 * `azurerm_synapse_workspace` - fix a crash during updates when `sql_aad_admin` was configured ([#14275](https://github.com/hashicorp/terraform-provider-azurerm/issues/14275))
 * `azurerm_linux_virtual_machine` - the `patch_mode` property is now properly supported [GH0-14042]
 
-### 2.86.0 (November 19, 2021)
+## 2.86.0 (November 19, 2021)
 
 FEATURES:
 
@@ -611,7 +613,7 @@ BUG FIXES:
 * `azurerm_network_watcher_flow_log` - now locks on the network security group to prevent `AnotherOperationInProgress` errors ([#14160](https://github.com/hashicorp/terraform-provider-azurerm/issues/14160))
 * `azurerm_windows_virtual_machine_scale_set` - `source_image_reference.offer` and `source_image_reference.publisher` are now ForceNew ([#14165](https://github.com/hashicorp/terraform-provider-azurerm/issues/14165))
 
-### 2.85.0 (November 12, 2021)
+## 2.85.0 (November 12, 2021)
 
 FEATURES:
 
@@ -645,7 +647,7 @@ BUG FIXES:
 * `azurerm_redis_cache` - ensuring that `shard_count` always has a value set ([#14108](https://github.com/hashicorp/terraform-provider-azurerm/issues/14108))
 * `azurerm_storage_blob` - ensuring that `cache_control` is sent during updates ([#14100](https://github.com/hashicorp/terraform-provider-azurerm/issues/14100))
 
-### 2.84.0 (November 05, 2021)
+## 2.84.0 (November 05, 2021)
 
 FEATURES:
 
@@ -686,7 +688,7 @@ BUG FIXES:
 * `azurerm_purview_account` - deprecate the `sku_name` property ([#13897](https://github.com/hashicorp/terraform-provider-azurerm/issues/13897))
 * `azurerm_synapse_workspace_key` - deprecated the `cusomter_managed_key_name` property in favour of the correctly spelled `customer_managed_key_name` one ([#13881](https://github.com/hashicorp/terraform-provider-azurerm/issues/13881))
 
-### 2.83.0 (October 29, 2021)
+## 2.83.0 (October 29, 2021)
 
 FEATURES:
 
@@ -730,7 +732,7 @@ BUG FIXES:
 * `azurerm_firewall_policy` - will now correctly import ([#13862](https://github.com/hashicorp/terraform-provider-azurerm/issues/13862))
 * `azurerm_firewall_policy` - changing the identity will no longer create a new resource ([#13904](https://github.com/hashicorp/terraform-provider-azurerm/issues/13904))
 
-### 2.82.0 (October 21, 2021)
+## 2.82.0 (October 21, 2021)
 
 FEATURES: 
 
@@ -769,7 +771,7 @@ BUG FIXES:
 * `azurerm_postgresql_flexible_server` - changing the `standby_availability_zone` no longer forces a new resource ([#13507](https://github.com/hashicorp/terraform-provider-azurerm/issues/13507))
 * `azurerm_servicebus_subscription` - the `name` field can now start & end with an underscore ([#13797](https://github.com/hashicorp/terraform-provider-azurerm/issues/13797))
 
-### 2.81.0 (October 14, 2021)
+## 2.81.0 (October 14, 2021)
 
 FEATURES: 
 
@@ -801,7 +803,7 @@ BUG FIXES:
 * `azurerm_subnet_resource` - will now lock the virtual network and subnet on updates ([#13726](https://github.com/hashicorp/terraform-provider-azurerm/issues/13726))
 * `azurerm_app_configuration_key` - can now mix labeled and unlabeled keys ([#13736](https://github.com/hashicorp/terraform-provider-azurerm/issues/13736))
  
-### 2.80.0 (October 08, 2021)
+## 2.80.0 (October 08, 2021)
 
 FEATURES: 
 
@@ -822,13 +824,13 @@ BUG FIXES:
 * `azurerm_function_app` - fix regressions in function app storage introduced in v2.77 ([#13580](https://github.com/hashicorp/terraform-provider-azurerm/issues/13580))
 * `azurerm_managed_application` - fixed typecasting bug ([#13641](https://github.com/hashicorp/terraform-provider-azurerm/issues/13641))
 
-### 2.79.1 (October 01, 2021)
+## 2.79.1 (October 01, 2021)
 
 BUG FIXES:
 
 * `azurerm_managed_disk` - the `max_shares` propety is now `Computed` to account for managed disks that are already managed by Terraform ([#13587](https://github.com/hashicorp/terraform-provider-azurerm/issues/13587))
 
-### 2.79.0 (October 01, 2021)
+## 2.79.0 (October 01, 2021)
 
 FEATURES:
 
@@ -855,7 +857,7 @@ BUG FIXES:
 * `azurerm_windows_virtual_machine_scale_set` - will not correctly ignore the `protected_setting` block withing the `extension` block ([#13440](https://github.com/hashicorp/terraform-provider-azurerm/issues/13440))
 * `azurerm_app_configuration_key` - correctly set the `etag` property ([#13534](https://github.com/hashicorp/terraform-provider-azurerm/issues/13534))
 
-### 2.78.0 (September 23, 2021)
+## 2.78.0 (September 23, 2021)
 
 UPGRADE NOTES
 
@@ -893,7 +895,7 @@ BUG FIXES:
 * `azurerm_kubernetes_cluster` - changing the `private_cluster_public_fqdn_enabled` no longer created a new resource ([#13413](https://github.com/hashicorp/terraform-provider-azurerm/issues/13413))
 * `azurerm_app_configuration_key` - fix nil pointer for removed key ([#13483](https://github.com/hashicorp/terraform-provider-azurerm/issues/13483))
 
-### 2.77.0 (September 17, 2021)
+## 2.77.0 (September 17, 2021)
 
 FEATURES:
 
@@ -930,7 +932,7 @@ BUG FIXES:
 * `azurerm_lb` - support for adding or replacing a `frontend_ip_configuration` with an `availability_zone` ([#13305](https://github.com/hashicorp/terraform-provider-azurerm/issues/13305))
 * `azurerm_virtual_hub_connection` - fixing race condition in the creation of virtual network resources ([#13294](https://github.com/hashicorp/terraform-provider-azurerm/issues/13294))
 
-### 2.76.0 (September 10, 2021)
+## 2.76.0 (September 10, 2021)
 
 NOTES
 * Opt-In Beta: Version 2.76 of the Azure Provider introduces an opt-in Beta for some of the new functionality coming in 3.0 - more information can be found [in the 3.0 Notes](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/website/docs/guides/3.0-upgrade-guide.html.markdown) and [3.0 Upgrade Guide](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/website/docs/guides/3.0-upgrade-guide.html.markdown) ([#12132](https://github.com/hashicorp/terraform-provider-azurerm/issues/12132))
@@ -972,7 +974,7 @@ BUG FIXES:
 * `azurerm_app_configuration_key` - fix KV import with no label ([#13253](https://github.com/hashicorp/terraform-provider-azurerm/issues/13253))
 * `azurerm_synapse_sql_pool` - properly support UTF-8 characters for the `name` property ([#13289](https://github.com/hashicorp/terraform-provider-azurerm/issues/13289))
 
-### 2.75.0 (September 02, 2021)
+## 2.75.0 (September 02, 2021)
 
 FEATURES:
 
@@ -1000,7 +1002,7 @@ ENHANCEMENTS:
 * `azurerm_storage_account` - handle nil values for AllowBlobPublicAccess ([#12689](https://github.com/hashicorp/terraform-provider-azurerm/issues/12689))
 * `azurerm_synapse_spark_pool` - add support spark for `3.1` ([#13181](https://github.com/hashicorp/terraform-provider-azurerm/issues/13181))
 
-### 2.74.0 (August 27, 2021)
+## 2.74.0 (August 27, 2021)
 
 FEATURES:
 
@@ -1041,7 +1043,7 @@ BUG FIXES:
 * `azurerm_postgresql_flexible_server_database` the `charset` and `collation` properties are now optional ([#13110](https://github.com/hashicorp/terraform-provider-azurerm/issues/13110))
 * `azurerm_spring_cloud_app` - Fix crash when identity is not present ([#13125](https://github.com/hashicorp/terraform-provider-azurerm/issues/13125))
 
-### 2.73.0 (August 20, 2021)
+## 2.73.0 (August 20, 2021)
 
 FEATURES:
 
@@ -1094,7 +1096,7 @@ BUG FIXES:
 
 
 
-### 2.72.0 (August 12, 2021)
+## 2.72.0 (August 12, 2021)
 
 UPGRADE NOTES
 
@@ -1170,7 +1172,7 @@ BUG FIXES:
 * `azurerm_vpn_gateway_connection` - removing an unnecessary check during deletion ([#12879](https://github.com/hashicorp/terraform-provider-azurerm/issues/12879))
 * `azurerm_web_application_firewall_policy` - removing an unnecessary check during deletion ([#12879](https://github.com/hashicorp/terraform-provider-azurerm/issues/12879))
 
-### 2.71.0 (August 06, 2021)
+## 2.71.0 (August 06, 2021)
 
 FEATURES:
 
@@ -1226,7 +1228,7 @@ BUG FIXES:
 * `azurerm_subscription_template_deployment` - fixing deletion of nested items when using non-top level items ([#12421](https://github.com/hashicorp/terraform-provider-azurerm/issues/12421))
 * `azurerm_virtual_machine_extension` - changing the `publisher` property now creates a new resource ([#12790](https://github.com/hashicorp/terraform-provider-azurerm/issues/12790))
 
-### 2.70.0 (July 30, 2021)
+## 2.70.0 (July 30, 2021)
 
 FEATURES:
 
@@ -1262,7 +1264,7 @@ BUG FIXES:
 * `azurerm_cdn_endpoint` - fixing a crash when the future is nil ([#12743](https://github.com/hashicorp/terraform-provider-azurerm/issues/12743))
 * `azurerm_private_endpoint` - working around a casing issue in `private_connection_resource_id` for MariaDB, MySQL and PostgreSQL resources ([#12761](https://github.com/hashicorp/terraform-provider-azurerm/issues/12761))
 * 
-### 2.69.0 (July 23, 2021)
+## 2.69.0 (July 23, 2021)
 
 FEATURES:
 
@@ -1301,7 +1303,7 @@ BUG FIXES:
 * `azurerm_machine_learning_compute_cluster` - fix a crash when creating a cluster without specifying `subnet_resource_id` ([#12658](https://github.com/hashicorp/terraform-provider-azurerm/issues/12658))
 * `azurerm_storage_account` - fixed account_replication_type validation ([#12645](https://github.com/hashicorp/terraform-provider-azurerm/issues/12645))
 
-### 2.68.0 (July 16, 2021)
+## 2.68.0 (July 16, 2021)
 
 FEATURES:
 
@@ -1341,7 +1343,7 @@ BUG FIXES:
 * `azurerm_mssql_database` - don't allow license_type to be set for serverless SQL databases ([#12555](https://github.com/hashicorp/terraform-provider-azurerm/issues/12555))
 * `azurerm_subnet_network_security_group_association` - prevent potential deadlocks when using multiple association resources ([#12267](https://github.com/hashicorp/terraform-provider-azurerm/issues/12267))
 
-### 2.67.0 (July 09, 2021)
+## 2.67.0 (July 09, 2021)
 
 FEATURES:
 
@@ -1374,7 +1376,7 @@ DEPRECATIONS:
 * `azurerm_postgresql_flexible_server` - the `cmk_enabled` property has been deprecated as it has been removed from the API ([#12405](https://github.com/hashicorp/terraform-provider-azurerm/issues/12405))
 * `azurerm_virtual_machine_configuration_policy_assignment` - has been deprecated and renamed to `azurerm_policy_virtual_machine_configuration_assignment` ([#12497](https://github.com/hashicorp/terraform-provider-azurerm/issues/12497))
 
-### 2.66.0 (July 02, 2021)
+## 2.66.0 (July 02, 2021)
 
 FEATURES:
 
@@ -1413,7 +1415,7 @@ BUG FIXES:
 * **Data Source** `azurerm_app_service_environment_v3` - fix id processing for Read ([#12436](https://github.com/hashicorp/terraform-provider-azurerm/issues/12436))
 
 
-### 2.65.0 (June 25, 2021)
+## 2.65.0 (June 25, 2021)
 
 FEATURES:
 
@@ -1438,7 +1440,7 @@ BUG FIXES:
 
 * `azurerm_data_factory` - fix a bug where the `name` property was stored with the wrong casing ([#12128](https://github.com/hashicorp/terraform-provider-azurerm/issues/12128))
 
-### 2.64.0 (June 18, 2021)
+## 2.64.0 (June 18, 2021)
 
 FEATURES:
 
@@ -1474,7 +1476,7 @@ BUG FIXES:
 * `azurerm_synapse_role_assignment` - support new roles and scopes ([#11690](https://github.com/hashicorp/terraform-provider-azurerm/issues/11690))
 * `azurerm_lb` - fix zone behaviour bug introduced in recent API upgrade ([#12208](https://github.com/hashicorp/terraform-provider-azurerm/issues/12208))
 
-### 2.63.0 (June 11, 2021)
+## 2.63.0 (June 11, 2021)
 
 FEATURES:
 
@@ -1509,14 +1511,14 @@ BUG FIXES:
 * `azurerm_subscription` - fix ability to specify `DevTest` as `workload` ([#12066](https://github.com/hashicorp/terraform-provider-azurerm/issues/12066))
 * `azurerm_sentinel_alert_rule_scheduled` - the query frequency duration can noe be up to 14 days ([#12164](https://github.com/hashicorp/terraform-provider-azurerm/issues/12164))
 
-### 2.62.1 (June 08, 2021)
+## 2.62.1 (June 08, 2021)
 
 BUG FIXES:
 
 * `azurerm_role_assignment` - use the correct ID when assigning roles to resources ([#12076](https://github.com/hashicorp/terraform-provider-azurerm/issues/12076))
 
 
-### 2.62.0 (June 04, 2021)
+## 2.62.0 (June 04, 2021)
 
 FEATURES:
 
@@ -1543,7 +1545,7 @@ BUG FIXES:
 * `azuerrm_postgres_server` - do no update `password` unless its changed ([#12008](https://github.com/hashicorp/terraform-provider-azurerm/issues/12008))
 * `azuerrm_storage_acount` - prevent `containerDeleteRetentionPolicy` and `lastAccessTimeTrackingPolicy` not supported in `AzureUSGovernment` errors ([#11960](https://github.com/hashicorp/terraform-provider-azurerm/issues/11960))
 
-### 2.61.0 (May 27, 2021)
+## 2.61.0 (May 27, 2021)
 
 FEATURES:
 
@@ -1573,7 +1575,7 @@ BUG FIXES:
 * `azurerm_storage_share`: Fix ID for `resource_manager_id` ([#11828](https://github.com/hashicorp/terraform-provider-azurerm/issues/11828))
 * `azurerm_windows_virtual_machine_scale_set`: changing the `disable_automatic_rollback` and `enable_automatic_os_upgrade` properties no longer created a new resource ([#11723](https://github.com/hashicorp/terraform-provider-azurerm/issues/11723))
 
-### 2.60.0 (May 20, 2021)
+## 2.60.0 (May 20, 2021)
 
 FEATURES:
 
@@ -1605,7 +1607,7 @@ BUG FIXES:
 * `azurerm_windows_virtual_machine_scale_set` - the `extension` blocks are now a set ([#11425](https://github.com/hashicorp/terraform-provider-azurerm/issues/11425))
 * `azurerm_windows_virtual_machine_scale_set` - changing the `license_type` will no longer create a new resource ([#11731](https://github.com/hashicorp/terraform-provider-azurerm/issues/11731))
 
-### 2.59.0 (May 14, 2021)
+## 2.59.0 (May 14, 2021)
 
 FEATURES:
 
@@ -1640,7 +1642,7 @@ BUG FIXES
 * `azurerm_mssql_database` - wil now correctly import the `creation_source_database_id` property for Secondary databases ([#11703](https://github.com/hashicorp/terraform-provider-azurerm/issues/11703))
 * `azurerm_storage_account` - allow empty/blank values for the `allowed_headers` and `exposed_headers` properties ([#11692](https://github.com/hashicorp/terraform-provider-azurerm/issues/11692))
 
-### 2.58.0 (May 07, 2021)
+## 2.58.0 (May 07, 2021)
 
 UPGRADE NOTES
 
@@ -1668,7 +1670,7 @@ ENHANCEMENTS:
 * `azurerm_network_security_rule` - support for the protocols `Ah` and `Esp` ([#11581](https://github.com/hashicorp/terraform-provider-azurerm/issues/11581))
 * `azurerm_network_connection_monitor` - support for the `coverage_level`, `excluded_ip_addresses`, `included_ip_addresses`, `target_resource_id`, and `resource_type` propeties ([#11540](https://github.com/hashicorp/terraform-provider-azurerm/issues/11540))
 
-### 2.57.0 (April 30, 2021)
+## 2.57.0 (April 30, 2021)
 
 UPGRADE NOTES
 
@@ -1762,7 +1764,7 @@ BUG FIXES:
 * `azurerm_postgresql_server` - can now correctly disable replication if required when `create_mode` is changed ([#11467](https://github.com/hashicorp/terraform-provider-azurerm/issues/11467))
 * `azurerm_virtual_network_gatewa` - updating the `custom_route` block no longer forces a new resource to be created [GH- 11433]
 
-### 2.56.0 (April 15, 2021)
+## 2.56.0 (April 15, 2021)
 
 FEATURES:
 
@@ -1791,7 +1793,7 @@ BUG FIXES:
 
 * `azurerm_app_service_slot` - fix crash bug when given empty `http_logs` ([#11267](https://github.com/hashicorp/terraform-provider-azurerm/issues/11267))
 
-### 2.55.0 (April 08, 2021)
+## 2.55.0 (April 08, 2021)
 
 FEATURES:
 
@@ -1821,7 +1823,7 @@ BUG FIXES:
 * `azurerm_media_service_account` - `storage_authentication_type` correctly accepts both `ManagedIdentity` and `System` ([#11222](https://github.com/hashicorp/terraform-provider-azurerm/issues/11222))
 * `azurerm_web_application_firewall_policy` - `http_listener_ids` and `path_based_rule_ids` are now Computed only ([#11196](https://github.com/hashicorp/terraform-provider-azurerm/issues/11196))
 
-### 2.54.0 (April 02, 2021)
+## 2.54.0 (April 02, 2021)
 
 FEATURES:
 
@@ -1854,7 +1856,7 @@ BUG FIXES:
 * `azurerm_spring_cloud_custom_domain` - `thumbprint` is required when specifying `certificate_name` ([#11145](https://github.com/hashicorp/terraform-provider-azurerm/issues/11145))
 * `azurerm_subscription` - fixes broken timeout on destroy ([#11124](https://github.com/hashicorp/terraform-provider-azurerm/issues/11124))
 
-### 2.53.0 (March 26, 2021)
+## 2.53.0 (March 26, 2021)
 
 FEATURES:
 
@@ -1882,7 +1884,7 @@ BUG FIXES:
 * `azurerm_subscription_template_deployment` - always sending `parameters_content` during an update ([#11001](https://github.com/hashicorp/terraform-provider-azurerm/issues/11001))
 * `azurerm_spring_cloud_app` - supports for the `tls_enabled` property ([#11064](https://github.com/hashicorp/terraform-provider-azurerm/issues/11064))
 
-### 2.52.0 (March 18, 2021)
+## 2.52.0 (March 18, 2021)
 
 FEATURES:
 
@@ -1901,7 +1903,7 @@ BUG FIXES:
 * `azurerm_local_network_gateway` - making the `address_space` property optional ([#10983](https://github.com/hashicorp/terraform-provider-azurerm/issues/10983))
 * `azurerm_management_group` - validation for `subscription_id` list property entries ([#10948](https://github.com/hashicorp/terraform-provider-azurerm/issues/10948))
 
-### 2.51.0 (March 12, 2021)
+## 2.51.0 (March 12, 2021)
 
 FEATURES:
 
@@ -1941,7 +1943,7 @@ BUG FIXES:
 * `azurerm_postgres_server` - support for replicaset scaling ([#10754](https://github.com/hashicorp/terraform-provider-azurerm/issues/10754))
 * `azurerm_postgresql_aad_administrator` - prevent invalid usernames for the `login` property ([#10757](https://github.com/hashicorp/terraform-provider-azurerm/issues/10757))
 
-### 2.50.0 (March 05, 2021)
+## 2.50.0 (March 05, 2021)
 
 FEATURES:
 
@@ -2001,7 +2003,7 @@ BUG FIXES:
 * `azurerm_windows_virtual_machine` - parsing the User Assigned Identity ID case-insensitively to work around an Azure API issue ([#10722](https://github.com/hashicorp/terraform-provider-azurerm/issues/10722))
 * `azurerm_windows_virtual_machine_scale_set` - parsing the User Assigned Identity ID case-insensitively to work around an Azure API issue ([#10722](https://github.com/hashicorp/terraform-provider-azurerm/issues/10722))
 
-### 2.49.0 (February 26, 2021)
+## 2.49.0 (February 26, 2021)
 
 FEATURES:
 
@@ -2045,7 +2047,7 @@ BUG FIXES:
 * `azurerm_lb_outbound_rule` - fixing a crash when `frontendIPConfigurations` is omitted in the API response ([#10696](https://github.com/hashicorp/terraform-provider-azurerm/issues/10696))
 * `azurerm_media_content_key_policy` - fix an encoding bug which prevented configuring `ask` in the `fairplay_configuration` block ([#10684](https://github.com/hashicorp/terraform-provider-azurerm/issues/10684))
 
-### 2.48.0 (February 18, 2021)
+## 2.48.0 (February 18, 2021)
 
 FEATURES:
 
@@ -2092,7 +2094,7 @@ BUG FIXES:
 * `azurerm_private_endpoint` - only updating the associated Private DNS Zone Group when there's changes ([#10559](https://github.com/hashicorp/terraform-provider-azurerm/issues/10559))
 * `azurerm_resource_group_template_deployment` - fixing an issue where the API version for nested items couldn't be found during deletion ([#10565](https://github.com/hashicorp/terraform-provider-azurerm/issues/10565))
 
-### 2.47.0 (February 11, 2021)
+## 2.47.0 (February 11, 2021)
 
 UPGRADE NOTES
 
@@ -2140,13 +2142,13 @@ BUG FIXES:
 * `azurerm_windows_virtual_machine_scale_set ` - fixing a bug when `protected_settings` within the `extension` block was an empty string ([#10528](https://github.com/hashicorp/terraform-provider-azurerm/issues/10528))
 * `azurerm_windows_virtual_machine_scale_set ` - fixing a bug when `settings` within the `extension` block was an empty string ([#10528](https://github.com/hashicorp/terraform-provider-azurerm/issues/10528))
 
-### 2.46.1 (February 05, 2021)
+## 2.46.1 (February 05, 2021)
 
 BUG FIXES:
 
 * `azurerm_lb_backend_address_pool` - mark `backend_address` as computed ([#10481](https://github.com/hashicorp/terraform-provider-azurerm/issues/10481))
 
-### 2.46.0 (February 04, 2021)
+## 2.46.0 (February 04, 2021)
 
 FEATURES:
 
@@ -2180,13 +2182,13 @@ BUG FIXES:
 * `azurerm_storage_data_lake_gen2_filesystem` - change the `ace` property to a TypeSet to ensure consistent ordering ([#10372](https://github.com/hashicorp/terraform-provider-azurerm/issues/10372))
 * `azurerm_storage_data_lake_gen2_path` - change the `ace` property to a TypeSet to ensure consistent ordering ([#10372](https://github.com/hashicorp/terraform-provider-azurerm/issues/10372))
 
-### 2.45.1 (January 28, 2021)
+## 2.45.1 (January 28, 2021)
 
 BUG FIXES:
 
 * `azurerm_app_service_environment` - prevent a panic when the API returns a nil cluster settings ([#10365](https://github.com/hashicorp/terraform-provider-azurerm/issues/10365))
 
-### 2.45.0 (January 28, 2021)
+## 2.45.0 (January 28, 2021)
 
 FEATURES:
 
@@ -2237,7 +2239,7 @@ BUG FIXES:
 * `azurerm_windows_virtual_machine_scale_set` - fixing an issue where `protected_settings` field within the `extension` block couldn't be empty ([#10351](https://github.com/hashicorp/terraform-provider-azurerm/issues/10351))
 * `azurerm_windows_virtual_machine_scale_set` - fixing an issue where `settings` field within the `extension` block couldn't be empty ([#10351](https://github.com/hashicorp/terraform-provider-azurerm/issues/10351))
 
-### 2.44.0 (January 21, 2021)
+## 2.44.0 (January 21, 2021)
 
 FEATURES:
 
@@ -2267,7 +2269,7 @@ BUG FIXES:
 * `azurerm_key_vault_certificate` - fixing a crash when `subject` within the `certificate_policy` block was nil ([#10200](https://github.com/hashicorp/terraform-provider-azurerm/issues/10200))
 * `azurerm_user_assigned_identity` - adding a state migration to update the ID format ([#10196](https://github.com/hashicorp/terraform-provider-azurerm/issues/10196))
 
-### 2.43.0 (January 14, 2021)
+## 2.43.0 (January 14, 2021)
 
 FEATURES:
 
@@ -2329,7 +2331,7 @@ BUG FIXES:
 * `azurerm_windows_virtual_machine` - ensuring the casing of the `identity_ids` field within the `identity` block ([#10105](https://github.com/hashicorp/terraform-provider-azurerm/issues/10105))
 * `azurerm_windows_virtual_machine_scale_set` - ensuring the casing of the `identity_ids` field within the `identity` block ([#10105](https://github.com/hashicorp/terraform-provider-azurerm/issues/10105))
 
-### 2.42.0 (January 08, 2021)
+## 2.42.0 (January 08, 2021)
 
 BREAKING CHANGES
 
@@ -2399,7 +2401,7 @@ provider: will not correctly register the `Microsoft.Blueprint` and `Microsoft.H
 * `azurerm_storage_account` - allow hns when `account_tier` is `Premium` ([#9548](https://github.com/hashicorp/terraform-provider-azurerm/issues/9548))
 * `azurerm_storage_share_file` - allowing files smaller than 4KB to be uploaded ([#10035](https://github.com/hashicorp/terraform-provider-azurerm/issues/10035))
 
-### 2.41.0 (December 17, 2020)
+## 2.41.0 (December 17, 2020)
 
 UPGRADE NOTES:
 
@@ -2437,7 +2439,7 @@ BUG FIXES:
 * `azurerm_key_vault_secret` -  polling until the Secret is fully deleted during deletion ([#9911](https://github.com/hashicorp/terraform-provider-azurerm/issues/9911))
 * `azurerm_log_analytics_workspace` - adding a state migration to correctly update the Resource ID ([#9853](https://github.com/hashicorp/terraform-provider-azurerm/issues/9853))
 
-### 2.40.0 (December 10, 2020)
+## 2.40.0 (December 10, 2020)
 
 FEATURES:
 
@@ -2497,7 +2499,7 @@ BUG FIXES:
 * `azurerm_postgresql_server` - Fix issue when specifying empty threat detection list attributes ([#9739](https://github.com/hashicorp/terraform-provider-azurerm/issues/9739))
 * `azurerm_signar_service` - having an empty `allowed_origins` in the `cors` block will no longer cause a panic ([#9671](https://github.com/hashicorp/terraform-provider-azurerm/issues/9671))
 
-### 2.39.0 (December 04, 2020)
+## 2.39.0 (December 04, 2020)
 
 FEATURES:
 
@@ -2524,7 +2526,7 @@ BUG FIXES:
 * `azurerm_security_center_workspace` - fixing the casing on the `workspace_id` ([#9651](https://github.com/hashicorp/terraform-provider-azurerm/issues/9651))
 * `azurerm_eventhub_dedicated_cluster` - the `sku_name` capacity can be greater then `1` ([#9649](https://github.com/hashicorp/terraform-provider-azurerm/issues/9649))
 
-### 2.38.0 (November 27, 2020)
+## 2.38.0 (November 27, 2020)
 
 FEATURES:
 
@@ -2560,7 +2562,7 @@ BUG FIXES:
 * `azurerm_virtual_desktop_workspace_application_group_association` - adding a state migration to avoid a breaking change when upgrading from `v2.35.0` or later ([#9495](https://github.com/hashicorp/terraform-provider-azurerm/issues/9495))
 * `azurerm_windows_virtual_machine` - no longer sets `patch_mode` on creation if it is the default value ([#9495](https://github.com/hashicorp/terraform-provider-azurerm/issues/9432))
 
-### 2.37.0 (November 20, 2020)
+## 2.37.0 (November 20, 2020)
 
 FEATURES:
 
@@ -2626,7 +2628,7 @@ BUG FIXES:
 * `azurerm_mssql_virtual_machine` - fixing a crash when serializing `auto_patching` ([#9388](https://github.com/hashicorp/terraform-provider-azurerm/issues/9388))
 * `azurerm_resource_group_template_deployment` - fixing an issue during deletion where the API version of nested resources couldn't be determined ([#9364](https://github.com/hashicorp/terraform-provider-azurerm/issues/9364))
 
-### 2.36.0 (November 12, 2020)
+## 2.36.0 (November 12, 2020)
 
 UPGRADE NOTES:
 
@@ -2686,7 +2688,7 @@ BUG FIXES:
 * `azurerm_windows_virtual_machine` - the field `disk_size_gb` within the `os_disk` block can now be configured up to `4095` ([#9202](https://github.com/hashicorp/terraform-provider-azurerm/issues/9202))
 * `azurerm_windows_virtual_machine_scale_set` - the field `disk_size_gb` within the `os_disk` block can now be configured up to `4095` ([#9202](https://github.com/hashicorp/terraform-provider-azurerm/issues/9202))
 
-### 2.35.0 (November 05, 2020)
+## 2.35.0 (November 05, 2020)
 
 UPGRADE NOTES:
 
@@ -2722,7 +2724,7 @@ BUG FIXES:
 * `azurerm_postgresql_firewall_rule` - add validation for `start_ip_address` and `end_ip_address` properties ([#8963](https://github.com/hashicorp/terraform-provider-azurerm/issues/8963))
 
 
-### 2.34.0 (October 29, 2020)
+## 2.34.0 (October 29, 2020)
 
 UPGRADE NOTES
 
@@ -2767,7 +2769,7 @@ BUG FIXES:
 * `azurerm_signalr_service` - switching the`features` block to a set so order is irrelevant ([#8815](https://github.com/hashicorp/terraform-provider-azurerm/issues/8815))
 * `azurerm_virtual_desktop_application_group` - correctly validate the `name`property ([#9030](https://github.com/hashicorp/terraform-provider-azurerm/issues/9030))
 
-### 2.33.0 (October 22, 2020)
+## 2.33.0 (October 22, 2020)
 
 UPGRADE NOTES
 
@@ -2800,7 +2802,7 @@ BUG FIXES:
 * `azurerm_sql_server` - working around a breaking change/regression in the Azure API ([#8975](https://github.com/hashicorp/terraform-provider-azurerm/issues/8975))
 * `azurerm_policy_set_definition` - Fix updates for `parameters` and `parameter_values` in `policy_definition_reference` blocks ([#8882](https://github.com/hashicorp/terraform-provider-azurerm/issues/8882))
 
-### 2.32.0 (October 15, 2020)
+## 2.32.0 (October 15, 2020)
 
 FEATURES:
 
@@ -2814,7 +2816,7 @@ IMPROVEMENTS:
 * `azurerm_container_registry` - support for the `trust_policy` and `retention_policy` blocks ([#8698](https://github.com/hashicorp/terraform-provider-azurerm/issues/8698))
 * `azurerm_security_center_contact` - override SDK creat function to handle `201` response code ([#8774](https://github.com/hashicorp/terraform-provider-azurerm/issues/8774))
 
-### 2.31.1 (October 08, 2020)
+## 2.31.1 (October 08, 2020)
 
 IMPROVEMENTS:
 
@@ -2827,7 +2829,7 @@ BUG FIXES:
 * `azurerm_dedicated_hardware_security_module` - `stamp_id` now optional to allow use in Locations which use `zones` ([#8826](https://github.com/hashicorp/terraform-provider-azurerm/issues/8826))
 * `azurerm_storage_account`-`large_file_share_enabled` marked as computed to prevent existing storage shares from attempting to disable the default ([#8807](https://github.com/hashicorp/terraform-provider-azurerm/issues/8807))
 
-### 2.31.0 (October 08, 2020)
+## 2.31.0 (October 08, 2020)
 
 UPGRADE NOTES
 
@@ -2867,7 +2869,7 @@ BUG FIXES:
 * `azurerm_policy_set_definition` - corrects issue with empty `parameter_values` attribute ([#8668](https://github.com/hashicorp/terraform-provider-azurerm/issues/8668))
 * `azurerm_policy_definition` - `mode` property now enforces correct case ([#8795](https://github.com/hashicorp/terraform-provider-azurerm/issues/8795))
 
-### 2.30.0 (October 01, 2020)
+## 2.30.0 (October 01, 2020)
 
 UPGRADE NOTES
 
@@ -2906,7 +2908,7 @@ BUG FIXES:
 * `azurerm_monitor_metric_alert` - property wait when creating/updating multiple monitor metric alerts ([#8667](https://github.com/hashicorp/terraform-provider-azurerm/issues/8667))
 * `azurerm_linux_virtual_machine_scale_set` - fix empty JSON error in `settings` and `protected_settings` when these values are not used ([#8627](https://github.com/hashicorp/terraform-provider-azurerm/issues/8627))
 
-### 2.29.0 (September 24, 2020)
+## 2.29.0 (September 24, 2020)
 
 UPGRADE NOTES:
 
@@ -2956,7 +2958,7 @@ BUG FIXES:
 * `azurerm_function_app` - don't try to manage source_control when scm_type is `VSTSRM` ([#8531](https://github.com/hashicorp/terraform-provider-azurerm/issues/8531))
 * `azurerm_kubernetes_cluster` - picking the first system node pool if the original `default_node_pool` has been removed ([#8503](https://github.com/hashicorp/terraform-provider-azurerm/issues/8503))
 
-### 2.28.0 (September 17, 2020)
+## 2.28.0 (September 17, 2020)
 
 UPGRADE NOTES
 
@@ -3000,7 +3002,7 @@ BUG FIXES:
 * `azurerm_packet_capture` - fix to ID path to match change in API ([#8167](https://github.com/hashicorp/terraform-provider-azurerm/issues/8167))
 * `azurerm_role_definition` - expose `role_definition_resource_id` ([#8492](https://github.com/hashicorp/terraform-provider-azurerm/issues/8492))
 
-### 2.27.0 (September 10, 2020)
+## 2.27.0 (September 10, 2020)
 
 UPGRADE NOTES
 
@@ -3039,7 +3041,7 @@ BUG FIXES:
 * `azurerm_role_definition` - fixed delete operation when role is scoped to Management Group ([#6107](https://github.com/hashicorp/terraform-provider-azurerm/issues/6107))
 * `azurerm_windows_virtual_machine` - Add WaitForState on VM delete ([#8383](https://github.com/hashicorp/terraform-provider-azurerm/issues/8383))
 
-### 2.26.0 (September 04, 2020)
+## 2.26.0 (September 04, 2020)
 
 UPGRADE NOTES:
 
@@ -3074,7 +3076,7 @@ BUG FIXES:
 * `azurerm_windows_virtual_machine` - allow updating `allow_extension_operations` regardless of the value of `provision_vm_agent` (for when the VM Agent has been installed manually) ([#8001](https://github.com/hashicorp/terraform-provider-azurerm/issues/8001))
 * `azurerm_windows_virtual_machine_scale_set` - working around a bug in the Azure API by always sending the existing Storage Image Reference during updates ([#7983](https://github.com/hashicorp/terraform-provider-azurerm/issues/7983))
 
-### 2.25.0 (August 27, 2020)
+## 2.25.0 (August 27, 2020)
 
 UPGRADE NOTES:
 
@@ -3122,7 +3124,7 @@ BUG FIXES:
 * `azurerm_windows_virtual_machine` - support for updating `ultra_ssd_enabled` within the `additional_capabilities` block without recreating the virtual machine ([#8015](https://github.com/hashicorp/terraform-provider-azurerm/issues/8015))
 * `azurerm_windows_virtual_machine_scale_set` - adding validation to the `zone` field ([#8233](https://github.com/hashicorp/terraform-provider-azurerm/issues/8233))
 
-### 2.24.0 (August 20, 2020)
+## 2.24.0 (August 20, 2020)
 
 FEATURES:
 
@@ -3165,7 +3167,7 @@ BUG FIXES:
 * `azurerm_lb_rule` - switching to use API version `2020-03-01` to workaround a bug in API version `2020-05-01` ([#8006](https://github.com/hashicorp/terraform-provider-azurerm/issues/8006))
 * `azurerm_storage_account` - only sending `allow_blob_public_access` and `min_tls_version` in Azure Public since these are currently not supported in other regions ([#8148](https://github.com/hashicorp/terraform-provider-azurerm/issues/8148))
 
-### 2.23.0 (August 13, 2020)
+## 2.23.0 (August 13, 2020)
 
 FEATURES:
 
@@ -3209,7 +3211,7 @@ BUG FIXES:
 * `azurerm_windows_virtual_machine` - handling machines which are already stopped/deallocated [[#8000](https://github.com/hashicorp/terraform-provider-azurerm/issues/8000)]'
 * `azurerm_data_factory_dataset_delimited_text` - fix issue with property `azure_blob_storage_account` ([#7953](https://github.com/hashicorp/terraform-provider-azurerm/issues/7953))
 
-### 2.22.0 (August 07, 2020)
+## 2.22.0 (August 07, 2020)
 
 DEPENDENCIES:
 
@@ -3227,7 +3229,7 @@ BUG FIXES:
 * Data Source: `azurerm_key_vault_certificate` - fixing a crash when using acmebot certificates ([#8029](https://github.com/hashicorp/terraform-provider-azurerm/issues/8029))
 * `azurerm_iothub_shared_access_policy` - prevent `primary_connection_string` & `secondary_connection_string` from regenerating during every apply ([#8017](https://github.com/hashicorp/terraform-provider-azurerm/issues/8017))
 
-### 2.21.0 (July 31, 2020)
+## 2.21.0 (July 31, 2020)
 
 DEPENDENCIES:
 
@@ -3260,7 +3262,7 @@ BUG FIXES:
 * `azurerm_eventgrid_event_subscription` - deprecate the `topic_name` as it is now readonly in the API ([#7871](https://github.com/hashicorp/terraform-provider-azurerm/issues/7871))
 * `azurerm_kubernetes_cluster` - updates will no longer fail when using managed Microsoft Entra integration ([#7874](https://github.com/hashicorp/terraform-provider-azurerm/issues/7874))
 
-### 2.20.0 (July 23, 2020)
+## 2.20.0 (July 23, 2020)
 
 UPGRADE NOTES
 
@@ -3292,7 +3294,7 @@ BUG FIXES:
 * `azurerm_monitor_autoscale_setting` - fix crash in `notification` ([#7835](https://github.com/hashicorp/terraform-provider-azurerm/issues/7835))
 * `azurerm_storage_account` - will now default `allow_blob_public_access` to false to align with the portal and be secure by default ([#7784](https://github.com/hashicorp/terraform-provider-azurerm/issues/7784))
 
-### 2.19.0 (July 16, 2020)
+## 2.19.0 (July 16, 2020)
 
 UPGRADE NOTES:
 
@@ -3341,7 +3343,7 @@ BUG FIXES:
 * `azurerm_virtual_hub` - the field `address_prefix` is now `ForceNew` to match the behaviour of the Azure API ([#7713](https://github.com/hashicorp/terraform-provider-azurerm/issues/7713))
 * `azurerm_virtual_hub_connection` - using the delete timeout if specified ([#7731](https://github.com/hashicorp/terraform-provider-azurerm/issues/7731))
 
-### 2.18.0 (July 10, 2020)
+## 2.18.0 (July 10, 2020)
 
 FEATURES:
 
@@ -3408,7 +3410,7 @@ BUG FIXES:
 * `azurerm_policy_remediation` - removing the validation for the `policy_definition_reference_id` field since this isn't a Resource ID ([#7600](https://github.com/hashicorp/terraform-provider-azurerm/issues/7600))
 * `azurerm_storage_data_lake_gen2_filesystem` - prevent a crash during plan if storage account was deleted ([#7378](https://github.com/hashicorp/terraform-provider-azurerm/issues/7378))
 
-### 2.17.0 (July 03, 2020)
+## 2.17.0 (July 03, 2020)
 
 UPGRADE NOTES:
 
@@ -3448,7 +3450,7 @@ BUG FIXES:
 * `azurerm_marketplace_agreement` - fix issue around import ([#7515](https://github.com/hashicorp/terraform-provider-azurerm/issues/7515))
 * `azurerm_windows_virtual_machine_scale_set` - using the provider feature `roll_instances_when_required` when `upgrade_mode` is set to `Manual` ([#7513](https://github.com/hashicorp/terraform-provider-azurerm/issues/7513))
 
-### 2.16.0 (June 25, 2020)
+## 2.16.0 (June 25, 2020)
 
 DEPENDENCIES:
 
@@ -3490,7 +3492,7 @@ BUG FIXES:
 * `azurerm_role_definition` - terraform import now sets scope to prevent a force recreate ([#7424](https://github.com/hashicorp/terraform-provider-azurerm/issues/7424))
 * `azurerm_storage_account_network_rules` - corretly clear `ip_rules`, `virtual_network_subnet_ids` when set to `[]` ([#7385](https://github.com/hashicorp/terraform-provider-azurerm/issues/7385))
 
-### 2.15.0 (June 19, 2020)
+## 2.15.0 (June 19, 2020)
 
 UPGRADE NOTES:
 
@@ -3532,7 +3534,7 @@ BUG FIXES:
 * `azurerm_hdinsight_cluster` - deprecating the `min_instance_count` property ([#7272](https://github.com/hashicorp/terraform-provider-azurerm/issues/7272))
 * `azurerm_network_watcher_flow_log` - propertly disable the flowlog on destroy ([#7154](https://github.com/hashicorp/terraform-provider-azurerm/issues/7154))
 
-### 2.14.0 (June 11, 2020)
+## 2.14.0 (June 11, 2020)
 
 UPGRADE NOTES:
 
@@ -3593,7 +3595,7 @@ BUG FIXES:
 * `azurerm_management_group` - using the Subscription ID rather than Subscription Resource ID when detaching Subscriptions from Management Groups during deletion ([#7216](https://github.com/hashicorp/terraform-provider-azurerm/issues/7216))
 * `azurerm_windows_virtual_machine_scale_set` - adding validation for the `max_bid_price` field ([#7233](https://github.com/hashicorp/terraform-provider-azurerm/issues/7233))
 
-### 2.13.0 (June 04, 2020)
+## 2.13.0 (June 04, 2020)
 
 FEATURES:
 
@@ -3622,7 +3624,7 @@ BUG FIXES:
 * `azurerm_role_assignment` - support for Preview role assignments ([#7205](https://github.com/hashicorp/terraform-provider-azurerm/issues/7205))
 * `azurerm_virtual_network_gateway` - `vpn_client_protocols` is now also computed to prevent permanent diffs ([#7168](https://github.com/hashicorp/terraform-provider-azurerm/issues/7168))
 
-### 2.12.0 (May 28, 2020)
+## 2.12.0 (May 28, 2020)
 
 FEATURES:
 
@@ -3655,7 +3657,7 @@ BUG FIXES:
 * `azurerm_windows_virtual_machine` - allow setting `virtual_machine_scale_set_id` in non-zonal deployment ([#7057](https://github.com/hashicorp/terraform-provider-azurerm/issues/7057))
 * `azurerm_windows_virtual_machine` - correctly validating the rsa ssh `public_key` properties length ([#7061](https://github.com/hashicorp/terraform-provider-azurerm/issues/7061))
 
-### 2.11.0 (May 21, 2020)
+## 2.11.0 (May 21, 2020)
 
 DEPENDENCIES:
 
@@ -3706,7 +3708,7 @@ BUG FIXES:
 * `azurerm_windows_virtual_machine` - allowing name to end with a capital ([#7023](https://github.com/hashicorp/terraform-provider-azurerm/issues/7023))
 * `azurerm_windows_virtual_machine_scale_set` - allowing name to end with a capital ([#7023](https://github.com/hashicorp/terraform-provider-azurerm/issues/7023))
 
-### 2.10.0 (May 14, 2020)
+## 2.10.0 (May 14, 2020)
 
 DEPENDENCIES: 
 
@@ -3763,7 +3765,7 @@ BUG FIXES:
 * `azurerm_role_assignment` - added evential consistency check to assignment creation ([#6925](https://github.com/hashicorp/terraform-provider-azurerm/issues/6925))
 * `azurerm_windows_virtual_machine_scale_set` - support for updating the `do_not_run_extensions_on_overprovisioned_machines` property ([#6917](https://github.com/hashicorp/terraform-provider-azurerm/issues/6917))
 
-### 2.9.0 (May 07, 2020)
+## 2.9.0 (May 07, 2020)
 
 FEATURES:
 
@@ -3804,7 +3806,7 @@ BUG FIXES:
 * `azurerm_redis_cache` - ensure `rdb_storage_connection_string` is set when `rdb_backup_enabled` is enabled ([#6819](https://github.com/hashicorp/terraform-provider-azurerm/issues/6819))
 * `azurerm_site_recovery_network_mapping` - handling an API Error when checking for the presence of an existing Network Mapping ([#6747](https://github.com/hashicorp/terraform-provider-azurerm/issues/6747))
 
-### 2.8.0 (April 30, 2020)
+## 2.8.0 (April 30, 2020)
 
 FEATURES:
 
@@ -3840,7 +3842,7 @@ BUG FIXES:
 * `azurerm_windows_virtual_machine_scale_set` - fix validation for `name` to allow full length resource names ([#6639](https://github.com/hashicorp/terraform-provider-azurerm/issues/6639))
 * `azurerm_virtual_network_gateway_connection` - `shared_key` is now optional when `type` is `IPSec` ([#6565](https://github.com/hashicorp/terraform-provider-azurerm/issues/6565))
 
-### 2.7.0 (April 23, 2020)
+## 2.7.0 (April 23, 2020)
 
 FEATURES:
 
@@ -3889,7 +3891,7 @@ BUG FIXES:
 * `azurerm_route` - add validation to the `name` and `route_table_name`propeties ([#6055](https://github.com/hashicorp/terraform-provider-azurerm/issues/6055))
 * `azurerm_virtual_network_gateway` - per api requirements, `public_ip_address_id` is required ([#6548](https://github.com/hashicorp/terraform-provider-azurerm/issues/6548))
 
-### 2.6.0 (April 16, 2020)
+## 2.6.0 (April 16, 2020)
 
 FEATURES:
 
@@ -3932,7 +3934,7 @@ BUG FIXES:
 * `azurerm_machine_learning_workspace` - the `Enterprise` sku will now properly work ([#6397](https://github.com/hashicorp/terraform-provider-azurerm/issues/6397))
 * `azurerm_managed_disk`-  fixing a bug where the machine would be stopped regardless of whether it was currently shut down or not ([#4690](https://github.com/hashicorp/terraform-provider-azurerm/issues/4690))
 
-### 2.5.0 (April 09, 2020)
+## 2.5.0 (April 09, 2020)
 
 BREAKING CHANGES:
 
@@ -3966,7 +3968,7 @@ BUG FIXES:
 * `azurerm_linux_virtual_machine` - if the `priority` property on read is empty assume it to be `Regular` ([#6301](https://github.com/hashicorp/terraform-provider-azurerm/issues/6301))
 * `azurerm_windows_virtual_machine` - if the `priority` property on read is empty assume it to be `Regular` ([#6301](https://github.com/hashicorp/terraform-provider-azurerm/issues/6301))
 
-### 2.4.0 (April 02, 2020)
+## 2.4.0 (April 02, 2020)
 
 FEATURES:
 
@@ -3987,7 +3989,7 @@ BUGS:
 * `azurerm_application_gateway` - can now set `include_path` with `target_url` ([#6175](https://github.com/hashicorp/terraform-provider-azurerm/issues/6175))
 * `azurerm_policy_set_definition` - mark `metadata` as computed ([#6266](https://github.com/hashicorp/terraform-provider-azurerm/issues/6266))
 
-### 2.3.0 (March 27, 2020)
+## 2.3.0 (March 27, 2020)
 
 FEATURES:
 
@@ -4033,7 +4035,7 @@ BUG FIXES:
 * `azurerm_windows_virtual_machine` - making the `custom_data` field sensitive ([#6225](https://github.com/hashicorp/terraform-provider-azurerm/issues/6225))
 * `azurerm_windows_virtual_machine_scale_set` - making the `custom_data` field sensitive ([#6225](https://github.com/hashicorp/terraform-provider-azurerm/issues/6225))
 
-### 2.2.0 (March 18, 2020)
+## 2.2.0 (March 18, 2020)
 
 FEATURES:
 
@@ -4062,7 +4064,7 @@ BUG FIXES:
 * `azurerm_linux_virtual_machine_scale_set` - updating the validation for `name` to allow periods ([#5966](https://github.com/hashicorp/terraform-provider-azurerm/issues/5966))
 * `azurerm_storage_management_policy` - Fixed the use of single blob rule actions ([#5803](https://github.com/hashicorp/terraform-provider-azurerm/issues/5803))
 
-### 2.1.0 (March 11, 2020)
+## 2.1.0 (March 11, 2020)
 
 NOTES:
 
@@ -4136,7 +4138,7 @@ BUG FIXES:
 * `azurerm_storage_account` - fixing a crash when an empty `static_website` block was specified ([#6050](https://github.com/hashicorp/terraform-provider-azurerm/issues/6050))
 * `azurerm_storage_account` - using SharedKey Authorization for reading/updating the Static Website when not using AzureAD authentication ([#6050](https://github.com/hashicorp/terraform-provider-azurerm/issues/6050))
 
-### 2.0.0 (February 24, 2020)
+## 2.0.0 (February 24, 2020)
 
 NOTES:
 

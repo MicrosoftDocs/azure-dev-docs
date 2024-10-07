@@ -8,6 +8,8 @@ ms.custom: devx-track-terraform
 # Customer intent: I want to view the AzureRM provider version history for versions 4.0.0 - current
 ---
 
+# Versions 4.0.0 - current
+
 ## 4.5.0 (Unreleased)
 
 BUG FIXES:

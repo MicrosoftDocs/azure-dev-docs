@@ -8,7 +8,9 @@ ms.custom: devx-track-terraform
 # Customer intent: I want to view the AzureRM provider version history for versions 0.1.0 - 0.3.3
 ---
 
-### 0.3.3 (November 14, 2017)
+# Versions 0.1.0 - 0.3.3
+
+## 0.3.3 (November 14, 2017)
 
 FEATURES:
 
@@ -27,7 +29,7 @@ IMPROVEMENTS:
 * `azurerm_virtual_machine` - ensuring `vhd_uri` is validated ([#470](https://github.com/hashicorp/terraform-provider-azurerm/issues/470))
 * `azurerm_virtual_machine_scale_set`: fixing a crash where accelerated networking isn't returned by the API ([#480](https://github.com/hashicorp/terraform-provider-azurerm/issues/480))
 
-### 0.3.2 (October 30, 2017)
+## 0.3.2 (October 30, 2017)
 
 FEATURES: 
 
@@ -41,13 +43,13 @@ IMPROVEMENTS:
   
   - `azurerm_route_table` - Fix issue when routes are computed ([#450](https://github.com/hashicorp/terraform-provider-azurerm/issues/450))
 
-### 0.3.1 (October 21, 2017)
+## 0.3.1 (October 21, 2017)
 
 IMPROVEMENTS:
 
   - `azurerm_virtual_machine_scale_set` - Updating this resource with the v11 of the Azure SDK for Go ([#448](https://github.com/hashicorp/terraform-provider-azurerm/issues/448))
 
-### 0.3.0 (October 17, 2017)
+## 0.3.0 (October 17, 2017)
 
 UPGRADE NOTES:
 
@@ -100,7 +102,7 @@ IMPROVEMENTS:
 * `azurerm_virtual_machine_scale_set` - fixing a bug where `additional_unattend_config.content` was being updated unintentionally ([#377](https://github.com/hashicorp/terraform-provider-azurerm/issues/377))
 * `azurerm_virtual_machine_scale_set` - support for multiple network profiles ([#378](https://github.com/hashicorp/terraform-provider-azurerm/issues/378))
 
-### 0.2.2 (September 28, 2017)
+## 0.2.2 (September 28, 2017)
 
 FEATURES:
 
@@ -115,7 +117,7 @@ IMPROVEMENTS:
 
 * Updating the provider initialization & adding a `skip_credentials_validation` field to the provider for some advanced scenarios ([#322](https://github.com/hashicorp/terraform-provider-azurerm/issues/322))
 
-### 0.2.1 (September 25, 2017)
+## 0.2.1 (September 25, 2017)
 
 FEATURES:
 
@@ -134,7 +136,7 @@ BUG FIXES:
 
 * `azurerm_virtual_machine_scale_set` - fix panic with `additional_unattend_config` block ([#266](https://github.com/hashicorp/terraform-provider-azurerm/issues/266))
 
-### 0.2.0 (September 15, 2017)
+## 0.2.0 (September 15, 2017)
 
 FEATURES:
 
@@ -149,7 +151,7 @@ IMPROVEMENTS:
 * `azurerm_sql_server` - verifying the name is valid before creating ([#323](https://github.com/hashicorp/terraform-provider-azurerm/issues/323))
 * `resource_group_name` - validation has been added to all resources that use this attribute ([#330](https://github.com/hashicorp/terraform-provider-azurerm/issues/330))
 
-### 0.1.7 (September 11, 2017)
+## 0.1.7 (September 11, 2017)
 
 FEATURES:
 
@@ -163,7 +165,7 @@ IMPROVEMENTS:
 * `azurerm_cdn_endpoint` - defaulting the `http_port` and `https_port` ([#301](https://github.com/hashicorp/terraform-provider-azurerm/issues/301))
 * `azurerm_cosmos_db_account`: allow setting the Kind to MongoDB/GlobalDocumentDB ([#299](https://github.com/hashicorp/terraform-provider-azurerm/issues/299))
 
-### 0.1.6 (August 31, 2017)
+## 0.1.6 (August 31, 2017)
 
 FEATURES:
 
@@ -197,7 +199,7 @@ BUG FIXES:
 * `azurerm_sql_server` - handle deleted servers correctly ([#189](https://github.com/hashicorp/terraform-provider-azurerm/issues/189))
 * Fixing the `Microsoft.Insights` Resource Provider Registration ([#282](https://github.com/hashicorp/terraform-provider-azurerm/issues/282))
 
-### 0.1.5 (August 09, 2017)
+## 0.1.5 (August 09, 2017)
 
 IMPROVEMENTS:
 
@@ -213,13 +215,13 @@ BUG FIXES:
 * `azurerm_virtual_machine` - fixes a crash caused by an empty `os_profile_windows_config` block ([#222](https://github.com/hashicorp/terraform-provider-azurerm/issues/222))
 * Checking to ensure the HTTP Response isn't `nil` before accessing it (fixes ([#200](https://github.com/hashicorp/terraform-provider-azurerm/issues/200)]) [[#204](https://github.com/hashicorp/terraform-provider-azurerm/issues/204))
 
-### 0.1.4 (July 26, 2017)
+## 0.1.4 (July 26, 2017)
 
 BUG FIXES:
 
 * `azurerm_dns_*` - upgrading to version `2016-04-01` of the Azure DNS API by switching from Riviera -> Azure SDK for Go ([#192](https://github.com/hashicorp/terraform-provider-azurerm/issues/192))
 
-### 0.1.3 (July 21, 2017)
+## 0.1.3 (July 21, 2017)
 
 FEATURES:
 
@@ -237,7 +239,7 @@ IMPROVEMENTS:
 * `azurerm_virtual_machine` - making `admin_password` optional for Linux VM's ([#154](https://github.com/hashicorp/terraform-provider-azurerm/issues/154))
 * `azurerm_virtual_machine_scale_set` - adding a `plan` block for Marketplace images ([#161](https://github.com/hashicorp/terraform-provider-azurerm/issues/161))
 
-### 0.1.2 (June 29, 2017)
+## 0.1.2 (June 29, 2017)
 
 FEATURES:
 
@@ -264,13 +266,13 @@ BUG FIXES:
 * `azurerm_subnet` now correctly detects changes to Network Securtiy Groups and Routing Table's ([#113](https://github.com/hashicorp/terraform-provider-azurerm/issues/113))
 * `azurerm_virtual_machine_scale_set` - making `storage_profile_os_disk`.`name` optional ([#129](https://github.com/hashicorp/terraform-provider-azurerm/issues/129))
 
-### 0.1.1 (June 21, 2017)
+## 0.1.1 (June 21, 2017)
 
 BUG FIXES:
 
 * Sort ResourceID.Path keys for consistent output ([#116](https://github.com/hashicorp/terraform-provider-azurerm/issues/116))
 
-### 0.1.0 (June 20, 2017)
+## 0.1.0 (June 20, 2017)
 
 BACKWARDS INCOMPATIBILITIES / NOTES:
 
