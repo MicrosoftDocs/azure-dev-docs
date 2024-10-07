@@ -118,7 +118,7 @@
         "terraform/**/*.md": "tarcher",
         "intro/**/*.md": "mcleans",
         "ai/**/*.md": "johalexander",
-        "github-copilot-azure/**/*.md": "bobtabor-msft"
+        "github-copilot-azure/**/*.md": "rotabor"
       },
       "ms.devlang": {
         "java/**/*.md": "java",
