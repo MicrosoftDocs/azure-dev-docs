@@ -451,8 +451,16 @@
   items:
     - name: Terraform Azure provider versions
       items:
-        - name: AzureRM provider versions
-          href: provider-version-history-azurerm.md
+        - name: AzureRM provider versions 4.0.0 - current
+          href: provider-version-history-azurerm-4-0-0-to-current.md
+        - name: AzureRM provider versions 3.0.0 - 3.116.0
+          href: provider-version-history-azurerm-3-0-0-to-3-116-0.md
+        - name: AzureRM provider versions 2.0.0 - 2.99.0
+          href: provider-version-history-azurerm-2-0-0-to-2-99-0.md
+        - name: AzureRM provider versions 1.0.0 - 1.44.0
+          href: provider-version-history-azurerm-1-0-0-to-1-44-0.md
+        - name: AzureRM provider versions 0.1.0 - 0.3.3
+          href: provider-version-history-azurerm-0-1-0-to-0-3-3.md
     - name: Azure module registry
       href: https://registry.terraform.io/modules/Azure
     - name: Terraform Azure Provider
