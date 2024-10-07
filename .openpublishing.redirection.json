@@ -1675,6 +1675,10 @@
     {
       "source_path": "articles/ai/passwordless-connections.md",
       "redirect_url": "/azure/developer/ai/keyless-connections"
+    },
+    {
+      "source_path": "articles/terraform/provider-version-history-azurerm.md",
+      "redirect_url": "/azure/developer/terraform/provider-version-history-azurerm-4-0-0-to-current"
     }
   ]
 }
