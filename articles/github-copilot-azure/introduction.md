@@ -5,7 +5,6 @@ keywords: github, copilot, ai, azure
 ms.service: azure
 ms.topic: overview
 ms.date: 09/03/2024
-ms.custom: overview
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -22,7 +21,9 @@ GitHub Copilot for Azure is currently available for Visual Studio Code. You must
 
 GitHub Copilot is designed to help developers, including those who are new to Azure to be more productive as quickly as possible. For experienced Azure users, GitHub Copilot for Azure saves time by allowing them to access Azure functionality without needing to look up commands and arguments or sign in and navigate through the Azure portal.
 
-There are four primary scenarios that are enabled with more planned:
+## Primary scenarios
+
+There are four primary scenarios that are enabled by GitHub Copilot for Azure Preview with more planned:
 
 |Category|Explanation|Examples|
 |---|---|---|
@@ -40,7 +41,7 @@ GitHub Copilot for Azure Preview is built on a foundational Large Language Model
 The chat experience is delivered through the GitHub Copilot Chat extenion. The chat extension can be accessed as a separate window pane in Visual Studio Code via "Chat" icon the primary side bar on the left-hand side. The chat window allows you to create a new chat, provides access to a history of previous chat sessions, the ability to open the chat session in a full editor window, and more.
 
 
-## Next steps
+## Related content
 
 - [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.
 - Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure Preview in your software development workflow. The quickstart instructs you to deploy services to Azure, monitor their status, and troubleshoot issues.

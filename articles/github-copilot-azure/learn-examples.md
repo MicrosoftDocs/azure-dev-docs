@@ -3,13 +3,12 @@ title: GitHub Copilot for Azure Preview prompt engineering examples to learn abo
 description: This article provides example prompts that can be used to help learn how to utilize Azure and deploy your application to the cloud.
 keywords: github, copilot, ai, azure
 ms.service: azure
-ms.topic: overview
+ms.topic: best-practice
 ms.date: 09/03/2024
-ms.custom: overview
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Use GitHub Copilot for Azure Preview to learn about Azure and your application
+# Best practices for learning about Azure and your application with GitHub Copilot for Azure Preview
 
 If you're unfamiliar with Azure and how it can be used for your application, asking GitHub Copilot for Azure Preview to help you is a great option.
 
@@ -97,7 +96,7 @@ Suppose you want to learn about your options or how to utilize Azure for your ap
 |Azure Storage|<ul><li>"@azure why would I use a blob storage?"</li><li>"@azure How to pull data from storage blob in React?"</li><li>"@azure Outline steps to secure Azure Blob Storage with private endpoints and Azure Private Link."</li><li>"@azure Generate Azure CLI script to create a new storage account."</li><li>"@azure Give me the code to create a new storage account with CLI."</li><li>"@azure Can you help me choose the right Azure storage solution?"</li></ul>|
 |Azure Web PubSub|<ul><li>"@azure How to authenticate with Web PubSub?"</li><li>"@azure What do I need to do to host my Socket.IO app on Azure?"</li><li>"@azure How to stress test the Web PubSub?"</li></ul>|
 
-## Next steps
+## Related content
 
 - [Understand what is GitHub Copilot for Azure Preview and how it works](introduction.md).
 - [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.

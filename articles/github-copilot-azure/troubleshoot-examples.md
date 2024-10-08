@@ -3,13 +3,12 @@ title: GitHub Copilot for Azure Preview prompt engineering examples for troubles
 description: This article provides example prompts that can be used to help troubleshoot your application in the cloud.
 keywords: github, copilot, ai, azure
 ms.service: azure
-ms.topic: overview
+ms.topic: best-practice
 ms.date: 09/03/2024
-ms.custom: overview
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Use GitHub Copilot for Azure Preview to troubleshoot your application
+# Best practices for troubleshooting your application with GitHub Copilot for Azure Preview
 
 If you're unfamiliar with Azure or just want the tooling and AI to do most of the work, asking GitHub Copilot for Azure Preview to help you troubleshoot issues with your application is a great option.
 
@@ -26,7 +25,7 @@ The following tips for better prompts come from the article [Write effective pro
 - [Use the feedback loop](/azure/copilot/write-effective-prompts#use-the-feedback-loop)
 
 
-## Using Copilots responsibly
+## Use Copilots responsibly
 
 Using Copilots can dramatically increase developer productivity by answering questions, executing tasks, and generating code. However remember two vital rules:
 
@@ -85,7 +84,7 @@ Suppose you want to troubleshoot your application and decide to use GitHub Copil
 |Azure Web PubSub|<ul><li>"@azure My web pubsub client is not receiving messages, why?"</li></ul>|
 
 
-## Next steps
+## Related content
 
 - [Understand what is GitHub Copilot for Azure Preview and how it works](introduction.md).
 - [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.

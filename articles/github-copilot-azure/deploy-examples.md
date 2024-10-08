@@ -3,13 +3,12 @@ title: GitHub Copilot for Azure Preview prompt engineering examples for deployin
 description: This article provides example prompts that can be used to help deploy your application to the cloud.
 keywords: github, copilot, ai, azure
 ms.service: azure
-ms.topic: overview
+ms.topic: best-practice
 ms.date: 09/03/2024
-ms.custom: overview
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Use GitHub Copilot for Azure Preview to deploy your application
+# Best practices for deploying your application with GitHub Copilot for Azure Preview
 
 If you're unfamiliar with Azure or just want the tooling and AI to do most of the work, asking GitHub Copilot for Azure Preview to help you deploy your application is a great option.
 
@@ -81,7 +80,7 @@ If you used azd to deploy your application, you can ask it to use azd to undeplo
 - "@azure Use azd to undeploy my project."
 
 
-## Next steps
+## Related content
 
 - [Understand what is GitHub Copilot for Azure Preview and how it works](introduction.md).
 - [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.

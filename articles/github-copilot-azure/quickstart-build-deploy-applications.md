@@ -134,7 +134,7 @@ You might see a response that resembles the following screenshot.
 
 Use `azd down` to remove the website and all resources that were deployed to your Azure subscription.
 
-## Next steps
+## Related content
 
 - [Understand what is GitHub Copilot for Azure Preview and how it works](introduction.md).
 - [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.

@@ -3,13 +3,12 @@ title: GitHub Copilot for Azure Preview prompt engineering examples for optimizi
 description: This article provides example prompts that can be used to help optimize your application in the cloud.
 keywords: github, copilot, ai, azure
 ms.service: azure
-ms.topic: overview
+ms.topic: best-practice
 ms.date: 09/03/2024
-ms.custom: overview
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Use GitHub Copilot for Azure Preview to optimize your application
+# Best practices for optimizing your application with GitHub Copilot for Azure Preview
 
 If you're unfamiliar with Azure or just want the tooling and AI to do most of the work, asking GitHub Copilot for Azure Preview to help you optimize the performance of your Azure resources is a great option.
 
@@ -45,7 +44,7 @@ Suppose you want to optimize your application running on Azure services and deci
 |Azure SQL|<ul><li>"@azure How can I optimize my Azure SQL Database for better performance?"</li></ul>|
 
 
-## Next steps
+## Related content
 
 - [Understand what is GitHub Copilot for Azure Preview and how it works](introduction.md).
 - [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.

@@ -3,9 +3,8 @@ title: Get started with GitHub Copilot for Azure Preview
 description: This article describes the GitHub Copilot for Azure Preview Visual Studio Code extension, the requirements, and installation procedure.
 keywords: github, copilot, ai, azure
 ms.service: azure
-ms.topic: overview
+ms.topic: get-started
 ms.date: 09/03/2024
-ms.custom: overview
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -63,7 +62,7 @@ You can set a default subscription which limits GitHub Copilot to query a single
    :::image type="content" source="media/get-started/getstarted-arg-tenant.png" alt-text="Screenshot displaying the Settings tab with an option to set the ARG tenant.":::
 
 
-## Next steps
+## Related content
 
 - [Understand what is GitHub Copilot for Azure Preview and how it works](introduction.md).
 - Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart instructs you to deploy services to Azure, monitor their status, and troubleshoot issues.
