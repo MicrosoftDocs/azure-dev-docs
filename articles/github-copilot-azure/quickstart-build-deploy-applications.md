@@ -3,9 +3,8 @@ title: Quickstart - Build and deploy your application with GitHub Copilot for Az
 description: This article walks through a scenario that demonstrates how to integrate GitHub Copilot for Azure Preview Visual Studio Code extension into a developer's workflow.
 keywords: github, copilot, ai, azure
 ms.service: azure
-ms.topic: overview
+ms.topic: quickstart
 ms.date: 09/03/2024
-ms.custom: overview
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -120,7 +119,7 @@ See the [Get started](get-started.md) article for complete setup instructions.
 
 15. Upon a successful deployment, you should be able to navigate a web browser to the new website, use the Azure portal to view the resources that were created.
 
-### Cleaning up resources
+### Clean up resources
 
 You can ask GitHub Copilot for Azure how to remove all of the resources you created in the previous steps.
 
