@@ -29,10 +29,7 @@ There are four primary scenarios that are enabled with more planned:
 |Learn|Learn about Azure services and tools from latest Microsoft Learn documentation.|<ul><li>"@azure What are the different types of Azure OpenAI models available?"</li><li>"@azure What is Azure AI Search and why use it?"</li><li>"@azure How does pricing work for Azure SQL?"</li></ul>|
 |Deploy|Create Azure resources and deploy apps.|<ul><li>"@azure Can you help me build a RAG application with Python?"</li><li>"@azure I need a CI/CD pipeline so I can get my app deployed."</li><li>"@azure Use azd to un-deploy my project."</li></ul>|
 |Troubleshoot|Diagnose and troubleshoot application and resource issues.|<ul><li>"@azure What is using up my GPT-4o model quota?"</li><li>"@azure Find out why my store-service-prod kube cluster is running slow."</li><li>"@azure Why am I seeing 500 errors when opening my website?"</li></ul>|
-|Optimize|Answer questions about resources including locations, settings, and resource health.|<ul>
-<li>"@azure How many Azure OpenAI deployments do I have?"</li>
-<li>"@azure Give me a count of storage accounts in eastus by subscription sorted from largest to smallest."</li>
-</ul>|
+|Optimize|Answer questions about resources including locations, settings, and resource health.|<ul><li>"@azure How many Azure OpenAI deployments do I have?"</li><li>"@azure Give me a count of storage accounts in eastus by subscription sorted from largest to smallest."</li></ul>|
 
 The documentation provides a quickstart and example prompts to help you harness the power of GitHub Copilot for Azure as quickly as possible.
 
