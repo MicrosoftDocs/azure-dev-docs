@@ -1,3 +1,0 @@
-- "@azure Can you help me create a new deployment in my AKS cluster?"
-- "@azure What is the command to scale a deployment to 5 replicas?"
-- "@azure Can you provide the command to expose a deployment as a service?"

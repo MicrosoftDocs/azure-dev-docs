@@ -1,2 +1,0 @@
-- "@azure Can I use Azure SDKs in the browser?"
-- "@azure Does the C# storage SDK support chunked blob uploads and downloads?"

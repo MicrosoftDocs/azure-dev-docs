@@ -1,2 +1,0 @@
-- "@azure How do I get the status of all nodes in my AKS cluster?"
-- "@azure What’s the command to set a context for my AKS cluster?"

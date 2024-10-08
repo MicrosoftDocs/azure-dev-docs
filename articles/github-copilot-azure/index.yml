@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: GitHub Copilot for Azure
+title: GitHub Copilot for Azure Preview
 summary: |
   Use AI to add cloud features and deploy your app to Azure
 
 metadata:
-  title: GitHub Copilot for Azure
+  title: GitHub Copilot for Azure Preview
   description: Use AI to add cloud features and deploy your app to Azure
   ms.date: 9/3/2024
   ms.topic: landing-page
@@ -16,9 +16,11 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Introduction to GitHub Copilot for Azure
+          - text: Overview
+            url: introduction.md
+          - text: Get Started with GitHub Copilot for Azure Preview
             url: get-started.md
-          - text: Quickstart - Building, Deploying and Improving your application with GitHub Copilot for Azure
+          - text: Quickstart - Building, Deploying and Improving your application with GitHub Copilot for Azure Preview
             url: quickstart-build-deploy-applications.md
 
   - title: Prompts for Azure

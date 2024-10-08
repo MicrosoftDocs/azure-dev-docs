@@ -93,7 +93,8 @@
         "python/**/*.md": "bobtabor-msft",
         "terraform/**/*.md": "TomArcherMsft",
         "intro/**/*.md": "mcleanbyron",
-        "ai/**/*.md": "ms-johnalex"
+        "ai/**/*.md": "ms-johnalex",
+        "github-copilot-azure/**/*.md": "bobtabor-msft"
       },
       "manager": {
         "**/*.md": "mcleans",
@@ -116,7 +117,8 @@
         "python/**/*.md": "rotabor",
         "terraform/**/*.md": "tarcher",
         "intro/**/*.md": "mcleans",
-        "ai/**/*.md": "johalexander"
+        "ai/**/*.md": "johalexander",
+        "github-copilot-azure/**/*.md": "rotabor"
       },
       "ms.devlang": {
         "java/**/*.md": "java",
@@ -136,7 +138,8 @@
         "javascript/**/*.md": "azure-javascript",
         "dev-tunnels/**/*.md": "dev-tunnels",
         "intro/**/*.md": "azure",
-        "ai/**/*.md": "azure"
+        "ai/**/*.md": "azure",
+        "github-copilot-azure/**/*.md": "azure"
       },
       "ms.subservice": {
         "ai/**/*.md": "intelligent-apps",
@@ -150,7 +153,8 @@
         "javascript/**/*.md": "JavaScript on Azure",
         "python/**/*.md": "Python on Azure",
         "java/**/*.md": "Java on Azure",
-        "go/**/*.md": "Go on Azure"
+        "go/**/*.md": "Go on Azure",
+        "github-copilot-azure/**/*.md": "GitHub Copilot for Azure"        
       },
       "featureFlags": {
         "javascript/**/*-feedback.yml": [
