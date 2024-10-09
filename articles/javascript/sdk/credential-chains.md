@@ -193,7 +193,7 @@ import {
 const credential = ChainedTokenCredential(
     ManagedIdentityCredential("<YOUR_CLIENT_ID>"),
     AzureCliCredential()
-)
+);
 ```
 
 The preceding code sample creates a tailored credential chain comprised of two credentials. The user-assigned managed identity variant of `ManagedIdentityCredential` is attempted first, followed by `AzureCliCredential`, if necessary. In graphical form, the chain looks like this:
@@ -245,7 +245,7 @@ To diagnose an unexpected issue or to understand what a chained credential is do
 2. Install the npm dependencies.
 
     ```bash
-    npm instal @azure/identity @azure/storage-blob
+    npm install @azure/identity @azure/storage-blob
     ```
 
 3. Sign into your Azure subscription in your local environment with Azure CLI:
