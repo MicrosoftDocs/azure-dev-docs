@@ -43,7 +43,7 @@ The application architecture relies on the following services and components:
 
 ## Cost
 
-In an attempt to keep pricing as low as possible, most resources in this architecture us a basic or consumption pricing tier. You may need to alter this based on your intended usage. When you're done with the article, you can delete the resources to stop incurring charges.
+In an attempt to keep pricing as low as possible in this sample, most resources use a basic or consumption pricing tier. Alter your tier level as needed based on your intended usage. To stop incurring charges, delete the resources when you're done with the article.
 
 Learn more about [cost in the sample repo](https://github.com/Azure-Samples/openai-chat-app-quickstart#costs).
 
@@ -120,7 +120,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     mkdir my-secure-chat-app
     ```
 
-1. Navigate to the directory you just created.
+1. Navigate to the directory you created.
 
    ```shell
     cd my-secure-chat-app
@@ -147,8 +147,6 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     ```azdeveloper
     azd auth login
     ```
-
-    Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
 
 1. The remaining exercises in this project take place in the context of this development container.
 
@@ -212,7 +210,7 @@ The `AZURE_CLIENT_ID` is used to create a [user-assigned managed identity creden
 
 The following code snippet checks for the optional `AZURE_TENANT_ID` `azd` resource environment variable, which is provisioned during `azd` app deployment.
 The check is used to determine which Azure Tenant to use for creating the Azure OpenAI client.
-It sets `azure_developer_cli_credential` with the default Azure Tenant if a value isn't present, or uses that Tenant Id instead.
+It sets `azure_developer_cli_credential` with the default Azure Tenant if a value isn't present, or uses that Tenant ID instead.
 
 
 ```Python
@@ -226,8 +224,8 @@ The Azure Identity client library provides _credentials_&mdash;public classes th
 
 The following snippet creates a `ChainedTokenCredential` using a `ManagedIdentityCredential` and an `AzureDeveloperCliCredential`.
 
-- The `ManagedIdentityCredential` is used for Azure Functions and Azure App Service. This is a user-assigned managed identity. User-assigned managed identities are supported by passing the client_id to ManagedIdentityCredential
-- The `AzureDeveloperCliCredential` is used for local development. It was set previously based on the Azure Tenant to use. 
+- The `ManagedIdentityCredential` is used for Azure Functions and Azure App Service. User-assigned managed identities are supported by passing the `client_id` to ManagedIdentityCredential
+- The `AzureDeveloperCliCredential` is used for local development. It was set previously based on the Azure Tenant to use.
 
 ```python
     azure_credential = ChainedTokenCredential(
