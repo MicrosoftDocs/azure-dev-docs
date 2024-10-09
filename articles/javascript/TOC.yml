@@ -178,6 +178,8 @@
         href: sdk/authentication/azure-hosted-apps.md
       - name: On-premises apps
         href: sdk/authentication/on-premises-apps.md
+      - name: Credential chains
+        href: sdk/credential-chains.md
       - name: Resource management
         items: 
         - name: "List subscriptions"
