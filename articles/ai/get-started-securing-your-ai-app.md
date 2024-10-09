@@ -1,7 +1,7 @@
 ---
 title: "Get started with the Azure OpenAI security building blocks"
 description: "Learn how to effectively use keyless connections for authentication and authorization to Azure OpenAI with the Azure OpenAI security building blocks. Get started using a simple chat app sample implemented using Azure OpenAI Service using keyless authentication with Microsoft Entra ID. Easily deploy with Azure Developer CLI. This article uses the Azure AI Template chat quickstart sample."
-ms.date: 10/02/2024
+ms.date: 10/10/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, keyless-python
@@ -10,7 +10,7 @@ ms.collection: ce-skilling-ai-copilot
 ---
 # Get started with the Azure OpenAI security building block
 
-This article shows you how to create and use the Azure OpenAI security building block sample. The purpose is to demonstrate Azure OpenAI account provisioning with a role-based access control (RBAC) role permission for keyless (Microsoft Entra ID) authentication to OpenAI API libraries.
+This article shows you how to create and use the Azure OpenAI security building block sample. The purpose is to demonstrate Azure OpenAI account provisioning with a role-based access control (RBAC) role permission for keyless (Microsoft Entra ID) authentication to OpenAI API libraries. This Python chat app sample also includes all the infrastructure and configuration needed to provision Azure OpenAI resources and deploy the app to Azure Container Apps using the Azure Developer CLI.
 
 By following the instructions in this article, you will:
 
@@ -26,8 +26,9 @@ Once you complete this article, you can start modifying the new project with you
 ## Architectural overview
 
 A simple architecture of the chat app is shown in the following diagram:
-
 :::image type="content" source="./media/get-started-securing-your-ai-app/simple-architecture-diagram.png" lightbox="./media/get-started-securing-your-ai-app/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
+
+The Python chat app is running as an Azure Container App. The app uses managed identity via Microsoft Entra ID to authenticate with Azure OpenAI, instead of an API key. The chat app uses Azure OpenAI to generate responses to user messages.
 
 The application architecture relies on the following services and components:
 
@@ -38,10 +39,11 @@ The application architecture relies on the following services and components:
 - A Python [Quart](https://quart.palletsprojects.com/en/latest/) that uses the [`openai`](https://pypi.org/project/openai/) package to generate responses to user messages.
 - A basic HTML/JavaScript frontend that streams responses from the backend using [JSON Lines](http://jsonlines.org/) over a [ReadableStream](https://developer.mozilla.org/docs/Web/API/ReadableStream).
 - [Bicep files](/azure/azure-resource-manager/bicep/) for provisioning Azure resources, including Azure OpenAI, Azure Container Apps, Azure Container Registry, Azure Log Analytics, and RBAC roles.
+- [Microsoft AI Chat Protocol](https://github.com/microsoft/ai-chat-protocol/) provides standardized API contracts across AI solutions and languages. The chat app conforms to the Microsoft AI Chat Protocol, which allows the evaluations app to run against any chat app that conforms to the protocol.
 
 ## Cost
 
-Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you only pay for what you use. There's a minimal charge to complete this article. When you're done with the article, you can delete the resources to stop incurring charges.
+In an attempt to keep pricing as low as possible, most resources in this architecture us a basic or consumption pricing tier. You may need to alter this based on your intended usage. When you're done with the article, you can delete the resources to stop incurring charges.
 
 Learn more about [cost in the sample repo](https://github.com/Azure-Samples/openai-chat-app-quickstart#costs).
 
@@ -49,16 +51,13 @@ Learn more about [cost in the sample repo](https://github.com/Azure-Samples/open
 
 A [development container](https://containers.dev/) environment is available with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
 
-To use this article, you need the following prerequisites:
+To use this article, you need to fulfill the following prerequisites:
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 
 - Azure account permissions - Your Azure Account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-
-- Access granted to Azure OpenAI in the desired Azure subscription.
-    Request access to Azure OpenAI here: [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
 
 - GitHub account
 
@@ -67,9 +66,6 @@ To use this article, you need the following prerequisites:
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 
 - Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-
-- Access granted to Azure OpenAI in the desired Azure subscription.
-    Request access to Azure OpenAI here: [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
 
 - [Azure Developer CLI](/azure/developer/azure-developer-cli)
 
@@ -83,7 +79,7 @@ To use this article, you need the following prerequisites:
 
 ## Open development environment
 
-Begin now with a development environment with all dependencies installed to complete this article.
+Use the following instructions to deploy a preconfigured development environment containing all required dependencies to complete this article.
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
@@ -120,20 +116,27 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 1. Create a new local directory on your computer for the project.
 
-    ```bash
-    mkdir my-secure-chat-app && cd my-secure-chat-app
+    ```shell
+    mkdir my-secure-chat-app
     ```
+
+1. Navigate to the directory you just created.
+
+   ```shell
+    cd my-secure-chat-app
+    ```
+
 
 1. Open Visual Studio Code in that directory:
 
-    ```bash
+    ```shell
     code .
     ```
 
 1. Open a new terminal in Visual Studio Code.
 1. Run the following AZD command to bring the GitHub repository to your local computer.
 
-    ```bash
+    ```azdeveloper
     azd init -t openai-chat-app-quickstart
     ```
 
@@ -141,7 +144,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 1. Sign in to Azure with the Azure Developer CLI.
 
-    ```bash
+    ```azdeveloper
     azd auth login
     ```
 
@@ -162,7 +165,7 @@ The sample repository contains all the code and configuration files for chat app
 
 1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
 
-    ```bash
+    ```azdeveloper
     azd up
     ```
 
@@ -195,26 +198,58 @@ Wait until app is deployed. Deployment usually takes between 5 and 10 minutes to
 
 ### Configure authentication with managed identity
 
-In this sample, the `src\quartapp\chat.py` file begins with configuring keyless authentication. The following snippet uses the [azure.identity.aio](/python/api/azure-identity/azure.identity.aio?view=azure-python&preserve-view=true) module to create a Microsoft Entra ID authentication flow via the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python&preserve-view=true) class. The `exclude_shared_token_cache_credential=True` parameter excludes the shared [token cache](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/samples/TokenCache.md) credential from the authentication flow. By excluding it, you shorten the chain of credentials that are attempted.
+In this sample, the `src\quartapp\chat.py` file begins with configuring keyless authentication.
 
-```python
-    default_credential = azure.identity.aio.DefaultAzureCredential(exclude_shared_token_cache_credential=True)
+The following snippet uses the [azure.identity.aio](/python/api/azure-identity/azure.identity.aio?view=azure-python&preserve-view=true) module to create a Microsoft Entra ID asynchronous authentication flow.
+
+The following code snippet checks for the required `AZURE_CLIENT_ID` `azd` resource environment variable, which is provisioned during `azd` app deployment. An error is thrown if a value isn't present.
+The `AZURE_CLIENT_ID` is used to create a [user-assigned managed identity credential](/python/api/azure-identity/azure.identity.aio.managedidentitycredential?view=azure-python).
+
+```Python
+    if not os.getenv("AZURE_CLIENT_ID"):
+        raise ValueError("AZURE_CLIENT_ID is required for Authentication.") 
 ```
 
->[!NOTE]
->For more information, check out the [Usage guidance for DefaultAzureCredential](/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#usage-guidance-for-defaultazurecredential) article.
+The following code snippet checks for the optional `AZURE_TENANT_ID` `azd` resource environment variable, which is provisioned during `azd` app deployment.
+The check is used to determine which Azure Tenant to use for creating the Azure OpenAI client.
+It sets `azure_developer_cli_credential` with the default Azure Tenant if a value isn't present, or uses that Tenant Id instead.
 
-The next line adds a dictionary entry to `client_args` with the key `azure_ad_token_provider`.
-The value is obtained by calling the [azure.identity.aio.get_bearer_token_provider](/python/api/azure-identity/azure.identity.aio?view=azure-python#azure-identity-aio-get-bearer-token-provider&preserve-view=true) with two arguments:
 
-- `default_credential`: The `DefaultAzureCredential` instance created earlier to authenticate the request.
+```Python
+    if os.getenv("AZURE_TENANT_ID"):
+        azure_developer_cli_credential = AzureDeveloperCliCredential(process_timeout=60)
+    else:
+        azure_developer_cli_credential = AzureDeveloperCliCredential(tenant_id=os.getenv("AZURE_TENANT_ID"), process_timeout=60)    
+```
+
+The Azure Identity client library provides _credentials_&mdash;public classes that implement the Azure Core library's [TokenCredential](/python/api/azure-core/azure.core.credentials.tokencredential) protocol. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
+
+The following snippet creates a `ChainedTokenCredential` using a `ManagedIdentityCredential` and an `AzureDeveloperCliCredential`.
+
+- The `ManagedIdentityCredential` is used for Azure Functions and Azure App Service. This is a user-assigned managed identity. User-assigned managed identities are supported by passing the client_id to ManagedIdentityCredential
+- The `AzureDeveloperCliCredential` is used for local development. It was set previously based on the Azure Tenant to use. 
+
+```python
+    azure_credential = ChainedTokenCredential(
+    ManagedIdentityCredential(client_id=AZURE_CLIENT_ID),
+    azure_developer_cli_credential
+    )
+
+```
+>[!TIP]
+>The order of the credentials is important, as the first valid token is used. For more information, check out the [ChainedTokenCredential Overview](/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#usage-guidance-for-defaultazurecredential) article.
+
+The following code snippet gets the Azure OpenAI token provider based on the selected Azure credential.
+This value is obtained by calling the [azure.identity.aio.get_bearer_token_provider](/python/api/azure-identity/azure.identity.aio?view=azure-python#azure-identity-aio-get-bearer-token-provider&preserve-view=true) with two arguments:
+
+- `azure_credential`: The `ChainedTokenCredential` instance created earlier to authenticate the request.
 
 - "https://cognitiveservices.azure.com/.default": Required one or more bearer token scopes. In this case, the **Azure Cognitive Services** endpoint.
 
 ```python
-    client_args["azure_ad_token_provider"] = azure.identity.aio.get_bearer_token_provider(
-            default_credential, "https://cognitiveservices.azure.com/.default"
-        )
+    token_provider = get_bearer_token_provider(
+        azure_credential, "https://cognitiveservices.azure.com/.default"
+    )
 ```
 
 The following lines check for the required `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_CHATGPT_DEPLOYMENT` `azd` resource environment variables, which are provisioned during `azd` app deployment. An error is thrown if a value isn't present.
@@ -229,10 +264,10 @@ The following lines check for the required `AZURE_OPENAI_ENDPOINT` and `AZURE_OP
 This snippet initializes the **OpenAI client for Azure**, setting the `api_version`, `azure_endpoint`, and the `azure_ad_token_provider`(`client_args`) parameters:
 
 ```python
-    bp.openai_client = openai.AsyncAzureOpenAI(
+    bp.openai_client = AsyncAzureOpenAI(
         api_version=os.getenv("AZURE_OPENAI_API_VERSION") or "2024-02-15-preview",
         azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-        **client_args,
+        azure_ad_token_provider=token_provider,
     )
     
 ```
@@ -248,15 +283,34 @@ The following line sets the Azure OpenAI model deployment name for use in API ca
 
 Once this function completes, the OpenAI client is properly configured and ready to interact with Azure OpenAI services.
 
+### Response stream using the OpenAI Client and model
+
+The `response_stream` handles the chat completion call in the route. The following code snippet shows how `openai_client` and `model` are used.
+
+```python
+   async def response_stream():
+        # This sends all messages, so API request may exceed token limits
+        all_messages = [
+            {"role": "system", "content": "You are a helpful assistant."},
+        ] + request_messages
+
+        chat_coroutine = bp.openai_client.chat.completions.create(
+            # Azure Open AI takes the deployment name as the model name
+            model=bp.openai_model,
+            messages=all_messages,
+            stream=True,
+        )
+```
+
 ## Deploy with existing Azure resources
 
-Set `azd` environment values to use existing Azure resources or to specify the new Azure Resource name. 
+Set `azd` environment values to use existing Azure resources or to specify the new Azure Resource name.
 
 ### Use an existing Azure resource group
 
 To use an existing Azure resource group during sample deployment, run `azd env set` to specify the existing resource group name and location values. In the following snippet, copy and replace the `<>` delimited placeholder values in each statement with your values and then run.
 
-```bash
+```azdeveloper
 azd env set AZURE_RESOURCE_GROUP  <Existing Azure resource group name>
 azd env set AZURE_LOCATION <Azure resource group location>
 ```
@@ -265,7 +319,7 @@ azd env set AZURE_LOCATION <Azure resource group location>
 
 To reuse an OpenAI resource during sample deployment, run `azd env set` to specify the existing OpenAI resource values. In the following snippet, copy and replace the `<>` delimited placeholder values in each statement with your values and then run.
 
-```bash
+```azdeveloper
 azd env set AZURE_OPENAI_RESOURCE <OpenAI resource name>
 azd env set AZURE_OPENAI_RESOURCE_GROUP <Azure resource group name that contains the OpenAI resource>
 azd env set AZURE_OPENAI_RESOURCE_GROUP_LOCATION <Azure resource group location>
@@ -279,7 +333,7 @@ Set these values before running `azd up`. Once set, return to the [Deployment st
 
 ## Other security considerations
 
-This article demonstrates how the sample uses Managed Identity for authenticating to the Azure OpenAI service.
+This article demonstrates how the sample uses `ChainedTokenCreadential` for authenticating to the Azure OpenAI service.
 
 The sample also has a [GitHub Action](https://github.com/microsoft/security-devops-action) that scans the infrastructure-as-code files and generates a report containing any detected issues. To ensure continued best practices in your own repository, we recommend that anyone creating solutions based on our templates ensure that the [GitHub secret scanning setting](https://docs.github.com/code-security/secret-scanning/introduction/about-secret-scanning) is enabled.
 
@@ -295,7 +349,7 @@ The Azure resources created in this article are billed to your Azure subscriptio
 
 To delete the Azure resources and remove the source code, run the following Azure Developer CLI command:
 
-```bash
+```azdeveloper
 azd down --purge
 ```
 
