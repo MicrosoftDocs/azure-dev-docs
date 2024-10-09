@@ -24,13 +24,8 @@ A chained credential can offer the following benefits:
 
     _Without it_, you have to detect the environment in your code like this:
 
-<<<<<<< HEAD
     ```javascript
     import { ManagedIdentityCredential, AzureCliCredential } from "@azure/identity";
-=======
-    ```nodejs
-    const { ManagedIdentityCredential, AzureCliCredential } = require("@azure/identity");
->>>>>>> 57ebb2df3a3ec0fcc38b447b1afc555f447fafc9
     
     let credential;
     
@@ -88,7 +83,6 @@ const blobServiceClient = new BlobServiceClient(
 );
 ```
 
-<<<<<<< HEAD
 ### How to customize DefaultAzureCredential
 
 To specify the credential selected, when more than one is available in the chain, use the options parameter. The DefaultAzureCredential has three option types to choose from:
@@ -171,8 +165,6 @@ const blobServiceClient = new BlobServiceClient(
 );
 ```
 
-=======
->>>>>>> 57ebb2df3a3ec0fcc38b447b1afc555f447fafc9
 ## Usage guidance for DefaultAzureCredential
 
 `DefaultAzureCredential` is undoubtedly the easiest way to get started with the Azure Identity client library, but with that convenience comes tradeoffs. Once you deploy your app to Azure, you should understand the app's authentication requirements. For that reason, strongly consider moving from `DefaultAzureCredential` to one of the following solutions:
