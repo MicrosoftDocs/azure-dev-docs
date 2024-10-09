@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 
 # Credential chains in the Azure Identity client library for JavaScript
 
-The Azure Identity client library provides *credentials*&mdash;public classes that implement the Azure Core library's [TokenCredential](/javascript/api/@azure/ms-rest-js/topiccredentials) protocol. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
+The Azure Identity client library provides *credentials*&mdash;public classes that implement the Azure Core library's [TokenCredential](/javascript/api/@azure/identity/tokencredential) interface. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
 
 ## How a chained credential works
 
@@ -24,8 +24,13 @@ A chained credential can offer the following benefits:
 
     _Without it_, you have to detect the environment in your code like this:
 
+<<<<<<< HEAD
     ```javascript
     import { ManagedIdentityCredential, AzureCliCredential } from "@azure/identity";
+=======
+    ```nodejs
+    const { ManagedIdentityCredential, AzureCliCredential } = require("@azure/identity");
+>>>>>>> 57ebb2df3a3ec0fcc38b447b1afc555f447fafc9
     
     let credential;
     
@@ -83,6 +88,7 @@ const blobServiceClient = new BlobServiceClient(
 );
 ```
 
+<<<<<<< HEAD
 ### How to customize DefaultAzureCredential
 
 To specify the credential selected, when more than one is available in the chain, use the options parameter. The DefaultAzureCredential has three option types to choose from:
@@ -165,6 +171,8 @@ const blobServiceClient = new BlobServiceClient(
 );
 ```
 
+=======
+>>>>>>> 57ebb2df3a3ec0fcc38b447b1afc555f447fafc9
 ## Usage guidance for DefaultAzureCredential
 
 `DefaultAzureCredential` is undoubtedly the easiest way to get started with the Azure Identity client library, but with that convenience comes tradeoffs. Once you deploy your app to Azure, you should understand the app's authentication requirements. For that reason, strongly consider moving from `DefaultAzureCredential` to one of the following solutions:
@@ -181,7 +189,7 @@ Here's why:
 
 ## Use ChainedTokenCredential for granular credential control
 
-[ChainedTokenCredential](/javascript/api/@azure/identity/chainedtokencredential) is an empty chain to which you add credentials to suit your app's needs. For example, the following example adds a ManagedIdentityCredential, then an Azure CLI Credential. 
+[ChainedTokenCredential](/javascript/api/@azure/identity/chainedtokencredential) is an empty chain to which you add credentials to suit your app's needs. For example, the following example adds a `ManagedIdentityCredential` instance, then an `AzureCliCredential` instance. 
 
 ```javascript
 import { 
@@ -205,7 +213,7 @@ The preceding code sample creates a tailored credential chain comprised of two c
 
 ## Debug a chained credential
 
-To diagnose an unexpected issue or to understand what a chained credential is doing, [enable logging](#enable-logging) in your app. 
+To diagnose an unexpected issue or to understand what a chained credential is doing, [enable logging](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core#logging) in your app. 
 
 1. Create `index.js` with the following code:
 
@@ -233,8 +241,8 @@ To diagnose an unexpected issue or to understand what a chained credential is do
     const containerClient = blobServiceClient.getContainerClient(containerName);
     
     async function main(){
-    const properties = await containerClient.getProperties();
-    console.log(properties);
+        const properties = await containerClient.getProperties();
+        console.log(properties);
     }
     
     main().catch((err) => {
@@ -248,10 +256,10 @@ To diagnose an unexpected issue or to understand what a chained credential is do
     npm instal @azure/identity @azure/storage-blob
     ```
 
-3. Sign into the Azure in your local environment with Azure CLI:
+3. Sign into your Azure subscription in your local environment with Azure CLI:
 
-    ```bash
-    azure login
+    ```azurecli
+    az login
     ```
     
 
