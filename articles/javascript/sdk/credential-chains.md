@@ -25,10 +25,10 @@ A chained credential can offer the following benefits:
     _Without it_, you have to detect the environment in your code like this:
 
     ```javascript
-    const { ManagedIdentityCredential, AzureCliCredential } = require("@azure/identity");
+    import { ManagedIdentityCredential, AzureCliCredential } from "@azure/identity";
     
     let credential;
-
+    
     // Without chained credentials, you have to detect environment
     if (process.env.production) {
         credential = new ManagedIdentityCredential("<YOUR_CLIENT_ID>");
@@ -71,8 +71,8 @@ The order in which `DefaultAzureCredential` attempts credentials follows.
 In its simplest form, you can use the parameterless version of `DefaultAzureCredential` as follows:
 
 ```javascript
-const { DefaultAzureCredential } = require("@azure/identity");
-const { BlobServiceClient } = require("@azure/storage-blob");
+import { DefaultAzureCredential } from "@azure/identity";
+import { BlobServiceClient } from "@azure/storage-blob";
 
 // Acquire a credential object
 const credential = new DefaultAzureCredential();
@@ -100,8 +100,8 @@ You can specify one specific item for that part of the chain. If you need to add
 Use the following code to specify the user-assigned managed identity or service principal to be used by the **ManagedIdentityCredential**.
 
 ```javascript
-const { DefaultAzureCredential } = require("@azure/identity");
-const { BlobServiceClient } = require("@azure/storage-blob");
+import { DefaultAzureCredential } from "@azure/identity";
+import { BlobServiceClient } from "@azure/storage-blob";
 
 const credential = new DefaultAzureCredential({
     managedIdentityClientId: "YOUR_ENTRA_CLIENT_ID"
@@ -116,8 +116,8 @@ const blobServiceClient = new BlobServiceClient(
 Use the following code to specify the user-assigned managed identity or service principal to be used by the **WorkloadIdentityCredential**.
 
 ```javascript
-const { DefaultAzureCredential } = require("@azure/identity");
-const { BlobServiceClient } = require("@azure/storage-blob");
+import { DefaultAzureCredential } from "@azure/identity";
+import { BlobServiceClient } from "@azure/storage-blob";
 
 const credential = new DefaultAzureCredential({
     workloadIdentityClientId: "YOUR_ENTRA_CLIENT_ID"
@@ -134,8 +134,8 @@ const blobServiceClient = new BlobServiceClient(
 Use the following code to specify the system-assigned managed identity to be used by the **ManagedIdentityCredential**. The resource ID specifies the Azure resource to manage.
 
 ```javascript
-const { DefaultAzureCredential } = require("@azure/identity");
-const { BlobServiceClient } = require("@azure/storage-blob");
+import { DefaultAzureCredential } from "@azure/identity";
+import { BlobServiceClient } from "@azure/storage-blob";
 
 const credential = new DefaultAzureCredential({
     managedIdentityResourceId: "YOUR_RESOURCE_ID"
@@ -152,8 +152,8 @@ const blobServiceClient = new BlobServiceClient(
 Use the following code to specify the tenant to be used by the **ManagedIdentityCredential**. The resource ID specifies the Azure resource to such as Azure App Service or Azure Functions App.
 
 ```javascript
-const { DefaultAzureCredential } = require("@azure/identity");
-const { BlobServiceClient } = require("@azure/storage-blob");
+import { DefaultAzureCredential } from "@azure/identity";
+import { BlobServiceClient } from "@azure/storage-blob";
 
 const credential = new DefaultAzureCredential({
     tenantId: "YOUR_TENANT_ID"
@@ -184,11 +184,11 @@ Here's why:
 [ChainedTokenCredential](/javascript/api/@azure/identity/chainedtokencredential) is an empty chain to which you add credentials to suit your app's needs. For example, the following example adds a ManagedIdentityCredential, then an Azure CLI Credential. 
 
 ```javascript
-const { 
+import { 
     ChainedTokenCredential, 
     ManagedIdentityCredential, 
     AzureCliCredential 
-} = require("@azure/identity");
+} from "@azure/identity";
 
 const credential = ChainedTokenCredential(
     ManagedIdentityCredential("<YOUR_CLIENT_ID>"),
@@ -210,8 +210,12 @@ To diagnose an unexpected issue or to understand what a chained credential is do
 1. Create `index.js` with the following code:
 
     ```javascript
-    const { ChainedTokenCredential, ManagedIdentityCredential, AzureCliCredential } = require("@azure/identity");
-    const { BlobServiceClient } = require("@azure/storage-blob");
+    import { 
+        ChainedTokenCredential, 
+        ManagedIdentityCredential, 
+        AzureCliCredential 
+    } from "@azure/identity";
+    import { BlobServiceClient } from "@azure/storage-blob";
     
     const credential = new ChainedTokenCredential(
         new ManagedIdentityCredential(),
@@ -305,10 +309,6 @@ azure:identity:info AzureCliCredential => getToken() => SUCCESS. Scopes: https:/
 azure:identity:info ChainedTokenCredential => getToken() => Result for AzureCliCredential: SUCCESS. Scopes: https://storage.azure.com/.defau
 lt.
 ```
-
-## Enable logging
-
-[!INCLUDE [javascript-sdk-logging](../includes/sdk-logging.md)]
 
 ## More resources
 
