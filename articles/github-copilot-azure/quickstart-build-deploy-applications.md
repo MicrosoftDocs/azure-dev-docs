@@ -50,11 +50,11 @@ For complete setup instructions, see the [Get started](get-started.md) article. 
 
 6. If the answer provides a command that begins with `azd init` in a code fence, hover over the code fence to reveal a small pop-up action menu.
 
-   :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-insert.png" alt-text="Screenshot that shows a pop-up menu with an option to insert the command in the code fence into the Visual Studio Code terminal.":::
+   :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-insert.png" alt-text="Screenshot that shows a pop-up menu with an option to insert a code-fenced command into the Visual Studio Code terminal.":::
 
-   Select `Insert into Terminal` to insert the command in the terminal.
+   Select `Insert into Terminal` to insert the command into the terminal.
 
-   :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-inserted.png" alt-text="Screenshot that shows the Visual Studio Code terminal after insertion of the code-fenced command.":::
+   :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-inserted.png" alt-text="Screenshot that shows the Visual Studio Code terminal after insertion of a code-fenced command.":::
 
 7. Before you run the `azd init` command, you might have questions about how it affects your local computer and your Azure subscription.
 
@@ -106,15 +106,15 @@ For complete setup instructions, see the [Get started](get-started.md) article. 
 
     You might see a response that resembles the following screenshot.
 
-    :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-location.png" alt-text="Screenshot that shows a response from GitHub Copilot for Azure with an answer that describes what Azure locations are and how to choose one.":::
+    :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-location.png" alt-text="Screenshot that shows a response from GitHub Copilot for Azure with an answer that describes what the Azure locations are and how to choose one.":::
 
 13. Continue to answer prompts from `azd up`. Ask GitHub Copilot for Azure questions as needed.
 
-    Depending on the `azd` template you're deploying and the location that you selected, the template might take 20 to 40 minutes (or more) to deploy.
+    Depending on the `azd` template that you're deploying and the location that you selected, the template might take 20 to 40 minutes (or more) to deploy.
 
 14. If `azd up` experiences an error, ask GitHub Copilot for Azure about the error and how you can resolve it.
 
-15. After a successful deployment, you should be able to browse to the new website in a web browser. Use the Azure portal to view the resources that you created.
+15. After a successful deployment, you should be able to go to the new website in a web browser. Use the Azure portal to view the resources that you created.
 
 ### Clean up resources
 
@@ -126,7 +126,7 @@ You can ask GitHub Copilot for Azure how to remove all of the resources that you
 
 You might see a response that resembles the following screenshot.
 
-:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-undeploy.png" alt-text="Screenshot that shows a response from GitHub Copilot for Azure with instructions to undeploy the website.":::
+:::image type="content" source="media/quickstart-build-deploy-applications/quickstart-undeploy.png" alt-text="Screenshot that shows a response from GitHub Copilot for Azure with instructions to undeploy a website.":::
 
 Use `azd down` to remove the website and all resources that you deployed to your Azure subscription.
 
