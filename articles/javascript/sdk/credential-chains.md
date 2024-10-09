@@ -14,7 +14,7 @@ The Azure Identity client library provides *credentials*&mdash;public classes th
 
 At runtime, a credential chain attempts to authenticate using the sequence's first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. The following sequence diagram illustrates this behavior:
 
-:::image type="content" source="/azure/developer/python/sdk/media/mermaidjs/chain-sequence.svg" alt-text="Diagram showing Azure Identity credential sequence flow.":::
+:::image type="content" source="media/chain-sequence.svg" alt-text="Diagram showing Azure Identity credential sequence flow.":::
 
 ## Why use credential chains
 
@@ -198,7 +198,7 @@ const credential = ChainedTokenCredential(
 
 The preceding code sample creates a tailored credential chain comprised of two credentials. The user-assigned managed identity variant of `ManagedIdentityCredential` is attempted first, followed by `AzureCliCredential`, if necessary. In graphical form, the chain looks like this:
 
-:::image type="content" source="/azure/developer/python/sdk/media/mermaidjs/chained-token-credential-auth-flow.svg" alt-text="Diagram showing Azure Identity chain credential of managed identity and Azure CLI.":::
+:::image type="content" source="./media/chained-token-credential-auth-flow.svg" alt-text="Diagram showing Azure Identity chain credential of managed identity and Azure CLI.":::
 
 > [!TIP]
 > For improved performance, optimize credential ordering in `ChainedTokenCredential` for your production environment. Credentials intended for use in the local development environment should be added last.
