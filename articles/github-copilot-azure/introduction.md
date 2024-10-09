@@ -36,7 +36,7 @@ The documentation provides a quickstart and example prompts to help you start us
 
 ## How it works
 
-GitHub Copilot for Azure Preview is built on a foundational large language model (LLM) like GPT 4o. It supplements the LLM's general knowledge with continuously updated knowledge from Microsoft Learn. Its intelligent agents interact with Azure services, systems, and Azure Resource Graph to carry out specific tasks on your behalf.
+GitHub Copilot for Azure Preview is built on a foundational large language model (LLM) like GPT-4o. It supplements the LLM's general knowledge with continuously updated knowledge from Microsoft Learn. Its intelligent agents interact with Azure services, systems, and Azure Resource Graph to carry out specific tasks on your behalf.
 
 The GitHub Copilot Chat extension delivers the chat experience. You can open the chat extension as a pane in Visual Studio Code by selecting the **Chat** icon on the Activity Bar. In the chat pane, you can create a new chat, access a history of chat sessions, open a chat session in a full editor window, and more.
 
