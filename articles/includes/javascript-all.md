@@ -367,10 +367,10 @@
 | @azure-tools/rest-api-diff | npm [0.1.3](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.1.3) |  |  |
 | @azure-tools/test-perf | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
 | @azure-tools/test-utils | npm [1.0.1](https://www.npmjs.com/package/@azure-tools/test-utils/v/1.0.1) |  |  |
-| @azure-tools/typespec-autorest-canonical | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.7.0) |  |  |
-| @azure-tools/typespec-azure-portal-core | npm [0.46.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.46.0) |  |  |
-| @azure-tools/typespec-azure-rulesets | npm [0.46.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.46.0) |  |  |
-| @azure-tools/typespec-client-generator-cli | npm [0.13.0](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.13.0) |  |  |
+| @azure-tools/typespec-autorest-canonical | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.8.0) |  |  |
+| @azure-tools/typespec-azure-portal-core | npm [0.47.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.47.0) |  |  |
+| @azure-tools/typespec-azure-rulesets | npm [0.47.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.47.0) |  |  |
+| @azure-tools/typespec-client-generator-cli | npm [0.13.1](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.13.1) |  |  |
 | @azure-tools/typespec-go | npm [0.3.1](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.1) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.4.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.4.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
@@ -384,11 +384,11 @@
 | @microsoft.azure/openapi-validator | npm [2.2.3](https://www.npmjs.com/package/@microsoft.azure/openapi-validator/v/2.2.3) |  |  |
 | @microsoft.azure/openapi-validator-rulesets | npm [2.1.3](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-rulesets/v/2.1.3) |  |  |
 | @typespec/best-practices | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
-| @typespec/bundler | npm [0.1.7](https://www.npmjs.com/package/@typespec/bundler/v/0.1.7) |  |  |
-| @typespec/http-server-javascript | npm [0.58.0-alpha.3](https://www.npmjs.com/package/@typespec/http-server-javascript/v/0.58.0-alpha.3) |  |  |
-| @typespec/playground | npm [0.4.2](https://www.npmjs.com/package/@typespec/playground/v/0.4.2) |  |  |
+| @typespec/bundler | npm [0.1.8](https://www.npmjs.com/package/@typespec/bundler/v/0.1.8) |  |  |
+| @typespec/http-server-javascript | npm [0.58.0-alpha.4](https://www.npmjs.com/package/@typespec/http-server-javascript/v/0.58.0-alpha.4) |  |  |
+| @typespec/playground | npm [0.5.0](https://www.npmjs.com/package/@typespec/playground/v/0.5.0) |  |  |
 | @typespec/tspd | npm [0.47.0-dev.0](https://www.npmjs.com/package/@typespec/tspd/v/0.47.0-dev.0) |  |  |
-| @typespec/xml | npm [0.60.0](https://www.npmjs.com/package/@typespec/xml/v/0.60.0) |  |  |
+| @typespec/xml | npm [0.61.0](https://www.npmjs.com/package/@typespec/xml/v/0.61.0) |  |  |
 | AI Chat Protocol | npm [1.0.0-beta.20240814.1](https://www.npmjs.com/package/@microsoft/ai-chat-protocol/v/1.0.0-beta.20240814.1) |  |  |
 | App Configuration Provider | npm [1.0.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer/v/1.0.1-preview) |  |  |
 | App Configuration Provider | npm [1.1.0](https://www.npmjs.com/package/@azure/app-configuration-provider/v/1.1.0) |  |  |
@@ -397,12 +397,12 @@
 | Create - Microsoft Playwright Testing | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/create-microsoft-playwright-testing/v/1.0.0-beta.1) |  |  |
 | Microsoft Playwright Testing | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/microsoft-playwright-testing/v/1.0.0-beta.3) |  |  |
 | Purview Data Map | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/purview-datamap/v/1.0.0-beta.1) |  |  |
-| tmlanguage-generator | npm [0.5.8](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.8) |  |  |
-| Unknown Display Name | npm [0.60.0](https://www.npmjs.com/package/@typespec/events/v/0.60.0) |  |  |
+| tmlanguage-generator | npm [0.5.9](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.9) |  |  |
+| Unknown Display Name | npm [0.61.0](https://www.npmjs.com/package/@typespec/events/v/0.61.0) |  |  |
 | Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.2.0) |  |  |
 | Unknown Display Name | npm [0.37.2](https://www.npmjs.com/package/@typespec/http-specs/v/0.37.2) |  |  |
-| Unknown Display Name | npm [0.60.0](https://www.npmjs.com/package/@typespec/sse/v/0.60.0) |  |  |
-| Unknown Display Name | npm [0.60.0](https://www.npmjs.com/package/@typespec/streams/v/0.60.0) |  |  |
+| Unknown Display Name | npm [0.61.0](https://www.npmjs.com/package/@typespec/sse/v/0.61.0) |  |  |
+| Unknown Display Name | npm [0.61.0](https://www.npmjs.com/package/@typespec/streams/v/0.61.0) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.10) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
@@ -481,7 +481,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20241009.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20241009.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20241009.4](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20241009.4) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
