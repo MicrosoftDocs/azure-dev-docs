@@ -201,17 +201,18 @@ In this sample, the `src\quartapp\chat.py` file begins with configuring keyless 
 The following snippet uses the [azure.identity.aio](/python/api/azure-identity/azure.identity.aio?view=azure-python&preserve-view=true) module to create a Microsoft Entra ID asynchronous authentication flow.
 
 The following code snippet checks for the required `AZURE_CLIENT_ID` `azd` resource environment variable, which is provisioned during `azd` app deployment. An error is thrown if a value isn't present.
-The `AZURE_CLIENT_ID` is used to create a [user-assigned managed identity credential](/python/api/azure-identity/azure.identity.aio.managedidentitycredential?view=azure-python).
+The `AZURE_CLIENT_ID` is used to create a [user-assigned managed identity credential](/python/api/azure-identity/azure.identity.aio.managedidentitycredential?view=azure-python&preserve-view=true).
 
 ```Python
     if not os.getenv("AZURE_CLIENT_ID"):
-        raise ValueError("AZURE_CLIENT_ID is required for Authentication.") 
+        raise ValueError("AZURE_CLIENT_ID is required for Authentication.")
+
+    user_managed_identity_credential = ManagedIdentityCredential(client_id=os.getenv("AZURE_CLIENT_ID")) 
 ```
 
 The following code snippet checks for the optional `AZURE_TENANT_ID` `azd` resource environment variable, which is provisioned during `azd` app deployment.
 The check is used to determine which Azure Tenant to use for creating the Azure OpenAI client.
 It sets `azure_developer_cli_credential` with the default Azure Tenant if a value isn't present, or uses that Tenant ID instead.
-
 
 ```Python
     if os.getenv("AZURE_TENANT_ID"):
@@ -229,7 +230,7 @@ The following snippet creates a `ChainedTokenCredential` using a `ManagedIdentit
 
 ```python
     azure_credential = ChainedTokenCredential(
-    ManagedIdentityCredential(client_id=AZURE_CLIENT_ID),
+    user_managed_identity_credential,
     azure_developer_cli_credential
     )
 
