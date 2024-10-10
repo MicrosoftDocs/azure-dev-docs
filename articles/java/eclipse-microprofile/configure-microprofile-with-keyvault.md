@@ -3,7 +3,7 @@ title: Configure MicroProfile with Azure Key Vault
 description: Learn how to inject secrets into a MicroProfile web service with Azure Key Vault
 author: KarlErickson
 ms.author: jialuogan
-ms.date: 01/12/2024
+ms.date: 10/09/2024
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, devx-track-javaee, devx-track-javaee-mp, devx-track-javaee-mp-aca
 ---
@@ -227,8 +227,7 @@ export ACR_NAME=acrejb010424
 az acr create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $ACR_NAME \
-    --sku Basic \
-    --admin-enabled
+    --sku Basic
 ```
 
 Wait a few minutes after this command returns before continuing.
@@ -252,14 +251,6 @@ Use the following commands to retrieve connection information required for acces
 export ACR_LOGIN_SERVER=$(az acr show \
     --name $ACR_NAME \
     --query 'loginServer' \
-    --output tsv)
-export ACR_USER_NAME=$(az acr credential show \
-    --name $ACR_NAME \
-    --query 'username' \
-    --output tsv)
-export ACR_PASSWORD=$(az acr credential show \
-    --name $ACR_NAME \
-    --query 'passwords[0].value' \
     --output tsv)
 ```
 
@@ -348,8 +339,7 @@ az containerapp create \
     --environment ${ACA_ENV} \
     --image ${ACR_LOGIN_SERVER}/open-liberty-mp-azure-keyvault:latest  \
     --registry-server $ACR_LOGIN_SERVER \
-    --registry-username $ACR_USER_NAME \
-    --registry-password $ACR_PASSWORD \
+    --registry-identity system \
     --user-assigned ${USER_ASSIGNED_IDENTITY_ID} \
     --env-vars \
         AZURE_CLIENT_ID=${USER_ASSIGNED_IDENTITY_CLIENT_ID} \
