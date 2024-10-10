@@ -19,23 +19,20 @@ When you use Azure client libraries, the first step is to authenticate to Azure.
 
 Choose from the following common progressions for your authentication flow:
 
-* Use the `DefaultAzureCredential` for **large teams with developers** using various IDEs, and tools to authenticate to Azure. This allows the greatest flexibility. This flexibility is provided at the minimal cost of performance to validate the credentials in the chain until one succeeds. If you have multiple identities of a specific credential, you can [customize your flow](#how-to-customize-defaultazurecredential-chained-credential) to select the specific identity.
+* Use the `DefaultAzureCredential` for **large teams with developers** using various IDEs, and tools to authenticate to Azure. This allows the greatest flexibility. This flexibility is provided at the minimal cost of performance to validate the credentials in the chain until one succeeds. 
 
-    The fallback from credential to credential is selected on your behalf based on the detected environment.
-
-    To determine which credential was selected, turn on [debugging](#debug-a-chained-credential). 
+  - The fallback from credential to credential is selected on your behalf based on the detected environment.
+  - To determine which credential was selected, turn on [debugging](#debug-a-chained-credential). 
 
 * Use the `ChainedTokenCredential` for **teams which have a strict and scoped selection of tools**, such as they all use the same IDE or authenticate locally only with Azure CLI. This allows the team to select the exact credentials and the order which still provides flexibility but at a reduced performance cost.
 
-    You select the fallback path from credential to credential regardless of the environment it's run in.
-
-    To determine which credential was selected, turn on [debugging](#debug-a-chained-credential).
+  - You select the fallback path from credential to credential regardless of the environment it's run in.
+  - To determine which credential was selected, turn on [debugging](#debug-a-chained-credential).
 
 * For **teams with certainty of credentials** in all the environments, a control flow statement such as if/else, allows you to know which credential was chosen in each environment.
 
-    There's no fallback to another credential type with this design.
-
-    You don't need to debug to determine which credential was chosen because it was specified. 
+  - There's no fallback to another credential type.
+  - You don't need to debug to determine which credential was chosen because it was specified. 
 
 ## How a chained credential works
 
