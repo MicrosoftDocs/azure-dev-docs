@@ -110,7 +110,7 @@ The preceding code sample creates a tailored credential chain comprised of two c
 
 ## Debug a chained credential
 
-To debug a credential chain, enable [Azure SDK logging](log-sdk-internal-information.md) in client libraries. 
+To debug a credential chain, enable [Azure SDK logging](debug-client-libraries.md) in client libraries. 
 
 ## More resources
 
