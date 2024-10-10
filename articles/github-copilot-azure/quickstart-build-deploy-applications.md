@@ -33,7 +33,7 @@ For complete setup instructions, see the [Get started](get-started.md) article. 
 
    :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-ask-copilot.png" alt-text="Screenshot that shows the GitHub Copilot chat pane.":::
 
-5. In the chat text box, type the following prompt after `@azure`, and then select **Send** (paper airplane icon) or select Enter on your keyboard:
+5. In the chat text box, type the following prompt after `@azure`. Then select **Send** (paper airplane icon) or select Enter on your keyboard.
 
    ```prompt
    Could you help me create and deploy a simple Flask website by using Python?
@@ -52,7 +52,7 @@ For complete setup instructions, see the [Get started](get-started.md) article. 
 
    :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-insert.png" alt-text="Screenshot that shows a pop-up menu with an option to insert a code-fenced command into the Visual Studio Code terminal.":::
 
-   Select `Insert into Terminal` to insert the command into the terminal.
+   Select **Insert into Terminal** to insert the command into the terminal.
 
    :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-inserted.png" alt-text="Screenshot that shows the Visual Studio Code terminal after insertion of a code-fenced command.":::
 

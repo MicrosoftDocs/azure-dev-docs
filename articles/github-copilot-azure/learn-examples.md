@@ -20,7 +20,7 @@ Using copilots can increase developer productivity by answering questions, execu
 - Never save application secrets or credentials in source code.
 - Never submit application secrets or credentials in questions or in code when you ask questions.
 
-When you're working with any tool based on large language models (LLMs), use good prompt engineering techniques for the best results. The following tips for better prompts come from the article [Write effective prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides advice for prompt engineering in the context of Azure.
+When you're working with any tool that's based on large language models, use good prompt engineering techniques for the best results. The following tips come from the article [Write effective prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides advice for prompt engineering in the context of Azure.
 
 - [Be clear and specific](/azure/copilot/write-effective-prompts#be-clear-and-specific)
 - [Set expectations](/azure/copilot/write-effective-prompts#set-expectations)
@@ -30,7 +30,7 @@ When you're working with any tool based on large language models (LLMs), use goo
 - [Use Azure terminology](/azure/copilot/write-effective-prompts#use-azure-terminology)
 - [Use the feedback loop](/azure/copilot/write-effective-prompts#use-the-feedback-loop)
 
-## Example prompts
+## Example prompts to learn about Azure
 
 If you want to use GitHub Copilot for Azure Preview to learn about how to use Azure for your application, you can start with an open-ended question or request. Then, add details like specific services and technologies for better results. Try the following example prompts.
 
@@ -57,11 +57,11 @@ If you want to use GitHub Copilot for Azure Preview to learn about how to use Az
 
 ### Learn about containers on Azure
 
-- "@azure What types of containerized applications are supported in Azure?"
+- "@azure What types of containerized applications does Azure support?"
 - "@azure What are the options for managing containers in Azure?"
 - "@azure When should I use Azure Kubernetes Service instead of Azure Container Apps?"
-- "@azure What's the difference between Azure Container Apps and Azure Kubernetes Service?"
-- "@azure Why would I choose Azure Container Apps over Azure Kubernetes Service?"
+- "@azure What's the difference between Azure Container Apps and AKS?"
+- "@azure Why would I choose Azure Container Apps over AKS?"
 
 ### Learn how to use Azure services for your app
 
@@ -83,7 +83,7 @@ If you want to use GitHub Copilot for Azure Preview to learn about how to use Az
 |Azure Virtual Network|<ul><li>"@azure How do I balance inbound network traffic to my application?"</li></ul>|
 |Azure OpenAI Service|<ul><li>"@azure What services does Azure OpenAI provide?"</li><li>"@azure Where is GPT-4o mini available?"</li><li>"@azure What are the prerequisites for integrating Azure OpenAI?"</li><li>"@azure Create a guide for creating and using Azure OpenAI resources."</li><li>"@azure What are the available types of Azure OpenAI models?"</li></ul>|
 |Azure SDK|<ul><li>"@azure Can I use Azure SDKs in the browser?"</li><li>"@azure Does the C# storage SDK support chunked blob uploads and downloads?"</li></ul>|
-|Azure SignalR Service|<ul><li>"@azure How do I host and scale SignalR on multiple servers?"</li><li>"@azure How do I do real-time communication in .NET?"</li><li>"@azure How do I push real-time updates to clients?"</li><li>"@azure How do I synchronize data across clients?"</li><li>"@azure How do I stream data to clients?"</li><li>"@azure How do I manage and scale WebSocket connections?"</li><li>"@azure How do I host and scale Socket.IO?"</li><li>"@azure What do I need to do to configure my SignalR code to work with Azure SignalR Service?"</li><li>"@azure Evaluate my use of SignalR. Is it following the best security practices?"</li><li>"@azure How do I stress test SignalR?"</li><li>"@azure How do I configure networking in Azure SignalR?"</li><li>"@azure How do I configure a Web PubSub event handler?"</li>|
+|Azure SignalR Service|<ul><li>"@azure How do I host and scale SignalR on multiple servers?"</li><li>"@azure How do I do real-time communication in .NET?"</li><li>"@azure How do I push real-time updates to clients?"</li><li>"@azure How do I synchronize data across clients?"</li><li>"@azure How do I stream data to clients?"</li><li>"@azure How do I manage and scale WebSocket connections?"</li><li>"@azure How do I host and scale Socket.IO?"</li><li>"@azure What do I need to do to configure my SignalR code to work with Azure SignalR Service?"</li><li>"@azure Evaluate my use of SignalR. Is it following the best security practices?"</li><li>"@azure How do I stress test SignalR?"</li><li>"@azure How do I configure networking in Azure SignalR Service?"</li><li>"@azure How do I configure an Azure Web PubSub event handler?"</li>|
 |Azure SQL|<ul><li>"@azure Create a Terraform configuration to deploy an Azure SQL database."</li><li>"@azure Design a strategy for migrating on-premises SQL Server databases to Azure SQL Managed Instance."</li></ul>|
 |Azure Static Web Apps|<ul><li>"@azure Do static web apps support static IP addresses?"</li></ul>|
 |Azure Storage|<ul><li>"@azure Why would I use a blob storage?"</li><li>"@azure How do I pull data from a storage blob in React?"</li><li>"@azure Outline steps to secure Azure Blob Storage with private endpoints and Azure Private Link."</li><li>"@azure Generate an Azure CLI script to create a new storage account."</li><li>"@azure Give me the code to create a new storage account with a CLI."</li><li>"@azure Can you help me choose the right Azure storage solution?"</li></ul>|

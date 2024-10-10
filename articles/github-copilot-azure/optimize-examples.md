@@ -20,7 +20,7 @@ Using copilots can increase developer productivity by answering questions, execu
 - Never save application secrets or credentials in source code.
 - Never submit application secrets or credentials in questions or in code when you ask questions.
 
-When you're working with any tool based on large language models (LLMs), use good prompt engineering techniques for the best results. The following tips for better prompts come from the article [Write effective prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides advice for prompt engineering in the context of Azure.
+When you're working with any tool that's based on large language models, use good prompt engineering techniques for the best results. The following tips come from the article [Write effective prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides advice for prompt engineering in the context of Azure.
 
 - [Be clear and specific](/azure/copilot/write-effective-prompts#be-clear-and-specific)
 - [Set expectations](/azure/copilot/write-effective-prompts#set-expectations)
@@ -30,13 +30,13 @@ When you're working with any tool based on large language models (LLMs), use goo
 - [Use Azure terminology](/azure/copilot/write-effective-prompts#use-azure-terminology)
 - [Use the feedback loop](/azure/copilot/write-effective-prompts#use-the-feedback-loop)
 
-## Example prompts
+## Example prompts to optimize your app
 
 If you want to use GitHub Copilot for Azure Preview for help with optimizing your application, you can start with an open-ended question or request. Then, add details like specific services and technologies for better results. Try the following example prompts.
 
 |Service|Optimize prompt examples|
 |---|---|
-|Azure App Service|<ul><li>"@azure Are there any available app code optimizations?"</li><li>"@azure Show me how to optimize CPU usage for Azure App Service."</li><li>"@azure How do I optimize code for Azure App Service?"</li><li>"@azure What are the best practices for security in Azure?"</li></ul>|
+|Azure App Service|<ul><li>"@azure Are any app code optimizations available?"</li><li>"@azure Show me how to optimize CPU usage for Azure App Service."</li><li>"@azure How do I optimize code for Azure App Service?"</li><li>"@azure What are the best practices for security in Azure?"</li></ul>|
 |Azure SQL|<ul><li>"@azure How can I optimize my Azure SQL database for better performance?"</li></ul>|
 
 ## Related content

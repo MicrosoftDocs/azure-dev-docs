@@ -10,7 +10,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Example prompts for troubleshooting your application with GitHub Copilot for Azure Preview
 
-If you're unfamiliar with Azure or you just want the tooling and AI to do most of the work, you can ask GitHub Copilot for Azure Preview to help you troubleshoot issues with your application.
+If you're unfamiliar with Azure or you just want the tooling and AI to do most of the work, you can ask GitHub Copilot for Azure Preview to help you troubleshoot problems with your application.
 
 ## Best practices
 
@@ -20,7 +20,7 @@ Using copilots can increase developer productivity by answering questions, execu
 - Never save application secrets or credentials in source code.
 - Never submit application secrets or credentials in questions or in code when you ask questions.
 
-When you're working with any tool based on large language models (LLMs), use good prompt engineering techniques for the best results. The following tips for better prompts come from the article [Write effective prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides advice for prompt engineering in the context of Azure.
+When you're working with any tool that's based on large language models, use good prompt engineering techniques for the best results. The following tips come from the article [Write effective prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides advice for prompt engineering in the context of Azure.
 
 - [Be clear and specific](/azure/copilot/write-effective-prompts#be-clear-and-specific)
 - [Set expectations](/azure/copilot/write-effective-prompts#set-expectations)
@@ -30,7 +30,7 @@ When you're working with any tool based on large language models (LLMs), use goo
 - [Use Azure terminology](/azure/copilot/write-effective-prompts#use-azure-terminology)
 - [Use the feedback loop](/azure/copilot/write-effective-prompts#use-the-feedback-loop)
 
-## Example prompts
+## Example prompts for troubleshooting your app
 
 If you want to use GitHub Copilot for Azure Preview for help with troubleshooting your application, you can start with an open-ended question or request. Then, add details for better results.
 

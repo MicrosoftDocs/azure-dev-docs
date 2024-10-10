@@ -20,7 +20,7 @@ Using copilots can increase developer productivity by answering questions, execu
 - Never save application secrets or credentials in source code.
 - Never submit application secrets or credentials in questions or in code when you ask questions.
 
-When you're working with any tool based on large language models (LLMs), use good prompt engineering techniques for the best results. The following tips for better prompts come from the article [Write effective prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides advice for prompt engineering in the context of Azure.
+When you're working with any tool that's based on large language models, use good prompt engineering techniques for the best results. The following tips come from the article [Write effective prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides advice for prompt engineering in the context of Azure.
 
 - [Be clear and specific](/azure/copilot/write-effective-prompts#be-clear-and-specific)
 - [Set expectations](/azure/copilot/write-effective-prompts#set-expectations)
@@ -36,8 +36,8 @@ If you want to use GitHub Copilot for Azure Preview for help with deploying your
 
 - "@azure Help me deploy my application to Azure."
 - "@azure How can I deploy this app?"
-- "@azure Can you deploy my code to Azure please."
-- "@azure Can you help me deploy my project to Azure."
+- "@azure Can you deploy my code to Azure please?"
+- "@azure Can you help me deploy my project to Azure?"
 - "@azure Deploy this project to Azure."
 - "@azure Go deploy this project."
 - "@azure I'd like to deploy my app."
@@ -52,14 +52,14 @@ Then, add more detail for better results. Here are some example prompts:
 |Azure Kubernetes Service (AKS)|<ul><li>"@azure Can you help me create a new deployment in my AKS cluster?"</li><li>"@azure What is the command to scale a deployment to 5 replicas?"</li><li>"@azure Can you provide the command to expose a deployment as a service?"</li></ul>|
 |Azure App Service|<ul><li>"@azure How many web app plans using the free tier do I have deployed, grouped by region in my \<placeholder\> subscription?"</li><li>"@azure How many web apps do I have deployed in eastus?"</li></ul>|
 |Azure Container Apps|<ul><li>"@azure How can I deploy my container app to Azure?"</li></ul>|
-|Azure Developer CLI (`azd`)|<ul><li>"@azure Use azd to deploy my project."</li><li>"@azure I want to use azd to create a deployment pipeline for my application."</li><li>"@azure Initialize my project with the Azure Developer CLI."</li><li>"@azure Please start azd pipeline."</li></ul>|
+|Azure Developer CLI (`azd`)|<ul><li>"@azure Use azd to deploy my project."</li><li>"@azure I want to use azd to create a deployment pipeline for my application."</li><li>"@azure Initialize my project with the Azure Developer CLI."</li><li>"@azure Please start an azd pipeline."</li></ul>|
 |Azure DevOps|<ul><li>"@azure Create a deployment pipeline for this project."</li><li>"@azure I don't want to deploy my app from my local machine. Can you set up a remote solution instead?"</li><li>"@azure I need a CI/CD pipeline so I can get my app deployed."</li><li>"@azure I need help with setting up a pipeline to deploy my app to Azure."</li><li>"@azure Please help me create an automated deployment pipeline for my app."</li><li>"@azure This project is ready for automated deployment. Set that up."</li></ul>|
 |Azure OpenAI Service|<ul><li>"@azure Create an OpenAI deployment with the gpt-3.5-turbo model by using a Terraform template. Set the version of the model to 0613."</li></ul>|
 |GitHub Actions|<ul><li>"@azure Let's use GitHub to deploy my app to Azure."</li><li>"@azure Set up a GitHub Actions pipeline to deploy my app to Azure."</li></ul>|
 
 ## Example prompts for undeploying an app
 
-You can ask GitHub Copilot for Azure Preview with assistance in undeploying, because it works in Visual Studio Code and has context about where and how you deployed your application to Azure.
+You can ask GitHub Copilot for Azure Preview for assistance in undeploying, because it works in Visual Studio Code and has context about where and how you deployed your application to Azure.
 
 Example prompts:
 
