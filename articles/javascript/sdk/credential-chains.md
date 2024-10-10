@@ -41,7 +41,7 @@ At runtime, a credential chain attempts to authenticate using the sequence's fir
 
 :::image type="content" source="media/chain-sequence.svg" alt-text="Diagram showing Azure Identity credential sequence flow.":::
 
-## Use the DefaultAzureCredential chained credential for flexibility
+## Use DefaultAzureCredential for flexibility
 
 [DefaultAzureCredential](/javascript/api/%40azure/identity/defaultazurecredential) is an opinionated, preconfigured chain of credentials. It's designed to support many environments, along with the most common authentication flows and developer tools. In graphical form, the underlying chain looks like this:
 
@@ -84,7 +84,7 @@ const blobServiceClient = new BlobServiceClient(
 
 `DefaultAzureCredential` checks for the presence of certain [environment variables](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/azure-identity#environment-variables). It's possible that someone could add or modify these environment variables at the system level on the host machine. Those changes apply globally and therefore alter the behavior of `DefaultAzureCredential` at runtime in any app running on that machine.
 
-## Use the DefaultAzureCredential chained credential for granularity
+## Use ChainedTokenCredential for granularity
 
 [ChainedTokenCredential](/javascript/api/@azure/identity/chainedtokencredential) is an empty chain to which you add credentials to suit your app's needs. For example, the following example adds a `ManagedIdentityCredential` instance, then an `AzureCliCredential` instance. 
 
