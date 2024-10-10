@@ -19,7 +19,7 @@ When you use Azure client libraries, the first step is to authenticate to Azure.
 
 Choose from the following common progressions for your authentication flow:
 
-* Use the `DefaultAzureCredential` for **large teams with developers** using various IDEs, and tools to authenticate to Azure. This allows the greatest flexibility. This flexibility is provided at the minimal cost of performance to validate the credentials in the chain until one succeeds. If you have multiple identities of a specific credential, you can [customize your flow](#how-to-customize-defaultazurecredential) to select the specific identity.
+* Use the `DefaultAzureCredential` for **large teams with developers** using various IDEs, and tools to authenticate to Azure. This allows the greatest flexibility. This flexibility is provided at the minimal cost of performance to validate the credentials in the chain until one succeeds. If you have multiple identities of a specific credential, you can [customize your flow](#how-to-customize-defaultazurecredential-chained-credential) to select the specific identity.
 
     The fallback from credential to credential is selected on your behalf based on the detected environment.
 
@@ -96,7 +96,7 @@ To specify the credential selected, when more than one is available in the chain
 | [Specify system-assigned managed identity](#customize-system-assigned-managed-identity)| [DefaultAzureCredentialResourceIdOptions](/javascript/api/%40azure/identity/defaultazurecredentialresourceidoptions) |
 | [Specify tenant](#customize-for-tenant)| [DefaultAzureCredentialOptions](/javascript/api/%40azure/identity/defaultazurecredentialoptions)   |
 
-You can specify one specific item for that part of the chain. If you need to add more than 1 type of that credential type in the chain, you should use the [ChainedTokenCredential](#use-chainedtokencredential-for-granular-credential-control)
+You can specify one specific item for that part of the chain. If you need to add more than 1 type of that credential type in the chain, you should use the [ChainedTokenCredential](#use-the-defaultazurecredential-chained-credential-for-granularity)
 
 
 ### Customize for user-assigned managed identity
