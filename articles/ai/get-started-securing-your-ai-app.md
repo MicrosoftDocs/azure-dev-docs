@@ -114,18 +114,19 @@ The remaining tasks in this article take place in the context of this developmen
 
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
-1. Create a new local directory on your computer for the project.
+1. Create a new local directory on your computer for the project and navigate to the directory you created.
 
-    ```shell
-    mkdir my-secure-chat-app
+##### [Bash](#tab/bash)
+
+    ```bash
+    mkdir my-secure-chat-app && cd my-secure-chat-app
     ```
 
-1. Navigate to the directory you created.
+##### [PowerShell](#tab/powershell)
 
-   ```shell
-    cd my-secure-chat-app
+    ```powershell
+    mkdir my-secure-chat-app;cd my-secure-chat-app
     ```
-
 
 1. Open Visual Studio Code in that directory:
 
@@ -161,7 +162,7 @@ The sample repository contains all the code and configuration files for chat app
 > [!IMPORTANT]
 > Azure resources created in this section incur immediate costs. These resources may accrue costs even if you interrupt the command before it is fully executed.
 
-1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
+1. Run the following Azure Developer CLI command for Azure resource provisioning and source code deployment:
 
     ```azdeveloper
     azd up
@@ -200,25 +201,19 @@ In this sample, the `src\quartapp\chat.py` file begins with configuring keyless 
 
 The following snippet uses the [azure.identity.aio](/python/api/azure-identity/azure.identity.aio?view=azure-python&preserve-view=true) module to create an asynchronous Microsoft Entra authentication flow.
 
-The following code snippet checks for the required `AZURE_CLIENT_ID` `azd` resource environment variable, which is provisioned during `azd` app deployment. An error is thrown if a value isn't present.
-The `AZURE_CLIENT_ID` environment variable is used to create a [ManagedIdentityCredential](/python/api/azure-identity/azure.identity.aio.managedidentitycredential?view=azure-python&preserve-view=true) instance capable of authenticating via user-assigned managed identity.
+The following code snippet uses the `AZURE_CLIENT_ID` `azd` environment variable to create a [ManagedIdentityCredential](/python/api/azure-identity/azure.identity.aio.managedidentitycredential?view=azure-python&preserve-view=true) instance capable of authenticating via user-assigned managed identity.
 
 ```Python
-    if not os.getenv("AZURE_CLIENT_ID"):
-        raise ValueError("AZURE_CLIENT_ID is required for Authentication.")
-
-    user_managed_identity_credential = ManagedIdentityCredential(client_id=os.getenv("AZURE_CLIENT_ID")) 
+    user_assigned_managed_identity_credential = ManagedIdentityCredential(client_id=os.getenv("AZURE_CLIENT_ID")) 
 ```
 
-The following code snippet checks for the optional `AZURE_TENANT_ID` `azd` resource environment variable, which is provisioned during `azd` app deployment.
-The check is used to determine which Microsoft Entra tenant to use for creating the Azure OpenAI client.
-It sets `azure_developer_cli_credential` with the default Microsoft Entra tenant if a value isn't present, or uses that tenant ID instead.
+>[!NOTE]
+>The `azd` resource environment variables are provisioned during `azd` app deployment.
+
+The following code snippet uses `AZURE_TENANT_ID` `azd` resource environment variable to create an [AzureDeveloperCliCredential](/python/api/azure-identity/azure.identity.aio.azuredeveloperclicredential?view=azure-python&preserve-view=true) instance capable of authenticating with the current Microsoft Entra tenant.
 
 ```Python
-    if os.getenv("AZURE_TENANT_ID"):
-        azure_developer_cli_credential = AzureDeveloperCliCredential(process_timeout=60)
-    else:
-        azure_developer_cli_credential = AzureDeveloperCliCredential(tenant_id=os.getenv("AZURE_TENANT_ID"), process_timeout=60)    
+azure_developer_cli_credential = AzureDeveloperCliCredential(tenant_id=os.getenv("AZURE_TENANT_ID"), process_timeout=60)  
 ```
 
 The Azure Identity client library provides _credentials_&mdash;public classes that implement the Azure Core library's [TokenCredential](/python/api/azure-core/azure.core.credentials.tokencredential) protocol. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
@@ -230,11 +225,12 @@ The following snippet creates a `ChainedTokenCredential` using a `ManagedIdentit
 
 ```python
     azure_credential = ChainedTokenCredential(
-        user_managed_identity_credential,
+        user_assigned_managed_identity_credential,
         azure_developer_cli_credential
     )
 
 ```
+
 >[!TIP]
 >The order of the credentials is important, as the first valid Microsoft Entra access token is used. For more information, check out the [ChainedTokenCredential Overview](/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#usage-guidance-for-defaultazurecredential) article.
 
@@ -301,35 +297,6 @@ The `response_stream` handles the chat completion call in the route. The followi
         )
 ```
 
-## Deploy with existing Azure resources
-
-Set `azd` environment values to use existing Azure resources or to specify the new Azure Resource name.
-
-### Use an existing Azure resource group
-
-To use an existing Azure resource group during sample deployment, run `azd env set` to specify the existing resource group name and location values. In the following snippet, copy and replace the `<>` delimited placeholder values in each statement with your values and then run.
-
-```azdeveloper
-azd env set AZURE_RESOURCE_GROUP  <Existing Azure resource group name>
-azd env set AZURE_LOCATION <Azure resource group location>
-```
-
-### Use an existing Azure OpenAI resource
-
-To reuse an OpenAI resource during sample deployment, run `azd env set` to specify the existing OpenAI resource values. In the following snippet, copy and replace the `<>` delimited placeholder values in each statement with your values and then run.
-
-```azdeveloper
-azd env set AZURE_OPENAI_RESOURCE <OpenAI resource name>
-azd env set AZURE_OPENAI_RESOURCE_GROUP <Azure resource group name that contains the OpenAI resource>
-azd env set AZURE_OPENAI_RESOURCE_GROUP_LOCATION <Azure resource group location>
-azd env set AZURE_OPENAI_SKU_NAME <SKU name, defaults to "S0">
-```
-
-> [!TIP]
-> For more information, check out the [frequently asked questions](/azure/developer/azure-developer-cli/environment-variables-faq) about working with environment variables and the Azure Developer CLI (`azd`).
-
-Set these values before running `azd up`. Once set, return to the [Deployment steps](#deploy-and-run).
-
 ## Other security considerations
 
 This article demonstrates how the sample uses `ChainedTokenCreadential` for authenticating to the Azure OpenAI service.
@@ -337,6 +304,8 @@ This article demonstrates how the sample uses `ChainedTokenCreadential` for auth
 The sample also has a [GitHub Action](https://github.com/microsoft/security-devops-action) that scans the infrastructure-as-code files and generates a report containing any detected issues. To ensure continued best practices in your own repository, we recommend that anyone creating solutions based on our templates ensure that the [GitHub secret scanning setting](https://docs.github.com/code-security/secret-scanning/introduction/about-secret-scanning) is enabled.
 
 Consider other security measures, such as:
+
+- [Restrict access to the appropriate set of app users using Microsoft Entra](/entra/identity-platform/howto-restrict-your-app-to-a-set-of-users).
 
 - Protecting the Azure Container Apps instance with a [firewall](/azure/container-apps/waf-app-gateway?tabs=default-domain) and/or [Virtual Network](/azure/container-apps/networking?tabs=workload-profiles-env%2Cazure-cli).
 
@@ -363,7 +332,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 
-1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
+1. Locate your currently running Codespaces sourced from the [`Azure-Samples/openai-chat-app-quickstart`](https://github.com/Azure-Samples/openai-chat-app-quickstart) GitHub repository.
 
 1. Open the context menu for the codespace and then select **Delete**.
 
