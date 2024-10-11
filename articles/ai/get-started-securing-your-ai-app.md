@@ -236,7 +236,7 @@ This value is obtained by calling the [azure.identity.aio.get_bearer_token_provi
 
 - `azure_credential`: The `ChainedTokenCredential` instance created earlier to authenticate the request.
 
-- "https://cognitiveservices.azure.com/.default": Required one or more bearer token scopes. In this case, the **Azure Cognitive Services** endpoint.
+- `https://cognitiveservices.azure.com/.default`: Required one or more bearer token scopes. In this case, the **Azure Cognitive Services** endpoint.
 
 ```python
 token_provider = get_bearer_token_provider(
@@ -253,7 +253,7 @@ if not os.getenv("AZURE_OPENAI_CHATGPT_DEPLOYMENT"):
     raise ValueError("AZURE_OPENAI_CHATGPT_DEPLOYMENT is required for Azure OpenAI")
 ```
 
-This snippet initializes the Azure OpenAI client, setting the `api_version`, `azure_endpoint`, and `azure_ad_token_provider`(`client_args`) parameters:
+This snippet initializes the Azure OpenAI client, setting the `api_version`, `azure_endpoint`, and `azure_ad_token_provider` (`client_args`) parameters:
 
 ```python
 bp.openai_client = AsyncAzureOpenAI(
