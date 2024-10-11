@@ -95,7 +95,7 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 1. On the **Create codespace** page, review and then select **Create new codespace**
 
-:::image type="content" source="./media/get-started-securing-your-ai-app/github-create-codespace.png" lightbox="./media/get-started-securing-your-ai-app/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
+    :::image type="content" source="./media/get-started-securing-your-ai-app/github-create-codespace.png" lightbox="./media/get-started-securing-your-ai-app/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
@@ -201,7 +201,7 @@ The following snippet uses the [azure.identity.aio](/python/api/azure-identity/a
 The following code snippet uses the `AZURE_CLIENT_ID` `azd` environment variable to create a [ManagedIdentityCredential](/python/api/azure-identity/azure.identity.aio.managedidentitycredential?view=azure-python&preserve-view=true) instance capable of authenticating via user-assigned managed identity.
 
 ```Python
-    user_assigned_managed_identity_credential = ManagedIdentityCredential(client_id=os.getenv("AZURE_CLIENT_ID")) 
+user_assigned_managed_identity_credential = ManagedIdentityCredential(client_id=os.getenv("AZURE_CLIENT_ID")) 
 ```
 
 >[!NOTE]
@@ -210,7 +210,7 @@ The following code snippet uses the `AZURE_CLIENT_ID` `azd` environment variable
 The following code snippet uses `AZURE_TENANT_ID` `azd` resource environment variable to create an [AzureDeveloperCliCredential](/python/api/azure-identity/azure.identity.aio.azuredeveloperclicredential?view=azure-python&preserve-view=true) instance capable of authenticating with the current Microsoft Entra tenant.
 
 ```Python
-azure_developer_cli_credential = AzureDeveloperCliCredential(tenant_id=os.getenv("AZURE_TENANT_ID"), process_timeout=60)  
+azure_dev_cli_credential = AzureDeveloperCliCredential(tenant_id=os.getenv("AZURE_TENANT_ID"), process_timeout=60)  
 ```
 
 The Azure Identity client library provides _credentials_&mdash;public classes that implement the Azure Core library's [TokenCredential](/python/api/azure-core/azure.core.credentials.tokencredential) protocol. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
@@ -221,10 +221,10 @@ The following snippet creates a `ChainedTokenCredential` using a `ManagedIdentit
 - The `AzureDeveloperCliCredential` is used for local development. It was set previously based on the Microsoft Entra tenant to use.
 
 ```python
-    azure_credential = ChainedTokenCredential(
-        user_assigned_managed_identity_credential,
-        azure_developer_cli_credential
-    )
+azure_credential = ChainedTokenCredential(
+    user_assigned_managed_identity_credential,
+    azure_dev_cli_credential
+)
 
 ```
 
@@ -239,35 +239,34 @@ This value is obtained by calling the [azure.identity.aio.get_bearer_token_provi
 - "https://cognitiveservices.azure.com/.default": Required one or more bearer token scopes. In this case, the **Azure Cognitive Services** endpoint.
 
 ```python
-    token_provider = get_bearer_token_provider(
-        azure_credential, "https://cognitiveservices.azure.com/.default"
-    )
+token_provider = get_bearer_token_provider(
+    azure_credential, "https://cognitiveservices.azure.com/.default"
+)
 ```
 
 The following lines check for the required `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_CHATGPT_DEPLOYMENT` `azd` resource environment variables, which are provisioned during `azd` app deployment. An error is thrown if a value isn't present.
 
 ```python
-    if not os.getenv("AZURE_OPENAI_ENDPOINT"):
-        raise ValueError("AZURE_OPENAI_ENDPOINT is required for Azure OpenAI")
-    if not os.getenv("AZURE_OPENAI_CHATGPT_DEPLOYMENT"):
-        raise ValueError("AZURE_OPENAI_CHATGPT_DEPLOYMENT is required for Azure OpenAI")
+if not os.getenv("AZURE_OPENAI_ENDPOINT"):
+    raise ValueError("AZURE_OPENAI_ENDPOINT is required for Azure OpenAI")
+if not os.getenv("AZURE_OPENAI_CHATGPT_DEPLOYMENT"):
+    raise ValueError("AZURE_OPENAI_CHATGPT_DEPLOYMENT is required for Azure OpenAI")
 ```
 
 This snippet initializes the Azure OpenAI client, setting the `api_version`, `azure_endpoint`, and `azure_ad_token_provider`(`client_args`) parameters:
 
 ```python
-    bp.openai_client = AsyncAzureOpenAI(
-        api_version=os.getenv("AZURE_OPENAI_API_VERSION") or "2024-02-15-preview",
-        azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-        azure_ad_token_provider=token_provider,
-    )
-    
+bp.openai_client = AsyncAzureOpenAI(
+    api_version=os.getenv("AZURE_OPENAI_API_VERSION") or "2024-02-15-preview",
+    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+    azure_ad_token_provider=token_provider,
+)  
 ```
 
 The following line sets the Azure OpenAI model deployment name for use in API calls:
 
 ```python
-    bp.openai_model = os.getenv("AZURE_OPENAI_CHATGPT_DEPLOYMENT")
+bp.openai_model = os.getenv("AZURE_OPENAI_CHATGPT_DEPLOYMENT")
 ```
 
 >[!NOTE]
@@ -280,18 +279,18 @@ Once this function completes, the client is properly configured and ready to int
 The `response_stream` handles the chat completion call in the route. The following code snippet shows how `openai_client` and `model` are used.
 
 ```python
-   async def response_stream():
-        # This sends all messages, so API request may exceed token limits
-        all_messages = [
-            {"role": "system", "content": "You are a helpful assistant."},
-        ] + request_messages
+async def response_stream():
+    # This sends all messages, so API request may exceed token limits
+    all_messages = [
+        {"role": "system", "content": "You are a helpful assistant."},
+    ] + request_messages
 
-        chat_coroutine = bp.openai_client.chat.completions.create(
-            # Azure Open AI takes the deployment name as the model name
-            model=bp.openai_model,
-            messages=all_messages,
-            stream=True,
-        )
+    chat_coroutine = bp.openai_client.chat.completions.create(
+        # Azure Open AI takes the deployment name as the model name
+        model=bp.openai_model,
+        messages=all_messages,
+        stream=True,
+    )
 ```
 
 ## Other security considerations
