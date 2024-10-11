@@ -46,9 +46,15 @@
       "feedback_github_repo": "MicrosoftDocs/azure-dev-docs",
       "recommendations": true,
       "feedback_help_link_type": "get-help-at-qna",
-      "feedback_help_link_url": "https://learn.microsoft.com/answers/questions/"
+      "feedback_help_link_url": "https://learn.microsoft.com/answers/questions/"      
     },
     "fileMetadata": {
+      "feedback_help_link_url": {
+        "github-copilot-azure/**/*.md": "https://github.com/microsoft/GitHub-Copilot-for-Azure"
+      },
+      "feedback_help_link_type": {
+        "github-copilot-azure/**/*.md": "get-product-support"
+      },
       "feedback_product_url" : {
         "python/**/*.md": "https://github.com/Azure/azure-sdk-for-python/issues",
         "ansible/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
@@ -64,7 +70,8 @@
         "tutorial-vscode-azure-cli-node*.md" : "https://github.com/Azure/azure-cli/issues",
         "tutorial-vscode-docker-node*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
         "tutorial-vscode-serverless-node*.md" : "https://github.com/Microsoft/vscode-azurefunctions/issues",
-        "tutorial-vscode-static-website-node*.md": "https://github.com/Microsoft/vscode-azurestorage/issues"
+        "tutorial-vscode-static-website-node*.md": "https://github.com/Microsoft/vscode-azurestorage/issues",
+        "github-copilot-azure/**/*.md": "https://github.com/microsoft/GitHub-Copilot-for-Azure/issues"
       },
       "_op_documentIdPathDepotMapping": {
         "python": {
