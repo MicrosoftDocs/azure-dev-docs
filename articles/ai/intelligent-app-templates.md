@@ -51,7 +51,7 @@ Building blocks are smaller-scale samples that focus on specific scenarios and t
 
 ## End-to-end solutions
 
-End-to-end solutions are comprehensive reference samples including documention, source code, and deployment to allow you to take and extend for your own purposes.
+End-to-end solutions are comprehensive reference samples including documentation, source code, and deployment to allow you to take and extend for your own purposes.
 
 :::zone pivot="dotnet"
 
