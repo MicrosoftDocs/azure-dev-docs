@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure support for Spring Cloud Stream
 
-**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.17.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.17.1
 
 Spring Cloud Stream is a framework for building highly scalable event-driven microservices connected with shared messaging systems.
 
@@ -127,7 +127,7 @@ The following options are divided into four sections: Consumer Properties, Advan
 These properties are exposed via `EventHubsConsumerProperties`.
 
 > [!NOTE]
-> To avoid repetition, since version 4.19.0 and 5.17.0, Spring Cloud Azure Stream Binder Event Hubs supports setting values for all channels, in the format of `spring.cloud.stream.eventhubs.default.consumer.<property>=<value>`.
+> To avoid repetition, since version 4.19.0 and 5.17.1, Spring Cloud Azure Stream Binder Event Hubs supports setting values for all channels, in the format of `spring.cloud.stream.eventhubs.default.consumer.<property>=<value>`.
 
 Consumer configurable properties of spring-cloud-azure-stream-binder-eventhubs:
 
@@ -177,7 +177,7 @@ The above [connection](#connection-configuration-properties), [checkpoint](#chec
 These properties are exposed via `EventHubsProducerProperties`.
 
 > [!NOTE]
-> To avoid repetition, since version 4.19.0 and 5.17.0, Spring Cloud Azure Stream Binder Event Hubs supports setting values for all channels, in the format of `spring.cloud.stream.eventhubs.default.producer.<property>=<value>`.
+> To avoid repetition, since version 4.19.0 and 5.17.1, Spring Cloud Azure Stream Binder Event Hubs supports setting values for all channels, in the format of `spring.cloud.stream.eventhubs.default.producer.<property>=<value>`.
 
 Producer configurable properties of spring-cloud-azure-stream-binder-eventhubs:
 
@@ -780,7 +780,7 @@ Configurations, Producer Properties and Advanced Producer Configurations.
 These properties are exposed via `ServiceBusConsumerProperties`.
 
 > [!NOTE]
-> To avoid repetition, since version 4.19.0 and 5.17.0, Spring Cloud Azure Stream Binder Service Bus supports setting values for all channels, in the format of `spring.cloud.stream.servicebus.default.consumer.<property>=<value>`.
+> To avoid repetition, since version 4.19.0 and 5.17.1, Spring Cloud Azure Stream Binder Service Bus supports setting values for all channels, in the format of `spring.cloud.stream.servicebus.default.consumer.<property>=<value>`.
 
 Consumer configurable properties of spring-cloud-azure-stream-binder-servicebus:
 
@@ -809,7 +809,7 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
 These properties are exposed via `ServiceBusProducerProperties`.
 
 > [!NOTE]
-> To avoid repetition, since version 4.19.0 and 5.17.0, Spring Cloud Azure Stream Binder Service Bus supports setting values for all channels, in the format of `spring.cloud.stream.servicebus.default.producer.<property>=<value>`.
+> To avoid repetition, since version 4.19.0 and 5.17.1, Spring Cloud Azure Stream Binder Service Bus supports setting values for all channels, in the format of `spring.cloud.stream.servicebus.default.producer.<property>=<value>`.
 
 Producer configurable properties of spring-cloud-azure-stream-binder-servicebus:
 
