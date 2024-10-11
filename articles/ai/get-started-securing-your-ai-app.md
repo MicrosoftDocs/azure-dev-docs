@@ -10,7 +10,7 @@ ms.collection: ce-skilling-ai-copilot
 ---
 # Get started with the Azure OpenAI security building block
 
-This article shows you how to create and use the Azure OpenAI security building block sample. The purpose is to demonstrate Azure OpenAI account provisioning with a role-based access control (RBAC) role permission for keyless (Microsoft Entra ID) authentication to Azure OpenAI. This Python chat app sample also includes all the infrastructure and configuration needed to provision Azure OpenAI resources and deploy the app to Azure Container Apps using the Azure Developer CLI.
+This article shows you how to create and use the Azure OpenAI security building block sample. The purpose is to demonstrate Azure OpenAI account provisioning with a role-based access control (RBAC) role permission for keyless (Microsoft Entra ID) authentication to Azure OpenAI. This chat app sample also includes all the infrastructure and configuration needed to provision Azure OpenAI resources and deploy the app to Azure Container Apps using the Azure Developer CLI.
 
 By following the instructions in this article, you will:
 
@@ -28,18 +28,17 @@ Once you complete this article, you can start modifying the new project with you
 A simple architecture of the chat app is shown in the following diagram:
 :::image type="content" source="./media/get-started-securing-your-ai-app/simple-architecture-diagram.png" lightbox="./media/get-started-securing-your-ai-app/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
-The Python chat app is running as an Azure Container App. The app uses managed identity via Microsoft Entra ID to authenticate with Azure OpenAI, instead of an API key. The chat app uses Azure OpenAI to generate responses to user messages.
+The chat app is running as an Azure Container App. The app uses managed identity via Microsoft Entra ID to authenticate with Azure OpenAI, instead of an API key. The chat app uses Azure OpenAI to generate responses to user messages.
 
 The application architecture relies on the following services and components:
 
 - [Azure OpenAI](/azure/ai-services/openai/) represents the AI provider that we send the user's queries to.
 - [Azure Container Apps](/azure/container-apps/) is the container environment where the application is hosted.
 - [Azure Managed Identity](/entra/identity/managed-identities-azure-resources/) helps us ensure best-in-class security and eliminates the requirement for you as a developer to securely manage a secret.
-
-- A Python [Quart](https://quart.palletsprojects.com/en/latest/) that uses the [`openai`](https://pypi.org/project/openai/) package to generate responses to user messages.
-- A basic HTML/JavaScript frontend that streams responses from the backend using [JSON Lines](http://jsonlines.org/) over a [ReadableStream](https://developer.mozilla.org/docs/Web/API/ReadableStream).
 - [Bicep files](/azure/azure-resource-manager/bicep/) for provisioning Azure resources, including Azure OpenAI, Azure Container Apps, Azure Container Registry, Azure Log Analytics, and RBAC roles.
 - [Microsoft AI Chat Protocol](https://github.com/microsoft/ai-chat-protocol/) provides standardized API contracts across AI solutions and languages. The chat app conforms to the Microsoft AI Chat Protocol, which allows the evaluations app to run against any chat app that conforms to the protocol.
+- A Python [Quart](https://quart.palletsprojects.com/en/latest/) that uses the [`openai`](https://pypi.org/project/openai/) package to generate responses to user messages.
+- A basic HTML/JavaScript frontend that streams responses from the backend using [JSON Lines](http://jsonlines.org/) over a [ReadableStream](https://developer.mozilla.org/docs/Web/API/ReadableStream).
 
 ## Cost
 
@@ -114,19 +113,17 @@ The remaining tasks in this article take place in the context of this developmen
 
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
-1. Create a new local directory on your computer for the project and navigate to the directory you created.
+1. Create a new local directory on your computer for the project.
 
-##### [Bash](#tab/bash)
+    ```shell
+    mkdir my-secure-chat-app
+    ```
 
-```bash
-mkdir my-secure-chat-app && cd my-secure-chat-app
-```
+1. Navigate to the directory you created.
 
-##### [PowerShell](#tab/powershell)
-
-```powershell
-mkdir my-secure-chat-app;cd my-secure-chat-app
-```
+    ```shell
+    cd my-secure-chat-app
+    ```
 
 1. Open Visual Studio Code in that directory:
 
