@@ -15,11 +15,12 @@ When you reach the section [Create a single database](/azure/azure-sql/database/
     1. For **Authentication method**, select **Use SQL authentication**.  
     1. Write down the **Server admin login** value - for example, `azureuser`.  
     1. Write down the **Password** value.  
-1. In step 8, for **Workload environment**, select **Development**. Look at the description and consider other options for your workload.  
+1. In step 8, for **Workload environment**, select **Development**. Look at the description and consider other options for your workload.
+1. In step 10, for **Compute tier**, select **Provisioned**.
 1. In step 11, for **Backup storage redundancy**, select **Locally-redundant backup storage**. Consider other options for your backups. For more information, see the [Backup storage redundancy](/azure/azure-sql/database/automated-backups-overview?view=azuresql-db&preserve-view=true#backup-storage-redundancy) section of [Automated backups in Azure SQL Database](/azure/azure-sql/database/automated-backups-overview?view=azuresql-db&preserve-view=true).  
 1. In step 14, in the **Firewall rules** configuration, for **Allow Azure services and resources to access this server**, select **Yes**. 
 
-1. When you reach the section [Query the database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal#query-the-database), use the following steps:
+1. When you reach the section [Query the database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal#query-the-database), use the following steps instead of the steps in the other article:
     1. In step 3, enter your **SQL authentication** server admin sign-in information to sign in.
 
        > [!NOTE]
@@ -38,7 +39,7 @@ When you reach the section [Create a single database](/azure/azure-sql/database/
 
        After a successful run, you should see the message **Query succeeded: Affected rows: 0**.
 
-       The database table `ispn_entry_sessions_javaee_cafe_war` is used for storing session data for your JBoss EAP cluster.  
+       The database table `ispn_entry_sessions_javaee_cafe_war` is used for storing session data for your JBoss EAP cluster.
 
 Then, create an Azure SQL Database failover group by following the Azure portal steps in [Configure a failover group for Azure SQL Database](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db). You just need the following sections: [Create failover group](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#create-failover-group) and [Test planned failover](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#test-planned-failover). Use the following steps as you go through the article, then return to this article after you create and configure the Azure SQL Database failover group:
 
