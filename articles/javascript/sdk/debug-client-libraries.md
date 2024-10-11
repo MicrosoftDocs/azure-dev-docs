@@ -20,7 +20,7 @@ Valid log levels include `verbose`, `info`, `warning`, `error`.
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
 - <a href="https://nodejs.org/" target="_blank">Node.js LTS.</a>
-- Optional, authentication tool such as [Azure CLI](/cli/azure/install-azure-cli) used for passwordless authentication in a local development environment, create the necessary context by signing in with the Azure CLI. 
+- Optional, authentication tool such as [Azure CLI](/cli/azure/install-azure-cli) used for authentication in a local development environment, create the necessary context by signing in with the Azure CLI. 
 
 ## Debug with environment variable
 
@@ -52,7 +52,7 @@ The following code uses the [@azure/logger](https://www.npmjs.com/package/@azure
     };
 
     const credential = new ChainedTokenCredential(
-        new ManagedIdentityCredential(),
+        new ManagedIdentityCredential({ clientId: "<YOUR_CLIENT_ID>" }),
         new AzureCliCredential()
     );
     

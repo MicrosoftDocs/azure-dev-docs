@@ -16,16 +16,16 @@ The Azure Identity client library provides *credentials* which are public classe
 
 ## Design your authentication flows
 
-When you use Azure client libraries, the first step is to authenticate to Azure. There are many options of how to authenticate to consider such as tools and IDEs used in the development team, automation workflows such as testing and CI/CD, and hosting platforms such as Azure App Service.
+When you use Azure SDK client libraries, the first step is to authenticate to Azure. There are many options of how to authenticate to consider, such as tools and IDEs used in the development team, automation workflows such as testing and CI/CD, and hosting platforms such as Azure App Service.
 
 Choose from the following common progressions for your authentication flow:
 
-* Use the `DefaultAzureCredential` for **large teams with developers** using various IDEs, and tools to authenticate to Azure. This allows the greatest flexibility. This flexibility is provided at the minimal cost of performance to validate the credentials in the chain until one succeeds. 
+* Use the `DefaultAzureCredential` for **large teams with developers** using various IDEs and CLIs to authenticate to Azure. This allows the greatest flexibility. This flexibility is provided at the cost of performance to validate the credentials in the chain until one succeeds. 
 
   - The fallback from credential to credential is selected on your behalf based on the detected environment.
   - To determine which credential was selected, turn on [debugging](#debug-a-chained-credential). 
 
-* Use the `ChainedTokenCredential` for **teams which have a strict and scoped selection of tools**, such as they all use the same IDE or authenticate locally only with Azure CLI. This allows the team to select the exact credentials and the order which still provides flexibility but at a reduced performance cost.
+* Use the `ChainedTokenCredential` for **teams which have a strict and scoped selection of tools**. For example, they all authenticate in and use the same IDE or CLI. This allows the team to select the exact credentials and the order which still provides flexibility but at a reduced performance cost.
 
   - You select the fallback path from credential to credential regardless of the environment it's run in.
   - To determine which credential was selected, turn on [debugging](#debug-a-chained-credential).
@@ -96,7 +96,7 @@ import {
 } from "@azure/identity";
 
 const credential = ChainedTokenCredential(
-    ManagedIdentityCredential("<YOUR_CLIENT_ID>"),
+    ManagedIdentityCredential({ clientId: "<YOUR_CLIENT_ID>" }),
     AzureCliCredential()
 );
 ```
