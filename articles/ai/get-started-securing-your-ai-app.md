@@ -34,7 +34,7 @@ The application architecture relies on the following services and components:
 
 - [Azure OpenAI](/azure/ai-services/openai/) represents the AI provider that we send the user's queries to.
 - [Azure Container Apps](/azure/container-apps/) is the container environment where the application is hosted.
-- [Azure Managed Identity](/entra/identity/managed-identities-azure-resources/) helps us ensure best-in-class security and eliminates the requirement for you as a developer to securely manage a secret.
+- [Managed Identity](/entra/identity/managed-identities-azure-resources/) helps us ensure best-in-class security and eliminates the requirement for you as a developer to securely manage a secret.
 - [Bicep files](/azure/azure-resource-manager/bicep/) for provisioning Azure resources, including Azure OpenAI, Azure Container Apps, Azure Container Registry, Azure Log Analytics, and RBAC roles.
 - [Microsoft AI Chat Protocol](https://github.com/microsoft/ai-chat-protocol/) provides standardized API contracts across AI solutions and languages. The chat app conforms to the Microsoft AI Chat Protocol, which allows the evaluations app to run against any chat app that conforms to the protocol.
 - A Python [Quart](https://quart.palletsprojects.com/en/latest/) that uses the [`openai`](https://pypi.org/project/openai/) package to generate responses to user messages.
