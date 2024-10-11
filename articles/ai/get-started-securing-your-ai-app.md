@@ -118,15 +118,15 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ##### [Bash](#tab/bash)
 
-    ```bash
-    mkdir my-secure-chat-app && cd my-secure-chat-app
-    ```
+```bash
+mkdir my-secure-chat-app && cd my-secure-chat-app
+```
 
 ##### [PowerShell](#tab/powershell)
 
-    ```powershell
-    mkdir my-secure-chat-app;cd my-secure-chat-app
-    ```
+```powershell
+mkdir my-secure-chat-app;cd my-secure-chat-app
+```
 
 1. Open Visual Studio Code in that directory:
 
@@ -155,7 +155,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ## Deploy and run
 
-The sample repository contains all the code and configuration files for chat app Azure deployment. The following steps walk you through the sample chat app Azure deployment process. You can also [deploy with existing Azure resources](#deploy-with-existing-azure-resources).  
+The sample repository contains all the code and configuration files for chat app Azure deployment. The following steps walk you through the sample chat app Azure deployment process.
 
 ### Deploy chat app to Azure
 
