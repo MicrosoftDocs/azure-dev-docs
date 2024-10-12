@@ -5,9 +5,19 @@ ms.date: 05/31/2024
 ---
 
 1. In the search box at the top of the Azure portal, enter **Resource groups** and select **Resource groups** in the search results.
-1. Select the name of resource group for your failover region. Sort items by **Type** in the **Resource Group** page.
-1. Select **Type** filter > select *Virtual machine* from dropdown list of **Value** > **Apply**. Select all virtual machines > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications until it completes.
-1. Select **Type** filter > select *Disk* from dropdown list of **Value** > **Apply**. Select all disks > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications, wait until it completes.
-1. Select **Type** filter > select *Private endpoint* from dropdown list of **Value** > **Apply**. Select all private endpoints > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications until it completes. Ignore this step if type **Private endpoint** is not listed.
-1. Select **Type** filter > select *Network Interface* from dropdown list of **Value** > **Apply**. Select all network interfaces > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications until it completes.
-1. Select **Type** filter > select *Storage account* from dropdown list of **Value** > **Apply**. Select all storage accounts > **Delete** > Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications until it completes.
+1. Select the name of resource group for your newly created secondary region.
+1. Next to the textarea labeled **Filter for any field...**, select the **X** to remove all filters.
+1. Select **Add filter**. Set **Filter** to **Type**. Set **Operator** to **Equals**.
+1. Select the dropdown menu next to the field **Value**.
+1. Toggle the **Select all** checkbox until no values are selected.
+1. Ensure all of the following types are selected.
+   1. **Virtual machine**.
+   1. **Disk**.
+   1. **Private endpoint**.
+   1. **Network interface**.
+   1. **Storage account**.
+1. Select the dropdown menu next to the field **Value** to close the dropdown. You must see **5 resource types** as the value of **Value**.
+1. Select **Apply**.
+1. Select the checkbox next to the label **Name** at the top of the filtered list. 
+1. Select **Delete**.
+1. Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications until it completes.

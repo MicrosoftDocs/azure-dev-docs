@@ -224,7 +224,7 @@ You're now finished deploying the JavaEE application. Use the following steps to
 ## Set up the secondary JBoss EAP cluster on Azure VMs
 
 ### Deploy the secondary JBoss EAP cluster
-Follow the steps in [Deploy the primary JBoss EAP cluster](#deploy-the-primary-jboss-eap-cluster) to deploy the secondary JBoss EAP cluster in the West US region.
+Follow the steps in [Deploy the primary JBoss EAP cluster](#deploy-the-primary-jboss-eap-cluster) to deploy the secondary JBoss EAP cluster in the West US region. By using the offer, the secondary JBoss EAP cluster is configured so Azuer Site Recovery can be used to restore the topology. 
 Open the [JBoss EAP Cluster on VMs](https://aka.ms/eap-vm-cluster-portal) offer in your browser and select **Create**. You should see the **Basics** pane of the offer.
 
 Use the following steps to fill out the **Basics** pane:
@@ -253,7 +253,7 @@ After a while, you should see the **Deployment** page where **Deployment is in p
 
 ### Clean up unused resources in the secondary region
 
-Clean up resources in the resource group named `jboss-eap-cluster-westus-gzh032124` that are not used and are going to be replicated by Azure Site Recovery service in the primary region later.
+Clean up resources in the resource group named `jboss-eap-cluster-westus-gzh032124` that are not used and are going to be replicated by Azure Site Recovery service in the primary region later. This may seem wasteful, but this approach ensures the secondary resource group has the identical configuration to the primary. A production grade solution would use additional infrastructure-as-code technologies to ensure identical configuration, but that is beyond the scope of this article.
 
 [!INCLUDE [ha-dr-for-jboss-cleanup-unused-resource.md](includes/ha-dr-for-jboss-steps-cleanup-unused-resource.md)]
 
