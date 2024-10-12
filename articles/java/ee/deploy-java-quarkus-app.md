@@ -153,26 +153,41 @@ The steps in this section show you how to create the following Azure resources t
 - Azure Container Registry
 - Azure Container Apps
 
+### [Passwordless (Recommended)](#tab/passwordless)
+
+Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE` and `LOCATION` with your own values and run the commands in your terminal.
+
+```bash
+export UNIQUE_VALUE=<your unique value, such as ejb091223>
+export RESOURCE_GROUP_NAME=${UNIQUE_VALUE}rg-passwordless
+export LOCATION=<your desired Azure region for deploying your resources - for example, eastus>
+export REGISTRY_NAME=${UNIQUE_VALUE}regpasswordless
+export DB_SERVER_NAME=${UNIQUE_VALUE}dbpasswordless
+export DB_NAME=demodb
+export ACA_ENV=${UNIQUE_VALUE}envpasswordless
+export ACA_NAME=${UNIQUE_VALUE}acapasswordless
+```
+
+### [Password](#tab/password)
+
 Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE`, `LOCATION` and `DB_PASSWORD` with your own values and run the commands in your terminal.
 
 ```bash
 export UNIQUE_VALUE=<your unique value, such as ejb091223>
-export RESOURCE_GROUP_NAME=${UNIQUE_VALUE}rg
+export RESOURCE_GROUP_NAME=${UNIQUE_VALUE}rg-password
 export LOCATION=<your desired Azure region for deploying your resources - for example, eastus>
-export REGISTRY_NAME=${UNIQUE_VALUE}reg
-export DB_SERVER_NAME=${UNIQUE_VALUE}db
+export REGISTRY_NAME=${UNIQUE_VALUE}regpassword
+export DB_SERVER_NAME=${UNIQUE_VALUE}dbpassword
 export DB_NAME=demodb
 export DB_ADMIN=demouser
 export DB_PASSWORD='<your desired password for the database server - for example, Secret123456>'
-export ACA_ENV=${UNIQUE_VALUE}env
-export ACA_NAME=${UNIQUE_VALUE}aca
+export ACA_ENV=${UNIQUE_VALUE}envpassword
+export ACA_NAME=${UNIQUE_VALUE}acapassword
 ```
 
-### Create an Azure Database for PostgreSQL Flexible Server
+---
 
-Azure Database for PostgreSQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. This section shows you how to create an Azure Database for PostgreSQL Flexible Server instance using the Azure CLI. For more information, see [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server instance using Azure CLI](/azure/postgresql/flexible-server/quickstart-create-server-cli).
-
-First, create a resource group to contain the database server and other resources by using the following command:
+Next, create a resource group by using the following command:
 
 ```azurecli
 az group create \
@@ -180,7 +195,43 @@ az group create \
     --location $LOCATION
 ```
 
-Next, create an Azure Database for PostgreSQL flexible server instance by using the following command:
+### Create an Azure Database for PostgreSQL Flexible Server
+
+Azure Database for PostgreSQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. This section shows you how to create an Azure Database for PostgreSQL Flexible Server instance using the Azure CLI. For more information, see [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server instance using Azure CLI](/azure/postgresql/flexible-server/quickstart-create-server-cli).
+
+Create an Azure Database for PostgreSQL flexible server instance by using the following command:
+
+### [Passwordless (Recommended)](#tab/passwordless)
+
+```azurecli
+az postgres flexible-server create \
+    --name $DB_SERVER_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --database-name $DB_NAME \
+    --public-access None \
+    --sku-name Standard_B1ms \
+    --tier Burstable \
+    --active-directory-auth Enabled
+```
+
+It takes a few minutes to create the server, database, admin user, and firewall rules. If the command is successful, the output looks similar to the following example:
+
+```output
+{
+  "connectionString": "postgresql://REDACTED:REDACTED@<DB_SERVER_NAME>.postgres.database.azure.com/<DB_NAME>?sslmode=require",
+  "databaseName": "<DB_NAME>",
+  "host": "<DB_SERVER_NAME>.postgres.database.azure.com",
+  "id": "/subscriptions/REDACTED/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.DBforPostgreSQL/flexibleServers/<DB_SERVER_NAME>",
+  "location": "East US",
+  "password": "REDACTED",
+  "resourceGroup": "<RESOURCE_GROUP_NAME>",
+  "skuname": "Standard_B1ms",
+  "username": "REDACTED",
+  "version": "13"
+}
+```
+
+### [Password](#tab/password)
 
 ```azurecli
 az postgres flexible-server create \
@@ -190,7 +241,8 @@ az postgres flexible-server create \
     --admin-password $DB_PASSWORD \
     --database-name $DB_NAME \
     --public-access 0.0.0.0 \
-    --yes
+    --sku-name Standard_B1ms \
+    --tier Burstable
 ```
 
 It takes a few minutes to create the server, database, admin user, and firewall rules. If the command is successful, the output looks similar to the following example:
@@ -199,17 +251,19 @@ It takes a few minutes to create the server, database, admin user, and firewall 
 {
   "connectionString": "postgresql://<DB_ADMIN>:<DB_PASSWORD>@<DB_SERVER_NAME>.postgres.database.azure.com/<DB_NAME>?sslmode=require",
   "databaseName": "<DB_NAME>",
-  "firewallName": "AllowAllAzureServicesAndResourcesWithinAzureIps_2024-7-5_14-39-45",
+  "firewallName": "AllowAllAzureServicesAndResourcesWithinAzureIps_2024-10-12_14-39-45",
   "host": "<DB_SERVER_NAME>.postgres.database.azure.com",
   "id": "/subscriptions/REDACTED/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.DBforPostgreSQL/flexibleServers/<DB_SERVER_NAME>",
   "location": "East US",
   "password": "<DB_PASSWORD>",
   "resourceGroup": "<RESOURCE_GROUP_NAME>",
-  "skuname": "Standard_D2s_v3",
+  "skuname": "Standard_B1ms",
   "username": "<DB_ADMIN>",
   "version": "13"
 }
 ```
+
+---
 
 ### Create a Microsoft Azure Container Registry instance
 
