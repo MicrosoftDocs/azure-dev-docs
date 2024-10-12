@@ -276,8 +276,7 @@ az acr create \
     --resource-group $RESOURCE_GROUP_NAME \
     --location ${LOCATION} \
     --name $REGISTRY_NAME \
-    --sku Basic \
-    --admin-enabled
+    --sku Basic
 ```
 
 After a short time, you should see JSON output that contains the following lines:
@@ -288,9 +287,7 @@ After a short time, you should see JSON output that contains the following lines
   "resourceGroup": "<YOUR_RESOURCE_GROUP>",
 ```
 
-### Connect your docker to the Container Registry instance
-
-Sign in to the Container Registry instance. Signing in lets you push an image. Use the following commands to verify the connection:
+Get the login server for the Container Registry instance by using the following command:
 
 ```azurecli
 export LOGIN_SERVER=$(az acr show \
@@ -298,17 +295,14 @@ export LOGIN_SERVER=$(az acr show \
     --query 'loginServer' \
     --output tsv)
 echo $LOGIN_SERVER
-export USER_NAME=$(az acr credential show \
-    --name $REGISTRY_NAME \
-    --query 'username' \
-    --output tsv)
-echo $USER_NAME
-export PASSWORD=$(az acr credential show \
-    --name $REGISTRY_NAME \
-    --query 'passwords[0].value' \
-    --output tsv)
-echo $PASSWORD
-docker login $LOGIN_SERVER -u $USER_NAME -p $PASSWORD
+```
+
+### Connect your docker to the Container Registry instance
+
+Sign in to the Container Registry instance. Signing in lets you push an image. Use the following commands to sign in to the registry:
+
+```azurecli
+az acr login --name $REGISTRY_NAME
 ```
 
 If you're using Podman instead of Docker, make the necessary changes to the command.
