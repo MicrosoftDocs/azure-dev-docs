@@ -158,7 +158,7 @@ The steps in this section show you how to create the following Azure resources t
 Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE` and `LOCATION` with your own values and run the commands in your terminal.
 
 ```bash
-export UNIQUE_VALUE=<your unique value, such as ejb091223>
+export UNIQUE_VALUE=<your unique value, such as mjg101224>
 export RESOURCE_GROUP_NAME=${UNIQUE_VALUE}rg-passwordless
 export LOCATION=<your desired Azure region for deploying your resources - for example, eastus>
 export REGISTRY_NAME=${UNIQUE_VALUE}regpasswordless
@@ -173,7 +173,7 @@ export ACA_NAME=${UNIQUE_VALUE}acapasswordless
 Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE`, `LOCATION` and `DB_PASSWORD` with your own values and run the commands in your terminal.
 
 ```bash
-export UNIQUE_VALUE=<your unique value, such as ejb091223>
+export UNIQUE_VALUE=<your unique value, such as mjg101224>
 export RESOURCE_GROUP_NAME=${UNIQUE_VALUE}rg-password
 export LOCATION=<your desired Azure region for deploying your resources - for example, eastus>
 export REGISTRY_NAME=${UNIQUE_VALUE}regpassword
@@ -464,18 +464,61 @@ e0bac91f0f10: Pushed
 1.0: digest: sha256:f9ccb476e2388efa0dfdf817625a94f2247674148a69b7e4846793e63c8be994 size: 1789
 ```
 
-Now that you've pushed the app image to Container Registry, use the following command to create a Container Apps instance to run the app after pulling the image from the Container Registry:
+## Deploy the Quarkus app to Azure Container Apps
+
+Now that you've pushed the app image to Container Registry, use the following command to create a Container Apps instance to run the app after pulling the image from the Container Registry.
+
+### [Passwordless (Recommended)](#tab/passwordless)
+
+```azurecli
+az containerapp create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $ACA_NAME \
+    --image $TODO_QUARKUS_IMAGE_TAG \
+    --environment $ACA_ENV \
+    --registry-server $LOGIN_SERVER \
+    --registry-identity system \
+    --target-port 8080 \
+    --ingress 'external' \
+    --min-replicas 1
+```
+
+Successful output is a JSON object including the property `"type": "Microsoft.App/containerApps"`.
+
+Then, connect the Azure Database for PostgreSQL Flexible Server instanceto the container app using Service Connector.
+
+1. Install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI:
+
+   ```azurecli
+   az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
+   ```
+
+1. Connect the database to the container app with a system-assigned managed identity, using the connection command.
+
+   ```azurecli
+   az containerapp connection create postgres-flexible \
+       --resource-group $RESOURCE_GROUP_NAME \
+       --name $ACA_NAME \
+       --target-resource-group $RESOURCE_GROUP_NAME \
+       --server $DB_SERVER_NAME \
+       --database $DB_NAME \
+       --system-identity \
+       --container $ACA_NAME
+   ```
+
+   Successful output is a JSON object including the property `"type": "microsoft.servicelinker/linkers"`.
+
+### [Password](#tab/password)
 
 ```azurecli
 export DATASOURCE_JDBC_URL=jdbc:postgresql://${DB_SERVER_NAME}.postgres.database.azure.com:5432/${DB_NAME}?sslmode=require
 az containerapp create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $ACA_NAME \
-    --image $TODO_QUARKUS_TAG \
+    --image $TODO_QUARKUS_IMAGE_TAG \
     --environment $ACA_ENV \
     --registry-server $LOGIN_SERVER \
-    --registry-username $USER_NAME \
-    --registry-password $PASSWORD \
+    --registry-identity system \
     --target-port 8080 \
     --secrets \
         jdbcurl=${DATASOURCE_JDBC_URL} \
@@ -485,12 +528,15 @@ az containerapp create \
         QUARKUS_DATASOURCE_JDBC_URL=secretref:jdbcurl \
         QUARKUS_DATASOURCE_USERNAME=secretref:dbusername \
         QUARKUS_DATASOURCE_PASSWORD=secretref:dbpassword \
-    --ingress 'external'
+    --ingress 'external' \
+    --min-replicas 1
 ```
 
 The `--secrets` option is used to create secrets that're referenced by database connection related environment variables `QUARKUS_DATASOURCE_JDBC_URL`, `QUARKUS_DATASOURCE_USERNAME` and `QUARKUS_DATASOURCE_PASSWORD`. The values of these environment variables are passed to properties `%prod.quarkus.datasource.password`, `%prod.quarkus.datasource.username` and `%prod.quarkus.datasource.password`. Quarkus knows to look up values from corresponding environment variables if there is no value in the `application.properties` file.
 
 Successful output is a JSON object including the property `"type": "Microsoft.App/containerApps"`.
+
+---
 
 Get a fully qualified url to access the Todo application by using the following command:
 
@@ -502,7 +548,9 @@ export QUARKUS_URL=https://$(az containerapp show \
 echo $QUARKUS_URL
 ```
 
-Open a new web browser to the value of `${QUARKUS_URL}`. Then, add a new todo item with the text `Deployed the Todo app to Container Apps`. Select this item to mark it as completed.
+Open a new web browser to the value of `${QUARKUS_URL}`. If the webpage doesn't render correctly, wait for a while and refresh the page.
+
+Then, add a new todo item with the text `Deployed the Todo app to Container Apps`. Select this item to mark it as completed.
 
 :::image type="content" source="media/deploy-java-quarkus-app/demo-updated.png" alt-text="Screenshot of the Todo sample app running in Container Apps." lightbox="media/deploy-java-quarkus-app/demo-updated.png":::
 
@@ -536,37 +584,13 @@ The output should look like the following example:
 ]
 ```
 
-### Verify that the database has been updated by using Azure Cloud Shell
-
-Open Azure Cloud Shell in the Azure portal by selecting the **Cloud Shell** icon (:::image type="icon" source="media/deploy-java-quarkus-app/cloud-shell.png" border="false":::) next to the search box.
-
-Run the following command locally and paste the result into Azure Cloud Shell:
-
-```bash
-echo psql --host=${DB_SERVER_NAME}.postgres.database.azure.com --port=5432 --username=${DB_ADMIN} --dbname=${DB_NAME}
-```
-
-When asked for the password, use the value you used when you created the database.
-
-Use the following query to get all the todo items:
-
-```psql
-select * from todo;
-```
-
-The output should look similar to the following example, and should include the same items in the Todo app GUI shown previously:
-
-:::image type="content" source="media/deploy-java-quarkus-app/query-output.png" alt-text="Screenshot of the query output as an ASCII table." lightbox="media/deploy-java-quarkus-app/query-output.png":::
-
-Enter *\q* to exit from the `psql` program and return to the Cloud Shell.
-
 ## Clean up resources
 
 To avoid Azure charges, you should clean up unneeded resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
 
 ```azurecli
 git reset --hard
-docker rmi ${TODO_QUARKUS_TAG}
+docker rmi ${TODO_QUARKUS_IMAGE_TAG}
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
