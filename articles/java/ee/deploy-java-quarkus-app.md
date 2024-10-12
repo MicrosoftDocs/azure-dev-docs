@@ -322,7 +322,7 @@ az containerapp env create \
 
 If you're asked to install an extension, answer <kbd>Y</kbd>.
 
-### Customize the cloud native configuration
+## Customize the cloud native configuration
 
 As a cloud native technology, Quarkus offers the ability to automatically generate container images. For more information, see [Container Images](https://quarkus.io/guides/container-image). Developers can then deploy the application image to a target containerized platform - for example, Azure Container Apps.
 
@@ -340,7 +340,39 @@ The output should look like the following example:
 [SUCCESS] ✅  Extension io.quarkus:quarkus-container-image-jib has been installed
 ```
 
-To verify the extensions are added, you can run `git diff` and examine the output.
+### [Passwordless (Recommended)](#tab/passwordless)
+
+Open *pom.xml* file and you should see the following dependencies added by the `container-image-jib` extension:
+
+```xml
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-container-image-jib</artifactId>
+</dependency>
+```
+
+Then, add the following dependencies to the *pom.xml* file to support passwordless authentication with Azure Database for PostgreSQL Flexible Server:
+
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity-extensions</artifactId>
+    <version>1.1.20</version>
+</dependency>
+```
+
+### [Password](#tab/password)
+
+Open *pom.xml* file and you should see the following dependencies added by the `container-image-jib` extension:
+
+```xml
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-container-image-jib</artifactId>
+</dependency>
+```
+
+---
 
 As a cloud native technology, Quarkus supports the notion of configuration profiles. Quarkus has the following three built-in profiles:
 
@@ -354,14 +386,13 @@ The remaining steps in this section direct you to uncomment and customize values
 
 The `%prod.` prefix indicates that these properties are active when running in the `prod` profile. For more information on configuration profiles, see the [Quarkus documentation](https://access.redhat.com/search/?q=Quarkus+Using+configuration+profiles).
 
-#### Examine the database configuration
+### Examine the database configuration
 
-Add the following database configuration variables. The database connection related properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username`, and `%prod.quarkus.datasource.password` are intentionally left empty because they're provided at runtime by the Azure Container Apps environment for security reasons.
+Examine the following database configuration variables in the *src/main/resources/application.properties* file:
 
-```yaml
+```properties
 # Database configurations
 %prod.quarkus.datasource.db-kind=postgresql
-%prod.quarkus.datasource.jdbc.driver=org.postgresql.Driver
 %prod.quarkus.datasource.jdbc.url=
 %prod.quarkus.datasource.username=
 %prod.quarkus.datasource.password=
@@ -369,27 +400,39 @@ Add the following database configuration variables. The database connection rela
 %prod.quarkus.hibernate-orm.sql-load-script=no-file
 ```
 
-Generally, you don't expect that the data persisted in the database is dropped and repopulated with the sample data in a production environment. That's why you can see that the schema for `quarkus.hibernate-orm.database.generation` is specified as `create` so that the app only creates the schema when it doesn't exist at the initial startup. Besides, the database isn't pre-populated with any sample data because `hibernate-orm.sql-load-script` is specified as `no-file`. This setting is different than when you ran the app locally in development mode previously. The default values in development mode for `quarkus.hibernate-orm.database.generation` and `hibernate-orm.sql-load-script` are `drop-and-create` and `import.sql` respectively, which means the app always drops and recreates the database schema and loads the data defined in *import.sql*. The *import.sql* file is a convenience facility from Quarkus. If the *src/main/resources/import.sql* file exists in the Quarkus jar, and the value of the `hibernate-orm.sql-load-script` property is `import.sql`, the SQL DML statements in this file are executed at startup time for the app.
+### [Passwordless (Recommended)](#tab/passwordless)
 
-#### Customize the container image configuration
+Remove property `%prod.quarkus.datasource.password` because it's not required when using passwordless authentication with Azure Database for PostgreSQL Flexible Server. Update the other database connection related properties `%prod.quarkus.datasource.jdbc.url` and `%prod.quarkus.datasource.username` with the values as shown in the following example. The final configuration should look like the following example:
 
-As a cloud native technology, Quarkus supports generating OCI container images compatible with Docker and Podman. Add the following container-image variables. Replace the values of `<LOGIN_SERVER_VALUE>` and `<USER_NAME_VALUE>` with the values of the actual values of the `${LOGIN_SERVER}` and `${USER_NAME}` environment variables, respectively.
-
-```yaml
-# Container Image Build
-%prod.quarkus.container-image.build=true
-%prod.quarkus.container-image.registry=<LOGIN_SERVER_VALUE>
-%prod.quarkus.container-image.group=<USER_NAME_VALUE>
-%prod.quarkus.container-image.name=todo-quarkus-aca
-%prod.quarkus.container-image.tag=1.0
+```properties
+# Database configurations
+%prod.quarkus.datasource.db-kind=postgresql
+%prod.quarkus.datasource.jdbc.url=jdbc:postgresql://${AZURE_POSTGRESQL_HOST}:${AZURE_POSTGRESQL_PORT}/${AZURE_POSTGRESQL_DATABASE}?\
+authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin\
+&sslmode=require
+%prod.quarkus.datasource.username=${AZURE_POSTGRESQL_USERNAME}
+%prod.quarkus.hibernate-orm.database.generation=create
+%prod.quarkus.hibernate-orm.sql-load-script=no-file
 ```
 
-### Build the container image and push it to Container Registry
+The value of `${AZURE_POSTGRESQL_HOST}`, `${AZURE_POSTGRESQL_PORT}`, `${AZURE_POSTGRESQL_DATABASE}` and `${AZURE_POSTGRESQL_USERNAME}` are provided by the Azure Container Apps environment at runtime using Service Connector passwordless extension later in this article.
+
+### [Password](#tab/password)
+
+The database connection related properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username`, and `%prod.quarkus.datasource.password` are intentionally left empty because they're provided at runtime by the Azure Container Apps environment for security reasons.
+
+---
+
+Generally, you don't expect that the data persisted in the database is dropped and repopulated with the sample data in a production environment. That's why you can see that the schema for `quarkus.hibernate-orm.database.generation` is specified as `create` so that the app only creates the schema when it doesn't exist at the initial startup. Besides, the database isn't pre-populated with any sample data because `hibernate-orm.sql-load-script` is specified as `no-file`. This setting is different than when you ran the app locally in development mode previously. The default values in development mode for `quarkus.hibernate-orm.database.generation` and `hibernate-orm.sql-load-script` are `drop-and-create` and `import.sql` respectively, which means the app always drops and recreates the database schema and loads the data defined in *import.sql*. The *import.sql* file is a convenience facility from Quarkus. If the *src/main/resources/import.sql* file exists in the Quarkus jar, and the value of the `hibernate-orm.sql-load-script` property is `import.sql`, the SQL DML statements in this file are executed at startup time for the app.
+
+## Build the container image and push it to Container Registry
 
 Now, use the following command to build the application itself. This command uses the Jib extension to build the container image.
 
 ```bash
-quarkus build --no-tests
+export TODO_QUARKUS_IMAGE_NAME=todo-quarkus-aca
+export TODO_QUARKUS_IMAGE_TAG=${LOGIN_SERVER}/${TODO_QUARKUS_IMAGE_NAME}:1.0
+quarkus build -Dquarkus.container-image.build=true -Dquarkus.container-image.image=${TODO_QUARKUS_IMAGE_TAG} --no-tests 
 ```
 
 The output should end with `BUILD SUCCESS`.
@@ -397,22 +440,20 @@ The output should end with `BUILD SUCCESS`.
 You can verify whether the container image is generated as well by using the `docker` or `podman` command line (CLI). The output looks similar to the following example:
 
 ```output
-docker images | grep todo-quarkus-aca
-<LOGIN_SERVER_VALUE>/<USER_NAME_VALUE>/todo-quarkus-aca   1.0       0804dfd834fd   2 minutes ago   407MB
+docker images | grep ${TODO_QUARKUS_IMAGE_NAME}
+<LOGIN_SERVER_VALUE>/todo-quarkus-aca   1.0       0804dfd834fd   2 minutes ago   407MB
 ```
 
 Push the container images to Container Registry by using the following command:
 
 ```bash
-export TODO_QUARKUS_TAG=$(docker images | grep todo-quarkus-aca | head -n1 | cut -d " " -f1):1.0
-echo ${TODO_QUARKUS_TAG}
-docker push ${TODO_QUARKUS_TAG}
+docker push ${TODO_QUARKUS_IMAGE_TAG}
 ```
 
 The output should look similar to the following example:
 
 ```output
-The push refers to repository [<LOGIN_SERVER_VALUE>/<USER_NAME_VALUE>/todo-quarkus-aca]
+The push refers to repository [<LOGIN_SERVER_VALUE>/todo-quarkus-aca]
 188a550fce3d: Pushed
 4e3afea591e2: Pushed
 1db0eba807a6: Pushed
