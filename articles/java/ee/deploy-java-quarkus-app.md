@@ -4,7 +4,7 @@ description: Shows how to quickly stand up Quarkus on Azure Container Apps.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 09/29/2023
+ms.date: 10/12/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-aca, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -22,9 +22,10 @@ This article shows you how to quickly deploy Red Hat Quarkus on Microsoft Azure 
 - Install [jq](https://jqlang.github.io/jq/download/).
 - Install [cURL](https://curl.se/download.html).
 - Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling), version 3.12.1 or higher.
-- Azure CLI for Unix-like environments. This article requires only the Bash variant of Azure CLI.
-  - [!INCLUDE [azure-cli-login](../../includes/azure-cli-login.md)]
-  - This article requires at least version 2.61.0 of Azure CLI.
+- Install the [Azure CLI](/cli/azure/install-azure-cli) to run Azure CLI commands.
+  - Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli).
+  - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+  - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.61.0 of Azure CLI.
 
 ## Create the app project
 
