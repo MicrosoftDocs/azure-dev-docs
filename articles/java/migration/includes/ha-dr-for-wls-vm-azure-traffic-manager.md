@@ -28,7 +28,7 @@ Create an Azure Traffic Manager profile by following [Quickstart: Create a Traff
       1. Select the **Choose public IP address** dropdown and enter the IP address of Application Gateway deployed in the **East US** WLS cluster that you saved aside previously. You should see one entry matched. Select it for **Public IP address**.
    1. In step 6 for adding a failover / secondary endpoint *myFailoverEndpoint*, use the following steps:
       1. For **Target resource type**, select **Public IP address**.
-      1. Select the **Choose public IP address** dropdown and enter the IP address of Application Gateway deployed in the **West US** WLS cluster that you saved aside previously. You should see one entry matched. Select it for **Public IP address**.
+      1. Select the **Choose public IP address** dropdown and enter the IP address of Application Gateway deployed in the **West US 2** WLS cluster that you saved aside previously. You should see one entry matched. Select it for **Public IP address**.
    1. Wait for a while. Select **Refresh** until the **Monitor status** value for both endpoints is *Online*.
 
 1. When you reach the section [Test Traffic Manager profile](/azure/traffic-manager/quickstart-create-traffic-manager-profile#test-traffic-manager-profile), use the following steps:

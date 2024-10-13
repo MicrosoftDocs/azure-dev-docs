@@ -224,12 +224,12 @@ You're now finished deploying the JavaEE application. Use the following steps to
 ## Set up the secondary JBoss EAP cluster on Azure VMs
 
 ### Deploy the secondary JBoss EAP cluster
-Follow the steps in [Deploy the primary JBoss EAP cluster](#deploy-the-primary-jboss-eap-cluster) to deploy the secondary JBoss EAP cluster in the West US region. By using the offer, the secondary JBoss EAP cluster is configured so Azuer Site Recovery can be used to restore the topology. 
+Follow the steps in [Deploy the primary JBoss EAP cluster](#deploy-the-primary-jboss-eap-cluster) to deploy the secondary JBoss EAP cluster in the paired regoin. This example uses West US 2. By using the offer, the secondary JBoss EAP cluster is configured so Azure Site Recovery can be used to restore the topology. 
 Open the [JBoss EAP Cluster on VMs](https://aka.ms/eap-vm-cluster-portal) offer in your browser and select **Create**. You should see the **Basics** pane of the offer.
 
 Use the following steps to fill out the **Basics** pane:
 1. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, `jboss-eap-cluster-westus-gzh032124`.
-1. Under **Instance details**, for **Region**, select **West US**.
+1. Under **Instance details**, for **Region**, select **West US 2**.
 1. Leave others the same as the primary cluster.
 
 For the **JBoss EAP Settings** pane:
@@ -310,12 +310,12 @@ Next, use the same steps in the [Set up disaster recovery for the cluster using 
    1. Enter a different name for service vault - for example, `recovery-service-vault-eastus-gzh032124`.
    1. Select **East US** for **Region**.
 1. For **Enable replication**:
-   1. Select **West US** for **Region** in **Source**.
+   1. Select **West US 2** for **Region** in **Source**.
    1. In **Replication settings**,
       1. Select existing resource group deployed in the primary region for **Target resource group** - for example, `jboss-eap-cluster-eastus-gzh032124`.
       1. Select existing virtual network in the primary region for **Failover virtual network**.
 1. For **Create a recovery plan**:
-   1. Select **West US** for **Source** and **East US** for **Target**.
+   1. Select **West US 2** for **Source** and **East US** for **Target**.
 
 > [!NOTE]
 > You may notice Azure Site Recovery supports [re-protect VMs](/azure/site-recovery/azure-to-azure-tutorial-failover-failback?reprotect-the-vm) when the target VM exists. However, it doesn't work when only changes between the source disk and the target disk are synchronized for the JBoss EAP cluster, based on the verification result. This tutorial establishes a new replication from the secondary site to the primary site after failover, in which the entire disks are copied from the failed over region to the primary region. See [What happens during reprotection?](/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) for more information.

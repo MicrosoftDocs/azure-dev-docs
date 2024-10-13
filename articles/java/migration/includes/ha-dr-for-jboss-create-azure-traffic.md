@@ -24,5 +24,5 @@ Create an Azure Traffic Manager profile by following [Quickstart: Create a Traff
         1. Select the **Choose public IP address** dropdown and enter the name of the public IP address of the ApplicationGateWay in the **East US** region. You should see one entry matched. Select it for **Public IP address**.
     1. In step 6 for adding a failover secondary endpoint *myFailoverEndpoint*, use the following steps:
         1. For **Target resource type**, select **Public IP address**.
-        1. Select the **Choose public IP address** dropdown and enter the name of the public IP address of the ApplicationGateWay in the **West US** region. You should see one entry matched. Select it for **Public IP address**.
+        1. Select the **Choose public IP address** dropdown and enter the name of the public IP address of the ApplicationGateWay in the **West US 2** region. You should see one entry matched. Select it for **Public IP address**.
     1. Wait for a while. Select **Refresh** until the **Monitor status** for endpoint *myPrimaryEndpoint* is *Online* and **Monitor status** for endpoint *myFailoverEndpoint* is *Degraded*.

@@ -431,7 +431,7 @@ Use the following steps to configure geo-redundancy:
 
 ## Prepare to restore the WLS cluster in a secondary region
 
-In this section, you prepare to restore the WLS cluster in the secondary region. Here, the secondary region is West US. Before restoring, you must have an AKS cluster with AKS Backup Extension installed in the West US region.
+In this section, you prepare to restore the WLS cluster in the secondary region. Here, the secondary region is West US 2. Before restoring, you must have an AKS cluster with AKS Backup Extension installed in the West US 2 region.
 
 ### Configure Azure Container Registry for geo-replication
 
@@ -440,7 +440,7 @@ Use the following steps to configure Azure Container Registry (ACR) for geo-repl
 1. Open the resource group that you provisioned in the [Deploy WLS on AKS](#deploy-wls-on-aks) section. From the resource list, select the ACR whose name starts with **wlsaksacr**.
 1. In the ACR landing page, select **Settings** > **Properties**. For **Pricing plan**, select **Premium**, and then select **Save**.
 1. In the navigation pane, select **Services** > **Geo-replications**. Select **Add** to add replication region in the page.
-1. In the **Create replication** page, for **Location**, select **West US**, and then select **Create**.
+1. In the **Create replication** page, for **Location**, select **West US 2**, and then select **Create**.
 
 After the deployment finishes, the ACR is enabled for geo-replication.
 
@@ -453,7 +453,7 @@ To restore backup cross region, you must provide a staging location where the ba
 Use the following steps to create a storage account and container. Some of these steps direct you to other guides.
 
 1. Sign in to the [Azure portal](https://aka.ms/publicportal).
-1. Create a storage account by following the steps in [Create a storage account](/azure/storage/common/storage-account-create). You don't need to perform all the steps in the article. Fill out the fields shown on the **Basics** pane. For **Region**, select **West US**, then select **Review + create** to accept the default options. Proceed to validate and create the account, then return to this article.
+1. Create a storage account by following the steps in [Create a storage account](/azure/storage/common/storage-account-create). You don't need to perform all the steps in the article. Fill out the fields shown on the **Basics** pane. For **Region**, select **West US 2**, then select **Review + create** to accept the default options. Proceed to validate and create the account, then return to this article.
 1. Create a storage container for the AKS Backup Extension by following the steps in the [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) section of [Quickstart: Upload, download, and list blobs with the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal).
 1. Create a storage container as a staging location for use during restoration.
 
@@ -463,7 +463,7 @@ The following sections show you how to create an AKS cluster in a secondary regi
 
 #### Create a new AKS cluster
 
-This article exposes a WLS application using Application Gateway Ingress Controller. In this section, you create a new AKS cluster in the West US region. Then, you enable the ingress controller add-on with a new application gateway instance. For more information, see [Enable the ingress controller add-on for a new AKS cluster with a new application gateway instance](/azure/application-gateway/tutorial-ingress-controller-add-on-new).
+This article exposes a WLS application using Application Gateway Ingress Controller. In this section, you create a new AKS cluster in the West US 2 region. Then, you enable the ingress controller add-on with a new application gateway instance. For more information, see [Enable the ingress controller add-on for a new AKS cluster with a new application gateway instance](/azure/application-gateway/tutorial-ingress-controller-add-on-new).
 
 Use the following steps to create the AKS cluster:
 
@@ -495,7 +495,7 @@ Use the following steps to create the AKS cluster:
    This command automatically creates a `Standard_v2 SKU` application gateway instance with the name `${RG_NAME_WESTUS}gw` in the AKS node resource group. The node resource group is named `MC_resource-group-name_cluster-name_location` by default.
 
    > [!NOTE]
-   > The AKS cluster that you provisioned in the [Deploy WLS on AKS](#deploy-wls-on-aks) section runs across three availability zones in the East US region. Availability zones aren't supported in the West US region. The AKS cluster in West US isn't zone-redundant. If your production environment requires zone redundancy, make sure your paired region supports availability zones. For more information, see the [Overview of availability zones for AKS clusters](/azure/aks/availability-zones#overview-of-availability-zones-for-aks-clusters) section of [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](/azure/aks/availability-zones).
+   > The AKS cluster that you provisioned in the [Deploy WLS on AKS](#deploy-wls-on-aks) section runs across three availability zones in the East US region. Availability zones aren't supported in the West US 2 region. The AKS cluster in West US 2 isn't zone-redundant. If your production environment requires zone redundancy, make sure your paired region supports availability zones. For more information, see the [Overview of availability zones for AKS clusters](/azure/aks/availability-zones#overview-of-availability-zones-for-aks-clusters) section of [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](/azure/aks/availability-zones).
 
 1. Use the following commands to get the public IP address of the application gateway instance. Save aside the IP address, which you use later in this article.
 
@@ -549,7 +549,7 @@ Use the following steps to create the AKS cluster:
 
 Before you continue, use the following steps to install the AKS Backup Extension to the cluster in the secondary region:
 
-1. Use the following command to connect to the AKS cluster in the West US region:
+1. Use the following command to connect to the AKS cluster in the West US 2 region:
 
    ```azurecli
    az aks get-credentials \
@@ -611,8 +611,8 @@ Use the following steps to restore the WLS cluster:
 
 1. On the **Restore parameters** pane, use the following steps:
 
-   1. For **Select Target cluster**, select the AKS cluster that you created in the West US region. You run into a permission issue as the following screenshot shows. Select **Grant Permission** to mitigate the errors.
-   1. For **Backup Staging Location**, select the Storage Account that you created in **West US**. You run into a permission issue as the following screenshot shows. Select **Assign missing roles** to mitigate the errors.
+   1. For **Select Target cluster**, select the AKS cluster that you created in the West US 2 region. You run into a permission issue as the following screenshot shows. Select **Grant Permission** to mitigate the errors.
+   1. For **Backup Staging Location**, select the Storage Account that you created in **West US 2**. You run into a permission issue as the following screenshot shows. Select **Assign missing roles** to mitigate the errors.
    1. If the errors still happen after role assignments finishes, select **Revalidate** to refresh the permissions.
 
       :::image type="content" source="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/backup-instance-restore-restoreparameters-targetcluster.png" alt-text="Screenshot of the Azure portal that shows the Restore parameter pane." lightbox="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/backup-instance-restore-restoreparameters-targetcluster.png":::
@@ -670,7 +670,7 @@ Next, use the following steps to start the secondary cluster.
 
 To fail back to the primary site, you have to ensure the two clusters have a mirror backup configuration. You can achieve this state by using the following steps:
 
-1. Enable the AKS cluster backups in the West US region by following the steps in the [Configure geo-redundancy using Azure Backup](#configure-geo-redundancy-using-azure-backup) section, starting from step 4.
+1. Enable the AKS cluster backups in the West US 2 region by following the steps in the [Configure geo-redundancy using Azure Backup](#configure-geo-redundancy-using-azure-backup) section, starting from step 4.
 1. Restore the latest Vault Tier backup to the cluster in the East US region by following  the steps in the [Prepare to restore the WLS cluster in a secondary region](#prepare-to-restore-the-wls-cluster-in-a-secondary-region) section. Skip the steps you already completed.
 1. Use similar steps in the [Failover to the secondary site](#failover-to-the-secondary-site) section to fail back to the primary site including database server and cluster.
 
