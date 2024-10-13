@@ -263,14 +263,14 @@ Clean up resources in the resource group named `jboss-eap-cluster-westus-gzh0321
  
 ## Set up an Azure Traffic Manager
 
-In this section, you create an Azure Traffic Manager for distributing traffic to your public facing applications across the global Azure regions. The primary endpoint points to the public IP address of the ApplicationGateWay in the primary region, and the secondary endpoint points to the public IP address of the ApplicationGateWay in the secondary region.
+In this section, you create an Azure Traffic Manager for distributing traffic to your public facing applications across Azure regions. The primary endpoint points to the public IP address of the Application Gateway in the primary region, and the secondary endpoint points to the public IP address of the Application Gateway in the secondary region.
 
 [!INCLUDE [ha-dr-for-jboss-create-azure-traffic.md](includes/ha-dr-for-jboss-create-azure-traffic.md)]
 
 Next, verify if the sample app deployed to the primary JBoss EAP cluster can be accessed from the Traffic Manager profile:
 
 1. Select **Overview** of the Traffic Manager profile you created.
-1. Check and copy the DNS name of the Traffic Manager profile, append it with */javaee-cafe/*. For example, `http://tm-profile-gzh032124.trafficmanager.net/javaee-cafe/`.
+1. Check and copy the DNS name of the Traffic Manager profile. Append */javaee-cafe/* to it. For example, `http://tm-profile-gzh032124.trafficmanager.net/javaee-cafe/`.
 1. Open the URL in a new tab of the browser. You should see the coffee you created before is listed in the page.
 
    :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/javaee-cafe-app-home-page-session.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/javaee-cafe-app-home-page-session.png":::
@@ -281,7 +281,7 @@ Now you set up the Traffic Manager profile. Keep the page open and you use it fo
 
 ## Test failover from primary to secondary
 
-To test failover, you manually failover your Azure SQL Database server and cluster, and then fail back using the Azure portal in this section.
+The steps in this section test failover by manually failing over your Azure SQL Database server and cluster from primary to secondary and then back again using the Azure portal.
 
 ### Failover to the secondary site
 
@@ -318,7 +318,7 @@ Next, use the same steps in the [Set up disaster recovery for the cluster using 
    1. Select **West US 2** for **Source** and **East US** for **Target**.
 
 > [!NOTE]
-> You may notice Azure Site Recovery supports [re-protect VMs](/azure/site-recovery/azure-to-azure-tutorial-failover-failback?reprotect-the-vm) when the target VM exists. However, it doesn't work when only changes between the source disk and the target disk are synchronized for the JBoss EAP cluster, based on the verification result. This tutorial establishes a new replication from the secondary site to the primary site after failover, in which the entire disks are copied from the failed over region to the primary region. See [What happens during reprotection?](/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) for more information.
+> You may notice Azure Site Recovery supports [re-protect VMs](/azure/site-recovery/azure-to-azure-tutorial-failover-failback?reprotect-the-vm) when the target VM exists. However, it doesn't work when the only changes between the source disk and the target disk are synchronized for the JBoss EAP cluster, based on the verification result. This tutorial establishes a new replication from the secondary site to the primary site after failover, in which the entire disks are copied from the failed over region to the primary region. See [What happens during reprotection?](/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) for more information.
 
 ### Fail back to the primary site
 

@@ -43,10 +43,10 @@ In this section, you set up disaster recovery for Azure VMs in the primary clust
 
            :::image type="content" source="../media/migrate-jboss-eap-to-vms-with-ha-dr/replicated-items-protected.png" alt-text="Screenshot of VMs that are replicated and protected." lightbox="../media/migrate-jboss-eap-to-vms-with-ha-dr/replicated-items-protected.png":::
 
-Next, create a recovery plan to include all replicated items so that they can fail over together. Execute the instructions in [Create a recovery plan](/azure/site-recovery/site-recovery-create-recovery-plans#create-a-recovery-plan), with the following customization:
+Next, create a recovery plan to include all replicated items so they can fail over together. Execute the instructions in [Create a recovery plan](/azure/site-recovery/site-recovery-create-recovery-plans#create-a-recovery-plan), with the following customization:
 
 1. In step 2, enter a name for the plan - for example, `recovery-plan-gzh032124`.
 1. In step 3, select **East US** for **Source** and **West US 2** for **Target**.
 1. In step 4 for **Select items**, select all protected items - for example, the 3 protected VMs for this tutorial.
 
-Now you create a recovery plan. Keep the page open and you use it for failover test later.
+Keep the page open to use later for testing failover.

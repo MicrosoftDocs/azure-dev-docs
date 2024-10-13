@@ -6,7 +6,6 @@ ms.date: 05/31/2024
 
 1. Select recovery service vault deployed in the primary region - for example, `recovery-service-vault-eastus-gzh032124`.
 1. Select resource group deployed in the primary region - for example, `jboss-eap-cluster-eastus-gzh032124`.
-1. After you enable the external access to the WebSphere Integrated Solutions Console and sample app in the primary region, revisit the browser tabs for WebSphere Integrated Solutions Console and sample app for the primary cluster you opened before, and verify if they work as expected. Depending on how much time it took to failback, you may not see session data displayed in the **New coffee** section of the sample app UI if it's expired over 1 hour.
 1. In section [Commit the failover](#commit-the-failover), select your Recovery Services vault deployed in the primary - for example, `recovery-service-vault-eastus-gzh032124`.
 1. In the Traffic Manager profile, you should see that endpoint *myPrimaryEndpoint* becomes *Online* and endpoint *myFailoverEndpoint* becomes *Degraded*.
 1. In section [Re-protect the failover site](#re-protect-the-failover-site):
