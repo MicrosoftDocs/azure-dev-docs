@@ -650,6 +650,65 @@ The output should look like the following example:
 ]
 ```
 
+### Verify that the database has been updated
+
+Run the following command to verify that the database has been updated with the new todo item:
+
+### [Passwordless (Recommended)](#tab/passwordless)
+
+```azurecli
+accessToken=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)
+az postgres flexible-server execute \
+    --admin-user $ENATRA_ADMIN_NAME \
+    --admin-password $accessToken \
+    --name $DB_SERVER_NAME \
+    --database-name $DB_NAME \
+    --querytext "select * from todo;"
+```
+
+### [Password](#tab/password)
+
+```azurecli
+az postgres flexible-server execute \
+    --admin-user $DB_ADMIN \
+    --admin-password $DB_PASSWORD \
+    --name $DB_SERVER_NAME \
+    --database-name $DB_NAME \
+    --querytext "select * from todo;"
+```
+
+---
+
+If you're asked to install an extension, answer <kbd>Y</kbd>.
+
+The output should look similar to the following example, and should include the same item in the Todo app GUI shown previously:
+
+```output
+Successfully connected to <DB_SERVER_NAME>.
+Ran Database Query: 'select * from todo;'
+Retrieving first 30 rows of query output, if applicable.
+Closed the connection to <DB_SERVER_NAME>
+[
+  {
+    "completed": true,
+    "id": 1,
+    "ordering": 1,
+    "title": "Deployed the Todo app to Container Apps",
+    "url": null
+  }
+]
+```
+
+When you're finished, delete the firewall rule that allows your local IP address to access the Azure Database for PostgreSQL Flexible Server instance by using the following command:
+
+```azurecli
+az postgres flexible-server firewall-rule delete \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $DB_SERVER_NAME \
+    --rule-name $DB_SERVER_NAME-database-allow-local-ip \
+    --yes
+```
+
 ## Clean up resources
 
 To avoid Azure charges, you should clean up unneeded resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
