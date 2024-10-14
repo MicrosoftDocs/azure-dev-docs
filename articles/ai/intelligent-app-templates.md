@@ -4,7 +4,7 @@ description: This article describes the AI app templates provided as GitHub repo
 keywords: ai, azure openai service
 ms.service: azure
 ms.topic: overview
-ms.date: 05/16/2024
+ms.date: 10/10/2024
 ms.custom: overview, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, build-2024-intelligent-apps
 zone_pivot_group_filename: developer/intro/intro-zone-pivot-groups.yml
 zone_pivot_groups: intelligent-apps-languages-top-four
@@ -51,7 +51,7 @@ Building blocks are smaller-scale samples that focus on specific scenarios and t
 
 ## End-to-end solutions
 
-End-to-end solutions are comprehensive reference samples including documention, source code, and deployment to allow you to take and extend for your own purposes.
+End-to-end solutions are comprehensive reference samples including documentation, source code, and deployment to allow you to take and extend for your own purposes.
 
 :::zone pivot="dotnet"
 
