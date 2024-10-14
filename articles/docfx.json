@@ -194,7 +194,8 @@
     "rules": {
       "sensitive-language-sl": {
         "exclude": [
-          "java/migration/migrate-jboss-eap-to-azure-vm-manually.md"
+          "java/migration/migrate-jboss-eap-to-azure-vm-manually.md",
+          "terraform/provider-version-history-azurerm-2-0-0-to-2-99-0.md"
         ]
       }
     }

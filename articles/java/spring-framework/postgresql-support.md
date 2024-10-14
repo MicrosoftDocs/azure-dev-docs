@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure PostgreSQL support
 
-**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.16.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.17.1
 
 [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) is a relational database service based on the open-source Postgres database engine. It's a fully managed database-as-a-service that can handle mission-critical workloads with predictable performance, security, high availability, and dynamic scalability.
 
