@@ -234,11 +234,11 @@ It takes a few minutes to create the server, database, admin user, and firewall 
 Add the current signed-in user as Microsoft Entra Admin to the Azure Database for PostgreSQL Flexible Server instance by using the following commands:
 
 ```azurecli
-ENATRA_ADMIN_NAME=$(az ad signed-in-user show --query userPrincipalName -o tsv)
+ENTRA_ADMIN_NAME=$(az ad signed-in-user show --query userPrincipalName -o tsv)
 az postgres flexible-server ad-admin create \
     --resource-group $RESOURCE_GROUP_NAME \
     --server-name $DB_SERVER_NAME \
-    --display-name $ENATRA_ADMIN_NAME \
+    --display-name $ENTRA_ADMIN_NAME \
     --object-id $(az ad signed-in-user show --query id -o tsv)
 ```
 
@@ -266,7 +266,7 @@ It takes a few minutes to create the server, database, admin user, and firewall 
 {
   "connectionString": "postgresql://<DB_ADMIN>:<DB_PASSWORD>@<DB_SERVER_NAME>.postgres.database.azure.com/<DB_NAME>?sslmode=require",
   "databaseName": "<DB_NAME>",
-  "firewallName": "AllowAllAzureServicesAndResourcesWithinAzureIps_2024-10-12_14-39-45",
+  "firewallName": "AllowAllAzureServicesAndResourcesWithinAzureIps_2024-10-14_14-39-45",
   "host": "<DB_SERVER_NAME>.postgres.database.azure.com",
   "id": "/subscriptions/REDACTED/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.DBforPostgreSQL/flexibleServers/<DB_SERVER_NAME>",
   "location": "East US",
@@ -403,7 +403,7 @@ The `%prod.` prefix indicates that these properties are active when running in t
 
 ### Examine the database configuration
 
-Examine the following database configuration variables in the *src/main/resources/application.properties* file:
+After uncommenting the properties, the database configuration in the *src/main/resources/application.properties* file should look like the following example:
 
 ```properties
 # Database configurations
@@ -465,7 +465,7 @@ Next, set the following environment variables in your previous terminal. These e
 export AZURE_POSTGRESQL_HOST=${DB_SERVER_NAME}.postgres.database.azure.com
 export AZURE_POSTGRESQL_PORT=5432
 export AZURE_POSTGRESQL_DATABASE=${DB_NAME}
-export AZURE_POSTGRESQL_USERNAME=${ENATRA_ADMIN_NAME}
+export AZURE_POSTGRESQL_USERNAME=${ENTRA_ADMIN_NAME}
 ```
 
 ### [Password](#tab/password)
@@ -503,10 +503,15 @@ quarkus build -Dquarkus.container-image.build=true -Dquarkus.container-image.ima
 
 The output should end with `BUILD SUCCESS`.
 
-You can verify whether the container image is generated as well by using the `docker` or `podman` command line (CLI). The output looks similar to the following example:
+You can verify whether the container image is generated as well by using the `docker` or `podman` command line (CLI):
+
+```bash
+docker images | grep ${TODO_QUARKUS_IMAGE_NAME}
+```
+
+The output looks similar to the following example:
 
 ```output
-docker images | grep ${TODO_QUARKUS_IMAGE_NAME}
 <LOGIN_SERVER_VALUE>/todo-quarkus-aca   1.0       0804dfd834fd   2 minutes ago   407MB
 ```
 
@@ -659,7 +664,7 @@ Run the following command to verify that the database has been updated with the 
 ```azurecli
 accessToken=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)
 az postgres flexible-server execute \
-    --admin-user $ENATRA_ADMIN_NAME \
+    --admin-user $ENTRA_ADMIN_NAME \
     --admin-password $accessToken \
     --name $DB_SERVER_NAME \
     --database-name $DB_NAME \
