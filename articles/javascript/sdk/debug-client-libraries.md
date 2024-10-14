@@ -1,20 +1,20 @@
 ---
-title: "How to log SDK internal information"
-description: This article describes how to use Azure SDK logging for JavaScript to see internal SDK information to debug an Azure Identity credential chain.
+title: "Configure logging in the Azure SDK libraries for JavaScript"
+description: This article describes how to use Azure SDK logging for JavaScript to see internal library information to debug an Azure Identity credential chain.
 ms.date: 09/10/2024
 ms.topic: how-to
 ms.custom: devx-track-js
-#customer intent: As a JavaScript developer new to Azure, I want understand how to get runtime information from Azure client libraries.
+#customer intent: As a JavaScript developer new to Azure, I want understand how to get runtime information from Azure SDK client libraries.
 ---
 
 # How to log with Azure SDK client libraries
 
-To diagnose an unexpected issue or to understand what any Azure client library for JavaScript is doing, [enable logging](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core#logging) in your app. You can this with either of the methods below:
+To diagnose an unexpected issue or to understand what any Azure SDK client library for JavaScript is doing, [enable logging](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core#logging) in your app. You can this with either of the methods below:
 
 * Use `AZURE_LOG_LEVEL=verbose` environment variable to turn on logging.
 * Use `@azure/logger` package in your source code.
 
-Valid log levels include `verbose`, `info`, `warning`, `error`.
+Valid log levels include `verbose`, `info`, `warning`, and `error`.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ AZURE_LOG_LEVEL=verbose node index.js
 
 ## Debug with logger package in source code
 
-The following code uses the [@azure/logger](https://www.npmjs.com/package/@azure/logger) package to debug the Azure client libraries. 
+The following code sample uses the [@azure/logger](https://www.npmjs.com/package/@azure/logger) package to debug the Azure SDK client libraries. 
 
 1. Create `index.js` with the following code:
 
@@ -48,7 +48,7 @@ The following code uses the [@azure/logger](https://www.npmjs.com/package/@azure
     const { AzureLogger, setLogLevel } = require("@azure/logger");
     setLogLevel("verbose");
     AzureLogger.log = (...args) => {
-      console.log(...args);
+        console.log(...args);
     };
 
     const credential = new ChainedTokenCredential(
@@ -60,11 +60,8 @@ The following code uses the [@azure/logger](https://www.npmjs.com/package/@azure
         "https://dinaberrystor.blob.core.windows.net",
         credential
     );
-    
-    const containerName = "my-data";
-    
     // get container properties
-    const containerClient = blobServiceClient.getContainerClient(containerName);
+    const containerClient = blobServiceClient.getContainerClient("<CONTAINER_NAME>");
     
     async function main(){
         const properties = await containerClient.getProperties();
@@ -87,7 +84,6 @@ The following code uses the [@azure/logger](https://www.npmjs.com/package/@azure
     ```azurecli
     az login
     ```
-    
 
 4. Run the app:
 

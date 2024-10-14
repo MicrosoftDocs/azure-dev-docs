@@ -20,7 +20,7 @@ When you use Azure SDK client libraries, the first step is to authenticate to Az
 
 Choose from the following common progressions for your authentication flow:
 
-* Use the `DefaultAzureCredential` for **large teams with developers** using various IDEs and CLIs to authenticate to Azure. This allows the greatest flexibility. This flexibility is provided at the cost of performance to validate the credentials in the chain until one succeeds. 
+* Use the `DefaultAzureCredential` for **teams whose developers use various IDEs and CLIs to authenticate to Azure**. This allows the greatest flexibility. This flexibility is provided at the cost of performance to validate the credentials in the chain until one succeeds. 
 
   - The fallback from credential to credential is selected on your behalf based on the detected environment.
   - To determine which credential was selected, turn on [debugging](#debug-a-chained-credential). 
@@ -103,14 +103,14 @@ const credential = ChainedTokenCredential(
 
 The preceding code sample creates a tailored credential chain comprised of two credentials. The user-assigned managed identity variant of `ManagedIdentityCredential` is attempted first, followed by `AzureCliCredential`, if necessary. In graphical form, the chain looks like this:
 
-:::image type="content" source="./media/chained-token-credential-auth-flow.svg" alt-text="Diagram showing Azure Identity chain credential of managed identity and Azure CLI.":::
+:::image type="content" source="./media/chained-token-credential-auth-flow.svg" alt-text="Diagram showing Azure Identity credential chain of managed identity and Azure CLI.":::
 
 > [!TIP]
 > For improved performance, optimize credential ordering for your **production environment**. Credentials intended for use in the local development environment should be added last.
 
 ## Debug a chained credential
 
-To debug a credential chain, enable [Azure SDK logging](debug-client-libraries.md) in client libraries. 
+To debug a credential chain, enable [Azure SDK logging](debug-client-libraries.md). 
 
 ## More resources
 
