@@ -1,5 +1,5 @@
 ---
-title: "JavaScript: Credential chains in the Azure client library"
+title: "Credential chains in the Azure library for JavaScript"
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library for JavaScript.
 ms.date: 09/10/2024
 ms.topic: concept-article
