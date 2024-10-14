@@ -440,6 +440,57 @@ The database connection related properties `%prod.quarkus.datasource.jdbc.url`, 
 
 Generally, you don't expect that the data persisted in the database is dropped and repopulated with the sample data in a production environment. That's why you can see that the schema for `quarkus.hibernate-orm.database.generation` is specified as `create` so that the app only creates the schema when it doesn't exist at the initial startup. Besides, the database isn't pre-populated with any sample data because `hibernate-orm.sql-load-script` is specified as `no-file`. This setting is different than when you ran the app locally in development mode previously. The default values in development mode for `quarkus.hibernate-orm.database.generation` and `hibernate-orm.sql-load-script` are `drop-and-create` and `import.sql` respectively, which means the app always drops and recreates the database schema and loads the data defined in *import.sql*. The *import.sql* file is a convenience facility from Quarkus. If the *src/main/resources/import.sql* file exists in the Quarkus jar, and the value of the `hibernate-orm.sql-load-script` property is `import.sql`, the SQL DML statements in this file are executed at startup time for the app.
 
+### Test your Quarkus app locally with Azure Database for PostgreSQL Flexible Server
+
+Before deploying the Quarkus app to Azure Container Apps, test the connection to the Azure Database for PostgreSQL Flexible Server instance locally.
+
+First, add the local IP address to the Azure Database for PostgreSQL Flexible Server instance firewall rules by using the following command:
+
+```azurecli
+AZ_LOCAL_IP_ADDRESS=$(curl -s https://whatismyip.akamai.com)
+
+az postgres flexible-server firewall-rule create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $DB_SERVER_NAME \
+    --rule-name $DB_SERVER_NAME-database-allow-local-ip \
+    --start-ip-address $AZ_LOCAL_IP_ADDRESS \
+    --end-ip-address $AZ_LOCAL_IP_ADDRESS
+```
+
+Next, set the following environment variables in your previous terminal. These environment variables are used to connect to the Azure Database for PostgreSQL Flexible Server instance from the Quarkus app running locally:
+
+### [Passwordless (Recommended)](#tab/passwordless)
+
+```bash
+export AZURE_POSTGRESQL_HOST=${DB_SERVER_NAME}.postgres.database.azure.com
+export AZURE_POSTGRESQL_PORT=5432
+export AZURE_POSTGRESQL_DATABASE=${DB_NAME}
+export AZURE_POSTGRESQL_USERNAME=${ENATRA_ADMIN_NAME}
+```
+
+### [Password](#tab/password)
+
+```bash
+export QUARKUS_DATASOURCE_JDBC_URL=jdbc:postgresql://${DB_SERVER_NAME}.postgres.database.azure.com:5432/${DB_NAME}?sslmode=require
+export QUARKUS_DATASOURCE_USERNAME=${DB_ADMIN}
+export QUARKUS_DATASOURCE_PASSWORD=${DB_PASSWORD}
+```
+
+The values of these environment variables are passed to properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username` and `%prod.quarkus.datasource.password`. Quarkus knows to look up values from corresponding environment variables if there is no value in the `application.properties` file.
+
+---
+
+Run the Quarkus app locally to test the connection to the Azure Database for PostgreSQL Flexible Server instance. Use the following command to start the app in production mode:
+
+```bash
+mvn clean package -DskipTests
+java -jar target/quarkus-app/quarkus-run.jar
+```
+
+Open a new web browser to `http://localhost:8080` to access the Todo application. You should see the same Todo app as you saw when you ran the app locally in development mode, without any Todo items.
+
+Press <kbd>Control</kbd>+<kbd>C</kbd> to stop the app.
+
 ## Build the container image and push it to Container Registry
 
 Now, use the following command to build the application itself. This command uses the Jib extension to build the container image.
@@ -547,7 +598,7 @@ az containerapp create \
     --min-replicas 1
 ```
 
-The `--secrets` option is used to create secrets that're referenced by database connection related environment variables `QUARKUS_DATASOURCE_JDBC_URL`, `QUARKUS_DATASOURCE_USERNAME` and `QUARKUS_DATASOURCE_PASSWORD`. The values of these environment variables are passed to properties `%prod.quarkus.datasource.password`, `%prod.quarkus.datasource.username` and `%prod.quarkus.datasource.password`. Quarkus knows to look up values from corresponding environment variables if there is no value in the `application.properties` file.
+The `--secrets` option is used to create secrets that're referenced by database connection related environment variables `QUARKUS_DATASOURCE_JDBC_URL`, `QUARKUS_DATASOURCE_USERNAME` and `QUARKUS_DATASOURCE_PASSWORD`. The values of these environment variables are passed to properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username` and `%prod.quarkus.datasource.password`. Quarkus knows to look up values from corresponding environment variables if there is no value in the `application.properties` file.
 
 Successful output is a JSON object including the property `"type": "Microsoft.App/containerApps"`.
 
