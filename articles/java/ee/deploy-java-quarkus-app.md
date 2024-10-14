@@ -199,9 +199,9 @@ az group create \
 
 Azure Database for PostgreSQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. This section shows you how to create an Azure Database for PostgreSQL Flexible Server instance using the Azure CLI. For more information, see [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server instance using Azure CLI](/azure/postgresql/flexible-server/quickstart-create-server-cli).
 
-Create an Azure Database for PostgreSQL flexible server instance by using the following command:
-
 ### [Passwordless (Recommended)](#tab/passwordless)
+
+Create an Azure Database for PostgreSQL flexible server instance by using the following command:
 
 ```azurecli
 az postgres flexible-server create \
@@ -231,7 +231,22 @@ It takes a few minutes to create the server, database, admin user, and firewall 
 }
 ```
 
+Add the current signed-in user as Microsoft Entra Admin to the Azure Database for PostgreSQL Flexible Server instance by using the following commands:
+
+```azurecli
+ENATRA_ADMIN_NAME=$(az ad signed-in-user show --query userPrincipalName -o tsv)
+az postgres flexible-server ad-admin create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --server-name $DB_SERVER_NAME \
+    --display-name $ENATRA_ADMIN_NAME \
+    --object-id $(az ad signed-in-user show --query id -o tsv)
+```
+
+Successful output is a JSON object including the property `"type": "Microsoft.DBforPostgreSQL/flexibleServers/administrators"`.
+
 ### [Password](#tab/password)
+
+Create an Azure Database for PostgreSQL flexible server instance by using the following command:
 
 ```azurecli
 az postgres flexible-server create \
