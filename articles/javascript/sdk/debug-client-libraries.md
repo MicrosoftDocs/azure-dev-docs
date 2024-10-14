@@ -9,7 +9,7 @@ ms.custom: devx-track-js
 
 # How to log with Azure SDK client libraries
 
-To diagnose an unexpected issue or to understand what any Azure SDK client library for JavaScript is doing, [enable logging](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core#logging) in your app. You can this with either of the methods below:
+To diagnose an unexpected issue or to understand what any Azure SDK client library for JavaScript is doing, [enable logging](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core#logging) in your app. You can do this with either of the methods below:
 
 * Use `AZURE_LOG_LEVEL=verbose` environment variable to turn on logging.
 * Use `@azure/logger` package in your source code.
