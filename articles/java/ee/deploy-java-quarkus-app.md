@@ -4,7 +4,7 @@ description: Shows how to quickly stand up Quarkus on Azure Container Apps.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 10/12/2024
+ms.date: 10/14/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-aca, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -34,7 +34,7 @@ Use the following command to clone the sample Java project for this article. The
 ```bash
 git clone https://github.com/Azure-Samples/quarkus-azure
 cd quarkus-azure
-git checkout 2024-07-08
+git checkout 2024-10-14
 cd aca-quarkus
 ```
 
@@ -158,7 +158,7 @@ The steps in this section show you how to create the following Azure resources t
 Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE` and `LOCATION` with your own values and run the commands in your terminal.
 
 ```bash
-export UNIQUE_VALUE=<your unique value, such as mjg101224>
+export UNIQUE_VALUE=<your unique value, such as mjg101424>
 export RESOURCE_GROUP_NAME=${UNIQUE_VALUE}rg-passwordless
 export LOCATION=<your desired Azure region for deploying your resources - for example, eastus>
 export REGISTRY_NAME=${UNIQUE_VALUE}regpasswordless
@@ -173,7 +173,7 @@ export ACA_NAME=${UNIQUE_VALUE}acapasswordless
 Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE`, `LOCATION` and `DB_PASSWORD` with your own values and run the commands in your terminal.
 
 ```bash
-export UNIQUE_VALUE=<your unique value, such as mjg101224>
+export UNIQUE_VALUE=<your unique value, such as mjg101424>
 export RESOURCE_GROUP_NAME=${UNIQUE_VALUE}rg-password
 export LOCATION=<your desired Azure region for deploying your resources - for example, eastus>
 export REGISTRY_NAME=${UNIQUE_VALUE}regpassword
