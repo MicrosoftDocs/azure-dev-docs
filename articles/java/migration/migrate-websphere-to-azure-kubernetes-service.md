@@ -1,6 +1,6 @@
 ---
-title: Migrate WebSphere applications to Azure Kubernetes Service
-description: This guide describes what you should be aware of when you want to migrate WebSphere applications to Azure Kubernetes Service.
+title: Migrate WebSphere applications to Azure Kubernetes Service (AKS)
+description: This guide describes what you should be aware of when you want to migrate WebSphere applications to Azure Kubernetes Service (AKS).
 author: KarlErickson
 ms.author: haiche
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-tr
 #Customer intent: As a Java developer, I want to migrate my on-premise WebSphere Application Server workload to IBM WebSphere Liberty or Open Liberty that runs on Azure Kubernetes Service
 ---
 
-# Migrate WebSphere applications to Azure Kubernetes Service
+# Migrate WebSphere applications to Azure Kubernetes Service (AKS)
 
 This guide describes what you should be aware of when you want to migrate an existing WebSphere Application Server (WAS) workload to IBM WebSphere Liberty or Open Liberty on Azure Kubernetes Service (AKS).
 

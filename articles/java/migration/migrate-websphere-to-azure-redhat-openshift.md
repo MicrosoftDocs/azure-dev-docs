@@ -63,7 +63,7 @@ After you have a solid inventory of certificates, configure them by using the fo
 
 [!INCLUDE [inventory-was-jndi-resources](includes/inventory-was-jndi-resources.md)]
 
-If you're using the prebuilt Azure Marketplace offer, the set of JNDI resources you can customize at deployment time is limited to what the offer supports. For WebSphere Liberty on AKS, you can make an object available in the default Java Naming and Directory Interface (JNDI) namespace. For more information, see [Developing with the JNDI default namespace in a Liberty feature](https://www.ibm.com/docs/was-liberty/core?topic=liberty-developing-jndi-default-namespace-in-feature). For Open Liberty, see [Java Naming and Directory Interface](https://openliberty.io/docs/latest/reference/feature/jndi-1.0.html).
+If you're using the prebuilt Azure Marketplace offer, the set of JNDI resources you can customize at deployment time is limited to what the offer supports. For WebSphere Liberty on Azure Kubernetes Service (AKS), you can make an object available in the default Java Naming and Directory Interface (JNDI) namespace. For more information, see [Developing with the JNDI default namespace in a Liberty feature](https://www.ibm.com/docs/was-liberty/core?topic=liberty-developing-jndi-default-namespace-in-feature). For Open Liberty, see [Java Naming and Directory Interface](https://openliberty.io/docs/latest/reference/feature/jndi-1.0.html).
 
 [!INCLUDE [inspect-your-profile-configuration](includes/inspect-your-profile-configuration-liberty.md)]
 
