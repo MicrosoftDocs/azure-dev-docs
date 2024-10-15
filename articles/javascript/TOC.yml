@@ -154,7 +154,7 @@
       href: https://github.com/AzureAD/microsoft-authentication-library-for-js?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Samples
       href: /azure/active-directory/develop/sample-v2-code?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-  - name: Logging and metrics
+  - name: Observability
     href: how-to/node-sdk-logging.md
   - name: Testing
     href: core/test-azure-sdk-integrated-code.md
@@ -178,6 +178,8 @@
         href: sdk/authentication/azure-hosted-apps.md
       - name: On-premises apps
         href: sdk/authentication/on-premises-apps.md
+      - name: Credential chains
+        href: sdk/credential-chains.md
       - name: Resource management
         items: 
         - name: "List subscriptions"
@@ -186,6 +188,8 @@
       href: sdk/test-sdk-integration.md
     - name: Looping over data
       href: sdk/loop-over-data.md
+    - name: Debugging SDKs
+      href: sdk/debug-client-libraries.md
   - name: Training and certification
     href: learn-azure-javascript.md  
   - name: Samples
