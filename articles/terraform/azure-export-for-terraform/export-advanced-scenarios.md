@@ -89,7 +89,7 @@ provider "azurerm" {
 
 ### Inline experience
 
-To export to a backend inline, use the `--backend-type` and `--backend-config` options. For more information about configuring a Terraform backend, see [Terraform backend configuration](https://www.terraform.io/language/settings/backends).
+To export to a backend inline, use the `--backend-type` and `--backend-config` options. For more information about configuring a Terraform backend, see [Terraform backend configuration](https://developer.hashicorp.com/terraform/language/backend).
 
 Using our Azure storage account example, you need the following as defined in [the AzureRM backend documentation](https://www.terraform.io/language/settings/backends/azurerm#azurerm). 
 
