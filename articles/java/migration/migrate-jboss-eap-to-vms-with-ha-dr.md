@@ -33,7 +33,7 @@ The following diagram illustrates the architecture you build:
 [!INCLUDE [ha-dr-for-jboss-prerequistes.md](includes/ha-dr-for-jboss-prerequistes.md)]
 
 > [!NOTE]
-    > It may take over 24 hours to complete the steps in this guidance. If your Azure subscription has automatic resource deletion policies in place, add a **Delete** lock as described in [Lock your resources to protect your infrastructure](/azure/azure-resource-manager/management/lock-resources).
+> It may take over 24 hours to complete the steps in this guidance. If your Azure subscription has automatic resource deletion policies in place, take the necessary action to prevent deletion. Note that the usage of resource group locks to prevent deletion may interfere with enabling replication.
 
 ## Set up an Azure SQL Database failover group in paired regions
 
