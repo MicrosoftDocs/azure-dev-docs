@@ -400,7 +400,7 @@
 | tmlanguage-generator | npm [0.5.9](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.9) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.1.0) |  |  |
 | Unknown Display Name | npm [0.61.0](https://www.npmjs.com/package/@typespec/events/v/0.61.0) |  |  |
-| Unknown Display Name | npm [0.3.2](https://www.npmjs.com/package/@typespec/http-client-python/v/0.3.2) |  |  |
+| Unknown Display Name | npm [0.3.3](https://www.npmjs.com/package/@typespec/http-client-python/v/0.3.3) |  |  |
 | Unknown Display Name | npm [0.37.2](https://www.npmjs.com/package/@typespec/http-specs/v/0.37.2) |  |  |
 | Unknown Display Name | npm [0.61.0](https://www.npmjs.com/package/@typespec/sse/v/0.61.0) |  |  |
 | Unknown Display Name | npm [0.61.0](https://www.npmjs.com/package/@typespec/streams/v/0.61.0) |  |  |
