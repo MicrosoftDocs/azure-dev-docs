@@ -132,7 +132,7 @@ spring:
 ```
 
 > [!NOTE]
-> Starting with Spring Cloud Azure 5.18.0, the default `ConnectionFactory` has been updated to `JmsPoolConnectionFactory` to better utilize Service Bus server load balancing. Additional pooling configuration options (prefixed with spring.jms.servicebus.pool.) are available in the [Configuration](#configuration) section. If you prefer to continue using the `CachingConnectionFactory` for caching both Session and MessageProducer, simply set spring.jms.cache.enabled to true.
+> Starting from Spring Cloud Azure 5.18.0, the default JMS connection factory type has changed from the cached implementation (of class `ConnectionFactory`) to a pooled implementation (of class `JmsPoolConnectionFactory`), to better utilize the server side load balancing of Azure Service Bus. Additional pooling configuration options (prefixed with `spring.jms.servicebus.pool.`) are available in the [Configuration](#configuration) section. If you prefer to continue using the `CachingConnectionFactory`, simply set `spring.jms.cache.enabled=true`.
 
 ## Samples
 
