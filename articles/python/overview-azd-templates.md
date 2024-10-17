@@ -14,24 +14,26 @@ Python web Azure Developer CLI (`azd`) templates are the fastest and easiest way
 
 The best approach to get started is to [follow the quickstart](quickstart-python-web-azd-templates.md) to create your first Python web app and deploy it to Azure in minutes with `azd` templates. If you prefer not to set up a local development environment, you can follow the [quickstart by using GitHub Codespaces](quickstart-python-web-azd-codespaces.md) instead.
 
-## What are the Python azd templates?
+## What are the Python web azd templates?
 
-<a name="why-would-i-want-to-use-this"><a/>
+<a name="why-would-i-want-to-use-this"></a>
 
-The Python web `azd` templates are commonly used by experienced Python web developers to build new Python web apps that target Azure deployment. The `azd` templates offer several benefits:
+The `azd` templates are intended for experienced Python web developers who want to build Python web apps that target Azure deployment. The templates provide the **easiest possible start** for Python web app development. You can quickly build an entire local development/hosting environment and deployment environment with only a few command-line instructions. The workflow is simple to use and the steps are easy to remember.
 
-- **Easiest possible start**: Quickly build an entire local development/hosting environment and deployment environment by running just a few command-line instructions. The workflow is simple to use and the steps are easy to remember.
-- **Fastest possible start**: After you set up your development and hosting environments, focus on building your web app within minutes. 
-- **Build on Best practices**: Follow the template design approach and add your code by building on the solid foundation. The templates are created and maintained by industry veterans with extensive development experience in Python on Azure.
+After you set up your development and hosting environments, the templates provide you with the **fastest possible start** to building out your Python web app. By configuring the template code files to meet your specific requirements, you can customize your Python web app in minutes. 
+
+The templates also help you follow established design strategies and **build on best practices**. Follow the template designs and add your code by building on solid foundations. The templates are created and maintained by industry veterans with extensive development experience in Python on Azure.
+
+### What tasks can I do with the templates?
 
 When you run a Python web `azd` template, you quickly complete several tasks:
 
-- **Create a starter application**: You build a website for a fictitious company named Relecloud. The project code features many best practices for the Python frameworks and packages required for that particular stack of technologies. The template is intended to be a starting point for your application. You add or remove application logic and Azure resources as needed.
-- **Provision Azure resources**: You provision Azure resources for hosting your web app and database by using [Bicep](/azure/azure-resource-manager/bicep/overview), a popular infrastructure-as-code tool. Similar to the previous task, you can [modify the Bicep templates](quickstart-python-scale-bicep.md) to add more Azure services, as needed.
-- **Deploy the starter application to the newly provisioned Azure resources**: You automatically deploy your starter application. This approach lets you quickly review the running program and decide what you want to modify.
-- **(Optional) Set up a GitHub repository and a CI/CD pipeline**: As an option, you can set up a GitHub repository, including a GitHub Actions [continuous integration/continuous delivery (CI/CD) pipeline](/azure-devops-docs/pipelines/apps/cd/azure/cicd-data-overview). This approach lets you quickly make changes to the web project code. When you merge those changes to the *main* branch of your GitHub repo, the CI/CD pipeline publishes them to your new Azure hosting environment.
+- **Create starter application**. You build a website for a fictitious company named Relecloud. The project code features many best practices for the Python frameworks and packages required for that particular stack of technologies. The template is intended to be a starting point for your application. You add or remove application logic and Azure resources as needed.
+- **Provision Azure resources**. You provision Azure resources for hosting your web app and database by using [Bicep](/azure/azure-resource-manager/bicep/overview), a popular infrastructure-as-code tool. Similar to the previous task, you can [modify the Bicep templates](quickstart-python-scale-bicep.md) to add more Azure services, as needed.
+- **Deploy starter app to provisioned Azure resources**. You automatically deploy your starter application. This approach lets you quickly review the running program and decide what you want to modify.
+- **(Optional) Set up GitHub repository and CI/CD pipeline**. As an option, you can set up a GitHub repository, including a GitHub Actions [continuous integration/continuous delivery (CI/CD) pipeline](/devops/pipelines/apps/cd/azure/cicd-data-overview). This approach lets you quickly make changes to the web project code. When you merge those changes to the *main* branch of your GitHub repo, the CI/CD pipeline publishes them to your new Azure hosting environment.
 
-## How can I access the templates?
+## Where can I access the templates?
 
 Many `azd` templates are available on the [Awesome Azure Developer CLI Templates gallery](https://azure.github.io/awesome-azd/). This collection offers unique Python web `azd` templates that provide a sample web app with feature parity across many different popular combinations of Azure resources and Python web frameworks.
 
@@ -43,9 +45,9 @@ The following tables list the Python web `azd` template monikers that are availa
 
    | Template | Database | Hosting platform | GitHub repository |
    | --- | --- | --- | --- |
-   | azure-django-postgres-flexible-aca        | [Azure Database for PostgreSQL Flexible Server](/azure-databases-docs/postgresql/flexible-server/overview) | [Azure Container Apps](/azure/container-apps/overview) | [https://github.com/Azure-Samples/azure-django-postgres-flexible-aca](https://github.com/Azure-Samples/azure-django-postgres-flexible-aca)|
+   | azure-django-postgres-flexible-aca        | [Azure Database for PostgreSQL Flexible Server](/azure/postgresql/flexible-server/overview) | [Azure Container Apps](/azure/container-apps/overview) | [https://github.com/Azure-Samples/azure-django-postgres-flexible-aca](https://github.com/Azure-Samples/azure-django-postgres-flexible-aca)|
    | azure-django-postgres-flexible-appservice | Azure Database for PostgreSQL Flexible Server | [Azure App Service](/azure/app-service/overview) | [https://github.com/Azure-Samples/azure-django-postgres-flexible-appservice](https://github.com/Azure-Samples/azure-django-postgres-flexible-appservice)  |
-   | azure-django-cosmos-postgres-aca          | [Azure Cosmos DB for Azure Database for PostgreSQL](/azure-databases-docs/cosmos-db/postgresql/introduction) | Azure Container Apps | [https://github.com/Azure-Samples/azure-django-cosmos-postgres-aca](https://github.com/Azure-Samples/azure-django-cosmos-postgres-aca)|
+   | azure-django-cosmos-postgres-aca          | [Azure Cosmos DB for Azure Database for PostgreSQL](/azure/cosmos-db/postgresql/introduction) | Azure Container Apps | [https://github.com/Azure-Samples/azure-django-cosmos-postgres-aca](https://github.com/Azure-Samples/azure-django-cosmos-postgres-aca)|
    | azure-django-cosmos-postgres-appservice   | Azure Cosmos DB for Azure Database for PostgreSQL | Azure App Service | [https://github.com/Azure-Samples/azure-django-cosmos-postgres-appservice](https://github.com/Azure-Samples/azure-django-cosmos-postgres-appservice)|
    | azure-django-postgres-addon-aca           | [Azure Container Apps with Azure Database for PostgreSQL](tutorial-deploy-python-web-app-azure-container-apps-01.md) | Azure Container Apps | [https://github.com/Azure-Samples/azure-django-postgres-addon-aca](https://github.com/Azure-Samples/azure-django-postgres-addon-aca)|
 
@@ -55,9 +57,9 @@ The following tables list the Python web `azd` template monikers that are availa
 
    | Template | Database | Hosting platform | GitHub repository |
    | --- | --- | --- | --- |
-   | azure-fastapi-postgres-flexible-aca        | [Azure Database for PostgreSQL Flexible Server](/azure-databases-docs/postgresql/flexible-server/overview) | [Azure Container Apps](/azure/container-apps/overview) | [https://github.com/Azure-Samples/azure-fastapi-postgres-flexible-aca](https://github.com/Azure-Samples/azure-fastapi-postgres-flexible-aca)|
+   | azure-fastapi-postgres-flexible-aca        | [Azure Database for PostgreSQL Flexible Server](/azure/postgresql/flexible-server/overview) | [Azure Container Apps](/azure/container-apps/overview) | [https://github.com/Azure-Samples/azure-fastapi-postgres-flexible-aca](https://github.com/Azure-Samples/azure-fastapi-postgres-flexible-aca)|
    | azure-fastapi-postgres-flexible-appservice | Azure Database for PostgreSQL Flexible Server | [Azure App Service](/azure/app-service/overview) | [https://github.com/Azure-Samples/azure-fastapi-postgres-flexible-appservice](https://github.com/Azure-Samples/azure-fastapi-postgres-flexible-appservice)  |
-   | azure-fastapi-cosmos-postgres-aca          | [Azure Cosmos DB for Azure Database for PostgreSQL](/azure-databases-docs/cosmos-db/postgresql/introduction) | Azure Container Apps | [https://github.com/Azure-Samples/azure-fastapi-cosmos-postgres-aca](https://github.com/Azure-Samples/azure-fastapi-cosmos-postgres-aca)|
+   | azure-fastapi-cosmos-postgres-aca          | [Azure Cosmos DB for Azure Database for PostgreSQL](/azure/cosmos-db/postgresql/introduction) | Azure Container Apps | [https://github.com/Azure-Samples/azure-fastapi-cosmos-postgres-aca](https://github.com/Azure-Samples/azure-fastapi-cosmos-postgres-aca)|
    | azure-fastapi-cosmos-postgres-appservice   | Azure Cosmos DB for Azure Database for PostgreSQL | Azure App Service | [https://github.com/Azure-Samples/azure-fastapi-cosmos-postgres-appservice](https://github.com/Azure-Samples/azure-fastapi-cosmos-postgres-appservice)|
    | azure-fastapi-postgres-addon-aca           | [Azure Container Apps with Azure Database for PostgreSQL](tutorial-deploy-python-web-app-azure-container-apps-01.md) | Azure Container Apps | [https://github.com/Azure-Samples/azure-fastapi-postgres-addon-aca](https://github.com/Azure-Samples/azure-fastapi-postgres-addon-aca)|
 
@@ -67,19 +69,19 @@ The following tables list the Python web `azd` template monikers that are availa
 
    | Template | Database | Hosting platform | GitHub repository |
    | --- | --- | --- | --- |
-   | azure-flask-postgres-flexible-aca        | [Azure Database for PostgreSQL Flexible Server](/azure-databases-docs/postgresql/flexible-server/overview) | [Azure Container Apps](/azure/container-apps/overview) | [https://github.com/Azure-Samples/azure-flask-postgres-flexible-aca](https://github.com/Azure-Samples/azure-flask-postgres-flexible-aca)|
+   | azure-flask-postgres-flexible-aca        | [Azure Database for PostgreSQL Flexible Server](/azure/postgresql/flexible-server/overview) | [Azure Container Apps](/azure/container-apps/overview) | [https://github.com/Azure-Samples/azure-flask-postgres-flexible-aca](https://github.com/Azure-Samples/azure-flask-postgres-flexible-aca)|
    | azure-flask-postgres-flexible-appservice | Azure Database for PostgreSQL Flexible Server | [Azure App Service](/azure/app-service/overview) | [https://github.com/Azure-Samples/azure-flask-postgres-flexible-appservice](https://github.com/Azure-Samples/azure-flask-postgres-flexible-appservice)  |
-   | azure-flask-cosmos-postgres-aca          | [Azure Cosmos DB for Azure Database for PostgreSQL](/azure-databases-docs/cosmos-db/postgresql/introduction) | Azure Container Apps | [https://github.com/Azure-Samples/azure-flask-cosmos-postgres-aca](https://github.com/Azure-Samples/azure-flask-cosmos-postgres-aca)|
+   | azure-flask-cosmos-postgres-aca          | [Azure Cosmos DB for Azure Database for PostgreSQL](/azure/cosmos-db/postgresql/introduction) | Azure Container Apps | [https://github.com/Azure-Samples/azure-flask-cosmos-postgres-aca](https://github.com/Azure-Samples/azure-flask-cosmos-postgres-aca)|
    | azure-flask-cosmos-postgres-appservice   | Azure Cosmos DB for Azure Database for PostgreSQL | Azure App Service | [https://github.com/Azure-Samples/azure-flask-cosmos-postgres-appservice](https://github.com/Azure-Samples/azure-flask-cosmos-postgres-appservice)|
    | azure-flask-postgres-addon-aca           | [Azure Container Apps with Azure Database for PostgreSQL](tutorial-deploy-python-web-app-azure-container-apps-01.md) | Azure Container Apps | [https://github.com/Azure-Samples/azure-flask-postgres-addon-aca](https://github.com/Azure-Samples/azure-flask-postgres-addon-aca)|
-   | azure-flask-cosmos-mongodb-aca           | [Azure Cosmos DB for MongoDB](/azure-databases-docs/cosmos-db/mongodb/introduction) | Azure Container Apps | [https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-aca](https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-aca) |
+   | azure-flask-cosmos-mongodb-aca           | [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/introduction) | Azure Container Apps | [https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-aca](https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-aca) |
    | azure-flask-cosmos-mongodb-appservice    | Azure Cosmos DB for MongoDB | Azure App Service | [https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-appservice](https://github.com/Azure-Samples/azure-flask-cosmos-mongodb-appservice) |
 
    ---
 
 ## How should I use the templates?
 
-<a name="how-do-the-templates-work"><a/>
+<a name="how-do-the-templates-work"></a>
 
 Each `azd` template comprises a GitHub repository that contains the application code (Python code that utilizes a popular web framework) and the infrastructure-as-code (namely, [Bicep](/azure/azure-resource-manager/bicep/overview)) files to create the Azure resources. The template also contains the configuration required to set up a GitHub repository with a CI/CD pipeline.
 
@@ -100,7 +102,7 @@ The following table summarizes the five essential commands:
 
 After you complete the essential template tasks, you have a personal copy of the original template where you can modify any file, as needed. At a minimum, you can modify the Python project code so the project uses your design and application logic. You can also [modify the infrastructure-as-code configuration](quickstart-python-scale-bicep.md) if you need to change the Azure resources. For more information, see the [What can I edit or delete](#what-can-i-edit-or-delete) section later in this article.
 
-### Optional azd template tasks
+### Optional template tasks
 
 In addition to the five essential commands, there are optional tasks you can complete with the `azd` templates.
 
@@ -120,7 +122,7 @@ The Azure Developer CLI (`azd`) provides an easy way to set up a CI/CD pipeline 
 
 After you configure the pipeline, each time code changes are merged to the *main* branch of the repository, the pipeline deploys the changes to your provisioned Azure services.
 
-## Alternatives to the azd templates
+## Alternatives to the templates
 
 <a name="what-are-my-other-options"></a>
 
@@ -167,9 +169,9 @@ The contents of each Python web `azd` template can vary depending on the type of
 | **/requirements-dev.in** | pip requirements file | This file is used to create a development environment version of the requirements by using the `pip install -r` command. You can modify this file to include other packages, as needed. |
 
 > [!TIP]
-> As you modify template files for your program, be sure to practice good version control. This approach can help you restore your repository to a previous working version, if recent changes cause program issues or failure.
+> As you modify template files for your program, be sure to practice good version control. This approach can help you restore your repository to a previous working version, if new changes cause program issues.
 
-### How can I handle errors from the template?
+### How can I handle template errors?
 
 If you receive an error when you use an `azd` template, review the options described in the [Troubleshoot Azure Developer CLI](/azure/developer/azure-developer-cli/troubleshoot) article. You can also report issues on the GitHub repository associated with the `azd` template.
 
