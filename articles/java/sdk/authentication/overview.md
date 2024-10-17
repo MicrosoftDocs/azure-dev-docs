@@ -17,7 +17,6 @@ The Azure Identity library currently supports:
 
 * [Azure authentication in Java development environments](dev-env.md), which enables:
   * IDEA IntelliJ authentication, with the sign-in information retrieved from the [Azure Toolkit for IntelliJ](../../toolkit-for-intellij/index.yml).
-  * Visual Studio Code authentication, with the sign-in information saved in [Azure plugin for Visual Studio Code](https://code.visualstudio.com/docs/azure/extensions).
   * Azure CLI authentication, with the sign-in information saved in the [Azure CLI](/cli/azure/what-is-azure-cli)
 * [Authenticating applications hosted in Azure](azure-hosted-apps.md), which enables:
   * Default Azure Credential Authentication
@@ -52,7 +51,7 @@ A credential is a class that contains or can obtain the data needed for a servic
 
 The Azure Identity library focuses on OAuth authentication with Microsoft Entra ID, and it offers various credential classes that can acquire a Microsoft Entra token to authenticate service requests. All of the credential classes in this library are implementations of the `TokenCredential` abstract class in [azure-core](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core), and you can use any of them to construct service clients that can authenticate with a `TokenCredential`.
 
-`DefaultAzureCredential` is appropriate for most scenarios where the application is intended to ultimately run in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed, with credentials that are used to authenticate in a development environment. For more information, including examples using `DefaultAzureCredential`, see the [Default Azure credential](azure-hosted-apps.md#default-azure-credential) section of [Authenticating Azure-hosted Java applications](azure-hosted-apps.md).
+`DefaultAzureCredential` is appropriate for most scenarios where the application is intended to ultimately run in the Azure Cloud. `DefaultAzureCredential` combines credentials that are commonly used to authenticate when deployed, with credentials that are used to authenticate in a development environment. For more information, including examples using `DefaultAzureCredential`, see the [DefaultAzureCredential](azure-hosted-apps.md#defaultazurecredential) section of [Authenticating Azure-hosted Java applications](azure-hosted-apps.md).
 
 ## Examples
 
