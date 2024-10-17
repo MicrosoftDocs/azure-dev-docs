@@ -30,7 +30,7 @@ For troubleshooting authentication issues related to Azure-hosted applications, 
 
 * Setting the environment variables `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` as defined in [Environment variables](#environment-variables) configures `DefaultAzureCredential` to authenticate as the service principal specified by the values.
 * Setting `.managedIdentityClientId(String)` on the builder or the environment variable `AZURE_CLIENT_ID` configures `DefaultAzureCredential` to authenticate as a user-assigned managed identity, while leaving them empty configures it to authenticate as a system-assigned managed identity.
-* Setting `.tenantId(String)` on the builder or the environment variable `AZURE_TENANT_ID` configures `DefaultAzureCredential` to authenticate to a specific tenant for shared token cache and IntelliJ IDEA.
+* Setting `.tenantId(String)` on the builder or the environment variable `AZURE_TENANT_ID` configures `DefaultAzureCredential` to authenticate to a specific tenant for either the shared token cache or IntelliJ IDEA.
 * Setting the environment variable `AZURE_USERNAME` configures `DefaultAzureCredential` to pick the corresponding cached token from the shared token cache.
 
 ### Authenticate with DefaultAzureCredential
