@@ -85,9 +85,9 @@ Next, you need to determine what roles (permissions) your app needs on what reso
 A user, group, or application service principal is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment) command. You can specify a group with its object ID.
 
 ```azurecli
-az role assignment create --assignee {objectId} \
-    --scope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} \
-    --role "{roleName}" 
+az role assignment create --assignee <objectId> \
+    --scope /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName> \
+    --role "<roleName>" 
 ```
 
 To get the role names that can be assigned, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command.
@@ -97,11 +97,11 @@ az role definition list --query "sort_by([].{roleName:roleName, description:desc
 
 ```
 
-For example, to allow the members of a group with an object ID of `00000000-0000-0000-0000-000000000000` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *msdocs-python-sdk-auth-example* resource group in the subscription with ID `11111111-1111-1111-1111-111111111111`, you would assign the *Storage Blob Data Contributor* role to the group using the following command.
+For example, to allow the members of a group with an object ID of `bbbbbbbb-1111-2222-3333-cccccccccccc` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *msdocs-python-sdk-auth-example* resource group in the subscription with ID `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`, you would assign the *Storage Blob Data Contributor* role to the group using the following command.
 
 ```azurecli
-az role assignment create --assignee 00000000-0000-0000-0000-000000000000 \
-    --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/msdocs-python-sdk-auth-example \
+az role assignment create --assignee bbbbbbbb-1111-2222-3333-cccccccccccc \
+    --scope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/msdocs-python-sdk-auth-example \
     --role "Storage Blob Data Contributor"
 ```
 
