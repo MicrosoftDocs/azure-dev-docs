@@ -14,7 +14,7 @@ Python web Azure Developer CLI (`azd`) templates are the fastest and easiest way
 
 The best way to begin is to [follow the quickstart](quickstart-python-web-azd-templates.md) to create your first Python web app and deploy it to Azure in minutes with `azd` templates. If you prefer not to set up a local development environment, you can follow the [quickstart by using GitHub Codespaces](quickstart-python-web-azd-codespaces.md) for a fully cloud-based experience with all tools preconfigured.
 
-## What are the Python azd templates?
+## What are the Python web azd templates?
 
 <a name="why-would-i-want-to-use-this"></a>
 
@@ -239,24 +239,13 @@ The contents of each Python web `azd` template can vary depending on the type of
 | **/requirements-dev.in** | pip requirements file | This file is used to create a development environment version of the requirements by using the `pip install -r` command. You can modify this file to include other packages, as needed. |
 
 > [!TIP]
-<<<<<<< HEAD
 > As you modify template files for your program, be sure to practice good version control. This approach can help you restore your repository to a previous working version, if new changes cause program issues.
 
 ### How can I handle template errors?
-=======
-> As you modify template files for your program, be sure to practice good version control. This approach can help you restore your repository to a previous working version, if recent changes cause program issues or failure.
-
-### How can I handle errors from the template?
->>>>>>> 2eb2ce1ca (article refresh)
 
 If you receive an error when you use an `azd` template, review the options described in the [Troubleshoot Azure Developer CLI](/azure/developer/azure-developer-cli/troubleshoot) article. You can also report issues on the GitHub repository associated with the `azd` template.
 
 ## Related content
 
-<<<<<<< HEAD
 * [Create and deploy Python web apps to Azure with azd templates](quickstart-python-web-azd-templates.md)
 * [Create and deploy Python web apps from GitHub Codespaces to Azure with azd templates](quickstart-python-web-azd-codespaces.md)
-=======
-- [Create and deploy Python web apps to Azure with azd templates](quickstart-python-web-azd-templates.md)
-- [Create and deploy Python web apps from GitHub Codespaces to Azure with azd templates](quickstart-python-web-azd-codespaces.md)
->>>>>>> 2eb2ce1ca (article refresh)
