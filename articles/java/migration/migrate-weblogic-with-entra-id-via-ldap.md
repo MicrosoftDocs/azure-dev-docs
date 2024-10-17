@@ -118,7 +118,7 @@ If the value of the **Secure LDAP external IP address** isn't readily apparent, 
 1. In the portal, find the resource group that contains the Microsoft Entra Domain Services resource.
 1. In the list of resources, select the public IP resource for the Microsoft Entra Domain Services resource, as shown next. The public IP address likely starts with `aads`.
 
-   :::image type="content" source="media/migrate-weblogic-to-entraid-via-ldap/alternate-secure-ip-address-technique.png" alt-text="Browser showing how to select the public IP.":::
+   :::image type="content" source="media/migrate-weblogic-with-entra-id-via-ldap/alternate-secure-ip-address-technique.png" alt-text="Browser showing how to select the public IP." lightbox="media/migrate-weblogic-with-entra-id-via-ldap/alternate-secure-ip-address-technique.png":::
 
 1. The public IP is shown next to the label, **IP address**.
 
@@ -195,7 +195,7 @@ After the Azure Application deployment finishes, you can find the URL to access 
 >
 > * Paste the value of **adminConsole** to your browser and log into the WLS admin console. 
 > * Under **Domain Structure**, select **Environment** -> **Servers** -> **admin** -> **Monitoring** -> **General**. You find Java version next to label **Java Version**.
-> :::image type="content" source="media/migrate-weblogic-to-entraid-via-ldap/wlsconsole-java-version.png" alt-text="Browser showing how to find the Java Version.":::
+> :::image type="content" source="media/migrate-weblogic-with-entra-id-via-ldap/wls-console-java-version.png" alt-text="Browser showing how to find the Java Version." lightbox="media/migrate-weblogic-with-entra-id-via-ldap/wls-console-java-version.png":::
 > 
 > If your Java version is 8, enable TLS v1.2 with steps:
 >
@@ -204,7 +204,7 @@ After the Azure Application deployment finishes, you can find the URL to access 
 > * Select **Save** to save the change.
 > * Under **Change Center**, select **Activate Changes** to enable the option.
 >
-> :::image type="content" source="media/migrate-weblogic-to-entraid-via-ldap/wlsconsole-enable-tls-v12.png" alt-text="Browser showing how to set TLS v1.2.":::
+> :::image type="content" source="media/migrate-weblogic-with-entra-id-via-ldap/wls-console-enable-tls-v12.png" alt-text="Browser showing how to set TLS v1.2." lightbox="media/migrate-weblogic-with-entra-id-via-ldap/wls-console-enable-tls-v12.png":::
 
 ### Integrating Microsoft Entra Domain Service managed domain with WLS
 
