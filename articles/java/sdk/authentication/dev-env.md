@@ -151,16 +151,12 @@ Use the following steps to sign in:
 1. Find the new menu item **Tools > Azure > Azure Sign In**
 1. **Device Login** helps you sign in as a user account. Follow the instructions to sign in on the `login.microsoftonline.com` website with the device code. IntelliJ prompts you to select your subscriptions. Select the subscription with the resources that you want to access.
 
-On Windows, you also need the KeePass database path to read IntelliJ credentials. You can find the path in IntelliJ settings under **File > Settings > Appearance & Behavior > System Settings > Passwords**. Note down the location of the KeePassDatabase path.
-
 ### Authenticate a user account with IntelliJ IDEA
 
 The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `IntelliJCredential` on a workstation where IntelliJ IDEA is installed, and the user has signed in with an Azure account to the Azure Toolkit for IntelliJ.
 
 ```java
 IntelliJCredential intelliJCredential = new IntelliJCredentialBuilder()
-  // KeePass configuration is required only for Windows. No configuration needed for Linux / macOS.
-  .keePassDatabasePath("C:\\Users\\user\\AppData\\Roaming\\JetBrains\\IdeaIC2020.1\\c.kdbx")
   .build();
 
 // Azure SDK client builders accept the credential as a parameter
