@@ -40,7 +40,7 @@ The output of this command will look like the following. Make note of these valu
 ```json
 {
   "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
-  "displayName": "msdocs-python-sdk-auth-prod",
+  "displayName": "<service-principal-name>",
   "password": "Ee5Ff~6Gg7.-Hh8Ii9Jj0Kk1Ll2Mm3_Nn4Oo5Pp6",
   "tenant": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
 }
