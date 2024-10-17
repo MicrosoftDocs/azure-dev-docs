@@ -11,19 +11,21 @@ ms.author: vigera
 
 # Azure authentication with Java and Azure Identity
 
-This article provides an overview of the Java Azure Identity library, which provides Microsoft Entra token authentication support across the Azure SDK for Java. This library provides a set of `TokenCredential` implementations that you can use to construct Azure SDK clients that support Microsoft Entra token authentication.
+This article provides an overview of the Azure Identity library for Java, which provides Microsoft Entra token authentication support across the Azure SDK for Java. This library provides a set of `TokenCredential` implementations that you can use to construct Azure SDK clients that support Microsoft Entra token authentication.
 
 The Azure Identity library currently supports:
 
 * [Azure authentication in Java development environments](dev-env.md), which enables:
   * IDEA IntelliJ authentication, with the sign-in information retrieved from the [Azure Toolkit for IntelliJ](../../toolkit-for-intellij/index.yml).
   * Azure CLI authentication, with the sign-in information saved in the [Azure CLI](/cli/azure/what-is-azure-cli)
+  * Azure Developer CLI authentication, with the sign-in information saved in the [Azure Developer CLI](/azure/developer/azure-developer-cli/)
+  * Azure PowerShell authentication, with the sign-in information saved in [Azure PowerShell](/powershell/azure)
 * [Authenticating applications hosted in Azure](azure-hosted-apps.md), which enables:
-  * Default Azure Credential Authentication
-  * Managed Identity Authentication
+  * `DefaultAzureCredential` authentication
+  * Managed Identity authentication
 * [Authentication with service principals](service-principal.md), which enables:
-  * Client Secret Authentication
-  * Client Certificate Authentication
+  * Client Secret authentication
+  * Client Certificate authentication
 * [Authentication with user credentials](user.md), which enables:
   * Interactive browser authentication
   * Device code authentication
