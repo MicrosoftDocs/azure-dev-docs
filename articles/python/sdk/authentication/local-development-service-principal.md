@@ -32,24 +32,23 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 First, use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a new service principal for the app. The command also creates the app registration for the app at the same time.
 
 ```azurecli
-az ad sp create-for-rbac --name {service-principal-name}
+az ad sp create-for-rbac --name <service-principal-name>
 ```
 
 The output of this command will look like the following. Make note of these values or keep this window open as you'll need these values in the next steps and won't be able to view the password (client secret) value again. You can, however, add a new password later without invalidating the service principal or existing passwords if needed.
 
 ```json
 {
-  "appId": "00000000-0000-0000-0000-000000000000",
-  "displayName": "{service-principal-name}",
-  "password": "abcdefghijklmnopqrstuvwxyz",
-  "tenant": "33333333-3333-3333-3333-333333333333"
+  "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
+  "displayName": "msdocs-python-sdk-auth-prod",
+  "password": "Ee5Ff~6Gg7.-Hh8Ii9Jj0Kk1Ll2Mm3_Nn4Oo5Pp6",
+  "tenant": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
 }
 ```
 
 ### [Azure portal](#tab/azure-portal)
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps.
-
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -95,7 +94,7 @@ az ad sp list \
     --output table
 ```
 
-The [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add) command can then be used to add members to groups. 
+The [az ad group member add](/cli/azure/ad/group/member#az-ad-group-member-add) command can then be used to add members to groups.
 
 ```azurecli
 az ad group member add \
@@ -128,9 +127,9 @@ Next, you need to determine what roles (permissions) your app needs on what reso
 A user, group, or application service principal is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command. You can specify a group with its object ID. You can specify an application service principal with its appId.
 
 ```azurecli
-az role assignment create --assignee {appId or objectId} \
-    --scope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} \
-    --role "{roleName}" 
+az role assignment create --assignee <appId or objectId> \
+    --scope /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName> \
+    --role "<roleName>" 
 ```
 
 To get the role names that can be assigned, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command.
@@ -141,11 +140,11 @@ az role definition list \
     --output table
 ```
 
-For example, to allow the application service principal with the appId of `00000000-0000-0000-0000-000000000000` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *msdocs-python-sdk-auth-example* resource group in the subscription with ID `11111111-1111-1111-1111-111111111111`, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
+For example, to allow the application service principal with the appId of `00001111-aaaa-2222-bbbb-3333cccc4444` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *msdocs-python-sdk-auth-example* resource group in the subscription with ID `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
 
 ```azurecli
-az role assignment create --assignee 00000000-0000-0000-0000-000000000000 \
-    --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/msdocs-python-sdk-auth-example \
+az role assignment create --assignee 00001111-aaaa-2222-bbbb-3333cccc4444 \
+    --scope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/msdocs-python-sdk-auth-example \
     --role "Storage Blob Data Contributor"
 ```
 
@@ -177,16 +176,16 @@ To use the python-dotenv package, first install the package in your application.
 pip install python-dotenv
 ```
 
-Then, create a `.env` file in your application root directory. Set the environment variable values with values obtained from the app registration process as follows: 
+Then, create a `.env` file in your application root directory. Set the environment variable values with values obtained from the app registration process as follows:
 
 - `AZURE_CLIENT_ID` &rarr; The app ID value.
 - `AZURE_TENANT_ID` &rarr; The tenant ID value.
 - `AZURE_CLIENT_SECRET` &rarr; The password/credential generated for the app.
 
 ```bash
-AZURE_CLIENT_ID=00000000-0000-0000-0000-000000000000
-AZURE_TENANT_ID=11111111-1111-1111-1111-111111111111
-AZURE_CLIENT_SECRET=abcdefghijklmnopqrstuvwxyz
+AZURE_CLIENT_ID=00001111-aaaa-2222-bbbb-3333cccc4444
+AZURE_TENANT_ID=aaaabbbb-0000-cccc-1111-dddd2222eeee
+AZURE_CLIENT_SECRET=Ee5Ff~6Gg7.-Hh8Ii9Jj0Kk1Ll2Mm3_Nn4Oo5Pp6
 ```
 
 Finally, in the startup code for your application, use the `python-dotenv` library to read the environment variables from the `.env` file on startup.
