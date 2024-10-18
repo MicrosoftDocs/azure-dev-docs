@@ -3,15 +3,15 @@ title: Terraform AzureRM provider version history 4.0.0 - current
 description: View the Terraform AzureRM provider version history for 4.0.0 - current
 keywords: azure devops terraform change log release history what's new
 ms.topic: reference
-ms.date: 10/17/2024
+ms.date: 10/18/2024
 ms.custom: devx-track-terraform
 # Customer intent: I want to view the AzureRM provider version history for versions 4.0.0 - current
-# https://github.com/hashicorp/terraform-provider-azurerm/blob/main/CHANGELOG.md
+# Source: https://github.com/hashicorp/terraform-provider-azurerm/blob/main/CHANGELOG.md
 ---
 
 # Terraform AzureRM provider version history: 4.0.0 - current
 
-## 4.6.0 (Unrelerased)
+## 4.6.0 (October 18, 2024)
 
 FEATURES:
 
