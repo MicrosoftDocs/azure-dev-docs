@@ -85,7 +85,7 @@ When using JBoss EAP on App Service, be sure to take the following notes into co
   * Distributed transactions.
   * Similar features that require instance-to-instance communication or high availability.
 
-  For more information, see the [release announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/recently-announced-advanced-clustering-features-for-jboss-eap-on/ba-p/3939672) and the [Clustering in JBoss EAP](/azure/app-service/configure-language-java?pivots=platform-linux#clustering-in-jboss-eap) section of [Configure a Java app for Azure App Service](/azure/app-service/configure-language-java?pivots=platform-linux).
+  For more information, see the [release announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/recently-announced-advanced-clustering-features-for-jboss-eap-on/ba-p/3939672) and the [Clustering](/azure/app-service/configure-language-java?pivots=java-jboss#clustering) section of [Configure a Java app for Azure App Service](/azure/app-service/configure-language-java?pivots=java-jboss).
 
 ## Migration
 
