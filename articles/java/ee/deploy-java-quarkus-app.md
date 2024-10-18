@@ -4,7 +4,7 @@ description: Shows how to quickly stand up Quarkus on Azure Container Apps.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 09/29/2023
+ms.date: 10/14/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-aca, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -22,9 +22,10 @@ This article shows you how to quickly deploy Red Hat Quarkus on Microsoft Azure 
 - Install [jq](https://jqlang.github.io/jq/download/).
 - Install [cURL](https://curl.se/download.html).
 - Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling), version 3.12.1 or higher.
-- Azure CLI for Unix-like environments. This article requires only the Bash variant of Azure CLI.
-  - [!INCLUDE [azure-cli-login](../../includes/azure-cli-login.md)]
-  - This article requires at least version 2.61.0 of Azure CLI.
+- Install the [Azure CLI](/cli/azure/install-azure-cli) to run Azure CLI commands.
+  - Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli).
+  - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+  - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.61.0 of Azure CLI.
 
 ## Create the app project
 
@@ -33,7 +34,7 @@ Use the following command to clone the sample Java project for this article. The
 ```bash
 git clone https://github.com/Azure-Samples/quarkus-azure
 cd quarkus-azure
-git checkout 2024-07-08
+git checkout 2024-10-14
 cd aca-quarkus
 ```
 
@@ -152,26 +153,41 @@ The steps in this section show you how to create the following Azure resources t
 - Azure Container Registry
 - Azure Container Apps
 
+### [Passwordless (Recommended)](#tab/passwordless)
+
+Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE` and `LOCATION` with your own values and run the commands in your terminal.
+
+```bash
+export UNIQUE_VALUE=<your unique value, such as mjg101424>
+export RESOURCE_GROUP_NAME=${UNIQUE_VALUE}rg-passwordless
+export LOCATION=<your desired Azure region for deploying your resources - for example, eastus>
+export REGISTRY_NAME=${UNIQUE_VALUE}regpasswordless
+export DB_SERVER_NAME=${UNIQUE_VALUE}dbpasswordless
+export DB_NAME=demodb
+export ACA_ENV=${UNIQUE_VALUE}envpasswordless
+export ACA_NAME=${UNIQUE_VALUE}acapasswordless
+```
+
+### [Password](#tab/password)
+
 Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE`, `LOCATION` and `DB_PASSWORD` with your own values and run the commands in your terminal.
 
 ```bash
-export UNIQUE_VALUE=<your unique value, such as ejb091223>
-export RESOURCE_GROUP_NAME=${UNIQUE_VALUE}rg
+export UNIQUE_VALUE=<your unique value, such as mjg101424>
+export RESOURCE_GROUP_NAME=${UNIQUE_VALUE}rg-password
 export LOCATION=<your desired Azure region for deploying your resources - for example, eastus>
-export REGISTRY_NAME=${UNIQUE_VALUE}reg
-export DB_SERVER_NAME=${UNIQUE_VALUE}db
+export REGISTRY_NAME=${UNIQUE_VALUE}regpassword
+export DB_SERVER_NAME=${UNIQUE_VALUE}dbpassword
 export DB_NAME=demodb
 export DB_ADMIN=demouser
 export DB_PASSWORD='<your desired password for the database server - for example, Secret123456>'
-export ACA_ENV=${UNIQUE_VALUE}env
-export ACA_NAME=${UNIQUE_VALUE}aca
+export ACA_ENV=${UNIQUE_VALUE}envpassword
+export ACA_NAME=${UNIQUE_VALUE}acapassword
 ```
 
-### Create an Azure Database for PostgreSQL Flexible Server
+---
 
-Azure Database for PostgreSQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. This section shows you how to create an Azure Database for PostgreSQL Flexible Server instance using the Azure CLI. For more information, see [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server instance using Azure CLI](/azure/postgresql/flexible-server/quickstart-create-server-cli).
-
-First, create a resource group to contain the database server and other resources by using the following command:
+Next, create a resource group by using the following command:
 
 ```azurecli
 az group create \
@@ -179,7 +195,58 @@ az group create \
     --location $LOCATION
 ```
 
-Next, create an Azure Database for PostgreSQL flexible server instance by using the following command:
+### Create an Azure Database for PostgreSQL Flexible Server
+
+Azure Database for PostgreSQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. This section shows you how to create an Azure Database for PostgreSQL Flexible Server instance using the Azure CLI. For more information, see [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server instance using Azure CLI](/azure/postgresql/flexible-server/quickstart-create-server-cli).
+
+### [Passwordless (Recommended)](#tab/passwordless)
+
+Create an Azure Database for PostgreSQL flexible server instance by using the following command:
+
+```azurecli
+az postgres flexible-server create \
+    --name $DB_SERVER_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --database-name $DB_NAME \
+    --public-access None \
+    --sku-name Standard_B1ms \
+    --tier Burstable \
+    --active-directory-auth Enabled
+```
+
+It takes a few minutes to create the server, database, admin user, and firewall rules. If the command is successful, the output looks similar to the following example:
+
+```output
+{
+  "connectionString": "postgresql://REDACTED:REDACTED@<DB_SERVER_NAME>.postgres.database.azure.com/<DB_NAME>?sslmode=require",
+  "databaseName": "<DB_NAME>",
+  "host": "<DB_SERVER_NAME>.postgres.database.azure.com",
+  "id": "/subscriptions/REDACTED/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.DBforPostgreSQL/flexibleServers/<DB_SERVER_NAME>",
+  "location": "East US",
+  "password": "REDACTED",
+  "resourceGroup": "<RESOURCE_GROUP_NAME>",
+  "skuname": "Standard_B1ms",
+  "username": "REDACTED",
+  "version": "13"
+}
+```
+
+Add the current signed-in user as Microsoft Entra Admin to the Azure Database for PostgreSQL Flexible Server instance by using the following commands:
+
+```azurecli
+ENTRA_ADMIN_NAME=$(az ad signed-in-user show --query userPrincipalName -o tsv)
+az postgres flexible-server ad-admin create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --server-name $DB_SERVER_NAME \
+    --display-name $ENTRA_ADMIN_NAME \
+    --object-id $(az ad signed-in-user show --query id -o tsv)
+```
+
+Successful output is a JSON object including the property `"type": "Microsoft.DBforPostgreSQL/flexibleServers/administrators"`.
+
+### [Password](#tab/password)
+
+Create an Azure Database for PostgreSQL flexible server instance by using the following command:
 
 ```azurecli
 az postgres flexible-server create \
@@ -189,7 +256,8 @@ az postgres flexible-server create \
     --admin-password $DB_PASSWORD \
     --database-name $DB_NAME \
     --public-access 0.0.0.0 \
-    --yes
+    --sku-name Standard_B1ms \
+    --tier Burstable
 ```
 
 It takes a few minutes to create the server, database, admin user, and firewall rules. If the command is successful, the output looks similar to the following example:
@@ -198,17 +266,19 @@ It takes a few minutes to create the server, database, admin user, and firewall 
 {
   "connectionString": "postgresql://<DB_ADMIN>:<DB_PASSWORD>@<DB_SERVER_NAME>.postgres.database.azure.com/<DB_NAME>?sslmode=require",
   "databaseName": "<DB_NAME>",
-  "firewallName": "AllowAllAzureServicesAndResourcesWithinAzureIps_2024-7-5_14-39-45",
+  "firewallName": "AllowAllAzureServicesAndResourcesWithinAzureIps_2024-10-14_14-39-45",
   "host": "<DB_SERVER_NAME>.postgres.database.azure.com",
   "id": "/subscriptions/REDACTED/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.DBforPostgreSQL/flexibleServers/<DB_SERVER_NAME>",
   "location": "East US",
   "password": "<DB_PASSWORD>",
   "resourceGroup": "<RESOURCE_GROUP_NAME>",
-  "skuname": "Standard_D2s_v3",
+  "skuname": "Standard_B1ms",
   "username": "<DB_ADMIN>",
   "version": "13"
 }
 ```
+
+---
 
 ### Create a Microsoft Azure Container Registry instance
 
@@ -221,8 +291,7 @@ az acr create \
     --resource-group $RESOURCE_GROUP_NAME \
     --location ${LOCATION} \
     --name $REGISTRY_NAME \
-    --sku Basic \
-    --admin-enabled
+    --sku Basic
 ```
 
 After a short time, you should see JSON output that contains the following lines:
@@ -233,9 +302,7 @@ After a short time, you should see JSON output that contains the following lines
   "resourceGroup": "<YOUR_RESOURCE_GROUP>",
 ```
 
-### Connect your docker to the Container Registry instance
-
-Sign in to the Container Registry instance. Signing in lets you push an image. Use the following commands to verify the connection:
+Get the login server for the Container Registry instance by using the following command:
 
 ```azurecli
 export LOGIN_SERVER=$(az acr show \
@@ -243,17 +310,14 @@ export LOGIN_SERVER=$(az acr show \
     --query 'loginServer' \
     --output tsv)
 echo $LOGIN_SERVER
-export USER_NAME=$(az acr credential show \
-    --name $REGISTRY_NAME \
-    --query 'username' \
-    --output tsv)
-echo $USER_NAME
-export PASSWORD=$(az acr credential show \
-    --name $REGISTRY_NAME \
-    --query 'passwords[0].value' \
-    --output tsv)
-echo $PASSWORD
-docker login $LOGIN_SERVER -u $USER_NAME -p $PASSWORD
+```
+
+### Connect your docker to the Container Registry instance
+
+Sign in to the Container Registry instance. Signing in lets you push an image. Use the following command to sign in to the registry:
+
+```azurecli
+az acr login --name $REGISTRY_NAME
 ```
 
 If you're using Podman instead of Docker, make the necessary changes to the command.
@@ -273,7 +337,7 @@ az containerapp env create \
 
 If you're asked to install an extension, answer <kbd>Y</kbd>.
 
-### Customize the cloud native configuration
+## Customize the cloud native configuration
 
 As a cloud native technology, Quarkus offers the ability to automatically generate container images. For more information, see [Container Images](https://quarkus.io/guides/container-image). Developers can then deploy the application image to a target containerized platform - for example, Azure Container Apps.
 
@@ -291,7 +355,39 @@ The output should look like the following example:
 [SUCCESS] ✅  Extension io.quarkus:quarkus-container-image-jib has been installed
 ```
 
-To verify the extensions are added, you can run `git diff` and examine the output.
+### [Passwordless (Recommended)](#tab/passwordless)
+
+Open the *pom.xml* file and you should see the following dependencies added by the `container-image-jib` extension:
+
+```xml
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-container-image-jib</artifactId>
+</dependency>
+```
+
+Then, add the following dependencies to the *pom.xml* file to support passwordless authentication with Azure Database for PostgreSQL Flexible Server:
+
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity-extensions</artifactId>
+    <version>1.1.20</version>
+</dependency>
+```
+
+### [Password](#tab/password)
+
+Open the *pom.xml* file and you should see the following dependencies added by the `container-image-jib` extension:
+
+```xml
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-container-image-jib</artifactId>
+</dependency>
+```
+
+---
 
 As a cloud native technology, Quarkus supports the notion of configuration profiles. Quarkus has the following three built-in profiles:
 
@@ -305,14 +401,13 @@ The remaining steps in this section direct you to uncomment and customize values
 
 The `%prod.` prefix indicates that these properties are active when running in the `prod` profile. For more information on configuration profiles, see the [Quarkus documentation](https://access.redhat.com/search/?q=Quarkus+Using+configuration+profiles).
 
-#### Examine the database configuration
+### Examine the database configuration
 
-Add the following database configuration variables. The database connection related properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username`, and `%prod.quarkus.datasource.password` are intentionally left empty because they're provided at runtime by the Azure Container Apps environment for security reasons.
+After uncommenting the properties, the database configuration in the *src/main/resources/application.properties* file should look like the following example:
 
-```yaml
+```properties
 # Database configurations
 %prod.quarkus.datasource.db-kind=postgresql
-%prod.quarkus.datasource.jdbc.driver=org.postgresql.Driver
 %prod.quarkus.datasource.jdbc.url=
 %prod.quarkus.datasource.username=
 %prod.quarkus.datasource.password=
@@ -320,50 +415,116 @@ Add the following database configuration variables. The database connection rela
 %prod.quarkus.hibernate-orm.sql-load-script=no-file
 ```
 
-Generally, you don't expect that the data persisted in the database is dropped and repopulated with the sample data in a production environment. That's why you can see that the schema for `quarkus.hibernate-orm.database.generation` is specified as `create` so that the app only creates the schema when it doesn't exist at the initial startup. Besides, the database isn't pre-populated with any sample data because `hibernate-orm.sql-load-script` is specified as `no-file`. This setting is different than when you ran the app locally in development mode previously. The default values in development mode for `quarkus.hibernate-orm.database.generation` and `hibernate-orm.sql-load-script` are `drop-and-create` and `import.sql` respectively, which means the app always drops and recreates the database schema and loads the data defined in *import.sql*. The *import.sql* file is a convenience facility from Quarkus. If the *src/main/resources/import.sql* file exists in the Quarkus jar, and the value of the `hibernate-orm.sql-load-script` property is `import.sql`, the SQL DML statements in this file are executed at startup time for the app.
+### [Passwordless (Recommended)](#tab/passwordless)
 
-#### Customize the container image configuration
+Remove property `%prod.quarkus.datasource.password` because it's not required when using passwordless authentication with Azure Database for PostgreSQL Flexible Server. Update the other database connection related properties `%prod.quarkus.datasource.jdbc.url` and `%prod.quarkus.datasource.username` with the values as shown in the following example. The final configuration should look like the following example:
 
-As a cloud native technology, Quarkus supports generating OCI container images compatible with Docker and Podman. Add the following container-image variables. Replace the values of `<LOGIN_SERVER_VALUE>` and `<USER_NAME_VALUE>` with the values of the actual values of the `${LOGIN_SERVER}` and `${USER_NAME}` environment variables, respectively.
-
-```yaml
-# Container Image Build
-%prod.quarkus.container-image.build=true
-%prod.quarkus.container-image.registry=<LOGIN_SERVER_VALUE>
-%prod.quarkus.container-image.group=<USER_NAME_VALUE>
-%prod.quarkus.container-image.name=todo-quarkus-aca
-%prod.quarkus.container-image.tag=1.0
+```properties
+# Database configurations
+%prod.quarkus.datasource.db-kind=postgresql
+%prod.quarkus.datasource.jdbc.url=jdbc:postgresql://${AZURE_POSTGRESQL_HOST}:${AZURE_POSTGRESQL_PORT}/${AZURE_POSTGRESQL_DATABASE}?\
+authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin\
+&sslmode=require
+%prod.quarkus.datasource.username=${AZURE_POSTGRESQL_USERNAME}
+%prod.quarkus.hibernate-orm.database.generation=create
+%prod.quarkus.hibernate-orm.sql-load-script=no-file
 ```
 
-### Build the container image and push it to Container Registry
+The value of `${AZURE_POSTGRESQL_HOST}`, `${AZURE_POSTGRESQL_PORT}`, `${AZURE_POSTGRESQL_DATABASE}`, and `${AZURE_POSTGRESQL_USERNAME}` are provided by the Azure Container Apps environment at runtime using the Service Connector passwordless extension later in this article.
+
+### [Password](#tab/password)
+
+The database connection related properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username`, and `%prod.quarkus.datasource.password` are intentionally left empty because they're provided at runtime by the Azure Container Apps environment for security reasons.
+
+---
+
+Generally, you don't expect that the data persisted in the database is dropped and repopulated with the sample data in a production environment. That's why you can see that the schema for `quarkus.hibernate-orm.database.generation` is specified as `create` so that the app only creates the schema when it doesn't exist at the initial startup. Besides, the database isn't pre-populated with any sample data because `hibernate-orm.sql-load-script` is specified as `no-file`. This setting is different than when you ran the app locally in development mode previously. The default values in development mode for `quarkus.hibernate-orm.database.generation` and `hibernate-orm.sql-load-script` are `drop-and-create` and `import.sql` respectively, which means the app always drops and recreates the database schema and loads the data defined in *import.sql*. The *import.sql* file is a convenience facility from Quarkus. If the *src/main/resources/import.sql* file exists in the Quarkus jar, and the value of the `hibernate-orm.sql-load-script` property is `import.sql`, the SQL DML statements in this file are executed at startup time for the app.
+
+### Test your Quarkus app locally with Azure Database for PostgreSQL Flexible Server
+
+Before deploying the Quarkus app to Azure Container Apps, test the connection to the Azure Database for PostgreSQL Flexible Server instance locally.
+
+First, add the local IP address to the Azure Database for PostgreSQL Flexible Server instance firewall rules by using the following commands:
+
+```azurecli
+export AZ_LOCAL_IP_ADDRESS=$(curl -s https://whatismyip.akamai.com)
+
+az postgres flexible-server firewall-rule create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $DB_SERVER_NAME \
+    --rule-name $DB_SERVER_NAME-database-allow-local-ip \
+    --start-ip-address $AZ_LOCAL_IP_ADDRESS \
+    --end-ip-address $AZ_LOCAL_IP_ADDRESS
+```
+
+Next, set the following environment variables in your previous terminal. These environment variables are used to connect to the Azure Database for PostgreSQL Flexible Server instance from the Quarkus app running locally:
+
+### [Passwordless (Recommended)](#tab/passwordless)
+
+```bash
+export AZURE_POSTGRESQL_HOST=${DB_SERVER_NAME}.postgres.database.azure.com
+export AZURE_POSTGRESQL_PORT=5432
+export AZURE_POSTGRESQL_DATABASE=${DB_NAME}
+export AZURE_POSTGRESQL_USERNAME=${ENTRA_ADMIN_NAME}
+```
+
+### [Password](#tab/password)
+
+```bash
+export QUARKUS_DATASOURCE_JDBC_URL=jdbc:postgresql://${DB_SERVER_NAME}.postgres.database.azure.com:5432/${DB_NAME}?sslmode=require
+export QUARKUS_DATASOURCE_USERNAME=${DB_ADMIN}
+export QUARKUS_DATASOURCE_PASSWORD=${DB_PASSWORD}
+```
+
+The values of these environment variables are passed to properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username`, and `%prod.quarkus.datasource.password`. Quarkus knows to look up values from corresponding environment variables if there's no value in the *application.properties* file.
+
+---
+
+Run the Quarkus app locally to test the connection to the Azure Database for PostgreSQL Flexible Server instance. Use the following command to start the app in production mode:
+
+```bash
+mvn clean package -DskipTests
+java -jar target/quarkus-app/quarkus-run.jar
+```
+
+Open a new web browser to `http://localhost:8080` to access the Todo application. You should see the same Todo app as you saw when you ran the app locally in development mode, without any Todo items.
+
+Press <kbd>Control</kbd>+<kbd>C</kbd> to stop the app.
+
+## Build the container image and push it to Container Registry
 
 Now, use the following command to build the application itself. This command uses the Jib extension to build the container image.
 
 ```bash
-quarkus build --no-tests
+export TODO_QUARKUS_IMAGE_NAME=todo-quarkus-aca
+export TODO_QUARKUS_IMAGE_TAG=${LOGIN_SERVER}/${TODO_QUARKUS_IMAGE_NAME}:1.0
+quarkus build -Dquarkus.container-image.build=true -Dquarkus.container-image.image=${TODO_QUARKUS_IMAGE_TAG} --no-tests 
 ```
 
 The output should end with `BUILD SUCCESS`.
 
-You can verify whether the container image is generated as well by using the `docker` or `podman` command line (CLI). The output looks similar to the following example:
+You can verify whether the container image is generated as well by using the `docker` or `podman` command line (CLI), as shown in the following example:
+
+```bash
+docker images | grep ${TODO_QUARKUS_IMAGE_NAME}
+```
+
+The output looks similar to the following example:
 
 ```output
-docker images | grep todo-quarkus-aca
-<LOGIN_SERVER_VALUE>/<USER_NAME_VALUE>/todo-quarkus-aca   1.0       0804dfd834fd   2 minutes ago   407MB
+<LOGIN_SERVER_VALUE>/todo-quarkus-aca   1.0       0804dfd834fd   2 minutes ago   407MB
 ```
 
 Push the container images to Container Registry by using the following command:
 
 ```bash
-export TODO_QUARKUS_TAG=$(docker images | grep todo-quarkus-aca | head -n1 | cut -d " " -f1):1.0
-echo ${TODO_QUARKUS_TAG}
-docker push ${TODO_QUARKUS_TAG}
+docker push ${TODO_QUARKUS_IMAGE_TAG}
 ```
 
 The output should look similar to the following example:
 
 ```output
-The push refers to repository [<LOGIN_SERVER_VALUE>/<USER_NAME_VALUE>/todo-quarkus-aca]
+The push refers to repository [<LOGIN_SERVER_VALUE>/todo-quarkus-aca]
 188a550fce3d: Pushed
 4e3afea591e2: Pushed
 1db0eba807a6: Pushed
@@ -374,18 +535,61 @@ e0bac91f0f10: Pushed
 1.0: digest: sha256:f9ccb476e2388efa0dfdf817625a94f2247674148a69b7e4846793e63c8be994 size: 1789
 ```
 
-Now that you've pushed the app image to Container Registry, use the following command to create a Container Apps instance to run the app after pulling the image from the Container Registry:
+## Deploy the Quarkus app to Azure Container Apps
+
+Now that you pushed the app image to Container Registry, use the following command to create a Container Apps instance to run the app after pulling the image from the Container Registry:
+
+### [Passwordless (Recommended)](#tab/passwordless)
+
+```azurecli
+az containerapp create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $ACA_NAME \
+    --image $TODO_QUARKUS_IMAGE_TAG \
+    --environment $ACA_ENV \
+    --registry-server $LOGIN_SERVER \
+    --registry-identity system \
+    --target-port 8080 \
+    --ingress 'external' \
+    --min-replicas 1
+```
+
+Successful output is a JSON object including the property `"type": "Microsoft.App/containerApps"`.
+
+Then, connect the Azure Database for PostgreSQL Flexible Server instance to the container app using Service Connector by using the following steps:
+
+1. Install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI by using the following command:
+
+   ```azurecli
+   az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
+   ```
+
+1. Connect the database to the container app with a system-assigned managed identity by using the following command:
+
+   ```azurecli
+   az containerapp connection create postgres-flexible \
+       --resource-group $RESOURCE_GROUP_NAME \
+       --name $ACA_NAME \
+       --target-resource-group $RESOURCE_GROUP_NAME \
+       --server $DB_SERVER_NAME \
+       --database $DB_NAME \
+       --system-identity \
+       --container $ACA_NAME
+   ```
+
+   Successful output is a JSON object including the property `"type": "microsoft.servicelinker/linkers"`.
+
+### [Password](#tab/password)
 
 ```azurecli
 export DATASOURCE_JDBC_URL=jdbc:postgresql://${DB_SERVER_NAME}.postgres.database.azure.com:5432/${DB_NAME}?sslmode=require
 az containerapp create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $ACA_NAME \
-    --image $TODO_QUARKUS_TAG \
+    --image $TODO_QUARKUS_IMAGE_TAG \
     --environment $ACA_ENV \
     --registry-server $LOGIN_SERVER \
-    --registry-username $USER_NAME \
-    --registry-password $PASSWORD \
+    --registry-identity system \
     --target-port 8080 \
     --secrets \
         jdbcurl=${DATASOURCE_JDBC_URL} \
@@ -395,12 +599,15 @@ az containerapp create \
         QUARKUS_DATASOURCE_JDBC_URL=secretref:jdbcurl \
         QUARKUS_DATASOURCE_USERNAME=secretref:dbusername \
         QUARKUS_DATASOURCE_PASSWORD=secretref:dbpassword \
-    --ingress 'external'
+    --ingress 'external' \
+    --min-replicas 1
 ```
 
-The `--secrets` option is used to create secrets that're referenced by database connection related environment variables `QUARKUS_DATASOURCE_JDBC_URL`, `QUARKUS_DATASOURCE_USERNAME` and `QUARKUS_DATASOURCE_PASSWORD`. The values of these environment variables are passed to properties `%prod.quarkus.datasource.password`, `%prod.quarkus.datasource.username` and `%prod.quarkus.datasource.password`. Quarkus knows to look up values from corresponding environment variables if there is no value in the `application.properties` file.
+The `--secrets` option is used to create secrets that're referenced by database connection related environment variables `QUARKUS_DATASOURCE_JDBC_URL`, `QUARKUS_DATASOURCE_USERNAME` and `QUARKUS_DATASOURCE_PASSWORD`. The values of these environment variables are passed to properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username`, and `%prod.quarkus.datasource.password`. Quarkus knows to look up values from corresponding environment variables if there's no value in the *application.properties* file.
 
 Successful output is a JSON object including the property `"type": "Microsoft.App/containerApps"`.
+
+---
 
 Get a fully qualified url to access the Todo application by using the following command:
 
@@ -412,7 +619,9 @@ export QUARKUS_URL=https://$(az containerapp show \
 echo $QUARKUS_URL
 ```
 
-Open a new web browser to the value of `${QUARKUS_URL}`. Then, add a new todo item with the text `Deployed the Todo app to Container Apps`. Select this item to mark it as completed.
+Open a new web browser to the value of `${QUARKUS_URL}`. If the webpage doesn't render correctly, wait for a while and refresh the page.
+
+Then, add a new todo item with the text `Deployed the Todo app to Container Apps`. Select this item to mark it as completed.
 
 :::image type="content" source="media/deploy-java-quarkus-app/demo-updated.png" alt-text="Screenshot of the Todo sample app running in Container Apps." lightbox="media/deploy-java-quarkus-app/demo-updated.png":::
 
@@ -446,29 +655,64 @@ The output should look like the following example:
 ]
 ```
 
-### Verify that the database has been updated by using Azure Cloud Shell
+### Verify that the database has been updated
 
-Open Azure Cloud Shell in the Azure portal by selecting the **Cloud Shell** icon (:::image type="icon" source="media/deploy-java-quarkus-app/cloud-shell.png" border="false":::) next to the search box.
+Run the following command to verify that the database has been updated with the new todo item:
 
-Run the following command locally and paste the result into Azure Cloud Shell:
+### [Passwordless (Recommended)](#tab/passwordless)
 
-```bash
-echo psql --host=${DB_SERVER_NAME}.postgres.database.azure.com --port=5432 --username=${DB_ADMIN} --dbname=${DB_NAME}
+```azurecli
+export ACCESS_TOKEN=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)
+az postgres flexible-server execute \
+    --admin-user $ENTRA_ADMIN_NAME \
+    --admin-password $ACCESS_TOKEN \
+    --name $DB_SERVER_NAME \
+    --database-name $DB_NAME \
+    --querytext "select * from todo;"
 ```
 
-When asked for the password, use the value you used when you created the database.
+### [Password](#tab/password)
 
-Use the following query to get all the todo items:
-
-```psql
-select * from todo;
+```azurecli
+az postgres flexible-server execute \
+    --admin-user $DB_ADMIN \
+    --admin-password $DB_PASSWORD \
+    --name $DB_SERVER_NAME \
+    --database-name $DB_NAME \
+    --querytext "select * from todo;"
 ```
 
-The output should look similar to the following example, and should include the same items in the Todo app GUI shown previously:
+---
 
-:::image type="content" source="media/deploy-java-quarkus-app/query-output.png" alt-text="Screenshot of the query output as an ASCII table." lightbox="media/deploy-java-quarkus-app/query-output.png":::
+If you're asked to install an extension, answer <kbd>Y</kbd>.
 
-Enter *\q* to exit from the `psql` program and return to the Cloud Shell.
+The output should look similar to the following example, and should include the same item in the Todo app GUI shown previously:
+
+```output
+Successfully connected to <DB_SERVER_NAME>.
+Ran Database Query: 'select * from todo;'
+Retrieving first 30 rows of query output, if applicable.
+Closed the connection to <DB_SERVER_NAME>
+[
+  {
+    "completed": true,
+    "id": 1,
+    "ordering": 1,
+    "title": "Deployed the Todo app to Container Apps",
+    "url": null
+  }
+]
+```
+
+When you're finished, delete the firewall rule that allows your local IP address to access the Azure Database for PostgreSQL Flexible Server instance by using the following command:
+
+```azurecli
+az postgres flexible-server firewall-rule delete \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $DB_SERVER_NAME \
+    --rule-name $DB_SERVER_NAME-database-allow-local-ip \
+    --yes
+```
 
 ## Clean up resources
 
@@ -476,7 +720,7 @@ To avoid Azure charges, you should clean up unneeded resources. When the cluster
 
 ```azurecli
 git reset --hard
-docker rmi ${TODO_QUARKUS_TAG}
+docker rmi ${TODO_QUARKUS_IMAGE_TAG}
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
