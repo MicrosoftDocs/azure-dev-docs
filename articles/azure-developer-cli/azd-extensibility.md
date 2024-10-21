@@ -136,6 +136,31 @@ services:
     host: appservice
 ```
 
+### Multiple hooks per event
+
+You can configure multiple hooks per event across different scopes, such as the root registration level or for a specific service:
+
+```yml
+name: example-project
+services:
+    api:
+        project: src/api
+        host: containerapp
+        language: ts
+        hooks:
+            postprovision:
+                - shell: sh
+                  run: scripts/postprovision1.sh
+                - shell: sh
+                  run: scripts/postprovision2.sh
+hooks:
+    postprovision:
+        - shell: sh
+          run: scripts/postprovision1.sh
+        - shell: sh
+          run: scripts/postprovision2.sh
+```
+
 ### Use environment variables with hooks
 
 Hooks can get and set environment variables in the `.env` file using the `azd env get-values` and `azd set <key> <value>` commands. Hooks can also retrieve environment variables from your local environment using the `${YOUR_ENVIRONMENT VARIABLE}` syntax. `azd` automatically sets certain environment variables in the `.env` file when commands are run, such as `AZURE_ENV_NAME` and `AZURE_LOCATION`. Output parameters from the `main.bicep` file are also set in the `.env` file. The [manage environment variables](/azure/developer/azure-developer-cli/manage-environment-variables) page includes more information about environment variable workflows.
