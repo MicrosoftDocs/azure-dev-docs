@@ -105,10 +105,10 @@ az role definition list --query "sort_by([].{roleName:roleName, description:desc
 
 ```
 
-For example, to allow the application service principal with the appId of `00000000-0000-0000-0000-000000000000` read, write, and delete access to Azure Storage blob containers and data to all storage accounts in the *msdocs-sdk-auth-example* resource group, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
+For example, to allow the application service principal with the appId of `aaaaaaaa-bbbb-cccc-1111-222222222222` read, write, and delete access to Azure Storage blob containers and data to all storage accounts in the *msdocs-sdk-auth-example* resource group, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
 
 ```azurecli
-az role assignment create --assignee "00000000-0000-0000-0000-000000000000" \
+az role assignment create --assignee "aaaaaaaa-bbbb-cccc-1111-222222222222" \
     --scope /subscriptions/"Storage Blob Data Subscriber" \
     --role "Storage Blob Data Contributor" \
     --resource-group "msdocs-sdk-auth-example"

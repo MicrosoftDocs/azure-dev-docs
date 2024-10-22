@@ -1,7 +1,7 @@
 ---
 title: Authenticate on-premises JavaScript apps to Azure resources
 description: This article describes how to authenticate your on-premises JavaScript application to Azure services with the Azure SDK for JavaScript. 
-ms.date: 08/09/2024
+ms.date: 10/22/2024
 ms.topic: how-to
 ms.custom: devx-track-js
 ---
@@ -44,7 +44,7 @@ The output of the command will be similar to the following.  Make note of these 
   "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "displayName": "msdocs-sdk-auth-prod",
   "password": "Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2",
-  "tenant": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
+  "tenant": "ffffaaaa-5555-bbbb-6666-cccc7777dddd"
 }
 ```
 
