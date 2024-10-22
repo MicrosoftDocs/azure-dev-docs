@@ -1136,8 +1136,9 @@ View and manage template sources. (Beta)
 
 Adds an azd template source with the specified key. (Beta)
 The key can be any value that uniquely identifies the template source, with the exception of the following reserved, well-known key values:
-    - default: Default templates
-    - awesome-azd: Templates from the [Awesome AZD template gallery](https://aka.ms/awesome-azd)
+
+* default: Default templates
+* awesome-azd: Templates from the [Awesome AZD template gallery](https://aka.ms/awesome-azd)
 
 ```azdeveloper
 azd template source add <key> [flags]
