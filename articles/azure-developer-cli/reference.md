@@ -1128,9 +1128,6 @@ View and manage template sources. (Beta)
 
 * [azd template](#azd-template): Find and view template details. (Beta)
 * [azd template source add](#azd-template-source-add): Adds an azd template source with the specified key. (Beta)
-The key can be any value that uniquely identifies the template source, with the exception of the following reserved, well-known key values:
-   ・default: Default templates
-   ・awesome-azd: Templates from http://aka.ms/awesome-azd
 * [azd template source list](#azd-template-source-list): Lists the configured azd template sources. (Beta)
 * [azd template source remove](#azd-template-source-remove): Removes the specified azd template source (Beta)
 * [Back to top](#azd)
@@ -1140,7 +1137,7 @@ The key can be any value that uniquely identifies the template source, with the 
 Adds an azd template source with the specified key. (Beta)
 The key can be any value that uniquely identifies the template source, with the exception of the following reserved, well-known key values:
    ・default: Default templates
-   ・awesome-azd: Templates from http://aka.ms/awesome-azd
+   ・awesome-azd: Templates from https://aka.ms/awesome-azd
 
 ```azdeveloper
 azd template source add <key> [flags]
