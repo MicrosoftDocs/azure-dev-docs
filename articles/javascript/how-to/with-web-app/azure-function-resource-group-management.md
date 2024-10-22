@@ -77,11 +77,10 @@ az login
 An Azure service principal provides access to Azure without having to use your personal user credentials. For this tutorial, the service principal can be used both in your local and cloud environments. In an enterprise environment, you would want separate service principals for each environment.
 
 
-1. Determine a service principal name format so you can easily find your service principal later. For example, several format ideas are:
+1. Determine a service principal **name** format so you can easily find your service principal later. For example, several format ideas are:
 
     * Your project and owner: `resource-management-john-smith`.
     * Your department and date: `IT-2021-September`
-    * A unique identifier: `00000000-0000-0000-0000-000000000000`
 
 1. In a bash terminal, create your service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Replace `<SUBSCRIPTION-ID>` with your subscription ID. 
 

@@ -257,7 +257,7 @@ After running the playbook, you see output similar to the following results:
         "admin_username": "mysqladmin",
         "enforce_ssl": false,
         "fully_qualified_domain_name": "mysqlserveransible.mysql.database.azure.com",
-        "id": "/subscriptions/685ba005-af8d-4b04-8f16-a7bf38b2eb5a/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/mysqlserveransible",
+        "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/mysqlserveransible",
         "location": "eastus",
         "name": "mysqlserveransible",
         "resource_group": "myResourceGroup",

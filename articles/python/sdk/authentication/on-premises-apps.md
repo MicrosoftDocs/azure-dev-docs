@@ -26,10 +26,10 @@ The output of the command will be similar to the following. Make note of these v
 
 ```json
 {
-  "appId": "00000000-0000-0000-0000-000000000000",
+  "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "displayName": "msdocs-python-sdk-auth-prod",
-  "password": "abcdefghijklmnopqrstuvwxyz",
-  "tenant": "33333333-3333-3333-3333-333333333333"
+  "password": "Ee5Ff~6Gg7.-Hh8Ii9Jj0Kk1Ll2Mm3_Nn4Oo5Pp6",
+  "tenant": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
 }
 ```
 
@@ -71,11 +71,11 @@ az role definition list \
     --output table
 ```
 
-For example, to allow the service principal with the appId of `00000000-0000-0000-0000-000000000000` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *msdocs-python-sdk-auth-example* resource group in the subscription with ID `11111111-1111-1111-1111-111111111111`, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
+For example, to allow the service principal with the appId of `00001111-aaaa-2222-bbbb-3333cccc4444` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *msdocs-python-sdk-auth-example* resource group in the subscription with ID `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
 
 ```azurecli
-az role assignment create --assignee 00000000-0000-0000-0000-000000000000 \
-    --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/msdocs-python-sdk-auth-example \
+az role assignment create --assignee 00001111-aaaa-2222-bbbb-3333cccc4444 \
+    --scope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/msdocs-python-sdk-auth-example \
     --role "Storage Blob Data Contributor"
 ```
 
