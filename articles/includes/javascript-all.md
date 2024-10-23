@@ -9,7 +9,7 @@
 | @azure/functions-authentication-events | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/functions-authentication-events/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/functions-authentication-events-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/functions-authentication-events_1.0.0-beta.2/sdk/entra/functions-authentication-events/) |
 | @azure/template-dpg | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/template-dpg/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/template-dpg-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/template-dpg_1.0.0-beta.1/sdk/template/template-dpg/) |
 | AccessControl | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/synapse-access-control-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-access-control_1.0.0-beta.3/sdk/synapse/synapse-access-control/) |
-| AI Model Inference | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/ai-inference/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.2/sdk/ai/ai-inference-rest/) |
+| AI Model Inference | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/ai-inference/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.3/sdk/ai/ai-inference-rest/) |
 | App Configuration | npm [1.7.0](https://www.npmjs.com/package/@azure/app-configuration/v/1.7.0) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.7.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.7.0/sdk/appconfiguration/app-configuration/) |
 | Artifacts | npm [1.0.0-beta.15](https://www.npmjs.com/package/@azure/synapse-artifacts/v/1.0.0-beta.15) | [docs](/javascript/api/overview/azure/synapse-artifacts-readme) | GitHub [1.0.0-beta.15](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.15/sdk/synapse/synapse-artifacts/) |
 | Attestation | npm [1.0.0](https://www.npmjs.com/package/@azure/attestation/v/1.0.0) | [docs](/javascript/api/overview/azure/attestation-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0/sdk/attestation/attestation/) |
@@ -370,7 +370,7 @@
 | @azure-tools/typespec-autorest-canonical | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.8.0) |  |  |
 | @azure-tools/typespec-azure-portal-core | npm [0.47.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.47.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.47.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.47.0) |  |  |
-| @azure-tools/typespec-client-generator-cli | npm [0.13.1](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.13.1) |  |  |
+| @azure-tools/typespec-client-generator-cli | npm [0.13.2](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.13.2) |  |  |
 | @azure-tools/typespec-go | npm [0.3.1](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.1) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.4.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.4.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
