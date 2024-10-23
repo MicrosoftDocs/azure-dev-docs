@@ -1,7 +1,7 @@
 ---
 title: Authenticate on-premises JavaScript apps to Azure resources
 description: This article describes how to authenticate your on-premises JavaScript application to Azure services with the Azure SDK for JavaScript. 
-ms.date: 08/09/2024
+ms.date: 10/22/2024
 ms.topic: how-to
 ms.custom: devx-track-js
 ---
@@ -44,7 +44,7 @@ The output of the command will be similar to the following.  Make note of these 
   "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "displayName": "msdocs-sdk-auth-prod",
   "password": "Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2",
-  "tenant": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
+  "tenant": "ffffaaaa-5555-bbbb-6666-cccc7777dddd"
 }
 ```
 
@@ -84,10 +84,10 @@ az role definition list \
     --output table
 ```
 
-For example, to allow the service principal with the appId of `aaaaaaaa-bbbb-cccc-1111-222222222222` read, write, and delete access to Azure Storage blob containers and data to all storage accounts in the *msdocs-sdk-auth-example* resource group, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
+For example, to allow the service principal to read, write, and delete access to Azure Storage blob containers and data to all storage accounts in the *msdocs-sdk-auth-example* resource group, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
 
 ```azurecli
-az role assignment create --assignee "aaaaaaaa-bbbb-cccc-1111-222222222222" \
+az role assignment create --assignee "aaaaaaaa-bbbb-cccc-7777-888888888888" \
     --role "Storage Blob Data Contributor" \
     --scope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/msdocs-javascript-sdk-auth-example \
 ```

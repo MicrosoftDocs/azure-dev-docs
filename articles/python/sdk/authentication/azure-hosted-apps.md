@@ -42,8 +42,8 @@ The output will look like the following.
 
 ```json
 {
-  "principalId": "99999999-9999-9999-9999-999999999999",
-  "tenantId": "33333333-3333-3333-3333-333333333333",
+  "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
+  "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
   "type": "SystemAssigned",
   "userAssignedIdentities": null
 }
@@ -71,9 +71,9 @@ Next, you need to determine what roles (permissions) your app needs and assign t
 A managed identity is assigned a role in Azure using the [az role assignment create](/cli/azure/role/assignment) command. For the assignee, use the `principalId` you copied in step 1.
 
 ```azurecli
-az role assignment create --assignee {managedIdentityprincipalId} \
-    --scope /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} \
-    --role "{roleName}" 
+az role assignment create --assignee <managedIdentityprincipalId> \
+    --scope /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName> \
+    --role "<roleName>" 
 ```
 
 To get the role names that a service principal can be assigned to, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command.
@@ -84,11 +84,11 @@ az role definition list \
     --output table
 ```
 
-For example, to allow the managed identity with the ID of `99999999-9999-9999-9999-999999999999` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *msdocs-python-sdk-auth-example* resource group in the subscription with ID `11111111-1111-1111-1111-111111111111`, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
+For example, to allow the managed identity with the ID of `aaaaaaaa-bbbb-cccc-1111-222222222222` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *msdocs-python-sdk-auth-example* resource group in the subscription with ID `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
 
 ```azurecli
-az role assignment create --assignee 99999999-9999-9999-9999-999999999999 \
-    --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/msdocs-python-sdk-auth-example \
+az role assignment create --assignee aaaaaaaa-bbbb-cccc-1111-222222222222 \
+    --scope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/msdocs-python-sdk-auth-example \
     --role "Storage Blob Data Contributor"
 ```
 

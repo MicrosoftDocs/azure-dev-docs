@@ -53,10 +53,10 @@ The output of this command looks like the following JSON object.  It's recommend
 
 ```json
 {
-  "appId": "00000000-0000-0000-0000-000000000000",
+  "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "displayName": "{service-principal-name}",
   "password": "abcdefghijklmnopqrstuvwxyz",
-  "tenant": "11111111-1111-1111-1111-111111111111"
+  "tenant": "ffffaaaa-5555-bbbb-6666-cccc7777dddd"
 }
 ```
 
@@ -148,10 +148,10 @@ az role definition list \
     --output table
 ```
 
-For example, to allow the application service principal with the appId of `00000000-0000-0000-0000-000000000000` read, write, and delete access to Azure Storage blob containers and data to all storage accounts in the *msdocs-sdk-auth-example* resource group, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
+For example, to allow the application service principal to read, write, and delete access to Azure Storage blob containers and data to all storage accounts in the *msdocs-sdk-auth-example* resource group, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
 
 ```azurecli
-az role assignment create --assignee "00000000-0000-0000-0000-000000000000" \
+az role assignment create --assignee "aaaaaaaa-bbbb-cccc-7777-888888888888" \
     --scope /subscriptions/"Storage Blob Data Subscriber" \
     --role "Storage Blob Data Contributor" \
     --resource-group "msdocs-sdk-auth-example"
@@ -180,9 +180,9 @@ Then, create a `.env` file in your application root directory.  Set the environm
 - `AZURE_CLIENT_SECRET` &rarr; The password/credential generated for the app.
 
 ```bash
-AZURE_CLIENT_ID=00000000-0000-0000-0000-000000000000
-AZURE_TENANT_ID=11111111-1111-1111-1111-111111111111
-AZURE_CLIENT_SECRET=abcdefghijklmnopqrstuvwxyz
+AZURE_CLIENT_ID=00001111-aaaa-2222-bbbb-3333cccc4444
+AZURE_TENANT_ID=ffffaaaa-5555-bbbb-6666-cccc7777dddd
+AZURE_CLIENT_SECRET=Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2
 ```
 
 Finally, in the startup code for your application, use the `dotenv` library to read the environment variables from the `.env` file on startup.
@@ -234,8 +234,8 @@ async function listSubscriptions() {
         Each item looks like:
       
         {
-          id: '/subscriptions/123456',
-          subscriptionId: '123456',
+          id: '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e',
+          subscriptionId: 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e',
           displayName: 'YOUR-SUBSCRIPTION-NAME',
           state: 'Enabled',
           subscriptionPolicies: {
