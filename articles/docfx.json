@@ -111,8 +111,9 @@
         "intro/**/*.md": "mcleanbyron",
         "intro/**/*.yml": "mcleanbyron",
         "ai/**/*.md": "ms-johnalex",
-        "ai/**/*.yml": "ms-johnalex"
-        "github-copilot-azure/**/*.md": "bobtabor-msft"
+        "ai/**/*.yml": "ms-johnalex",
+        "github-copilot-azure/**/*.md": "bobtabor-msft",
+        "github-copilot-azure/**/*.yml": "bobtabor-msft"
       },
       "manager": {
         "**/*.md": "mcleans",
@@ -147,8 +148,9 @@
         "intro/**/*.md": "mcleans",
         "intro/**/*.yml": "mcleans",
         "ai/**/*.md": "johalexander",
-        "ai/**/*.yml": "johalexander"
-        "github-copilot-azure/**/*.md": "rotabor"
+        "ai/**/*.yml": "johalexander",
+        "github-copilot-azure/**/*.md": "rotabor",
+        "github-copilot-azure/**/*.yml": "rotabor"
       },
       "ms.devlang": {
         "java/**/*.md": "java",
