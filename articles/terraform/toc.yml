@@ -157,12 +157,16 @@
               items:
                 - name: Create a service
                   href: /azure/api-management/quickstart-terraform
+                - name: Create and publish a product
+                  href: /azure/api-management/api-management-howto-add-products?pivots=terraform
         - name: Internet of Things
           items:
             - name: API Management
               items:
                 - name: Create a service
                   href: /azure/api-management/quickstart-terraform
+                - name: Create and publish a product
+                  href: /azure/api-management/api-management-howto-add-products?pivots=terraform
             - name: Azure Cosmos DB
               items:
                 - name: Deploy to Container Instances
@@ -201,6 +205,8 @@
               items:
                 - name: Create a service
                   href: /azure/api-management/quickstart-terraform
+                - name: Create and publish a product
+                  href: /azure/api-management/api-management-howto-add-products?pivots=terraform
             - name: Azure AI services
               items:
                 - name: Create a resource
@@ -301,6 +307,8 @@
               items:
                 - name: Create a service
                   href: /azure/api-management/quickstart-terraform
+                - name: Create and publish a product
+                  href: /azure/api-management/api-management-howto-add-products?pivots=terraform
             - name: Azure Cognitive Search
               items:
                 - name: Create an Azure Cognitive Search service
