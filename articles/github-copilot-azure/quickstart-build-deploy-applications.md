@@ -114,6 +114,9 @@ For complete setup instructions, see the [Get started](get-started.md) article. 
 
 14. If `azd up` experiences an error, ask GitHub Copilot for Azure about the error and how you can resolve it.
 
+> [!TIP]
+> For an easy way to attach the last terminal command results, use the paperclip icon at the bottom left of the chat pane. GitHub Copilot for Azure doesn't know the terminal command results unless they are copypasted or attached via the paperclip.
+
 15. After a successful deployment, you should be able to go to the new website in a web browser. Use the Azure portal to view the resources that you created.
 
 ### Clean up resources

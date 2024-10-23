@@ -44,11 +44,17 @@ The `@azure` part indicates that you want to include the Azure chat participant 
 
 The answer to your question depends on what's currently running in Azure in your subscription.
 
-## Optional: Set your default subscription
+## Optional: Set your default tenant
 
-If you have multiple subscriptions, [Azure Resource Graph](/azure/governance/resource-graph/overview) assumes that you want to search across all your subscriptions.
+If you have multiple [Microsoft Entra ID](/entra/fundamentals/whatis#terminology) tenants, You can set a default tenant using the following prompt:
 
-You can set a default subscription, which limits GitHub Copilot to querying a single subscription:
+   ```prompt
+   @azure /changeTenant
+   ```
+
+Select from a list of your available tenants in the top center drop-down.
+
+You can also set the default tenant in the extension settings:
 
 1. In Visual Studio Code, on the Activity Bar, select **Extensions**. Then scroll down to **GitHub Copilot for Azure**.
 
@@ -58,7 +64,7 @@ You can set a default subscription, which limits GitHub Copilot to querying a si
 
    :::image type="content" source="media/get-started/getstarted-settings.png" alt-text="Screenshot that shows the pop-up menu for GitHub Copilot for Azure.":::
 
-3. On the **Settings** tab, set the Azure Resource Graph tenant to your Azure subscription ID. You can find your subscription ID (also known as the tenant ID) in the Azure portal.
+3. On the **Settings** tab, set the Azure Resource Graph tenant to your Microsoft Entra tenant ID. You can find your Microsoft Entra tenant ID in the Azure portal.
 
    :::image type="content" source="media/get-started/getstarted-arg-tenant.png" alt-text="Screenshot that shows the Settings tab with an option to set the Azure Resource Graph tenant.":::
 
