@@ -125,7 +125,6 @@
         "go/**/*.yml": "rotabor",
         "java/**/*.md": "karler",
         "java/**/*.yml": "karler",
-        "java/**/*.*": "karler",
         "javascript/**/*.md": "diberry",
         "javascript/**/*.yml": "diberry",
         "jenkins/**/*.md": "tarcher",
