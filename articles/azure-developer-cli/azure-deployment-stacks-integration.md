@@ -28,7 +28,7 @@ azd config set alpha.deployment.stacks on
 ```
 
 > [!NOTE]
-> Azure deployment stacks support is currently an alpha feature, which is why it must be manually enabled. However, deployment stacks will be set as the default deployment behavior of `azd` in a future release.
+> Azure deployment stacks support is currently an alpha feature, which is why it must be enabled manually. However, deployment stacks will become the default deployment behavior of `azd` in a future release.
 > [Learn more about our versioning strategy.](./feature-versioning.md)
 
 Verify the feature was enabled successfully using the `azd config show` command:
@@ -45,11 +45,11 @@ After you enable the deployment stacks feature, no further changes to your `azd`
 azd up
 ```
 
-The deployment stack uses the scope defined in the `main.bicep` file of your template. For example, if your template is scoped to the subscription or resource group level, you can view the associated deployment stack in the Azure portal on the **Deployment stacks** page of the associated subscription or resource group page.
+`azd` uses uses the scope defined in the `main.bicep` file of your template for the Azure deployment stack. For example, if your template is scoped to the subscription or resource group level, you can view the associated deployment stack in the Azure portal on the **Deployment stacks** page of the associated subscription or resource group page.
 
 :::image type="content" source="media/deployment/subscription-deployment-stack.png" alt-text="A screenshot showing a subscription level deployment stack in the Azure portal.":::
 
-Click on the deployment stack to view the management pages for it:
+Select the deployment stack to view the management pages for it:
 
 :::image type="content" source="media/deployment/deployment-stack-details.png" alt-text="A screenshot showing the deployment stack details.":::
 
@@ -61,7 +61,7 @@ By default, you can delete a deployment stack and its associated resources using
 azd down
 ```
 
-The exact behavior of `azd down` and deployment stacks can be configured using the `azure.yaml` file.
+The exact behavior of `azd down` and deployment stacks is configured using the `azure.yaml` file.
 
 ## Configure the deployment stack
 
@@ -95,7 +95,7 @@ infra:
 
 In the preceding example, the following options are defined in the `deploymentStacks` section:
 
-- **actionOnUnmanage**: When a deployment stack is deleted, the associated Azure resources are considered unmanaged. Possible values include:
+- **actionOnUnmanage**: When a deployment stack is deleted, the associated Azure resources are considered unmanaged. This setting determines how Azure will handle unmanaged resources. Possible values include:
   - `delete` is the default value and destroys any resources managed by the deleted deployment stack.
   - `detach` leaves resources in place but removes their association to the deleted deployment stack.
 - **denySettings**: A subsection that provides nuanced control over the resources of the deployment stack.
@@ -105,7 +105,7 @@ In the preceding example, the following options are defined in the `deploymentSt
     - `denyWriteAndDelete` prevents any deployment stack resources from being deleted and also prevents new resources from being added to the deployment stack.
   - **excludedActions**: Lists the [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) actions that are not allowed on the deployment stack resources.
   - **excludedResources**: Lists the resource ids that are excluded from the `denySettings`.
-  - **excludedPrincipals**: Lists the service principal ids that are excluded from the `dentySettings`.
+  - **excludedPrincipals**: Lists the service principal ids that are excluded from the `denySettings`.
   - **applyToChildScopes**: A boolean value that sets whether the deny settings apply to child resources of resources in the deployment stack. For example, a SQL Server resource has child database resources.
 
 > [!div class="nextstepaction"]
