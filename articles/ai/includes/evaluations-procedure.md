@@ -81,10 +81,17 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 Update the environment values and configuration information with the information you gathered during [Prerequisites](#prerequisites) for the **evaluations app**.
 
-1. Use the following command to get the **Evaluations app** resource information into a `.env` file:
+1. Create a `.env` file based on `.env.sample`:
 
     ```bash
-    azd env get-values > .env
+    cp .env.sample .env
+    ```
+
+1. Run this commands to get the required values for `AZURE_OPENAI_EVAL_DEPLOYMENT` and `AZURE_OPENAI_SERVICE` from your deployed resource group and paste those values into the `.env` file:
+
+    ```shell
+    azd env get-value AZURE_OPENAI_EVAL_DEPLOYMENT
+    azd env get-value AZURE_OPENAI_SERVICE
     ```
 
 1. Add the following values from the **chat app** for its **Azure AI Search** instance to the `.env`, which you gathered in the [prerequisites](#prerequisites) section:
@@ -94,11 +101,9 @@ Update the environment values and configuration information with the information
     AZURE_SEARCH_INDEX="<index-name>"
     ```
 
-    The `AZURE_SEARCH_KEY` value is the **query key** for the **Azure AI Search** instance.
-
 ### Use the Microsoft AI Chat Protocol for configuration information
 
-   The **chat app** and the **evaluations app** both implement the `Microsoft AI Chat Protocol specification`, an open-source, Cloud, and language agnostic AI endpoint API contract used for consumption and evaluation. When your client and middle tier endpoints adhere to this API spec, you can consistently consume and run evaluations on your AI backends.
+The **chat app** and the **evaluations app** both implement the `Microsoft AI Chat Protocol specification`, an open-source, Cloud, and language agnostic AI endpoint API contract used for consumption and evaluation. When your client and middle tier endpoints adhere to this API spec, you can consistently consume and run evaluations on your AI backends.
 
 1. Create a new file named `my_config.json` and copy the following content into it:
 
@@ -109,8 +114,12 @@ Update the environment values and configuration information with the information
         "target_url": "http://localhost:50505/chat",
         "target_parameters": {
             "overrides": {
+                "top": 3,
+                "temperature": 0.3,
+                "retrieval_mode": "hybrid",
                 "semantic_ranker": false,
-                "prompt_template": "<READFILE>my_input/prompt_refined.txt"
+                "prompt_template": "<READFILE>my_input/prompt_refined.txt",
+                "seed": 1
             }
         }
     }
@@ -118,14 +127,18 @@ Update the environment values and configuration information with the information
 
     The evaluation script creates the `my_results` folder.
 
-    The `overrides` object contains any configuration settings needed for the application. Each application defines its' own set of settings properties.
+    The `overrides` object contains any configuration settings needed for the application. Each application defines its own set of settings properties.
 
-1. Use the following table to understand the meaning of the settings properties used for the **evaluation app**.
+1. Use the following table to understand the meaning of the settings properties that are sent to the **chat app**:
 
     |Settings Property|Description|
     |---|---|
-    |semantic_ranker|Use [semantic ranker](/azure/search/semantic-search-overview#what-is-semantic-search), a model that reranks search results based on semantic similarity to the user's query.|
-    |prompt_template|Overrides the prompt used to generate the answer based on the question and search results.|
+    |semantic_ranker|Whether to use [semantic ranker](/azure/search/semantic-search-overview#what-is-semantic-search), a model that reranks search results based on semantic similarity to the user's query. We disable it for this tutorial to reduce costs. |
+    |retrieval_mode|The retrieval mode to use. The default is `hybrid`.|
+    |temperature|The temperature setting for the model. The default is `0.3`.|
+    |top|The number of search results to return. The default is `3`.|
+    |prompt_template|An override of the prompt used to generate the answer based on the question and search results.|
+    |seed|The seed value for any calls to GPT models. Setting a seed results in more consistent results across evaluations.|
 
 1. Change the `target_url` to the URI value of your **chat app**, which you gathered in the [prerequisites](#prerequisites) section. The **chat app** must conform to the **chat protocol**. The URI has the following format `https://CHAT-APP-URL/chat`. Make sure the protocol and the `chat` route are part of the URI.
 
@@ -138,7 +151,7 @@ In order to evaluate new answers, they must be compared to a "ground truth" answ
 1. In a terminal, run the following command to generate the sample data:
 
     ```bash
-    python3 -m scripts generate --output=my_input/qa.jsonl --numquestions=14 --persource=2
+    python -m evaltools generate --output=my_input/qa.jsonl --persource=2 --numquestions=14
     ```
 
 The question/answer pairs are generated and stored in `my_input/qa.jsonl` (in [JSONL format](https://jsonlines.org/)) as input to the evaluator used in the next step. For a production evaluation, you would generate more QA pairs, more than 200 for this dataset.
@@ -170,15 +183,18 @@ The question/answer pairs are generated and stored in `my_input/qa.jsonl` (in [J
 1. In a terminal, run the following command to run the evaluation:
 
     ````bash
-    python3 -m scripts evaluate --config=my_config.json --numquestions=14
+    python -m evaltools evaluate --config=my_config.json --numquestions=14
     ````
 
      This script created a new experiment folder in `my_results/` with the evaluation. The folder contains the results of the evaluation including:
 
     | File Name | Description |
     |--|--|
+    | `config.json` | A copy of the configuration file used for the evaluation.|
+    | `evaluate_parameters.json` | The parameters used for the evaluation. Very similar to `config.json` but includes additional metadata like timestamp. |
     | `eval_results.jsonl`| Each question and answer, along with the GPT metrics for each QA pair.|
     | `summary.json`| The overall results, like the average GPT metrics.|
+
 
 ## Run second evaluation with a weak prompt
 
@@ -198,7 +214,7 @@ The question/answer pairs are generated and stored in `my_input/qa.jsonl` (in [J
 1. In a terminal, run the following command to run the evaluation:
 
     ````bash
-    python3 -m scripts evaluate --config=my_config.json --numquestions=14
+    python -m evaltools evaluate --config=my_config.json --numquestions=14
     ````
 
 ## Run third evaluation with a specific temperature
@@ -241,7 +257,7 @@ Use a prompt that allows for more creativity.
 1. In a terminal, run the following command to run the evaluation:
 
     ````bash
-    python3 -m scripts evaluate --config=my_config.json --numquestions=14
+    python -m evaltools evaluate --config=my_config.json --numquestions=14
     ````
 
 ## Review the evaluation results
@@ -251,7 +267,7 @@ You performed three evaluations based on different prompts and app settings. The
 1. Use the **review tool** to see the results of the evaluations:
 
     ```bash
-    python3 -m review_tools summary my_results
+    python -m evaltools summary my_results
     ```
 
 1. The results look _something_ like:
@@ -282,7 +298,7 @@ Compare the returned answers from the evaluations.
 1. Select two of the evaluations to compare, then use the same **review tool** to compare the answers:
 
     ```bash
-    python3 -m review_tools diff my_results/experiment_refined my_results/experiment_ignoresources_temp09
+    python -m evaltools diff my_results/experiment_refined my_results/experiment_ignoresources_temp09
     ```
 
 1. Review the results. Your results might vary.
