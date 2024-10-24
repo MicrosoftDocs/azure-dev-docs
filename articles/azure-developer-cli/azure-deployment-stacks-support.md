@@ -21,14 +21,14 @@ In this article, you learn how to:
 
 ## Enable Azure deployment stack support
 
-Azure deployment stack support must be enable via the `azd config` command:
+Azure deployment stacks support must be enable via the `azd config` command:
 
 ```bash
 azd config set alpha.deployment.stacks on
 ```
 
 > [!NOTE]
-> Azure deployment stack support is currently an alpha feature, which is why it must be manually enabled. However, deployment stacks will be set as the default deployment behavior of `azd` in a future release.
+> Azure deployment stacks support is currently an alpha feature, which is why it must be manually enabled. However, deployment stacks will be set as the default deployment behavior of `azd` in a future release.
 > [Learn more about our versioning strategy.](./feature-versioning.md)
 
 Verify the feature was enabled successfully using the `azd config show` command:
@@ -39,7 +39,7 @@ azd config show
 
 ## Deploy a template using deployment stacks
 
-After you enable the deployment stacks feature, no further changes are needed to your `azd` templates to leverage the default behavior of this feature. `azd` automatically wraps the provisioned template resources in an Azure deployment stack when you run `azd up`:
+After you enable the deployment stacks feature, no further changes to your `azd` templates are required to leverage the default behavior of this feature. `azd` automatically wraps the provisioned template resources in an Azure deployment stack when you run `azd up`:
 
 ```bash
 azd up
