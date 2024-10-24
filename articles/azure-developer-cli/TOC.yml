@@ -21,6 +21,8 @@
       href: configure-devops-pipeline.md
     - name: Resource Group Scoped Deployments
       href: resource-group-scoped-deployments.md
+    - name: Azure deployment stacks integration
+      href: azure-deployment-stacks-support.md
     - name: Deploy to Azure AI/ML online endpoints
       href: azure-ai-ml-endpoints.md
   - name: Configuration
