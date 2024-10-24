@@ -1,6 +1,6 @@
 ---
-title: Resource Group Scoped Deployments
-description: How to deploy templates that target resource group scope instead of subscription scope with the Azure Developer CLI (azd)
+title: Azure deployment stacks integration with the Azure Developer CLI
+description: How to use Azure deployment stacks with the Azure Developer CLI (azd)
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 10/24/2024
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azdevcli
 ---
 
-# Use Azure Deployment Stack with the Azure Developer CLI
+# Azure deployment stacks integration with the Azure Developer CLI
 
 The Azure Developer CLI (`azd`) supports [Azure deployment stacks](/azure/azure-resource-manager/bicep/deployment-stacks) for template deployments. An Azure deployment stack is a resource that enables you to manage a group of Azure resources as a single, cohesive unit. By using deployment stacks, you can gain additional control over the set of resources associated with your `azd` template and app.
 
