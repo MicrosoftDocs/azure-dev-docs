@@ -59,10 +59,12 @@ Then, add more detail for better results. Here are some example prompts:
 
 ## Example prompts for undeploying an app
 
-You can ask GitHub Copilot for Azure Preview for assistance in undeploying, because it works in Visual Studio Code and has context about where and how you deployed your application to Azure.
+If you deployed your application with `azd`, you can ask GitHub Copilot for Azure Preview for undeploying assistance. As a Visual Studio Code extension, it has context about where and how you deployed your application to Azure.
 
 Example prompts:
 
+- "@azure Undeploy my project with the Azure Developer CLI."
+- "@azure Use azd to undeploy my project."
 - "@azure Undeploy this project from Azure."
 - "@azure I'd like to undeploy my app."
 - "@azure Stop this app on Azure."
@@ -70,10 +72,8 @@ Example prompts:
 - "@azure Take down my application."
 - "@azure Remove this code from running on Azure."
 
-If you used `azd` to deploy your application, you can ask GitHub Copilot for Azure to use `azd` to undeploy your application. For example:
-
-- "@azure Undeploy my project with the Azure Developer CLI."
-- "@azure Use azd to undeploy my project."
+> [!NOTE]
+> Currently, GitHub Copilot for Azure Preview can only undeploy an app if it was originally deployed with AZD.
 
 ## Related content
 
