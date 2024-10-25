@@ -99,7 +99,7 @@
               items:
                 - name: Deploy a cluster
                   href: /azure/spring-apps/enterprise/quickstart-deploy-infrastructure-vnet-terraform
-            - name: Batch
+            - name: Azure Batch
               items:
                 - name: Create an account
                   href: /azure/batch/quick-create-terraform
@@ -107,6 +107,10 @@
                   href: /azure/batch/quick-deploy-batch-account-two-pools-terraform
                 - name: Deploy an account and two pools with a start task 
                   href: /azure/batch/quick-deploy-batch-account-two-pools-start-task-terraform
+            - name: Azure confidential ledger
+              items:
+                - name: Create an Azure confidential ledger 
+                  href: /azure-security/confidential-ledger/quickstart-terraform
             - name: Virtual machines
               items:
                 - name: Create a Linux VM
