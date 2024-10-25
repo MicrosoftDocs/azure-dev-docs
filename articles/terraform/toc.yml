@@ -103,9 +103,9 @@
               items:
                 - name: Create an account
                   href: /azure/batch/quick-create-terraform
-                - name: Deploy an Azure Batch account and two pools - Terraform
+                - name: Deploy an account and two pools
                   href: /azure/batch/quick-deploy-batch-account-two-pools-terraform.md
-                - name: Deploy an Azure Batch account and two pools with a start task - Terraform
+                - name: Deploy an account and two pools with a start task 
                   href: /azure/batch/quick-deploy-batch-account-two-pools-start-task-terraform.md
             - name: Virtual machines
               items:
