@@ -2,7 +2,7 @@
 title: Clone GitHub repository with Visual Studio Code
 description: Clone a public repository or initialize a new repository from GitHub to your local computer with Visual Studio Code. 
 ms.topic: how-to
-ms.date: 12/13/2023
+ms.date: 10/25/2024
 ms.custom: devx-track-js
 
 # customer intent: As a developer, I want to know how to use GitHub repositories from Visual Studio Code, so that I can develop applications. 
@@ -59,6 +59,38 @@ This action isn't available from this feature. Select a different tab.
 ---
 
 Visual Studio Code uses Git authentication provided by the operating system (such as macOS KeyChain or Windows Credential manager) with any git functionality. Output is visible in Command Palette > Git: Show Git Output.
+
+## Open existing local repository
+
+If you have an existing repository on your local computer and want to open it in Visual Studio Code, just open the folder. Visual Studio Code recognizes the `.git` subfolder and display the relevant information. 
+
+### [Activity bar](#tab/activity-bar)
+
+1. Select <kbd>Ctrl</kbd> + <kbd>K</kbd> + <kbd>O</kbd>.
+1. Select folder. 
+
+### [Status bar](#tab/status-bar)
+
+This action isn't available from this feature. Select a different tab.
+
+### [Command palette](#tab/command-palette)
+
+1. Open the command palette with the key combination of <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>. 
+1. Filter with `Git`, then select `Open repository`.
+1. Select the folder to select as the root of the repository.
+
+### [Integrated terminal](#tab/integrated-terminal)
+
+1. Open an integrated terminal from **Terminal -> New Terminal**.
+1. Open a new instance of Visual Studio Code for the repository directory:
+
+
+    ```bash
+    code ../dir1/dir2/my-repo
+    ```
+    
+
+---
 
 ## Initialize new repository
 
