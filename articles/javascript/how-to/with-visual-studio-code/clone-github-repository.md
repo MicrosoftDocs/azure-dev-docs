@@ -45,16 +45,10 @@ This action isn't available from this feature. Select a different tab.
     git clone https://github.com/YOUR-NAME-OR-ORGANIZATION/YOUR-REPO-NAME
     ```
 
-1. Change your terminal into that new subdirectory:
+1. Open in Visual Studio Code:
 
     ```bash
-    cd YOUR-REPO-NAME
-    ```
-
-1. Then open in Visual Studio Code:
-
-    ```bash
-    code .
+    code YOUR-REPO-NAME
     ```
 
 ---
