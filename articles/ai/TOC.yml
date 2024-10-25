@@ -44,7 +44,7 @@ items:
               items:
                 - name: Get started with the chat app template
                   href: ../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-                - name: Get started with multimodal vision in chat apps
+                - name: Get started with multimodal vision in a chat app
                   href: get-started-app-chat-vision.md
             - name: JavaScript
               items:
