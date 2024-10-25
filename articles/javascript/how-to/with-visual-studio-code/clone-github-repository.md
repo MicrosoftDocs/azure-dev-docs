@@ -13,14 +13,15 @@ ms.custom: devx-track-js
 
 Learn the steps to clone a public repository from GitHub to your local computer using Visual Studio Code.
 
-## Clone repository
+## Open your remote repository
 
-The act of cloning a GitHub repository means to bring the cloud-based source code into a local development environment.
+Open your remote repository on your local computer. 
 
 ### [Activity bar](#tab/activity-bar)
 
-This action isn't available from this feature. Select a different tab.
-
+1. Install the [Remote repository extension](https://marketplace.visualstudio.com/items?itemName=github.remotehub)
+1. Select the remote indicator in the lower left of Visual Studio Code. 
+1. Follow the prompts.
 ### [Status bar](#tab/status-bar)
 
 This action isn't available from this feature. Select a different tab.
@@ -60,7 +61,7 @@ This action isn't available from this feature. Select a different tab.
 
 Visual Studio Code uses Git authentication provided by the operating system (such as macOS KeyChain or Windows Credential manager) with any git functionality. Output is visible in Command Palette > Git: Show Git Output.
 
-## Open existing local repository
+## Open your local repository
 
 If you have an existing repository on your local computer and want to open it in Visual Studio Code, just open the folder. Visual Studio Code recognizes the `.git` subfolder and display the relevant information. 
 
@@ -94,7 +95,7 @@ This action isn't available from this feature. Select a different tab.
 
 ## Initialize new repository
 
-If you don't have a GitHub repository yet, but would like to start your project locally, initialize your folder with git.
+Use the following procedure to create a local source code repository with `git`. 
 
 ### [Activity bar](#tab/activity-bar)
 
@@ -122,6 +123,8 @@ This action isn't available from this feature. Select a different tab.
     git init
     ```
 ---
+
+Once the repo is initialized, [create the repository on GitHub](https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-new-repository). Then add that repository as a remote to your local project from the Command palette: search for `Git: Add remote`. 
 
 
 ## Create a branch for changes
