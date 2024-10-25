@@ -15,7 +15,7 @@ This guide helps you to enable enterprise grade end-user authentication and auth
 
 Java EE developers expect the [standard platform security mechanisms](https://javaee.github.io/tutorial/security-intro.html) to work as expected, even when moving their workloads to Azure. [Oracle WebLogic Server (WLS) Azure applications](/azure/virtual-machines/workloads/oracle/oracle-weblogic) let you populate the built-in security realm with users from Microsoft Entra Domain Services. When you use the standard `<security-role>` element in your Java EE on Azure applications, the user information flows from Microsoft Entra Domain Services through Lightweight Directory Access Protocol (LDAP).
 
-This guide is divided into two parts. If you already have Microsoft Entra Domain Services with secure LDAP exposed, you can skip to the [WLS configuration](#wls-configuration) section.
+This guide is divided into two parts. If you already have Microsoft Entra Domain Services with secure LDAP exposed, you can skip to the [Configure WLS](#configure-wls) section.
 
 In this guide you, learn how to:
 
@@ -232,7 +232,7 @@ Upload and import the certificate to the virtual machine that runs admin server 
    scp ${CER_FILE_NAME} "$ADMIN_VM_USER@$ADMIN_PUBLIC_IP":/home/${ADMIN_VM_USER}/${CER_FILE_NAME}
    ```
 
-1 After the certificate is uploaded, you need to move it to the WLS domain folder */u01/domains* and change its ownership with `oracle:oracle` by using the following commands:
+1. After the certificate is uploaded, you need to move it to the WLS domain folder */u01/domains* and change its ownership with `oracle:oracle` by using the following commands:
 
    ```azurecli
    export RESOURCE_GROUP_NAME=contoso-rg
