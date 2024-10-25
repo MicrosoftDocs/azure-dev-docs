@@ -194,7 +194,7 @@ The sample repository contains all the code and configuration files for the chat
 In this sample, your exploration of the `src\quartapp\chat.py` file starts after configuring keyless authentication.
 
 > [!NOTE]
-> For more information on how to use keyless connections for authentication and authorization to Azure OpenAI, check out the [Get started with the Azure OpenAI security building block](articles\ai\get-started-securing-your-ai-app.md) Microsoft Learn article.
+> For more information on how to use keyless connections for authentication and authorization to Azure OpenAI, check out the [Get started with the Azure OpenAI security building block](get-started-securing-your-ai-app.md) Microsoft Learn article.
 
 ### Chat handler function
 
@@ -300,7 +300,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
 
-:::image type="content" source="./media/openai-chat-vision-quickstart/reopen-local-command-palette.png" lightbox="./media/openai-chat-vision-quickstart/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+:::image type="content" source="./media/get-started-app-chat-vision/reopen-local-command-palette.png" lightbox="./media/get-started-app-chat-vision/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
