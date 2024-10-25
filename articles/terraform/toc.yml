@@ -103,10 +103,6 @@
               items:
                 - name: Create an account
                   href: /azure/batch/quick-create-terraform
-                - name: Deploy an Azure Batch account and two pools - Terraform
-                  href: /azure/batch/quick-deploy-batch-account-two-pools-terraform.md
-                - name: Deploy an Azure Batch account and two pools with a start task - Terraform
-                  href: /azure/batch/quick-deploy-batch-account-two-pools-start-task-terraform.md
             - name: Virtual machines
               items:
                 - name: Create a Linux VM
