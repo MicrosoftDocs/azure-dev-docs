@@ -1,7 +1,7 @@
 ---
 title: "Get started sample: Chat using your data in Python"
 description: Search your own data with a chat app sample in Python, and get started with Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search.
-ms.date: 10/25/2024
+ms.date: 10/28/2024
 ms.topic: how-to
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps
@@ -11,7 +11,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Get started: Chat using your own data (Python sample)
 
-This article shows how to deploy and run the **Chat with your own data sample** [by using example code for Python](Xhttps://github.com/Azure-Samples/azure-search-openai-demo). This sample implements a chat app that runs on Python, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search. The app gets answers about employee benefits at a fictitious company by using supplied with PDF files, including the employee handbook, a benefits document, and a list of company roles and expectations. The article describes how to change the app settings to modify the app response behavior.
+This article shows how to deploy and run the **Chat with your own data sample** [by using example code for Python](https://github.com/Azure-Samples/azure-search-openai-demo). This sample implements a chat app that runs on Python, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search. The app gets answers about employee benefits at a fictitious company by using supplied with PDF files, including the employee handbook, a benefits document, and a list of company roles and expectations. The article describes how to change the app settings to modify the app response behavior.
 
 After you complete the procedures in this article, you can start modifying the new project with your custom code. This article is part of a collection of articles that show you how to build a chat app by using Azure OpenAI Service and Azure AI Search. Other articles in the collection include: 
 
@@ -82,7 +82,7 @@ To use this article, you need the following prerequisites:
 
 ### Usage cost for sample resources
 
-Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you pay only for what you use. To complete this article, there's a slight charge for resource usage. After you complete the sample, you can delete the resources to prevent further charges. For more information about, see [Cost estimation](Xhttps://github.com/Azure-Samples/azure-search-openai-demo#cost-estimation) in the GitHub repository for the sample.
+Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you pay only for what you use. To complete this article, there's a slight charge for resource usage. After you complete the sample, you can delete the resources to prevent further charges. For more information about, see [Cost estimation](https://github.com/Azure-Samples/azure-search-openai-demo#cost-estimation) in the GitHub repository for the sample.
 
 ## Open development environment
 
@@ -95,7 +95,7 @@ Begin by setting up a development environment that has all the dependencies inst
 > [!IMPORTANT]
 > All GitHub accounts can use GitHub Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces - Monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
-1. To start the process, you create a new GitHub codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-demo`](Xhttps://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
+1. To start the process, you create a new GitHub codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
 
    Right-click the following **GitHub Codespaces - Open** option and select **Open link in new window**. This option lets you create a development environment for the sample that includes the associated documentation. 
 
@@ -220,7 +220,7 @@ The chat app is preloaded with employee benefits information from [PDF files](ht
 
 1. In the answer box, select a citation:
 
-   :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" border="false" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot that shows a citation highlighted in the answer box for the chat app.":::
+   :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer-citation.png" border="false" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer-citation.png" alt-text="Screenshot that shows a citation highlighted in the answer box for the chat app.":::
 
 1. GitHub Codespaces opens the right **Citation** pane with three tabbed regions and the focus is on the **Citation** tab:
 
@@ -312,7 +312,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 
-1. On the dashboard, locate your currently running codespaces sourced from the [`Azure-Samples/azure-search-openai-demo`](Xhttps://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository:
+1. On the dashboard, locate your currently running codespaces sourced from the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository:
 
    :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" lightbox="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running GitHub codespaces, including their status and templates.":::
 
