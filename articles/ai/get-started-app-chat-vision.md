@@ -180,7 +180,7 @@ The sample repository contains all the code and configuration files for the chat
 
 1. Select that URL labeled `Deploying service web` to open the chat application in a browser.
 
-    :::image type="content" source="./media/get-started-app-chat-vision/screenshot_chatimage.png" lightbox="./media/get-started-app-chat-vision/screenshot_chatimage.png" alt-text="Screenshot of chat app in browser with a question about an uploaded image in chat along with the response and the chat text box to enter a question.":::
+    :::image type="content" source="./media/get-started-app-chat-vision/screenshot-chatimage.png" lightbox="./media/get-started-app-chat-vision/screenshot-chatimage.png" alt-text="Screenshot of chat app in browser with a question about an uploaded image in chat along with the response and the chat text box to enter a question.":::
 
 1. In the browser, upload an image by clicking on **Choose File** and selecting an image.
 1. Ask a question about the uploaded image such as "What is the image about?".
