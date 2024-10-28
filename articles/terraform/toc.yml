@@ -134,7 +134,7 @@
             - name: Azure confidential ledger
               items:
                 - name: Create an Azure confidential ledger 
-                  href: /azure-security/confidential-ledger/quickstart-terraform
+                  href: /azure/confidential-ledger/quickstart-terraform
             - name: Azure Cosmos DB
               items:
                 - name: Deploy to Container Instances
@@ -280,7 +280,7 @@
             - name: Azure confidential ledger
               items:
                 - name: Create an Azure confidential ledger 
-                  href: /azure-security/confidential-ledger/quickstart-terraform
+                  href: /azure/confidential-ledger/quickstart-terraform
             - name: Azure DDoS Protection
               items:
                 - name: Create protection plan
@@ -308,7 +308,7 @@
             - name: Azure confidential ledger
               items:
                 - name: Create an Azure confidential ledger 
-                  href: /azure-security/confidential-ledger/quickstart-terraform
+                  href: /azure/confidential-ledger/quickstart-terraform
             - name: Azure Managed Lustre
               items:
                 - name: Create a file system
