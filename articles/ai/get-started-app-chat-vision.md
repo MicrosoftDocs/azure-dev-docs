@@ -331,7 +331,7 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 
-1. Locate your currently running Codespaces sourced from the [`Azure-Samples/openai-chat-app-quickstart`](https://github.com/Azure-Samples/openai-chat-vision-quickstart) GitHub repository.
+1. Locate your currently running Codespaces sourced from the [`Azure-Samples//openai-chat-vision-quickstart`](https://github.com/Azure-Samples/openai-chat-vision-quickstart) GitHub repository.
 
 1. Open the context menu for the codespace and select **Delete**.
 
