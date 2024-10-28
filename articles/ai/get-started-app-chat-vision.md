@@ -37,7 +37,7 @@ The application architecture relies on the following services and components:
 - [Managed Identity](/entra/identity/managed-identities-azure-resources/) helps us ensure best-in-class security and eliminates the requirement for you as a developer to securely manage a secret.
 - [Bicep files](/azure/azure-resource-manager/bicep/) for provisioning Azure resources, including Azure OpenAI, Azure Container Apps, Azure Container Registry, Azure Log Analytics, and role-based access control (RBAC) roles.
 - [Microsoft AI Chat Protocol](https://github.com/microsoft/ai-chat-protocol/) provides standardized API contracts across AI solutions and languages. The chat app conforms to the Microsoft AI Chat Protocol.
-- A Python [Quart](https://quart.palletsprojects.com/latest/) that uses the [`openai`](https://pypi.org/project/openai/) package to generate responses to user messages with uploaded image files.
+- A Python [Quart](https://quart.palletsprojects.com) that uses the [`openai`](https://pypi.org/project/openai/) package to generate responses to user messages with uploaded image files.
 - A basic HTML/JavaScript frontend that streams responses from the backend using [JSON Lines](http://jsonlines.org/) over a [ReadableStream](https://developer.mozilla.org/docs/Web/API/ReadableStream).
 
 ## Cost
@@ -227,14 +227,14 @@ The `toBase64` function is called by a listener on the form's `submit` event. Wh
         targetContainer.appendChild(userTemplateClone);
 ```
 
-# Handling the image with the backend 
+### Handling the image with the backend
 
 In the `src\quartapp\chat.py` file, the backend code for image handling starts after configuring keyless authentication.
 
 > [!NOTE]
 > For more information on how to use keyless connections for authentication and authorization to Azure OpenAI, check out the [Get started with the Azure OpenAI security building block](get-started-securing-your-ai-app.md) Microsoft Learn article.
 
-### Chat handler function
+#### Chat handler function
 
 The `chat_handler()` function waits for incoming request JSON data from the `chat/stream` endpoint then processes it. The messages are then extracted from the JSON data. Finally, the base64 encoded image is retrieved from the JSON data.
 
@@ -247,7 +247,7 @@ async def chat_handler():
     image = request_json["context"]["file"]
 ```
 
-### Response stream using the OpenAI Client and model
+#### Response stream using the OpenAI Client and model
 
 The `response_stream` inside the `chat_handler` function handles the chat completion call in the route. The following code snippet begins by preprocessing the user content messages. If an image is present, the image URL is appended to the user content, with the 
 
