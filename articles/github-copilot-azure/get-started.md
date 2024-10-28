@@ -58,15 +58,15 @@ You can also set the default tenant in the extension settings:
 
 1. In Visual Studio Code, on the Activity Bar, select **Extensions**. Then scroll down to **GitHub Copilot for Azure**.
 
-   :::image type="content" source="media/get-started/getstarted-extensions.png" alt-text="Screenshot that shows GitHub Copilot for Azure in the list of extensions in Visual Studio Code.":::
+   :::image type="content" source="media/get-started/extensions.png" alt-text="Screenshot that shows GitHub Copilot for Azure in the list of extensions in Visual Studio Code.":::
 
 2. Select the gear icon in the corner of the extension's entry, and then select **Settings** from the pop-up menu.
 
-   :::image type="content" source="media/get-started/getstarted-settings.png" alt-text="Screenshot that shows the pop-up menu for GitHub Copilot for Azure.":::
+   :::image type="content" source="media/get-started/settings.png" alt-text="Screenshot that shows the pop-up menu for GitHub Copilot for Azure.":::
 
 3. On the **Settings** tab, set the Azure Resource Graph tenant to your Microsoft Entra tenant ID. You can find your Microsoft Entra tenant ID in the Azure portal.
 
-   :::image type="content" source="media/get-started/getstarted-arg-tenant.png" alt-text="Screenshot that shows the Settings tab with an option to set the Azure Resource Graph tenant.":::
+   :::image type="content" source="media/get-started/arg-tenant.png" alt-text="Screenshot that shows the Settings tab with an option to set the Azure Resource Graph tenant.":::
 
 ## Related content
 
