@@ -106,13 +106,13 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 :::zone pivot="python"
 
-    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart)
 
 :::zone-end
 
 :::zone pivot="dotnet"
 
-    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart-dotnet)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart-dotnet)
 
 :::zone-end
 
@@ -318,18 +318,6 @@ async def response_stream():
     )
 ```
 
-## Other security considerations
-
-This article demonstrates how the sample uses `ChainedTokenCreadential` for authenticating to the Azure OpenAI service.
-
-The sample also has a [GitHub Action](https://github.com/microsoft/security-devops-action) that scans the infrastructure-as-code files and generates a report containing any detected issues. To ensure continued best practices in your own repository, we recommend that anyone creating solutions based on our templates ensure that the [GitHub secret scanning setting](https://docs.github.com/code-security/secret-scanning/introduction/about-secret-scanning) is enabled.
-
-Consider other security measures, such as:
-
-- [Restrict access to the appropriate set of app users using Microsoft Entra](/entra/identity-platform/howto-restrict-your-app-to-a-set-of-users).
-
-- Protecting the Azure Container Apps instance with a [firewall](/azure/container-apps/waf-app-gateway?tabs=default-domain) and/or [Virtual Network](/azure/container-apps/networking?tabs=workload-profiles-env%2Cazure-cli).
-
 :::zone-end
 
 :::zone pivot="dotnet"
@@ -340,7 +328,7 @@ Consider other security measures, such as:
 
 ### Configure authentication and service registration
 
-In this sample, keyless authentication is configured in the `program.cs` file. The following code snippet uses the `AZURE_CLIENT_ID` environment variable set by `azd` to create a [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) instance capable of authenticating via user-assigned managed identity.
+In this sample, keyless authentication is configured in the `program.cs` file. The following code snippet uses the `AZURE_CLIENT_ID` environment variable set by `azd` to create a [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) instance capable of authenticating via user-assigned managed identity.
 
 ```csharp
 var userAssignedIdentityCredential = 
