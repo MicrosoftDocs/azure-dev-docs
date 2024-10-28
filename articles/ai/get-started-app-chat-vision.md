@@ -14,11 +14,11 @@ This article shows you how to use Azure OpenAI multimodal models to generate res
 
 By following the instructions in this article, you will:
 
-- Deploy a secure Azure Container chat app.
-- Upload base64-encoded images
+- Deploy an Azure Container chat app that uses managed identity for authentication.
+- Upload images to be used as part of the chat stream.
 - Chat with an Azure OpenAI multimodal Large Language Model (LLM) using the OpenAI library.
 
-Once you complete this article, you can start modifying the new project with your custom code and data.
+Once you complete this article, you can start modifying the new project with your custom code.
 
 > [!NOTE]
 > This article uses one or more [AI app templates](./intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
@@ -36,8 +36,8 @@ The application architecture relies on the following services and components:
 - [Azure Container Apps](/azure/container-apps/) is the container environment where the application is hosted.
 - [Managed Identity](/entra/identity/managed-identities-azure-resources/) helps us ensure best-in-class security and eliminates the requirement for you as a developer to securely manage a secret.
 - [Bicep files](/azure/azure-resource-manager/bicep/) for provisioning Azure resources, including Azure OpenAI, Azure Container Apps, Azure Container Registry, Azure Log Analytics, and role-based access control (RBAC) roles.
-- [Microsoft AI Chat Protocol](https://github.com/microsoft/ai-chat-protocol/) provides standardized API contracts across AI solutions and languages. The chat app conforms to the Microsoft AI Chat Protocol, which allows the evaluations app to run against any chat app that conforms to the protocol.
-- A Python [Quart](https://quart.palletsprojects.com/en/latest/) that uses the [`openai`](https://pypi.org/project/openai/) package to generate responses to user messages with uploaded image files.
+- [Microsoft AI Chat Protocol](https://github.com/microsoft/ai-chat-protocol/) provides standardized API contracts across AI solutions and languages. The chat app conforms to the Microsoft AI Chat Protocol.
+- A Python [Quart](https://quart.palletsprojects.com/latest/) that uses the [`openai`](https://pypi.org/project/openai/) package to generate responses to user messages with uploaded image files.
 - A basic HTML/JavaScript frontend that streams responses from the backend using [JSON Lines](http://jsonlines.org/) over a [ReadableStream](https://developer.mozilla.org/docs/Web/API/ReadableStream).
 
 ## Cost
@@ -183,7 +183,7 @@ The sample repository contains all the code and configuration files for the chat
     :::image type="content" source="./media/get-started-app-chat-vision/screenshot_chatimage.png" lightbox="./media/get-started-app-chat-vision/screenshot_chatimage.png" alt-text="Screenshot of chat app in browser with a question about an uploaded image in chat along with the response and the chat text box to enter a question.":::
 
 1. In the browser, upload an image by clicking on **Choose File** and selecting an image.
-1. Enter a question about the uploaded image such as "What does this code do?".
+1. Ask a question about the uploaded image such as "What is the image about?".
 
 1. The answer comes from Azure OpenAI and the result is displayed.
 
@@ -191,7 +191,45 @@ The sample repository contains all the code and configuration files for the chat
 
  While OpenAI and Azure OpenAI Service rely on a [common Python client library](https://github.com/openai/openai-python), small code changes are needed when using Azure OpenAI endpoints. Let's see how this sample uses an Azure OpenAI multimodal model to generate responses to user messages and uploaded images.
 
-In this sample, your exploration of the `src\quartapp\chat.py` file starts after configuring keyless authentication.
+### Base64 Encoding the uploaded image in the frontend
+
+The uploaded image needs to be Base64 encoded so that it can be used directly as a Data URI as part of the message.
+
+In the sample, the following frontend code snippet in the `script`tag of the `src/quartapp/templates/index.html` file handles that functionality. The `toBase64` arrow function uses the `readAsDataURL` method of the`FileReader` to asynchronously read in the uploaded image file as a base64 encoded string.  
+
+```javascript
+    const toBase64 = file => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+    });
+```
+
+The `toBase64` function is called by a listener on the form's `submit` event. When the `submit` event fires, the listener checks for an image file, and handles it if present by Base64 encoding the image using the `toBase64` function. The new image data url, `fileData`, is then appended to the message.
+
+```javascript
+    form.addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const file = document.getElementById("file").files[0];
+        const fileData = file ? await toBase64(file) : null;
+
+        const message = messageInput.value;
+
+        const userTemplateClone = userTemplate.content.cloneNode(true);
+        userTemplateClone.querySelector(".message-content").innerText = message;
+        if (file) {
+            const img = document.createElement("img");
+            img.src = fileData;
+            userTemplateClone.querySelector(".message-file").appendChild(img);
+        }
+        targetContainer.appendChild(userTemplateClone);
+```
+
+# Handling the image with the backend 
+
+In the `src\quartapp\chat.py` file, the backend code for image handling starts after configuring keyless authentication.
 
 > [!NOTE]
 > For more information on how to use keyless connections for authentication and authorization to Azure OpenAI, check out the [Get started with the Azure OpenAI security building block](get-started-securing-your-ai-app.md) Microsoft Learn article.
@@ -211,7 +249,7 @@ async def chat_handler():
 
 ### Response stream using the OpenAI Client and model
 
-The `response_stream` inside the `chat_handler` function handles the chat completion call in the route. The following code snippet begins by preprocessing the user content messages. If an image is present, the image URL is appended to the user content.
+The `response_stream` inside the `chat_handler` function handles the chat completion call in the route. The following code snippet begins by preprocessing the user content messages. If an image is present, the image URL is appended to the user content, with the 
 
 ```python
     @stream_with_context
@@ -229,6 +267,9 @@ The `response_stream` inside the `chat_handler` function handles the chat comple
         else:
             all_messages.append(request_messages[-1])
 ```
+
+> [!INFO]
+> For more information on the image `detail` parameter and related settings, check out the [Detail parameter settings in image processing: Low, High, Auto](/azure/ai-services/openai/how-to/gpt-with-vision?tabs=python#detail-parameter-settings-in-image-processing-low-high-auto) section in the "Use GPT-4 Turbo with Vision" Microsoft Learn article.
 
 Next, `bp.openai_client.chat.completions` gets chat completions via an Azure OpenAI API call and streams the response.
 
