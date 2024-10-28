@@ -99,7 +99,7 @@
               items:
                 - name: Deploy a cluster
                   href: /azure/spring-apps/enterprise/quickstart-deploy-infrastructure-vnet-terraform
-            - name: Batch
+            - name: Azure Batch
               items:
                 - name: Create an account
                   href: /azure/batch/quick-create-terraform
@@ -129,8 +129,12 @@
                   href: /azure/container-instances/container-instances-quickstart-terraform
                 - name: Deploy Cosmos DB
                   href: deploy-azure-cosmos-db-to-azure-container-instances.md
-        - name: Database
+        - name: Databases
           items:
+            - name: Azure confidential ledger
+              items:
+                - name: Create an Azure confidential ledger 
+                  href: /azure/confidential-ledger/quickstart-terraform
             - name: Azure Cosmos DB
               items:
                 - name: Deploy to Container Instances
@@ -273,6 +277,10 @@
               items:
                 - name: Create a provider
                   href: /azure/attestation/quickstart-terraform
+            - name: Azure confidential ledger
+              items:
+                - name: Create an Azure confidential ledger 
+                  href: /azure/confidential-ledger/quickstart-terraform
             - name: Azure DDoS Protection
               items:
                 - name: Create protection plan
@@ -297,6 +305,10 @@
                   href: /azure/key-vault/keys/quick-create-terraform
         - name: Storage
           items:
+            - name: Azure confidential ledger
+              items:
+                - name: Create an Azure confidential ledger 
+                  href: /azure/confidential-ledger/quickstart-terraform
             - name: Azure Managed Lustre
               items:
                 - name: Create a file system
