@@ -1,7 +1,7 @@
 ---
 title: "Get started with multimodal chat apps using Azure OpenAI"
 description: "Learn how to effectively use Azure OpenAI multimodal models to generate responses to user messages and uploaded images. Easily deploy with Azure Developer CLI."
-ms.date: 10/25/2024
+ms.date: 10/28/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
@@ -189,7 +189,7 @@ The sample repository contains all the code and configuration files for the chat
 
 ## Exploring the sample code
 
- While OpenAI and Azure OpenAI Service rely on a [common Python client library](https://github.com/openai/openai-python), small code changes are needed when using Azure OpenAI endpoints. Let's see how this sample uses an Azure OpenAI multimodal model to generate responses to user messages and uploaded images.
+ While OpenAI and Azure OpenAI Service rely on a [common Python client library](https://github.com/openai/openai-python), small code changes are needed when using Azure OpenAI endpoints. This sample uses an Azure OpenAI multimodal model to generate responses to user messages and uploaded images.
 
 ### Base64 Encoding the uploaded image in the frontend
 
@@ -333,11 +333,11 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 1. Locate your currently running Codespaces sourced from the [`Azure-Samples/openai-chat-app-quickstart`](https://github.com/Azure-Samples/openai-chat-vision-quickstart) GitHub repository.
 
-1. Open the context menu for the codespace and then select **Delete**.
+1. Open the context menu for the codespace and select **Delete**.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
-You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
+Stop the running development container and return to running Visual Studio Code in the context of a local workspace.
 
 Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
 
@@ -350,7 +350,7 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 
 ## Get help
 
-If your issue isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/openai-chat-vision-quickstart/issues).
+Log your issue to the repository's [Issues](https://github.com/Azure-Samples/openai-chat-vision-quickstart/issues).
 
 ## Next steps
 
