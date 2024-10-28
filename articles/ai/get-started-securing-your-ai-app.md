@@ -12,7 +12,7 @@ zone_pivot_groups: intelligent-apps-languages-python-dotnet
 ---
 # Get started with the Azure OpenAI security building block
 
-This article shows you how to create and use the Azure OpenAI security building block sample. The purpose is to demonstrate Azure OpenAI account provisioning with a role-based access control (RBAC) role permission for keyless (Microsoft Entra ID) authentication to Azure OpenAI. This chat app sample also includes all the infrastructure and configuration needed to provision Azure OpenAI resources and deploy the app to Azure Container Apps using the Azure Developer CLI.
+This article shows you how to create and use the Azure OpenAI security building block sample. The purpose is to demonstrate Azure OpenAI account provisioning with role-based access control (RBAC) for keyless (Microsoft Entra ID) authentication to Azure OpenAI. This chat app sample also includes all the infrastructure and configuration needed to provision Azure OpenAI resources and deploy the app to Azure Container Apps using the Azure Developer CLI.
 
 By following the instructions in this article, you will:
 
@@ -30,7 +30,7 @@ Once you complete this article, you can start modifying the new project with you
 A simple architecture of the chat app is shown in the following diagram:
 :::image type="content" source="./media/get-started-securing-your-ai-app/simple-architecture-diagram.png" lightbox="./media/get-started-securing-your-ai-app/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
-The chat app is running as an Azure Container App. The app uses managed identity via Microsoft Entra ID to authenticate with Azure OpenAI, instead of an API key. The chat app uses Azure OpenAI to generate responses to user messages.
+The chat app runs as an Azure Container App. The app uses managed identity via Microsoft Entra ID to authenticate with Azure OpenAI, instead of an API key. The chat app uses Azure OpenAI to generate responses to user messages.
 
 The application architecture relies on the following services and components:
 
@@ -38,10 +38,8 @@ The application architecture relies on the following services and components:
 - [Azure Container Apps](/azure/container-apps/) is the container environment where the application is hosted.
 - [Managed Identity](/entra/identity/managed-identities-azure-resources/) helps us ensure best-in-class security and eliminates the requirement for you as a developer to securely manage a secret.
 - [Bicep files](/azure/azure-resource-manager/bicep/) for provisioning Azure resources, including Azure OpenAI, Azure Container Apps, Azure Container Registry, Azure Log Analytics, and RBAC roles.
-- [Microsoft AI Chat Protocol](https://github.com/microsoft/ai-chat-protocol/) provides standardized API contracts across AI solutions and languages. The chat app conforms to the Microsoft AI Chat Protocol, which allows the evaluations app to run against any chat app that conforms to the protocol.
-
 :::zone pivot="python"
-
+- [Microsoft AI Chat Protocol](https://github.com/microsoft/ai-chat-protocol/) provides standardized API contracts across AI solutions and languages. The chat app conforms to the Microsoft AI Chat Protocol, which allows the evaluations app to run against any chat app that conforms to the protocol.
 - A Python [Quart](https://quart.palletsprojects.com/en/latest/) that uses the [`openai`](https://pypi.org/project/openai/) package to generate responses to user messages.
 - A basic HTML/JavaScript frontend that streams responses from the backend using [JSON Lines](http://jsonlines.org/) over a [ReadableStream](https://developer.mozilla.org/docs/Web/API/ReadableStream).
 
@@ -361,7 +359,8 @@ builder.Services.AddAzureClients(
         clientBuilder.AddClient<AzureOpenAIClient, AzureOpenAIClientOptions>((options, _, _)
             => new AzureOpenAIClient(
                 new Uri(endpoint),
-                new ChainedTokenCredential(userAssignedIdentityCredential, azureDevCliCredential), options));
+                new ChainedTokenCredential(
+                    userAssignedIdentityCredential, azureDevCliCredential), options));
     });
 ```
 
@@ -400,8 +399,6 @@ Consider other security measures, such as:
 - [Restrict access to the appropriate set of app users using Microsoft Entra](/entra/identity-platform/howto-restrict-your-app-to-a-set-of-users).
 
 - Protecting the Azure Container Apps instance with a [firewall](/azure/container-apps/waf-app-gateway?tabs=default-domain) and/or [Virtual Network](/azure/container-apps/networking?tabs=workload-profiles-env%2Cazure-cli).
-
-:::zone-end
 
 ## Clean up resources
 
