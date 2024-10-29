@@ -13,10 +13,10 @@ To get started with this template, see [Get started with the chat using your own
 
 :::row:::
    :::column:::
-      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-chat-javascript.png" lightbox="../media/intelligent-app-templates/architecture-diagram-chat-javascript.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-chat-python.png" lightbox="../media/intelligent-app-templates/architecture-diagram-chat-python.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
    :::column-end:::
    :::column:::
-      :::image type="content" source="../media/intelligent-app-templates/browser-app-chat-javascript.png" lightbox="../media/intelligent-app-templates/browser-app-chat-javascript.png" alt-text="Diagram showing architecture from client to backend app":::
+      :::image type="content" source="../media/intelligent-app-templates/browser-app-chat-python.png" lightbox="../media/intelligent-app-templates/browser-app-chat-python.png" alt-text="Diagram showing architecture from client to backend app":::
    :::column-end:::
 :::row-end:::
 
@@ -24,8 +24,7 @@ This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
-| Azure App Service | Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio | GPT 3.5 Turbo<br>GPT 4.0<br>DALL-E |
-
+| Azure App Service | Azure OpenAI<br>Azure AI Search<br>Azure Blob Storage<br>Azure Monitor<br>Azure Container Apps<br> | GPT 4<br>GPT 4o<br>GPT 4o-mini |
 
 ### Multi-Modal Creative Writing Copilot with DALL-E
 
