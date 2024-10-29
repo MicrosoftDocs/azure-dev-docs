@@ -28,12 +28,15 @@ This template demonstrates the use of these features.
 
 ### Multi-Modal Creative Writing Copilot with DALL-E
 
-This template is a creative writing multi-agent solution to help users write articles. It demonstrates how to create and work with AI agents driven by [Azure OpenAI](/azure/ai-services/openai/). It includes:
-    1. A Flask app that takes an article and instruction from a user.
-    1. A research agent that uses the [Bing Search API](/bing/search-apis/bing-web-search) to research the article.
-    1. A product agent that uses [Azure AI Search](/azure/search/) to do a semantic similarity search for related products from a vector store.
-    1. A writer agent to combine the research and product information into a helpful article.
-    1. An editor agent to refine the article presented to the user.
+This template is a creative writing multi-agent solution to help users write articles. It demonstrates how to create and work with AI agents driven by [Azure OpenAI](/azure/ai-services/openai/).
+
+It includes:
+
+1. A Flask app that takes an article and instruction from a user.
+1. A research agent that uses the [Bing Search API](/bing/search-apis/bing-web-search) to research the article.
+1. A product agent that uses [Azure AI Search](/azure/search/) to do a semantic similarity search for related products from a vector store.
+1. A writer agent to combine the research and product information into a helpful article.
+1. An editor agent to refine the article presented to the user.
 
 To access the source code and read in-depth details about the template, see the [agent-openai-python-prompty](https://github.com/Azure-Samples/agent-openai-python-prompty) GitHub repo.
 
