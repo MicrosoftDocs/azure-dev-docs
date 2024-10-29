@@ -24,7 +24,7 @@ This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
-| Azure App Service | Azure OpenAI<br>Azure AI Search<br>Azure Blob Storage<br>Azure Monitor<br>Azure Container Apps<br> | GPT 4<br>GPT 4o<br>GPT 4o-mini |
+| Azure Container Apps | Azure OpenAI<br>Azure AI Search<br>Azure Blob Storage<br>Azure Monitor<br>Azure Document Intelligence<br> | GPT 3.5 Turbo<br>GPT 4<br>GPT 4o<br>GPT 4o-mini |
 
 ### Multi-Modal Creative Writing Copilot with DALL-E
 
