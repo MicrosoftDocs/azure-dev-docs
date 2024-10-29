@@ -7,7 +7,7 @@ ms.service: azure
 
 ### Chat with your data using Azure OpenAI and Azure AI Search with Python
 
-This template is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure. It uses Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Q&A experiences.
+This template is a complete end-to-end solution demonstrating the Retrieval-Augmented Generation (RAG) pattern running in Azure. It uses Azure AI Search for retrieval and Azure OpenAI large language models to power ChatGPT-style and Question and Answer (Q&A) experiences.
 
 To get started with this template, see [Get started with the chat using your own data sample for Python](../../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json). To access the source code and read in-depth details about the template, see the [azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repo.
 
@@ -28,7 +28,12 @@ This template demonstrates the use of these features.
 
 ### Multi-Modal Creative Writing Copilot with DALL-E
 
-This template is a creative writing multi-agent solution to help users write articles. It demonstrates how to create and work with AI agents driven by [Azure OpenAI](/azure/ai-services/openai/). It includes a Flask app that takes a topic and instruction from a user then calls a research agent that uses the [Bing Search API](/bing/search-apis/bing-web-search) to research the topic, a product agent that uses [Azure AI Search](/azure/search/) to do a semantic similarity search for related products from a vectore store, a writer agent to combine the research and product information into a helpful article, and an editor agent to refine the article that's finally presented to the user.
+This template is a creative writing multi-agent solution to help users write articles. It demonstrates how to create and work with AI agents driven by [Azure OpenAI](/azure/ai-services/openai/). It includes:
+    1. A Flask app that takes an article and instruction from a user.
+    1. A research agent that uses the [Bing Search API](/bing/search-apis/bing-web-search) to research the article.
+    1. A product agent that uses [Azure AI Search](/azure/search/) to do a semantic similarity search for related products from a vector store.
+    1. A writer agent to combine the research and product information into a helpful article.
+    1. An editor agent to refine the article presented to the user.
 
 To access the source code and read in-depth details about the template, see the [agent-openai-python-prompty](https://github.com/Azure-Samples/agent-openai-python-prompty) GitHub repo.
 
@@ -44,7 +49,7 @@ This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
-|Azure Container registery<br>Azure Kubernetes<br>|Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio|GPT 3.5 Turbo<br>GPT 4.0<br>DALL-E|
+|Azure Container Registry<br>Azure Kubernetes<br>|Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio|GPT 3.5 Turbo<br>GPT 4.0<br>DALL-E|
 
 
 ### Contoso Chat Retail Copilot with AI Studio
@@ -69,7 +74,7 @@ This template demonstrates the use of these features.
 
 ### Process automation with speech to text and summarization with AI Studio
 
-This template is a process automation solution that recieves issues reported by field and shop floor workers at a company called Contoso Manufacturing, a manufacturing company that makes car batteries. The issues are shared by the workers either live through microphone input, pre-recorded as audio files or as text input. The solution translates audio input from speech to text and then uses the text reports as input to an LLM and Prompty/Promptflow to summarize the issue and return the results in a format specified by the solution.
+This template is a process automation solution that logs issues reported by field and shop floor workers at a company called Contoso Manufacturing, a manufacturing company that makes car batteries. The workers enter the issues either live through microphone input, prerecorded as audio files or as text input. The solution translates audio input from speech to text and then uses the text reports as input to an LLM and Prompty/Promptflow to summarize the issue and return the results in a format specified by the solution.
 
 To access the source code and read in-depth details about the template, see the [summarization-openai-python-prompflow](https://github.com/Azure-Samples/summarization-openai-python-prompflow) GitHub repo.
 
@@ -87,7 +92,7 @@ This template demonstrates the use of these features.
 |--|--|--|
 |Azure Container Apps|Azure AI Studio<br>Speech to Text Service<br>Prompt Flow<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
 
-### Function calling with Prompty, LangChain and Elastic Search
+### Function calling with Prompty, LangChain, and Elastic Search
 
 This template is an application that uses Prompty, Langchain, and Elasticsearch to build a large language model (LLM) search agent. This agent with Retrieval Augmented Generation (RAG) technology is capable of answering user questions based on the provided data by integrating real-time information retrieval with generative responses.
 
@@ -107,7 +112,7 @@ This template demonstrates the use of these features.
 |--|--|--|
 |Machine Learning service|Azure AI Studio<br>Elastic Search<br>Microsoft Entra ID<br>Azure Managed Identity<br>Azure Monitor<br>Azure Storage<br>Azure AI Studio<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
 
-### Function calling with Prompty, LangChain and Pinecone
+### Function calling with Prompty, LangChain, and Pinecone
 
 This template utilizes the new Prompty tool, Langchain, and Pinecone to build a large language model (LLM) search agent. This agent with Retrieval Augmented Generation (RAG) technology is capable of answering user questions based on the provided data by integrating real-time information retrieval with generative responses.
 
