@@ -3,9 +3,10 @@ title: Terraform AzureRM provider version history 3.0.0 - 3.116.0
 description: View the Terraform AzureRM provider version history for 3.0.0 - 3.116.0
 keywords: azure devops terraform change log release history what's new
 ms.topic: reference
-ms.date: 10/7/2024
+ms.date: 10/17/2024
 ms.custom: devx-track-terraform
 # Customer intent: I want to view the AzureRM provider version history for versions 3.0.0 - 3.116.0
+# SOurce: https://github.com/hashicorp/terraform-provider-azurerm/blob/main/CHANGELOG-v3.md
 ---
 
 # Terraform AzureRM provider version history: 3.0.0 - 3.116.0

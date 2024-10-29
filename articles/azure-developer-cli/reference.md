@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 08/13/2024
+ms.date: 10/17/2024
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -1127,14 +1127,18 @@ View and manage template sources. (Beta)
 ### See also
 
 * [azd template](#azd-template): Find and view template details. (Beta)
-* [azd template source add](#azd-template-source-add): Adds an azd template source at the specified key (Beta)
+* [azd template source add](#azd-template-source-add): Adds an azd template source with the specified key. (Beta)
 * [azd template source list](#azd-template-source-list): Lists the configured azd template sources. (Beta)
 * [azd template source remove](#azd-template-source-remove): Removes the specified azd template source (Beta)
 * [Back to top](#azd)
 
 ## azd template source add
 
-Adds an azd template source at the specified key (Beta)
+Adds an azd template source with the specified key. (Beta)
+The key can be any value that uniquely identifies the template source, with the exception of the following reserved, well-known key values:
+
+* default: Default templates
+* awesome-azd: Templates from the [Awesome AZD template gallery](https://aka.ms/awesome-azd)
 
 ```azdeveloper
 azd template source add <key> [flags]
@@ -1145,9 +1149,9 @@ azd template source add <key> [flags]
 ```azdeveloper
       --docs              Opens the documentation for azd template source add in your web browser.
   -h, --help              Gets help for add.
-  -l, --location string   Location of the template source.
+  -l, --location string   Location of the template source. Required when using type flag.
   -n, --name string       Display name of the template source.
-  -t, --type string       Kind of the template source.
+  -t, --type string       Kind of the template source. Supported types are 'file', 'url' and 'gh'.
 ```
 
 ### Options inherited from parent commands

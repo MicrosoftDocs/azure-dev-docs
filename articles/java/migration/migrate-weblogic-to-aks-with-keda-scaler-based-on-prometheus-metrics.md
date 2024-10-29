@@ -286,7 +286,7 @@ Because you selected **WebLogic Monitoring Exporter** at deployment time, a KEDA
    > When you deploy an app with the offer, it's named `app1` by default. You can use the following steps to access the WLS admin console to obtain the application name:
    >
    > 1. Use the preceding steps to view the deployment outputs.
-   > 1. The **adminConsoleExternalUrl** value is the fully qualified, public Internet visible link to the WLS admin consolt. Select the copy icon next to the field value to copy the link to your clipboard.
+   > 1. The **adminConsoleExternalUrl** value is the fully qualified, public Internet visible link to the WLS admin console. Select the copy icon next to the field value to copy the link to your clipboard.
    > 1. Paste the value to your browser and open the WLS admin console.
    > 1. Sign in with the WLS admin account, which you saved aside during in the [Deploy WLS on AKS using the Azure Marketplace offer](#deploy-wls-on-aks-using-the-azure-marketplace-offer) section.
    > 1. Under **Domain Structure**, select **Deployments**. You find **app1** listed.
