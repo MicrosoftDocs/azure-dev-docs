@@ -3,18 +3,16 @@
 # Global owner
 * @mcleanbyron
 
+# Config
+/articles/docfx.json @KarlErickson @mcleanbyron
+/.openpublishing.publish.config.json @KarlErickson @mcleanbyron
+/CODEOWNERS @KarlErickson @mcleanbyron
+
 # Intro
 /articles/intro/ @mcleanbyron
 
-# DevOps
-/articles/ansible/ @TomArcherMsft
-/articles/chef/ @TomArcherMsft
-/articles/jenkins/ @TomArcherMsft
-/articles/terraform/ @TomArcherMsft
-
 # DevEx
 /articles/java/ @KarlErickson
-/articles/javascript/ @diberry 
 /articles/python/ @bobtabor-msft
 /articles/go/ @bobtabor-msft
 
@@ -22,4 +20,6 @@
 /articles/azure-cli/ @alexwolfmsft
 
 # Azure SDK authentication topics
-/articles/python/sdk/authentication-*.md @pvaneck @xiangyan99
+/articles/java/sdk/authentication/ @scottaddie @g2vinay @billwert
+/articles/javascript/sdk/authentication/ @scottaddie @KarishmaGhiya @maorleger
+/articles/python/sdk/authentication/ @scottaddie @pvaneck @xiangyan99

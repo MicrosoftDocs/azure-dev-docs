@@ -3,7 +3,7 @@ title: Upload a file to an Azure Blob Storage
 description: Learn how to configure a Spring Boot Initializer app with the Azure Storage starter.
 author: KarlErickson
 ms.author: hangwan
-ms.date: 04/06/2023
+ms.date: 08/28/2024
 ms.topic: article
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
 ---
@@ -47,7 +47,7 @@ To install the Spring Cloud Azure Storage Blob Starter module, add the following
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.14.0</version>
+        <version>5.17.1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

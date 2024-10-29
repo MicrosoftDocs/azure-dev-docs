@@ -1,11 +1,9 @@
-### YamlMime:Landing
+### YamlMime:Hub
 
-# On-page H1/lede
-title: Azure for JavaScript & Node.js developers
-summary: |
-  Explore the power of JavaScript on Azure through Quickstarts, How-To Guides, codes samples and more.
+title: Azure for JavaScript developers
+summary: Learn to use Azure with JavaScript. Browse API reference, sample code, tutorials, quickstarts, conceptual articles and more. Know that JavaScript ❤️ Azure.
+brand: azure
 
-# Search & metrics meta
 metadata:
   title: Azure for JavaScript and Node.js developers
   description: Get started developing apps with the Azure SDK for JavaScript in the browser or Node.js through tutorials, tools, and the SDK reference.
@@ -13,129 +11,217 @@ metadata:
   ms.author: diberry
   ms.date: 07/10/2024
   ms.topic: landing-page
+  ms.service: azure-javascript
   ms.custom: 2020Aug21Redesign, devx-track-js, engagement-fy23
-landingContent:
-        
-  - title: New to Azure?
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: What is Azure?
-            url: core/what-is-azure-for-javascript-development.md
-          - text: Azure Fundamentals
-            url: /training/modules/intro-to-azure-fundamentals/            
-          - text: Set up development environment
-            url: core/configure-local-development-environment.md
-          - text: Authenticate to Azure SDK
-            url: /azure/developer/javascript/sdk/authentication/local-development-environment-service-principal
 
-  - title: Use Azure client libraries (SDK)
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Use the Azure SDKs for JS/TS
-            url: core/use-azure-sdk.md
-          - text: SDKs
-            url: https://azure.github.io/azure-sdk/releases/latest/index.html#javascript
-          - text: SDK documentation
-            url: /javascript/api/overview/azure/?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-          - text: Azure SDK Blog
-            url: https://devblogs.microsoft.com/azure-sdk/            
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items:
+    - itemType: overview
+      title: Azure for JavaScript developers
+      url: ./core/what-is-azure-for-javascript-development.md
+    - itemType: how-to-guide
+      title: Set up development environment
+      url: ./core/configure-local-development-environment.md
+    - itemType: get-started
+      title: Azure SDK for JavaScript
+      url: ./core/use-azure-sdk.md
+    - itemType: quickstart
+      title: Authenticate to Azure SDK
+      url: ./sdk/authentication/local-development-environment-service-principal.md
 
-  - title: AI
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Deploy Enterprise chat with RAG
-            url: ai/get-started-app-chat-template.md?tabs=github-codespaces
-          - text: Use serverless AI Chat with RAG using LangChain.js 
-            url: ai/get-started-app-chat-template-langchainjs.md
-          - text: Use Azure OpenAI Assistants and function calling in JavaScript
-            url: ai/get-started-app-chat-assistants-function-calling.md
-          - text: Scale Azure OpenAI with Azure Container Apps
-            url: ai/get-started-app-chat-scaling-with-azure-container-apps.md
-          - text: Scale Azure OpenAI with Azure API Management
-            url: ai/get-started-app-chat-scaling-with-azure-api-management.md
-          - text: Evaluate chat app
-            url: ai/get-started-app-chat-evaluations.md
-
-  - title: Azure SDK client library tutorials
-    linkLists: 
-      - linkListType: tutorial
+conceptualContent:
+  sections: 
+  - title: Get started with essential tasks
+    summary: Learn to develop JavaScript apps using various Azure services.
+  # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+    items:
+      - title: Getting started
         links: 
-          - text: "Static web app: Analyze image with Computer Vision"
-            url: ./tutorial/static-web-app-image-analysis.md#add-computer-vision-code-as-separate-module
-          - text: "Static web app: Upload file to Storage Blob"
-            url: tutorial/browser-file-upload-azure-storage-blob.md
-          - text: "Express.js: Add Application Insights logging"
-            url: tutorial/nodejs-virtual-machine-vm/azure-monitor-application-insights-nodejs-expressjs-code.md#edit-indexjs-for-logging-with-azure-monitor-application-insights
-
-  - title: Web + Data
-    linkLists:
-      - linkListType: quickstart
+          - itemType: overview
+            text: What is Azure for JavaScript developers
+            url: ./core/what-is-azure-for-javascript-development.md
+          - itemType: how-to-guide
+            text: Configure your JavaScript develop environment for Azure
+            url: ./core/configure-local-development-environment.md
+          - itemType: how-to-guide
+            text: Tools for JavaScript developers on Azure
+            url: ./node-azure-tools.md
+          - itemType: overview
+            text: Hosting applications on Azure
+            url: ../intro/hosting-apps-on-azure.md
+          - itemType: how-to-guide
+            text: Deployment choices for your web app to Azure
+            url: ./how-to/deploy-web-app.md
+      - title: Create AI apps
         links:
-          - text: Storage on Azure
-            url: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-          - text: Full stack serverless with Mongoose
-            url: /azure/static-web-apps/add-mongoose             
-          - text: Express.js + MongoDB (training)
-            url: /training/modules/javascript-deploy-expressjs-app-service-with-database
-          - text: Express.js + MongoDB (docs)
-            url: /azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-
-  - title: Deploy and host apps
-    linkLists:
-      - linkListType: tutorial
+          - itemType: overview
+            text: Develop AI apps with JavaScript
+            url: ./ai/azure-ai-for-javascript-developers.md
+          - itemType: quickstart
+            url: ./ai/get-started-app-chat-template.md
+            text: Get started with Enterprise chat
+          - itemType: quickstart
+            text: Use RAG with LangChain.js
+            url: ./ai/get-started-app-chat-template-langchainjs.md
+          - itemType: quickstart
+            text: Use RAG with LlamaIndex
+            url: ./ai/get-started-app-chat-template-llamaindex.md
+          - itemType: quickstart
+            text: Evaluate your chat app
+            url: ./ai/get-started-app-chat-evaluations.md
+          - itemType: quickstart
+            text: "Scale with Azure Container Apps"
+            url: ./ai/get-started-app-chat-scaling-with-azure-container-apps.md
+          - itemType: quickstart
+            text: "Scale with Azure API Management"
+            url: ./ai/get-started-app-chat-scaling-with-azure-api-management.md
+      - title: Add storage & data
         links:
-          - text: Select a hosting service
-            url: how-to/deploy-web-app.md            
-          - text: Static front-end apps
-            url: how-to/with-web-app/static-web-app-with-swa-cli/introduction.md            
-          - text: Serverless apps
-            url: how-to/develop-serverless-apps.md          
-          - text: Server apps
-            url: /learn/modules/javascript-deploy-expressjs-app-service/
-
-  - title: Developer Guides
-    linkLists:
-      - linkListType: get-started
+          - itemType: concept
+            text: Get started with Azure Blob Storage
+            url: /azure/storage/blobs/storage-blob-javascript-get-started
+          - itemType: quickstart
+            text: Azure Cosmos DB for NoSQL 
+            url: /azure/cosmos-db/nosql/quickstart-nodejs
+          - itemType: tutorial
+            text: Azure Cosmos DB for MongoDB
+            url: /azure/cosmos-db/mongodb/vcore/tutorial-nodejs-web-app
+          - itemType: tutorial
+            text: Azure Cosmos DB for PostgreSQL
+            url: /azure/cosmos-db/postgresql/quickstart-app-stacks-nodejs
+          - itemType: tutorial
+            text: Azure Cosmos DB for Cassandra
+            url: /azure/cosmos-db/cassandra/manage-data-nodejs
+          - itemType: tutorial
+            text: Azure Cosmos DB for Gremlin
+            url: /azure/cosmos-db/gremlin/quickstart-nodejs
+          - itemType: tutorial
+            text: Azure SQL Database with mssql
+            url: /azure/azure-sql/database/azure-sql-javascript-mssql-quickstart
+ 
+      - title: Monitor and diagnose my app
         links:
-          - text: Azure Cosmos DB MongoDB
+          - itemType: concept
+            text: Monitor your Node.js services and apps with Application Insights
+            url: /azure/azure-monitor/app/nodejs
+          - itemType: concept
+            text: Enable Azure Monitor Application Insights
+            url: /azure/azure-monitor/app/javascript-sdk
+          - itemType: concept
+            text: Enable a framework extension for Application Insights
+            url: /azure/azure-monitor/app/javascript-framework-extensions
+          - itemType: concept
+            text: Enable Click Analytics
+            url: /azure/azure-monitor/app/javascript-feature-extensions
+          - itemType: concept
+            text: Sampling in Application Insights
+            url: /azure/azure-monitor/app/sampling-classic-api
+
+  - title: Go deeper
+    summary: Learn more about specific Azure services and how to use them with JavaScript.
+    items:
+      - title: Build and deploy apps on Azure
+        links:
+          - itemType: quickstart
+            text: Deploy JS front-end framework
+            url: /azure/static-web-apps/deploy-web-framework
+          - itemType: tutorial
+            url: /azure/static-web-apps/add-api
+            text: Add an API to your front-end app
+          - itemType: tutorial
+            text: Microservices communication with Dapr
+            url: /azure/container-apps/microservices-dapr-pubsub
+          - itemType: quickstart
+            text: Monoliths on App Service
+            url: /azure/app-service/quickstart-nodejs
+          - itemType: quickstart
+            text: Serverless apps
+            url: /azure/azure-functions/create-first-function-azure-developer-cli
+      - title: Azure SDK fundamentals
+        links:
+          - itemType: concept
+            text: Getting started
+            url: ./core/use-azure-sdk.md
+          - itemType: how-to-guide
+            text: Install Azure client libraries
+            url: ./sdk/azure-sdk-install.md
+          - itemType: concept
+            text: Authenticate to Azure
+            url: ./sdk/authentication/overview.md
+          - itemType: concept
+            text: Test SDK integrations
+            url: ./sdk/test-sdk-integration.md
+          - itemType: concept
+            text: Loop over SDK results
+            url: ./sdk/loop-over-data.md
+      - title: Developer guides
+        links:
+          - itemType: concept
+            text: GraphQL for Azure
+            url: ./graphql-developer-guide.md
+          - itemType: concept
+            url: ./ai/get-started-app-chat-template.md
+            text: Serverless on Azure
+          - itemType: concept
+            text: Storage
+            url: /azure/storage/blobs/storage-blob-javascript-get-started
+          - itemType: concept
+            text: Cosmos DB for NoSQL
+            url: /azure/cosmos-db/nosql/how-to-javascript-get-started
+          - itemType: concept
+            text: Cosmos DB for MongoDB
             url: /azure/cosmos-db/mongodb/how-to-javascript-get-started
-          - text: Azure Cosmos DB no-SQL
-            url: /azure/cosmos-db/nosql/how-to-javascript-get-started?tabs=azure-cli%2Cwindows
-          - text: Key Vault Keys
-            url: /azure/key-vault/keys/javascript-developer-guide-get-started
-          - text: Key Vault Secrets
+          - itemType: concept
+            text: Key vault for secrets
             url: /azure/key-vault/secrets/javascript-developer-guide-get-started
-          - text: Azure Storage Dev Guide
-            url: /azure/storage/blobs/storage-blob-javascript-get-started?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-
-  - title: Developer tools
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Visual Studio Code (IDE)
-            url: https://code.visualstudio.com/docs/languages/javascript
-          - text: Azure Command-Line Interface (CLI)
-            url: /cli/azure/install-azure-cli
-          - text: Azure Developer CLI
-            url: ../azure-developer-cli/overview.md
-          - text: Azure Static Web Apps CLI
-            url: https://github.com/Azure/static-web-apps-cli
-          - text: Azure Functions core tools CLI
-            url: https://github.com/Azure/azure-functions-core-tools
-
-  - title: End to end development
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Contoso Solution
-            url: end-to-end/contoso-real-estate-get-started.md
-          - text: Developer tools
-            url: end-to-end/contoso-real-estate-developer-tools.md
-          - text: Sample
-            url: https://github.com/Azure-Samples/contoso-real-estate
-          - text: Azure Samples browser
-            url: /samples/browse/?languages=javascript%2Cnodejs%2Ctypescript
-
+          - itemType: concept
+            text: Key vault for keys
+            url: /azure/key-vault/keys/javascript-developer-guide-get-started
+      - title: Web apps on Azure
+        links: 
+          - itemType: tutorial
+            text: Express.js with MongoDB
+            url: /azure/app-service/tutorial-nodejs-mongodb-app
+          - itemType: tutorial
+            text: Express.js with MERN
+            url: /azure/cosmos-db/mongodb/vcore/tutorial-nodejs-web-app
+          - itemType: how-to-guide
+            text: Express.js convert text to speech
+            url: ./tutorial/convert-text-to-speech-cognitive-services.md
+          - itemType: how-to-guide
+            text: Express.js VM
+            url: ./tutorial/run-nodejs-virtual-machine.md
+# --------------------------------------------------------------
+additionalContent:
+  sections:
+    - title: Additional resources
+      items:
+        - title: Microsoft Developer
+          links:
+            - text: "JavaScript: Everything from Microsoft for JavaScript developers"
+              url: https://developer.microsoft.com/en-us/javascript/
+            - text: "Developer experience: Optimizing DevEx improves business outcomes"
+              url: https://developer.microsoft.com/developer-experience
+            - text: AI for frictionless, intelligent builds with AI tools and services
+              url: /ai
+            - text: Code to cloud from the ground up with tools designed for developers
+              url: https://developer.microsoft.com/code-to-cloud
+        - title: Webcasts and shows
+          links:
+            - text: Azure JavaScript Developer Days 2024
+              url: https://www.youtube.com/playlist?list=PLI7iePan8aH7FRDmefj-NAnoxM9V0USZm
+            - text: Web Rush with John Papa and Craig Shoemaker
+              url: https://webrush.io/
+        - title: Open source
+          links:
+            - text: Azure SDK for JavaScript
+              url: https://github.com/Azure/azure-sdk-for-js
+            - text: Visual Studio Code
+              url: https://github.com/microsoft/vscode
+            - text: TypeScript
+              url: https://github.com/microsoft/TypeScript
+            - text: Rush Stack for TypeScript monorepos
+              url: https://rushstack.io/
+            - text: Microsoft Identity Web
+              url: https://github.com/AzureAD/microsoft-identity-web

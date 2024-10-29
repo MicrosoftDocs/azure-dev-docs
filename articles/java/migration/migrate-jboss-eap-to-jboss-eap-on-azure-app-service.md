@@ -76,16 +76,16 @@ If your application is packaged as an EAR file, be sure to examine the *applicat
 
 When using JBoss EAP on App Service, be sure to take the following notes into consideration.
 
-* **JBoss EAP management console**: The JBoss web console isn't exposed on App Service. Instead, the Azure portal provides the management APIs for your application, and you should deploy using the Azure CLI, Azure Maven Plugin, or other Azure developer tools.
-* **Transactions**: The application instances are run in a stateless manner, so the Transactions API isn't currently supported. For more information, see [Managing transactions on JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html-single/managing_transactions_on_jboss_eap/index) in the Red Hat documentation.
+* **JBoss EAP management console**: The JBoss web console isn't exposed on App Service. Instead, the Azure portal provides the management APIs for your application, and you should deploy using the Azure CLI, Azure Maven Plugin, or other Azure developer tools. Further configuration of JBoss resources can be achieved using the JBoss CLI during the application startup.
+* **Transactions**: The Transactions API is supported and there is support for automatic transaction recovery. For more information, see [Managing transactions on JBoss EAP](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/7.4/html/managing_transactions_on_jboss_eap/index) in the Red Hat documentation.
 * **Managed domain mode**: In a multi-server production environment, Managed Domain mode in JBoss EAP offers centralized managed capabilities. However with JBoss EAP on App Service, the App Service platform assumes the responsibility for configuration and management of your server instances. App Service eliminates the need for JBoss EAP's managed domain mode. Domain mode is a good choice for virtual machine-based multi-server deployments. For more information, see [About managed domains](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html/administration_and_configuration_guide/about_managed_domains) in the Red Hat documentation.
-* **Server-to-server clustering**: As of March 15th, 2022, clustered deployment of JBoss EAP is supported in Public Preview. This support means that you no longer have to remove the following features from your applications before you can deploy them to App Service:
+* **Server-to-server clustering**: As of September 28th, 2023, clustered deployment of JBoss EAP is Generally Available. This support means that you no longer have to remove the following features from your applications before you can deploy them to App Service:
 
   * Stateful session beans.
   * Distributed transactions.
   * Similar features that require instance-to-instance communication or high availability.
 
-  For more information, see the [release announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/clustering-support-for-jboss-eap-on-azure-app-service-public/ba-p/3252898) and the [Clustering in JBoss EAP](/azure/app-service/configure-language-java?pivots=platform-linux#clustering-in-jboss-eap) section of [Configure a Java app for Azure App Service](/azure/app-service/configure-language-java?pivots=platform-linux).
+  For more information, see the [release announcement](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/recently-announced-advanced-clustering-features-for-jboss-eap-on/ba-p/3939672) and the [Clustering](/azure/app-service/configure-language-java?pivots=java-jboss#clustering) section of [Configure a Java app for Azure App Service](/azure/app-service/configure-language-java?pivots=java-jboss).
 
 ## Migration
 

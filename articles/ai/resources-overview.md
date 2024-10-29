@@ -4,7 +4,7 @@ description: Overview article introducing the resources available for developers
 keywords: ai, azure openai service
 ms.service: azure
 ms.topic: overview
-ms.date: 07/25/2024
+ms.date: 10/29/2024
 ms.custom: overview, devx-track-dotnet, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 zone_pivot_group_filename: developer/intro/intro-zone-pivot-groups.json
 zone_pivot_groups: intelligent-apps-languages

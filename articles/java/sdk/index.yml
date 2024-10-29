@@ -34,7 +34,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Identity and authentication
-            url: identity.md
+            url: authentication/overview.md
           - text: Configure logging
             url: logging-overview.md
   - title: Common concepts

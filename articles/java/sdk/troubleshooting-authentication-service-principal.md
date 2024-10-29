@@ -11,7 +11,7 @@ ms.author: jogiles
 
 # Troubleshoot service principal authentication
 
-This article provides guidance on dealing with issues encountered when authenticating Azure SDK for Java applications via service principal, through various `TokenCredential` implementations. For more information, see [Azure authentication with service principal](identity-service-principal-auth.md).
+This article provides guidance on dealing with issues encountered when authenticating Azure SDK for Java applications via service principal, through various `TokenCredential` implementations. For more information, see [Azure authentication with service principal](authentication/service-principal.md).
 
 ## Troubleshoot ClientSecretCredential
 

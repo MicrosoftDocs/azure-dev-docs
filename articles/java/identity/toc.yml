@@ -17,8 +17,8 @@ items:
       href: enable-spring-boot-webapp-authorization-role-entra-id.md
     - name: Use groups and group claims
       href: enable-spring-boot-webapp-authorization-group-entra-id.md
-    - name: Deploy to Azure Spring Apps
-      href: deploy-spring-boot-to-azure-spring-apps.md
+    - name: Deploy to Azure Container Apps
+      href: deploy-spring-boot-to-azure-container-apps.md
   - name: Secure your Java Tomcat app
     expanded: true
     items:
@@ -79,5 +79,15 @@ items:
       href: enable-java-websphere-webapp-authorization-group-entra-id.md
     - name: Deploy to WebSphere on Azure VM
       href: deploy-websphere-to-vm.md
+  - name: Secure your Java WebSphere Liberty/Open Liberty app
+    expanded: true
+    items:
+    - name: Use Microsoft Entra ID OpenID Connect
+      href: ../ee/liberty-with-microsoft-entra-id.md?toc=/azure/developer/java/identity/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
+  - name: Secure your Java Quarkus app
+    expanded: true
+    items:
+    - name: Use Microsoft Entra ID OpenID Connect
+      href: ../ee/quarkus-with-microsoft-entra-id.md?toc=/azure/developer/java/identity/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
   - name: Overview of the Microsoft Authentication Library (MSAL)
     href: /entra/identity-platform/msal-overview

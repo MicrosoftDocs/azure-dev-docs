@@ -80,11 +80,14 @@ az login
 
 ### Create a resource group
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create). Resource group names must be globally unique within a subscription. For this reason, consider prepending some unique identifier to any names you create that must be unique. A useful technique is to use your initials followed by today's date in `mmdd` format. This example creates a resource group named `abc1110rg` in the `westus` location:
+Create a resource group with [az group create](/cli/azure/group#az-group-create). Resource group names must be globally unique within a subscription. For this reason, consider prepending some unique identifier to any names you create that must be unique. A useful technique is to use your initials followed by today's date in `mmdd` format. This example creates a resource group named `$RESOURCE_GROUP_NAME` in the `westus` location:
 
 ```azurecli
+export SUFFIX=$(date +%s)
+export RESOURCE_GROUP_NAME=rg-$SUFFIX
+echo "Resource group name: $RESOURCE_GROUP_NAME"
 az group create \
-    --name abc1110rg \
+    --name $RESOURCE_GROUP_NAME \
     --location westus
 ```
 
@@ -98,7 +101,7 @@ First, create a virtual network by using [az network vnet create](/cli/azure/net
 
 ```azurecli
 az network vnet create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name myVNet \
     --address-prefixes 192.168.0.0/24
 ```
@@ -107,7 +110,7 @@ Create a subnet for the Red Hat JBoss EAP cluster by using [az network vnet subn
 
 ```azurecli
 az network vnet subnet create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name mySubnet \
     --vnet-name myVNet \
     --address-prefixes 192.168.0.0/25
@@ -117,7 +120,7 @@ Create a subnet for Application Gateway by using [az network vnet subnet create]
 
 ```azurecli
 az network vnet subnet create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name jbossVMGatewaySubnet \
     --vnet-name myVNet \
     --address-prefixes 192.168.0.128/25
@@ -131,7 +134,7 @@ Create a network security group by using [az network nsg create](/cli/azure/netw
 
 ```azurecli
 az network nsg create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name mynsg
 ```
 
@@ -139,7 +142,7 @@ Create network security group rules by using [az network nsg rule create](/cli/a
 
 ```azurecli
 az network nsg rule create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --nsg-name mynsg \
     --name ALLOW_APPGW \
     --protocol Tcp \
@@ -151,7 +154,7 @@ az network nsg rule create \
     --direction Inbound
 
 az network nsg rule create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --nsg-name mynsg \
     --name ALLOW_HTTP_ACCESS \
     --protocol Tcp \
@@ -167,13 +170,13 @@ Associate the subnets created previously to this network security group by using
 
 ```azurecli
 az network vnet subnet update \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --vnet-name myVNet \
     --name mySubnet \
     --network-security-group mynsg
 
 az network vnet subnet update \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --vnet-name myVNet \
     --name jbossVMGatewaySubnet \
     --network-security-group mynsg
@@ -196,9 +199,11 @@ Create a VM using [az vm create](/cli/azure/vm). You run the Administration Serv
 
 The following example creates a Red Hat Enterprise Linux VM using user name and password pair for the authentication. If desired, you can use TLS/SSL authentication instead.
 
+### [JBOSS EAP 7.4](#tab/jboss-eap-74)
+
 ```azurecli
 az vm create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name adminVM \
     --image RedHat:rhel-raw:86-gen2:latest \
     --size Standard_DS1_v2  \
@@ -209,8 +214,25 @@ az vm create \
     --vnet-name myVnet \
     --subnet mySubnet
 ```
+### [JBOSS EAP 8](#tab/jboss-eap-8)
 
-#### Install OpenJDK 11 and Red Hat JBoss EAP 7.4
+```azurecli
+az vm create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name adminVM \
+    --image RedHat:rhel-raw:94_gen2:latest \
+    --size Standard_DS1_v2  \
+    --admin-username azureuser \
+    --admin-password Secret123456 \
+    --public-ip-sku Standard \
+    --nsg mynsg \
+    --vnet-name myVnet \
+    --subnet mySubnet
+```
+
+---
+
+#### Install Red Hat JBoss EAP
 
 Use the following steps to install:
 
@@ -218,7 +240,7 @@ Use the following steps to install:
 
    ```azurecli
    export ADMIN_VM_PUBLIC_IP=$(az vm show \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name adminVM \
        --show-details \
        --query publicIps | tr -d '"')
@@ -312,22 +334,25 @@ Use the following steps to install:
 
    > [!NOTE]
    > This command is ignored if you're using [Simple Content Access](https://access.redhat.com/articles/4903191) mode.
-   
-1. Use the following command to install OpenJDK 11:
 
-   ```bash
-   sudo yum install java-11-openjdk -y
-   ```
+1. Use the following commands to install Red Hat JBoss EAP :
 
-   You should see many lines of output, ending with `Complete!`
-
-1. Use the following commands to install Red Hat JBoss EAP 7.4:
+   ### [JBOSS EAP 7.4](#tab/jboss-eap-74)
 
    ```bash
    sudo subscription-manager repos --enable=jb-eap-7.4-for-rhel-8-x86_64-rpms
    sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
    sudo yum groupinstall -y jboss-eap7
    ```
+   ### [JBOSS EAP 8](#tab/jboss-eap-8)
+
+   ```bash
+   sudo subscription-manager repos --enable=jb-eap-8.0-for-rhel-9-x86_64-rpms
+   sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
+   sudo yum groupinstall -y jboss-eap8
+   ```
+
+   ---
 
    For the second and third commands, you should see many lines of output, ending with `Complete!`
 
@@ -341,6 +366,8 @@ Use the following steps to install:
 
 1. Use the following commands to configure the environment variables:
 
+   ### [JBOSS EAP 7.4](#tab/jboss-eap-74)
+
    ```bash
    echo 'export EAP_RPM_CONF_DOMAIN="/etc/opt/rh/eap7/wildfly/eap7-domain.conf"' >> ~/.bash_profile
    echo 'export EAP_HOME="/opt/rh/eap7/root/usr/share"' >> ~/.bash_profile
@@ -349,37 +376,51 @@ Use the following steps to install:
    echo 'export EAP_HOME="/opt/rh/eap7/root/usr/share"' | sudo tee -a /etc/profile.d/eap_env.sh
    ```
 
+    ### [JBOSS EAP 8](#tab/jboss-eap-8)
+    
+    ```bash
+    echo 'export EAP_RPM_CONF_DOMAIN="/etc/opt/rh/eap8/wildfly/eap8-domain.conf"' >> ~/.bash_profile
+    echo 'export EAP_HOME="/opt/rh/eap8/root/usr/share"' >> ~/.bash_profile
+    source ~/.bash_profile
+    sudo touch /etc/profile.d/eap_env.sh
+    echo 'export EAP_HOME="/opt/rh/eap8/root/usr/share"' | sudo tee -a /etc/profile.d/eap_env.sh
+    ```
+
+    ---
+
 1. Exit from the SSH connection by typing *exit*.
 
 ### Create machines for managed servers
 
-You installed OpenJDK 11 and Red Hat JBoss EAP 7.4 on `adminVM`, which runs as the domain controller server. You still need to prepare machines to run the two host controller servers. Next, you create a snapshot of `adminVM` and prepare machines for two managed severs, `mspVM1` and `mspVM2`.
+You installed Red Hat JBoss EAP on `adminVM`, which runs as the domain controller server. You still need to prepare machines to run the two host controller servers. Next, you create a snapshot of `adminVM` and prepare machines for two managed severs, `mspVM1` and `mspVM2`.
 
 This section introduces an approach to prepare machines with the snapshot of `adminVM`. Return to your terminal that has Azure CLI signed in, then use the following steps:
 
 1. Use the following command to stop `adminVM`:
 
    ```azurecli
-   az vm stop --resource-group abc1110rg --name adminVM
+   az vm stop --resource-group $RESOURCE_GROUP_NAME --name adminVM
    ```
 
 1. Use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) to take a snapshot of the `adminVM` OS disk, as shown in the following example:
 
    ```azurecli
    export ADMIN_OS_DISK_ID=$(az vm show \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name adminVM \
        --query storageProfile.osDisk.managedDisk.id \
        --output tsv)
    az snapshot create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name myAdminOSDiskSnapshot \
        --source ${ADMIN_OS_DISK_ID}
    ```
+
 1. Use the following command to start `adminVM`:
 
    ```azurecli
-   az vm start --resource-group abc1110rg --name adminVM
+   az vm start --resource-group $RESOURCE_GROUP_NAME --name adminVM
+   ```
 
 1. Use the following steps to create `mspVM1`:
 
@@ -389,14 +430,14 @@ This section introduces an approach to prepare machines with the snapshot of `ad
       #Get the snapshot ID
       export SNAPSHOT_ID=$(az snapshot show \
           --name myAdminOSDiskSnapshot \
-          --resource-group abc1110rg \
+          --resource-group $RESOURCE_GROUP_NAME \
           --query '[id]' \
           --output tsv)
 
       #Create a new Managed Disks using the snapshot Id
       #Note that managed disk is created in the same location as the snapshot
       az disk create \
-          --resource-group abc1110rg \
+          --resource-group $RESOURCE_GROUP_NAME \
           --name mspVM1_OsDisk_1 \
           --source ${SNAPSHOT_ID}
       ```
@@ -407,13 +448,13 @@ This section introduces an approach to prepare machines with the snapshot of `ad
       #Get the resource Id of the managed disk
       export MSPVM1_DISK_ID=$(az disk show \
           --name mspVM1_OsDisk_1 \
-          --resource-group abc1110rg \
+          --resource-group $RESOURCE_GROUP_NAME \
           --query '[id]' \
           --output tsv)
 
       #Create VM by attaching existing managed disks as OS
       az vm create \
-          --resource-group abc1110rg \
+          --resource-group $RESOURCE_GROUP_NAME \
           --name mspVM1 \
           --attach-os-disk ${MSPVM1_DISK_ID} \
           --os-type linux \
@@ -423,11 +464,11 @@ This section introduces an approach to prepare machines with the snapshot of `ad
           --subnet mySubnet
       ```
 
-   1. You created `mspVM1` with OpenJDK 11 and Red Hat JBoss EAP 7.4 installed. Because the VM was created from a snapshot of the `adminVM` OS disk, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM1`:
+   1. You created `mspVM1` with Red Hat JBoss EAP installed. Because the VM was created from a snapshot of the `adminVM` OS disk, the two VMs have the same hostname. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to change the hostname to the value `mspVM1`:
 
       ```azurecli
       az vm run-command invoke \
-          --resource-group abc1110rg \
+          --resource-group $RESOURCE_GROUP_NAME \
           --name mspVM1 \
           --command-id RunShellScript \
           --scripts "sudo hostnamectl set-hostname mspVM1"
@@ -454,20 +495,20 @@ This section introduces an approach to prepare machines with the snapshot of `ad
    ```azurecli
    #Create a new Managed Disks for mspVM2
    az disk create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2_OsDisk_1 \
        --source ${SNAPSHOT_ID}
 
    #Get the resource Id of the managed disk
    export MSPVM2_DISK_ID=$(az disk show \
        --name mspVM2_OsDisk_1 \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --query '[id]' \
        --output tsv)
 
    #Create VM by attaching existing managed disks as OS
    az vm create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2 \
        --attach-os-disk ${MSPVM2_DISK_ID} \
        --os-type linux \
@@ -478,7 +519,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
 
    #Set hostname
    az vm run-command invoke \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2 \
        --command-id RunShellScript \
        --scripts "sudo hostnamectl set-hostname mspVM2"
@@ -500,13 +541,13 @@ Use the following commands to create a storage account and Blob container:
 
 ```azurecli
 # Define your storage account name
-export STORAGE_ACCOUNT_NAME=azurepingstgabc1110rg
+export STORAGE_ACCOUNT_NAME=azurepingstgabc1111rg
 # Define your Blob container name
-export CONTAINER_NAME=azurepingcontainerabc1110rg
+export CONTAINER_NAME=azurepingcontainerabc1111rg
 
 # Create storage account
 az storage account create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name ${STORAGE_ACCOUNT_NAME} \
     --location westus \
     --sku Standard_LRS \
@@ -518,7 +559,7 @@ Then, retrieve the storage account key for later use by using the following comm
 
 ```azurecli
 export STORAGE_ACCESS_KEY=$(az storage account keys list \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --account-name ${STORAGE_ACCOUNT_NAME} \
     --query "[0].value" \
     --output tsv)
@@ -550,10 +591,13 @@ ssh azureuser@$ADMIN_VM_PUBLIC_IP
 
 First, use the following commands to configure the HA profile and JGroups using the `AZURE_PING` protocol:
 
+
+### [JBOSS EAP 7.4](#tab/jboss-eap-74)
+
 ```bash
 export HOST_VM_IP=$(hostname -I)
-export STORAGE_ACCOUNT_NAME=azurepingstgabc1110rg
-export CONTAINER_NAME=azurepingcontainerabc1110rg
+export STORAGE_ACCOUNT_NAME=azurepingstgabc1111rg
+export CONTAINER_NAME=azurepingcontainerabc1111rg
 export STORAGE_ACCESS_KEY=<the-value-from-before-you-connected-with-SSH>
 
 
@@ -661,13 +705,136 @@ Mar 30 02:11:44 adminVM systemd[1]: Started JBoss EAP (domain mode).
 
 Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exit*.
 
+### [JBOSS EAP 8](#tab/jboss-eap-8)
+
+```bash
+export HOST_VM_IP=$(hostname -I)
+export STORAGE_ACCOUNT_NAME=azurepingstgabc1111rg
+export CONTAINER_NAME=azurepingcontainerabc1111rg
+export STORAGE_ACCESS_KEY=<the-value-from-before-you-connected-with-SSH>
+
+
+#-Configure the HA profile and JGroups using AZURE_PING protocol
+sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
+'embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-primary.xml',\
+':write-attribute(name=name,value=domain1)',\
+'/profile=ha/subsystem=jgroups/stack=tcp:remove',\
+'/profile=ha/subsystem=jgroups/stack=tcp:add()',\
+'/profile=ha/subsystem=jgroups/stack=tcp/transport=TCP:add(socket-binding=jgroups-tcp,properties={ip_mcast=false})',\
+"/profile=ha/subsystem=jgroups/stack=tcp/protocol=azure.AZURE_PING:add(properties={storage_account_name=\"${STORAGE_ACCOUNT_NAME}\", storage_access_key=\"${STORAGE_ACCESS_KEY}\", container=\"${CONTAINER_NAME}\"})",\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=MERGE3:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=FD_SOCK:add(socket-binding=jgroups-tcp-fd)',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=FD_ALL:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=VERIFY_SUSPECT:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.NAKACK2:add(properties={use_mcast_xmit=false,use_mcast_xmit_req=false})',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=UNICAST3:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.STABLE:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=pbcast.GMS:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=MFC:add',\
+'/profile=ha/subsystem=jgroups/stack=tcp/protocol=FRAG3:add',\
+'/profile=ha/subsystem=jgroups/channel=ee:write-attribute(name="stack", value="tcp")',\
+'/server-group=main-server-group:write-attribute(name="profile", value="ha")',\
+'/server-group=main-server-group:write-attribute(name="socket-binding-group", value="ha-sockets")',\
+"/host=primary/subsystem=elytron/http-authentication-factory=management-http-authentication:write-attribute(name=mechanism-configurations,value=[{mechanism-name=DIGEST,mechanism-realm-configurations=[{realm-name=ManagementRealm}]}])",\
+"/host=primary/interface=unsecure:add(inet-address=${HOST_VM_IP})",\
+"/host=primary/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
+"/host=primary/interface=public:add(inet-address=${HOST_VM_IP})"
+
+# Save a copy of the domain.xml, later you need to share it with all host controllers
+cp $EAP_HOME/wildfly/domain/configuration/domain.xml /tmp/domain.xml
+```
+
+The last stanza of output should look similar to the following example. If it doesn't, troubleshoot and resolve the problem before continuing.
+
+```output
+[domain@embedded /] /host=primary/interface=public:add(inet-address=192.168.0.4 )
+{
+    "outcome" => "success",
+    "result" => undefined,
+    "server-groups" => undefined,
+    "response-headers" => {"process-state" => "reload-required"}
+}
+06:22:54,381 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0050: JBoss EAP 8.0 Update 3.0 (WildFly Core 21.0.10.Final-redhat-00001) stopped in 24ms
+```
+
+Then, use the following commands to configure the JBoss server and set up the EAP service:
+
+```bash
+# Configure the JBoss server and setup EAP service
+echo 'WILDFLY_HOST_CONFIG=host-primary.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
+
+# Configure JBoss EAP management user
+export JBOSS_EAP_USER=jbossadmin
+export JBOSS_EAP_PASSWORD=Secret123456
+sudo $EAP_HOME/wildfly/bin/add-user.sh  -u $JBOSS_EAP_USER -p $JBOSS_EAP_PASSWORD -g 'guest,mgmtgroup'
+```
+
+The output should look similar to the following example:
+
+```output
+Added user 'jbossadmin' to file '/etc/opt/rh/eap8/wildfly/standalone/mgmt-users.properties'
+Added user 'jbossadmin' to file '/etc/opt/rh/eap8/wildfly/domain/mgmt-users.properties'
+Added user 'jbossadmin' with groups guest,mgmtgroup to file '/etc/opt/rh/eap8/wildfly/standalone/mgmt-groups.properties'
+Added user 'jbossadmin' with groups guest,mgmtgroup to file '/etc/opt/rh/eap8/wildfly/domain/mgmt-groups.properties'
+```
+
+Finally, use the following commands to start the EAP service:
+
+```bash
+# Start the JBoss server and setup EAP service
+sudo systemctl enable eap8-domain.service
+
+# Edit eap8-domain.services
+sudo sed -i 's/After=syslog.target network.target/After=syslog.target network.target NetworkManager-wait-online.service/' /usr/lib/systemd/system/eap8-domain.service
+sudo sed -i 's/Before=httpd.service/Wants=NetworkManager-wait-online.service \nBefore=httpd.service/' /usr/lib/systemd/system/eap8-domain.service
+
+# Reload and restart EAP service
+sudo systemctl daemon-reload
+sudo systemctl restart eap8-domain.service
+
+# Check the status of EAP service
+systemctl status eap8-domain.service
+```
+
+The output should look similar to the following example:
+
+```output
+● eap8-domain.service - JBoss EAP (domain mode)
+     Loaded: loaded (/usr/lib/systemd/system/eap8-domain.service; enabled; pres>
+     Active: active (running) since Mon 2024-09-23 15:52:06 UTC; 42ms ago
+   Main PID: 2018 (scl)
+      Tasks: 5 (limit: 20044)
+     Memory: 1.9M
+        CPU: 15ms
+     CGroup: /system.slice/eap8-domain.service
+             ├─2018 /usr/bin/scl enable eap8 -- /opt/rh/eap8/root/usr/share/wil>
+             ├─2019 /bin/bash /var/tmp/sclTMatKT
+             ├─2022 /bin/sh /opt/rh/eap8/root/usr/share/wildfly/bin/launch.sh />
+             ├─2024 /bin/sh /opt/rh/eap8/root/usr/share/wildfly/bin/launch.sh />
+             └─2026 "[sed]"
+
+Sep 23 15:52:06 adminVM systemd[1]: Started JBoss EAP (domain mode).
+```
+
+Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exit*.
+
+---
+
 After starting the Red Hat JBoss EAP service, you can access the management console via `http://$ADMIN_VM_PUBLIC_IP:9990` in your web browser. Sign in with the configured username `jbossadmin` and password `Secret123456`.
 
 :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/adminconsole.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform domain controller management console." lightbox="media/migrate-jboss-eap-to-vm-manually/adminconsole.png":::
 
 Select the **Runtime** tab. In the navigation pane, select **Topology**. You should see that for now your cluster only contains one domain controller:
 
-:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with domain controller only." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_only_with_admin.png":::
+### [JBOSS EAP 7.4](#tab/jboss-eap-74)
+
+:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology-only-with-admin.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with domain controller only." lightbox="media/migrate-jboss-eap-to-vm-manually/topology-only-with-admin.png":::
+
+### [JBOSS EAP 8](#tab/jboss-eap-8)
+
+:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology-only-with-admin-eap8.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with domain controller only." lightbox="media/migrate-jboss-eap-to-vm-manually/topology-only-with-admin-eap8.png":::
+
+---
 
 #### Configure host controllers (worker nodes)
 
@@ -675,10 +842,10 @@ Use SSH to connect to `mspVM1` as the `azureuser` user. Get the public IP addres
 
 ```bash
 MSPVM_PUBLIC_IP=$(az vm show \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name mspVM1 \
     --show-details \
-    --query publicIps)
+    --query publicIps | tr -d '"' )
 
 ssh azureuser@$MSPVM_PUBLIC_IP
 ```
@@ -707,6 +874,8 @@ sudo -u jboss scp azureuser@${DOMAIN_CONTROLLER_PRIVATE_IP}:/tmp/domain.xml $EAP
 You're asked for the password for the connection. For this example, the password is *Secret123456*.
 
 Use the following commands to apply host controller changes to `mspVM1`:
+
+### [JBOSS EAP 7.4](#tab/jboss-eap-74)
 
 ```bash
 # Setup host controller
@@ -780,21 +949,105 @@ Mar 30 03:02:15 mspVM1 systemd[1]: Started JBoss EAP (domain mode).
 
 Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exit*.
 
+### [JBOSS EAP 8](#tab/jboss-eap-8)
+
+```bash
+# Setup host controller
+sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --echo-command \
+"embed-host-controller --std-out=echo --domain-config=domain.xml --host-config=host-secondary.xml",\
+"/host=${HOST_VM_NAME_LOWERCASE}/server-config=server-one:remove",\
+"/host=${HOST_VM_NAME_LOWERCASE}/server-config=server-two:remove",\
+"/host=${HOST_VM_NAME_LOWERCASE}/server-config=${HOST_VM_NAME_LOWERCASE}-server0:add(group=main-server-group)",\
+"/host=${HOST_VM_NAME_LOWERCASE}/subsystem=elytron/authentication-configuration=secondary:add(authentication-name=${JBOSS_EAP_USER}, credential-reference={clear-text=${JBOSS_EAP_PASSWORD}})",\
+"/host=${HOST_VM_NAME_LOWERCASE}/subsystem=elytron/authentication-context=secondary-context:add(match-rules=[{authentication-configuration=secondary}])",\
+"/host=${HOST_VM_NAME_LOWERCASE}:write-attribute(name=domain-controller.remote.username, value=${JBOSS_EAP_USER})",\
+"/host=${HOST_VM_NAME_LOWERCASE}:write-attribute(name=domain-controller.remote, value={host=${DOMAIN_CONTROLLER_PRIVATE_IP}, port=9990, protocol=remote+http, authentication-context=secondary-context})",\
+"/host=${HOST_VM_NAME_LOWERCASE}/core-service=discovery-options/static-discovery=primary:write-attribute(name=host, value=${DOMAIN_CONTROLLER_PRIVATE_IP})",\
+"/host=${HOST_VM_NAME_LOWERCASE}/interface=unsecured:add(inet-address=${HOST_VM_IP})",\
+"/host=${HOST_VM_NAME_LOWERCASE}/interface=management:write-attribute(name=inet-address, value=${HOST_VM_IP})",\
+"/host=${HOST_VM_NAME_LOWERCASE}/interface=public:write-attribute(name=inet-address, value=${HOST_VM_IP})"
+```
+
+The last stanza of output should look similar to the following example. If it doesn't, troubleshoot and resolve the problem before continuing.
+
+```output
+[domain@embedded /] /host=mspvm1/interface=public:write-attribute(name=inet-address, value=192.168.0.5 )
+{
+    "outcome" => "success",
+    "result" => undefined,
+    "server-groups" => undefined,
+    "response-headers" => {"process-state" => "reload-required"}
+}
+06:33:43,528 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0050: JBoss EAP 8.0 Update 3.0 (WildFly Core 21.0.10.Final-redhat-00001) stopped in 24ms
+```
+
+Then, use the following commands to configure the JBoss server and setup EAP service:
+
+```bash
+echo 'WILDFLY_HOST_CONFIG=host-secondary.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
+
+# Enable the JBoss server and setup EAP service
+sudo systemctl enable eap8-domain.service
+
+# Edit eap8-domain.service
+sudo sed -i 's/After=syslog.target network.target/After=syslog.target network.target NetworkManager-wait-online.service/' /usr/lib/systemd/system/eap8-domain.service
+sudo sed -i 's/Before=httpd.service/Wants=NetworkManager-wait-online.service \nBefore=httpd.service/' /usr/lib/systemd/system/eap8-domain.service
+
+# Reload and restart EAP service
+sudo systemctl daemon-reload
+sudo systemctl restart eap8-domain.service
+
+# Check the status of EAP service
+systemctl status eap8-domain.service
+```
+
+The output should look similar to the following example:
+
+```output
+● eap8-domain.service - JBoss EAP (domain mode)
+   Loaded: loaded (/usr/lib/systemd/system/eap8-domain.service; enabled; vendor>
+   Active: active (running) since Thu 2023-03-30 03:02:15 UTC; 7s ago
+ Main PID: 9699 (scl)
+    Tasks: 51 (limit: 20612)
+   Memory: 267.6M
+   CGroup: /system.slice/eap8-domain.service
+           ├─9699 /usr/bin/scl enable eap8 -- /opt/rh/eap8/root/usr/share/wildf>
+           ├─9700 /bin/bash /var/tmp/sclgJ1hRD
+           ├─9702 /bin/sh /opt/rh/eap8/root/usr/share/wildfly/bin/launch.sh /us>
+           ├─9706 /bin/sh /opt/rh/eap8/root/usr/share/wildfly/bin/domain.sh --h>
+           ├─9799 /usr/lib/jvm/jre/bin/java -D[Process Controller] -server -Xms>
+           └─9811 /usr/lib/jvm/jre/bin/java -D[Host Controller] -Dorg.jboss.boo>
+
+Sep 30 03:02:15 mspVM1 systemd[1]: Started JBoss EAP (domain mode).
+```
+
+Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exit*.
+
+---
+
 Use SSH to connect to `mspVM2` as the `azureuser` user. Get the public IP address of the VM with the following command:
 
 ```bash
 az vm show \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name mspVM2 \
     --show-details \
-    --query publicIps
+    --query publicIps | tr -d '"'
 ```
 
 Repeat the previous steps on `mspVM2`, and then exit the SSH connection by typing *exit*.
 
 After two host controllers are connected to `adminVM`, you should be able to see the cluster topology, as shown in the following screenshot:
 
-:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology_with_cluster.png":::
+### [JBOSS EAP 7.4](#tab/jboss-eap-74)
+
+:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology-with-cluster.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology-with-cluster.png":::
+
+### [JBOSS EAP 8](#tab/jboss-eap-8)
+
+:::image type="content" source="media/migrate-jboss-eap-to-vm-manually/topology-with-cluster-eap8.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform that shows the Runtime tab and the Topology pane with all hosts." lightbox="media/migrate-jboss-eap-to-vm-manually/topology-with-cluster-eap8.png":::
+
+---
 
 ## Expose Red Hat JBoss EAP cluster with Azure Application Gateway
 
@@ -806,7 +1059,7 @@ To expose Red Hat JBoss EAP to the internet, a public IP address is required. Cr
 
 ```azurecli
 az network public-ip create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name myAGPublicIPAddress \
     --allocation-method Static \
     --sku Standard
@@ -816,7 +1069,7 @@ Next, add the backend servers to Application Gateway backend pool. Query for bac
 
 ```azurecli
 export MSPVM1_NIC_ID=$(az vm show \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name mspVM1 \
     --query networkProfile.networkInterfaces'[0]'.id \
     --output tsv)
@@ -825,7 +1078,7 @@ export MSPVM1_IP=$(az network nic show \
     --query ipConfigurations'[0]'.privateIPAddress \
     --output tsv)
 export MSPVM2_NIC_ID=$(az vm show \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name mspVM2 \
     --query networkProfile.networkInterfaces'[0]'.id \
     --output tsv)
@@ -839,7 +1092,7 @@ Next, create an Azure Application Gateway. The following example creates an appl
 
 ```azurecli
 az network application-gateway create \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name myAppGateway \
     --public-ip-address myAGPublicIPAddress \
     --location westus \
@@ -876,7 +1129,7 @@ Use the following steps to create the database instance:
    DB_SERVER_NAME="jbossdb$(date +%s)"
    echo "DB_SERVER_NAME=${DB_SERVER_NAME}"
    az postgres flexible-server create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name ${DB_SERVER_NAME}  \
        --location westus \
        --admin-user ${DATA_BASE_USER} \
@@ -893,18 +1146,18 @@ Use the following steps to create the database instance:
    ```azurecli
    # Save aside the following names for later use
    export fullyQualifiedDomainName=$(az postgres flexible-server show \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name ${DB_SERVER_NAME} \
        --query "fullyQualifiedDomainName" \
        --output tsv)
    export name=$(az postgres flexible-server show \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name ${DB_SERVER_NAME} \
        --query "name" \
        --output tsv)
 
    az postgres flexible-server firewall-rule create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name ${DB_SERVER_NAME} \
        --rule-name "AllowAllWindowsAzureIps" \
        --start-ip-address "0.0.0.0" \
@@ -915,7 +1168,7 @@ Use the following steps to create the database instance:
 
    ```azurecli
    az postgres flexible-server db create \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --server-name ${DB_SERVER_NAME} \
        --database-name testdb
    ```
@@ -944,7 +1197,15 @@ Use the following steps to install the JDBC driver with the JBoss management CLI
    "deploy /tmp/${jdbcDriverName} --server-groups=main-server-group"
    ```
 
+   ### [JBOSS EAP 7.4](#tab/jboss-eap-74)
+
    The server log is located on `mspVM1` and `mspVM2` at `/var/opt/rh/eap7/lib/wildfly/domain/servers/mspvm1-server0/log/server.log`. If the deployment fails, examine this log file and resolve the problem before continuing.
+
+   ### [JBOSS EAP 8](#tab/jboss-eap-8)
+
+   The server log is located on `mspVM1` and `mspVM2` at `/var/opt/rh/eap8/lib/wildfly/domain/servers/mspvm1-server0/log/server.log`. If the deployment fails, examine this log file and resolve the problem before continuing.
+   
+   ---
 
 ### Configure the database connection for the Red Hat JBoss EAP cluster
 
@@ -981,8 +1242,15 @@ Use the following steps to deploy Java EE Cafe sample application to the Red Hat
 
    1. Use the following command to clone the source code from GitHub:
 
+      ### [JBOSS EAP 7.4](#tab/jboss-eap-74)
+       
       ```bash
-      git clone https://github.com/Azure/rhel-jboss-templates.git
+      git clone https://github.com/Azure/rhel-jboss-templates.git --branch 20240904 --single-branch
+      ```
+      ### [JBOSS EAP 8](#tab/jboss-eap-8)
+       
+      ```bash
+      git clone https://github.com/Azure/rhel-jboss-templates.git --branch 20240924 --single-branch
       ```
 
    1. Use the following command to build the source code:
@@ -1000,7 +1268,7 @@ Use the following steps to deploy Java EE Cafe sample application to the Red Hat
    1. From the **Deployments** tab of the Red Hat JBoss EAP management console, select **Content Repository** in the navigation pane.
    1. Select the **Add** button and then select **Upload Content**.
 
-      :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/upload_content.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform Deployments tab with the Upload Content menu option highlighted." lightbox="media/migrate-jboss-eap-to-vm-manually/upload_content.png":::
+      :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/upload-content.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform Deployments tab with the Upload Content menu option highlighted." lightbox="media/migrate-jboss-eap-to-vm-manually/upload-content.png":::
 
    1. Use the browser file chooser to select the *javaee-cafe.war* file.
    1. Select **Next**.
@@ -1014,7 +1282,7 @@ Use the following steps to deploy Java EE Cafe sample application to the Red Hat
    1. Select `main-server-group` as the server group for deploying *javaee-cafe.war*.
    1. Select **Deploy** to start the deployment. You should see a notice similar to the following screenshot:
 
-      :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/successfully_deployed.png" alt-text="Screenshot of the notice of successful deployment." lightbox="media/migrate-jboss-eap-to-vm-manually/successfully_deployed.png":::
+      :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/successfully-deployed.png" alt-text="Screenshot of the notice of successful deployment." lightbox="media/migrate-jboss-eap-to-vm-manually/successfully-deployed.png":::
 
 ## Test the Red Hat JBoss EAP cluster configuration
 
@@ -1024,7 +1292,7 @@ You configured the JBoss EAP cluster and deployed the application to it. Use the
 
    ```bash
    az network public-ip show \
-       --resource-group abc1110rg \
+       --resource-group $RESOURCE_GROUP_NAME \
        --name myAGPublicIPAddress \
        --query '[ipAddress]' \
        --output tsv
@@ -1043,28 +1311,28 @@ Use the following commands to unregister the Red Hat JBoss EAP servers and VMs f
 ```azurecli
 # Unregister domain controller
 az vm run-command invoke \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name adminVM \
     --command-id RunShellScript \
     --scripts "sudo subscription-manager unregister"
 
 # Unregister host controllers
 az vm run-command invoke \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name mspVM1 \
     --command-id RunShellScript \
     --scripts "sudo subscription-manager unregister"
 az vm run-command invoke \
-    --resource-group abc1110rg \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name mspVM2 \
     --command-id RunShellScript \
     --scripts "sudo subscription-manager unregister"
 ```
 
-Use the following command to delete the resource group `abc1110rg`:
+Use the following command to delete the resource group `$RESOURCE_GROUP_NAME`:
 
 ```azurecli
-az group delete --name abc1110rg --yes --no-wait
+az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
 ## Next steps

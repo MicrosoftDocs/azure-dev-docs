@@ -2,7 +2,7 @@
 title: JavaScript Resource group management API
 description: Learn how to build a TypeScript Azure Function API to manage Azure resource groups.
 ms.topic: how-to
-ms.date: 03/29/2023
+ms.date: 04/29/2023
 ms.custom: devx-track-ts, engagement-fy23, devx-track-js
 ---
 
@@ -21,12 +21,14 @@ Features and functionality:
 * Use Azure Identity and Azure Resource Management SDKs to manage Azure resources
 * Use your local and cloud APIs to create, delete, and list resource groups in your subscription
 
-While the source code is written with TypeScript, the source code is simple. If you're comfortable with modern JavaScript using async/await, the code will be familiar to you.
+> [!WARNING]
+> This tutorial is meant for quick adoption and as such it doesn't follow secure-by-default requirements. To understand more about this scenario with a secure-by-default goal, go to [Security considerations](#security-considerations).
 
-[!INCLUDE [Create or use existing Azure Subscription ](../../includes/environment-subscription-h2.md)]
+While the source code is written with TypeScript, the source code is simple. If you're comfortable with modern JavaScript using async/await, the code will be familiar to you.
 
 ## Prerequisites
 
+- An Azure user account and subscription: [create a free subscription](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=azure-docs-js-dev-vscode-tutorial-appservice-extension&mktingSource=azure-docs-js-dev-vscode-tutorial-appservice-extension).
 - [Node.js LTS 18+ and npm](https://nodejs.org/en/download) installed to your local machine. Your local development environment version of Node.js should match one of the available Azure Function cloud runtime versions.
 - [Visual Studio Code](https://code.visualstudio.com/) installed to your local machine. 
     - [Azure Function](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension v1.10.4 or above.
@@ -75,11 +77,10 @@ az login
 An Azure service principal provides access to Azure without having to use your personal user credentials. For this tutorial, the service principal can be used both in your local and cloud environments. In an enterprise environment, you would want separate service principals for each environment.
 
 
-1. Determine a service principal name format so you can easily find your service principal later. For example, several format ideas are:
+1. Determine a service principal **name** format so you can easily find your service principal later. For example, several format ideas are:
 
     * Your project and owner: `resource-management-john-smith`.
     * Your department and date: `IT-2021-September`
-    * A unique identifier: `00000000-0000-0000-0000-000000000000`
 
 1. In a bash terminal, create your service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Replace `<SUBSCRIPTION-ID>` with your subscription ID. 
 
@@ -459,6 +460,12 @@ az ad sp delete --id <YOUR-SERVICE-PRINCIPAL-NAME>
 
 * [GitHub: Azure-Samples/azure-typescript-e2e-apps](https://github.com/Azure-Samples/azure-typescript-e2e-apps/blob/main/api-functions-v4-azure-resource-management)
 
+## Security considerations
+
+This solution, as a beginner tutorial, doesn't demonstrate secure-by-default practices. This is intentional to allow you to be successful in deploying the solution. The next step after that successful deployment is to secure the resources. This solution uses three Azure services, each has its own security features and considerations for secure-by-default configuration:
+
+* Azure Functions - [Securing Azure Functions](/azure/azure-functions/security-concepts)
+* Azure Storage - [Security recommendations for Blob storage](/azure/storage/blobs/security-recommendations)
 
 ## Next steps
 

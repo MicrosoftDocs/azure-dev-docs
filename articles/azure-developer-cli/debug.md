@@ -3,7 +3,7 @@ title: Run and debug apps enabled for Azure Developer CLI
 description: Learn how to use the VS Code extension for Azure Developer CLI and Visual Studio to run and debug locally.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 12/11/2023
+ms.date: 9/14/2023
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023

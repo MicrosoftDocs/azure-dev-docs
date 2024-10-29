@@ -4,7 +4,7 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: edburns
 ms.topic: conceptual
-ms.date: 12/14/2021
+ms.date: 09/09/2024
 recommendations: false
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-extended-java
 ---
@@ -29,11 +29,11 @@ It's better to stick as close to pure "lift and shift" as possible, accounting f
 
 Oracle and Microsoft have partnered to bring a set of Azure solution templates to Azure Marketplace to provide a solid starting point for migrating to Azure. Consult the [Oracle Fusion Middleware](https://docs.oracle.com/en/middleware/standalone/weblogic-server/wlazu/) documentation for the list of offers and choose the one that most closely matches your existing deployment. You can see the list of offers in the overview article [What is Oracle WebLogic Server on Azure?](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
 
-If none of the existing offers are a good starting point, you have to reproduce the deployment by hand using Azure Virtual Machine resources. You can find the step-by-step guidance in [Install Oracle WebLogic Server on Azure Virtual Machines manually](migrate-weblogic-to-azure-vm-manually.md). For more information, see [What is IaaS?](https://azure.microsoft.com/overview/what-is-iaas/)
+If none of the existing offers are a good starting point, you have to reproduce the deployment by hand using Azure Virtual Machine resources. You can find the step-by-step guidance in [Install Oracle WebLogic Server on Azure Virtual Machines manually](migrate-weblogic-to-azure-vm-manually.md). For more information, see [What is IaaS?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-iaas/)
 
 ### Determine whether the WebLogic version is compatible
 
-Your existing WebLogic version must be compatible with the version in the IaaS offers. To see the offers for WebLogic version 12.2.1.3, [query Azure Marketplace for Oracle WebLogic 12.2.1.3](https://azuremarketplace.microsoft.com/marketplace/apps?search=oracle%20weblogic%2012.2.1.3&page=1). If your existing WebLogic version isn't compatible with that version, you have to reproduce the deployment by hand using Azure IaaS resources. For more information, see [the Azure documentation](https://azure.microsoft.com/overview/what-is-iaas/).
+Your existing WebLogic version must be compatible with the version in the IaaS offers. To see the offers for WebLogic version 12.2.1.4, [query Azure Marketplace for Oracle WebLogic 12.2.1.4](https://azuremarketplace.microsoft.com/marketplace/apps?search=oracle%20weblogic%2012.2.1.4&page=1). If your existing WebLogic version isn't compatible with that version, you have to reproduce the deployment by hand using Azure IaaS resources. For more information, see [the Azure documentation](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-iaas/).
 
 [!INCLUDE [inventory-server-capacity-virtual-machines](includes/inventory-server-capacity-virtual-machines.md)]
 
@@ -133,7 +133,7 @@ You must account for the migration of any SSL KeyStores used by your application
 
 ### Connect the JMS sources
 
-After you've connected the databases, you can configure JMS. For more information, see [Fusion Middleware Administering JMS Resources for Oracle WebLogic Server](https://docs.oracle.com/middleware/12213/wls/JMSAD/toc.htm) in the WebLogic documentation.
+After you've connected the databases, you can configure JMS. For more information, see [Fusion Middleware Administering JMS Resources for Oracle WebLogic Server](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/12.2.1.4/jmsad/overview.html) in the WebLogic documentation.
 
 [!INCLUDE [account-for-authentication-and-authorization](includes/account-for-authentication-and-authorization.md)]
 

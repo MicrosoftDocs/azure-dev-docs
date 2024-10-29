@@ -1,17 +1,17 @@
 ---
-title: Express.js app converts text to speech with Cognitive Services Speech
-description: Use Cognitive Services Speech to convert text to speech, demonstrated on the client and the server. 
+title: Express.js app converts text to speech with Azure AI Speech
+description: Use Azure AI Speech to convert text to speech, demonstrated on the client and the server. 
 ms.topic: how-to
 ms.date: 01/18/2024
 ms.custom: languages:JavaScript, devx-track-js, devx-track-azurecli
 # Verified full run with CommonJS: 01/18/2024
 ---
 
-# Express.js app converts text to speech with Cognitive Services Speech
+# Express.js app converts text to speech with Azure AI Speech
 
-In this tutorial, add Cognitive Services Speech to an existing Express.js app to add conversion from text to speech using the Cognitive Services Speech service. Converting text to speech allows you to provide audio without the cost of manually generating the audio. 
+In this tutorial, add Azure AI Speech to an existing Express.js app to add conversion from text to speech using the Azure AI Speech service. Converting text to speech allows you to provide audio without the cost of manually generating the audio. 
 
-This tutorial shows 3 different ways to convert text to speech from Azure Cognitive Services Speech:
+This tutorial shows 3 different ways to convert text to speech from Azure Azure AI Speech:
 
 * Client JavaScript gets audio directly 
 * Server JavaScript gets audio from file (*.MP3)
@@ -39,7 +39,9 @@ This application provides three different calls to convert speech to text:
 - The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for VS Code (installed from within VS Code).
 - [Git](https://git-scm.com/downloads) - used to push to GitHub - which activates the GitHub action.
 - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the bash 
-   [![Embed launch](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com)   
+
+  [![Embed launch](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+   
 - If you prefer, [install](/cli/azure/install-azure-cli) the Azure CLI to run CLI reference commands.
    - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal.  See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for more sign-in options.
   - When you're prompted, install Azure CLI extensions on first use.  For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
@@ -71,9 +73,9 @@ This application provides three different calls to convert speech to text:
     npm install
     ```
 
-## Install Cognitive Services Speech SDK for JavaScript
+## Install Azure AI Speech SDK for JavaScript
 
-From the Visual Studio Code terminal, install the Azure Cognitive Services Speech SDK.
+From the Visual Studio Code terminal, install the Azure AI Speech SDK.
 
 ```bash
 npm install microsoft-cognitiveservices-speech-sdk
@@ -123,7 +125,7 @@ Highlighted lines in the file:
 * Line 102: The `updateSrc` method updates the audio controls' `src` URL with the querystring including the key, region, and text. 
 * Line 137: If a user selects the `Get directly from Azure` button, the web page calls directly to Azure from the client page and processes the result. 
 
-## Create Cognitive Services Speech resource
+## Create an Azure AI Speech resource
 
 Create the Speech resource with Azure CLI commands in an Azure Cloud Shell.
 

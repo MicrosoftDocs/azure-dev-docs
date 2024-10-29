@@ -3,8 +3,10 @@ items:
   href: ./index.yml
   items:
     - name: Quickstart
-      expanded: false
+      expanded: true
       items:
+        - name: Launch your first app in Azure Container Apps
+          href: /azure/container-apps/java-get-started?toc=/azure/developer/java/quickstarts/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
         - name: WebLogic Server on Azure VM
           href: /azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
         - name: Oracle WebLogic Server on AKS

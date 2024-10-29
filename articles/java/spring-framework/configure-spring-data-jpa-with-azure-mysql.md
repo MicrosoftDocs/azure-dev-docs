@@ -2,7 +2,7 @@
 title: Use Spring Data JPA with Azure Database for MySQL
 description: Learn how to use Spring Data JPA with an Azure Database for MySQL database.
 author: KarlErickson
-ms.date: 02/22/2023
+ms.date: 08/28/2024
 ms.author: hangwan
 ms.topic: article
 ms.custom: devx-track-java, devx-track-azurecli, team=cloud_advocates, passwordless-java, spring-cloud-azure, devx-track-extended-java

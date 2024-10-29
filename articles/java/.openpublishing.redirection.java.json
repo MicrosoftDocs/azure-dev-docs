@@ -25,7 +25,7 @@
           "source_path": "ee/weblogic-server-azure-virtual-machine.md",
           "redirect_url": "/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine"
         },
-        { 
+        {
             "source_path": "ee/weblogic-server-azure-kubernetes-service.md",
             "redirect_url": "/azure/aks/howto-deploy-java-wls-app"
         },
@@ -183,7 +183,11 @@
             "redirect_url": "/azure/developer/java/migration/index"
         },
         {
-            "source_path": "migration/migrate-spring-boot-to-azure-container-apps.md",
+            "source_path": "migration/migrate-spring-boot-to-azure-spring-apps.md",
+            "redirect_url": "/azure/developer/java/migration/index"
+        },
+        {
+            "source_path": "migration/migrate-spring-cloud-to-azure-spring-apps.md",
             "redirect_url": "/azure/developer/java/migration/index"
         },
         {
@@ -517,6 +521,30 @@
         {
             "source_path": "azure-ai/get-started-app-chat-template.md",
             "redirect_url": "/azure/developer/java/ai/get-started-app-chat-template"
+        },
+        {
+            "source_path": "sdk/identity.md",
+            "redirect_url": "/azure/developer/java/sdk/authentication/overview"
+        },
+        {
+          "source_path": "sdk/identity-azure-hosted-auth.md",
+          "redirect_url": "/azure/developer/java/sdk/authentication/azure-hosted-apps"
+        },
+        {
+          "source_path": "sdk/identity-service-principal-auth.md",
+          "redirect_url": "/azure/developer/java/sdk/authentication/service-principal"
+        },
+        {
+          "source_path": "sdk/identity-dev-env-auth.md",
+          "redirect_url": "/azure/developer/java/sdk/authentication/dev-env"
+        },
+        {
+          "source_path": "sdk/identity-user-auth.md",
+          "redirect_url": "/azure/developer/java/sdk/authentication/user"
+        },
+        {
+          "source_path": "identity/deploy-spring-boot-to-azure-spring-apps.md",
+          "redirect_url": "/azure/developer/java/identity/deploy-spring-boot-to-azure-container-apps"
         }
     ]
 }

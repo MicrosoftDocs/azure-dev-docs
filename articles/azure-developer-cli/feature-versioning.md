@@ -4,7 +4,7 @@ description: Learn about the versioning and feature release strategy of the Azur
 keywords: azure developer cli, azd
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 4/03/2023
+ms.date: 9/14/2023
 ms.topic: conceptual
 ms.service: azure-dev-cli
 ms.custom: devx-track-azdevcli
@@ -16,7 +16,7 @@ Azure Developer CLI (`azd`) features are introduced and supported using a phased
 
 ## Alpha Features
 
-All features start as **alpha** features (e.g., experimental). In this phase, the goal is to receive sufficient usage to get meaningful feedback around the feature’s design, functionality and user experience. Alpha features can be enabled and managed using the [`azd config`](reference.md) command.
+All features start as **alpha** features (e.g., experimental). In this phase, the goal is to receive sufficient usage to get meaningful feedback around the feature's design, functionality and user experience. Alpha features can be enabled and managed using the [`azd config`](reference.md) command.
 
 > [!IMPORTANT]
 > **Alpha** features are only recommended for non-business-critical scenarios with caution as there is a small chance of incompatible changes in subsequent releases leading up to stable.
@@ -26,7 +26,7 @@ All features start as **alpha** features (e.g., experimental). In this phase, th
 * These features are under active development.
 * Features are hidden behind a feature flag, which interested users must explicitly opt into. 
 * There are no guarantees about the long-term stability or support of experimental features.
-* No commitment that the feature is something the product team plans to advance to preview or stable stage (it’s an experiment).
+* No commitment that the feature is something the product team plans to advance to preview or stable stage (it's an experiment).
 
 ### How to opt into alpha features
 
@@ -52,7 +52,7 @@ All features start as **alpha** features (e.g., experimental). In this phase, th
 
 ### Advancement criteria (how to reach beta)
 
-* The feature has been properly spec’d and approved by the product team.
+* The feature has been properly spec'd and approved by the product team.
 * The product team has formally signed off on advancing the feature to next phase.
 * The feature is documented and help text is available in the product.
 * Confirmation that the UX is successful via sufficient user feedback.

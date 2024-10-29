@@ -15,11 +15,9 @@ ms.collection: ce-skilling-ai-copilot
 ## Prerequisites
 
 * Azure subscription.  [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true) 
-* Access granted to Azure OpenAI in the desired Azure subscription.
+* Access granted to Azure OpenAI in the desired Azure subscription. Learn more at https://aka.ms/oai/access.
 
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
-
-* Complete the [previous chat App procedure](get-started-app-chat-template.md) to deploy the chat app to Azure. This resource is required for the evaluations app to work. Don't complete the **Clean up resources** section of the previous procedure.      
+* Complete the [previous chat App procedure](get-started-app-chat-template.md) to deploy the chat app to Azure. This resource is required for the evaluations app to work. Don't complete the **Clean up resources** section of the previous procedure.
 
     You'll need the following Azure resource information from that deployment, which is referred to as the **chat app** in this article:
 

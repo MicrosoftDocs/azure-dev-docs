@@ -21,6 +21,8 @@
       href: configure-devops-pipeline.md
     - name: Resource Group Scoped Deployments
       href: resource-group-scoped-deployments.md
+    - name: Azure deployment stacks integration
+      href: azure-deployment-stacks-integration.md
     - name: Deploy to Azure AI/ML online endpoints
       href: azure-ai-ml-endpoints.md
   - name: Configuration
@@ -37,6 +39,8 @@
       href: use-external-registry.md
     - name: Use Helm and Kustomize
       href: helm-kustomize-support.md
+    - name: Configure service packaging ignore files
+      href: service-packaging-ignore-files.md
     - name: Configure template sources
       href: configure-template-sources.md
   - name: Create templates
@@ -73,6 +77,8 @@
     href: feature-versioning.md
   - name: Frequently asked questions (FAQ)
     href: faq.yml
+  - name: Release blog posts
+    href: https://devblogs.microsoft.com/azure-sdk/tag/azure-developer-cli/
   - name: Reference
     items:
     - name: azure.yaml

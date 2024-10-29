@@ -3,7 +3,7 @@ title: Use Terraform as an infrastructure as code tool for Azure Developer CLI
 description: How to use Terraform as an infrastructure as code tool for Azure Developer CLI (azd).
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 12/19/2022
+ms.date: 9/13/2024
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli, devx-track-terraform, build-2023
@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli, devx-track-terraform, build-2023
 
 # Use Terraform as an infrastructure as code tool for Azure Developer CLI
 
-Azure Developer CLI (azd) supports multiple infrastructures as code (IaC) providers, including:  
+Azure Developer CLI (`azd`) supports multiple infrastructures as code (IaC) providers, including:  
 
 - [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep)
 - [Terraform](../terraform/overview.md)

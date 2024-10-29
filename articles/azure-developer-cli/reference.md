@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 07/02/2024
+ms.date: 10/17/2024
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -512,12 +512,42 @@ Manage environments.
 
 ### See also
 
+* [azd env get-value](#azd-env-get-value): Get specific environment value.
 * [azd env get-values](#azd-env-get-values): Get all environment values.
 * [azd env list](#azd-env-list): List environments.
 * [azd env new](#azd-env-new): Create a new environment and set it as the default.
 * [azd env refresh](#azd-env-refresh): Refresh environment settings by using information from a previous infrastructure provision.
 * [azd env select](#azd-env-select): Set the default environment.
 * [azd env set](#azd-env-set): Manage your environment settings.
+* [Back to top](#azd)
+
+## azd env get-value
+
+Get specific environment value.
+
+```azdeveloper
+azd env get-value <keyName> [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs                 Opens the documentation for azd env get-value in your web browser.
+  -e, --environment string   The name of the environment to use.
+  -h, --help                 Gets help for get-value.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [azd env](#azd-env): Manage environments.
 * [Back to top](#azd)
 
 ## azd env get-values
@@ -1097,14 +1127,18 @@ View and manage template sources. (Beta)
 ### See also
 
 * [azd template](#azd-template): Find and view template details. (Beta)
-* [azd template source add](#azd-template-source-add): Adds an azd template source at the specified key (Beta)
+* [azd template source add](#azd-template-source-add): Adds an azd template source with the specified key. (Beta)
 * [azd template source list](#azd-template-source-list): Lists the configured azd template sources. (Beta)
 * [azd template source remove](#azd-template-source-remove): Removes the specified azd template source (Beta)
 * [Back to top](#azd)
 
 ## azd template source add
 
-Adds an azd template source at the specified key (Beta)
+Adds an azd template source with the specified key. (Beta)
+The key can be any value that uniquely identifies the template source, with the exception of the following reserved, well-known key values:
+
+* default: Default templates
+* awesome-azd: Templates from the [Awesome AZD template gallery](https://aka.ms/awesome-azd)
 
 ```azdeveloper
 azd template source add <key> [flags]
@@ -1115,9 +1149,9 @@ azd template source add <key> [flags]
 ```azdeveloper
       --docs              Opens the documentation for azd template source add in your web browser.
   -h, --help              Gets help for add.
-  -l, --location string   Location of the template source.
+  -l, --location string   Location of the template source. Required when using type flag.
   -n, --name string       Display name of the template source.
-  -t, --type string       Kind of the template source.
+  -t, --type string       Kind of the template source. Supported types are 'file', 'url' and 'gh'.
 ```
 
 ### Options inherited from parent commands

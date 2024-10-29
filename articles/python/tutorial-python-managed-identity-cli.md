@@ -31,6 +31,41 @@ A sample Python application using the Flask framework are available to help you 
     cd msdocs-flask-web-app-managed-identity
     ```
 
+## Examine authentication code
+
+The sample web app needs to authenticate to two different data stores:
+
+- Azure blob storage server where it stores and retrieves photos submitted by reviewers.
+- An Azure Database for PostgreSQL - Flexible Server database where it stores restaurants and reviews.
+
+It uses [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) to authenticate to both data stores. With `DefaultAzureCredential`, the app can be configured to run under the identity of different service principals, depending on the environment it's running in, without making changes to code. For example, in a local development environment, the app can run under the identity of the developer signed in to the Azure CLI, while in Azure, as in this tutorial, it can run under its system-assigned managed identity.
+
+In either case, the security principal that the app runs under must have a role on each Azure resource the app uses that permits it to perform the actions on the resource that the app requires. In this tutorial, you use service connectors to automatically enable the system-assigned managed identity on your app in Azure and to assign that identity appropriate roles on your Azure storage account and Azure Database for PostgreSQL server.
+
+After the system-assigned managed identity is enabled and is assigned appropriate roles on the data stores, you can use `DefaultAzureCredential` to authenticate with the required Azure resources.
+
+The following code is used to create a blob storage client to upload photos in `app.py`. An instance of `DefaultAzureCredential` is supplied to the client, which it uses to acquire access tokens to perform operations against Azure storage.
+
+```python
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient
+
+azure_credential = DefaultAzureCredential()
+blob_service_client = BlobServiceClient(
+    account_url=account_url,
+    credential=azure_credential)
+```
+
+An instance of `DefaultAzureCredential` is also used to get an access token for Azure Database for PostgreSQL in `./azureproject/get_conn.py`. In this case, the token is acquired directly by calling [get_token](/python/api/azure-identity/azure.identity.defaultazurecredential#azure-identity-defaultazurecredential-get-token) on the credential instance and passing it the appropriate `scope` value. The token is then used in the place of the password in the PostgreSQL connection URI returned to the caller.
+
+```python
+azure_credential = DefaultAzureCredential()
+token = azure_credential.get_token("https://ossrdbms-aad.database.windows.net")
+conn = str(current_app.config.get('DATABASE_URI')).replace('PASSWORDORTOKEN', token.token)
+```
+
+To learn more about authenticating your apps with Azure services, see [Authenticate Python apps to Azure services by using the Azure SDK for Python](./sdk/authentication/overview.md). To learn more about `DefaultAzureCredential`, including how to customize the credential chain it evaluates for your environment, see [DefaultAzureCredential overview](./sdk/authentication/credential-chains.md#defaultazurecredential-overview).
+
 ## Create an Azure PostgreSQL server
 
 1. Set up the environment variables needed for the tutorial.

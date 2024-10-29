@@ -72,8 +72,8 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 [Spring Cloud Stream Binder for Azure Service Bus]: ../spring-framework/spring-cloud-stream-support.md#spring-cloud-stream-binder-for-azure-service-bus
 [Send and Receive Messages in Java using Azure Event Hubs for Apache Kafka Ecosystems]: https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java
 [Use Java to send events to or receive events from Azure Event Hubs]: /azure/event-hubs/event-hubs-java-get-started-send
-[Enable Java Servlet apps to sign in users on Microsoft Entra ID]: https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/1-Authentication/sign-in#readme
-[Enable Java Servlet apps to sign in users on Azure AD B2C]: https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/tree/main/1-Authentication/sign-in-b2c#readme
+[Enable Java Servlet apps to sign in users on Microsoft Entra ID]: https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/3-java-servlet-web-app/1-Authentication/sign-in#readme
+[Enable Java Servlet apps to sign in users on Azure AD B2C]: https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/3-java-servlet-web-app/1-Authentication/sign-in-b2c#readme
 [Manage secrets using Key Vault]: /azure/key-vault/secrets/quick-create-java
 [JDBC]: https://spring.io/projects/spring-data-jdbc
 [JPA]: https://spring.io/projects/spring-data-jpa
@@ -111,8 +111,8 @@ Microsoft’s goal is to empower every developer to achieve more, and our commit
 [How to use Spring Cloud Azure Stream Binder for Azure Service Bus]: ../spring-framework/configure-spring-cloud-stream-binder-java-app-with-service-bus.md
 [How to use the Spring Boot Starter for Apache Kafka with Azure Event Hubs]: ../spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub.md
 [How to create a Spring Cloud Stream Binder application with Azure Event Hubs]: ../spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub.md
-[Enable Spring Boot Web apps to sign in users on Microsoft Entra ID]: https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/tree/main/1-Authentication/sign-in#readme
-[Enable Spring Boot Web apps to sign in users on Azure AD B2C]: https://github.com/Azure-Samples/ms-identity-java-spring-tutorial/tree/main/1-Authentication/sign-in-b2c#readme
+[Enable Spring Boot Web apps to sign in users on Microsoft Entra ID]: https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/4-spring-web-app/1-Authentication/sign-in#readme
+[Enable Spring Boot Web apps to sign in users on Azure AD B2C]: https://github.com/Azure-Samples/ms-identity-msal-java-samples/tree/main/4-spring-web-app/1-Authentication/sign-in-b2c#readme
 [Manage secrets for Spring Boot apps]: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault.md
 [Manage certificates for Spring Boot apps]: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates.md
 

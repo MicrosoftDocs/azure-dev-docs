@@ -8,9 +8,9 @@ items:
     - name: Use Blob Storage
       href: /azure/storage/blobs/storage-quickstart-blobs-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
     - name: Connect to an Azure Database for PostgreSQL
-      href: /azure/postgresql/single-server/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
+      href: /azure/postgresql/flexible-server/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
     - name: Connect to an Azure Database for MySQL
-      href: /azure/mysql/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
+      href: /azure/mysql/flexible-server/connect-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
     - name: Query an Azure SQL database
       href: /azure/azure-sql/database/connect-query-go?toc=/azure/developer/go/toc.json&bc=/azure/developer/go/breadcrumb/toc.json
   - name: Use the Azure SDK for Go
@@ -31,6 +31,8 @@ items:
     - name: Authentication
       expanded: false
       items:
+        - name: Overview
+          href: sdk/authentication-overview.md
         - name: Auth with Azure Identity module overview
           href: azure-sdk-authentication.md
         - name: Auth with Azure-hosted apps

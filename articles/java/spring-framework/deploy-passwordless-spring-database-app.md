@@ -4,7 +4,7 @@ description: Create a Spring Boot application with passwordless connection to an
 author: KarlErickson
 ms.author: hangwan
 ms.topic: tutorial
-ms.date: 01/18/2023
+ms.date: 08/28/2024
 ms.custom: passwordless-java, spring-cloud-azure, devx-track-java, service-connector, devx-track-azurecli, devx-track-extended-java
 ---
 

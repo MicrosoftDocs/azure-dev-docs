@@ -2,7 +2,7 @@
 title: JavaScript Logging, metrics, alerts in Azure
 description: Learn about logging options in Azure.
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 08/22/2024
 ms.custom: devx-track-js
 ---
 
@@ -119,6 +119,7 @@ You can add richer custom logging by using [Application Insights](/azure/azure-m
 
 * Add the Application Insights SDK to your source code.
 * Log from Node.js by using an [npm package](https://www.npmjs.com/package/applicationinsights).
+  * Make sure to configure the Node.js SDK with `enableAutoCollectConsole: true` in order to collect custom console logs.
 * Log from your client code by using an [npm package](https://www.npmjs.com/package/@microsoft/applicationinsights-web).
 * Log from your [Kubernetes cluster](/azure/azure-monitor/insights/container-insights-overview) or [Azure virtual machine](/azure/azure-monitor/insights/vminsights-overview).
 
