@@ -4,7 +4,7 @@ description: Shows you how to deploy a traditional WebSphere Application Server 
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 06/18/2024
+ms.date: 10/29/2024
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-was-vm, devx-track-javaee-was, devx-track-javaee-websphere
 #customer intent: As a developer, I want to deploy a WebSphere Application Server cluster on Azure VMs so that I can run my applications in a scalable and reliable environment.
 ---
@@ -76,7 +76,7 @@ The following steps show you how to fill out the **Cluster configuration** pane 
 1. Use the default value *4* for **Number of VMs**.
 1. Leave the default VM size for **VM size**.
 1. Leave the default value **websphere** for **VM administrator**.
-1. Leave the default option **Password** for **Authentication type**.
+1. Leave the default option **Password** for **Authentication type**. You can also select **SSH Public Key** which is more secure.
 1. Provide a password for **Password for VM administrator**. Use the same value for **Confirm password**.
 1. Leave the default value **wsadmin** for **WebSphere administrator**.
 1. Provide a password for **Password for WebSphere administrator**. Use the same value for **Confirm password**.
@@ -94,7 +94,7 @@ The following steps show you how to fill out the **Load balancer** pane shown in
 
 1. Under **IBM HTTP Server settings**, leave the default VM size for **VM size**.
 1. Leave the default value **ihsadmin** for **VM administrator**.
-1. Leave the default option **Password** for **Authentication type**.
+1. Leave the default option **Password** for **Authentication type**. You can also select **SSH Public Key** which is more secure.
 1. Provide a password for **Password for VM administrator**. Use the same value for **Confirm password**.
 1. Leave the default value **ihsadmin** for **IBM HTTP Server administrator**.
 1. Provide a password for **Password for IBM HTTP Server administrator**. Use the same value for **Confirm password**.
