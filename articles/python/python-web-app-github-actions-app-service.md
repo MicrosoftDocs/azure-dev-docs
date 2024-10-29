@@ -20,7 +20,7 @@ To complete the procedures in this article, you need a Python web app committed 
 - **New app**: If you need a new Python web app, you can fork and clone the https://github.com/Microsoft/python-sample-vscode-flask-tutorial GitHub repository. The sample code supports the [Flask in Visual Studio Code][1] tutorial, and provides a functioning Python application.
 
 > [!NOTE]
-> If your app uses [Django][20] and a [SQLite][21] database, it won't work for these procedures. If your Django app uses a separate database like PostgreSQL, you can use it. For more information, see [considerations for Django](#considerations-for-django) later in this article.
+> If your app uses [Django][20] and a [SQLite][21] database, it won't work for these procedures. If your Django app uses a separate database like PostgreSQL, you can use it. For more information, see [Review Django considerations](#review-django-considerations) later in this article.
 
 ## Create target App Service instance
 
@@ -39,7 +39,7 @@ The quickest way to create an App Service instance is to use the [Azure command-
 1. In Cloud Shell, clone your repository by using the [git clone][17] command.
 
    > [!TIP]
-   > To paste commands or text into Cloud Shell, use **Ctrl**+**Shift**+**V**, or right-click and select **Paste** from the context menu.
+   > To paste commands or text into Cloud Shell, use the **Ctrl**+**Shift**+**V** keyboard shortcut, or right-click and select **Paste** from the context menu.
 
    - For the Flask sample app, you can use the following command. Replace the `<github-user>` portion with the name of the GitHub account where you forked the repo:
 
@@ -50,7 +50,7 @@ The quickest way to create an App Service instance is to use the [Azure command-
    - If your app is in a different repo, set up GitHub Actions for the particular repo. Replace the `<github-user>` portion with the name of the GitHub account where you forked the repo, and provide the actual repo name in the `<repo-name>` placeholder:
 
       ```bash
-      git clone https://github.com/<github-user>/<Repo-name>.git
+      git clone https://github.com/<github-user>/<repo-name>.git
       ```
 
    > [!NOTE]
@@ -89,11 +89,11 @@ The quickest way to create an App Service instance is to use the [Azure command-
         --startup-file startup.txt
       ```
 
-      Provide your resource group name and App Service instance name in the `<resource-group-name>` and `<app-service-name>` placeholders. To find the resource group name, check the output from the previous `az webapp up` command. The resource group name includes the Azure account name followed by the *_rg* suffix,  *\<azure-account-name>\_rg\_*.
+      Provide your resource group name and App Service instance name in the `<resource-group-name>` and `<app-service-name>` placeholders. To find the resource group name, check the output from the previous `az webapp up` command. The resource group name includes the Azure account name followed by the *_rg* suffix, as in *\<azure-account-name>\_rg\_*.
 
-1. To view the running app, open a browser and go to the deployment endpoint for your App Service instance:
+1. To view the running app, open a browser and go to the deployment endpoint for your App Service instance. In the following URL, replace the `<app-service-name>` placeholder with your App Service instance name:
 
-   ```html
+   ```URL
    http://<app-service-name>.azurewebsites.net
    ```
 
@@ -158,7 +158,7 @@ The workflow template used to create the workflow is [Azure/actions-workflow-sam
 
 The workflow is triggered on push events to the specified branch. The event and branch are defined at the beginning of the workflow file. For example, the following code snippet shows the workflow is triggered on push events to the *main* branch:
 
-```yml
+```yaml
 on:
   push:
     branches:
@@ -169,7 +169,7 @@ on:
 
 When you set up continuous deployment, you authorize Azure App Service as an authorized OAuth App for your GitHub account. App Service uses the authorized access to create a GitHub action YAML file at the *.github/workflows/\<workflow-name>.yml* path in your repo.
 
-- To see your authorized apps and revoke permissions under your GitHub accounts, go to **Settings** > **Integrations/Applications**:
+To see your authorized apps and revoke permissions under your GitHub accounts, go to **Settings** > **Integrations/Applications**:
 
 :::image type="content" source="media/github-actions-app-service/github-authorized-oauth-apps.png" alt-text="Screenshot that shows how to view authorized OAuth Apps for a GitHub account.":::
 
@@ -177,7 +177,7 @@ When you set up continuous deployment, you authorize Azure App Service as an aut
 
 In the *.github/workflows/\<workflow-name>.yml* workflow file added to your repo, there's a placeholder for publish profile credentials required for the deploy job of the workflow. The publish profile information is stored encrypted in the repository.
 
-- To view the secret, go to **Settings** > **Security** > **Secret and variables** > **Actions**:
+To view the secret, go to **Settings** > **Security** > **Secret and variables** > **Actions**:
 
 :::image type="content" source="media/github-actions-app-service/github-repo-action-secrets.png" alt-text="Screenshot that shows how to view action secrets for a repository in GitHub.":::
 
@@ -189,7 +189,7 @@ The last step is to test the workflow by making a change to the repo.
 
 1. In a browser, go to your fork of the sample repository (or the repository you used), and select the branch you set as part of the trigger:
 
-   :::image type="content" source="media/github-actions-app-service/github-repo-make-small-change.png" alt-text="Screenshot that shows how to go to the repo and branch where GitHub Actions workflow is defined." lightbox="media/github-actions-app-service/github-repo-make-small-change.png":::
+   :::image type="content" source="media/github-actions-app-service/github-repo-make-small-change.png" alt-text="Screenshot that shows how to go to the repo and branch where GitHub Actions workflow is defined.":::
 
 1. Make a small change to your Python web app.
 
@@ -243,7 +243,7 @@ As noted earlier in this article, you can use GitHub Actions to deploy Django ap
 
 The [Configure Python app on App Service - Container startup process][13] article describes how App Service automatically looks for a *wsgi.py* file within your app code, which typically contains the app object. When you used the `webapp config set` command to set the startup command, you used the `--startup-file` parameter to specify the file that contains the app object. The `webapp config set` command isn't available in the webapps-deploy action. Instead, you can use the `startup-command` parameter to specify the startup command. For example, the following code shows how to specify the startup command in the workflow file:
 
-```yml
+```yaml
 startup-command: startup.txt
 ```
 
@@ -270,7 +270,7 @@ az webapp deployment github-actions remove \
 
 In the Azure portal, go to your App Service instance, select **Deployment Center**, and then select **Disconnect** for the instance:
 
-:::image type="content" source="media/github-actions-app-service/azure-portal-disconnect-github-actions.png" alt-text="Screenshot that shows how to disconnect GitHub Actions from an App Service instance in the Azure portal." lightbox="media/github-actions-app-service/azure-portal-disconnect-github-actions.png":::
+:::image type="content" source="media/github-actions-app-service/azure-portal-disconnect-github-actions.png" alt-text="Screenshot that shows how to disconnect GitHub Actions from an App Service instance in the Azure portal.":::
 
 ---
 
@@ -290,7 +290,7 @@ az group delete --name <resource-group-name>
 
 To delete a resource group in the Azure portal, search for the resource by name, and select the resource to go to the **Overview** page. On the **Overview** page, select **Delete resource group** and follow the prompts:
 
-:::image type="content" source="media/github-actions-app-service/azure-portal-delete-resource-group.png" alt-text="Screenshot that shows how to delete a resource group in the Azure portal." lightbox="media/github-actions-app-service/azure-portal-delete-resource-group.png":::
+:::image type="content" source="media/github-actions-app-service/azure-portal-delete-resource-group.png" alt-text="Screenshot that shows how to delete a resource group in the Azure portal.":::
 
 ---
 
