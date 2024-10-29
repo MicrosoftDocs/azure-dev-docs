@@ -21,7 +21,7 @@ In this article, you learn how to:
 
 ## Enable Azure deployment stack support
 
-Azure deployment stacks support must be enable via the `azd config` command:
+Azure deployment stacks support must be enabled via the `azd config` command:
 
 ```bash
 azd config set alpha.deployment.stacks on
@@ -45,7 +45,7 @@ After you enable the deployment stacks feature, no further changes to your `azd`
 azd up
 ```
 
-`azd` uses uses the scope defined in the `main.bicep` file of your template for the Azure deployment stack. For example, if your template is scoped to the subscription or resource group level, you can view the associated deployment stack in the Azure portal on the **Deployment stacks** page of the associated subscription or resource group page.
+`azd` uses the scope defined in the `main.bicep` file of your template for the Azure deployment stack. For example, if your template is scoped to the subscription or resource group level, you can view the associated deployment stack in the Azure portal on the **Deployment stacks** page of the associated subscription or resource group page.
 
 :::image type="content" source="media/deployment/subscription-deployment-stack.png" alt-text="A screenshot showing a subscription level deployment stack in the Azure portal.":::
 
@@ -104,8 +104,8 @@ In the preceding example, the following options are defined in the `deploymentSt
     - `denyDelete` prevents any deployment stack resources from being deleted.
     - `denyWriteAndDelete` prevents any deployment stack resources from being deleted and also prevents new resources from being added to the deployment stack.
   - **excludedActions**: Lists the [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) actions that are not allowed on the deployment stack resources.
-  - **excludedResources**: Lists the resource ids that are excluded from the `denySettings`.
-  - **excludedPrincipals**: Lists the service principal ids that are excluded from the `denySettings`.
+  - **excludedResources**: Lists the resource IDs that are excluded from the `denySettings`.
+  - **excludedPrincipals**: Lists the service principal IDs that are excluded from the `denySettings`.
   - **applyToChildScopes**: A boolean value that sets whether the deny settings apply to child resources of resources in the deployment stack. For example, a SQL Server resource has child database resources.
 
 > [!div class="nextstepaction"]
