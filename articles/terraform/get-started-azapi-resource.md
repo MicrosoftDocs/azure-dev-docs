@@ -42,15 +42,15 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/providers.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-key-vault/providers.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/main.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-key-vault/main.tf)]
 
 1. Create a file named `main-generic.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/main-generic.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-key-vault/main-generic.tf)]
 
 ## Initialize Terraform
 
@@ -66,8 +66,7 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 
 ## Verify the results
 
-1. In your Azure subscription browse to the `rg-qs101` resource group.
-1. A new Lab Services account named `qs101LabAccount` displays as a member of the resource group.
+1. Verify your keys have been listed as a result of the terraform apply.
 
 ## Clean up resources
 
@@ -80,4 +79,4 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about using Terraform in Azure](/azure/terraform)
+> [Learn more about the AzAPI provider](./overview-azapi-provider.md)
