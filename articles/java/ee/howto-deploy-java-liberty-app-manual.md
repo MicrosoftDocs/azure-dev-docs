@@ -458,7 +458,7 @@ To authenticate to the Azure SQL Database, you need to get the service account a
    These values are used in the next section to deploy the Liberty application to the AKS cluster.
 
 > [!NOTE]
-> The secret created by Service Connector contains the `AZURE_SQL_CONNECTIONSTRING`, which is a password free connection string to the Azure SQL Database. See sample value from [User-assigned managed identity authentication](/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity) for more information.
+> The secret created by Service Connector contains the `AZURE_SQL_CONNECTIONSTRING`, which is a password free connection string to the Azure SQL Database. See sample value from [User-assigned managed identity authentication](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity) for more information.
 
 ## Install Open Liberty Operator
 
@@ -806,8 +806,8 @@ az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
 You can learn more from references used in this guide:
 
 * [Azure Kubernetes Service](https://azure.microsoft.com/free/services/kubernetes-service/)
-* [Tutorial: Connect an AKS app to Azure SQL Database (preview)](/service-connector/tutorial-python-aks-sql-database-connection-string?pivots=workload-id&tabs=azure-cli)
-* [Integrate Azure SQL Database with Service Connector](/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java%2Csql-secret-java)
+* [Tutorial: Connect an AKS app to Azure SQL Database (preview)](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?pivots=workload-id&tabs=azure-cli)
+* [Integrate Azure SQL Database with Service Connector](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java%2Csql-secret-java)
 * [Connect using Microsoft Entra authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication?view=azuresqldb-current&preserve-view=true)
 * [Open Liberty](https://openliberty.io/)
 * [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator)
