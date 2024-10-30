@@ -1,6 +1,6 @@
 ---
-title: Migrate JBoss EAP applications to WildFly on Azure Kubernetes Service
-description: This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on WildFly in an Azure Kubernetes Service container.
+title: Migrate JBoss EAP applications to WildFly on Azure Kubernetes Service (AKS)
+description: This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on WildFly in an Azure Kubernetes Service (AKS) container.
 author: KarlErickson
 ms.author: manriem
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.custom: devx-track-java, devx-track-azurecli, migration-java, devx-track-exte
 recommendations: false
 ---
 
-# Migrate JBoss EAP applications to WildFly on Azure Kubernetes Service
+# Migrate JBoss EAP applications to WildFly on Azure Kubernetes Service (AKS)
 
 This guide describes what you should be aware of when you want to migrate an existing JBoss EAP application to run on WildFly in an Azure Kubernetes Service container.
 
@@ -92,7 +92,7 @@ If your application uses JCA connectors, validate that you can use the JCA conne
 If your application is packaged as an EAR file, be sure to examine the *application.xml* file and capture the configuration.
 
 > [!NOTE]
-> If you want to be able to scale each of your web applications independently for better use of your AKS resources you should break up the EAR into separate web applications.
+> If you want to be able to scale each of your web applications independently for better use of your Azure Kubernetes Service (AKS) resources you should break up the EAR into separate web applications.
 
 [!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 
