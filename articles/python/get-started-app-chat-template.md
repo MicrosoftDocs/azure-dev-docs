@@ -56,7 +56,7 @@ To use this article, you need the following prerequisites:
    
    * To modify content filters or support abuse monitoring, you need formal access approval. You can apply for access by completing the necessary registration forms. For more information, see [Registration for modified content filters and/or abuse monitoring](https://aka.ms/oai/access).
 
-   * For access troubleshooting, open a support issue on this repo.
+   * For access to troubleshooting, open a support issue on this repo.
 
 * A GitHub account.
 
@@ -113,9 +113,9 @@ Begin by setting up a development environment that has all the dependencies inst
    azd auth login
    ```
 
-   GitHub displays a security code in the Terminal.
+   GitHub displays a security code in the Terminal pane.
 
-   1. Copy the security code in the Terminal and select **Enter**. A browser window opens.
+   1. Copy the security code in the Terminal pane and select **Enter**. A browser window opens.
    
    1. At the prompt, paste the security code into the browser field.
    
@@ -127,9 +127,7 @@ You complete the remaining GitHub Codespaces tasks in this article in the contex
 
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) installed on your local machine. The extension hosts the development container locally by using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
-1. Open a Command Prompt window (terminal).
-
-1. Run the following command to create a project directory named **my-intelligent-app**, and change to the directory:
+1. On your local computer, create a project directory named **my-intelligent-app** and change into the directory:
 
    ```bash
    mkdir my-intelligent-app
@@ -142,15 +140,15 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
    code .
    ```
 
-1. In Visual Studio Code, open a terminal by selecting **Terminal** > **New Terminal** or use the keyboard shortcut **Ctrl**+**Shift**+**`** (back tick).
+1. In Visual Studio Code, open the Terminal pane by selecting **Terminal** > **New Terminal** or use the keyboard shortcut **Ctrl**+**Shift**+**`** (back tick).
 
-1. In the Visual Studio Code Terminal, run the following command to download the GitHub repository to your local computer:
+1. In the Visual Studio Code Terminal pane, run the following command to download the GitHub repository to your local computer:
 
    ```bash
    azd init -t azure-search-openai-demo
    ```
 
-1. At the prompt, enter an environment name. The name is added as a suffix to the directory name **my-intelligent-app**. Use a short value with all lowercase letters, such as **myenv**. The environment name is used as part of the resource group name. 
+1. At the prompt, enter an environment name. The name is added as a suffix to the directory name **my-intelligent-app**. Use a short name with all lowercase letters and dashes (`-`), such as **myenv**. Don't use uppercase letters, numbers, or special characters. The environment name is used as part of the resource group name. 
 
    Visual Studio Code opens the contents of the _my-intelligent-app_ project directory in the file **Explorer** view:
 
@@ -166,12 +164,13 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
    Wait for your project directory to open in the **Remote Explorer** view, before you continue to the next step.
 
-1. Sign in to Azure with the Azure Developer CLI.
+1. In the Visual Studio Code Terminal pane, sign in to Azure with the Azure Developer CLI (`azd`):
 
    ```bash
    azd auth login
    ```
-   Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
+
+   Copy the code from the Terminal pane and paste it into a browser. Follow the system instructions to authenticate with your Azure account.
 
 You complete the remaining exercises in this project in the context of this development container.
 
@@ -184,7 +183,7 @@ The sample repository contains all the code and configuration files you need to 
 > [!IMPORTANT]
 > Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources might accrue costs even if you interrupt the command before it fully executes. 
 
-1. Create the Azure resources and deploy the source code by running the following Azure Developer CLI (azd) command:
+1. In the Visual Studio Code Terminal pane, create the Azure resources and deploy the source code by running the following `azd` command:
 
    ```bash
    azd up
@@ -192,17 +191,17 @@ The sample repository contains all the code and configuration files you need to 
 
 1. The process prompts you for one or more of the following settings based on your configuration:
 
-   - **Environment name**: This value is used as part of the resource group name. Enter a short name with lowercase letters, such as **myenv**. 
+   - **Environment name**: This value is used as part of the resource group name. Enter a short name with lowercase letters and dashes (`-`), such as **myenv**. Uppercase letters, numbers, and special characters aren't supported.
 
-   - **Subscription**: Select a subscription to create the resources in. The GitHub Codespaces UI shows a few values at a time. You might need to use the arrows to scroll the full list of available options. 
+   - **Subscription**: Select a subscription to create the resources. If you don't see your desired subscription, use the arrow keys to scroll the full list of available subscriptions.
 
-   - **Location**: This region location is used for most resources, including hosting. Select a region location near you. 
+   - **Location**: This region location is used for most resources, including hosting. Select a region location near you geographically. 
 
-   - **Location for OpenAI model or Document Intelligence resource**: Select the location nearest you. If the region you selected for your **Location** is available for this setting, select the same region.
+   - **Location for OpenAI model or Document Intelligence resource**: Select the location nearest you geographically. If the region you selected for your **Location** is available for this setting, select the same region.
 
    It take can take some time for the app to deploy. Wait for the deployment to complete before continuing. 
 
-1. After the app successfully deploys, the Terminal displays an endpoint URL:
+1. After the app successfully deploys, the Terminal pane displays an endpoint URL:
 
    :::image type="content" source="media/get-started-app-chat-template/azd-deployed-endpoint.png" border="false" alt-text="Screenshot that shows the endpoint URL for the deployed app as reported after completion of the 'azd up' process.":::
 
@@ -290,7 +289,7 @@ After you complete the exercise, it's a best practice to remove any resources th
 
 The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
 
-Delete the Azure resources and remove the source code by running the following Azure Developer CLI (azd) command:
+Delete the Azure resources and remove the source code by running the following `azd` command:
 
 ```bash
 azd down --purge --force
