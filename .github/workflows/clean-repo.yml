@@ -36,7 +36,7 @@ jobs:
           articles_directory: './articles'
           media_directory: './articles'
           url_base_path: '/developer'
-          delete: true
+          delete: false
           orphaned_articles: false
           orphaned_images: true
           catalog_images: false
