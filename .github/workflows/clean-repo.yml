@@ -1,5 +1,6 @@
-name: "Clean repo"
 #original https://github.com/dotnet/docs/blob/main/.github/workflows/clean-repo.yml
+name: "Clean repo"
+
 on:
   schedule:
     - cron: "0 1 1 * *" # Runs at 01:00, on day 1 of the month
