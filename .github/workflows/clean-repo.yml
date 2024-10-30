@@ -37,7 +37,11 @@ jobs:
           media_directory: './articles'
           url_base_path: '/developer'
           delete: true
+          orphaned_articles: false
           orphaned_images: true
+          catalog_images: false
+          orphaned_snippets: false
+          orphaned_includes: false
           replace_redirects: true
           relative_links: true
           remove_hops: true
