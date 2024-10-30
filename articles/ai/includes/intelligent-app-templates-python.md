@@ -54,18 +54,28 @@ This template demonstrates the use of these features.
 |--|--|--|
 |Azure Container Registry<br>Azure Kubernetes<br>|Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio|GPT 3.5 Turbo<br>GPT 4.0<br>DALL-E|
 
-
 ### Contoso Chat Retail Copilot with AI Studio
 
-This template is a customer sales and support chat solution. It demonstrates how to build a Large Language Model (LLM) application with a RAG (Retrieval Augmented Generation) architecture using Azure AI Studio and Prompt Flow.
+This template implements _Contoso Chat_ - a retail copilot solution for Contoso Outdoor that uses a _retrieval augmented generation_ design pattern to ground chatbot responses in the retailer's product and customer data. Customers can ask questions from the website in natural language, and get relevant responses with potential recommendations based on their purchase history - with responsible AI practices to ensure response quality and safety.
+
+This template illustrates the end-to-end workflow (GenAIOps) for building a RAG-based copilot **code-first** with Azure AI and Prompty. By exploring and deploying this sample, you will learn to:
+
+1. Ideate and iterate rapidly on app prototypes using [Prompty](https://prompty.ai)
+1. Deploy and use [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/) models for chat, embeddings and evaluation
+1. Use Azure AI Search (indexes) and Azure CosmosDB (databases) for your data
+1. Evaluate chat responses for quality using AI-assisted evaluation flows
+1. Host the application as a FastAPI endpoint deployed to Azure Container Apps
+1. Provision and deploy the solution using the Azure Developer CLI
+1. Support Responsible AI practices with content safety & assessments
 
 To access the source code and read in-depth details about the template, see the [contoso-chat](https://github.com/Azure-Samples/contoso-chat) GitHub repo.
 
 :::row:::
-   :::column:::
-      :::image type="content" source="../media/intelligent-app-templates/browser-app-contoso-chat-retail-copilot-python.png" lightbox="../media/intelligent-app-templates/browser-app-contoso-chat-retail-copilot-python.png" alt-text="Screenshot of chat app with prompt flow in visual editor for Contoso chat retail copilot.":::
+   :::column span="":::
+      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-contoso-chat-python.png" lightbox="../media/intelligent-app-templates/architecture-diagram-contoso-chat-python.png" alt-text="Diagram showing architecture from client to backend app for hiking app.":::
    :::column-end:::
    :::column:::
+      :::image type="content" source="../media/intelligent-app-templates/browser-app-contoso-chat-retail-copilot-python.png" lightbox="../media/intelligent-app-templates/browser-app-contoso-chat-retail-copilot-python.png" alt-text="Screenshot of chat app with prompt flow in visual editor for Contoso chat retail copilot.":::
    :::column-end:::
 :::row-end:::
 
@@ -73,11 +83,11 @@ This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
-|Azure Container Apps<br>|Azure OpenAI<br>Azure AI Search<br>Azure AI Studio<br>Azure Cosmos DB|GPT 3.5 Turbo<br>GPT 4.0<br>Managed Integration Runtime (MIR)|
+|Azure Container Apps<br>|Azure OpenAI<br>Azure AI Search<br>Azure AI Studio<br>Prompty<br>Azure Cosmos DB|GPT 3.5 Turbo<br>GPT 4.0<br>Managed Integration Runtime (MIR)|
 
 ### Process automation with speech to text and summarization with AI Studio
 
-This template is a process automation solution that logs issues reported by field and shop floor workers at a company called Contoso Manufacturing, a manufacturing company that makes car batteries. The workers enter the issues either live through microphone input, prerecorded as audio files or as text input. The solution translates audio input from speech to text and then uses the text reports as input to an LLM and Prompty/Promptflow to summarize the issue and return the results in a format specified by the solution.
+This template is a process automation solution that logs issues reported by field and shop floor workers at a company called Contoso Manufacturing, a manufacturing company that makes car batteries. The workers enter the issues either live through microphone input, prerecorded as audio files or as text input. The solution translates audio input from speech to text and then uses the text reports as input to an LLM and Prompty to summarize the issue and return the results in a format specified by the solution.
 
 To access the source code and read in-depth details about the template, see the [summarization-openai-python-prompflow](https://github.com/Azure-Samples/summarization-openai-python-prompflow) GitHub repo.
 
@@ -93,7 +103,7 @@ This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
-|Azure Container Apps|Azure AI Studio<br>Speech to Text Service<br>Prompt Flow<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
+|Azure Container Apps|Azure AI Studio<br>Speech to Text Service<br>Prompty<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
 
 ### Function calling with Prompty, LangChain, and Elastic Search
 
