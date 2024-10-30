@@ -11,7 +11,7 @@ ms.author: stema
 
 # Quickstart: Create a Windows virtual machine in the Azure portal
 
-**Applies to:** :heavy_check_mark: Any management plane resources from the [AzureRM](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) or [AzAPI](https://learn.microsoft.com/en-us/azure/templates/) provider.
+**Applies to:** :heavy_check_mark: Any management plane resources from the [AzureRM](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) or [AzAPI](/azure/templates/) provider.
 
 Existing Azure resources can be exported to Terraform through the Azure portal. This quickstart shows you how to use the Azure portal to export a resource group.
 

@@ -18,11 +18,10 @@ Export functionality is based on the preexisting [Azure Export for Terraform too
 Follow the [quickstart article to export resources to Terraform using Azure portal](./get-started-export-resources-portal.md)
 
 ### REST
-Follow the [REST API reference](https://learn.microsoft.com/en-us/rest/api/)
+Follow the [REST API reference](/rest/api/)
 
 ## Next steps
 
 **Quickstart articles:**
 
 - [Export your first resources using the Azure portal](./get-started-export-resources-portal.md)
-- [Export your first resources using the Azure portal](./get-started-export-resources-terraform.md)

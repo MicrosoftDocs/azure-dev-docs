@@ -13,12 +13,12 @@ ms.author: stema
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
-In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to perform an imperative action on a resource. The `azapi_resource_action` will be used to list [Azure Key Vault Keys](/azure/AzureKeyVault/).
+In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to perform an imperative action on a resource. The `azapi_resource_action` will be used to list [Azure Key Vault Keys](/azure/key-vault/).
 
 > [!div class="checklist"]
 > * Define and configure the AzureRM and AzAPI providers
 > * Generate a random name for the Key Vault
-> * Use the AzureRM provider to [create an Azure Key Vault and Key Vault Key](../../terraform_samples/quickstart/101-key-vault-key)
+> * Use the AzureRM provider to create an Azure Key Vault and Key Vault Key
 > * Use the AzAPI provider to list Azure Key Vault Keys
 
 ## Prerequisites
