@@ -2,16 +2,16 @@
 title: "Tutorial: Migrate a WebLogic Server cluster to Azure with Elastic on Azure as the logging solution"
 description: This tutorial walks you through deploying WebLogic Server to Azure with Elastic Stack on Azure as the logging solution
 author: KarlErickson
-ms.author: edburns
+ms.author: haiche
 ms.topic: tutorial
-ms.date: 04/28/2021
+ms.date: 10/30/2024
 recommendations: false
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java
 ---
 
 # Tutorial: Migrate a WebLogic Server cluster to Azure with Elastic on Azure as the logging solution
 
-This tutorial walks you through the process of deploying WebLogic Server (WLS) with Elastic on Azure. It covers the specific steps for creating a managed Elastic stack on Azure. First you deploy WLS to connect to that Elastic stack. Then you create the search index in the managed Kibana. Finally, you search the WLS logs from within Kibana. All of these elements are well documented individually in other documentation. This tutorial shows the specific way all of these elements come together to create a powerful log management solution for WLS on Azure.
+This tutorial walks you through deploying WebLogic Server (WLS) with an integrated Elastic stack on Azure. It covers the detailed steps for setting up a managed Elastic stack on Azure, beginning with the creation of Elastic and deployment of WLS. You’ll then configure Logstash to export WLS logs and set up a search index in the managed Kibana. Finally, you’ll use Kibana to search and analyze WLS logs. While each component is documented individually, this tutorial demonstrates how they integrate seamlessly to provide a robust log management solution for WLS on Azure.
 
 :::image type="content" border="false" source="media/migrate-weblogic-with-elk/weblogic-elk.svg" alt-text="Diagram showing the relationship between WLS, App Gateway, and ELK.":::
 
@@ -19,7 +19,8 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create an Elastic on Azure instance
-> * Deploy WLS with integration to Elastic on Azure
+> * Deploy WLS on Azure
+> * Configure Logstash to export WLS to Elastic
 > * Create an index in Kibana that enables searching the WebLogic Server logs
 > * Search WebLogic Server logs from Kibana
 
@@ -28,40 +29,26 @@ In this tutorial, you learn how to:
 * An active Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 * The ability to deploy one of the WLS Azure Applications listed at [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
 
-## Create an Elastic on Azure instance
+## Create an Elasticsearch on Azure instance
 
-Elastic on Azure is a service you can get from Azure Marketplace and deploy with the Azure portal. You have two options for deploying Elastic on Azure: Elasticsearch managed service and Elasticsearch (Self-Managed). Elasticsearch managed service uses a Pay as you Go license model. Elasticsearch (Self-Managed) uses a Bring Your Own License (BYOL) license model. The BYOL model gives users the option to add more Elastic Stack features through an Elastic subscription purchased directly from Elastic. Choose the right Elasticsearch offer to suit your technical and business needs. Either option works with WLS. The steps in the next sections will show how to provision Elastic on Azure with either option.
+Elasticsearch (Elastic Cloud) for Azure is an Azure Native ISV Services you can get from Azure Marketplace and deploy with the Azure portal. Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Elastic Cloud - Azure Native ISV Service is developed and managed by Microsoft and Elastic. You create, provision, and manage Elastic resources through the Azure portal. Elastic owns and runs the SaaS application including the Elastic accounts created.
 
-### Elasticsearch managed service
+### Elastic on Azure
 
-Follow these steps to get access to Elasticsearch managed service, or see the next section for steps on getting access to Elasticsearch (Self-Managed).
+Follow [QuickStart: Get started with Elastic](/azure/partner-solutions/elastic/create) to create an Elastic application.
+1. Visit the main page for [Elastic Cloud (Elasticsearch) – An Azure Native ISV Service](https://portal.azure.com/#browse/Microsoft.Elastic%2Fmonitors).
+1. Select **Create**.
+1. In the **Basics** blade, under **Plan Details**:
 
-1. Visit the main page for [Elasticsearch managed service on Azure](https://www.elastic.co/azure).
+  1. For **Resource group**, fill in a unique resource group name. This tutorial uses `elkrg1030`.
+  1. For **Resource name**, fill in a unique name for your Elastic instance.  This tutorial uses `elkforwlsonazure1030`.
+  1. For **Region**, select your desired region.
+  1. Keep default values for other fields.
 
-1. Select **Try Free**.
+1. In the **Logs & metrics** blade, you can select **Send subscription activity logs** and **Send Azure resource logs for all defined resources** to monitor the Azure resources. However, this tutorial focuses solely on WLS logs and does not cover infrastructure logs.
+1. Select **Create** to start the deployment.
 
-1. Under **Elasticsearch**, select **Launch on Elastic Cloud**.
-1. If you already have an account, sign in to it and continue to the next step. If you don't have an account, fill in an email address and password and select **Create account**. You'll be sent a verification email.
-
-   1. Select the **Verify and Accept** button in the email.
-   1. After logging in, select **Start your free trial**.
-
-   The email address and password are for your Elasticsearch managed service. You can get back to the Elasticsearch managed service by visiting [https://cloud.elastic.co/login](https://cloud.elastic.co/login) and signing in with this email address and password.
-
-1. Select **Elastic Stack**.
-1. In **Deployment settings**, make sure you have selected **Azure** and then choose the same data center where your WLS will be deployed.
-1. Accept the default values for the rest of the settings.
-1. Select **Create deployment**.
-1. Note down your deployment credentials. You'll need them later in this tutorial.
-
-Continue to the section [Note down the Elasticsearch and Kibana URLs](#note-down-the-elasticsearch-and-kibana-urls).
-
-### Elasticsearch (Self-Managed)
-
-To deploy Elastic on Azure, follow the steps in [Getting started with the Azure Marketplace](https://aka.ms/elastic-on-azure). Complete that tutorial and return here after you have successfully deployed Elastic on Azure. Note down the Elastic credentials required by WLS. After you've deployed your chosen Elastic on Azure offer, note down the following information from the deployed offer:
-
-* The username and password of the Elastic on Azure service.
-* The username and password of the Elasticsearch and Kibana endpoints.
+After the deployment succeeds, continue to the section [Note down the Elasticsearch and Kibana URLs](#note-down-the-elasticsearch-and-kibana-urls).
 
 ### Note down the Elasticsearch and Kibana URLs
 
@@ -73,44 +60,49 @@ Now that you've deployed Elastic on Azure, save aside the Elasticsearch endpoint
 
 :::image type="content" source="media/migrate-weblogic-with-elk/elasticsearch-endpoint.png" alt-text="The Elasticsearch endpoint URL and Kibana launch URL.":::
 
-## Deploy WLS with integration to Elastic on Azure
+## Deploy WLS on Azure
 
-This section will show you how to use the Elastic on Azure resource created in the preceding section. You'll provision a WLS server configured to send its logs to Elastic on Azure.
+Provision a WebLogic Server as described in [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](https://aka.ms/arm-oraclelinux-wls) The instructions for "Deploy Oracle WebLogic Server With Administration Server on a Single Node" and "Deploy Oracle WebLogic Server Cluster on Microsoft Azure IaaS" are all suitable for use with Elastic on Azure. The default VM size for WLS doesn't have enough memory, so be sure the selected VM size has at least 2.5 GB of memory. Use at least `Standard_A2_v2`.
 
-To create the WLS server with integration to Elastic on Azure, follow these steps:
+Selecting **Create** will start the process of creating the WLS server on Azure, which may take about 30 minutes. When the deployment completes, select **Ouputs** and write down value of **adminConsoleAddress**, the address to access the Administration Console.
 
-1. Provision a WebLogic Server as described in [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](https://aka.ms/arm-oraclelinux-wls) The instructions for "Deploy Oracle WebLogic Server With Administration Server on a Single Node" and "Deploy Oracle WebLogic Server Cluster on Microsoft Azure IaaS" are all suitable for use with Elastic on Azure. The default VM size for WLS doesn't have enough memory, so be sure the selected VM size has at least 2.5 GB of memory. Use at least `Standard_A2_v2`. Come back to this page when you reach the **Elasticsearch and Kibana** section shown in the following image.
+### Understand WebLogic logs and extend access log
 
-   :::image type="content" source="media/migrate-weblogic-with-elk/elasticsearch-portal-blade.png" alt-text="The Elasticsearch and Kibana blade within the Azure portal.":::
+WebLogic Server subsystems use logging services to provide information about events such as the deployment of new applications or the failure of one or more subsystems. A server instance uses them to communicate its status and respond to specific events. For example, you can use WebLogic logging services to report error conditions or listen for log messages from a specific subsystem. For more information, see [Understanding WebLogic Logging Services](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wllog/logging_services.html).
 
-1. In the **Elasticsearch and Kibana** section, next to **Export logs to Elasticsearch server?** select **Yes**.
-1. In the text field labeled **Elasticsearch endpoint URL**, paste the Elasticsearch endpoint URL you saved previously.
-1. In the text field labeled **Elasticsearch User Name**, paste the username of the Elastic on Azure service you used when you created the service.
-1. In the two text fields for password, paste the password of the Elastic on Azure service you used when you created the service.
-1. In the **WebLogic Server logs to export** field, select the drop-down menu and select the logs you want. For this tutorial, select all logs.
-1. Select **Review + Create**.
-1. Select **Create**. The values you entered are now validated. If this validation step fails, review the fields in the Elasticsearch and Kibana section and the other sections, and be sure you provided the correct values.
-1. After you see **Validation passed**, select **Create**.
+This tutorial considers the following logs:
 
-Selecting **Create** will start the process of creating the WLS server and configuring the link to Elastic on Azure, which may take about 15 minutes. When the deployment completes, select **Go to resource group**.
+1. Server Log Files. By default, the server log file is located in the logs directory below the server instance root directory; for example, *DOMAIN_NAME\servers\SERVER_NAME\logs\SERVER_NAME.log*.
+1. Domain Log Files. The domain log file provides a central location from which to view the overall status of the domain. The domain log resides in the Administration Server `logs` directory. The default name and location for the domain log file is *DOMAIN_NAME\servers\ADMIN_SERVER_NAME\logs\DOMAIN_NAME.log*.
+1. HTTP access logs. The default location and rotation policy for HTTP access logs is the same as the server log, for example, *DOMAIN_NAME\servers\SERVER_NAME\logs\access.log*.
 
-### Save the search index output by the completed deployment
+This tutorial extends access log to export more information. Follow the steps to customize the HTTP access log:
 
-The act of deploying WLS with ELK integration causes a Kibana search index to be output by the template. This pre-created index saves you time in creating the index yourself. Follow the steps in this section to configure Kibana for use in searching your WLS logs.
+1. Log into the Administration Server console.
+1. In the Change Center of the Administration Console, click **Lock & Edit**.
+1. In the left pane of the Console, expand **Environment** and select **Servers**.
+1. In the Servers table, click the **admin** name.
+1. In the Settings for admin page, select **Logging** > **HTTP**.
+1. On the Logging > HTTP page, make sure that the **HTTP access log file enabled** checkbox is checked.
+1. Click Advanced.
+1. In the Advanced pane:
+  - In the Format list box, select **Extended**.
+  - In the Extended Logging Format Fields, enter this space-delimited string:
 
-1. Go to the resource group in which you deployed WLS. If you selected **Go to resource group** in the previous section, you'll already be there. Otherwise, follow these steps.
-   1. Navigate to **Home** in the portal, then select **Resource groups**. In the search box that says **Filter for any field...**, enter the name of your resource group. Make sure the **Subscription** filter is set to the subscription you used when you deployed WLS. If the filter is not set correctly, the resource group won't be visible.
-   1. When the resource group appears, select it.
-1. In the left panel, under **Settings**, select **Deployments**. You'll be taken to a page that shows the result of the deployment actions taken to create WLS.
-1. In the search box that says **Filter by deployment name**, type *elk*.
-1. The list of deployment actions should show one entry. Select it.
+     ```text
+     date time time-taken bytes c-ip  s-ip c-dns s-dns  cs-method cs-uri sc-status sc-comment ctx-ecid ctx-rid
+     ```
+1. Click Save.
+1. In the Change Center of the Administration Console, click **Activate Changes**.
 
-   :::image type="content" source="media/migrate-weblogic-with-elk/weblogic-portal-resource-group-deployments-01.png" alt-text="The ELK integration deployment.":::
+To make the change work, you have to re-start the WebLogic Server:
 
-1. On the pane for ELK deployment, in the left panel, select **Outputs**.
-1. To the right of the output labeled **logindex**, select the copy icon. Paste the result into a text file and save it aside for use in the next section.
+1. Open Azure portal, go to the resource group that created in [Deploy WLS on Azure](#deploy-wls-on-azure).
+1. Stop and then re-start VM that runs the WebLogic Server.
 
-   :::image type="content" source="media/migrate-weblogic-with-elk/weblogic-portal-resource-group-deployments-02.png" alt-text="The outputs and logindex buttons.":::
+## Install and configure Logstash to export WLS logs
+
+This section shows you how to install and configure Logstash for WLS logs.
 
 ## Create an index in Kibana that enables searching the WebLogic Server logs
 
