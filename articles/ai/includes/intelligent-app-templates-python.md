@@ -16,7 +16,7 @@ To get started with this template, see [Get started with the chat using your own
       :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-chat-python.png" lightbox="../media/intelligent-app-templates/architecture-diagram-chat-python.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
    :::column-end:::
    :::column:::
-      :::image type="content" source="../media/intelligent-app-templates/browser-app-chat-python.png" lightbox="../media/intelligent-app-templates/browser-app-chat-python.png" alt-text="Diagram showing architecture from client to backend app":::
+      :::image type="content" source="../media/intelligent-app-templates/browser-app-chat-python.png" lightbox="../media/intelligent-app-templates/browser-app-chat-python.png" alt-text="Diagram showing architecture from client to backend app.":::
    :::column-end:::
 :::row-end:::
 
