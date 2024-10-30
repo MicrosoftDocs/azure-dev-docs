@@ -61,7 +61,7 @@ This template implements _Contoso Chat_ - a retail copilot solution for Contoso 
 This template illustrates the end-to-end workflow (GenAIOps) for building a RAG-based copilot **code-first** with Azure AI and Prompty. By exploring and deploying this sample, learn to:
 
 1. Ideate and iterate rapidly on app prototypes using [Prompty](https://prompty.ai)
-1. Deploy and use [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/) models for chat, embeddings, and evaluation
+1. Deploy and use [Azure OpenAI](azure/ai-services/openai/concepts/models?tabs=python-secure%2Cglobal-standard%2Cstandard-chat-completions) models for chat, embeddings, and evaluation
 1. Use Azure AI Search (indexes) and Azure Cosmos DB (databases) for your data
 1. Evaluate chat responses for quality using AI-assisted evaluation flows
 1. Host the application as a FastAPI endpoint deployed to Azure Container Apps
