@@ -642,6 +642,25 @@ You can now run and test the project locally before deploying to Azure. For conv
 
 1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop. Select `Y` if you're aksed to terminate batch job.
 
+When you're finished, delete the firewall rule that allows your local IP address to access the Azure SQL Database by using the following command:
+
+### [Bash](#tab/in-bash)
+
+```azurecli
+az sql server firewall-rule delete \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --server $SQL_SERVER_NAME \
+    --name AllowLocalIP
+```
+
+### [PowerShell](#tab/in-powershell)
+
+```azurepowershell
+az sql server firewall-rule delete --resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SERVER_NAME --name AllowLocalIP
+```
+
+---
+
 ### Build the image for AKS deployment
 
 You can now run the [az acr build](/cli/azure/acr#az-acr-build) command to build the image, as shown in the following example:
