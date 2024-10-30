@@ -40,10 +40,10 @@ To access the source code and read in-depth details about the template, see the 
 
 :::row:::
    :::column:::
-      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-agent-java.png" lightbox="../media/intelligent-app-templates/architecture-diagram-chat-java.png" alt-text="Diagram showing architecture for copilot app deployed side-by-side to business microservices.":::
+      :::image type="content" source="../media/intelligent-app-templates/architecture-diagram-agent-java.png" lightbox="../media/intelligent-app-templates/architecture-diagram-agent-java.png" alt-text="Diagram showing architecture for copilot app deployed side-by-side to business microservices.":::
    :::column-end:::
    :::column:::
-      :::image type="content" source="../media/intelligent-app-templates/browser-app-agent-java.png" lightbox="../media/intelligent-app-templates/browser-app-chat-java.png" alt-text="Screenshot of Java personal banking assistant chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+      :::image type="content" source="../media/intelligent-app-templates/browser-app-agent-java.png" lightbox="../media/intelligent-app-templates/browser-app-agent-java.png" alt-text="Screenshot of Java personal banking assistant chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
    :::column-end:::
 :::row-end:::
 
