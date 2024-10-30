@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service with geo-redundancy"
-description: Shows how to deploy WebLogic Server to Azure Kubernetes Service with geo-redundancy.
+title: "Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service (AKS) with geo-redundancy"
+description: Shows how to deploy WebLogic Server to Azure Kubernetes Service (AKS) with geo-redundancy.
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
@@ -9,7 +9,7 @@ recommendations: false
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, migration-java,, devx-track-azurecli, devx-track-extended-java
 ---
 
-# Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service with geo-redundancy
+# Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service (AKS) with geo-redundancy
 
 This tutorial shows you a straightforward and effective way to implement a business continuity and disaster recovery (DR) strategy for Java using Oracle WebLogic Server (WLS) on Azure Kubernetes Service (AKS). The solution illustrates how to back up and restore a WLS workload using a simple database-driven Jakarta EE application running on AKS. Geo-redundancy is a complex topic, with many possible solutions. The best solution depends on your unique requirements. For other ways to implement geo-redundancy, see the resources at the end of this article.
 

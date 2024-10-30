@@ -91,7 +91,7 @@ If your application uses JCA connectors, you'll have to validate the JCA connect
 If your application is packaged as an EAR file, be sure to examine the *application.xml* file and capture the configuration.
 
 > [!NOTE]
-> If you want to be able to scale each of your web applications independently for better use of your AKS resources you should break up the EAR into separate web applications.
+> If you want to be able to scale each of your web applications independently for better use of your Azure Kubernetes Service (AKS) resources you should break up the EAR into separate web applications.
 
 [!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 

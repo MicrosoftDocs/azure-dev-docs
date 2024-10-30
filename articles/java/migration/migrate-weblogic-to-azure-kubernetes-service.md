@@ -1,15 +1,15 @@
 ---
-title: Migrate WebLogic Server applications to Azure Kubernetes Service
-description: Migrate WebLogic Server applications to Azure Kubernetes Service
+title: Migrate WebLogic Server applications to Azure Kubernetes Service (AKS)
+description: Migrate WebLogic Server applications to Azure Kubernetes Service (AKS)
 author: KarlErickson
 ms.author: edburns
 ms.topic: conceptual
 ms.date: 09/30/2022
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-extended-java
-#Customer intent: As a Java developer, I want to migrate my on-premise WebLogic Server workload to WebLogic on Azure Kubernetes Service
+#Customer intent: As a Java developer, I want to migrate my on-premise WebLogic Server workload to WebLogic on Azure Kubernetes Service (AKS)
 ---
 
-# Migrate WebLogic Server applications to Azure Kubernetes Service
+# Migrate WebLogic Server applications to Azure Kubernetes Service (AKS)
 
 This guide describes what you should be aware of when you want to migrate an existing WebLogic Server (WLS) application to run on Azure Kubernetes Service (AKS).
 
