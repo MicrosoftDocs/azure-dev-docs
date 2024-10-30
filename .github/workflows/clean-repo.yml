@@ -36,15 +36,15 @@ jobs:
           articles_directory: './articles'
           media_directory: './articles'
           url_base_path: '/developer'
-          delete: false
+          delete: true
           orphaned_articles: false
           orphaned_images: true
           catalog_images: false
           orphaned_snippets: false
           orphaned_includes: false
-          replace_redirects: true
-          relative_links: true
-          remove_hops: true
+          replace_redirects: false
+          relative_links: false
+          remove_hops: false
         
       # Create the PR for the work done by the "clean repo" tool
       - name: create-pull-request
