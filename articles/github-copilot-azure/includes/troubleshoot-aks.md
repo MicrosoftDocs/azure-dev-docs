@@ -1,7 +1,0 @@
-- "@azure Help me troubleshoot my AKS cluster."
-- "@azure How do I troubleshoot my Azure Kubernetes Service (AKS)?"
-- "@azure How can I get the logs of a specific pod?"
-- "@azure Do my kube-apiserver logs show the last time a restart occured?"
-- "@azure my assistant-orchestrator AKS cluster is having performance problems"
-- "@azure Find out why my store-service-prod kube cluster is running slow"
-- "@azure I'd like to investigate performance issues with my kube cluster"

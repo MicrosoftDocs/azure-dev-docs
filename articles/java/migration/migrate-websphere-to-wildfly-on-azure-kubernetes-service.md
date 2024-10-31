@@ -4,7 +4,7 @@ description: This guide describes what you should be aware of when you want to m
 author: KarlErickson
 ms.author: manriem
 ms.topic: conceptual
-ms.date: 2/28/2020
+ms.date: 09/20/2024
 ms.custom: devx-track-java, devx-track-azurecli, migration-java, devx-track-extended-java
 recommendations: false
 ---
@@ -87,7 +87,7 @@ If your application uses JCA connectors, you'll have to validate the JCA connect
 If your application is packaged as an EAR file, be sure to examine the *application.xml* and *application-bnd.xml* files and capture their configurations.
 
 > [!NOTE]
-> If you want to be able to scale each of your web applications independently for better use of your AKS resources you should break up the EAR into separate web applications.
+> If you want to be able to scale each of your web applications independently for better use of your Azure Kubernetes Service (AKS) resources you should break up the EAR into separate web applications.
 
 [!INCLUDE [identify-all-outside-processes-and-daemons-running-on-the-production-servers](includes/identify-all-outside-processes-and-daemons-running-on-the-production-servers.md)]
 

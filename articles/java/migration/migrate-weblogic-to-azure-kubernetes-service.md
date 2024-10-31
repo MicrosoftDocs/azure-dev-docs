@@ -1,15 +1,15 @@
 ---
-title: Migrate WebLogic Server applications to Azure Kubernetes Service
-description: Migrate WebLogic Server applications to Azure Kubernetes Service
+title: Migrate WebLogic Server applications to Azure Kubernetes Service (AKS)
+description: Migrate WebLogic Server applications to Azure Kubernetes Service (AKS)
 author: KarlErickson
 ms.author: edburns
 ms.topic: conceptual
 ms.date: 09/30/2022
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-extended-java
-#Customer intent: As a Java developer, I want to migrate my on-premise WebLogic Server workload to WebLogic on Azure Kubernetes Service
+#Customer intent: As a Java developer, I want to migrate my on-premise WebLogic Server workload to WebLogic on Azure Kubernetes Service (AKS)
 ---
 
-# Migrate WebLogic Server applications to Azure Kubernetes Service
+# Migrate WebLogic Server applications to Azure Kubernetes Service (AKS)
 
 This guide describes what you should be aware of when you want to migrate an existing WebLogic Server (WLS) application to run on Azure Kubernetes Service (AKS).
 
@@ -93,7 +93,7 @@ The prebuilt Azure Marketplace offer automatically creates a domain resource. If
 
 [!INCLUDE [determine-whether-session-replication-is-used](includes/determine-whether-session-replication-is-used.md)]
 
-The prebuilt Azure Marketplace offer supports session affinity via the Application Gateway ingress controller. When deploying the offer, select **Enable cookie based affinity**. Look for cookie based affinity in [the documentation for the offer](https://aka.ms/wls-aks-docs#networking).
+The prebuilt Azure Marketplace offer supports session affinity via the Application Gateway ingress controller. Cookie based affinity is enabled by default. You can select **Disable cookie based affinity** to disable it. Look for cookie based affinity in [the documentation for the offer](https://aka.ms/wls-aks-docs#networking).
 
 [!INCLUDE [document-datasources](includes/document-datasources.md)]
 

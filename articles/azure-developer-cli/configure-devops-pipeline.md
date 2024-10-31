@@ -3,7 +3,7 @@ title: Configure a pipeline and push updates using GitHub Actions or Azure DevOp
 description: Learn how to push updates using GitHub Actions or Azure DevOps.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 12/11/2022
+ms.date: 9/13/2024
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
@@ -30,12 +30,12 @@ In this article, you'll learn how to use the Azure Developer CLI (`azd`) to push
 You can use the configuration file as-is or modify it to suit your needs.
 
 > [!NOTE]
-> Make sure your template has a pipeline definition (azure-dev.yaml) before calling `azd pipeline config`. `azd` will not automatically create this file.
+> Make sure your template has a pipeline definition (`azure-dev.yaml`) before calling `azd pipeline config`. `azd` does not automatically create this file.
 > See [Create a pipeline definition for azd](#create-a-pipeline-definition) below.
 
-To configure a CI/CD pipeline you'll use the `azd pipeline config` command, which handles the following tasks:
+Use the `azd pipeline config` command to configure a CI/CD pipeline, which handles the following tasks:
 
-- Creates and configures a service principal for the app on the Azure subscription. Your user must have either `Owner` role or `Contributor + User Access Administrator` roles within the Azure subscription because to allow azd to create and assign roles to the service principal.
+- Creates and configures a service principal for the app on the Azure subscription. Your user must have either `Owner` role or `Contributor + User Access Administrator` roles within the Azure subscription to allow azd to create and assign roles to the service principal.
 - Steps you through a workflow to create and configure a GitHub or Azure DevOps repository and commit your project code to it. You can also choose to use an existing repository.
 - Creates a secure connection between Azure and your repository.
 - Runs the GitHub action when you check in the workflow file.

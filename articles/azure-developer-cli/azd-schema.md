@@ -3,7 +3,7 @@ title: Azure Developer CLI's azure.yaml schema
 description: Describes the schema for the Azure Developer CLI azure.yaml file
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 10/24/2022
+ms.date: 9/14/2024
 ms.topic: reference
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli

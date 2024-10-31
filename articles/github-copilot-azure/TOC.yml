@@ -1,12 +1,12 @@
 items:
-- name: GitHub Copilot for Azure
+- name: GitHub Copilot for Azure Preview
   href: index.yml
   items:
     - name: Overview
       href: introduction.md
     - name: Get started
       href: get-started.md
-    - name: QuickStart - Building, deploying and improving your application with GitHub Copilot for Azure
+    - name: QuickStart - Building, deploying and improving your application with GitHub Copilot for Azure Preview
       href: quickstart-build-deploy-applications.md
     - name: Learn about Azure and your application
       href: learn-examples.md

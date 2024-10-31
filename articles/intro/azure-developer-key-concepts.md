@@ -4,11 +4,20 @@ description: Understand the factors that affect your overall strategy for design
 keywords: azure account, azure subscription, billing, region, resource groups
 ms.service: azure
 ms.topic: overview
-ms.date: 08/04/2022
+ms.date: 07/29/2024
 ms.custom: overview
 ---
 
 # Key concepts for building Azure apps
+This is part six in a series of 7 articles to help developers get started with Azure.
+
+* Part 1: [Azure for developers overview](azure-developer-overview.md)
+* Part 2: [Key Azure services for developers](azure-developer-key-services.md)
+* Part 3: [Hosting applications on Azure](hosting-apps-on-azure.md)
+* Part 4: [Connect your app to Azure services](connect-to-azure-services.md)
+* Part 5: [How do I create and manage resources in Azure?](azure-developer-create-resources.md)
+* Part 6: **Key concepts for building Azure apps**
+* Part 7: [How am I billed?](azure-developer-billing.md)
 
 Before you get too far in designing your application to run on Azure, chances are you'll need to do a little planning ahead of time.  As you get started, there are some basic Azure concepts that you need to understand to make the best decisions for your scenario.  Considerations include:
 
@@ -61,3 +70,7 @@ Whether it's publishing your apps to Azure with continuous integration or provis
 - [Terraform](../terraform/index.yml)
 - [Ansible](../ansible/index.yml)
 - [Chef](https://docs.chef.io/azure_portal)
+
+
+> [!div class="nextstepaction"]
+> [Continue to part 7: How am I billed?](azure-developer-billing.md)

@@ -3,7 +3,7 @@ title: Add Azure Developer CLI support to your app using code in your app direct
 description: How to add Azure Developer CLI support to your app using code in your app directory
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 6/19/2024
+ms.date: 9/13/2024
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, devx-track-bicep, build-2023

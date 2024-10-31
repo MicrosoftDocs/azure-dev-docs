@@ -1,2 +1,0 @@
-- "@azure Generate a PowerShell script to create a new Azure Machine Learning workspace."
-- "@azure What is the difference between Azure AI services and Azure Machine Learning?"

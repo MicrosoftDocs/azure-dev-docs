@@ -5,14 +5,29 @@ keywords: azure app service, azure functions, azure virtual machines, azure cont
 ms.service: azure
 ms.custom: devx-track-extended-java
 ms.topic: overview
-ms.date: 10/24/2022
+ms.date: 07/29/2024
 #CustomerIntent: As an experienced developer, I want to select the correct hosting services for my applications so that I can get the level of control versus responsibility to meet my business and team needs.
 ---
 
 # Hosting applications on Azure
 
+This is part three in a series of 7 articles to help developers get started with Azure.
+
+* Part 1: [Azure for developers overview](azure-developer-overview.md)
+* Part 2: [Key Azure services for developers](azure-developer-key-services.md)
+* Part 3: **Hosting applications on Azure**
+* Part 4: [Connect your app to Azure services](connect-to-azure-services.md)
+* Part 5: [How do I create and manage resources in Azure?](azure-developer-create-resources.md)
+* Part 6: [Key concepts for building Azure apps](azure-developer-key-concepts.md)
+* Part 7: [How am I billed?](azure-developer-billing.md)
+
 Azure provides a variety of different ways to host your application depending on your needs. This article suggests services to match requirements. It isn't proscriptive. You can mix and match services to meet your needs. Most production environments use a combination of services to meet their business and organizational needs.
 
+The services you choose will often come down to two considerations:
+- Do you prefer simplicity or control?
+- Do you prefer cloud-native (i.e., containers) or Azure-native (tailored tools and integrations)
+
+The following video explains the first consideration: simplicity versus control:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE50vLy title="Azure hosting services" /]
 
@@ -253,3 +268,8 @@ Learn more about [High-performance computing on Azure](/azure/architecture/topic
 [power-virtual-agents]:/power-virtual-agents
 
 [quantum]:/azure/quantum
+
+
+> [!div class="nextstepaction"]
+> [Continue to part 4: Connect your app to Azure services](connect-to-azure-services.md)
+

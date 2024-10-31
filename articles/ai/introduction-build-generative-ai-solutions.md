@@ -3,7 +3,7 @@ title: Introduction to developing generative AI applications for experienced dev
 description: Conceptual overview about integrating generative AI into applications, exploring its business benefits, operational fundamentals, and the potential of large language models (LLMs).
 ms.date: 4/12/2024
 ms.topic: conceptual
-ms.custom: build-2024-intelligent-apps
+ms.custom: build-2024-intelligent-apps, ai-learning-hub
 ---
 
 # Introduction to building generative AI solutions for developers

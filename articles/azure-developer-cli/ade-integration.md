@@ -3,7 +3,7 @@ title: Azure Developer CLI support for Azure Deployment Environments
 description: Learn how to integrate the Azure Developer CLI with Azure Deployment Environments
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 10/23/2023
+ms.date: 9/14/2024
 ms.topic: reference
 ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli

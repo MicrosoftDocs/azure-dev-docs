@@ -60,8 +60,7 @@ Your development environment needs a few tools to have the best development expe
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/en/) - always use the Long-term support (LTS) version if possible. 
 * If you need to synchronize your local development runtime with your Azure hosted runtime (such as Azure App Service, Azure Functions, or Azure Static Web apps), use a runtime version management solution such as:
-  * [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md) 
-  * [Docker Containers](https://www.docker.com/)
+* [**Development Containers**](https://containers.dev/): Use a container with a specific Node.js version. You can manage the version of Node.js across several environments using containers. Visual Studio Code's [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) simplifies this process.
 * [Azure CLI](/cli/azure/install-azure-cli) to provide Azure resource creation and management. 
 * Local development hosting CLIs such as: 
   * [Static web apps CLI](https://github.com/Azure/static-web-apps-cli)

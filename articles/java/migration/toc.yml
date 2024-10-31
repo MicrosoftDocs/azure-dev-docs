@@ -9,10 +9,10 @@ items:
     - name: Spring to Azure
       expanded: true
       items:
-        - name: Spring Boot to Azure Spring Apps
-          href: migrate-spring-boot-to-azure-spring-apps.md
-        - name: Spring Cloud to Azure Spring Apps
-          href: migrate-spring-cloud-to-azure-spring-apps.md
+        - name: Spring Boot to Azure Container Apps
+          href: migrate-spring-boot-to-azure-container-apps.md
+        - name: Spring Cloud to Azure Container Apps
+          href: migrate-spring-cloud-to-azure-container-apps.md
     - name: Tomcat to Azure
       expanded: true
       items:
@@ -47,6 +47,8 @@ items:
           href: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
         - name: WebLogic Server to WildFly on AKS
           href: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
+        - name: Enable end-user authorization and authentication when migrating
+          href: migrate-weblogic-with-entra-id-via-ldap.md
     - name: WebSphere to Azure
       expanded: true
       items:

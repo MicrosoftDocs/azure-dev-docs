@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure Kafka support
 
-**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.15.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.17.1
 
 From version 4.3.0, Spring Cloud Azure for Kafka supports various types of credentials to authenticate and connect to Azure Event Hubs.
 
@@ -246,6 +246,23 @@ spring.cloud.stream.kafka.binder.brokers=<NAMESPACENAME>.servicebus.windows.net:
 > If you're using version `4.3.0`, don't forget to set the `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.kafka.AzureKafkaSpringCloudStreamConfiguration` property to enable the whole OAuth authentication workflow, where `kafka-binder-name` is `kafka` by default in a single Kafka binder application. The configuration `AzureKafkaSpringCloudStreamConfiguration` specifies the OAuth security parameters for `KafkaBinderConfigurationProperties`, which is used in `KafkaOAuth2AuthenticateCallbackHandler` to enable Azure Identity.
 >
 > For version after `4.4.0`, this property will be added automatically for each Kafka binder environment, so there's no need for you to add it manually.
+
+#### Use managed identity for OAuth authentication
+
+1. To use the managed identity, you need enable the managed identity for your service and assign the `Azure Event Hubs Data Receiver` and `Azure Event Hubs Data Sender` roles. For more information, see [Assign Azure roles for access rights](/azure/event-hubs/authorize-access-azure-active-directory#assign-azure-roles-for-access-rights).
+
+1. Configure the following properties in your *application.yml* file:
+
+   ```yaml
+   spring:
+     cloud:
+       azure:
+         credential:
+           managed-identity-enabled: true
+   ```
+
+   > [!IMPORTANT]
+   > If you're using user-assigned managed identity, you also need to add the property `spring.cloud.azure.credential.client-id` with your user-assigned managed identity client ID.
 
 ##### Samples
 

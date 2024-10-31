@@ -38,6 +38,8 @@ To read all the guidance for a particular platform, start with one of the follow
 - [Secure your Java JBoss EAP app](enable-java-jboss-eap-webapp-authentication-entra-id.md)
 - [Secure your Java WebLogic app](enable-java-weblogic-webapp-authentication-entra-id.md)
 - [Secure your Java WebSphere app](enable-java-websphere-webapp-authentication-entra-id.md)
+- [Secure your Java WebSphere Liberty/Open Liberty app](../ee/liberty-with-microsoft-entra-id.md?toc=/azure/developer/java/identity/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+- [Secure your Java Quarkus app](../ee/quarkus-with-microsoft-entra-id.md?toc=/azure/developer/java/identity/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 ## More information
 

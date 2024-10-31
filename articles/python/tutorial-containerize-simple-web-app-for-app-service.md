@@ -2,7 +2,7 @@
 title: Deploy a Flask or FastAPI web app as a container in Azure App Service
 description: An overview of how to create and deploy a containerized Python web app (Flask or FastAPI) on Azure App Service.
 ms.topic: conceptual
-ms.date: 04/12/2024
+ms.date: 09/12/2024
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
@@ -10,7 +10,9 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 This tutorial shows you how to deploy a Python [Flask][5] or [FastAPI][6] web app to [Azure App Service][1] using the [Web App for Containers][2] feature. Web App for Containers provides an easy on-ramp for developers to take advantage of the fully managed Azure App Service platform, but who also want a single deployable artifact containing an app and all of its dependencies. For more information about using containers in Azure, see [Comparing Azure container options][3].
 
-In this tutorial, you use the [Docker CLI][7] and [Docker][12] to optionally create a Docker image and test it locally. And, you use the [Azure CLI][8] to create a Docker image in Azure and deploy it to Azure App Service. You can also deploy with [Visual Studio Code][9] with the [Azure Tools Extension][10] installed. For an example of building and creating a Docker image to run on Azure Container Apps, see [Deploy a Flask or FastPI web app on Azure Container Apps][4].
+In this tutorial, you use the [Docker CLI][7] and [Docker][12] to optionally create a Docker image and test it locally. You use the [Azure CLI][8] to create a Docker image in an [Azure Container Registry][11] and deploy it to Azure App Service. The web app is configured with its system-assigned **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) and Azure role-based access to pull the Docker image from the Azure Container Registry during deployment. You can also deploy with [Visual Studio Code][9] with the [Azure Tools Extension][10] installed.
+
+For an example of building and creating a Docker image to run on Azure Container Apps, see [Deploy a Flask or FastPI web app on Azure Container Apps][4].
 
 > [!NOTE]
 > This tutorial shows creating a Docker image that can then be run on App Service. This is not required to use App Service. You can deploy code directly from a local workspace to App Service without creating a Docker image. For an example, see [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service](/azure/app-service/quickstart-python?toc=/azure/developer/python/toc.json&bc=/azure/developer/python/breadcrumb/toc.json).
@@ -19,7 +21,7 @@ In this tutorial, you use the [Docker CLI][7] and [Docker][12] to optionally cre
 
 To complete this tutorial, you need:
 
-* An Azure account where you can deploy a web app to [Azure App Service][1] and [Azure Container Registry][11].
+* An Azure account where you can deploy a web app to [Azure App Service][1] and [Azure Container Registry][11]. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 * [Azure CLI][8] to create a Docker image and deploy it to App Service. And optionally, [Docker][12]and the [Docker CLI][7] to create a Docker and test it in your local environment.
 
@@ -31,12 +33,14 @@ In your local environment, get the code.
 
 ```bash
 git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart.git
+cd msdocs-python-flask-webapp-quickstart
 ```
 
 ### [FastAPI](#tab/web-app-fastapi)
 
 ```bash
 git clone https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quickstart.git
+cd msdocs-python-fastapi-webapp-quickstart
 ```
 
 ---
@@ -198,6 +202,18 @@ The `--detach` option runs the container in the background. The `--publish` opti
 
 ## Create a resource group and Azure Container Registry
 
+1. Run the [az login](/cli/azure/reference-index#az-login) command to [sign in to Azure](/cli/azure/authenticate-azure-cli).
+
+    ```azurecli
+    az login
+    ```
+
+1. Run the [az upgrade](/cli/azure/reference-index#az-upgrade) command to make sure your version of the Azure CLI is current.
+
+    ```azurecli
+    az upgrade
+    ```
+
 1. Create a group with the [az group create][18] command.
 
     ```azurecli
@@ -210,27 +226,13 @@ The `--detach` option runs the container in the background. The `--publish` opti
 
     ```azurecli
     az acr create --resource-group web-app-simple-rg \
-    --name webappacr123 --sku Basic --admin-enabled true
+    --name webappacr123 --sku Basic
     ```
 
     > [!NOTE]
     > The registry name must be unique in Azure. If you get an error, try a different name. Registry names can consist of 5-50 alphanumeric characters. Hyphens and underscores are not allowed. To learn more, see [Azure Container Registry name rules](/azure/azure-resource-manager/management/resource-name-rules#microsoftcontainerregistry). If you use a different name, make sure that you use your name rather than `webappacr123` in the commands that reference the registry and registry artifacts in following sections.
 
-    An Azure Container Registry is a private Docker registry that stores images for use in Azure Container Instances, Azure App Service, Azure Kubernetes Service, and other services. When creating a registry, you specify a name, SKU, and resource group. The second command saves the password to a variable with the [az credential show][20] command. The password is used to authenticate to the registry in a later step.
-
-1. Set an environment variable to the value of the password for the registry.
-
-    ```bash
-    ACR_PASSWORD=$(az acr credential show \
-    --resource-group web-app-simple-rg \
-    --name webappacr123 \
-    --query "passwords[?name == 'password'].value" \
-    --output tsv)
-    ```
-
-    The command for creating the environment variable is shown for the Bash shell. Change the syntax and continuation character (`\`) as appropriate for other shells.
-
-    You can also get the password (`ACR_PASSWORD`) from the [Azure portal][25] by going to the registry, selecting **Access keys**, and copying the password.
+    An Azure Container Registry is a private Docker registry that stores images for use in Azure Container Instances, Azure App Service, Azure Kubernetes Service, and other services. When creating a registry, you specify a name, SKU, and resource group.
 
 ## Build the image in Azure Container Registry
 
@@ -257,27 +259,40 @@ The `--registry` option specifies the registry name, and the `--image` option sp
     --is-linux
     ```
 
+1. Set an environment variable to your subscription ID. It's used in the `--scope` parameter in the next command.
+
+    ```azurecli
+    SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+    ```
+
+    The command for creating the environment variable is shown for the Bash shell. Change the syntax as appropriate for other environments.
+
 1. Create the web app with the [az webapp create][23] command.
 
     ```azurecli
     az webapp create \
     --resource-group web-app-simple-rg \
     --plan webplan --name webappsimple123 \
-    --docker-registry-server-password $ACR_PASSWORD \
-    --docker-registry-server-user webappacr123 \
-    --role acrpull \
-    --deployment-container-image-name webappacr123.azurecr.io/webappsimple:latest 
+    --assign-identity [system] \
+    --role AcrPull \
+    --scope /subscriptions/$SUBSCRIPTION_ID/resourceGroups/web-app-simple-rg \
+    --acr-use-identity --acr-identity [system] \
+    --container-image-name webappacr123.azurecr.io/webappsimple:latest 
     ```
 
     Notes:
 
     * The web app name must be unique in Azure. If you get an error, try a different name. The name can consist of alphanumeric characters and hyphens, but can't start or end with a hyphen. To learn more, see [Microsoft.Web name rules](/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
 
-    * If you're using a name different than `webappacr123` for your Azure Container Registry, make sure you update the `--docker-registry-server-user` and `--deployment-container-image-name` parameters appropriately.
+    * If you're using a name different than `webappacr123` for your Azure Container Registry, make sure you update the `--container-image-name` parameter appropriately.
+
+    * The `--assign-identity`, `--role`, and `--scope` parameters enable the system-assigned managed identity on the web app and assign it the [`AcrPull` role](/azure/role-based-access-control/built-in-roles/containers#acrpull) on the resource group. This gives the managed identity permission to pull images from any Azure Container Registry in the resource group.
+
+    * The `--acr-use-identity` and `--acr-identity` parameters configure the web app to use its system-assigned managed identity to pull images from the Azure Container Registry.
 
     * It can take a few minutes for the web app to be created. You can check the deployment logs with the [az webapp log tail][27] command. For example, `az webapp log tail --resource-group web-app-simple-rg --name webappsimple123`. If you see entries with "warmup" in them, the container is being deployed.
 
-    * The URL of the web app is `<web-app-name>.azurewebsites.net`, for example, ```https://webappsimple123.azurewebsites.net```.
+    * The URL of the web app is `<web-app-name>.azurewebsites.net`, for example, `https://webappsimple123.azurewebsites.net`.
 
 ## Make updates and redeploy
 
@@ -302,7 +317,7 @@ For more information, see the following resources:
 * [Deploy a Python web app on Azure Container Apps][4]
 * [Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service][26]
 
-[1]: /azure/app-service/getting-started
+[1]: /azure/app-service/
 [2]: https://azure.microsoft.com/products/app-service/containers
 [3]:./containers-in-azure-overview-python.md
 [4]: ./tutorial-containerize-simple-web-app.md
@@ -312,7 +327,7 @@ For more information, see the following resources:
 [8]: /cli/azure/what-is-azure-cli
 [9]: https://code.visualstudio.com/
 [10]: https://code.visualstudio.com/docs/azure/extensions
-[11]: https://azure.microsoft.com/services/container-registry/
+[11]: /azure/container-registry/
 [12]: https://www.docker.com/
 [13]: https://docs.gunicorn.org/en/stable/index.html
 [14]: https://docs.gunicorn.org/en/stable/settings.html#config-file
@@ -321,7 +336,6 @@ For more information, see the following resources:
 [17]: https://docs.docker.com/engine/reference/run/
 [18]: /cli/azure/group#az-group-create
 [19]: /cli/azure/acr#az-acr-create
-[20]: /cli/azure/acr/credential#az-acr-credential-show
 [21]: /cli/azure/acr#az-acr-build
 [22]: /cli/azure/appservice/plan#az-appservice-plan-create
 [23]: /cli/azure/webapp#az-webapp-create

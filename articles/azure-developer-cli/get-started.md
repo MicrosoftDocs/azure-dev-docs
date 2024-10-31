@@ -4,7 +4,7 @@ description: Learn how to get started with Azure Developer CLI with a template f
 keywords: azure developer cli, azd
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 10/21/2022
+ms.date: 9/13/2024
 ms.topic: quickstart
 ms.service: azure-dev-cli
 ms.custom: devx-track-azdevcli, build-2023, devx-track-extended-java, devx-track-js, devx-track-python
@@ -33,7 +33,7 @@ For the steps ahead, you'll use the following template to provision and deploy a
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo)
+[Containerized React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo-aca)
 ::: zone-end
 
 You can also select a template that matches your preferences from the [Awesome AZD](https://azure.github.io/awesome-azd/) template gallery site. Regardless of which template you use, you'll end up with the template code in your development environment and be able to run commands to build, redeploy, and monitor the app in Azure.
@@ -79,7 +79,8 @@ A local development environment is a great choice for traditional development wo
 - [Install the Azure Developer CLI](./install-azd.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [OpenJDK 17](/java/openjdk/download#openjdk-17)
-- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-java-mongo/blob/main/README.md).
+- [Docker](https://docs.docker.com/get-docker/).
+- [Review the architecture diagram and the Azure resources you'll deploy in the Java template README](https://github.com/Azure-Samples/todo-java-mongo-aca/blob/main/README.md).
 
 ::: zone-end
 
@@ -116,7 +117,7 @@ A local development environment is a great choice for traditional development wo
     ::: zone pivot="programming-language-java"
   
     ```azdeveloper
-    azd init --template todo-java-mongo
+    azd init --template todo-java-mongo-aca
     ```
   
     ::: zone-end
@@ -183,7 +184,7 @@ Codespaces are a great option for developers who prefer to work in containerized
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-1. In your browser, navigate to the [React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo) template (or select one from [Awesome AZD](https://azure.github.io/awesome-azd/))
+1. In your browser, navigate to the [Containerized React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo-aca) template (or select one from [Awesome AZD](https://azure.github.io/awesome-azd/))
 ::: zone-end
 
 2. Above the file list, click **Use this template** > **Open in a Codespace**.
@@ -269,7 +270,7 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
 
 - [Install the Azure Developer CLI](./install-azd.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Review the architecture diagram and the Azure resources you'll deploy in the Node.js template README](https://github.com/Azure-Samples/todo-nodejs-mongo/blob/main/README.md).
+- [Review the architecture diagram and the Azure resources you'll deploy in the Java template README](https://github.com/Azure-Samples/todo-java-mongo-aca/blob/main/README.md).
 
 ::: zone-end
 
@@ -306,7 +307,7 @@ A [DevContainer](https://code.visualstudio.com/docs/remote/containers) is a Dock
     ::: zone pivot="programming-language-java"
   
     ```azdeveloper
-    azd init --template todo-java-mongo
+    azd init --template todo-java-mongo-aca
     ```
   
     ::: zone-end

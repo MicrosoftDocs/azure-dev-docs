@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure support for Spring Security
 
-**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.15.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.17.1
 
 This article describes how Spring Cloud Azure and Spring Security can be used together.
 

@@ -1,12 +1,12 @@
 ---
 author: KarlErickson
 ms.author: haiche
-ms.date: 04/03/2023
+ms.date: 09/20/2024
 ---
 
 ### Determine whether Java Message Service (JMS) Queues or Topics are in use
 
-If your application is using JMS Queues or Topics, you need to migrate them to an externally hosted JMS server. One strategy for those using JMS is to use Azure Service Bus and the Advanced Message Queuing Protocol. For more information, see [Use JMS with Azure Service Bus and AMQP 1.0](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp).
+If your application is using JMS Queues or Topics, you need to migrate them to an externally hosted JMS server. One strategy for those using JMS is to use Azure Service Bus and the Advanced Message Queuing Protocol. For more information, see [Use Java Message Service 1.1 with Azure Service Bus standard and AMQP 1.0](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp).
 
 If you've configured JMS persistent stores, you must capture their configuration and apply it after the migration.
 

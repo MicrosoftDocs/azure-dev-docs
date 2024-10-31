@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: karler
-ms.date: 02/10/2022
+ms.date: 09/09/2024
 ---
 
 ### Determine whether session replication is used

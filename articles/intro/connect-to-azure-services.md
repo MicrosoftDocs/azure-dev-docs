@@ -3,10 +3,20 @@ title: Connect your app to Azure Services
 description: An overview of how to connect your applications to Azure.
 ms.service: azure
 ms.topic: article
-ms.date: 03/28/2022
+ms.date: 07/29/2024
 ---
 
 # Connect your app to Azure Services
+
+This is part four in a series of 7 articles to help developers get started with Azure.
+
+* Part 1: [Azure for developers overview](azure-developer-overview.md)
+* Part 2: [Key Azure services for developers](azure-developer-key-services.md)
+* Part 3: [Hosting applications on Azure](hosting-apps-on-azure.md)
+* Part 4: **Connect your app to Azure services**
+* Part 5: [How do I create and manage resources in Azure?](azure-developer-create-resources.md)
+* Part 6: [Key concepts for building Azure apps](azure-developer-key-concepts.md)
+* Part 7: [How am I billed?](azure-developer-billing.md)
 
 Azure offers a variety of services that applications can take advantage of regardless of whether they are hosted in Azure or on-premises. For example you could:
 
@@ -53,4 +63,4 @@ More information about the Azure SDK for each language can be found in each lang
 Programming languages not supported by the Azure SDK can make use of the Azure REST API.  Details of how to call the Azure REST API and a full list of operations are available in the [Azure REST API overview](/rest/api/azure/).
 
 > [!div class="nextstepaction"]
-> [Azure REST API overview](/rest/api/azure/)
+> [Continue to part 5: How do I create and manage resources in Azure?](azure-developer-create-resources.md)

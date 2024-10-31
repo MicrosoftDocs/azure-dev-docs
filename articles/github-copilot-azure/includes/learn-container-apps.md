@@ -1,2 +1,0 @@
-- "@azure what is azure's aca service?"
-- "@azure Tell me the difference between a container app and a container app environment?"

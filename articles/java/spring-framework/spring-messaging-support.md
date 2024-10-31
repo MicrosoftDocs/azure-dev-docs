@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure support for Spring Messaging
 
-**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.15.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.17.1
 
 This article describes how you can use Spring Cloud Azure and Spring Messaging together. The Spring Framework provides extensive support for integrating with messaging systems. Spring Messaging for Azure supports the following services:
 
@@ -214,6 +214,7 @@ The library provides the following configuration options for `ServiceBusTemplate
 > |-----------------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------|
 > | **spring.cloud.azure.servicebus**.enabled           | boolean | Whether an Azure Service Bus is enabled.                                                                            |
 > | **spring.cloud.azure.servicebus**.connection-string | String  | Service Bus Namespace connection string value.                                                                      |
+> | **spring.cloud.azure.servicebus**.custom-endpoint-address | String  | The custom endpoint address to use when connecting to Service Bus.                                                                      |
 > | **spring.cloud.azure.servicebus**.namespace         | String  | Service Bus Namespace value, which is the prefix of the FQDN. A FQDN should be composed of NamespaceName.DomainName |
 > | **spring.cloud.azure.servicebus**.entity-type       | String  | Entity type of an Azure Service Bus.                                                                                |
 
@@ -335,6 +336,17 @@ Use the following steps to receive messages:
 
    }
    ```
+
+#### Customize Service Bus client properties
+
+Developers can use `AzureServiceClientBuilderCustomizer` to customize Service Bus Client properties. The following example customizes the `sessionIdleTimeout` property in `ServiceBusClientBuilder`:
+
+```java
+@Bean
+public AzureServiceClientBuilderCustomizer<ServiceBusClientBuilder.ServiceBusSessionProcessorClientBuilder> customizeBuilder() {
+    return builder -> builder.sessionIdleTimeout(Duration.ofSeconds(10));
+}
+```
 
 ### Samples
 

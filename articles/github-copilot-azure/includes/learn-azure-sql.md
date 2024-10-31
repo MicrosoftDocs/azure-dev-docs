@@ -1,2 +1,0 @@
-- "@azure Create a Terraform configuration to deploy an Azure SQL database."
-- "@azure Design a strategy for migrating on-premises SQL Server databases to Azure SQL Managed Instance."

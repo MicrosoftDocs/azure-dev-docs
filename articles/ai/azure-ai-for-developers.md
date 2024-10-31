@@ -4,7 +4,7 @@ description: Overview article introducing the resources available in this conten
 keywords: ai, azure openai service
 ms.service: azure
 ms.topic: overview
-ms.date: 6/5/2024
+ms.date: 10/29/2024
 ms.custom: overview, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, build-2024-intelligent-apps
 ---
 
@@ -27,7 +27,7 @@ AI app templates provide you with well-maintained, easy to deploy reference samp
 
 There are two categories of AI app templates, **building blocks** and **end-to-end solutions**. Building blocks are smaller-scale samples that focus on specific scenarios and tasks. End-to-end solutions are comprehensive reference samples including documentation, source code, and deployment to allow you to take and extend for your own purposes.
 
-To review a list of key templates available for each programming language, see [AI app templates](/azure/developer/ai/intelligent-app-templates). To browse all available templates, see the AI app templates on the [Azure Developer CLI gallery](https://aka.ms/ai-apps).
+To review a list of key templates available for each programming language, see [AI app templates](/azure/developer/ai/intelligent-app-templates). To browse all available templates, see the AI app templates on the [AI App Template gallery](https://azure.github.io/ai-app-templates/?tags=azureopenai).
 
 One of the most popular templates is the chat with your data sample using Azure OpenAI and Azure AI Search.
 
@@ -58,7 +58,7 @@ One of the most popular templates is the chat with your data sample using Azure 
 
 ---
 
-## Additional resources by language
+## More resources by language
 
 Each language overview page links to popular articles, samples, documentation and more specific to your preferred programming language or platform.
 

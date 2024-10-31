@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure Redis support
 
-**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.15.0
+**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.17.1
 
 This article describes how you can use Spring Cloud Azure and Spring Data Redis together and provide various types of credentials for authentication to Azure Cache for Redis.
 
@@ -123,7 +123,7 @@ The following sections show the classic Spring Boot application usage scenarios.
    ```
 
    > [!NOTE]
-   > Passwordless connections have been supported since version `5.15.0`.
+   > Passwordless connections have been supported since version `5.17.1`.
    >
    > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
@@ -148,6 +148,25 @@ The following sections show the classic Spring Boot application usage scenarios.
    > For more information and to get the value for `username`, see the [Enable Microsoft Entra ID authentication on your cache](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication#enable-microsoft-entra-id-authentication-on-your-cache) section of [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
 
 ---
+
+### Connect to Azure Cache for Redis with managed identity
+
+1. To use the managed identity, you need enable the managed identity for your service and [enable Microsoft Entra authentication on your cache](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication#enable-microsoft-entra-authentication-on-your-cache).
+
+1. Then, add the following properties in your *application.yml* file:
+
+   ```yaml
+   spring:
+     cloud:
+       azure:
+         credential:
+           managed-identity-enabled: true
+   ```
+
+   > [!IMPORTANT]
+   > The `redis.username` should change to the managed identity object (principal) ID.
+   >
+   > If you're using user-assigned managed identity, you also need to add the property `spring.cloud.azure.credential.client-id` with your user-assigned managed identity client ID.
 
 ### Connect to Azure Cache for Redis via Azure Resource Manager
 

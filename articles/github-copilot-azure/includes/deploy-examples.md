@@ -1,3 +1,0 @@
-- Can you help me build a RAG application with Python? 
-- I need a CI/CD pipeline so I can get my app deployed. 
-- Use azd to un-deploy my project.
