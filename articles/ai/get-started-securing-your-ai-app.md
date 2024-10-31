@@ -322,7 +322,7 @@ async def response_stream():
 
 ## Explore the sample code
 
-.NET applications rely on the [Azure.AI.OpenAI](https://www.nuget.org/packages/Azure.AI.OpenAI/) client library to communicate with Azure OpenAI services, which takes a dependency on the [OpenAI]https://www.nuget.org/packages/OpenAI/2.1.0-beta.1) library. The sample app configures keyless authentication using Microsoft Entra ID to communicate with Azure OpenAI.
+.NET applications rely on the [Azure.AI.OpenAI](https://www.nuget.org/packages/Azure.AI.OpenAI/) client library to communicate with Azure OpenAI services, which takes a dependency on the [OpenAI](https://www.nuget.org/packages/OpenAI/2.1.0-beta.1) library. The sample app configures keyless authentication using Microsoft Entra ID to communicate with Azure OpenAI.
 
 ### Configure authentication and service registration
 
@@ -421,11 +421,25 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 > [!IMPORTANT]
 > For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
+:::zone pivot="python"
+
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 
 1. Locate your currently running Codespaces sourced from the [`Azure-Samples/openai-chat-app-quickstart`](https://github.com/Azure-Samples/openai-chat-app-quickstart) GitHub repository.
 
 1. Open the context menu for the codespace and then select **Delete**.
+
+:::zone-end
+
+:::zone pivot="dotnet"
+
+1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
+
+1. Locate your currently running Codespaces sourced from the [`Azure-Samples/openai-chat-app-quickstart-dotnet`](https://github.com/Azure-Samples/openai-chat-app-quickstart-dotnet) GitHub repository.
+
+1. Open the context menu for the codespace and then select **Delete**.
+
+:::zone-end
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
