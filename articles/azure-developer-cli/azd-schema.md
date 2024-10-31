@@ -104,9 +104,10 @@ infra:
 | `language` | Y | _(string)_ Service implementation language. | `dotnet`, `csharp`, `fsharp`, `py`, `python`, `js`, `ts`, `java` |
 | `module` | Y | _(string)_ Path of the infrastructure module used to deploy the service relative to the root infra folder. If omitted, the CLI will assume the module name is the same as the service name. |  |
 | `dist` | Y | _(string)_ Relative path to the service deployment artifacts. The CLI will use files under this path to create the deployment artifact (.zip file). If omitted, all files under the service project directory will be included. | `build` |
-| `docker` | N | Only applicable when `host` is `containerapp`. Can't contain extra properties. | See the [custom Docker sample](#docker-options-sample) below. `path` _(string)_: Path to the Dockerfile. Default: `./Dockerfile`; `context` _(string)_: The docker build context. When specified, overrides default context. Default: `.`; `platform` _(string)_: The platform target. Default: `amd64` |
+| `docker` | N | Only applicable when `host` is `containerapp`. Can't contain extra properties. | See the [custom Docker sample](#docker-options-sample) below. `path` _(string)_: Path to the Dockerfile. Default: `./Dockerfile`; `context` _(string)_: The docker build context. When specified, overrides default context. Default: `.`; `platform` _(string)_: The platform target. Default: `amd64`, `remoteBuild` _(boolean)_: Enables remote ACR builds. Default: `false` |
 | `k8s` | N | The Azure Kubernetes Service (AKS) configuration options. | See the [AKS sample](#aks-sample-with-service-level-hooks) below. `deploymentPath` _(string)_: Optional. The relative path from the service path to the k8s deployment manifests. When set, it will override the default deployment path location for k8s deployment manifests. Default: `manifests`; `namespace` _(string)_: Optional. The k8s namespace of the deployed resources. When specified, a new k8s namespace will be created if it does not already exist. Default: `Project name`; `deployment` _(object)_: See [deployment properties](#aks-deployment-properties); `service` _(object)_: See [service properties](#aks-service-properties); `ingress` _(object)_: See [ingress properties](#aks-ingress-properties).  |
 | `hooks` | N | Service level hooks. Hooks should match `service` event names prefixed with `pre` or `post` depending on when the script should execute. When specifying paths they should be relative to the service path. | See [Customize your Azure Developer CLI workflows using command and event hooks](./azd-extensibility.md) for more details. |
+| `apiVersion` | N | Specify an explicit `api-version` when deploying services hosted by Azure Container Apps (ACA). This feature helps you avoid using an incompatible API version and makes deployment more loosely coupled to avoid losing custom configuration data during JSON marshaling to a hard-coded Azure SDK library version. | `apiVersion: 2024-02-02-preview` |
 
 #### Docker options sample
 
@@ -128,6 +129,8 @@ services:
     project: ./src/web
     language: js
     host: containerapp
+    docker:
+      remoteBuild: true
 ```
 
 ### AKS `deployment` properties
