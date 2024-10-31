@@ -214,7 +214,7 @@ az vm create \
     --image RedHat:rhel-raw:86-gen2:latest \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
-    --ssh-key-values ~/.ssh/jbosseapvm.pub
+    --ssh-key-values ~/.ssh/jbosseapvm.pub \
     --public-ip-sku Standard \
     --nsg mynsg \
     --vnet-name myVnet \
@@ -229,7 +229,7 @@ az vm create \
     --image RedHat:rhel-raw:94_gen2:latest \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
-    --ssh-key-values ~/.ssh/jbosseapvm.pub
+    --ssh-key-values ~/.ssh/jbosseapvm.pub \
     --public-ip-sku Standard \
     --nsg mynsg \
     --vnet-name myVnet \
