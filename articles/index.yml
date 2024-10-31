@@ -56,11 +56,11 @@ productDirectory:
         - url: ./github-copilot-azure/quickstart-build-deploy-applications.md
           text: Quickstart
         - url: ./github-copilot-azure/learn-examples.md
-          text: Get information about Azure and your application
+          text: Get information about Azure and your apps
         - url: ./github-copilot-azure/deploy-examples.md
-          text: Deploying your application
+          text: Deploying your apps
         - url: ./github-copilot-azure/troubleshoot-examples.md
-          text: Troubleshoot your Azure apps
+          text: Troubleshoot your apps
     - title: Python
       imageSrc: /media/logos/logo_python.svg
       links:
