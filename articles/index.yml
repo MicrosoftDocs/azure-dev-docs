@@ -52,13 +52,13 @@ productDirectory:
         - url: ./github-copilot-azure/introduction.md
           text: What is GitHub Copilot for Azure?
         - url: ./github-copilot-azure/get-started.md
-          text: Get Started
+          text: Get started
         - url: ./github-copilot-azure/quickstart-build-deploy-applications.md
           text: Quickstart
         - url: ./github-copilot-azure/learn-examples.md
           text: Get information about Azure and your apps
         - url: ./github-copilot-azure/deploy-examples.md
-          text: Deploying your apps
+          text: Deploy your apps
         - url: ./github-copilot-azure/troubleshoot-examples.md
           text: Troubleshoot your apps
     - title: Python
