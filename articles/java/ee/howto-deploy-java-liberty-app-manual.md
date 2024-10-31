@@ -16,7 +16,7 @@ This article provides step-by-step manual guidance for running Open/WebSphere Li
 Specifically, this article explains how to accomplish the following tasks:
 
 * Run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty or WebSphere Liberty runtime.
-* Build the application Docker image using Liberty container images.
+* Build the application Docker image with `az acr build` using Liberty container images.
 * Deploy the containerized application to an Azure Kubernetes Service (AKS) cluster using the Liberty Operator.
 
 The Liberty Operator simplifies the deployment and management of applications running on Kubernetes clusters. With the Open Liberty Operator or WebSphere Liberty Operator, you can also perform more advanced operations, such as gathering traces and dumps.
@@ -39,7 +39,6 @@ If you're interested in providing feedback or working closely on your migration 
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 * Install a Java Standard Edition (SE) implementation, version 17 (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
 * Install [Maven](https://maven.apache.org/download.cgi) version 3.5.0 or later.
-* Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 * Ensure that [Git](https://git-scm.com) is installed.
 * Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 
@@ -70,7 +69,7 @@ az login
 
 An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az-group-create) command in the *eastus2* location. This resource group is used later for creating the Azure Container Registry (ACR) instance and the AKS cluster.
+Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az-group-create) command in the *eastus2* location. This resource group is used later for creating the Azure Container Registry instance and the AKS cluster.
 
 ### [Bash](#tab/in-bash)
 
@@ -88,9 +87,12 @@ az group create --name $Env:RESOURCE_GROUP_NAME --location eastus2
 
 ---
 
-## Create an ACR instance
+## Create a Container Registry instance
 
-Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the ACR instance. The following example creates an ACR instance named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
+Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the Container Registry instance. The following example creates a Container Registry instance named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
+
+> [!NOTE]
+> This article uses the recommended passwordless authentication mechanism for Container Registry. It is still possible to use username and password with `docker login` after using `az acr credential show` to obtain the username and password. Using username and password is less secure than passwordless authentication.
 
 ### [Bash](#tab/in-bash)
 
@@ -119,9 +121,9 @@ After a short time, you should see a JSON output that contains the following lin
   "resourceGroup": "java-liberty-project",
 ```
 
-### Connect to the ACR instance
+### Connect to the Container Registry instance
 
-You need to sign in to the ACR instance before you can push an image to it. Use the following commands to verify the connection:
+You need to sign in to the Container Registry instance before you can push an image to it. Use the following commands to verify the connection:
 
 ### [Bash](#tab/in-bash)
 
@@ -144,7 +146,7 @@ az acr login -n $Env:REGISTRY_NAME
 
 ---
 
-You should see `Login Succeeded` at the end of command output if you're logged into the ACR instance successfully.
+You should see `Login Succeeded` at the end of command output if you're logged into the Container Registry instance successfully.
 
 ## Create an AKS cluster
 
@@ -180,9 +182,9 @@ After a few minutes, the command completes and returns JSON-formatted informatio
   "resourceGroup": "java-liberty-project",
 ```
 
-### Attach the ACR instance to the AKS cluster
+### Attach the Container Registry instance to the AKS cluster
 
-Run the [az aks update](/cli/azure/aks#az-aks-update) command to attach the ACR instance to the AKS cluster so that the AKS cluster is authenticated to pull images from the ACR instance, as shown in the following example:
+Run the [az aks update](/cli/azure/aks#az-aks-update) command to attach the Container Registry instance to the AKS cluster so that the AKS cluster is authenticated to pull images from the Container Registry instance, as shown in the following example:
 
 ### [Bash](#tab/in-bash)
 
@@ -278,7 +280,7 @@ export SQL_SERVER_NAME=<your-unique-sql-server-name>
 export DB_NAME=demodb
 ```
 
-Run the following command in your terminal to create a single database in Azure SQL Database and set the current signed-in user as Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
+Run the following command in your terminal to create a single database in Azure SQL Database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
 
 ```azurecli
 export ENTRA_ADMIN_NAME=$(az ad signed-in-user show --query userPrincipalName -o tsv)
@@ -424,7 +426,7 @@ az aks connection create sql --connection akssqlconn --client-type java --source
 
 ### Get servcie account and secret created by Service Connector
 
-To authenticate to the Azure SQL Database, you need to get the service account and secret created by Service Connector. Follow section [Update your container](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?pivots=workload-id&tabs=azure-cli#update-your-container) with option **Directly create a deployment using the YAML sample code snippet provided** and execute the following steps:
+To authenticate to the Azure SQL Database, you need to get the service account and secret created by Service Connector. Follow the section [Update your container](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?pivots=workload-id&tabs=azure-cli#update-your-container). Take the option **Directly create a deployment using the YAML sample code snippet provided** and execute the following steps:
 
 1. From the highlighted sections in the sample Kubernetes deployment YAML, copy the `serviceAccountName` and `secretRef.name` values, for example:
 
@@ -520,7 +522,7 @@ Follow the steps in this section to deploy the sample application on the Liberty
 
 ### Check out the application
 
-Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks). There are a few samples in the repository. This article uses *java-app*. Here's the major file structure of the application.
+Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks). There are a few samples in the repository. This article uses *java-app*. The important files are shown next.
 
 ### [Bash](#tab/in-bash)
 
@@ -686,7 +688,7 @@ az acr build --registry $Env:REGISTRY_NAME --image javaee-cafe:v1 .
 
 ---
 
-The `az acr build` command uploads the artifacts specified in the Dockerfile to the ACR instance, builds the image, and stores it in the ACR instance.
+The `az acr build` command uploads the artifacts specified in the Dockerfile to the Container Registry instance, builds the image, and stores it in the Container Registry instance.
 
 ## Deploy the application to the AKS cluster
 
