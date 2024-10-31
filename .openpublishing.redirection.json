@@ -1679,6 +1679,14 @@
     {
       "source_path": "articles/terraform/provider-version-history-azurerm.md",
       "redirect_url": "/azure/developer/terraform/provider-version-history-azurerm-4-0-0-to-current"
+    },
+    {
+      "source_path": "articles/ansible/solution-template-deploy.md",
+      "redirect_url": "/azure/developer/ansible/"
+    },
+    {
+      "source_path": "articles/terraform/test-modules-using-terratest.md",
+      "redirect_url": "/azure/developer/terraform"
     }
   ]
 }
