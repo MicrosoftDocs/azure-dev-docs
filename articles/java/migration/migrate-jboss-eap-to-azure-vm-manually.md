@@ -184,6 +184,12 @@ az network vnet subnet update \
 
 ### Create a Red Hat Enterprise Linux machine for admin
 
+### Generate SSH keys 
+
+```bash
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/jbosseapvm
+```
+
 #### Create the admin VM
 
 The Marketplace image that you use to create the VMs is `RedHat:rhel-raw:86-gen2:latest`. For other images, see [Red Hat Enterprise Linux (RHEL) images available in Azure](/azure/virtual-machines/workloads/redhat/redhat-imagelist).
@@ -208,7 +214,7 @@ az vm create \
     --image RedHat:rhel-raw:86-gen2:latest \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
-    --admin-password Secret123456 \
+    --ssh-key-values ~/.ssh/jbosseapvm.pub
     --public-ip-sku Standard \
     --nsg mynsg \
     --vnet-name myVnet \
@@ -223,7 +229,7 @@ az vm create \
     --image RedHat:rhel-raw:94_gen2:latest \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
-    --admin-password Secret123456 \
+    --ssh-key-values ~/.ssh/jbosseapvm.pub
     --public-ip-sku Standard \
     --nsg mynsg \
     --vnet-name myVnet \
@@ -249,10 +255,8 @@ Use the following steps to install:
 1. Open a terminal and SSH to the `adminVM` by using the following command:
 
    ```bash
-   ssh azureuser@$ADMIN_VM_PUBLIC_IP
+   ssh -i ~/.ssh/jbosseapvm azureuser@$ADMIN_VM_PUBLIC_IP
    ```
-
-1. Provide `Secret123456` as the password.
 
 1. Configure firewall for ports by using the following command:
 
@@ -586,7 +590,7 @@ This tutorial uses the Red Hat JBoss EAP management CLI commands to configure th
 The following steps set up the domain controller configuration on `adminVM`. Use SSH to connect to the `adminVM` as the `azureuser` user. Recall that the public IP address of `adminVM` was captured previously into the `ADMIN_VM_PUBLIC_IP` environment variable.
 
 ```bash
-ssh azureuser@$ADMIN_VM_PUBLIC_IP
+ssh -i ~/.ssh/jbosseapvm azureuser@$ADMIN_VM_PUBLIC_IP
 ```
 
 First, use the following commands to configure the HA profile and JGroups using the `AZURE_PING` protocol:
@@ -847,10 +851,9 @@ MSPVM_PUBLIC_IP=$(az vm show \
     --show-details \
     --query publicIps | tr -d '"' )
 
-ssh azureuser@$MSPVM_PUBLIC_IP
+ssh -i ~/.ssh/jbosseapvm azureuser@$MSPVM_PUBLIC_IP
 ```
 
-Remember the password is the same as before, since `mspVM1` is simply a clone of `adminVM`.
 
 Use the following commands to set up the host controller on `mspVM1`:
 
@@ -870,8 +873,6 @@ sudo -u jboss mv $EAP_HOME/wildfly/domain/configuration/domain.xml $EAP_HOME/wil
 # Fetch domain.xml from domain controller
 sudo -u jboss scp azureuser@${DOMAIN_CONTROLLER_PRIVATE_IP}:/tmp/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml
 ```
-
-You're asked for the password for the connection. For this example, the password is *Secret123456*.
 
 Use the following commands to apply host controller changes to `mspVM1`:
 
@@ -1180,7 +1181,7 @@ Use the following steps to install the JDBC driver with the JBoss management CLI
 1. SSH to `adminVM` by using the following command. You can skip this step if you already have a connection opened.
 
    ```bash
-   ssh azureuser@$ADMIN_VM_PUBLIC_IP
+   ssh -i ~/.ssh/jbosseapvm azureuser@$ADMIN_VM_PUBLIC_IP
    ```
 
 1. Use the following commands to download JDBC driver. Here, you use *postgresql-42.5.2.jar*. For more information about JDBC driver download locations, see [JDBC Driver Download Locations](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management#jdbc_driver_download_locations) provided by Red Hat.
@@ -1214,7 +1215,7 @@ You started the database server, obtained the necessary resource ID, and install
 1. Open a terminal and SSH to `adminVM` by using the following command:
 
    ```bash
-   ssh azureuser@$ADMIN_VM_PUBLIC_IP
+   ssh -i ~/.ssh/jbosseapvm azureuser@$ADMIN_VM_PUBLIC_IP
    ```
 
 1. Create data source by using the following commands:
