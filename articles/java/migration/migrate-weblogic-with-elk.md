@@ -50,9 +50,17 @@ Follow [QuickStart: Get started with Elastic](/azure/partner-solutions/elastic/c
 
 After the deployment succeeds, continue to the section [Note down the Elasticsearch and Kibana URLs](#note-down-the-elasticsearch-and-kibana-urls).
 
-### Note down the Elasticsearch and Kibana URLs
+### Create and note down the API key to access Elastic
 
-Now that you've deployed Elastic on Azure, save aside the Elasticsearch endpoint URI and Kibana launch URL for use in the following sections, by following these steps.
+Now that you've deployed Elastic on Azure, you can find the Kibana URL next to label **Deployment URL** from Azure portal, as the following screen shows.
+
+:::image type="content" source="media/migrate-weblogic-with-elk/elastic-portal.png" alt-text="The Kibana launch URL.":::
+
+After you launch the Kibana URL, you are required to login by picking an account. Select the Azure account that was used to create Elastic. Then you are asked to select a platform to host the Elastic deployment, select Azure and your desired region.
+
+After the Elastic deployment finishes, the browser will navigate to the depoyment.
+
+
 
 1. Sign in to Elastic on Azure using the username and password.
 1. In the **Applications** section in the middle of the page, select the link **Copy endpoint** next to **Elasticsearch**. Paste the result into a file. For discussion, let's call the pasted value the Elasticsearch endpoint URL.
