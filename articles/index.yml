@@ -46,7 +46,7 @@ productDirectory:
 #  summary:
   items:
     # Card
-    - title: GitHub Copilot for Azure
+    - title: GitHub Copilot for Azure Preview
       imageSrc: ./github-copilot-azure/media/logo/ghcpa-logo.svg
       links:
         - url: ./github-copilot-azure/introduction.md
@@ -54,13 +54,13 @@ productDirectory:
         - url: ./github-copilot-azure/get-started.md
           text: Get Started
         - url: ./github-copilot-azure/quickstart-build-deploy-applications.md
-          text: Quickstart - Build and deploy an app
+          text: Quickstart
         - url: ./github-copilot-azure/learn-examples.md
-          text: Prompt about Azure and your application
+          text: Get information about Azure and your application
         - url: ./github-copilot-azure/deploy-examples.md
-          text: Prompt about Deploying your application
+          text: Deploying your application
         - url: ./github-copilot-azure/troubleshoot-examples.md
-          text: Prompt to troubleshoot your Azure apps
+          text: Troubleshoot your Azure apps
     - title: Python
       imageSrc: /media/logos/logo_python.svg
       links:
