@@ -221,7 +221,7 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
 
 ## Configure environment variables
 
-To connect to Azure OpenAI, your code needs to know your resource endpoint, and _may_ need additional environment variables. 
+To connect to Azure OpenAI, your code needs to know your resource endpoint, and _may_ need additional environment variables.
 
 1. Create an environment variable for your Azure OpenAI endpoint. 
 
@@ -236,6 +236,7 @@ To connect to Azure OpenAI, your code needs to know your resource endpoint, and 
 
 ## Install Azure Identity client library
 
+Use the following link to install the Azure Identity client library.
 
 ### [.NET](#tab/csharp)
 
@@ -396,8 +397,32 @@ openai_client = openai.AzureOpenAI(
 )
 ```
 
+## Sample application
+
+Use the following link to explore an end-to-end sample. This sample provisions an Azure OpenAI account with your user account RBAC role permission for keyless (Microsoft Entra) authentication to access the OpenAI API SDKs.
+
+### [.NET](#tab/csharp)
+
+Explore the .NET [End to end Azure OpenAI keyless authentication sample](https://github.com/Azure-Samples/azure-openai-keyless-csharp).
+
+### [Go](#tab/go)
+
+Explore the Go [End to end Azure OpenAI keyless authentication sample](https://github.com/Azure-Samples/azure-openai-keyless-go).
+
+### [Java](#tab/java)
+
+Explore the Java [End to end Azure OpenAI keyless authentication sample](https://github.com/Azure-Samples/azure-openai-keyless-java).
+
+### [JavaScript](#tab/javascript)
+
+Explore the JavaScript [End to end Azure OpenAI keyless authentication sample](https://github.com/Azure-Samples/azure-openai-keyless-js).
+
+### [Python](#tab/python)
+
+Explore the Python [End to end Azure OpenAI keyless authentication sample](https://github.com/Azure-Samples/azure-openai-keyless-python).
+
 ---
 
-## Additional resources
+## Resources
 
 * [Passwordless connections developer guide](/azure/developer/intro/passwordless-overview)
