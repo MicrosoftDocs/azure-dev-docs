@@ -186,6 +186,8 @@ az network vnet subnet update \
 
 ### Generate SSH keys 
 
+Use the following command to generate SSH keys for the `adminVM`:
+
 ```bash
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/jbosseapvm
 ```
