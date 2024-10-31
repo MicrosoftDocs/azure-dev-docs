@@ -397,6 +397,8 @@ openai_client = openai.AzureOpenAI(
 )
 ```
 
+---
+
 ## Sample application
 
 Use the following link to explore an end-to-end sample. This sample provisions an Azure OpenAI account with your user account RBAC role permission for keyless (Microsoft Entra) authentication to access the OpenAI API SDKs.
