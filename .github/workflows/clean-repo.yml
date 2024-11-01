@@ -33,8 +33,8 @@ jobs:
         with:
           function: "FindOrphanedImages"
           docfx_directory: "articles"
-          target_directory: "articles"
-          url_base_path: "/developer"
+          target_directory: "articles/javascript"
+          url_base_path: "/developer/javascript"
 
       # Create the PR for the work done by the "clean repo" tool
       - name: create-pull-request
