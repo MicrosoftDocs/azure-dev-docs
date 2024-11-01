@@ -66,7 +66,7 @@ Follow [QuickStart: Get started with Elastic](/azure/partner-solutions/elastic/c
 1. In the **Logs & metrics** blade, you can select **Send subscription activity logs** and **Send Azure resource logs for all defined resources** to monitor the Azure resources. However, this tutorial focuses solely on WLS logs and does not cover infrastructure logs.
 1. Select **Create** to start the deployment.
 
-After the deployment succeeds, continue to the section [Note down the Elasticsearch and Kibana URLs](#note-down-the-elasticsearch-and-kibana-urls).
+After the deployment succeeds, continue to the section [Launch Kibana](#launch-kibana).
 
 ### Launch Kibana
 
