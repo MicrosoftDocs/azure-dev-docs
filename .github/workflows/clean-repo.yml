@@ -41,6 +41,6 @@ jobs:
         uses: peter-evans/create-pull-request@5e914681df9dc83aa4e4905692ca88beb2f9e91f
         with:
           branch: cleanrepo-orphaned-images
-          title: "Monthly chores: Delete orphaned images"
+          title: "Weekly chores: Delete orphaned images"
           commit-message: "Bot 🤖 generated CleanRepo tool run"
           body: "Find and delete orphaned images. Contributes to #..."
