@@ -69,7 +69,7 @@ az login
 
 An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az-group-create) command in the *eastus2* location. This resource group is used later for creating the Azure Container Registry instance and the AKS cluster.
+Create a resource group called `java-liberty-project` using the [az group create](/cli/azure/group#az-group-create) command in the `eastus2` location. This resource group is used later for creating the Azure Container Registry instance and the AKS cluster.
 
 ### [Bash](#tab/in-bash)
 
@@ -89,10 +89,10 @@ az group create --name $Env:RESOURCE_GROUP_NAME --location eastus2
 
 ## Create a Container Registry instance
 
-Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the Container Registry instance. The following example creates a Container Registry instance named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
+Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the Container Registry instance. The following example creates a Container Registry instance named `youruniqueacrname`. Make sure `youruniqueacrname` is unique within Azure.
 
 > [!NOTE]
-> This article uses the recommended passwordless authentication mechanism for Container Registry. It is still possible to use username and password with `docker login` after using `az acr credential show` to obtain the username and password. Using username and password is less secure than passwordless authentication.
+> This article uses the recommended passwordless authentication mechanism for Container Registry. It's still possible to use username and password with `docker login` after using `az acr credential show` to obtain the username and password. Using username and password is less secure than passwordless authentication.
 
 ### [Bash](#tab/in-bash)
 
@@ -133,7 +133,7 @@ export LOGIN_SERVER=$(az acr show \
     --query 'loginServer' \
     --output tsv)
 
-az acr login -n $REGISTRY_NAME
+az acr login --name $REGISTRY_NAME
 ```
 
 ### [PowerShell](#tab/in-powershell)
@@ -141,7 +141,7 @@ az acr login -n $REGISTRY_NAME
 ```azurepowershell
 $Env:LOGIN_SERVER = $(az acr show --name $Env:REGISTRY_NAME --query 'loginServer' --output tsv)
 
-az acr login -n $Env:REGISTRY_NAME
+az acr login --name $Env:REGISTRY_NAME
 ```
 
 ---
@@ -150,7 +150,7 @@ You should see `Login Succeeded` at the end of command output if you're logged i
 
 ## Create an AKS cluster
 
-Use the [az aks create](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This command takes several minutes to complete.
+Use the [az aks create](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named `myAKSCluster` with one node. This command takes several minutes to complete.
 
 ### [Bash](#tab/in-bash)
 
@@ -260,7 +260,7 @@ kubectl get nodes
 
 ---
 
-The following example output shows the single node created in the previous steps. Make sure that the status of the node is *Ready*:
+The following example output shows the single node created in the previous steps. Make sure that the status of the node is **Ready**:
 
 ```output
 NAME                                STATUS   ROLES   AGE     VERSION
@@ -283,7 +283,7 @@ export DB_NAME=demodb
 Run the following command in your terminal to create a single database in Azure SQL Database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
 
 ```azurecli
-export ENTRA_ADMIN_NAME=$(az ad signed-in-user show --query userPrincipalName -o tsv)
+export ENTRA_ADMIN_NAME=$(az ad signed-in-user show --query userPrincipalName --output tsv)
 
 az sql server create \
     --name $SQL_SERVER_NAME \
@@ -291,7 +291,7 @@ az sql server create \
     --enable-ad-only-auth \
     --external-admin-principal-type User \
     --external-admin-name $ENTRA_ADMIN_NAME \
-    --external-admin-sid $(az ad signed-in-user show --query id -o tsv)
+    --external-admin-sid $(az ad signed-in-user show --query id --output tsv)
 az sql db create \
     --resource-group $RESOURCE_GROUP_NAME \
     --server $SQL_SERVER_NAME \
@@ -309,7 +309,7 @@ export AZ_LOCAL_IP_ADDRESS=$(curl -s https://whatismyip.akamai.com)
 az sql server firewall-rule create \
     --resource-group $RESOURCE_GROUP_NAME \
     --server $SQL_SERVER_NAME \
-    -n AllowLocalIP \
+    --name AllowLocalIP \
     --start-ip-address $AZ_LOCAL_IP_ADDRESS \
     --end-ip-address $AZ_LOCAL_IP_ADDRESS
 ```
@@ -326,9 +326,9 @@ $Env:DB_NAME = "demodb"
 Run the following command in your terminal to create a single database in Azure SQL Database and set the current signed-in user as Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-powershell).
 
 ```azurepowershell
-$Env:ENTRA_ADMIN_NAME = $(az ad signed-in-user show --query userPrincipalName -o tsv)
+$Env:ENTRA_ADMIN_NAME = $(az ad signed-in-user show --query userPrincipalName --output tsv)
 
-az sql server create --name $Env:SQL_SERVER_NAME --resource-group $Env:RESOURCE_GROUP_NAME --enable-ad-only-auth --external-admin-principal-type User --external-admin-name $Env:ENTRA_ADMIN_NAME --external-admin-sid $(az ad signed-in-user show --query id -o tsv)
+az sql server create --name $Env:SQL_SERVER_NAME --resource-group $Env:RESOURCE_GROUP_NAME --enable-ad-only-auth --external-admin-principal-type User --external-admin-name $Env:ENTRA_ADMIN_NAME --external-admin-sid $(az ad signed-in-user show --query id --output tsv)
 az sql db create --resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SERVER_NAME --name $Env:DB_NAME --edition GeneralPurpose --compute-model Serverless --family Gen5 --capacity 2
 ```
 
@@ -336,14 +336,13 @@ Then, add the local IP address to the Azure SQL Database server firewall rules t
 
 ```azurepowershell
 $Env:AZ_LOCAL_IP_ADDRESS = (Invoke-WebRequest https://whatismyip.akamai.com).Content
-az sql server firewall-rule create --resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SERVER_NAME -n AllowLocalIP --start-ip-address $Env:AZ_LOCAL_IP_ADDRESS --end-ip-address $Env:AZ_LOCAL_IP_ADDRESS
+az sql server firewall-rule create --resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SERVER_NAME --name AllowLocalIP --start-ip-address $Env:AZ_LOCAL_IP_ADDRESS --end-ip-address $Env:AZ_LOCAL_IP_ADDRESS
 ```
 
 ---
 
 > [!NOTE]
-> You create an Azure SQL server with SQL authentication disabled for security considerations. Only Microsoft Entra ID is used to authenticate to the server.
-> If you need to enable SQL authentication, see [az sql server create](/cli/azure/sql/server#az-sql-server-create) for more information.
+> You create an Azure SQL server with SQL authentication disabled for security considerations. Only Microsoft Entra ID is used to authenticate to the server. If you need to enable SQL authentication, see [az sql server create](/cli/azure/sql/server#az-sql-server-create) for more information.
 
 ## Create a service connection in AKS with Service Connector
 
@@ -364,12 +363,12 @@ export AKS_CLUSTER_RESOURCE_ID=$(az aks show \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --query id \
-    -o tsv)
+    --output tsv)
 export AZURE_SQL_SERVER_RESOURCE_ID=$(az sql server show \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $SQL_SERVER_NAME \
     --query id \
-    -o tsv)
+    --output tsv)
 
 # Create a user-assigned managed identity used for workload identity
 export USER_ASSIGNED_IDENTITY_NAME=workload-identity-uami
@@ -382,7 +381,7 @@ export UAMI_RESOURCE_ID=$(az identity show \
     --resource-group ${RESOURCE_GROUP_NAME} \
     --name ${USER_ASSIGNED_IDENTITY_NAME} \
     --query id \
-    -o tsv)
+    --output tsv)
 
 # Create a service connection between your AKS cluster and your SQL database using Microsoft Entra Workload ID
 az aks connection create sql \
@@ -404,15 +403,15 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
 
 # Retrieve the AKS cluster and Azure SQL Server resource IDs
-$Env:AKS_CLUSTER_RESOURCE_ID = $(az aks show --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:CLUSTER_NAME --query id -o tsv)
-$Env:AZURE_SQL_SERVER_RESOURCE_ID = $(az sql server show --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:SQL_SERVER_NAME --query id -o tsv)
+$Env:AKS_CLUSTER_RESOURCE_ID = $(az aks show --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:CLUSTER_NAME --query id --output tsv)
+$Env:AZURE_SQL_SERVER_RESOURCE_ID = $(az sql server show --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:SQL_SERVER_NAME --query id --output tsv)
 
 # Create a user-assigned managed identity used for workload identity
 $Env:USER_ASSIGNED_IDENTITY_NAME = "workload-identity-uami"
 az identity create --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:USER_ASSIGNED_IDENTITY_NAME
 
 # Retrieve the user-assigned managed identity resource ID
-$Env:UAMI_RESOURCE_ID = $(az identity show --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:USER_ASSIGNED_IDENTITY_NAME --query id -o tsv)
+$Env:UAMI_RESOURCE_ID = $(az identity show --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:USER_ASSIGNED_IDENTITY_NAME --query id --output tsv)
 
 # Create a service connection between your AKS cluster and your SQL database using Microsoft Entra Workload ID
 az aks connection create sql --connection akssqlconn --client-type java --source-id $Env:AKS_CLUSTER_RESOURCE_ID --target-id $Env:AZURE_SQL_SERVER_RESOURCE_ID/databases/$Env:DB_NAME --workload-identity $Env:UAMI_RESOURCE_ID
@@ -421,14 +420,13 @@ az aks connection create sql --connection akssqlconn --client-type java --source
 ---
 
 > [!NOTE]
-> It's recommneded to use Microsoft Entra Workload ID for secure access to your Azure SQL Database without using SQL authentication. 
-> If you need to use SQL authentication, ignore the above steps in this section and use the username and password to connect to the Azure SQL Database.
+> It's recommneded to use Microsoft Entra Workload ID for secure access to your Azure SQL Database without using SQL authentication. If you need to use SQL authentication, ignore the above steps in this section and use the username and password to connect to the Azure SQL Database.
 
 ### Get servcie account and secret created by Service Connector
 
 To authenticate to the Azure SQL Database, you need to get the service account and secret created by Service Connector. Follow the section [Update your container](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?pivots=workload-id&tabs=azure-cli#update-your-container). Take the option **Directly create a deployment using the YAML sample code snippet provided** and execute the following steps:
 
-1. From the highlighted sections in the sample Kubernetes deployment YAML, copy the `serviceAccountName` and `secretRef.name` values, for example:
+1. From the highlighted sections in the sample Kubernetes deployment YAML, copy the `serviceAccountName` and `secretRef.name` values, as shown in the following example:
 
    ```yaml
    serviceAccountName: <service-account-name>
@@ -522,7 +520,7 @@ Follow the steps in this section to deploy the sample application on the Liberty
 
 ### Check out the application
 
-Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks). There are a few samples in the repository. This article uses *java-app*. The important files are shown next.
+Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks). There are a few samples in the repository. This article uses the `java-app` sample. The important files are shown next.
 
 ### [Bash](#tab/in-bash)
 
@@ -572,8 +570,7 @@ In directory *liberty/config*, the *server.xml* is used to configure the databas
 The *pom.xml* file is the Maven project object model (POM) file that contains the configuration information for the project. The *pom-azure-identity.xml* file declares `azure-identity` dependency, which is used to authenticate to Azure services using Microsoft Entra ID.
 
 > [!NOTE]
-> This sample uses `azure-identity` library to authenticate to Azure SQL Database using Microsoft Entra authencitation, which is recommended for security considerations.
-> If you need to use SQL authentication in your Liberty application, see [Relational database connections with JDBC](https://openliberty.io/docs/latest/relational-database-connections-JDBC.html) for more information.
+> This sample uses `azure-identity` library to authenticate to Azure SQL Database using Microsoft Entra authencitation, which is recommended for security considerations. If you need to use SQL authentication in your Liberty application, see [Relational database connections with JDBC](https://openliberty.io/docs/latest/relational-database-connections-JDBC.html) for more information.
 
 ### Build the project
 
@@ -622,7 +619,7 @@ You can now run and test the project locally before deploying to Azure. For conv
 
    ```bash
    cd $BASE_DIR/java-app
-   
+
    # The value of environment variable AZURE_SQL_CONNECTIONSTRING is read by configuration variable `azure.sql.connectionstring` in server.xml
    export AZURE_SQL_CONNECTIONSTRING="jdbc:sqlserver://$SQL_SERVER_NAME.database.windows.net:1433;databaseName=$DB_NAME;authentication=ActiveDirectoryDefault"
    mvn liberty:run
@@ -793,7 +790,7 @@ NAME                        TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S
 javaee-cafe-cluster         LoadBalancer   10.0.251.169   52.152.189.57   80:31732/TCP     68s
 ```
 
-After the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the `kubectl` watch process.
+After the **EXTERNAL-IP** address changes from **pending** to an actual public IP address, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the `kubectl` watch process.
 
 If some time passed between executing the steps in this section and the preceding one, ensure the database is active, if necessary. See the previous note regarding database pause.
 
