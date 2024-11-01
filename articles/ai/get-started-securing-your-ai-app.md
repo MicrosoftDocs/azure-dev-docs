@@ -104,29 +104,29 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 :::zone pivot="python"
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart)
+  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart)
 
 :::zone-end
 
 :::zone pivot="dotnet"
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart-dotnet)
+ [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart-dotnet)
 
 :::zone-end
 
-1. On the **Create codespace** page, review and then select **Create new codespace**
+2. On the **Create codespace** page, review and then select **Create new codespace**
 
     :::image type="content" source="./media/get-started-securing-your-ai-app/github-create-codespace.png" lightbox="./media/get-started-securing-your-ai-app/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
-1. Wait for the codespace to start. This startup process can take a few minutes.
+3. Wait for the codespace to start. This startup process can take a few minutes.
 
-1. Sign in to Azure with the Azure Developer CLI in the terminal at the bottom of the screen.
+4. Sign in to Azure with the Azure Developer CLI in the terminal at the bottom of the screen.
 
     ```azdeveloper
     azd auth login
     ```
 
-1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
+5. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
 
 The remaining tasks in this article take place in the context of this development container.
 
