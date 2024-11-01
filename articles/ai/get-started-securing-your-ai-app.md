@@ -6,11 +6,13 @@ ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, keyless-python
 ms.collection: ce-skilling-ai-copilot
+zone_pivot_group_filename: developer/intro/intro-zone-pivot-groups.yml
+zone_pivot_groups: intelligent-apps-languages-python-dotnet
 # CustomerIntent: As a developer new to Azure OpenAI, I want to learn how to use keyless connections to Azure OpenAI from a simple example so that I don't leak secrets.
 ---
 # Get started with the Azure OpenAI security building block
 
-This article shows you how to create and use the Azure OpenAI security building block sample. The purpose is to demonstrate Azure OpenAI account provisioning with a role-based access control (RBAC) role permission for keyless (Microsoft Entra ID) authentication to Azure OpenAI. This chat app sample also includes all the infrastructure and configuration needed to provision Azure OpenAI resources and deploy the app to Azure Container Apps using the Azure Developer CLI.
+This article shows you how to create and use the Azure OpenAI security building block sample. The purpose is to demonstrate Azure OpenAI account provisioning with role-based access control (RBAC) for keyless (Microsoft Entra ID) authentication to Azure OpenAI. This chat app sample also includes all the infrastructure and configuration needed to provision Azure OpenAI resources and deploy the app to Azure Container Apps using the Azure Developer CLI.
 
 By following the instructions in this article, you will:
 
@@ -28,7 +30,7 @@ Once you complete this article, you can start modifying the new project with you
 A simple architecture of the chat app is shown in the following diagram:
 :::image type="content" source="./media/get-started-securing-your-ai-app/simple-architecture-diagram.png" lightbox="./media/get-started-securing-your-ai-app/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
-The chat app is running as an Azure Container App. The app uses managed identity via Microsoft Entra ID to authenticate with Azure OpenAI, instead of an API key. The chat app uses Azure OpenAI to generate responses to user messages.
+The chat app runs as an Azure Container App. The app uses managed identity via Microsoft Entra ID to authenticate with Azure OpenAI, instead of an API key. The chat app uses Azure OpenAI to generate responses to user messages.
 
 The application architecture relies on the following services and components:
 
@@ -36,9 +38,18 @@ The application architecture relies on the following services and components:
 - [Azure Container Apps](/azure/container-apps/) is the container environment where the application is hosted.
 - [Managed Identity](/entra/identity/managed-identities-azure-resources/) helps us ensure best-in-class security and eliminates the requirement for you as a developer to securely manage a secret.
 - [Bicep files](/azure/azure-resource-manager/bicep/) for provisioning Azure resources, including Azure OpenAI, Azure Container Apps, Azure Container Registry, Azure Log Analytics, and RBAC roles.
+:::zone pivot="python"
 - [Microsoft AI Chat Protocol](https://github.com/microsoft/ai-chat-protocol/) provides standardized API contracts across AI solutions and languages. The chat app conforms to the Microsoft AI Chat Protocol, which allows the evaluations app to run against any chat app that conforms to the protocol.
 - A Python [Quart](https://quart.palletsprojects.com/en/latest/) that uses the [`openai`](https://pypi.org/project/openai/) package to generate responses to user messages.
 - A basic HTML/JavaScript frontend that streams responses from the backend using [JSON Lines](http://jsonlines.org/) over a [ReadableStream](https://developer.mozilla.org/docs/Web/API/ReadableStream).
+
+:::zone-end
+
+:::zone pivot="dotnet"
+
+- A Blazor web app that uses the [Azure.AI.OpenAI](https://www.nuget.org/packages/Azure.AI.OpenAI/) NuGet package to generate responses to user messages.
+
+:::zone-end
 
 ## Cost
 
@@ -91,21 +102,31 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
 
-    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart)
+:::zone pivot="python"
 
-1. On the **Create codespace** page, review and then select **Create new codespace**
+  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart)
+
+:::zone-end
+
+:::zone pivot="dotnet"
+
+ [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart-dotnet)
+
+:::zone-end
+
+2. On the **Create codespace** page, review and then select **Create new codespace**
 
     :::image type="content" source="./media/get-started-securing-your-ai-app/github-create-codespace.png" lightbox="./media/get-started-securing-your-ai-app/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
-1. Wait for the codespace to start. This startup process can take a few minutes.
+3. Wait for the codespace to start. This startup process can take a few minutes.
 
-1. Sign in to Azure with the Azure Developer CLI in the terminal at the bottom of the screen.
+4. Sign in to Azure with the Azure Developer CLI in the terminal at the bottom of the screen.
 
     ```azdeveloper
     azd auth login
     ```
 
-1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
+5. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
 
 The remaining tasks in this article take place in the context of this development container.
 
@@ -135,7 +156,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. Run the following AZD command to bring the GitHub repository to your local computer.
 
     ```azdeveloper
-    azd init -t openai-chat-app-quickstart
+    azd init -t openai-chat-app-quickstart-dotnet
     ```
 
 1. Open the Command Palette, search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing.
@@ -187,6 +208,8 @@ The sample repository contains all the code and configuration files for chat app
 1. In the browser, enter a question such as "Why is managed identity better than keys?".
 
 1. The answer comes from Azure OpenAI and the result is displayed.
+
+:::zone pivot="python"
 
 ## Exploring the sample code
 
@@ -293,6 +316,78 @@ async def response_stream():
     )
 ```
 
+:::zone-end
+
+:::zone pivot="dotnet"
+
+## Explore the sample code
+
+.NET applications rely on the [Azure.AI.OpenAI](https://www.nuget.org/packages/Azure.AI.OpenAI/) client library to communicate with Azure OpenAI services, which takes a dependency on the [OpenAI](https://www.nuget.org/packages/OpenAI/2.1.0-beta.1) library. The sample app configures keyless authentication using Microsoft Entra ID to communicate with Azure OpenAI.
+
+### Configure authentication and service registration
+
+In this sample, keyless authentication is configured in the `program.cs` file. The following code snippet uses the `AZURE_CLIENT_ID` environment variable set by `azd` to create a [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) instance capable of authenticating via user-assigned managed identity.
+
+```csharp
+var userAssignedIdentityCredential = 
+    new ManagedIdentityCredential(builder.Configuration.GetValue<string>("AZURE_CLIENT_ID"));
+```
+
+>[!NOTE]
+>The `azd` resource environment variables are provisioned during `azd` app deployment.
+
+The following code snippet uses the `AZURE_TENANT_ID` environment variable set by `azd` to create an [AzureDeveloperCliCredential](/python/api/azure-identity/azure.identity.aio.azuredeveloperclicredential?view=azure-python&preserve-view=true) instance capable of authenticating locally using the account signed-in to `azd`.
+
+```csharp
+var azureDevCliCredential = new AzureDeveloperCliCredential(
+    new AzureDeveloperCliCredentialOptions()
+    { 
+        TenantId = builder.Configuration.GetValue<string>("AZURE_TENANT_ID") 
+    });
+```
+
+The Azure Identity client library provides credential classes that implement the Azure Core library's [TokenCredential](/python/api/azure-core/azure.core.credentials.tokencredential) protocol. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together using `ChainedTokenCredential` to form an ordered sequence of authentication mechanisms to be attempted.
+
+The following snippet registers the `AzureOpenAIClient` for dependency injection and creates a `ChainedTokenCredential` using a `ManagedIdentityCredential` and an `AzureDeveloperCliCredential`:
+
+- The `ManagedIdentityCredential` is used for Azure Functions and Azure App Service. A user-assigned managed identity is supported using the `AZURE_CLIENT_ID` that was provided to the `ManagedIdentityCredential`.
+- The `AzureDeveloperCliCredential` is used for local development. It was set previously based on the Microsoft Entra tenant to use.
+
+```csharp
+builder.Services.AddAzureClients(
+    clientBuilder => {
+        clientBuilder.AddClient<AzureOpenAIClient, AzureOpenAIClientOptions>((options, _, _)
+            => new AzureOpenAIClient(
+                new Uri(endpoint),
+                new ChainedTokenCredential(
+                    userAssignedIdentityCredential, azureDevCliCredential), options));
+    });
+```
+
+>[!TIP]
+>The order of the credentials is important, as the first valid Microsoft Entra access token is used. For more information, check out the [ChainedTokenCredential Overview](/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#usage-guidance-for-defaultazurecredential) article.
+
+### Get chat completions using the Azure OpenAI client
+
+The Blazor web app injects the registered `AzureOpenAIClient` at the top of the `Home.Razor` component:
+
+```csharp
+@inject AzureOpenAIClient azureOpenAIClient
+```
+
+When the user submits the form, the `AzureOpenAIClient` sends their prompt to the OpenAI model to generate a completion:
+
+```csharp
+ChatClient chatClient = azureOpenAIClient.GetChatClient("gpt-4o-mini");
+
+messages.Add(new UserChatMessage(model.UserMessage));
+
+ChatCompletion completion = await chatClient.CompleteChatAsync(messages);
+    messages.Add(new SystemChatMessage(completion.Content[0].Text));
+```
+
+:::zone-end
+
 ## Other security considerations
 
 This article demonstrates how the sample uses `ChainedTokenCreadential` for authenticating to the Azure OpenAI service.
@@ -326,11 +421,25 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 > [!IMPORTANT]
 > For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
+:::zone pivot="python"
+
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 
 1. Locate your currently running Codespaces sourced from the [`Azure-Samples/openai-chat-app-quickstart`](https://github.com/Azure-Samples/openai-chat-app-quickstart) GitHub repository.
 
 1. Open the context menu for the codespace and then select **Delete**.
+
+:::zone-end
+
+:::zone pivot="dotnet"
+
+1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
+
+1. Locate your currently running Codespaces sourced from the [`Azure-Samples/openai-chat-app-quickstart-dotnet`](https://github.com/Azure-Samples/openai-chat-app-quickstart-dotnet) GitHub repository.
+
+1. Open the context menu for the codespace and then select **Delete**.
+
+:::zone-end
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
