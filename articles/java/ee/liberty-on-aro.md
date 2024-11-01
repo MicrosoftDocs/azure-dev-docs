@@ -5,7 +5,7 @@ description: Shows you how to deploy a Java application with Open Liberty/WebSph
 author: KarlErickson
 ms.author: jiangma
 ms.topic: conceptual
-ms.date: 07/31/2024
+ms.date: 11/01/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java, linux-related-content
 ---
 
@@ -35,7 +35,7 @@ If you're interested in providing feedback or working closely on your migration 
 ## Prerequisites
 
 - A local machine with Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
-- A Java Standard Edition (SE) implementation, version 17 or later - or example, [Eclipse Open J9](https://www.eclipse.org/openj9/).
+- A Java Standard Edition (SE) implementation, version 17 - for example, [Eclipse Open J9](https://www.eclipse.org/openj9/).
 - [Maven](https://maven.apache.org/download.cgi), version 3.9.8 or higher.
 - [Docker](https://docs.docker.com/get-docker/) for your OS.
 - [Azure CLI](/cli/azure/install-azure-cli), version 2.61.0 or later.
@@ -69,13 +69,13 @@ After you create and connect to the cluster, use the following steps to install 
 1. Select **Open Liberty** from the search results.
 1. Select **Install**.
 1. On the **Install Operator** page, use the following steps:
-   1. For **Update channel**, select the latest channel **v1.3**.
+   1. For **Update channel**, select the latest channel **v1.4**.
    1. For **Installation mode**, seelct **All namespaces on the cluster (default)**.
    1. For **Update approval**, select **Automatic**.
 
    :::image type="content" source="media/liberty-on-aro/install-operator.png" alt-text="Screenshot of the OpenShift web console that shows the Install Operator page." lightbox="media/liberty-on-aro/install-operator.png":::
 
-1. Select **Install** and wait a minute or two until the installation completes.
+1. Select **Install** and wait a few minutes until the installation completes.
 1. Observe that the Open Liberty Operator is successfully installed and ready for use. If it isn't ready, diagnose and resolve the problem before continuing.
 
    :::image type="content" source="media/liberty-on-aro/open-liberty-operator-installed.png" alt-text="Screenshot of the OpenShift web console that shows the Installed operator dialog box." lightbox="media/liberty-on-aro/open-liberty-operator-installed.png":::
