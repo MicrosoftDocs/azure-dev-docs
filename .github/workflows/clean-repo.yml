@@ -36,11 +36,16 @@ jobs:
           target_directory: "articles/javascript"
           url_base_path: "/developer/javascript"
 
+      - name: Get current datetime
+        id: datetime
+        run: echo "CURRENT_DATETIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> $GITHUB_ENV
+
+
       # Create the PR for the work done by the "clean repo" tool
       - name: create-pull-request
         uses: peter-evans/create-pull-request@5e914681df9dc83aa4e4905692ca88beb2f9e91f
         with:
           branch: cleanrepo-orphaned-images
-          title: "Monthly chores: Delete orphaned images"
+          title: "CURRENT_DATETIME: Delete orphaned images"
           commit-message: "Bot 🤖 generated CleanRepo tool run"
           body: "Find and delete orphaned images. Contributes to #..."
