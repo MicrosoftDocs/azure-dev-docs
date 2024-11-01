@@ -1,13 +1,9 @@
-#original https://github.com/dotnet/docs/blob/main/.github/workflows/clean-repo.yml
-name: "Clean repo"
+name: "clean repo - orphaned images"
 
 on:
   schedule:
-    - cron: "0 1 1 * *" # Runs at 01:00, on day 1 of the month
+    - cron: "0 22 * * 0" # Runs at 22:00 (10 PM) every Sunday
   workflow_dispatch:
-  push:
-    branches:
-      - diberry/1030-clean-repo-action
 
 permissions:
   contents: read
@@ -30,27 +26,18 @@ jobs:
       # Call clean repo
       - name: Clean repo
         id: clean-repo-step
-        uses: dotnet/docs-tools/cleanrepo@2a815a6c0976e888a49264f513dc230008b4a1f2
+        uses: dotnet/docs-tools/cleanrepo@b1ebc174a5bbd18e6904a12069a8fae2c5cc3b6f
         with:
-          docfx_directory: './articles'
-          articles_directory: './articles'
-          media_directory: './articles'
-          url_base_path: '/developer'
-          delete: true
-          orphaned_articles: false
-          orphaned_images: true
-          catalog_images: false
-          orphaned_snippets: false
-          orphaned_includes: false
-          replace_redirects: false
-          relative_links: false
-          remove_hops: false
-        
+          function: "FindOrphanedImages"
+          docfx_directory: "."
+          target_directory: "docs"
+          url_base_path: "/dotnet"
+
       # Create the PR for the work done by the "clean repo" tool
       - name: create-pull-request
         uses: peter-evans/create-pull-request@5e914681df9dc83aa4e4905692ca88beb2f9e91f
         with:
-          branch: create-cleanrepo-pull-request/patch
-          title: "Weekly chores: Automated repo cleanup"
-          commit-message: 'Bot 🤖 generated CleanRepo tool run'
-          body: "Find and delete images. Remove redirection hops, update redirected links in articles, and replace site-relative links with file-relative links. Contributes to #..."
+          branch: cleanrepo-orphaned-images
+          title: "Monthly chores: Delete orphaned images"
+          commit-message: "Bot 🤖 generated CleanRepo tool run"
+          body: "Find and delete orphaned images. Contributes to #..."
