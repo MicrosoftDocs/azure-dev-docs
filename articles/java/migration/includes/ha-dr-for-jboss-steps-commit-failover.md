@@ -1,14 +1,14 @@
 ---
-author: backwind1233
+author: KarlErickson
 ms.author: zhihaoguo
-ms.date: 05/31/2024
+ms.date: 11/28/2024
 ---
 
 Ensure the steps in the previous section completed successfully. Follow the steps in this section to commit the failover.
 
 1. In the search box at the top of the Azure portal, type **Recovery Services vaults** and select it from the search results.
 1. Select your Recovery Services vault (for example, `recovery-service-vault-westus-gzh032124`).
-1. Under the **Manage** section, select **Recovery Plans (Site Recovery)**. 
+1. Under the **Manage** section, select **Recovery Plans (Site Recovery)**.
 2. Select the recovery plan(for example, `recovery-plan-gzh032124`).
 1. Select **Commit**, then **OK**.
 1. Monitor the notifications until it completes.

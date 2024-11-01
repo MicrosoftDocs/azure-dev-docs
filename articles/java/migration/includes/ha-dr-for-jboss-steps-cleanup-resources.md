@@ -1,7 +1,7 @@
 ---
-author: backwind1233
+author: KarlErickson
 ms.author: zhihaoguo
-ms.date: 05/31/2024
+ms.date: 11/28/2024
 ---
 
 1. Enter the resource group name of Azure SQL Database servers (for example, `sqlserver-rg-gzh032124`) in the search box at the top of the Azure portal, and select the matched resource group from the search results.

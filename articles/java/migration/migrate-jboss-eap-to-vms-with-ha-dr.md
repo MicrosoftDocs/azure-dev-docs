@@ -4,7 +4,7 @@ description: Shows how to deploy JBoss EAP Application Server to Azure Virtual M
 author: KarlErickson
 ms.author: zhihaoguo
 ms.topic: tutorial
-ms.date: 05/07/2024
+ms.date: 11/28/2024
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, migration-java
 ---
 
@@ -34,7 +34,7 @@ The following diagram illustrates the architecture you build:
 
 ## Set up an Azure SQL Database failover group in paired regions
 
-In this section, you create an Azure SQL Database failover group in paired regions for use with your JBoss EAP clusters and app. 
+In this section, you create an Azure SQL Database failover group in paired regions for use with your JBoss EAP clusters and app.
 
 [!INCLUDE [ha-dr-for-jboss-azure-sql-database.md](includes/ha-dr-for-jboss-azure-sql-database.md)]
 
@@ -52,7 +52,7 @@ Use the following steps to fill out the **Basics** pane:
 1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, `jboss-eap-cluster-eastus-gzh032124`.
 1. Under **Instance details**, for **Region**, select **East US**.
 1. Provide a password for **Password** and Use the same value for **Confirm password**.
-1. For **Number of virtual machines to create**, input `3`.
+1. For **Number of virtual machines to create**, input **3**.
 1. Leave other fields as default.
 1. Select **Next** to go to the **JBoss EAP Settings** pane.
 
@@ -82,7 +82,7 @@ Use the following steps to fill out the **Database** pane:
 
 1. For **Connect to database?**, select **Yes**.
 1. For **Choose database type**, select **Microsoft SQL Server** .
-1. For **JNDI Name**, enter *java:jboss/datasources/JavaEECafeDB*.
+1. For **JNDI Name**, enter **java:jboss/datasources/JavaEECafeDB**.
 1. For **Data source connection string (jdbc:sqlserver://\<host\>:\<port\>;database=\<database\>)**, replace the placeholders with the values you wrote down from the preceding section for the failover group of Azure SQL Database - for example, `jdbc:sqlserver://failovergroup-gzh032124.database.windows.net:1433;database=mySampleDatabase`.
 1. For **Database username**, enter the server admin sign-in name and the failover group name you wrote down from the preceding section - for example, `azureuser@failovergroup-gzh032124`.
 1. Enter the server admin sign-in password that you wrote down before for **Database Password**. Enter the same value for **Confirm password**.
@@ -112,7 +112,7 @@ Use the following steps to verify the functionality of the deployment for a JBos
 
    :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-login.png" alt-text="Screenshot of the JBoss EAP management console sign-in screen." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-login.png":::
 
-1. Fill in *jbossadmin* for **JBoss EAP Admin username** Provide the value for **JBoss EAP password** that you specified before for **Password**, then select **Sign in**.
+1. Fill in **jbossadmin** for **JBoss EAP Admin username** Provide the value for **JBoss EAP password** that you specified before for **Password**, then select **Sign in**.
 1. You should see the familiar **Red Hat JBoss Enterprise Application Platform** management console welcome page as shown in the following screenshot.
 
    :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-welcome.png" alt-text="Screenshot of JBoss EAP management console welcome page." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-welcome.png":::
@@ -123,33 +123,46 @@ Use the following steps to verify the functionality of the deployment for a JBos
 
 Leave the management console open. You use it to deploy a sample app to the JBoss EAP cluster in the next section.
 
-## Configure the cluster 
+## Configure the cluster
 Use the following steps to configure database distributed sessions for all application servers:
+
 1. Select **Configuration** in the navigation panel. Then select **Profiles** > **ha** > **Infinspan** > **Web**.
+
 1. In the **Cache** column, select **Add Distributed Cache**.
 
    :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-add-distributed-cache.png" alt-text="Screenshot of the JBoss EAP management console Add Distributed Cache." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-add-distributed-cache.png":::
 
-1. For **Name** enter *azure-session* and select **Add**.
+1. For **Name** enter **azure-session** and select **Add**.
+
 1. You see a message, **Distributed Cache azure-session successfully added**. If you miss the message, check the notification center. You must see this message before proceeding.
+
 1. After the cache is added, select **azure-session** > **View**.
+
 1. Select **Store**.
+
 1. Change the drop down menu to show **JDBC** and select **Add**.
+
 1. Select **dataSource-mssqlserver** for **Data source** and then select **Add**.
 
    :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-store-jdbc.png" alt-text="Screenshot of the JBoss EAP management console Store JDBC." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-store-jdbc.png":::
-   
+
 1. You see a message, **JDBC successfully added**. If you miss the message, check the notification center. You must see this message before proceeding.
-1. On the **Store: JDBC** page, select **Edit**. Set the following property values.
+
+1. On the **Store: JDBC** page, select **Edit**. Set the following property values:
+
    - **Dialect** to **SQL_SERVER**.
    - **Passivation** to **OFF**.
    - **Purge** to **OFF**.
    - Shared to **ON**.
+
 1. Select **Save**.
 
    :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-edit-store-jdbc.png" alt-text="Screenshot of the JBoss EAP management console Edit Store JDBC." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-edit-store-jdbc.png":::
+
 1. You see a message, **JDBC successfully modified**. If you miss the message, check the notification center. You must see this message before proceeding.
-1. Edit String Table by selecting **String Table** > **Edit**. Fill in the following values and then select **Save**:
+
+1. Edit the string table by selecting **String Table** > **Edit**. Fill in the following values and then select **Save**:
+
    - **Prefix** is `ispn_entry_sessions`
    - **ID Column / ID Column Name** is `id`
    - **ID Column / ID Column Type** is `VARCHAR(255)`
@@ -158,62 +171,71 @@ Use the following steps to configure database distributed sessions for all appli
    - **Timestamp Column / Timestamp Column Name** is `timestamp`
    - **Timestamp Column / Timestamp Column Type** is `BIGINT`
 
-    :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-edit-string-table.png" alt-text="Screenshot of the JBoss EAP management console Edit String Table." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-edit-string-table.png":::
-    
-    Any typos here will cause the whole system to fail. Inspect your filled-in values carefully before proceeding.
+   :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-edit-string-table.png" alt-text="Screenshot of the JBoss EAP management console Edit String Table." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-edit-string-table.png":::
+
+   Any typos here will cause the whole system to fail. Inspect your filled-in values carefully before proceeding.
+
 1. Select **Save**.
+
 1. You see a message, **String Table successfully modified**. If you miss the message, check the notification center. You must see this message before proceeding.
+
 1. Select **Configuration** in the top navigation panel. Then select **Profiles** > **ha** > **Distributable Web** > **View**.
-   
-    :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-view-distributable-web.png" alt-text="Screenshot of the JBoss EAP management console View Distributable Web." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-view-distributable-web.png":::
+
+   :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-view-distributable-web.png" alt-text="Screenshot of the JBoss EAP management console View Distributable Web." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-view-distributable-web.png":::
 
 1. Select **Infinspan SSO** > **default** > **Edit**.
 
     :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-edit-infinispan-sso.png" alt-text="Screenshot of the JBoss EAP management console Edit Infinspan SSO." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-edit-infinispan-sso.png":::
-1. Set the value of **Cache** to *azure-session* and select **Save**.
+
+1. Set the value of **Cache** to **azure-session** and select **Save**.
+
 1. You see a message **Infinispan Single Sign On Management default successfully modified**. If you miss the message, check the notification center. You must see this message before proceeding.
+
 1. Use the topology to reload or restart affected servers.
+
 1. Select **Runtime** in the navigation panel. Then select **Topology**.
+
 1. For each row in the **main-server-group** column, select the server and then select **Reload**.
 
-    :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-reload-servers.png" alt-text="Screenshot of the JBoss EAP management console Reload servers." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-reload-servers.png":::
-    
-    The reloaded cells should now show the color green.
+   :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-reload-servers.png" alt-text="Screenshot of the JBoss EAP management console Reload servers." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-reload-servers.png":::
+
+   The reloaded cells should now show the color green.
 
 ## Deploy the app to the JBoss EAP cluster
 
 Use the following steps to deploy the JavaEE Cafe sample application to the Red Hat JBoss EAP cluster:
 
 [!INCLUDE [ha-dr-for-jboss-build-javaee-cafe.md](includes/ha-dr-for-jboss-build-javaee-cafe.md)]
-1. Use the following steps in the **Red Hat JBoss Enterprise Application Platform** management console to upload the *javaee-cafe.war* to the **Content Repository**.
+1. Use the following steps in the **Red Hat JBoss Enterprise Application Platform** management console to upload the **javaee-cafe.war** to the **Content Repository**.
 
    1. From the **Deployments** tab of the Red Hat JBoss EAP management console, select **Content Repository** in the navigation panel.
    1. Select **Add** and then select **Upload Content**.
 
       :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-upload-content.png" alt-text="Screenshot of the JBoss EAP management console Deployments tab with Upload Content menu item highlighted." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-upload-content.png":::
 
-   1. Use the browser file chooser to select the *javaee-cafe.war* file.
+   1. Use the browser file chooser to select the **javaee-cafe.war** file.
    1. Select **Next**.
    1. Accept the defaults on the next screen and then select **Finish**.
    1. Select **View content**.
 
-1. Use the following steps to deploy an application to the `main-server-group`:
+1. Use the following steps to deploy an application to `main-server-group`:
 
-   1. From **Content Repository**, select *javaee-cafe.war*.
+   1. From **Content Repository**, select **javaee-cafe.war**.
    1. Open the drop-down menu and select **Deploy**.
-   1. Select **main-server-group** as the server group for deploying *javaee-cafe.war*.
+   1. Select **main-server-group** as the server group for deploying **javaee-cafe.war**.
    1. Select **Deploy** to start the deployment. You should see a notice similar to the following screenshot:
 
       :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-app-successfully-deployed.png" alt-text="Screenshot of the notice of successful deployment." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/jboss-eap-console-app-successfully-deployed.png":::
 
 You're now finished deploying the JavaEE application. Use the following steps to access the application and validate all the settings:
+
 1. In the search box at the top of the Azure portal, enter **Resource groups** and select **Resource groups** in the search results.
-1. Select the name of resource group - for example, `jboss-eap-cluster-eastus-gzh032124`. 
-2. Select the Application Gateway resource in the resource group.
-3. Copy the **Frontend public IP address** from the **Overview** pane.
-4. Construct url with the IP address and path - for example, `http://40.88.26.22/javaee-cafe`.
-4. Paste the url into a web browser and press <kbd>Enter</kbd>. You should see the JavaEE Cafe application home page.
-5. Create two coffees with a different name and price. You should see page similar in the following screenshot:
+1. Select the name of resource group - for example, `jboss-eap-cluster-eastus-gzh032124`.
+1. Select the Application Gateway resource in the resource group.
+1. Copy the **Frontend public IP address** from the **Overview** pane.
+1. Construct url with the IP address and path - for example, `http://40.88.26.22/javaee-cafe`.
+1. Paste the url into a web browser and press <kbd>Enter</kbd>. You should see the JavaEE Cafe application home page.
+1. Create two coffees with a different name and price. You should see page similar in the following screenshot:
 
    :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/javaee-cafe-app-home-page-session.png" alt-text="Screenshot of the JavaEE Cafe application home page." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/javaee-cafe-app-home-page-session.png":::
 
@@ -221,7 +243,7 @@ You're now finished deploying the JavaEE application. Use the following steps to
 ## Set up the secondary JBoss EAP cluster on Azure VMs
 
 ### Deploy the secondary JBoss EAP cluster
-Follow the steps in [Deploy the primary JBoss EAP cluster](#deploy-the-primary-jboss-eap-cluster) to deploy the secondary JBoss EAP cluster in the paired regoin. This example uses West US 2. By using the offer, the secondary JBoss EAP cluster is configured so Azure Site Recovery can be used to restore the topology. 
+Follow the steps in [Deploy the primary JBoss EAP cluster](#deploy-the-primary-jboss-eap-cluster) to deploy the secondary JBoss EAP cluster in the paired regoin. This example uses West US 2. By using the offer, the secondary JBoss EAP cluster is configured so Azure Site Recovery can be used to restore the topology.
 Open the [JBoss EAP Cluster on VMs](https://aka.ms/eap-vm-cluster-portal) offer in your browser and select **Create**. You should see the **Basics** pane of the offer.
 
 Use the following steps to fill out the **Basics** pane:
@@ -232,10 +254,10 @@ Use the following steps to fill out the **Basics** pane:
 For the **JBoss EAP Settings** pane:
 1. Keep it same as the primary cluster.
 
-For the **Azure Application Gateway** pane:  
+For the **Azure Application Gateway** pane:
 1. Keep it same as the primary cluster.
 
-For the **Networking** pane. 
+For the **Networking** pane.
 1. Open the Virtual network setting and input the address space which is the same as the primary cluster.
 
 :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/portal-secondary-networking.png" alt-text="Screenshot in secondary cluster that shows the Networking pane." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/portal-secondary-networking.png":::
@@ -257,7 +279,7 @@ Clean up resources in the resource group named `jboss-eap-cluster-westus-gzh0321
 ## Set up disaster recovery for the cluster using Azure Site Recovery
 
 [!INCLUDE [ha-dr-for-jboss-setup-disaster-recovery.md](includes/ha-dr-for-jboss-setup-disaster-recovery.md)]
- 
+
 ## Set up an Azure Traffic Manager
 
 In this section, you create an Azure Traffic Manager for distributing traffic to your public facing applications across Azure regions. The primary endpoint points to the public IP address of the Application Gateway in the primary region, and the secondary endpoint points to the public IP address of the Application Gateway in the secondary region.
@@ -267,7 +289,7 @@ In this section, you create an Azure Traffic Manager for distributing traffic to
 Next, verify if the sample app deployed to the primary JBoss EAP cluster can be accessed from the Traffic Manager profile:
 
 1. Select **Overview** of the Traffic Manager profile you created.
-1. Check and copy the DNS name of the Traffic Manager profile. Append */javaee-cafe/* to it. For example, `http://tm-profile-gzh032124.trafficmanager.net/javaee-cafe/`.
+1. Check and copy the DNS name of the Traffic Manager profile. Append **/javaee-cafe/** to it. For example, `http://tm-profile-gzh032124.trafficmanager.net/javaee-cafe/`.
 1. Open the URL in a new tab of the browser. You should see the coffee you created before is listed in the page.
 
    :::image type="content" source="media/migrate-jboss-eap-to-vms-with-ha-dr/javaee-cafe-app-home-page-session.png" alt-text="Screenshot of the sample application UI." lightbox="media/migrate-jboss-eap-to-vms-with-ha-dr/javaee-cafe-app-home-page-session.png":::
@@ -296,7 +318,7 @@ The steps in this section test failover by manually failing over your Azure SQL 
 
 Now the secondary region is the failover site and active, you should re-protect it in your primary region.
 
-First, clean up resources in the resource group named `jboss-eap-cluster-eastus-gzh032124` that are not used any more.
+First, clean up resources in the resource group named `jboss-eap-cluster-eastus-gzh032124` that aren't used any more.
 
 [!INCLUDE [ha-dr-for-jboss-cleanup-unused-resource.md](includes/ha-dr-for-jboss-steps-cleanup-unused-resource.md)]
 

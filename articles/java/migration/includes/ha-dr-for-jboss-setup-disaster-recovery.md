@@ -1,7 +1,7 @@
 ---
-author: backwind1233
+author: KarlErickson
 ms.author: zhihaoguo
-ms.date: 05/31/2024
+ms.date: 11/28/2024
 ---
 
 In this section, you set up disaster recovery for Azure VMs in the primary cluster using Azure Site Recovery, by following the steps in [Tutorial: Set up disaster recovery for Azure VMs](/azure/site-recovery/azure-to-azure-tutorial-enable-replication). You just need the following sections: [Create a Recovery Services vault](/azure/site-recovery/azure-to-azure-tutorial-enable-replication#create-a-recovery-services-vault) and [Enable replication](/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication). Pay attention to the following steps as you go through the article, then return to this article after the primary cluster is protected:
@@ -35,7 +35,7 @@ In this section, you set up disaster recovery for Azure VMs in the primary clust
         1. Note down the new failover virtual network and failover subnet, which are mapped from ones in the primary region.
         1. Leave the defaults for other fields.
     1. Manage:
-        1. For **Replication policy**, use the default policy *24-hour-retention-policy*. You can also create a new policy for your business.
+        1. For **Replication policy**, use the default policy **24-hour-retention-policy**. You can also create a new policy for your business.
         1. Leave the defaults for other fields as well.
     1. Review:
         1. After selecting **Enable replication**, notice the message **Creating Azure resources. Don't close this blade.** displayed at the bottom of the page. Do nothing and wait until the blade is closed automatically. You're redirected to **Site Recovery** page.

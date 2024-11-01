@@ -1,7 +1,7 @@
 ---
-author: backwind1233
+author: KarlErickson
 ms.author: zhihaoguo
-ms.date: 05/31/2024
+ms.date: 11/28/2024
 ---
 
 Create an Azure Traffic Manager profile by following [Quickstart: Create a Traffic Manager profile using the Azure portal](/azure/traffic-manager/quickstart-create-traffic-manager-profile). You just need the following sections: **Create a Traffic Manager profile** and **Add Traffic Manager endpoints**. Use the following steps as you go through these sections, then return to this article after you create and configure the Azure Traffic Manager.
@@ -13,16 +13,16 @@ Create an Azure Traffic Manager profile by following [Quickstart: Create a Traff
 
 1. When you reach the section [Add Traffic Manager endpoints](/azure/traffic-manager/quickstart-create-traffic-manager-profile#add-traffic-manager-endpoints), use the following steps:
     1. After you open the Traffic Manager profile in step 2, in the **Configuration** page, use the following steps:
-        1. For **DNS time to live (TTL)**, enter *10*.
+        1. For **DNS time to live (TTL)**, enter **10**.
         1. Under **Fast endpoint failover settings**, use the following values:
-            * For **Probing internal**, select *10*.
-            * For **Tolerated number of failures**, enter *3*.
-            * For **Probe timeout**, *5*.
+            * For **Probing internal**, select **10**.
+            * For **Tolerated number of failures**, enter **3**.
+            * For **Probe timeout**, **5**.
         1. Select **Save**. Wait until it completes.
-    1. In step 4 for adding the primary endpoint *myPrimaryEndpoint*, use the following steps:
+    1. In step 4 for adding the primary endpoint `myPrimaryEndpoint`, use the following steps:
         1. For **Target resource type**, select **Public IP address**.
         1. Select the **Choose public IP address** dropdown and enter the name of the public IP address of the ApplicationGateWay in the **East US** region. You should see one entry matched. Select it for **Public IP address**.
-    1. In step 6 for adding a failover secondary endpoint *myFailoverEndpoint*, use the following steps:
+    1. In step 6 for adding a failover secondary endpoint `myFailoverEndpoint`, use the following steps:
         1. For **Target resource type**, select **Public IP address**.
         1. Select the **Choose public IP address** dropdown and enter the name of the public IP address of the ApplicationGateWay in the **West US 2** region. You should see one entry matched. Select it for **Public IP address**.
-    1. Wait for a while. Select **Refresh** until the **Monitor status** for endpoint *myPrimaryEndpoint* is *Online* and **Monitor status** for endpoint *myFailoverEndpoint* is *Degraded*.
+    1. Wait for a while. Select **Refresh** until the **Monitor status** for endpoint `myPrimaryEndpoint` is **Online** and **Monitor status** for endpoint `myFailoverEndpoint` is **Degraded**.

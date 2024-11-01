@@ -1,7 +1,7 @@
 ---
-author: backwind1233
+author: KarlErickson
 ms.author: zhihaoguo
-ms.date: 05/31/2024
+ms.date: 11/28/2024
 ---
 
 1. Use the following steps to build the Java EE Cafe sample. These steps assume that you have a local environment with Git and Maven installed:
@@ -20,4 +20,4 @@ ms.date: 05/31/2024
        mvn clean install --file rhel-jboss-templates/eap-coffee-app/pom.xml
        ```
 
-       This command creates the file *rhel-jboss-templates/eap-coffee-app/target/javaee-cafe.war*. You'll upload this file in the next step.
+       This command creates the file **rhel-jboss-templates/eap-coffee-app/target/javaee-cafe.war**. You'll upload this file in the next step.

@@ -1,7 +1,7 @@
 ---
-author: backwind1233
+author: KarlErickson
 ms.author: zhihaoguo
-ms.date: 05/31/2024
+ms.date: 11/28/2024
 ---
 
 1. In the search box at the top of the Azure portal, enter **Resource groups** and select **Resource groups** in the search results.
@@ -18,6 +18,6 @@ ms.date: 05/31/2024
    1. **Storage account**.
 1. Select the dropdown menu next to the field **Value** to close the dropdown. You must see **5 resource types** as the value of **Value**.
 1. Select **Apply**.
-1. Select the checkbox next to the label **Name** at the top of the filtered list. 
+1. Select the checkbox next to the label **Name** at the top of the filtered list.
 1. Select **Delete**.
 1. Enter **delete** to confirm deletion > Select **Delete**. Monitor the process in notifications until it completes.
