@@ -1,7 +1,7 @@
 ---
 title: Configure logging in the Azure libraries for Python
 description: The Azure libraries use the standard Python logging module, which is configured on a per-library or per-operation basis.
-ms.date: 01/19/2024
+ms.date: 11/01/2024
 ms.topic: conceptual
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -74,24 +74,24 @@ This example registers a handler that directs log output to stdout. You can use 
 
 ## Enable HTTP logging for a client object or operation
 
-By default, logging within the Azure libraries doesn't include any HTTP information. To include HTTP information in log output (as DEBUG level), you must explicitly pass `logging_enable=True` to a client or credential object constructor or to a specific method.
+By default, logging within the Azure libraries doesn't include any HTTP information. To include HTTP information in log output, you must explicitly pass `logging_enable=True` to a client or credential object constructor or to a specific method.
 
 > [!CAUTION]
 > HTTP logging can include sensitive information such as account keys in headers and other credentials. Be sure to protect these logs to avoid compromising security.
 
-### Enable HTTP logging for a client object (DEBUG level)
+### Enable HTTP logging for a client object
 
 :::code language="python" source="~/../python-sdk-docs-examples/logging/enable_for_client.py":::
 
 Enabling HTTP logging for a client object enables logging for all operations invoked through that object.
 
-### Enable HTTP logging for a credential object (DEBUG level)
+### Enable HTTP logging for a credential object
 
 :::code language="python" source="~/../python-sdk-docs-examples/logging/enable_for_credential.py":::
 
 Enabling HTTP logging for a credential object enables logging for all operations invoked through that object, but not for operations in a client object that don't involve authentication.
 
-### Enable logging for an individual method (DEBUG level)
+### Enable logging for an individual method
 
 :::code language="python" source="~/../python-sdk-docs-examples/logging/enable_for_method.py":::
 
