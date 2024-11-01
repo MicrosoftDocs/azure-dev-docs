@@ -62,7 +62,7 @@
 | Event Grid Namespaces | npm [1.0.0](https://www.npmjs.com/package/@azure/eventgrid-namespaces/v/1.0.0) | [docs](/javascript/api/overview/azure/eventgrid-namespaces-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-namespaces_1.0.0/sdk/eventgrid/eventgrid-namespaces/) |
 | Event Grid System Events | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/eventgrid-system-events/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/eventgrid-system-events-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-system-events_1.0.0-beta.4/sdk/eventgrid/eventgrid-system-events/) |
 | Event Hubs | npm [5.12.2](https://www.npmjs.com/package/@azure/event-hubs/v/5.12.2)<br>npm [5.13.0-beta.2](https://www.npmjs.com/package/@azure/event-hubs/v/5.13.0-beta.2) | [docs](/javascript/api/overview/azure/event-hubs-readme) | GitHub [5.12.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.12.2/sdk/eventhub/event-hubs/)<br>GitHub [5.13.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.13.0-beta.2/sdk/eventhub/event-hubs/) |
-| Face | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-vision-face/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-face_1.0.0-beta.1/sdk/face/ai-vision-face-rest/) |
+| Face | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/ai-vision-face/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-face_1.0.0-beta.2/sdk/face/ai-vision-face-rest/) |
 | farmbeats | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/agrifood-farming/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.2/sdk/agrifood/agrifood-farming-rest/) |
 | Form Recognizer | npm [5.0.0](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [docs](/javascript/api/overview/azure/ai-form-recognizer-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_5.0.0/sdk/formrecognizer/ai-form-recognizer/) |
 | Health Deidentification | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/health-deidentification/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/health-deidentification_1.0.0-beta.1/sdk/healthdataaiservices/azure-health-deidentification/) |
@@ -371,7 +371,7 @@
 | @azure-tools/typespec-autorest-canonical | npm [0.8.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.8.0) |  |  |
 | @azure-tools/typespec-azure-portal-core | npm [0.47.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.47.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.47.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.47.0) |  |  |
-| @azure-tools/typespec-client-generator-cli | npm [0.13.2](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.13.2) |  |  |
+| @azure-tools/typespec-client-generator-cli | npm [0.13.3](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.13.3) |  |  |
 | @azure-tools/typespec-go | npm [0.3.1](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.1) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.4.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.4.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
@@ -415,7 +415,7 @@
 | Azure Functions | npm [4.0.0](https://www.npmjs.com/package/@azure/functions/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-functions-nodejs-library) |
 | Batch | npm [12.0.0](https://www.npmjs.com/package/@azure/batch/v/12.0.0) |  | GitHub [12.0.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
-| Communication Calling | npm [1.29.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.29.1) |  | GitHub [1.29.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| Communication Calling | npm [1.30.2](https://www.npmjs.com/package/@azure/communication-calling/v/1.30.2) |  | GitHub [1.30.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Communication Signaling | npm [1.0.0-beta.29](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.29) |  | GitHub [1.0.0-beta.29](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Computer Vision | npm [8.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.2.0) |  |  |
 | Content Safety | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  |  |
@@ -483,7 +483,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20241025.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20241025.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20241030.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20241030.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -556,7 +556,7 @@
 | AutoRest - CLI | npm [0.1.889](https://www.npmjs.com/package/@autorest/cli/v/0.1.889) |  | GitHub [0.1.889](https://github.com/Azure/autorest.cli) |
 | AutoRest - CLI Common | npm [0.6.2](https://www.npmjs.com/package/@autorest/clicommon/v/0.6.2) |  | GitHub [0.6.2](https://github.com/Azure/autorest.clicommon/tree/0.4.12) |
 | AutoRest - Compare | npm [0.5.0](https://www.npmjs.com/package/@autorest/compare/v/0.5.0) |  | GitHub [0.5.0](https://github.com/Azure/autorest.compare) |
-| AutoRest - Core | npm [3.10.2](https://www.npmjs.com/package/@autorest/core/v/3.10.2) |  | GitHub [3.10.2](https://github.com/Azure/autorest) |
+| AutoRest - Core | npm [3.10.3](https://www.npmjs.com/package/@autorest/core/v/3.10.3) |  | GitHub [3.10.3](https://github.com/Azure/autorest) |
 | AutoRest - Functions CSharp | npm [0.2.0-preview-dev.321054549](https://www.npmjs.com/package/@autorest/azure-functions-csharp/v/0.2.0-preview-dev.321054549) |  |  |
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
