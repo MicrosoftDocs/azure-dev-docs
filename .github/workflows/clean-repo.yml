@@ -32,7 +32,7 @@ jobs:
         uses: dotnet/docs-tools/cleanrepo@b1ebc174a5bbd18e6904a12069a8fae2c5cc3b6f
         with:
           function: "FindOrphanedImages"
-          docfx_directory: "."
+          docfx_directory: "articles"
           target_directory: "articles"
           url_base_path: "/developer"
 
