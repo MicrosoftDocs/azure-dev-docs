@@ -46,6 +46,7 @@ An `azd` template source points to a JSON configuration file that describes a li
 - **default** - A small set of curated templates to demonstrate different tech stacks.
 - **file** -  A local/network path that points to a template source JSON configuration file.
 - **url** - An HTTP(S) addressable path that points to a template source JSON configuration file.
+- **gh** - Points to a GitHub repository.
 - **ade** - Points to an Azure Deployment Environment template list. [Learn more about Azure Developer CLI support for Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration).
 
 ## Work with template sources
@@ -70,7 +71,7 @@ default      Default      resource
 Use the `azd template source add` command to add a new template source. This command accepts the following parameters:
 
 - **key**: The technical name of the template source.
-- **--type, -t**: The template source type - valid values are **file** or **url**.
+- **--type, -t**: The template source type - valid values are **file**, **url** and **gh** for GitHub.
 - **--location, -l**: The template source location, which should be a local network or HTTP(S) web URI.
 - **--displayName, -n**: The template source display name (optional, will use **key** if omitted).
 
