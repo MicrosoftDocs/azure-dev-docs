@@ -93,6 +93,8 @@
           items:
             - name: Azure Kubernetes Service (AKS)
               items:
+                - name: Migrate to AKS
+                  href: /azure/aks/aks-migration
                 - name: Create a cluster
                   href: /azure/aks/learn/quick-kubernetes-deploy-terraform
             - name: Azure Spring Apps
@@ -121,6 +123,8 @@
           items:
             - name: Azure Kubernetes Service (AKS)
               items:
+                - name: Migrate to AKS
+                  href: /azure/aks/aks-migration
                 - name: Create a cluster
                   href: /azure/aks/learn/quick-kubernetes-deploy-terraform
             - name: Container Instances
