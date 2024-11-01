@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Deploy your first Azure resource-action with the AzAPI Terraform provider
-description: Learn how to use the AzAPI Terraform provider to shut down a VM
+title: Quickstart - Deploy your first resource action with the AzAPI Terraform provider
+description: Learn how to use the AzAPI Terraform provider to list keys
 keywords: azure devops terraform virtual machine azapi resource_action
 ms.topic: quickstart
 ms.date: 12/05/2023
