@@ -277,7 +277,8 @@ The `--registry` option specifies the registry name, and the `--image` option sp
     --role AcrPull \
     --scope /subscriptions/$SUBSCRIPTION_ID/resourceGroups/web-app-simple-rg \
     --acr-use-identity --acr-identity [system] \
-    --container-image-name webappacr123.azurecr.io/webappsimple:latest 
+    --container-image-name webappacr123.azurecr.io/webappsimple:latest
+    --startup-file startup.sh
     ```
 
     Notes:
