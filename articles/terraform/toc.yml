@@ -54,6 +54,17 @@
           items:
             - name: Azure Export for Terraform concepts
               href: ./azure-export-for-terraform/export-terraform-concepts.md
+    - name: Azure Terraform Resource Provider
+      items:
+      - name: Overview
+        items:
+          - name: Azure Terraform Resource Provider
+            href: ./azure-terraform-resource-provider/resource-provider-overview.md
+      - name: Quickstarts
+        expanded: true
+        items:
+          - name: Export resources in the Azure portal
+            href: ./azure-terraform-resource-provider/get-started-export-resources-portal.md
 - name: Quickstarts
   expanded: true
   items:
@@ -67,6 +78,8 @@
           href: get-started-azapi-resource.md
         - name: Learn how to use the AzAPI update resource
           href: get-started-azapi-update-resource.md
+        - name: Learn how to use the AzAPI resource action
+          href: get-started-azapi-resource-action.md
     - name: Terraform Quickstarts for Azure services
       items:
         - name: AI + Machine Learning
@@ -93,6 +106,8 @@
           items:
             - name: Azure Kubernetes Service (AKS)
               items:
+                - name: Migrate to AKS
+                  href: /azure/aks/aks-migration
                 - name: Create a cluster
                   href: /azure/aks/learn/quick-kubernetes-deploy-terraform
             - name: Azure Spring Apps
@@ -121,6 +136,8 @@
           items:
             - name: Azure Kubernetes Service (AKS)
               items:
+                - name: Migrate to AKS
+                  href: /azure/aks/aks-migration
                 - name: Create a cluster
                   href: /azure/aks/learn/quick-kubernetes-deploy-terraform
             - name: Container Instances

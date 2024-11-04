@@ -66,8 +66,7 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 
 ## Verify the results
 
-1. In your Azure subscription browse to the `rg-qs101` resource group.
-1. A new Lab Services account named `qs101LabAccount` displays as a member of the resource group.
+1. Verify your keys have been listed as a result of the terraform apply.
 
 ## Clean up resources
 
@@ -80,4 +79,4 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about using Terraform in Azure](/azure/terraform)
+> [Learn more about the AzAPI provider](./overview-azapi-provider.md)
