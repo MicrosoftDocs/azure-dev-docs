@@ -231,7 +231,6 @@ az vm create \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
     --ssh-key-values ~/.ssh/jbosseapvm.pub \
-    --authentication-type all \
     --public-ip-sku Standard \
     --nsg mynsg \
     --vnet-name myVnet \
@@ -248,7 +247,6 @@ az vm create \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
     --ssh-key-values ~/.ssh/jbosseapvm.pub \
-    --authentication-type all \
     --public-ip-sku Standard \
     --nsg mynsg \
     --vnet-name myVnet \
