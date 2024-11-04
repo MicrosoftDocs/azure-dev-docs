@@ -4,6 +4,9 @@ on:
   schedule:	
     - cron: "0 22 * * 0" # Runs at 22:00 (10 PM) every Sunday	
   workflow_dispatch:	
+  push:  
+    branches:	
+      - diberry/cleanrepo
 
 permissions:	
   contents: read	
