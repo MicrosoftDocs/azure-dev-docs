@@ -33,21 +33,21 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 
 1. Create a file named `providers.tf` and insert the following code:
 
-```
-terraform {
-  required_providers {
-    azapi = {
-      source = "Azure/azapi"
+    ```
+    terraform {
+      required_providers {
+        azapi = {
+          source = "Azure/azapi"
+        }
+      }
     }
-  }
-}
 
-provider "azapi" {}
+    provider "azapi" {}
 
-provider "azurerm" {
-  features {}
-}
-```
+    provider "azurerm" {
+      features {}
+    }
+    ```
 
 1. Create a file named `main.tf` and insert the following code:
 
@@ -63,13 +63,13 @@ provider "azurerm" {
 
 1. Create a file named `main-generic.tf` and insert the following code:
 
-```
-data "azapi_resource_action" "example" {
-  type                   = "Microsoft.KeyVault/vaults@2023-07-01"
-  resource_id            = azurerm_key_vault.vault.id
-  action                 = "listKeys"
-}
-```    
+    ```
+    data "azapi_resource_action" "example" {
+      type                   = "Microsoft.KeyVault/vaults@2023-07-01"
+      resource_id            = azurerm_key_vault.vault.id
+      action                 = "listKeys"
+    }
+    ```    
 
 ## Initialize Terraform
 
