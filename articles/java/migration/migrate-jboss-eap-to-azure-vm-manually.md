@@ -1249,7 +1249,7 @@ You started the database server, obtained the necessary resource ID, and install
 
    ```bash
    # Replace the following values with your own
-   export DATA_SOURCE_CONNECTION_STRING=jdbc:postgresql://<database-fully-qualified-domain-name>:5432/testdb?sslmode=require&user=passwordless-managed-identity&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin
+   export DATA_SOURCE_CONNECTION_STRING="jdbc:postgresql://<database-fully-qualified-domain-name>:5432/testdb?sslmode=require&user=passwordless-managed-identity&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin"
    export JDBC_DATA_SOURCE_NAME=dataSource-postgresql
    export JDBC_JNDI_NAME=java:jboss/datasources/JavaEECafeDB
    export JDBC_DRIVER_NAME=postgresql-42.5.2.jar
