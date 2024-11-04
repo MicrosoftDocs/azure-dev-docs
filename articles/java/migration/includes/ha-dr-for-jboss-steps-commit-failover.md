@@ -4,7 +4,7 @@ ms.author: zhihaoguo
 ms.date: 05/31/2024
 ---
 
-Commit the Failover After Verifying the Previous Step's Completion
+Ensure the steps in the previous section completed successfully. Follow the steps in this section to commit the failover.
 
 1. In the search box at the top of the Azure portal, type **Recovery Services vaults** and select it from the search results.
 1. Select your Recovery Services vault (for example, `recovery-service-vault-westus-gzh032124`).
