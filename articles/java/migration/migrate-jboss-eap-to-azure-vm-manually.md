@@ -1228,7 +1228,6 @@ You started the database server, obtained the necessary resource ID, and install
    export DATA_BASE_USER=jboss
    export JDBC_DATA_SOURCE_NAME=dataSource-postgresql
    export JDBC_JNDI_NAME=java:jboss/datasources/JavaEECafeDB
-   export DATA_BASE_PASSWORD=Secret123456
    export JDBC_DRIVER_NAME=postgresql-42.5.2.jar
 
    sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
