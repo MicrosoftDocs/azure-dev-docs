@@ -63,7 +63,7 @@ GitHub Copilot for Azure enables users to perform a robust set of tasks related 
 
 ### Create an AKS Cluster
 
-Users can quickly set up an AKS cluster using simple, natural language prompts. This reduces the complexity and time required to manually configure and deploy a Kubernetes cluster.
+Users can quickly set up an AKS cluster using simple, natural language prompts. GitHub Copilot for Azure reduces the complexity and time required to manually configure and deploy a Kubernetes cluster.
 
 You can create an AKS cluster using the following prompts:
 
@@ -75,9 +75,9 @@ You can create an AKS cluster using the following prompts:
 
 ### Deploy a Manifest to an AKS Cluster
 
-Users can deploy their application manifests to an AKS cluster directly from the GitHub Copilot Chat view. This simplifies the deployment process and ensures consistency. By using predefined prompts, the risk of errors during deployment is minimized, leading to more reliable and stable deployments.
+Users can deploy their application manifests to an AKS cluster directly from the GitHub Copilot Chat view. This simplifies the deployment process and ensures consistency. Use these predefined prompts to reduce the risk of errors during deployment, leading to more reliable and stable deployments.
 
-To deploy a manifest file to an AKS cluster you can use these prompts:
+To deploy a manifest file to an AKS cluster, you can use these prompts:
 
 - \[@azure\] help me deploy my manifest file
 - \[@azure\] can you deploy my manifest to my AKS cluster?
@@ -87,7 +87,7 @@ To deploy a manifest file to an AKS cluster you can use these prompts:
 
 ### **Generate Kubectl Command**
 
-Users can generate various Kubectl commands to manage their AKS clusters without needing to remember complex command syntax. This makes cluster management more accessible, especially for those who may not be Kubernetes experts. Quickly generating the necessary commands helps users perform cluster operations more efficiently, saving time and effort.
+Users can generate various Kubectl commands to manage their AKS clusters without needing to remember complex command syntax. Using GitHub Copilot for Azure makes cluster management more accessible and efficient, especially for users who aren't Kubernetes experts.
 
 You can generate various Kubectl commands for your AKS cluster using these prompts:
 
