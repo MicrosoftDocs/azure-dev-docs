@@ -476,6 +476,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
       az vm create \
           --resource-group $RESOURCE_GROUP_NAME \
           --name mspVM1 \
+          --assign-identity "/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ManagedIdentity/userAssignedIdentities/passwordless-managed-identity" \
           --attach-os-disk ${MSPVM1_DISK_ID} \
           --os-type linux \
           --public-ip-sku Standard \
@@ -530,6 +531,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
    az vm create \
        --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2 \
+       --assign-identity "/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ManagedIdentity/userAssignedIdentities/passwordless-managed-identity" \
        --attach-os-disk ${MSPVM2_DISK_ID} \
        --os-type linux \
        --public-ip-sku Standard \
@@ -1154,10 +1156,13 @@ Use the following steps to create the database instance:
        --tier Burstable \
        --sku-name Standard_B1ms \
        --yes
-   az postgres flexible-server identity assign \
-       --resource-group $RESOURCE_GROUP_NAME \
-       --server-name ${DB_SERVER_NAME}  \
-       --identity "passwordless-managed-identity"
+   objectId=$(az identity show --name passwordless-managed-identity --resource-group $RESOURCE_GROUP_NAME --query principalId -o tsv)
+   az postgres flexible-server ad-admin create \
+     --resource-group $RESOURCE_GROUP_NAME \
+     --server-name ${DB_SERVER_NAME}  \
+     --display-name "passwordless-managed-identity"  \
+     --object-id $objectId 
+
    ```
 
 1. Use the following commands to allow access from Azure services:
@@ -1240,8 +1245,7 @@ You started the database server, obtained the necessary resource ID, and install
 
    ```bash
    # Replace the following values with your own
-   export DATA_SOURCE_CONNECTION_STRING=jdbc:postgresql://<database-fully-qualified-domain-name>:5432/testdb
-   export DATA_BASE_USER=jboss
+   export DATA_SOURCE_CONNECTION_STRING=jdbc:postgresql://<database-fully-qualified-domain-name>:5432/testdb?sslmode=require&user=passwordless-managed-identity&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin
    export JDBC_DATA_SOURCE_NAME=dataSource-postgresql
    export JDBC_JNDI_NAME=java:jboss/datasources/JavaEECafeDB
    export JDBC_DRIVER_NAME=postgresql-42.5.2.jar
