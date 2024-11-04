@@ -148,10 +148,10 @@ This section guides you through setting up custom log integration for WebLogic S
 
       |  Configuration name | Server Log | HTTP Access Log |
       |---------------|---------------|--------------------|
-      | **Integration settings** <br>-><br>**Integration name** | `log-weblogic-server-log` | `log-http-access-log` |
-      | **Log file path** | `/u01/domains/adminDomain/servers/admin/logs/admin.log` | `/u01/domains/adminDomain/servers/admin/logs/access.log` |
-      | **Custom configurations** | <pre><code>multiline.type: pattern</code><br><code>multiline.pattern: '^####'</code><br><code>multiline.negate: true</code><br><code>multiline.match: after</code></pre> | |
-      | **Existing hosts** | My first agent policy | My first agent policy |
+      | **Integration settings**<br>-><br>**Integration name** | `log-weblogic-server-log` | `log-http-access-log` |
+      | **Custom log file**<br>-><br>**Log file path** | `/u01/domains/adminDomain/servers/admin/logs/admin.log` | `/u01/domains/adminDomain/servers/admin/logs/access.log` |
+      | **Custom log file**<br>-><br>**Advanced options**<br>-><br>**Custom configurations** |<pre><code>multiline.type: pattern<br>multiline.pattern: '^####'<br>multiline.negate: true<br>multiline.match: after</code></pre> | |
+      | **Where to add this integration?**<br>-><br>**Existing hosts** | My first agent policy | My first agent policy |
 
    - In Kibana, search **Integrations** then go to it. 
    - Select **Installed integrations** -> **Custom Logs** -> **Add Custom Logs**.
