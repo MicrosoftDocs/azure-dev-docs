@@ -83,6 +83,7 @@ az login
 Create a resource group with [az group create](/cli/azure/group#az-group-create). Resource group names must be globally unique within a subscription. For this reason, consider prepending some unique identifier to any names you create that must be unique. A useful technique is to use your initials followed by today's date in `mmdd` format. This example creates a resource group named `$RESOURCE_GROUP_NAME` in the `westus` location:
 
 ```azurecli
+export SUBSCRIPTION=$(az account show --query id -o tsv)
 export SUFFIX=$(date +%s)
 export RESOURCE_GROUP_NAME=rg-$SUFFIX
 echo "Resource group name: $RESOURCE_GROUP_NAME"
@@ -209,11 +210,23 @@ The following example creates a Red Hat Enterprise Linux VM using user name and 
 
 ### [JBOSS EAP 7.4](#tab/jboss-eap-74)
 
+
+Create an Azure Managed Identity
+
+```azurecli
+az identity create \
+    --name "passwordless-managed-identity" \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --location westus
+```
+
+
 ```azurecli
 az vm create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name adminVM \
     --image RedHat:rhel-raw:86-gen2:latest \
+    --assign-identity "/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ManagedIdentity/userAssignedIdentities/passwordless-managed-identity" \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
     --ssh-key-values ~/.ssh/jbosseapvm.pub \
@@ -229,6 +242,7 @@ az vm create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name adminVM \
     --image RedHat:rhel-raw:94_gen2:latest \
+    --assign-identity "/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ManagedIdentity/userAssignedIdentities/passwordless-managed-identity" \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
     --ssh-key-values ~/.ssh/jbosseapvm.pub \
@@ -1127,21 +1141,23 @@ Use the following steps to create the database instance:
 
    ```azurecli
    export DATA_BASE_USER=jboss
-   export DATA_BASE_PASSWORD=Secret123456
 
    DB_SERVER_NAME="jbossdb$(date +%s)"
    echo "DB_SERVER_NAME=${DB_SERVER_NAME}"
    az postgres flexible-server create \
+       --active-directory-auth Enabled \
        --resource-group $RESOURCE_GROUP_NAME \
        --name ${DB_SERVER_NAME}  \
        --location westus \
-       --admin-user ${DATA_BASE_USER} \
-       --admin-password ${DATA_BASE_PASSWORD} \
        --version 16 \
        --public-access 0.0.0.0 \
        --tier Burstable \
        --sku-name Standard_B1ms \
        --yes
+   az postgres flexible-server identity assign \
+       --resource-group $RESOURCE_GROUP_NAME \
+       --server-name ${DB_SERVER_NAME}  \
+       --identity "passwordless-managed-identity"
    ```
 
 1. Use the following commands to allow access from Azure services:
