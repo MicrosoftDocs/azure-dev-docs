@@ -1268,7 +1268,7 @@ Use the following steps to deploy Java EE Cafe sample application to the Red Hat
       ### [JBOSS EAP 7.4](#tab/jboss-eap-74)
        
       ```bash
-      git clone https://github.com/Azure/rhel-jboss-templates.git --branch 20240904 --single-branch
+      git clone https://github.com/Azure/rhel-jboss-templates.git --branch 20240904--passwordless --single-branch
       ```
       ### [JBOSS EAP 8](#tab/jboss-eap-8)
        
