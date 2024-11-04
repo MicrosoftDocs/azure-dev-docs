@@ -1203,26 +1203,75 @@ Use the following steps to create the database instance:
 
 ### Install driver
 
-Use the following steps to install the JDBC driver with the JBoss management CLI. For more information about JDBC drivers on Red Hat JBoss EAP, see [Installing a JDBC Driver as a JAR Deployment](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management#install_a_jdbc_driver_as_a_jar_deployment).
+Use the following steps to install the JDBC driver with the JBoss management CLI. 
 
 1. SSH to `adminVM` by using the following command. You can skip this step if you already have a connection opened.
 
    ```bash
-   ssh -i ~/.ssh/jbosseapvm azureuser@$ADMIN_VM_PUBLIC_IP
+   ssh -A -i ~/.ssh/jbosseapvm azureuser@$ADMIN_VM_PUBLIC_IP
    ```
 
-1. Use the following commands to download JDBC driver. Here, you use *postgresql-42.5.2.jar*. For more information about JDBC driver download locations, see [JDBC Driver Download Locations](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management#jdbc_driver_download_locations) provided by Red Hat.
+1. Use the following commands to download JDBC driver on adminVM. 
 
    ```bash
-   jdbcDriverName=postgresql-42.5.2.jar
-   sudo curl --retry 5 -Lo /tmp/${jdbcDriverName} https://jdbc.postgresql.org/download/${jdbcDriverName}
+   # Create JDBC driver and module directory
+   jdbcDriverModuleDirectory="$EAP_HOME"/wildfly/modules/com/postgresql/main
+   
+   sudo mkdir -p "$jdbcDriverModuleDirectory"
+   
+   # Download JDBC driver and passwordless extensions
+   
+   extensionJarName=azure-identity-extensions-1.1.20.jar
+   extensionPomName=azure-identity-extensions-1.1.20.pom
+   sudo curl --retry 5 -Lo ${jdbcDriverModuleDirectory}/${extensionJarName} https://repo1.maven.org/maven2/com/azure/azure-identity-extensions/1.1.20/$extensionJarName
+   sudo curl --retry 5 -Lo ${jdbcDriverModuleDirectory}/${extensionPomName} https://repo1.maven.org/maven2/com/azure/azure-identity-extensions/1.1.20/$extensionPomName
+   
+   sudo yum install maven -y
+   sudo mvn dependency:copy-dependencies  -f ${jdbcDriverModuleDirectory}/${extensionPomName} -Ddest=${jdbcDriverModuleDirectory}
+   
+   # Create module for JDBC driver
+   jdbcDriverModule=module.xml
+   sudo cat <<EOF >${jdbcDriverModule}
+   <?xml version="1.0" ?>
+   <module xmlns="urn:jboss:module:1.1" name="com.postgresql">
+     <resources>
+       <resource-root path="${extensionJarName}"/>
+   EOF
+   
+   # Add all jars from target/dependency
+   for jar in ${jdbcDriverModuleDirectory}/target/dependency/*.jar; do
+   if [ -f "$jar" ]; then
+   # Extract just the filename from the path
+   jarname=$(basename "$jar")
+   echo "    <resource-root path=\"target/dependency/${jarname}\"/>" >> ${jdbcDriverModule}
+   fi
+   done
+   
+   # Add the closing tags
+   cat <<EOF >> ${jdbcDriverModule}
+   </resources>
+   <dependencies>
+   <module name="javaee.api"/>
+   <module name="sun.jdk"/>
+   <module name="ibm.jdk"/>
+   <module name="javax.api"/>
+   <module name="javax.transaction.api"/>
+   </dependencies>
+   </module>
+   EOF
+   
+   chmod 644 $jdbcDriverModule
+   sudo mv $jdbcDriverModule $jdbcDriverModuleDirectory/$jdbcDriverModule
    ```
 
-1. Deploy JDBC driver by using the following JBoss CLI command:
+1. Use the following commands to copy the JDBC driver to the host controllers:
 
    ```bash
-   sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
-   "deploy /tmp/${jdbcDriverName} --server-groups=main-server-group"
+   scp -rp $EAP_HOME/wildfly/modules/com/postgresql azureuser@mspvm1:/tmp/
+   ssh azureuser@mspvm1 "sudo mkdir -p $EAP_HOME/wildfly/modules/com/postgresql && sudo cp -rp /tmp/postgresql/* $EAP_HOME/wildfly/modules/com/postgresql && sudo rm -rf /tmp/postgresql"
+   
+   scp -rp $EAP_HOME/wildfly/modules/com/postgresql azureuser@mspvm2:/tmp/
+   ssh azureuser@mspvm2 "sudo mkdir -p $EAP_HOME/wildfly/modules/com/postgresql && sudo cp -rp /tmp/postgresql/* $EAP_HOME/wildfly/modules/com/postgresql && sudo rm -rf /tmp/postgresql"
    ```
 
    ### [JBOSS EAP 7.4](#tab/jboss-eap-74)
@@ -1234,6 +1283,15 @@ Use the following steps to install the JDBC driver with the JBoss management CLI
    The server log is located on `mspVM1` and `mspVM2` at `/var/opt/rh/eap8/lib/wildfly/domain/servers/mspvm1-server0/log/server.log`. If the deployment fails, examine this log file and resolve the problem before continuing.
    
    ---
+
+2. Use the following commands to register the JDBC driver:
+
+   ```bash
+   # Register JDBC driver
+   sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
+   "/profile=ha/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=com.postgresql,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)"
+
+   ```
 
 ### Configure the database connection for the Red Hat JBoss EAP cluster
 
@@ -1252,10 +1310,9 @@ You started the database server, obtained the necessary resource ID, and install
    export DATA_SOURCE_CONNECTION_STRING="jdbc:postgresql://<database-fully-qualified-domain-name>:5432/testdb?sslmode=require&user=passwordless-managed-identity&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin"
    export JDBC_DATA_SOURCE_NAME=dataSource-postgresql
    export JDBC_JNDI_NAME=java:jboss/datasources/JavaEECafeDB
-   export JDBC_DRIVER_NAME=postgresql-42.5.2.jar
 
    sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
-   "data-source add --driver-name=${JDBC_DRIVER_NAME} --profile=ha --name=${JDBC_DATA_SOURCE_NAME} --jndi-name=${JDBC_JNDI_NAME} --connection-url=${DATA_SOURCE_CONNECTION_STRING} --user-name=${DATA_BASE_USER} --password=${DATA_BASE_PASSWORD}"
+   "data-source add --driver-name=postgresql --profile=ha --name=${JDBC_DATA_SOURCE_NAME} --jndi-name=${JDBC_JNDI_NAME} --connection-url=${DATA_SOURCE_CONNECTION_STRING} "
    ```
 
 You successfully configured a data source named `java:jboss/datasources/JavaEECafeDB`.
