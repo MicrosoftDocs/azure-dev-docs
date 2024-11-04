@@ -1162,7 +1162,7 @@ Use the following steps to create the database instance:
      --server-name ${DB_SERVER_NAME}  \
      --display-name "passwordless-managed-identity"  \
      --object-id $objectId \
-     --type user 
+     --type ServicePrincipal 
 
    ```
 
