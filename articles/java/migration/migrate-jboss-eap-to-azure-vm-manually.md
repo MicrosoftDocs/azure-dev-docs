@@ -230,6 +230,7 @@ az vm create \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
     --ssh-key-values ~/.ssh/jbosseapvm.pub \
+    --authentication-type all \
     --public-ip-sku Standard \
     --nsg mynsg \
     --vnet-name myVnet \
@@ -246,6 +247,7 @@ az vm create \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
     --ssh-key-values ~/.ssh/jbosseapvm.pub \
+    --authentication-type all \
     --public-ip-sku Standard \
     --nsg mynsg \
     --vnet-name myVnet \
@@ -479,6 +481,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
           --assign-identity "/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ManagedIdentity/userAssignedIdentities/passwordless-managed-identity" \
           --attach-os-disk ${MSPVM1_DISK_ID} \
           --os-type linux \
+          --authentication-type all \
           --public-ip-sku Standard \
           --nsg mynsg \
           --vnet-name myVnet \
@@ -534,6 +537,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
        --assign-identity "/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ManagedIdentity/userAssignedIdentities/passwordless-managed-identity" \
        --attach-os-disk ${MSPVM2_DISK_ID} \
        --os-type linux \
+       --authentication-type all \
        --public-ip-sku Standard \
        --nsg mynsg \
        --vnet-name myVnet \
