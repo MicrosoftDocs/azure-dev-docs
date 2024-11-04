@@ -9,7 +9,7 @@ author: stema
 ms.author: stema
 ---
 
-# Quickstart: Create a Windows virtual machine in the Azure portal
+# Quickstart: Export a virtual machine in the Azure portal
 
 **Applies to:** :heavy_check_mark: Any management plane resources from the [AzureRM](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) or [AzAPI](/azure/templates/) provider.
 
