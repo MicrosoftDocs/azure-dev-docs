@@ -191,6 +191,7 @@ Use the following command to generate SSH keys for the `adminVM`:
 
 ```bash
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/jbosseapvm
+ssh-add ~/.ssh/jbosseapvm
 ```
 
 #### Create the admin VM
@@ -871,7 +872,7 @@ MSPVM_PUBLIC_IP=$(az vm show \
     --show-details \
     --query publicIps | tr -d '"' )
 
-ssh -i ~/.ssh/jbosseapvm azureuser@$MSPVM_PUBLIC_IP
+ssh -A -i ~/.ssh/jbosseapvm azureuser@$MSPVM_PUBLIC_IP
 ```
 
 
