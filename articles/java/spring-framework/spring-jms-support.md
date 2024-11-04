@@ -131,22 +131,16 @@ spring:
       pricing-tier: ${PRICING_TIER}
 ```
 
-## Supported Connection Modes
-Spring Cloud Azure offers three connection modes for connecting to Azure Service Bus JMS:
+## Connections
+Spring Cloud Azure provides three Connection Factory options for connecting to Azure Service Bus JMS:
 
-1. **Pooled Connection Mode**: set `spring.jms.servicebus.pool.enabled=true`. 
-  This mode configures a `JmsPoolConnectionFactory`, which maintains a pool of connections with customizable settings such as: 
-    - `max-connections`: Limits the total connections in the pool. 
-    - `idle-timeout`: Sets the duration after which idle connections are evicted from the pool. 
-  Additional pooling configuration options (prefixed with spring.jms.servicebus.pool.) are available in the [Configuration](#configuration) section. This setup leverages Azure Service Bus's load-balancing capability, distributing traffic across multiple endpoints for improved performance.
+1. **JmsPoolConnectionFactory**: set `spring.jms.servicebus.pool.enabled=true`(or leave both pool and cache settings unset to use the default). This factory maintains a connection pool with customizable options like `spring.jms.servicebus.pool.max-connections`. Additional pool configuration settings (prefixed with `spring.jms.servicebus.pool.`) are detailed in the [Configuration](#configuration) section. This setup enhances performance by leveraging Azure Service Bus's load-balancing capability, distributing traffic across multiple endpoints.
 
-2. **Caching Connection Mode**: set `spring.jms.cache.enabled=true`. 
-  This mode uses a `CachingConnectionFactory`, which efficiently reuses a single connection for all calls to `JmsTemplate`. This approach minimizes the cost of establishing connections, making it ideal for lower-traffic scenarios.
+2. **CachingConnectionFactory**: set `spring.jms.cache.enabled=true` and leave `spring.jms.servicebus.pool.enabled` unset. This factory reuses a single connection for all calls to `JmsTemplate`, reducing the overhead of connection creation, which is ideal for low-traffic scenarios. However, this mode does not leverage Azure Service Bus’s load-balancing capability.
 
-3. **Single Connection Mode**: set `spring.jms.servicebus.pool.enabled=false` and `spring.jms.cache.enabled=false`.
-    This mode uses a `ServiceBusJmsConnectionFactory ` directly, with no pooling or caching, meaning each call to `JmsTemplate` creates a new connection. This can be highly resource-intensive.
+3. **ServiceBusJmsConnectionFactory**: set `spring.jms.servicebus.pool.enabled=false` and `spring.jms.cache.enabled=false` to use `ServiceBusJmsConnectionFactory ` directly, with no pooling or caching. In this mode, each call to JmsTemplate creates a new connection, which can be resource-intensive and less efficient.
 
-For optimal performance and load distribution, we recommend **Pooled Connection Mode** by setting `spring.jms.servicebus.pool.enabled=true`. Avoid wrapping a `JmsPoolConnectionFactory` with a `CachingConnectionFactory` or `ServiceBusJmsConnectionFactory`, as this can negate pooling benefits and may result in holding inactive connections after they’re evicted from the pool.
+For optimal performance and load distribution, we recommend using **JmsPoolConnectionFactory** by setting `spring.jms.servicebus.pool.enabled=true`. Avoid wrapping a `JmsPoolConnectionFactory` with a `CachingConnectionFactory` or `ServiceBusJmsConnectionFactory`, as this can negate pooling benefits and may result in holding inactive connections after they’re evicted from the pool.
 
 > [!NOTE]
 > Starting with Spring Cloud Azure 5.18.0, the default `ConnectionFactory` has been updated to `JmsPoolConnectionFactory` to better utilize Service Bus server load balancing. If you prefer to continue using the `CachingConnectionFactory` for caching both Session and MessageProducer, simply set `spring.jms.cache.enabled` to true.
