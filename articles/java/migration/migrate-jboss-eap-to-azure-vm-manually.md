@@ -1161,7 +1161,8 @@ Use the following steps to create the database instance:
      --resource-group $RESOURCE_GROUP_NAME \
      --server-name ${DB_SERVER_NAME}  \
      --display-name "passwordless-managed-identity"  \
-     --object-id $objectId 
+     --object-id $objectId \
+     --type user 
 
    ```
 
