@@ -890,7 +890,7 @@ export JBOSS_EAP_PASSWORD=Secret123456
 sudo -u jboss mv $EAP_HOME/wildfly/domain/configuration/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml.backup
 
 # Fetch domain.xml from domain controller
-sudo scp azureuser@${DOMAIN_CONTROLLER_PRIVATE_IP}:/tmp/domain.xml /tmp/domain.xml
+scp azureuser@${DOMAIN_CONTROLLER_PRIVATE_IP}:/tmp/domain.xml /tmp/domain.xml
 sudo mv /tmp/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml
 sudo chown jboss:jboss $EAP_HOME/wildfly/domain/configuration/domain.xml
 ```
