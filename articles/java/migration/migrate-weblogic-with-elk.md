@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 
 # Tutorial: Migrate a WebLogic Server cluster to Azure with Elastic on Azure as the logging solution
 
-This tutorial walks you through deploying WebLogic Server (WLS) with an integrated Elastic stack on Azure. It covers the detailed steps for setting up an Elastic on Azure, beginning with the creation of Elastic and deployment of WLS. You’ll then configure Elastic Custom Logs to integrate WLS logs. Finally, you’ll use Kibana to search and analyze WLS logs. While each component is documented individually, this tutorial demonstrates how they integrate seamlessly to provide a robust log management solution for WLS on Azure.
+This tutorial walks you through deploying WebLogic Server (WLS) with an integrated Elastic stack on Azure. It covers the detailed steps for setting up an Elastic on Azure, beginning with the creation of Elastic and deployment of WLS. You then configure Elastic Custom Logs to integrate WLS logs. Finally, you’ll use Kibana to search and analyze WLS logs. While each component is documented individually, this tutorial demonstrates how they integrate seamlessly to provide a robust log management solution for WLS on Azure.
 
 :::image type="content" border="false" source="media/migrate-weblogic-with-elk/weblogic-elk.svg" alt-text="Diagram showing the relationship between WLS, App Gateway, and ELK.":::
 
@@ -31,10 +31,10 @@ In this tutorial, you learn how to:
 
 ## Deploy WLS on Azure
 
-Provision a WebLogic Server by following the steps in [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](https://aka.ms/arm-oraclelinux-wls). Both "Deploy Oracle WebLogic Server With Administration Server on a Single Node" and "Deploy Oracle WebLogic Server Cluster on Microsoft Azure IaaS" are compatible with Elastic on Azure. This tutorial will use [WebLogic on VM](https://aka.ms/wls-vm-admin) as an example.
+Provision a WebLogic Server by following the steps in [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](https://aka.ms/arm-oraclelinux-wls). Both "Deploy Oracle WebLogic Server With Administration Server on a Single Node" and "Deploy Oracle WebLogic Server Cluster on Microsoft Azure IaaS" are compatible with Elastic on Azure. This tutorial uses [WebLogic on VM](https://aka.ms/wls-vm-admin) as an example.
 
 > [!NOTE]
-> The default VM size may not have sufficient memory for WLS. Ensure the selected VM size has at least 2.5 GB of memory, with `Standard_A2_v2` as a minimum.
+> The default VM size may not have sufficient memory for Elastic agent. Ensure the selected VM size has at least 2.5 GB of memory, with `Standard_A2_v2` as a minimum.
 
 After filling in required information, clicking **Create** will initiate the WLS deployment on Azure, which typically takes about 30 minutes. After deployment, go to **Outputs** and record the value of **adminConsoleURL**, which is the URL for accessing the Administration Console.
 
@@ -54,11 +54,11 @@ These logs can be configured and managed to facilitate the integration with moni
 
 ### Connect to the WLS machine
 
-Use the steps in [Connect to the virtual machine](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine#connect-to-the-virtual-machine) to access the virtual machine running WebLogic Server (WLS). In this tutorial, you'll be connecting to the machine that hosts the WebLogic Administration Server, named `adminVM`.
+To access the virtual machine running WebLogic Server (WLS), use the steps in [Connect to the virtual machine](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine#connect-to-the-virtual-machine). In this tutorial, you are connecting to the machine that hosts the WebLogic Administration Server, named `adminVM`.
 
 ## Create an Elasticsearch on Azure instance
 
-Elasticsearch (Elastic Cloud) for Azure is an Azure Native ISV Services you can get from Azure Marketplace and deploy with the Azure portal. Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Elastic Cloud - Azure Native ISV Service is developed and managed by Microsoft and Elastic. You create, provision, and manage Elastic resources through the Azure portal. Elastic owns and runs the SaaS application including the Elastic accounts created.
+Elasticsearch (Elastic Cloud) for Azure is an Azure Native ISV Services you can get from Azure Marketplace and deploy with the Azure portal. Azure Native ISV Services enables you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Elastic Cloud - Azure Native ISV Service is developed and managed by Microsoft and Elastic. You create, provision, and manage Elastic resources through the Azure portal. Elastic owns and runs the SaaS application including the Elastic accounts created.
 
 ### Create Elastic on Azure 
 
@@ -73,22 +73,22 @@ Follow [QuickStart: Get started with Elastic](/azure/partner-solutions/elastic/c
   1. For **Region**, select your desired region.
   1. Keep default values for other fields.
 
-1. In the **Logs & metrics** blade, you can select **Send subscription activity logs** and **Send Azure resource logs for all defined resources** to monitor the Azure resources. However, this tutorial focuses solely on WLS logs and does not cover infrastructure logs.
+1. In the **Logs & metrics** blade, you can select **Send subscription activity logs** and **Send Azure resource logs for all defined resources** to monitor the Azure resources. However, this tutorial focuses solely on WLS logs and doesn't cover infrastructure logs.
 1. Select **Create** to start the deployment.
 
 After the deployment succeeds, continue to the section [Launch Kibana](#launch-kibana).
 
 ### Launch Kibana
 
-Once Elastic is deployed on Azure, open the Elastic resource from Azure portal. Locate the **Kibana URL**, next to the label **Deployment URL**, as shown in the image below.
+Once Elastic is deployed on Azure, open the Elastic resource from Azure portal. Locate the **Kibana URL**, next to the label **Deployment URL**, as shown in the image.
 
 :::image type="content" source="media/migrate-weblogic-with-elk/elastic-portal.png" alt-text="The Kibana launch URL in Azure portal." lightbox="media/migrate-weblogic-with-elk/elastic-portal.png":::
 
-When you launch Kibana, you’ll be prompted to log in by selecting an Azure account. Choose the Azure account used for creating the Elastic deployment, then review and accept the requested Elasticsearch permissions.
+When you launch Kibana, you are prompted to log in by selecting an Azure account. Choose the Azure account used for creating the Elastic deployment, then review and accept the requested Elasticsearch permissions.
 
 :::image type="content" source="media/migrate-weblogic-with-elk/permission-requested.png" alt-text="Elasticsearch permissions requested." lightbox="media/migrate-weblogic-with-elk/permission-requested.png":::
 
-Once logged in, the browser will navigate to Kibana’s welcome page.
+Once logged in, the browser navigates to Kibana’s welcome page.
 
 :::image type="content" source="media/migrate-weblogic-with-elk/setup-elastic-welcome-page.png" alt-text="Elasticsearch welcome page." lightbox="media/migrate-weblogic-with-elk/setup-elastic-welcome-page.png":::
 
@@ -112,8 +112,8 @@ This section guides you through setting up custom log integration for WebLogic S
      sudo su -
      ```
    
-   - Copy the **Linux Tar** command from the **Install Elastic Agent on your host** page and execute it on the WLS machine. 
-   - Confirm the installation by entering `y` when prompted.
+   - From Kibana, copy the **Linux Tar** command from the **Install Elastic Agent on your host** section and execute it on the WLS machine. 
+   - In the machine terminal, confirm the installation by entering `y` when prompted.
 
      ```bash
      Elastic Agent will be installed at /opt/Elastic/Agent and will run as a service. Do you want to continue? [Y/n]:y
@@ -127,9 +127,9 @@ This section guides you through setting up custom log integration for WebLogic S
 4. **Add the Integration for WLS Domain Logs:**
    - Click **Add the integration**.
    - Under **Custom log file**, set:
-     - **Log file path**: e.g., `/u01/domains/adminDomain/servers/admin/logs/adminDomain.log`.
+     - **Log file path**: for example, `/u01/domains/adminDomain/servers/admin/logs/adminDomain.log`.
      - **Dataset name**: `generic`.
-     - **Custom configurations** (in **Advanced options**):
+     - Expand **Advanced options**, for **Custom configurations**, set:
 
        ```text
        multiline.type: pattern
@@ -138,22 +138,25 @@ This section guides you through setting up custom log integration for WebLogic S
        multiline.match: after
        ```
 
-   - **Integration name**: `log-weblogic-domain-log`.
-   - Click **Confirm incoming data** to preview the logs, then **View assets** to view the domain logs in Kibana.
+   - Expand **Advanced options**, for **Integration name**, fill in `log-weblogic-domain-log`.
+   - Click **Confirm incoming data** to preview the logs, then select **View assets** -> **Assets** -> **Views** -> **Logs** to view the domain logs in Kibana.
 
       :::image type="content" source="media/migrate-weblogic-with-elk/elastic-weblogic-domain-log.png" alt-text="WebLogic domain log in Kibana." lightbox="media/migrate-weblogic-with-elk/elastic-weblogic-domain-log.png":::
 
 5. **Add Integrations for Server Logs and HTTP Access Logs:**
    - Use the same approach to import server logs and HTTP access logs with the following configurations:
 
-   |  Configuration name | Server Log | HTTP Access Log |
-   |---------------|---------------|--------------------|
-   | **Integration name** | `log-weblogic-server-log` | `log-http-access-log` |
-   | **Log file path** | `/u01/domains/adminDomain/servers/admin/logs/admin.log` | `/u01/domains/adminDomain/servers/admin/logs/access.log` |
-   | **Custom configurations** | Same as above | |
-   | **Existing hosts** | My first agent policy | My first agent policy |
+      |  Configuration name | Server Log | HTTP Access Log |
+      |---------------|---------------|--------------------|
+      | **Integration settings** <br>-><br>**Integration name** | `log-weblogic-server-log` | `log-http-access-log` |
+      | **Log file path** | `/u01/domains/adminDomain/servers/admin/logs/admin.log` | `/u01/domains/adminDomain/servers/admin/logs/access.log` |
+      | **Custom configurations** | <pre><code>multiline.type: pattern</code><br><code>multiline.pattern: '^####'</code><br><code>multiline.negate: true</code><br><code>multiline.match: after</code></pre> | |
+      | **Existing hosts** | My first agent policy | My first agent policy |
 
-   - Click **Save and deploy changes** to finalize.
+   - In Kibana, search **Integrations** then go to it. 
+   - Select **Installed integrations** -> **Custom Logs** -> **Add Custom Logs**.
+   - Enter the appropriate configurations listed in the table above for each log type (Server, and HTTP access logs).
+   - After filling out all configuration fields, click **Save and deploy changes** to finalize.
 
 ## Searching WLS Logs in Kibana
 
@@ -170,7 +173,7 @@ After integrating, you can begin analyzing the logs within Kibana.
      :::image type="content" source="media/migrate-weblogic-with-elk/elastic-logs-in-kibana.png" alt-text="WebLogic logs in Kibana." lightbox="media/migrate-weblogic-with-elk/elastic-logs-in-kibana.png":::
 
 3. **Search and Filter:**
-   - Add filters to search the WLS logs. For further information on using **Discover**, refer to [Discover in Kibana documentation](https://www.elastic.co/guide/en/kibana/current/discover.html).
+   - Add filters to search the WLS logs. For further information on using **Discover**, see [Discover in Kibana documentation](https://www.elastic.co/guide/en/kibana/current/discover.html).
 
      :::image type="content" source="media/migrate-weblogic-with-elk/elastic-add-filter.png" alt-text="Add a filter in Kibana." lightbox="media/migrate-weblogic-with-elk/elastic-add-filter.png":::
 
