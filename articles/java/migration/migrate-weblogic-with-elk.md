@@ -40,13 +40,17 @@ After filling in required information, clicking **Create** will initiate the WLS
 
 ### Understand WebLogic logs
 
-WebLogic Server subsystems use logging services to provide information about events such as the deployment of new applications or the failure of one or more subsystems. A server instance uses them to communicate its status and respond to specific events. For example, you can use WebLogic logging services to report error conditions or listen for log messages from a specific subsystem. For more information, see [Understanding WebLogic Logging Services](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wllog/logging_services.html).
+WebLogic Server subsystems use logging services to track events such as application deployment and subsystem failures. These logs allow server instances to communicate their status and respond to specific events, providing detailed insights that can help in troubleshooting and monitoring. WebLogic’s logging services allow you to report errors, listen for log messages from particular subsystems, and capture system status updates. For more detailed information on WebLogic logging services, see [Understanding WebLogic Logging Services](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/wllog/logging_services.html).
 
-This tutorial considers the following logs:
+This tutorial focuses on configuring the following key WebLogic logs:
 
-1. Server Log Files. By default, the server log file is located in the logs directory below the server instance root directory; for example, *DOMAIN_NAME\servers\SERVER_NAME\logs\SERVER_NAME.log*.
-1. Domain Log Files. The domain log file provides a central location from which to view the overall status of the domain. The domain log resides in the Administration Server `logs` directory. The default name and location for the domain log file is *DOMAIN_NAME\servers\ADMIN_SERVER_NAME\logs\DOMAIN_NAME.log*.
-1. HTTP access logs. The default location and rotation policy for HTTP access logs is the same as the server log, for example, *DOMAIN_NAME\servers\SERVER_NAME\logs\access.log*.
+1. **Server Log Files**: Typically found in the `logs` directory beneath the server instance’s root, the path is usually structured as *DOMAIN_NAME\servers\SERVER_NAME\logs\SERVER_NAME.log*.
+
+2. **Domain Log Files**: These logs provide an overview of domain status and are stored in the Administration Server’s `logs` directory. The default path is *DOMAIN_NAME\servers\ADMIN_SERVER_NAME\logs\DOMAIN_NAME.log*.
+
+3. **HTTP Access Logs**: By default, HTTP access logs share the server log’s directory and rotation policy, commonly located at *DOMAIN_NAME\servers\SERVER_NAME\logs\access.log*. 
+
+These logs can be configured and managed to facilitate the integration with monitoring tools like Elastic on Azure, allowing for centralized log analysis and alerting on WebLogic Server instances.
 
 ### Connect to the WLS machine
 
