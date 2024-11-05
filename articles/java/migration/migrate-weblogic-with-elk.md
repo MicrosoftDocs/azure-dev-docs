@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Migrate a WebLogic Server cluster to Azure with Elastic on Azure as the logging solution"
+title: "Tutorial: Migrate WebLogic Server to Azure with Elastic on Azure as the logging solution"
 description: This tutorial walks you through deploying WebLogic Server to Azure with Elastic Stack on Azure as the logging solution
 author: KarlErickson
 ms.author: haiche
@@ -9,7 +9,7 @@ recommendations: false
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java
 ---
 
-# Tutorial: Migrate a WebLogic Server cluster to Azure with Elastic on Azure as the logging solution
+# Tutorial: Migrate WebLogic Server to Azure with Elastic on Azure as the logging solution
 
 This tutorial walks you through deploying WebLogic Server (WLS) with an integrated Elastic stack on Azure. It covers the detailed steps for setting up an Elastic on Azure, beginning with the creation of Elastic and deployment of WLS. You then configure Elastic Custom Logs to integrate WLS logs. Finally, you’ll use Kibana to search and analyze WLS logs. While each component is documented individually, this tutorial demonstrates how they integrate seamlessly to provide a robust log management solution for WLS on Azure.
 

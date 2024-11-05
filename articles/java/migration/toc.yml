@@ -43,6 +43,8 @@ items:
           href: migrate-weblogic-to-vms-with-ha-dr.md
         - name: "Tutorial: WebLogic to AKS with KEDA scaler based on Prometheus Metrics"
           href: migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics.md
+        - name: "Tutorial: Migrate WebLogic to Azure VMs with Elastic"
+          href: migrate-weblogic-with-elk.md
         - name: WebLogic Server to JBoss EAP on Azure App Service
           href: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
         - name: WebLogic Server to WildFly on AKS

@@ -63,6 +63,8 @@ landingContent:
             url: migrate-weblogic-to-aks-with-ha-geo-redundancy.md
           - text: "Tutorial: WebLogic to AKS with KEDA scaler based on Prometheus Metrics"
             url: migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics.md
+          - text: "Tutorial: Migrate WebLogic to Azure VMs with Elastic"
+            url: migrate-weblogic-with-elk.md
           - text: WebLogic Server to JBoss EAP on App Service
             url: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
           - text: WebLogic Server to WildFly on AKS
