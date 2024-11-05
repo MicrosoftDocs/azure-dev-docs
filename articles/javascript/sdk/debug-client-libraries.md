@@ -94,46 +94,7 @@ The following code sample uses the [@azure/logger](https://www.npmjs.com/package
 5. Find the successful credential: `getToken() => SUCCESS`.
 
     ```output
-    azure:core-client:warning The baseUri option for SDK Clients has been deprecated, please use endpoint instead.
-    azure:core-client:warning The baseUri option for SDK Clients has been deprecated, please use endpoint instead.
-    azure:storage-blob:info RetryPolicy: =====> Try=1 Primary
-    azure:identity:info ManagedIdentityCredential(MSAL) => getToken() => Using the MSAL provider for Managed Identity.
-    azure:identity:info ManagedIdentityCredential - Token Exchange => ManagedIdentityCredential - Token Exchange: Unavailable. The environment v
-    ariables needed are: AZURE_CLIENT_ID (or the client ID sent through the parameters), AZURE_TENANT_ID and AZURE_FEDERATED_TOKEN_FILE
-    azure:identity:info ManagedIdentityCredential(MSAL) => getToken() => Using the IMDS endpoint to probe for availability.
-    azure:identity:info ManagedIdentityCredential - IMDS => ManagedIdentityCredential - IMDS: Pinging the Azure IMDS endpoint
-    azure:core-rest-pipeline retryPolicy:info Retry 0: Attempting to send request 3941fc44-d241-4efa-8e41-86b9760bb825
-    azure:core-rest-pipeline:info Request: {
-      "url": "http://169.254.169.254/metadata/identity/oauth2/token",
-      "headers": {
-        "accept": "application/json",
-        "accept-encoding": "gzip,deflate",
-        "user-agent": "azsdk-js-identity/4.4.1 core-rest-pipeline/1.17.0 Node/20.13.1 OS/(x64-Windows_NT-10.0.26100)",
-        "x-ms-client-request-id": "3941fc44-d241-4efa-8e41-86b9760bb825"
-      },
-      "method": "GET",
-      "timeout": 1000,
-      "disableKeepAlive": false,
-      "withCredentials": false,
-      "tracingOptions": {
-        "tracingContext": {
-          "_contextMap": {}
-        }
-      },
-      "requestId": "3941fc44-d241-4efa-8e41-86b9760bb825",
-      "allowInsecureConnection": true,
-      "enableBrowserStreams": false
-    }
-    azure:core-rest-pipeline retryPolicy:error Retry 0: Received an error from request 3941fc44-d241-4efa-8e41-86b9760bb825
-    azure:core-rest-pipeline retryPolicy:info Retry 0: Maximum retries reached. Returning the last received response, or throwing the last recei
-    ved error.
-    azure:identity:verbose ManagedIdentityCredential - IMDS => ManagedIdentityCredential - IMDS: Caught error RestError: connect ENETUNREACH 169
-    .254.169.254:80
-    azure:identity:info ManagedIdentityCredential - IMDS => ManagedIdentityCredential - IMDS: The Azure IMDS endpoint is unavailable
-    azure:identity:error ManagedIdentityCredential(MSAL) => getToken() => ERROR. Scopes: https://storage.azure.com/.default. Error message: Mana
-    gedIdentityCredential: The managed identity endpoint is not available..
-    azure:identity:info AzureCliCredential => getToken() => Using the scope https://storage.azure.com/.default
-    azure:identity:info AzureCliCredential => getToken() => expires_on is available and is valid, using it
+    ...
     azure:identity:info AzureCliCredential => getToken() => SUCCESS. Scopes: https://storage.azure.com/.default.
     azure:identity:info ChainedTokenCredential => getToken() => Result for AzureCliCredential: SUCCESS. Scopes: https://storage.azure.com/.defau
     lt.

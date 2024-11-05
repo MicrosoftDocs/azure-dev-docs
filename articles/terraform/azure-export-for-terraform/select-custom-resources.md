@@ -196,7 +196,7 @@ aztfexport map -n "aztfexportResourceMapping.json"
 
 ## Using Terraform import blocks
 
-When running `aztfexport` `v0.13` or greater alongside Terraform `v1.5` or greater, the `--generate-mapping-file` or `-g` command generates a mapping file alongside a `import.tf` file. The `import.tf` file includes import blocks for each of the resources `aztfexport` was able to map. From this point on the behavior of the configuration is identical to [the preexisting import block workflow](https://developer.hashicorp.com/terraform/language/import). To finish, run `terraform plan`.
+When running `aztfexport` `v0.13` or greater alongside Terraform `v1.5` or greater, the `--generate-import-block` command generates a mapping file alongside a `import.tf` file. The `import.tf` file includes import blocks for each of the resources `aztfexport` was able to map. From this point on the behavior of the configuration is identical to [the preexisting import block workflow](https://developer.hashicorp.com/terraform/language/import). To finish, run `terraform plan`.
 
 To then delete or filter resources from the resulting export, you can delete the block containing the resource's ID and other information.
 

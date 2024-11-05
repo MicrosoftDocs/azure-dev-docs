@@ -150,7 +150,7 @@ For illustration purposes, assume the parameterless form of `DefaultAzureCredent
 ```output
 [main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential EnvironmentCredential is unavailable.
 [main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential WorkloadIdentityCredential is unavailable.
-[ForkJoinPool.commonPool-worker-1] WARN com.microsoft.aad.msal4j.ConfidentialClientApplication - [Correlation ID: a8117f4a-7905-4119-868b-feb1147bb567] Execution of class com.microsoft.aad.msal4j.AcquireTokenByClientCredentialSupplier failed: java.util.concurrent.ExecutionException: com.azure.identity.CredentialUnavailableException: ManagedIdentityCredential authentication unavailable. Connection to IMDS endpoint cannot be established.
+[ForkJoinPool.commonPool-worker-1] WARN com.microsoft.aad.msal4j.ConfidentialClientApplication - [Correlation ID: aaaa0000-bb11-2222-33cc-444444dddddd] Execution of class com.microsoft.aad.msal4j.AcquireTokenByClientCredentialSupplier failed: java.util.concurrent.ExecutionException: com.azure.identity.CredentialUnavailableException: ManagedIdentityCredential authentication unavailable. Connection to IMDS endpoint cannot be established.
 [main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential ManagedIdentityCredential is unavailable.
 [main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential SharedTokenCacheCredential is unavailable.
 [main] INFO com.azure.identity.ChainedTokenCredential - Azure Identity => Attempted credential IntelliJCredential is unavailable.

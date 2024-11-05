@@ -54,6 +54,17 @@
           items:
             - name: Azure Export for Terraform concepts
               href: ./azure-export-for-terraform/export-terraform-concepts.md
+    - name: Azure Terraform Resource Provider
+      items:
+      - name: Overview
+        items:
+          - name: Azure Terraform Resource Provider
+            href: ./azure-terraform-resource-provider/resource-provider-overview.md
+      - name: Quickstarts
+        expanded: true
+        items:
+          - name: Export resources in the Azure portal
+            href: ./azure-terraform-resource-provider/get-started-export-resources-portal.md
 - name: Quickstarts
   expanded: true
   items:
@@ -67,6 +78,8 @@
           href: get-started-azapi-resource.md
         - name: Learn how to use the AzAPI update resource
           href: get-started-azapi-update-resource.md
+        - name: Learn how to use the AzAPI resource action
+          href: get-started-azapi-resource-action.md
     - name: Terraform Quickstarts for Azure services
       items:
         - name: AI + Machine Learning
@@ -93,16 +106,22 @@
           items:
             - name: Azure Kubernetes Service (AKS)
               items:
+                - name: Migrate to AKS
+                  href: /azure/aks/aks-migration
                 - name: Create a cluster
                   href: /azure/aks/learn/quick-kubernetes-deploy-terraform
             - name: Azure Spring Apps
               items:
                 - name: Deploy a cluster
                   href: /azure/spring-apps/enterprise/quickstart-deploy-infrastructure-vnet-terraform
-            - name: Batch
+            - name: Azure Batch
               items:
                 - name: Create an account
                   href: /azure/batch/quick-create-terraform
+                - name: Deploy an account and two pools
+                  href: /azure/batch/quick-deploy-batch-account-two-pools-terraform
+                - name: Deploy an account and two pools with a start task 
+                  href: /azure/batch/quick-deploy-batch-account-two-pools-start-task-terraform
             - name: Virtual machines
               items:
                 - name: Create a Linux VM
@@ -117,6 +136,8 @@
           items:
             - name: Azure Kubernetes Service (AKS)
               items:
+                - name: Migrate to AKS
+                  href: /azure/aks/aks-migration
                 - name: Create a cluster
                   href: /azure/aks/learn/quick-kubernetes-deploy-terraform
             - name: Container Instances
@@ -125,8 +146,12 @@
                   href: /azure/container-instances/container-instances-quickstart-terraform
                 - name: Deploy Cosmos DB
                   href: deploy-azure-cosmos-db-to-azure-container-instances.md
-        - name: Database
+        - name: Databases
           items:
+            - name: Azure confidential ledger
+              items:
+                - name: Create an Azure confidential ledger 
+                  href: /azure/confidential-ledger/quickstart-terraform
             - name: Azure Cosmos DB
               items:
                 - name: Deploy to Container Instances
@@ -157,12 +182,16 @@
               items:
                 - name: Create a service
                   href: /azure/api-management/quickstart-terraform
+                - name: Create and publish a product
+                  href: /azure/api-management/api-management-howto-add-products?pivots=terraform
         - name: Internet of Things
           items:
             - name: API Management
               items:
                 - name: Create a service
                   href: /azure/api-management/quickstart-terraform
+                - name: Create and publish a product
+                  href: /azure/api-management/api-management-howto-add-products?pivots=terraform
             - name: Azure Cosmos DB
               items:
                 - name: Deploy to Container Instances
@@ -201,6 +230,8 @@
               items:
                 - name: Create a service
                   href: /azure/api-management/quickstart-terraform
+                - name: Create and publish a product
+                  href: /azure/api-management/api-management-howto-add-products?pivots=terraform
             - name: Azure AI services
               items:
                 - name: Create a resource
@@ -263,6 +294,10 @@
               items:
                 - name: Create a provider
                   href: /azure/attestation/quickstart-terraform
+            - name: Azure confidential ledger
+              items:
+                - name: Create an Azure confidential ledger 
+                  href: /azure/confidential-ledger/quickstart-terraform
             - name: Azure DDoS Protection
               items:
                 - name: Create protection plan
@@ -287,6 +322,10 @@
                   href: /azure/key-vault/keys/quick-create-terraform
         - name: Storage
           items:
+            - name: Azure confidential ledger
+              items:
+                - name: Create an Azure confidential ledger 
+                  href: /azure/confidential-ledger/quickstart-terraform
             - name: Azure Managed Lustre
               items:
                 - name: Create a file system
@@ -301,6 +340,8 @@
               items:
                 - name: Create a service
                   href: /azure/api-management/quickstart-terraform
+                - name: Create and publish a product
+                  href: /azure/api-management/api-management-howto-add-products?pivots=terraform
             - name: Azure Cognitive Search
               items:
                 - name: Create an Azure Cognitive Search service

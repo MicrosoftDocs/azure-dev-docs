@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Deploy your first Azure resource-action with the AzAPI Terraform provider
-description: Learn how to use the AzAPI Terraform provider to shut down a VM
+title: Quickstart - Deploy your first resource action with the AzAPI Terraform provider
+description: Learn how to use the AzAPI Terraform provider to list keys
 keywords: azure devops terraform virtual machine azapi resource_action
 ms.topic: quickstart
 ms.date: 12/05/2023
@@ -13,16 +13,13 @@ ms.author: stema
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
-In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to perform a `POST` action on a resource that isn't supported by the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). The `azapi_resource_action` will be used to shut down a [Virtual Machine](/azure/virtual-machines/).
+In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to perform an imperative action on a resource. The `azapi_resource_action` will be used to list [Azure Key Vault Keys](/azure/key-vault/).
 
 > [!div class="checklist"]
 > * Define and configure the AzureRM and AzAPI providers
-> * Generate a random name for the Event Hubs namespace
-> * Use the AzureRM provider to create an Azure resource group and the required networking and Event Hubs resources
-> * Use the AzAPI provider to add a network rule set to the `azurerm_eventhub_namespace` resources
-
-> [!NOTE]
-> The example code in this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azapi-eventhub-network-rules).
+> * Generate a random name for the Key Vault
+> * Use the AzureRM provider to create an Azure Key Vault and Key Vault Key
+> * Use the AzAPI provider to list Azure Key Vault Keys
 
 ## Prerequisites
 
@@ -36,15 +33,43 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-eventhub-network-rules/providers.tf)]
+    ```
+    terraform {
+      required_providers {
+        azapi = {
+          source = "Azure/azapi"
+        }
+      }
+    }
+
+    provider "azapi" {}
+
+    provider "azurerm" {
+      features {}
+    }
+    ```
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-eventhub-network-rules/main.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-key-vault-key/main.tf)]
+
+1. Create a file named `variables.tf` and insert the following code:
+
+    [!code-terraform[master](../../terraform_samples/quickstart/101-key-vault-key/variables.tf)]
+
+1. Create a file named `outputs.tf` and insert the following code:
+
+    [!code-terraform[master](../../terraform_samples/quickstart/101-key-vault-key/outputs.tf)]
 
 1. Create a file named `main-generic.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-eventhub-network-rules/main-generic.tf)]
+    ```
+    data "azapi_resource_action" "example" {
+      type                   = "Microsoft.KeyVault/vaults@2023-07-01"
+      resource_id            = azurerm_key_vault.vault.id
+      action                 = "listKeys"
+    }
+    ```    
 
 ## Initialize Terraform
 
@@ -60,25 +85,9 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 
 ## Verify the results
 
-#### [Azure CLI](#tab/azure-cli)
-
-Run [az vm show](/cli/azure/azure-cli-vm-tutorial-4) to display the Event Hubs Namespace network rules.
-
-```azurecli
-az vm show --name $vmName --resource-group $resourceGroup
-```
-
-#### [Azure PowerShell](#tab/azure-powershell)
-
-Run [Get-AzVM](/powershell/module/az.compute/get-azvm) to display the Event Hubs Namespace network rules.
-
-```azurepowershell
-Get-AzEventHubNetworkRuleSet -ResourceGroupName <resource_group_name> -Namespace <namespace_name>
-```
-
 **Key points:**
 
-- The resource group name and Event Hubs namespace name are displayed in the `terraform apply` output.
+- The list of keys are displayed in the `terraform apply` output.
 
 ---
 
@@ -93,4 +102,4 @@ Get-AzEventHubNetworkRuleSet -ResourceGroupName <resource_group_name> -Namespace
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about using Terraform in Azure](/azure/terraform)
+> [Learn more about using the AzAPI provider](./overview-azapi-provider.md)

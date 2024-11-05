@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Migrate Oracle WebLogic Server to AKS with KEDA scaler based on Prometheus Metrics"
-description: Shows how to deploy WebLogic Server to AKS and enable autoscaling with KEDA scaler based on Prometheus Metrics.
+title: "Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service (AKS) with KEDA scaler based on Prometheus Metrics"
+description: Shows how to deploy WebLogic Server to Azure Kubernetes Service (AKS) and enable autoscaling with KEDA scaler based on Prometheus Metrics.
 author: KarlErickson
 ms.author: haiche
 ms.topic: tutorial
@@ -8,7 +8,7 @@ ms.date: 05/24/2024
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, migration-java
 ---
 
-# Tutorial: Migrate Oracle WebLogic Server to AKS with KEDA scaler based on Prometheus Metrics
+# Tutorial: Migrate Oracle WebLogic Server to Azure Kubernetes Service (AKS) with KEDA scaler based on Prometheus Metrics
 
 This tutorial shows you how to migrate Oracle WebLogic Server (WLS) to Azure Kubernetes Service (AKS) and configure automatic horizontal scaling based on Prometheus metrics.
 
@@ -286,7 +286,7 @@ Because you selected **WebLogic Monitoring Exporter** at deployment time, a KEDA
    > When you deploy an app with the offer, it's named `app1` by default. You can use the following steps to access the WLS admin console to obtain the application name:
    >
    > 1. Use the preceding steps to view the deployment outputs.
-   > 1. The **adminConsoleExternalUrl** value is the fully qualified, public Internet visible link to the WLS admin consolt. Select the copy icon next to the field value to copy the link to your clipboard.
+   > 1. The **adminConsoleExternalUrl** value is the fully qualified, public Internet visible link to the WLS admin console. Select the copy icon next to the field value to copy the link to your clipboard.
    > 1. Paste the value to your browser and open the WLS admin console.
    > 1. Sign in with the WLS admin account, which you saved aside during in the [Deploy WLS on AKS using the Azure Marketplace offer](#deploy-wls-on-aks-using-the-azure-marketplace-offer) section.
    > 1. Under **Domain Structure**, select **Deployments**. You find **app1** listed.

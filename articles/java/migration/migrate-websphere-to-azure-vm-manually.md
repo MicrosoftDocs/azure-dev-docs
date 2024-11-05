@@ -4,7 +4,7 @@ description: Get step-by-step guidance to install IBM WebSphere Application Serv
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
-ms.date: 06/21/2024
+ms.date: 10/29/2024
 recommendations: false
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-was-vm, devx-track-javaee-was, devx-track-javaee-websphere, migration-java, linux-related-content
 ---
@@ -207,7 +207,7 @@ Use the following steps to create a basic VM, ensure the installation of require
 
 1. Create a VM by using [az vm create](/cli/azure/vm). You run the deployment manager on this VM.
 
-   The following example creates a Red Hat Enterprise Linux machine by using a username/password pair for the authentication. You can choose to use TLS/SSL authentication instead.
+   The following example creates a Red Hat Enterprise Linux machine by using a username/password pair for the authentication. You can choose to use TLS/SSL authentication instead, which is more secure.
 
    ### [Bash](#tab/in-bash)
 

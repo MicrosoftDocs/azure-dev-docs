@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Migrate WebSphere Liberty/Open Liberty to Azure Kubernetes Service with high availability and disaster recovery"
-description: Shows you how to deploy WebSphere Liberty/Open Liberty to Azure Kubernetes Service with high availability and disaster recovery.
+title: "Tutorial: Migrate WebSphere Liberty/Open Liberty to Azure Kubernetes Service (AKS) with high availability and disaster recovery"
+description: Shows you how to deploy WebSphere Liberty/Open Liberty to Azure Kubernetes Service (AKS) with high availability and disaster recovery.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: tutorial
@@ -8,7 +8,7 @@ ms.date: 05/16/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-websphere, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, migration-java, devx-track-extended-java
 ---
 
-# Tutorial: Migrate WebSphere Liberty/Open Liberty to Azure Kubernetes Service with high availability and disaster recovery
+# Tutorial: Migrate WebSphere Liberty/Open Liberty to Azure Kubernetes Service (AKS) with high availability and disaster recovery
 
 This tutorial shows you a simple and effective way to implement high availability and disaster recovery (HA/DR) for Java using WebSphere Liberty/Open Liberty on Azure Kubernetes Service (AKS). The solution illustrates how to achieve a low Recovery Time Objective (RTO) and Recovery Point Objective (RPO) using a simple database-driven Jakarta EE application running on WebSphere Liberty/Open Liberty.
 

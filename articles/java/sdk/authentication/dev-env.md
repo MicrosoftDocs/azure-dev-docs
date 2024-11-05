@@ -2,7 +2,7 @@
 title: Azure authentication in Java development environments
 titleSuffix: Azure SDK for Java
 description: Provides an overview of the Azure SDK for Java concepts related to authenticating within dev environments.
-ms.date: 02/02/2021
+ms.date: 10/15/2024
 ms.topic: conceptual
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
 author: KarlErickson
@@ -19,7 +19,6 @@ This article covers the following subjects:
 * [Interactive browser credential](#interactive-browser-credential)
 * [Azure CLI credential](#azure-cli-credential)
 * [IntelliJ credential](#intellij-credential)
-* [Visual Studio Code credential](#visual-studio-code-credential)
 
 For troubleshooting development environment authentication issues, see [Troubleshoot development environment authentication](../troubleshooting-authentication-dev-env.md).
 
@@ -152,44 +151,18 @@ Use the following steps to sign in:
 1. Find the new menu item **Tools > Azure > Azure Sign In**
 1. **Device Login** helps you sign in as a user account. Follow the instructions to sign in on the `login.microsoftonline.com` website with the device code. IntelliJ prompts you to select your subscriptions. Select the subscription with the resources that you want to access.
 
-On Windows, you also need the KeePass database path to read IntelliJ credentials. You can find the path in IntelliJ settings under **File > Settings > Appearance & Behavior > System Settings > Passwords**. Note down the location of the KeePassDatabase path.
-
 ### Authenticate a user account with IntelliJ IDEA
 
-The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `IntelliJCredential` on a workstation where IntelliJ IDEA is installed, and the user has signed in with an Azure account.
+The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `IntelliJCredential` on a workstation where IntelliJ IDEA is installed, and the user has signed in with an Azure account to the Azure Toolkit for IntelliJ.
 
 ```java
 IntelliJCredential intelliJCredential = new IntelliJCredentialBuilder()
-  // KeePass configuration isrequired only for Windows. No configuration needed for Linux / Mac.
-  .keePassDatabasePath("C:\\Users\\user\\AppData\\Roaming\\JetBrains\\IdeaIC2020.1\\c.kdbx")
   .build();
 
 // Azure SDK client builders accept the credential as a parameter
 SecretClient client = new SecretClientBuilder()
   .vaultUrl("https://<your Key Vault name>.vault.azure.net")
   .credential(intelliJCredential)
-  .buildClient();
-```
-
-## Visual Studio Code credential
-
-The Visual Studio Code credential enables authentication in development environments where VS Code is installed with the [VS Code Azure Account extension](https://github.com/Microsoft/vscode-azure-account). It uses the signed-in user information in the VS Code IDE and uses it to authenticate the application against Microsoft Entra ID.
-
-### Sign in Visual Studio Code Azure Account Extension for VisualStudioCodeCredential
-
-Nn integration with the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) handles the Visual Studio Code authentication. To use this form of authentication, install the Azure Account extension, then use **View > Command Palette** to execute the **Azure: Sign In** command. This command opens a browser window and displays a page that allows you to sign in to Azure. After you've completed the sign-in process, you can close the browser as directed. Running your application (either in the debugger or anywhere on the development machine) uses the credential from your sign-in.
-
-### Authenticate a user account with Visual Studio Code
-
-The following example demonstrates authenticating the `SecretClient` from the [azure-security-keyvault-secrets][secrets_client_library] client library using the `VisualStudioCodeCredential` on a workstation where Visual Studio Code is installed, and the user has signed in with an Azure account.
-
-```java
-VisualStudioCodeCredential visualStudioCodeCredential = new VisualStudioCodeCredentialBuilder().build();
-
-// Azure SDK client builders accept the credential as a parameter.
-SecretClient client = new SecretClientBuilder()
-  .vaultUrl("https://<your Key Vault name>.vault.azure.net")
-  .credential(visualStudioCodeCredential)
   .buildClient();
 ```
 
