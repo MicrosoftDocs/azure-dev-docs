@@ -1,16 +1,16 @@
 ---
 title: Augmenting a Large Language Model with Retrieval-Augmented Generation and Fine-tuning
 description: Conceptual article detailing the creation of a Retrieval-Augmented Generation (RAG)-based chat system, emphasizing integration, optimization, and ethical considerations for delivering contextually relevant responses.
-ms.date: 4/12/2024
+ms.date: 11/05/2024
 ms.topic: conceptual
 ms.custom: build-2024-intelligent-apps
 ---
 
 # Augmenting a Large Language Model with Retrieval-Augmented Generation and Fine-tuning
 
-The articles in this series discuss the knowledge retrieval models that LLMs use to generate their responses. By default, a Large Language Model (LLM) only has access to its training data. However, you can be augment the model to include real-time data or private data. This article discusses one of two mechanisms for augmenting a model.
+The articles in this series discuss the knowledge retrieval models that LLMs use to generate their responses. By default, a Large Language Model (LLM) only has access to its training data. However, you can augment the model to include real-time data or private data. This article discusses one of two mechanisms for augmenting a model.
 
-The first mechanism is **Retrieval-Augmented Generation (RAG)**, which is a form of pre-processing that combines semantic search with contextual priming (discussed in [another article](./gen-ai-concepts-considerations-developers.md)). 
+The first mechanism is **Retrieval-Augmented Generation (RAG)**, which is a form of preprocessing that combines semantic search with contextual priming (discussed in [another article](./gen-ai-concepts-considerations-developers.md)). 
 
 The second mechanism is **fine-tuning**, which refers to the process of further training the model on a specific dataset after its initial, broad training, with the goal of adapting it to perform better on tasks or understand concepts related to that dataset. This process helps the model specialize or improve its accuracy and efficiency in handling particular types of input or domains.
 
@@ -66,20 +66,20 @@ Implementing a RAG system comes with its set of challenges. Data privacy is para
 
 The next article in this series, [Building advanced Retrieval-Augmented Generation systems]() provides more detail on building data and inference pipelines to enable a production-ready RAG system.
 
-If you want to start experimenting with building a generative AI solution immediately, we recommend taking a look at [Get started with the chat using your own data sample for Python](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces). There are versions of the tutorial also available in [.NET](/dotnet/ai/get-started-app-chat-template?tabs=github-codespaces), [Java](/azure/developer/java/ai/get-started-app-chat-template?tabs=github-codespaces), and [JavaScript](/azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces).
+If you want to start experimenting with building a generative AI solution immediately, we recommend taking a look at [Get started with the chat using your own data sample for Python](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces). There are versions of the tutorial also available in [.NET](/dotnet/ai/get-started-app-chat-template?tabs=github-codespaces), [Java](/azure/developer/java/ai/get-started-app-chat-template?tabs=github-codespaces), and [JavaScript](/azure/developer/javascript/ai/get-started-app-chat-template?tabs=github-codespaces).
 
 ## Fine-tuning a model
 
 **Fine-tuning**, in the context of an LLM, refers to the process of adjusting the model's parameters on a domain-specific dataset after initially being trained on a large, diverse dataset.
 
-LLMs are trained (pre-trained) on a broad dataset, grasping language structure, context, and a wide array of knowledge. This stage involves learning general language patterns. Fine-tuning is adding more training to the pre-trained model based on a smaller, specific dataset. This secondary training phase aims to adapt the model to perform better on particular tasks or understand specific domains, enhancing its accuracy and relevance for those specialized applications. During fine-tuning, the model's weights are adjusted to better predict or understand the nuances of this smaller dataset.
+LLMs are trained (pretrained) on a broad dataset, grasping language structure, context, and a wide array of knowledge. This stage involves learning general language patterns. Fine-tuning is adding more training to the pretrained model based on a smaller, specific dataset. This secondary training phase aims to adapt the model to perform better on particular tasks or understand specific domains, enhancing its accuracy and relevance for those specialized applications. During fine-tuning, the model's weights are adjusted to better predict or understand the nuances of this smaller dataset.
 
 A few considerations:
 
 - **Specialization**: Fine-tuning tailors the model to specific tasks, such as legal document analysis, medical text interpretation, or customer service interactions. This makes the model more effective in those areas.
-- **Efficiency**: It's more efficient to fine-tune a pre-trained model for a specific task than to train a model from scratch, as fine-tuning requires less data and computational resources.
+- **Efficiency**: It's more efficient to fine-tune a pretrained model for a specific task than to train a model from scratch, as fine-tuning requires less data and computational resources.
 - **Adaptability**: Fine-tuning allows for adaptation to new tasks or domains that were not part of the original training data, making LLMs versatile tools for various applications.
-- **Improved performance**: For tasks that are significantly different from the data the model was originally trained on, fine-tuning can lead to better performance, as it adjusts the model to understand the specific language, style, or terminology used in the new domain.
+- **Improved performance**: For tasks that are different from the data the model was originally trained on, fine-tuning can lead to better performance, as it adjusts the model to understand the specific language, style, or terminology used in the new domain.
 - **Personalization**: In some applications, fine-tuning can help personalize the model's responses or predictions to fit the specific needs or preferences of a user or organization.
 However, fine-tuning also presents certain downsides and limitations. Understanding these can help in deciding when to opt for fine-tuning versus alternatives like retrieval-augmented generation (RAG).
 - **Data requirement**: Fine-tuning requires a sufficiently large and high-quality dataset specific to the target task or domain. Gathering and curating this dataset can be challenging and resource intensive.
