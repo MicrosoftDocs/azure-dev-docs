@@ -60,7 +60,7 @@ landingContent:
           - text: "Tutorial: WebLogic to Azure VMs with Entra ID"
             url: migrate-weblogic-with-entra-id-via-ldap.md
 
-  - title: Migrate WebLogic Server to Azure services
+  - title: Migrate WebLogic Server to AKS and App Service
     linkLists:
       - linkListType: how-to-guide
         links:
