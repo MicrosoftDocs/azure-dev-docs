@@ -97,7 +97,7 @@ items:
         href: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to AKS with KEDA scaler based on Prometheus Metrics
         href: ../migration/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-      - name: Migrate WebLogic to Azure VMs with Elastic
+      - name: WebLogic to Azure VMs with Elastic
         href: ../migration/migrate-weblogic-with-elk.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
       - name: WebLogic to Azure VMs with Entra ID
         href: ../migration/migrate-weblogic-with-entra-id-via-ldap.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
