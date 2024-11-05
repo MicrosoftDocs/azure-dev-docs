@@ -392,7 +392,7 @@
 | @typespec/xml | npm [0.61.0](https://www.npmjs.com/package/@typespec/xml/v/0.61.0) |  |  |
 | AI Chat Protocol | npm [1.0.0-beta.20240814.1](https://www.npmjs.com/package/@microsoft/ai-chat-protocol/v/1.0.0-beta.20240814.1) |  |  |
 | App Configuration Provider | npm [1.0.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer/v/1.0.1-preview) |  |  |
-| App Configuration Provider | npm [1.1.1](https://www.npmjs.com/package/@azure/app-configuration-provider/v/1.1.1) |  |  |
+| App Configuration Provider | npm [1.1.2](https://www.npmjs.com/package/@azure/app-configuration-provider/v/1.1.2) |  |  |
 | App Configuration Provider File Source | npm [1.0.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/1.0.1-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | Create - Microsoft Playwright Testing | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/create-microsoft-playwright-testing/v/1.0.0-beta.1) |  |  |
@@ -401,7 +401,7 @@
 | tmlanguage-generator | npm [0.5.9](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.9) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.1.0) |  |  |
 | Unknown Display Name | npm [0.61.0](https://www.npmjs.com/package/@typespec/events/v/0.61.0) |  |  |
-| Unknown Display Name | npm [0.3.4](https://www.npmjs.com/package/@typespec/http-client-python/v/0.3.4) |  |  |
+| Unknown Display Name | npm [0.3.5](https://www.npmjs.com/package/@typespec/http-client-python/v/0.3.5) |  |  |
 | Unknown Display Name | npm [0.1.0-alpha.0](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.0) |  |  |
 | Unknown Display Name | npm [0.61.0](https://www.npmjs.com/package/@typespec/sse/v/0.61.0) |  |  |
 | Unknown Display Name | npm [0.61.0](https://www.npmjs.com/package/@typespec/streams/v/0.61.0) |  |  |
@@ -522,7 +522,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.7.14](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.14) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.7.16](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.16) |  |  |
 | @azure-tools/json | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/json/v/1.3.0) |  |  |
 | @azure-tools/jsonschema | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.0) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
@@ -561,7 +561,7 @@
 | AutoRest - Functions Java | npm [0.0.2-Preview](https://www.npmjs.com/package/@autorest/azure-functions-java/v/0.0.2-Preview) |  |  |
 | AutoRest - Functions Python | npm [0.1.0-preview](https://www.npmjs.com/package/@autorest/azure-functions-python/v/0.1.0-preview) |  |  |
 | AutoRest - Functions TypeScript | npm [0.0.1-preview](https://www.npmjs.com/package/@autorest/azure-functions-typescript/v/0.0.1-preview) |  |  |
-| AutoRest - Go | npm [4.0.0-preview.68](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.68) |  |  |
+| AutoRest - Go | npm [4.0.0-preview.69](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.69) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
 | AutoRest - Python | npm [6.26.1](https://www.npmjs.com/package/@autorest/python/v/6.26.1) |  | GitHub [6.26.1](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
