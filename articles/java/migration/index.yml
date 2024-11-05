@@ -57,6 +57,8 @@ landingContent:
             url: migrate-weblogic-to-vms-with-ha-dr.md
           - text: "Tutorial: WebLogic to Azure VMs with Elastic"
             url: migrate-weblogic-with-elk.md
+          - text: "Tutorial: WebLogic to Azure VMs with Entra ID"
+            url: migrate-weblogic-with-entra-id-via-ldap.md
 
   - title: Migrate WebLogic Server to Azure services
     linkLists:
