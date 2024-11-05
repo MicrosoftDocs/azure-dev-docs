@@ -130,7 +130,7 @@ This section guides you through setting up custom log integration for WebLogic S
    - Under **Custom log file**, set:
      - **Log file path**: for example, `/u01/domains/adminDomain/servers/admin/logs/adminDomain.log`.
      - **Dataset name**: `generic`.
-     - Expand **Advanced options**, for **Custom configurations**, set:
+     - Expand **Advanced options**. For **Custom configurations**, set:
 
        ```text
        multiline.type: pattern
@@ -139,20 +139,33 @@ This section guides you through setting up custom log integration for WebLogic S
        multiline.match: after
        ```
 
-   - Expand **Advanced options**, for **Integration name**, fill in `log-weblogic-domain-log`.
-   - Select **Confirm incoming data** to preview the logs, then select **View assets** -> **Assets** -> **Views** -> **Logs** to view the domain logs in Kibana.
+   - Expand **Advanced options**. For **Integration name**, fill in `log-weblogic-domain-log`.
+   - Select **Confirm incoming data** to preview the logs. Then select **View assets** -> **Assets** -> **Views** -> **Logs** to view the domain logs in Kibana.
 
       :::image type="content" source="media/migrate-weblogic-with-elk/elastic-weblogic-domain-log.png" alt-text="WebLogic domain log in Kibana." lightbox="media/migrate-weblogic-with-elk/elastic-weblogic-domain-log.png":::
 
 5. **Add Integrations for Server Logs and HTTP Access Logs:**
    - Use the same approach to import server logs and HTTP access logs with the following configurations:
 
-      |  Configuration name | Server Log | HTTP Access Log |
-      |---------------|---------------|--------------------|
-      | **Integration settings**<br>-><br>**Integration name** | `log-weblogic-server-log` | `log-http-access-log` |
-      | **Custom log file**<br>-><br>**Log file path** | `/u01/domains/adminDomain/servers/admin/logs/admin.log` | `/u01/domains/adminDomain/servers/admin/logs/access.log` |
-      | **Custom log file**<br>-><br>**Advanced options**<br>-><br>**Custom configurations** |<pre><code>multiline.type: pattern<br>multiline.pattern: '^####'<br>multiline.negate: true<br>multiline.match: after</code></pre> | |
-      | **Where to add this integration?**<br>-><br>**Existing hosts** | My first agent policy | My first agent policy |
+      **Server Log**
+
+      - **Integration settings → Integration name:** `log-weblogic-server-log`
+      - **Custom log file → Log file path:** `/u01/domains/adminDomain/servers/admin/logs/admin.log`
+      - **Custom log file → Advanced options → Custom configurations:**
+        ```
+        multiline.type: pattern
+        multiline.pattern: '^####'
+        multiline.negate: true
+        multiline.match: after
+        ```
+      - **Where to add this integration? → Existing hosts:** My first agent policy
+
+      **HTTP Access Log**
+
+      - **Integration settings → Integration name:** `log-http-access-log`
+      - **Custom log file → Log file path:** `/u01/domains/adminDomain/servers/admin/logs/access.log`
+      - **Custom log file → Advanced options → Custom configurations:** *(No configuration provided)*
+      - **Where to add this integration? → Existing hosts:** My first agent policy
 
    - In Kibana, search **Integrations** then go to it. 
    - Select **Installed integrations** -> **Custom Logs** -> **Add Custom Logs**.
