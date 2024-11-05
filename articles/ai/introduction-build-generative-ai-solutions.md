@@ -1,7 +1,7 @@
 ---
 title: Introduction to developing generative AI applications for experienced developers
 description: Conceptual overview about integrating generative AI into applications, exploring its business benefits, operational fundamentals, and the potential of large language models (LLMs).
-ms.date: 4/12/2024
+ms.date: 11/05/2024
 ms.topic: conceptual
 ms.custom: build-2024-intelligent-apps, ai-learning-hub
 ---
@@ -14,7 +14,7 @@ As an application developer, you might struggle to understand what role you can 
 
 To answer these questions, it's important that you first develop a mental model that maps how all the new terminology and technologies fit into what you already understand. Developing a mental model helps you design and build generative AI features into your applications. To that end, the purpose of this series of articles is to show you how your current software development experience applies to generative AI. The articles also provide a level-set on keywords and concepts as you begin developing your first generative AI solutions.
 
-## What do business hope to achieve with generative AI?
+## What do businesses hope to achieve with generative AI?
 
 To understand how your current software development experience applies to generative AI, it's important to start by understanding how businesses intend to benefit from it. 
 
@@ -77,16 +77,16 @@ Here's an over-simplified representation of the layers of knowledge required to 
 :::image type="content" source="./media/ai-stack-developers.png" alt-text="Diagram of layers of knowledge. At the bottom, a box containing the words foundational data science, artificial intelligent research, statistics, and probability theory. The next level up, the words training large language models. The next level up, building services, tooling, and developing APIs. And at the highest level, application layer, patterns, and processes.":::
 
 At the lowest level, you have data scientists that are doing data science research to solve or improve AI based on a deep mathematical understanding of statistics, probability theory and so on.
-One layer up, based on the lowest foundational layer, you have data scientists who implement theorietical concepts into LLMs, building the neural networks and training the weights and biases to provide a practical piece of software that can accept inputs (**prompts**) and generate results (**completions**). The computational process of composing completions based on prompts is known as **inference**. There are those who are responsible for implementing the how the neurons of the neural network predict the next word or pixel to be generated.
+One layer up, based on the lowest foundational layer, you have data scientists who implement theoretical concepts into LLMs, building the neural networks and training the weights and biases to provide a practical piece of software that can accept inputs (**prompts**) and generate results (**completions**). The computational process of composing completions based on prompts is known as **inference**. There are those who are responsible for implementing the how the neurons of the neural network predict the next word or pixel to be generated.
 
-Given the amount of processing power required to train models and generate results based on an input, the models are often trained and hosted in large data centers. It's possible to train or host a model on a local computer, but the results are often slow (without dedicated GPU video cards to help handle the compute required to generate results).
+Given the amount of processing power required to train models and generate results based on an input. The models are often trained and hosted in large data centers. It's possible to train or host a model on a local computer, but the results are often slow (without dedicated GPU video cards to help handle the compute required to generate results).
 
 When hosted in large data centers, programmatic access to these models is provided through REST APIs, and those are sometimes "wrapped" by SDKs and available to application developers for ease of use. Other tools can help improve the developer experience, providing observability or other utilities.
 Application developers can make calls into these APIs to implement business functionality.
 
 Beyond prompting the models programmatically, there are patterns and processes emerging to help businesses build reliable business functionality based on generative AI. For example, there are patterns emerging to help businesses ensure the generated text, code, images, and sound comply with ethical and safety standards as well as commitments to the privacy of customers' data.
 
-In this stack of concerns or layers, if you're an application developer responsible for building business functionality, it's possible for you to push beyond the application layer into developing and training your own LLM. But gaining this level of understanding requires a new set of skills that are often only available through an academic environment. If you can't commit to developing competence in data science academically to help build the "next layer down in the stack" (so to speak) then you might want to focus understanding things at the application layer like:
+In this stack of concerns or layers, if you're an application developer responsible for building business functionality, it's possible for you to push beyond the application layer into developing and training your own LLM. But this level of understanding requires a new set of skills that are often only available academically. If you can't commit to developing competence in data science academically to help build the "next layer down in the stack" (so to speak) then focus on application layer topics like:
 
 - Understanding available APIs and SDKs, what is available, what the various endpoints produce, etc.
 - Understanding related tools and services to help you build all the features required for a production-ready generative AI solution.
@@ -140,10 +140,10 @@ Each of these Azure services contributes to creating a comprehensive, scalable, 
 
 ## Code-centric generative AI development with the Azure OpenAI API
 
-In this section, we focus on the Azure OpenAI API. As stated earlier, you access LLM functionality programmatically through a RESTful web API. You can use literally any modern programming language to call into these APIs. In many cases, there are language or platform specific SDKs that operate as "wrappers" around the REST API calls to make the experience more idiomatic. 
+In this section, we focus on the Azure OpenAI API. As stated earlier, you access LLM functionality programmatically through a RESTful web API. You can use literally any modern programming language to call into these APIs. In many cases, language or platform specific SDKs operate as "wrappers" around the REST API calls to make the experience more idiomatic.
 
 - [Azure OpenAI client library for .NET](/dotnet/api/overview/azure/ai.openai-readme)
-- [Azuew OpenAI client library for Java](/java/api/overview/azure/ai-openai-readme)
+- [Azure OpenAI client library for Java](/java/api/overview/azure/ai-openai-readme)
 - [Azure OpenAI client library for JavaScript](/javascript/api/overview/azure/openai-readme)
 - [Azure OpenAI client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai)
 - Python has no Azure specific client library. You use the [OpenAI Python package](https://platform.openai.com/docs/api-reference) and change several options.
@@ -167,7 +167,7 @@ While generative AI can be used to work with many different modalities of media,
 
 Software developers who are new to an unfamiliar language, API, or technology usually begin to learn it by following tutorials or training modules to build small applications. Some software developers prefer to take a self-guided approach and build small experimental applications. Both approaches are valid and useful.
 
-As you get started, it’s best to start small, promise little, iterate, and build your understanding and skill since developing with generative AI presents has unique challenges. For example, in traditional software development you can rely on deterministic output – for any set of inputs, you can expect the exact same output every time. However, Generative  is non-deterministic – you'll never get the exact same answer twice for a given prompt, which is at the root of many new challenges. As you’re getting started, consider the following tips before you get too far:
+As you get started, it’s best to start small, promise little, iterate, and build your understanding and skill since developing with generative AI presents has unique challenges. For example, in traditional software development you can rely on deterministic output – for any set of inputs, you can expect the exact same output every time. However, Generative  is nondeterministic – you'll never get the exact same answer twice for a given prompt, which is at the root of many new challenges. As you’re getting started, consider the following tips before you get too far:
 
 ### Tip #1: Get clear on what you are trying to achieve. 
 
@@ -193,4 +193,4 @@ If you want to start experimenting with building a generative AI solution immedi
 Here's a short list of things to consider and other takeaways from this article that impact your application design decisions:
 
 - Define the problem space and audience clearly to align the AI's capabilities with user expectations, optimizing the solution's effectiveness for the intended use case.
-- Use low-code/no-code platforms for rapid prototyping and development if they meet your project's requirements, evaluating the trade-off between development speed and customizability. Explore the possibilities of low-code and no-code solutions for parts of your application to speed up development and enable non-technical team members to contribute to the project.
+- Use low-code/no-code platforms for rapid prototyping and development if they meet your project's requirements, evaluating the trade-off between development speed and customizability. Explore the possibilities of low-code and no-code solutions for parts of your application to speed up development and enable nontechnical team members to contribute to the project.
