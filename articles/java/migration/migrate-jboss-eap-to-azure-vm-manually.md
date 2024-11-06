@@ -83,7 +83,7 @@ az login
 Create a resource group with [az group create](/cli/azure/group#az-group-create). Resource group names must be globally unique within a subscription. For this reason, consider prepending some unique identifier to any names you create that must be unique. A useful technique is to use your initials followed by today's date in `mmdd` format. This example creates a resource group named `$RESOURCE_GROUP_NAME` in the `westus` location:
 
 ```azurecli
-export SUBSCRIPTION=$(az account show --query id -o tsv)
+export SUBSCRIPTION=$(az account show --query id --output tsv)
 export SUFFIX=$(date +%s)
 export RESOURCE_GROUP_NAME=rg-$SUFFIX
 echo "Resource group name: $RESOURCE_GROUP_NAME"
@@ -187,7 +187,7 @@ az network vnet subnet update \
 
 ### Generate SSH keys 
 
-Use the following command to generate SSH keys for the `adminVM`:
+Use the following command to generate SSH keys for `adminVM`:
 
 ```bash
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/jbosseapvm
@@ -1164,7 +1164,6 @@ Use the following steps to create the database instance:
      --display-name "passwordless-managed-identity"  \
      --object-id $objectId \
      --type ServicePrincipal 
-
    ```
 
 1. Use the following commands to allow access from Azure services:
@@ -1201,7 +1200,7 @@ Use the following steps to create the database instance:
 
 ### Install driver
 
-Use the following steps to install the JDBC driver with the JBoss management CLI. 
+Use the following steps to install the JDBC driver with the JBoss management CLI:
 
 1. SSH to `adminVM` by using the following command. You can skip this step if you already have a connection opened.
 
@@ -1209,7 +1208,7 @@ Use the following steps to install the JDBC driver with the JBoss management CLI
    ssh -A -i ~/.ssh/jbosseapvm azureuser@$ADMIN_VM_PUBLIC_IP
    ```
 
-1. Use the following commands to download JDBC driver on adminVM. 
+1. Use the following commands to download JDBC driver on adminVM:
 
    ```bash
    # Create JDBC driver and module directory
@@ -1288,7 +1287,6 @@ Use the following steps to install the JDBC driver with the JBoss management CLI
    # Register JDBC driver
    sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
    "/profile=ha/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=com.postgresql,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)"
-
    ```
 
 ### Configure the database connection for the Red Hat JBoss EAP cluster
