@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Deploy WLS on Azure
 
-Provision a WebLogic Server by following the steps in [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](https://aka.ms/arm-oraclelinux-wls). Both "Deploy Oracle WebLogic Server With Administration Server on a Single Node" and "Deploy Oracle WebLogic Server Cluster on Microsoft Azure IaaS" are compatible with Elastic on Azure. This tutorial uses [WebLogic on VM](https://aka.ms/wls-vm-admin) as an example.
+Provision WebLogic Server by following the steps in [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](https://aka.ms/arm-oraclelinux-wls). Both "Deploy Oracle WebLogic Server With Administration Server on a Single Node" and "Deploy Oracle WebLogic Server Cluster on Microsoft Azure IaaS" are compatible with Elastic on Azure. This tutorial uses [WebLogic on VM](https://aka.ms/wls-vm-admin) as an example.
 
 > [!NOTE]
 > The default VM size may not have sufficient memory for the Elastic agent. Ensure the selected VM size has at least 2.5 GB of memory. `Standard_A2_v2` is the minimum sufficient size
@@ -52,6 +52,8 @@ This tutorial focuses on configuring the following key WebLogic logs:
 
 These logs can be configured and managed to facilitate the integration with monitoring tools like Elastic on Azure, allowing for centralized log analysis and alerting on WebLogic Server instances.
 
+You can skip to and follow the steps in the section [Create an Elasticsearch on Azure instance](#create-an-elasticsearch-on-azure-instance) while the offer deploys. Return here when the offer has completed deployment.
+
 ### Connect to the WLS machine
 
 To access the virtual machine running WebLogic Server (WLS), use the steps in [Connect to the virtual machine](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine#connect-to-the-virtual-machine). In this tutorial, you are connecting to the machine that hosts the WebLogic Administration Server, named `adminVM`.
@@ -69,7 +71,7 @@ In the first step of the section **Create resource** use the following substitut
 1. In the **Basics** blade, under **Plan Details**:
 
   1. For **Resource group**, fill in a unique resource group name. This tutorial uses `elkrg1030`.
-  1. For **Resource name**, fill in a unique name for your Elastic instance.  This tutorial uses `elkforwlsonazure1030`.
+  1. For **Resource name**, fill in a unique name for your Elastic instance. You can use the same value you used for **Resource group**.
   1. For **Region**, select your desired region.
   1. Keep default values for other fields.
 
