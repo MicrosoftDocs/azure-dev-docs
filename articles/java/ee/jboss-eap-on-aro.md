@@ -18,6 +18,7 @@ In this guide, you will learn how to:
 >
 > * Prepare a JBoss EAP application for OpenShift.
 > * Create an single database instance of Azure SQL Database.
+>   * Since Azure Workload Identity is not supported by Azure OpenShift yet, instead of using passwordless database connections, we will use username/password pair for database authentication.
 > * Deploy the application on an Azure Red Hat OpenShift cluster by using JBoss Helm Charts and OpenShift Web Console
 
 The sample application is a stateful application that stores information in an HTTP session. It makes use of the JBoss EAP clustering capabilities and uses the following Jakarta EE and MicroProfile technologies:
