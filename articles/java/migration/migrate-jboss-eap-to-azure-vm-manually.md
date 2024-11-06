@@ -327,7 +327,7 @@ Use the following steps to install:
    # Completed on Wed Mar 29 22:39:23 2023
    ```
 > [!NOTE]
-> This RHSM_USER and RHSM_PASSWORD are required to install Red Hat JBoss EAP. We recommend that you use a service account with limited permissions to access the Red Hat Customer Portal. 
+> The `RHSM_USER` and `RHSM_PASSWORD` values are required to install Red Hat JBoss EAP. We recommend that you use a service account with limited permissions to access the Red Hat Customer Portal. 
 
 2. Use the following commands to register the admin host to your Red Hat Subscription Management (RHSM) account:
 
@@ -670,7 +670,7 @@ The last stanza of output should look similar to the following example. If it do
 Then, use the following commands to configure the JBoss server and set up the EAP service:
 
 > [!NOTE]
-> The JBOSS_EAP_USER and JBOSS_EAP_PASSWORD are required to configure the JBoss EAP management user. 
+> The `JBOSS_EAP_USER` and `JBOSS_EAP_PASSWORD` values are required to configure the JBoss EAP management user. 
 
 ```bash
 # Configure the JBoss server and setup EAP service
@@ -786,7 +786,7 @@ The last stanza of output should look similar to the following example. If it do
 Then, use the following commands to configure the JBoss server and set up the EAP service:
 
 > [!NOTE]
-> The JBOSS_EAP_USER and JBOSS_EAP_PASSWORD are required to configure the JBoss EAP management user.
+> The `JBOSS_EAP_USER` and `JBOSS_EAP_PASSWORD` values are required to configure the JBoss EAP management user.
  
 ```bash
 # Configure the JBoss server and setup EAP service
