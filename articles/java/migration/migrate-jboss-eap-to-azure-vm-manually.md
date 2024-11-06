@@ -326,14 +326,16 @@ Use the following steps to install:
    COMMIT
    # Completed on Wed Mar 29 22:39:23 2023
    ```
+> [!NOTE]
+> This RHSM_USER and RHSM_PASSWORD are required to install Red Hat JBoss EAP. We recommend that you use a service account with limited permissions to access the Red Hat Customer Portal. 
 
-1. Use the following commands to register the admin host to your Red Hat Subscription Management (RHSM) account:
+2. Use the following commands to register the admin host to your Red Hat Subscription Management (RHSM) account:
 
    ```bash
    export RHSM_USER=<your-rhsm-username>
    export RHSM_PASSWORD='<your-rhsm-password>'
    export EAP_POOL=<your-rhsm-pool-ID>
-
+ 
    sudo subscription-manager register --username ${RHSM_USER} --password ${RHSM_PASSWORD} --force
    ```
 
@@ -667,6 +669,9 @@ The last stanza of output should look similar to the following example. If it do
 
 Then, use the following commands to configure the JBoss server and set up the EAP service:
 
+> [!NOTE]
+> The JBOSS_EAP_USER and JBOSS_EAP_PASSWORD are required to configure the JBoss EAP management user. 
+
 ```bash
 # Configure the JBoss server and setup EAP service
 echo 'WILDFLY_HOST_CONFIG=host-master.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
@@ -780,6 +785,9 @@ The last stanza of output should look similar to the following example. If it do
 
 Then, use the following commands to configure the JBoss server and set up the EAP service:
 
+> [!NOTE]
+> The JBOSS_EAP_USER and JBOSS_EAP_PASSWORD are required to configure the JBoss EAP management user.
+ 
 ```bash
 # Configure the JBoss server and setup EAP service
 echo 'WILDFLY_HOST_CONFIG=host-primary.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
