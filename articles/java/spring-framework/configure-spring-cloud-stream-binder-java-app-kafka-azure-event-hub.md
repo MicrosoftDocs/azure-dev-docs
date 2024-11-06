@@ -77,7 +77,7 @@ To install the Spring Cloud Azure Starter module, add the following dependencies
       <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.17.1</version>
+        <version>5.18.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
