@@ -207,20 +207,16 @@ Create a basic VM, install all required tools on it, take a snapshot of it, and 
 
 Create a VM using [az vm create](/cli/azure/vm). You run the Administration Server on this VM.
 
-The following example creates a Red Hat Enterprise Linux VM using use TLS/SSL authentication.
+The following example creates an Azure Managed Identity and a Red Hat Enterprise Linux VM using use TLS/SSL authentication.
 
-Create an Azure Managed Identity
+### [JBOSS EAP 7.4](#tab/jboss-eap-74)
 
 ```azurecli
 az identity create \
     --name "passwordless-managed-identity" \
     --resource-group $RESOURCE_GROUP_NAME \
     --location westus
-```
 
-### [JBOSS EAP 7.4](#tab/jboss-eap-74)
-
-```azurecli
 az vm create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name adminVM \
@@ -237,6 +233,11 @@ az vm create \
 ### [JBOSS EAP 8](#tab/jboss-eap-8)
 
 ```azurecli
+az identity create \
+    --name "passwordless-managed-identity" \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --location westus
+
 az vm create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name adminVM \
