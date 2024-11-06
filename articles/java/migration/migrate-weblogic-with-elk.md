@@ -145,7 +145,10 @@ This section guides you through setting up custom log integration for WebLogic S
       :::image type="content" source="media/migrate-weblogic-with-elk/elastic-weblogic-domain-log.png" alt-text="WebLogic domain log in Kibana." lightbox="media/migrate-weblogic-with-elk/elastic-weblogic-domain-log.png":::
 
 5. **Add Integrations for Server Logs and HTTP Access Logs:**
-   - Use the same approach to import server logs and HTTP access logs with the following configurations:
+   - In Kibana, search **Integrations** and select it. 
+   - Select **Installed integrations** -> **Custom Logs** -> **Add Custom Logs**.
+   - Enter the appropriate configurations as listed below for each log type (Server, and HTTP access logs).
+   - After filling out all configuration fields, select **Save and deploy changes** to finalize.
 
       **Server Log**
 
@@ -167,10 +170,6 @@ This section guides you through setting up custom log integration for WebLogic S
       - **Custom log file → Advanced options → Custom configurations:** *(No configuration provided)*
       - **Where to add this integration? → Existing hosts:** My first agent policy
 
-   - In Kibana, search **Integrations** then go to it. 
-   - Select **Installed integrations** -> **Custom Logs** -> **Add Custom Logs**.
-   - Enter the appropriate configurations listed in the table above for each log type (Server, and HTTP access logs).
-   - After filling out all configuration fields, select **Save and deploy changes** to finalize.
 
 ## Searching WLS Logs in Kibana
 
