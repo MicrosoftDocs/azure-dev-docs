@@ -83,6 +83,7 @@ az login
 Create a resource group with [az group create](/cli/azure/group#az-group-create). Resource group names must be globally unique within a subscription. For this reason, consider prepending some unique identifier to any names you create that must be unique. A useful technique is to use your initials followed by today's date in `mmdd` format. This example creates a resource group named `$RESOURCE_GROUP_NAME` in the `westus` location:
 
 ```azurecli
+export SUBSCRIPTION=$(az account show --query id --output tsv)
 export SUFFIX=$(date +%s)
 export RESOURCE_GROUP_NAME=rg-$SUFFIX
 echo "Resource group name: $RESOURCE_GROUP_NAME"
@@ -184,6 +185,15 @@ az network vnet subnet update \
 
 ### Create a Red Hat Enterprise Linux machine for admin
 
+### Generate SSH keys 
+
+Use the following command to generate SSH keys for `adminVM`:
+
+```bash
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/jbosseapvm
+ssh-add ~/.ssh/jbosseapvm
+```
+
 #### Create the admin VM
 
 The Marketplace image that you use to create the VMs is `RedHat:rhel-raw:86-gen2:latest`. For other images, see [Red Hat Enterprise Linux (RHEL) images available in Azure](/azure/virtual-machines/workloads/redhat/redhat-imagelist).
@@ -197,7 +207,16 @@ Create a basic VM, install all required tools on it, take a snapshot of it, and 
 
 Create a VM using [az vm create](/cli/azure/vm). You run the Administration Server on this VM.
 
-The following example creates a Red Hat Enterprise Linux VM using user name and password pair for the authentication. If desired, you can use TLS/SSL authentication instead.
+The following example creates a Red Hat Enterprise Linux VM using use TLS/SSL authentication.
+
+Create an Azure Managed Identity
+
+```azurecli
+az identity create \
+    --name "passwordless-managed-identity" \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --location westus
+```
 
 ### [JBOSS EAP 7.4](#tab/jboss-eap-74)
 
@@ -206,9 +225,10 @@ az vm create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name adminVM \
     --image RedHat:rhel-raw:86-gen2:latest \
+    --assign-identity "/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ManagedIdentity/userAssignedIdentities/passwordless-managed-identity" \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
-    --admin-password Secret123456 \
+    --ssh-key-values ~/.ssh/jbosseapvm.pub \
     --public-ip-sku Standard \
     --nsg mynsg \
     --vnet-name myVnet \
@@ -221,9 +241,10 @@ az vm create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name adminVM \
     --image RedHat:rhel-raw:94_gen2:latest \
+    --assign-identity "/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ManagedIdentity/userAssignedIdentities/passwordless-managed-identity" \
     --size Standard_DS1_v2  \
     --admin-username azureuser \
-    --admin-password Secret123456 \
+    --ssh-key-values ~/.ssh/jbosseapvm.pub \
     --public-ip-sku Standard \
     --nsg mynsg \
     --vnet-name myVnet \
@@ -249,10 +270,8 @@ Use the following steps to install:
 1. Open a terminal and SSH to the `adminVM` by using the following command:
 
    ```bash
-   ssh azureuser@$ADMIN_VM_PUBLIC_IP
+   ssh -i ~/.ssh/jbosseapvm azureuser@$ADMIN_VM_PUBLIC_IP
    ```
-
-1. Provide `Secret123456` as the password.
 
 1. Configure firewall for ports by using the following command:
 
@@ -307,14 +326,16 @@ Use the following steps to install:
    COMMIT
    # Completed on Wed Mar 29 22:39:23 2023
    ```
+> [!NOTE]
+> The `RHSM_USER` and `RHSM_PASSWORD` values are required to install Red Hat JBoss EAP. We recommend that you use a service account with limited permissions to access the Red Hat Customer Portal. 
 
-1. Use the following commands to register the admin host to your Red Hat Subscription Management (RHSM) account:
+2. Use the following commands to register the admin host to your Red Hat Subscription Management (RHSM) account:
 
    ```bash
    export RHSM_USER=<your-rhsm-username>
    export RHSM_PASSWORD='<your-rhsm-password>'
    export EAP_POOL=<your-rhsm-pool-ID>
-
+ 
    sudo subscription-manager register --username ${RHSM_USER} --password ${RHSM_PASSWORD} --force
    ```
 
@@ -456,6 +477,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
       az vm create \
           --resource-group $RESOURCE_GROUP_NAME \
           --name mspVM1 \
+          --assign-identity "/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ManagedIdentity/userAssignedIdentities/passwordless-managed-identity" \
           --attach-os-disk ${MSPVM1_DISK_ID} \
           --os-type linux \
           --public-ip-sku Standard \
@@ -510,6 +532,7 @@ This section introduces an approach to prepare machines with the snapshot of `ad
    az vm create \
        --resource-group $RESOURCE_GROUP_NAME \
        --name mspVM2 \
+       --assign-identity "/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.ManagedIdentity/userAssignedIdentities/passwordless-managed-identity" \
        --attach-os-disk ${MSPVM2_DISK_ID} \
        --os-type linux \
        --public-ip-sku Standard \
@@ -586,7 +609,7 @@ This tutorial uses the Red Hat JBoss EAP management CLI commands to configure th
 The following steps set up the domain controller configuration on `adminVM`. Use SSH to connect to the `adminVM` as the `azureuser` user. Recall that the public IP address of `adminVM` was captured previously into the `ADMIN_VM_PUBLIC_IP` environment variable.
 
 ```bash
-ssh azureuser@$ADMIN_VM_PUBLIC_IP
+ssh -i ~/.ssh/jbosseapvm azureuser@$ADMIN_VM_PUBLIC_IP
 ```
 
 First, use the following commands to configure the HA profile and JGroups using the `AZURE_PING` protocol:
@@ -645,6 +668,9 @@ The last stanza of output should look similar to the following example. If it do
 ```
 
 Then, use the following commands to configure the JBoss server and set up the EAP service:
+
+> [!NOTE]
+> The `JBOSS_EAP_USER` and `JBOSS_EAP_PASSWORD` values are required to configure the JBoss EAP management user. 
 
 ```bash
 # Configure the JBoss server and setup EAP service
@@ -759,6 +785,9 @@ The last stanza of output should look similar to the following example. If it do
 
 Then, use the following commands to configure the JBoss server and set up the EAP service:
 
+> [!NOTE]
+> The `JBOSS_EAP_USER` and `JBOSS_EAP_PASSWORD` values are required to configure the JBoss EAP management user.
+ 
 ```bash
 # Configure the JBoss server and setup EAP service
 echo 'WILDFLY_HOST_CONFIG=host-primary.xml' | sudo tee -a $EAP_RPM_CONF_DOMAIN
@@ -847,10 +876,9 @@ MSPVM_PUBLIC_IP=$(az vm show \
     --show-details \
     --query publicIps | tr -d '"' )
 
-ssh azureuser@$MSPVM_PUBLIC_IP
+ssh -A -i ~/.ssh/jbosseapvm azureuser@$MSPVM_PUBLIC_IP
 ```
 
-Remember the password is the same as before, since `mspVM1` is simply a clone of `adminVM`.
 
 Use the following commands to set up the host controller on `mspVM1`:
 
@@ -868,10 +896,10 @@ export JBOSS_EAP_PASSWORD=Secret123456
 sudo -u jboss mv $EAP_HOME/wildfly/domain/configuration/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml.backup
 
 # Fetch domain.xml from domain controller
-sudo -u jboss scp azureuser@${DOMAIN_CONTROLLER_PRIVATE_IP}:/tmp/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml
+scp azureuser@${DOMAIN_CONTROLLER_PRIVATE_IP}:/tmp/domain.xml /tmp/domain.xml
+sudo mv /tmp/domain.xml $EAP_HOME/wildfly/domain/configuration/domain.xml
+sudo chown jboss:jboss $EAP_HOME/wildfly/domain/configuration/domain.xml
 ```
-
-You're asked for the password for the connection. For this example, the password is *Secret123456*.
 
 Use the following commands to apply host controller changes to `mspVM1`:
 
@@ -1124,21 +1152,26 @@ Use the following steps to create the database instance:
 
    ```azurecli
    export DATA_BASE_USER=jboss
-   export DATA_BASE_PASSWORD=Secret123456
 
    DB_SERVER_NAME="jbossdb$(date +%s)"
    echo "DB_SERVER_NAME=${DB_SERVER_NAME}"
    az postgres flexible-server create \
+       --active-directory-auth Enabled \
        --resource-group $RESOURCE_GROUP_NAME \
        --name ${DB_SERVER_NAME}  \
        --location westus \
-       --admin-user ${DATA_BASE_USER} \
-       --admin-password ${DATA_BASE_PASSWORD} \
        --version 16 \
        --public-access 0.0.0.0 \
        --tier Burstable \
        --sku-name Standard_B1ms \
        --yes
+   objectId=$(az identity show --name passwordless-managed-identity --resource-group $RESOURCE_GROUP_NAME --query principalId -o tsv)
+   az postgres flexible-server ad-admin create \
+     --resource-group $RESOURCE_GROUP_NAME \
+     --server-name ${DB_SERVER_NAME}  \
+     --display-name "passwordless-managed-identity"  \
+     --object-id $objectId \
+     --type ServicePrincipal 
    ```
 
 1. Use the following commands to allow access from Azure services:
@@ -1175,26 +1208,75 @@ Use the following steps to create the database instance:
 
 ### Install driver
 
-Use the following steps to install the JDBC driver with the JBoss management CLI. For more information about JDBC drivers on Red Hat JBoss EAP, see [Installing a JDBC Driver as a JAR Deployment](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management#install_a_jdbc_driver_as_a_jar_deployment).
+Use the following steps to install the JDBC driver with the JBoss management CLI:
 
 1. SSH to `adminVM` by using the following command. You can skip this step if you already have a connection opened.
 
    ```bash
-   ssh azureuser@$ADMIN_VM_PUBLIC_IP
+   ssh -A -i ~/.ssh/jbosseapvm azureuser@$ADMIN_VM_PUBLIC_IP
    ```
 
-1. Use the following commands to download JDBC driver. Here, you use *postgresql-42.5.2.jar*. For more information about JDBC driver download locations, see [JDBC Driver Download Locations](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management#jdbc_driver_download_locations) provided by Red Hat.
+1. Use the following commands to download JDBC driver on adminVM:
 
    ```bash
-   jdbcDriverName=postgresql-42.5.2.jar
-   sudo curl --retry 5 -Lo /tmp/${jdbcDriverName} https://jdbc.postgresql.org/download/${jdbcDriverName}
+   # Create JDBC driver and module directory
+   jdbcDriverModuleDirectory="$EAP_HOME"/wildfly/modules/com/postgresql/main
+   
+   sudo mkdir -p "$jdbcDriverModuleDirectory"
+   
+   # Download JDBC driver and passwordless extensions
+   
+   extensionJarName=azure-identity-extensions-1.1.20.jar
+   extensionPomName=azure-identity-extensions-1.1.20.pom
+   sudo curl --retry 5 -Lo ${jdbcDriverModuleDirectory}/${extensionJarName} https://repo1.maven.org/maven2/com/azure/azure-identity-extensions/1.1.20/$extensionJarName
+   sudo curl --retry 5 -Lo ${jdbcDriverModuleDirectory}/${extensionPomName} https://repo1.maven.org/maven2/com/azure/azure-identity-extensions/1.1.20/$extensionPomName
+   
+   sudo yum install maven -y
+   sudo mvn dependency:copy-dependencies  -f ${jdbcDriverModuleDirectory}/${extensionPomName} -Ddest=${jdbcDriverModuleDirectory}
+   
+   # Create module for JDBC driver
+   jdbcDriverModule=module.xml
+   sudo cat <<EOF >${jdbcDriverModule}
+   <?xml version="1.0" ?>
+   <module xmlns="urn:jboss:module:1.1" name="com.postgresql">
+     <resources>
+       <resource-root path="${extensionJarName}"/>
+   EOF
+   
+   # Add all jars from target/dependency
+   for jar in ${jdbcDriverModuleDirectory}/target/dependency/*.jar; do
+   if [ -f "$jar" ]; then
+   # Extract just the filename from the path
+   jarname=$(basename "$jar")
+   echo "    <resource-root path=\"target/dependency/${jarname}\"/>" >> ${jdbcDriverModule}
+   fi
+   done
+   
+   # Add the closing tags
+   cat <<EOF >> ${jdbcDriverModule}
+   </resources>
+   <dependencies>
+   <module name="javaee.api"/>
+   <module name="sun.jdk"/>
+   <module name="ibm.jdk"/>
+   <module name="javax.api"/>
+   <module name="javax.transaction.api"/>
+   </dependencies>
+   </module>
+   EOF
+   
+   chmod 644 $jdbcDriverModule
+   sudo mv $jdbcDriverModule $jdbcDriverModuleDirectory/$jdbcDriverModule
    ```
 
-1. Deploy JDBC driver by using the following JBoss CLI command:
+1. Use the following commands to copy the JDBC driver to the host controllers:
 
    ```bash
-   sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
-   "deploy /tmp/${jdbcDriverName} --server-groups=main-server-group"
+   scp -rp $EAP_HOME/wildfly/modules/com/postgresql azureuser@mspvm1:/tmp/
+   ssh azureuser@mspvm1 "sudo mkdir -p $EAP_HOME/wildfly/modules/com/postgresql && sudo cp -rp /tmp/postgresql/* $EAP_HOME/wildfly/modules/com/postgresql && sudo rm -rf /tmp/postgresql"
+   
+   scp -rp $EAP_HOME/wildfly/modules/com/postgresql azureuser@mspvm2:/tmp/
+   ssh azureuser@mspvm2 "sudo mkdir -p $EAP_HOME/wildfly/modules/com/postgresql && sudo cp -rp /tmp/postgresql/* $EAP_HOME/wildfly/modules/com/postgresql && sudo rm -rf /tmp/postgresql"
    ```
 
    ### [JBOSS EAP 7.4](#tab/jboss-eap-74)
@@ -1207,6 +1289,14 @@ Use the following steps to install the JDBC driver with the JBoss management CLI
    
    ---
 
+2. Use the following commands to register the JDBC driver:
+
+   ```bash
+   # Register JDBC driver
+   sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
+   "/profile=ha/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=com.postgresql,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)"
+   ```
+
 ### Configure the database connection for the Red Hat JBoss EAP cluster
 
 You started the database server, obtained the necessary resource ID, and installed the JDBC driver. Next, the steps in this section show you how to use the JBoss CLI to configure a datasource connection with the PostgreSQL instance you created previously.
@@ -1214,22 +1304,19 @@ You started the database server, obtained the necessary resource ID, and install
 1. Open a terminal and SSH to `adminVM` by using the following command:
 
    ```bash
-   ssh azureuser@$ADMIN_VM_PUBLIC_IP
+   ssh -i ~/.ssh/jbosseapvm azureuser@$ADMIN_VM_PUBLIC_IP
    ```
 
 1. Create data source by using the following commands:
 
    ```bash
    # Replace the following values with your own
-   export DATA_SOURCE_CONNECTION_STRING=jdbc:postgresql://<database-fully-qualified-domain-name>:5432/testdb
-   export DATA_BASE_USER=jboss
+   export DATA_SOURCE_CONNECTION_STRING="jdbc:postgresql://<database-fully-qualified-domain-name>:5432/testdb?sslmode=require&user=passwordless-managed-identity&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin"
    export JDBC_DATA_SOURCE_NAME=dataSource-postgresql
    export JDBC_JNDI_NAME=java:jboss/datasources/JavaEECafeDB
-   export DATA_BASE_PASSWORD=Secret123456
-   export JDBC_DRIVER_NAME=postgresql-42.5.2.jar
 
    sudo -u jboss $EAP_HOME/wildfly/bin/jboss-cli.sh --connect --controller=$(hostname -I) --echo-command \
-   "data-source add --driver-name=${JDBC_DRIVER_NAME} --profile=ha --name=${JDBC_DATA_SOURCE_NAME} --jndi-name=${JDBC_JNDI_NAME} --connection-url=${DATA_SOURCE_CONNECTION_STRING} --user-name=${DATA_BASE_USER} --password=${DATA_BASE_PASSWORD}"
+   "data-source add --driver-name=postgresql --profile=ha --name=${JDBC_DATA_SOURCE_NAME} --jndi-name=${JDBC_JNDI_NAME} --connection-url=${DATA_SOURCE_CONNECTION_STRING} "
    ```
 
 You successfully configured a data source named `java:jboss/datasources/JavaEECafeDB`.
