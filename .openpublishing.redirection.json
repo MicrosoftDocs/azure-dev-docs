@@ -313,52 +313,52 @@
 
     {
         "source_path": "articles/javascript/end-to-end/contoso-real-estate-developer-solutions.md",
-        "redirect_url": "azure/developer/javascript",
+        "redirect_url": "/azure/developer/javascript",
         "redirect_document_id": false
     },
     {
         "source_path": "articles/javascript/end-to-end/contoso-real-estate-developer-tools.md",
-        "redirect_url": "azure/developer/javascript",
+        "redirect_url": "/azure/developer/javascript",
         "redirect_document_id": false
     },
     {
         "source_path": "articles/javascript/end-to-end/contoso-real-estate-get-started.md",
-        "redirect_url": "azure/developer/javascript",
+        "redirect_url": "/azure/developer/javascript",
         "redirect_document_id": false
     },
     {
         "source_path": "articles/javascript/end-to-end/contoso-real-estate-infrastructure.md",
-        "redirect_url": "azure/developer/javascript",
+        "redirect_url": "/azure/developer/javascript",
         "redirect_document_id": false
     },
     {
         "source_path": "articles/javascript/end-to-end/contoso-real-estate-run-codespaces.md",
-        "redirect_url": "azure/developer/javascript",
+        "redirect_url": "/azure/developer/javascript",
         "redirect_document_id": false
     },
     {
         "source_path": "articles/javascript/end-to-end/contoso-real-estate-serverless-api-migration.md",
-        "redirect_url": "azure/developer/javascript",
+        "redirect_url": "/azure/developer/javascript",
         "redirect_document_id": false
     },
     {
         "source_path": "articles/javascript/end-to-end/contoso-real-estate-serverless-api.md",
-        "redirect_url": "azure/developer/javascript",
+        "redirect_url": "/azure/developer/javascript",
         "redirect_document_id": false
     },
     {
         "source_path": "articles/javascript/end-to-end/contoso-real-estate-test-api-solution.md",
-        "redirect_url": "azure/developer/javascript",
+        "redirect_url": "/azure/developer/javascript",
         "redirect_document_id": false
     },
     {
         "source_path": "articles/javascript/end-to-end/contoso-real-estate-user-authentication.md",
-        "redirect_url": "azure/developer/javascript",
+        "redirect_url": "/azure/developer/javascript",
         "redirect_document_id": false
     },
     {
         "source_path": "articles/javascript/end-to-end/contoso-real-estate-user-scenarios.md",
-        "redirect_url": "azure/developer/javascript",
+        "redirect_url": "/azure/developer/javascript",
         "redirect_document_id": false
     },
     {
