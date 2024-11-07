@@ -114,7 +114,7 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
 
-  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart)
+    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart)
 
 :::zone-end
 
@@ -124,7 +124,7 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
 
- [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart-dotnet)
+    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart-dotnet)
 
 :::zone-end
 
@@ -169,20 +169,21 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. Open a new terminal in Visual Studio Code.
 1. Run the following AZD command to bring the GitHub repository to your local computer.
 
-:::zone pivot="python"
+    :::zone pivot="python"
 
     ```azdeveloper
     azd init -t openai-chat-app-quickstart
     ```
 
-:::zone-end
+    :::zone-end
 
-:::zone pivot="dotnet"
+    :::zone pivot="dotnet"
 
     ```azdeveloper
     azd init -t openai-chat-app-quickstart-dotnet
     ```
-:::zone-end
+
+    :::zone-end
 
 1. Open the Command Palette, search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing.
 
