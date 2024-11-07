@@ -4,9 +4,6 @@ on:
   schedule:	
     - cron: "0 22 * * 0" # Runs at 22:00 (10 PM) every Sunday	
   workflow_dispatch:	
-  push:  
-    branches:	
-      - diberry/cleanrepo
 
 permissions:	
   contents: read	
@@ -40,7 +37,7 @@ jobs:
       - name: create-pull-request	
         uses: peter-evans/create-pull-request@5e914681df9dc83aa4e4905692ca88beb2f9e91f	
         with:	
-          branch: cleanrepo-orphaned-images	
-          title: "Weekly chores: Delete orphaned images"	
+          branch: cleanrepo-orphaned-articles	
+          title: "Weekly chores: Delete orphaned articles"	
           commit-message: "Bot 🤖 generated CleanRepo tool run"	
-          body: "Find and delete orphaned images. Contributes to #..."	
+          body: "Find and delete orphaned articles. Contributes to #..."	
