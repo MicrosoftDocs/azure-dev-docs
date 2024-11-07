@@ -188,7 +188,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 :::zone-end
 
-:::zone pivot="python"
+:::zone pivot="dotnet"
 
 1. Create a new local directory on your computer for the project.
 
