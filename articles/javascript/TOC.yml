@@ -60,36 +60,6 @@
       href: /azure/key-vault/keys/javascript-developer-guide-get-started?tabs=developer-auth%2Caz-login-terminal-bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Key Vault Secrets
       href: /azure/key-vault/secrets/javascript-developer-guide-get-started?tabs=developer-auth%2Caz-login-terminal-bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-  - name: End to end development
-    items: 
-    - name: What is Contoso Real Estate? 
-      href: end-to-end/contoso-real-estate-get-started.md
-      displayName: contoso, composable, sample, example, real-estate
-    - name: Define
-      items: 
-      - name: Apps
-        href: end-to-end/contoso-real-estate-developer-solutions.md
-      - name: User Scenarios
-        href: end-to-end/contoso-real-estate-user-scenarios.md
-    - name: Develop
-      items: 
-      - name: Run in Codespaces
-        href: end-to-end/contoso-real-estate-run-codespaces.md
-        displayName: Codespaces, GitHub, azd, best practices, enterprise
-      - name: User authentication
-        href: end-to-end/contoso-real-estate-user-authentication.md
-      - name: Serverless APIs
-        href: end-to-end/contoso-real-estate-serverless-api.md
-      - name: Migrating to serverless v4 programming model
-        href: end-to-end/contoso-real-estate-serverless-api-migration.md
-    - name: Deploy
-      href: end-to-end/contoso-real-estate-Infrastructure.md
-      displayName: Codespaces, GitHub, azd, bicep, deploy, local, docker
-    - name: Test APIs
-      href: end-to-end/contoso-real-estate-test-api-solution.md
-      displayName: test, test API, API, playwright
-    - name: Developer tools
-      href: end-to-end/contoso-real-estate-developer-tools.md      
   - name: Azure Static Web Apps
     items: 
     - name: Getting started

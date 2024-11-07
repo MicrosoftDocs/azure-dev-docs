@@ -208,6 +208,3 @@ The following Jest test file shows how to test the **insertDocument** function.
 - [Jest Mocking Best Practices](https://devblogs.microsoft.com/ise/jest-mocking-best-practices/)
 - [The Difference between Mocks and Stubs](https://martinfowler.com/articles/mocksArentStubs.html#TheDifferenceBetweenMocksAndStubs) by Martin Fowler
 
-## Related content
-
-- [Test serverless APIs](../end-to-end/contoso-real-estate-test-api-solution.md)
