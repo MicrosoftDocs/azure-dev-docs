@@ -102,11 +102,16 @@ This section guides you through setting up custom log integration for WebLogic S
 1. **Navigate to Kibana’s Integration Setup:**
    - In the Kibana welcome page, find **Get started by adding integrations** and select **Add integrations**.
    - Search for **Custom Logs** and select it.
+
+     :::image type="content" source="media/migrate-weblogic-with-elk/custom-logs.png" alt-text="Select Custom Logs." lightbox="media/migrate-weblogic-with-elk/custom-logs.png":::
+
    - Select **Add Custom Logs** to view instructions for installing the Elastic Agent and adding integrations.
    
+     :::image type="content" source="media/migrate-weblogic-with-elk/add-custom-logs.png" alt-text="Add Custom Logs." lightbox="media/migrate-weblogic-with-elk/add-custom-logs.png":::
+
 2. **Install the Elastic Agent:**
    - Select **Install Elastic Agent**, which will bring up the steps for installation.
-   
+
      :::image type="content" source="media/migrate-weblogic-with-elk/install-elastic-agent.png" alt-text="Install Elastic Agent." lightbox="media/migrate-weblogic-with-elk/install-elastic-agent.png":::
 
    - SSH into the WLS machine and switch to root privileges:
@@ -121,6 +126,8 @@ This section guides you through setting up custom log integration for WebLogic S
      ```bash
      Elastic Agent will be installed at /opt/Elastic/Agent and will run as a service. Do you want to continue? [Y/n]:y
      ```
+     
+     Look for the text `Elastic Agent has been successfully installed.` This indicates a successful installation. If you don't see this text, troubleshoot and resolev the problem before continuing.
 
 3. **Verify Agent Enrollment:**
    - In Kibana, confirm **Agent enrollment** under **Confirm agent enrollment**.
@@ -130,7 +137,7 @@ This section guides you through setting up custom log integration for WebLogic S
 4. **Add the Integration for WLS Domain Logs:**
    - Select **Add the integration**.
    - Under **Custom log file**, set:
-     - **Log file path**: for example, `/u01/domains/adminDomain/servers/admin/logs/adminDomain.log`.
+     - **Log file path**: `/u01/domains/adminDomain/servers/admin/logs/adminDomain.log`.
      - **Dataset name**: `generic`.
      - Expand **Advanced options**. For **Custom configurations**, set:
 
@@ -143,6 +150,8 @@ This section guides you through setting up custom log integration for WebLogic S
 
    - Expand **Advanced options**. For **Integration name**, fill in `log-weblogic-domain-log`.
    - Select **Confirm incoming data** to preview the logs. Then select **View assets** -> **Assets** -> **Views** -> **Logs** to view the domain logs in Kibana.
+   
+   - In the textarea containing the text **Search for log messages**, enter the string **weblogic** and press enter. You should see log messages containing the string **weblogic**.
 
       :::image type="content" source="media/migrate-weblogic-with-elk/elastic-weblogic-domain-log.png" alt-text="WebLogic domain log in Kibana." lightbox="media/migrate-weblogic-with-elk/elastic-weblogic-domain-log.png":::
 
@@ -150,7 +159,7 @@ This section guides you through setting up custom log integration for WebLogic S
    - In Kibana, search **Integrations** and select it. 
    - Select **Installed integrations** -> **Custom Logs** -> **Add Custom Logs**.
    - Enter the appropriate configurations as listed below for each log type (Server, and HTTP access logs).
-   - After filling out all configuration fields, select **Save and deploy changes** to finalize.
+   - After filling out all configuration fields, select **Save and continue** then **Save and deploy changes**.
 
       **Server Log**
 
@@ -163,14 +172,16 @@ This section guides you through setting up custom log integration for WebLogic S
         multiline.negate: true
         multiline.match: after
         ```
-      - **Where to add this integration? → Existing hosts:** My first agent policy
+      - **Where to add this integration? → Existing hosts: My first agent policy**
 
       **HTTP Access Log**
 
       - **Integration settings → Integration name:** `log-http-access-log`
       - **Custom log file → Log file path:** `/u01/domains/adminDomain/servers/admin/logs/access.log`
       - **Custom log file → Advanced options → Custom configurations:** *(No configuration provided)*
-      - **Where to add this integration? → Existing hosts:** My first agent policy
+      - **Where to add this integration? → Existing hosts: My first agent policy**
+      
+After adding all three log integrations, your **Custom Logs** screen should look similar to the following.
 
 
 ## Searching WLS Logs in Kibana
