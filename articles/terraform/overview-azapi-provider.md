@@ -17,10 +17,10 @@ To allow you to manage all Azure resources and features without requiring update
 
 | Resource Name | Description |
 | ------------- | ----------- |
-| [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource) | Used to fully manage any Azure (control plane) resource (API) with full CRUD. <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New preview service <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New feature added to existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existing feature / service not currently covered |
-| [azapi_update_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_update_resource) | Used to manage resources or parts of resources that don't have full CRUD <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update new properties on an existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update pre-created child resource - such as DNS SOA record. |
-| [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource_action) | Used to perform a single operation on a resource without managing the lifecycle of it <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shut down a Virtual Machine <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add a secret to a Key Vault|
-| [azapi_data_plane_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_data_plane_resource) | Used to manage a [specific subset](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_data_plane_resource#available-resources) of Azure data plane resources <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KeyVault Certificate Contacts<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Synapse Workspace Libraries| 
+| [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource) | Used to fully manage any Azure (control plane) resource (API) with full CRUD. <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New preview service <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New feature added to existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existing feature / service not currently covered |
+| [azapi_update_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/update_resource) | Used to manage resources or parts of resources that don't have full CRUD <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update new properties on an existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update pre-created child resource - such as DNS SOA record. |
+| [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) | Used to perform a single operation on a resource without managing the lifecycle of it <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shut down a Virtual Machine <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add a secret to a Key Vault|
+| [azapi_data_plane_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource) | Used to manage a [specific subset](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource#available-resources) of Azure data plane resources <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KeyVault Certificate Contacts<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Synapse Workspace Libraries| 
 
 ### Usage hierarchy
 
@@ -57,7 +57,7 @@ resource "azapi_update_resource" "test" {
   type        = "Microsoft.ContainerRegistry/registries@2020-11-01-preview"
   resource_id = azurerm_container_registry.acr.id
 
-  body = jsonencode{
+  body = {
     properties = {
       anonymousPullEnabled = var.bool_anonymous_pull
     }
@@ -200,7 +200,7 @@ AzAPI2AzureRM ensures after migration that your Terraform configuration and stat
       type = "Microsoft.MachineLearningServices/workspaces/computes@2021-07-01"
       
       location = "eastus"
-      body = jsonencode({
+      body = {
         properties = {
           computeType      = "ComputeInstance"
           disableLocalAuth = true
@@ -208,7 +208,7 @@ AzAPI2AzureRM ensures after migration that your Terraform configuration and stat
             vmSize = "STANDARD_NC6"
           }
         }
-      })
+      }
     }
     
     ```
@@ -217,3 +217,4 @@ AzAPI2AzureRM ensures after migration that your Terraform configuration and stat
 
 - [Deploy your first resource with the AzAPI provider](get-started-azapi-resource.md)
 - [Deploy your first Update Resource with the AzAPI provider](get-started-azapi-update-resource.md)
+- [Deploy your first resource action with the AzAPI provider](get-started-azapi-resource-action.md)
