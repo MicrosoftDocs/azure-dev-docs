@@ -10,7 +10,7 @@
 | @azure/template-dpg | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/template-dpg/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/template-dpg-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/template-dpg_1.0.0-beta.1/sdk/template/template-dpg/) |
 | AccessControl | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/synapse-access-control-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-access-control_1.0.0-beta.3/sdk/synapse/synapse-access-control/) |
 | AI Model Inference | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/ai-inference/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-inference_1.0.0-beta.3/sdk/ai/ai-inference-rest/) |
-| App Configuration | npm [1.7.0](https://www.npmjs.com/package/@azure/app-configuration/v/1.7.0) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.7.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.7.0/sdk/appconfiguration/app-configuration/) |
+| App Configuration | npm [1.8.0](https://www.npmjs.com/package/@azure/app-configuration/v/1.8.0) | [docs](/javascript/api/overview/azure/app-configuration-readme) | GitHub [1.8.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.8.0/sdk/appconfiguration/app-configuration/) |
 | Artifacts | npm [1.0.0-beta.15](https://www.npmjs.com/package/@azure/synapse-artifacts/v/1.0.0-beta.15) | [docs](/javascript/api/overview/azure/synapse-artifacts-readme) | GitHub [1.0.0-beta.15](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.15/sdk/synapse/synapse-artifacts/) |
 | Attestation | npm [1.0.0](https://www.npmjs.com/package/@azure/attestation/v/1.0.0) | [docs](/javascript/api/overview/azure/attestation-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0/sdk/attestation/attestation/) |
 | Azure AI Search | npm [12.1.0](https://www.npmjs.com/package/@azure/search-documents/v/12.1.0)<br>npm [12.2.0-beta.1](https://www.npmjs.com/package/@azure/search-documents/v/12.2.0-beta.1) | [docs](/javascript/api/overview/azure/search-documents-readme) | GitHub [12.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.1.0/sdk/search/search-documents/)<br>GitHub [12.2.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_12.2.0-beta.1/sdk/search/search-documents/) |
@@ -401,7 +401,7 @@
 | tmlanguage-generator | npm [0.5.10](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.10) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.1.0) |  |  |
 | Unknown Display Name | npm [0.62.0](https://www.npmjs.com/package/@typespec/events/v/0.62.0) |  |  |
-| Unknown Display Name | npm [0.3.6](https://www.npmjs.com/package/@typespec/http-client-python/v/0.3.6) |  |  |
+| Unknown Display Name | npm [0.3.7](https://www.npmjs.com/package/@typespec/http-client-python/v/0.3.7) |  |  |
 | Unknown Display Name | npm [0.1.0-alpha.1](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.1) |  |  |
 | Unknown Display Name | npm [0.62.0](https://www.npmjs.com/package/@typespec/sse/v/0.62.0) |  |  |
 | Unknown Display Name | npm [0.62.0](https://www.npmjs.com/package/@typespec/streams/v/0.62.0) |  |  |
@@ -415,7 +415,7 @@
 | Azure Functions | npm [4.0.0](https://www.npmjs.com/package/@azure/functions/v/4.0.0) |  | GitHub [4.0.0](https://github.com/Azure/azure-functions-nodejs-library) |
 | Batch | npm [12.0.0](https://www.npmjs.com/package/@azure/batch/v/12.0.0) |  | GitHub [12.0.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
-| Communication Calling | npm [1.30.2](https://www.npmjs.com/package/@azure/communication-calling/v/1.30.2) |  | GitHub [1.30.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| Communication Calling | npm [1.30.3](https://www.npmjs.com/package/@azure/communication-calling/v/1.30.3) |  | GitHub [1.30.3](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Communication Signaling | npm [1.0.0-beta.29](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.29) |  | GitHub [1.0.0-beta.29](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Computer Vision | npm [8.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.2.0) |  |  |
 | Content Safety | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  |  |
