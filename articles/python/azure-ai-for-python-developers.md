@@ -4,7 +4,7 @@ description: This article provides an organized list of resources about Azure AI
 keywords: ai, azure openai service
 ms.subservice: intelligent-apps
 ms.topic: overview
-ms.date: 11/17/2023
+ms.date: 11/07/2024
 ms.custom: overview, devx-track-python, build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
 ---
