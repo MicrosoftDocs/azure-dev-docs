@@ -55,7 +55,17 @@ The application architecture relies on the following services and components:
 
 In an attempt to keep pricing as low as possible in this sample, most resources use a basic or consumption pricing tier. Alter your tier level as needed based on your intended usage. To stop incurring charges, delete the resources when you're done with the article.
 
+:::zone pivot="python"
+
 Learn more about [cost in the sample repo](https://github.com/Azure-Samples/openai-chat-app-quickstart#costs).
+
+:::zone-end
+
+:::zone pivot="dotnet"
+
+Learn more about [cost in the sample repo](https://github.com/Azure-Samples/openai-chat-app-quickstart-dotnet#costs).
+
+:::zone-end
 
 ## Prerequisites
 
@@ -98,17 +108,21 @@ Use the following instructions to deploy a preconfigured development environment
 > [!IMPORTANT]
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
+:::zone pivot="python"
+
 Use the following steps to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/openai-chat-app-quickstart`](https://github.com/Azure-Samples/openai-chat-app-quickstart) GitHub repository.
 
 1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
-
-:::zone pivot="python"
 
   [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart)
 
 :::zone-end
 
 :::zone pivot="dotnet"
+
+Use the following steps to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/openai-chat-app-quickstart-dotnet`](https://github.com/Azure-Samples/openai-chat-app-quickstart-dotnet) GitHub repository.
+
+1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
 
  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart-dotnet)
 
@@ -155,9 +169,20 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. Open a new terminal in Visual Studio Code.
 1. Run the following AZD command to bring the GitHub repository to your local computer.
 
+:::zone pivot="python"
+
+    ```azdeveloper
+    azd init -t openai-chat-app-quickstart
+    ```
+
+:::zone-end
+
+:::zone pivot="dotnet"
+
     ```azdeveloper
     azd init -t openai-chat-app-quickstart-dotnet
     ```
+:::zone-end
 
 1. Open the Command Palette, search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing.
 
@@ -456,7 +481,17 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 
 ## Get help
 
+:::zone pivot="python"
+
 If your issue isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/openai-chat-app-quickstart/issues).
+
+:::zone-end
+
+:::zone pivot="dotnet"
+
+If your issue isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/openai-chat-app-quickstart-dotnet/issues).
+
+:::zone-end
 
 ## Next steps
 
