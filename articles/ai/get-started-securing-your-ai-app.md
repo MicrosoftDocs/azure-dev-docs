@@ -148,6 +148,8 @@ The remaining tasks in this article take place in the context of this developmen
 
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
+:::zone pivot="python"
+
 1. Create a new local directory on your computer for the project.
 
     ```shell
@@ -167,23 +169,12 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     ```
 
 1. Open a new terminal in Visual Studio Code.
-1. Run the following AZD command to bring the GitHub repository to your local computer.
 
-    :::zone pivot="python"
+1. Run the following AZD command to bring the GitHub repository to your local computer.
 
     ```azdeveloper
     azd init -t openai-chat-app-quickstart
     ```
-
-    :::zone-end
-
-    :::zone pivot="dotnet"
-
-    ```azdeveloper
-    azd init -t openai-chat-app-quickstart-dotnet
-    ```
-
-    :::zone-end
 
 1. Open the Command Palette, search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing.
 
@@ -194,6 +185,48 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     ```
 
 1. The remaining exercises in this project take place in the context of this development container.
+
+:::zone-end
+
+:::zone pivot="python"
+
+1. Create a new local directory on your computer for the project.
+
+    ```shell
+    mkdir my-secure-chat-app
+    ```
+
+1. Navigate to the directory you created.
+
+    ```shell
+    cd my-secure-chat-app
+    ```
+
+1. Open Visual Studio Code in that directory:
+
+    ```shell
+    code .
+    ```
+
+1. Open a new terminal in Visual Studio Code.
+
+1. Run the following AZD command to bring the GitHub repository to your local computer.
+
+    ```azdeveloper
+    azd init -t openai-chat-app-quickstart-dotnet
+    ```
+
+1. Open the Command Palette, search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing.
+
+1. Sign in to Azure with the Azure Developer CLI.
+
+    ```azdeveloper
+    azd auth login
+    ```
+
+1. The remaining exercises in this project take place in the context of this development container.
+
+:::zone-end
 
 ---
 
