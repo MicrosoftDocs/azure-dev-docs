@@ -20,7 +20,7 @@ In this sample, the `./src/azure-authentication.ts` provides several functions t
 The first function, `getChainedCredential()`, returns the first valid Azure credential found in the chain. 
 
 ```typescript
-function getChainedCredential(): ChainedTokenCredential {
+function getChainedCredential() {
 
     return new ChainedTokenCredential(
         new ManagedIdentityCredential(process.env.AZURE_CLIENT_ID!), 
@@ -85,7 +85,7 @@ This code takes the options, including the correctly scoped token, and creates t
 
 ## Stream chat answer with Azure OpenAI 
 
-Use the following Fastify route handler to send a message to Azure OpenAI and stream the response. 
+Use the following Fastify route handler in `./src/openai-chat-api.ts` to send a message to Azure OpenAI and stream the response. 
 
 ```typescript
 import { FastifyReply, FastifyRequest } from 'fastify';

@@ -7,7 +7,7 @@ ms.subservice: intelligent-apps
 ms.custom: devx-track-python, keyless-python, devx-track-js, devx-track-dotnet
 ms.collection: ce-skilling-ai-copilot
 zone_pivot_group_filename: developer/intro/intro-zone-pivot-groups.yml
-zone_pivot_groups: intelligent-apps-languages-python-dotnet-javascript
+zone_pivot_groups: intelligent-apps-languages-python-dotnet-typescript
 # CustomerIntent: As a developer new to Azure OpenAI, I want to learn how to use keyless connections to Azure OpenAI from a simple example so that I don't leak secrets.
 ---
 # Get started with the Azure OpenAI security building block
@@ -51,8 +51,8 @@ The application architecture relies on the following services and components:
 
 :::zone-end
 
-:::zone pivot="javascript"
-- A JavaScript web app that uses the [openai](https://www.npmjs.com/package/openai) npm package to generate responses to user messages. 
+:::zone pivot="typescript"
+- A TypeScript web app that uses the [openai](https://www.npmjs.com/package/openai) npm package to generate responses to user messages. 
 :::zone-end
 
 ## Cost
@@ -118,7 +118,7 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 :::zone-end
 
-:::zone pivot="javascript"
+:::zone pivot="typescript"
  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart-javascript)
 :::zone-end
 
@@ -216,6 +216,12 @@ The sample repository contains all the code and configuration files for chat app
 1. In the browser, enter a question such as "Why is managed identity better than keys?".
 
 1. The answer comes from Azure OpenAI and the result is displayed.
+
+:::zone pivot="typescript"
+
+[!INCLUDE [typescript Explor the sample code H2](../javascript/ai/includes/get-started-securing-you-ai-app.md)]
+
+:::
 
 :::zone pivot="python"
 
@@ -428,6 +434,15 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 > [!IMPORTANT]
 > For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+
+:::zone pivot="typescript"
+1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
+
+1. Locate your currently running Codespaces sourced from the [`Azure-Samples/openai-chat-app-quickstart-javascript`](https://github.com/Azure-Samples/openai-chat-app-quickstart-javascript) GitHub repository.
+
+1. Open the context menu for the codespace and then select **Delete**.
+
+:::zone-end
 
 :::zone pivot="python"
 
