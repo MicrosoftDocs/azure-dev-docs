@@ -157,12 +157,12 @@ Preflight is hidden behind a provider flag but will help throw errors in `plan` 
 
 The AzAPI provider supports a variety of useful data sources:
 
-| Resource Name | Description |
+| Data Source Name | Description |
 | ------------- | ----------- |
 | [`azapi_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/resource) | Used to read information from any Azure (control plane) resource (API). <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New preview service <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New feature added to existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existing feature / service not currently covered |
 | [`azapi_client_config`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/client_config) | Access client information such as subscription ID and tenant ID. |
-| [`azapi_resource_action`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/resource_action) | Used to perform a single read operation on a resource without managing the lifecycle of it <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List Keys <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read status of VM|
-| [`azapi_data_plane_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/data_plane_resource) | Used to access a [specific subset](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource#available-resources) of Azure data plane resources <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KeyVault Certificate Contacts<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Synapse Workspace Libraries| 
+| [`azapi_resource_action`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/resource_action) | Used to perform a single read operation on a resource without managing the lifecycle of it <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List Keys <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read status of VM |
+| [`azapi_data_plane_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/data_plane_resource) | Used to access a [specific subset](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource#available-resources) of Azure data plane resources <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KeyVault Certificate Contacts<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Synapse Workspace Libraries | 
 | [`azapi_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/resource_id) | Access a resource's resource ID, with the ability to output information such as subscription ID, parent ID, resource group name, and resource name. |
 | [`azapi_resource_list`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/resource_list) | List all resources under a given parent resource ID. <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resources under a subscription / resource group <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subnets under a virtual network|
 
@@ -209,9 +209,9 @@ One major benefit of AzAPI is through its ability to fine-tune your configuratio
 
 AzAPI (v2.0 and newer) has a slew of [provider functions](https://developer.hashicorp.com/terraform/plugin/framework/functions/concepts?product_intent=terraform):
 
-| Resource Name | Description |
+| Function Name | Description |
 | ------------- | ----------- |
-| [`build_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/build_resource_id) | Constructs an Azure resource ID given the parent ID, resource type, and resource name. It is useful for creating resource IDs for top-level and nested resources within a specific scope. |
+| [`build_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/build_resource_id) | Constructs an Azure resource ID given the parent ID, resource type, and resource name. <br> Useful for creating resource IDs for top-level and nested resources within a specific scope. |
 | [`extension_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/extension_resource_id) | Constructs an Azure extension resource ID given the base resource ID, resource type, and additional resource names. |
 | [`management_group_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/management_group_resource_id) | Constructs an Azure management group scope resource ID given the management group name, resource type, and resource names.|
 | [`parse_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/parse_resource_id) |This function takes an Azure resource ID and a resource type and parses the ID into its individual components such as subscription ID, resource group name, provider namespace, and other parts.|
