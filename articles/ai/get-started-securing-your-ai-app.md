@@ -519,15 +519,19 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 
 If your issue isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/openai-chat-app-quickstart/issues).
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Get started with the chat using your own data sample for Python](../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+
 :::zone-end
 
 :::zone pivot="dotnet"
 
 If your issue isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/openai-chat-app-quickstart-dotnet/issues).
 
+> [!div class="nextstepaction"]
+> [Get started with the chat using your own data sample for .NET](/dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+
 :::zone-end
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Get started with the chat using your own data sample for Python](../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
