@@ -295,6 +295,10 @@
             "redirect_url": "/azure/developer/java/sdk/virtual-machine-samples"
         },
         {
+            "source_path": "spring-framework/spring-app-service-e2e.md",
+            "redirect_url": "/azure/developer/java/spring-framework"
+        },
+        {
             "source_path": "spring-framework/configure-spring-boot-java-applicationinsights.md",
             "redirect_url": "/azure/azure-monitor/app/java-in-process-agent"
         },
