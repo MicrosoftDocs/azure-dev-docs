@@ -535,7 +535,11 @@ You could also use the [az postgres flexible-server connect][16] command to conn
 az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken
 ```
 
-The returned token is long.
+The returned token is long. Set its value in an environment variable to use in the commands in the following step:
+
+```bash
+MY_ACCESS_TOKEN=<your-access-token>
+```
 
 **Step 3.** Add the user-assigned managed identity as database role on your PostgreSQL server with the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
 
@@ -545,7 +549,7 @@ az postgres flexible-server execute \
     --database-name postgres \
     --querytext "select * from pgaadauth_create_principal('"my-ua-managed-id"', false, false);select * from pgaadauth_list_principals(false);" \
     --admin-user <your-Azure-account-email> \
-    --admin-password <access-token-from-previous-step>
+    --admin-password $MY_ACCESS_TOKEN
 ```
 
 * If you used a different name for your managed identity, replace `my-ua-managed-id` in the `pgaadauth_create_principal` command with the name of your managed identity.
@@ -557,7 +561,7 @@ az postgres flexible-server execute \
 * Make sure the database name is `postgres`.
 
 > [!NOTE]
-> If you're running this command on your local workstation, you'll need to make sure you've added a firewall rule for your workstation's IP address. The same requirement also exists for the command in the next step. You can add a rule with the [az postgres flexible-server firewall-rule create][28] command.
+> If you're running the *az postgres flexible-server execute* command on your local workstation, make sure you've added a firewall rule for your workstation's IP address. You can add a rule with the [az postgres flexible-server firewall-rule create][28] command. The same requirement also exists for the command in the next step.
 
 **Step 4.** Grant the user-assigned managed identity necessary permissions on the *restaurants_reviews* database with the following [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
 
@@ -567,7 +571,7 @@ az postgres flexible-server execute \
     --database-name restaurants_reviews \
     --querytext "GRANT CONNECT ON DATABASE restaurants_reviews TO \"my-ua-managed-id\";GRANT USAGE ON SCHEMA public TO \"my-ua-managed-id\";GRANT CREATE ON SCHEMA public TO \"my-ua-managed-id\";GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO \"my-ua-managed-id\";ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO \"my-ua-managed-id\";" \
     --admin-user <your-Azure-account-email> \
-    --admin-password <access-token-from-previous-step>
+    --admin-password $MY_ACCESS_TOKEN
 ```
 
 * If you a different name for your managed identity, replace all instances of `my-ua-managed-id` in the command with the name of your managed identity. There are five in the query string.
@@ -660,10 +664,10 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
         **Step 5** Use the [az identity show](/cli/azure/identity#az-identity-show) command to client ID and resource ID of the user-assigned managed identity..
 
         ```azurecli
-        az identity show --name my-ua-managed-id --resource-group pythoncontainer-rg --query clientId, id --output tsv
+        az identity show --name my-ua-managed-id --resource-group pythoncontainer-rg --query "[clientId, id]" --output tsv
         ```
         
-        Use the value of the client ID (GUID) and the resource ID output by the command.
+        Use the value of the client ID (GUID) and the resource ID output by the command. The resource ID has the following form: `/subscriptions/<subscription-id>/resourcegroups/pythoncontainer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-ua-managed-id`
         
     :::column-end:::
 :::row-end:::
@@ -686,6 +690,26 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
         --user-assigned <managed-identity-resource-id> \
         --env-vars <env-variable-string> \
         --query properties.configuration.ingress.fqdn
+        ```
+
+        ```azurecli
+        az containerapp create \
+        --name python-container-app \
+        --resource-group pythoncontainer-rg \
+        --image <registry-name>.azurecr.io/pythoncontainer:latest \
+        --environment python-container-env \
+        --ingress external \
+        --target-port <5000 for Flask or 8000 for Django> \
+        --registry-server <registry-name>.azurecr.io \
+        --registry-username <registry-username> \
+        --registry-password <registry-password> \
+        --user-assigned <managed-identity-resource-id> \
+        --env-vars DBHOST="<postgres-server-name>" \
+        DBNAME="restaurants_reviews" \
+        DBUSER="my-ua-managed-id" \
+        RUNNING_IN_PRODUCTION="1" \
+        AZURE_CLIENT_ID="<managed-identity-client-id>" \
+        AZURE_SECRET_KEY="<your-secret-key>"
         ```
 
         *\<env-variable-string>* is a string composed of space-separated values in the key="value" format with the following values.
