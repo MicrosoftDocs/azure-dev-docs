@@ -120,9 +120,6 @@ conceptualContent:
         - text: Configure Java
           itemType: how-to-guide
           url: /azure/app-service/containers/configure-language-java
-        - text: Deploy a Spring app with MySQL
-          itemType: tutorial
-          url: ./spring-framework/spring-app-service-e2e.md
       footerLink:
         text: See App Service documentation
         url: /azure/app-service/containers/
