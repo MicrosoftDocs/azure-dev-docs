@@ -156,6 +156,7 @@ Preflight is hidden behind a provider flag but will help throw errors in `plan` 
 ## Data Sources
 
 The AzAPI provider supports a variety of useful data sources:
+
 | Resource Name | Description |
 | ------------- | ----------- |
 | [`azapi_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/resource) | Used to read information from any Azure (control plane) resource (API). <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New preview service <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New feature added to existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existing feature / service not currently covered |
@@ -207,6 +208,7 @@ One major benefit of AzAPI is through its ability to fine-tune your configuratio
 ### Provider functions
 
 AzAPI (v2.0 and newer) has a slew of [provider functions](https://developer.hashicorp.com/terraform/plugin/framework/functions/concepts?product_intent=terraform):
+
 | Resource Name | Description |
 | ------------- | ----------- |
 | [`build_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/build_resource_id) | Constructs an Azure resource ID given the parent ID, resource type, and resource name. It is useful for creating resource IDs for top-level and nested resources within a specific scope. |
