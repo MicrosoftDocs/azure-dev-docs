@@ -478,7 +478,7 @@ Create a user-assigned managed identity. In following sections, the managed iden
     az identity create --name my-ua-managed-id --resource-group pythoncontainer-rg
     ```
 
-## Create a database on the server
+## Create a database on the server and add managed identity
 
 At this point, you have a PostgreSQL server. In this section, you create a database on the server.
 
@@ -570,6 +570,22 @@ az postgres flexible-server execute \
     --name <postgres-server-name> \
     --database-name restaurants_reviews \
     --querytext "GRANT CONNECT ON DATABASE restaurants_reviews TO \"my-ua-managed-id\";GRANT USAGE ON SCHEMA public TO \"my-ua-managed-id\";GRANT CREATE ON SCHEMA public TO \"my-ua-managed-id\";GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO \"my-ua-managed-id\";ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO \"my-ua-managed-id\";" \
+    --admin-user <your-Azure-account-email> \
+    --admin-password $MY_ACCESS_TOKEN
+```
+
+```azurecli
+az postgres flexible-server execute \
+    --name <postgres-server-name> \
+    --database-name restaurants_reviews \
+    --querytext "
+    GRANT CONNECT ON DATABASE restaurants_reviews TO \"my-ua-managed-id\";
+    GRANT USAGE ON SCHEMA public TO \"my-ua-managed-id\";
+    GRANT CREATE ON SCHEMA public TO \"my-ua-managed-id\";
+    GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO \"my-ua-managed-id\";
+    ALTER DEFAULT PRIVILEGES IN SCHEMA public 
+    GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO \"my-ua-managed-id\";
+    " \
     --admin-user <your-Azure-account-email> \
     --admin-password $MY_ACCESS_TOKEN
 ```
@@ -704,6 +720,7 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
         --registry-username <registry-username> \
         --registry-password <registry-password> \
         --user-assigned <managed-identity-resource-id> \
+        --query properties.configuration.ingress.fqdn \
         --env-vars DBHOST="<postgres-server-name>" \
         DBNAME="restaurants_reviews" \
         DBUSER="my-ua-managed-id" \
