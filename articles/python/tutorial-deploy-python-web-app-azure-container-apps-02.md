@@ -574,18 +574,30 @@ az postgres flexible-server execute \
     --admin-password $MY_ACCESS_TOKEN
 ```
 
+Alternate method:
+
+Copy and save the following SQL as *setuaperms.sql*. Make sure the value of the `managed_id` variable matches the name of your managed identity.
+
+```sql
+DO $$ 
+DECLARE
+    managed_id VARCHAR := 'my-ua-managed-id';
+BEGIN
+    EXECUTE format('GRANT CONNECT ON DATABASE restaurants_reviews TO %I', managed_id);
+    EXECUTE format('GRANT USAGE ON SCHEMA public TO %I', managed_id);
+    EXECUTE format('GRANT CREATE ON SCHEMA public TO %I', managed_id);
+    EXECUTE format('GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO %I', managed_id);
+    EXECUTE format('ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO %I', managed_id);
+END $$;
+```
+
+Then run the following command:
+
 ```azurecli
 az postgres flexible-server execute \
     --name <postgres-server-name> \
     --database-name restaurants_reviews \
-    --querytext "
-    GRANT CONNECT ON DATABASE restaurants_reviews TO \"my-ua-managed-id\";
-    GRANT USAGE ON SCHEMA public TO \"my-ua-managed-id\";
-    GRANT CREATE ON SCHEMA public TO \"my-ua-managed-id\";
-    GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO \"my-ua-managed-id\";
-    ALTER DEFAULT PRIVILEGES IN SCHEMA public 
-    GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO \"my-ua-managed-id\";
-    " \
+    --file-path setuaperms.sql \
     --admin-user <your-Azure-account-email> \
     --admin-password $MY_ACCESS_TOKEN
 ```
