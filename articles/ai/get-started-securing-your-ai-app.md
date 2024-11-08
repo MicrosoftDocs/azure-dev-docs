@@ -219,9 +219,11 @@ The sample repository contains all the code and configuration files for chat app
 
 :::zone pivot="typescript"
 
+## Exploring the sample code
+
 [!INCLUDE [typescript Explore the sample code H2](../javascript/ai/includes/get-started-securing-your-ai-app.md)]
 
-:::
+:::zone-end
 
 :::zone pivot="python"
 

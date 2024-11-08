@@ -5,7 +5,7 @@ ms.date: 08/09/2022
 # Used as part of /developer/ai/get-started-securing-your-ai-app
 ---
 
-While OpenAI and Azure OpenAI Service rely on a [common JavaScript client library](openai), small code changes are needed when using Azure OpenAI endpoints. Let's see how this sample configures keyless authentication with Microsoft Entra ID and communicates with Azure OpenAI.
+While OpenAI and Azure OpenAI Service rely on a [openai](https://www.npmjs.com/package/openai) (common JavaScript client library), small code changes are needed when using Azure OpenAI endpoints. Let's see how this sample configures keyless authentication with Microsoft Entra ID and communicates with Azure OpenAI.
 
 ### Keyless authentication for each environment
 
