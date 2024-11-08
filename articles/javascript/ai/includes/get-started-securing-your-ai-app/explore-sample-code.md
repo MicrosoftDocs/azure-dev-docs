@@ -1,7 +1,7 @@
 ---
 ms.custom: devx-track-js, devx-track-ts, 
 ms.topic: include
-ms.date: 08/09/2022
+ms.date: 11/08/2024
 # Used as part of /developer/ai/get-started-securing-your-ai-app
 ---
 
@@ -50,7 +50,7 @@ function getTokenProvider(): () => Promise<string> {
 
 The preceding code snippet uses [`getBearerTokenProvider`](/javascript/api/@azure/identity) to take the credential and the scope, then returns a callback that provides a bearer token. 
 
-### Create authenticated Azure OpenAI client object
+### Create authenticated Azure OpenAI client
 
 The third function in `./src/azure-authentication.ts` is `getOpenAiClient()`, which returns the Azure OpenAI client. 
 
@@ -81,7 +81,7 @@ export function getOpenAiClient(): AzureOpenAI | undefined{
 }
 ```
 
-This code takes the options, including the correctly scoped token, and creates the [`AzureOpenAI`] client
+This code takes the options, including the correctly scoped token, and creates the `AzureOpenAI` client
 
 ## Stream chat answer with Azure OpenAI 
 

@@ -221,7 +221,7 @@ The sample repository contains all the code and configuration files for chat app
 
 ## Exploring the sample code
 
-[!INCLUDE [typescript Explore the sample code H2](../javascript/ai/includes/get-started-securing-your-ai-app.md)]
+[!INCLUDE [typescript Explore the sample code H2](../javascript/ai/includes/get-started-securing-your-ai-app/explore-sample-code.md)]
 
 :::zone-end
 
@@ -438,11 +438,8 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 > For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 :::zone pivot="typescript"
-1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
 
-1. Locate your currently running Codespaces sourced from the [`Azure-Samples/openai-chat-app-quickstart-javascript`](https://github.com/Azure-Samples/openai-chat-app-quickstart-javascript) GitHub repository.
-
-1. Open the context menu for the codespace and then select **Delete**.
+[!INCLUDE [typescript Clean up resources](../javascript/ai/includes/get-started-securing-your-ai-app/clean-up-resources.md)]
 
 :::zone-end
 
