@@ -25,7 +25,7 @@ items:
     - name: How-tos
       items:
         - name: Switch between OpenAI and Azure OpenAI endpoints with Python
-          href: /azure/ai-services/openai/how-to/switching-endpoints&bc=/azure/developer/ai/breadcrumb/toc.json    
+          href: /azure/ai-services/openai/how-to/switching-endpoints?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json    
         - name: Security
           items: 
             - name: Use Azure OpenAI without keys
