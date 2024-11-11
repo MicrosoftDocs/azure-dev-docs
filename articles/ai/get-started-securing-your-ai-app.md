@@ -131,11 +131,7 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 :::zone pivot="typescript"
 
-Use the following steps to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/openai-chat-app-quickstart-javascript`](https://github.com/Azure-Samples/openai-chat-app-quickstart-javascript) GitHub repository.
-
-1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
-
- [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart-javascript)
+[!INCLUDE [typescript open development environment](../javascript/ai/includes/get-started-securing-your-ai-app/open-development-environment.md)]
 
 :::zone-end
 
@@ -239,6 +235,8 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 :::zone-end
 
+:::zone pivot="typescript"
+:::zone-end
 ---
 
 ## Deploy and run
@@ -279,13 +277,7 @@ The sample repository contains all the code and configuration files for chat app
 
 1. The answer comes from Azure OpenAI and the result is displayed.
 
-:::zone pivot="typescript"
-
 ## Exploring the sample code
-
-[!INCLUDE [typescript Explore the sample code H2](../javascript/ai/includes/get-started-securing-your-ai-app/explore-sample-code.md)]
-
-:::zone-end
 
 :::zone pivot="python"
 
@@ -466,6 +458,12 @@ ChatCompletion completion = await chatClient.CompleteChatAsync(messages);
 
 :::zone-end
 
+:::zone pivot="typescript"
+
+[!INCLUDE [typescript explore sample code](../javascript/ai/includes/get-started-securing-your-ai-app/explore-sample-code.md)]
+
+:::zone-end
+
 ## Other security considerations
 
 This article demonstrates how the sample uses `ChainedTokenCreadential` for authenticating to the Azure OpenAI service.
@@ -499,12 +497,6 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 > [!IMPORTANT]
 > For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
-:::zone pivot="typescript"
-
-[!INCLUDE [typescript Clean up resources](../javascript/ai/includes/get-started-securing-your-ai-app/clean-up-resources.md)]
-
-:::zone-end
-
 :::zone pivot="python"
 
 1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
@@ -522,6 +514,12 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 1. Locate your currently running Codespaces sourced from the [`Azure-Samples/openai-chat-app-quickstart-dotnet`](https://github.com/Azure-Samples/openai-chat-app-quickstart-dotnet) GitHub repository.
 
 1. Open the context menu for the codespace and then select **Delete**.
+
+:::zone-end
+
+:::zone pivot="typescript"
+
+[!INCLUDE [typescript Clean up resources](../javascript/ai/includes/get-started-securing-your-ai-app/clean-up-resources.md)]
 
 :::zone-end
 
@@ -555,8 +553,16 @@ If your issue isn't addressed, log your issue to the repository's [Issues](https
 
 If your issue isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/openai-chat-app-quickstart-dotnet/issues).
 
+## Next steps
+
 > [!div class="nextstepaction"]
 > [Get started with the chat using your own data sample for .NET](/dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+
+:::zone-end
+
+:::zone pivot="typescript"
+
+[!INCLUDE [typescript get help](../javascript/ai/includes/get-started-securing-your-ai-app/get-help.md)]
 
 :::zone-end
 
