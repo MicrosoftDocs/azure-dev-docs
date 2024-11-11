@@ -268,7 +268,7 @@ The `response_stream` inside the `chat_handler` function handles the chat comple
             all_messages.append(request_messages[-1])
 ```
 
-> [!NOATE]
+> [!NOTE]
 > For more information on the image `detail` parameter and related settings, check out the [Detail parameter settings in image processing: Low, High, Auto](/azure/ai-services/openai/how-to/gpt-with-vision?tabs=python#detail-parameter-settings-in-image-processing-low-high-auto) section in the "Use GPT-4 Turbo with Vision" Microsoft Learn article.
 
 Next, `bp.openai_client.chat.completions` gets chat completions via an Azure OpenAI API call and streams the response.
