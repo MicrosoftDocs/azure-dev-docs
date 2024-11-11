@@ -170,7 +170,7 @@ The sample repository contains all the code and configuration files for the chat
     |Environment name|Keep it short and lowercase. Add your name or alias. For example, `chat-vision`. It's used as part of the resource group name.|
     |Subscription|Select the subscription to create the resources in. |
     |Location (for hosting)|Select a location near you from the list.|
-    |Location for the OpenAI model|Select a location near you from the list. If the same location is available as your first location, select that.|
+    |Location for the Azure OpenAI model|Select a location near you from the list. If the same location is available as your first location, select that.|
 
 1. Wait until app is deployed. Deployment usually takes between 5 and 10 minutes to complete.
 
