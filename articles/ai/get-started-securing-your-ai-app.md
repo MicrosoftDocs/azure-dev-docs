@@ -1,13 +1,13 @@
 ---
 title: "Get started with the Azure OpenAI security building blocks"
 description: "Learn how to effectively use keyless connections for authentication and authorization to Azure OpenAI with the Azure OpenAI security building blocks. Get started using a simple chat app sample implemented using Azure OpenAI Service using keyless authentication with Microsoft Entra ID. Easily deploy with Azure Developer CLI. This article uses the Azure AI Template chat quickstart sample."
-ms.date: 10/10/2024
+ms.date: 11/05/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
-ms.custom: devx-track-python, keyless-python
+ms.custom: devx-track-python, keyless-python, devx-track-js, devx-track-dotnet
 ms.collection: ce-skilling-ai-copilot
 zone_pivot_group_filename: developer/intro/intro-zone-pivot-groups.yml
-zone_pivot_groups: intelligent-apps-languages-python-dotnet
+zone_pivot_groups: intelligent-apps-languages-python-dotnet-typescript
 # CustomerIntent: As a developer new to Azure OpenAI, I want to learn how to use keyless connections to Azure OpenAI from a simple example so that I don't leak secrets.
 ---
 # Get started with the Azure OpenAI security building block
@@ -49,6 +49,10 @@ The application architecture relies on the following services and components:
 
 - A Blazor web app that uses the [Azure.AI.OpenAI](https://www.nuget.org/packages/Azure.AI.OpenAI/) NuGet package to generate responses to user messages.
 
+:::zone-end
+
+:::zone pivot="typescript"
+- A TypeScript web app that uses the [openai](https://www.npmjs.com/package/openai) npm package to generate responses to user messages. 
 :::zone-end
 
 ## Cost
@@ -114,7 +118,9 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
 
-    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart)
+2. On the **Create codespace** page, review and then select **Create new codespace**
+
+    :::image type="content" source="./media/get-started-securing-your-ai-app/github-create-codespace.png" lightbox="./media/get-started-securing-your-ai-app/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
 :::zone-end
 
@@ -124,13 +130,17 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
 
-    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart-dotnet)
-
-:::zone-end
-
 2. On the **Create codespace** page, review and then select **Create new codespace**
 
     :::image type="content" source="./media/get-started-securing-your-ai-app/github-create-codespace.png" lightbox="./media/get-started-securing-your-ai-app/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
+
+:::zone-end
+
+:::zone pivot="typescript"
+
+[!INCLUDE [typescript open development environment](../javascript/ai/includes/get-started-securing-your-ai-app/open-development-environment.md)]
+
+:::zone-end
 
 3. Wait for the codespace to start. This startup process can take a few minutes.
 
@@ -228,6 +238,11 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 :::zone-end
 
+:::zone pivot="typescript"
+
+[!INCLUDE [typescript visual studio setup](../javascript/ai/includes/get-started-securing-your-ai-app/visual-studio-code-setup.md)]
+
+:::zone-end
 ---
 
 ## Deploy and run
@@ -447,6 +462,14 @@ ChatCompletion completion = await chatClient.CompleteChatAsync(messages);
 
 :::zone-end
 
+:::zone pivot="typescript"
+
+## Explore the sample code
+
+[!INCLUDE [typescript explore sample code](../javascript/ai/includes/get-started-securing-your-ai-app/explore-sample-code.md)]
+
+:::zone-end
+
 ## Other security considerations
 
 This article demonstrates how the sample uses `ChainedTokenCreadential` for authenticating to the Azure OpenAI service.
@@ -500,6 +523,12 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 :::zone-end
 
+:::zone pivot="typescript"
+
+[!INCLUDE [typescript Clean up resources](../javascript/ai/includes/get-started-securing-your-ai-app/clean-up-resources.md)]
+
+:::zone-end
+
 #### [Visual Studio Code](#tab/visual-studio-code)
 
 You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
@@ -532,6 +561,12 @@ If your issue isn't addressed, log your issue to the repository's [Issues](https
 
 > [!div class="nextstepaction"]
 > [Get started with the chat using your own data sample for .NET](/dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
+
+:::zone-end
+
+:::zone pivot="typescript"
+
+[!INCLUDE [typescript get help](../javascript/ai/includes/get-started-securing-your-ai-app/get-help.md)]
 
 :::zone-end
 
