@@ -236,6 +236,9 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 :::zone-end
 
 :::zone pivot="typescript"
+
+[!INCLUDE [typescript visual studio setup](../javascript/ai/includes/get-started-securing-your-ai-app/visual-studio-code-setup.md)]
+
 :::zone-end
 ---
 
@@ -278,8 +281,6 @@ The sample repository contains all the code and configuration files for chat app
 1. The answer comes from Azure OpenAI and the result is displayed.
 
 ## Exploring the sample code
-
-:::zone pivot="python"
 
  While OpenAI and Azure OpenAI Service rely on a [common Python client library](https://github.com/openai/openai-python), small code changes are needed when using Azure OpenAI endpoints. Let's see how this sample configures keyless authentication with Microsoft Entra ID and communicates with Azure OpenAI.
 
@@ -550,8 +551,6 @@ If your issue isn't addressed, log your issue to the repository's [Issues](https
 :::zone pivot="dotnet"
 
 If your issue isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/openai-chat-app-quickstart-dotnet/issues).
-
-## Next steps
 
 > [!div class="nextstepaction"]
 > [Get started with the chat using your own data sample for .NET](/dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
