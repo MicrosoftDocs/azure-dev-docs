@@ -24,14 +24,14 @@ function getChainedCredential() {
 
     return new ChainedTokenCredential(
         new ManagedIdentityCredential(process.env.AZURE_CLIENT_ID!), 
-        new DefaultAzureCredential({
-            tenantId: process.env.AZURE_TENANT_ID ? process.env.AZURE_TENANT_ID : undefined
+        new AzureDeveloperCliCredential({
+            tenantId: process.env.AZURE_TENANT_ID! ? process.env.AZURE_TENANT_ID! : undefined
           })
     );
 }
 ```
 * [ManagedIdentityCredential](/javascript/api/@azure/identity/managedidentitycredential) is attempted first. It's set up with the AZURE_CLIENT_ID environment variable in the production runtime and is capable of authenticating via user-assigned managed identity.
-* [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) is attempted second. It's set up when a develop signs in with Azure CLI `az login`.
+* [AzureDeveloperCliCredential](/javascript/api/@azure/identity/azuredeveloperclicredential) is attempted second. It's set up when a develop signs in with Azure CLI `az login`.
 
 >[!TIP]
 >The order of the credentials is important, as the first valid Microsoft Entra access token is used. For more information, check out the [ChainedTokenCredential Overview](/javascript/api/@azure/identity/tokencredential) article.

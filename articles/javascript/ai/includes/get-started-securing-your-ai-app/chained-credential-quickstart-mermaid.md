@@ -8,7 +8,7 @@ ms.date: 09/26/2024
 %% =======================
 %% 1. Install mermaid CLI v10.9.1 (see https://github.com/mermaid-js/mermaid-cli/blob/master/README.md):
 %%    npm i -g @mermaid-js/mermaid-cli@10.9.1
-%% 2. Run command: mmdc -i chain-sequence.md -o ../../media/mermaidjs/chain-sequence.svg
+%% 2. Run command: mmdc -i chained-credential-quickstart-mermaid.md -o chained-token-credential.svg
 
 %%{
   init: {
@@ -22,7 +22,7 @@ ms.date: 09/26/2024
 
 
 flowchart LR;
-    C(ManagedIdentityCredential):::deployed --> G(DefaultAzureCredential):::developer;
+    C(ManagedIdentityCredential):::deployed --> G(AzureDeveloperCliCredential):::developer;
 
     %% Define styles for credential type boxes
     classDef deployed fill:#95C37E, stroke:#71AD4C, stroke-width:2px;
