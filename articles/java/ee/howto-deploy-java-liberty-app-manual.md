@@ -121,9 +121,7 @@ After a short time, you should see a JSON output that contains the following lin
   "resourceGroup": "java-liberty-project",
 ```
 
-### Connect to the Container Registry instance
-
-You need to sign in to the Container Registry instance before you can push an image to it. Use the following commands to verify the connection:
+Next, retrieve the login server for the Container Registry instance. You need this value when you deploy the application image to the AKS cluster later.
 
 ### [Bash](#tab/in-bash)
 
@@ -132,21 +130,15 @@ export LOGIN_SERVER=$(az acr show \
     --name $REGISTRY_NAME \
     --query 'loginServer' \
     --output tsv)
-
-az acr login --name $REGISTRY_NAME
 ```
 
 ### [PowerShell](#tab/in-powershell)
 
 ```azurepowershell
 $Env:LOGIN_SERVER = $(az acr show --name $Env:REGISTRY_NAME --query 'loginServer' --output tsv)
-
-az acr login --name $Env:REGISTRY_NAME
 ```
 
 ---
-
-You should see `Login Succeeded` at the end of command output if you're logged into the Container Registry instance successfully.
 
 ## Create an AKS cluster
 

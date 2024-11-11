@@ -71,11 +71,6 @@ Learn more about [cost in the sample repo](https://github.com/Azure-Samples/open
 
 :::zone-end
 
-:::zone pivot="typescript"
-
-Learn more about [cost in the sample repo](https://github.com/Azure-Samples/openai-chat-app-quickstart-javascript#costs).
-:::zone-end
-
 ## Prerequisites
 
 A [development container](https://containers.dev/) environment is available with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
@@ -123,7 +118,6 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
 
-  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart)
 
 :::zone-end
 
@@ -132,9 +126,6 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 Use the following steps to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/openai-chat-app-quickstart-dotnet`](https://github.com/Azure-Samples/openai-chat-app-quickstart-dotnet) GitHub repository.
 
 1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
-
-
- [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart-dotnet)
 
 :::zone-end
 
@@ -229,7 +220,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     ```
 
 1. Open a new terminal in Visual Studio Code.
-1. 
+
 1. Run the following AZD command to bring the GitHub repository to your local computer.
 
     ```azdeveloper
@@ -559,14 +550,13 @@ If your issue isn't addressed, log your issue to the repository's [Issues](https
 > [Get started with the chat using your own data sample for Python](../python/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
 
 :::zone-end
+
 :::zone pivot="dotnet"
+
 If your issue isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/openai-chat-app-quickstart-dotnet/issues).
+
 > [!div class="nextstepaction"]
 > [Get started with the chat using your own data sample for .NET](/dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json)
-:::zone-end
-
-:::zone pivot="typescript"
-
-[!INCLUDE [typescript get help](../javascript/ai/includes/get-started-securing-your-ai-app/gethelp.md)]
 
 :::zone-end
+
