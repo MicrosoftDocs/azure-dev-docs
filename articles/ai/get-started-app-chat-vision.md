@@ -170,7 +170,7 @@ The sample repository contains all the code and configuration files for the chat
     |Environment name|Keep it short and lowercase. Add your name or alias. For example, `chat-vision`. It's used as part of the resource group name.|
     |Subscription|Select the subscription to create the resources in. |
     |Location (for hosting)|Select a location near you from the list.|
-    |Location for the OpenAI model|Select a location near you from the list. If the same location is available as your first location, select that.|
+    |Location for the Azure OpenAI model|Select a location near you from the list. If the same location is available as your first location, select that.|
 
 1. Wait until app is deployed. Deployment usually takes between 5 and 10 minutes to complete.
 
@@ -268,7 +268,7 @@ The `response_stream` inside the `chat_handler` function handles the chat comple
             all_messages.append(request_messages[-1])
 ```
 
-> [!INFO]
+> [!NOATE]
 > For more information on the image `detail` parameter and related settings, check out the [Detail parameter settings in image processing: Low, High, Auto](/azure/ai-services/openai/how-to/gpt-with-vision?tabs=python#detail-parameter-settings-in-image-processing-low-high-auto) section in the "Use GPT-4 Turbo with Vision" Microsoft Learn article.
 
 Next, `bp.openai_client.chat.completions` gets chat completions via an Azure OpenAI API call and streams the response.
