@@ -280,6 +280,8 @@ The sample repository contains all the code and configuration files for chat app
 
 1. The answer comes from Azure OpenAI and the result is displayed.
 
+:::zone pivot="python"
+
 ## Exploring the sample code
 
  While OpenAI and Azure OpenAI Service rely on a [common Python client library](https://github.com/openai/openai-python), small code changes are needed when using Azure OpenAI endpoints. Let's see how this sample configures keyless authentication with Microsoft Entra ID and communicates with Azure OpenAI.
