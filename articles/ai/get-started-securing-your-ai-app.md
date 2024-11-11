@@ -118,6 +118,9 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
 
+2. On the **Create codespace** page, review and then select **Create new codespace**
+
+    :::image type="content" source="./media/get-started-securing-your-ai-app/github-create-codespace.png" lightbox="./media/get-started-securing-your-ai-app/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
 :::zone-end
 
@@ -127,6 +130,10 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
 
+2. On the **Create codespace** page, review and then select **Create new codespace**
+
+    :::image type="content" source="./media/get-started-securing-your-ai-app/github-create-codespace.png" lightbox="./media/get-started-securing-your-ai-app/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
+
 :::zone-end
 
 :::zone pivot="typescript"
@@ -134,10 +141,6 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 [!INCLUDE [typescript open development environment](../javascript/ai/includes/get-started-securing-your-ai-app/open-development-environment.md)]
 
 :::zone-end
-
-2. On the **Create codespace** page, review and then select **Create new codespace**
-
-    :::image type="content" source="./media/get-started-securing-your-ai-app/github-create-codespace.png" lightbox="./media/get-started-securing-your-ai-app/github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
 3. Wait for the codespace to start. This startup process can take a few minutes.
 
@@ -460,6 +463,8 @@ ChatCompletion completion = await chatClient.CompleteChatAsync(messages);
 :::zone-end
 
 :::zone pivot="typescript"
+
+## Explore the sample code
 
 [!INCLUDE [typescript explore sample code](../javascript/ai/includes/get-started-securing-your-ai-app/explore-sample-code.md)]
 

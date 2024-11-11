@@ -107,7 +107,7 @@ export async function chatRoute (request: FastifyRequest<{ Body: ChatRequestBody
     }
 
     const allMessages = [
-      { role: "system", content: "You are a helpful assistant.", name: '' },
+      { role: "system", content: "You are a helpful assistant."},
       ...requestMessages
     ] as ChatCompletionMessageParam [];
 
