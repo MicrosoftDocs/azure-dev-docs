@@ -114,7 +114,7 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 :::zone-end
 
-2. On the **Create codespace** page, review and then select **Create new codespace**
+2. On the **Create codespace** page, review and then select **Create codespace**
 
     :::zone pivot="python"
 
