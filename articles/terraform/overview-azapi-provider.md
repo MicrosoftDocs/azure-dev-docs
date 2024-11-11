@@ -11,16 +11,31 @@ adobe-target: trues
 
 The AzAPI provider is a thin layer on top of the [Azure ARM REST APIs](/rest/api/resources/). It enables you to manage any Azure resource type using any API version, enabling you to utilize the latest functionality within Azure. AzAPI is a first-class provider designed to be used on its own or in tandem with the AzureRM provider.
 
+## Benefits of using the AzAPI provider
+
+The AzAPI provider features the following benefits:
+
+- Supports all Azure control plane services:
+  - Preview services and features
+  - All API versions
+- Full Terraform state file fidelity
+  - Properties and values are saved to state
+- No dependency on Swagger
+- Common and consistent Azure authentication
+- Built-in preflight validation
+- Granular control over infrastructure development
+- [Robust VS Code Extension](https://marketplace.visualstudio.com/items?itemName=azapi-vscode.azapi)
+
 ## Resources
 
 To allow you to manage all Azure resources and features without requiring updates, the AzAPI provider includes the following generic resources:
 
 | Resource Name | Description |
 | ------------- | ----------- |
-| [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource) | Used to fully manage any Azure (control plane) resource (API) with full CRUD. <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New preview service <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New feature added to existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existing feature / service not currently covered |
-| [azapi_update_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/update_resource) | Used to manage resources or parts of resources that don't have full CRUD <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update new properties on an existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update pre-created child resource - such as DNS SOA record. |
-| [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) | Used to perform a single operation on a resource without managing the lifecycle of it <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shut down a Virtual Machine <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add a secret to a Key Vault|
-| [azapi_data_plane_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource) | Used to manage a [specific subset](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource#available-resources) of Azure data plane resources <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KeyVault Certificate Contacts<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Synapse Workspace Libraries| 
+| [`azapi_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource) | Used to fully manage any Azure (control plane) resource (API) with full CRUD. <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New preview service <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New feature added to existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existing feature / service not currently covered |
+| [`azapi_update_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/update_resource) | Used to manage resources or parts of resources that don't have full CRUD <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update new properties on an existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update pre-created child resource - such as DNS SOA record. |
+| [`azapi_resource_action`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) | Used to perform a single operation on a resource without managing the lifecycle of it <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shut down a Virtual Machine <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add a secret to a Key Vault|
+| [`azapi_data_plane_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource) | Used to manage a [specific subset](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource#available-resources) of Azure data plane resources <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KeyVault Certificate Contacts<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Synapse Workspace Libraries| 
 
 ### Usage hierarchy
 
@@ -111,22 +126,50 @@ resource "azapi_data_plane_resource" "dataset" {
 }
 ```
 
+### Preflight usage example
+
+The following code snippet errors during `terraform plan` due to AzAPI's built-in preflight validation:
+
+```terraform
+provider "azapi" {
+  enable_preflight = true
+}
+resource "azapi_resource" "vnet" {
+  type      = "Microsoft.Network/virtualNetworks@2024-01-01"
+  parent_id = azapi_resource.resourceGroup.id
+  name      = "example-vnet"
+  location  = "westus"
+  body = {
+    properties = {
+      addressSpace = {
+        addressPrefixes = [
+          "10.0.0.0/160", # preflight will throw an error here
+        ]
+      }
+    }
+  }
+}
+```
+
+Preflight is hidden behind a provider flag but will help throw errors in `plan` stage.
+
+## Data Sources
+
+The AzAPI provider supports a variety of useful data sources:
+
+| Data Source Name | Description |
+| ------------- | ----------- |
+| [`azapi_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/resource) | Used to read information from any Azure (control plane) resource (API). <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New preview service <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New feature added to existing service <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existing feature / service not currently covered |
+| [`azapi_client_config`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/client_config) | Access client information such as subscription ID and tenant ID. |
+| [`azapi_resource_action`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/resource_action) | Used to perform a single read operation on a resource without managing the lifecycle of it <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List Keys <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Read status of VM |
+| [`azapi_data_plane_resource`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/data_plane_resource) | Used to access a [specific subset](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/data_plane_resource#available-resources) of Azure data plane resources <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KeyVault Certificate Contacts<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Synapse Workspace Libraries | 
+| [`azapi_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/resource_id) | Access a resource's resource ID, with the ability to output information such as subscription ID, parent ID, resource group name, and resource name. |
+| [`azapi_resource_list`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/data-sources/resource_list) | List all resources under a given parent resource ID. <br> &nbsp;&nbsp;&nbsp;Example Use Cases: <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resources under a subscription / resource group <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subnets under a virtual network|
+
 ## Authentication using the AzAPI provider
 
 The AzAPI provider enables the same authentication methods as the AzureRM provider. For more information on authentication options, see [Authenticate Terraform to Azure](./authenticate-to-azure.md?tabs=bash).
 
-## Benefits of using the AzAPI provider
-
-The AzAPI provider features the following benefits:
-
-- Supports all Azure control plane services:
-  - Preview services and features
-  - All API versions
-- Full Terraform state file fidelity
-  - Properties and values are saved to state
-- No dependency on Swagger
-- Common and consistent Azure authentication
-- [Robust VS Code Extension](https://marketplace.visualstudio.com/items?itemName=azapi-vscode.azapi)
 
 ## Experience and lifecycle of the AzAPI provider
 
@@ -147,74 +190,101 @@ The [AzAPI VS Code extension](https://marketplace.visualstudio.com/items?itemNam
 - Auto-completion with code samples.
 ![Auto-completion with code samples](media/overview-azapi-provider/auto-completion-with-code-samples.png)
 
-## AzAPI2AzureRM migration tool
+### `aztfmigrate` migration tool
 
-The AzureRM provider provides the most integrated Terraform experience for managing Azure resources. Therefore, the recommended usage of the AzAPI and AzureRM providers is as follows:
+The [`aztfmigrate` tool](https://github.com/Azure/aztfmigrate/releases) is designed to help migrate existing resources between the AzAPI and AzureRM providers.
 
-1. While the service or feature is in preview, use the AzAPI provider.
-1. once the service is officially released, use the AzureRM provider.
-
-The [AzAPI2AzureRM tool](https://github.com/Azure/azapi2azurerm/releases) is designed to help migrate from the AzAPI provider to the AzureRM provider.
-
-AzAPI2AzureRM is an open-source tool that automates the process of converting AzAPI resources to AzureRM resources.
-
-AzAPI2AzureRM has two modes: plan and migrate:
+`aztfmigrate` has two modes: plan and migrate:
 
 - Plan displays the AzAPI resources that can be migrated.
 - Migrate migrates the AzAPI resources to AzureRM resources in both the HCL files and the state.
 
-AzAPI2AzureRM ensures after migration that your Terraform configuration and state are aligned with your actual state. You can validate the update to state by running `terraform plan` after completing the migration to see that nothing has changed.
+`aztfmigrate` ensures after migration that your Terraform configuration and state are aligned with your actual state. You can validate the update to state by running `terraform plan` after completing the migration to see that nothing has changed.
 
-## Using the AzAPI provider
+## Granular controls over infrastructure
 
-1. Install [VS Code extension](https://marketplace.visualstudio.com/items?itemName=azapi-vscode.azapi)
-1. Add the AzAPI provider to your Terraform configuration.
+One major benefit of AzAPI is through its ability to fine-tune your configuration to match the right design patterns. There are several ways in which you can do this:
 
-    ```terraform
-    terraform {
-      required_providers {
-        azapi = {
-          source  = "Azure/azapi"
-        }
-      }
+### Provider functions
+
+AzAPI (v2.0 and newer) has a slew of [provider functions](https://developer.hashicorp.com/terraform/plugin/framework/functions/concepts?product_intent=terraform):
+
+| Function Name | Description |
+| ------------- | ----------- |
+| [`build_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/build_resource_id) | Constructs an Azure resource ID given the parent ID, resource type, and resource name. <br> Useful for creating resource IDs for top-level and nested resources within a specific scope. |
+| [`extension_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/extension_resource_id) | Constructs an Azure extension resource ID given the base resource ID, resource type, and additional resource names. |
+| [`management_group_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/management_group_resource_id) | Constructs an Azure management group scope resource ID given the management group name, resource type, and resource names.|
+| [`parse_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/parse_resource_id) |This function takes an Azure resource ID and a resource type and parses the ID into its individual components such as subscription ID, resource group name, provider namespace, and other parts.|
+| [`resource_group_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/resource_group_resource_id) | Constructs an Azure resource group scope resource ID given the subscription ID, resource group name, resource type, and resource names. |
+| [`subscription_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/subscription_resource_id) | Constructs an Azure subscription scope resource ID given the subscription ID, resource type, and resource names.|
+| [`tenant_resource_id`](https://registry.terraform.io/providers/Azure/azapi/latest/docs/functions/tenant_resource_id) |Constructs an Azure tenant scope resource ID given the resource type and resource names.|
+
+### User-defined retriable errors with the `retry` block
+The `AzAPI` provider can digest errors when expected through the `retry` block. For example, if a resource may run into a create timeout issue, the following block of code may help:
+```terraform
+resource "azapi_resource" "example" {
+    # usual properties
+    retry {
+        interval_seconds     = 5
+        randomization_factor = 0.5 # adds randomization to retry pattern
+        multiplier           = 2 # if try fails, multiplies time between next try by this much
+        error_message_regex  = ["ResourceNotFound"]
     }
+    timeouts {
+        create = "10m"
+}
+```
 
-    provider "azapi" {
-      # More information on the authentication methods supported by
-      # the AzureRM Provider can be found here:
-      # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs
+### Triggers for resource replacement
 
-      # subscription_id = "..."
-      # client_id       = "..."
-      # client_secret   = "..."
-      # tenant_id       = "..."
+The `AzAPI` provider allows you to configure parameters for resource replacement:
+
+#### `replace_triggers_external_values`
+
+Replaces the resource if a value changes. For example, if the SKU or zones variables were to be modified, this resource would be re-created:
+```terraform
+resource "azapi_resource" "example" {
+  name      = var.name
+  type      = "Microsoft.Network/publicIPAddresses@2023-11-01"
+  parent_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example"
+  body      = properties = {
+    sku   = var.sku
+    zones = var.zones
+  }
+  replace_triggers_external_values = [
+    var.sku,
+    var.zones,
+  ]
+}
+```
+This can work across a broad set of resources, i.e. a policy assignment when properties of the definition changes.
+
+#### `replace_triggers_refs`
+
+Replaces the resource if the referenced value changes. For example, if the SKU name or tier was modified, this resource would be re-created:
+```terraform
+resource "azapi_resource" "example" {
+  type      = "Microsoft.Relay/namespaces@2021-11-01"
+  parent_id = azurerm_resource_group.example.id
+  name      = "xxx"
+  location  = "westus"
+  body = {
+    properties = {
     }
-    ```
-
-1. Declare one or more AzAPI resources as shown in the following example code:
-
-    ```terraform
-    resource "azapi_resource" "example" {
-      name = "example"
-      parent_id = data.azurerm_machine_learning_workspace.existing.id
-      type = "Microsoft.MachineLearningServices/workspaces/computes@2021-07-01"
-      
-      location = "eastus"
-      body = {
-        properties = {
-          computeType      = "ComputeInstance"
-          disableLocalAuth = true
-          properties = {
-            vmSize = "STANDARD_NC6"
-          }
-        }
-      }
+    sku = {
+      name = "Standard"
+      tier = "Standard"
     }
-    
-    ```
+  }
+
+  replace_triggers_refs = ["sku"]
+}
+```
+This would not trigger a replace if a different resource's SKU were to change.
 
 ## Next steps
 
 - [Deploy your first resource with the AzAPI provider](get-started-azapi-resource.md)
 - [Deploy your first Update Resource with the AzAPI provider](get-started-azapi-update-resource.md)
 - [Deploy your first resource action with the AzAPI provider](get-started-azapi-resource-action.md)
+- [Visit the provider registry](https://registry.terraform.io/providers/Azure/azapi/latest/docs)
