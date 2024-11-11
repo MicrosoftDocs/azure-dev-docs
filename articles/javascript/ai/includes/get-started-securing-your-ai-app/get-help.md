@@ -8,4 +8,4 @@ ms.date: 11/08/2024
 If your issue isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/openai-chat-app-quickstart-javascript/issues).
 
 > [!div class="nextstepaction"]
-> [Get started with Azure and LangChain.js JavaScript](../../get-started-app-chat-template-langchainjs.md)
+> [Get started with the chat using your own data sample for JavaScript](../../get-started-app-chat-template.md)
