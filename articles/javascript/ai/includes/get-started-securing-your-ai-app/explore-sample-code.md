@@ -58,10 +58,10 @@ The third function in `./src/azure-authentication.ts` is `getOpenAiClient()`, wh
 export function getOpenAiClient(): AzureOpenAI | undefined{
     try {
 
-        if (!process.env.AZURE_OPENAI_ENDPOINT!) {
+        if (!process.env.AZURE_OPENAI_ENDPOINT) {
             throw new Error("AZURE_OPENAI_ENDPOINT is required for Azure OpenAI");
         }
-        if (!process.env.AZURE_OPENAI_CHAT_DEPLOYMENT!) {
+        if (!process.env.AZURE_OPENAI_CHAT_DEPLOYMENT) {
             throw new Error("AZURE_OPENAI_CHAT_DEPLOYMENT is required for Azure OpenAI");
         }
 
