@@ -165,7 +165,7 @@ You must configure any in-container tests against applications to access the new
 
 After you've reached the migration goals you defined in the [pre-migration](#pre-migration) step, perform some end-to-end acceptance testing to verify that everything works as expected. The following articles provide information on post-migration enhancements:
 
-- Dynamic scaling is a key value proposition to justify the complexity of using Kubernetes. To achieve a native Kubernetes optimized scaling solution, follow the OpenShift documentation [Recommended performance and scalability practices](https://docs.redhat.com/en/documentation/openshift_container_platform/4.13/html/scalability_and_performance/recommended-performance-and-scalability-practices).
+- Dynamic scaling is a key value proposition to justify the complexity of using Kubernetes. To achieve a native Kubernetes optimized scaling solution, follow the OpenShift documentation [Recommended performance and scalability practices](https://docs.redhat.com/en/documentation/openshift_container_platform/4.13/html/scalability_and_performance/recommended-performance-and-scalability-practices-2).
 
 - Enhance your network topology with advanced load balancing services. For more information, see [Using load-balancing services in Azure](/azure/traffic-manager/traffic-manager-load-balancing-azure).
 

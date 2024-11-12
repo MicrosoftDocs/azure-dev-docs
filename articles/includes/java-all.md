@@ -447,7 +447,7 @@
 | Fuctions OpenAI | Maven [0.4.0-preview](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-openai/0.4.0-preview/jar/) |  |  |
 | hdi-oauth-token-utils | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure.hdinsight/hdi-oauth-token-utils/1.0.2/jar/) |  |  |
 | Java Library Redis | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-redis/1.0.0/jar/) |  |  |
-| javamsalruntime | Maven [0.13.10](https://search.maven.org/artifact/com.microsoft.azure/javamsalruntime/0.13.10/jar/) |  |  |
+| javamsalruntime | Maven [0.17.3](https://search.maven.org/artifact/com.microsoft.azure/javamsalruntime/0.17.3/jar/) |  |  |
 | JSON - GSON JSON | Maven [1.0.0-beta.3](https://search.maven.org/artifact/com.azure/azure-json-gson/1.0.0-beta.3/jar/) |  |  |
 | JSON - JSON Reflect | Maven [1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-json-reflect/1.0.0-beta.2/jar/) |  |  |
 | Kusto Spark | Maven [5.0.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-spark_2.4_2.12/5.0.0/jar/) |  |  |
