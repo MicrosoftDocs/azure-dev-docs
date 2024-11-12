@@ -75,13 +75,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation 
 
         *\<registry-name>* must be unique within Azure, and contain 5-50 alphanumeric characters.
 
-        You can view the credentials created for admin with:
-
-        ```azurecli
-        az acr credential show \
-           --name <registry-name> \
-           --resource-group pythoncontainer-rg
-        ```
     :::column-end:::
 :::row-end:::
 :::row:::
