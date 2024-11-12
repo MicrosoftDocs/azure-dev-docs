@@ -172,18 +172,6 @@ The remaining tasks in this article take place in the context of this developmen
 
 :::zone-end
 
-1. Wait for the codespace to start. This startup process can take a few minutes.
-
-1. Sign in to Azure with the Azure Developer CLI in the terminal at the bottom of the screen.
-
-    ```azdeveloper
-    azd auth login
-    ```
-
-1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
-
-The remaining tasks in this article take place in the context of this development container.
-
 #### [Visual Studio Code](#tab/visual-studio-code)
 
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
