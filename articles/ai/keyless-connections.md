@@ -2,7 +2,7 @@
 title: Use keyless connections with Azure OpenAI
 description: Use keyless connections for authentication and authorization to Azure OpenAI.
 ms.topic: how-to
-ms.date: 09/19/2024
+ms.date: 11/12/2024
 ms.reviewer: scaddie
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python, passwordless-go, build-2024-intelligent-apps
 #customer intent: As a developer, I want to use keyless connections so that I don't leak secrets.
@@ -15,7 +15,7 @@ Application requests to most Azure services must be authenticated with keys or [
 Keyless connections are enabled with the following steps:
 
 * Configure your authentication.
-* Set environment variables, as needed. 
+* Set environment variables, as needed.
 * Use an Azure Identity library credential type to create an Azure OpenAI client object.
 
 ## Authentication
@@ -26,6 +26,35 @@ Authentication differs based on the environment in which the app is running:
 
 * [Local development](#authenticate-for-local-development)
 * [Azure](#authenticate-for-azure-hosted-environments)
+
+## Sample application
+
+Use the following link to explore the keyless authentication building block AI template. This template provisions an Azure OpenAI account with your user account RBAC role permission for keyless (Microsoft Entra) authentication to access the OpenAI API SDKs.
+
+> [!NOTE]
+> This article uses one or more [AI app templates](./intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+
+### [.NET](#tab/csharp)
+
+Explore the .NET [End to end Azure OpenAI keyless authentication AI template](https://github.com/Azure-Samples/azure-openai-keyless-csharp).
+
+### [Go](#tab/go)
+
+Explore the Go [End to end Azure OpenAI keyless authentication AI template](https://github.com/Azure-Samples/azure-openai-keyless-go).
+
+### [Java](#tab/java)
+
+Explore the Java [End to end Azure OpenAI keyless authentication AI template](https://github.com/Azure-Samples/azure-openai-keyless-java).
+
+### [JavaScript](#tab/javascript)
+
+Explore the JavaScript [End to end Azure OpenAI keyless authentication AI template](https://github.com/Azure-Samples/azure-openai-keyless-js).
+
+### [Python](#tab/python)
+
+Explore the Python [End to end Azure OpenAI keyless authentication AI template](https://github.com/Azure-Samples/azure-openai-keyless-python).
+
+---
 
 ### Authenticate for local development
 
@@ -108,7 +137,6 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
 
     ### [Azure PowerShell](#tab/azure-powershell)
 
-
     For local development, to get your own identity ID, use the following command. You need to sign in with `Connect-AzAccount` before using this command.
 
     ```azurepowershell
@@ -119,7 +147,7 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
 
     When using [Bicep](/azure/azure-resource-manager/bicep/) deployed with [Azure Developer CLI](/azure/developer/azure-developer-cli), the identity of the person or service running the deployment is set to the `principalId` parameter. 
 
-    The following `main.parameters.json` variable is set to the identity running the process. 
+    The following `main.parameters.json` variable is set to the identity running the process.
 
     ```json
     "principalId": {
@@ -210,13 +238,12 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
     }
     ```
 
-
     ### [Azure portal](#tab/portal)
 
     Use the steps found at [open the Add role assignment page](/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page) in the Azure portal.
-    
+
     ---
-    
+
     Where applicable, replace `<identity-id>`, `<subscription-id>`, and `<resource-group-name>` with your actual values. 
 
 ## Configure environment variables
@@ -226,7 +253,7 @@ To connect to Azure OpenAI, your code needs to know your resource endpoint, and 
 1. Create an environment variable for your Azure OpenAI endpoint. 
 
     * `AZURE_OPENAI_ENDPOINT`: This URL is the access point for your Azure OpenAI resource.
-    
+
 2. Create environment variables based on the location in which your app runs:
 
     | Location | Identity| Description|
@@ -314,7 +341,6 @@ OpenAIClient client = new(new Uri(endpoint), new DefaultAzureCredential());
 
 For more information on `DefaultAzureCredential` for Go, see [Azure Identity client library for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#readme-defaultazurecredential).
 
-
 ```go
 import (
 	"log"
@@ -340,7 +366,6 @@ func main() {
 }
 ```
 
-
 ### [Java](#tab/java)
 
 For more information on `DefaultAzureCredential` for Java, see [Azure Identity client library for Java](/java/api/overview/azure/identity-readme#defaultazurecredential).
@@ -362,7 +387,6 @@ OpenAIClient client = new OpenAIClientBuilder()
 ### [JavaScript](#tab/javascript)
 
 For more information on `DefaultAzureCredential` for JavaScript, see [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme#defaultazurecredential).
-
 
 ```javascript
 import { DefaultAzureCredential, getBearerTokenProvider } from "@azure/identity";
@@ -396,32 +420,6 @@ openai_client = openai.AzureOpenAI(
     azure_ad_token_provider=token_provider
 )
 ```
-
----
-
-## Sample application
-
-Use the following link to explore an end-to-end sample. This sample provisions an Azure OpenAI account with your user account RBAC role permission for keyless (Microsoft Entra) authentication to access the OpenAI API SDKs.
-
-### [.NET](#tab/csharp)
-
-Explore the .NET [End to end Azure OpenAI keyless authentication sample](https://github.com/Azure-Samples/azure-openai-keyless-csharp).
-
-### [Go](#tab/go)
-
-Explore the Go [End to end Azure OpenAI keyless authentication sample](https://github.com/Azure-Samples/azure-openai-keyless-go).
-
-### [Java](#tab/java)
-
-Explore the Java [End to end Azure OpenAI keyless authentication sample](https://github.com/Azure-Samples/azure-openai-keyless-java).
-
-### [JavaScript](#tab/javascript)
-
-Explore the JavaScript [End to end Azure OpenAI keyless authentication sample](https://github.com/Azure-Samples/azure-openai-keyless-js).
-
-### [Python](#tab/python)
-
-Explore the Python [End to end Azure OpenAI keyless authentication sample](https://github.com/Azure-Samples/azure-openai-keyless-python).
 
 ---
 
