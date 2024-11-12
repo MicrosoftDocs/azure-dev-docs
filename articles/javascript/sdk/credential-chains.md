@@ -1,7 +1,7 @@
 ---
 title: "Credential chains in the Azure library for JavaScript"
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library for JavaScript.
-ms.date: 09/10/2024
+ms.date: 11/12/2024
 ms.topic: concept-article
 ms.custom: devx-track-js
 #customer intent: As a JavaScript developer new to Azure, I want understand credential chains so that select the appropriate chain and understand how to configure and debug it.
@@ -51,7 +51,7 @@ The order in which `DefaultAzureCredential` attempts credentials follows.
 
 | Order | Credential          | Description |
 |-------|---------------------|-------------|
-| 1     | [Environment][env-cred]         |Reads a collection of environment variables to determine if an application service principal (application user) is configured for the app. If so, `DefaultAzureCredential` uses these values to authenticate the app to Azure. This method is most often used in server environments but can also be used when developing locally.             | 
+| 1     | [Environment][env-cred]         |Reads a collection of [environment variables][env-vars] to determine if an application service principal (application user) is configured for the app. If so, `DefaultAzureCredential` uses these values to authenticate the app to Azure. This method is most often used in server environments but can also be used when developing locally.             | 
 | 2     | [Workload Identity][wi-cred]   |If the app is deployed to an Azure host with Workload Identity enabled, authenticate that account.             | 
 | 3     | [Managed Identity][mi-cred]    |If the app is deployed to an Azure host with Managed Identity enabled, authenticate the app to Azure using that Managed Identity.             | 
 | 4     | [Azure CLI][az-cred]           |If the developer authenticated to Azure using Azure CLI's `az login` command, authenticate the app to Azure using that same account.             | 
@@ -82,7 +82,7 @@ const blobServiceClient = new BlobServiceClient(
 
 ### Credentials are global to the environment
 
-`DefaultAzureCredential` checks for the presence of certain [environment variables](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#environment-variables). It's possible that someone could add or modify these environment variables at the system level on the host machine. Those changes apply globally and therefore alter the behavior of `DefaultAzureCredential` at runtime in any app running on that machine.
+`DefaultAzureCredential` checks for the presence of certain [environment variables][env-vars]. It's possible that someone could add or modify these environment variables at the system level on the host machine. Those changes apply globally and therefore alter the behavior of `DefaultAzureCredential` at runtime in any app running on that machine.
 
 ## Use ChainedTokenCredential for granularity
 
@@ -115,3 +115,7 @@ To debug a credential chain, enable [Azure SDK logging](debug-client-libraries.m
 ## More resources
 
 * [Azure CLI](/cli/azure/install-azure-cli-windows)
+
+
+<!-- LINKS -->
+[env-vars]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#environment-variables
