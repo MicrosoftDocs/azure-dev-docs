@@ -128,6 +128,18 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
     :::image type="content" source="./media/get-started-securing-your-ai-app/github-create-codespace-python.png" lightbox="./media/get-started-securing-your-ai-app/github-create-codespace-python.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
 
+1. Wait for the codespace to start. This startup process can take a few minutes.
+
+1. Sign in to Azure with the Azure Developer CLI in the terminal at the bottom of the screen.
+
+    ```azdeveloper
+    azd auth login
+    ```
+
+1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
+
+The remaining tasks in this article take place in the context of this development container.
+
 :::zone-end
 
 :::zone pivot="dotnet"
@@ -139,6 +151,18 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 1. On the **Create codespace** page, review and then select **Create codespace**
 
     :::image type="content" source="./media/get-started-securing-your-ai-app/github-create-codespace-dotnet.png" lightbox="./media/get-started-securing-your-ai-app/github-create-codespace-dotnet.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
+
+1. Wait for the codespace to start. This startup process can take a few minutes.
+
+1. Sign in to Azure with the Azure Developer CLI in the terminal at the bottom of the screen.
+
+    ```azdeveloper
+    azd auth login
+    ```
+
+1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
+
+The remaining tasks in this article take place in the context of this development container.
 
 :::zone-end
 
