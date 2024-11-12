@@ -11,6 +11,6 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-chat-app-quickstart-javascript)
 
-2. On the **Create codespace** page, review and then select **Create new codespace**
+1. On the **Create codespace** page, review and then select **Create new codespace**
 
     :::image type="content" source="github-create-codespace.png" lightbox="github-create-codespace.png" alt-text="Screenshot of the confirmation screen before creating a new codespace.":::
