@@ -36,23 +36,23 @@ Use the following link to explore the Azure OpenAI Keyless Building Block AI tem
 
 ### [.NET](#tab/csharp)
 
-Explore the .NET [End to end Azure OpenAI keyless authentication AI template](https://github.com/Azure-Samples/azure-openai-keyless-csharp).
+Explore the .NET [End to end Azure OpenAI Keyless Authentication Building Block AI template](https://github.com/Azure-Samples/azure-openai-keyless-csharp).
 
 ### [Go](#tab/go)
 
-Explore the Go [End to end Azure OpenAI keyless authentication AI template](https://github.com/Azure-Samples/azure-openai-keyless-go).
+Explore the Go [End to end Azure OpenAI Keyless Authentication Building Block AI template](https://github.com/Azure-Samples/azure-openai-keyless-go).
 
 ### [Java](#tab/java)
 
-Explore the Java [End to end Azure OpenAI keyless authentication AI template](https://github.com/Azure-Samples/azure-openai-keyless-java).
+Explore the Java [End to end Azure OpenAI Keyless Authentication Building Block AI template](https://github.com/Azure-Samples/azure-openai-keyless-java).
 
 ### [JavaScript](#tab/javascript)
 
-Explore the JavaScript [End to end Azure OpenAI keyless authentication AI template](https://github.com/Azure-Samples/azure-openai-keyless-js).
+Explore the JavaScript [End to end Azure OpenAI Keyless Authentication Building Block AI template](https://github.com/Azure-Samples/azure-openai-keyless-js).
 
 ### [Python](#tab/python)
 
-Explore the Python [End to end Azure OpenAI keyless authentication AI template](https://github.com/Azure-Samples/azure-openai-keyless-python).
+Explore the Python [End to end Azure OpenAI Keyless Authentication Building Block AI template](https://github.com/Azure-Samples/azure-openai-keyless-python).
 
 ---
 
