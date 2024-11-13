@@ -2,7 +2,7 @@
 title: Use keyless connections with Azure OpenAI
 description: Use keyless connections for authentication and authorization to Azure OpenAI.
 ms.topic: how-to
-ms.date: 11/12/2024
+ms.date: 11/13/2024
 ms.reviewer: scaddie
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python, passwordless-go, build-2024-intelligent-apps
 #customer intent: As a developer, I want to use keyless connections so that I don't leak secrets.
@@ -27,9 +27,9 @@ Authentication differs based on the environment in which the app is running:
 * [Local development](#authenticate-for-local-development)
 * [Azure](#authenticate-for-azure-hosted-environments)
 
-## Sample application
+## Azure OpenAI Keyless Building Block
 
-Use the following link to explore the keyless authentication building block AI template. This template provisions an Azure OpenAI account with your user account RBAC role permission for keyless (Microsoft Entra) authentication to access the OpenAI API SDKs.
+Use the following link to explore the Azure OpenAI Keyless Building Block AI template. This template provisions an Azure OpenAI account with your user account RBAC role permission for keyless (Microsoft Entra) authentication to access the OpenAI API SDKs.
 
 > [!NOTE]
 > This article uses one or more [AI app templates](./intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
@@ -106,7 +106,7 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
 
 ## Configure roles for authorization
 
-1. Find the [role](/azure/role-based-access-control/built-in-roles#ai--machine-learning) for your usage of Azure OpenAI. Depending on how you intend to set that role, you'll need either the name or ID. 
+1. Find the [role](/azure/role-based-access-control/built-in-roles#ai--machine-learning) for your usage of Azure OpenAI. Depending on how you intend to set that role, you need either the name or ID. 
 
     |Role name|Role ID|
     |--|--|
@@ -248,7 +248,7 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
 
 ## Configure environment variables
 
-To connect to Azure OpenAI, your code needs to know your resource endpoint, and _may_ need additional environment variables.
+To connect to Azure OpenAI, your code needs to know your resource endpoint, and _may_ need other environment variables.
 
 1. Create an environment variable for your Azure OpenAI endpoint. 
 
