@@ -292,8 +292,9 @@ az postgres flexible-server create \
    --resource-group pythoncontainer-rg \
    --name <postgres-server-name>  \
    --location <location> \
+   --admin-user demoadmin \
+   --admin-password <your-admin-password>
    --active-directory-auth Enabled \
-   --password-auth Disabled \
    --sku-name Standard_D2s_v3 \
    --public-access 0.0.0.0 
 ```
@@ -303,6 +304,15 @@ az postgres flexible-server create \
 * *\<postgres-server-name>* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure**. The server endpoint is "https://\<postgres-server-name>.postgres.database.azure.com". Allowed characters are "A"-"Z", "0"-"9", and "-".
 
 * *\<location>* &rarr; Use the same location used for the web app. *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
+
+* *\<admin-username>* &rarr; Username for the administrator account. It can't be "azure_superuser", "admin", "administrator", "root", "guest", or "public". Use "demoadmin" for this tutorial.
+
+* *\<admin-password>* Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
+
+    > [!IMPORTANT]
+    > When creating usernames or passwords **do not** use the "$" character. Later you create environment variables with these values where the "$" character has special meaning within the Linux container used to run Python apps.
+
+* *\<active-directory-auth>* Specifies whether Microsoft Entra ID authentication is enabled on the PostreSQL server. Set to `Enabled`.
 
 * `<sku-name>` &rarr; The name of the pricing tier and compute configuration, for example "Standard_D2s_v3". For more information, see [Azure Database for PostgreSQL pricing][24]. To list available SKUs, use `az postgres flexible-server list-skus --location <location>`.
 
