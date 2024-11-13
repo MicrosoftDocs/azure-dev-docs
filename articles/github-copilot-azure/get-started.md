@@ -24,6 +24,10 @@ To complete the steps in this article, make sure that you have:
 
 - The GitHub Copilot extension and the GitHub Copilot Chat extension. For instructions on how to install these extensions, see [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup) and [Getting started with GitHub Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/getting-started-chat), respectively.
 
+
+>[!IMPORTANT]
+>GitHub Copilot is not included in Visual Studio Subscriptions and is a separate subscription managed by GitHub. For questions regarding GitHub Copilot subscriptions and Support, see [Individual Subscriptions](https://docs.github.com/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-individual-subscription) or [Business subscriptions](https://docs.github.com/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-business-subscription).
+
 ## Install GitHub Copilot for Azure Preview
 
 1. In Visual Studio Code, select the **Extensions** icon.
