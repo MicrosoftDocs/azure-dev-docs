@@ -443,7 +443,7 @@
 | azure-toolkit-identity-lib | Maven [0.50.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-identity-lib/0.50.0/jar/) |  |  |
 | azure-toolkit-keyvault-lib | Maven [0.50.0](https://search.maven.org/artifact/com.microsoft.azure/azure-toolkit-keyvault-lib/0.50.0/jar/) |  |  |
 | azureml-fs-scala-impl | Maven [1.0.4](https://search.maven.org/artifact/com.microsoft.azure/azureml-fs-scala-impl/1.0.4/jar/) |  |  |
-| flink-connector-kusto | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/flink-connector-kusto/1.0.0/jar/) |  |  |
+| flink-connector-kusto | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure.kusto/flink-connector-kusto/1.0.2/jar/) |  |  |
 | Fuctions OpenAI | Maven [0.4.0-preview](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-openai/0.4.0-preview/jar/) |  |  |
 | hdi-oauth-token-utils | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure.hdinsight/hdi-oauth-token-utils/1.0.2/jar/) |  |  |
 | Java Library Redis | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.functions/azure-functions-java-library-redis/1.0.0/jar/) |  |  |
