@@ -461,17 +461,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
 
 ---
 
-## Create a user-assigned managed identity
-
-Create a user-assigned managed identity. In following sections, the managed identity is configured on the Azure Container App and is used to access the PostgreSQL database.
-
-1. Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity.
-
-    ```azurecli
-    az identity create --name my-ua-managed-id --resource-group pythoncontainer-rg
-    ```
-
-## Create a database on the server and add managed identity
+## Create a database on the server
 
 At this point, you have a PostgreSQL server. In this section, you create a database on the server.
 
@@ -522,6 +512,31 @@ Where:
 
 You could also use the [az postgres flexible-server connect][16] command to connect to the database and then work with [psql][15] commands. When working with psql, it's often easier to use the Azure [Cloud Shell][4] because all the dependencies are included for you in the shell.
 
+
+### [VS Code](#tab/create-database-vscode-aztools)
+
+These steps require the [Azure Databases extension][26] for VS Code.
+
+**Step 1.** In the **Azure** extension, find the PostgreSQL Server you created, right-click it, and select **Create Database**.
+
+**Step 2.** At the prompt, enter *restaurants_reviews* as the **Database Name**.
+
+If you have trouble creating the database, the server might still be processing the firewall rule from the previous step. Wait a moment and try again. If you're prompted to enter credentials to access the database, use the "demoadmin" username, and password you used to create the database.
+
+---
+
+You can also connect to Azure PostgreSQL Flexible server and create a database using [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or any other IDE that supports PostgreSQL.
+
+## Create a user-assigned managed identity and grant it permissions on the database
+
+Create a user-assigned managed identity and configure permissions for it on the PostgreSQL database.
+
+**Step 1.** Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity.
+
+```azurecli
+az identity create --name my-ua-managed-id --resource-group pythoncontainer-rg
+```
+
 **Step 2.** Get an access token for your Azure account with the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command. You use the access token in the following steps.
 
 ```azurecli
@@ -567,35 +582,7 @@ az postgres flexible-server execute \
     --admin-password $MY_ACCESS_TOKEN
 ```
 
-Alternate method:
-
-Copy and save the following SQL as *setuaperms.sql*. Make sure the value of the `managed_id` variable matches the name of your managed identity.
-
-```sql
-DO $$ 
-DECLARE
-    managed_id VARCHAR := 'my-ua-managed-id';
-BEGIN
-    EXECUTE format('GRANT CONNECT ON DATABASE restaurants_reviews TO %I', managed_id);
-    EXECUTE format('GRANT USAGE ON SCHEMA public TO %I', managed_id);
-    EXECUTE format('GRANT CREATE ON SCHEMA public TO %I', managed_id);
-    EXECUTE format('GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO %I', managed_id);
-    EXECUTE format('ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO %I', managed_id);
-END $$;
-```
-
-Then run the following command:
-
-```azurecli
-az postgres flexible-server execute \
-    --name <postgres-server-name> \
-    --database-name restaurants_reviews \
-    --file-path setuaperms.sql \
-    --admin-user <your-Azure-account-email> \
-    --admin-password $MY_ACCESS_TOKEN
-```
-
-* If you a different name for your managed identity, replace all instances of `my-ua-managed-id` in the command with the name of your managed identity. There are five in the query string.
+* If you a different name for your managed identity, replace all instances of `my-ua-managed-id` in the command with the name of your managed identity. There are five instances in the query string.
 
 * For the `--admin-user` value, use your Azure account email address.
 
@@ -613,20 +600,6 @@ GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "my-ua-managed-id";
 ALTER DEFAULT PRIVILEGES IN SCHEMA public
 GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "my-ua-managed-id";
 ```
-
-### [VS Code](#tab/create-database-vscode-aztools)
-
-These steps require the [Azure Databases extension][26] for VS Code.
-
-**Step 1.** In the **Azure** extension, find the PostgreSQL Server you created, right-click it, and select **Create Database**.
-
-**Step 2.** At the prompt, enter *restaurants_reviews* as the **Database Name**.
-
-If you have trouble creating the database, the server might still be processing the firewall rule from the previous step. Wait a moment and try again. If you're prompted to enter credentials to access the database, use the "demoadmin" username, and password you used to create the database.
-
----
-
-You can also connect to Azure PostgreSQL Flexible server and create a database using [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or any other IDE that supports PostgreSQL.
 
 ## Deploy the web app to Container Apps
 
@@ -675,7 +648,7 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
         az acr credential show -n <registry-name>
         ```
 
-        Use the username and one of the passwords returned from the output of the command.
+        You use the username and one of the passwords returned from the output of the command in step 6.
 
     :::column-end:::
 :::row-end:::
@@ -688,7 +661,7 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
         az identity show --name my-ua-managed-id --resource-group pythoncontainer-rg --query "[clientId, id]" --output tsv
         ```
         
-        Use the value of the client ID (GUID) and the resource ID output by the command. The resource ID has the following form: `/subscriptions/<subscription-id>/resourcegroups/pythoncontainer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-ua-managed-id`
+        You use the value of the client ID (GUID) and the resource ID output by the command in step 6. The resource ID has the following form: `/subscriptions/<subscription-id>/resourcegroups/pythoncontainer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-ua-managed-id`
         
     :::column-end:::
 :::row-end:::
@@ -696,22 +669,6 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
 :::row:::
     :::column span="1":::
         **Step 6.** Create a container app in the environment with the [az containerapp create][12] command.
-
-        ```azurecli
-        az containerapp create \
-        --name python-container-app \
-        --resource-group pythoncontainer-rg \
-        --image <registry-name>.azurecr.io/pythoncontainer:latest \
-        --environment python-container-env \
-        --ingress external \
-        --target-port <5000 for Flask or 8000 for Django> \
-        --registry-server <registry-name>.azurecr.io \
-        --registry-username <registry-username> \
-        --registry-password <registry-password> \
-        --user-assigned <managed-identity-resource-id> \
-        --env-vars <env-variable-string> \
-        --query properties.configuration.ingress.fqdn
-        ```
 
         ```azurecli
         az containerapp create \
@@ -734,14 +691,16 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
         AZURE_SECRET_KEY="<your-secret-key>"
         ```
 
-        *\<env-variable-string>* is a string composed of space-separated values in the key="value" format with the following values.
+        Make sure you replace all of the values in angle brackets with values you're using in this tutorial. Be aware that the name of your container app must be unique across Azure.
 
-        * DBHOST=\<postgres-server-name>
-        * DBNAME=restaurants_reviews
-        * DBUSER=my-ua-managed-id
-        * RUNNING_IN_PRODUCTION=1
-        * AZURE_CLIENT_ID=\<managed-identity-client-id>
-        * AZURE_SECRET_KEY=\<your-secret-key>
+        The value of the `--env-vars` parameter is a string composed of space-separated values in the key="value" format with the following values:
+
+        * DBHOST="<postgres-server-name>"
+        * DBNAME="restaurants_reviews"
+        * DBUSER="my-ua-managed-id"
+        * RUNNING_IN_PRODUCTION="1"
+        * AZURE_CLIENT_ID="<managed-identity-client-id>"
+        * AZURE_SECRET_KEY="<your-secret-key>"
 
         Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
 
@@ -749,7 +708,7 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
 
         Make sure the value for `AZURE_CLIENT_ID` is the client ID of your user-assigned managed identity 
 
-        Here's an example: `--env-vars DBHOST="my-postgres-server" DBNAME="restaurants_reviews" DBUSER="my-ua-managed-id" RUNNING_IN_PRODUCTION="1" AZURE_CLIENT_ID="00001111-aaaa-2222-bbbb-3333cccc4444" AZURE_SECRET_KEY="asdfasdfasdf"`.
+        Here's an example: `--env-vars DBHOST="my-postgres-server" DBNAME="restaurants_reviews" DBUSER="my-ua-managed-id" RUNNING_IN_PRODUCTION="1" AZURE_CLIENT_ID="00001111-aaaa-2222-bbbb-3333cccc4444" AZURE_SECRET_KEY="7ae88fb ... b2f45296d"`.
 
     :::column-end:::
 :::row-end:::
