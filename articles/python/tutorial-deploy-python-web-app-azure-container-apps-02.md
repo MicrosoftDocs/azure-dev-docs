@@ -512,7 +512,6 @@ Where:
 
 You could also use the [az postgres flexible-server connect][16] command to connect to the database and then work with [psql][15] commands. When working with psql, it's often easier to use the Azure [Cloud Shell][4] because all the dependencies are included for you in the shell.
 
-
 ### [VS Code](#tab/create-database-vscode-aztools)
 
 These steps require the [Azure Databases extension][26] for VS Code.
@@ -527,9 +526,9 @@ If you have trouble creating the database, the server might still be processing 
 
 You can also connect to Azure PostgreSQL Flexible server and create a database using [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or any other IDE that supports PostgreSQL.
 
-## Create a user-assigned managed identity and grant it permissions on the database
+## Create a user-assigned managed identity
 
-Create a user-assigned managed identity and configure permissions for it on the PostgreSQL database.
+Create a user-assigned managed identity. This managed identity will be used as the identity for the container app when running in Azure.
 
 **Step 1.** Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity.
 
@@ -537,7 +536,11 @@ Create a user-assigned managed identity and configure permissions for it on the 
 az identity create --name my-ua-managed-id --resource-group pythoncontainer-rg
 ```
 
-**Step 2.** Get an access token for your Azure account with the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command. You use the access token in the following steps.
+## Configure the managed identity on the PostgreSQL database
+
+Configure the managed identity as a role on the PostgreSQL server and then grant it necessary permissions for the *restaurants_reviews* database.
+
+**Step 1.** Get an access token for your Azure account with the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command. You use the access token in the following steps.
 
 ```azurecli
 az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken
@@ -549,7 +552,7 @@ The returned token is long. Set its value in an environment variable to use in t
 MY_ACCESS_TOKEN=<your-access-token>
 ```
 
-**Step 3.** Add the user-assigned managed identity as database role on your PostgreSQL server with the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
+**Step 2.** Add the user-assigned managed identity as database role on your PostgreSQL server with the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
 
 ```azurecli
 az postgres flexible-server execute \
@@ -571,7 +574,7 @@ az postgres flexible-server execute \
 > [!NOTE]
 > If you're running the *az postgres flexible-server execute* command on your local workstation, make sure you've added a firewall rule for your workstation's IP address. You can add a rule with the [az postgres flexible-server firewall-rule create][28] command. The same requirement also exists for the command in the next step.
 
-**Step 4.** Grant the user-assigned managed identity necessary permissions on the *restaurants_reviews* database with the following [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
+**Step 3.** Grant the user-assigned managed identity necessary permissions on the *restaurants_reviews* database with the following [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
 
 ```azurecli
 az postgres flexible-server execute \
