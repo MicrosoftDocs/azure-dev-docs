@@ -695,12 +695,12 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
 
         The value of the `--env-vars` parameter is a string composed of space-separated values in the key="value" format with the following values:
 
-        * DBHOST="<postgres-server-name>"
+        * DBHOST="\<postgres-server-name>"
         * DBNAME="restaurants_reviews"
         * DBUSER="my-ua-managed-id"
         * RUNNING_IN_PRODUCTION="1"
-        * AZURE_CLIENT_ID="<managed-identity-client-id>"
-        * AZURE_SECRET_KEY="<your-secret-key>"
+        * AZURE_CLIENT_ID="\<managed-identity-client-id>"
+        * AZURE_SECRET_KEY="\<your-secret-key>"
 
         Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
 
