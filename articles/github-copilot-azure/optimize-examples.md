@@ -45,7 +45,7 @@ The Online Experimentation GitHub Copilot extension plugin is a powerful tool de
 
 This includes two components: 
 
-- An ExP GitHub Copilot plugin for the @azure extension, which includes an ExP Chatbot. This chatbot assists with experimentation, generates feature flag code and metrics, and more. 
+- An experimentation copilot plugin for the @azure extension. This chatbot assists with experimentation, generates feature flag code and metric, helps evaluate and summarize experiment results, and more. 
 - A GitHub action that can be invoked as part of the AI development workflow in GitHub to start experiments and refresh and link to experiment results. 
 
 The goal of this project is to provide a seamless and efficient way for developers to conduct experiments and analyze results without leaving their development environment. It supports the creation and management of experiments and metrics, leveraging Azure services such as Azure App Config for configuration delivery and Azure AI for model monitoring metrics. 
