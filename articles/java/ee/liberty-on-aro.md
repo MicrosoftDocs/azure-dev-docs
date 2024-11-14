@@ -111,10 +111,10 @@ az mysql flexible-server create \
 ```
 
 > [!NOTE]
-> You create an Azure Database for MySQL Flexible Server with MySQL authentication. The best practice is to use [Microsoft Entra authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication) for connecting to the database server by using identities defined in Microsoft Entra ID, which is more secure and recommended. The reason why you use MySQL authentication in this guide is that the Azure Red Hat OpenShift cluster doesn't support [Microsoft Entra Workload ID](/entra/workload-id/workload-identities-overview) yet. The guide will be updated when the feature is available. To track the progress of this feature, see GitHub issue [Workload Identity support](https://github.com/Azure/OpenShift/issues/249).
+> This article guides you to create an Azure Database for MySQL Flexible Server with MySQL authentication. A more secure practice is to use [Microsoft Entra authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication) for authenticating the database server connection. Azure Red Hat OpenShift doesn't currently support [Microsoft Entra Workload ID](/entra/workload-id/workload-identities-overview), so MySQL authentication is the only available option.
 
 > [!NOTE]
-> If you receive an error message **No available SKUs in this location**, you need to specify a different location using the `--location` parameter and try again. Use the following command to list available SKUs in a specific location:
+> If you receive an error message **No available SKUs in this location**, specify a different location using the `--location` parameter and try again. Use the following command to list available SKUs in a specific location:
 >
 > ```azurecli
 > az mysql flexible-server list-skus --location <Location>
