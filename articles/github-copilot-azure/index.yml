@@ -29,6 +29,8 @@ landingContent:
         links:
           - text: Learn about Azure and your application
             url: learn-examples.md
+          - text: Design and develop your app
+            url: design-develop-examples.md
           - text: Deploy your app
             url: deploy-examples.md
           - text: Troubleshoot your app
