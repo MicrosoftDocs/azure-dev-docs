@@ -532,14 +532,6 @@ These steps require the [Azure Databases extension][26] for VS Code.
 
 If you have trouble creating the database, the server might still be processing the firewall rule from the previous step. Wait a moment and try again. If you're prompted to enter credentials to access the database, use the "demoadmin" username, and password you used to create the database.
 
-### [Azure portal](#tab/create-database-azure-portal)
-
-**Step 1.** On your PostgreSQL Flexible server instance in Azure portal, expand **Settings**, and select **Databases**.
-
-**Step 2.** At the top of the **Databases** window, select **Add**.
-
-**Step 3.** In the **Create Database** window, enter *restaurants_reviews* in the **Name** field and then select **Save**.
-
 ---
 
 You can also connect to Azure PostgreSQL Flexible server and create a database using [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or any other IDE that supports PostgreSQL.
