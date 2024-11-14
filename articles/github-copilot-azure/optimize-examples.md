@@ -39,6 +39,21 @@ If you want to use GitHub Copilot for Azure Preview for help with optimizing you
 |Azure App Service|<ul><li>"@azure Are any app code optimizations available?"</li><li>"@azure Show me how to optimize CPU usage for Azure App Service."</li><li>"@azure How do I optimize code for Azure App Service?"</li><li>"@azure What are the best practices for security in Azure?"</li></ul>|
 |Azure SQL|<ul><li>"@azure How can I optimize my Azure SQL database for better performance?"</li></ul>|
 
+## Prompts to evaluate AI models
+
+The Online Experimentation GitHub Copilot extension plugin is a powerful tool designed to streamline the process of online A/B model evaluation for AI application developers. This plugin is part of a broader initiative to enhance the developer experience by integrating experimentation capabilities directly into the development workflow. 
+
+This includes two components: 
+
+- An experimentation copilot plugin for the @azure extension. This chatbot assists with experimentation, generates feature flag code and metric, helps evaluate and summarize experiment results, and more. 
+- A GitHub action that can be invoked as part of the AI development workflow in GitHub to start experiments and refresh and link to experiment results. 
+
+The goal of this project is to provide a seamless and efficient way for developers to conduct experiments and analyze results without leaving their development environment. It supports the creation and management of experiments and metrics, leveraging Azure services such as Azure App Config for configuration delivery and Azure AI for model monitoring metrics. 
+
+The private preview of this plugin includes a code-first user experience in partnership with Azure App Config, enabling streamlined evaluation and experimentation in GitHub. This includes out-of-the-box model monitoring metrics and custom metrics. The public preview will evolve this into a full streamline integration and easy-to-use user experience in both App Config and AI Studio. 
+
+Azure AI evaluation is already publicly available, but if you are interested in trying out our online experimentation feature please [sign up for our private preview](https://aka.ms/genAI-CI-CD-private-preview) to learn more. 
+
 ## Related content
 
 - [Understand what GitHub Copilot for Azure Preview is and how it works](introduction.md).
