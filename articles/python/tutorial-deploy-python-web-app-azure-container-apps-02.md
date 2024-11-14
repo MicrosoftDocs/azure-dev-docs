@@ -550,6 +550,10 @@ az identity create --name my-ua-managed-id --resource-group pythoncontainer-rg
 
 Configure the managed identity as a role on the PostgreSQL server and then grant it necessary permissions for the *restaurants_reviews* database.
 
+### [Azure CLI](#tab/configure-database-azure-cli)
+
+You can use the Azure CLI anywhere it's installed, including the Azure [Cloud Shell][4].
+
 **Step 1.** Get an access token for your Azure account with the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command. You use the access token in the following steps.
 
 ```azurecli
@@ -613,6 +617,35 @@ GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "my-ua-managed-id";
 ALTER DEFAULT PRIVILEGES IN SCHEMA public
 GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "my-ua-managed-id";
 ```
+
+### [psql](#tab/configure-database-psql)
+
+You can use the PostgreSQL interactive terminal [psql][15] in your local environment, or in the [Azure Cloud Shell][4], which is also accessible in the [Azure portal][3]. When working with psql, it's often easier to use the [Cloud Shell][4] because all the dependencies are included for you in the shell.
+
+**Step 1.** Connect to the database with psql.
+
+```bash
+psql --host=<postgres-server-name>.postgres.database.azure.com \
+     --port=5432 \
+     --username=demoadmin@<postgres-server-name> \
+     --dbname=postgres
+```
+
+Where *\<postgres-server-name>* is the name of the PostgreSQL server. The command will prompt you for the admin password.
+
+If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
+
+**Step 2.** Create the database.
+
+At the `postgres=>` prompt type:
+
+```sql
+CREATE DATABASE restaurants_reviews;
+```
+
+The semicolon (";") at the end of the command is necessary. To verify that the database was successfully created, use the command `\c restaurants_reviews`. Type `\?` to show help or `\q` to quit.
+
+---
 
 ## Deploy the web app to Container Apps
 
