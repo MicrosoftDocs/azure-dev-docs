@@ -57,7 +57,7 @@
 | Digital Twins Definition Language Parser | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/dtdl-parser/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/dtdl-parser-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/dtdl-parser_1.0.0-beta.2/sdk/digitaltwins/dtdl-parser/) |
 | Document Intelligence | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/ai-document-intelligence/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-intelligence_1.0.0-beta.3/sdk/documentintelligence/ai-document-intelligence-rest/) |
 | Document Translation | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-document-translator/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-translator_1.0.0-beta.1/sdk/documenttranslator/ai-document-translator-rest/) |
-| Document Translation | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/ai-translation-document/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-translation-document_1.0.0-beta.2/sdk/translation/ai-translation-document-rest/) |
+| Document Translation | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/ai-translation-document/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-translation-document_1.0.0/sdk/translation/ai-translation-document-rest/) |
 | Event Grid | npm [5.8.0](https://www.npmjs.com/package/@azure/eventgrid/v/5.8.0) | [docs](/javascript/api/overview/azure/eventgrid-readme) | GitHub [5.8.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.8.0/sdk/eventgrid/eventgrid/) |
 | Event Grid Namespaces | npm [1.0.0](https://www.npmjs.com/package/@azure/eventgrid-namespaces/v/1.0.0) | [docs](/javascript/api/overview/azure/eventgrid-namespaces-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-namespaces_1.0.0/sdk/eventgrid/eventgrid-namespaces/) |
 | Event Grid System Events | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/eventgrid-system-events/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/eventgrid-system-events-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-system-events_1.0.0-beta.4/sdk/eventgrid/eventgrid-system-events/) |
@@ -401,7 +401,7 @@
 | tmlanguage-generator | npm [0.5.10](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.10) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.1.0) |  |  |
 | Unknown Display Name | npm [0.62.0](https://www.npmjs.com/package/@typespec/events/v/0.62.0) |  |  |
-| Unknown Display Name | npm [0.3.8](https://www.npmjs.com/package/@typespec/http-client-python/v/0.3.8) |  |  |
+| Unknown Display Name | npm [0.3.9](https://www.npmjs.com/package/@typespec/http-client-python/v/0.3.9) |  |  |
 | Unknown Display Name | npm [0.1.0-alpha.1](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.1) |  |  |
 | Unknown Display Name | npm [0.62.0](https://www.npmjs.com/package/@typespec/sse/v/0.62.0) |  |  |
 | Unknown Display Name | npm [0.62.0](https://www.npmjs.com/package/@typespec/streams/v/0.62.0) |  |  |
@@ -483,7 +483,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20241112.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20241112.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20241114.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20241114.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -564,7 +564,7 @@
 | AutoRest - Go | npm [4.0.0-preview.69](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.69) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.26.3](https://www.npmjs.com/package/@autorest/python/v/6.26.3) |  | GitHub [6.26.3](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.26.4](https://www.npmjs.com/package/@autorest/python/v/6.26.4) |  | GitHub [6.26.4](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
