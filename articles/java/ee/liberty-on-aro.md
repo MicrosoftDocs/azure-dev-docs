@@ -5,7 +5,7 @@ description: Shows you how to deploy a Java application with Open Liberty/WebSph
 author: KarlErickson
 ms.author: jiangma
 ms.topic: conceptual
-ms.date: 11/01/2024
+ms.date: 11/15/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java, linux-related-content
 ---
 
@@ -112,15 +112,14 @@ az mysql flexible-server create \
 
 > [!NOTE]
 > This article guides you to create an Azure Database for MySQL Flexible Server with MySQL authentication. A more secure practice is to use [Microsoft Entra authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication) for authenticating the database server connection. Azure Red Hat OpenShift doesn't currently support [Microsoft Entra Workload ID](/entra/workload-id/workload-identities-overview), so MySQL authentication is the only available option.
-
-> [!NOTE]
+>
 > If you receive an error message **No available SKUs in this location**, specify a different location using the `--location` parameter and try again. Use the following command to list available SKUs in a specific location:
 >
 > ```azurecli
-> az mysql flexible-server list-skus --location <Location>
+> az mysql flexible-server list-skus --location <location>
 > ```
 >
-> Find a location that has available SKUs and then repeat the preceding `az mysql flexible-server create` command, but append the appropriate `--location <Location>` parameter, leaving all the other parameters unchanged.
+> Find a location that has available SKUs and then repeat the preceding `az mysql flexible-server create` command, but append the appropriate `--location <location>` parameter, leaving all the other parameters unchanged.
 
 It takes a few minutes to create the server, database, admin user, and firewall rule that accepts connections from all Azure resources. If the command is successful, the output looks similar to the following example:
 
