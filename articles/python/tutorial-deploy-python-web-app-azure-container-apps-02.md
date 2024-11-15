@@ -961,7 +961,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** Select **+ Create** to start the create process.
+        **Step 2.** Select **+ Create** and then **+ Container App** from the drop-down to start the create process.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-02.png" alt-text="Screenshot showing how to start the create process for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-02.png":::
@@ -976,7 +976,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         * **Region** &rarr; Use the same region/location as the resource group.
         * **Container Apps Environment** &rarr; Select **Create new** to create a new environment named *python-container-env*.
         
-        Select **Next: App settings** to continue configuration.        
+        Select **Next: Container** to continue configuration.        
 
     :::column-end:::
     :::column:::
@@ -985,7 +985,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** On the **App settings** page, continue configuring the container app.
+        **Step 4.** On the **Container** page, continue configuring the container app.
         
         * **Use quickstart image** &rarr; Unselect checkbox.        
         * **Name** &rarr; *python-container-app*.
@@ -993,6 +993,31 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         * **Registry** &rarr; Select the name of registry you created earlier.        
         * **Image name** &rarr; Select *pythoncontainer* (the name of the image you built).
         * **Image tag** &rarr; Select *latest*.        
+        * **HTTP Ingress** &rarr;  Select checkbox (enabled).        
+        * **Ingress traffic** &rarr; Select **Accepting traffic from anywhere**.        
+        * **Target port**&rarr; Set to 8000 for Django or 5000 for Flask.
+        
+        Under **Environment variables**, enter values for the following variables:
+        * DBHOST="\<postgres-server-name>"
+        * DBNAME="restaurants_reviews"
+        * DBUSER="my-ua-managed-id"
+        * RUNNING_IN_PRODUCTION="1"
+        * AZURE_CLIENT_ID="\<managed-identity-client-id>"
+        * AZURE_SECRET_KEY="\<your-secret-key>"
+ 
+        Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
+
+        Select **Next: Ingress** to continue.
+
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-04.png" alt-text="Screenshot showing how to the configure app settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-04.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4.** On the **Ingress** page, continue configuring the container app.
+        
         * **HTTP Ingress** &rarr;  Select checkbox (enabled).        
         * **Ingress traffic** &rarr; Select **Accepting traffic from anywhere**.        
         * **Target port**&rarr; Set to 8000 for Django or 5000 for Flask.
@@ -1010,6 +1035,24 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-05.png" alt-text="Screenshot showing the resource deployment complete page for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-05.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 6.** Add the user-assigned managed identity to the container app.
+
+        * Under **Settings**, select **Identity** on the newly created container.
+        * Then select the **User assigned** tab.
+        * Under the **User assigned** tab, select **+ Add**.
+        * On the **Add user assigned managed identity** page, select *my-ua-managed-identity* then select **Add**.
+        * When the operation completes, you're returned to the **User assigned** tab. Verify that *my-ua-managed-id* appears in the list of identities.
+        
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-06.png" alt-text="Screenshot showing how to edit a Azure Containers Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-06.png":::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-07.png" alt-text="Screenshot showing how to create a new Azure Container Apps container revision in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-07.png":::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-08.png" alt-text="Screenshot showing how to add environment variables to an Azure Container Apps revision in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-08.png"::: 
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-09.png" alt-text="Screenshot showing how to finish creating revision of an Azure Container Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-09.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
