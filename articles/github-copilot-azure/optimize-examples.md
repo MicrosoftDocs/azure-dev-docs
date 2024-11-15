@@ -32,9 +32,9 @@ This includes two components:
 
 The goal of this project is to provide a seamless and efficient way for developers to conduct experiments and analyze results without leaving their development environment. It supports the creation and management of experiments and metrics, leveraging Azure services such as Azure App Config for configuration delivery and Azure AI for model monitoring metrics. 
 
-The private preview of this plugin includes a code-first user experience in partnership with Azure App Config, enabling streamlined evaluation and experimentation in GitHub. This includes out-of-the-box model monitoring metrics and custom metrics. The public preview will evolve this into a full streamline integration and easy-to-use user experience in both App Config and AI Studio. 
+The preview of this plugin includes a code-first user experience in partnership with Azure App Config, enabling streamlined evaluation and experimentation in GitHub. This includes out-of-the-box model monitoring metrics and custom metrics. The public preview will evolve this into a full streamline integration and easy-to-use user experience in both App Config and AI Studio. 
 
-Azure AI evaluation is already publicly available, but if you are interested in trying out our online experimentation feature please [sign up for our private preview](https://aka.ms/genAI-CI-CD-private-preview) to learn more. 
+Azure AI evaluation is already publicly available, but if you are interested in trying out our online experimentation feature please [sign up for our preview](https://aka.ms/genAI-CI-CD-private-preview) to learn more. 
 
 ## Related content
 
