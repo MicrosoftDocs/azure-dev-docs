@@ -18,13 +18,14 @@ In this quickstart, you explore a multi-agent creative writing assistant app tha
 By following the instructions in this article, you will:
 
 - Deploy an Azure Container multi-agent chat app that uses managed identity for authentication.
-- Setup and test the local web app with the multi-agent workflow orchestration 
+- Run the web app with the multi-agent workflow orchestration.
+- Explore and understand the app architecture and implementation.
 
 Once you complete this article, you can start modifying the new project with your custom code.
 
 This article uses one or more [AI app templates](./intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
-### Architectural overview
+## Architectural overview
 
 A simple architecture of the chat app is shown in the following diagram:
 :::image type="content" source="./media/get-started-multiagents/simple-architecture-diagram.png" lightbox="./media/get-started-multiagents/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
