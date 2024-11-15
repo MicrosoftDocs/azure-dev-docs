@@ -61,9 +61,9 @@ To use this article, you need to fulfill the following prerequisites:
 
 - Azure account permissions - Your Azure Account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
  
-- Azure subscription with access enabled for [Bing Search API](https://www.microsoft.com/en-us/bing/apis/bing-web-search-api)
+- Azure subscription with access enabled for [Bing Search API](https://www.microsoft.com/bing/apis/bing-web-search-api)
 
-- Azure subscription with access enabled for [Azure AI Search](https://azure.microsoft.com/en-gb/products/ai-services/ai-search)
+- Azure subscription with access enabled for [Azure AI Search](https://azure.microsoft.com/products/ai-services/ai-search)
 
 - GitHub account
 
@@ -177,7 +177,7 @@ The sample repository contains all the code and configuration files for the chat
     ```
 
 > [!NOTE]
-> This project uses `gpt-35-turbo-0613`,`gpt-4-1106-Preview` and `gpt-4o-2024-05-13` which may not be available in all Azure regions. Check for [up-to-date region availability](https://learn.microsoft.com/azure/ai-services/openai/concepts/models#standard-deployment-model-availability) and select a region during deployment accordingly. We recommend using `Canada East` for this project.
+> This project uses `gpt-35-turbo-0613`,`gpt-4-1106-Preview` and `gpt-4o-2024-05-13` which may not be available in all Azure regions. Check for [up-to-date region availability](/azure/ai-services/openai/concepts/models#standard-deployment-model-availability) and select a region during deployment accordingly. We recommend using `Canada East` for this project.
 
 1. After running `azd up`, you might be asked the following question during `Github Setup`:
 
