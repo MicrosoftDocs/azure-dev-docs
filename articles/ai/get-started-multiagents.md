@@ -247,7 +247,7 @@ Create an article by entering the contextual information in the `Get Started` ta
 
 1. Begin the workflow by selecting the `Get to Work!` button.
 
-    :::image type="content" source="./media/get-started-multiagents/get-started-page.png" lightbox="./media/get-started-multiagents/get-started-page.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+    :::image type="content" source="./media/get-started-multiagents/get-started-page.png" lightbox="./media/get-started-multiagents/get-started-page.png" alt-text="Screenshot of the 'Get Started' page, showing an introduction and steps to begin using the application.":::
 
 ### Examine the Creative team agent workflow progress and results
 
