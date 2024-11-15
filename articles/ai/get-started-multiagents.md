@@ -253,7 +253,7 @@ Create an article by entering the contextual information in the `Get Started` ta
 
 1. The 'Creative Team' tab displays the workflow progress and the results of each agent. Examine each agent's results by clicking on it. The app should look like this while the workflow is running:
 
-    :::image type="content" source="./media/get-started-multiagents/creative-team-agents.png" lightbox="./media/get-started-multiagents/creative-team-agents.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+    :::image type="content" source="./media/get-started-multiagents/creative-team-agents.png" lightbox="./media/get-started-multiagents/creative-team-agents.png" alt-text="Illustration of the creative team agents, depicting various roles such as writer, researcher, and editor collaborating on a project.":::
 
 Change the instructions and context to create an article of your choice.
 
