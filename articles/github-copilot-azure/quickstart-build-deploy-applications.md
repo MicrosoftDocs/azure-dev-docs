@@ -138,6 +138,7 @@ Use `azd down` to remove the website and all resources that you deployed to your
 - [Understand what GitHub Copilot for Azure Preview is and how it works](introduction.md).
 - [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
+- See example prompts for [designing and developing applications for Azure](design-develop-examples.md).
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
 - See example prompts for [optimizing your applications in Azure](optimize-examples.md).
 - See example prompts for [troubleshooting your Azure resources](troubleshoot-examples.md).
