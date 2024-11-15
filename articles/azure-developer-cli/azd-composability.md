@@ -11,16 +11,24 @@ ms.custom: devx-track-azdevcli, devx-track-bicep
 
 # Get started with the Azure Developer CLI compose feature
 
-The Azure Developer CLI (`azd`) compose feature enables you to progressively compose the Azure resources required by your app without manually writing Bicep code. Compose also uses [Azure Verified Modules (AVM)](https://aka.ms/avm) when possible, providing recommended practices using building blocks for Azure that are secure by design. In this article, you learn how to work with the compose feature and explore what functionality it provides for you.
+The Azure Developer CLI (`azd`) compose feature enables you to progressively compose the Azure resources required by your app without manually writing Bicep code. Compose also uses [Azure Verified Modules (AVM)](https://aka.ms/avm) when possible, providing recommended practices using building blocks for Azure that are secure by design.
+
+In this article, you learn:
+
+- Key concepts about the `azd` compose feature
+- How to work with the compose feature
+
+> [!NOTE]
+> The `azd` compose feature is currently in alpha. Visit the [azd feature stages](https://aka.ms/azd-feature-stages) page for more information.
 
 ## What is the compose feature?
 
 The Azure Developer CLI is built around reusable [templates](/azure/developer/azure-developer-cli/azd-templates), which define resources and services that should be provisioned and deployed on Azure. Before the compose feature, developers had two primary options to configure which Azure resources `azd` templates should provision and deploy:
 
-1. Locate a template that provisions the resources they required using an existing template from a template gallery such as [Awesome AZD]().
-1. Manually write custom Bicep or Terraform files in the `infra` folder to define the exact resources that should be created in Azure.
+1. Locate and customize an existing template that provisions the required resources from a template gallery such as [Awesome AZD](https://azure.github.io/awesome-azd/).
+1. Manually write custom Bicep or Terraform files in the `infra` folder to define the exact required Azure resources.
 
-However, the `azd` compose feature provides developers with a third option to add resources to their apps. Developers use the `azd add` command to instruct `azd` to compose new Azure resources and update template configurations using simple prompt workflows. This feature is particularly useful for developers who want to avoid writing Bicep or using an existing template.
+However, the `azd` compose feature provides developers with a third option to add Azure resources to their apps. Developers use the `azd add` command to instruct `azd` to compose new Azure resources and update template configurations using simple prompt workflows. This feature is particularly useful for developers who want to avoid writing Bicep or using an existing template.
 
 The `azd compose` feature supports adding resources for the following Azure Services:
 
@@ -42,7 +50,7 @@ azd config set alpha.compose on
 
 ## Work with the compose feature
 
-Access `azd` compose features through the [`azd add`](/azure/developer/azure-developer-cli/reference#azd-add) command. The `azd add` command works with new or existing templates creating using one of the various [template creation workflows](/azure/developer/azure-developer-cli/make-azd-compatible).
+Access `azd` compose features through the [`azd add`](/azure/developer/azure-developer-cli/reference#azd-add) command. The `azd add` command works with new or existing templates created using one of the various [template creation workflows](/azure/developer/azure-developer-cli/make-azd-compatible).
 
 Complete the following steps to add new resources to your template without writing any code:
 
@@ -65,9 +73,41 @@ Complete the following steps to add new resources to your template without writi
 
 1. For the type of database, select `PostgreSQL`.
 
+    ```output
+    ? Which type of database?  [Use arrows to move, type to filter]
+      MongoDB
+    > PostgreSQL
+      Redis
+    ```
+
 1. Enter a name for the new resource.
 
-1. `azd` generates a preview of the changes it will apply to the `azure.yaml` file. Press enter to accept the changes.
+    ```output
+    ? Input the name of the app database (PostgreSQL)
+    ```
+
+1. If your app contains a service(s), `azd` prompts you to select the service(s) that uses this resource.
+
+    ```output
+    ? Select the service(s) that uses this resource
+    > [✓]  src
+    ```
+
+1. `azd` generates a preview of the changes it will apply to the `azure.yaml` file. Press enter to accept and apply the changes.
+
+    ```output
+    Previewing changes to azure.yaml:
+    
+    +  azddata:
+    +      type: db.postgres
+    
+       src:
+           type: host.containerapp
+           uses:
+               - azddb
+    +          - azddata
+           port: 80
+    ```
 
 1. Run the `azd up` command to provision any changes made through the `azd add` command.
 
