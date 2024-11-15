@@ -38,6 +38,10 @@ items:
           href: intelligent-app-templates.md 
         - name: Secure your AI App with keyless authentication
           href: get-started-securing-your-ai-app.md
+        - name: Agents
+          items:
+            - name: Get started with multi-agent applications
+              href: get-started-multiagents.md
         - name: Chat with your data
           items:
             - name: Python
