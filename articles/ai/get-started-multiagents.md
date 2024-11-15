@@ -114,7 +114,13 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
     azd auth login
     ```
 
-1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
+1. Sign in to Azure with the Azure CLI in the terminal at the bottom of the screen.
+
+    ```bash
+    az login --use-device-code
+    ```
+
+1. Open the URL from the terminal, then copy the code from the terminal and then paste it into that URL you just opened. Follow the instructions to authenticate with your Azure account.
 
 The remaining tasks in this article take place in the context of this development container.
 
@@ -152,10 +158,19 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. Sign in to Azure with the Azure Developer CLI.
 
     ```azdeveloper
-    azd auth login --use-device-code
+    azd auth login
     ```
 
-    This command creates a folder under `.azure/` in your project to store the deployment configuration.
+1. Sign in to Azure with the Azure CLI.
+
+    ```bash
+    az login --use-device-code
+    ```
+
+1. Open the URL from the terminal, then copy the code from the terminal and then paste it into that URL you just opened. Follow the instructions to authenticate with your Azure account.
+
+> [!NOTE]
+> The `az login` command creates a folder under `.azure/` in your project to store the deployment configuration.
 
 1. The remaining exercises in this project take place in the context of this development container.
 
