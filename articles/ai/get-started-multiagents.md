@@ -153,6 +153,14 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     azd init -t agent-openai-python-prompty
     ```
 
+1. Install required packages.
+
+    ```bash
+    cd src/api
+    pip install -r requirements.txt
+    ```
+
+
 1. Open the Command Palette, search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing.
 
 1. Sign in to Azure with the Azure Developer CLI.
@@ -254,11 +262,12 @@ Once the `FastAPI` server is running, start the web app.
 
 ### Using orchestrated agents to create an article
 
-Create an article by entering the contextual information in the `Get Started` tab of the running Contoso Creative Writer App, as in the following screenshot.
+Create an article by using the example in the running Contoso Creative Writer App
 
-1. Enter a question or what the creative team should know in the _Context_ text box, such as: `Can you find the latest camping trends and what folks are doing in the winter?`.
+1.Click the `Example` button to add some example data, as in the following screenshot.
 
-1. Enter specific instructions in the _Instructions_ text box, such as: `Find the relevant information needed and good places to visit.`.
+    :::image type="content" source="./media/get-started-multiagents/select-example-button.png" lightbox="./media/get-started-multiagents/select-example-button.png" alt-text="Screenshot of the 'Contoso Creative Writer' App, showing an introduction and steps to begin using the application.":::
+
 
 1. Begin the workflow by selecting the `Get to Work!` button.
 
