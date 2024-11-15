@@ -540,15 +540,43 @@ You can also connect to Azure PostgreSQL Flexible server and create a database u
 
 Create a user-assigned managed identity. This managed identity will be used as the identity for the container app when running in Azure.
 
+> [!NOTE]
+> To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+
+### [Azure CLI](#tab/azure-cli)
+
+Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation with the [Azure CLI][7] installed.
+
 **Step 1.** Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity.
 
 ```azurecli
 az identity create --name my-ua-managed-id --resource-group pythoncontainer-rg
 ```
 
+### [VS Code](#tab/vscode-aztools)
+
+Either open a terminal window and follow the steps for Azure CLI or follow the steps for [Azure portal][3].
+
+### [Azure portal](#tab/azure-portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the search box, enter **Managed Identities**. Under **Services**, select **Managed Identities**.
+1. Select **Add**, and enter values in the following boxes in the **Create User Assigned Managed Identity** pane:
+    - **Subscription**: Choose the subscription you're using for the resources in this tutorial.
+    - **Resource group**: Enter the resource group for this tutorial; *pythoncontainer-rg*.
+    - **Region**: Choose the region you're using for the resources in this tutorial.
+    - **Name**: Enter the name for your user-assigned managed identity. For this tutorial, use: *my-ua-managed-id*. You can use a different name, but the commands in this tutorial assume *my-ua-managed-id*. If you use a different name, you'll have to change it in other commands.
+
+   :::image type="content" source="media/tutorial-container-apps/create-user-assigned-managed-identity-portal.png" alt-text="Screenshot that shows the Create User Assigned Managed Identity pane.":::
+
+1. Select **Review + create** to review the changes.
+1. Select **Create**.
+
+---
+
 ## Configure the managed identity on the PostgreSQL database
 
-Configure the managed identity as a role on the PostgreSQL server and then grant it necessary permissions for the *restaurants_reviews* database.
+Configure the managed identity as a role on the PostgreSQL server and then grant it necessary permissions for the *restaurants_reviews* database. Whether using the Azure CLI or psql, you must connect to the Azure PostgreSQL server with user that is configured as a Microsoft Entra admin on your server instance. Only Microsoft Entra accounts configured as a PostreSQL admin can configure managed identities and other Microsoft Admin roles on your server.
 
 ### [Azure CLI](#tab/configure-database-azure-cli)
 
@@ -622,28 +650,69 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "my-ua-managed-id";
 
 You can use the PostgreSQL interactive terminal [psql][15] in your local environment, or in the [Azure Cloud Shell][4], which is also accessible in the [Azure portal][3]. When working with psql, it's often easier to use the [Cloud Shell][4] because all the dependencies are included for you in the shell.
 
-**Step 1.** Connect to the database with psql.
+**Step 1.** Connect to the database with psql with an Azure account previously configured as a Microsoft Entra admin on your server. If you've been following the steps in this tutorial, your Azure account is already configured as an admin on the server.
 
 ```bash
 psql --host=<postgres-server-name>.postgres.database.azure.com \
      --port=5432 \
-     --username=demoadmin@<postgres-server-name> \
+     --username=<your-azure-email-address> \
      --dbname=postgres
+     --sslmode=require
 ```
 
-Where *\<postgres-server-name>* is the name of the PostgreSQL server. The command will prompt you for the admin password.
+Where *\<postgres-server-name>* is the name of the PostgreSQL server and *\<your-azure-email-address>* is the email address of your Azure account. The command prompts you for your Azure account password.
+
+If you're working in Azure Cloud Shell or if you have the Azure CLI installed on your local system, you can use the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command to get an access token that you can copy and enter as the password.
+
+```azurecli
+az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken
+```
+
+Or, you can combine the psql and Azure CLI commands:
+
+```bash
+psql "host=<postgres-server-name>.postgres.database.azure.com port=5432 dbname=postgres user=<your-azure-email-address> password='$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)' sslmode=require"
+```
+
+Be sure to replace the *\<postgres-server-name>* and *\<your-azure-email-address>* placeholders before running the command.
 
 If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
 
-**Step 2.** Create the database.
+**Step 2.** Add the user-assigned managed identity as database role on your PostgreSQL server.
 
-At the `postgres=>` prompt type:
+At the `postgres=>` prompt enter:
 
 ```sql
-CREATE DATABASE restaurants_reviews;
+SELECT * FROM pgaadauth_create_principal('my-ua-managed-id', false, false);SELECT * FROM pgaadauth_list_principals(false);
 ```
 
-The semicolon (";") at the end of the command is necessary. To verify that the database was successfully created, use the command `\c restaurants_reviews`. Type `\?` to show help or `\q` to quit.
+The semicolon (";") at the end of each command is necessary. To verify that the database was successfully created, use the command `\c restaurants_reviews`. Type `\?` to show help or `\q` to quit.
+
+**Step 3.** Connect to the *restaurants_reviews* database using the `\c` (Connect) command.
+
+```SQL
+\c restaurants_reviews
+```
+
+> [!NOTE]
+> If you haven't yet created the *restaurants_reviews* database, you can do so with the following command:
+>
+> ```sql
+> CREATE DATABASE resaurants_reviews
+> ```
+
+**Step 4.** Grant the user-assigned managed identity necessary permissions on the *restaurants_reviews* database.
+
+At the `restaurants_reviews_=>` prompt enter the following commands:
+
+```sql
+GRANT CONNECT ON DATABASE restaurants_reviews TO "my-ua-managed-id";
+GRANT USAGE ON SCHEMA public TO "my-ua-managed-id";
+GRANT CREATE ON SCHEMA public TO "my-ua-managed-id";
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "my-ua-managed-id";
+ALTER DEFAULT PRIVILEGES IN SCHEMA public
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "my-ua-managed-id";
+```
 
 ---
 
