@@ -101,7 +101,7 @@ Use the following instructions to deploy a preconfigured development environment
 > [!IMPORTANT]
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
-Use the following steps to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/openai-chat-vision-quickstart`](https://github.com/Azure-Samples/contoso-creative-writer) GitHub repository.
+Use the following steps to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/contoso-creative-writer`](https://github.com/Azure-Samples/contoso-creative-writer) GitHub repository.
 
 1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
 
@@ -225,47 +225,16 @@ The sample repository contains all the code and configuration files for the chat
 
 1. Wait until app is deployed. Deployment usually takes between 5 and 10 minutes to complete.
 
-## Run the example web app locally using a `FastAPI` webserver
+## Using orchestrated agents to create an article
 
-### Start the local FastAPI webserver
+1. The terminal displays two Container App URLs after successful application deployment.
 
-1. In the directory containing your local repository, navigate to the `src/api` folder.
+- The `agent-web` Container App (The frontend)
+- The `agent-api` Container App (The backend)
 
-    ```bash
-    cd ./src/api
-    ```
+1. Select the `agent-web` Container App URL to open the **Contoso Creative Writer** application in a browser.
 
-1. Launch the `FastAPI` webserver.
-
-    ```bash
-    fastapi dev main.py
-    ```
-
-### Run the local Creative Writer web app
-
-Once the `FastAPI` server is running, start the web app.
-
-1. Open a new terminal window and navigate to the web folder using this command:
-
-    ```bash
-    cd ./src/web
-    ```
-
-1. Install the required node packages:
-
-     ```bash
-    npm install
-    ```
-
-1. Run the local web app in the local `FastAPI` `dev` webserver:
-
-     ```bash
-    npm run dev
-    ```
-
-### Using orchestrated agents to create an article
-
-Create an article by using the example in the running Contoso Creative Writer App
+### Create an article by using the example in the running Contoso Creative Writer App
 
 1. Click the `Example` button to add some example data, as in the following screenshot.
 
@@ -279,7 +248,7 @@ Create an article by using the example in the running Contoso Creative Writer Ap
 
     :::image type="content" source="./media/get-started-multiagents/select-start-work-button.png" lightbox="./media/get-started-multiagents/select-start-work-button.png" alt-text="Screenshot of the 'Get Started' page, showing an introduction and steps to begin using the application.":::
 
-#### Examine the Creative team agent workflow progress and results
+### Examine the Creative team agent workflow progress and results
 
 1. The right side panel displays the workflow progress and the results of each agent. Examine each agent's results by clicking on it. The app should look like this while the workflow is running:
 
@@ -794,4 +763,7 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 
 Log your issue to the repository's [Issues](https://github.com/Azure-Samples/contoso-creative-writer/issues).
 
-## Next steps
+## Resources for further study
+
+- [Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks](https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/?msockid=077b8d5b355a6b170bba999334d46aa3)
+- [AutoGen - An Open-Source Programming Framework for Agentic AI](https://www.microsoft.com/research/project/autogen/)
