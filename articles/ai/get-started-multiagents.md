@@ -264,22 +264,27 @@ Once the `FastAPI` server is running, start the web app.
 
 Create an article by using the example in the running Contoso Creative Writer App
 
-1.Click the `Example` button to add some example data, as in the following screenshot.
+1. Click the `Example` button to add some example data, as in the following screenshot.
 
-    :::image type="content" source="./media/get-started-multiagents/select-example-button.png" lightbox="./media/get-started-multiagents/select-example-button.png" alt-text="Screenshot of the 'Contoso Creative Writer' App, showing an introduction and steps to begin using the application.":::
+    :::image type="content" source="./media/get-started-multiagents/select-example-button.png" lightbox="./media/get-started-multiagents/select-example-button.png" alt-text="Screenshot of the Contoso Creative Writer App, showing an introduction and steps to begin using the application.":::
 
+1. Click the small bug button (bottom right of page) to show the agent and task workflow progress panel.
 
-1. Begin the workflow by selecting the `Get to Work!` button.
+    :::image type="content" source="./media/get-started-multiagents/select-debug-button.png" lightbox="./media/get-started-multiagents/select-debug-button.png" alt-text="Screenshot of the 'Contoso Creative Writer' App, showing the button on the bottom right of page to show the agent and task workflow progress panel.":::
 
-    :::image type="content" source="./media/get-started-multiagents/get-started-page.png" lightbox="./media/get-started-multiagents/get-started-page.png" alt-text="Screenshot of the 'Get Started' page, showing an introduction and steps to begin using the application.":::
+1. Click the `Start Work` button to begin the workflow.
 
-### Examine the Creative team agent workflow progress and results
+    :::image type="content" source="./media/get-started-multiagents/select-start-work-button.png" lightbox="./media/get-started-multiagents/select-start-work-button.png" alt-text="Screenshot of the 'Get Started' page, showing an introduction and steps to begin using the application.":::
 
-1. The 'Creative Team' tab displays the workflow progress and the results of each agent. Examine each agent's results by clicking on it. The app should look like this while the workflow is running:
+#### Examine the Creative team agent workflow progress and results
 
-    :::image type="content" source="./media/get-started-multiagents/creative-team-agents.png" lightbox="./media/get-started-multiagents/creative-team-agents.png" alt-text="Illustration of the creative team agents, depicting various roles such as writer, researcher, and editor collaborating on a project.":::
+1. The right side panel displays the workflow progress and the results of each agent. Examine each agent's results by clicking on it. The app should look like this while the workflow is running:
 
-Change the instructions and context to create an article of your choice.
+    :::image type="content" source="./media/get-started-multiagents/show-workflow-progress.png" lightbox="./media/get-started-multiagents/show-workflow-progress.png" alt-text="Screenshot of the 'Contoso Creative Writer' App, showing the agent and task workflow progress in the right side of page panel.":::
+
+1. During the workflow progress, your article will generate and stream on the page:
+
+    :::image type="content" source="./media/get-started-multiagents/finished-workflow.png" lightbox="./media/get-started-multiagents/finished-workflow.png" alt-text="Screenshot of the 'Contoso Creative Writer' App, showing the agent and task workflow progress in the right side of page panel and the completed article in the middle.":::
 
 ## Exploring the sample code
 
