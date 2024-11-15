@@ -38,8 +38,6 @@ The `azd compose` feature supports adding resources for the following Azure Serv
 - Azure Cosmos DB for PostgreSQL
 - Azure Cache for Redis
 
-Future releases will support additional Azure services.
-
 ## Enable the compose feature
 
 The `azd` compose feature is currently in alpha, which means you'll need to enable it manually. Visit the [azd feature stages](https://aka.ms/azd-feature-stages) page for more information.
@@ -90,7 +88,7 @@ Complete the following steps to add new resources to your template without writi
 
     ```output
     ? Select the service(s) that uses this resource
-    > [✓]  src
+    > [✓]  webfrontend
     ```
 
 1. `azd` generates a preview of the changes it will apply to the `azure.yaml` file. Press enter to accept and apply the changes.
@@ -101,7 +99,7 @@ Complete the following steps to add new resources to your template without writi
     +  azddata:
     +      type: db.postgres
     
-       src:
+       webfrontend:
            type: host.containerapp
            uses:
                - azddb
@@ -143,13 +141,13 @@ resources:
 - The `services` node declares:
     - A deployment mapping named `webfrontend` between a .NET web app in the `src` directory and Azure Container Apps.
 - The `resources` node declares:
-    - A matching dependency mapping named `webfrontend` between the hosted .NET container app and the database and AI service it depends on. The `uses` attribute maps the app to the other resources it depends on.
+    - A matching dependency mapping named `webfrontend` between the hosted .NET container app and the database and AI service it depends on. The `uses` node maps the app to the other resources it depends on.
     - An Azure Database for PostgreSQL resource named `azdsql`.
     - An Azure OpenAI resource named `azdchat`.
 
 ### Generate the Bicep Code
 
-If you'd like to explore or customize the Bicep used internally to provision the resources created by `azd add`, run the `azd infra synth` command:
+If you'd like to explore or customize the Bicep used internally by `azd` to provision the resources created by `azd add`, run the `azd infra synth` command:
 
 ```bash
 azd infra synth
