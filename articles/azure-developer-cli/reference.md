@@ -3,7 +3,7 @@ title: Azure Developer CLI reference
 description: This article explains the syntax and parameters for the various Azure Developer CLI commands.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.date: 10/17/2024
+ms.date: 11/13/2024
 ms.service: azure-dev-cli
 ms.topic: conceptual
 ms.custom: devx-track-azdevcli
@@ -29,6 +29,7 @@ The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and ma
 
 ### See also
 
+* [azd add](#azd-add): Add a component to your project. (Alpha)
 * [azd auth](#azd-auth): Authenticate with Azure.
 * [azd config](#azd-config): Manage azd configurations (ex: default Azure subscription, location).
 * [azd deploy](#azd-deploy): Deploy the application's code to Azure.
@@ -45,6 +46,33 @@ The Azure Developer CLI (`azd`) is an open-source tool that helps onboard and ma
 * [azd template](#azd-template): Find and view template details. (Beta)
 * [azd up](#azd-up): Provision Azure resources, and deploy your project with a single command.
 * [azd version](#azd-version): Print the version number of Azure Developer CLI.
+
+## azd add
+
+Add a component to your project. (Alpha)
+
+```azdeveloper
+azd add [flags]
+```
+
+### Options
+
+```azdeveloper
+      --docs   Opens the documentation for azd add in your web browser.
+  -h, --help   Gets help for add.
+```
+
+### Options inherited from parent commands
+
+```azdeveloper
+  -C, --cwd string   Sets the current working directory.
+      --debug        Enables debugging and diagnostics logging.
+      --no-prompt    Accepts the default value instead of prompting, or it fails if there is no default.
+```
+
+### See also
+
+* [Back to top](#azd)
 
 ## azd auth
 
@@ -1007,6 +1035,7 @@ azd show [flags]
       --docs                 Opens the documentation for azd show in your web browser.
   -e, --environment string   The name of the environment to use.
   -h, --help                 Gets help for show.
+      --show-secrets         Unmask secrets in output.
 ```
 
 ### Options inherited from parent commands
@@ -1135,10 +1164,12 @@ View and manage template sources. (Beta)
 ## azd template source add
 
 Adds an azd template source with the specified key. (Beta)
-The key can be any value that uniquely identifies the template source, with the exception of the following reserved, well-known key values:
 
-* default: Default templates
-* awesome-azd: Templates from the [Awesome AZD template gallery](https://aka.ms/awesome-azd)
+### Synopsis
+
+The key can be any value that uniquely identifies the template source, with well-known values being:
+   ・default: Default templates
+   ・awesome-azd: Templates from [https://aka.ms/awesome-azd](https://aka.ms/awesome-azd)
 
 ```azdeveloper
 azd template source add <key> [flags]
