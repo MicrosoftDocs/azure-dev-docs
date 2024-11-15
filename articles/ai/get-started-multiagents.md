@@ -8,7 +8,7 @@ ms.custom: devx-track-python, devx-track-python-ai
 ms.collection: ce-skilling-ai-copilot
 # CustomerIntent: As an AI app developer new to agents, I want to learn how to use Azure OpenAI multiagent workflows to process tasks and return results based on user instructions from a simple example.
 ---
-# Quickstart: multi-agent applications using Azure OpenAI
+# Quickstart: Multi-agent applications using Azure OpenAI
 
 In this quickstart, you explore a multi-agent creative writing assistant app that shows how to orchestrate multiple models together using `Prompty` and `Azure OpenAI`. Includes the full GenAIOps: CI/CD, evaluation, tracing, monitoring, and experimentation. This sample also includes all the infrastructure and configuration needed to provision Azure OpenAI resources and deploy the app to Azure Container Apps using the Azure Developer CLI.
 
