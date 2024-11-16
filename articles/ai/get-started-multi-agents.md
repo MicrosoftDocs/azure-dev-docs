@@ -106,7 +106,7 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
 
-    [![Black badge with the GitHub OctoCat mascot in silhouette on left side with the phrase 'Open in GitHub Codespaces' on right. This becomes a clickable link to open the sample.](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/contoso-creative-writer)
+    [![Black badge with the GitHub OctoCat mascot in silhouette on left side with the phrase 'Open in GitHub Codespaces' on right.](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/contoso-creative-writer)
 
 1. On the **Create codespace** page, review and then select **Create new codespace**
 
