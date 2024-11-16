@@ -79,7 +79,7 @@ To use this article, you need to fulfill the following prerequisites:
 
 - Azure OpenAI deployment ability - You must be able to deploy `gpt-35-turbo-0613`,`gpt-4-1106-Preview`, and `gpt-4o-2024-05-13` Azure OpenAI models.
 
-- We recommend using Canada East, as this region has access to all models and services required. 
+- We recommend using Canada East, as this region has access to all models and services required.
 
 - [Azure Developer CLI](/azure/developer/azure-developer-cli)
 
@@ -106,7 +106,7 @@ Use the following steps to create a new GitHub Codespace on the `main` branch of
 
 1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
 
-    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/contoso-creative-writer)
+    [![Black badge with the GitHub OctoCat mascot in silhouette on left side with the phrase 'Open in GitHub Codespaces' on right. This becomes a clickable link to open the sample.](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/contoso-creative-writer)
 
 1. On the **Create codespace** page, review and then select **Create new codespace**
 
