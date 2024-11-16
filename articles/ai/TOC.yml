@@ -41,7 +41,7 @@ items:
         - name: Agents
           items:
             - name: Get started with multi-agent applications
-              href: get-started-multiagents.md
+              href: get-started-multi-agents.md
         - name: Chat with your data
           items:
             - name: Python

@@ -181,8 +181,8 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 1. Open the URL from the terminal, then copy the code from the terminal and then paste it into that URL you just opened. Follow the instructions to authenticate with your Azure account.
 
-> [!NOTE]
-> The `az login` command creates a folder under `.azure/` in your project to store the deployment configuration.
+    > [!NOTE]
+    > The `az login` command creates a folder under `.azure/` in your project to store the deployment configuration.
 
 1. The remaining exercises in this project take place in the context of this development container.
 
@@ -203,8 +203,8 @@ The sample repository contains all the code and configuration files for the chat
     azd up
     ```
 
-> [!NOTE]
-> This project uses `gpt-35-turbo-0613`,`gpt-4-1106-Preview` and `gpt-4o-2024-05-13` which may not be available in all Azure regions. Check for [up-to-date region availability](/azure/ai-services/openai/concepts/models#standard-deployment-model-availability) and select a region during deployment accordingly. We recommend using `Canada East` for this project.
+    > [!NOTE]
+    > This project uses `gpt-35-turbo-0613`,`gpt-4-1106-Preview` and `gpt-4o-2024-05-13` which may not be available in all Azure regions. Check for [up-to-date region availability](/azure/ai-services/openai/concepts/models#standard-deployment-model-availability) and select a region during deployment accordingly. We recommend using `Canada East` for this project.
 
 1. After running `azd up`, you might be asked the following question during `Github Setup`:
 
@@ -230,8 +230,8 @@ The sample repository contains all the code and configuration files for the chat
 
 1. The terminal displays two Container App URLs after successful application deployment.
 
-- The `agent-web` Container App (The frontend)
-- The `agent-api` Container App (The backend)
+    - The `agent-web` Container App (The frontend)
+    - The `agent-api` Container App (The backend)
 
 1. Select the `agent-web` Container App URL to open the **Contoso Creative Writer** application in a browser.
 
