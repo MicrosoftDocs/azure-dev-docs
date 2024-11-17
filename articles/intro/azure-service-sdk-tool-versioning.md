@@ -5,7 +5,7 @@ author: mcleanbyron
 ms.author: mcleans
 ms.service: azure
 ms.topic: overview
-ms.date: 07/29/2024
+ms.date: 11/17/2024
 ---
 
 # Versioning policy for Azure services, SDKs, and CLI tools
@@ -20,7 +20,9 @@ Each published version of an API is identified by a date value in `YYYY-MM-DD` f
 
 All API operations require clients to specify a valid API version for the service via the `api-version` query string parameter in the URL. For example: `https://management.azure.com/subscriptions?api-version=2020-01-01`. Client SDKs and tools include the `api-version` value automatically. For more considerations, see the [Client SDKs and service versions](#client-sdks-and-service-versions) section later in this article.
 
-Usually, published service versions remain available and supported for many years, even as newer versions become available. In most cases, the only time you should adopt a new service version within existing code is to take advantage of new features.
+In most scenarios, a service client will only need to interact with a single version of a service to access all of the functionality it requires.
+
+Stable service versions generally remain available and supported for many years, even as newer versions become available. In most cases, the only time you should adopt a new service version within existing code is to take advantage of new features.
 
 ### Stable versions
 
