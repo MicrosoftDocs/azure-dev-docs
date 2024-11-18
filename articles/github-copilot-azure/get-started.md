@@ -2,9 +2,9 @@
 title: Get started with GitHub Copilot for Azure Preview
 description: This article describes the requirements and installation procedure for the GitHub Copilot for Azure Preview Visual Studio Code extension.
 keywords: github, copilot, ai, azure
-ms.service: azure
+ms.service: github-copilot-for-azure
 ms.topic: get-started
-ms.date: 09/03/2024
+ms.date: 11/18/2024
 ms.collection: ce-skilling-ai-copilot
 ---
 

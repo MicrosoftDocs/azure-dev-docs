@@ -2,7 +2,7 @@
 title: What is GitHub Copilot for Azure Preview?
 description: This article describes the purpose and capabilities of the GitHub Copilot for Azure Preview Visual Studio Code extension, and how it fits into a developer's workflow.
 keywords: github, copilot, ai, azure
-ms.service: azure
+ms.service: github-copilot-for-azure
 ms.topic: overview
 ms.date: 11/18/2024
 ms.collection: ce-skilling-ai-copilot

@@ -2,9 +2,9 @@
 title: Quickstart - Build and deploy your application with GitHub Copilot for Azure Preview
 description: This article walks through a scenario that shows how to integrate the GitHub Copilot for the Azure Preview Visual Studio Code extension into a developer's workflow.
 keywords: github, copilot, ai, azure
-ms.service: azure
+ms.service: github-copilot-for-azure
 ms.topic: quickstart
-ms.date: 09/03/2024
+ms.date: 11/18/2024
 ms.collection: ce-skilling-ai-copilot
 ---
 
