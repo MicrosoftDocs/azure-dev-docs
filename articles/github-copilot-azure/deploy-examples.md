@@ -4,7 +4,7 @@ description: This article provides example prompts that can help you deploy your
 keywords: github, copilot, ai, azure
 ms.service: azure
 ms.topic: best-practice
-ms.date: 09/03/2024
+ms.date: 11/18/2024
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -18,13 +18,7 @@ If you want to use GitHub Copilot for Azure Preview for help with deploying your
 
 - "@azure Help me deploy my application to Azure."
 - "@azure How can I deploy this app?"
-- "@azure Can you deploy my code to Azure please?"
-- "@azure Can you help me deploy my project to Azure?"
 - "@azure Deploy this project to Azure."
-- "@azure Go deploy this project."
-- "@azure I'd like to deploy my app."
-- "@azure Take this project and make it deployable to Azure."
-- "@azure Get this code running on Azure."
 - "@azure Run this app on Azure."
 
 Then, add more detail for better results. Here are some example prompts:
@@ -38,6 +32,20 @@ Then, add more detail for better results. Here are some example prompts:
 |Azure DevOps|<ul><li>"@azure Create a deployment pipeline for this project."</li><li>"@azure I don't want to deploy my app from my local machine. Can you set up a remote solution instead?"</li><li>"@azure I need a CI/CD pipeline so I can get my app deployed."</li><li>"@azure I need help with setting up a pipeline to deploy my app to Azure."</li><li>"@azure Please help me create an automated deployment pipeline for my app."</li><li>"@azure This project is ready for automated deployment. Set that up."</li></ul>|
 |Azure OpenAI Service|<ul><li>"@azure Create an OpenAI deployment with the gpt-3.5-turbo model by using a Terraform template. Set the version of the model to 0613."</li></ul>|
 |GitHub Actions|<ul><li>"@azure Let's use GitHub to deploy my app to Azure."</li><li>"@azure Set up a GitHub Actions pipeline to deploy my app to Azure."</li></ul>|
+
+In many cases, when you ask GitHub Copilot for Azure to choose Azure services and deploy your application to Azure, it will create Bicep templates and give you the option to use `azd` to begin deployment. 
+
+>[!IMPORTANT]
+>You should always inspect the Bicep templates to ensure you understand what GitHub Copilot for Azure is recommending. Furthermore, the templates are intended to be a starting point. You should plan on editing the templates to suit your needs.
+
+## GitHub Copilot for Azure to deploy models to Azure OpenAI Service
+
+In addition to the example prompts for deploying to Azure OpenAI Service, GitHub Copilot for Azure has the following capabilities:
+
+- Given an existing OpenAI resource, user can deploy a model and optionally input a name for model to deploy.
+- Given the name of an existing resource group, and optionally location, user can deploy a model, and @azure will deploy a new OpenAI resource. User needs to input the name of the new OpenAI resource to create.
+- Given the location, user can deploy a model, and @azure will deploy a new resource group and OpenAI resource.  User needs to input the name of the new resource group and OpenAI resource to create.
+- If there is insufficient quota error, the user will be asked to choose a different region.
 
 ## Example prompts for Azure Kubernetes Service (AKS)
 
@@ -88,10 +96,7 @@ Example prompts:
 - "@azure Undeploy my project with the Azure Developer CLI."
 - "@azure Use azd to undeploy my project."
 - "@azure Undeploy this project from Azure."
-- "@azure I'd like to undeploy my app."
 - "@azure Stop this app on Azure."
-- "@azure Take this project down from Azure."
-- "@azure Take down my application."
 - "@azure Remove this code from running on Azure."
 
 > [!NOTE]

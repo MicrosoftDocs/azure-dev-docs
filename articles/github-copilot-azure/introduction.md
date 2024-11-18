@@ -4,7 +4,7 @@ description: This article describes the purpose and capabilities of the GitHub C
 keywords: github, copilot, ai, azure
 ms.service: azure
 ms.topic: overview
-ms.date: 09/03/2024
+ms.date: 11/18/2024
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -27,7 +27,7 @@ GitHub Copilot for Azure Preview currently enables four primary scenarios:
 
 |Category|Explanation|Examples|
 |---|---|---|
-|Learn|Learn about Azure services and tools from the latest Microsoft Learn documentation.|<ul><li>"@azure What are the available types of Azure OpenAI models?"</li><li>"@azure What is Azure AI Search and why should I use it?"</li><li>"@azure How does pricing work for Azure SQL?"</li></ul>|
+|Learn|Learn about Azure services and tools from the latest Microsoft Learn documentation.|<ul><li>"@azure What Azure services should I use with my app?"</li><li>"@azure What are the available types of Azure OpenAI models?"</li><li>"@azure What is Azure AI Search and why should I use it?"</li><li>"@azure How does pricing work for Azure SQL?"</li></ul>|
 |Design and develop|<ul><li>"@azure Can you help me build a RAG application with Python?"</li><li>"@azure Use azd to undeploy my project."</li><li>"@azure We are a pizza company and want to create an online customized pizza delivery solution. Create an API to accept pizza orders."</li></ul>|
 |Deploy|Create Azure resources and deploy apps.|<ul><li>"@azure Can you help me deploy my application?"</li><li>"@azure I need a CI/CD pipeline so I can get my app deployed."</li><li>"@azure Use azd to undeploy my project."</li></ul>|
 |Troubleshoot|Diagnose and troubleshoot application and resource problems.|<ul><li>"@azure What is using up my GPT-4o model quota?"</li><li>"@azure Find out why my store-service-prod Kubernetes cluster is running slow."</li><li>"@azure Why am I seeing 500 errors when opening my website?"</li></ul>|
