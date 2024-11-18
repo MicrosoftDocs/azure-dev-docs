@@ -269,7 +269,8 @@ Use the following commands to prepare the sample code for this guide. The sample
 ```bash
 git clone https://github.com/Azure-Samples/open-liberty-on-aca.git
 cd open-liberty-on-aca
-git checkout 20231026
+export BASE_DIR=$PWD
+git checkout 20241118
 ```
 
 #### [PowerShell](#tab/in-powershell)
@@ -277,14 +278,15 @@ git checkout 20231026
 ```powershell
 git clone https://github.com/Azure-Samples/open-liberty-on-aca.git
 cd open-liberty-on-aca
-git checkout 20231026
+Env:BASE_DIR = $PWD
+git checkout 20241118
 ```
 
 ---
 
 If you see a message about being in `detached HEAD` state, this message is safe to ignore. It just means you have checked out a tag.
 
-This article uses *java-app*. Here's the file structure of the application:
+This article uses *java-app*. Here's the file structure of the application important files:
 
 ```output
 java-app
@@ -297,13 +299,19 @@ java-app
 ├─ Dockerfile
 ├─ Dockerfile-wlp
 ├─ pom.xml
+├─ pom-azure-identity.xml
 ```
 
 The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
 In the *java-app* root directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
 
-In directory *liberty/config*, the *server.xml* file is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
+In directory *liberty/config*, the *server.xml* is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster. It defines a variable `azure.sql.connectionstring` that is used to connect to the Azure SQL Database.
+
+The *pom.xml* file is the Maven project object model (POM) file that contains the configuration information for the project. The *pom-azure-identity.xml* file declares `azure-identity` dependency, which is used to authenticate to Azure services using Microsoft Entra ID.
+
+> [!NOTE]
+> This sample uses `azure-identity` library to authenticate to Azure SQL Database using Microsoft Entra authencitation, which is recommended for security considerations. If you need to use SQL authentication in your Liberty application, see [Relational database connections with JDBC](https://openliberty.io/docs/latest/relational-database-connections-JDBC.html) for more information.
 
 ### Build the project
 
@@ -312,15 +320,17 @@ Use the following command to build the application:
 #### [Bash](#tab/in-bash)
 
 ```bash
-cd <path-to-your-repo>/java-app
+d $BASE_DIR/java-app
 mvn clean install
+mvn dependency:copy-dependencies -f pom-azure-identity.xml -DoutputDirectory=target/liberty/wlp/usr/shared/resources
 ```
 
 #### [PowerShell](#tab/in-powershell)
 
 ```powershell
-cd <path-to-your-repo>/java-app
+cd $Env:BASE_DIR/java-app
 mvn clean install
+mvn dependency:copy-dependencies -f pom-azure-identity.xml -DoutputDirectory=target/liberty/wlp/usr/shared/resources
 ```
 
 ---
@@ -338,132 +348,84 @@ If the build is successful, you should see output similar to the following at th
 
 If you don't see this output, troubleshoot and resolve the problem before continuing.
 
-### (Optional) Test your project locally
+### Test your project locally
 
 You can now use the following steps to run and test the project locally before deploying to Azure. For convenience, use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism, such as your local IDE.
 
 > [!NOTE]
 > If you selected a "serverless" database deployment, verify that your SQL database has not entered pause mode. One way to do this is to log in to the database query editor as described in [Quickstart: Use the Azure portal query editor (preview) to query Azure SQL Database](/azure/azure-sql/database/connect-query-portal).
 
-1. Start the application using `liberty:run`. `liberty:run` uses the database related environment variables defined in the previous step.
+1. Start the application using `liberty:run`.
 
    #### [Bash](#tab/in-bash)
 
    ```bash
-   cd <path-to-your-repo>/java-app
+   cd $BASE_DIR/java-app
+
+   # The value of environment variable AZURE_SQL_CONNECTIONSTRING is read by configuration variable `azure.sql.connectionstring` in server.xml
+   export AZURE_SQL_CONNECTIONSTRING="jdbc:sqlserver://$SQL_SERVER_NAME.database.windows.net:1433;databaseName=$DB_NAME;authentication=ActiveDirectoryDefault"
    mvn liberty:run
    ```
 
    #### [PowerShell](#tab/in-powershell)
 
    ```powershell
-   cd <path-to-your-repo>/java-app
+   cd $Env:BASE_DIR/java-app
+
+   # The value of environment variable AZURE_SQL_CONNECTIONSTRING is read by configuration variable `azure.sql.connectionstring` in server.xml
+   $Env:AZURE_SQL_CONNECTIONSTRING = "jdbc:sqlserver://$Env:SQL_SERVER_NAME.database.windows.net:1433;databaseName=$Env:DB_NAME;authentication=ActiveDirectoryDefault"
    mvn liberty:run
    ```
 
-1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser to verify the application is accessible and all functions are working.
+1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT   ] CWWKZ0001I: Application javaee-cafe started in 11.086 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser to verify the application is accessible and all functions are working.
 
-1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
+1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop. Select `Y` if you're aksed to terminate batch job.
 
-### Build the image
+When you're finished, delete the firewall rule that allows your local IP address to access the Azure SQL Database by using the following command:
 
-You can now run the `docker buildx build` command to build the image, as shown in the following example:
+### [Bash](#tab/in-bash)
 
-#### [Bash](#tab/in-bash)
-
-```bash
-cd <path-to-your-repo>/java-app
-
-# If you are running with Open Liberty
-docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile .
-
-# If you are running with WebSphere Liberty
-docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
+```azurecli
+az sql server firewall-rule delete \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --server $SQL_SERVER_NAME \
+    --name AllowLocalIP
 ```
 
-#### [PowerShell](#tab/in-powershell)
+### [PowerShell](#tab/in-powershell)
 
-```powershell
-cd <path-to-your-repo>/java-app
-
-# If you are running with Open Liberty
-docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile .
-
-# If you are running with WebSphere Liberty
-docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
+```azurepowershell
+az sql server firewall-rule delete --resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SERVER_NAME --name AllowLocalIP
 ```
 
 ---
 
-### (Optional) Test the Docker image locally
+### Build the image for Azure Container Apps deployment
 
-You can now use the following steps to test the Docker image locally before deploying to Azure:
+You can now run the [az acr build](/cli/azure/acr#az-acr-build) command to build the image, as shown in the following example:
 
-1. Run the image using the following command. This command uses the database related environment variables defined previously.
+### [Bash](#tab/in-bash)
 
-   #### [Bash](#tab/in-bash)
+```azurecli
+cd $BASE_DIR/java-app
 
-   ```bash
-   docker run -it --rm -p 9080:9080 \
-       -e DB_SERVER_NAME=${DB_SERVER_NAME} \
-       -e DB_NAME=${DB_NAME} \
-       -e DB_USER=${DB_USER} \
-       -e DB_PASSWORD=${DB_PASSWORD} \
-       javaee-cafe:v1
-   ```
-
-   #### [PowerShell](#tab/in-powershell)
-
-   ```powershell
-   docker run -it --rm -p 9080:9080 `
-    -e DB_SERVER_NAME=$Env:DB_SERVER_NAME `
-    -e DB_NAME=$Env:DB_NAME `
-    -e DB_USER=$Env:DB_USER `
-    -e DB_PASSWORD=$Env:DB_PASSWORD `
-    javaee-cafe:v1
-   ```
-
-1. After the container starts, go to `http://localhost:9080/` in your browser to access the application.
-
-1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop.
-
-### Upload image to ACR
-
-Next, upload the built image to the ACR you created in the previous steps.
-
-If you haven't already done so, use the following command to sign in to the ACR:
-
-#### [Bash](#tab/in-bash)
-
-```bash
-docker login -u ${ACR_USER_NAME} -p ${ACR_PASSWORD} ${ACR_LOGIN_SERVER}
+az acr build \
+    --registry ${REGISTRY_NAME} \
+    --image javaee-cafe:v1 \
+    .
 ```
 
-#### [PowerShell](#tab/in-powershell)
+### [PowerShell](#tab/in-powershell)
 
-```powershell
-docker login -u $Env:ACR_USER_NAME -p $Env:ACR_PASSWORD $Env:ACR_LOGIN_SERVER
+```azurepowershell
+cd $Env:BASE_DIR/java-app
+
+az acr build --registry $Env:REGISTRY_NAME --image javaee-cafe:v1 .
 ```
 
 ---
 
-Use the following commands to tag and push the container image:
-
-#### [Bash](#tab/in-bash)
-
-```bash
-docker tag javaee-cafe:v1 ${ACR_LOGIN_SERVER}/javaee-cafe:v1
-docker push ${ACR_LOGIN_SERVER}/javaee-cafe:v1
-```
-
-#### [PowerShell](#tab/in-powershell)
-
-```powershell
-docker tag javaee-cafe:v1 $Env:ACR_LOGIN_SERVER/javaee-cafe:v1
-docker push $Env:ACR_LOGIN_SERVER/javaee-cafe:v1
-```
-
----
+The `az acr build` command uploads the artifacts specified in the Dockerfile to the Container Registry instance, builds the image, and stores it in the Container Registry instance.
 
 ## Deploy the application to Azure Container Apps
 
