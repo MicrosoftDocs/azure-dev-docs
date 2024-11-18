@@ -181,43 +181,78 @@ After a short time, you should see a JSON output that contains the following lin
 
 In this section, you create an Azure SQL Database single database for use with your app.
 
-Create a single database in Azure SQL Database by following the Azure CLI steps in [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli). Execute the steps up to, but not including **Query the database**. Use the following steps as you go through the article, then return to this document after you create and configure the database server:
-
-When you reach the [Set parameter values](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli#set-parameter-values) section of the quickstart, output and save aside the values of variables in the code example labeled `Variable block`, including `resourceGroup`,`server`, `database`, `login`, and `password`. Define the following environment variables after replacing placeholders `<resourceGroup>`,`<server>`, `<database>`, `<login>`, and `<password>` with these values.
-
 ### [Bash](#tab/in-bash)
 
+First, set database-related environment variables. Replace `<your-unique-sql-server-name>` with a unique name for your Azure SQL Database server.
+
 ```bash
-export DB_RESOURCE_GROUP=<resourceGroup>
-export DB_SERVER_NAME=<server>.database.windows.net
-export DB_NAME=<database>
-export DB_USER=<login>
-export DB_PASSWORD=<password>
+export SQL_SERVER_NAME=<your-unique-sql-server-name>
+export DB_NAME=demodb
+```
+
+Run the following command in your terminal to create a single database in Azure SQL Database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
+
+```azurecli
+export ENTRA_ADMIN_NAME=$(az account show --query user.name --output tsv)
+
+az sql server create \
+    --name $SQL_SERVER_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --enable-ad-only-auth \
+    --external-admin-principal-type User \
+    --external-admin-name $ENTRA_ADMIN_NAME \
+    --external-admin-sid $(az ad signed-in-user show --query id --output tsv)
+az sql db create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --server $SQL_SERVER_NAME \
+    --name $DB_NAME \
+    --edition GeneralPurpose \
+    --compute-model Serverless \
+    --family Gen5 \
+    --capacity 2
+```
+
+Then, add the local IP address to the Azure SQL Database server firewall rules to allow your local machine to connect to the database for local testing later.
+
+```azurecli
+export AZ_LOCAL_IP_ADDRESS=$(curl -s https://whatismyip.akamai.com)
+az sql server firewall-rule create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --server $SQL_SERVER_NAME \
+    --name AllowLocalIP \
+    --start-ip-address $AZ_LOCAL_IP_ADDRESS \
+    --end-ip-address $AZ_LOCAL_IP_ADDRESS
 ```
 
 ### [PowerShell](#tab/in-powershell)
 
+First, set database-related environment variables. Replace `<your-unique-sql-server-name>` with a unique name for your Azure SQL Database server.
+
 ```powershell
-$Env:DB_RESOURCE_GROUP = "<resourceGroup>"
-$Env:DB_SERVER_NAME = "<server>.database.windows.net"
-$Env:DB_NAME = "<database>"
-$Env:DB_USER = "<login>"
-$Env:DB_PASSWORD = "<password>"
+$Env:SQL_SERVER_NAME = "<your-unique-sql-server-name>"
+$Env:DB_NAME = "demodb"
+```
+
+Run the following command in your terminal to create a single database in Azure SQL Database and set the current signed-in user as Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-powershell).
+
+```azurepowershell
+$Env:ENTRA_ADMIN_NAME = $(az account show --query user.name --output tsv)
+
+az sql server create --name $Env:SQL_SERVER_NAME --resource-group $Env:RESOURCE_GROUP_NAME --enable-ad-only-auth --external-admin-principal-type User --external-admin-name $Env:ENTRA_ADMIN_NAME --external-admin-sid $(az ad signed-in-user show --query id --output tsv)
+az sql db create --resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SERVER_NAME --name $Env:DB_NAME --edition GeneralPurpose --compute-model Serverless --family Gen5 --capacity 2
+```
+
+Then, add the local IP address to the Azure SQL Database server firewall rules to allow your local machine to connect to the database for local testing later.
+
+```azurepowershell
+$Env:AZ_LOCAL_IP_ADDRESS = (Invoke-WebRequest https://whatismyip.akamai.com).Content
+az sql server firewall-rule create --resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SERVER_NAME --name AllowLocalIP --start-ip-address $Env:AZ_LOCAL_IP_ADDRESS --end-ip-address $Env:AZ_LOCAL_IP_ADDRESS
 ```
 
 ---
 
-If you want to test the application locally later, use the following steps to ensure your client IPv4 address is allowed to connect:
-
-1. In the portal, search for and select **SQL databases**, and then select your database from the list.
-1. Select **Overview**.
-1. Ensure the **Getting started** tab is selected in the middle of the page.
-1. Under **Configure access**, select **Configure**.
-1. Select **Add your client IPv4 address**.
-1. Select **Save**.
-1. You can find and configure **Firewall rules** in the **Networking** pane and **Public access** tab.
-
-   :::image type="content" source="./media/deploy-java-liberty-app-aca/sql-database-firewall-rules.png" alt-text="Screenshot of firewall rules - allow client access.":::
+> [!NOTE]
+> You create an Azure SQL server with SQL authentication disabled for security considerations. Only Microsoft Entra ID is used to authenticate to the server. If you need to enable SQL authentication, see [az sql server create](/cli/azure/sql/server#az-sql-server-create) for more information.
 
 ## Configure and build the application image
 
