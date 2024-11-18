@@ -28,7 +28,7 @@ The Azure Developer CLI is built around reusable [templates](/azure/developer/az
 1. Locate and customize an existing template that provisions the required resources from a template gallery such as [Awesome AZD](https://azure.github.io/awesome-azd/).
 1. Manually write custom Bicep or Terraform files in the `infra` folder to define the exact required Azure resources.
 
-However, the `azd` compose feature provides developers with a third option to add Azure resources to their apps. Developers use the `azd add` command to instruct `azd` to compose new Azure resources and update template configurations using simple prompt workflows. This feature is particularly useful for developers who want to avoid writing Bicep or using an existing template.
+However, the `azd` compose feature introduces a third option to add Azure resources to your apps. Developers use the `azd add` command to instruct `azd` to compose new Azure resources and update template configurations using simple prompt workflows. This feature is particularly useful for developers who want to avoid writing Bicep or using an existing template.
 
 The `azd compose` feature supports adding resources for the following Azure Services:
 
@@ -78,7 +78,7 @@ Complete the following steps to add new resources to your template without writi
       Redis
     ```
 
-1. Enter a name for the new resource.
+1. Enter a name for the new resource, such as `azddb`.
 
     ```output
     ? Input the name of the app database (PostgreSQL)
@@ -107,7 +107,9 @@ Complete the following steps to add new resources to your template without writi
            port: 80
     ```
 
-1. Run the `azd up` command to provision any changes made through the `azd add` command.
+1. Run the `azd up` command to provision any changes made through the `azd add` command. In this example, `azd` provisions a PostgreSQL database in Azure.
+
+1. Run the `azd add` command again to add other resources, such as an OpenAI service.
 
 ## Explore the azure.yaml file
 
