@@ -11,7 +11,7 @@ ms.custom: devx-track-azdevcli, devx-track-bicep
 
 # Get started with the Azure Developer CLI compose feature
 
-The Azure Developer CLI (`azd`) compose feature enables you to progressively compose the Azure resources required by your app without manually writing Bicep code. Compose also uses [Azure Verified Modules (AVM)](https://aka.ms/avm) when possible, providing recommended practices using building blocks for Azure that are secure by design.
+The Azure Developer CLI (`azd`) compose feature enables you to progressively compose the Azure resources required for your app without manually writing Bicep code. Compose also uses [Azure Verified Modules (AVM)](https://aka.ms/avm) when possible, providing recommended practices using building blocks for Azure that are secure by design.
 
 In this article, you learn:
 
@@ -23,12 +23,13 @@ In this article, you learn:
 
 ## What is the compose feature?
 
-The Azure Developer CLI is built around reusable [templates](/azure/developer/azure-developer-cli/azd-templates), which define resources and services that should be provisioned and deployed on Azure. Before the compose feature, developers had two primary options to configure which Azure resources `azd` templates should provision and deploy:
+The Azure Developer CLI (azd) composability feature offers a new way to get started with azd. Before the compose feature, developers had two primary options to configure the Azure resources to provision and deploy an application.
 
-1. Locate and customize an existing template that provisions the required resources from a template gallery such as [Awesome AZD](https://azure.github.io/awesome-azd/).
-1. Manually write custom Bicep or Terraform files in the `infra` folder to define the exact required Azure resources.
+1. Start with a [pre-build template] (/azure/developer/azure-developer-cli/azd-templates), which defines resources and services that should be provisioned and deployed on Azure and then customize. Browse templates in the [AI template gallery](https://azure.github.io/ai-app-templates) or the [community gallery](https://azure.github.io/awesome-azd/)
 
-However, the `azd` compose feature introduces a third option to add Azure resources to your apps. Developers use the `azd add` command to instruct `azd` to compose new Azure resources and update template configurations using simple prompt workflows. This feature is particularly useful for developers who want to avoid writing Bicep or using an existing template.
+2. Start from an existing codebase following the instructions of [simplified init flow](https://learn.microsoft.com/azure/developer/azure-developer-cli/start-with-app-code).
+
+The `azd` compose feature introduces a third option to add Azure resources to your apps. Developers use the `azd add` command to instruct `azd` to compose new Azure resources and update template configurations using simple prompt workflows. This feature is particularly useful for developers who want to avoid writing Bicep or using an existing template.
 
 The `azd compose` feature supports adding resources for the following Azure Services:
 
@@ -40,7 +41,7 @@ The `azd compose` feature supports adding resources for the following Azure Serv
 
 ## Enable the compose feature
 
-The `azd` compose feature is currently in alpha, which means you'll need to enable it manually. Visit the [azd feature stages](https://aka.ms/azd-feature-stages) page for more information.
+The `azd` compose feature is currently in alpha, which means you need to enable it manually. Visit the [azd feature stages](https://aka.ms/azd-feature-stages) page for more information.
 
 ```bash
 azd config set alpha.compose on
