@@ -29,6 +29,8 @@ The Azure Developer CLI (azd) composability feature offers a new way to get star
 
 2. Start from an existing codebase following the instructions of [simplified init flow](/azure/developer/azure-developer-cli/start-with-app-code).
 
+Any further customization required the user to modify the bicep files. 
+
 The `azd` compose feature introduces a third option to add Azure resources to your apps. Developers use the `azd add` command to instruct `azd` to compose new Azure resources and update template configurations using simple prompt workflows. This feature is particularly useful for developers who want to avoid writing Bicep or using an existing template.
 
 The `azd compose` feature supports adding resources for the following Azure Services:
