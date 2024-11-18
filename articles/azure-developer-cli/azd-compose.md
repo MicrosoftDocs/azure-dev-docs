@@ -19,7 +19,7 @@ In this article, you learn:
 - How to work with the compose feature
 
 > [!NOTE]
-> The `azd` compose feature is currently in alpha and should not be used in production apps. Changes to Alpha features in subsequent releases may result in breaking changes. Visit the [azd feature versioning and release strategy](/azure/developer/azure-developer-cli/feature-versioning) and [feature stages](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/feature-stages.md) pages for more information.
+> The `azd` compose feature is currently in alpha and should not be used in production apps. Changes to Alpha features in subsequent releases may result in breaking changes. Visit the [azd feature versioning and release strategy](/azure/developer/azure-developer-cli/feature-versioning) and [feature stages](https://github.com/Azure/azure-dev/blob/main/cli/azd/docs/feature-stages.md) pages for more information. Select the **Feedback** button on the upper right to leave feedback about the `compose` feature and this article.
 
 ## What is the compose feature?
 
