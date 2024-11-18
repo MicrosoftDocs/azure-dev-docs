@@ -5,7 +5,7 @@ description: Shows you how to deploy a Java application with Open Liberty or Web
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 10/30/2023
+ms.date: 11/18/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aca, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 ---
 
@@ -27,13 +27,12 @@ If you're interested in providing feedback or working closely on your migration 
 
 * An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 * Prepare a local machine with either Windows or Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
-* [Install the Azure CLI](/cli/azure/install-azure-cli) 2.53.0 or above to run Azure CLI commands.
+* [Install the Azure CLI](/cli/azure/install-azure-cli) 2.62.0 or above to run Azure CLI commands.
   * Sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
   * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
   * Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
-* Install a Java SE implementation version 17 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
-* Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
-* Install [Docker](https://docs.docker.com/get-docker/) for your OS.
+* Install a Java SE implementation version 17 - for example, [Microsoft build of OpenJDK](/java/openjdk).
+* Install [Maven](https://maven.apache.org/download.cgi) 3.9.8 or higher.
 * Ensure that [Git](https://git-scm.com) is installed.
 
 ## Sign in to Azure
@@ -42,13 +41,13 @@ If you haven't done so already, sign in to your Azure subscription by using the 
 
 ### [Bash](#tab/in-bash)
 
-```bash
+```azurecli
 az login
 ```
 
 ### [PowerShell](#tab/in-powershell)
 
-```powershell
+```azurepowershell
 az login
 ```
 
@@ -65,20 +64,20 @@ az login
 
 An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az-group-create) command in the *eastus* location. This resource group is used later for creating the Azure Container Registry (ACR) instance and the Azure Container Apps instance.
+Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az-group-create) command in the *eastus2* location. This resource group is used later for creating the Azure Container Registry (ACR) instance and the Azure Container Apps instance.
 
 ### [Bash](#tab/in-bash)
 
-```bash
+```azurecli
 export RESOURCE_GROUP_NAME=java-liberty-project
-az group create --name $RESOURCE_GROUP_NAME --location eastus
+az group create --name $RESOURCE_GROUP_NAME --location eastus2
 ```
 
 ### [PowerShell](#tab/in-powershell)
 
-```powershell
+```azurepowershell
 $Env:RESOURCE_GROUP_NAME = "java-liberty-project"
-az group create --name $Env:RESOURCE_GROUP_NAME --location eastus
+az group create --name $Env:RESOURCE_GROUP_NAME --location eastus2
 ```
 
 ---
@@ -87,25 +86,27 @@ az group create --name $Env:RESOURCE_GROUP_NAME --location eastus
 
 Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the ACR instance. The following example creates an ACR instance named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
 
+> [!NOTE]
+> This article uses the recommended passwordless authentication mechanism for Container Registry. It's still possible to use username and password with `docker login` after using `az acr credential show` to obtain the username and password. Using username and password is less secure than passwordless authentication.
+
 ### [Bash](#tab/in-bash)
 
-```bash
+```azurecli
 export REGISTRY_NAME=youruniqueacrname
 az acr create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $REGISTRY_NAME \
-    --sku Basic \
-    --admin-enabled
+    --sku Basic
 ```
 
 ### [PowerShell](#tab/in-powershell)
 
-```powershell
+```azurepowershell
 $Env:REGISTRY_NAME = "youruniqueacrname"
 az acr create `
     --resource-group $Env:RESOURCE_GROUP_NAME `
     --name $Env:REGISTRY_NAME `
-    --sku Basic --admin-enabled
+    --sku Basic
 ```
 
 ---
@@ -118,57 +119,29 @@ After a short time, you should see a JSON output that contains the following lin
   "resourceGroup": "java-liberty-project",
 ```
 
-## Connect to the ACR instance
-
-You need to sign in to the ACR instance before you can push an image to it. If you choose to run commands locally, ensure the docker daemon is running, and run the following commands to verify the connection:
+Next, retrieve the login server for the Container Registry instance. You need this value when you deploy the application image to the Azure Container Apps later.
 
 ### [Bash](#tab/in-bash)
 
-```bash
+```azurecli
 export ACR_LOGIN_SERVER=$(az acr show \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $REGISTRY_NAME \
     --query 'loginServer' \
     --output tsv)
-export ACR_USER_NAME=$(az acr credential show \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $REGISTRY_NAME \
-    --query 'username' \
-    --output tsv)
-export ACR_PASSWORD=$(az acr credential show \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $REGISTRY_NAME \
-    --query 'passwords[0].value' \
-    --output tsv)
-
-docker login $ACR_LOGIN_SERVER -u $ACR_USER_NAME -p $ACR_PASSWORD
 ```
 
 ### [PowerShell](#tab/in-powershell)
 
-```powershell
+```azurepowershell
 $Env:ACR_LOGIN_SERVER = $(az acr show `
     --name $Env:REGISTRY_NAME `
     --resource-group $Env:RESOURCE_GROUP_NAME `
     --query 'loginServer' `
     --output tsv)
-$Env:ACR_USER_NAME=$(az acr credential show `
-    --name $Env:REGISTRY_NAME `
-    --resource-group $Env:RESOURCE_GROUP_NAME `
-    --query 'username' `
-    --output tsv)
-$Env:ACR_PASSWORD=$(az acr credential show `
-    --name $Env:REGISTRY_NAME `
-    --resource-group $Env:RESOURCE_GROUP_NAME `
-    --query 'passwords[0].value' `
-    --output tsv)
-
-docker login $Env:ACR_LOGIN_SERVER -u $Env:ACR_USER_NAME -p $Env:ACR_PASSWORD
 ```
 
 ---
-
-You should see `Login Succeeded` at the end of command output if you've logged into the ACR instance successfully.
 
 ## Create an environment
 
@@ -176,21 +149,19 @@ An environment in Azure Container Apps creates a secure boundary around a group 
 
 ### [Bash](#tab/in-bash)
 
-```bash
+```azurecli
 export ACA_ENV=youracaenvname
 az containerapp env create \
     --resource-group $RESOURCE_GROUP_NAME \
-    --location eastus \
     --name $ACA_ENV
 ```
 
 ### [PowerShell](#tab/in-powershell)
 
-```powershell
+```azurepowershell
 $Env:ACA_ENV = "youracaenvname"
 az containerapp env create `
     --resource-group $Env:RESOURCE_GROUP_NAME `
-    --location eastus `
     --name $Env:ACA_ENV
 ```
 
