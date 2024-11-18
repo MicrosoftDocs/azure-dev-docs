@@ -38,7 +38,7 @@ Azure AI evaluation is already publicly available, but if you are interested in 
 
 ## Optimize code level performance
 
-If you use Azure Monitor, you can perform code-level performance optimizations with GitHub Coplit for Azure. This feature is under development, so at this time a separate `@Code_Optimization` (instead of `@azure`) extension needs to be used for optimizing code-level performance. For details on installing and using Code Optimizations, see [Code Optimizations extensions for Visual Studio and Visual Studio Code (preview) - Azure Monitor](/azure/azure-monitor/insights/code-optimizations-extensions).
+If you use Applications Insights Profiler for .NET, you can perform code-level performance optimizations with GitHub Coplit. This feature is under development, so at this time a separate `@Code_Optimization` (instead of `@azure`) extension needs to be used for optimizing code-level performance. For details on installing and using Code Optimizations, see [Code Optimizations extensions for Visual Studio and Visual Studio Code (preview) - Azure Monitor](/azure/azure-monitor/insights/code-optimizations-extensions).
 
 ## Related content
 
