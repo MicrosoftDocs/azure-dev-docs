@@ -27,7 +27,7 @@ The Azure Developer CLI (azd) composability feature offers a new way to get star
 
 1. Start with a [pre-built template](/azure/developer/azure-developer-cli/azd-templates), which defines resources and services that should be provisioned and deployed on Azure and then customize. Browse templates in the [AI template gallery](https://azure.github.io/ai-app-templates) or the [community gallery](https://azure.github.io/awesome-azd/)
 
-2. Start from an existing codebase following the instructions of [simplified init flow](https://learn.microsoft.com/azure/developer/azure-developer-cli/start-with-app-code).
+2. Start from an existing codebase following the instructions of [simplified init flow](/azure/developer/azure-developer-cli/start-with-app-code).
 
 The `azd` compose feature introduces a third option to add Azure resources to your apps. Developers use the `azd add` command to instruct `azd` to compose new Azure resources and update template configurations using simple prompt workflows. This feature is particularly useful for developers who want to avoid writing Bicep or using an existing template.
 
