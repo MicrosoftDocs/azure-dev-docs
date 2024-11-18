@@ -31,7 +31,7 @@ For complete setup instructions, see the [Get started](get-started.md) article. 
 
    :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-ask-copilot.png" alt-text="Screenshot that shows the GitHub Copilot chat pane.":::
 
-   When you need to start a new chat session, select the plus icon (**+**) on the pane's title bar.
+   To start a new chat session, select the plus icon (**+**) on the pane's title bar.
 
    >[!IMPORTANT]
    > If you get unexpected results, re-start using a new chat session.
