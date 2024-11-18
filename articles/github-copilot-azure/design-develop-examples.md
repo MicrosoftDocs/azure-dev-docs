@@ -2,9 +2,9 @@
 title: GitHub Copilot for Azure Preview prompt engineering examples for designing and developing your application
 description: This article provides example prompts that can help you design and develop your application in the cloud.
 keywords: github, copilot, ai, azure
-ms.service: azure
+ms.service: github-copilot-for-azure
 ms.topic: best-practice
-ms.date: 09/03/2024
+ms.date: 11/18/2024
 ms.collection: ce-skilling-ai-copilot
 ---
 
