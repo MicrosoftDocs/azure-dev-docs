@@ -36,6 +36,10 @@ The preview of this plugin includes a code-first user experience in partnership 
 
 Azure AI evaluation is already publicly available, but if you are interested in trying out our online experimentation feature please [sign up for our preview](https://aka.ms/genAI-CI-CD-private-preview) to learn more. 
 
+## Optimize code level performance
+
+If you use Applications Insights Profiler for .NET, you can perform code-level performance optimizations with GitHub Coplit. This feature is under development, so at this time a separate `@Code_Optimization` (instead of `@azure`) extension needs to be used for optimizing code-level performance. For details on installing and using Code Optimizations, see [Code Optimizations extensions for Visual Studio and Visual Studio Code (preview) - Azure Monitor](/azure/azure-monitor/insights/code-optimizations-extensions).
+
 ## Related content
 
 - [Understand what GitHub Copilot for Azure Preview is and how it works](introduction.md).
