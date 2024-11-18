@@ -114,7 +114,7 @@ Complete the following steps to add new resources to your template without writi
 
 ## Explore the azure.yaml file
 
-The `azure.yaml` file manages the services and resources composed through the `azd add` command using the corresponding `services` and `resources` nodes. Consider the following example of an `Azure.yaml` file updated entirely through `azd add`:
+`azure.yaml` is the configuration file that azd uses to manage your app. `azd` manages the services and resources composed through the `azd add` command using the corresponding `services` and `resources` nodes. Consider the following example of an `azure.yaml` file updated entirely through `azd add`:
 
 ```yml
 name: azdcomposesample
