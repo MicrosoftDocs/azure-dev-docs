@@ -441,15 +441,10 @@ az containerapp create \
     --image ${ACR_LOGIN_SERVER}/javaee-cafe:v1 \
     --environment $ACA_ENV \
     --registry-server $ACR_LOGIN_SERVER \
-    --registry-username $ACR_USER_NAME \
-    --registry-password $ACR_PASSWORD \
+    --registry-identity system \
     --target-port 9080 \
-    --env-vars \
-        DB_SERVER_NAME=${DB_SERVER_NAME} \
-        DB_NAME=${DB_NAME} \
-        DB_USER=${DB_USER} \
-        DB_PASSWORD=${DB_PASSWORD} \
-    --ingress 'external'
+    --ingress 'external' \
+    --min-replicas 1
 ```
 
 ### [PowerShell](#tab/in-powershell)
@@ -462,20 +457,62 @@ az containerapp create `
     --image $Env:ACR_LOGIN_SERVER/javaee-cafe:v1 `
     --environment $Env:ACA_ENV `
     --registry-server $Env:ACR_LOGIN_SERVER `
-    --registry-username $Env:ACR_USER_NAME `
-    --registry-password $Env:ACR_PASSWORD `
+    --registry-identity system `
     --target-port 9080 `
-    --env-vars `
-        DB_SERVER_NAME=$Env:DB_SERVER_NAME `
-        DB_NAME=$Env:DB_NAME `
-        DB_USER=$Env:DB_USER `
-        DB_PASSWORD=$Env:DB_PASSWORD `
-    --ingress 'external'
+    --ingress 'external' `
+    --min-replicas 1
 ```
 
 ---
 
 Successful output is a JSON object including the property `"type": "Microsoft.App/containerApps"`.
+
+Then, connect the Azure SQL Database server to the container app using Service Connector by using the following steps:
+
+#### [Bash](#tab/in-bash)
+
+1. Install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI by using the following command:
+
+   ```azurecli
+   az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
+   ```
+
+1. Connect the database to the container app with a system-assigned managed identity by using the following command:
+
+   ```azurecli
+   az containerapp connection create sql \
+       --resource-group $RESOURCE_GROUP_NAME \
+       --name $ACA_NAME \
+       --target-resource-group $RESOURCE_GROUP_NAME \
+       --server $SQL_SERVER_NAME \
+       --database $DB_NAME \
+       --system-identity \
+       --container $ACA_NAME \
+       --client-type java
+   ```
+
+   Successful output is a JSON object including the property `"type": "microsoft.servicelinker/linkers"`.
+
+#### [PowerShell](#tab/in-powershell)
+
+1. Install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI by using the following command:
+
+   ```azurepowershell
+   az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
+   ```
+
+1. Connect the database to the container app with a system-assigned managed identity by using the following command:
+    
+    ```azurepowershell
+    az containerapp connection create sql --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:ACA_NAME --target-resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SERVER_NAME --database $Env:DB_NAME --system-identity --container $Env:ACA_NAME --client-type java
+    ```
+    
+    Successful output is a JSON object including the property `"type": "microsoft.servicelinker/linkers"`.
+
+---
+
+> [!NOTE]
+> The Service Connector creates a secret in the container app that contains the value for `AZURE_SQL_CONNECTIONSTRING`, which is a password free connection string to the Azure SQL Database. See the sample value from [User-assigned managed identity authentication](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity) for more information.
 
 ### Test the application
 
@@ -515,30 +552,12 @@ To avoid Azure charges, you should clean up unnecessary resources. When the clus
 
 ```bash
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
-az group delete --name $DB_RESOURCE_GROUP --yes --no-wait
 ```
 
 ### [PowerShell](#tab/in-powershell)
 
 ```powershell
 az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
-az group delete --name $Env:DB_RESOURCE_GROUP --yes --no-wait
-```
-
----
-
-Then, use the following command to remove the container image from your local Docker server:
-
-### [Bash](#tab/in-bash)
-
-```bash
-docker rmi -f ${ACR_LOGIN_SERVER}/javaee-cafe:v1
-```
-
-### [PowerShell](#tab/in-powershell)
-
-```powershell
-docker rmi -f $Env:ACR_LOGIN_SERVER/javaee-cafe:v1
 ```
 
 ---
@@ -548,6 +567,8 @@ docker rmi -f $Env:ACR_LOGIN_SERVER/javaee-cafe:v1
 You can learn more from the references used in this guide:
 
 * [Azure Container Apps](https://azure.microsoft.com/products/container-apps)
+* [Integrate Azure SQL Database with Service Connector](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java%2Csql-secret-java)
+* [Connect using Microsoft Entra authentication](/sql/connect/jdbc/connecting-using-azure-active-directory-authentication?view=azuresqldb-current&preserve-view=true)
 * [Open Liberty](https://openliberty.io/)
 * [Open Liberty Server Configuration](https://openliberty.io/docs/ref/config/)
 * [Liberty Maven Plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin)
