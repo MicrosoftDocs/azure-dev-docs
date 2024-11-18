@@ -25,7 +25,7 @@ In this article, you learn:
 
 The Azure Developer CLI (azd) composability feature offers a new way to get started with azd. Before the compose feature, developers had two primary options to configure the Azure resources to provision and deploy an application.
 
-1. Start with a [pre-build template] (/azure/developer/azure-developer-cli/azd-templates), which defines resources and services that should be provisioned and deployed on Azure and then customize. Browse templates in the [AI template gallery](https://azure.github.io/ai-app-templates) or the [community gallery](https://azure.github.io/awesome-azd/)
+1. Start with a [pre-built template](/azure/developer/azure-developer-cli/azd-templates), which defines resources and services that should be provisioned and deployed on Azure and then customize. Browse templates in the [AI template gallery](https://azure.github.io/ai-app-templates) or the [community gallery](https://azure.github.io/awesome-azd/)
 
 2. Start from an existing codebase following the instructions of [simplified init flow](https://learn.microsoft.com/azure/developer/azure-developer-cli/start-with-app-code).
 
