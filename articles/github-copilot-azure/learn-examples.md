@@ -2,9 +2,9 @@
 title: GitHub Copilot for Azure Preview prompt engineering examples to learn about using Azure for your application
 description: This article provides example prompts that can help you learn how to use Azure and deploy your application to the cloud.
 keywords: github, copilot, ai, azure
-ms.service: azure
+ms.service: github-copilot-for-azure
 ms.topic: best-practice
-ms.date: 09/03/2024
+ms.date: 11/18/2024
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -17,6 +17,22 @@ If you're unfamiliar with Azure and how you can use it for your application, you
 If you want to use GitHub Copilot for Azure Preview to learn about how to use Azure for your application, you can start with an open-ended question or request. Then, add details like specific services and technologies for better results. Try the following example prompts.
 
 ### Learn about system architecture on Azure
+
+Use GitHub Copilot to recommend Azure services to use for your project.
+
+- "@azure What Azure services should I use with my app?"
+- "@azure Please recommend Azure services for my project"
+
+When asked to recommend an Azure service, GitHub Copilot for Azure scans the current application in the workspace and provides recommendations for Azure services and service bindings. 
+
+You can work in an iterative manner asking GitHub Copilot for Azure to update the recommendations to use a different Azure service or change the bindings information. Example prompts: 
+
+- "@azure I'd like to use App Service instead of Azure Container App for my api project" 
+- "@azure Add a Cosmos DB to my project"
+- "@azure The SERVICE_URL value should be bing.com"
+- "@azure Add an environment variable STAGE=dev to my project"
+
+You can follow-up by asking more detailed questions based on GitHub Copilot for Azure's recommendations. Here are some example detailed questions to help you understand the types of prompts you can use.
 
 - "@azure How can I create a highly available architecture in Azure?"
 - "@azure Explain the Azure Well-Architected Framework."
