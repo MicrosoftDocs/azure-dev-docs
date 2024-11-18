@@ -31,10 +31,10 @@ For complete setup instructions, see the [Get started](get-started.md) article. 
 
    :::image type="content" source="media/quickstart-build-deploy-applications/quickstart-ask-copilot.png" alt-text="Screenshot that shows the GitHub Copilot chat pane.":::
 
-When you need to start a new chat session, select the plus icon (**+**) on the pane's title bar.
+   When you need to start a new chat session, select the plus icon (**+**) on the pane's title bar.
 
->[!IMPORTANT]
-> If you get unexpected results, re-start using a new chat session.
+   >[!IMPORTANT]
+   > If you get unexpected results, re-start using a new chat session.
 
 4. In the chat text box at the bottom of the pane, type the following prompt after `@azure`. Then select **Send** (paper airplane icon) or select Enter on your keyboard.
 
