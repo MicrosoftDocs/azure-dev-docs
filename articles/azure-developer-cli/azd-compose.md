@@ -49,7 +49,12 @@ azd config set alpha.compose on
 
 ## Work with the compose feature
 
-Access `azd` compose features through the [`azd add`](/azure/developer/azure-developer-cli/reference#azd-add) command. The `azd add` command works with new or existing templates created using one of the various [template creation workflows](/azure/developer/azure-developer-cli/make-azd-compatible).
+Access `azd` compose features through the [`azd add`](/azure/developer/azure-developer-cli/reference#azd-add) command. The `azd add` command works with templates created using the following `azd init` workflows:
+
+- **Use code in the current directory** (for apps that target Azure Container Apps for hosting)
+- **Create a minimal project**
+
+Templates initialized through the **Select a template** flow are not currently supported. The `azd` compose feature manages infrastructure for you and is not compatible with templates that have existing `infra` folder assets. Visit the [Generate the Bicep code](#generate-the-bicep-code) section and [template creation workflows](/azure/developer/azure-developer-cli/make-azd-compatible) page for more information.
 
 Complete the following steps to add new resources to your template without writing any code:
 
