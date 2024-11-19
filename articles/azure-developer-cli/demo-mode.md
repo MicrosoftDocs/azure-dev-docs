@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli
 ---
 
-## Enable Azure Developer CLI demo mode
+# Enable Azure Developer CLI demo mode
 
 By default, some Azure Developer CLI commands display Azure subscription IDs in the console output. This behavior is useful during development to monitor deployments and template behavior. However, also `azd` includes a demo mode to hide Azure subscription ID for scenarios such as public presentations that use `azd` commands, screen sharing with other users, or any other scenario where you want to keep subscription IDs hidden.
 
