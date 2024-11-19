@@ -278,7 +278,7 @@ git checkout 20241118
 ```powershell
 git clone https://github.com/Azure-Samples/open-liberty-on-aca.git
 cd open-liberty-on-aca
-Env:BASE_DIR = $PWD
+$Env:BASE_DIR = $PWD
 git checkout 20241118
 ```
 
@@ -433,7 +433,7 @@ Use the following commands to create an Azure Container Apps instance to run the
 
 ### [Bash](#tab/in-bash)
 
-```bash
+```azurecli
 export ACA_NAME=youracainstancename
 az containerapp create \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -449,7 +449,7 @@ az containerapp create \
 
 ### [PowerShell](#tab/in-powershell)
 
-```powershell
+```azurepowershell
 $Env:ACA_NAME = "youracainstancename"
 az containerapp create `
     --resource-group $Env:RESOURCE_GROUP_NAME `
@@ -509,6 +509,24 @@ Then, connect the Azure SQL Database server to the container app using Service C
     
     Successful output is a JSON object including the property `"type": "microsoft.servicelinker/linkers"`.
 
+    > [!NOTE]
+    > If the command fails with the following similar error message:
+    >
+    > ```output
+    > The command failed with an unexpected error. Here is the traceback:
+    > Dependency pyodbc can't be installed, please install it manually with `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe -m pip install pyodbc`.
+    > ```
+    >
+    > Install the `pyodbc` package manually by running the following command:
+    > 1. [Run Windows PowerShell as administrator](/powershell/scripting/windows-powershell/starting-windows-powershell#with-administrative-privileges-run-as-administrator)
+    > 1. Run the following command in the PowerShell window:
+    >
+    >    ```powershell
+    >    & "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe" -m pip install pyodbc
+    >    ```
+    >
+    > After the installation is complete, run the previous `az containerapp connection create sql` command again.
+
 ---
 
 > [!NOTE]
@@ -520,7 +538,7 @@ Use the following command to get a fully qualified url to access the application
 
 #### [Bash](#tab/in-bash)
 
-```bash
+```azurecli
 echo https://$(az containerapp show \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $ACA_NAME \
@@ -530,7 +548,7 @@ echo https://$(az containerapp show \
 
 #### [PowerShell](#tab/in-powershell)
 
-```powershell
+```azurepowershell
 Write-Host https://$(az containerapp show `
     --resource-group $Env:RESOURCE_GROUP_NAME `
     --name $Env:ACA_NAME `
@@ -550,13 +568,13 @@ To avoid Azure charges, you should clean up unnecessary resources. When the clus
 
 ### [Bash](#tab/in-bash)
 
-```bash
+```azurecli
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
 ### [PowerShell](#tab/in-powershell)
 
-```powershell
+```azurepowershell
 az group delete --name $Env:RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
