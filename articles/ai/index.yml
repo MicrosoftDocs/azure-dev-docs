@@ -56,7 +56,11 @@ landingContent:
             url: keyless-connections.md
           - text: Use Azure AI Search without keys
             url: /azure/search/keyless-connections?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-
+      - linkListType: get-started
+        links:
+          - text: Secure your AI App with keyless authentication
+            url: get-started-securing-your-ai-app.md
+            
   - title: Resources by programming language
     linkLists:
       - linkListType: overview
