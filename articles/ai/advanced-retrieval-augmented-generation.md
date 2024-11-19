@@ -1,14 +1,14 @@
 ---
 title: Building advanced Retrieval-Augmented Generation systems
 description: Conceptual article for developers discussing real-world considerations and patterns for  RAG-based chat systems.
-ms.date: 5/1/2024
+ms.date: 11/19/2024
 ms.topic: conceptual
 ms.custom: build-2024-intelligent-apps
 ---
 
 # Building advanced Retrieval-Augmented Generation systems
 
-The previous article discussed two options for building a "chat over your data" application, one of the premiere use cases for generative AI in businesses:
+The [previous article](./augment-llm-rag-fine-tuning.md) discussed two options for building a "chat over your data" application, one of the premiere use cases for generative AI in businesses:
 
 - Retrieval augmented generation (RAG) which supplements a Large Language Model's (LLM) training with a database of searchable articles that can be retrieved based on similarity to the users' queries and passed to the LLM for completion.
 - Fine-tuning, which expands the LLM's training to understand more about the problem domain.
@@ -21,7 +21,7 @@ The previous article depicted the steps or phases of RAG using the following dia
 
 :::image type="content" source="./media/naive-rag-inference-pipeline-highres.png" alt-text="Diagram depicting a simple RAG flow, with boxes representing steps or processes and arrows connecting each box. The flow begins with the user's query. Next, the query is sent to the Embedding API, which results in a vectorized query, which is used to find the nearest matches in the vector database, which retrieves article chunks, and the query and article chunks are sent to the Completion API, and the results are sent to the user." :::
 
-This depiction has been referred to as "naive RAG" and is a useful way of first understanding the mechanisms, roles, and responsibilities required to implement a RAG-based chat system.
+This depiction is referred to as "naive RAG" and is a useful way of first understanding the mechanisms, roles, and responsibilities required to implement a RAG-based chat system.
 
 However, a more real-world implementation has many more pre- and post- processing steps to prepare the articles, the queries and the responses for use. The following diagram is a more realistic depiction of a RAG, sometimes referred to as "advanced RAG."
 
@@ -39,14 +39,14 @@ As a conceptual overview, the keywords and ideas are provided as context and a s
 
 Ingestion is primarily concerned with storing your organization's documents in such a way that they can be easily retrieved to answer a user's question. The challenge is ensuring that the portions of the documents that best match the user's query are located and utilized during inference. Matching is accomplished primarily through vectorized embeddings and a cosine similarity search. However, it's facilitated by understanding the nature of the content (patterns, form, etc.) and the data organization strategy (the structure of the data when stored in the vector database).
 
-To that end, developers need to consider the following:
+To that end, developers need to consider the following steps:
 
-- Content pre-processing and extraction
+- Content preprocessing and extraction
 - Chunking strategy
 - Chunking organization
 - Update strategy
 
-### Content pre-processing and extraction
+### Content preprocessing and extraction
 
 Clean and accurate content is one of the best ways to improve the overall quality of a RAG-based chat system. To accomplish this, developers need to start by analyzing the shape and form of the documents to be indexed. Do the documents conform to specified content patterns like documentation? If not, what types of questions might the documents answer?
 
@@ -79,17 +79,17 @@ In a RAG system, the organization of data in the vector database is crucial for 
 - **Specialized Indexes** - Specialized indexes like graph-based or relational databases can be used depending on the nature of the data and the relationships between chunks. For instance:
 	- **Graph-based indexes** are useful when the chunks have interconnected information or relationships that can enhance retrieval, such as citation networks or knowledge graphs.
 	- **Relational databases** can be effective if the chunks are structured in a tabular format where SQL queries could be used to filter and retrieve data based on specific attributes or relationships.
-- **Hybrid Indexes** - A hybrid approach combines multiple indexing strategies to leverage the strengths of each. For example, developers might use a hierarchical index for initial filtering and a graph-based index to explore relationships between chunks dynamically during retrieval.
+- **Hybrid Indexes** - A hybrid approach combines multiple indexing strategies to apply the strengths of each. For example, developers might use a hierarchical index for initial filtering and a graph-based index to explore relationships between chunks dynamically during retrieval.
 
 ### Alignment optimization
 
-To enhance the relevance and accuracy of the retrieved chunks, it can be beneficial to align them more closely with the types of questions or queries they're meant to answer. One strategy to accomplish this is to generate and insert a hypothetical question for each chunk that represents what question the chunk is best suited to answer. This helps in several ways:
+To enhance the relevance and accuracy of the retrieved chunks, align them closely with the question or query types they're meant to answer. One strategy to accomplish this is to generate and insert a hypothetical question for each chunk that represents what question the chunk is best suited to answer. This helps in several ways:
 
 - **Improved Matching**: During retrieval, the system can compare the incoming query with these hypothetical questions to find the best match, improving the relevance of the chunks fetched.
 - **Training Data for Machine Learning Models**: These pairings of questions and chunks can serve as training data to improve the machine learning models underlying the RAG system, helping it learn which types of questions are best answered by which chunks.
 - **Direct Query Handling**: If a real user query closely matches a hypothetical question, the system can quickly retrieve and use the corresponding chunk, speeding up the response time.
 
-Each chunk's hypothetical question acts as a kind of "label" that guides the retrieval algorithm, making it more focused and contextually aware. This is useful in scenarios where the chunks cover a wide range of topics or types of information.
+Each chunk's hypothetical question acts like a "label" that guides the retrieval algorithm, making it more focused and contextually aware. This is useful in scenarios where the chunks cover a wide range of information topics or types.
 
 ### Update strategies
 
@@ -97,53 +97,65 @@ If your organization needs to index documents that are frequently updated, it's 
 
 - **Incremental updates**:
     - **Regular intervals**: Schedule updates at regular intervals (for example, daily, weekly) depending on the frequency of document changes. This method ensures that the database is periodically refreshed.
-    - **Trigger-based updates**: Implement a system where updates trigger re-indexing. For instance, any modification or addition of a document could automatically initiate a reindexing of the affected sections.
+    - **Trigger-based updates**: Implement a system where updates trigger reindexing. For instance, any modification or addition of a document could automatically initiate a reindexing of the affected sections.
 - **Partial updates**:    
-    - **Selective re-indexing**: Instead of re-indexing the entire database, selectively update only the parts of the corpus that have changed. This can be more efficient than full re-indexing, especially for large datasets.
+    - **Selective re-indexing**: Instead of entire database reindexing, selectively update only the changed corpus parts. This approach can be more efficient than full reindexing, especially for large datasets.
     - **Delta encoding**: Store only the differences between the existing documents and their updated versions. This approach reduces the data processing load by avoiding the need to process unchanged data.
 - **Versioning**:    
-    - **Snapshotting**: Maintain versions of the document corpus at different points in time. This allows the system to revert or refer to previous versions if necessary and provides a backup mechanism.
-    - **Document version control**: Use a version control system to track changes in documents systematically. This helps in maintaining the history of changes and can simplify the update process.
+    - **Snapshotting**: Maintain document corpus versions at different points in time. This technique provides a backup mechanism and allows the system to revert or refer to previous versions.
+    - **Document version control**: Use a version control system to systematically track document changes for maintaining the change history and simplifying the update process.
 - **Real-time updates**:   
-    - **Stream processing**: Utilize stream processing technologies to update the vector database in real-time as changes are made to the documents. This can be critical for applications where information timeliness is paramount.
-    - **Live querying**: Instead of relying solely on pre-indexed vectors, implement a mechanism to query live data for the most up-to-date responses, possibly combining this with cached results for efficiency.
+    - **Stream processing**: When information timeliness is critical, utilize stream processing technologies for real-time vector database updates as document changes are made. 
+    - **Live querying**: Instead of relying solely on preindexed vectors, implement a live data query mechanism for up-to-date responses, possibly combining with cached results for efficiency.
 - **Optimization techniques**:
-    - **Batch processing**: Accumulate changes and process them in batches to optimize the use of resources and reduce the overhead caused by frequent updates.
-    - **Hybrid approaches**: Combine various strategies, such as using incremental updates for minor changes and full re-indexing for major updates or structural changes in the document corpus.
+    - **Batch processing**: Batch process accumulated changes for resource optimization and overhead reduction instead of frequent updates.
+    - **Hybrid approaches**: Combine various strategies, such as:
 
-Choosing the right update strategy or combination of strategies depends on specific requirements such as the size of the document corpus, the frequency of updates, the need for real-time data, and resource availability. Each approach has its trade-offs in terms of complexity, cost, and update latency, so it's essential to evaluate these factors based on the specific needs of the application.
+        - Using incremental updates for minor changes.
+        - Full reindexing for major updates.
+        - Document corpus structural changes.
+
+Choosing the right update strategy or a combination depends on specific requirements such as:
+
+- Document corpus size.
+- Update frequency.
+- Real-time data needs.
+- Resource availability.
+
+- Evaluate these factors based on the specific application needs as each approach has complexity, cost, and update latency trade-offs.
 
 ## Inference pipeline
 
-Now that the articles have been chunked, vectorized, and stored in a vector database, the focus turns to challenges in completion.
+Now that the articles are chunked, vectorized, and stored in a vector database, the focus turns to completion challenges.
 
 - Is the user's query written in such a way to get the results from the system that the user is looking for?
 - Does the user's query violate any of our policies?
 - How do we rewrite the user's query to improve its chances at finding nearest matches in the vector database?
 - How do we evaluate the query results to ensure that the article chunks aligned to the query?
-- How do we evaluate and modify the query results prior to passing them into the LLM to ensure that the most relevant details are included in the LLM's completion?
+- How do we evaluate and modify the query results before passing them into the LLM to ensure that the most relevant details are included in the LLM's completion?
 - How do we evaluate the LLM's response to ensure that the LLM's completion answers the user's original query?
 - How do we ensure the LLM's response complies with our policies?
 
 As you can see, there are many tasks that developers must take into account, mostly in the form of:
-- Pre-processing inputs to optimize the likelihood of getting the desired results
+
+- Preprocessing inputs to optimize the likelihood of getting the desired results
 - Post-processing outputs to ensure desired results
 
-Keep in mind that the entire inference pipeline is running in real time. While there's no one right way to design the logic that performs the pre- and post-processing steps, it's likely that it is a combination of programming logic and additional calls to an LLM. One of the most important considerations then is the trade-off between building the most accurate and compliant pipeline possible and the cost and latency required to make it happen.
+The entire inference pipeline is running in real time. While there's no one right way for the pre- and post-processing step design, it's likely a combination of programming logic and other LLM calls. One of the most important considerations then is the trade-off between building the most accurate and compliant pipeline possible and the cost and latency required to make it happen.
 
-Let's look at each stage to identify specific strategies.
+Let's identify specific strategies in each stage.
 
-### Query pre-processing steps
+### Query preprocessing steps
 
-Query pre-processing occurs immediately after your user submits their query, as depicted in this diagram:
+Query preprocessing occurs immediately after your user submits their query, as depicted in this diagram:
 
 :::image type="content" source="./media/advanced-rag-query-processing-steps-highres.png" alt-text="Diagram repeating the advanced RAG steps with emphasis on the box labeled query processing steps." :::
 
-The goal of these steps is to make sure the user is asking questions within the scope of our system (and not trying to "jailbreak" the system to make it do something unintended) and prepare the user's query to increase the likelihood that it will locate the best possible article chunks using the cosine similarity / "nearest neighbor" search.
+The goal of these steps is to make sure the user is asking questions within the scope of our system (and not trying to "jailbreak" the system to make it do something unintended) and prepare the user's query to increase the likelihood that it locates the best possible article chunks using the cosine similarity / "nearest neighbor" search.
 
-**Policy check** - This step could involve logic that identifies, removes, flags or rejects certain content. Some examples might include removing personally identifiable information, removing expletives, and identifying "jailbreak" attempts. **Jailbreaking** refers to the methods that users might employ to circumvent or manipulate the built-in safety, ethical, or operational guidelines of the model. 
+**Policy check** - This step involves logic that identifies, removes, flags, or rejects certain content. Some examples might include removing personal data, removing expletives, and identifying "jailbreak" attempts. **Jailbreaking** refers to the methods that users might employ to circumvent or manipulate the built-in safety, ethical, or operational guidelines of the model. 
 
-**Query re-writing** - This could be anything from expanding acronyms and removing slang to re-phrasing the question to ask it more abstractly to extract high-level concepts and principles ("step-back prompting"). 
+**Query re-writing** - This step might be anything from expanding acronyms and removing slang to rephrasing the question to ask it more abstractly to extract high-level concepts and principles ("step-back prompting").
 
 A variation on step-back prompting is **hypothetical document embeddings** (HyDE) which uses the LLM to answer the user's question, creates an embedding for that response (the hypothetical document embedding), and uses that embedding to perform a search against the vector database.
 
@@ -152,9 +164,9 @@ A variation on step-back prompting is **hypothetical document embeddings** (HyDE
 
 This processing step concerns the original query. If the original query is long and complex, it can be useful to programmatically break it into several smaller queries, then combine all of the responses.
 
-For example, consider a question related to scientific discoveries, particularly in the field of physics. The user's query might be: "Who made more significant contributions to modern physics, Albert Einstein or Niels Bohr?"
+For example, a question about scientific discoveries in physics might be: "Who made more significant contributions to modern physics, Albert Einstein or Niels Bohr?"
 
-This query can be complex to handle directly because "significant contributions" can be subjective and multifaceted. Breaking it down into subqueries can make it more manageable:
+Breaking down complex queries into subqueries make them more manageable:
 
 1. **Subquery 1:** "What are the key contributions of Albert Einstein to modern physics?"
 2. **Subquery 2:** "What are the key contributions of Niels Bohr to modern physics?"
@@ -167,17 +179,21 @@ The results of these subqueries would detail the major theories and discoveries 
 Once these contributions are outlined, they can be assessed to determine:
 
 3. **Subquery 3:** "How have Einstein's theories impacted the development of modern physics?"
-4. **Subquery 4:** "How have Bohr's theories impacted the development of modern physics?"
 
-These subqueries would explore the influence of each scientist's work on the field, such as how Einstein's theories led to advancements in cosmology and quantum theory, and how Bohr's work contributed to the understanding of atomic structure and quantum mechanics.
+1. **Subquery 4:** "How have Bohr's theories impacted the development of modern physics?"
 
-Combining the results of these subqueries can help the language model form a more comprehensive response regarding who made more significant contributions to modern physics, based on the extent and impact of their theoretical advancements. This method simplifies the original complex query by dealing with more specific, answerable components and then synthesizing those findings into a coherent answer.
+These subqueries explore each scientist's influence on physics, such as:
+
+- How Einstein's theories led to advancements in cosmology and quantum theory
+- How Bohr's work contributed to the understanding of atomic structure and quantum mechanics.
+
+Combining the results of these subqueries can help the language model form a more comprehensive response regarding who made more significant contributions to modern physics, based on their theoretical advancements. This method simplifies the original complex query by dealing with more specific, answerable components and then synthesizing those findings into a coherent answer.
 
 ### Query router
 
 It's possible that your organization decides to divide its corpus of content into multiple vector stores or entire retrieval systems. In that case, developers can employ a **query router**, which is a mechanism that intelligently determines which indexes or retrieval engines to use based on the query provided. The primary function of a query router is to optimize the retrieval of information by selecting the most appropriate database or index that can provide the best answers to a specific query.
 
-The query router typically functions at a point after the query has been formulated by the user but before it's sent to any retrieval systems. Here's a simplified workflow:
+The query router typically functions at a point after the user formulates the query,  but before sending to retrieval systems. Here's a simplified workflow:
 
 1. **Query Analysis**: The LLM or another component analyzes the incoming query to understand its content, context, and the type of information likely needed.
 2. **Index Selection**: Based on the analysis, the query router selects one or more from potentially several available indexes. Each index might be optimized for different types of data or queries—for example, some might be more suited to factual queries, while others might excel in providing opinions or subjective content.
@@ -205,9 +221,12 @@ Post-retrieval processing occurs after the retriever component retrieves relevan
 
 :::image type="content" source="./media/advanced-rag-post-retrieval-processing-steps-highres.png" alt-text="Diagram repeating the advanced RAG steps with emphasis on the box labeled post-retrieval processing steps." :::
 
-With candidate content chunks retrieved, the next steps are to validate that the article chunks will be useful when _augmenting_ the LLM prompt and then begin to prepare the prompt to be presented to the LLM. 
+With candidate content chunks retrieved, the next steps are to validate the article chunk usefulness when _augmenting_ the LLM prompt before preparing the prompt to be presented to the LLM.
 
-Developers must consider several aspects of the prompt. A prompt that includes too much supplement information and some (possibly the most important information) could be ignored. Similarly, a prompt that includes irrelevant information could unduly impact the answer.
+Developers must consider several prompt aspects:
+
+- Including too much supplement information might result in ignoring the most important information.  
+- including irrelevant information could negatively influence the answer.
 
 Another consideration is the **needle in a haystack** problem, a term that refers to a known quirk of some LLMs where the content at the beginning and end of a prompt have greater weight to the LLM than the content in the middle.
 
@@ -217,22 +236,22 @@ To deal with these issues, a post-retrieval processing pipeline might include th
 
 - **Filtering results** - In this step, developers ensure that the article chunks returned by the vector database are relevant to the query. If not, the result is ignored when composing the prompt for the LLM.
 - **Re-ranking** - Rank the article chunks retrieved from the vector store to ensure relevant details live near the edges (beginning and end) of the prompt.
-- **Prompt compression** - Using a small, inexpensive model designed to combine and summarize multiple article chunks into a single, compressed prompt prior to sending it to the LLM.
+- **Prompt compression** - Use a small, inexpensive model to compress and summarize multiple article chunks into a single compressed prompt before sending to the LLM.
 
 ### Post-completion processing steps
 
-Post-completion processing occurs after the user's query and all content chunks have been sent to the LLM, as depicted in the following diagram:
+Post-completion processing occurs after the user's query and all content chunks are sent to the LLM, as depicted in the following diagram:
 
 :::image type="content" source="./media/advanced-rag-post-completion-processing-steps-highres.png" alt-text="Diagram repeating the advanced RAG steps with emphasis on the box labeled post-completion processing steps." :::
 
-Once the prompt has been completed by the LLM, it's time to validate the completion to ensure that the answer is accurate. A post-completion processing pipeline might include the following steps:
+ Accuracy validation occurs after prompt completion by the LLM. A post-completion processing pipeline might include the following steps:
 
-- **Fact check** - This could take many forms, but the intent is to identify specific claims made in the article that are presented as facts and then to check those facts for accuracy. If the fact check step fails, it might be appropriate to re-query the LLM in hopes of a better answer or return an error message to the user.
-- **Policy check** - This is the last line of defense to ensure that answers don't contain harmful content, whether to the user or the organization.
+- **Fact check** - TThe intent is to identify specific claims made in the article that are presented as facts and then to check those facts for accuracy. If the fact check step fails, it might be appropriate to requery the LLM in hopes of a better answer or return an error message to the user.
+- **Policy check** - The last line of defense to ensure that answers don't contain harmful content, whether to the user or the organization.
 
 ## Evaluation
 
-Evaluating the results of a non-deterministic system isn't as simple as, say, unit or integration tests that most developers are familiar with. There are several factors to consider:
+Evaluating the results of a nondeterministic system isn't as simple as, say, unit or integration tests that most developers are familiar with. There are several factors to consider:
 
 - Are users satisfied with the results they're getting?
 - Are users getting accurate responses to their questions?
@@ -252,7 +271,7 @@ Building an assessment pipeline, therefore, becomes essential to manage the scal
 
 ### Golden dataset
 
-One strategy to evaluating the results of a non-deterministic system like a RAG-chat system is to implement a "golden dataset". A **golden dataset** is a curated set of questions with approved answers, metadata (like topic and type of question), references to source documents that can serve as ground truth for answers, and even variations (different phrasings to capture the diversity of how users might ask the same questions). 
+One strategy to evaluating the results of a nondeterministic system like a RAG-chat system is to implement a "golden dataset". A **golden dataset** is a curated set of questions with approved answers, metadata (like topic and type of question), references to source documents that can serve as ground truth for answers, and even variations (different phrasings to capture the diversity of how users might ask the same questions). 
 
 The "golden dataset" represents the "best case scenario" and enables developers to evaluate the system to see how well it performs, and perform regression tests when implementing new features or updates.
 
@@ -264,20 +283,20 @@ To tool designed for assessing the impact of technology, particularly AI systems
 
 Key features of a harms evaluation tool might include:
 
-1. **Stakeholder Identification**: The tool would help users identify and categorize various stakeholders affected by the technology, including direct users, indirectly affected parties, and other entities like future generations or non-human factors such as environmental concerns​ (.
+1. **Stakeholder Identification**: The tool would help users identify and categorize various stakeholders affected by the technology, including direct users, indirectly affected parties, and other entities like future generations or nonhuman factors such as environmental concerns​ (.
     
 2. **Harm Categories and Descriptions**: It would include a comprehensive list of potential harms, such as privacy loss, emotional distress, or economic exploitation. The tool could guide the user through various scenarios illustrating how the technology might cause these harms, helping to evaluate both intended and unintended consequences​.
     
-3. **Severity and Probability Assessments**: The tool would enable users to assess the severity and probability of each identified harm, allowing them to prioritize which issues to address first. This might include qualitative assessments and could be supported by data where available.
+3. **Severity and Probability Assessments**: The tool would enable users to assess the severity and probability of each identified harm, allowing them to prioritize which issues to address first. Examples include qualitative assessments supported by data where available.
     
-4. **Mitigation Strategies**: Upon identifying and evaluating harms, the tool would suggest potential mitigation strategies. This could include changes to the system design, more safeguards, or alternative technological solutions that minimize identified risks.
+4. **Mitigation Strategies**: The tool suggests potential mitigation strategies after identifying and evaluating harms. Examples include changes to the system design, more safeguards, or alternative technological solutions that minimize identified risks.
     
 5. **Feedback Mechanisms**: The tool should incorporate mechanisms for gathering feedback from stakeholders, ensuring that the harms evaluation process is dynamic and responsive to new information and perspectives​​.
     
-6. **Documentation and Reporting**: To aid in transparency and accountability, the tool would facilitate the creation of detailed reports that document the harms assessment process, findings, and actions taken to mitigate potential risks​.
+6. **Documentation and Reporting**: For transparency and accountability, the tool might facilitate detailed reports that document the harms assessment process, findings, and potential risk mitigation actions taken​.
     
 
-These features would not only help identify and mitigate risks, but also help in designing more ethical and responsible AI systems by considering a broad spectrum of impacts from the outset.
+These features wouldn't only help identify and mitigate risks, but also help in designing more ethical and responsible AI systems by considering a broad spectrum of impacts from the outset.
 
 For more information, see:
 
@@ -288,7 +307,7 @@ For more information, see:
 
 This article outlined several processes aimed at mitigating the possibility that the RAG-based chat system could be exploited or compromised. **Red-teaming** plays a crucial role in ensuring the mitigations are effective. Red-teaming involves simulating an adversary's actions aimed at the application to uncover potential weaknesses or vulnerabilities. This approach is especially vital in addressing the significant risk of jailbreaking. 
 
-To effectively test and verify the safeguards of a RAG-based chat system, developers need to rigorously assess these systems under various scenarios where these guidelines could be tested. This not only ensures robustness but also helps in fine-tuning the system’s responses to adhere strictly to defined ethical standards and operational procedures.
+ Developers need to rigorously assess RAG-based chat system safeguards under various guideline scenarios to effectively test and verify them. This not only ensures robustness but also helps in fine-tuning the system’s responses to adhere strictly to defined ethical standards and operational procedures.
 
 ## Final considerations that might influence your application design decisions
 
