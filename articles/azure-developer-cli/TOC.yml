@@ -51,6 +51,8 @@
       href: start-with-existing-template.md
     - name: Start with your app code
       href: start-with-app-code.md
+    - name: Explore the compose feature
+      href: azd-compose.md
     - name: Training - build and deploy azd templates
       href: /training/paths/azure-developer-cli
   - name: Integration and remote environments

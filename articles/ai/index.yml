@@ -7,7 +7,7 @@ summary: |
 metadata:
   title: Develop AI apps using Azure AI services
   description: Get started developing generative AI capabilities into your applications.
-  ms.date: 5/15/2024
+  ms.date: 11/19/2024
   ms.topic: landing-page
   ms.collection: collection
 
@@ -41,7 +41,26 @@ landingContent:
             url: ../java/ai/get-started-app-chat-template.md?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
           - text: Chat with your data using .NET
             url: /dotnet/ai/get-started-app-chat-template?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
-
+  
+  - title: AI app security
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Security planning for LLM-based applications
+            url: /ai/playbook/technology-guidance/generative-ai/mlops-in-openai/security/security-plan-llm-application?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json     
+          - text: Security guidance for Large Language Models
+            url: /ai/playbook/technology-guidance/generative-ai/mlops-in-openai/security/security-recommend?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+      - linkListType: how-to-guide
+        links:
+          - text: Use Azure OpenAI without keys
+            url: keyless-connections.md
+          - text: Use Azure AI Search without keys
+            url: /azure/search/keyless-connections?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json
+      - linkListType: get-started
+        links:
+          - text: Secure your AI App with keyless authentication
+            url: get-started-securing-your-ai-app.md
+            
   - title: Resources by programming language
     linkLists:
       - linkListType: overview
