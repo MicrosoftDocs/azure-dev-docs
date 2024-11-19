@@ -1016,7 +1016,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** On the **Ingress** page, continue configuring the container app.
+        **Step 5.** On the **Ingress** page, continue configuring the container app.
         
         * **HTTP Ingress** &rarr;  Select checkbox (enabled).        
         * **Ingress traffic** &rarr; Select **Accepting traffic from anywhere**.        
@@ -1031,7 +1031,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5.** After the deployment finishes, select **Go to resource**.
+        **Step 6.** After the deployment finishes, select **Go to resource**.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-05.png" alt-text="Screenshot showing the resource deployment complete page for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-05.png":::
@@ -1039,42 +1039,13 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6.** Add the user-assigned managed identity to the container app.
+        **Step 7.** Add the user-assigned managed identity to the container app.
 
         * Under **Settings**, select **Identity** on the newly created container.
         * Then select the **User assigned** tab.
         * Under the **User assigned** tab, select **+ Add**.
         * On the **Add user assigned managed identity** page, select *my-ua-managed-identity* then select **Add**.
         * When the operation completes, you're returned to the **User assigned** tab. Verify that *my-ua-managed-id* appears in the list of identities.
-        
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-06.png" alt-text="Screenshot showing how to edit a Azure Containers Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-06.png":::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-07.png" alt-text="Screenshot showing how to create a new Azure Container Apps container revision in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-07.png":::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-08.png" alt-text="Screenshot showing how to add environment variables to an Azure Container Apps revision in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-08.png"::: 
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-09.png" alt-text="Screenshot showing how to finish creating revision of an Azure Container Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-09.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 6.** Create a [*revision*][31] of the container that contains environment variables.
-
-        * Select the **Containers** resource of the newly created container.
-        * Then, select **Edit and deploy**.
-        * On the **Create and deploy new revision** page, select the name of the container image, in this case *python-container-app*.
-        * On the **Edit container** page, create environment variables as shown below and then select **Save**.
-        * Back on the **Create and deploy new revision** page, select **Create**.
-
-        Here are the following environment variables to create:
-
-        * AZURE_POSTGRESQL_HOST=\<postgres-server-name>.postgres.database.azure.com
-        * AZURE_POSTGRESQL_DATABASE=restaurants_reviews
-        * AZURE_POSTGRESQL_USERNAME=demoadmin
-        * AZURE_POSTGRESQL_PASSWORD=\<admin-password>
-        * RUNNING_IN_PRODUCTION=1
-        * AZURE_SECRET_KEY=\<YOUR-SECRET-KEY>
-
-    Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
         
     :::column-end:::
     :::column:::
@@ -1092,7 +1063,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7.** Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
+        **Step 8.** Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
         * Go to the **Monitoring** - **Console** resource of the container app.
         * Choose a startup command and select **Connect**.
         * At the shell prompt, type `python manage.py migrate`.
@@ -1105,7 +1076,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 8.** Test the website.
+        **Step 9.** Test the website.
 
         * Go to the container app's **Overview** resource.
         * Under **Essentials**, select **Application Url** to open the website in a browser.
