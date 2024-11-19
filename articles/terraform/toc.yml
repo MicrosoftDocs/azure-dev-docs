@@ -133,6 +133,10 @@
                   href: /azure/container-instances/container-instances-quickstart-terraform
                 - name: Deploy Cosmos DB
                   href: deploy-azure-cosmos-db-to-azure-container-instances.md
+            - name: Azure Container Registry
+              items: 
+                - name: Create an Azure container registry 
+                  href: /azure/container-registry/container-registry-get-started-terraform
         - name: Databases
           items:
             - name: Azure confidential ledger
