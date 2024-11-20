@@ -293,7 +293,7 @@ az postgres flexible-server create \
    --name <postgres-server-name>  \
    --location <location> \
    --admin-user demoadmin \
-   --admin-password <your-admin-password>
+   --admin-password <your-admin-password> \
    --active-directory-auth Enabled \
    --sku-name Standard_D2s_v3 \
    --public-access 0.0.0.0 
