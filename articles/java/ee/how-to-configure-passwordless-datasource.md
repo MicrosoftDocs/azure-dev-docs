@@ -131,6 +131,8 @@ az postgres flexible-server db create \
 
 ### [Azure SQL Database](#tab/azure-sql-database)
 
+<!-- Part of Azure SQL Database content is used in azure-aks-docs-pr/blob/wls-aks-quickstart-pswless/articles/aks/includes/jakartaee/create-azure-sql-database-passwordless.md. Ensure any changes made here are also applied to that file.-->
+
 Create a server with the [az sql server create](/cli/azure/sql/server#az-sql-server-create) command. This example creates a server named `myazuresql20130213` with admin user `azureuser` and admin password `Secret123456`. Replace the password with yours. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-cli).
 
 ```azurecli-interactive
