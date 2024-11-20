@@ -246,7 +246,7 @@ Post-completion processing occurs after the user's query and all content chunks 
 
  Accuracy validation occurs after prompt completion by the LLM. A post-completion processing pipeline might include the following steps:
 
-- **Fact check** - TThe intent is to identify specific claims made in the article that are presented as facts and then to check those facts for accuracy. If the fact check step fails, it might be appropriate to requery the LLM in hopes of a better answer or return an error message to the user.
+- **Fact check** - The intent is to identify specific claims made in the article that are presented as facts and then to check those facts for accuracy. If the fact check step fails, it might be appropriate to requery the LLM in hopes of a better answer or return an error message to the user.
 - **Policy check** - The last line of defense to ensure that answers don't contain harmful content, whether to the user or the organization.
 
 ## Evaluation
