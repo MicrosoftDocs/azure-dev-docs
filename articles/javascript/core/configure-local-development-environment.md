@@ -99,7 +99,7 @@ When you need to manage more than one version of Node.js across your local and r
 
 You can download and install Node.js based on your requirements.
 
-* [Node.js Download page](https://nodejs.org//)
+* [Node.js Download page](https://nodejs.org/)
 * [Official Docker image](https://hub.docker.com/_/node/)
 
 ## One-time configuration for authentication
