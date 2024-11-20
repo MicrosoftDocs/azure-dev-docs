@@ -34,7 +34,7 @@ This application provides three different calls to convert speech to text:
 ## Prerequisites
 
 
-- [Node.js LTS](https://nodejs.org/en/download) - installed to your local machine.
+- [Node.js LTS](https://nodejs.org/) - installed to your local machine.
 - [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine. 
 - The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for VS Code (installed from within VS Code).
 - [Git](https://git-scm.com/downloads) - used to push to GitHub - which activates the GitHub action.

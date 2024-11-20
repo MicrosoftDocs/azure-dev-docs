@@ -51,7 +51,7 @@ The following common settings should be configured to keep your Azure Function s
 
 ## Prerequisites for developing Azure Functions
 
-* [Node.js LTS](https://nodejs.org/en/download/)
+* [Node.js LTS](https://nodejs.org//)
 * [Azure Functions Core Tools](/azure/azure-functions/functions-run-local)
 
 ## A simple JavaScript function for HTTP requests

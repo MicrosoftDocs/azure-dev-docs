@@ -22,7 +22,7 @@ In this tutorial, learn how to:
 ## Prerequisites
 
 * Azure user account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=azure-docs-js-dev-vscode-tutorial-appservice-extension&mktingSource=azure-docs-js-dev-vscode-tutorial-appservice-extension).
-* [Node.js and npm](https://nodejs.org/en/download) - installed to your local machine.
+* [Node.js and npm](https://nodejs.org/) - installed to your local machine.
 * [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine.
   * [Azure Static Web Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) - used to deploy React app to Azure Static Web app.
 * [Git](https://git-scm.com/downloads) - used to push to GitHub - which activates the GitHub action.
