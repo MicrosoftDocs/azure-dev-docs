@@ -912,31 +912,29 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column-end:::
 :::row-end:::
 :::row:::
-    :::column span="2":::
+    :::column span="1":::
         **Step 4.** Configure the user-assigned managed identity on the container app.
 
         * Open a terminal in VS Code and enter the following Azure CLI commands. You can also enter the commands from Azure Cloud Shell.
 
-        First, get the resource ID of the managed identity.
+        * Get the resource ID of the managed identity.
 
-        ```azurecli
-        az identity show --name my-ua-managed-id --resource-group pythoncontainer-rg --query id -o tsv
-        ```
-        The resource ID has the following form: */subscriptions/\<subscription ID>/resourcegroups/pythoncontainer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-ua-managed-id*
+            ```azurecli
+            az identity show --name my-ua-managed-id --resource-group pythoncontainer-rg --query id -o tsv
+            ```
+            The resource ID has the following form: */subscriptions/\<subscription ID>/resourcegroups/pythoncontainer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-ua-managed-id*
+    
+        * Assign the managed identity to the container app.
 
-        Next, configure the managed identity on the container app.
-        ```azurecli
-        az containerapp identity assign  \
-            --name python-container-app \
-            --resource-group pythoncontainer-rg  \
-            --user-assigned <managed-identity-resource-id>      
-        ```
-
-        Replace the `<managed-identity-resource-id>` placeholder with the resource ID output by the previous command.
-        
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-11.png" alt-text="Screenshot showing how to connect to an Azure Container Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-11.png":::
+            ```azurecli
+            az containerapp identity assign  \
+                --name python-container-app \
+                --resource-group pythoncontainer-rg  \
+                --user-assigned <managed-identity-resource-id>      
+            ```
+    
+            Replace the `<managed-identity-resource-id>` placeholder with the resource ID output by the previous command.
+            
     :::column-end:::
 :::row-end:::
 :::row:::
