@@ -475,34 +475,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
 
 At this point, you have a PostgreSQL server. In this section, you create a database on the server.
 
-### [psql](#tab/create-database-psql)
-
-You can use the PostgreSQL interactive terminal [psql][15] in your local environment, or in the [Azure Cloud Shell][4], which is also accessible in the [Azure portal][3]. When working with psql, it's often easier to use the [Cloud Shell][4] because all the dependencies are included for you in the shell.
-
-**Step 1.** Connect to the database with psql.
-
-```bash
-psql --host=<postgres-server-name>.postgres.database.azure.com \
-     --port=5432 \
-     --username=demoadmin@<postgres-server-name> \
-     --dbname=postgres
-```
-
-Where *\<postgres-server-name>* is the name of the PostgreSQL server. The command will prompt you for the admin password.
-
-If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
-
-**Step 2.** Create the database.
-
-At the `postgres=>` prompt type:
-
-```sql
-CREATE DATABASE restaurants_reviews;
-```
-
-The semicolon (";") at the end of the command is necessary. To verify that the database was successfully created, use the command `\c restaurants_reviews`. Type `\?` to show help or `\q` to quit.
-
-### [Azure CLI](#tab/create-database-azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 You can use the Azure CLI anywhere it's installed, including the Azure [Cloud Shell][4].
 
@@ -522,7 +495,7 @@ Where:
 
 You could also use the [az postgres flexible-server connect][16] command to connect to the database and then work with [psql][15] commands. When working with psql, it's often easier to use the Azure [Cloud Shell][4] because all the dependencies are included for you in the shell.
 
-### [VS Code](#tab/create-database-vscode-aztools)
+### [VS Code](#tab/vscode-aztools)
 
 These steps require the [Azure Databases extension][26] for VS Code.
 
@@ -531,6 +504,15 @@ These steps require the [Azure Databases extension][26] for VS Code.
 **Step 2.** At the prompt, enter *restaurants_reviews* as the **Database Name**.
 
 If you have trouble creating the database, the server might still be processing the firewall rule from the previous step. Wait a moment and try again. If you're prompted to enter credentials to access the database, use the "demoadmin" username, and password you used to create the database.
+
+### [Azure portal](#tab/azure-portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the search box, enter The name of your PostgreSQL server. Under **Resources**, select your server.
+1. Under **Settings** on the left hand menu, select **Databases**.
+1. Select **+ Add** on the top menu of the **Databases** page.
+1. On the  **Create Database** page, enter *restaurants_reviews* for the **Name**, then select **Save**.
+1. When the operation completes, you're returned to the **Databases** page. Verify that *restaurants_reviews* appears in the list of databases.
 
 ---
 
@@ -561,7 +543,7 @@ Either open a terminal window and follow the steps for Azure CLI or follow the s
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box, enter **Managed Identities**. Under **Services**, select **Managed Identities**.
-1. Select **Add**, and enter values in the following boxes in the **Create User Assigned Managed Identity** pane:
+1. Select **+ Create**, and enter values in the following fields in the **Create User Assigned Managed Identity** pane:
     - **Subscription**: Choose the subscription you're using for the resources in this tutorial.
     - **Resource group**: Enter the resource group for this tutorial; *pythoncontainer-rg*.
     - **Region**: Choose the region you're using for the resources in this tutorial.
@@ -571,6 +553,8 @@ Either open a terminal window and follow the steps for Azure CLI or follow the s
 
 1. Select **Review + create** to review the changes.
 1. Select **Create**.
+1. When the operation completes, select **Go to resource** on the **Deployment is complete** page.
+1. On the **Overview** page of your managed identity, copy the **Client ID**. You use the client ID when you create the container app in a later step.
 
 ---
 
@@ -864,16 +848,21 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
         In the sample repo, there is an *.env.example* file you can start from. Create the *.env* file with the following values:
         
-        ```
-        AZURE_POSTGRESQL_HOST=<postgres-server-name>.postgres.database.azure.com
-        AZURE_POSTGRESQL_DATABASE=restaurants_reviews
-        AZURE_POSTGRESQL_USERNAME=demoadmin
-        AZURE_POSTGRESQL_PASSWORD=<db-password>
-        RUNNING_IN_PRODUCTION=1* 
-        AZURE_SECRET_KEY=<YOUR-SECRET-KEY>
+        ```python
+        DBHOST="<postgres-server-name>"
+        DBNAME="restaurants_reviews"
+        DBUSER="my-ua-managed-id"
+        RUNNING_IN_PRODUCTION="1"
+        AZURE_CLIENT_ID="<managed-identity-client-id>"
+        AZURE_SECRET_KEY="<your-secret-key>"
         ```
 
         Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
+
+        Make sure `DBUSER` is the name of your user-assigned managed identity.
+
+        For `AZURE_CLIENT_ID` use the client ID you copied when you created the user-assigned managed identity. You can also get the value from the **Overview** page of the managed identity in Azure portal. 
+
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -1006,6 +995,8 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         * AZURE_SECRET_KEY="\<your-secret-key>"
  
         Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
+
+        For `AZURE_CLIENT_ID` use the client ID you copied when you created the user-assigned managed identity. You can also get the value from the **Overview** page of the managed identity in Azure portal. 
 
         Select **Next: Ingress** to continue.
 
