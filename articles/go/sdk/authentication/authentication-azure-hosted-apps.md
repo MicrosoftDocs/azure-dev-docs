@@ -42,8 +42,8 @@ The output will look like the following.
 
 ```json
 {
-  "principalId": "99999999-9999-9999-9999-999999999999",
-  "tenantId": "33333333-3333-3333-3333-333333333333",
+  "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
+  "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
   "type": "SystemAssigned",
   "userAssignedIdentities": null
 }
@@ -84,11 +84,11 @@ az role definition list \
     --output table
 ```
 
-For example, to allow the managed identity with the ID of `99999999-9999-9999-9999-999999999999` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *your-resource-group-name* resource group in the subscription with ID `11111111-1111-1111-1111-111111111111`, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
+For example, to allow the managed identity with the ID of `aaaaaaaa-bbbb-cccc-1111-222222222222` read, write, and delete access to Azure Storage blob containers and data in all storage accounts in the *your-resource-group-name* resource group in the subscription with ID `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`, you would assign the application service principal to the *Storage Blob Data Contributor* role using the following command.
 
 ```azurecli
-az role assignment create --assignee 99999999-9999-9999-9999-999999999999 \
-    --scope /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/your-resource-group-name \
+az role assignment create --assignee aaaaaaaa-bbbb-cccc-1111-222222222222 \
+    --scope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/your-resource-group-name \
     --role "Storage Blob Data Contributor"
 ```
 
