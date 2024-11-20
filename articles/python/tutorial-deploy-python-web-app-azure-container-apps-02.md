@@ -892,15 +892,16 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     :::column span="2":::
         **Step 3.** After the environment is created, create a container app in it by finding the **Azure Container Apps: Create Container App** task in the command palette. Then, follow the prompts to create the container app:
 
+        * **Select subscription** &rarr; Select the subscription you're using for this tutorial.
         * **Select a container apps environment** &rarr; Select the environment created in the previous step.
-        * **Enter a name for the new container app** &rarr; Enter *python-container-app*.
-        * **Select an image source for the container app** &rarr; Select **Use image from registry**.
+        * **Enter a container app name** &rarr; Enter *python-container-app*.
+        * **Select an image source for the container app** &rarr; Select **Container Registry**.
         * **Select a container registry** &rarr; Select **Azure Container Registry**.
-        * **Select an Azure Container Registry** &rarr; Select the name of the registry you create previously.
+        * **Select an Azure Container Registry** &rarr; Select the name of the registry you created previously.
         * **Select a repository** &rarr; Select **pythoncontainer**.
         * **Select a tag** &rarr; Select **latest**.
-        * **Set with environment variables file** &rarr; Select the *.env* file you created in step one.
-        * **Enable ingress for applications** &rarr; Select **Enable**.
+        * **Select a .env file to set the environment variables for the container instance** &rarr; Select the *.env* file you created in step one.
+        * **Enable ingress for applications that need an HTTP endpoint** &rarr; Select **Enable**.
         * **Select the HTTP traffic that the endpoint will accept** &rarr; Select **External**.
         * **Port the container is listening on** &rarr; Set to 8000 (Django) or 5000 (Flask).
 
@@ -912,7 +913,35 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
+        **Step 4.** Configure the user-assigned managed identity on the container app.
+
+        * Open a terminal in VS Code and enter the following Azure CLI commands. You can also enter the commands from Azure Cloud Shell.
+
+        First, get the resource ID of the managed identity.
+
+        ```azurecli
+        az identity show --name my-ua-managed-id --resource-group pythoncontainer-rg --query id -o tsv
+        ```
+        The resource ID has the following form: */subscriptions/\<subscription ID>/resourcegroups/pythoncontainer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-ua-managed-id*
+
+        Next, configure the managed identity on the container app.
+        ```azurecli
+        az containerapp identity assign  \
+            --name python-container-app \
+            --resource-group pythoncontainer-rg  \
+            --user-assigned <managed-identity-resource-id>      
+        ```
+
+        Replace the `<managed-identity-resource-id>` placeholder with the resource ID output by the previous command.
+        
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-11.png" alt-text="Screenshot showing how to connect to an Azure Container Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-11.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 5.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
 
         * Go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container app you created and select **Open Console in Portal**.
         * Choose a startup command and select **Connect**.
@@ -926,11 +955,11 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5.** Test the website.
+        **Step 6.** Test the website.
 
         * After the create container task completes, you'll see a notification with a **Browse** button to go to the website.
 
-        If you miss the notification, go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container app and select **Browse**.
+        If you miss the notification, go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container app and select **Browse**. You can also enter the **Azure Container Apps: Browse** task in the command palette and follow the prompts.
 
     :::column-end:::
     :::column:::
