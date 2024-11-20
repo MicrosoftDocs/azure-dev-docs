@@ -59,7 +59,7 @@ Azure development with JavaScript on your local workstation, we suggest you inst
 
 |Name/Installer|Description|
 |--|--|
-|[Node.js LTS](https://www.npmjs.com/)|Install latest long-term support (LTS) runtime environment for local workstation development.|
+|[Node.js LTS](https://nodejs.org/)|Install latest long-term support (LTS) runtime environment for local workstation development.|
 |[Visual Studio Code](https://code.visualstudio.com/)| Visual Studio Code gives you a great JavaScript integration and coding experience but it isn't required. You can use any code editor.|
 |[Visual Studio Code extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=Azure&sortBy=Relevance)|Install any relevant extensions for Azure services you intend to use.|
 
