@@ -252,7 +252,7 @@ These steps require the [Docker extension][6] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5.** Select the Azure Cloud Shell icon in the top menu bar to finish configuration and building an image.
+        **Step 5.** Select the Azure Cloud Shell icon in the top menu bar to finish configuration and build an image.
 
         You can also go directly to [Azure Cloud Shell][4].
     :::column-end:::
@@ -508,7 +508,7 @@ If you have trouble creating the database, the server might still be processing 
 ### [Azure portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the search box, enter The name of your PostgreSQL server. Under **Resources**, select your server.
+1. In the search box, enter the name of your PostgreSQL server. Under **Resources**, select your server.
 1. Under **Settings** on the left hand menu, select **Databases**.
 1. Select **+ Add** on the top menu of the **Databases** page.
 1. On the  **Create Database** page, enter *restaurants_reviews* for the **Name**, then select **Save**.
@@ -611,7 +611,7 @@ az postgres flexible-server execute \
     --admin-password $MY_ACCESS_TOKEN
 ```
 
-* If you a different name for your managed identity, replace all instances of `my-ua-managed-id` in the command with the name of your managed identity. There are five instances in the query string.
+* If you used a different name for your managed identity, replace all instances of `my-ua-managed-id` in the command with the name of your managed identity. There are five instances in the query string.
 
 * For the `--admin-user` value, use your Azure account email address.
 
@@ -687,7 +687,7 @@ The semicolon (";") at the end of each command is necessary. To verify that the 
 
 **Step 4.** Grant the user-assigned managed identity necessary permissions on the *restaurants_reviews* database.
 
-At the `restaurants_reviews_=>` prompt enter the following commands:
+At the `restaurants_reviews_=>` prompt, enter the following commands:
 
 ```sql
 GRANT CONNECT ON DATABASE restaurants_reviews TO "my-ua-managed-id";
@@ -754,7 +754,7 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
 
 :::row:::
     :::column span="1":::
-        **Step 5** Use the [az identity show](/cli/azure/identity#az-identity-show) command to client ID and resource ID of the user-assigned managed identity..
+        **Step 5** Use the [az identity show](/cli/azure/identity#az-identity-show) command to client ID and resource ID of the user-assigned managed identity.
 
         ```azurecli
         az identity show --name my-ua-managed-id --resource-group pythoncontainer-rg --query "[clientId, id]" --output tsv
@@ -1115,11 +1115,11 @@ Here's an example of the sample website after adding a restaurant and two review
 
 * You forgot the Application Url to access the website.
   * In the Azure portal, go to the **Overview** page of the Container App and look for the **Application Url**.
-  * In VS Code, go to the **Azure view** (Ctrl+Shift+A) and expand the subscription that you are working in. Expand the **Container Apps** node, then expand the managed environment and right-click **python-container-app** and select **Browse**. It will open the browser with the **Application Url**.
+  * In VS Code, go to the **Azure view** (Ctrl+Shift+A) and expand the subscription that you're working in. Expand the **Container Apps** node, then expand the managed environment and right-click **python-container-app** and select **Browse**. It opens the browser with the **Application Url**.
   * With Azure CLI, use the command `az containerapp show -g pythoncontainer-rg -n python-container-app --query properties.configuration.ingress.fqdn`.
 
 * In VS Code, the **Build Image in Azure** task returns an error.
-  * If you see the message "Error: failed to download context. Please check if the URL is incorrect." in the VS Code **Output** window, then refresh the registry in the Docker extension. To refresh, select the Docker extension, go to the Registries section, find the registry and select it.
+  * If you see the message "Error: failed to download context. Please check if the URL is incorrect." in the VS Code **Output** window, then refresh the registry in the Docker extension. To refresh, select the Docker extension, go to the Registries section, find the registry, and select it.
   * If you run the **Build Image in Azure** task again, check to see if your registry from a previous run exists and if so, use it.
 
 * In the Azure portal during the creation of a Container App, you see an access error that contains "Cannot access ACR '\<name>.azurecr.io'".
