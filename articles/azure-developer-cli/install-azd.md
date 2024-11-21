@@ -115,11 +115,9 @@ The Arm64 version of `azd` is available to download directly on the [GitHub rele
 
 ### Uninstall `azd`
 
-1. Search for **Add or remove programs** in Windows.
+1. Remove the `azd-windows-amd64.exe` executable from the default `azd` location `C:\Users\<username>\AppData\Local\Programs\Azure Dev CLI` on your device. If you installed `azd` in a different location, you'll need to delete it from there.
 
-2. Locate **Azure Dev CLI** and select the three dots to expand the options menu.
-
-3. Select **Uninstall**.
+1. Remove the `PATH` environment variable you added to point to the `azd` install location.
 
 ::: zone-end 
 
