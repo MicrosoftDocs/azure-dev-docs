@@ -516,7 +516,7 @@ If you have trouble creating the database, the server might still be processing 
 
 ---
 
-You can also connect to Azure PostgreSQL Flexible server and create a database using [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or any other IDE that supports PostgreSQL.
+You can also connect to Azure PostgreSQL Flexible server and create a database using [psql][15] or an IDE that supports PostgreSQL like [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio). For steps using psql, see [Configure the managed identity on the postgresql database](#configure-the-managed-identity-on-the-postgresql-database).
 
 ## Create a user-assigned managed identity
 
@@ -553,8 +553,6 @@ Either open a terminal window and follow the steps for Azure CLI or follow the s
 
 1. Select **Review + create** to review the changes.
 1. Select **Create**.
-1. When the operation completes, select **Go to resource** on the **Deployment is complete** page.
-1. On the **Overview** page of your managed identity, copy the **Client ID**. You use the client ID when you create the container app in a later step.
 
 ---
 
@@ -969,7 +967,11 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In the portal search at the top of the screen, search for "container apps" and select the **Container Apps** service in the results.
+        **Step 1.** Get the client ID for the user-assigned managed identity. You use it in a later step.
+
+        * In the portal search at the top of the screen, search for "my-ua-managed-id" and select it from **Resources** in the results.
+        * On the **Overview** page for the managed identity, copy and note down the **Client ID** value.
+
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-01.png" alt-text="Screenshot showing how to search for the Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-01.png":::
@@ -977,7 +979,15 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** Select **+ Create** and then **+ Container App** from the drop-down to start the create process.
+        **Step 2.** In the portal search at the top of the screen, search for "container apps" and select the **Container Apps** service in the results.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-01.png" alt-text="Screenshot showing how to search for the Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-01.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3.** Select **+ Create** and then **+ Container App** from the drop-down to start the create process.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-02.png" alt-text="Screenshot showing how to start the create process for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-02.png":::
@@ -985,7 +995,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** On the **Basics** page, specify the basic configuration of the container app.
+        **Step 4.** On the **Basics** page, specify the basic configuration of the container app.
         
         * **Resource group** &rarr; Use the group created earlier and contains the Azure Container Registry.        
         * **Container app name** &rarr; *python-container-app*.        
@@ -1001,7 +1011,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** On the **Container** page, continue configuring the container app.
+        **Step 5.** On the **Container** page, continue configuring the container app.
         
         * **Use quickstart image** &rarr; Unselect checkbox.        
         * **Name** &rarr; *python-container-app*.
@@ -1023,7 +1033,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
  
         Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
 
-        For `AZURE_CLIENT_ID` use the client ID you copied when you created the user-assigned managed identity. You can also get the value from the **Overview** page of the managed identity in Azure portal. 
+        For `AZURE_CLIENT_ID` use the client ID you copied for the user-assigned managed identity.
 
         Select **Next: Ingress** to continue.
 
@@ -1034,7 +1044,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5.** On the **Ingress** page, continue configuring the container app.
+        **Step 6.** On the **Ingress** page, continue configuring the container app.
         
         * **HTTP Ingress** &rarr;  Select checkbox (enabled).        
         * **Ingress traffic** &rarr; Select **Accepting traffic from anywhere**.        
@@ -1049,7 +1059,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6.** After the deployment finishes, select **Go to resource**.
+        **Step 7.** After the deployment finishes, select **Go to resource**.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-05.png" alt-text="Screenshot showing the resource deployment complete page for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-05.png":::
@@ -1057,7 +1067,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7.** Add the user-assigned managed identity to the container app.
+        **Step 8.** Add the user-assigned managed identity to the container app.
 
         * Under **Settings**, select **Identity** on the newly created container.
         * Then select the **User assigned** tab.
@@ -1081,7 +1091,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 8.** Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
+        **Step 9.** Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
         * Go to the **Monitoring** - **Console** resource of the container app.
         * Choose a startup command and select **Connect**.
         * At the shell prompt, type `python manage.py migrate`.
@@ -1094,7 +1104,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 9.** Test the website.
+        **Step 10.** Test the website.
 
         * Go to the container app's **Overview** resource.
         * Under **Essentials**, select **Application Url** to open the website in a browser.
