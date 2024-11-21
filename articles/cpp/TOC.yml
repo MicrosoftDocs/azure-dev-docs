@@ -4,4 +4,4 @@ items:
   - name: What is the Azure SDK for C++?
     href: sdk/overview.md
   - name: Install the Azure SDk for C++
-    href: sdk/install-the-sdk.md
+    href: sdk/install-and-integrate-the-sdk.md

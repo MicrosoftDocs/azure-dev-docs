@@ -24,7 +24,7 @@ This guide provides developers with the necessary steps to install libraries fro
 - [git](https://git-scm.com/downloads)
 - [CMake](https://cmake.org/download/)
 - [An Azure subscription](https://azure.microsoft.com/free/)
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
+- [Azure CLI](/cli/azure/install-azure-cli)
 
 ## Verify git and CMake installation
 
@@ -62,33 +62,33 @@ To manage and install the Azure SDK for C++ libraries, use vcpkg. vcpkg is a cro
 
 1. To install vcpkg, first clone the vcpkg repo. The recommended approach is to clone vcpkg to a central location on your development environment and not in your C++ project directory. In this example, vcpkg is cloned to the home dir.
 
-```ps
+```pwsh
 cd ~
-git clone https://github.com/microsoft/vcpkg.git
+git clone httpwsh://github.com/microsoft/vcpkg.git
 ```
 
 2. Once the vcpkg repo is cloned, traverse into the new directory and run the `bootstrap-vcpkg.bat` script.
 
-```ps
+```pwsh
 cd .\vcpkg\
 .\bootstrap-vcpkg.bat
 ```
 
 3. After bootstrapping vcpkg, add it to your path so you can access the vcpkg executable from your project directory. Remember to replace the `<path\to\vcpkg>` in the command example with the path to the vcpkg directory you cloned earlier.
 
-```ps
+```pwsh
 $env:Path = "$env:Path;<path\to\vcpkg>"
 ```
 
 4. To verify the vcpkg directory was added to your path, traverse back to your project directory and run the following command:
 
-```ps
+```pwsh
 vcpkg --version
 ```
 
-1. You should get the following output:
+5. You should get the following output:
 
-```ps
+```pwsh
 vcpkg package management program version <version>
 ```
 
@@ -98,7 +98,7 @@ vcpkg package management program version <version>
 
 ```bash
 cd ~
-git clone https://github.com/microsoft/vcpkg.git
+git clone httpwsh://github.com/microsoft/vcpkg.git
 ```
 
 2. Once the vcpkg repo is cloned, traverse into the new directory and run the `bootstrap-vcpkg.sh` script.
@@ -120,11 +120,13 @@ export PATH=$PATH:/path/to/vcpkg
 vcpkg --version
 ```
 
-1. You should get the following output:
+5. You should get the following output:
 
 ```bash
 vcpkg package management program version <version>
 ```
+
+---
 
 ## Install the libraries
 
@@ -176,7 +178,7 @@ az keyvault create --resource-group <your-resource-group-name> --name <your-key-
 
 ### [Windows - PowerShell](#tab/win-powershell)
 
-```ps
+```pwsh
 $env:AZURE_KEYVAULT_URL = "https://<your-key-vault-name>.vault.azure.net/"
 ```
 
@@ -186,7 +188,9 @@ $env:AZURE_KEYVAULT_URL = "https://<your-key-vault-name>.vault.azure.net/"
 export AZURE_KEYVAULT_URL="https://<your-key-vault-name>.vault.azure.net/"
 ```
 
-1. Finally, make sure your Azure account has the proper permissions to work with Key Vault Secrets. You can give yourself the proper permissions by assigning yourself the "Key Vault Secrets Officer" role on the Access Control (IAM) page of your Key Vault resource in the Azure portal.
+---
+
+6. Finally, make sure your Azure account has the proper permissions to work with Key Vault Secrets. You can give yourself the proper permissions by assigning yourself the "Key Vault Secrets Officer" role on the Access Control (IAM) page of your Key Vault resource in the Azure portal.
 
 ## Set up your project
 
@@ -293,7 +297,7 @@ cmake --build ./build
 
 ### [Windows - PowerShell](#tab/win-powershell)
 
-```ps
+```pwsh
 .\build\Debug\azure_sample.exe
 ```
 
@@ -302,6 +306,8 @@ cmake --build ./build
 ```bash
 ./build/azure_sample
 ```
+
+---
 
 4. The program should have the following output:
 
@@ -327,7 +333,7 @@ To create the resource group, you can use the following command:
 az group create --name <your-resource-group-name> --location <your-resource-group-location>
 ```
 
-For more information, check out the [AzureCLI docs on Managing Azure Resource Groups](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-cli).
+For more information, check out the [AzureCLI docs on Managing Azure Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-cli).
 
 ### CMake configure or build can't find azure packages
 
