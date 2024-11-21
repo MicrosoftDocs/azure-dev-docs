@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure developer guide
 
-**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.18.0
+**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.18.0
 
 Spring is an open-source application framework developed by VMware that provides a simplified, modular approach for creating Java applications. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure.
 
