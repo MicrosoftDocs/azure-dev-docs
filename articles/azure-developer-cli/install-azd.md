@@ -45,6 +45,7 @@ winget uninstall microsoft.azd
 ```
 
 ### [Chocolatey](#tab/choco-windows)
+
 ### Install `azd`
 
 ```powershell
@@ -52,6 +53,7 @@ choco install azd
 ```
 
 ### Update `azd`
+
 ```powershell
 choco upgrade azd
 ```
@@ -63,6 +65,7 @@ choco uninstall azd
 ```
 
 ### [Script](#tab/script-windows)
+
 ### Install `azd`
 
 The install script downloads and installs the MSI package on the machine with default parameters.
@@ -72,6 +75,7 @@ powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' 
 ```
 
 ### Update `azd`
+
 ```powershell
 powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' | Invoke-Expression"
 ```
@@ -79,6 +83,43 @@ powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' 
 ### Uninstall `azd`
 
 Using the uninstall script to remove `azd` leaves some items behind on the machine. **Instead, for version 0.5.0-beta.1 and later:** 
+
+1. Search for **Add or remove programs** in Windows.
+
+2. Locate **Azure Dev CLI** and select the three dots to expand the options menu.
+
+3. Select **Uninstall**.
+
+### [Arm64](#tab/arm64)
+
+> [!NOTE]
+> Support for Windows Arm64 is currently in Alpha. Visit the [Feature versioning and release strategy](/azure/developer/azure-developer-cli/feature-versioning) page for more information.
+
+The Arm64 version of `azd` is available to download directly on the [GitHub release page](https://github.com/Azure/azure-dev/releases). Currently, there is no direct support for package manager installers or other channels.
+
+### Install `azd`
+
+To install `azd` on Windows Arm64 devices:
+
+1. On the [GitHub release page](https://github.com/Azure/azure-dev/releases) page, download the latest `azd-windows-arm64-alpha.zip` file.
+
+1. Extract the files onto your device.
+
+1. Run the `azd-windows-amd64.exe` executable to install `azd`.
+
+### Update `azd`
+
+To update an existing `azd` installation on Windows Arm64 devices:
+
+1. On the [GitHub release page](https://github.com/Azure/azure-dev/releases) page, download the latest `azd-windows-arm64-alpha.zip` file.
+
+1. Extract the files onto your device.
+
+1. Run the `azd-windows-amd64.exe` executable to install the latest version `azd` over an existing installation.
+
+### Uninstall `azd`
+
+To uninstall `azd` on Windows Arm64 devices:
 
 1. Search for **Add or remove programs** in Windows.
 
@@ -107,6 +148,7 @@ The `brew tap azure/azd` command only needs to be run once to configure the tap 
 If you're using `brew` to upgrade `azd` from a version not installed using `brew`, remove the existing version of `azd` using the uninstall script (if installed to the default location) or by deleting the `azd` binary manually. This will automatically install the correct version.
 
 ### Update `azd`
+
 ```bash
 brew upgrade azd
 ```
@@ -129,6 +171,7 @@ curl -fsSL https://aka.ms/install-azd.sh | bash
 ```
 
 ### Update `azd`
+
 ```bash
 curl -fsSL https://aka.ms/install-azd.sh | bash
 ```
@@ -144,6 +187,7 @@ curl -fsSL https://aka.ms/uninstall-azd.sh | bash
 ::: zone pivot="os-linux"
 
 ### [Script](#tab/script-linux)
+
 ### Install `azd`
 
 ```bash
@@ -151,6 +195,7 @@ curl -fsSL https://aka.ms/install-azd.sh | bash
 ```
 
 ### Update `azd`
+
 ```bash
 curl -fsSL https://aka.ms/install-azd.sh | bash
 ```
@@ -180,6 +225,7 @@ apt install ./azd_<version>_amd64.deb -y
 ```
 
 ### Uninstall `.deb` package for `azd`
+
 ```bash 
 apt remove -y azd
 ```
@@ -187,6 +233,7 @@ apt remove -y azd
 > You may need to use `sudo` when running `apt`.
 
 ### [.rpm package](#tab/rpm-linux)
+
 The Azure Developer CLI releases signed `.deb` and `.rpm` packages to [GitHub Releases](https://github.com/Azure/azure-dev/releases). To install, download the appropriate file from the GitHub release and run the appropriate command to install the package:**
 
 ### Install `.rpm` package for `azd`
