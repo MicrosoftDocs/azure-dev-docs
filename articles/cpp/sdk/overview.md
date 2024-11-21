@@ -24,7 +24,7 @@ Each Azure service can have one or multiple libraries tailored to different func
 
 Breaking down the Azure SDK for C++ into these small, consumable service libraries, allows users to efficiently manage their dependencies and streamline their development process. This design not only enhances the flexibility and maintainability of applications but also aligns with common cloud development patterns, ensuring a seamless integration with Azure services.
 
-## Installation & Integration
+## [Installation & Integration](./install-and-integrate-the-sdk.md)
 
 The Azure SDK for C++ supports acquiring libraries through vcpkg, a modern package manager for C++. vcpkg simplifies the often frustrating task of managing dependencies in C++ projects. By using vcpkg, you can easily download the source of your project's dependencies and their dependencies, and build them as part of your project's build process.
 
