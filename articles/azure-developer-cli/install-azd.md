@@ -109,7 +109,7 @@ The Arm64 version of `azd` is available to download directly on the [GitHub rele
 
 1. On the [GitHub release page](https://github.com/Azure/azure-dev/releases) page, download the latest `azd-windows-arm64-alpha.zip` file.
 
-1. Extract the `azd-windows-arm64-alpha.zip` file and copy the `azd-windows-amd64.exe` executable to the default `azd` location `C:\Users\<username>\AppData\Local\Programs\Azure Dev CLI` on your device.
+1. Extract the `azd-windows-arm64-alpha.zip` file and copy the `azd-windows-amd64.exe` executable to the default `azd` location `C:\Users\<username>\AppData\Local\Programs\Azure Dev CLI` on your device to replace the existing executable.
 
 1. Verify you have a `PATH` environment variable on your device that points to the extracted file at `C:\Users\<username>\AppData\Local\Programs\Azure Dev CLI\azd-windows-amd64.exe`.
 
