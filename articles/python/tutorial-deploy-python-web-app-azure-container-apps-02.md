@@ -923,7 +923,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
             az identity show --name my-ua-managed-id --resource-group pythoncontainer-rg --query id -o tsv
             ```
             The resource ID has the following form: */subscriptions/\<subscription ID>/resourcegroups/pythoncontainer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-ua-managed-id*
-    
+
         * Assign the managed identity to the container app.
 
             ```azurecli
@@ -932,7 +932,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
                 --resource-group pythoncontainer-rg  \
                 --user-assigned <managed-identity-resource-id>      
             ```
-    
+
             Replace the `<managed-identity-resource-id>` placeholder with the resource ID output by the previous command.
             
     :::column-end:::
