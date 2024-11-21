@@ -1,0 +1,25 @@
+### YamlMime:Landing
+
+title: Azure for C++ developers
+summary: Learn to use the Azure SDK for C++, browse API references, sample code, tutorials, quickstarts, conceptual articles, and more.
+metadata:
+  title: Azure for C++ developers
+  description: Get started developing with the Azure SDK for C++.
+  ms.date: 05/12/2023
+  ms.topic: landing-page
+  ms.service: azure
+  ms.collection: collection
+  ms.devlang: cpp
+  ms.custom: devx-track-cpp
+
+landingContent:
+  - title: Azure libraries (SDK)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the Azure SDK for C++?
+            url: sdk/overview.md
+      - linkListType: download
+        links:
+          - text: Install the Azure SDK for C++
+            url: https://azure.github.io/azure-sdk-for-cpp/index.html
