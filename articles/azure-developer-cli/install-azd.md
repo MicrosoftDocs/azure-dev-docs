@@ -99,8 +99,6 @@ The Arm64 version of `azd` is available to download directly on the [GitHub rele
 
 ### Install `azd`
 
-To install `azd` on Windows Arm64 devices:
-
 1. On the [GitHub release page](https://github.com/Azure/azure-dev/releases) page, download the latest `azd-windows-arm64-alpha.zip` file.
 
 1. Extract the files onto your device.
@@ -109,8 +107,6 @@ To install `azd` on Windows Arm64 devices:
 
 ### Update `azd`
 
-To update an existing `azd` installation on Windows Arm64 devices:
-
 1. On the [GitHub release page](https://github.com/Azure/azure-dev/releases) page, download the latest `azd-windows-arm64-alpha.zip` file.
 
 1. Extract the files onto your device.
@@ -118,8 +114,6 @@ To update an existing `azd` installation on Windows Arm64 devices:
 1. Run the `azd-windows-amd64.exe` executable to install the latest version `azd` over an existing installation.
 
 ### Uninstall `azd`
-
-To uninstall `azd` on Windows Arm64 devices:
 
 1. Search for **Add or remove programs** in Windows.
 
