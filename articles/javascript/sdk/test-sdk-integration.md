@@ -16,7 +16,7 @@ When deciding whether to mock out cloud service SDK calls or use a live service 
 
 ## Prerequisites
 
-- [Node.js LTS](https://nodejs.org/en/download/package-manager)
+- [Node.js LTS](https://nodejs.org)
 
 ### Mocking cloud services
 

@@ -8,6 +8,10 @@
 /.openpublishing.publish.config.json @KarlErickson @mcleanbyron
 /CODEOWNERS @KarlErickson @mcleanbyron
 
+# AI
+
+/articles/ai/ @ms-johnalex
+
 # Intro
 /articles/intro/ @mcleanbyron
 
