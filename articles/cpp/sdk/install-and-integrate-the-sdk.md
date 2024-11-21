@@ -309,7 +309,7 @@ cmake --build ./build
 Secret is returned with name MySampleSecret and value My super secret value
 ```
 
-## Troubleshooting, validation, and/or FAQ
+## Troubleshooting
 
 ### Resource group not found
 
