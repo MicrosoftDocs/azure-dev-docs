@@ -3,7 +3,7 @@ title: Quickstart - Deploy your first Azure update-resource with the AzAPI Terra
 description: Learn how to use the AzAPI Terraform provider to manage network rules on an Azure Event Hubs namespace
 keywords: azure devops terraform event hubs azapi update_resource
 ms.topic: quickstart
-ms.date: 03/18/2023
+ms.date: 11/21/2024
 ms.custom: devx-track-terraform
 author: grayzu
 ms.author: markgray
@@ -68,10 +68,10 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 
 #### [Azure CLI](#tab/azure-cli)
 
-Run [az eventhubs namespace network-rule list](/cli/azure/eventhubs/namespace/network-rule-set#az-eventhubs-namespace-network-rule-set-list) to display the Event Hubs Namespace network rules.
+Run [az eventhubs namespace network-rule-set show](/cli/azure/eventhubs/namespace/network-rule-set#az-eventhubs-namespace-network-rule-set-show) to display the Event Hubs Namespace network rules.
 
 ```azurecli
-az eventhubs namespace network-rule list --resource-group <resource_group_name> --namespace-name <namespace_name>
+az eventhubs namespace network-rule show --resource-group <resource_group_name> --namespace-name <namespace_name>
 ```
 
 **Key points:**
