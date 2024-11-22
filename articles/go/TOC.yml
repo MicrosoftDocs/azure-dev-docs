@@ -45,6 +45,8 @@ items:
           href: sdk/authentication/authentication-on-premises-apps.md
         - name: Additional auth methods
           href: sdk/authentication/authentication-additional-methods.md
+        - name: Credential chains
+          href: sdk/authentication/credential-chains.md
         - name: Authentication (legacy)
           expanded: false
           items:
