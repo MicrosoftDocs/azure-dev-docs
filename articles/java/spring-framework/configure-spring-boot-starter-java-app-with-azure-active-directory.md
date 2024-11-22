@@ -13,7 +13,7 @@ adobe-target: true
 
 This article shows you how to develop a Spring web app that supports sign-in by [Microsoft Entra account](/azure/active-directory/fundamentals/active-directory-whatis#terminology). After finishing all steps in this article, the web app will redirect to the Microsoft Entra sign-in page when it's been accessed anonymously. The following screenshot shows the Microsoft Entra sign-in page:
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/application-login.png" alt-text="Screenshot of application 'Sign in' dialog.":::
+:::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/application-login.png" alt-text="Screenshot of application 'Sign in' dialog.":::
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. When the page for your app registration appears, copy your **Application (client) ID** and the **Directory (tenant) ID**. You'll use these values to configure your *application.properties* file later in this tutorial.
 
-1. Select **Certificates & secrets** in the left navigation pane.  Then select **New client secret**.
+1. Select **Certificates & secrets** in the navigation pane. Then, select **New client secret**.
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-client-secret.png" alt-text="Screenshot of application 'Certificates & secrets' screen with 'New client secret' highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-client-secret.png":::
 

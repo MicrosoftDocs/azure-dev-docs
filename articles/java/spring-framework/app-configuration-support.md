@@ -128,6 +128,8 @@ spring.cloud.azure.appconfiguration.stores[0].connection-string=${CONFIG_STORE_C
 az appconfig credential list --name <name-of-your-store>
 ```
 
+[!INCLUDE [security-note](../includes/security-note.md)]
+
 By default, if no configurations are set, the configurations starting with `/application/` are loaded with a default label of `(No Label)` unless a Spring Profile is set, in which case the default label is your Spring Profile. Because the store is empty, no configurations are loaded, but the Azure App Configuration Property Source is still generated.
 
 A property source named `/application/https://<name-of-your-store>.azconfig.io/` is created containing the properties of that store. The label used in the request is appended to the end of the name. If no label is set, the character `\0` is present as an empty space.
@@ -216,6 +218,8 @@ If an error resulting in a `RuntimeException` happens during a refresh check or 
 
 The library supports all forms of identity supported by the [Azure Identity Library](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity). You can do authentication through configuration for connection strings and managed identity.
 
+[!INCLUDE [security-note](../includes/security-note.md)]
+
 ### Connection string
 
 Authentication through connection string is the simplest form to set up. You can access a store's connection strings by using the following command:
@@ -255,6 +259,8 @@ az role assignment create \
 > [!NOTE]
 > You can define only one authentication method per endpoint: connection string, user assigned identity, or token credential. If you need to mix and match, you can use `ConfigurationClientCustomizer` to modify stores that use a different method.
 
+[!INCLUDE [security-note](../includes/security-note.md)]
+
 ## Geo-replication
 
 The library supports the geo-replication feature of Azure App Configuration. This feature enables you to replicate your data to other locations. This feature is useful for high availability and disaster recovery.
@@ -279,9 +285,11 @@ az appconfig replica create --location --name --store-name [--resource-group]
 
 After you've created a replica, you can use it in your application. Like the origin store, you can connect to your replica using Microsoft Entra ID or a connection string.
 
+[!INCLUDE [security-note](../includes/security-note.md)]
+
 <a name='azure-ad'></a>
 
-#### [Microsoft Entra ID](#tab/azure-ad)
+#### [Microsoft Entra ID (recommended)](#tab/azure-ad)
 
 To use Microsoft Entra ID to connect to your replica, you need to list the `endpoints` of your configuration store instances, as shown in the following example:
 

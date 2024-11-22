@@ -105,6 +105,8 @@ If you use [AccessLogValve](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apa
 
 In the pre-migration steps, you likely identified some secrets and external dependencies, such as datasources, in *server.xml* and *context.xml* files. For each item you identified, replace any username, password, connection string, or URL with an environment variable.
 
+[!INCLUDE [security-note](../includes/security-note.md)]
+
 For example, suppose the *context.xml* file contains the following element:
 
 ```xml
@@ -114,7 +116,7 @@ For example, suppose the *context.xml* file contains the following element:
     url="jdbc:postgresql://postgresdb.contoso.com/wickedsecret?ssl=true"
     driverClassName="org.postgresql.Driver"
     username="postgres"
-    password="t00secure2gue$$"
+    password="{password}"
 />
 ```
 
@@ -213,6 +215,8 @@ Now that you have your application migrated to Azure App Service you should veri
 * If you opted to use the */home* directory for file storage, consider [replacing it with Azure Storage](/azure/app-service/configure-connect-to-azure-storage).
 
 * If you have configuration in the */home* directory that contains connection strings, SSL keys, and other secret information, consider using a combination of [Azure Key Vault](/azure/app-service/app-service-key-vault-references) and/or [parameter injection with application settings](/azure/app-service/configure-common#configure-app-settings) where possible.
+
+  [!INCLUDE [security-note](../includes/security-note.md)]
 
 * Consider [using Deployment Slots](/azure/app-service/deploy-staging-slots) for reliable deployments with zero downtime.
 
