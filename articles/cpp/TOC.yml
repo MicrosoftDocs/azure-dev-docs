@@ -3,5 +3,5 @@ items:
     href: index.yml
   - name: What is the Azure SDK for C++?
     href: sdk/overview.md
-  - name: Install the Azure SDk for C++
+  - name: Install the Azure SDK for C++
     href: sdk/install-and-integrate-the-sdk.md

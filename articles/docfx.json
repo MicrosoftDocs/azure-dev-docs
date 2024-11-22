@@ -175,6 +175,7 @@
         "azure-developer-cli/**/*.yml": "azure-dev-cli",
         "chef/**/*.md": "chef",
         "chef/**/*.yml": "chef",
+        "cpp/**/*.md": "azure",
         "dev-tunnels/**/*.md": "azure-dev-tunnels",
         "dev-tunnels/**/*.yml": "azure-dev-tunnels",
         "github-copilot-azure/**/*.md": "github-copilot-for-azure",

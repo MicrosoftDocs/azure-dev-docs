@@ -3,7 +3,6 @@ title: Overview of the Azure SDK for C++
 description: Learn how the Azure SDK for C++ can help you create and manage applications that run on Azure.
 author: ronniegeraghty
 ms.author: rgeraghty
-ms.service: AzureSDKForCpp
 ms.topic: overview
 ms.date: 11/14/2024
 ms.custom: devx-track-cpp
@@ -24,13 +23,13 @@ Each Azure service can have one or multiple libraries tailored to different func
 
 Breaking down the Azure SDK for C++ into these small, consumable service libraries, allows users to efficiently manage their dependencies and streamline their development process. This design not only enhances the flexibility and maintainability of applications but also aligns with common cloud development patterns, ensuring a seamless integration with Azure services.
 
-## [Installation & Integration](./install-and-integrate-the-sdk.md)
+## Installation & Integration
 
 The Azure SDK for C++ supports acquiring libraries through vcpkg, a modern package manager for C++. vcpkg simplifies the often frustrating task of managing dependencies in C++ projects. By using vcpkg, you can easily download the source of your project's dependencies and their dependencies, and build them as part of your project's build process.
 
 vcpkg integrates seamlessly with CMake, a widely used build system for C++ projects. By utilizing a CMake module, vcpkg manages the entire dependency chain, ensuring that all required libraries are correctly downloaded and built. This integration not only streamlines the setup process but also ensures consistency across different development environments.
 
-By using vcpkg and CMake, you can focus more on developing your application and less on managing dependencies, enhancing your overall development workflow.
+By using vcpkg and CMake, you can focus more on developing your application and less on managing dependencies, enhancing your overall development workflow. If you'd like to see how to install and integrate the Azure SDK for C++ libraries into your projects, check out the [Install & Integrate libraries from the Azure SDK for C++](./install-and-integrate-the-sdk.md).
 
 ## Unified Design Principles
 
