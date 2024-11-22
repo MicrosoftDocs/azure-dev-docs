@@ -10,7 +10,7 @@ ms.custom: devx-track-cpp
 #customer intent: As a developer, I want to seamlessly integrate Azure SDK for C++ libraries into my projects so that I can leverage Azure services efficiently and effectively.
 
 ---
-<!-- markdownlint-disable MD051 MD024 MD046 -->
+<!-- markdownlint-disable MD051 MD024 -->
 
 # Install & Integrate libraries from the Azure SDK for C++
 
@@ -417,17 +417,17 @@ This section discusses how to configure and build your project using CMake comma
 
 When using the AzureCLI to create a Key Vault instance, if you receive the following error, the resource group you're trying to add the Key Vault instance to doesn't exist.
 
-    ```output
-    (ResourceGroupNotFound) Resource group '<your-resource-group-name>' could not be found.
-    Code: ResourceGroupNotFound
-    Message: Resource group '<your-resource-group-name>' could not be found.
-    ```
+  ```output
+  (ResourceGroupNotFound) Resource group '<your-resource-group-name>' could not be found.
+  Code: ResourceGroupNotFound
+  Message: Resource group '<your-resource-group-name>' could not be found.
+  ```
 
 To create the resource group, you can use the following command:
 
-    ```azurecli
-    az group create --name <your-resource-group-name> --location <your-resource-group-location>
-    ```
+  ```azurecli
+  az group create --name <your-resource-group-name> --location <your-resource-group-location>
+  ```
 
 For more information, check out the [AzureCLI docs on Managing Azure Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-cli).
 
@@ -435,19 +435,19 @@ For more information, check out the [AzureCLI docs on Managing Azure Resource Gr
 
 When running the CMake configure or build commands, if you receive the following error or something similar, the `CMakeLists.txt` file isn't running the `vcpkg.cmake` module before the CMake project is established or at all.
 
-    ```output
-    CMake Error at CMakeLists.txt:12 (find_package):
-      Could not find a package configuration file provided by
-      "azure-identity-cpp" with any of the following names:
-    
-        azure-identity-cppConfig.cmake
-        azure-identity-cpp-config.cmake
-    
-      Add the installation prefix of "azure-identity-cpp" to CMAKE_PREFIX_PATH or
-      set "azure-identity-cpp_DIR" to a directory containing one of the above
-      files.  If "azure-identity-cpp" provides a separate development package or
-      SDK, be sure it has been installed.
-    ```
+  ```output
+  CMake Error at CMakeLists.txt:12 (find_package):
+    Could not find a package configuration file provided by
+    "azure-identity-cpp" with any of the following names:
+  
+      azure-identity-cppConfig.cmake
+      azure-identity-cpp-config.cmake
+  
+    Add the installation prefix of "azure-identity-cpp" to CMAKE_PREFIX_PATH or
+    set "azure-identity-cpp_DIR" to a directory containing one of the above
+    files.  If "azure-identity-cpp" provides a separate development package or
+    SDK, be sure it has been installed.
+  ```
 
 Verify in the **CMakeLists.txt** file, that the `set(CMAKE_TOOLCHAIN_FILE "/path/to/vcpkg-root/scripts/buildsystems/vcpkg.cmake")` line is above the `project(azure_sample VERSION 0.1.0 LANGUAGES C CXX)`.
 
@@ -457,17 +457,17 @@ Then also verify that the `/path/to/vcpkg-root/` in the `set(CMAKE_TOOLCHAIN_FIL
 
 When running the CMake configuration or build commands, if you receive the following error, the **CMakeLists.txt** file may contain paths using `\`. This issue can be common when using Window's paths.
 
-    ```output
-    Syntax error in cmake code at
-    
-        C:/Users/username/Desktop/CppProject/CMakeLists.txt:6
-    
-      when parsing string
-    
-        C:\Users\username\vcpkg\scripts\buildsystems\vcpkg.cmake
-    
-      Invalid character escape '\U'.
-    ```
+  ```output
+  Syntax error in cmake code at
+  
+      C:/Users/username/Desktop/CppProject/CMakeLists.txt:6
+  
+    when parsing string
+  
+      C:\Users\username\vcpkg\scripts\buildsystems\vcpkg.cmake
+  
+    Invalid character escape '\U'.
+  ```
 
 Even though Windows uses `\` in file paths, CMake only uses `/` in file paths. The issue can be resolved by replacing all `\` with `/` in paths used in the **CMakeLists.txt** file.
 
@@ -481,10 +481,10 @@ When running the CMake configure command, if you continue to receive the same er
 
 When running the CMake configure command, if you receive an error like the following, you may need to update your version of CMake.
 
-    ```output
-    CMake Error at CMakeLists.txt:2 (cmake_minimum_required):
-      CMake 3.30.0 or higher is required.  You are running version 3.25.0
-    ```
+  ```output
+  CMake Error at CMakeLists.txt:2 (cmake_minimum_required):
+    CMake 3.30.0 or higher is required.  You are running version 3.25.0
+  ```
 
 To resolve this error, update your installation of CMake to the version stated in the error message.
 
@@ -492,18 +492,18 @@ To resolve this error, update your installation of CMake to the version stated i
 
 When running the C++ sample program, if you receive an error like the following, you don't have the proper permissions to work with secrets on the specified Key Vault resource.
 
-    ```output
-    Key Vault Secret Client Exception happened:
-    Caller is not authorized to perform action on resource.
-    If role assignments, deny assignments or role definitions were changed recently, please observe propagation time.
-    Caller: <redacted-application-information>
-    Action: 'Microsoft.KeyVault/vaults/secrets/setSecret/action'
-    Resource: <redacted-resource-information>
-    Assignment: (not found)
-    DenyAssignmentId: null
-    DecisionReason: null 
-    Vault: <your-key-vault-name>;location=<your-key-vault-location>
-    ```
+  ```output
+  Key Vault Secret Client Exception happened:
+  Caller is not authorized to perform action on resource.
+  If role assignments, deny assignments or role definitions were changed recently, please observe propagation time.
+  Caller: <redacted-application-information>
+  Action: 'Microsoft.KeyVault/vaults/secrets/setSecret/action'
+  Resource: <redacted-resource-information>
+  Assignment: (not found)
+  DenyAssignmentId: null
+  DecisionReason: null 
+  Vault: <your-key-vault-name>;location=<your-key-vault-location>
+  ```
 
 The proper permissions can be given to your account either using the Azure portal or the Azure CLI.
 
@@ -511,9 +511,9 @@ To update your permissions using the Azure portal, navigate to the **Access Cont
 
 To update your permissions using the Azure CLI, enter the following command, replacing `<upn>` with your user principal name, `<subscription-id>` with your subscription ID, `<resource-group-name>` with your resource group name, and `<your-unique-keyvault-name>` with your Key Vault instance name:
 
-    ```azurecli
-    az role assignment create --role "Key Vault Secrets Officer" --assignee "<upn>" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<your-unique-keyvault-name>"
-    ```
+  ```azurecli
+  az role assignment create --role "Key Vault Secrets Officer" --assignee "<upn>" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<your-unique-keyvault-name>"
+  ```
 
 ### VS Code include errors
 
@@ -529,28 +529,28 @@ To add the include directory to your VS Code settings, hover over the include st
 
 When running the **bootstrap-vcpkg.sh** script on Linux, if you receive an error like the following, you don't have the necessary tools installed to run the script.
 
-    ```output
-    Could not find zip. Please install it (and other dependencies) with:
-    On Debian and Ubuntu derivatives:
-      sudo apt-get install curl zip unzip tar
-    On recent Red Hat and Fedora derivatives:
-      sudo dnf install curl zip unzip tar
-    On older Red Hat and Fedora derivatives:
-      sudo yum install curl zip unzip tar
-    On SUSE Linux and derivatives:
-      sudo zypper install curl zip unzip tar
-    On Arch Linux and derivatives:
-      sudo pacman -Syu base-devel git curl zip unzip tar cmake ninja
-    On Alpine:
-      apk add build-base cmake ninja zip unzip curl git
-      (and export VCPKG_FORCE_SYSTEM_BINARIES=1)
-    ```
+  ```output
+  Could not find zip. Please install it (and other dependencies) with:
+  On Debian and Ubuntu derivatives:
+    sudo apt-get install curl zip unzip tar
+  On recent Red Hat and Fedora derivatives:
+    sudo dnf install curl zip unzip tar
+  On older Red Hat and Fedora derivatives:
+    sudo yum install curl zip unzip tar
+  On SUSE Linux and derivatives:
+    sudo zypper install curl zip unzip tar
+  On Arch Linux and derivatives:
+    sudo pacman -Syu base-devel git curl zip unzip tar cmake ninja
+  On Alpine:
+    apk add build-base cmake ninja zip unzip curl git
+    (and export VCPKG_FORCE_SYSTEM_BINARIES=1)
+  ```
 
 To install the tools, use the provided command in the error message for your linux distribution. For example, on Ubuntu it would be the following command:
 
-    ```bash
-    sudo apt-get install curl zip unzip tar
-    ```
+  ```bash
+  sudo apt-get install curl zip unzip tar
+  ```
 
 Then rerun the `bootstrap-vcpkg.sh` script.
 
@@ -558,13 +558,13 @@ Then rerun the `bootstrap-vcpkg.sh` script.
 
 When running the CMake configure command, if you receive an error like the following, the path to the **vcpkg.cmake** modules wasn't properly set.
 
-    ```output
-    CMake Error at /usr/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake:176 (message):
-      Could not find toolchain file:
-      /path/to/vcpkg-root/scripts/buildsystems/vcpkg.cmake
-    Call Stack (most recent call first):
-      CMakeLists.txt:9 (project)
-    ```
+  ```output
+  CMake Error at /usr/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake:176 (message):
+    Could not find toolchain file:
+    /path/to/vcpkg-root/scripts/buildsystems/vcpkg.cmake
+  Call Stack (most recent call first):
+    CMakeLists.txt:9 (project)
+  ```
 
 In the **CMakeLists.txt** file update the `set(CMAKE_TOOLCHAIN_FILE "/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake")` statement with the correct path to where vcpkg was installed.
 
@@ -572,10 +572,10 @@ In the **CMakeLists.txt** file update the `set(CMAKE_TOOLCHAIN_FILE "/path/to/vc
 
 When running the CMake configure command, if you receive an error like the following, system dependencies for the packages need to be installed.
 
-    ```output
-    CMake Error at /path/to/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (message):
-      vcpkg install failed.  See logs for more information:
-    ```
+  ```output
+  CMake Error at /path/to/vcpkg/scripts/buildsystems/vcpkg.cmake:904 (message):
+    vcpkg install failed.  See logs for more information:
+  ```
 
 To find the needed system packages, search the output of the CMake config commands for lines starting with `Could not find <system-package>`, replacing `<system-package>` with the missing system package. Underneath this line should be a command to install that missing system package. Run that command. Then rerun the CMake configuration command. You may need to repeat this process a few times depending on the number of missing system packages.
 
