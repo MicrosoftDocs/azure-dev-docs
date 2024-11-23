@@ -2,7 +2,7 @@
 title: Migrate Tomcat Applications to Azure Container Apps
 description: This guide describes what you should be aware of when you want to migrate an existing Tomcat application to run on Azure Container Apps.
 author: KarlErickson
-ms.author: manriem
+ms.author: karler
 ms.topic: conceptual
 ms.date: 08/05/2022
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java
@@ -59,6 +59,8 @@ Before you create container images, migrate your application to the JDK and Tomc
 
 In the pre-migration, you'll likely have identified secrets and external dependencies, such as datasources, in *server.xml* and *context.xml* files. For each item thus identified, replace any username, password, connection string, or URL with an environment variable.
 
+[!INCLUDE [security-note](../includes/security-note.md)]
+
 For example, suppose the *context.xml* file contains the following element:
 
 ```xml
@@ -68,7 +70,7 @@ For example, suppose the *context.xml* file contains the following element:
     url="jdbc:postgresql://postgresdb.contoso.com/wickedsecret?ssl=true"
     driverClassName="org.postgresql.Driver"
     username="postgres"
-    password="t00secure2gue$$"
+    password="{password}"
 />
 ```
 
@@ -97,6 +99,8 @@ Clone the [Tomcat on Containers Quickstart](https://github.com/Azure/tomcat-cont
 #### Add JNDI resources
 
 Edit *server.xml* to add the resources you prepared in the pre-migration steps, such as Data Sources, as shown in the following example:
+
+[!INCLUDE [security-note](../includes/security-note.md)]
 
 ```xml
 <!-- Global JNDI resources
