@@ -19,7 +19,7 @@ sequenceDiagram
     
   A->>B: Authenticate to Microsoft Entra ID;
   activate B;
-  B->>B: get_token;
+  B->>B: GetToken;
   loop Traverse TokenCredential collection until AccessToken received
     B->>C: Fetch token;
     activate C;

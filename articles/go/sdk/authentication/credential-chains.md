@@ -1,6 +1,6 @@
 ---
 title: Credential chains in the Azure Identity client library for Go
-description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library.
+description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library for Go.
 ms.date: 11/22/2024
 ms.topic: conceptual
 ms.custom: devx-track-go
@@ -8,7 +8,7 @@ ms.custom: devx-track-go
 
 # Credential chains in the Azure Identity client library for Go
 
-The Azure Identity client library provides *credentials*&mdash;public classes that implement the azcore library's [TokenCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore#TokenCredential) protocol. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
+The Azure Identity client library provides *credentials*&mdash;public classes that implement the azcore library's [TokenCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore#TokenCredential) interface. A credential represents a distinct authentication flow for acquiring an access token from Microsoft Entra ID. These credentials can be chained together to form an ordered sequence of authentication mechanisms to be attempted.
 
 ## How a chained credential works
 
@@ -22,12 +22,25 @@ A chained credential can offer the following benefits:
 
 - **Environment awareness**: Automatically selects the most appropriate credential based on the environment in which the app is running. Without it, you'd have to write code like this:
 
-    ```python
-    # Set up credential based on environment (Azure or local development)
-    if os.getenv("WEBSITE_HOSTNAME"):
-        credential = ManagedIdentityCredential(client_id=user_assigned_client_id)
-    else:
-        credential = AzureCliCredential()
+    ```go
+    // Set up credential based on environment (Azure or local development)
+    if os.Getenv("WEBSITE_HOSTNAME") != "" {
+        clientID := azidentity.ClientID("abcd1234-...")
+        opts := azidentity.ManagedIdentityCredentialOptions{ID: clientID}
+        cred, err := azidentity.NewManagedIdentityCredential(&opts)
+        
+        if err != nil {
+          // TODO: handle error
+        }
+    }
+    else {
+        // Use Azure CLI Credential
+        credential, err = azidentity.NewAzureCLICredential(nil)
+
+        if err != nil {
+          // TODO: handle error
+        }
+    }
     ```
 
 - **Seamless transitions**: Your app can move from local development to your staging or production environment without changing authentication code.
@@ -64,17 +77,24 @@ The order in which `DefaultAzureCredential` attempts credentials follows.
 
 In its simplest form, you can use the parameterless version of `DefaultAzureCredential` as follows:
 
-```python
-from azure.identity import DefaultAzureCredential
-from azure.storage.blob import BlobServiceClient
+```go
+import (
+    "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
+    )
 
-# Acquire a credential object
-credential = DefaultAzureCredential()
+// create a credential
+credential, err := azidentity.NewDefaultAzureCredential(nil)
+if err != nil {
+    // TODO: handle error
+}
 
-blob_service_client = BlobServiceClient(
-    account_url="https://<my_account_name>.blob.core.windows.net",
-    credential=credential
-)
+// create a Blob service client 
+accountURL := "https://<my_account_name>.blob.core.windows.net"
+client, err := azblob.NewClient(accountURL, credential, nil)
+if err != nil {
+    // TODO: handle error
+}
 ```
 
 ### How to customize DefaultAzureCredential
@@ -152,7 +172,7 @@ Here's why:
 
 ## Debug a chained credential
 
-To diagnose an unexpected issue or to understand what a chained credential is doing, [enable logging](../azure-sdk-logging.md) in your app. Optionally, filter the logs to only those events emitted from the Azure Identity client library. For example:
+To diagnose an unexpected issue or to understand what a chained credential is doing, [enable logging](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore#hdr-Built_in_Logging) in your app. Optionally, filter the logs to only those events emitted from the Azure Identity client library. For example:
 
 ```python
 import logging
