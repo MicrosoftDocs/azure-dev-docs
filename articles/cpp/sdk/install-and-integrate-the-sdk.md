@@ -266,7 +266,7 @@ This section discusses how to use the Azure CLI to create an Azure Key Vault res
 
 ---
 
-1. Finally, make sure your Azure account has the proper permissions to work with Key Vault Secrets. You can give yourself the proper permissions by assigning yourself the "Key Vault Secrets Officer" role on the Access Control (IAM) page of your Key Vault resource in the Azure portal.
+1. Finally, make sure your Azure account has the proper permissions to work with Key Vault Secrets. You can give yourself the proper permissions by assigning yourself the "Key Vault Secrets Officer" role on the Access Control (IAM) page of your Key Vault resource in the Azure portal. *IAM stands for identity and access management.*
 
 ## Set up your project
 
@@ -359,19 +359,19 @@ This section discusses how to configure and build your project using CMake comma
 
 ### [Windows - PowerShell](#tab/win-powershell)
 
-1. Configure CMake with the following command:
+1. To configure CMake, enter the following command:
 
     ```powershell
     cmake -B ./build
     ```
 
-1. Build the project with the following command:
+1. To build the project, enter the following command:
 
     ```powershell
     cmake --build ./build
     ```
 
-1. Run the program with the following command:
+1. To run the program, enter the following command:
 
     ```powershell
     .\build\Debug\azure_sample.exe
@@ -385,19 +385,19 @@ This section discusses how to configure and build your project using CMake comma
 
 ### [MacOS/Linux - Bash](#tab/mac-linux-bash)
 
-1. Configure CMake with the following command:
+1. To configure CMake, enter the following command:
 
     ```bash
     cmake -B ./build
     ```
 
-1. Build the project with the following command:
+1. To build the project, enter the following command:
 
     ```bash
     cmake --build ./build
     ```
 
-1. Run the program with the following command:
+1. To run the program, enter the following command:
 
     ```bash
     ./build/azure_sample
@@ -517,7 +517,7 @@ To update your permissions using the Azure CLI, enter the following command, rep
 
 ### VS Code include errors
 
-If you see error lines under your include statements for libraries from the Azure SDK for C++ (shown below) when using VS Code, the editor doesn't know where to find the include directory containing header files for the libraries.
+If you see error lines under your include statements when using VS Code (shown in the following image), the editor doesn't know where to find the include directory.
 
 :::image type="content" source="media/vscode-include-error.png" alt-text="{Screenshot of C++ include statements from VS Code that have red error squiggly lines underneath.}":::
 
