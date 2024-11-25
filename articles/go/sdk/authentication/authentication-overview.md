@@ -61,6 +61,8 @@ When an application runs on a developer's workstation during local development, 
 
 ## Use DefaultAzureCredential in an application
 
+[DefaultAzureCredential](./credential-chains.md#defaultazurecredential-overview) is an opinionated, ordered sequence of mechanisms for authenticating to Microsoft Entra ID. Each authentication mechanism is a class that implements the [TokenCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore#TokenCredential) interface and is known as a *credential*. At runtime, `DefaultAzureCredential` attempts to authenticate using the first credential. If that credential fails to acquire an access token, the next credential in the sequence is attempted, and so on, until an access token is successfully obtained. In this way, your app can use different credentials in different environments without writing environment-specific code.
+
 To use [DefaultAzureCredential](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential) in a Go app, add the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) package to your application.
 
 ```terminal
@@ -102,27 +104,9 @@ func main() {
 }
 ```
 
-The `DefaultAzureCredential` type automatically detects the authentication mechanism configured for the app and obtains the necessary tokens to authenticate the app to Azure. If an application makes use of more than one SDK client, you can use the same credential object with each SDK client object.
+When the preceding code runs on your local development workstation, it looks in the environment variables for an application service principal or at locally installed developer tools, such as the Azure CLI, for a set of developer credentials. Either approach can be used to authenticate the app to Azure resources during local development.
 
-### Sequence of authentication methods when you use DefaultAzureCredential
-
-Internally, `DefaultAzureCredential` implements a chain of credential providers for authenticating applications to Azure resources. Each credential provider can detect if credentials of that type are configured for the app. The `DefaultAzureCredential` object sequentially checks each provider in order and uses the credentials from the first provider that has credentials configured.
-
-The order in which `DefaultAzureCredential` looks for credentials is shown in the following diagram and table:
-
-:::image type="content" source="../media/default-azure-credential-auth-flow.svg" alt-text="A diagram that shows the sequence in which DefaultAzureCredential checks to see what authentication source is configured for an application." lightbox="../media/default-azure-credential-auth-flow-big.png":::
-
-| Credential type               | Description |
-|-------------------------------|-------------|
-| Environment | The `DefaultAzureCredential` type reads a set of environment variables to determine if an application service principal (application user) was set for the app. If so, `DefaultAzureCredential` uses these values to authenticate the app to Azure.<br><br>This method is most often used in server environments, but you can also use it when you develop locally.             |
-| Workload identity              | In Azure Kubernetes Service (AKS), a workload identity represents a trust relationship between a managed identity and a Kubernetes service account. If an application deployed to AKS is configured with a Kubernetes service account in such a relationship, `DefaultAzureCredential` authenticates the app to Azure by using the managed identity. Authentication by using a workload identity is discussed in [Use Microsoft Entra Workload ID with Azure Kubernetes Service](/azure/aks/workload-identity-overview?tabs=go).|
-| Managed identity              | If the application is deployed to an Azure host with managed identity enabled, `DefaultAzureCredential` authenticates the app to Azure by using that managed identity. Authentication by using a managed identity is discussed in the section [Authentication in server environments](#authentication-in-server-environments).<br><br>This method is only available when an application is hosted in Azure by using a service like Azure App Service, Azure Functions, or Azure Virtual Machines. |
-| Azure CLI                     | If you've authenticated to Azure by using the `az login` command in the Azure CLI, `DefaultAzureCredential` authenticates the app to Azure by using that same account. |
-| Azure Developer CLI              | If you've authenticated to Azure by using the `azd auth login` command in the Azure Developer CLI, `DefaultAzureCredential` authenticates the app to Azure by using that same account.            |
-
-
-> [!NOTE]
-> Due to a [known issue](https://github.com/Azure/azure-sdk-for-go/issues/15614), `VisualStudioCodeCredential` has been removed from the `DefaultAzureCredential` token chain. When the issue is resolved in a future release, this change will be reverted. For more information, see [Azure Identity client library for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity).
+When deployed to Azure, this same code can also authenticate your app to Azure resources. `DefaultAzureCredential` can retrieve environment settings and managed identity configurations to authenticate to Azure services automatically.
 
 ## Related content
 
