@@ -45,6 +45,8 @@ Replace the placeholders with the following values, which are used throughout th
 - `<AZ_SQL_SERVER_ADMIN_PASSWORD>` and `<AZ_SQL_SERVER_NON_ADMIN_PASSWORD>`: The password of your Azure SQL Database server, which should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
 - `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
+[!INCLUDE [security-note](../includes/security-note.md)]
+
 Next, create a resource group by using the following command:
 
 ```azurecli
@@ -132,6 +134,8 @@ az sql db create \
 This step will create a non-admin user and grant all permissions on the `demo` database to it.
 
 Create a SQL script called *create_user.sql* for creating a non-admin user. Add the following contents and save it locally:
+
+[!INCLUDE [security-note](../includes/security-note.md)]
 
 ```bash
 cat << EOF > create_user.sql
