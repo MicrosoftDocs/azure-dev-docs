@@ -1,7 +1,7 @@
 ---
 title: 'Overview: Authenticate Go apps to Azure using the Azure SDK'
 description: This article provides an overview of how to authenticate applications to Azure services when you use the Azure SDK for Go in both server environments and in local development.
-ms.date: 06/20/2024
+ms.date: 11/25/2024
 ms.topic: overview
 ms.custom: devx-track-go
 ---
