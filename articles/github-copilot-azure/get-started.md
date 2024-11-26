@@ -2,9 +2,9 @@
 title: Get started with GitHub Copilot for Azure Preview
 description: This article describes the requirements and installation procedure for the GitHub Copilot for Azure Preview Visual Studio Code extension.
 keywords: github, copilot, ai, azure
-ms.service: azure
+ms.service: github-copilot-for-azure
 ms.topic: get-started
-ms.date: 09/03/2024
+ms.date: 11/18/2024
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -23,6 +23,10 @@ To complete the steps in this article, make sure that you have:
 - Visual Studio Code. For details on how to download and install it, see [Setting up Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview).
 
 - The GitHub Copilot extension and the GitHub Copilot Chat extension. For instructions on how to install these extensions, see [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup) and [Getting started with GitHub Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/getting-started-chat), respectively.
+
+
+>[!IMPORTANT]
+>GitHub Copilot is not included in Visual Studio Subscriptions and is a separate subscription managed by GitHub. For questions regarding GitHub Copilot subscriptions and Support, see [Individual Subscriptions](https://docs.github.com/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-individual-subscription) or [Business subscriptions](https://docs.github.com/en/billing/managing-billing-for-github-copilot/managing-your-github-copilot-business-subscription).
 
 ## Install GitHub Copilot for Azure Preview
 
@@ -73,6 +77,7 @@ You can also set the default tenant in the extension settings:
 - [Understand what GitHub Copilot for Azure Preview is and how it works](introduction.md).
 - Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure in your software development workflow. The quickstart describes how to deploy services to Azure, monitor their status, and troubleshoot problems.
 - See example prompts for [learning more about Azure and understanding your Azure account, subscription, and resources](learn-examples.md).
+- See example prompts for [designing and developing applications for Azure](design-develop-examples.md).
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
 - See example prompts for [optimizing your applications in Azure](optimize-examples.md).
 - See example prompts for [troubleshooting your Azure resources](troubleshoot-examples.md).

@@ -15,11 +15,6 @@ To create a Dockerfile, you'll need the following prerequisites:
 
 You can then perform the steps described in the following sections, where applicable. You can use the [WildFly Container Quickstart repo](https://github.com/Azure/wildfly-container-quickstart) as a starting point for your Dockerfile and web application.
 
-1. [Configure KeyVault FlexVolume](#configure-keyvault-flexvolume)
-2. [Set up data sources](#set-up-data-sources)
-3. [Set up JNDI resources](#set-up-jndi-resources)
-4. [Review WildFly configuration](#review-wildfly-configuration)
-
 #### Configure KeyVault FlexVolume
 
 Create an Azure KeyVault and populate all the necessary secrets. For more information, see [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](/azure/key-vault/quick-create-cli). Then, configure a [KeyVault FlexVolume](https://github.com/Azure/kubernetes-keyvault-flexvol/blob/master/README.md) to make those secrets accessible to pods.
@@ -53,7 +48,9 @@ The following steps provide instructions for PostgreSQL, MySQL and SQL Server.
 
 1. Create a file with a name like `datasource-commands.cli` and add the following code. Replace `<JDBC .jar file path>` with the value you used in the previous step. Replace `<module file path>` with the file name and path from the previous step, for example `/opt/database/module.xml`.
 
-    **PostgreSQL**
+    [!INCLUDE [security-note](../../includes/security-note.md)]
+
+    ##### [PostgreSQL](#tab/postgresql)
 
     ```console
     batch
@@ -65,7 +62,7 @@ The following steps provide instructions for PostgreSQL, MySQL and SQL Server.
     shutdown
     ```
 
-    **MySQL**
+    ##### [MySQL](#tab/mysql)
 
     ```console
     batch
@@ -77,7 +74,7 @@ The following steps provide instructions for PostgreSQL, MySQL and SQL Server.
     shutdown
     ```
 
-    **SQL Server**
+    ##### [SQL Server](#tab/sql-server)
 
     ```console
     batch
@@ -93,19 +90,19 @@ The following steps provide instructions for PostgreSQL, MySQL and SQL Server.
 
     Open the `src/main/resources/META-INF/persistence.xml` file for your app and find the `<jta-data-source>` element. Replace its contents as shown here:
 
-    **PostgreSQL**
+    ##### [PostgreSQL](#tab/postgresql)
 
     ```xml
     <jta-data-source>java:jboss/datasources/postgresDS</jta-data-source>
     ```
 
-    **MySQL**
+    ##### [MySQL](#tab/mysql)
 
     ```xml
     <jta-data-source>java:jboss/datasources/mysqlDS</jta-data-source>
     ```
 
-    **SQL Server**
+    ##### [SQL Server](#tab/sql-server)
 
     ```xml
     <jta-data-source>java:jboss/datasources/postgresDS</jta-data-source>
@@ -122,25 +119,27 @@ The following steps provide instructions for PostgreSQL, MySQL and SQL Server.
 
 1. Determine the `DATABASE_CONNECTION_URL` to use as they are different for each database server, and different than the values on the Azure portal. The URL formats shown here are required for use by WildFly:
 
-    **PostgreSQL**
+    ##### [PostgreSQL](#tab/postgresql)
 
     ```console
     jdbc:postgresql://<database server name>:5432/<database name>?ssl=true
     ```
 
-    **MySQL**
+    ##### [MySQL](#tab/mysql)
 
     ```console
     jdbc:mysql://<database server name>:3306/<database name>?ssl=true\&useLegacyDatetimeCode=false\&serverTimezone=GMT
     ```
 
-    **SQL Server**
+    ##### [SQL Server](#tab/sql-server)
 
     ```console
     jdbc:sqlserver://<database server name>:1433;database=<database name>;user=<admin name>;password=<admin password>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
     ```
 
 1. When creating your deployment YAML at a later stage you will need to pass the following environment variables, `DATABASE_CONNECTION_URL`, `DATABASE_SERVER_ADMIN_FULL_NAME` and `DATABASE_SERVER_ADMIN_PASSWORD` with the appropriate values.
+
+[!INCLUDE [security-note](../../includes/security-note.md)]
 
 For more info on configuring database connectivity with WildFly, see [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource), or [SQL Server](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898).
 
@@ -149,11 +148,11 @@ For more info on configuring database connectivity with WildFly, see [PostgreSQL
 To set up each JNDI resource you need to configure on WildFly, you will generally use the following steps:
 
 1. Download the necessary JAR files and copy them into the Docker image.
-2. Create a WildFly *module.xml* file referencing those JAR files.
-3. Create any configuration needed by the specific JNDI resource.
-4. Create JBoss CLI script to be used during Docker build to register the JNDI resource.
-5. Add everything to Dockerfile.
-6. Pass the appropriate environment variables in your deployment YAML.
+1. Create a WildFly *module.xml* file referencing those JAR files.
+1. Create any configuration needed by the specific JNDI resource.
+1. Create JBoss CLI script to be used during Docker build to register the JNDI resource.
+1. Add everything to Dockerfile.
+1. Pass the appropriate environment variables in your deployment YAML.
 
 The example below shows the steps needed to create the JNDI resource for JMS connectivity to Azure Service Bus.
 

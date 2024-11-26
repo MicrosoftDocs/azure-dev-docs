@@ -2,39 +2,37 @@
 title: GitHub Copilot for Azure Preview prompt engineering examples to learn about using Azure for your application
 description: This article provides example prompts that can help you learn how to use Azure and deploy your application to the cloud.
 keywords: github, copilot, ai, azure
-ms.service: azure
+ms.service: github-copilot-for-azure
 ms.topic: best-practice
-ms.date: 09/03/2024
+ms.date: 11/18/2024
 ms.collection: ce-skilling-ai-copilot
 ---
 
 # Example prompts for learning about Azure and your application with GitHub Copilot for Azure Preview
 
-If you're unfamiliar with Azure and how you can use it for your application, you can ask GitHub Copilot for Azure Preview to help you.
-
-## Best practices
-
-Using copilots can increase developer productivity by answering questions, executing tasks, and generating code. However, remember these vital rules:
-
-- Review all AI-generated responses. Validate their correctness, applicability, potential outcomes (such as costs and security) before taking action based on those responses.
-- Never save application secrets or credentials in source code.
-- Never submit application secrets or credentials in questions or in code when you ask questions.
-
-When you're working with any tool that's based on large language models, use good prompt engineering techniques for the best results. The following tips come from the article [Write effective prompts for Microsoft Copilot in Azure](/azure/copilot/write-effective-prompts), which provides advice for prompt engineering in the context of Azure.
-
-- [Be clear and specific](/azure/copilot/write-effective-prompts#be-clear-and-specific)
-- [Set expectations](/azure/copilot/write-effective-prompts#set-expectations)
-- [Add context about your scenario](/azure/copilot/write-effective-prompts#add-context-about-your-scenario)
-- [Break down your requests](/azure/copilot/write-effective-prompts#break-down-your-requests)
-- [Customize your code](/azure/copilot/write-effective-prompts#customize-your-code)
-- [Use Azure terminology](/azure/copilot/write-effective-prompts#use-azure-terminology)
-- [Use the feedback loop](/azure/copilot/write-effective-prompts#use-the-feedback-loop)
+If you're unfamiliar with Azure and how you can use it for your application, you can ask GitHub Copilot for Azure Preview to help you. Use [best practices](introduction.md#best-practices) to achieve the best results.
 
 ## Example prompts to learn about Azure
 
 If you want to use GitHub Copilot for Azure Preview to learn about how to use Azure for your application, you can start with an open-ended question or request. Then, add details like specific services and technologies for better results. Try the following example prompts.
 
 ### Learn about system architecture on Azure
+
+Use GitHub Copilot to recommend Azure services to use for your project.
+
+- "@azure What Azure services should I use with my app?"
+- "@azure Please recommend Azure services for my project"
+
+When asked to recommend an Azure service, GitHub Copilot for Azure scans the current application in the workspace and provides recommendations for Azure services and service bindings. 
+
+You can work in an iterative manner asking GitHub Copilot for Azure to update the recommendations to use a different Azure service or change the bindings information. Example prompts: 
+
+- "@azure I'd like to use App Service instead of Azure Container App for my api project" 
+- "@azure Add a Cosmos DB to my project"
+- "@azure The SERVICE_URL value should be bing.com"
+- "@azure Add an environment variable STAGE=dev to my project"
+
+You can follow-up by asking more detailed questions based on GitHub Copilot for Azure's recommendations. Here are some example detailed questions to help you understand the types of prompts you can use.
 
 - "@azure How can I create a highly available architecture in Azure?"
 - "@azure Explain the Azure Well-Architected Framework."
@@ -94,6 +92,7 @@ If you want to use GitHub Copilot for Azure Preview to learn about how to use Az
 - [Understand what GitHub Copilot for Azure Preview is and how it works](introduction.md).
 - [Get started](get-started.md) with GitHub Copilot for Azure by installing the software and writing your first prompt.
 - Follow the [quickstart](quickstart-build-deploy-applications.md) to understand how to include GitHub Copilot for Azure Preview in your software development workflow. The quickstart describes how to deploy services to Azure, monitor their status, and troubleshoot problems.
+- See example prompts for [designing and developing applications for Azure](design-develop-examples.md).
 - See example prompts for [deploying your application to Azure](deploy-examples.md).
 - See example prompts for [optimizing your applications in Azure](optimize-examples.md).
 - See example prompts for [troubleshooting your Azure resources](troubleshoot-examples.md).

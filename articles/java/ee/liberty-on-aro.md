@@ -5,7 +5,7 @@ description: Shows you how to deploy a Java application with Open Liberty/WebSph
 author: KarlErickson
 ms.author: jiangma
 ms.topic: conceptual
-ms.date: 07/31/2024
+ms.date: 11/15/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java, linux-related-content
 ---
 
@@ -35,7 +35,7 @@ If you're interested in providing feedback or working closely on your migration 
 ## Prerequisites
 
 - A local machine with Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
-- A Java Standard Edition (SE) implementation, version 17 or later - or example, [Eclipse Open J9](https://www.eclipse.org/openj9/).
+- A Java Standard Edition (SE) implementation, version 17 - for example, [Eclipse Open J9](https://www.eclipse.org/openj9/).
 - [Maven](https://maven.apache.org/download.cgi), version 3.9.8 or higher.
 - [Docker](https://docs.docker.com/get-docker/) for your OS.
 - [Azure CLI](/cli/azure/install-azure-cli), version 2.61.0 or later.
@@ -69,13 +69,13 @@ After you create and connect to the cluster, use the following steps to install 
 1. Select **Open Liberty** from the search results.
 1. Select **Install**.
 1. On the **Install Operator** page, use the following steps:
-   1. For **Update channel**, select the latest channel **v1.3**.
+   1. For **Update channel**, select the latest channel **v1.4**.
    1. For **Installation mode**, seelct **All namespaces on the cluster (default)**.
    1. For **Update approval**, select **Automatic**.
 
    :::image type="content" source="media/liberty-on-aro/install-operator.png" alt-text="Screenshot of the OpenShift web console that shows the Install Operator page." lightbox="media/liberty-on-aro/install-operator.png":::
 
-1. Select **Install** and wait a minute or two until the installation completes.
+1. Select **Install** and wait a few minutes until the installation completes.
 1. Observe that the Open Liberty Operator is successfully installed and ready for use. If it isn't ready, diagnose and resolve the problem before continuing.
 
    :::image type="content" source="media/liberty-on-aro/open-liberty-operator-installed.png" alt-text="Screenshot of the OpenShift web console that shows the Installed operator dialog box." lightbox="media/liberty-on-aro/open-liberty-operator-installed.png":::
@@ -111,13 +111,15 @@ az mysql flexible-server create \
 ```
 
 > [!NOTE]
-> If you receive an error message **No available SKUs in this location**, you need to specify a different location using the `--location` parameter and try again. Use the following command to list available SKUs in a specific location:
+> This article guides you to create an Azure Database for MySQL Flexible Server with MySQL authentication. A more secure practice is to use [Microsoft Entra authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication) for authenticating the database server connection. Azure Red Hat OpenShift doesn't currently support [Microsoft Entra Workload ID](/entra/workload-id/workload-identities-overview), so MySQL authentication is the only available option.
+>
+> If you receive an error message **No available SKUs in this location**, specify a different location using the `--location` parameter and try again. Use the following command to list available SKUs in a specific location:
 >
 > ```azurecli
-> az mysql flexible-server list-skus --location <Location>
+> az mysql flexible-server list-skus --location <location>
 > ```
-
-Find a location that has available SKUs and then repeat the preceding `az mysql flexible-server create command`, but append the appropriate `--location <Location>` parameter, leaving all the other parameters unchanged.
+>
+> Find a location that has available SKUs and then repeat the preceding `az mysql flexible-server create` command, but append the appropriate `--location <location>` parameter, leaving all the other parameters unchanged.
 
 It takes a few minutes to create the server, database, admin user, and firewall rule that accepts connections from all Azure resources. If the command is successful, the output looks similar to the following example:
 

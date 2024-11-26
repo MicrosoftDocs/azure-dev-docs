@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Use Azure Service Bus with JMS
 
-**This article applies to:** ✔️ Version 4.19.0 ✔️ Version 5.18.0
+**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.18.0
 
 This article describes how to use Azure Service Bus with the JMS API integrated into the Spring JMS framework.
 
@@ -131,8 +131,20 @@ spring:
       pricing-tier: ${PRICING_TIER}
 ```
 
+## Connections
+
+Spring Cloud Azure provides the following three Connection Factory options for connecting to Azure Service Bus JMS:
+
+- `JmsPoolConnectionFactory`: Set `spring.jms.servicebus.pool.enabled=true` or leave both pool and cache settings unset to use the default value. This factory maintains a connection pool with customizable options like `spring.jms.servicebus.pool.max-connections`. Additional pool configuration settings - prefixed with `spring.jms.servicebus.pool.` - are detailed in the [Configuration](#configuration) section. This setup enhances performance by leveraging Azure Service Bus's load-balancing capability, distributing traffic across multiple endpoints.
+
+- `CachingConnectionFactory`: Set `spring.jms.cache.enabled=true` and leave `spring.jms.servicebus.pool.enabled` unset. This factory reuses a single connection for all calls to `JmsTemplate`, reducing the overhead of connection creation, which is ideal for low-traffic scenarios. However, this mode does not leverage Azure Service Bus's load-balancing capability.
+
+- `ServiceBusJmsConnectionFactory`: Set `spring.jms.servicebus.pool.enabled=false` and `spring.jms.cache.enabled=false` to use `ServiceBusJmsConnectionFactory` directly, with no pooling or caching. In this mode, each call to `JmsTemplate` creates a new connection, which can be resource-intensive and less efficient.
+
+For optimal performance and load distribution, we recommend using `JmsPoolConnectionFactory` by setting `spring.jms.servicebus.pool.enabled=true`. Avoid wrapping a `JmsPoolConnectionFactory` with a `CachingConnectionFactory` or `ServiceBusJmsConnectionFactory` because this can negate pooling benefits and might result in holding inactive connections after they're evicted from the pool.
+
 > [!NOTE]
-> The default enabled `ConnectionFactory` is the `CachingConnectionFactory`, which adds `Session` caching as well as `MessageProducer` caching. If you want to activate the connection pooling feature of `JmsPoolConnectionFactory`, set `spring.jms.servicebus.pool.enabled` to `true`. You can find other pooling configuration options (properties with prefix `spring.jms.servicebus.pool.`) in the [Configuration](#configuration) section.
+> Starting with Spring Cloud Azure 5.18.0, the default `ConnectionFactory` has been updated to `JmsPoolConnectionFactory` to better use Service Bus server load balancing. If you prefer to continue using the `CachingConnectionFactory` for caching both `Session` and `MessageProducer`, set `spring.jms.cache.enabled` to `true`.
 
 ## Samples
 

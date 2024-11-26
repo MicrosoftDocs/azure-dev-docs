@@ -25,7 +25,7 @@ items:
     - name: How-tos
       items:
         - name: Switch between OpenAI and Azure OpenAI endpoints with Python
-          href: /azure/ai-services/openai/how-to/switching-endpoints&bc=/azure/developer/ai/breadcrumb/toc.json    
+          href: /azure/ai-services/openai/how-to/switching-endpoints?toc=/azure/developer/ai/toc.json&bc=/azure/developer/ai/breadcrumb/toc.json    
         - name: Security
           items: 
             - name: Use Azure OpenAI without keys
@@ -38,6 +38,10 @@ items:
           href: intelligent-app-templates.md 
         - name: Secure your AI App with keyless authentication
           href: get-started-securing-your-ai-app.md
+        - name: Agents
+          items:
+            - name: Get started with multi-agent applications
+              href: get-started-multi-agents.md
         - name: Chat with your data
           items:
             - name: Python

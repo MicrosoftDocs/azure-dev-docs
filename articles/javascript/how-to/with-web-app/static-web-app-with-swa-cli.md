@@ -44,7 +44,7 @@ Create the following accounts:
 
 Install the following on your local development computer:
 
-- [Node.js](https://nodejs.org/en/download/releases/) v18+
+- [Node.js](https://nodejs.org) LTS
 - [Visual Studio Code](https://code.visualstudio.com/Download) (VS Code)
 - [Azure Static Web Apps (SWA) CLI](https://azure.github.io/static-web-apps-cli/docs/use/install) installed globally with `-g` flag
 - [Azure Functions Core Tools](/azure/azure-functions/functions-core-tools-reference?tabs=v2) v4.0.5095+ (if running locally) installed globally with `-g` flag

@@ -39,6 +39,8 @@
       href: use-external-registry.md
     - name: Use Helm and Kustomize
       href: helm-kustomize-support.md
+    - name: Enable demo mode
+      href: demo-mode.md
     - name: Configure service packaging ignore files
       href: service-packaging-ignore-files.md
     - name: Configure template sources
@@ -51,6 +53,8 @@
       href: start-with-existing-template.md
     - name: Start with your app code
       href: start-with-app-code.md
+    - name: Explore the compose feature
+      href: azd-compose.md
     - name: Training - build and deploy azd templates
       href: /training/paths/azure-developer-cli
   - name: Integration and remote environments

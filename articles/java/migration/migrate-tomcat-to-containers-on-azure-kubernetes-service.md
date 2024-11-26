@@ -70,6 +70,8 @@ Before you create container images, migrate your application to the JDK and Tomc
 
 In the pre-migration, you'll likely have identified secrets and external dependencies, such as datasources, in *server.xml* and *context.xml* files. For each item thus identified, replace any username, password, connection string, or URL with an environment variable.
 
+[!INCLUDE [security-note](../includes/security-note.md)]
+
 For example, suppose the *context.xml* file contains the following element:
 
 ```xml
@@ -79,7 +81,7 @@ For example, suppose the *context.xml* file contains the following element:
     url="jdbc:postgresql://postgresdb.contoso.com/wickedsecret?ssl=true"
     driverClassName="org.postgresql.Driver"
     username="postgres"
-    password="t00secure2gue$$"
+    password="{password}"
 />
 ```
 
@@ -136,9 +138,9 @@ To determine whether your application uses clustering, look for the `<Cluster>` 
 
 #### Add JNDI resources
 
-Edit *server.xml* to add the resources you prepared in the pre-migration steps, such as Data Sources.
+Edit *server.xml* to add the resources you prepared in the pre-migration steps, such as Data Sources, as shown in the following example:
 
-For example:
+[!INCLUDE [security-note](../includes/security-note.md)]
 
 ```xml
 <!-- Global JNDI resources
@@ -241,6 +243,8 @@ You might want to create a Persistent Volume using Azure Files mounted to the To
 [Create an Azure KeyVault](/azure/key-vault/quick-create-cli) and populate all the necessary secrets. Then, configure a [KeyVault FlexVolume](https://github.com/Azure/kubernetes-keyvault-flexvol/blob/master/README.md) to make those secrets accessible to pods.
 
 You'll need to modify the startup script (*startup.sh* in the [Tomcat on Containers](https://github.com/Azure/tomcat-container-quickstart) GitHub repository) to import the certificates into the local keystore on the container.
+
+[!INCLUDE [security-note](../includes/security-note.md)]
 
 ### Migrate scheduled jobs
 
