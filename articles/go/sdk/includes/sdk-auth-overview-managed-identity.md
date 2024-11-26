@@ -9,4 +9,4 @@ For example, a [Gin](https://github.com/gin-gonic/gin) web app hosted in Azure C
 Apps running in Azure Kubernetes Service (AKS) can use a Workload identity credential. This credential is based on a managed identity that has a trust relationship with an AKS service account.<br>
 <br>
 > [!div class="nextstepaction"]
-> [Learn about auth from Azure-hosted apps](../authentication/authentication-azure-hosted-apps.mdazure-hosted-apps.md)
+> [Learn about auth from Azure-hosted apps](../authentication/authentication-azure-hosted-apps.md)

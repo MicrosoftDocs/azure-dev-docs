@@ -143,6 +143,23 @@ credential = ChainedTokenCredential(
 
 [ChainedTokenCredential](/python/api/azure-identity/azure.identity.chainedtokencredential) is an empty chain to which you add credentials to suit your app's needs. For example:
 
+```go
+managed, err := azidentity.NewManagedIdentityCredential(nil)
+if err != nil {
+  // handle error
+}
+
+azCLI, err := azidentity.NewAzureCLICredential(nil)
+if err != nil {
+  // handle error
+}
+
+chain, err := azidentity.NewChainedTokenCredential([]azcore.TokenCredential{managed, azCLI}, nil)
+if err != nil {
+  // handle error
+}
+```
+
 ```python
 credential = ChainedTokenCredential(
     ManagedIdentityCredential(client_id=user_assigned_client_id),
@@ -172,7 +189,7 @@ Here's why:
 
 ## Debug a chained credential
 
-To diagnose an unexpected issue or to understand what a chained credential is doing, [enable logging](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore#hdr-Built_in_Logging) in your app. Optionally, filter the logs to only those events emitted from the Azure Identity client library. For example:
+To diagnose an unexpected issue or to understand what a chained credential is doing, [enable logging](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#readme-logging) in your app. Optionally, filter the logs to only those events emitted from the Azure Identity client library. For example:
 
 ```python
 import logging
@@ -221,4 +238,4 @@ In the preceding output, notice that:
 
 
 <!-- LINKS -->
-[env-vars]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#environment-variables
+[env-vars]: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#readme-environment-variables
