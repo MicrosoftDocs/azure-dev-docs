@@ -1,7 +1,7 @@
 ---
 title: Credential chains in the Azure Identity client library for Go
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library for Go.
-ms.date: 11/22/2024
+ms.date: 11/25/2024
 ms.topic: conceptual
 ms.custom: devx-track-go
 ---
@@ -236,6 +236,7 @@ In the preceding output, notice that:
 > [!NOTE]
 > In the preceding example, the logging level is set to `logging.DEBUG`. Be careful when using this logging level, as it can output sensitive information. For example, in this case, the client ID, tenant ID, and the object ID of the developer's user principal in Azure. All traceback information has been removed from the output for clarity.
 
+For guidance on resolving errors from specific credential types, see the [troubleshooting guide](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azidentity/TROUBLESHOOTING.md).
 
 <!-- LINKS -->
 [env-vars]: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#readme-environment-variables
