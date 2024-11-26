@@ -471,7 +471,7 @@ Then, connect the Azure SQL Database server to the container app using Service C
 
 #### [Bash](#tab/in-bash)
 
-1. Install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI by using the following command:
+1. This sample uses Service Connector to facilitate connecting to the database. For more information on Service Connector, see [What is Service Connector?](/azure/service-connector/overview) Install the passwordless extension for the Azure CLI by using the following command:
 
    ```azurecli
    az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
@@ -530,7 +530,7 @@ Then, connect the Azure SQL Database server to the container app using Service C
 ---
 
 > [!NOTE]
-> The Service Connector creates a secret in the container app that contains the value for `AZURE_SQL_CONNECTIONSTRING`, which is a password free connection string to the Azure SQL Database. See the sample value from [User-assigned managed identity authentication](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity) for more information.
+> The Service Connector creates a secret in the container app that contains the value for `AZURE_SQL_CONNECTIONSTRING`, which is a password free connection string to the Azure SQL Database. For more information, see the sample value from [User-assigned managed identity authentication](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity).
 
 ### Test the application
 
