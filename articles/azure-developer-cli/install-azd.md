@@ -99,6 +99,9 @@ The Arm64 version of `azd` is available to download directly on the [GitHub rele
 
 ### Install `azd`
 
+> [!NOTE]
+> If your machine already has the Windows x86_64 version of `azd` installed, first uninstall the x86_64 version to prevent MSI upgrades or repairs from writing over the Arm64 executable.
+
 1. On the [GitHub release page](https://github.com/Azure/azure-dev/releases) page, download the latest `azd-windows-arm64-alpha.zip` file.
 
 1. Extract the `azd-windows-arm64-alpha.zip` file and copy the `azd-windows-amd64.exe` executable to the default `azd` location `C:\Users\<username>\AppData\Local\Programs\Azure Dev CLI` on your device.
