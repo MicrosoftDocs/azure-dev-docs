@@ -28,9 +28,9 @@ Existing Azure resources can be exported to Terraform through the Azure portal. 
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal with the experimental Terrafom feature flag enabled](https://ms.portal.azure.com/?exp.terraformEnabled=true#home).
 
-## Create the test Azure resources
+## Setup Virtual Machine
 
 ### Azure CLI or Azure PowerShell
 [!INCLUDE [Create sample VM](../includes/create-vm.md)]
@@ -42,6 +42,12 @@ Sign in to the [Azure portal](https://portal.azure.com).
 1. Under **Resource Group Name**, select **Create new**, and type in **myResourceGroup**.
 1. Leave everything else as default. Select **Review + create**.
 1. Verify everything is configured properly, then select **Create**.
+
+## Register resource provider
+
+### Azure CLI or Azure PowerShell
+1. Run the command `az provider register -n Microsoft.AzureTerraform`
+1. Register the feature flag: `az feature register --namespace Microsoft.AzureTerraform -n private`. This is a private preview feature thus you will need to wait for manual approval from MSFT internal team to use the feature. Check the status of your feature registration by running `az feature show --namespace Microsoft.AzureTerraform --name private`.
 
 ## Export resource group
 

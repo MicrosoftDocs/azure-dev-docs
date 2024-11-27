@@ -11,6 +11,15 @@ ms.custom: devx-track-terraform
 
 The Azure Terraform Resource Provider (Public Preview) enables Azure Terraform workflows across various Azure workflows. Currently, only an export workflow is supported, but planned additions to the resource provider accelerate deployment workflows in Terraform on Azure.
 
+## Registration
+Register the provider with `az provider register -n Microsoft.AzureTerraform`. 
+
+## Private preview feature registration
+The experience is currently in private preview. Please register the feature flag with `az feature register --namespace Microsoft.AzureTerraform -n private`. We will then manually approve your request.
+
+### Check status
+Check the status of the registration with `az feature show --namespace Microsoft.AzureTerraform --name private`
+
 ## Export
 Export functionality is based on the preexisting [Azure Export for Terraform tool](../azure-export-for-terraform/export-terraform-overview.md). These capabilities are exposed through the resource provider. To export resources, choose your tool of choice:
 
