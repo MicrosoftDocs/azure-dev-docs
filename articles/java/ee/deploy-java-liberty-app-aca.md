@@ -5,7 +5,7 @@ description: Shows you how to deploy a Java application with Open Liberty or Web
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 11/18/2024
+ms.date: 11/27/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aca, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 ---
 
@@ -17,7 +17,7 @@ This article shows you how to run Open Liberty or WebSphere Liberty on Azure Con
 * Build the application Docker image using Liberty container images.
 * Deploy the containerized application to Azure Container Apps.
 
-For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
+For more information about Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information about IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
@@ -37,7 +37,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Sign in to Azure
 
-If you haven't done so already, sign in to your Azure subscription by using the [az login](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
+Sign in to your Azure subscription by using the [az login](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
 
 ### [Bash](#tab/in-bash)
 
@@ -64,7 +64,7 @@ az login
 
 An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az-group-create) command in the *eastus2* location. This resource group is used later for creating the Azure Container Registry (ACR) instance and the Azure Container Apps instance.
+Create a resource group called `java-liberty-project` using the [az group create](/cli/azure/group#az-group-create) command in the `eastus2` location. This resource group is used later for creating the Azure Container Registry (ACR) instance and the Azure Container Apps instance.
 
 ### [Bash](#tab/in-bash)
 
@@ -84,7 +84,7 @@ az group create --name $Env:RESOURCE_GROUP_NAME --location eastus2
 
 ## Create an ACR instance
 
-Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the ACR instance. The following example creates an ACR instance named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
+Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the ACR instance. The following example creates an ACR instance named `youruniqueacrname`. Make sure `youruniqueacrname` is unique within Azure.
 
 > [!NOTE]
 > This article uses the recommended passwordless authentication mechanism for Container Registry. It's still possible to use username and password with `docker login` after using `az acr credential show` to obtain the username and password. Using username and password is less secure than passwordless authentication.
@@ -119,7 +119,7 @@ After a short time, you should see a JSON output that contains the following lin
   "resourceGroup": "java-liberty-project",
 ```
 
-Next, retrieve the login server for the Container Registry instance. You need this value when you deploy the application image to the Azure Container Apps later.
+Next, use the following command to retrieve the login server for the Container Registry instance. You need this value when you deploy the application image to the Azure Container Apps later.
 
 ### [Bash](#tab/in-bash)
 
@@ -145,7 +145,7 @@ $Env:ACR_LOGIN_SERVER = $(az acr show `
 
 ## Create an environment
 
-An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. Use the [az containerapp env create](/cli/azure/containerapp/env#az-containerapp-env-create) command to create an environment. The following example creates an environment named *youracaenvname*:
+An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. Use the [az containerapp env create](/cli/azure/containerapp/env#az-containerapp-env-create) command to create an environment. The following example creates an environment named `youracaenvname`:
 
 ### [Bash](#tab/in-bash)
 
@@ -183,14 +183,14 @@ In this section, you create an Azure SQL Database single database for use with y
 
 ### [Bash](#tab/in-bash)
 
-First, set database-related environment variables. Replace `<your-unique-sql-server-name>` with a unique name for your Azure SQL Database server.
+First, use the following commands to set database-related environment variables. Replace `<your-unique-sql-server-name>` with a unique name for your Azure SQL Database server.
 
 ```bash
 export SQL_SERVER_NAME=<your-unique-sql-server-name>
 export DB_NAME=demodb
 ```
 
-Run the following command in your terminal to create a single database in Azure SQL Database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
+Next, use the following commands to create a single database in Azure SQL Database and set the current signed-in user as a Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-cli).
 
 ```azurecli
 export ENTRA_ADMIN_NAME=$(az account show --query user.name --output tsv)
@@ -212,7 +212,7 @@ az sql db create \
     --capacity 2
 ```
 
-Then, add the local IP address to the Azure SQL Database server firewall rules to allow your local machine to connect to the database for local testing later.
+Then, use the following command to add the local IP address to the Azure SQL Database server firewall rules to allow your local machine to connect to the database for local testing later.
 
 ```azurecli
 export AZ_LOCAL_IP_ADDRESS=$(curl -s https://whatismyip.akamai.com)
@@ -226,33 +226,51 @@ az sql server firewall-rule create \
 
 ### [PowerShell](#tab/in-powershell)
 
-First, set database-related environment variables. Replace `<your-unique-sql-server-name>` with a unique name for your Azure SQL Database server.
+First, use the following commands to set database-related environment variables. Replace `<your-unique-sql-server-name>` with a unique name for your Azure SQL Database server.
 
 ```powershell
 $Env:SQL_SERVER_NAME = "<your-unique-sql-server-name>"
 $Env:DB_NAME = "demodb"
 ```
 
-Run the following command in your terminal to create a single database in Azure SQL Database and set the current signed-in user as Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-powershell).
+Next, use the following command to create a single database in Azure SQL Database and set the current signed-in user as Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-powershell).
 
 ```azurepowershell
 $Env:ENTRA_ADMIN_NAME = $(az account show --query user.name --output tsv)
 
-az sql server create --name $Env:SQL_SERVER_NAME --resource-group $Env:RESOURCE_GROUP_NAME --enable-ad-only-auth --external-admin-principal-type User --external-admin-name $Env:ENTRA_ADMIN_NAME --external-admin-sid $(az ad signed-in-user show --query id --output tsv)
-az sql db create --resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SERVER_NAME --name $Env:DB_NAME --edition GeneralPurpose --compute-model Serverless --family Gen5 --capacity 2
+az sql server create `
+    --name $Env:SQL_SERVER_NAME `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --enable-ad-only-auth `
+    --external-admin-principal-type User `
+    --external-admin-name $Env:ENTRA_ADMIN_NAME `
+    --external-admin-sid $(az ad signed-in-user show --query id --output tsv)
+az sql db create `
+    --name $Env:DB_NAME `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --server $Env:SQL_SERVER_NAME `
+    --edition GeneralPurpose `
+    --compute-model Serverless `
+    --family Gen5 `
+    --capacity 2
 ```
 
-Then, add the local IP address to the Azure SQL Database server firewall rules to allow your local machine to connect to the database for local testing later.
+Then, use the following command to add the local IP address to the Azure SQL Database server firewall rules to allow your local machine to connect to the database for local testing later.
 
 ```azurepowershell
 $Env:AZ_LOCAL_IP_ADDRESS = (Invoke-WebRequest https://whatismyip.akamai.com).Content
-az sql server firewall-rule create --resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SERVER_NAME --name AllowLocalIP --start-ip-address $Env:AZ_LOCAL_IP_ADDRESS --end-ip-address $Env:AZ_LOCAL_IP_ADDRESS
+az sql server firewall-rule create `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --server $Env:SQL_SERVER_NAME `
+    --name AllowLocalIP `
+    --start-ip-address $Env:AZ_LOCAL_IP_ADDRESS `
+    --end-ip-address $Env:AZ_LOCAL_IP_ADDRESS
 ```
 
 ---
 
 > [!NOTE]
-> You create an Azure SQL server with SQL authentication disabled for security considerations. Only Microsoft Entra ID is used to authenticate to the server. If you need to enable SQL authentication, see [az sql server create](/cli/azure/sql/server#az-sql-server-create) for more information.
+> You create an Azure SQL server with SQL authentication disabled for security considerations. Only Microsoft Entra ID is used to authenticate to the server. If you need to enable SQL authentication, see [az sql server create](/cli/azure/sql/server#az-sql-server-create).
 
 ## Configure and build the application image
 
@@ -284,9 +302,9 @@ git checkout 20241118
 
 ---
 
-If you see a message about being in `detached HEAD` state, this message is safe to ignore. It just means you have checked out a tag.
+If you see a message about being in `detached HEAD` state, this message is safe to ignore. It just means you checked out a tag.
 
-This article uses *java-app*. Here's the file structure of the application important files:
+This article uses **java-app**. Here's the file structure of the application's important files:
 
 ```output
 java-app
@@ -302,16 +320,16 @@ java-app
 ├─ pom-azure-identity.xml
 ```
 
-The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
+The directories **java**, **resources**, and **webapp** contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-In the *java-app* root directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
+In the **java-app** root directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
 
-In directory *liberty/config*, the *server.xml* is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster. It defines a variable `azure.sql.connectionstring` that is used to connect to the Azure SQL Database.
+In directory **liberty/config**, the **server.xml** is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster. It defines a variable `azure.sql.connectionstring` that is used to connect to the Azure SQL Database.
 
-The *pom.xml* file is the Maven project object model (POM) file that contains the configuration information for the project. The *pom-azure-identity.xml* file declares `azure-identity` dependency, which is used to authenticate to Azure services using Microsoft Entra ID.
+The **pom.xml** file is the Maven project object model (POM) file that contains the configuration information for the project. The **pom-azure-identity.xml** file declares `azure-identity` dependency, which is used to authenticate to Azure services using Microsoft Entra ID.
 
 > [!NOTE]
-> This sample uses `azure-identity` library to authenticate to Azure SQL Database using Microsoft Entra authencitation, which is recommended for security considerations. If you need to use SQL authentication in your Liberty application, see [Relational database connections with JDBC](https://openliberty.io/docs/latest/relational-database-connections-JDBC.html) for more information.
+> This sample uses `azure-identity` library to authenticate to Azure SQL Database using Microsoft Entra authencitation, which is recommended for security considerations. If you need to use SQL authentication in your Liberty application, see [Relational database connections with JDBC](https://openliberty.io/docs/latest/relational-database-connections-JDBC.html).
 
 ### Build the project
 
@@ -377,9 +395,9 @@ You can now use the following steps to run and test the project locally before d
    mvn liberty:run
    ```
 
-1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT   ] CWWKZ0001I: Application javaee-cafe started in 11.086 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser to verify the application is accessible and all functions are working.
+1. Verify that the application works as expected. If successful, you should see a message similar to `[INFO] [AUDIT   ] CWWKZ0001I: Application javaee-cafe started in 11.086 seconds.` in the command output. Go to `http://localhost:9080/` in your browser to verify that the application is accessible and all functions are working.
 
-1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop. Select `Y` if you're aksed to terminate batch job.
+1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop. Select <kbd>Y</kbd> if you're asked to terminate the batch job.
 
 When you're finished, delete the firewall rule that allows your local IP address to access the Azure SQL Database by using the following command:
 
@@ -395,7 +413,10 @@ az sql server firewall-rule delete \
 ### [PowerShell](#tab/in-powershell)
 
 ```azurepowershell
-az sql server firewall-rule delete --resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SERVER_NAME --name AllowLocalIP
+az sql server firewall-rule delete `
+    --resource-group $Env:RESOURCE_GROUP_NAME `
+    --server $Env:SQL_SERVER_NAME `
+    --name AllowLocalIP
 ```
 
 ---
@@ -420,7 +441,9 @@ az acr build \
 ```azurepowershell
 cd $Env:BASE_DIR/java-app
 
-az acr build --registry $Env:REGISTRY_NAME --image javaee-cafe:v1 .
+az acr build `
+    --registry $Env:REGISTRY_NAME `
+    --image javaee-cafe:v1 .
 ```
 
 ---
@@ -429,7 +452,7 @@ The `az acr build` command uploads the artifacts specified in the Dockerfile to 
 
 ## Deploy the application to Azure Container Apps
 
-Use the following commands to create an Azure Container Apps instance to run the app after pulling the image from the ACR. This example creates an Azure Container Apps instance named *youracainstancename*.
+Use the following commands to create an Azure Container Apps instance to run the app after pulling the image from the ACR. This example creates an Azure Container Apps instance named `youracainstancename`.
 
 ### [Bash](#tab/in-bash)
 
@@ -471,7 +494,7 @@ Then, connect the Azure SQL Database server to the container app using Service C
 
 #### [Bash](#tab/in-bash)
 
-1. This sample uses Service Connector to facilitate connecting to the database. For more information on Service Connector, see [What is Service Connector?](/azure/service-connector/overview) Install the passwordless extension for the Azure CLI by using the following command:
+1. This sample uses Service Connector to facilitate connecting to the database. For more information about Service Connector, see [What is Service Connector?](/azure/service-connector/overview) Install the passwordless extension for the Azure CLI by using the following command:
 
    ```azurecli
    az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
@@ -502,23 +525,33 @@ Then, connect the Azure SQL Database server to the container app using Service C
    ```
 
 1. Connect the database to the container app with a system-assigned managed identity by using the following command:
-    
+
     ```azurepowershell
-    az containerapp connection create sql --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:ACA_NAME --target-resource-group $Env:RESOURCE_GROUP_NAME --server $Env:SQL_SERVER_NAME --database $Env:DB_NAME --system-identity --container $Env:ACA_NAME --client-type java
+    az containerapp connection create sql `
+        --resource-group $Env:RESOURCE_GROUP_NAME `
+        --name $Env:ACA_NAME `
+        --target-resource-group $Env:RESOURCE_GROUP_NAME `
+        --server $Env:SQL_SERVER_NAME `
+        --database $Env:DB_NAME `
+        --system-identity `
+        --container $Env:ACA_NAME `
+        --client-type java
     ```
-    
+
     Successful output is a JSON object including the property `"type": "microsoft.servicelinker/linkers"`.
 
     > [!NOTE]
-    > If the command fails with the following similar error message:
+    > You must take further action if the command fails with an error message similar to the following example:
     >
     > ```output
     > The command failed with an unexpected error. Here is the traceback:
     > Dependency pyodbc can't be installed, please install it manually with `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe -m pip install pyodbc`.
     > ```
     >
-    > Install the `pyodbc` package manually by running the following command:
-    > 1. [Run Windows PowerShell as administrator](/powershell/scripting/windows-powershell/starting-windows-powershell#with-administrative-privileges-run-as-administrator)
+    > In this case, install the `pyodbc` package manually by using the following steps:
+    >
+    > 1. Open Windows PowerShell with administrator privileges. For more information, see the [With Administrative privileges (Run as administrator)](/powershell/scripting/windows-powershell/starting-windows-powershell#with-administrative-privileges-run-as-administrator) section of [Starting Windows PowerShell](/powershell/scripting/windows-powershell/starting-windows-powershell).
+    >
     > 1. Run the following command in the PowerShell window:
     >
     >    ```powershell
@@ -530,11 +563,11 @@ Then, connect the Azure SQL Database server to the container app using Service C
 ---
 
 > [!NOTE]
-> The Service Connector creates a secret in the container app that contains the value for `AZURE_SQL_CONNECTIONSTRING`, which is a password free connection string to the Azure SQL Database. For more information, see the sample value from [User-assigned managed identity authentication](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity).
+> The Service Connector creates a secret in the container app that contains the value for `AZURE_SQL_CONNECTIONSTRING`, which is a password-free connection string to the Azure SQL Database. For more information, see the sample value from the [User-assigned managed identity](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java#user-assigned-managed-identity) section of [Integrate Azure SQL Database with Service Connector](/azure/service-connector/how-to-integrate-sql-database?tabs=sql-me-id-java).
 
 ### Test the application
 
-Use the following command to get a fully qualified url to access the application:
+Use the following command to get a fully qualified URL to access the application:
 
 #### [Bash](#tab/in-bash)
 
