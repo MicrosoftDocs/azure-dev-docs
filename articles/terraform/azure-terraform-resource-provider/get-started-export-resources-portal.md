@@ -81,7 +81,7 @@ If the virtual machine is still needed, Azure provides an Auto-shutdown feature 
 > [!NOTE]
 > Remember to configure the time zone correctly to match your requirements, as (UTC) Coordinated Universal Time is the default setting in the Time zone dropdown.
 
-For more information, see [Auto shutdown](/azure/virtual-machines/auto-shutdown-virtual machine).
+For more information, see [Auto shutdown](/azure/virtual-machines/auto-shutdown-vm).
 
 ## Next steps
 
