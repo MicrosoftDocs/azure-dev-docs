@@ -47,17 +47,6 @@ items:
           href: sdk/authentication/authentication-additional-methods.md
         - name: Credential chains
           href: sdk/authentication/credential-chains.md
-        - name: Authentication (legacy)
-          expanded: false
-          items:
-            - name: Auth with Azure Identity module overview
-              href: azure-sdk-authentication.md
-            - name: Auth with Azure-hosted apps
-              href: azure-sdk-authentication-managed-identity.md
-            - name: Auth with service principal
-              href: azure-sdk-authentication-service-principal.md
-            - name: Authentication with the autorest package (legacy)
-              href: azure-sdk-authorization.md
     - name: How-to guides
       expanded: false
       items:
