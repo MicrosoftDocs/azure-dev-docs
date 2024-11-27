@@ -28,12 +28,12 @@ Existing Azure resources can be exported to Terraform through the Azure portal. 
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal with the experimental Terrafom feature flag enabled](https://ms.portal.azure.com/?exp.terraformEnabled=true#home).
+Sign in to the [Azure portal with the experimental Terraform feature flag enabled](https://ms.portal.azure.com/?exp.terraformEnabled=true#home).
 
 ## Setup Virtual Machine
 
 ### Azure CLI or Azure PowerShell
-[!INCLUDE [Create sample VM](../includes/create-vm.md)]
+[!INCLUDE [Create sample virtual machine](../includes/create-vm.md)]
 
 ### Azure portal
 1. Under **Azure Services**, select **Virtual machines**. If you don't see **Virtual machines**, search for it in the search bar.
@@ -47,7 +47,7 @@ Sign in to the [Azure portal with the experimental Terrafom feature flag enabled
 
 ### Azure CLI or Azure PowerShell
 1. Run the command `az provider register -n Microsoft.AzureTerraform`
-1. Register the feature flag: `az feature register --namespace Microsoft.AzureTerraform -n private`. This is a private preview feature thus you will need to wait for manual approval from MSFT internal team to use the feature. Check the status of your feature registration by running `az feature show --namespace Microsoft.AzureTerraform --name private`.
+1. Register the feature flag: `az feature register --namespace Microsoft.AzureTerraform -n private`. This is a private preview feature thus you need to wait for manual approval from Microsoft internal team to use the feature. Check the status of your feature registration by running `az feature show --namespace Microsoft.AzureTerraform --name private`.
 
 ## Export resource group
 
@@ -72,16 +72,16 @@ When no longer needed, you can delete the resource group, virtual machine, and a
 1. A page opens warning you that you're about to delete resources. Type the name of the resource group and select **Delete** to finish deleting the resources and the resource group.
 
 ### Auto-shutdown
-If the VM is still needed, Azure provides an Auto-shutdown feature for virtual machines to help manage costs and ensure you're not billed for unused resources.
+If the virtual machine is still needed, Azure provides an Auto-shutdown feature for virtual machines to help manage costs and ensure you're not billed for unused resources.
 
-1. On the **Operations** section for the VM, select the **Auto-shutdown** option.
-1. A page opens where you can configure the auto-shutdown time. Select the **On** option to enable and then set a time that works for you.
+1. On the **Operations** section for the virtual machine, select the **Auto shutdown** option.
+1. A page opens where you can configure the auto shutdown time. Select the **On** option to enable and then set a time that works for you.
 1. Once you set the time, select **Save**  at the top to enable your Auto-shutdown configuration.
 
 > [!NOTE]
 > Remember to configure the time zone correctly to match your requirements, as (UTC) Coordinated Universal Time is the default setting in the Time zone dropdown.
 
-For more information, see [Auto-shutdown](/azure/virtual-machines/auto-shutdown-vm).
+For more information, see [Auto shutdown](/azure/virtual-machines/auto-shutdown-virtual machine).
 
 ## Next steps
 

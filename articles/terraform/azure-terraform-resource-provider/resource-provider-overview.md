@@ -15,7 +15,7 @@ The Azure Terraform Resource Provider (Public Preview) enables Azure Terraform w
 Register the provider with `az provider register -n Microsoft.AzureTerraform`. 
 
 ## Private preview feature registration
-The experience is currently in private preview. Please register the feature flag with `az feature register --namespace Microsoft.AzureTerraform -n private`. We will then manually approve your request.
+The experience is currently in private preview. Register the feature flag with `az feature register --namespace Microsoft.AzureTerraform -n private`. Approvals are done manually and may face delays.
 
 ### Check status
 Check the status of the registration with `az feature show --namespace Microsoft.AzureTerraform --name private`
