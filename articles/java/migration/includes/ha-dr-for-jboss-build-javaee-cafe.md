@@ -4,7 +4,7 @@ ms.author: zhihaoguo
 ms.date: 11/28/2024
 ---
 
-1. Use the following steps to build the Java EE Cafe sample. These steps assume that you have a local environment with Git and Maven installed:
+1. Use the following steps to build the Java EE Cafe sample. These steps assume that you have a local environment with Git and Maven installed.
 
     1. Use the following command to clone the source code from GitHub and check out the tag corresponding to this version of the article:
 
@@ -20,4 +20,4 @@ ms.date: 11/28/2024
        mvn clean install --file rhel-jboss-templates/eap-coffee-app/pom.xml
        ```
 
-       This command creates the file **rhel-jboss-templates/eap-coffee-app/target/javaee-cafe.war**. You'll upload this file in the next step.
+       This command creates the file **rhel-jboss-templates/eap-coffee-app/target/javaee-cafe.war**. You upload this file in the next step.
