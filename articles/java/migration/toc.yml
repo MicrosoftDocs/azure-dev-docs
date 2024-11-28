@@ -75,6 +75,8 @@ items:
           href: migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
         - name: JBoss EAP to Azure VMs
           href: migrate-jboss-eap-to-jboss-eap-on-azure-vms.md
+        - name: JBoss EAP to Azure VMs with HADR
+          href: migrate-jboss-eap-to-vms-with-ha-dr.md
         - name: JBoss EAP to Azure Red Hat OpenShift
           href: migrate-jboss-eap-to-azure-redhat-openshift.md
         - name: JBoss EAP to WildFly on AKS
