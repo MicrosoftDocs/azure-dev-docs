@@ -137,7 +137,7 @@ Use the following steps to create a storage account and container. Some of these
 
 1. Proceed to validate and create the account, then return to this article.
 1. Create a storage container within the account by following the steps in the [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) section of [Quickstart: Upload, download, and list blobs with the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal).
-1. Using the same article, upload the *azure-cafe/weblogic-cafe/target/weblogic-cafe.war* package that you built previously by following the steps in the [Upload a block blob](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob) section. Then, return to this article.
+1. Using the same article, upload the **azure-cafe/weblogic-cafe/target/weblogic-cafe.war** package that you built previously by following the steps in the [Upload a block blob](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob) section. Then, return to this article.
 
 ### Deploy WLS on AKS
 
@@ -150,14 +150,14 @@ Use the following steps to deploy WLS on AKS:
 1. Use the following steps to fill out the **Basics** pane:
 
    1. Ensure that the value shown for **Subscription** is the same one that has the roles listed in the prerequisites section.
-   1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, *wlsaks-eastus-20240109*.
+   1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, **wlsaks-eastus-20240109**.
    1. Under **Instance details**, for **Region**, select **East US**.
    1. Under **Credentials WebLogic**, provide a password for **WebLogic Administrator** and **WebLogic Model encryption**, respectively. Save aside the username and password for **WebLogic Administrator**.
    1. Under **Optional Basic Configuration**, for **Accept defaults for optional configuration?**, select **No**. The optional configuration shows.
 
       :::image type="content" source="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/wls-aks-offer-portal-basis-optional-config.png" alt-text="Screenshot of the Azure portal that shows the Oracle WebLogic Server on AKS Basics pane Optional Basic Configuration." lightbox="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/wls-aks-offer-portal-basis-optional-config.png":::
 
-   1. For **Name prefix for Managed Server**, fill in `msp`. You configure WLS TLOG table with prefix `TLOG_${serverName}_ ` later. This article creates TLOG table with name `TLOG_msp${index}_WLStore`. If you want a different managed server name prefix, make sure the value matches Microsoft SQL Server Table Naming Conventions and the real table names.
+   1. For **Name prefix for Managed Server**, fill in **msp**. You configure WLS TLOG table with prefix `TLOG_${serverName}_` later. This article creates TLOG table with name `TLOG_msp${index}_WLStore`. If you want a different managed server name prefix, make sure the value matches Microsoft SQL Server Table Naming Conventions and the real table names.
    1. Leave the defaults for the other fields.
 
 1. Select **Next** to go to the **AKS** pane.
@@ -198,7 +198,7 @@ Use the following steps to deploy WLS on AKS:
 
    - For **Connect to database?**, select **Yes**.
    - For **Choose database type**, select **Microsoft SQL Server (Supports passwordless connection)** .
-   - For **JNDI Name**, enter *jdbc/WebLogicCafeDB*.
+   - For **JNDI Name**, enter **jdbc/WebLogicCafeDB**.
    - For **DataSource Connection String**, paste the value you saved for **JDBC connection string** in the [Get the JDBC connection string and database admin username for the failover group](#get-the-jdbc-connection-string-and-database-admin-username-for-the-failover-group) section.
    - For **Global transaction protocol**, select **None**.
    - For **Database username**, paste the value you saved for **database admin username** in the [Get the JDBC connection string and database admin username for the failover group](#get-the-jdbc-connection-string-and-database-admin-username-for-the-failover-group) section.
@@ -230,8 +230,8 @@ This section requires a Bash terminal with the Azure CLI and kubectl installed. 
 
    1. Open the Azure portal and go to the resource group that you provisioned in the [Deploy WLS on AKS](#deploy-wls-on-aks) section.
    1. Select **Settings** > **Deployments**. Select the first deployment whose name starts with **oracle.20210620-wls-on-aks**.
-   1. Select **Outputs**. Copy the **shellCmdtoOutputWlsImageModelYaml** value to the clipboard. The value is a shell command that decodes the base64 string of the model file and saves the content in a file named *model.yaml*.
-   1. Paste the value into your Bash terminal and run the command to produce the *model.yaml* file.
+   1. Select **Outputs**. Copy the **shellCmdtoOutputWlsImageModelYaml** value to the clipboard. The value is a shell command that decodes the base64 string of the model file and saves the content in a file named **model.yaml**.
+   1. Paste the value into your Bash terminal and run the command to produce the **model.yaml** file.
    1. Edit the file to remove all content except for the top-level `topology:` entry. There should be no top-level entries in your file except for `topology:`.
    1. Save the file.
 
@@ -239,9 +239,9 @@ This section requires a Bash terminal with the Azure CLI and kubectl installed. 
 
    1. Open the Azure portal and go to the resource group that was provisioned in the [Deploy WLS on AKS](#deploy-wls-on-aks) section.
    1. Select **Settings** > **Deployments**. Select the first deployment whose name starts with **oracle.20210620-wls-on-aks**.
-   1. Select **Outputs**. Copy value of **shellCmdtoOutputWlsDomainYaml** to clipboard. The value is a shell command to decode base64 string of model file and save content in *model.yaml*.
-   1. Paste the value to your terminal and you get a file named *domain.yaml*.
-   1. Look in the `domain.yaml` for the following values.
+   1. Select **Outputs**. Copy value of **shellCmdtoOutputWlsDomainYaml** to clipboard. The value is a shell command to decode base64 string of model file and save content in **model.yaml**.
+   1. Paste the value to your terminal and you get a file named **domain.yaml**.
+   1. Look in the **domain.yaml** for the following values.
 
       - `spec.configuration.model.configMap`. If you accepted the defaults, this value is `sample-domain1-wdt-config-map`.
       - `metadata.namespace`. If you accepted the defaults, this value is `sample-domain1-ns`.
@@ -259,13 +259,13 @@ This section requires a Bash terminal with the Azure CLI and kubectl installed. 
    kubectl get configmap ${CONFIG_MAP_NAME} -n ${WLS_NS} -o yaml > configMap.yaml
    ```
 
-1. Use the following steps to create the *tlog-db-model.yaml* file:
+1. Use the following steps to create the **tlog-db-model.yaml** file:
 
-   1. In a text editor, create an empty file called *tlog-db-model.yaml*.
+   1. In a text editor, create an empty file called **tlog-db-model.yaml**.
 
-   1. Insert the contents of your *model.yaml*, add a blank line, and then insert the contents of your *configMap.yaml* file.
+   1. Insert the contents of your **model.yaml**, add a blank line, and then insert the contents of your **configMap.yaml** file.
 
-1. In your *tlog-db-model.yaml* file, locate the line ending with `ListenPort: 8001`. Append this text on the following line, taking extreme care that `TransactionLogJDBCStore` is exactly under `ListenPort` and the remaining lines in the following snippet are indented by two, as shown in the following example:
+1. In your **tlog-db-model.yaml** file, locate the line ending with `ListenPort: 8001`. Append this text on the following line, taking extreme care that `TransactionLogJDBCStore` is exactly under `ListenPort` and the remaining lines in the following snippet are indented by two, as shown in the following example:
 
    ```yaml
    TransactionLogJDBCStore:
@@ -274,7 +274,7 @@ This section requires a Bash terminal with the Azure CLI and kubectl installed. 
      PrefixName: TLOG_${serverName}_
    ```
 
-   The completed *tlog-db-model.yaml* should look very close to the following example:
+   The completed **tlog-db-model.yaml** should look very close to the following example:
 
    ```yaml
    topology:
@@ -392,7 +392,7 @@ Use the following steps to configure geo-redundancy:
 
 [!INCLUDE [ha-dr-for-wls-backup-extension](includes/ha-dr-for-wls-backup-extension.md)]
 
-6. Open the Azure portal, in the search bar on the top, search for *Backup vaults*. You should see it listed under **Services**. Select it.
+6. Open the Azure portal, in the search bar on the top, search for **Backup vaults**. You should see it listed under **Services**. Select it.
 
 1. To enable AKS Backup, follow the steps in [Back up Azure Kubernetes Service by using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup) up to, but not including, the "Use hooks during AKS backup" section. Make the adjustments indicated in the following steps.
 
@@ -431,7 +431,7 @@ Use the following steps to configure geo-redundancy:
 
 ## Prepare to restore the WLS cluster in a secondary region
 
-In this section, you prepare to restore the WLS cluster in the secondary region. Here, the secondary region is West US. Before restoring, you must have an AKS cluster with AKS Backup Extension installed in the West US region.
+In this section, you prepare to restore the WLS cluster in the secondary region. Here, the secondary region is West US 2. Before restoring, you must have an AKS cluster with AKS Backup Extension installed in the West US 2 region.
 
 ### Configure Azure Container Registry for geo-replication
 
@@ -440,7 +440,7 @@ Use the following steps to configure Azure Container Registry (ACR) for geo-repl
 1. Open the resource group that you provisioned in the [Deploy WLS on AKS](#deploy-wls-on-aks) section. From the resource list, select the ACR whose name starts with **wlsaksacr**.
 1. In the ACR landing page, select **Settings** > **Properties**. For **Pricing plan**, select **Premium**, and then select **Save**.
 1. In the navigation pane, select **Services** > **Geo-replications**. Select **Add** to add replication region in the page.
-1. In the **Create replication** page, for **Location**, select **West US**, and then select **Create**.
+1. In the **Create replication** page, for **Location**, select **West US 2**, and then select **Create**.
 
 After the deployment finishes, the ACR is enabled for geo-replication.
 
@@ -453,7 +453,7 @@ To restore backup cross region, you must provide a staging location where the ba
 Use the following steps to create a storage account and container. Some of these steps direct you to other guides.
 
 1. Sign in to the [Azure portal](https://aka.ms/publicportal).
-1. Create a storage account by following the steps in [Create a storage account](/azure/storage/common/storage-account-create). You don't need to perform all the steps in the article. Fill out the fields shown on the **Basics** pane. For **Region**, select **West US**, then select **Review + create** to accept the default options. Proceed to validate and create the account, then return to this article.
+1. Create a storage account by following the steps in [Create a storage account](/azure/storage/common/storage-account-create). You don't need to perform all the steps in the article. Fill out the fields shown on the **Basics** pane. For **Region**, select **West US 2**, then select **Review + create** to accept the default options. Proceed to validate and create the account, then return to this article.
 1. Create a storage container for the AKS Backup Extension by following the steps in the [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) section of [Quickstart: Upload, download, and list blobs with the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal).
 1. Create a storage container as a staging location for use during restoration.
 
@@ -463,7 +463,7 @@ The following sections show you how to create an AKS cluster in a secondary regi
 
 #### Create a new AKS cluster
 
-This article exposes a WLS application using Application Gateway Ingress Controller. In this section, you create a new AKS cluster in the West US region. Then, you enable the ingress controller add-on with a new application gateway instance. For more information, see [Enable the ingress controller add-on for a new AKS cluster with a new application gateway instance](/azure/application-gateway/tutorial-ingress-controller-add-on-new).
+This article exposes a WLS application using Application Gateway Ingress Controller. In this section, you create a new AKS cluster in the West US 2 region. Then, you enable the ingress controller add-on with a new application gateway instance. For more information, see [Enable the ingress controller add-on for a new AKS cluster with a new application gateway instance](/azure/application-gateway/tutorial-ingress-controller-add-on-new).
 
 Use the following steps to create the AKS cluster:
 
@@ -495,7 +495,7 @@ Use the following steps to create the AKS cluster:
    This command automatically creates a `Standard_v2 SKU` application gateway instance with the name `${RG_NAME_WESTUS}gw` in the AKS node resource group. The node resource group is named `MC_resource-group-name_cluster-name_location` by default.
 
    > [!NOTE]
-   > The AKS cluster that you provisioned in the [Deploy WLS on AKS](#deploy-wls-on-aks) section runs across three availability zones in the East US region. Availability zones aren't supported in the West US region. The AKS cluster in West US isn't zone-redundant. If your production environment requires zone redundancy, make sure your paired region supports availability zones. For more information, see the [Overview of availability zones for AKS clusters](/azure/aks/availability-zones#overview-of-availability-zones-for-aks-clusters) section of [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](/azure/aks/availability-zones).
+   > The AKS cluster that you provisioned in the [Deploy WLS on AKS](#deploy-wls-on-aks) section runs across three availability zones in the East US region. Availability zones aren't supported in the West US 2 region. The AKS cluster in West US 2 isn't zone-redundant. If your production environment requires zone redundancy, make sure your paired region supports availability zones. For more information, see the [Overview of availability zones for AKS clusters](/azure/aks/availability-zones#overview-of-availability-zones-for-aks-clusters) section of [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](/azure/aks/availability-zones).
 
 1. Use the following commands to get the public IP address of the application gateway instance. Save aside the IP address, which you use later in this article.
 
@@ -549,7 +549,7 @@ Use the following steps to create the AKS cluster:
 
 Before you continue, use the following steps to install the AKS Backup Extension to the cluster in the secondary region:
 
-1. Use the following command to connect to the AKS cluster in the West US region:
+1. Use the following command to connect to the AKS cluster in the West US 2 region:
 
    ```azurecli
    az aks get-credentials \
@@ -594,7 +594,7 @@ After you configured geo-redundancy in the [Configure geo-redundancy using Azure
 
 Use the following steps to restore the WLS cluster:
 
-1. Open the Azure portal and search for *Backup center*. Select **Backup center** under **Services**.
+1. Open the Azure portal and search for **Backup center**. Select **Backup center** under **Services**.
 1. Under **Manage**, select **Backup instances**. Filter on the datasource type **Kubernetes Services** to find the backup instance you created in the previous section.
 1. Select the backup instance to see the restore points list. In this article, the instance name is a string similar to `wlsonaks*\wlsaksinstance20240109`.
 
@@ -611,8 +611,8 @@ Use the following steps to restore the WLS cluster:
 
 1. On the **Restore parameters** pane, use the following steps:
 
-   1. For **Select Target cluster**, select the AKS cluster that you created in the West US region. You run into a permission issue as the following screenshot shows. Select **Grant Permission** to mitigate the errors.
-   1. For **Backup Staging Location**, select the Storage Account that you created in **West US**. You run into a permission issue as the following screenshot shows. Select **Assign missing roles** to mitigate the errors.
+   1. For **Select Target cluster**, select the AKS cluster that you created in the West US 2 region. You run into a permission issue as the following screenshot shows. Select **Grant Permission** to mitigate the errors.
+   1. For **Backup Staging Location**, select the Storage Account that you created in **West US 2**. You run into a permission issue as the following screenshot shows. Select **Assign missing roles** to mitigate the errors.
    1. If the errors still happen after role assignments finishes, select **Revalidate** to refresh the permissions.
 
       :::image type="content" source="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/backup-instance-restore-restoreparameters-targetcluster.png" alt-text="Screenshot of the Azure portal that shows the Restore parameter pane." lightbox="media/migrate-weblogic-to-aks-with-ha-geo-redundancy/backup-instance-restore-restoreparameters-targetcluster.png":::
@@ -670,7 +670,7 @@ Next, use the following steps to start the secondary cluster.
 
 To fail back to the primary site, you have to ensure the two clusters have a mirror backup configuration. You can achieve this state by using the following steps:
 
-1. Enable the AKS cluster backups in the West US region by following the steps in the [Configure geo-redundancy using Azure Backup](#configure-geo-redundancy-using-azure-backup) section, starting from step 4.
+1. Enable the AKS cluster backups in the West US 2 region by following the steps in the [Configure geo-redundancy using Azure Backup](#configure-geo-redundancy-using-azure-backup) section, starting from step 4.
 1. Restore the latest Vault Tier backup to the cluster in the East US region by following  the steps in the [Prepare to restore the WLS cluster in a secondary region](#prepare-to-restore-the-wls-cluster-in-a-secondary-region) section. Skip the steps you already completed.
 1. Use similar steps in the [Failover to the secondary site](#failover-to-the-secondary-site) section to fail back to the primary site including database server and cluster.
 
@@ -678,7 +678,7 @@ To fail back to the primary site, you have to ensure the two clusters have a mir
 
 If you're not going to continue to use the WLS clusters and other components, use the following steps to delete the resource groups to clean up the resources used in this tutorial:
 
-1. In the search box at the top of the Azure portal, enter *Backup vaults* and select the backup vaults from the search results.
+1. In the search box at the top of the Azure portal, enter **Backup vaults** and select the backup vaults from the search results.
 1. Select **Manage** > **Properties** > **Soft delete** > **Update**. Next to **Enable soft Delete**, unselect the checkbox.
 1. Select **Manage** > **Backup instances**. Select the instance you created and delete it.
 1. Enter the resource group name of Azure SQL Database servers (for example, `myResourceGroup`) in the search box at the top of the Azure portal, and select the matched resource group from the search results.
