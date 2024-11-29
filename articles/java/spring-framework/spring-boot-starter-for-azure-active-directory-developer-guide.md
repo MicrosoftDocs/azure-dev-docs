@@ -94,34 +94,6 @@ spring:
 
 Use the default security configuration or provide your own configuration.
 
-#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-Option 1: Use the default configuration.
-
-With this option, you don't need to do anything. The `DefaultAadWebSecurityConfigurerAdapter` class is configured automatically.
-
-Option 2: Provide a self-defined configuration.
-
-To provide a configuration, extend the `AadWebSecurityConfigurerAdapter` class and call `super.configure(http)` in the `configure(HttpSecurity http)` function, as shown in the following example:
-
-```java
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class AadOAuth2LoginSecurityConfig extends AadWebSecurityConfigurerAdapter {
-
-   /**
-    * Add configuration logic as needed.
-   */
-   @Override
-   protected void configure(HttpSecurity http) throws Exception {
-       super.configure(http);
-       http.authorizeRequests()
-           .anyRequest().authenticated();
-       // Do some custom configuration.
-   }
-}
-```
-
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 Option 1: Use the default configuration.
@@ -149,6 +121,34 @@ public class AadOAuth2LoginSecurityConfig {
                .anyRequest().authenticated();
            // Do some custom configuration.
        return http.build();
+   }
+}
+```
+
+#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+Option 1: Use the default configuration.
+
+With this option, you don't need to do anything. The `DefaultAadWebSecurityConfigurerAdapter` class is configured automatically.
+
+Option 2: Provide a self-defined configuration.
+
+To provide a configuration, extend the `AadWebSecurityConfigurerAdapter` class and call `super.configure(http)` in the `configure(HttpSecurity http)` function, as shown in the following example:
+
+```java
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class AadOAuth2LoginSecurityConfig extends AadWebSecurityConfigurerAdapter {
+
+   /**
+    * Add configuration logic as needed.
+   */
+   @Override
+   protected void configure(HttpSecurity http) throws Exception {
+       super.configure(http);
+       http.authorizeRequests()
+           .anyRequest().authenticated();
+       // Do some custom configuration.
    }
 }
 ```
@@ -259,32 +259,6 @@ You can use both the *\<your-client-ID>* and *\<your-app-ID-URI>* values to veri
 
 Use the default security configuration or provide your own configuration.
 
-#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-Option 1: Use the default configuration.
-
-With this option, you don't need to anything. The `DefaultAadResourceServerWebSecurityConfigurerAdapter` class is configured automatically.
-
-Option 2: Provide a self-defined configuration.
-
-To provide a configuration, extend the `AadResourceServerWebSecurityConfigurerAdapter` class and call `super.configure(http)` in the `configure(HttpSecurity http)` function, as shown in the following example:
-
-```java
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class AadOAuth2ResourceServerSecurityConfig extends AadResourceServerWebSecurityConfigurerAdapter {
-
-   /**
-    * Add configuration logic as needed.
-    */
-   @Override
-   protected void configure(HttpSecurity http) throws Exception {
-       super.configure(http);
-       http.authorizeRequests((requests) -> requests.anyRequest().authenticated());
-   }
-}
-```
-
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 Option 1: Use the default configuration.
@@ -311,6 +285,32 @@ public class AadOAuth2ResourceServerSecurityConfig {
            .authorizeHttpRequests()
                .anyRequest().authenticated();
        return http.build();
+   }
+}
+```
+
+#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+Option 1: Use the default configuration.
+
+With this option, you don't need to anything. The `DefaultAadResourceServerWebSecurityConfigurerAdapter` class is configured automatically.
+
+Option 2: Provide a self-defined configuration.
+
+To provide a configuration, extend the `AadResourceServerWebSecurityConfigurerAdapter` class and call `super.configure(http)` in the `configure(HttpSecurity http)` function, as shown in the following example:
+
+```java
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class AadOAuth2ResourceServerSecurityConfig extends AadResourceServerWebSecurityConfigurerAdapter {
+
+   /**
+    * Add configuration logic as needed.
+    */
+   @Override
+   protected void configure(HttpSecurity http) throws Exception {
+       super.configure(http);
+       http.authorizeRequests((requests) -> requests.anyRequest().authenticated());
    }
 }
 ```
@@ -434,42 +434,6 @@ spring:
 
 Write Java code to configure multiple `HttpSecurity` instances.
 
-#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-In the following example code, `AadWebApplicationAndResourceServerConfig` contains two security configurations, one for a resource server, and one for a web application. The `ApiWebSecurityConfigurationAdapter` class has a high priority to configure the resource server security adapter. The `HtmlWebSecurityConfigurerAdapter` class has a low priority to configure the web application security adapter.
-
-```java
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class AadWebApplicationAndResourceServerConfig {
-
-   @Order(1)
-   @Configuration
-   public static class ApiWebSecurityConfigurationAdapter extends AadResourceServerWebSecurityConfigurerAdapter {
-       protected void configure(HttpSecurity http) throws Exception {
-           super.configure(http);
-           // All the paths that match `/api/**`(configurable) work as the esource server. Other paths work as  the web application.
-           http.antMatcher("/api/**")
-               .authorizeRequests().anyRequest().authenticated();
-       }
-   }
-
-   @Configuration
-   public static class HtmlWebSecurityConfigurerAdapter extends AadWebSecurityConfigurerAdapter {
-
-       @Override
-       protected void configure(HttpSecurity http) throws Exception {
-           super.configure(http);
-           // @formatter:off
-           http.authorizeRequests()
-                   .antMatchers("/login").permitAll()
-                   .anyRequest().authenticated();
-           // @formatter:on
-       }
-   }
-}
-```
-
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 In the following example code, `AadWebApplicationAndResourceServerConfig` contains two security  filter chain beans, one for a resource server, and one for a web application. The `apiFilterChain` bean has a high priority to configure the resource server security builder. The `htmlFilterChain` bean has a low priority to configure the web application security builder.
@@ -503,6 +467,42 @@ public class AadWebApplicationAndResourceServerConfig {
         // @formatter:on
         return http.build();
     }
+}
+```
+
+#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+In the following example code, `AadWebApplicationAndResourceServerConfig` contains two security configurations, one for a resource server, and one for a web application. The `ApiWebSecurityConfigurationAdapter` class has a high priority to configure the resource server security adapter. The `HtmlWebSecurityConfigurerAdapter` class has a low priority to configure the web application security adapter.
+
+```java
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class AadWebApplicationAndResourceServerConfig {
+
+   @Order(1)
+   @Configuration
+   public static class ApiWebSecurityConfigurationAdapter extends AadResourceServerWebSecurityConfigurerAdapter {
+       protected void configure(HttpSecurity http) throws Exception {
+           super.configure(http);
+           // All the paths that match `/api/**`(configurable) work as the esource server. Other paths work as  the web application.
+           http.antMatcher("/api/**")
+               .authorizeRequests().anyRequest().authenticated();
+       }
+   }
+
+   @Configuration
+   public static class HtmlWebSecurityConfigurerAdapter extends AadWebSecurityConfigurerAdapter {
+
+       @Override
+       protected void configure(HttpSecurity http) throws Exception {
+           super.configure(http);
+           // @formatter:off
+           http.authorizeRequests()
+                   .antMatchers("/login").permitAll()
+                   .anyRequest().authenticated();
+           // @formatter:on
+       }
+   }
 }
 ```
 
@@ -573,30 +573,6 @@ spring:
 
 Use the default security configuration or provide your own configuration.
 
-#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-Option 1: Use the default configuration. With this option, you don't need to do anything. The `DefaultAadWebSecurityConfigurerAdapter` class is configured automatically.
-
-Option 2: Provide a self-defined configuration. To provide a configuration, extend the `AadWebSecurityConfigurerAdapter` class and call `super.configure(http)` in the `configure(HttpSecurity http)` function, as shown in the following example:
-
-```java
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class AadOAuth2LoginSecurityConfig extends AadWebSecurityConfigurerAdapter {
-
-   /**
-    * Add configuration logic as needed.
-    */
-   @Override
-   protected void configure(HttpSecurity http) throws Exception {
-       super.configure(http);
-       http.authorizeRequests()
-           .anyRequest().authenticated();
-       // Do some custom configuration.
-   }
-}
-```
-
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 Option 1: Use the default configuration. With this option, you don't need to do anything. The `DefaultAadWebSecurityConfiguration` class is configured automatically.
@@ -622,6 +598,30 @@ public class AadOAuth2LoginSecurityConfig {
        // @formatter:on
        // Do some custom configuration.
        return http.build();
+   }
+}
+```
+
+#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+Option 1: Use the default configuration. With this option, you don't need to do anything. The `DefaultAadWebSecurityConfigurerAdapter` class is configured automatically.
+
+Option 2: Provide a self-defined configuration. To provide a configuration, extend the `AadWebSecurityConfigurerAdapter` class and call `super.configure(http)` in the `configure(HttpSecurity http)` function, as shown in the following example:
+
+```java
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class AadOAuth2LoginSecurityConfig extends AadWebSecurityConfigurerAdapter {
+
+   /**
+    * Add configuration logic as needed.
+    */
+   @Override
+   protected void configure(HttpSecurity http) throws Exception {
+       super.configure(http);
+       http.authorizeRequests()
+           .anyRequest().authenticated();
+       // Do some custom configuration.
    }
 }
 ```
