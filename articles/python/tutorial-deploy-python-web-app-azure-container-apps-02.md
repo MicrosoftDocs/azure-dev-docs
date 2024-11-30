@@ -45,12 +45,12 @@ If you're running locally, follow these steps to sign in and install the necessa
     az extension add --name rdbms-connect --upgrade
     ```
 
-> [!Note]
-> To list the extensions installed on your system, you can use the [az extension list](/cli/azure/extension#az-extension-list) command. For example,
->
-> ```azurecli
-> az extension list --query [].name --output tsv
-> ```
+    > [!Note]
+    > To list the extensions installed on your system, you can use the [az extension list](/cli/azure/extension#az-extension-list) command. For example,
+    >
+    > ```azurecli
+    > az extension list --query [].name --output tsv
+    > ```
 
 ### [VS Code](#tab/vscode-aztools)
 
@@ -631,7 +631,7 @@ Configure the managed identity as a role on the PostgreSQL server and then grant
         --admin-user <your-Azure-account-email> \
         --admin-password $MY_ACCESS_TOKEN
     ```
-    
+
     * If you used a different name for your managed identity, replace all instances of `my-ua-managed-id` in the command with the name of your managed identity. There are five instances in the query string.
 
     * For the `--admin-user` value, use your Azure account email address.
@@ -640,7 +640,7 @@ Configure the managed identity as a role on the PostgreSQL server and then grant
 
     * Make sure the database name is `restaurants_reviews`.
 
-    This command connects to the restaurants_reviews database on the server and issues the following SQL commands:
+    The Azure CLI command above connects to the restaurants_reviews database on the server and issues the following SQL commands:
 
     ```sql
     GRANT CONNECT ON DATABASE restaurants_reviews TO "my-ua-managed-id";
