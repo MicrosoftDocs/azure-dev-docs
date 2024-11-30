@@ -16,29 +16,79 @@ This service diagram highlights the components covered in this article: building
 
 :::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png" alt-text="A screenshot of the services in the Tutorial - Deploy a Python App on Azure Container Apps. Section highlighted is what is covered in this article." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png":::
 
+## Prerequisites
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+### [Azure CLI](#tab/azure-cli)
+
+Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation with the [Azure CLI][7] installed.
+
+If you're running locally, follow these steps to sign in and install the necessary modules for this tutorial.
+
+1. Sign in to Azure and authenticate, if needed:
+
+    ```azurecli
+    az login
+    ```
+
+1. Make sure you're running the latest version of the Azure CLI:
+
+    ```azurecli
+    az upgrade
+    ```
+
+1. Install or upgrade the *containerapp* and *rdbms-connect* Azure CLI extensions with the [az extension add][14] command.
+
+    ```azurecli
+    az extension add --name containerapp --upgrade
+    az extension add --name rdbms-connect --upgrade
+    ```
+
+> [!Note]
+> To list the extensions installed on your system, you can use the [az extension list](/cli/azure/extension#az-extension-list) command. For example,
+>
+> ```azurecli
+> az extension list --query [].name --output tsv
+> ```
+
+### [VS Code](#tab/vscode-aztools)
+
+Make sure the following extensions are installed:
+
+* [Docker extension][6] for VS Code.
+* [Azure Databases extension][26] for VS Code.
+* [Azure Container Apps extension][11] for VS Code.
+
+### [Azure portal](#tab/azure-portal)
+
+Sign in to the [Azure portal][3].
+
+---
+
 ## Get the sample app
 
 Fork and clone the sample code to your developer environment.
 
-**Step 1.** Go to the GitHub repository of the sample app ([Django][1] or [Flask][2]) and select **Fork**.
+1. Go to the GitHub repository of the sample app ([Django][1] or [Flask][2]) and select **Fork**.
 
-Follow the steps to fork the directory to your GitHub account. You can also download the code repo directly to your local machine without forking or a GitHub account, however, you won't be able to set up CI/CD discussed later in the tutorial.
+    Follow the steps to fork the directory to your GitHub account. You can also download the code repo directly to your local machine without forking or a GitHub account, however, you won't be able to set up CI/CD discussed later in the tutorial.
 
-**Step 2.** Use the [git clone][21] command to clone the forked repo into the *python-container* folder:
+1. Use the [git clone][21] command to clone the forked repo into the *python-container* folder:
 
-```console
-# Django
-git clone https://github.com/$USERNAME/msdocs-python-django-azure-container-apps.git python-container
+    ```console
+    # Django
+    git clone https://github.com/$USERNAME/msdocs-python-django-azure-container-apps.git python-container
+    
+    # Flask
+    # git clone https://github.com/$USERNAME/msdocs-python-flask-azure-container-apps.git python-container
+    ```
 
-# Flask
-# git clone https://github.com/$USERNAME/msdocs-python-flask-azure-container-apps.git python-container
-```
+1. Change directory.
 
-**Step 3.** Change directory.
-
-```console
-cd python-container
-```
+    ```console
+    cd python-container
+    ```
 
 ## Build a container image from web app code
 
@@ -46,79 +96,60 @@ After following these steps, you'll have an Azure Container Registry that contai
 
 ### [Azure CLI](#tab/azure-cli)
 
-Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation with the [Azure CLI][7] installed.
+1. Create a resource group with the [az group create][17] command.
 
-:::row:::
-    :::column span="1":::
-        **Step 1.** Create a resource group with the [az group create][17] command.
+    ```azurecli        
+    az group create \
+        --name pythoncontainer-rg \
+        --location <location>
+    ```
 
-        ```azurecli        
-        az group create \
-           --name pythoncontainer-rg \
-           --location <location>
-        ```
+    *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
 
-        *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 2.** Create a container registry with the [az acr create][18] command.
+1. Create a container registry with the [az acr create][18] command.
 
-        ```azurecli
-        az acr create \
-           --resource-group pythoncontainer-rg \
-           --name <registry-name> \
-           --sku Basic \
-           --admin-enabled
-        ```
+    ```azurecli
+    az acr create \
+        --resource-group pythoncontainer-rg \
+        --name <registry-name> \
+        --sku Basic \
+        --admin-enabled
+    ```
 
-        *\<registry-name>* must be unique within Azure, and contain 5-50 alphanumeric characters.
+    *\<registry-name>* must be unique within Azure, and contain 5-50 alphanumeric characters.
 
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 3.** Sign in to the registry using the [az acr login][19] command.
+1. Sign in to the registry using the [az acr login][19] command.
 
-        ```azurecli
-        az acr login --name <registry-name>
-        ```
-        
-        The command adds "azurecr.io" to the name to create the fully qualified registry name. If successful, you'll see the message "Login Succeeded". If you're accessing the registry from a subscription different from the one in which the registry was created, use the `--suffix` switch.
+    ```azurecli
+    az acr login --name <registry-name>
+    ```
 
-        If sign-in fails, make sure the Docker daemon is running on your system.
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 4.** Build the image with the [az acr build][5] command.
+    The command adds "azurecr.io" to the name to create the fully qualified registry name. If successful, you'll see the message "Login Succeeded". If you're accessing the registry from a subscription different from the one in which the registry was created, use the `--suffix` switch.
 
-        ```azurecli
-        az acr build \
-           --registry <registry-name> \
-           --resource-group pythoncontainer-rg \
-           --image pythoncontainer:latest .
-        ```
-        
-        Note that:
+    If sign-in fails, make sure the Docker daemon is running on your system.
 
-        * The dot (".") at the end of the command indicates the location of the source code to build. If you aren't running this command in the sample app root directory, specify the path to the code.
+1. Build the image with the [az acr build][5] command.
 
-        * If you are running the command in Azure Cloud Shell, use `git clone` to first pull the repo into the Cloud Shell environment first and change directory into the root of the project so that dot (".") is interpreted correctly.
+    ```azurecli
+    az acr build \
+        --registry <registry-name> \
+        --resource-group pythoncontainer-rg \
+        --image pythoncontainer:latest .
+    ```
 
-        * If you leave out the `-t` (same as `--image`) option, the command queues a local context build without pushing it to the registry. Building without pushing can be useful to check that the image builds.
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 5.** Confirm the container image was created with the [az acr repository list][20] command.
+    Note that:
 
-        ```azurecli
-        az acr repository list --name <registry-name>
-        ```
-        :::column-end:::
-:::row-end:::
+    * The dot (".") at the end of the command indicates the location of the source code to build. If you aren't running this command in the sample app root directory, specify the path to the code.
+
+    * If you are running the command in Azure Cloud Shell, use `git clone` to first pull the repo into the Cloud Shell environment first and change directory into the root of the project so that dot (".") is interpreted correctly.
+
+    * If you leave out the `-t` (same as `--image`) option, the command queues a local context build without pushing it to the registry. Building without pushing can be useful to check that the image builds.
+
+1. Confirm the container image was created with the [az acr repository list][20] command.
+
+    ```azurecli
+    az acr repository list --name <registry-name>
+    ```
 
 ### [VS Code](#tab/vscode-aztools)
 
@@ -283,61 +314,59 @@ The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a Po
 
 ### [Azure CLI](#tab/azure-cli)
 
-Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation with the [Azure CLI][7] installed.
+1. Use the [az postgres flexible-server create][22] command to create the PostgreSQL server in Azure. It isn't uncommon for this command to run for a few minutes to complete.
 
-**Step 1.** Use the [az postgres flexible-server create][22] command to create the PostgreSQL server in Azure. It isn't uncommon for this command to run for a few minutes to complete.
+    ```azurecli
+    az postgres flexible-server create \
+       --resource-group pythoncontainer-rg \
+       --name <postgres-server-name>  \
+       --location <location> \
+       --admin-user demoadmin \
+       --admin-password <your-admin-password> \
+       --active-directory-auth Enabled \
+       --sku-name Standard_D2s_v3 \
+       --public-access 0.0.0.0 
+    ```
 
-```azurecli
-az postgres flexible-server create \
-   --resource-group pythoncontainer-rg \
-   --name <postgres-server-name>  \
-   --location <location> \
-   --admin-user demoadmin \
-   --admin-password <your-admin-password> \
-   --active-directory-auth Enabled \
-   --sku-name Standard_D2s_v3 \
-   --public-access 0.0.0.0 
-```
+    * "pythoncontainer-rg" &rarr; The resource group name used in this tutorial. If you used a different name, change this value.
 
-* "pythoncontainer-rg" &rarr; The resource group name used in this tutorial. If you used a different name, change this value.
+    * *\<postgres-server-name>* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure**. The server endpoint is "https://\<postgres-server-name>.postgres.database.azure.com". Allowed characters are "A"-"Z", "0"-"9", and "-".
 
-* *\<postgres-server-name>* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure**. The server endpoint is "https://\<postgres-server-name>.postgres.database.azure.com". Allowed characters are "A"-"Z", "0"-"9", and "-".
+    * *\<location>* &rarr; Use the same location used for the web app. *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
 
-* *\<location>* &rarr; Use the same location used for the web app. *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
+    * *\<admin-username>* &rarr; Username for the administrator account. It can't be "azure_superuser", "admin", "administrator", "root", "guest", or "public". Use "demoadmin" for this tutorial.
 
-* *\<admin-username>* &rarr; Username for the administrator account. It can't be "azure_superuser", "admin", "administrator", "root", "guest", or "public". Use "demoadmin" for this tutorial.
+    * *\<admin-password>* Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
-* *\<admin-password>* Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
+        > [!IMPORTANT]
+        > When creating usernames or passwords **do not** use the "$" character. Later you create environment variables with these values where the "$" character has special meaning within the Linux container used to run Python apps.
 
-    > [!IMPORTANT]
-    > When creating usernames or passwords **do not** use the "$" character. Later you create environment variables with these values where the "$" character has special meaning within the Linux container used to run Python apps.
+    * *\<active-directory-auth>* Specifies whether Microsoft Entra ID authentication is enabled on the PostreSQL server. Set to `Enabled`.
 
-* *\<active-directory-auth>* Specifies whether Microsoft Entra ID authentication is enabled on the PostreSQL server. Set to `Enabled`.
+    * `<sku-name>` &rarr; The name of the pricing tier and compute configuration, for example "Standard_D2s_v3". For more information, see [Azure Database for PostgreSQL pricing][24]. To list available SKUs, use `az postgres flexible-server list-skus --location <location>`.
 
-* `<sku-name>` &rarr; The name of the pricing tier and compute configuration, for example "Standard_D2s_v3". For more information, see [Azure Database for PostgreSQL pricing][24]. To list available SKUs, use `az postgres flexible-server list-skus --location <location>`.
+    * `<public-access>` &rarr; Use "0.0.0.0", which allows public access to the server from any Azure service, such as Container Apps.
 
-* `<public-access>` &rarr; Use "0.0.0.0", which allows public access to the server from any Azure service, such as Container Apps.
+    > [!NOTE]
+    > If you plan on working the PostgreSQL server from your local workstation with tools, you'll need to add a firewall rule for your workstation's IP address with the [az postgres flexible-server firewall-rule create][28] command.
 
-> [!NOTE]
-> If you plan on working the PostgreSQL server from your local workstation with tools, you'll need to add a firewall rule for your workstation's IP address with the [az postgres flexible-server firewall-rule create][28] command.
+1. Use the [az ad signed-in-user show](/cli/azure/ad/signed-in-user#az-ad-signed-in-user-show) command to get the object ID of your user account to use in the next command.
 
-**Step 2.** Use the [az ad signed-in-user show](/cli/azure/ad/signed-in-user#az-ad-signed-in-user-show) command to get the object ID of your user account to use in the next command.
+    ```azurecli
+    az ad signed-in-user show --query id --output tsv
+    ```
 
-```azurecli
-az ad signed-in-user show --query id --output tsv
-```
+1. Use the [az postgres flexible-server ad-admin create](/cli/azure/postgres/flexible-server/ad-admin#az-postgres-flexible-server-ad-admin-create) command to add your user account as a Microsoft Entra administrator on the PostgreSQL server.
 
-**Step 3.** Use the [az postgres flexible-server ad-admin create](/cli/azure/postgres/flexible-server/ad-admin#az-postgres-flexible-server-ad-admin-create) command to add your user account as a Microsoft Entra administrator on the PostgreSQL server.
+    ```azurecli
+    az postgres flexible-server ad-admin create \
+       --resource-group pythoncontainer-rg \
+       --server-name <postgres-server-name>  \
+       --display-name <your-email-address> \
+       --object-id <your-account-object-id>
+    ```
 
-```azurecli
-az postgres flexible-server ad-admin create \
-   --resource-group pythoncontainer-rg \
-   --server-name <postgres-server-name>  \
-   --display-name <your-email-address> \
-   --object-id <your-account-object-id>
-```
-
-For your account object ID, use the value you got in the previous step.
+    For your account object ID, use the value you got in the previous step.
 
 ### [VS Code](#tab/vscode-aztools)
 
@@ -477,9 +506,7 @@ At this point, you have a PostgreSQL server. In this section, you create a datab
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can use the Azure CLI anywhere it's installed, including the Azure [Cloud Shell][4].
-
-**Step 1** Use the [az postgres flexible-server db create][27] command to create a database named *restaurants_reviews*.
+Use the [az postgres flexible-server db create][27] command to create a database named *restaurants_reviews*.
 
 ```azurecli
 az postgres flexible-server db create \
@@ -527,9 +554,7 @@ Create a user-assigned managed identity. This managed identity will be used as t
 
 ### [Azure CLI](#tab/azure-cli)
 
-Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation with the [Azure CLI][7] installed.
-
-**Step 1.** Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity.
+Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity.
 
 ```azurecli
 az identity create --name my-ua-managed-id --resource-group pythoncontainer-rg
@@ -562,139 +587,137 @@ Configure the managed identity as a role on the PostgreSQL server and then grant
 
 ### [Azure CLI](#tab/configure-database-azure-cli)
 
-You can use the Azure CLI anywhere it's installed, including the Azure [Cloud Shell][4].
+1. Get an access token for your Azure account with the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command. You use the access token in the following steps.
 
-**Step 1.** Get an access token for your Azure account with the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command. You use the access token in the following steps.
+    ```azurecli
+    az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken
+    ```
 
-```azurecli
-az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken
-```
+    The returned token is long. Set its value in an environment variable to use in the commands in the following step:
 
-The returned token is long. Set its value in an environment variable to use in the commands in the following step:
+    ```bash
+    MY_ACCESS_TOKEN=<your-access-token>
+    ```
 
-```bash
-MY_ACCESS_TOKEN=<your-access-token>
-```
+1. Add the user-assigned managed identity as database role on your PostgreSQL server with the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
 
-**Step 2.** Add the user-assigned managed identity as database role on your PostgreSQL server with the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
+    ```azurecli
+    az postgres flexible-server execute \
+        --name <postgres-server-name> \
+        --database-name postgres \
+        --querytext "select * from pgaadauth_create_principal('"my-ua-managed-id"', false, false);select * from pgaadauth_list_principals(false);" \
+        --admin-user <your-Azure-account-email> \
+        --admin-password $MY_ACCESS_TOKEN
+    ```
 
-```azurecli
-az postgres flexible-server execute \
-    --name <postgres-server-name> \
-    --database-name postgres \
-    --querytext "select * from pgaadauth_create_principal('"my-ua-managed-id"', false, false);select * from pgaadauth_list_principals(false);" \
-    --admin-user <your-Azure-account-email> \
-    --admin-password $MY_ACCESS_TOKEN
-```
+    * If you used a different name for your managed identity, replace `my-ua-managed-id` in the `pgaadauth_create_principal` command with the name of your managed identity.
 
-* If you used a different name for your managed identity, replace `my-ua-managed-id` in the `pgaadauth_create_principal` command with the name of your managed identity.
+    * For the `--admin-user` value, use your Azure account email address.
 
-* For the `--admin-user` value, use your Azure account email address.
+    * For the `--admin-password` value, use the access token output by the previous command, unquoted.
 
-* For the `--admin-password` value, use the access token output by the previous command, unquoted.
+    * Make sure the database name is `postgres`.
 
-* Make sure the database name is `postgres`.
+    > [!NOTE]
+    > If you're running the *az postgres flexible-server execute* command on your local workstation, make sure you've added a firewall rule for your workstation's IP address. You can add a rule with the [az postgres flexible-server firewall-rule create][28] command. The same requirement also exists for the command in the next step.
 
-> [!NOTE]
-> If you're running the *az postgres flexible-server execute* command on your local workstation, make sure you've added a firewall rule for your workstation's IP address. You can add a rule with the [az postgres flexible-server firewall-rule create][28] command. The same requirement also exists for the command in the next step.
+1. Grant the user-assigned managed identity necessary permissions on the *restaurants_reviews* database with the following [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
 
-**Step 3.** Grant the user-assigned managed identity necessary permissions on the *restaurants_reviews* database with the following [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
+    ```azurecli
+    az postgres flexible-server execute \
+        --name <postgres-server-name> \
+        --database-name restaurants_reviews \
+        --querytext "GRANT CONNECT ON DATABASE restaurants_reviews TO \"my-ua-managed-id\";GRANT USAGE ON SCHEMA public TO \"my-ua-managed-id\";GRANT CREATE ON SCHEMA public TO \"my-ua-managed-id\";GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO \"my-ua-managed-id\";ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO \"my-ua-managed-id\";" \
+        --admin-user <your-Azure-account-email> \
+        --admin-password $MY_ACCESS_TOKEN
+    ```
+    
+    * If you used a different name for your managed identity, replace all instances of `my-ua-managed-id` in the command with the name of your managed identity. There are five instances in the query string.
 
-```azurecli
-az postgres flexible-server execute \
-    --name <postgres-server-name> \
-    --database-name restaurants_reviews \
-    --querytext "GRANT CONNECT ON DATABASE restaurants_reviews TO \"my-ua-managed-id\";GRANT USAGE ON SCHEMA public TO \"my-ua-managed-id\";GRANT CREATE ON SCHEMA public TO \"my-ua-managed-id\";GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO \"my-ua-managed-id\";ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO \"my-ua-managed-id\";" \
-    --admin-user <your-Azure-account-email> \
-    --admin-password $MY_ACCESS_TOKEN
-```
+    * For the `--admin-user` value, use your Azure account email address.
 
-* If you used a different name for your managed identity, replace all instances of `my-ua-managed-id` in the command with the name of your managed identity. There are five instances in the query string.
+    * For the `--admin-password` value, use the access token output previously, unquoted.
 
-* For the `--admin-user` value, use your Azure account email address.
+    * Make sure the database name is `restaurants_reviews`.
 
-* For the `--admin-password` value, use the access token output previously, unquoted.
+    This command connects to the restaurants_reviews database on the server and issues the following SQL commands:
 
-* Make sure the database name is `restaurants_reviews`.
-
-This command connects to the restaurants_reviews database on the server and issues the following SQL commands:
-
-```sql
-GRANT CONNECT ON DATABASE restaurants_reviews TO "my-ua-managed-id";
-GRANT USAGE ON SCHEMA public TO "my-ua-managed-id";
-GRANT CREATE ON SCHEMA public TO "my-ua-managed-id";
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "my-ua-managed-id";
-ALTER DEFAULT PRIVILEGES IN SCHEMA public
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "my-ua-managed-id";
-```
+    ```sql
+    GRANT CONNECT ON DATABASE restaurants_reviews TO "my-ua-managed-id";
+    GRANT USAGE ON SCHEMA public TO "my-ua-managed-id";
+    GRANT CREATE ON SCHEMA public TO "my-ua-managed-id";
+    GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "my-ua-managed-id";
+    ALTER DEFAULT PRIVILEGES IN SCHEMA public
+    GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "my-ua-managed-id";
+    ```
 
 ### [psql](#tab/configure-database-psql)
 
 You can use the PostgreSQL interactive terminal [psql][15] in your local environment, or in the [Azure Cloud Shell][4], which is also accessible in the [Azure portal][3]. When working with psql, it's often easier to use the [Cloud Shell][4] because all the dependencies are included for you in the shell.
 
-**Step 1.** Connect to the database with psql with an Azure account previously configured as a Microsoft Entra admin on your server. If you've been following the steps in this tutorial, your Azure account is already configured as an admin on the server.
+1. Connect to the database with psql with an Azure account previously configured as a Microsoft Entra admin on your server. If you've been following the steps in this tutorial, your Azure account is already configured as an admin on the server.
 
-```bash
-psql --host=<postgres-server-name>.postgres.database.azure.com \
-     --port=5432 \
-     --username=<your-azure-email-address> \
-     --dbname=postgres
-     --sslmode=require
-```
+    ```bash
+    psql --host=<postgres-server-name>.postgres.database.azure.com \
+         --port=5432 \
+         --username=<your-azure-email-address> \
+         --dbname=postgres
+         --sslmode=require
+    ```
 
-Where *\<postgres-server-name>* is the name of the PostgreSQL server and *\<your-azure-email-address>* is the email address of your Azure account. The command prompts you for your Azure account password.
+    Where *\<postgres-server-name>* is the name of the PostgreSQL server and *\<your-azure-email-address>* is the email address of your Azure account. The command prompts you for your Azure account password.
 
-If you're working in Azure Cloud Shell or if you have the Azure CLI installed on your local system, you can use the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command to get an access token that you can copy and enter as the password.
+    If you're working in Azure Cloud Shell or if you have the Azure CLI installed on your local system, you can use the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command to get an access token that you can copy and enter as the password.
 
-```azurecli
-az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken
-```
+    ```azurecli
+    az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken
+    ```
 
-Or, you can combine the psql and Azure CLI commands:
+    Or, you can combine the psql and Azure CLI commands:
 
-```bash
-psql "host=<postgres-server-name>.postgres.database.azure.com port=5432 dbname=postgres user=<your-azure-email-address> password='$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)' sslmode=require"
-```
+    ```bash
+    psql "host=<postgres-server-name>.postgres.database.azure.com port=5432 dbname=postgres user=<your-azure-email-address> password='$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken)' sslmode=require"
+    ```
 
-Be sure to replace the *\<postgres-server-name>* and *\<your-azure-email-address>* placeholders before running the command.
+    Be sure to replace the *\<postgres-server-name>* and *\<your-azure-email-address>* placeholders before running the command.
 
-If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
+    If you have trouble connecting, restart the database and try again. If you're connecting from your local environment, your IP address must be added to the firewall rule list for the database service.
 
-**Step 2.** Add the user-assigned managed identity as database role on your PostgreSQL server.
+1. Add the user-assigned managed identity as database role on your PostgreSQL server.
 
-At the `postgres=>` prompt enter:
+    At the `postgres=>` prompt enter:
 
-```sql
-SELECT * FROM pgaadauth_create_principal('my-ua-managed-id', false, false);SELECT * FROM pgaadauth_list_principals(false);
-```
+    ```sql
+    SELECT * FROM pgaadauth_create_principal('my-ua-managed-id', false, false);SELECT * FROM pgaadauth_list_principals(false);
+    ```
 
-The semicolon (";") at the end of each command is necessary. To verify that the database was successfully created, use the command `\c restaurants_reviews`. Type `\?` to show help or `\q` to quit.
+    The semicolon (";") at the end of each command is necessary. To verify that the database was successfully created, use the command `\c restaurants_reviews`. Type `\?` to show help or `\q` to quit.
 
-**Step 3.** Connect to the *restaurants_reviews* database using the `\c` (Connect) command.
+1. Connect to the *restaurants_reviews* database using the `\c` (Connect) command.
 
-```SQL
-\c restaurants_reviews
-```
+    ```SQL
+    \c restaurants_reviews
+    ```
 
-> [!NOTE]
-> If you haven't yet created the *restaurants_reviews* database, you can do so with the following command:
->
-> ```sql
-> CREATE DATABASE resaurants_reviews
-> ```
+    > [!NOTE]
+    > If you haven't yet created the *restaurants_reviews* database, you can do so with the following command:
+    >
+    > ```sql
+    > CREATE DATABASE resaurants_reviews
+    > ```
 
-**Step 4.** Grant the user-assigned managed identity necessary permissions on the *restaurants_reviews* database.
+1. Grant the user-assigned managed identity necessary permissions on the *restaurants_reviews* database.
 
-At the `restaurants_reviews_=>` prompt, enter the following commands:
+    At the `restaurants_reviews_=>` prompt, enter the following commands:
 
-```sql
-GRANT CONNECT ON DATABASE restaurants_reviews TO "my-ua-managed-id";
-GRANT USAGE ON SCHEMA public TO "my-ua-managed-id";
-GRANT CREATE ON SCHEMA public TO "my-ua-managed-id";
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "my-ua-managed-id";
-ALTER DEFAULT PRIVILEGES IN SCHEMA public
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "my-ua-managed-id";
-```
+    ```sql
+    GRANT CONNECT ON DATABASE restaurants_reviews TO "my-ua-managed-id";
+    GRANT USAGE ON SCHEMA public TO "my-ua-managed-id";
+    GRANT CREATE ON SCHEMA public TO "my-ua-managed-id";
+    GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "my-ua-managed-id";
+    ALTER DEFAULT PRIVILEGES IN SCHEMA public
+    GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "my-ua-managed-id";
+    ```
 
 ---
 
@@ -704,137 +727,94 @@ Container apps are deployed to Container Apps [*environments*][30], which act as
 
 ### [Azure CLI](#tab/azure-cli)
 
-:::row:::
-    :::column:::
-        **Step 1.** Sign in to Azure and authenticate, if needed.
+These steps require the Azure Container Apps extension, *containerapp*.
 
-        ```azurecli
-        az login
-        ```
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 2.** Install or upgrade the extension for Azure Container Apps withe [az extension add][14] command.
-        
-        ```azurecli
-        az extension add --name containerapp --upgrade
-        ```
-        
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 3.** Create a Container Apps environment with the [az containerapp env create][13] command.
+1. Create a Container Apps environment with the [az containerapp env create][13] command.
 
-        ```azurecli
-        az containerapp env create \
-        --name python-container-env \
-        --resource-group pythoncontainer-rg \
-        --location <location>
-        ```
-        *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
+    ```azurecli
+    az containerapp env create \
+    --name python-container-env \
+    --resource-group pythoncontainer-rg \
+    --location <location>
+    ```
 
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 4.** Get the sign-in credentials for the Azure Container Registry with the [az acr credential show](/cli/azure/acr/credential#az-acr-credential-show) command.
+    *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
 
-        ```azurecli
-        az acr credential show -n <registry-name>
-        ```
+1. Get the sign-in credentials for the Azure Container Registry with the [az acr credential show](/cli/azure/acr/credential#az-acr-credential-show) command.
 
-        You use the username and one of the passwords returned from the output of the command in step 6.
+    ```azurecli
+    az acr credential show -n <registry-name>
+    ```
 
-    :::column-end:::
-:::row-end:::
+    You use the username and one of the passwords returned from the output of the command in step 4.
 
-:::row:::
-    :::column span="1":::
-        **Step 5** Use the [az identity show](/cli/azure/identity#az-identity-show) command to client ID and resource ID of the user-assigned managed identity.
+1. Use the [az identity show](/cli/azure/identity#az-identity-show) command to client ID and resource ID of the user-assigned managed identity.
 
-        ```azurecli
-        az identity show --name my-ua-managed-id --resource-group pythoncontainer-rg --query "[clientId, id]" --output tsv
-        ```
-        
-        You use the value of the client ID (GUID) and the resource ID output by the command in step 6. The resource ID has the following form: `/subscriptions/<subscription-id>/resourcegroups/pythoncontainer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-ua-managed-id`
-        
-    :::column-end:::
-:::row-end:::
+    ```azurecli
+    az identity show --name my-ua-managed-id --resource-group pythoncontainer-rg --query "[clientId, id]" --output tsv
+    ```
 
-:::row:::
-    :::column span="1":::
-        **Step 6.** Create a container app in the environment with the [az containerapp create][12] command.
+    You use the value of the client ID (GUID) and the resource ID output by the command in step 4. The resource ID has the following form: `/subscriptions/<subscription-id>/resourcegroups/pythoncontainer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-ua-managed-id`
 
-        ```azurecli
-        az containerapp create \
-        --name python-container-app \
-        --resource-group pythoncontainer-rg \
-        --image <registry-name>.azurecr.io/pythoncontainer:latest \
-        --environment python-container-env \
-        --ingress external \
-        --target-port <5000 for Flask or 8000 for Django> \
-        --registry-server <registry-name>.azurecr.io \
-        --registry-username <registry-username> \
-        --registry-password <registry-password> \
-        --user-assigned <managed-identity-resource-id> \
-        --query properties.configuration.ingress.fqdn \
-        --env-vars DBHOST="<postgres-server-name>" \
-        DBNAME="restaurants_reviews" \
-        DBUSER="my-ua-managed-id" \
-        RUNNING_IN_PRODUCTION="1" \
-        AZURE_CLIENT_ID="<managed-identity-client-id>" \
-        AZURE_SECRET_KEY="<your-secret-key>"
-        ```
+1. Create a container app in the environment with the [az containerapp create][12] command.
 
-        Make sure you replace all of the values in angle brackets with values you're using in this tutorial. Be aware that the name of your container app must be unique across Azure.
+    ```azurecli
+    az containerapp create \
+    --name python-container-app \
+    --resource-group pythoncontainer-rg \
+    --image <registry-name>.azurecr.io/pythoncontainer:latest \
+    --environment python-container-env \
+    --ingress external \
+    --target-port <5000 for Flask or 8000 for Django> \
+    --registry-server <registry-name>.azurecr.io \
+    --registry-username <registry-username> \
+    --registry-password <registry-password> \
+    --user-assigned <managed-identity-resource-id> \
+    --query properties.configuration.ingress.fqdn \
+    --env-vars DBHOST="<postgres-server-name>" \
+    DBNAME="restaurants_reviews" \
+    DBUSER="my-ua-managed-id" \
+    RUNNING_IN_PRODUCTION="1" \
+    AZURE_CLIENT_ID="<managed-identity-client-id>" \
+    AZURE_SECRET_KEY="<your-secret-key>"
+    ```
 
-        The value of the `--env-vars` parameter is a string composed of space-separated values in the key="value" format with the following values:
+    Make sure you replace all of the values in angle brackets with values you're using in this tutorial. Be aware that the name of your container app must be unique across Azure.
 
-        * DBHOST="\<postgres-server-name>"
-        * DBNAME="restaurants_reviews"
-        * DBUSER="my-ua-managed-id"
-        * RUNNING_IN_PRODUCTION="1"
-        * AZURE_CLIENT_ID="\<managed-identity-client-id>"
-        * AZURE_SECRET_KEY="\<your-secret-key>"
+    The value of the `--env-vars` parameter is a string composed of space-separated values in the key="value" format with the following values:
 
-        Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
+    * DBHOST="\<postgres-server-name>"
+    * DBNAME="restaurants_reviews"
+    * DBUSER="my-ua-managed-id"
+    * RUNNING_IN_PRODUCTION="1"
+    * AZURE_CLIENT_ID="\<managed-identity-client-id>"
+    * AZURE_SECRET_KEY="\<your-secret-key>"
 
-        Make sure the value for `DBUSER` is the name of your user-assigned managed identity.
+    Generate `AZURE_SECRET_KEY` value using output of `python -c 'import secrets; print(secrets.token_hex())'`.
 
-        Make sure the value for `AZURE_CLIENT_ID` is the client ID of your user-assigned managed identity 
+    Make sure the value for `DBUSER` is the name of your user-assigned managed identity.
 
-        Here's an example: `--env-vars DBHOST="my-postgres-server" DBNAME="restaurants_reviews" DBUSER="my-ua-managed-id" RUNNING_IN_PRODUCTION="1" AZURE_CLIENT_ID="00001111-aaaa-2222-bbbb-3333cccc4444" AZURE_SECRET_KEY="7ae88fb ... b2f45296d"`.
+    Make sure the value for `AZURE_CLIENT_ID` is the client ID of your user-assigned managed identity 
 
-    :::column-end:::
-:::row-end:::
+    Here's an example: `--env-vars DBHOST="my-postgres-server" DBNAME="restaurants_reviews" DBUSER="my-ua-managed-id" RUNNING_IN_PRODUCTION="1" AZURE_CLIENT_ID="00001111-aaaa-2222-bbbb-3333cccc4444" AZURE_SECRET_KEY="7ae88fb ... b2f45296d"`.
 
-:::row:::
-    :::column span="1":::
-        **Step 7.** For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
+1. For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
 
-        Connect with the [az containerapp exec][31] command:
+    Connect with the [az containerapp exec][31] command:
 
-        ```azurecli
-            az containerapp exec \
-                --name python-container-app \
-                --resource-group pythoncontainer-rg
-        ```
+    ```azurecli
+        az containerapp exec \
+            --name python-container-app \
+            --resource-group pythoncontainer-rg
+    ```
 
-        Then, at the shell command prompt type `python manage.py migrate`.
+    Then, at the shell command prompt type `python manage.py migrate`.
 
-        You don't need to migrate for revisions of the container.
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 8.** Test the website.
+    You don't need to migrate for revisions of the container.
 
-        The `az containerapp create` command you entered previously outputs an application URL you can use to browse to the app. The URL ends in "azurecontainerapps.io". Navigate to the URL in a browser. Alternatively, you can use the [az containerapp browse](/cli/azure/containerapp#az-containerapp-browse) command.
+1. Test the website.
 
-    :::column-end:::
-:::row-end:::
+    The `az containerapp create` command you entered previously outputs an application URL you can use to browse to the app. The URL ends in "azurecontainerapps.io". Navigate to the URL in a browser. Alternatively, you can use the [az containerapp browse](/cli/azure/containerapp#az-containerapp-browse) command.
 
 ### [VS Code](#tab/vscode-aztools)
 
