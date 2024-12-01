@@ -515,7 +515,7 @@ Use the following steps to create the AKS cluster:
        --id ${APPGW_IP_ID} \
        --query ipAddress \
        --output tsv)
-   echo "App Gateway pubilc IP address: ${APPGW_IP_ADDRESS}"
+   echo "App Gateway public IP address: ${APPGW_IP_ADDRESS}"
    ```
 
 1. Use the following command to attach a domain name service (DNS) name label to the public IP address resource. Replace `<your-chosen-DNS-name>` with an appropriate value - for example, `ejb010316`.

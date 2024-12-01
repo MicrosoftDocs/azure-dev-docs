@@ -412,9 +412,9 @@ az aks connection create sql --connection akssqlconn --client-type java --source
 ---
 
 > [!NOTE]
-> It's recommneded to use Microsoft Entra Workload ID for secure access to your Azure SQL Database without using SQL authentication. If you need to use SQL authentication, ignore the above steps in this section and use the username and password to connect to the Azure SQL Database.
+> It's recommended to use Microsoft Entra Workload ID for secure access to your Azure SQL Database without using SQL authentication. If you need to use SQL authentication, ignore the above steps in this section and use the username and password to connect to the Azure SQL Database.
 
-### Get servcie account and secret created by Service Connector
+### Get service account and secret created by Service Connector
 
 To authenticate to the Azure SQL Database, you need to get the service account and secret created by Service Connector. Follow the section [Update your container](/azure/service-connector/tutorial-python-aks-sql-database-connection-string?pivots=workload-id&tabs=azure-cli#update-your-container). Take the option **Directly create a deployment using the YAML sample code snippet provided** and execute the following steps:
 
@@ -562,7 +562,7 @@ In directory *liberty/config*, the *server.xml* is used to configure the databas
 The *pom.xml* file is the Maven project object model (POM) file that contains the configuration information for the project. The *pom-azure-identity.xml* file declares `azure-identity` dependency, which is used to authenticate to Azure services using Microsoft Entra ID.
 
 > [!NOTE]
-> This sample uses `azure-identity` library to authenticate to Azure SQL Database using Microsoft Entra authencitation, which is recommended for security considerations. If you need to use SQL authentication in your Liberty application, see [Relational database connections with JDBC](https://openliberty.io/docs/latest/relational-database-connections-JDBC.html) for more information.
+> This sample uses `azure-identity` library to authenticate to Azure SQL Database using Microsoft Entra authentication, which is recommended for security considerations. If you need to use SQL authentication in your Liberty application, see [Relational database connections with JDBC](https://openliberty.io/docs/latest/relational-database-connections-JDBC.html) for more information.
 
 ### Build the project
 
@@ -631,7 +631,7 @@ You can now run and test the project locally before deploying to Azure. For conv
 
 1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser to verify the application is accessible and all functions are working.
 
-1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop. Select `Y` if you're aksed to terminate batch job.
+1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop. Select `Y` if you're asked to terminate batch job.
 
 When you're finished, delete the firewall rule that allows your local IP address to access the Azure SQL Database by using the following command:
 

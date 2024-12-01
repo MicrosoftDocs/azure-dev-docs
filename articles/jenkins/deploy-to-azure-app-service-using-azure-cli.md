@@ -141,7 +141,7 @@ az webapp config set \
 1. Update the credential ID in your Jenkins instance
 
     ```groovy
-    withCredentials([usernamePassword(credentialsId: '<service_princial>', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
+    withCredentials([usernamePassword(credentialsId: '<service_principal>', passwordVariable: 'AZURE_CLIENT_SECRET', usernameVariable: 'AZURE_CLIENT_ID')]) {
     ```
     
 ## Create Jenkins pipeline

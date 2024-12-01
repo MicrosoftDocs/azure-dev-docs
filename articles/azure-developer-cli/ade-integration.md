@@ -41,7 +41,7 @@ You can also disable dev center support via the following command:
 azd config unset platform
 ```
 
-## Work with Azure Deployment Evironments
+## Work with Azure Deployment Environments
 
 When the dev center feature is enabled, the default behavior of some common `azd` commands changes to work with these remote environments. The dev center feature expands on functionality provided by standard `azd` [remote environment support](/azure/developer/azure-developer-cli/remote-environments-support).
 
@@ -92,7 +92,7 @@ azd env list
 `azd` provisioning for Azure Deployment Environments relies on curated templates from the dev center catalog. Templates in the catalog may or may not assign tags to provisioned Azure resources for you to associate your app services with in the `azure.yaml` file. If the templates do not assign tags, you can address this issue in one of two ways:
 
 * Work with your dev center catalog administrator to ensure the provisioned Azure resources include tags to associate them with services defined in your `azure.yaml` file.
-* Specify the `resoureName` in your `azure.yaml` file instead of using tags:
+* Specify the `resourceName` in your `azure.yaml` file instead of using tags:
 
     ```yml
     services:

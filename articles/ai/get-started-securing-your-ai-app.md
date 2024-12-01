@@ -490,7 +490,7 @@ ChatCompletion completion = await chatClient.CompleteChatAsync(messages);
 
 ## Other security considerations
 
-This article demonstrates how the sample uses `ChainedTokenCreadential` for authenticating to the Azure OpenAI service.
+This article demonstrates how the sample uses `ChainedTokenCredential` for authenticating to the Azure OpenAI service.
 
 The sample also has a [GitHub Action](https://github.com/microsoft/security-devops-action) that scans the infrastructure-as-code files and generates a report containing any detected issues. To ensure continued best practices in your own repository, we recommend that anyone creating solutions based on our templates ensure that the [GitHub secret scanning setting](https://docs.github.com/code-security/secret-scanning/introduction/about-secret-scanning) is enabled.
 
