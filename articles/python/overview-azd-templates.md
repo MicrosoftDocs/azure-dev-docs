@@ -14,6 +14,8 @@ The best approach to get started is to [follow the quickstart](./quickstart-pyth
 
 ## What are the Python web azd templates?
 
+<a name="why-would-i-want-to-use-this"></a>
+
 The `azd` templates are intended for experienced Python web developers who want to build Python web apps that target Azure deployment. The templates provide the **easiest possible start** for Python web app development. You can quickly build an entire local development/hosting environment and deployment environment with only a few command-line instructions. The workflow is simple to use and the steps are easy to remember.
 
 After you set up your development and hosting environments, the templates provide you with the **fastest possible start** to building out your Python web app. By configuring the template code files to meet your specific requirements, you can customize your Python web app in minutes. 
@@ -82,6 +84,8 @@ The following table lists the available Python web `azd` template monikers to us
 
 ## How should I use the templates?
 
+<a name="how-do-the-templates-work"></a>
+
 Each `azd` template comprises a GitHub repository that contains the application code (Python code that utilizes a popular web framework) and the infrastructure-as-code (namely, [Bicep](/azure/azure-resource-manager/bicep/overview)) files to create the Azure resources. The template also contains the configuration required to set up a GitHub repository with a CI/CD pipeline.
 
 To perform the tasks defined by an `azd` web template, you use various Python `azd` commands. For detailed descriptions of these commands, see [Quickstart: Deploy an Azure Developer CLI template](/azure/developer/azure-developer-cli/get-started). The quickstart walks you through the steps to use a specific `azd` template. You only need to run five essential command-line instructions to the production-hosting environment and the local-development environment.
@@ -121,6 +125,8 @@ The Azure Developer CLI (`azd`) provides an easy way to set up a CI/CD pipeline 
 - To create the pipeline, use the `azd pipeline config` command. 
 
 ## Alternatives to the templates
+
+<a name="what-are-my-other-options"></a>
 
 If you prefer to not use the Python web `azd` templates, there are alternate methods for deploying Python web apps to Azure and provisioning Azure resources.
 
