@@ -25,7 +25,7 @@ Replace `<service-principal-name>` with your service principal name.
 # [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
-$subId = '<subcriptionID>'
+$subId = '<subscriptionID>'
 $credentials = New-Object Microsoft.Azure.Commands.ActiveDirectory.PSADPasswordCredential -Property @{ StartDate=Get-Date; EndDate=Get-Date -Year 2024; Password='<Password>'};
 
 $params = @{
@@ -44,6 +44,6 @@ $roleAssignmentSplat = @{
 New-AzRoleAssignment @roleAssignmentSplat
 ```
 
-Replace `<subcriptionID>` and `<Password>` and `<service-principal-name>` with the appropriate values.
+Replace `<subscriptionID>` and `<Password>` and `<service-principal-name>` with the appropriate values.
 
 ---

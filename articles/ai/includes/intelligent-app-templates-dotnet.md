@@ -51,7 +51,7 @@ This template demonstrates the use of these features.
 
 ### Process automation with speech to text and summarization with .NET and GPT 3.5 Turbo
 
-This template is a process automation solution that recieves issues reported by field and shop floor workers at a company called Contoso Manufacturing, a manufacturing company that makes car batteries. The issues are shared by the workers either live through microphone input or pre-recorded as audio files. The solution translates audio input from speech to text and then uses an LLM and Prompty or Promptflow to summarize the issue and return the results in a format specified by the solution.
+This template is a process automation solution that receives issues reported by field and shop floor workers at a company called Contoso Manufacturing, a manufacturing company that makes car batteries. The issues are shared by the workers either live through microphone input or pre-recorded as audio files. The solution translates audio input from speech to text and then uses an LLM and Prompty or Promptflow to summarize the issue and return the results in a format specified by the solution.
 
 To access the source code and read in-depth details about the template, see the [summarization-openai-csharp-prompty](https://github.com/Azure-Samples/summarization-openai-csharp-prompty) GitHub repo.
 

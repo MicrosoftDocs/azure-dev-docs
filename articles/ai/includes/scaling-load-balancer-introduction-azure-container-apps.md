@@ -39,6 +39,6 @@ The Azure Container app sits in front of a set of Azure OpenAI resources. The Co
 
 :::image type="content" source="../media/get-started-scaling-load-balancer-azure-container-apps/intro-load-balance-normal-usage.png" alt-text="Diagram displaying a normal scenario. The normal scenario shows three Azure OpenAI endpoint groups with the first group of two endpoints getting successful traffic. ":::
 
-When a resource is in a **throttled scenario** such as due to quota limits, the Azure Container app can retry a different Azure OpenAI resource immediately to fullful the original chat app request.
+When a resource is in a **throttled scenario** such as due to quota limits, the Azure Container app can retry a different Azure OpenAI resource immediately to fulfill the original chat app request.
 
 :::image type="content" source="../media/get-started-scaling-load-balancer-azure-container-apps/intro-load-balance-throttled-usage.png" alt-text="Diagram displaying a throttling scenario with a 429 failing response code and a response header of how many seconds the client has to wait to retry.":::

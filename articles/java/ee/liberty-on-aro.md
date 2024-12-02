@@ -70,7 +70,7 @@ After you create and connect to the cluster, use the following steps to install 
 1. Select **Install**.
 1. On the **Install Operator** page, use the following steps:
    1. For **Update channel**, select the latest channel **v1.4**.
-   1. For **Installation mode**, seelct **All namespaces on the cluster (default)**.
+   1. For **Installation mode**, select **All namespaces on the cluster (default)**.
    1. For **Update approval**, select **Automatic**.
 
    :::image type="content" source="media/liberty-on-aro/install-operator.png" alt-text="Screenshot of the OpenShift web console that shows the Install Operator page." lightbox="media/liberty-on-aro/install-operator.png":::

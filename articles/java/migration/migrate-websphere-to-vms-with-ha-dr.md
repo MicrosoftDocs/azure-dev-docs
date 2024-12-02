@@ -442,7 +442,7 @@ Now, use the following steps to verify that the failover works as expected:
 
    1. To validate the cluster configuration in the secondary region, follow the steps in the [Configure the cluster](#configure-the-cluster) section. You should see that the settings for **Synchronize changes with Nodes** and **Distributed sessions** are replicated to the failover cluster, as shown in the following screenshots:
 
-      :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/synchronize-changes-secondary.png" alt-text="Screenshot of the Dmgr WebSphere Integrated Solutions Console that shows the selected state of the Synchonize changes with Nodes checkbox." lightbox="media/migrate-websphere-to-vms-with-ha-dr/synchronize-changes-secondary.png":::
+      :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/synchronize-changes-secondary.png" alt-text="Screenshot of the Dmgr WebSphere Integrated Solutions Console that shows the selected state of the Synchronize changes with Nodes checkbox." lightbox="media/migrate-websphere-to-vms-with-ha-dr/synchronize-changes-secondary.png":::
 
       :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/distributed-sessions-secondary.png" alt-text="Screenshot of Dmgr WebSphere Integrated Solutions Console that shows the Database settings page with the state of the distributed sessions setting." lightbox="media/migrate-websphere-to-vms-with-ha-dr/distributed-sessions-secondary.png":::
 
