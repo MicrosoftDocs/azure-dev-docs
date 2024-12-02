@@ -42,7 +42,7 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 
 ## Resources for other Azure AI services
 
-In addition to Azure OpenAI Service, there are many other Azure AI services that help developers and organizations rapidly create intelligent, market-ready, and responsbile applications with out-of-the-box and prebuilt customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
+In addition to Azure OpenAI Service, there are many other Azure AI services that help developers and organizations rapidly create intelligent, market-ready, and responsible applications with out-of-the-box and prebuilt customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.
 
 ### Samples
 
@@ -60,10 +60,10 @@ In addition to Azure OpenAI Service, there are many other Azure AI services that
 |---|---|---|---|
 |[Content Safety](/azure/ai-services/content-safety/)|An AI service that detects unwanted content.|[Content Safety API reference](/javascript/api/overview/azure/ai-content-safety-rest-readme)|[Quickstart](/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Cwindows&pivots=programming-language-javascript)|
 |[Document Intelligence](/azure/ai-services/document-intelligence/)|Turn documents into intelligent data-driven solutions.|[Document Intelligence API reference](/javascript/api/overview/azure/ai-form-recognizer-readme)|[Quickstart](/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?pivots=programming-language-javascript)|
-|[Language](/azure/ai-services/language-service/)|Build apps with industry-leading natural landuage understanding capabilities.|[Text Analytics API reference](/javascript/api/overview/azure/ai-form-recognizer-readme)|[Quickstart](/azure/ai-services/language-service/text-analytics-for-health/quickstart?tabs=windows&pivots=programming-language-javascript)|
+|[Language](/azure/ai-services/language-service/)|Build apps with industry-leading natural language understanding capabilities.|[Text Analytics API reference](/javascript/api/overview/azure/ai-form-recognizer-readme)|[Quickstart](/azure/ai-services/language-service/text-analytics-for-health/quickstart?tabs=windows&pivots=programming-language-javascript)|
 |[Search](/azure/search/)|Bring AI-powered cloud search to your applications.|[Search API reference](/javascript/api/overview/azure/search-documents-readme)|[Quickstart](/azure/search/search-get-started-text?tabs=javascript)|
 |[Speech](/azure/ai-services/speech-service/)|Speech to text, text to speech, translation, and speaker recognition.|[Speech API reference](/javascript/api/overview/azure/microsoft-cognitiveservices-speech-sdk-readme)|[Quickstart](/azure/ai-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-javascript)|
-|[Translator](/azure/ai-services/translator/)|Use AI-powered trnslation to translate more than 100 in-use, at-risk and endangered languages and dialects.|[Translation API reference](/javascript/api/overview/azure/ai-translation-text-rest-readme)|[Quickstart](/azure/ai-services/translator/quickstart-text-sdk?pivots=programming-language-javascript)|
+|[Translator](/azure/ai-services/translator/)|Use AI-powered translation to translate more than 100 in-use, at-risk and endangered languages and dialects.|[Translation API reference](/javascript/api/overview/azure/ai-translation-text-rest-readme)|[Quickstart](/azure/ai-services/translator/quickstart-text-sdk?pivots=programming-language-javascript)|
 |[Vision](/azure/ai-services/computer-vision/)|Analyze content in images and videos.|[Image Analysis API reference](/javascript/api/overview/azure/ai-vision-image-analysis-rest-readme)|[Quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library?tabs=windows%2Cvisual-studio&pivots=programming-language-javascript)|
 
 ## Training
@@ -80,6 +80,6 @@ In addition to Azure OpenAI Service, there are many other Azure AI services that
 
 AI app templates provide you with well-maintained, easy to deploy reference implementations that provide a high-quality starting point for your AI apps.
 
-There are two categories of AI app templates, **building blocks** and **end-to-end solutions**. Building blocks are smaller-scale samples that focus on specific scenarios and tasks. End-to-end solutions are comprehensive reference samples including documention, source code, and deployment to allow you to take and extend for your own purposes.
+There are two categories of AI app templates, **building blocks** and **end-to-end solutions**. Building blocks are smaller-scale samples that focus on specific scenarios and tasks. End-to-end solutions are comprehensive reference samples including documentation, source code, and deployment to allow you to take and extend for your own purposes.
 
 To review a list of key templates available for each programming language, see [AI app templates](/azure/developer/ai/intelligent-app-templates). To browse all available templates, see the AI app templates on the [AI App Template gallery](https://azure.github.io/ai-app-templates?tags=azureopenai&tags=javascript).

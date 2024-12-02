@@ -207,7 +207,7 @@ This section describes the usage scenario for Spring Boot application using Spri
 </dependency>
 ```
 
-<a name="spring-kafka-configuraiton-setup"></a>
+<a name="spring-kafka-configuration-setup"></a>
 ##### Configuration update
 
 To use the OAuth authentication, just specify the Event Hubs endpoint, as shown in the following example:

@@ -472,7 +472,7 @@ az spring connection create eventhub \
     --app <spring-app-name> \
     --service <azure-spring-service-name> \
     --resource-group $AZ_RESOURCE_GROUP \
-    --deployment <spring-app-deployoment-name> \
+    --deployment <spring-app-deployment-name> \
     --target-id $AZURE_EVENTHUBS_RESOURCE_ID \
     --client-type kafka-springBoot \
     --system-identity
