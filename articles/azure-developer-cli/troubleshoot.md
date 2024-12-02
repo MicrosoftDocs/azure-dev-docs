@@ -257,6 +257,8 @@ To configure the workflow, you need to give GitHub permission to deploy to Azure
    ```
 3. After logging in, rerun `azd pipeline config`.
 
+---
+
 ## `azd pipeline config` support
 
 `azd pipeline config` is currently not supported in [DevContainers/VS Code Remote Containers](https://code.visualstudio.com/docs/devcontainers/containers).
