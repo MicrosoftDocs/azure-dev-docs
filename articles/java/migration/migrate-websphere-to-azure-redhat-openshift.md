@@ -155,7 +155,7 @@ You can't do cloud without mastering logging. The operator provides different ap
 
 ### Migrate your applications
 
-Whether or not you chose to provide an application image at deployment time, you need to update the application via CI/CD. The OpenShift documentation has samples that show how to do this update. For more information, see [OpenShift Container Platform CI/CD overview](https://docs.openshift.com/container-platform/4.13/cicd/index.html).
+Whether or not you chose to provide an application image at deployment time, you need to update the application via CI/CD. The OpenShift documentation has samples that show how to do this update. For more information, see [OpenShift Container Platform CI/CD overview](https://docs.openshift.com/container-platform/4.17/cicd/overview/index.html).
 
 ### Configure tests
 
