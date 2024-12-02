@@ -136,7 +136,7 @@ items:
       href: production-ready.md
     - name: Autoconfigure Azure SDK clients
       href: auto-configure-azure-sdk-clients.md
-    - name: Resource handing
+    - name: Resource handling
       href: resource-handling.md
     - name: Secret management
       href: secret-management.md
