@@ -107,7 +107,7 @@ It can take several minutes to scale a cache. The following code tells Ansible w
 
 Similar to the task to provision Azure Cache for Redis, output like the following message is normal:
 
-```Ouput
+```output
 **FAILED - RETRYING: Get facts (100 retries left)** is normal.
 ```
 

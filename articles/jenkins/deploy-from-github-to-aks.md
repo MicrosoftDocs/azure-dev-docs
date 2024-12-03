@@ -164,7 +164,7 @@ Replace `<Resource_Group_name>` and `<Jenkins_Controller_VM>` with the appropria
 SSH into the Jenkins Controller
 
 ```azurecli
-ssh azureuser@<PublicIPAddres>
+ssh azureuser@<PublicIPAddress>
 ```
 
 Replace `<PublicIPAddress>` with the IP address of the Jenkins Controller.

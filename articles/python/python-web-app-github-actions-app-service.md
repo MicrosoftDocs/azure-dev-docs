@@ -1,8 +1,8 @@
 ---
 title: Use GitHub Actions to deploy a Python web app to Azure App Service on Linux
 description: Use CI/CD with GitHub Actions to automatically build, test, and deploy Python web apps to Azure App Service on Linux.
-ms.topic: conceptual
-ms.date: 08/03/2023
+ms.topic: concept-article
+ms.date: 12/02/2024
 ms.custom: devx-track-python, devx-track-azurecli, linux-related-content
 ---
 
@@ -206,7 +206,7 @@ As noted earlier in this article, you can use GitHub Actions to deploy Django ap
 
 As described in the article [Configure Python app on App Service - Container startup process][14], App Service automatically looks for a *wsgi.py* file within your app code, which typically contains the app object. When you used the `webapp config set` command to set the startup command, you used the `--startup-file` parameter to specify the file that contains the app object. The `webapp config set` command isn't available in the webapps-deploy action. Instead, you can use the `startup-command` parameter to specify the startup command. For example, the following code snippet shows how to specify the startup command in the workflow file:
 
-```yml
+```yaml
 startup-command: startup.txt
 ```
 

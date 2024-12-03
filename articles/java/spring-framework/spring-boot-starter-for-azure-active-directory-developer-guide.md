@@ -448,7 +448,7 @@ public class AadWebApplicationAndResourceServerConfig {
    public static class ApiWebSecurityConfigurationAdapter extends AadResourceServerWebSecurityConfigurerAdapter {
        protected void configure(HttpSecurity http) throws Exception {
            super.configure(http);
-           // All the paths that match `/api/**`(configurable) work as the esource server. Other paths work as  the web application.
+           // All the paths that match `/api/**`(configurable) work as the resource server. Other paths work as  the web application.
            http.antMatcher("/api/**")
                .authorizeRequests().anyRequest().authenticated();
        }

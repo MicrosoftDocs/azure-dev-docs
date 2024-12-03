@@ -17,7 +17,7 @@ In this tutorial, you accomplish the following tasks:
 > [!div class="checklist"]
 >
 > - Learn which WebLogic application metrics you can export using WebLogic Monitoring Exporter.
-> - Deploy and run a WebLogic applciation on AKS using an Azure marketplace offer.
+> - Deploy and run a WebLogic application on AKS using an Azure marketplace offer.
 > - Enable the Azure Monitor managed service for Prometheus using an Azure marketplace offer.
 > - Feed WLS metrics to an Azure Monitor workspace using an Azure marketplace offer.
 > - Integrate Kubernetes Event-driven Autoscaling (KEDA) with an AKS cluster using an Azure marketplace offer.

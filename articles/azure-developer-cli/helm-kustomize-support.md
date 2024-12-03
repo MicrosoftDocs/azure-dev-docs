@@ -43,7 +43,7 @@ services:
         releases:
           - name: argocd
             chart: argo/argo-cd
-            verson: 5.51.4
+            version: 5.51.4
   jupyterhub:
     host: aks
     k8s:

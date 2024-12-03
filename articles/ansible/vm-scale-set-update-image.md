@@ -96,7 +96,7 @@ There are two ways to get the sample playbook:
       - B
     register: pip_output
 
-  - name: Create virtual network inteface cards for VM A and B
+  - name: Create virtual network interface cards for VM A and B
     azure_rm_networkinterface:
       resource_group: "{{ resource_group }}"
       name: "{{ vm_name }}_{{ item }}"

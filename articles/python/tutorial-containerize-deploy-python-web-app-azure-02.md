@@ -176,7 +176,7 @@ echo "Creating database restaurants_reviews"
 az cosmosdb mongodb database create --account-name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --name restaurants_reviews
 
 # Create a MongoDB API collection
-echo "Creating collection restaraunts_reviews"
+echo "Creating collection restaurants_reviews"
 az cosmosdb mongodb collection create --account-name $ACCOUNT_NAME --resource-group $RESOURCE_GROUP_NAME --database-name restaurants_reviews --name restaurants_reviews
 
 # Get the connection string for the MongoDB database
