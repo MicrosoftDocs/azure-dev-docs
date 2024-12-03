@@ -1738,6 +1738,26 @@
     {
       "source_path": "articles/terraform/test-modules-using-terratest.md",
       "redirect_url": "/azure/developer/terraform"
-    }
+    },
+    {
+      "source_path": "articles/go/sdk/authentication-overview.md",
+      "redirect_url": "/azure/developer/go/sdk/authentication/authentication-overview"
+    },    
+    {
+      "source_path": "articles/go/azure-sdk-authentication.md",
+      "redirect_url": "/azure/developer/go/sdk/authentication/authentication-overview"
+    },    
+    {
+      "source_path": "articles/go/azure-sdk-authorization.md",
+      "redirect_url": "/azure/developer/go/sdk/authentication/authentication-overview"
+    },    
+    {
+      "source_path": "articles/go/azure-sdk-authentication-managed-identity.md",
+      "redirect_url": "/azure/developer/go/sdk/authentication/authentication-azure-hosted-apps"
+    },    
+    {
+      "source_path": "articles/go/azure-sdk-authentication-service-principal.md",
+      "redirect_url": "/azure/developer/go/sdk/authentication/local-development-service-principal"
+    }    
   ]
 }

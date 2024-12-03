@@ -32,15 +32,21 @@ items:
       expanded: false
       items:
         - name: Overview
-          href: sdk/authentication-overview.md
-        - name: Auth with Azure Identity module overview
-          href: azure-sdk-authentication.md
-        - name: Auth with Azure-hosted apps
-          href: azure-sdk-authentication-managed-identity.md
-        - name: Auth with service principal
-          href: azure-sdk-authentication-service-principal.md
-        - name: Authentication with the autorest package (legacy)
-          href: azure-sdk-authorization.md
+          href: sdk/authentication/authentication-overview.md
+        - name: Auth during local development
+          items:
+          - name: Auth using developer service principals
+            href: sdk/authentication/local-development-service-principal.md
+          - name: Auth using developer accounts
+            href: sdk/authentication/local-development-dev-accounts.md
+        - name: Auth from Azure-hosted apps
+          href: sdk/authentication/authentication-azure-hosted-apps.md
+        - name: Auth from on-premises apps
+          href: sdk/authentication/authentication-on-premises-apps.md
+        - name: Additional auth methods
+          href: sdk/authentication/authentication-additional-methods.md
+        - name: Credential chains
+          href: sdk/authentication/credential-chains.md
     - name: How-to guides
       expanded: false
       items:
