@@ -18,9 +18,9 @@ To complete the steps in this article, you need the following Azure resources an
 
 Before moving on to the next section, make sure you've noted down your subscription ID (Guid), tenant ID (Guid), and the client/application ID (Guid) and secret for your service principal.
 
-## 2. Set authentication environment variables
+## 2. Set up authentication
 
-[!INCLUDE [set-authentication-environment-variables.md](includes/set-authentication-environment-variables.md)]
+Choose an authentication method which suits your needs. We offer multiple credential-free authentication methods for apps hosted in server and local environments. [Authenticate Go apps to Azure services by using the Azure SDK for Go](sdk/authentication-overview.md) article will help you decide which authentication mechanism is the best fit for your scenario.
 
 ## 3. Create a resource group
 
@@ -68,9 +68,9 @@ Before moving on to the next section, make sure you've noted down your subscript
 
     // Define key global variables.
     var (
-    	subscriptionId    = os.Getenv("AZURE_SUBSCRIPTION_ID")
-    	location          = "eastus"
-    	resourceGroupName = "myResourceGroup" // !! IMPORTANT: Change this to a unique name in your subscription.
+    	subscriptionId    = "<your_subscription_id>"
+    	location          = "<your_region>"
+    	resourceGroupName = "<your_resource_group_name>" // !! IMPORTANT: Change this to a unique name in your subscription.
     	ctx               = context.Background()
     )
 
