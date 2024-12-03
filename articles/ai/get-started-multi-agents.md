@@ -1,6 +1,6 @@
 ---
-title: "Get started with multi-agent applications using Azure OpenAI"
-description: "Learn how to effectively use Azure OpenAI models with multi-agents to perform tasks and create results based on user instructions. Easily deploy with Azure Developer CLI."
+title: "Get Started with Multi-agent Applications Using Azure OpenAI"
+description: "Learn how to effectively use Azure OpenAI models with multiple agents to perform tasks and create results based on user instructions. Easily deploy with the Azure Developer CLI."
 ms.date: 11/15/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
@@ -9,91 +9,92 @@ content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
-# CustomerIntent: As an AI app developer new to agents, I want to learn how to use Azure OpenAI multiagent workflows to process tasks and return results based on user instructions from a simple example.
+# CustomerIntent: As an AI app developer new to agents, I want to learn how to use Azure OpenAI multi-agent workflows to process tasks and return results based on user instructions from a simple example.
 ---
-# Quickstart: Multi-agent applications using Azure OpenAI
+# Quickstart: Get started with multi-agent applications by using Azure OpenAI
 
-In this quickstart, you explore a multi-agent creative writing assistant app that shows how to orchestrate multiple models together using `Prompty` and `Azure OpenAI`. Includes the full GenAIOps: CI/CD, evaluation, tracing, monitoring, and experimentation. This sample also includes all the infrastructure and configuration needed to provision Azure OpenAI resources and deploy the app to Azure Container Apps using the Azure Developer CLI.
+In this quickstart, you explore a multi-agent creative writing assistant app that shows how to orchestrate multiple models together by using Prompty and Azure OpenAI Service. This sample includes the full generative AI pperations (GenAIOps): continuous integration and continuous delivery (CI/CD), evaluation, tracing, monitoring, and experimentation. This sample also includes all the infrastructure and configuration needed to provision Azure OpenAI resources and deploy the app to Azure Container Apps by using the Azure Developer CLI.
 
 By following the instructions in this article, you will:
 
-- Deploy an Azure Container multi-agent chat app that uses managed identity for authentication.
+- Deploy an Azure Container Apps multi-agent chat app that uses a managed identity for authentication.
 - Run the web app with the multi-agent workflow orchestration.
 - Explore and understand the app architecture and implementation.
 
-Once you complete this article, you can start modifying the new project with your custom code.
+After you complete this article, you can start modifying the new project with your custom code.
 
-This article uses one or more [AI app templates](./intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy to deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
+This article uses one or more [AI app templates](./intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained, easy-to-deploy reference implementations that help to ensure a high-quality starting point for your AI apps.
 
 ## Architectural overview
 
-A simple architecture of the chat app is shown in the following diagram:
-:::image type="content" source="./media/get-started-multiagents/simple-architecture-diagram.png" lightbox="./media/get-started-multiagents/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
+The following diagram shows a simple architecture of the chat app:
 
-The difference between this template and a simple chat template is in the orchestration required for processing the user request ("prompt") in this application.
+:::image type="content" source="./media/get-started-multiagents/simple-architecture-diagram.png" lightbox="./media/get-started-multiagents/simple-architecture-diagram.png" alt-text="Diagram that shows the architecture from client to backend app.":::
 
-- The prompt query is expanded to extract relevant article query terms and relevant products retrieved using Bing Search and Azure AI Search.
-- The expanded query is sent to a "Writer" (chat model) which uses the provided query and grounding context to generate a draft article based on the designed prompt template.
-- The draft article is then sent to an "Editor Agent" (chat model) which assesses the article for acceptance based on the designed prompt template.
-- An approved article is then published as a blog post. The user interface allows you to view the progression of these tasks visually, to get an intuitive sense for multi-agent coordination.
+The difference between this template and a simple chat template is in the orchestration required for processing the user request (*prompt*) in this application:
+
+1. The prompt query is expanded to extract relevant article query terms and relevant products retrieved through Bing Search and Azure AI Search.
+1. The expanded query is sent to a *writer* (chat model). The writer uses the provided query and grounding context to generate a draft article based on the designed prompt template.
+1. The draft article is sent to an *editor agent* (chat model). The editor agent assesses the article for acceptance based on the designed prompt template.
+1. An approved article is published as a blog post. The user interface enables you to view the progression of these tasks visually, so you can get an intuitive sense of the multi-agent coordination.
 
 The application architecture relies on the following services and components:
 
 - [Azure OpenAI](/azure/ai-services/openai/) represents the AI provider that we send the user's queries to.
 - [Azure Container Apps](/azure/container-apps/) is the container environment where the application is hosted.
-- [Managed Identity](/entra/identity/managed-identities-azure-resources/) helps us ensure best-in-class security and eliminates the requirement for you as a developer to securely manage a secret.
-- [Bicep files](/azure/azure-resource-manager/bicep/) for provisioning Azure resources, including Azure OpenAI, Azure Container Apps, Azure Container Registry, Azure Log Analytics, and role-based access control (RBAC) roles.
+- A [managed identity](/entra/identity/managed-identities-azure-resources/) helps us ensure best-in-class security and eliminates the requirement for you as a developer to securely manage a secret.
+- [Bicep files](/azure/azure-resource-manager/bicep/) are for provisioning Azure resources, including Azure OpenAI, Azure Container Apps, Azure Container Registry, Log Analytics, and role-based access control (RBAC) roles.
 - [Microsoft AI Chat Protocol](https://github.com/microsoft/ai-chat-protocol/) provides standardized API contracts across AI solutions and languages. The chat app conforms to the Microsoft AI Chat Protocol.
 - [Bing Search API](/bing/search-apis/bing-web-search) is used by the research agent to research the article.
 - [Azure AI Search](/azure/search/) is used by the product agent to do a semantic similarity search for related products from a vector store.
 
 ## Cost
 
-In an attempt to keep pricing as low as possible in this sample, most resources use a basic or consumption pricing tier. Alter your tier level as needed based on your intended usage. To stop incurring charges, delete the resources when you're done with the article.
+To keep pricing as low as possible in this sample, most resources use a basic or consumption pricing tier. Alter your tier level as needed based on your intended usage. To stop incurring charges, delete the resources when you're done with the article.
 
 Learn more about [cost in the sample repo](https://github.com/Azure-Samples/contoso-creative-writer#costs).
 
 ## Prerequisites
 
-A [development container](https://containers.dev/) environment is available with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
+A [development container](https://containers.dev/) environment is available with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally by using Visual Studio Code.
 
 To use this article, you need to fulfill the following prerequisites:
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
-- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
+- An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
 
-- Azure account permissions - Your Azure Account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
- 
-- Azure subscription with access enabled for [Bing Search API](https://www.microsoft.com/bing/apis/bing-web-search-api)
+- Azure account permissions. Your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
 
-- Azure subscription with access enabled for [Azure AI Search](https://azure.microsoft.com/products/ai-services/ai-search)
+- Access to your Azure subscription enabled for the [Bing Search API](https://www.microsoft.com/bing/apis/bing-web-search-api).
 
-- GitHub account
+- Access to your Azure subscription enabled for [Azure AI Search](https://azure.microsoft.com/products/ai-services/ai-search).
+
+- A GitHub account.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
-- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
+- An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
 
-- Azure account permissions - Your Azure Account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+- Azure account permissions. Your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
 
-- Azure OpenAI deployment ability - You must be able to deploy `gpt-35-turbo-0613`,`gpt-4-1106-Preview`, and `gpt-4o-2024-05-13` Azure OpenAI models.
+- Azure OpenAI deployment ability. You must be able to deploy `gpt-35-turbo-0613`,`gpt-4-1106-Preview`, and `gpt-4o-2024-05-13` Azure OpenAI models.
 
-- We recommend using Canada East, as this region has access to all models and services required.
+- A versatile region. We recommend using Canada East, because this region has access to all required models and services.
 
-- [Azure Developer CLI](/azure/developer/azure-developer-cli)
+- The [Azure Developer CLI](/azure/developer/azure-developer-cli).
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/). Start Docker Desktop if it's not already running
 
-- [Visual Studio Code](https://code.visualstudio.com/)
+- [Visual Studio Code](https://code.visualstudio.com/).
 
-- [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+- The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code.
 
 ---
 
 ## Open development environment
 
-Use the following instructions to deploy a preconfigured development environment containing all required dependencies to complete this article.
+Use the following instructions to deploy a preconfigured development environment that contains all required dependencies to complete this article.
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
@@ -104,7 +105,7 @@ Use the following instructions to deploy a preconfigured development environment
 
 Use the following steps to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/contoso-creative-writer`](https://github.com/Azure-Samples/contoso-creative-writer) GitHub repository.
 
-1. Right-click on the following button, and select _Open link in new window_. This action allows you to have the development environment and the documentation available for review.
+1. Right-click the following button, and select **Open link in new window**. This action allows you to have the development environment and the documentation available for review.
 
     [![Button saying Open in GitHub Codespaces.](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/contoso-creative-writer)
 
@@ -138,7 +139,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     mkdir my-creative-writer-app
     ```
 
-1. Navigate to the directory you created.
+1. Go to the directory you created.
 
     ```shell
     cd my-creative-writer-app
@@ -151,7 +152,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     ```
 
 1. Open a new terminal in Visual Studio Code.
-1. Run the following AZD command to bring the GitHub repository to your local computer.
+1. Run the following Azure Developer CLI command to bring the GitHub repository to your local computer.
 
     ```azdeveloper
     azd init -t agent-openai-python-prompty
@@ -163,7 +164,6 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     cd src/api
     pip install -r requirements.txt
     ```
-
 
 1. Open the Command Palette, search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing.
 
@@ -237,21 +237,21 @@ The sample repository contains all the code and configuration files for the chat
 
 ### Create an article by using the example in the running Contoso Creative Writer App
 
-1. Click the `Example` button to add some example data, as in the following screenshot.
+1. Select the `Example` button to add some example data, as in the following screenshot.
 
     :::image type="content" source="./media/get-started-multiagents/select-example-button.png" lightbox="./media/get-started-multiagents/select-example-button.png" alt-text="Screenshot of the Contoso Creative Writer App, showing an introduction and steps to begin using the application.":::
 
-1. Click the small bug button (bottom right of page) to show the agent and task workflow progress panel.
+1. Select the small bug button (bottom right of page) to show the agent and task workflow progress panel.
 
     :::image type="content" source="./media/get-started-multiagents/select-debug-button.png" lightbox="./media/get-started-multiagents/select-debug-button.png" alt-text="Screenshot of the 'Contoso Creative Writer' App, showing the button on the bottom right of page to show the agent and task workflow progress panel.":::
 
-1. Click the `Start Work` button to begin the workflow.
+1. Select the `Start Work` button to begin the workflow.
 
     :::image type="content" source="./media/get-started-multiagents/select-start-work-button.png" lightbox="./media/get-started-multiagents/select-start-work-button.png" alt-text="Screenshot of the 'Get Started' page, showing an introduction and steps to begin using the application.":::
 
 ### Examine the Creative team agent workflow progress and results
 
-1. The right side panel displays the workflow progress and the results of each agent. Examine each agent's results by clicking on it. The app should look like this while the workflow is running:
+1. The right side panel displays the workflow progress and the results of each agent. Examine each agent's results by selecting it. The app should look like this while the workflow is running:
 
     :::image type="content" source="./media/get-started-multiagents/show-workflow-progress.png" lightbox="./media/get-started-multiagents/show-workflow-progress.png" alt-text="Screenshot of the 'Contoso Creative Writer' App, showing the agent and task workflow progress in the right side of page panel.":::
 
