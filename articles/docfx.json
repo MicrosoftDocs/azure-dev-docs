@@ -60,7 +60,6 @@
         "ansible/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "chef/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "jenkins/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
-        "terraform/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "javascript/**/*.md": "https://github.com/Azure/azure-sdk-for-js/issues",
         "java/sdk/**/*.md": "https://github.com/Azure/azure-sdk-for-java/issues",
         "python/tutorial-deploy-app-service-on-linux*.md" : "https://github.com/Microsoft/vscode-azureappservice/issues",
@@ -106,8 +105,6 @@
         "mobile-apps/**/*.yml": "mikeparker104",
         "python/**/*.md": "bobtabor-msft",
         "python/**/*.yml": "bobtabor-msft",
-        "terraform/**/*.md": "TomArcherMsft",
-        "terraform/**/*.yml": "TomArcherMsft",
         "intro/**/*.md": "mcleanbyron",
         "intro/**/*.yml": "mcleanbyron",
         "ai/**/*.md": "ms-johnalex",
@@ -142,8 +139,6 @@
         "mobile-apps/**/*.yml": "miparker",
         "python/**/*.md": "rotabor",
         "python/**/*.yml": "rotabor",
-        "terraform/**/*.md": "tarcher",
-        "terraform/**/*.yml": "tarcher",
         "intro/**/*.md": "mcleans",
         "intro/**/*.yml": "mcleans",
         "ai/**/*.md": "johalexander",
@@ -164,7 +159,6 @@
         "ansible/**/*.md": "ansible",
         "chef/**/*.md": "chef",
         "jenkins/**/*.md": "jenkins",
-        "terraform/**/*.md": "terraform",
         "python/**/*.md": "azure-python",
         "javascript/**/*.md": "azure-javascript",
         "dev-tunnels/**/*.md": "dev-tunnels",
@@ -180,7 +174,6 @@
         "ansible/**/*.yml" : "Ansible",
         "chef/**/*.yml" : "Chef",
         "jenkins/**/*.yml" : "Jenkins",
-        "terraform/**/*.yml" : "Terraform",
         "javascript/**/*.md": "JavaScript on Azure",
         "python/**/*.md": "Python on Azure",
         "java/**/*.md": "Java on Azure",
@@ -219,11 +212,6 @@
       "sensitive-language-sl": {
         "exclude": [
           "java/migration/migrate-jboss-eap-to-azure-vm-manually.md"
-        ]
-      },
-      "sensitive-language-wl": {
-        "exclude": [
-          "terraform/provider-version-history-azurerm-2-0-0-to-2-99-0.md"
         ]
       }
     }

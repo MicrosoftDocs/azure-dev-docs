@@ -200,20 +200,6 @@ configuration:
       - isAction:
           action: Opened
       - bodyContains:
-          pattern: /terraform/
-          isRegex: False
-      then:
-      - addLabel:
-          label: terraform
-      - assignTo:
-          users:
-          - TomArcherMsft
-      description: 
-    - if:
-      - payloadType: Issues
-      - isAction:
-          action: Opened
-      - bodyContains:
           pattern: /azure-cli/
           isRegex: False
       then:
