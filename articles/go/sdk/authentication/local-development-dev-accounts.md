@@ -10,7 +10,7 @@ ms.custom: devx-track-go, devx-track-azurecli
 
 When developers create cloud applications, they typically debug and test applications on their local workstation. When an application is run on a developer's workstation during local development, it still must authenticate to any Azure services used by the app. This article covers how to use a developer's Azure credentials to authenticate the app to Azure during local development.
 
-:::image type="content" source="../media/local-dev-dev-accounts-overview.png" alt-text="A diagram showing how a Go app during local development uses the developers credentials to connect to Azure by obtaining those credentials from locally installed development tools.":::
+:::image type="content" source="../media/local-dev-dev-accounts-overview.png" alt-text="A diagram showing how a Go app during local development uses the developer's credentials to connect to Azure by obtaining those credentials from locally installed development tools.":::
 
 For an app to authenticate to Azure during local development using the developer's Azure credentials, a developer must be signed-in to Azure from the Azure CLI or Azure Developer CLI. The Azure SDK for Go is able to detect that the developer is signed-in from one of these tools and then obtain the necessary credentials from the credentials cache to authenticate the app to Azure as the signed-in user.
 
