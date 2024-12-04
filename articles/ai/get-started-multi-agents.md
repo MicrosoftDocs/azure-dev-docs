@@ -37,7 +37,7 @@ The difference between this template and a simple chat template is in the orches
 
 1. The prompt query is expanded to extract relevant article query terms and relevant products retrieved through Bing Search and Azure AI Search.
 1. The expanded query is sent to a `writer` agent (chat model). The writer uses the provided query and grounding context to generate a draft article based on the designed prompt template.
-1. The draft article is sent to an `editor` agent (chat model). The editor agent assesses the article for acceptance based on the designed prompt template.
+1. The draft article is sent to an `editor` agent (chat model). The editor assesses the article for acceptance based on the designed prompt template.
 1. An approved article is published as a blog post. The user interface enables you to view the progression of these tasks visually, so you can get an intuitive sense of the multi-agent coordination.
 
 The application architecture relies on the following services and components:
@@ -52,7 +52,7 @@ The application architecture relies on the following services and components:
 
 ## Cost
 
-To keep pricing as low as possible in this sample, most resources use a Basic or Consumption pricing tier. Alter your tier level as needed based on your intended usage. To stop incurring charges, delete the resources when you're done with the article.
+To keep pricing as low as possible in this sample, most resources use a Basic or Consumption pricing tier. Alter your tier as needed based on your intended usage. To stop incurring charges, delete the resources when you're done with the article.
 
 Learn more about [cost in the sample repo](https://github.com/Azure-Samples/contoso-creative-writer#costs).
 
@@ -82,7 +82,7 @@ To use this article, you need to fulfill the following prerequisites:
 
 - The ability to deploy `gpt-35-turbo-0613`,`gpt-4-1106-Preview`, and `gpt-4o-2024-05-13` Azure OpenAI models.
 
-- A versatile region. We recommend using Canada East, because this region has access to all required models and services.
+- An appropriate region. We recommend using Canada East, because this region has access to all required models and services.
 
 - The [Azure Developer CLI](/azure/developer/azure-developer-cli).
 
@@ -187,7 +187,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     > [!NOTE]
     > The `az login` command creates a folder under `.azure/` in your project to store the deployment configuration.
 
-1. The remaining exercises in this project take place in the context of this development container.
+The remaining exercises in this project take place in the context of this development container.
 
 ---
 
@@ -254,7 +254,7 @@ The sample repository contains all the code and configuration files for the depl
 
 ### Examine the agent workflow progress and results
 
-1. The right-side panel displays the workflow progress and the results of each agent. Examine each agent's results by selecting it.
+1. The right-side panel displays the workflow progress and the results of each agent. Examine each agent's results.
 
     :::image type="content" source="./media/get-started-multiagents/show-workflow-progress.png" lightbox="./media/get-started-multiagents/show-workflow-progress.png" alt-text="Screenshot of the Contoso Creative Writer app that shows the agent and task workflow progress in the panel on the right side of the page.":::
 
@@ -477,7 +477,7 @@ while(str(editor_response["decision"]).lower().startswith("accept")):
 
 #### Sending the results
 
-The following code snippet formats the research, product finding, and writing task results as a response to the API endpoint for display in the web app. Specifically, it:
+The following code snippet formats the research, product finding, and writing task results as a response to the API endpoint for display in the web app. Specifically, the code:
 
 1. Sends `research_result` to the `send_research` function, which converts it to a JSON string and yields it.
 2. Sends `product_result` to the `send_products` function, which converts it to a JSON string and yields it.
