@@ -1,7 +1,7 @@
 ---
 title: "Credential chains in the Azure library for JavaScript"
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library for JavaScript.
-ms.date: 11/12/2024
+ms.date: 12/04/2024
 ms.topic: concept-article
 ms.custom: devx-track-js
 #customer intent: As a JavaScript developer new to Azure, I want understand credential chains so that select the appropriate chain and understand how to configure and debug it.
@@ -110,7 +110,7 @@ The preceding code sample creates a tailored credential chain comprised of two c
 
 ## Debug a chained credential
 
-To debug a credential chain, enable [Azure SDK logging](debug-client-libraries.md). 
+To debug a credential chain, enable [Azure SDK logging](../debug-client-libraries.md).
 
 ## More resources
 
