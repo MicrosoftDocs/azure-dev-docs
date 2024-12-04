@@ -239,72 +239,42 @@ These steps require the [Docker extension][6] for VS Code.
 
 ### [Azure portal](#tab/azure-portal)
 
-:::row:::
-    :::column span="2":::
-        **Step 1.** In the [Azure portal][3], search for "container registries" and select the **Container Registries** service in the results.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-01.png" alt-text="Screenshot showing how to search for container registries services in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-01.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2.** Select **+ Create** to start the create process.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-02.png" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-02.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3.** Fill out the form and specify.
-        * **Resource group** &rarr; Create a new one named *pythoncontainer-rg*.
-        * **Registry name** &rarr; The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
-        * **Location** &rarr; Select a location. 
-        * **SKU** &rarr; Select **Standard**.
+1. In the [Azure portal][3], search for **container registry**. Under **Marketplace** in the results, select **Container Registry**.
 
-        When finished, select **Review + create**. After  validation is complete, select **Create**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-03.png" alt-text="Screenshot showing how to start specify a new Azure Container Registry in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-03.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 4.** Enable the administrator user account.
+1. On the **Build** tab, enter the following fields:
 
-        * In the Container registry you just created, go to the **Access Keys** resource.
-        * Select **Enabled** for the **Admin user**.
+    * **Resource group**: Select **Create new** and enter **pythoncontainer-rg**.
+    * **Registry name**: The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
+    * **Location**: Select a location near you.
+    * **SKU**: Select **Standard**.
 
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-05.png" alt-text="Screenshot showing how to set enable administrator user account for Azure Container Registry in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-05.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 5.** Select the Azure Cloud Shell icon in the top menu bar to finish configuration and build an image.
+When finished, select **Review + create**. After  validation is complete, select **Create**.
 
-        You can also go directly to [Azure Cloud Shell][4].
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-04.png" alt-text="Screenshot showing how to access Azure Cloud Shell in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-04.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 6.** Use the [az acr build][5] command to build the image from the repo.
+:::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-01.png" alt-text="Screenshot showing how to start specify a new Azure Container Registry in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-01.png":::
 
-        ```azurecli
-        az acr build --registry <registry-name> \
-           --resource-group pythoncontainer-rg \ 
-           --image pythoncontainer:latest <repo-path>
-        ```
-        Specify *\<registry-name>* as the name of the registry you created. For *\<repo-path>*, choose either the [Django][1] or [Flask][2] repo path.
+1. When deployment completes, select **Go to resource**. If you miss this notification, you can search **container registry** and select your registry under **Resources** in the results.
 
-        After the command completes, go to the registry's **Repositories** resource and confirm the image shows up.
-    :::column-end:::
-:::row-end:::
+1. Enable the administrator user account.
+    1. Under **Settings** on the **service menu**, select **Access Keys**.
+    1. Select the **Admin user** checkbox.
+
+1. Select the Azure Cloud Shell icon in the top menu bar to finish configuration and build an image.
+
+    You can also go directly to [Azure Cloud Shell][4].
+
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-02.png" alt-text="Screenshot showing how to access Azure Cloud Shell in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-02.png":::
+
+1. Use the [az acr build][5] command to build the image from the repo.
+
+    ```azurecli
+    az acr build --registry <registry-name> \
+        --resource-group pythoncontainer-rg \ 
+        --image pythoncontainer:latest <repo-path>
+    ```
+
+    Specify *\<registry-name>* as the name of the registry you created. For *\<repo-path>*, choose either the [Django][1] or [Flask][2] repo path.
+
+1. After the command completes, under **Services**, select **Repositories** and confirm the image shows up.
 
 ---
 
