@@ -738,7 +738,7 @@ Deleting the GitHub Codespaces environment helps you maximize the amount of free
 
 1. Sign in to the [GitHub Codespaces dashboard](https://github.com/codespaces).
 
-1. Locate your currently running codespaces sourced from the [`Azure-Samples//contoso-creative-writer`](https://github.com/Azure-Samples/contoso-creative-writer) GitHub repository.
+1. Locate your currently running codespace sourced from the [`Azure-Samples//contoso-creative-writer`](https://github.com/Azure-Samples/contoso-creative-writer) GitHub repository.
 
 1. Open the context menu for the codespace and select **Delete**.
 
