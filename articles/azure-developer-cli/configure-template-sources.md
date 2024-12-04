@@ -44,7 +44,7 @@ Each template entry in the JSON configuration file includes the following proper
   - "{repo}" for GitHub repositories under the Azure-Samples organization.
 - **tags**: Keywords that help users filter templates with `azd init --filter <tag>` and `azd template list --filter <tag>`.
 
-For a full example, see [this JSON file](https://github.com/Azure/azure-dev/blob/main/cli/azd/resources/templates.json), which is the default template source included in the `azd`.
+For a full example, see [this JSON file](https://github.com/Azure/azure-dev/blob/main/cli/azd/resources/templates.json), which is the default template source included in `azd`.
 
 `azd` allows you to enable multiple template source at a time. The following template source options are currently available to choose from:
 
