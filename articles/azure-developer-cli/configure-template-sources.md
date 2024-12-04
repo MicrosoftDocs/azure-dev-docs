@@ -79,10 +79,10 @@ Use the `azd template source add` command to add a new template source. This com
 - **key**: The technical name of the template source.
 - **--type, -t**: The template source type - valid values are **file**, **url** and **gh** for GitHub.
 - **--location, -l**: The template source location, which should be a local network or HTTP(S) web URI.
-- **--displayName, -n**: The template source display name (optional, will use **key** if omitted).
+- **--name, -n**: The template source display name (optional, will use **key** if omitted).
 
 ```azdeveloper
-azd template source add <key> --type <file-or-url> --location <your-uri> --displayname <your-display-name>
+azd template source add <key> --type <file-or-url-or-gh> --location <your-uri> --name <your-display-name>
 ```
 
 Use the `azd template source remove` command to remove a template source:
@@ -129,7 +129,7 @@ Include the `--source` flag to only list templates from a specific source:
 azd template list --source <source-name>
 ```
 
-To initialize a template from the displayed list, run the `azd init` command and provide the path of the template:
+To initialize a template from the displayed list, run the `azd init` command and provide the repository path of the template:
 
 ```azdeveloper
 azd init --template <path-value>
