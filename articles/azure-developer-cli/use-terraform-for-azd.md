@@ -14,9 +14,9 @@ ms.custom: devx-track-azdevcli, devx-track-terraform, build-2023
 Azure Developer CLI (`azd`) supports multiple infrastructures as code (IaC) providers, including:  
 
 - [Bicep](/azure/azure-resource-manager/bicep/overview?tabs=bicep)
-- [Terraform](/azure/developer/terraform/overview.md)
+- [Terraform](../terraform/overview.md)
 
-By default, `azd` assumes Bicep as the IaC provider. Refer to the [Comparing Terraform and Bicep](/azure/developer/terraform/comparing-terraform-and-bicep.md?tabs=comparing-bicep-terraform-integration-features) article for help deciding which IaC provider is best for your project.
+By default, `azd` assumes Bicep as the IaC provider. Refer to the [Comparing Terraform and Bicep](../terraform/comparing-terraform-and-bicep.md?tabs=comparing-bicep-terraform-integration-features) article for help deciding which IaC provider is best for your project.
 
 > [!NOTE]
 > Terraform is still in beta. Read more about alpha and beta feature support on the [feature versioning and release strategy](/azure/developer/azure-developer-cli/feature-versioning) page
@@ -24,7 +24,7 @@ By default, `azd` assumes Bicep as the IaC provider. Refer to the [Comparing Ter
 
 ## Pre-requisites
 
-- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
+- [Install and configure Terraform](../terraform/quickstart-configure.md)
 - [Install and log into Azure CLI (v 2.38.0+)](/cli/azure/install-azure-cli)
 - [Review the architecture diagram and the Azure resources you'll deploy in the Node.js or Python Terraform template](./azd-templates.md#start-with-an-existing-template).
 
@@ -64,7 +64,7 @@ Scenarios for enabling remote state:
 
 ## Enable remote state
 
-1. Make sure you [configure a remote state storage account](/azure/developer/terraform/store-state-in-azure-storage).
+1. Make sure you [configure a remote state storage account](../terraform/store-state-in-azure-storage.md).
 1. Add a new file called `provider.conf.json` in the `infra` folder.
 
     ```json
@@ -102,7 +102,7 @@ For example:
 ## See also
 
 - Learn more about Terraform's dependency on [Azure CLI](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/azure_cli). 
-- For more on remote state, see [store Terraform state in Azure Storage](/azure/developer/terraform/store-state-in-azure-storage).
+- For more on remote state, see [store Terraform state in Azure Storage](../terraform/store-state-in-azure-storage.md).
 - Template: [React Web App with Node.js API and MongoDB (Terraform) on Azure](https://github.com/Azure-Samples/todo-nodejs-mongo-terraform)
 
 ## Next steps
