@@ -1359,18 +1359,6 @@
       "redirect_url": "/azure/developer/ansible/key-vault-configure-secrets"
     },
     {
-      "source_path": "articles/terraform/install-configure.md",
-      "redirect_url": "/azure/developer/terraform/getting-started-cloud-shell"
-    },
-    {
-      "source_path": "articles/terraform/create-a-base-template-using-yeoman.md",
-      "redirect_url": "/azure/developer/terraform/create-base-template-using-yeoman"
-    },
-    {
-      "source_path": "articles/terraform/getting-started-cloud-shell.md",
-      "redirect_url": "/azure/developer/terraform/get-started-cloud-shell"
-    },
-    {
       "source_path": "articles/jenkins/azure-dev-spaces-and-aks.md",
       "redirect_url": "/azure/developer/jenkins"
     },
@@ -1391,10 +1379,6 @@
       "redirect_url": "/azure/developer/jenkins/deploy-to-azure-spring-apps-using-azure-cli"
     },
     {
-      "source_path": "articles/terraform/get-started-cloud-shell.md",
-      "redirect_url": "/azure/developer/terraform/get-started-cloud-shell-bash"
-    },
-    {
       "source_path": "articles/go/azure-sdk-auth-aad-samples.md",
       "redirect_url": "/azure/developer/go/azure-sdk-authentication"
     },
@@ -1413,10 +1397,6 @@
     {
       "source_path": "articles/go/azure-sdk-tools.md",
       "redirect_url": "/azure/developer/go/configure-visual-studio-code"
-    },
-    {
-      "source_path": "articles/terraform/application-gateway-quickstart.md",
-      "redirect_url": "/azure/developer/terraform/deploy-application-gateway-v2"
     },
     {
       "source_path": "articles/developer/python/tutorial-python-postgresql-app-portal.md",
@@ -1535,10 +1515,6 @@
       "redirect_url": "/cli/azure/choose-the-right-azure-command-line-tool"
     },
     {
-      "source_path": "articles/terraform/create-linux-virtual-machine-with-infrastructure.md",
-      "redirect_url": "/azure/virtual-machines/linux/quick-create-terraform"
-    },
-    {
       "source_path": "articles/python/tutorial-deploy-containers-01.md",
       "redirect_url": "/azure/developer/python/containers-in-azure-overview-python"
     },
@@ -1565,10 +1541,6 @@
     {
       "source_path":"articles/python/how-to-manage-service-principals.md",
       "redirect_url": "/azure/developer/python/sdk/authentication-local-development-service-principal"
-    },
-    {
-      "source_path":"articles/terraform/get-started-powershell.md",
-      "redirect_url": "/azure/developer/terraform/get-started-windows-powershell"
     },
     {
       "source_path":"articles/github/github-variable-substitution.md",
@@ -1606,14 +1578,6 @@
       "source_path":"articles/python/tutorial-python-managed-identity-07.md",
       "redirect_url": "/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli"
     },
-    {
-      "source_path":"articles/terraform/create-k8s-cluster-with-tf-and-aks.md",
-      "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-terraform"
-    },
-    {
-      "source_path":"articles/terraform/quick-kubernetes-deploy-terraform.md",
-      "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-terraform"
-    },
     { 
       "source_path": "articles/javascript/how-to/with-web-app/azure-function-file-upload.md",
       "redirect_url": "/azure/storage/blobs/blob-upload-function-trigger-javascript"
@@ -1621,14 +1585,6 @@
     { 
       "source_path": "articles/javascript/how-to/with-web-app/azure-function-file-upload-v3.md",
       "redirect_url": "/azure/storage/blobs/blob-upload-function-trigger-javascript"
-    },
-    {
-      "source_path":"articles/terraform/create-vm-cluster-with-infrastructure.md",
-      "redirect_url": "/azure/virtual-machines/linux/quick-cluster-create-terraform"
-    },
-    {
-      "source_path":"articles/terraform/create-vm-cluster-module.md",
-      "redirect_url": "/azure/virtual-machines/windows/quick-cluster-create-terraform"
     },
     { "source_path": "articles/python/tutorial-deploy-azure-cloud-python-etl-01-overview.md",
       "redirect_url": "/azure/developer/python" 
@@ -1653,22 +1609,6 @@
     },
     { "source_path": "articles/python/configure-local-development-environment.md",
       "redirect_url": "/azure/developer/python" 
-    },
-    {
-      "source_path":"articles/terraform/create-attestation-provider.md",
-      "redirect_url": "/azure/attestation/quickstart-terraform"
-    },
-    {
-      "source_path":"articles/terraform/create-k8s-cluster-with-aks-applicationgateway-ingress.md",
-      "redirect_url": "/azure/aks/create-k8s-cluster-with-aks-application-gateway-ingress"
-    },
-    {
-      "source_path":"articles/terraform/deploy-application-gateway-v2.md",
-      "redirect_url": "/azure/application-gateway/quick-create-terraform"
-    },
-    {
-      "source_path":"articles/terraform/create-base-template-using-yeoman.md",
-      "redirect_url": "/azure/developer/terraform"
     },
     {
       "source_path":"articles/python/quickstarts-cognitive-services.md",
@@ -1728,16 +1668,8 @@
       "redirect_url": "/azure/developer/ai/keyless-connections"
     },
     {
-      "source_path": "articles/terraform/provider-version-history-azurerm.md",
-      "redirect_url": "/azure/developer/terraform/provider-version-history-azurerm-4-0-0-to-current"
-    },
-    {
       "source_path": "articles/ansible/solution-template-deploy.md",
       "redirect_url": "/azure/developer/ansible/"
-    },
-    {
-      "source_path": "articles/terraform/test-modules-using-terratest.md",
-      "redirect_url": "/azure/developer/terraform"
     },
     {
       "source_path": "articles/go/sdk/authentication-overview.md",

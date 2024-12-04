@@ -67,7 +67,7 @@ Whether it's publishing your apps to Azure with continuous integration or provis
 - [Azure DevOps](/azure/devops/)
 - [Octopus Deploy](https://octopus.com/docs/infrastructure/deployment-targets/azure)
 - [Jenkins](../jenkins/index.yml)
-- [Terraform](../terraform/index.yml)
+- [Terraform](/azure/developer/terraform/)
 - [Ansible](../ansible/index.yml)
 - [Chef](https://docs.chef.io/azure_portal)
 

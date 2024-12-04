@@ -155,7 +155,7 @@ For infrastructure deployments that are automated, repeated, and reliable, Azure
 
 ### Terraform
 
-[Hashicorp Terraform](../terraform/index.yml) is an open-source tool for provisioning and managing cloud infrastructure. It codifies infrastructure in configuration files that describe the topology of cloud resources.  The Terraform CLI provides a simple mechanism to deploy and version configuration files to Azure.
+[Hashicorp Terraform](/azure/developer/terraform/) is an open-source tool for provisioning and managing cloud infrastructure. It codifies infrastructure in configuration files that describe the topology of cloud resources.  The Terraform CLI provides a simple mechanism to deploy and version configuration files to Azure.
 
 ```terraform
 provider "azurerm" {
