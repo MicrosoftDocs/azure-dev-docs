@@ -279,7 +279,7 @@ additionalContent:
         # Card
         - title: Terraform
           summary: Use Hashicorp Terraform to provision and manage cloud infrastructure.
-          url: /azure/developer/terraform/
+          url: /azure/terraform/
         # Card
         - title: Ansible
           summary: Use Ansible to automate cloud provisioning, configuration management, and application deployments.
