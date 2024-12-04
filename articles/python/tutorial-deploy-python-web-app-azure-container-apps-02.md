@@ -248,9 +248,9 @@ These steps require the [Docker extension][6] for VS Code.
     * **Location**: Select a location near you.
     * **SKU**: Select **Standard**.
 
-When finished, select **Review + create**. After  validation is complete, select **Create**.
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-01.png" alt-text="Screenshot showing how to start specify a new Azure Container Registry in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-01.png":::
 
-:::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-01.png" alt-text="Screenshot showing how to start specify a new Azure Container Registry in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-01.png":::
+    When finished, select **Review + create**. After  validation is complete, select **Create**.
 
 1. When deployment completes, select **Go to resource**. If you miss this notification, you can search **container registry** and select your registry under **Resources** in the results.
 
@@ -260,9 +260,9 @@ When finished, select **Review + create**. After  validation is complete, select
 
 1. Select the Azure Cloud Shell icon in the top menu bar to finish configuration and build an image.
 
-    You can also go directly to [Azure Cloud Shell][4].
-
     :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-02.png" alt-text="Screenshot showing how to access Azure Cloud Shell in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-02.png":::
+
+    You can also go directly to [Azure Cloud Shell][4].
 
 1. Use the [az acr build][5] command to build the image from the repo.
 
