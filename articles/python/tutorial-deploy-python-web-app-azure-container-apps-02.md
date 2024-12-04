@@ -241,7 +241,7 @@ These steps require the [Docker extension][6] for VS Code.
 
 1. In the [Azure portal][3], search for **container registry**. Under **Marketplace** in the results, select **Container Registry**.
 
-1. On the **Build** tab, enter the following fields:
+1. On the **Basics** tab, enter the following fields:
 
     * **Resource group**: Select **Create new** and enter **pythoncontainer-rg**.
     * **Registry name**: The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
@@ -411,62 +411,33 @@ These steps require the [Azure Databases extension][26] for VS Code.
 
 ### [Azure portal](#tab/azure-portal)
 
-:::row:::
-    :::column span="2":::
-        **Step 1.** In [Azure portal][3], search for "postgres flexible" and select the **Azure Database for PostgreSQL flexible servers** service in the results.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-01.png" alt-text="Screenshot showing how to search for Azure PostgreSQL Flexible Server resources in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-01.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2.** Select **+ Create** to start the create process.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-02.png" alt-text="Screenshot showing how to create an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-02.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3.** Fill out the **Basics** settings as follows:
+1. In [Azure portal][3], search for **postgresql flexible**. Under **Marketplace** in the results, select **Azure Database for PostgreSQL Flexible Server**.
 
-        * **Resource group** &rarr; The resource group used in this tutorial "pythoncontainer-rg".
-        * **Server name** &rarr; Enter a name for the database server that's unique across all Azure. The database server's URL becomes `https://<server-name>.postgres.database.azure.com`. Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
-        * **Region** &rarr; The same region you used for the resource group.
-        * **Admin username** &rarr; Use *demoadmin*.
-        * **Password** and **Confirm password** &rarr; A password that you'll use later when connecting the container app to this database.
+1. On the **Basics** tab, enter the following values:
 
-        For all other settings, leave the defaults. When done, select **Networking** to go to the networking page.
+    * **Resource group**: The resource group used in this tutorial "pythoncontainer-rg".
+    * **Server name**: Enter a name for the database server that's unique across Azure. The database server's URL becomes `https://<server-name>.postgres.database.azure.com`. Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
+    * **Region**: The same region you used for the resource group.
+    * **Admin username**: Use *demoadmin*.
+    * **Password** and **Confirm password**: A password for the admin account.
 
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-03.png" alt-text="Screenshot showing how to specify basic settings of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-03.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 4.** Fill out the **Networking** settings as follows:
+    For all other settings, leave the defaults. When done, select **Networking** to go to the networking page.
 
-        * **Connectivity method** &rarr; Select **Public access**.
-        * **Allow public access from any Azure service** &rarr; Select the checkbox, that is, allow access. 
-        * **Add current client IP address** &rarr; Select (add) if you plan on accessing the database from your local server.
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-03.png" alt-text="Screenshot showing how to specify basic settings of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-03.png":::
 
-        For all other settings, leave the defaults. Select **Review + Create** to continue.
+1. On the **Networking** tab, enter the following values:
 
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-04.png" alt-text="Screenshot showing how to specify networking settings of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-04.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 5.** Review the information and when satisfied, select **Create**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-05.png" alt-text="Screenshot showing how to finish creation of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-05.png":::
-    :::column-end:::
-:::row-end:::
+    * **Connectivity method**: Select **Public access**.
+    * **Allow public access from any Azure service**: Select the checkbox, that is, allow access. 
+    * **Add current client IP address**: Select (add) if you plan on accessing the database from your local server.
+
+    For all other settings, leave the defaults. Select **Review + Create** to continue.
+
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-04.png" alt-text="Screenshot showing how to specify networking settings of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-04.png":::
+
+1. Review the information and when satisfied, select **Create**.
+
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-05.png" alt-text="Screenshot showing how to finish creation of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-05.png":::
 
 ---
 
@@ -504,12 +475,11 @@ If you have trouble creating the database, the server might still be processing 
 
 ### [Azure portal](#tab/azure-portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the search box, enter the name of your PostgreSQL server. Under **Resources**, select your server.
-1. Under **Settings** on the left hand menu, select **Databases**.
-1. Select **+ Add** on the top menu of the **Databases** page.
+1. In the [Azure portal](https://portal.azure.com), navigate to your PostgreSQL server. For example, you can enter the name of your PostgreSQL server in the search bar and select it under **Resources** in the results.
+1. Under **Settings** on the **service menu**, select **Databases**.
+1. Select **Add** on the top menu of the **Databases** page.
 1. On the  **Create Database** page, enter *restaurants_reviews* for the **Name**, then select **Save**.
-1. When the operation completes, you're returned to the **Databases** page. Verify that *restaurants_reviews* appears in the list of databases.
+1. When the operation completes, you're returned to the **Databases** page. Verify that **restaurants_reviews** appears in the list of databases.
 
 ---
 
@@ -536,15 +506,15 @@ Either open a terminal window and follow the steps for Azure CLI or follow the s
 
 ### [Azure portal](#tab/azure-portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the search box, enter **Managed Identities**. Under **Services**, select **Managed Identities**.
-1. Select **+ Create**, and enter values in the following fields in the **Create User Assigned Managed Identity** pane:
-    - **Subscription**: Choose the subscription you're using for the resources in this tutorial.
-    - **Resource group**: Enter the resource group for this tutorial; *pythoncontainer-rg*.
-    - **Region**: Choose the region you're using for the resources in this tutorial.
-    - **Name**: Enter the name for your user-assigned managed identity. For this tutorial, use: *my-ua-managed-id*. You can use a different name, but the commands in this tutorial assume *my-ua-managed-id*. If you use a different name, you'll have to change it in other commands.
+1. In the [Azure portal](https://portal.azure.com), search for **managed identity**. Under **Marketplace**, select **User Assigned Managed Identity**.
+1. On the **Basics** tab, enter the following values:
 
-   :::image type="content" source="media/tutorial-container-apps/create-user-assigned-managed-identity-portal.png" alt-text="Screenshot that shows the Create User Assigned Managed Identity pane.":::
+    * **Subscription**: Choose the subscription you're using for the resources in this tutorial.
+    * **Resource group**: Enter the resource group for this tutorial; *pythoncontainer-rg*.
+    * **Region**: Choose the region you're using for the resources in this tutorial.
+    * **Name**: Enter the name for your user-assigned managed identity. For this tutorial, use: **my-ua-managed-id**. You can use a different name, but the commands in this tutorial assume **my-ua-managed-id**. If you use a different name, you'll have to change it in other commands.
+
+    :::image type="content" source="media/tutorial-container-apps/create-user-assigned-managed-identity-portal.png" alt-text="Screenshot that shows the Create User Assigned Managed Identity pane.":::
 
 1. Select **Review + create** to review the changes.
 1. Select **Create**.
