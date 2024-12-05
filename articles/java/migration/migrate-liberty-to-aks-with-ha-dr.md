@@ -4,7 +4,7 @@ description: Shows you how to deploy WebSphere Liberty/Open Liberty to Azure Kub
 author: KarlErickson
 ms.author: jiangma
 ms.topic: tutorial
-ms.date: 05/16/2024
+ms.date: 12/05/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-websphere, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, migration-java, devx-track-extended-java
 ---
 
@@ -42,6 +42,10 @@ This tutorial was written with the Azure Backup and Azure SQL Database services 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 - Prepare a local machine with Windows, Linux, or macOS installed.
+- [Install the Azure CLI](/cli/azure/install-azure-cli) 2.62.0 or above to run Azure CLI commands.
+  - Sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
+  - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+  - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - Install and set up [Git](/devops/develop/git/install-and-set-up-git).
 - Install a Java SE implementation, version 17 or later - for example, [the Microsoft build of OpenJDK](/java/openjdk).
 - Install [Maven](https://maven.apache.org/download.cgi), version 3.9.3 or later.
@@ -78,6 +82,9 @@ Then, create an Azure SQL Database failover group by following the Azure portal 
    1. In step 5 for configuring the **Databases within the group**, select the database you created in the primary server - for example, `mySampleDatabase`.
 
 1. After you complete all the steps in the section [Test planned failover](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#test-planned-failover), keep the failover group page open and use it for the failover test of the WebSphere Liberty/Open Liberty clusters later.
+
+> [!NOTE]
+> This article guides you to create an Azure SQL Database single database with SQL authentication for simplicity because the HA/DR setup this article focuses on is already very complex. A more secure practice is to use [Microsoft Entra authentication for Azure SQL](/azure/azure-sql/database/authentication-aad-overview?preserve-view=true&view=azuresql-db) for authenticating the database server connection. Consider referencing the article [Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-liberty-app?tabs=in-bash) for how to configure the database connection with Microsoft Entra authentication for your needs.
 
 ## Set up the primary WebSphere Liberty/Open Liberty cluster on AKS
 
@@ -201,7 +208,10 @@ The ACR instance is designed to store application images for both primary and se
 Use the following steps to get the ACR sign-in credentials. You use them for app deployment later.
 
 1. Select **Access keys**.
-1. Copy and save aside the value for **Login server**, **Username**, and **password**.
+1. Copy and save aside the values for **Registry name** and **Login server**.
+
+   > [!NOTE]
+   > This article uses the [`az acr build`](/cli/azure/acr#az-acr-build) command to build and push the Docker image to the Container Registry, without using `username` and `password` of the Container Registry. It's still possible to use username and password with `docker login` and `docker push`. Using username and password is less secure than passwordless authentication.
 
 ### Deploy a sample app
 
@@ -225,26 +235,29 @@ Use the following steps to deploy and run a sample CRUD Java/Jakarta EE applicat
    export DB_NAME=mySampleDatabase
    export DB_USER=azureuser@<failover-group-name>
    export DB_PASSWORD='<SQL-Server-admin-login-password>'
+   export REGISTRY_NAME=<ACR-registry-nam>
    export LOGIN_SERVER=<ACR-login-server>
-   export USER_NAME=<ACR-username>
-   export PASSWORD='<ACR-password>'
    export INGRESS_TLS_SECRET=<TLS-secret-name>
    ```
 
-1. Use the following commands to package the app, build the Docker image, push the image to the ACR instance, and deploy the sample to the AKS cluster:
+1. Use the [`az acr build`](/cli/azure/acr#az-acr-build) command to build and push the Docker image to the Container Registry.
 
-   ```bash
+   ```azurecli
    cd $BASE_DIR/java-app
    mvn clean install
 
    cd $BASE_DIR/java-app/target
-
    # If you deployed WebSphere Liberty Operator previously, use "Dockerfile-wlp" instead of "Dockerfile"
-   docker buildx build --platform linux/amd64 -t javaee-cafe:v1 --pull --file=Dockerfile .
-   docker tag javaee-cafe:v1 ${LOGIN_SERVER}/javaee-cafe:v1
-   docker login -u ${USER_NAME} -p ${PASSWORD} ${LOGIN_SERVER}
-   docker push ${LOGIN_SERVER}/javaee-cafe:v1
+   az acr build \
+       --registry ${REGISTRY_NAME} \
+       --image javaee-cafe:v1 \
+       --file Dockerfile \
+       .
+   ```
 
+1. Use the following commands to deploy the sample app to the AKS cluster:
+
+   ```bash
    cd $BASE_DIR/java-app/target
    kubectl apply -f db-secret.yaml
 
