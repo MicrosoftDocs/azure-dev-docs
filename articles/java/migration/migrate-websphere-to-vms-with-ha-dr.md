@@ -4,7 +4,7 @@ description: Shows how to deploy WebSphere Application Server to Azure Virtual M
 author: KarlErickson
 ms.author: jiangma
 ms.topic: tutorial
-ms.date: 05/08/2024
+ms.date: 12/05/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-websphere, devx-track-javaee-was, devx-track-javaee-was-vm, migration-java, devx-track-extended-java
 ---
 
@@ -107,6 +107,9 @@ Then, create an Azure SQL Database failover group by following the Azure portal 
 
 1. After you complete all the steps in the section [Test planned failover](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#test-planned-failover), keep the failover group page open and use it for the failover test of the WebSphere clusters later.
 
+> [!NOTE]
+> This article guides you to create an Azure SQL Database single database with SQL authentication. A more secure practice is to use [Microsoft Entra authentication for Azure SQL](/azure/azure-sql/database/authentication-aad-overview?preserve-view=true&view=azuresql-db) for authenticating the database server connection. SQL authentication is required for the WebSphere cluster to connect to the database for session persistence later. For more information, see [Configuring for database session persistence](https://www.ibm.com/docs/en/was-nd/9.0.5?topic=sessions-configuring-database-session-persistence).
+
 ## Set up the primary WebSphere cluster on Azure VMs
 
 In this section, you create the primary WebSphere clusters on Azure VMs using the [IBM WebSphere Application Server Cluster on Azure VMs](https://aka.ms/twas-cluster-portal) offer. The secondary cluster is restored from the primary cluster during the failover using Azure Site Recovery later.
@@ -129,7 +132,7 @@ Use the following steps to fill out the **Basics** pane:
 
 Use the following steps to fill out the **Cluster configuration** pane:
 
-1. For **Password for VM administrator**, provide a password.
+1. For **Password for VM administrator**, provide a password. Consider using **SSH Public Key** as VM authentication type for better security.
 1. For **Password for WebSphere administrator**, provide a password. Save aside the username and password for **WebSphere administrator**.
 1. Leave the defaults for other fields.
 1. Select **Next** to go to the **Load balancer** pane.
@@ -138,7 +141,7 @@ Use the following steps to fill out the **Cluster configuration** pane:
 
 Use the following steps to fill out the **Load balancer** pane:
 
-1. For **Password for VM administrator**, provide a password.
+1. For **Password for VM administrator**, provide a password. Consider using **SSH Public Key** as VM authentication type for better security.
 1. For **Password for IBM HTTP Server administrator**, provide a password.
 1. Leave the defaults for other fields.
 1. Select **Next** to go to the **Networking** pane.
@@ -164,6 +167,9 @@ The following steps show you how to fill out the **Database** pane:
 1. Wait until **Running final validation...** successfully completes, then select **Create**.
 
 :::image type="content" source="media/migrate-websphere-to-vms-with-ha-dr/portal-database.png" alt-text="Screenshot of the Azure portal that shows the IBM WebSphere Application Server Cluster on Azure VMs Database pane." lightbox="media/migrate-websphere-to-vms-with-ha-dr/portal-database.png":::
+
+> [!NOTE]
+> This article guides you to connect to an Azure SQL Database with SQL authentication. A more secure practice is to use [Microsoft Entra authentication for Azure SQL](/azure/azure-sql/database/authentication-aad-overview?preserve-view=true&view=azuresql-db) for authenticating the database server connection. SQL authentication is required for the WebSphere cluster to connect to the database for session persistence later. For more information, see [Configuring for database session persistence](https://www.ibm.com/docs/en/was-nd/9.0.5?topic=sessions-configuring-database-session-persistence).
 
 After a while, you should see the **Deployment** page where **Deployment is in progress** is displayed.
 
