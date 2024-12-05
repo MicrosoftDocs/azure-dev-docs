@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 08/07/2024
+ms.date: 12/04/2024
 ---
 
 ```mermaid
@@ -8,7 +8,7 @@ ms.date: 08/07/2024
 %% =======================
 %% 1. Install mermaid CLI v10.9.1 (see https://github.com/mermaid-js/mermaid-cli/blob/master/README.md):
 %%    npm i -g @mermaid-js/mermaid-cli@10.9.1
-%% 2. Run command: mmdc -i chain-sequence.mmd -o ./chain-sequence.svg
+%% 2. Run command: mmdc -i chain-sequence.md -o ../../media/mermaidjs/chain-sequence.svg
 
 sequenceDiagram
   autonumber;

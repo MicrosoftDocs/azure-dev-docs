@@ -1758,6 +1758,10 @@
     {
       "source_path": "articles/go/azure-sdk-authentication-service-principal.md",
       "redirect_url": "/azure/developer/go/sdk/authentication/local-development-service-principal"
+    },
+    {
+      "source_path": "articles/javascript/sdk/credential-chains.md",
+      "redirect_url": "/azure/developer/javascript/sdk/authentication/credential-chains"
     }    
   ]
 }
