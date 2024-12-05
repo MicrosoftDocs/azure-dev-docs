@@ -440,8 +440,8 @@ If you have trouble creating the database, the server might still be processing 
 1. In the [Azure portal](https://portal.azure.com), navigate to your PostgreSQL server. For example, you can enter the name of your PostgreSQL server in the search bar and select it under **Resources** in the results.
 1. Under **Settings** on the **service menu**, select **Databases**.
 1. Select **Add** on the top menu of the **Databases** page.
-1. On the  **Create Database** page, enter *restaurants_reviews* for the **Name**, then select **Save**.
-1. When the operation completes, you're returned to the **Databases** page. Verify that **restaurants_reviews** appears in the list of databases.
+1. On the  **Create Database** page, enter **restaurants_reviews** for the **Name**, then select **Save**.
+1. When the operation completes, you're returned to the **Databases** page. Verify that **restaurants_reviews** appears in the list of databases. You may need to refresh the page for it to appear.
 
 ---
 
@@ -845,20 +845,20 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     * **Region**: Use the same region/location as the resource group.
     * **Container Apps Environment**: Select **Create new** to create a new environment named *python-container-env*.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-03.png" alt-text="Screenshot showing how to start the configure basic settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-03.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-containerapp-basics-tab.png" alt-text="Screenshot showing how to start the configure basic settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-containerapp-basics-tab.png":::
 
     Select **Next: Container** to continue configuration.
 
 1. On the **Container** tab, continue configuring the container app.
 
-    * **Use quickstart image**: Unselect checkbox.        
+    * **Use quickstart image**: Unselect checkbox.
     * **Name**: *python-container-app*.
-    * **Image Source**: Select *Azure Container Registry*.        
-    * **Registry**: Select the name of registry you created earlier.        
+    * **Image Source**: Select *Azure Container Registry*.
+    * **Registry**: Select the name of registry you created earlier.
     * **Image name**: Select *pythoncontainer* (the name of the image you built).
-    * **Image tag**: Select *latest*.        
-    * **HTTP Ingress**:  Select checkbox (enabled).        
-    * **Ingress traffic**: Select **Accepting traffic from anywhere**.        
+    * **Image tag**: Select *latest*.
+    * **HTTP Ingress**:  Select checkbox (enabled).
+    * **Ingress traffic**: Select **Accepting traffic from anywhere**.
     * **Target port**: Set to 8000 for Django or 5000 for Flask.
 
     Under **Environment variables**, enter values for the following variables:
@@ -874,17 +874,17 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
     For `AZURE_CLIENT_ID` use the client ID you copied for the user-assigned managed identity.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-04.png" alt-text="Screenshot showing how to the configure app settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-04.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-containerapp-container-tab.png" alt-text="Screenshot showing how to the configure app settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-containerapp-container-tab.png":::
 
     Select **Next: Ingress** to continue.
 
 1. Under the **Ingress** tab, continue configuring the container app.
 
-    * **HTTP Ingress**:  Select checkbox (enabled).
+    * **Ingress**:  Select checkbox (enabled).
     * **Ingress traffic**: Select **Accepting traffic from anywhere**.
     * **Target port**: Set to 8000 for Django or 5000 for Flask.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-04.png" alt-text="Screenshot showing how to the configure app settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-04.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-containerapp-ingress-tab.png" alt-text="Screenshot showing how to the configure app settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-containerapp-04ingress-tab.png":::
 
     Select **Review and create** to go to review page. After reviewing the settings, select **Create** to kick off deployment.
 
@@ -896,11 +896,6 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     1. Under the **User assigned** tab, select **Add**.
     1. On the **Add user assigned managed identity** page, select **my-ua-managed-identity** then select **Add**.
     1. When the operation completes, you're returned to the **User assigned** tab. Verify that **my-ua-managed-id** appears in the list of identities.
-
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-06.png" alt-text="Screenshot showing how to edit a Azure Containers Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-06.png":::
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-07.png" alt-text="Screenshot showing how to create a new Azure Container Apps container revision in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-07.png":::
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-08.png" alt-text="Screenshot showing how to add environment variables to an Azure Container Apps revision in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-08.png"::: 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-09.png" alt-text="Screenshot showing how to finish creating revision of an Azure Container Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-09.png":::
 
     > [!TIP]
     > Instead of defining environment variables as shown above, you can use [Service Connector][9]. Service Connector helps you connect to Azure compute services to other backing services by configuring connection information and generating and storing environment variables for you. If you use a service connector, make sure you synchronize the environment variables in the sample code to the environment variables created with Service Connector.
