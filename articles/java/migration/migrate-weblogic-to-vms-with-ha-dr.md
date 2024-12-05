@@ -4,7 +4,7 @@ description: Shows how to deploy WebLogic Server to Azure Virtual Machines with 
 author: KarlErickson
 ms.author: jiangma
 ms.topic: tutorial
-ms.date: 01/09/2024
+ms.date: 12/05/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-extended-java
 ---
 
@@ -46,6 +46,9 @@ Azure Traffic Manager checks the health of your regions and routes the traffic a
 [!INCLUDE [ha-dr-for-wls-azure-sql-database-schema-vms](includes/ha-dr-for-wls-azure-sql-database-schema-vms.md)]
 [!INCLUDE [ha-dr-for-wls-azure-sql-database-failover-group](includes/ha-dr-for-wls-azure-sql-database-failover-group.md)]
 
+> [!NOTE]
+> This article guides you to create an Azure SQL Database single database with SQL authentication for simplicity because the HA/DR setup this article focuses on is already very complex. A more secure practice is to use [Microsoft Entra authentication for Azure SQL](/azure/azure-sql/database/authentication-aad-overview?preserve-view=true&view=azuresql-db) for authenticating the database server connection. Consider referencing the article [Configure passwordless database connections for Java apps on Oracle WebLogic Servers](../ee/how-to-configure-passwordless-datasource.md) for how to configure the database connection with Microsoft Entra authentication for your needs.
+
 ## Set up paired WLS clusters on Azure VMs
 
 In this section, you create two WLS clusters on Azure VMs using the [Oracle WebLogic Server Cluster on Azure VMs](https://aka.ms/wls-vm-cluster) offer. The cluster in East US is primary and is configured as the active cluster later. The cluster in West US is secondary and is configured as the passive cluster later.
@@ -59,7 +62,7 @@ Use the following steps to fill out the **Basics** pane:
 1. Ensure that the value shown for **Subscription** is the same one that has the roles listed in the prerequisites section.
 1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, *wls-cluster-eastus-ejb120623*.
 1. Under **Instance details**, for **Region**, select **East US**.
-1. Under **Credentials for Virtual Machines and WebLogic**, provide a password for **admin account of VM** and **WebLogic Administrator**, respectively. Save aside the username and password for **WebLogic Administrator**.
+1. Under **Credentials for Virtual Machines and WebLogic**, provide a password for **admin account of VM** and **WebLogic Administrator**, respectively. Save aside the username and password for **WebLogic Administrator**. Consider using **SSH Public Key** as VM authentication type for better security.
 1. Leave the defaults for other fields.
 1. Select **Next** to go to the **TLS/SSL Configuration** pane.
 
@@ -101,6 +104,9 @@ The following steps show you how to fill out the **Database** pane:
 1. Wait until **Running final validation...** successfully completes, then select **Create**.
 
 :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-database.png" alt-text="Screenshot of the Azure portal that shows the Oracle WebLogic Server Cluster on Azure VMs Database pane." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-database.png":::
+
+> [!NOTE]
+> This article guides you to connect to an Azure SQL Database with SQL authentication for simplicity because the HA/DR setup this article focuses on is already very complex. A more secure practice is to use [Microsoft Entra authentication for Azure SQL](/azure/azure-sql/database/authentication-aad-overview?preserve-view=true&view=azuresql-db) for authenticating the database server connection. Consider referencing the article [Configure passwordless database connections for Java apps on Oracle WebLogic Servers](../ee/how-to-configure-passwordless-datasource.md) for how to configure the database connection with Microsoft Entra authentication for your needs.
 
 After a while, you should see the **Deployment** page where **Deployment is in progress** is displayed.
 
