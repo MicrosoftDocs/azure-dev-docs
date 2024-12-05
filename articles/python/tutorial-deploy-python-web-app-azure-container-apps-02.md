@@ -845,7 +845,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     * **Region**: Use the same region/location as the resource group.
     * **Container Apps Environment**: Select **Create new** to create a new environment named *python-container-env*.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-containerapp-basics-tab.png" alt-text="Screenshot showing how to start the configure basic settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-containerapp-basics-tab.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-containerapp-basics-tab.png" alt-text="Screenshot showing how to configure basic settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-containerapp-basics-tab.png":::
 
     Select **Next: Container** to continue configuration.
 
@@ -874,7 +874,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
     For `AZURE_CLIENT_ID` use the client ID you copied for the user-assigned managed identity.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-containerapp-container-tab.png" alt-text="Screenshot showing how to the configure app settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-containerapp-container-tab.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-containerapp-container-tab.png" alt-text="Screenshot showing how to the configure container settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-containerapp-container-tab.png":::
 
     Select **Next: Ingress** to continue.
 
@@ -884,7 +884,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     * **Ingress traffic**: Select **Accepting traffic from anywhere**.
     * **Target port**: Set to 8000 for Django or 5000 for Flask.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-containerapp-ingress-tab.png" alt-text="Screenshot showing how to the configure app settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-containerapp-04ingress-tab.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-containerapp-ingress-tab.png" alt-text="Screenshot showing how to the configure ingress settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-containerapp-ingress-tab.png":::
 
     Select **Review and create** to go to review page. After reviewing the settings, select **Create** to kick off deployment.
 
