@@ -53,12 +53,14 @@
         "github-copilot-azure/**/*.md": "https://github.com/microsoft/GitHub-Copilot-for-Azure"
       },
       "feedback_help_link_type": {
+        "cpp/**/*.md": "get-product-support",
         "github-copilot-azure/**/*.md": "get-product-support"
       },
       "feedback_product_url" : {
         "python/**/*.md": "https://github.com/Azure/azure-sdk-for-python/issues",
         "ansible/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "chef/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
+        "cpp/**/*.md": "https://github.com/Azure/azure-sdk-for-cpp/issues",
         "jenkins/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "terraform/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "javascript/**/*.md": "https://github.com/Azure/azure-sdk-for-js/issues",

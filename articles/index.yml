@@ -151,6 +151,11 @@ productDirectory:
           text: Azure SDK for Go code samples
         - url: ./go/index.yml
           text: See more in the Go developer center
+    - title: C++
+      imageSrc: /media/logos/
+      links:
+        - url: ./cpp/sdk/install-and-integrate-the-sdk.md
+          text: Install the Azure SDK for C++
     - title: Azure PowerShell
       imageSrc: /powershell/media/index/ps_black_128.svg
       links:
