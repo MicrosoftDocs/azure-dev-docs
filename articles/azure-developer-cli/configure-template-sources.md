@@ -39,7 +39,7 @@ Each template entry in the JSON configuration file includes the following proper
 - **name**: The display name of the template.
 - **description**: A brief summary of what the template does.
 - **repositoryPath**: The path to the template's source code, which can be:
-  - A fully qualified URL to a Git repository, like `https://dev.azure.com/org/project/_git/repo`.
+  - A fully qualified URL to a Git repository, like "https://dev.azure.com/org/project/_git/repo".
   - "{owner}/{repo}" for GitHub repositories.
   - "{repo}" for GitHub repositories under the Azure-Samples organization.
 - **tags**: Keywords that help users filter templates with `azd init --filter <tag>` and `azd template list --filter <tag>`.
