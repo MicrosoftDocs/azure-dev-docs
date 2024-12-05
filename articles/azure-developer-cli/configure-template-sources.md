@@ -39,14 +39,14 @@ Each template entry in the JSON configuration file includes the following proper
 - **name**: The display name of the template.
 - **description**: A brief summary of what the template does.
 - **repositoryPath**: The path to the template's source code, which can be:
-  - A fully qualified URL to a Git repository, like "https://dev.azure.com/org/project/_git/repo".
+  - A fully qualified URI to a Git repository, like "https://dev.azure.com/org/project/_git/repo".
   - "{owner}/{repo}" for GitHub repositories.
   - "{repo}" for GitHub repositories under the Azure-Samples organization.
 - **tags**: Keywords that help users filter templates with `azd init --filter <tag>` and `azd template list --filter <tag>`.
 
 For a full example, see [this JSON file](https://github.com/Azure/azure-dev/blob/main/cli/azd/resources/templates.json), which is the default template source included in `azd`.
 
-`azd` allows you to enable multiple template source at a time. The following template source options are currently available to choose from:
+`azd` allows you to enable multiple template sources at a time. The following template source options are currently available to choose from:
 
 - **awesome-azd** - A list of the templates from the [Awesome AZD gallery](https://azure.github.io/awesome-azd) that is enabled by default.
 - **default** - A small set of curated templates to demonstrate different tech stacks.
@@ -79,7 +79,7 @@ Use the `azd template source add` command to add a new template source. This com
 - **key**: The technical name of the template source.
 - **--type, -t**: The template source type - valid values are **file**, **url** and **gh** for GitHub.
 - **--location, -l**: The template source location, which should be a local network or HTTP(S) web URI.
-- **--name, -n**: The template source display name (optional, will use **key** if omitted).
+- **--name, -n**: The template source display name (optional, uses **key** if omitted).
 
 ```azdeveloper
 azd template source add <key> --type <file-or-url-or-gh> --location <your-uri> --name <your-display-name>
