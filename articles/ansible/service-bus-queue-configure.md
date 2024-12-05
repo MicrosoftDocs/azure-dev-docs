@@ -18,7 +18,7 @@ In this article, you learn how to:
 > [!div class="checklist"]
 >
 > * Create a queue
-> * Create a SAS plicy
+> * Create a SAS policy
 > * Retrieve namespace information
 > * Retrieve queue information
 > * Revoke the queue SAS policy

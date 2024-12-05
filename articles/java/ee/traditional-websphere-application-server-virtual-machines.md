@@ -36,7 +36,7 @@ Use the following steps to find the IBM WAS ND cluster on Azure VMs offer:
 
 Alternatively, you can also go directly to the [IBM WAS ND cluster on Azure VMs](https://aka.ms/twas-cluster-portal) offer.
 
-In either case, this offer deployes an IBM WAS ND cluster on Azure VMs. The cluster includes the following components:
+In either case, this offer deploys an IBM WAS ND cluster on Azure VMs. The cluster includes the following components:
 
 - One Deployment Manager instance for managing the applications and application servers.
 - One IBM HTTP Server instance for managing load balancing.

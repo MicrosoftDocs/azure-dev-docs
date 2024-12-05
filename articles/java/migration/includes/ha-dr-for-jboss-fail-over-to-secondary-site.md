@@ -21,6 +21,6 @@ Next, use the following steps to failover the JBoss EAP cluster with the recover
 1. Select **Failover**. Select **I understand the risk. Skip test failover.**. Leave the defaults for the other values. Select **OK**.
 
    > [!NOTE]
-   > Optinally, you can run **Test failover** and **Cleanup test failover** to make sure everything works as expected before **Failover**. For more information, see [Tutorial: Run a disaster recovery drill for Azure VMs](/azure/site-recovery/azure-to-azure-tutorial-dr-drill). This tutorial uses **Failover** directly to simplify the exercise.
+   > Optionally, you can run **Test failover** and **Cleanup test failover** to make sure everything works as expected before **Failover**. For more information, see [Tutorial: Run a disaster recovery drill for Azure VMs](/azure/site-recovery/azure-to-azure-tutorial-dr-drill). This tutorial uses **Failover** directly to simplify the exercise.
 
 1. Monitor the failover in notifications until it completes. It takes about 10 minutes for the exercise of this tutorial.

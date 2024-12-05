@@ -74,7 +74,7 @@ The first sample playbook `00-prerequisites.yml` creates what's necessary to com
         allocation_method: Static
         name: "{{ ip_name }}"
 
-    - name: Create virtual network inteface cards for VM A and B
+    - name: Create virtual network interface cards for VM A and B
       azure_rm_networkinterface:
         resource_group: "{{ resource_group }}"
         name: "{{ network_interface_name }}"
