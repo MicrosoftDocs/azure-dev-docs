@@ -12,4 +12,4 @@ ms.author: diberry
 |There's no application secret to store.| Must store and rotate secrets in app setting or environment variable.|
 |The Azure Identity library manages tokens for you behind the scenes. This makes using token-based authentication as easy to use as a connection string.|Secrets aren't managed.|
 
-Use of connection strings should be limited to initial proof of concept apps or development prototypes that don't access production or sensitive data.  Otherwise, the token-based authentication classes available in the Azure SDK should always be preferred when authenticating to Azure resources.
+Use of connection strings should be limited to initial proof of concept apps or development prototypes that don't access production or sensitive data. Otherwise, the token-based authentication classes available in the Azure Identity library should always be preferred when authenticating to Azure resources.
