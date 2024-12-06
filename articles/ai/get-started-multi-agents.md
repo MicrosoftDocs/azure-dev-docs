@@ -362,7 +362,7 @@ The following code snippet uses the `feedback` variable in the `create` function
 feedback = "No Feedback"
 ```
 
-#### Handling the initial research phase
+#### Initial research phase
 
 The following code snippet handles the start and completion of the `researcher` agent task. It yields appropriate messages before and after the task is performed.
 
@@ -372,7 +372,7 @@ research_result = researcher.research(research_context, feedback)
 yield complete_message("researcher", research_result)
 ```
 
-#### Handling the product matching phase
+#### Product matching phase
 
 The following code snippet handles the start and completion of the `product` agent task. It yields appropriate messages before and after the task is performed.
 
@@ -382,7 +382,7 @@ product_result = product.find_products(product_context)
 yield complete_message("marketing", product_result)
 ```
 
-#### Handling the initial writing phase
+#### Initial writing phase
 
 The following code snippet handles the start and initial completion state of the `writer` agent task. It yields appropriate messages before and after the task is performed. It calls the `write` method to generate a document based on the provided contexts and feedback. The `write` method uses the configuration and instructions from the `writer.prompty` prompt to interact with the model and generate the writing result.
 
@@ -414,7 +414,7 @@ The next step ensures that the accumulated writing result is parsed into `articl
 processed_writer_result = writer.process(full_result)
 ```
 
-#### Handling the editing phase
+#### Editing phase
 
 The editing phase sends the processed writing result to the editor for review and handles the editor's response.
 
@@ -428,7 +428,7 @@ yield complete_message("editor", editor_response)
 yield complete_message("writer", {"complete": True})
 ```
 
-#### Implementing the editor feedback loop
+#### Editor feedback loop
 
 The following code implements a feedback loop that:
 
