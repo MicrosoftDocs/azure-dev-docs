@@ -99,7 +99,7 @@ To create the Java 11 base project, use the following command:
    For Java SE 11 Project:
 
    ```bash
-   curl localhost:8080/hello
+   curl http://localhost:8080/hello
    ```
 
 4. You should see the following message displayed: **Hello World** or **hello**
@@ -116,7 +116,7 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
    <plugin>
      <groupId>com.microsoft.azure</groupId>
      <artifactId>azure-webapp-maven-plugin</artifactId>
-     <version>2.5.0</version>
+     <version>2.13.0</version>
    </plugin>
    ```
 
@@ -133,7 +133,7 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
    | Choose a subscription                          | Enter your subscription ID.         |
    | Define value for OS(Default: Linux):           | 2. linux                            |
    | Define value for javaVersion(Default: Java 8): | 2. Java 11                          |
-   | Define value for pricingTier(Default: P1v2):   | 9. P1v2                             |
+   | Define value for pricingTier(Default: P1v2):   | 3. P1v2                             |
    | Confirm (Y/N)                                  | y                                   |
 
    This command produces output similar to the following example:
@@ -145,7 +145,7 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
    [INFO] Building quarkus-hello-azure 1.0-SNAPSHOT
    [INFO] --------------------------------[ jar ]---------------------------------
    [INFO]
-   [INFO] --- azure-webapp-maven-plugin:2.5.0:config (default-cli) @ quarkus-hello-azure ---
+   [INFO] --- azure-webapp-maven-plugin:2.13.0:config (default-cli) @ quarkus-hello-azure ---
    [INFO] Auth type: OAUTH2
    Username: abc@xyz.com
    Available subscriptions:
@@ -164,25 +164,26 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
      3: Java 17
    Enter your choice: 2
    Define value for pricingTier [P1v2]:
-      1: B1
-      2: B2
-      3: B3
-      4: D1
-      5: EP1
-      6: EP2
-      7: EP3
-      8: F1
-   *  9: P1v2
-     10: P1v3
-     11: P2v2
-     12: P2v3
-     13: P3v2
-     14: P3v3
-     15: S1
-     16: S2
-     17: S3
-     18: Y1
-   Enter your choice: 9
+     1: D1
+     2: B3
+   * 3: P1v2
+     4: P1v3
+     5: P2v2
+     6: P2v3
+     7: P3v2
+     8: P3v3
+     9: B1
+    10: B2
+    11: F1
+    12: S1
+    13: S2
+    14: S3
+    15: EP3
+    16: EP2
+    17: EP1
+    18: Y1
+    19: FC1
+   Enter your choice: 3
    Please confirm webapp properties
    Subscription Id : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
    AppName : quarkus-hello-azure-1601011883156
@@ -209,7 +210,7 @@ In this section, you'll configure the Quarkus project *pom.xml* file so that Mav
       <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>2.5.0</version>
+        <version>2.13.0</version>
         <configuration>
           <schemaVersion>V2</schemaVersion>
           <resourceGroup>microprofile</resourceGroup>

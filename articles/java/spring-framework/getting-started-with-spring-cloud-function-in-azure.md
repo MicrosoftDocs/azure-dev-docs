@@ -61,7 +61,7 @@ Change those properties directly near the top of the *pom.xml* file, as shown in
         <start-class>com.example.DemoApplication</start-class>
 
         <!-- customize those properties. WARNING: the functionAppName should be unique across Azure -->
-        <azure.functions.maven.plugin.version>1.29.0</azure.functions.maven.plugin.version>
+        <azure.functions.maven.plugin.version>1.36.0</azure.functions.maven.plugin.version>
         <functionResourceGroup>my-spring-function-resource-group</functionResourceGroup>
         <functionAppServicePlanName>my-spring-function-service-plan</functionAppServicePlanName>
         <functionAppName>my-spring-function</functionAppName>
