@@ -113,13 +113,13 @@ The following steps walk you through configuring Docker support for your web app
 
    :::image type="content" source="media/hello-world-web-app-linux/docker-support-file.png" alt-text="The docker support file.":::
 
-1. After you have added Docker support, right-click your project in the project explorer, expand **Azure**, and then click **Run on Web App for Containers**.
+1. After you have added Docker support, right-click your project in the project explorer, expand **Azure**, and then click **Deploy Image to Web App**.
 
-1. On the **Run on Web App for Containers** dialog box, fill in the following information:
+1. On the **Deploy Image to Web App** dialog box, fill in the following information:
 
    * **Name**: This specifies the friendly name which is displayed in the Azure Toolkit. 
 
-   * **Container Registry**: Choose the container registry from the drop-down menu that you created in the previous section of this article. The fields for **Server URL**, **Username**, and **Password** will be automatically populated.
+   * **Container Registry**: Create a new one or choose the container registry from the drop-down menu that you created in the previous section of this article. The fields for **Server URL**, **Username**, and **Password** will be automatically populated.
 
    * **Image and tag**: Specifies the container image name; typically this will use the following syntax: "*registry*.azurecr.io/*appname*:latest", where: 
       * *registry* is your container registry from the previous section of this article 

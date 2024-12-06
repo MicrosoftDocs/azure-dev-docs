@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 06/13/2019
 ms.author: diberry
 ---
-The recommended process is to have your apps use **token-based authentication**, rather than connection strings or keys, when authenticating to Azure resources. The Azure SDK provides token-based authentication and allows apps to seamlessly authenticate to Azure resources whether the app is in local development, deployed to Azure, or deployed to an on-premises server.
+The recommended approach is to have your apps use **token-based authentication**, rather than connection strings or keys, when authenticating to Azure resources. The Azure Identity library provides token-based authentication and allows apps to seamlessly authenticate to Azure resources whether the app is in local development, deployed to Azure, or deployed to an on-premises server.
 
 The specific type of token-based authentication an app should use to authenticate to Azure resources depends on where the app is running and is shown in the following diagram.
 

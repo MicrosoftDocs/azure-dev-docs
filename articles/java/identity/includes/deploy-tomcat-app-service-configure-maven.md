@@ -11,7 +11,7 @@ Use the following steps to configure the plugin:
 1. Run the following command to configure the deployment. This command helps you to set up the Azure App Service operating system, Java version, and Tomcat version.
 
    ```bash
-   mvn com.microsoft.azure:azure-webapp-maven-plugin:2.12.0:config
+   mvn com.microsoft.azure:azure-webapp-maven-plugin:2.13.0:config
    ```
 
 1. For **Create new run configuration**, press <kbd>Y</kbd>, then press <kbd>Enter</kbd>.
