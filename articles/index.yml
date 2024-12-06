@@ -152,7 +152,7 @@ productDirectory:
         - url: ./go/index.yml
           text: See more in the Go developer center
     - title: C++
-      imageSrc: /media/logos/
+      imageSrc: /media/logos/logo_Cplusplus.svg
       links:
         - url: ./cpp/sdk/install-and-integrate-the-sdk.md
           text: Install the Azure SDK for C++
