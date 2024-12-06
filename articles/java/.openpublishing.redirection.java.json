@@ -211,6 +211,10 @@
             "redirect_url": "/azure/migrate/appcat/java?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json"
         },
         {
+            "source_path": "migration/migrate-weblogic-with-aad-ldap.md",
+            "redirect_url": "/azure/developer/java/migration/migrate-weblogic-with-entra-id-via-ldap"
+        },
+        {
             "source_path": "migration/migrate-tomcat-to-azure-spring-apps.md",
             "redirect_url": "/azure/developer/java/migration/migrate-tomcat-to-tomcat-app-service"
         },

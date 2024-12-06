@@ -42,7 +42,6 @@ landingContent:
             url: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
           - text: "Tutorial: Containerized Tomcat to AKS"
             url: /azure/migrate/tutorial-app-containerization-java-kubernetes?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-  
   - title: Migrate WebLogic Server to Azure VMs
     linkLists:
       - linkListType: how-to-guide
@@ -59,7 +58,6 @@ landingContent:
             url: migrate-weblogic-with-elk.md
           - text: "Tutorial: WebLogic to Azure VMs with Entra ID"
             url: migrate-weblogic-with-entra-id-via-ldap.md
-
   - title: Migrate WebLogic Server to AKS and App Service
     linkLists:
       - linkListType: how-to-guide
