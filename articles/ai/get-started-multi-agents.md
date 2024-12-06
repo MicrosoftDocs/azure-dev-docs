@@ -585,7 +585,7 @@ def find_news(query, market="en-US"):
 
 #### Starting the research task
 
-Previously, you saw how to [invoke](#handling-the-initial-research-phase) the `researcher` agent by calling the `research` method:
+Previously, you saw how to [invoke](#initial-research-phase) the `researcher` agent by calling the `research` method:
 
 ```python
 research_result = researcher.research(research_context, feedback)
