@@ -1,6 +1,14 @@
+---
+ms.custom: overview
+ms.topic: include
+ms.date: 12/05/2024
+ms.author: johalexander
+author: ms-johnalex
+ms.service: azure
+---
 ## Resources for Azure OpenAI Service
 
-Azure OpenAI Service provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Azure OpenAI SDK for .NET, or the web-based interface in the Azure OpenAI Studio.
+Azure OpenAI Service provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, the `langchain4j-azure-open-ai` package, or via the [Azure AI Foundry portal](/azure/ai-studio/azure-openai-in-ai-studio).
 
 ### Libraries and samples
 
