@@ -381,22 +381,24 @@ These steps require the [Azure Databases extension][26] for VS Code.
     * **Resource group**: The resource group used in this tutorial "pythoncontainer-rg".
     * **Server name**: Enter a name for the database server that's unique across Azure. The database server's URL becomes `https://<server-name>.postgres.database.azure.com`. Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
     * **Region**: The same region you used for the resource group.
+    * **Workload Type**: Select **Development**.
+    * **Authentication Method**: Select **PostgreSQL and Microsoft Entra authentication**.
+    * **Set Microsoft Entra admin**: Select **Set admin**. On the **Select Microsoft Entra Admins** page, search for your Azure user account, select it in the results, and then click **Select**.
     * **Admin username**: Use *demoadmin*.
     * **Password** and **Confirm password**: A password for the admin account.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-03.png" alt-text="Screenshot showing how to specify basic settings of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-03.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-basics-tab.png" alt-text="Screenshot showing how to specify basic settings of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-basics-tab.png":::
 
-    For all other settings, leave the defaults. When done, select **Networking** to go to the networking page.
+    For all other settings, leave the defaults. When done, select **Next: Networking**.
 
 1. On the **Networking** tab, enter the following values:
 
-    * **Connectivity method**: Select **Public access**.
-    * **Allow public access from any Azure service**: Select the checkbox, that is, allow access. 
+    * **Connectivity method**: Make sure **Public access (allowed IP addresses) and Private endpoint** is selected.
+    * **Allow public access to this resrouce through the internet using a public IP address**: Make sure the checkbox is selected.
+    * **Allow public access from any Azure service within Azure to this service**: Select the checkbox.
     * **Add current client IP address**: Select (add) if you plan on accessing the database from your local server.
 
-    For all other settings, leave the defaults. Select **Review + Create** to continue.
-
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-04.png" alt-text="Screenshot showing how to specify networking settings of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-04.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-networking-tab.png" alt-text="Screenshot showing how to specify networking settings of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-networking-tab.png":::
 
     For all other settings, leave the defaults. Select **Review + Create** to continue.
 
@@ -874,13 +876,13 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     1. In the [Azure portal](https://portal.azure.com), search for **my-ua-managed-id** and select it under **Resources** in the results.
     1. Select **Overview** on the **service menu** and note down the **Client ID** value.
 
-1. Open Azure CloudShell and enter the following command to get a secret key value.
+1. Open Azure Cloud Shell and enter the following command to get a secret key value.
 
     ```python
     python -c 'import secrets; print(secrets.token_hex())'
     ```
 
-    You use the secret key value to set an environment variable in the next step.
+    You use the secret key value to set an environment variable in a later step.
 
 1. In the portal, search for **container apps**. Under **Marketplace** in the results, select **Container App**.
 
