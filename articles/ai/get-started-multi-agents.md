@@ -168,7 +168,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     pip install -r requirements.txt
     ```
 
-1. Open the command palette, and then search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing.
+1. Open the **Command Palette**, and then search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing.
 
 1. Sign in to Azure by using the Azure Developer CLI:
 
@@ -252,7 +252,7 @@ The sample repository contains all the code and configuration files for the depl
 
     :::image type="content" source="./media/get-started-multiagents/select-start-work-button.png" lightbox="./media/get-started-multiagents/select-start-work-button.png" alt-text="Screenshot of the Contoso Creative Writer app that shows the Start Work button.":::
 
-### Examine the agent workflow progress and results
+### Examine the orchestration workflow progress and results
 
 1. The right-side panel displays the workflow progress and the results of each agent. Examine each agent's results.
 
@@ -746,9 +746,9 @@ Deleting the GitHub Codespaces environment helps you maximize the amount of free
 
 Stop the running development container and return to running Visual Studio Code in the context of a local workspace.
 
-Open the command palette, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
+Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
 
-:::image type="content" source="./media/get-started-app-chat-vision/reopen-local-command-palette.png" lightbox="./media/get-started-app-chat-vision/reopen-local-command-palette.png" alt-text="Screenshot of the command palette option to reopen the current folder within a local environment.":::
+:::image type="content" source="./media/get-started-app-chat-vision/reopen-local-command-palette.png" lightbox="./media/get-started-app-chat-vision/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within a local environment.":::
 
 > [!TIP]
 > After Visual Studio Code stops the running development container, the container still exists in Docker in a stopped state. You have the option to delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
