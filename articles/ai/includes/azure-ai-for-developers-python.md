@@ -1,13 +1,24 @@
+---
+ms.custom: overview
+ms.topic: include
+ms.date: 12/05/2024
+ms.author: johalexander
+author: ms-johnalex
+ms.service: azure
+---
 ## Resources for Azure OpenAI Service
 
-Azure OpenAI Service provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Azure OpenAI SDK for .NET, or the web-based interface in the Azure OpenAI Studio.
+Azure OpenAI Service provides REST API access to OpenAI's powerful language models. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, the OpenAI SDK, or via the [Azure AI Foundry portal](/azure/ai-studio/azure-openai-in-ai-studio).
+
+>[!INFO]
+>While OpenAI and Azure OpenAI Service rely on a [common Python client library](https://github.com/openai/openai-python), small code changes are needed when using Azure OpenAI endpoints.
 
 ### SDKs and libraries
 
 |Link|Description|
 |---|---|
 |[OpenAI SDK for Python](https://github.com/openai/openai-python/blob/main/README.md)|The GitHub source code version of the OpenAI Python library provides convenient access to the OpenAI API from applications written in the Python language.|
-|[openai Python Package](https://pypi.org/project/openai/)|The PyPi version of the OpenAI Python library.|
+|[OpenAI Python Package](https://pypi.org/project/openai/)|The PyPi version of the OpenAI Python library.|
 |[Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)|Guidance article on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
 |[Streaming Chat completions](https://github.com/openai/openai-cookbook/blob/main/examples/azure/chat.ipynb)|A notebook containing example of getting chat completions to work using the Azure endpoints. This example focuses on chat completions but also touches on some other operations that are also available using the API.|
 |[Embeddings](https://github.com/openai/openai-cookbook/blob/main/examples/azure/embeddings.ipynb)|A notebook demonstrating operations how to use embeddings that can be done using the Azure endpoints. This example focuses on embeddings but also touches some other operations that are also available using the API.|

@@ -403,11 +403,11 @@
 | App Configuration Provider File Source | npm [1.0.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/1.0.1-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | tmlanguage-generator | npm [0.5.10](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.10) |  |  |
-| Unknown Display Name | npm [0.2.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.2.0) |  |  |
+| Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.3.0) |  |  |
 | Unknown Display Name | npm [0.62.0](https://www.npmjs.com/package/@typespec/events/v/0.62.0) |  |  |
 | Unknown Display Name | npm [0.1.3](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.3) |  |  |
 | Unknown Display Name | npm [0.3.12](https://www.npmjs.com/package/@typespec/http-client-python/v/0.3.12) |  |  |
-| Unknown Display Name | npm [0.1.0-alpha.2](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.2) |  |  |
+| Unknown Display Name | npm [0.1.0-alpha.3](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.3) |  |  |
 | Unknown Display Name | npm [0.62.0](https://www.npmjs.com/package/@typespec/sse/v/0.62.0) |  |  |
 | Unknown Display Name | npm [0.62.0](https://www.npmjs.com/package/@typespec/streams/v/0.62.0) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/ts-http-runtime/v/0.1.0) |  |  |
@@ -521,7 +521,7 @@
 | @azure-tools/cadl-ranch-api | npm [0.5.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-api/v/0.5.0) |  |  |
 | @azure-tools/cadl-ranch-coverage-sdk | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/cadl-ranch-coverage-sdk/v/0.9.0) |  |  |
 | @azure-tools/cadl-ranch-expect | npm [0.15.6](https://www.npmjs.com/package/@azure-tools/cadl-ranch-expect/v/0.15.6) |  |  |
-| @azure-tools/cadl-ranch-specs | npm [0.39.4](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.39.4) |  |  |
+| @azure-tools/cadl-ranch-specs | npm [0.39.5](https://www.npmjs.com/package/@azure-tools/cadl-ranch-specs/v/0.39.5) |  |  |
 | @azure-tools/cadl-rest | npm [0.4.1](https://www.npmjs.com/package/@azure-tools/cadl-rest/v/0.4.1) |  |  |
 | @azure-tools/cadl-rpaas | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas/v/0.11.0) |  |  |
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
