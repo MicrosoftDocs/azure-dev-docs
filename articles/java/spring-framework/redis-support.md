@@ -39,31 +39,31 @@ If none of these types of credentials are found, the credential chain via `Defau
 
 ## Configuration
 
-#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-Configurable properties when using Redis support:
-
-> [!div class="mx-tdBreakAll"]
-> | Property                                             | Description                                  | Default Value | Required |
-> |------------------------------------------------------|----------------------------------------------|---------------|----------|
-> | **spring.cloud.azure.redis**.enabled                 | Whether an Azure Cache for Redis is enabled. | true          | No       |
-> | **spring.cloud.azure.redis**.name                    | Azure Cache for Redis instance name.         |               | Yes      |
-> | **spring.cloud.azure.redis**.resource.resource-group | The resource group of Azure Cache for Redis. |               | Yes      |
-> | **spring.cloud.azure**.profile.subscription-id       | The subscription ID.                         |               | Yes      |
-> | **spring.redis.azure**.passwordless-enabled | Whether to enable passwordless for Azure Cache for Redis. | false        | No      |
-
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 Configurable properties when using Redis support:
 
 > [!div class="mx-tdBreakAll"]
-> | Property                                             | Description                                  | Default Value | Required |
-> |------------------------------------------------------|----------------------------------------------|---------------|----------|
-> | **spring.cloud.azure.redis**.enabled                 | Whether an Azure Cache for Redis is enabled. | true          | No       |
-> | **spring.cloud.azure.redis**.name                    | Azure Cache for Redis instance name.         |               | Yes      |
-> | **spring.cloud.azure.redis**.resource.resource-group | The resource group of Azure Cache for Redis. |               | Yes      |
-> | **spring.cloud.azure**.profile.subscription-id       | The subscription ID.                         |               | Yes      |
-> | **spring.data.redis.azure**.passwordless-enabled | Whether to enable passwordless for Azure Cache for Redis. | false      | No      |
+> | Property                                             | Description                                               | Default Value | Required |
+> |------------------------------------------------------|-----------------------------------------------------------|---------------|----------|
+> | **spring.cloud.azure.redis**.enabled                 | Whether an Azure Cache for Redis is enabled.              | true          | No       |
+> | **spring.cloud.azure.redis**.name                    | Azure Cache for Redis instance name.                      |               | Yes      |
+> | **spring.cloud.azure.redis**.resource.resource-group | The resource group of Azure Cache for Redis.              |               | Yes      |
+> | **spring.cloud.azure**.profile.subscription-id       | The subscription ID.                                      |               | Yes      |
+> | **spring.data.redis.azure**.passwordless-enabled     | Whether to enable passwordless for Azure Cache for Redis. | false         | No       |
+
+#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+Configurable properties when using Redis support:
+
+> [!div class="mx-tdBreakAll"]
+> | Property                                             | Description                                               | Default Value | Required |
+> |------------------------------------------------------|-----------------------------------------------------------|---------------|----------|
+> | **spring.cloud.azure.redis**.enabled                 | Whether an Azure Cache for Redis is enabled.              | true          | No       |
+> | **spring.cloud.azure.redis**.name                    | Azure Cache for Redis instance name.                      |               | Yes      |
+> | **spring.cloud.azure.redis**.resource.resource-group | The resource group of Azure Cache for Redis.              |               | Yes      |
+> | **spring.cloud.azure**.profile.subscription-id       | The subscription ID.                                      |               | Yes      |
+> | **spring.redis.azure**.passwordless-enabled          | Whether to enable passwordless for Azure Cache for Redis. | false         | No       |
 
 ---
 
@@ -72,40 +72,6 @@ Configurable properties when using Redis support:
 The following sections show the classic Spring Boot application usage scenarios.
 
 ### Connect to Azure Cache for Redis with passwordless
-
-#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-1. Add the following dependency to your project. This automatically includes the `spring-boot-starter` dependency in your project transitively.
-
-   ```xml
-   <dependency>
-       <groupId>com.azure.spring</groupId>
-       <artifactId>spring-cloud-azure-starter-redis</artifactId>
-   </dependency>
-   ```
-
-   > [!NOTE]
-   > Passwordless connections have been supported since version `4.6.0`.
-   >
-   > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
-
-1. Configure the following properties in your *application.yml* file:
-
-   ```yaml
-   spring:
-     redis:
-       host: ${AZURE_CACHE_REDIS_HOST}
-       username: ${AZURE_CACHE_REDIS_USERNAME}
-       port: 6380
-       ssl: true
-       azure:
-         passwordless-enabled: true
-   ```
-
-   > [!IMPORTANT]
-   > Passwordless connection uses Microsoft Entra authentication. To use Microsoft Entra authentication, you should enable Microsoft Entra Authentication and select `user(managed identity/service principal)` to assign `Data Owner Access Policy`.
-   >
-   > For more information and to get the value for `username`, see the [Enable Microsoft Entra ID authentication on your cache](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication#enable-microsoft-entra-id-authentication-on-your-cache) section of [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
 
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
@@ -147,6 +113,40 @@ The following sections show the classic Spring Boot application usage scenarios.
    >
    > For more information and to get the value for `username`, see the [Enable Microsoft Entra ID authentication on your cache](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication#enable-microsoft-entra-id-authentication-on-your-cache) section of [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
 
+#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+1. Add the following dependency to your project. This automatically includes the `spring-boot-starter` dependency in your project transitively.
+
+   ```xml
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>spring-cloud-azure-starter-redis</artifactId>
+   </dependency>
+   ```
+
+   > [!NOTE]
+   > Passwordless connections have been supported since version `4.6.0`.
+   >
+   > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
+
+1. Configure the following properties in your *application.yml* file:
+
+   ```yaml
+   spring:
+     redis:
+       host: ${AZURE_CACHE_REDIS_HOST}
+       username: ${AZURE_CACHE_REDIS_USERNAME}
+       port: 6380
+       ssl: true
+       azure:
+         passwordless-enabled: true
+   ```
+
+   > [!IMPORTANT]
+   > Passwordless connection uses Microsoft Entra authentication. To use Microsoft Entra authentication, you should enable Microsoft Entra Authentication and select `user(managed identity/service principal)` to assign `Data Owner Access Policy`.
+   >
+   > For more information and to get the value for `username`, see the [Enable Microsoft Entra ID authentication on your cache](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication#enable-microsoft-entra-id-authentication-on-your-cache) section of [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
+
 ---
 
 ### Connect to Azure Cache for Redis with managed identity
@@ -172,14 +172,14 @@ The following sections show the classic Spring Boot application usage scenarios.
 
 Use the following steps to connect to Azure Cache for Redis:
 
-#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+#### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 1. Add the following dependency to your project. This automatically includes the `spring-boot-starter` dependency in your project transitively.
 
    ```xml
    <dependency>
        <groupId>com.azure.spring</groupId>
-       <artifactId>spring-cloud-azure-starter</artifactId>
+       <artifactId>spring-cloud-azure-starter-data-redis-lettuce</artifactId>
    </dependency>
    <dependency>
        <groupId>com.azure.spring</groupId>
@@ -194,14 +194,14 @@ Use the following steps to connect to Azure Cache for Redis:
    > [!NOTE]
    > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
-#### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
+#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
 
 1. Add the following dependency to your project. This automatically includes the `spring-boot-starter` dependency in your project transitively.
 
    ```xml
    <dependency>
        <groupId>com.azure.spring</groupId>
-       <artifactId>spring-cloud-azure-starter-data-redis-lettuce</artifactId>
+       <artifactId>spring-cloud-azure-starter</artifactId>
    </dependency>
    <dependency>
        <groupId>com.azure.spring</groupId>
@@ -234,12 +234,12 @@ Use the following steps to connect to Azure Cache for Redis:
 
 ### Samples
 
-#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cache/spring2-sample/spring-cloud-azure-starter) repository on GitHub.
-
 #### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cache/spring3-sample) repository on GitHub.
+
+#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cache/spring2-sample/spring-cloud-azure-starter) repository on GitHub.
 
 ---
