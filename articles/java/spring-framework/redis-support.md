@@ -44,26 +44,26 @@ If none of these types of credentials are found, the credential chain via `Defau
 Configurable properties when using Redis support:
 
 > [!div class="mx-tdBreakAll"]
-> | Property                                             | Description                                  | Default Value | Required |
-> |------------------------------------------------------|----------------------------------------------|---------------|----------|
-> | **spring.cloud.azure.redis**.enabled                 | Whether an Azure Cache for Redis is enabled. | true          | No       |
-> | **spring.cloud.azure.redis**.name                    | Azure Cache for Redis instance name.         |               | Yes      |
-> | **spring.cloud.azure.redis**.resource.resource-group | The resource group of Azure Cache for Redis. |               | Yes      |
-> | **spring.cloud.azure**.profile.subscription-id       | The subscription ID.                         |               | Yes      |
-> | **spring.data.redis.azure**.passwordless-enabled | Whether to enable passwordless for Azure Cache for Redis. | false      | No      |
+> | Property                                             | Description                                               | Default Value | Required |
+> |------------------------------------------------------|-----------------------------------------------------------|---------------|----------|
+> | **spring.cloud.azure.redis**.enabled                 | Whether an Azure Cache for Redis is enabled.              | true          | No       |
+> | **spring.cloud.azure.redis**.name                    | Azure Cache for Redis instance name.                      |               | Yes      |
+> | **spring.cloud.azure.redis**.resource.resource-group | The resource group of Azure Cache for Redis.              |               | Yes      |
+> | **spring.cloud.azure**.profile.subscription-id       | The subscription ID.                                      |               | Yes      |
+> | **spring.data.redis.azure**.passwordless-enabled     | Whether to enable passwordless for Azure Cache for Redis. | false         | No       |
 
 #### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
 
 Configurable properties when using Redis support:
 
 > [!div class="mx-tdBreakAll"]
-> | Property                                             | Description                                  | Default Value | Required |
-> |------------------------------------------------------|----------------------------------------------|---------------|----------|
-> | **spring.cloud.azure.redis**.enabled                 | Whether an Azure Cache for Redis is enabled. | true          | No       |
-> | **spring.cloud.azure.redis**.name                    | Azure Cache for Redis instance name.         |               | Yes      |
-> | **spring.cloud.azure.redis**.resource.resource-group | The resource group of Azure Cache for Redis. |               | Yes      |
-> | **spring.cloud.azure**.profile.subscription-id       | The subscription ID.                         |               | Yes      |
-> | **spring.redis.azure**.passwordless-enabled | Whether to enable passwordless for Azure Cache for Redis. | false        | No      |
+> | Property                                             | Description                                               | Default Value | Required |
+> |------------------------------------------------------|-----------------------------------------------------------|---------------|----------|
+> | **spring.cloud.azure.redis**.enabled                 | Whether an Azure Cache for Redis is enabled.              | true          | No       |
+> | **spring.cloud.azure.redis**.name                    | Azure Cache for Redis instance name.                      |               | Yes      |
+> | **spring.cloud.azure.redis**.resource.resource-group | The resource group of Azure Cache for Redis.              |               | Yes      |
+> | **spring.cloud.azure**.profile.subscription-id       | The subscription ID.                                      |               | Yes      |
+> | **spring.redis.azure**.passwordless-enabled          | Whether to enable passwordless for Azure Cache for Redis. | false         | No       |
 
 ---
 

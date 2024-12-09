@@ -276,10 +276,8 @@ You can use connection string authentication directly or use the Azure Resource 
 ###### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 > [!NOTE]
-> Since version of 5.0.0, when using connection string authentication with Spring Cloud Stream framework, the following property is still required to ensure that the connection string can take effect, where the value of *`<kafka-binder-name>`* should be `kafka` when there is no customized configuration for your Kafka binder name.
+> Since version of 5.0.0, when using connection string authentication with Spring Cloud Stream framework, the following property is still required to ensure that the connection string can take effect, where the value of `<kafka-binder-name>` should be `kafka` when there is no customized configuration for your Kafka binder name: `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.implementation.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration`
 >
-> `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.implementation.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration`
-> 
 > If the version of `spring-cloud-dependencies` you used is `2022.0.0`, you'll encounter exception the `java.lang.IllegalStateException: kafka_context has not been refreshed yet`. To solve this problem, upgrade to a higher version.
 
 ###### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
@@ -287,9 +285,7 @@ You can use connection string authentication directly or use the Azure Resource 
 > [!NOTE]
 > Since version of 4.3.0, connection string authentication is deprecated in favor of OAuth authentications.
 >
-> Since version of 4.5.0, when using connection string authentication with Spring Cloud Stream framework, the following property is required to ensure that the connection string can take effect, where the value of *`<kafka-binder-name>`* should be `kafka` when there is no customized configuration for your Kafka binder name.
->
-> `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration`
+> Since version of 4.5.0, when using connection string authentication with Spring Cloud Stream framework, the following property is required to ensure that the connection string can take effect, where the value of `<kafka-binder-name>` should be `kafka` when there is no customized configuration for your Kafka binder name: `spring.cloud.stream.binders.<kafka-binder-name>.environment.spring.main.sources=com.azure.spring.cloud.autoconfigure.eventhubs.kafka.AzureEventHubsKafkaAutoConfiguration`
 
 ---
 

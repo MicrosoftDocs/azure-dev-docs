@@ -293,7 +293,7 @@ public class AadOAuth2ResourceServerSecurityConfig {
 
 Option 1: Use the default configuration.
 
-With this option, you don't need to anything. The `DefaultAadResourceServerWebSecurityConfigurerAdapter` class is configured automatically.
+With this option, you don't need to do anything. The `DefaultAadResourceServerWebSecurityConfigurerAdapter` class is configured automatically.
 
 Option 2: Provide a self-defined configuration.
 

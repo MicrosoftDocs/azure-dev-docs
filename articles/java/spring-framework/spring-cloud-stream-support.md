@@ -445,11 +445,11 @@ A `PartitionSupplier` with user-provided partition information is created to con
 
   **Error Handler**:
 
-  Spring Cloud Stream exposes mechanism for you to provide custom error handler by adding `Consumer` that accepts `ErrorMessage` instances. For more information, see [Handle Error Messages](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#_handle_error_messages) in the Spring Cloud Stream documentation.
+  Spring Cloud Stream exposes a mechanism for you to provide a custom error handler by adding a `Consumer` that accepts `ErrorMessage` instances. For more information, see [Handle Error Messages](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#_handle_error_messages) in the Spring Cloud Stream documentation.
 
   * Binding-default error handler
 
-    Configure a single `Consumer` bean to consume all inbound binding error messages. The following default function subscribes to each inbound binding error channel.
+    Configure a single `Consumer` bean to consume all inbound binding error messages. The following default function subscribes to each inbound binding error channel:
 
     ```java
     @Bean
@@ -464,7 +464,7 @@ A `PartitionSupplier` with user-provided partition information is created to con
 
   * Binding-specific error handler
 
-    Configure a `Consumer` bean to consume the specific inbound binding error messages. The following function subscribes to the specific inbound binding error channel and has a higher priority than the binding-default error handler.
+    Configure a `Consumer` bean to consume the specific inbound binding error messages. The following function subscribes to the specific inbound binding error channel and has a higher priority than the binding-default error handler:
 
     ```java
     @Bean
