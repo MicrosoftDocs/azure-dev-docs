@@ -943,6 +943,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
     * **Resource group**: Use the group created previously that contains the Azure Container Registry.
     * **Container app name**: *python-container-app*.
+    * **Deployment source**: Make sure that **Container image** is selected.
     * **Region**: Use the same region/location as the resource group.
     * **Container Apps Environment**: Select **Create new** to create a new environment named *python-container-env*.
 
@@ -952,15 +953,11 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
 1. On the **Container** tab, continue configuring the container app.
 
-    * **Use quickstart image**: Unselect checkbox.
-    * **Name**: *python-container-app*.
-    * **Image Source**: Select *Azure Container Registry*.
+    * **Use quickstart image**: Make sure the checkbox is not selected.
+    * **Image source**: Make sure **Azure Container Registry** is selected.
     * **Registry**: Select the name of registry you created earlier.
     * **Image name**: Select *pythoncontainer* (the name of the image you built).
     * **Image tag**: Select *latest*.
-    * **HTTP Ingress**:  Select checkbox (enabled).
-    * **Ingress traffic**: Select **Accepting traffic from anywhere**.
-    * **Target port**: Set to 8000 for Django or 5000 for Flask.
 
     Under **Environment variables**, enter values for the following variables:
 
@@ -981,7 +978,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
 1. Under the **Ingress** tab, continue configuring the container app.
 
-    * **Ingress**:  Select checkbox (enabled).
+    * **Ingress**:  Select the **Enabled** checkbox. More selections appear.
     * **Ingress traffic**: Select **Accepting traffic from anywhere**.
     * **Target port**: Set to 8000 for Django or 5000 for Flask.
 
@@ -999,7 +996,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     1. When the operation completes, you're returned to the **User assigned** tab. Verify that **my-ua-managed-id** appears in the list of identities.
 
     > [!TIP]
-    > Instead of defining environment variables as shown above, you can use [Service Connector][9]. Service Connector helps you connect to Azure compute services to other backing services by configuring connection information and generating and storing environment variables for you. If you use a service connector, make sure you synchronize the environment variables in the sample code to the environment variables created with Service Connector.
+    > Instead of adding the managed identity and defining environment variables, you can use [Service Connector][9]. Service Connector helps you connect to Azure compute services to other backing services by configuring connection information and generating and storing environment variables for you. If you use a service connector, make sure you synchronize the environment variables in the sample code to the environment variables created with Service Connector.
 
 1. Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
 
