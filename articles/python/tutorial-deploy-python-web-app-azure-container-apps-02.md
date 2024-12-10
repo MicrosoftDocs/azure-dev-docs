@@ -261,6 +261,9 @@ These steps require the [Docker extension][6] for VS Code.
 
 ---
 
+> [!NOTE]
+> The steps in this section create a container registry in the Basic service tier. This tier is cost-optimized, with a feature set and throughput targeted for developer scenarios, and is suitable for the requirements of this tutorial. In production scenarios, you would most likely use either the Standard or Premium service tier. These tiers provide enhanced levels of storage and throughput. To learn more, see [Azure Container Registry service tiers](/azure/container-registry/container-registry-skus). For information about pricing, see [Azure Container Registry pricing](https://azure.microsoft.com/pricing/details/container-registry/).
+
 ## Create a PostgreSQL Flexible Server instance
 
 The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a PostgreSQL database. In these steps, you create the server that will contain the database.
@@ -374,7 +377,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
 
     :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-04.png" alt-text="Screenshot showing how to Confirm adding local workstation IP as firewall rule for Azure PostgreSQL Flexible Server instance in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-04.png":::
 
-1. The following steps require the Azure CLI. If you have the Azure CLI installed locally, open a terminal prompt in VS Code. Otherwise, open an Azure Cloud Shell in VS Code, or open the [Azure Cloud Shell][4] in a browser. To open Azure Cloud Shell directly in VS Code, you can select the dropdown arrow in the terminal view and select **Azure Cloud Shell (Bash)**. For more detailed instructions, see **Azure Cloud Shell** on the [Azure Resources for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) page in Visual Studio Marketplace.
+1. The following steps require the Azure CLI. If you have the Azure CLI installed locally, you can run them in a terminal prompt; otherwise, open the [Azure Cloud Shell][4] in a browser.
 
 1. Use the [az postgres flexible-server firewall-rule create](/cli/azure/postgres/flexible-server/firewall-rule#az-postgres-flexible-server-firewall-rule-create) command to add a rule to allow your web app to access the PostgreSQL Flexible server. In the following command, you configure the server's firewall to accept connections from all Azure resources.
 
@@ -448,6 +451,9 @@ These steps require the [Azure Databases extension][26] for VS Code.
 
 ---
 
+> [!NOTE]
+> The steps in this section create a PostgreSQL server with a single vCore and limited memory in the Burstable pricing tier. The Burstable tier is a lower cost option for workloads that don't need the full CPU continuously, and is suitable for the requirements of this tutorial. For production workloads, you might upgrade to either the General Purpose or Memory Optimized pricing tier. These tiers provide higher performance, but increase costs. To learn more, see [Compute options in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-compute). For information about pricing, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/en-us/pricing/details/postgresql/flexible-server/).
+
 ## Create a database on the server
 
 At this point, you have a PostgreSQL server. In this section, you create a database on the server.
@@ -509,7 +515,7 @@ az identity create --name my-ua-managed-id --resource-group pythoncontainer-rg
 
 ### [VS Code](#tab/vscode-aztools)
 
-There isn't currently a VS Code extension that supports creating user-assigned managed identities.  Follow the steps for Azure CLI or Azure portal.
+There isn't currently a VS Code extension that supports creating user-assigned managed identities.  Follow the steps for Azure CLI or the Azure portal.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -530,7 +536,7 @@ There isn't currently a VS Code extension that supports creating user-assigned m
 
 ## Configure the managed identity on the PostgreSQL database
 
-Configure the managed identity as a role on the PostgreSQL server and then grant it necessary permissions for the *restaurants_reviews* database. Whether using the Azure CLI or psql, you must connect to the Azure PostgreSQL server with user that is configured as a Microsoft Entra admin on your server instance. Only Microsoft Entra accounts configured as a PostreSQL admin can configure managed identities and other Microsoft Admin roles on your server.
+Configure the managed identity as a role on the PostgreSQL server and then grant it necessary permissions for the *restaurants_reviews* database. Whether using the Azure CLI or psql, you must connect to the Azure PostgreSQL server with a user that is configured as a Microsoft Entra admin on your server instance. Only Microsoft Entra accounts configured as a PostreSQL admin can configure managed identities and other Microsoft Admin roles on your server.
 
 ### [Azure CLI](#tab/configure-database-azure-cli)
 
