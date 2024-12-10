@@ -164,6 +164,12 @@ sections:
           During deploy, `azd` first discovers all the resource groups that make up your application by looking for groups tagged with `azd-env-name` and with a value that matches the name of your environment. Then, it enumerates all the resources in each of these resource groups, looking for a resource tagged with `azd-service-name` with a value that matches the name of your service from `azure.yaml`.
 
           While we recommend using tags on resources, you can also use the `resourceName` property in `azure.yaml` to provide an explicit resource name. In that case, the above logic isn't run.
+      - question: How do I deploy specific services in my project while skipping others?
+        answer: |
+          When deploying your project, you can choose to deploy specific services either by specifying the service name in the command (i.e `azd deploy api`) or by navigating to a subfolder that contains just the service(s) you want to deploy. When doing so, all other services will be listed as `- Skipped`. 
+
+          If you do not want to skip any services, be sure to either run your command from the root folder or add the `--all` flag to your command. 
+
 
   - name: "Command: azd up"
     questions:
