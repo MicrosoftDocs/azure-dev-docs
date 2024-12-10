@@ -4,7 +4,7 @@ description: Shows how to deploy WebSphere Application Server to Azure Virtual M
 author: KarlErickson
 ms.author: jiangma
 ms.topic: tutorial
-ms.date: 12/05/2024
+ms.date: 12/10/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-websphere, devx-track-javaee-was, devx-track-javaee-was-vm, migration-java, devx-track-extended-java
 ---
 
@@ -132,7 +132,7 @@ Use the following steps to fill out the **Basics** pane:
 
 Use the following steps to fill out the **Cluster configuration** pane:
 
-1. For **Password for VM administrator**, provide a password. Consider using **SSH Public Key** as VM authentication type for better security.
+1. For **Password for VM administrator**, provide a password. For better security, consider using **SSH Public Key** as the VM authentication type.
 1. For **Password for WebSphere administrator**, provide a password. Save aside the username and password for **WebSphere administrator**.
 1. Leave the defaults for other fields.
 1. Select **Next** to go to the **Load balancer** pane.
@@ -141,7 +141,7 @@ Use the following steps to fill out the **Cluster configuration** pane:
 
 Use the following steps to fill out the **Load balancer** pane:
 
-1. For **Password for VM administrator**, provide a password. Consider using **SSH Public Key** as VM authentication type for better security.
+1. For **Password for VM administrator**, provide a password. For better security, consider using **SSH Public Key** as the VM authentication.
 1. For **Password for IBM HTTP Server administrator**, provide a password.
 1. Leave the defaults for other fields.
 1. Select **Next** to go to the **Networking** pane.

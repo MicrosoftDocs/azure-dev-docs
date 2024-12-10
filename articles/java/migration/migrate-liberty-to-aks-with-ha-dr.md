@@ -4,7 +4,7 @@ description: Shows you how to deploy WebSphere Liberty/Open Liberty to Azure Kub
 author: KarlErickson
 ms.author: jiangma
 ms.topic: tutorial
-ms.date: 12/05/2024
+ms.date: 12/10/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-websphere, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, migration-java, devx-track-extended-java
 ---
 
@@ -43,7 +43,7 @@ This tutorial was written with the Azure Backup and Azure SQL Database services 
 - Make sure you're assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 - Prepare a local machine with Windows, Linux, or macOS installed.
 - [Install the Azure CLI](/cli/azure/install-azure-cli) 2.62.0 or above to run Azure CLI commands.
-  - Sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
+  - Sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli).
   - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - Install and set up [Git](/devops/develop/git/install-and-set-up-git).
@@ -84,7 +84,7 @@ Then, create an Azure SQL Database failover group by following the Azure portal 
 1. After you complete all the steps in the section [Test planned failover](/azure/azure-sql/database/failover-group-configure-sql-db?view=azuresql-db&preserve-view=true&tabs=azure-portal&pivots=azure-sql-single-db#test-planned-failover), keep the failover group page open and use it for the failover test of the WebSphere Liberty/Open Liberty clusters later.
 
 > [!NOTE]
-> This article guides you to create an Azure SQL Database single database with SQL authentication for simplicity because the HA/DR setup this article focuses on is already very complex. A more secure practice is to use [Microsoft Entra authentication for Azure SQL](/azure/azure-sql/database/authentication-aad-overview?preserve-view=true&view=azuresql-db) for authenticating the database server connection. Consider referencing the article [Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-liberty-app?tabs=in-bash) for how to configure the database connection with Microsoft Entra authentication for your needs.
+> This article guides you to create an Azure SQL Database single database with SQL authentication for simplicity because the HA/DR setup this article focuses on is already very complex. A more secure practice is to use [Microsoft Entra authentication for Azure SQL](/azure/azure-sql/database/authentication-aad-overview?preserve-view=true&view=azuresql-db) for authenticating the database server connection. For information on how to configure the database connection with Microsoft Entra authentication, see [Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-liberty-app?tabs=in-bash).
 
 ## Set up the primary WebSphere Liberty/Open Liberty cluster on AKS
 
@@ -235,12 +235,12 @@ Use the following steps to deploy and run a sample CRUD Java/Jakarta EE applicat
    export DB_NAME=mySampleDatabase
    export DB_USER=azureuser@<failover-group-name>
    export DB_PASSWORD='<SQL-Server-admin-login-password>'
-   export REGISTRY_NAME=<ACR-registry-nam>
+   export REGISTRY_NAME=<ACR-registry-name>
    export LOGIN_SERVER=<ACR-login-server>
    export INGRESS_TLS_SECRET=<TLS-secret-name>
    ```
 
-1. Use the [`az acr build`](/cli/azure/acr#az-acr-build) command to build and push the Docker image to the Container Registry.
+1. Use the [`az acr build`](/cli/azure/acr#az-acr-build) command to build and push the Docker image to the Container Registry, as shown in the following example:
 
    ```azurecli
    cd $BASE_DIR/java-app
