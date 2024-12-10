@@ -294,7 +294,8 @@ This section describes the process of creating the necessary folders and files t
     # Add an executable target named 'azure_sample' built from the main.cpp source file
     add_executable(azure_sample main.cpp)
     
-    # Link the azure-identity and azure-security-keyvault-secrets libraries to the azure_sample target
+    # Link the azure-identity and azure-security-keyvault-secrets 
+    # libraries to the azure_sample target
     target_link_libraries(azure_sample PRIVATE
         Azure::azure-identity
         Azure::azure-security-keyvault-secrets
@@ -331,8 +332,11 @@ This section describes the process of creating the necessary folders and files t
     
             // Get the Secret
             KeyVaultSecret secret = secretClient.GetSecret(secretName).Value;
-            std::string valueString = secret.Value.HasValue() ? secret.Value.Value() : "NONE RETURNED";
-            std::cout << "Secret is returned with name " << secret.Name << " and value " << valueString << std::endl;
+            std::string valueString = secret.Value.HasValue()
+                                          ? secret.Value.Value()
+                                          : "NONE RETURNED";
+            std::cout << "Secret is returned with name " << secret.Name
+                      << " and value " << valueString << std::endl;
         }
         catch (Azure::Core::Credentials::AuthenticationException const &e)
         {
