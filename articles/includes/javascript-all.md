@@ -406,8 +406,8 @@
 | Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.3.0) |  |  |
 | Unknown Display Name | npm [0.62.0](https://www.npmjs.com/package/@typespec/events/v/0.62.0) |  |  |
 | Unknown Display Name | npm [0.1.3](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.3) |  |  |
-| Unknown Display Name | npm [0.3.12](https://www.npmjs.com/package/@typespec/http-client-python/v/0.3.12) |  |  |
-| Unknown Display Name | npm [0.1.0-alpha.3](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.3) |  |  |
+| Unknown Display Name | npm [0.4.2](https://www.npmjs.com/package/@typespec/http-client-python/v/0.4.2) |  |  |
+| Unknown Display Name | npm [0.1.0-alpha.4](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.4) |  |  |
 | Unknown Display Name | npm [0.62.0](https://www.npmjs.com/package/@typespec/sse/v/0.62.0) |  |  |
 | Unknown Display Name | npm [0.62.0](https://www.npmjs.com/package/@typespec/streams/v/0.62.0) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/ts-http-runtime/v/0.1.0) |  |  |
@@ -569,7 +569,7 @@
 | AutoRest - Go | npm [4.0.0-preview.69](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.69) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.26.7](https://www.npmjs.com/package/@autorest/python/v/6.26.7) |  | GitHub [6.26.7](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.27.0](https://www.npmjs.com/package/@autorest/python/v/6.27.0) |  | GitHub [6.27.0](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
