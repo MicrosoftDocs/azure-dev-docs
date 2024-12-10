@@ -509,7 +509,7 @@ az identity create --name my-ua-managed-id --resource-group pythoncontainer-rg
 
 ### [VS Code](#tab/vscode-aztools)
 
-Either open a terminal window and follow the steps for Azure CLI or follow the steps for [Azure portal][3].
+There isn't currently a VS Code extension that supports creating user-assigned managed identities.  Follow the steps for Azure CLI or Azure portal.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -786,10 +786,10 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
     * Open a terminal in VS Code and enter the following commands. You can also enter the commands from Azure Cloud Shell.
 
-    * Get the client ID of the managed identity.
+    * Get the client ID of the managed identity with the [az identity show](/cli/azure/identity#az-identity-show) command.
 
         ```azurecli
-        az identity show --name my-ua-managed-id --resource-group pythoncontainer-rg --query id -o tsv
+        az identity show --name my-ua-managed-id --resource-group pythoncontainer-rg --query clientId -o tsv
         ```
 
         The client ID is a GUID. You use it to set an environment variable in the next step.
@@ -829,21 +829,22 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
     Start the container apps environment create task:
 
     * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
-    * Type "containers apps".
+    * Type "container apps".
     * Select the task **Azure Container Apps: Create Container Apps Environment**
 
     Alternatively, you can open the Azure extension and select **+** icon in the **Resources** section. 
 
     Follow the prompts to create the container app environment:
 
-    * **Enter a container apps environment name**: Enter a name.
+    * If you're prompted, select your subscription.
+    * **Enter a container apps environment name**: Enter "python-container-env".
     * **Select a location for new resources**: Choose the same location that resource group you created previously.
 
     It takes several minutes to create the environment. A notification shows the progress of the operation. Look for "Successfully created new Container Apps environment" before going to the next step. The environment is created in a resource group of the same name "python-container-env".
 
     :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-02.gif" alt-text="Screenshot showing how to create an environment for Azure Container Apps in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-02.gif":::
 
-1. After the environment is created, create a container app in it. by finding the **Azure Container Apps: Create Container App** task in the command palette. 
+1. After the environment is created, create a container app in it. by finding the **Azure Container Apps: Create Container App** task in the command palette.
 
     Start the container app create task:
 
@@ -870,7 +871,9 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
     :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-03.gif" alt-text="Screenshot showing how to create an Azure Container app in an environment in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-03.gif":::
 
-1. Configure the user-assigned managed identity on the container app.
+    A notification shows the progress of the operation. Look for "Successfully created new Container App environment" before going to the next step. The container app is created in the same resource group as the container app environment "python-container-env".
+
+1. After the container app is created, configure the user-assigned managed identity on it.
 
     * Open a terminal in VS Code and enter the following Azure CLI commands. You can also enter the commands from Azure Cloud Shell.
 
@@ -882,16 +885,18 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
         The resource ID has the following form: */subscriptions/\<subscription ID>/resourcegroups/pythoncontainer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-ua-managed-id*
 
-    * Assign the managed identity to the container app.
+    * Assign the managed identity to the container app with the [az containerapp identity assign](/cli/azure/containerapp/identity#az-containerapp-identity-assign) command.
 
         ```azurecli
         az containerapp identity assign  \
             --name python-container-app \
-            --resource-group pythoncontainer-rg  \
+            --resource-group container-app-environment  \
             --user-assigned <managed-identity-resource-id>      
         ```
 
         Replace the `<managed-identity-resource-id>` placeholder with the resource ID output by the previous command.
+
+        The resource group in this commmand is the same resource group that the container apps environment and container app were created in, *python-container-app*.
 
 1. For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
 
@@ -905,11 +910,11 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
 1. Test the website.
 
-    * After the create container task completes, you'll see a notification with a **Browse** button to go to the website.
-
-    If you miss the notification, go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container app and select **Browse**. You can also enter the **Azure Container Apps: Browse** task in the command palette and follow the prompts.
+    After the create container task completes, you'll see a notification with a **Browse** button to go to the website.
 
     :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-04.png" alt-text="Screenshot showing how to browse to an Azure Container app after it's created in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-04.png":::
+
+    If you miss the notification, go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container app and select **Browse**. You can also enter the **Azure Container Apps: Browse** task in the command palette and follow the prompts.
 
 ### [Azure portal](#tab/azure-portal)
 
