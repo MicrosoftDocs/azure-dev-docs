@@ -47,7 +47,7 @@ Azure Traffic Manager checks the health of your regions and routes the traffic a
 [!INCLUDE [ha-dr-for-wls-azure-sql-database-failover-group](includes/ha-dr-for-wls-azure-sql-database-failover-group.md)]
 
 > [!NOTE]
-> This article guides you to create an Azure SQL Database single database with SQL authentication for simplicity because the HA/DR setup this article focuses on is already very complex. A more secure practice is to use [Microsoft Entra authentication for Azure SQL](/azure/azure-sql/database/authentication-aad-overview?preserve-view=true&view=azuresql-db) for authenticating the database server connection. Consider referencing the article [Configure passwordless database connections for Java apps on Oracle WebLogic Servers](../ee/how-to-configure-passwordless-datasource.md) for how to configure the database connection with Microsoft Entra authentication for your needs.
+> This article guides you to create an Azure SQL Database single database with SQL authentication for simplicity because the HA/DR setup this article focuses on is already very complex. A more secure practice is to use [Microsoft Entra authentication for Azure SQL](/azure/azure-sql/database/authentication-aad-overview?preserve-view=true&view=azuresql-db) for authenticating the database server connection. Consider referencing the article [Configure passwordless database connections for Java apps on Oracle WebLogic Server](../ee/how-to-configure-passwordless-datasource.md) for how to configure the database connection with Microsoft Entra authentication for your needs.
 
 ## Set up paired WLS clusters on Azure VMs
 
@@ -106,7 +106,7 @@ The following steps show you how to fill out the **Database** pane:
 :::image type="content" source="media/migrate-weblogic-to-vms-with-ha-dr/portal-database.png" alt-text="Screenshot of the Azure portal that shows the Oracle WebLogic Server Cluster on Azure VMs Database pane." lightbox="media/migrate-weblogic-to-vms-with-ha-dr/portal-database.png":::
 
 > [!NOTE]
-> This article guides you to connect to an Azure SQL Database with SQL authentication for simplicity because the HA/DR setup this article focuses on is already very complex. A more secure practice is to use [Microsoft Entra authentication for Azure SQL](/azure/azure-sql/database/authentication-aad-overview?preserve-view=true&view=azuresql-db) for authenticating the database server connection. Consider referencing the article [Configure passwordless database connections for Java apps on Oracle WebLogic Servers](../ee/how-to-configure-passwordless-datasource.md) for how to configure the database connection with Microsoft Entra authentication for your needs.
+> This article guides you to connect to an Azure SQL Database with SQL authentication for simplicity because the HA/DR setup this article focuses on is already very complex. A more secure practice is to use [Microsoft Entra authentication for Azure SQL](/azure/azure-sql/database/authentication-aad-overview?preserve-view=true&view=azuresql-db) for authenticating the database server connection. Consider referencing the article [Configure passwordless database connections for Java apps on Oracle WebLogic Server](../ee/how-to-configure-passwordless-datasource.md) for how to configure the database connection with Microsoft Entra authentication for your needs.
 
 After a while, you should see the **Deployment** page where **Deployment is in progress** is displayed.
 
