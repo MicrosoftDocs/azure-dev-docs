@@ -161,13 +161,14 @@ These steps require the [Docker extension][6] for VS Code.
 
     * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
     * Type "Azure Container Registry".
-    * Select the task **Azure Container Registry: Create Registry**. 
+    * Select the task **Azure Container Registry: Create Registry**.
 
     :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-registry.png" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
 
     Follow the prompts to create a registry and a resource group:
 
-    * **Registry name**: The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
+    * If you're prompted, select the subscription you want to create resources in for this tutorial.
+    * **Registry name**: The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
     * **Select a SKU**: Select **Basic**.
     * **Create a new resource group**: Select this option to create the resource group.
     * **Resource group**: Create a new resource group named *pythoncontainer-rg*.
@@ -189,7 +190,7 @@ These steps require the [Docker extension][6] for VS Code.
 
     * **Tag image as**: Enter *pythoncontainer:latest*.
     * **Registry provider**: Select **Azure**.
-    * If you're asked to pick a subscription, select your subscription.
+    * If you're prompted, select your subscription.
     * **Registry**: Select the Container registry from the list.
     * **Select OS**: Select **Linux**.
 
@@ -209,7 +210,7 @@ These steps require the [Docker extension][6] for VS Code.
         --admin-enabled true
     ```
 
-    Alternatively, you can select the registry in the Docker extension, right-click, and select **Open in Portal**. Then you can follow the instructions in the **Azure portal** tab of this article to enable the administrator user account.
+    Alternatively, you can select the registry in the Docker extension, right-click, and select **Open in Portal**. Then you can follow the instructions in the Azure portal tab of this article to enable the administrator user account.
 
     You can view the credentials created for admin with:
 
@@ -351,7 +352,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
 
     * **Administrator Password**: Create a password for the administrator and confirm it.
 
-    * **Select a resource group for new resources**: Select a resource group to put the server in. Use the same resource group that you created the container registry in.
+    * **Select a resource group for new resources**: Select a resource group to put the server in. Use the same resource group that you created the container registry in, **pythoncontainer-rg**.
 
     * **Select a location for new resources**: Select the same location as the resource group and container registry.
 
@@ -359,32 +360,40 @@ These steps require the [Azure Databases extension][26] for VS Code.
 
     :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-02.gif" alt-text="Screenshot showing how to complete the task to create an Azure PostgreSQL Flexible Server instance in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-02.gif":::
 
-1. After the database is created, configure access from your local environment to the Azure Database for PostgreSQL server.
+1. After the server is created, configure access from your local environment to the Azure Database for PostgreSQL server.
 
-    First, confirm that the database was created by checking the **Azure: Activity Log** window. When you're sure the database exists then:
+    First, confirm that the server was created by checking the **Azure: Activity Log** window. When you're sure the server exists then:
 
     * Open the Command Palette (**F1** or **Ctrl** + **Shift** + **P**).
 
     * Search for and select **PostgreSQL: Configure Firewall**. (Select a subscription if prompted.)
 
-    * Select **PostgreSQL servers (Flexible)**, then select the database you created in the previous step. If the database name doesn't appear in the list, it's likely it hasn't finished being created.
+    * Select **PostgreSQL servers (Flexible)**, then select the server you created in the previous step. If the server doesn't appear in the list, it's likely it hasn't finished being created.
 
     * Select **Yes** in the dialog box to add your IP address to the firewall rules of the PostgreSQL server.
 
     :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-04.png" alt-text="Screenshot showing how to Confirm adding local workstation IP as firewall rule for Azure PostgreSQL Flexible Server instance in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-04.png":::
 
-1. The following steps require the Azure CLI. If you have the Azure CLI installed locally, open a terminal prompt in VS Code. Otherwise, open an [Azure Cloud Shell][25] in VS Code, or open the [Azure Cloud Shell][4] in a browser.
+1. The following steps require the Azure CLI. If you have the Azure CLI installed locally, open a terminal prompt in VS Code. Otherwise, open an Azure Cloud Shell in VS Code, or open the [Azure Cloud Shell][4] in a browser. To open Azure Cloud Shell directly in VS Code, you can select the dropdown arrow in the terminal view and select **Azure Cloud Shell (Bash)**. For more detailed instructions, see **Azure Cloud Shell** on the [Azure Resources for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups) page in Visual Studio Marketplace.
 
-1. Use the [az postgres flexible-server update](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-update) command to add a rule to allow your web app to access the PostgreSQL Flexible server. In the following command, you configure the server's firewall to accept connections from all Azure resources.
+1. Use the [az postgres flexible-server firewall-rule create](/cli/azure/postgres/flexible-server/firewall-rule#az-postgres-flexible-server-firewall-rule-create) command to add a rule to allow your web app to access the PostgreSQL Flexible server. In the following command, you configure the server's firewall to accept connections from all Azure resources.
 
     ```azurecli
-    az ad flexible-server update --resource-group pythoncontainer-rg --name <postgres-server-name> --public-access 0.0.0.0
+    az postgres flexible-server firewall-rule create \
+        --name <postgres-server_name> \
+        --resource-group pythoncontainer-rg \
+        --rule-name AllowAllAzureServices \
+        --start-ip-address 0.0.0.0 \
+        --end-ip-address 0.0.0.0
     ```
 
-1. Use the `az postgres flexible-server update` command to enable Microsoft Entra authentication on the server.
+1. Use the [az postgres flexible-server update](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-update) command to enable Microsoft Entra authentication on the server.
 
     ```azurecli
-    az ad flexible-server update --resource-group pythoncontainer-rg --name <postgres-server-name> --active-directory-auth Enabled
+    az postgres flexible-server update \
+        --resource-group pythoncontainer-rg \
+        --name <postgres-server-name> 
+        --active-directory-auth Enabled
     ```
 
 1. Use the [az ad signed-in-user show](/cli/azure/ad/signed-in-user#az-ad-signed-in-user-show) command to get the object ID of your user account to use in the next command.
