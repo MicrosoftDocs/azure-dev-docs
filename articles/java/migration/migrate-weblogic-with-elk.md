@@ -193,10 +193,6 @@ Use the following steps to set up custom log integration for WebLogic Server on 
         - For **Custom log file > Advanced options > Custom configurations:**, no configuration is provided.
         - For **Where to add this integration? > Existing hosts**, use **My first agent policy**.
 
-After you add all three log integrations, your **Custom Logs** screen should look similar to the following screenshot:
-
-:::image type="content" source="media/migrate-weblogic-with-elk/missing.png" alt-text="Screenshot of ..." lightbox="media/migrate-weblogic-with-elk/missing.png":::
-
 ## Searching WLS Logs in Kibana
 
 After integrating, use the following steps to begin analyzing the logs within Kibana:
