@@ -86,7 +86,7 @@ To ensure a smooth integration process, it's important to verify that git, and C
 
 ## Install vcpkg
 
-To manage and install the Azure SDK for C++ libraries, use vcpkg. vcpkg is a cross-platform package manager that simplifies the process of handling dependencies.
+To manage and install the Azure SDK for C++ libraries, use vcpkg. [vcpkg](https://learn.microsoft.com/vcpkg/get_started/overview) is a cross-platform package manager that simplifies the process of handling dependencies.
 
 ### [Windows - PowerShell](#tab/win-powershell)
 
