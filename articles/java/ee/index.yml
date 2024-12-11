@@ -93,6 +93,10 @@ landingContent:
             url: ../migration/migrate-weblogic-to-aks-within-an-existing-vnet.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
           - text: WebLogic to AKS with KEDA scaler based on Prometheus Metrics
             url: ../migration/migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+          - text: WebLogic to Azure VMs with Elastic
+            url: ../migration/migrate-weblogic-with-elk.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
+          - text: WebLogic to Azure VMs with Entra ID
+            url: ../migration/migrate-weblogic-with-entra-id-via-ldap.md?bc=/azure/developer/java/breadcrumb/toc.json&toc=/azure/developer/java/ee/toc.json
   - title: Migrate JBoss EAP to Azure
     linkLists:
       - linkListType: quickstart

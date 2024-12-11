@@ -24,31 +24,36 @@ items:
           href: migrate-tomcat-to-containers-on-azure-kubernetes-service.md
         - name: "Tutorial: Containerized Tomcat to AKS"
           href: /azure/migrate/tutorial-app-containerization-java-kubernetes?toc=/azure/developer/java/migration/toc.json&bc=/azure/developer/java/breadcrumb/toc.json
-    - name: WebLogic Server to Azure
+    - name: WebLogic Server to Azure VMs
       expanded: true
       items:
-        - name: WebLogic Server to AKS
-          href: migrate-weblogic-to-azure-kubernetes-service.md
         - name: WebLogic Server to Azure Virtual Machines
           href: migrate-weblogic-to-virtual-machines.md 
         - name: "Tutorial: WebLogic Server with App Gateway"
           href: migrate-weblogic-with-app-gateway.md       
         - name: "Tutorial: WebLogic to Azure VMs manual guidance"
-          href: migrate-weblogic-to-azure-vm-manually.md
+          href: migrate-weblogic-to-azure-vm-manually.md    
+        - name: "Tutorial: WebLogic to Azure VMs with high availability and disaster recovery"
+          href: migrate-weblogic-to-vms-with-ha-dr.md
+        - name: "Tutorial: WebLogic to Azure VMs with Elastic"
+          href: migrate-weblogic-with-elk.md
+        - name: "Tutorial: WebLogic to Azure VMs with Entra ID"
+          href: migrate-weblogic-with-entra-id-via-ldap.md
+    - name: WebLogic Server to AKS and App Service
+      expanded: true
+      items:
+        - name: WebLogic Server to AKS
+          href: migrate-weblogic-to-azure-kubernetes-service.md
         - name: "Tutorial: WebLogic to AKS with geo-redundancy"
           href: migrate-weblogic-to-aks-with-ha-geo-redundancy.md
         - name: "Tutorial: WebLogic to AKS within custom virtual network"
-          href: migrate-weblogic-to-aks-within-an-existing-vnet.md       
-        - name: "Tutorial: WebLogic to Azure VMs with high availability and disaster recovery"
-          href: migrate-weblogic-to-vms-with-ha-dr.md
+          href: migrate-weblogic-to-aks-within-an-existing-vnet.md
         - name: "Tutorial: WebLogic to AKS with KEDA scaler based on Prometheus Metrics"
           href: migrate-weblogic-to-aks-with-keda-scaler-based-on-prometheus-metrics.md
         - name: WebLogic Server to JBoss EAP on Azure App Service
           href: migrate-weblogic-to-jboss-eap-on-azure-app-service.md
         - name: WebLogic Server to WildFly on AKS
           href: migrate-weblogic-to-wildfly-on-azure-kubernetes-service.md
-        - name: Enable end-user authorization and authentication when migrating
-          href: migrate-weblogic-with-entra-id-via-ldap.md
     - name: WebSphere to Azure
       expanded: true
       items:
