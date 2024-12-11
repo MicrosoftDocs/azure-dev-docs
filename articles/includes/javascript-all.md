@@ -29,7 +29,7 @@
 | Communication Messages | npm [2.0.0](https://www.npmjs.com/package/@azure-rest/communication-messages/v/2.0.0) |  | GitHub [2.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/communication-messages_2.0.0/sdk/communication/communication-messages-rest/) |
 | Communication Phone Numbers | npm [1.2.0](https://www.npmjs.com/package/@azure/communication-phone-numbers/v/1.2.0)<br>npm [1.3.0-beta.4](https://www.npmjs.com/package/@azure/communication-phone-numbers/v/1.3.0-beta.4) | [docs](/javascript/api/overview/azure/communication-phone-numbers-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.2.0/sdk/communication/communication-phone-numbers/)<br>GitHub [1.3.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.3.0-beta.4/sdk/communication/communication-phone-numbers/) |
 | Communication Rooms | npm [1.1.1](https://www.npmjs.com/package/@azure/communication-rooms/v/1.1.1) | [docs](/javascript/api/overview/azure/communication-rooms-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-rooms_1.1.1/sdk/communication/communication-rooms/) |
-| Communication Sms | npm [1.1.0](https://www.npmjs.com/package/@azure/communication-sms/v/1.1.0)<br>npm [1.2.0-beta.1](https://www.npmjs.com/package/@azure/communication-sms/v/1.2.0-beta.1) | [docs](/javascript/api/overview/azure/communication-sms-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.1.0/sdk/communication/communication-sms/)<br>GitHub [1.2.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.2.0-beta.1/sdk/communication/communication-sms/) |
+| Communication Sms | npm [1.1.0](https://www.npmjs.com/package/@azure/communication-sms/v/1.1.0)<br>npm [1.2.0-beta.2](https://www.npmjs.com/package/@azure/communication-sms/v/1.2.0-beta.2) | [docs](/javascript/api/overview/azure/communication-sms-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.1.0/sdk/communication/communication-sms/)<br>GitHub [1.2.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-sms_1.2.0-beta.2/sdk/communication/communication-sms/) |
 | Confidential Ledger | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/confidential-ledger/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/confidential-ledger_1.0.0/sdk/confidentialledger/confidential-ledger-rest/) |
 | Container Registry | npm [1.1.0](https://www.npmjs.com/package/@azure/container-registry/v/1.1.0) | [docs](/javascript/api/overview/azure/container-registry-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.1.0/sdk/containerregistry/container-registry/) |
 | Content Safety | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-content-safety_1.0.0/sdk/contentsafety/ai-content-safety-rest/) |
@@ -375,9 +375,9 @@
 | @azure-tools/rest-api-diff | npm [0.1.7](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.1.7) |  |  |
 | @azure-tools/test-perf | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
 | @azure-tools/test-utils | npm [1.0.1](https://www.npmjs.com/package/@azure-tools/test-utils/v/1.0.1) |  |  |
-| @azure-tools/typespec-autorest-canonical | npm [0.9.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.9.0) |  |  |
-| @azure-tools/typespec-azure-portal-core | npm [0.48.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.48.0) |  |  |
-| @azure-tools/typespec-azure-rulesets | npm [0.48.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.48.0) |  |  |
+| @azure-tools/typespec-autorest-canonical | npm [0.10.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.10.0) |  |  |
+| @azure-tools/typespec-azure-portal-core | npm [0.49.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.49.0) |  |  |
+| @azure-tools/typespec-azure-rulesets | npm [0.49.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.49.0) |  |  |
 | @azure-tools/typespec-client-generator-cli | npm [0.14.2](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.14.2) |  |  |
 | @azure-tools/typespec-go | npm [0.3.4](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.4) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.6.0) |  |  |
@@ -392,24 +392,24 @@
 | @microsoft.azure/openapi-validator | npm [2.2.3](https://www.npmjs.com/package/@microsoft.azure/openapi-validator/v/2.2.3) |  |  |
 | @microsoft.azure/openapi-validator-rulesets | npm [2.1.3](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-rulesets/v/2.1.3) |  |  |
 | @typespec/best-practices | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
-| @typespec/bundler | npm [0.1.9](https://www.npmjs.com/package/@typespec/bundler/v/0.1.9) |  |  |
-| @typespec/http-server-javascript | npm [0.58.0-alpha.5](https://www.npmjs.com/package/@typespec/http-server-javascript/v/0.58.0-alpha.5) |  |  |
-| @typespec/playground | npm [0.6.0](https://www.npmjs.com/package/@typespec/playground/v/0.6.0) |  |  |
+| @typespec/bundler | npm [0.1.10](https://www.npmjs.com/package/@typespec/bundler/v/0.1.10) |  |  |
+| @typespec/http-server-javascript | npm [0.58.0-alpha.6](https://www.npmjs.com/package/@typespec/http-server-javascript/v/0.58.0-alpha.6) |  |  |
+| @typespec/playground | npm [0.6.1](https://www.npmjs.com/package/@typespec/playground/v/0.6.1) |  |  |
 | @typespec/tspd | npm [0.47.0-dev.0](https://www.npmjs.com/package/@typespec/tspd/v/0.47.0-dev.0) |  |  |
-| @typespec/xml | npm [0.62.0](https://www.npmjs.com/package/@typespec/xml/v/0.62.0) |  |  |
+| @typespec/xml | npm [0.63.0](https://www.npmjs.com/package/@typespec/xml/v/0.63.0) |  |  |
 | AI Chat Protocol | npm [1.0.0-beta.20240814.1](https://www.npmjs.com/package/@microsoft/ai-chat-protocol/v/1.0.0-beta.20240814.1) |  |  |
 | App Configuration Provider | npm [1.0.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer/v/1.0.1-preview) |  |  |
 | App Configuration Provider | npm [1.1.2](https://www.npmjs.com/package/@azure/app-configuration-provider/v/1.1.2) |  |  |
 | App Configuration Provider File Source | npm [1.0.1-preview](https://www.npmjs.com/package/@azure/app-configuration-importer-file-source/v/1.0.1-preview) |  |  |
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | tmlanguage-generator | npm [0.5.10](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.10) |  |  |
-| Unknown Display Name | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.3.0) |  |  |
-| Unknown Display Name | npm [0.62.0](https://www.npmjs.com/package/@typespec/events/v/0.62.0) |  |  |
-| Unknown Display Name | npm [0.1.3](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.3) |  |  |
+| Unknown Display Name | npm [0.4.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.4.0) |  |  |
+| Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/events/v/0.63.0) |  |  |
+| Unknown Display Name | npm [0.1.4](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.4) |  |  |
 | Unknown Display Name | npm [0.4.2](https://www.npmjs.com/package/@typespec/http-client-python/v/0.4.2) |  |  |
-| Unknown Display Name | npm [0.1.0-alpha.4](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.4) |  |  |
-| Unknown Display Name | npm [0.62.0](https://www.npmjs.com/package/@typespec/sse/v/0.62.0) |  |  |
-| Unknown Display Name | npm [0.62.0](https://www.npmjs.com/package/@typespec/streams/v/0.62.0) |  |  |
+| Unknown Display Name | npm [0.1.0-alpha.5](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.5) |  |  |
+| Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/sse/v/0.63.0) |  |  |
+| Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/streams/v/0.63.0) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/ts-http-runtime/v/0.1.0) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.11](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.11) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
@@ -488,7 +488,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20241201.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20241201.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20241211.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20241211.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
