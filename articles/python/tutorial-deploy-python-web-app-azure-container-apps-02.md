@@ -452,7 +452,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
 ---
 
 > [!NOTE]
-> The steps in this section create a PostgreSQL server with a single vCore and limited memory in the Burstable pricing tier. The Burstable tier is a lower cost option for workloads that don't need the full CPU continuously, and is suitable for the requirements of this tutorial. For production workloads, you might upgrade to either the General Purpose or Memory Optimized pricing tier. These tiers provide higher performance, but increase costs. To learn more, see [Compute options in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-compute). For information about pricing, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/en-us/pricing/details/postgresql/flexible-server/).
+> The steps in this section create a PostgreSQL server with a single vCore and limited memory in the Burstable pricing tier. The Burstable tier is a lower cost option for workloads that don't need the full CPU continuously, and is suitable for the requirements of this tutorial. For production workloads, you might upgrade to either the General Purpose or Memory Optimized pricing tier. These tiers provide higher performance, but increase costs. To learn more, see [Compute options in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-compute). For information about pricing, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/).
 
 ## Create a database on the server
 
