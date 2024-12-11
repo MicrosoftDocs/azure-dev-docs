@@ -161,7 +161,7 @@ Use the following steps to set up custom log integration for WebLogic Server on 
 
    1. In the textarea containing the text **Search for log messages**, enter the string **weblogic** and press <kbd>Enter</kdb>. You should see log messages containing the string **weblogic**.
 
-      :::image type="content" source="media/migrate-weblogic-with-elk/elastic-weblogic-domain-log.png" alt-text="Screenshot of log messages search pane with the "weblogic" search term highlighted." lightbox="media/migrate-weblogic-with-elk/elastic-weblogic-domain-log.png":::
+      :::image type="content" source="media/migrate-weblogic-with-elk/elastic-weblogic-domain-log.png" alt-text="Screenshot of log messages search pane with the 'weblogic' search term highlighted." lightbox="media/migrate-weblogic-with-elk/elastic-weblogic-domain-log.png":::
 
 1. Use the following steps to add integrations for server logs and HTTP access logs:
 
