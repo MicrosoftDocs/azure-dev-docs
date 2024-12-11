@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 
 # Tutorial: Migrate WebLogic Server to Azure with Elastic on Azure as the logging solution
 
-This tutorial walks you through deploying WebLogic Server (WLS) on Azure Virtual Machines (VMs) and integrating with Elastic Cloud (Elasticsearch). The steps show how to configure Elastic Custom Logs to capture log data from WLS. Finally, you use Kibana to search and analyze WLS logs. While each component is documented individually, this tutorial demonstrates how they integrate seamlessly to provide a robust log management solution for WLS on Azure.
+In this tutorial, you deploy WebLogic Server (WLS) on Azure Virtual Machines (VMs) and integrate with Elastic Cloud (Elasticsearch). You also configure Elastic Custom Logs to capture log data from WLS. Finally, you use Kibana to search and analyze WLS logs. While each component is documented individually, this tutorial demonstrates how they integrate seamlessly to provide a robust log management solution for WLS on Azure.
 
 :::image type="content" border="false" source="media/migrate-weblogic-with-elk/weblogic-elk.svg" alt-text="Diagram showing the relationship between WLS, App Gateway, and ELK.":::
 
@@ -44,11 +44,11 @@ WebLogic Server subsystems use logging services to track events such as applicat
 
 This tutorial focuses on configuring the following key WebLogic logs:
 
-1. Server Log Files: Typically found in the **logs** directory beneath the server instance's root. The path is usually as **DOMAIN_NAME/servers/SERVER_NAME/logs/SERVER_NAME.log**.
+- Server Log Files: Typically found in the **logs** directory beneath the server instance's root. The path is usually as **DOMAIN_NAME/servers/SERVER_NAME/logs/SERVER_NAME.log**.
 
-1. Domain Log Files: These logs provide an overview of domain status and are stored in the Administration Server's **logs** directory. The default path is **DOMAIN_NAME/servers/ADMIN_SERVER_NAME/logs/DOMAIN_NAME.log**.
+- Domain Log Files: These logs provide an overview of domain status and are stored in the Administration Server's **logs** directory. The default path is **DOMAIN_NAME/servers/ADMIN_SERVER_NAME/logs/DOMAIN_NAME.log**.
 
-1. HTTP Access Logs: By default, HTTP access logs share the server log's directory and rotation policy. The default path is **DOMAIN_NAME/servers/SERVER_NAME/logs/1access.log**. 
+- HTTP Access Logs: By default, HTTP access logs share the server log's directory and rotation policy. The default path is **DOMAIN_NAME/servers/SERVER_NAME/logs/1access.log**.
 
 You can configure and manage these logs to facilitate the integration with monitoring tools like Elastic on Azure, enabling centralized log analysis and alerting on WebLogic Server instances.
 
@@ -62,7 +62,7 @@ To access the virtual machine running WebLogic Server (WLS), use the steps in [C
 
 Elastic Cloud (Elasticsearch) for Azure is an Azure Native ISV Services you can get from Azure Marketplace and deploy with the Azure portal. Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Elastic Cloud - Azure Native ISV Service is developed and managed by Microsoft and Elastic. You create, provision, and manage Elastic resources through the Azure portal. Elastic owns and runs the SaaS application including the Elastic accounts created. For an overview of Elastic Cloud (Elasticsearch) see [What is Elastic Cloud (Elasticsearch) - An Azure Native ISV Service?](/azure/partner-solutions/elastic/overview)
 
-### Create Elastic on Azure 
+### Create Elastic on Azure
 
 To create an Elastic application, follow the steps in [QuickStart: Get started with Elastic](/azure/partner-solutions/elastic/create).
 
@@ -146,7 +146,7 @@ Use the following steps to set up custom log integration for WebLogic Server on 
    1. Under **Custom log file**, set the following properties:
 
       - For **Log file path**, use **/u01/domains/adminDomain/servers/admin/logs/adminDomain.log**.
-      - For **Dataset name**, se **generic**.
+      - For **Dataset name**, use **generic**.
 
    1. Expand **Advanced options**. For **Custom configurations**, set the following properties:
 
@@ -173,11 +173,11 @@ Use the following steps to set up custom log integration for WebLogic Server on 
 
       - For server log, use the following values:
 
-        - For **Integration settings > Integration name:**, use **log-weblogic-server-log**.
+        - For **Integration settings > Integration name**, use **log-weblogic-server-log**.
 
-        - For **Custom log file > Log file path:**, use **/u01/domains/adminDomain/servers/admin/logs/admin.log**.
+        - For **Custom log file > Log file path**, use **/u01/domains/adminDomain/servers/admin/logs/admin.log**.
 
-        - For **Custom log file > Advanced options > Custom configurations:**, use the following values:
+        - For **Custom log file > Advanced options > Custom configurations**, use the following values:
 
           - For **multiline.type**, use **pattern**.
           - For **multiline.pattern**, use **'^####'**.
@@ -188,12 +188,12 @@ Use the following steps to set up custom log integration for WebLogic Server on 
 
       - For HTTP access logs, use the following values:
 
-        - For **Integration settings > Integration name:**, use **log-http-access-log**.
-        - For **Custom log file > Log file path:**, use **/u01/domains/adminDomain/servers/admin/logs/access.log**.
-        - For **Custom log file > Advanced options > Custom configurations:**, no configuration is provided.
+        - For **Integration settings > Integration name**, use **log-http-access-log**.
+        - For **Custom log file > Log file path**, use **/u01/domains/adminDomain/servers/admin/logs/access.log**.
+        - For **Custom log file > Advanced options > Custom configurations**, no configuration is provided.
         - For **Where to add this integration? > Existing hosts**, use **My first agent policy**.
 
-## Searching WLS Logs in Kibana
+## Search WLS Logs in Kibana
 
 After integrating, use the following steps to begin analyzing the logs within Kibana:
 
@@ -234,7 +234,7 @@ Use the following steps to clean up WLS:
 
 Follow the same steps as in the preceding section to delete Elastic on Azure, but use the resource group name of the Elastic on Azure deployment as the resource group to delete.
 
-## Next steps
+## Next step
 
 Continue your migration journey by exploring WebLogic Server to Azure Virtual Machines.
 
