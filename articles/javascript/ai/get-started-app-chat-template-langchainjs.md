@@ -2,7 +2,7 @@
 title: "Get started with Serverless AI Chat using LangChain.js"
 description: "Use LangChainjs to simplify the interaction between the Azure OpenAI and Azure AI Search to answer a chat answer."
 ms.topic: get-started 
-ms.date: 05/22/2024
+ms.date: 12/11/2024
 ms.subservice: intelligent-apps
 ms.custom: build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
@@ -14,7 +14,7 @@ ms.collection: ce-skilling-ai-copilot
 
 Creating AI apps can be complex. With LangChain.js, Azure Functions, and Serverless technologies, you can simplify this process. These tools manage infrastructure and scale automatically, letting you focus on chatbot functionality. The chatbot uses enterprise documents to generate AI responses.
 
-The code includes sample data for a fictitious company, Contoso Real Estate. Customers can ask support questions about the company's products. The data includes documents on the company's terms of service, privacy policy, and support guide.
+The code includes sample data for a fictitious company. Customers can ask support questions about the company's products. The data includes documents on the company's terms of service, privacy policy, and support guide.
 
 :::image type="content" source="../media/get-started-app-chat-langchainjs/demo.gif" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
 
@@ -27,19 +27,19 @@ The code includes sample data for a fictitious company, Contoso Real Estate. Cus
 
 The user interacts with the application:
 
-- With the chat interface in the client web app.
+- The chat interface in the client web app for the conversation.
 - The client web app sends the user's query to the Serverless API via HTTP calls.
 - The Serverless API creates a chain to coordinate interactions between Azure AI and Azure AI Search to generate an answer.
-- If there's a need to reference the documents, Azure Blob Storage is used to retrieve the PDF documents.
+- The PDF document retrieval by using Azure Blob Storage.
 - The generated response is then sent back to the web app and displayed to the user.
 
 A simple architecture of the chat app is shown in the following diagram:
 
 :::image type="content" source="../media/get-started-app-chat-langchainjs/simple-architecture-diagram.png" alt-text="Diagram showing architecture from client to backend app.":::
 
-### LangChainjs simplifies the complexity between services
+### LangChain.js simplifies the complexity between services
 
-The API flow is useful to understand how LangChainJS is helpful in this scenario by abstracting out the interactions. The **serverless API endpoint**:
+The API flow is useful to understand how LangChain.js is helpful in this scenario by abstracting out the interactions. The **serverless API endpoint**:
 
 - Receives the question from the user.
 - Creates client objects:
@@ -49,7 +49,7 @@ The API flow is useful to understand how LangChainJS is helpful in this scenario
 - Creates a retrieval chain from the document chain and the vector store.
 - Streams the responses from the retrieval chain.
 
-The developer's work is to correctly configure the dependencies services, such as Azure OpenAI and Azure AI Search and construct the chains correctly. The underlying chain logic knows how to resolve the query. This allows you to construct chains from many different services and configurations as long as they work with the LangChain requirements.
+The developer's work is to correctly configure the dependencies services, such as Azure OpenAI and Azure AI Search and construct the chains correctly. The underlying chain logic knows how to resolve the query. This allows you to construct chains from many different services and configurations as long as they work with the LangChain.js requirements.
 
 ### Where is Azure in this architecture?
 
@@ -75,16 +75,12 @@ To use this article, you need the following prerequisites:
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 - Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-- Access granted to Azure OpenAI in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
-- GitHub account
+- A GitHub account.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 - Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-- Access granted to Azure OpenAI in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
 - [Azure Developer CLI](/azure/developer/azure-developer-cli)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
 - [Visual Studio Code](https://code.visualstudio.com/)
@@ -94,7 +90,7 @@ To use this article, you need the following prerequisites:
 
 ## Open development environment
 
-Begin now with a development environment that has all the dependencies installed to complete this article. 
+Use the following instructions to deploy a preconfigured development environment containing all required dependencies to complete this article.
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
@@ -103,7 +99,7 @@ Begin now with a development environment that has all the dependencies installed
 > [!IMPORTANT]
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
-1. Open in Codespace.
+1. Open in codespace.
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/serverless-chat-langchainjs)
 
@@ -164,23 +160,23 @@ The sample repository contains all the code and configuration files you need to 
 > [!IMPORTANT]
 > Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed.
 
-1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
+1. Provision the Azure resources and deploy the source code by using the following Azure Developer CLI command:
 
     ```bash
     azd up
     ```
 
-1. Use the following table to answer the prompts:
+1. Answer the prompts by using the following table:
 
     |Prompt|Answer|
     |--|--|
     |Environment name|Keep it short and lowercase. Add your name or alias. For example, `john-chat`. It's used as part of the resource group name.|
-    |Subscription|Select the subscription to create the resources in. |
+    |Subscription|Select the subscription for creating resources. |
     |Location (for hosting)|Select a location near you from the list.|
     |Location for the OpenAI model|Select a location near you from the list. If the same location is available as your first location, select that.|
 
-1. Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
-1. After the application has been successfully deployed, you see two URLs displayed in the terminal.
+1. Wait until app is deployed. It might take 5-10 minutes for the deployment to complete.
+1. After the application successfully deploys, you see two URLs displayed in the terminal.
 1. Select that URL labeled `Deploying service webapp` to open the chat application in a browser.
 
 ### Use chat app to get answers from PDF files
@@ -206,7 +202,7 @@ The chat app is preloaded with rental information from a [PDF file catalog](http
 
 The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
 
-Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
+Delete the Azure resources and remove the source code with the following Azure Developer CLI command:
 
 ```bash
 azd down --purge

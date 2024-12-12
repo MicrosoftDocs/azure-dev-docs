@@ -1,7 +1,7 @@
 ---
 title: "Evaluating JavaScript chat apps with Azure OpenAI"
 description: "Learn how to effectively evaluate answers in your JavaScript RAG-based chat app using Azure OpenAI. Generate sample prompts, run evaluations, and analyze results."
-ms.date: 05/16/2024
+ms.date: 12/11/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-js-ai, build-2024-intelligent-apps
@@ -15,18 +15,15 @@ ms.collection: ce-skilling-ai-copilot
 ## Prerequisites
 
 * Azure subscription.  [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true) 
-* Access granted to Azure OpenAI in the desired Azure subscription.
 
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
-
-* Deploy a chat app 
+* Deploy a chat app.
 
     * [JavaScript](get-started-app-chat-template.md)
     * [JavaScript with LangChain.js](get-started-app-chat-template-langchainjs.md)
 
-* These chat apps load the data into the Azure AI Search resource. This resource is required for the evaluations app to work. Don't complete the **Clean up resources** section of the previous procedure.     
+* These chat apps load the data into the Azure AI Search resource. This resource is required for the evaluations app to work. Don't complete the **Clean up resources** section of the previous procedure.
 
-    You'll need the following Azure resource information from that deployment, which is referred to as the **chat app** in this article:
+    You need the following Azure resource information from that deployment, which is referred to as the **chat app** in this article:
 
     * Chat API URI: The service backend endpoint shown at the end of the `azd up` process. 
     * Azure AI Search. The following values are required:
@@ -42,12 +39,12 @@ ms.collection: ce-skilling-ai-copilot
     #### [Codespaces (recommended)](#tab/github-codespaces)
     
     * GitHub account
-    
+
     #### [Visual Studio Code](#tab/visual-studio-code)
     * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
     * [Visual Studio Code](https://code.visualstudio.com/)
     * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-    
+
     ---
 
 [!INCLUDE [evaluations-procedure](../../ai/includes/evaluations-procedure.md)]

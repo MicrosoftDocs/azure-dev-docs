@@ -1,5 +1,5 @@
 ---
-title: Configure passwordless database connections for Java apps on Oracle WebLogic Servers
+title: Configure passwordless database connections for Java apps on Oracle WebLogic Server
 description: Configure passwordless datasource connection using marketplace offers.
 author: KarlErickson
 ms.author: haiche
@@ -8,7 +8,7 @@ ms.date: 01/12/2023
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, devx-track-javaee-wls-vm, has-azure-ad-ps-ref, passwordless-java
 ---
 
-# Configure passwordless database connections for Java apps on Oracle WebLogic Servers
+# Configure passwordless database connections for Java apps on Oracle WebLogic Server
 
 This article shows you how to configure passwordless database connections for Java apps on Oracle WebLogic Server offers with the Azure portal.
 

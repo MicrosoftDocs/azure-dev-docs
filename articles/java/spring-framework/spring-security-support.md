@@ -81,26 +81,6 @@ Now, start your application and access your application through the browser. You
 
 ##### Add extra security configurations
 
-###### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-```java
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class AadOAuth2LoginSecurityConfig extends AadWebSecurityConfigurerAdapter {
-
-    /**
-     * Add configuration logic as needed.
-     */
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
-        http.authorizeRequests()
-                .anyRequest().authenticated();
-        // Do some custom configuration
-    }
-}
-```
-
 ###### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 ```java
@@ -121,6 +101,26 @@ public class AadOAuth2LoginSecurityConfig {
            // Do some custom configuration.
        return http.build();
    }
+}
+```
+
+###### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+```java
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class AadOAuth2LoginSecurityConfig extends AadWebSecurityConfigurerAdapter {
+
+    /**
+     * Add configuration logic as needed.
+     */
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        super.configure(http);
+        http.authorizeRequests()
+                .anyRequest().authenticated();
+        // Do some custom configuration
+    }
 }
 ```
 
@@ -255,27 +255,6 @@ Update `redirect-uri` in the Azure portal.
 
 After we set `redirect-uri-template`, we need to update the security builder:
 
-###### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-```java
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class AadOAuth2LoginSecurityConfig extends AadWebSecurityConfigurerAdapter {
-    /**
-     * Add configuration logic as needed.
-     */
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
-        http.oauth2Login()
-                .loginProcessingUrl("${REDIRECT-URI-TEMPLATE}")
-                .and()
-            .authorizeRequests()
-                .anyRequest().authenticated();
-    }
-}
-```
-
 ###### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 ```java
@@ -299,6 +278,27 @@ public class AadOAuth2LoginSecurityConfig {
                 .anyRequest().authenticated();
         // @formatter:on
         return http.build();
+    }
+}
+```
+
+###### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+```java
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class AadOAuth2LoginSecurityConfig extends AadWebSecurityConfigurerAdapter {
+    /**
+     * Add configuration logic as needed.
+     */
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        super.configure(http);
+        http.oauth2Login()
+                .loginProcessingUrl("${REDIRECT-URI-TEMPLATE}")
+                .and()
+            .authorizeRequests()
+                .anyRequest().authenticated();
     }
 }
 ```
@@ -539,23 +539,6 @@ For more information about the access token, see [MS docs about Microsoft identi
 
 ##### Add extra security configurations
 
-###### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-```java
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class AadOAuth2ResourceServerSecurityConfig extends AadResourceServerWebSecurityConfigurerAdapter {
-    /**
-     * Add configuration logic as needed.
-     */
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
-        http.authorizeRequests((requests) -> requests.anyRequest().authenticated());
-    }
-}
-```
-
 ###### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 ```java
@@ -576,6 +559,23 @@ public class AadOAuth2ResourceServerSecurityConfig {
             .anyRequest().authenticated();
         // @formatter:on
         return http.build();
+    }
+}
+```
+
+###### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+```java
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class AadOAuth2ResourceServerSecurityConfig extends AadResourceServerWebSecurityConfigurerAdapter {
+    /**
+     * Add configuration logic as needed.
+     */
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        super.configure(http);
+        http.authorizeRequests((requests) -> requests.anyRequest().authenticated());
     }
 }
 ```
@@ -869,40 +869,6 @@ spring:
 
 Configure multiple `SecurityFilterChain` instances. `AadWebApplicationAndResourceServerConfig` contains two security filter chain configurations for resource server and web application.
 
-##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-```java
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class AadWebApplicationAndResourceServerConfig {
-
-    @Order(1)
-    @Configuration
-    public static class ApiWebSecurityConfigurationAdapter extends AadResourceServerWebSecurityConfigurerAdapter {
-        protected void configure(HttpSecurity http) throws Exception {
-            super.configure(http);
-            // All the paths that match `/api/**`(configurable) work as `Resource Server`, other paths work as `Web application`.
-            http.antMatcher("/api/**")
-                .authorizeRequests().anyRequest().authenticated();
-        }
-    }
-
-    @Configuration
-    public static class HtmlWebSecurityConfigurerAdapter extends AadWebSecurityConfigurerAdapter {
-
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
-            super.configure(http);
-            // @formatter:off
-            http.authorizeRequests()
-                    .antMatchers("/login").permitAll()
-                    .anyRequest().authenticated();
-            // @formatter:on
-        }
-    }
-}
-```
-
 ##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 ```java
@@ -933,6 +899,40 @@ public class AadWebApplicationAndResourceServerConfig {
                 .anyRequest().authenticated();
         // @formatter:on
         return http.build();
+    }
+}
+```
+
+##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+```java
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class AadWebApplicationAndResourceServerConfig {
+
+    @Order(1)
+    @Configuration
+    public static class ApiWebSecurityConfigurationAdapter extends AadResourceServerWebSecurityConfigurerAdapter {
+        protected void configure(HttpSecurity http) throws Exception {
+            super.configure(http);
+            // All the paths that match `/api/**`(configurable) work as `Resource Server`, other paths work as `Web application`.
+            http.antMatcher("/api/**")
+                .authorizeRequests().anyRequest().authenticated();
+        }
+    }
+
+    @Configuration
+    public static class HtmlWebSecurityConfigurerAdapter extends AadWebSecurityConfigurerAdapter {
+
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            super.configure(http);
+            // @formatter:off
+            http.authorizeRequests()
+                    .antMatchers("/login").permitAll()
+                    .anyRequest().authenticated();
+            // @formatter:on
+        }
     }
 }
 ```
@@ -1057,33 +1057,6 @@ Grant admin consent for ***Graph*** permissions.
 
 Add the following dependencies to your *pom.xml* file.
 
-##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-```xml
-<dependencies>
-   <dependency>
-       <groupId>com.azure.spring</groupId>
-       <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
-   </dependency>
-   <dependency>
-       <groupId>org.springframework.boot</groupId>
-       <artifactId>spring-boot-starter-web</artifactId>
-   </dependency>
-   <dependency>
-       <groupId>org.springframework.boot</groupId>
-       <artifactId>spring-boot-starter-thymeleaf</artifactId>
-   </dependency>
-   <dependency>
-       <groupId>org.springframework.boot</groupId>
-       <artifactId>spring-boot-starter-security</artifactId>
-   </dependency>
-   <dependency>
-       <groupId>org.thymeleaf.extras</groupId>
-       <artifactId>thymeleaf-extras-springsecurity5</artifactId>
-   </dependency>
-</dependencies>
-```
-
 ##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 ```xml
@@ -1107,6 +1080,33 @@ Add the following dependencies to your *pom.xml* file.
    <dependency>
        <groupId>org.thymeleaf.extras</groupId>
        <artifactId>thymeleaf-extras-springsecurity6</artifactId>
+   </dependency>
+</dependencies>
+```
+
+##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+```xml
+<dependencies>
+   <dependency>
+       <groupId>com.azure.spring</groupId>
+       <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-web</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-thymeleaf</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-security</artifactId>
+   </dependency>
+   <dependency>
+       <groupId>org.thymeleaf.extras</groupId>
+       <artifactId>thymeleaf-extras-springsecurity5</artifactId>
    </dependency>
 </dependencies>
 ```
@@ -1164,30 +1164,6 @@ public class WebController {
 
 For your security configuration code, you can refer to the following example:
 
-##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-```java
-@EnableWebSecurity
-public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
-
-   private final AadB2cOidcLoginConfigurer configurer;
-
-   public WebSecurityConfiguration(AadB2cOidcLoginConfigurer configurer) {
-       this.configurer == configurer;
-   }
-
-   @Override
-   protected void configure(HttpSecurity http) throws Exception {
-       // @formatter:off
-       http.authorizeRequests()
-               .anyRequest().authenticated()
-               .and()
-           .apply(configurer);
-       // @formatter:off
-   }
-}
-```
-
 ##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 ```java
@@ -1211,6 +1187,30 @@ public class WebSecurityConfiguration {
         // @formatter:on
         return http.build();
     }
+}
+```
+
+##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+```java
+@EnableWebSecurity
+public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+   private final AadB2cOidcLoginConfigurer configurer;
+
+   public WebSecurityConfiguration(AadB2cOidcLoginConfigurer configurer) {
+       this.configurer == configurer;
+   }
+
+   @Override
+   protected void configure(HttpSecurity http) throws Exception {
+       // @formatter:off
+       http.authorizeRequests()
+               .anyRequest().authenticated()
+               .and()
+           .apply(configurer);
+       // @formatter:off
+   }
 }
 ```
 
@@ -1402,23 +1402,6 @@ class Demo {
 
 For your security configuration code, you can refer to the following example:
 
-##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-```java
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class ResourceServerConfiguration extends WebSecurityConfigurerAdapter {
-
-   @Override
-   protected void configure(HttpSecurity http) throws Exception {
-       http.authorizeRequests((requests) -> requests.anyRequest().authenticated())
-           .oauth2ResourceServer()
-           .jwt()
-               .jwtAuthenticationConverter(new AadJwtBearerTokenAuthenticationConverter());
-   }
-}
-```
-
 ##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
 ```java
@@ -1441,6 +1424,23 @@ public class ResourceServerConfiguration {
         // @formatter:on
         return http.build();
     }
+}
+```
+
+##### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
+
+```java
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class ResourceServerConfiguration extends WebSecurityConfigurerAdapter {
+
+   @Override
+   protected void configure(HttpSecurity http) throws Exception {
+       http.authorizeRequests((requests) -> requests.anyRequest().authenticated())
+           .oauth2ResourceServer()
+           .jwt()
+               .jwtAuthenticationConverter(new AadJwtBearerTokenAuthenticationConverter());
+   }
 }
 ```
 
