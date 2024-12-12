@@ -168,7 +168,7 @@ sections:
         answer: |
           When deploying your project, you can choose to deploy specific services either by specifying the service name in the command (i.e. `azd deploy api`) or by navigating to a subfolder that contains just the service(s) you want to deploy. When doing so, all other services will be listed as `- Skipped`. 
 
-          If you do not want to skip any services, be sure to either run your command from the root folder or add the `--all` flag to your command. 
+          If you don't want to skip any services, be sure to either run your command from the root folder or add the `--all` flag to your command. 
 
 
   - name: "Command: azd up"
