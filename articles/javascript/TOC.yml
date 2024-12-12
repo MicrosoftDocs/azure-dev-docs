@@ -149,7 +149,7 @@
       - name: On-premises apps
         href: sdk/authentication/on-premises-apps.md
       - name: Credential chains
-        href: sdk/credential-chains.md
+        href: sdk/authentication/credential-chains.md
       - name: Resource management
         items: 
         - name: "List subscriptions"
