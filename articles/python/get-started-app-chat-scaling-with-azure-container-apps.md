@@ -6,30 +6,28 @@ ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
-# CustomerIntent: As a python developer new to Azure OpenAI, I want to scale my OpenAI capacity to avoid rate limit errors.
+# CustomerIntent: As a Python developer new to Azure OpenAI, I want to scale my Azure OpenAI capacity to avoid rate limit errors.
 ---
 
-# Scale Azure OpenAI for Python chat using RAG with Azure Container Apps
+# Scale Azure OpenAI for Python chat by using RAG with Azure Container Apps
 
 [!INCLUDE [aca-load-balancer-intro](../ai/includes/scaling-load-balancer-introduction-azure-container-apps.md)]
 
 ## Prerequisites
 
-* Azure subscription.  [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true) 
-* Access granted to Azure OpenAI in the desired Azure subscription.
+* An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
+* Access granted to Azure OpenAI in the Azure subscription that you want. Currently, you must apply to gain access to this service. To apply for access to Azure OpenAI, use the links in [Limited access for Azure OpenAI Service](https://aka.ms/oai/access) to complete the form.
+* [Dev containers](https://containers.dev/) are available for both samples with all the dependencies that are required to complete this article. You can run the dev containers in GitHub Codespaces (in a browser) or locally by using Visual Studio Code.
 
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
-
-* [Dev containers](https://containers.dev/) are available for both samples, with all dependencies required to complete this article. You can run the dev containers in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
-
-    #### [Codespaces (recommended)](#tab/github-codespaces)
+    #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
     
-    * GitHub account
+    * A GitHub account.
     
     #### [Visual Studio Code](#tab/visual-studio-code)
-    * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-    * [Visual Studio Code](https://code.visualstudio.com/)
-    * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
+    * [Docker Desktop](https://www.docker.com/products/docker-desktop/). Start Docker Desktop if it's not already running
+    * [Visual Studio Code](https://code.visualstudio.com/).
+    * [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
     
     ---
 
@@ -45,11 +43,11 @@ ms.collection: ce-skilling-ai-copilot
 
 ## Sample code
 
-Samples used in this article include: 
+Samples used in this article include:
 
-* [Python chat app with RAG](https://github.com/Azure-Samples/azure-search-openai-demo)
-* [Load Balancer with Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)
+* [Python chat app with Retrieval Augmented Generation (RAG)](https://github.com/Azure-Samples/azure-search-openai-demo)
+* [Azure Load Balancer with Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)
 
-## Next step
+## Related content
 
-* Use [Azure Load Testing](/azure/load-testing/) to load test your chat app with 
+Use [Azure Load Testing](/azure/load-testing/) to load test your chat app.
