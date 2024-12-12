@@ -21,7 +21,7 @@ These examples are completed on the chat app sample.
     |JavaScript|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-javascript)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-javascript)|
     |Python|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo)|
 
-1. Sign in to the Azure Developer CLI (`AZD`).
+1. Sign in to the Azure Developer CLI (`AZD`):
 
     ```bash
     azd auth login
@@ -29,25 +29,25 @@ These examples are completed on the chat app sample.
 
     Finish the sign-in instructions.
 
-1. Create an `AZD` environment with a name such as `chat-app`.
+1. Create an `AZD` environment with a name such as `chat-app`:
 
     ```bash
     azd env new <name>
     ```
 
-1. Add the following environment variable, which tells the chat app's backend to use a custom URL for the Azure OpenAI requests.
+1. Add the following environment variable, which tells the chat app's backend to use a custom URL for the Azure OpenAI requests:
 
     ```bash
     azd env set OPENAI_HOST azure_custom
     ```
 
-1. Add the following environment variable, which tells the chat app's backend what the value is of the custom URL for the Azure OpenAI request.
+1. Add the following environment variable, which tells the chat app's backend what the value is of the custom URL for the Azure OpenAI request:
 
     ```bash
     azd env set AZURE_OPENAI_CUSTOM_URL <APIM_GATEWAY_URL>
     ```
 
-1. Deploy the chat app.
+1. Deploy the chat app:
 
     ```bash
     azd up
@@ -63,19 +63,19 @@ These examples are completed on the chat app sample.
     |JavaScript|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-javascript)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-javascript)|
     |Python|[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)|[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-demo)|
 
-1. Add the following environment variable, which tells the chat app's backend to use a custom URL for the Azure OpenAI requests.
+1. Add the following environment variable, which tells the chat app's backend to use a custom URL for the Azure OpenAI requests:
 
     ```bash
     azd env set OPENAI_HOST azure_custom
     ```
 
-1. Add the following environment variable, which tells the chat app's backend what the value is of the custom URL for the Azure OpenAI request.
+1. Add the following environment variable, which tells the chat app's backend what the value is of the custom URL for the Azure OpenAI request:
 
     ```bash
     azd env set set AZURE_OPENAI_CUSTOM_URL <APIM_GATEWAY_URL>
     ```
 
-1. Deploy the chat app.
+1. Deploy the chat app:
 
     ```bash
     azd up

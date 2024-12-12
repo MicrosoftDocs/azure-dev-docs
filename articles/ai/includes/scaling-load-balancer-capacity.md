@@ -14,13 +14,13 @@ By default, each of the Azure OpenAI instances in the load balancer is deployed 
 * You get deployment capacity errors: Lower the value.
 * You need higher capacity: Raise the value.
 
-1. Use the following command to change the value.
+1. Use the following command to change the value:
 
     ```bash
     azd env set OPENAI_CAPACITY 50
     ```
 
-1. Redeploy the load balancer.
+1. Redeploy the load balancer:
 
     ```bash
     azd up

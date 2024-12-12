@@ -21,7 +21,7 @@ Return to the chat app article to clean up those resources.
 
 ### Clean up the load balancer resources
 
-Run the following Azure Developer CLI command to delete the Azure resources and remove the source code.
+Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
 
 ```bash
 azd down --purge --force
@@ -32,7 +32,7 @@ The switches provide:
 * `purge`: Deleted resources are immediately purged. You can reuse the Azure OpenAI tokens per minute.
 * `force`: The deletion happens silently, without requiring user consent.
 
-### Clean up GitHub Codespaces
+### Clean up resources
 
 #### [GitHub Codespaces](#tab/github-codespaces)
 
@@ -55,9 +55,10 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
 
-1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
+1. Open the **Command** palette, and search for the **Dev Containers** commands.
+1. Select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="../media/get-started-scaling-load-balancer-azure-api-management/reopen-local-command-palette.png" alt-text="Screenshot that shows the Command Palette option to reopen the current folder within your local environment.":::
+    :::image type="content" source="../media/get-started-scaling-load-balancer-azure-api-management/reopen-local-command-palette.png" alt-text="Screenshot that shows the Command palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You always have the option to delete the container instance, container image, and volumes from Docker to free up more space on your local machine.

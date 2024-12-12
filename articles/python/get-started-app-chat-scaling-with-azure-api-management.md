@@ -16,10 +16,7 @@ ms.collection: ce-skilling-ai-copilot
 ## Prerequisites
 
 * An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
-* Access granted to Azure OpenAI in the Azure subscription that you want.
-
-    Currently, you must apply to gain access to this service. To apply for access to Azure OpenAI, use the links in [Limited access for Azure OpenAI Service](https://aka.ms/oai/access) to complete the form.
-
+* Access granted to Azure OpenAI in the Azure subscription that you want. Currently, you must apply to gain access to this service. To apply for access to Azure OpenAI, use the links in [Limited access for Azure OpenAI Service](https://aka.ms/oai/access) to complete the form.
 * [Dev containers](https://containers.dev/) are available for both samples, with all the dependencies that are required to complete this article. You can run the dev containers in GitHub Codespaces (in a browser) or locally by using Visual Studio Code.
 
     #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
@@ -51,5 +48,5 @@ Samples used in this article include:
 
 ## Related content
 
-* [View Azure API Management diagnostic data in Azure Monitor](/azure/api-management/api-management-howto-use-azure-monitor#view-diagnostic-data-in-azure-monitor).
+* View [Azure API Management diagnostic data in Azure Monitor](/azure/api-management/api-management-howto-use-azure-monitor#view-diagnostic-data-in-azure-monitor).
 * Use [Azure Load Testing](/azure/load-testing/) to load test your chat app.

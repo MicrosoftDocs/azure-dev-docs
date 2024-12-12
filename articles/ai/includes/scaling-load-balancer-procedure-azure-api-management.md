@@ -13,7 +13,7 @@ ms.service: azure
 
 [GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
 
-[![Screenshot that shows opening this project in GitHub Codespaces.](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-aca-lb)
+[![Open in GitHub Codespaces.](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/openai-aca-lb)
 
 > [!IMPORTANT]
 > All GitHub accounts can use GitHub Codespaces for up to 60 hours free each month with two core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
@@ -28,14 +28,14 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ## Deploy Azure API Management load balancer
 
-1. To deploy the load balancer to Azure, sign in to the Azure Developer CLI (`AZD`).
+1. To deploy the load balancer to Azure, sign in to the Azure Developer CLI (`AZD`):
 
     ```bash
     azd auth login
     ```
 
 1. Finish the sign-in instructions.
-1. Deploy the load balancer app.
+1. Deploy the load balancer app:
 
     ```bash
     azd up
