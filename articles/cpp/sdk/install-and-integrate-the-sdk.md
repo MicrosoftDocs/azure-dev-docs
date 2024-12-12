@@ -435,7 +435,7 @@ To create the resource group, you can use the following command:
 
 For more information, check out the [AzureCLI docs on Managing Azure Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-cli).
 
-### CMake configure or build can't find azure packages
+### CMake configure or build can't find Azure packages
 
 When running the CMake configure or build commands, if you receive the following error or something similar, the `CMakeLists.txt` file isn't running the `vcpkg.cmake` module before the CMake project is established or at all.
 
