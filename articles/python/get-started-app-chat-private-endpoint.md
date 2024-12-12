@@ -11,11 +11,11 @@ ms.collection: ce-skilling-ai-copilot
 
 # Get started with chat private endpoints for Python
 
-This article shows you how to deploy and run the [Enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo) that's accessible by private endpoints.
+This article shows you how to deploy and run the [enterprise chat app sample for Python](https://github.com/Azure-Samples/azure-search-openai-demo) that's accessible by private endpoints.
 
 This sample implements a chat app by using Python, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about employee benefits at a fictitious company. The app is seeded with PDF files that include the employee handbook, a benefits document, and a list of company roles and expectations.
 
-By following the instructions in this article, you will:
+By following the instructions in this article, you:
 
 - Deploy a chat app to Azure for public access in a web browser.
 - Redeploy a chat app with private endpoints.
@@ -48,7 +48,7 @@ We recommend that you deploy the solution twice. Deploy once with public access 
 
 A [development container](https://containers.dev/) environment is available with all dependencies that are required to finish this article. You can run the development container in GitHub Codespaces (in a browser) or locally by using Visual Studio Code.
 
-To use this article, you need the following prerequisites:
+To use this article, you need the following prerequisites.
 
 #### [Codespaces (recommended)](#tab/github-codespaces)
 
@@ -80,7 +80,7 @@ Begin now with a development environment that has all the dependencies installed
 > [!IMPORTANT]
 > All GitHub accounts can use GitHub Codespaces for up to 60 hours free each month with two core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
-1. Start the process to create a new GitHub codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
+1. Start the process to create a new GitHub codespace on the `main` branch of the [Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
 1. Right-click the following button, and select **Open link in new windows** to have the development environment and the documentation available at the same time.
 
     [![Open in GitHub Codespaces.](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)
@@ -91,7 +91,7 @@ Begin now with a development environment that has all the dependencies installed
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
-1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
+1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI:
 
     ```bash
     azd auth login
@@ -105,7 +105,7 @@ The remaining tasks in this article take place in the context of this developmen
 
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally by using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
-1. Create a new local directory on your computer for the project.
+1. Create a new local directory on your computer for the project:
 
     ```bash
     mkdir my-intelligent-app && cd my-intelligent-app
@@ -118,14 +118,14 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     ```
 
 1. Open a new terminal in Visual Studio Code.
-1. Run the following `AZD` command to bring the GitHub repository to your local computer.
+1. Run the following `AZD` command to bring the GitHub repository to your local computer:
 
     ```bash
     azd init -t azure-search-openai-demo
     ```
 
-1. Open the **Command Palette**, and search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before you continue.
-1. Sign in to Azure with the Azure Developer CLI.
+1. Open the **Command** palette, and search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before you continue.
+1. Sign in to Azure with the Azure Developer CLI:
 
     ```bash
     azd auth login
@@ -150,7 +150,7 @@ This solution configures and deploys the infrastructure based on custom settings
 
 The first deployment creates the resources and provides a publicly accessible endpoint.
 
-1. Run the following command to configure this solution for public access.
+1. Run the following command to configure this solution for public access:
 
     ```console
     azd env set AZURE_PUBLIC_NETWORK_ACCESS Enabled
@@ -180,7 +180,7 @@ The first deployment creates the resources and provides a publicly accessible en
 
 Change the deployment configuration to secure the chat app for private access.
 
-1. Run the following command to turn off public access.
+1. Run the following command to turn off public access:
 
     ```console
     azd env set AZURE_PUBLIC_NETWORK_ACCESS Disabled
@@ -198,20 +198,20 @@ Change the deployment configuration to secure the chat app for private access.
 
 To access the chat app, use a tool such as [Azure VPN Gateway](/azure/vpn-gateway/) or [Azure Virtual Desktop](/azure/virtual-desktop/users/). Remember that any tool you use to access the app must be secure and compliant with your organization's security policies.
 
-### Clean up GitHub Codespaces
+### Clean up resources
 
-Follow the steps in this section to clean up GitHub Codespaces.
+The following steps walk you through the process of cleaning up the resources you used.
 
 #### [GitHub Codespaces](#tab/github-codespaces)
 
-Deleting the GitHub Codespaces environment ensures that you can maximize the amount of free per-core hours entitlement you get for your account.
+Deleting the GitHub Codespaces environment ensures that you can maximize the amount of free per-core hours entitlement that you get for your account.
 
 > [!IMPORTANT]
 > For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Sign in to the [GitHub Codespaces dashboard](<https://github.com/codespaces>).
 
-1. Locate your currently running codespaces sourced from the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
+1. Locate your currently running codespaces that are sourced from the [Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
 
     :::image type="content" source="./media/get-started-app-chat-private-endpoints/github-codespace-dashboard.png" lightbox="./media/get-started-app-chat-private-endpoints/github-codespace-dashboard.png" alt-text="Screenshot that shows all the running codespaces including their status and templates.":::
 
@@ -223,9 +223,10 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
 
-1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
+1. Open the **Command** palette, and search for the **Dev Containers** commands.
+1. Select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="./media/get-started-app-chat-private-endpoints/reopen-local-command-palette.png" lightbox="./media/get-started-app-chat-private-endpoints/reopen-local-command-palette.png" alt-text="Screenshot that shows the Command Palette option to reopen the current folder within your local environment.":::
+    :::image type="content" source="./media/get-started-app-chat-private-endpoints/reopen-local-command-palette.png" lightbox="./media/get-started-app-chat-private-endpoints/reopen-local-command-palette.png" alt-text="Screenshot that shows the Command palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You always have the option to delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
@@ -241,5 +242,5 @@ If your issue isn't addressed, add your issue to the repository's [Issues](https
 ## Related content
 
 * See the [enterprise chat app GitHub repository](https://github.com/Azure-Samples/azure-search-openai-demo).
-* [Build a chat app with Azure OpenAI](https://aka.ms/azai/chat) best-practices solution architecture.
+* Build a [chat app with Azure OpenAI](https://aka.ms/azai/chat) best-practices solution architecture.
 * Learn about [access control in Generative AI apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408).
