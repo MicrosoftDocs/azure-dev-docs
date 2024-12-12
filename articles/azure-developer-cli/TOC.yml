@@ -87,5 +87,5 @@
     items:
     - name: azure.yaml schema
       href: azd-schema.md
-    - name: CLI commands
+    - name: Azure Developer CLI commands
       href: reference.md
