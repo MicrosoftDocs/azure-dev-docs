@@ -85,7 +85,7 @@
     href: https://devblogs.microsoft.com/azure-sdk/tag/azure-developer-cli/
   - name: Reference
     items:
-    - name: azure.yaml
+    - name: azure.yaml schema
       href: azd-schema.md
-    - name: Reference
+    - name: Azure Developer CLI commands
       href: reference.md
