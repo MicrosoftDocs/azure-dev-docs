@@ -821,6 +821,9 @@ Producer configurable properties of spring-cloud-azure-stream-binder-servicebus:
 > | **spring.cloud.stream.servicebus.bindings.binding-name.producer**.sync         | boolean              | false   | Switch flag for sync of producer.                                                  |
 > | **spring.cloud.stream.servicebus.bindings.binding-name.producer**.send-timeout | long                 | 10000   | Timeout value for sending of producer.                                             |
 > | **spring.cloud.stream.servicebus.bindings.binding-name.producer**.entity-type  | ServiceBusEntityType | null    | Service Bus entity type of the producer, required for the binding producer. |
+> | **spring.cloud.stream.servicebus.bindings.binding-name.producer**.max-size-in-megabytes        | Long                  | 1024      | The maximum size of the queue/topic in megabytes, which is the size of memory allocated for the queue/topic. |
+> | **spring.cloud.stream.servicebus.bindings.binding-name.producer**.default-message-time-to-live | Duration              | P10675199DT2H48M5.4775807S. (10675199 days, 2 hours, 48 minutes, 5 seconds, and 477 milliseconds)      | The duration after which the message expires, starting from when the message is sent to Service Bus.     |
+
 
 > [!IMPORTANT]
 > When using the binding producer, property of `spring.cloud.stream.servicebus.bindings.<binding-name>.producer.entity-type` is required to be configured.
