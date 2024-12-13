@@ -59,7 +59,7 @@ Learn more about [cost in the sample repo](https://github.com/Azure-Samples/azur
 
 ## Prerequisites
 
-A [development container](https://containers.dev/) environment is available with all dependencies required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally by using Visual Studio Code.
+A [development container](https://containers.dev/) environment is available with all the dependencies that are required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally by using Visual Studio Code.
 
 To use this article, you need the following prerequisites.
 
@@ -67,7 +67,6 @@ To use this article, you need the following prerequisites.
 
 * An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
 * Azure account permissions. Your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-* Access granted to Azure OpenAI in the Azure subscription that you want. Currently, you must apply to gain access to this service. To apply for access to Azure OpenAI, use the links in [Limited access for Azure OpenAI Service](https://aka.ms/oai/access) to complete the form. Open an issue on this repo to contact us if you have an issue.
 * A GitHub account.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
@@ -82,7 +81,7 @@ To use this article, you need the following prerequisites.
 
 ---
 
-## Open development environment
+## Open a development environment
 
 Begin now with a development environment that has all the dependencies installed to complete this article.
 
@@ -96,9 +95,7 @@ Begin now with a development environment that has all the dependencies installed
 1. Start the process to create a new GitHub codespace on the `main` branch of the [Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
 1. Right-click the following button, and select **Open link in new windows** to have the development environment and the documentation available at the same time.
 
-    [![Open in GitHub Codespaces.](https://github.com/codespaces/badge.svg)]
-
-    [![Screenshot that shows the Create a new codespace pane.](https://codespaces.new/Azure-Samples/azure-search-openai-demo)
+    [![Open in GitHub Codespaces.](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)
 
 1. On the **Create codespace** page, review the codespace configuration settings, and then select **Create codespace**.
 
@@ -106,7 +103,7 @@ Begin now with a development environment that has all the dependencies installed
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
-1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
+1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI:
 
     ```bash
     azd auth login
@@ -120,27 +117,27 @@ The remaining tasks in this article take place in the context of this developmen
 
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally by using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
-1. Create a new local directory on your computer for the project.
+1. Create a new local directory on your computer for the project:
 
     ```bash
     mkdir my-intelligent-app && cd my-intelligent-app
     ```
 
-1. Open Visual Studio Code in that directory.
+1. Open Visual Studio Code in that directory:
 
     ```bash
     code .
     ```
 
 1. Open a new terminal in Visual Studio Code.
-1. Run the following `AZD` command to bring the GitHub repository to your local computer.
+1. Run the following `AZD` command to bring the GitHub repository to your local computer:
 
     ```bash
     azd init -t azure-search-openai-demo
     ```
 
-1. Open **Command Palette**, and search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before you continue.
-1. Sign in to Azure with the Azure Developer CLI.
+1. Open the **Command** palette, and search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before you continue.
+1. Sign in to Azure with the Azure Developer CLI:
 
     ```bash
     azd auth login
@@ -161,7 +158,7 @@ The sample repository contains all the code and configuration files you need to 
 > [!IMPORTANT]
 > Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources might accrue costs even if you interrupt the command before it's fully executed.
 
-1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code.
+1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
 
     ```bash
     azd up
@@ -172,7 +169,7 @@ The sample repository contains all the code and configuration files you need to 
 1. When you're prompted to select a location the first time, select a location near you. This location is used for most of the resources, including hosting.
 1. If you're prompted for a location for the Azure OpenAI model or for the Azure AI Document Intelligence resource, select the location closest to you. If the same location is available as your first location, select that.
 1. Wait 5 or 10 minutes after the app deploys before you continue.
-1. After the application deploys successfully, a URL appears in the terminal.
+1. After the application successfully deploys, a URL appears in the terminal.
 
     :::image type="content" source="media/get-started-app-chat-template/azd-deployed-endpoint.png" alt-text="Screenshot that shows the deployed app as reported at the end of the AZD CLI azd up process.":::
 
@@ -260,7 +257,7 @@ The following steps walk you through the process of cleaning up the resources yo
 
 The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
 
-Run the following Azure Developer CLI command to delete the Azure resources and remove the source code.
+Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
 
 ```bash
 azd down --purge --force
@@ -294,10 +291,10 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
 
-1. Open **Command Palette** and search for the **Dev Containers** commands.
+1. Open the **Command** palette and search for the **Dev Containers** commands.
 1. Select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="./media/get-started-app-chat-template/reopen-local-command-palette.png" alt-text="Screenshot that shows the Command Palette option to reopen the current folder within your local environment.":::
+    :::image type="content" source="./media/get-started-app-chat-template/reopen-local-command-palette.png" alt-text="Screenshot that shows the Command palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You always have the option to delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
@@ -314,6 +311,6 @@ If your issue isn't addressed, add your issue to the repository's [Issues](https
 
 * Get the [source code for the sample used in this article](https://github.com/Azure-Samples/azure-search-openai-demo).
 * Build a [chat app with Azure OpenAI](https://aka.ms/azai/chat) best-practices solution architecture.
-* Learn about [Access Control in Generative AI apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408).
+* Learn about [access control in Generative AI apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408).
 * Build an [enterprise-ready Azure OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-an-enterprise-ready-azure-openai-solution-with-azure-api/bc-p/3935407).
 * See [Azure AI Search: Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167).
