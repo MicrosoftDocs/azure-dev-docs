@@ -2,7 +2,7 @@
 title: "Get started with Serverless AI Chat using LlamaIndex"
 description: "Use LlamaIndex to build intelligent apps. It aids in data ingestion, transformation, vectorization, and creating a searchable index for your data."
 ms.topic: get-started 
-ms.date: 05/22/2024
+ms.date: 12/11/2024
 ms.subservice: intelligent-apps
 ms.custom: build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
@@ -35,13 +35,13 @@ This sample uses LlamaIndex to generate embeddings and store in its own vector s
 The architecture of the application relies on the following services and components:
 
 - [Azure OpenAI](/azure/ai-services/openai/) represents the AI provider that we send the user's queries to.
-- LlamaIndex is the framework that helps us ingest, transform and vectorize our content (PDF file) and create a search index from our data.
+- LlamaIndex is the framework that helps us ingest, transform, and vectorize our content (PDF file) and create a search index from our data.
 - [Azure Container Apps](/azure/container-apps/) is the container environment where the application is hosted.
 - [Azure Managed Identity](/entra/identity/managed-identities-azure-resources/) helps us ensure best in class security and eliminates the requirements for you as a developer to deal with credentials and API keys.
 
 ### LlamaIndex manages the data from ingestion to retrieval
 
-To implement a RAG (Retrieval-Augmented Generation) system using LlamaIndex, key steps are identified below with the LlamaIndex functionality specified:
+To implement a RAG (Retrieval-Augmented Generation) system using LlamaIndex, the following key steps are matched with the LlamaIndex functionality:
 
 | Process | Description | LlamaIndex |
 |--|--|--|
@@ -52,7 +52,7 @@ To implement a RAG (Retrieval-Augmented Generation) system using LlamaIndex, key
 | Convert to Query Engine | Convert the vector index into a query engine. | asQueryEngine |
 | Advanced query setup (Optional) | Use agents for a multi-agent system. | |
 | Implement the RAG pipeline | Define an objective function that takes user queries and retrieves relevant document chunks. | |
-| Perform Retrieval | Process queries and re-rank documents. | RetrieverQueryEngine, CohereRerank |
+| Perform Retrieval | Process queries and rerank documents. | RetrieverQueryEngine, CohereRerank |
 
 ## Prerequisites
 
@@ -65,16 +65,12 @@ To use this article, you need the following prerequisites:
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 - Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-- Access granted to Azure OpenAI in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
-- GitHub account
+- A GitHub account.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 - Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-- Access granted to Azure OpenAI in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
 - [Azure Developer CLI](/azure/developer/azure-developer-cli)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
 - [Visual Studio Code](https://code.visualstudio.com/)
@@ -84,7 +80,7 @@ To use this article, you need the following prerequisites:
 
 ## Open development environment
 
-Begin now with a development environment that has all the dependencies installed to complete this article. 
+Use the following instructions to deploy a preconfigured development environment containing all required dependencies to complete this article.
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
@@ -93,7 +89,7 @@ Begin now with a development environment that has all the dependencies installed
 > [!IMPORTANT]
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
-1. Open in Codespace.
+1. Open in codespace.
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/llama-index-javascript)
 
@@ -169,12 +165,11 @@ The sample repository contains all the code and configuration files you need to 
     |Location (for hosting)|Select a location near you from the list.|
     |Location for the OpenAI model|Select a location near you from the list. If the same location is available as your first location, select that.|
 
-1. Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
-1. After the application has been successfully deployed, you see two URLs displayed in the terminal.
+1. Wait until app is deployed. It might take 5-10 minutes for the deployment to complete.
+1. After successfully deploying the application, you see two URLs displayed in the terminal.
 1. Select that URL labeled `Deploying service webapp` to open the chat application in a browser.
 
     :::image type="content" source="../media/get-started-app-chat-template-llamaindex/azd-up.png" alt-text="Screenshot of output of deployment command showing the web application URL.":::
-
 
 ### Use chat app to get answers from PDF files
 
@@ -192,8 +187,8 @@ The chat app is preloaded with information about the physical standards for dome
 
 To clean up resources, there are two things to address:  
 
-- Azure resources, you can clean those up with Azure Developer CLI, azd.  
-- Your developer environment whether you've used GitHub Codespaces or DevContainers via Visual Studio Code.
+- Azure resources, you can clean the resources up with Azure Developer CLI, azd.  
+- Your developer environment; either GitHub Codespaces or DevContainers via Visual Studio Code.
 
 ### Clean up Azure resources
 

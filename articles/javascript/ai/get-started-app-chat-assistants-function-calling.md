@@ -1,7 +1,7 @@
 ---
 title: "JavaScript Azure OpenAI Assistants and function calling"
 description: "This article shows you how to deploy and run the serverless Azure OpenAI Assistant with function calling."
-ms.date: 05/18/2024
+ms.date: 12/11/2024
 ms.topic: get-started
 ms.service: azure-javascript
 ms.subservice: intelligent-apps
@@ -39,15 +39,11 @@ To use this article, you need the following prerequisites:
 
 1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 1. Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-1. Access granted to Azure OpenAI in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
-1. GitHub account
+1. A GitHub account.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 1. An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 1. Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-1. Access granted to Azure OpenAI in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
 1. [Azure Developer CLI](../../azure-developer-cli/install-azd.md?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows)
 1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
 1. [Git](https://git-scm.com/downloads) 
@@ -58,7 +54,7 @@ To use this article, you need the following prerequisites:
 
 ## Open development environment
 
-Begin now with a development environment that has all the dependencies installed to complete this article. 
+Use the following instructions to deploy a preconfigured development environment containing all required dependencies to complete this article.
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
@@ -68,7 +64,7 @@ Begin now with a development environment that has all the dependencies installed
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Start the process to create a new GitHub Codespace on the `main` branch of the [`Azure-Samples/azure-openai-assistant-javascript`](https://github.com/Azure-Samples/azure-openai-assistant-javascript) GitHub repository.
-1. Right-click on the following button, and select _Open link in new windows_ in order to have both the development environment and the documentation available at the same time. 
+1. Right-click on the following button, and select _Open link in new windows_ to have both the development environment and the documentation available at the same time.
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-openai-assistant-javascript)
 
@@ -83,7 +79,6 @@ Begin now with a development environment that has all the dependencies installed
     ```
 
 1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
-
 
 1. The remaining tasks in this article take place in the context of this development container.
 
@@ -132,7 +127,6 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ---
 
-
 ## Deploy and run
 
 The sample repository contains all the code and configuration files you need to deploy a function app to Azure. The following steps walk you through the process of deploying the sample to Azure.
@@ -140,7 +134,7 @@ The sample repository contains all the code and configuration files you need to 
 ### Deploy assistants app to Azure
 
 > [!IMPORTANT]
-> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
+> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed.
 
 1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
 
@@ -152,20 +146,20 @@ The sample repository contains all the code and configuration files you need to 
 1. When prompted, select a subscription to create the resources in. 
 1. When you're prompted to select a location the first time, select a location near you. This location is used for most the resources including hosting.
 1. If you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
-1. Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
-1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
+1. Wait until app is deployed. It might take 5-10 minutes for the deployment to complete.
+1. After deploying the application successfully, you see a URL displayed in the terminal.
 1. Select that URL labeled `Deploying service web` to open the assistant application in a browser.
 
-### Use assistant app 
+### Use the assistant app
 
-You can use the assistant app to get the stock market price of `MSFT`. The following steps walk you through the process of using the assistant app. The assistant can send you the answers in email. That isn't configured yet so change the prompt to not use that instruction.
+You can use the assistant app to get the stock market price of `MSFT`. The following steps walk you through the process of using the assistant app. The assistant can send you the answers in email. Since the email sending feature isn't configured, modify the prompt to not use that instruction.
 
 1. In the browser, copy and paste in the following prompt:
 
     ```
     Based on the latest financial data and current stock market trends, can you provide a detailed analysis of Microsoft's current state? Please include insights into their recent performance, market position, and future outlook. Additionally, retrieve and include the latest closing price of Microsoft's stock using its ticker symbol (MSFT). 
     ```
-    
+
 1. Select the **Run** button. Your results should look _similar_ to the following response.
 
     :::image type="content" source="../media/get-started-app-chat-assistants-function-calling/azure-openai-assistant-demo.png" alt-text="Screenshot of assistant app's first answer.":::
@@ -220,4 +214,5 @@ If your issued isn't addressed, log your issue to the repository's [Issues](http
 
 ## Related content
 
-* [Get started with evaluating answers in a chat app in JavaScript](get-started-app-chat-evaluations.md)
+- [What is the Azure OpenAI Assistants API?](/azure/ai-services/openai/concepts/assistants)
+- [Get started with evaluating answers in a chat app in JavaScript](get-started-app-chat-evaluations.md)

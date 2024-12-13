@@ -1,7 +1,7 @@
 ---
 title: "AI Chat: JavaScript frontend + Python backend"
 description: Steps to integrate the JavaScript frontend with the Python backend in the enterprise Azure OpenAI Chat App.
-ms.date: 05/17/2024
+ms.date: 12/11/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js, devx-track-python, devx-track-js-ai, devx-track-python-ai, build-2024-intelligent-apps
@@ -13,11 +13,11 @@ ms.collection: ce-skilling-ai-copilot
 
 The Chat app is a reference application that demonstrates how to use the Azure OpenAI service. Each programming language reference architecture provides slightly different functionality. This article describes how to use the JavaScript frontend with the Python backend.
 
-By mixing and matching the frontend and backend, you can create a multilanguage application that uses the best of both worlds. 
+By mixing and matching the frontend and backend, you can create a multilanguage application that uses the best of both worlds.
 
 * [Demo](https://aka.ms/azai/js.py/video) - Configure JavaScript frontend with Python backend video
 
-This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Service and Azure AI Search. Other articles in the collection include: 
+This article is part of a collection of articles that show you how to build a chat app using Azure OpenAI Service and Azure AI Search. Other articles in the collection include:
 
 * [.NET](/dotnet/ai/get-started-app-chat-template)
 * [Java](../../java/quickstarts/get-started-app-chat-template.md)
@@ -28,7 +28,7 @@ This article is part of a collection of articles that show you how to build a ch
 
 ## Prerequisites
 
-Deploy the 2 reference architectures using the following articles. Make sure to use the same subscription and region for both deployments. The deployment may take up to 20 minutes. Leave the deployments up; don't complete the _Clean up resources_ section until you're done with this article.
+Deploy the two reference architectures using the following articles. Make sure to use the same subscription and region for both deployments. The deployment might take up to 20 minutes. Leave the deployments up; don't complete the _Clean up resources_ section until you're done with this article.
 
 * Deploy the JavaScript chat app using this [article](/azure/developer/javascript/get-started-app-chat-template)
 * Deploy the Python chat app using this [article](/azure/developer/python/get-started-app-chat-template)
@@ -61,6 +61,7 @@ You should have each repo in a separate development environment, either locally 
     ```bash
     azd up
     ```
+
 ### Set Python backend URL in JavaScript frontend
 
 1. In the Python development environment, get the URL for the Python backend by running the following command:
@@ -68,7 +69,7 @@ You should have each repo in a separate development environment, either locally 
     ```bash
     azd env get-values | grep BACKEND_URI
     ```
-    
+
     This command gets all the cloud environment variables and filters for the `BACKEND_URI` variable. Make sure the URL doesn't end with a slash, `/`.
 
 1. Copy the URL.
@@ -86,11 +87,11 @@ You should have each repo in a separate development environment, either locally 
 
 ## Use the JavaScript frontend with the Python backend
 
-The Python app uses an HR benefits subject area while the JavaScript app uses a real estate subject area. Now that the apps are connected, you can use the front-end to ask about HR benefits. Suggested questions include: 
+The Python app uses an HR benefits subject area while the JavaScript app uses a real estate subject area. Now that the apps are connected, you can use the front-end to ask about HR benefits. Suggested questions include:
 
-* What is included in my Northwind Health Plus plan that isn't standard? 
-* What happens in a performance review? 
-* What does a Product Manager do? 
+* What is included in my Northwind Health Plus plan that isn't standard?
+* What happens in a performance review?
+* What does a Product Manager do?
 
 ## Clean up resources
 
