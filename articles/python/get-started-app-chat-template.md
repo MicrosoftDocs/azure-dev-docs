@@ -216,7 +216,7 @@ The intelligence of the chat is determined by the Azure OpenAI model and the set
 |**Exclude category**|Specifies a category to exclude from the search results. There are no categories used in the default data set.|
 |**Use semantic ranker for retrieval**|Enables the Azure AI Search [semantic ranker](/azure/search/semantic-search-overview#what-is-semantic-search), which is a model that reranks search results based on semantic similarity to the user's query.|
 |**Use semantic captions**|Sends semantic captions to the LLM instead of the full search result. A semantic caption is extracted from a search result during the process of semantic ranking.|
-|****Suggest follow-up questions**|Asks the LLM to suggest follow-up questions based on the user's query.|
+|**Suggest follow-up questions**|Asks the LLM to suggest follow-up questions based on the user's query.|
 |**Retrieval mode**|Sets the retrieval mode for the Azure AI Search query. **Vectors + Text (Hybrid)** uses a combination of vector search and full text search. **Vectors** uses only vector search. **Text** uses only full text search. Hybrid is generally optimal.|
 |**Stream chat completion responses**|Continuously streams the response to the chat UI as it's generated.|
 
