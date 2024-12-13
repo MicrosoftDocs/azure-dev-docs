@@ -16,7 +16,6 @@ ms.collection: ce-skilling-ai-copilot
 ## Prerequisites
 
 * An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
-* Access granted to Azure OpenAI in the Azure subscription that you want. Currently, you must apply to gain access to this service. To apply for access to Azure OpenAI, use the links in [Limited access for Azure OpenAI Service](https://aka.ms/oai/access) to complete the form.
 * [Dev containers](https://containers.dev/) are available for both samples, with all the dependencies that are required to complete this article. You can run the dev containers in GitHub Codespaces (in a browser) or locally by using Visual Studio Code.
 
     #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
@@ -25,7 +24,7 @@ ms.collection: ce-skilling-ai-copilot
     
     #### [Visual Studio Code](#tab/visual-studio-code)
 
-    * [Docker Desktop](https://www.docker.com/products/docker-desktop/): Start Docker Desktop if it's not already running.
+    * [Docker Desktop](https://www.docker.com/products/docker-desktop/). Start Docker Desktop if it's not already running.
     * [Visual Studio Code](https://code.visualstudio.com/).
     * [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
     
