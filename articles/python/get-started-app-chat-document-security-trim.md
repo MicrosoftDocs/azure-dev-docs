@@ -100,7 +100,7 @@ You need more prerequisites depending on your preferred development environment.
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
-A [GitHub account](https://github.com/login).
+[GitHub account](https://github.com/login)
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
