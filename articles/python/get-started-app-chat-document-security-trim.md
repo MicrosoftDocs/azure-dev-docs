@@ -95,25 +95,23 @@ To use this article, you need the following prerequisites:
 * Azure account permissions: Your Azure account must have:
     * Permission to [manage applications in Microsoft Entra ID](/azure/active-directory/roles/permissions-reference#cloud-application-administrator).
     * `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-* Access granted to Azure OpenAI in the Azure subscription you want.
-    Currently, you must apply to gain access to this service. To apply for access to Azure OpenAI, use the links in [Limited access for Azure OpenAI Service](https://aka.ms/oai/access) to complete the form.
 
 You need more prerequisites depending on your preferred development environment.
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
-* [GitHub account](https://github.com/login).
+A [GitHub account](https://github.com/login).
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
 * [Azure Developer CLI](/azure/developer/azure-developer-cli).
-* [Docker Desktop](https://www.docker.com/products/docker-desktop/): Start Docker Desktop if it's not already running.
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/). Start Docker Desktop if it's not already running.
 * [Visual Studio Code](https://code.visualstudio.com/).
 * [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
 ---
 
-## Open development environment
+## Open a development environment
 
 Begin now with a development environment that has all the dependencies installed to complete this article.
 
@@ -124,7 +122,7 @@ Begin now with a development environment that has all the dependencies installed
 > [!IMPORTANT]
 > All GitHub accounts can use GitHub Codespaces for up to 60 hours free each month with two core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
-1. Start the process to create a new GitHub codespace on the `main` branch of the [`Azure-Samples/azure-search-openai-demo`](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
+1. Start the process to create a new GitHub codespace on the `main` branch of the [Azure-Samples/azure-search-openai-demo](https://github.com/Azure-Samples/azure-search-openai-demo) GitHub repository.
 1. Right-click the following button, and select **Open link in new windows** to have the development environment and the documentation available at the same time.
 
     [![Open in GitHub Codespaces.](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)
@@ -168,7 +166,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
     azd init -t azure-search-openai-demo
     ```
 
-1. Open **Command Palette**, and search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before you continue.
+1. Open the **Command** palette, and search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before you continue.
 1. Sign in to Azure with the Azure Developer CLI.
 
     ```bash
@@ -236,8 +234,8 @@ Deployment consists of the following steps:
     |Location for `documentIntelligentResourceGroupLocation`|Select a location near you.|
     |Location for `openAIResourceGroupLocation`|Select a location near you. |
 
-    Wait 5 or 10 minutes after the app is deployed to allow the app to start up.
-1. After the application is successfully deployed, you see a URL in the terminal.
+    Wait 5 or 10 minutes after the app deploys to allow the app to start up.
+1. After the application successfully deploys, a URL appears in the terminal.
 1. Select the URL labeled `(✓) Done: Deploying service webapp` to open the chat application in a browser.
 
     :::image type="content" source="./media/get-started-app-chat-document-security-trim/azd-deployment-output.png" alt-text="Screenshot that shows a chat app in a browser with several suggestions for chat input and the chat text box to enter a question.":::
@@ -389,6 +387,8 @@ If you completed the steps but didn't see the correct answer, verify that your `
 
 ## Clean up resources
 
+The following steps walk you through the process of cleaning up the resources you used.
+
 ### Clean up Azure resources
 
 The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
@@ -399,7 +399,9 @@ Run the following Azure Developer CLI command to delete the Azure resources and 
 azd down --purge
 ```
 
-### Clean up GitHub Codespaces
+### Clean up GitHub Codespaces and Visual Studio Code
+
+The following steps walk you through the process of cleaning up the resources you used.
 
 #### [GitHub Codespaces](#tab/github-codespaces)
 
@@ -422,10 +424,10 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
 
-1. Open **Command Palette** and search for the **Dev Containers** commands.
+1. Open the **Command** palette and search for the **Dev Containers** commands.
 1. Select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="./media/get-started-app-chat-document-security-trim/reopen-local-command-palette.png" alt-text="Screenshot that shows the Command Palette option to reopen the current folder within your local environment.":::
+    :::image type="content" source="./media/get-started-app-chat-document-security-trim/reopen-local-command-palette.png" alt-text="Screenshot that shows the Command palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You always have the option to delete the container instance, container image, and volumes from Docker to free up more space on your local machine.
