@@ -4,7 +4,7 @@ description: Shows how to quickly stand up Quarkus on Azure Container Apps.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 10/14/2024
+ms.date: 12/16/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-aca, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -18,7 +18,7 @@ This article shows you how to quickly deploy Red Hat Quarkus on Microsoft Azure 
 - Prepare a local machine with Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
 - Install a Java SE implementation version 17 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
 - Install [Maven](https://maven.apache.org/download.cgi), version 3.9.8 or higher.
-- Install [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/docs/installation) for your OS.
+- Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 - Install [jq](https://jqlang.github.io/jq/download/).
 - Install [cURL](https://curl.se/download.html).
 - Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling), version 3.12.1 or higher.
@@ -46,7 +46,7 @@ The steps in this section show you how to run the app locally.
 
 Quarkus supports the automatic provisioning of unconfigured services in development and test mode. Quarkus refers to this capability as dev services. Let's say you include a Quarkus feature, such as connecting to a database service. You want to test the app, but haven't yet fully configured the connection to a real database. Quarkus automatically starts a stub version of the relevant service and connects your application to it. For more information, see [Dev Services Overview](https://quarkus.io/guides/dev-services#databases) in the Quarkus documentation.
 
-Make sure your container environment, Docker or Podman, is running and use the following command to enter Quarkus dev mode:
+Make sure your container environment is running and use the following command to enter Quarkus dev mode:
 
 ```bash
 quarkus dev
@@ -320,8 +320,6 @@ Sign in to the Container Registry instance. Signing in lets you push an image. U
 az acr login --name $REGISTRY_NAME
 ```
 
-If you're using Podman instead of Docker, make the necessary changes to the command.
-
 If you've signed into the Container Registry instance successfully, you should see `Login Succeeded` at the end of command output.
 
 ### Create an environment
@@ -503,7 +501,7 @@ quarkus build -Dquarkus.container-image.build=true -Dquarkus.container-image.ima
 
 The output should end with `BUILD SUCCESS`.
 
-You can verify whether the container image is generated as well by using the `docker` or `podman` command line (CLI), as shown in the following example:
+You can verify whether the container image is generated as well by using the `docker` command line (CLI), as shown in the following example:
 
 ```bash
 docker images | grep ${TODO_QUARKUS_IMAGE_NAME}
