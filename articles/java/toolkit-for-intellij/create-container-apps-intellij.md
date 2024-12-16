@@ -1,11 +1,13 @@
 ---
 title: Deploy to Azure Container Apps using IntelliJ IDEA
 description: Deploy Java projects to Azure Container Apps using IntelliJ IDEA.
-author: KarlErickson
+services: container-apps
+author: silencejialuo
 ms.author: jialuogan
+ms.service: container-apps
 ms.topic: quickstart
-ms.custom: devx-track-java, devx-track-extended-java
-ms.date: 04/11/2024
+ms.date: 12/16/2024
+
 ---
 
 # Quickstart: Deploy to Azure Container Apps using IntelliJ IDEA
@@ -47,36 +49,7 @@ This article shows you how to deploy a containerized application to Azure Contai
    java -jar target\containerapps-albumapi-java-0.0.1-SNAPSHOT.jar
    ```
 
-## Push image to an Azure Container Registry
-
-To deploy your project to Azure Container Apps, you need to build the container image and push it to an Azure Container Registry first.
-
-1. In **Azure Explorer** view, expand the **Azure node**, right-click **Container Registries**, and then select **Create in Azure Portal**.
-
-1. On the **Create container registry** page, enter the following information:
-
-   - **Subscription**: Specifies the Azure subscription that you want to use for your container registry.
-   - **Resource Group**: Specifies the resource group for your container registry. Select one of the following options:
-     - **Create New**: Specifies that you want to create a new resource group.
-     - **Use Existing**: Specifies that you must select from a list of resource groups that are associated with your Azure account.
-   - **Registry Name**: Specifies a name for the new container registry.
-   - **Location**: Specifies the region where your container registry is created (for example, **West US**).
-   - **SKU**: Specifies the service tier for your container registry. For this tutorial, select **Basic**.
-
-1. Select **Review + create** and verify that the information is correct. Then, select **Create**.
-
-1. On the **Project** tab, navigate to your project and open **Dockerfile**.
-
-1. Select the Azure icon and then select **Push Image to Azure Container Registry**.
-
-1. Select the registry you created in the previous step, fill in the following information, and then select **Run**.
-
-   - **Repository Name**: Specifies the name for the repository.
-   - **Tag Name**: Specifies the version of an image or other artifact.
-
-   :::image type="content" source="media/create-container-apps-intellij/push-to-registry.png" alt-text="Screenshot of Intelli J that shows the Push Image to Azure Container Registry dialog box.":::
-
-## Create an environment and a container app
+## Create an environment
 
 Use the following steps to set up your environment and deploy a container app in Azure:
 
@@ -94,22 +67,80 @@ Use the following steps to set up your environment and deploy a container app in
 
    :::image type="content" source="media/create-container-apps-intellij/create-container-apps-environment.png" alt-text="Screenshot of Intelli J that shows the Create Container Apps Environment dialog box.":::
 
+
+## Deploy the container app
+
+### [SourceCode](#tab/sourcecode)
+
 1. Right-click on the container apps environment you created and select **Create** > **Container App** in Azure Explorer. Enter the following information:
 
    - **Subscription**: Specifies the Azure subscription that you want to use.
    - **Resource Group**: Specifies the resource group for your container apps. Select one of the following options:
       - **Create New**: Specifies that you want to create a new resource group.
       - **Use Existing**: Specifies that you must select from a list of resource groups that are associated with your Azure account.
-   - **Name**: Specifies the name for a new container app.
-   - **Region**: Specifies the appropriate region (for example, **East US**).
    - **Environment**: Specifies the Container Apps Environment you want to use.
-   - **Quickstart**: Select **Use Quick Start Image**.
+   - **Name**: Specifies the name for a new container app.
+   - **Deployment**: 
+      - **Source**:  Choose the "Source Code" option. 
+      - **Code**: Select the entire source code from your local machine by clicking the folder button.
+   - **Container Resource Allocation**: 
+      - **Workload Profile**: Choose the appropriate workload profile based on your application's requirements.
+      - **CPU and Memory**: Allocate the necessary CPU and memory resources for your container app.
+   - **Ingress Settings**: 
+      - **Ingress**: Enable or disable ingress based on your application's needs. Here you can accept the default settings.
+      - **External Traffic**: Specifies whether the container app should accept external traffic. Here you can accept the default settings.
+      - **Target Port**: Enable or disable ingress based on your application's needs. Configure the target port to 8080.  
+   - **Other**: 
+      - **Env Variables**: Set any environment variables required by your application.
+      - **Min Replicas**: Specifies the minimum number of replicas for your container app. Here you can accept the default settings.
+      - **Max Replicas**: Specifies the maximum number of replicas for your container app. Here you can accept the default settings.
 
    :::image type="content" source="media/create-container-apps-intellij/create-azure-container-apps.png" alt-text="Screenshot of Intelli J that shows the Create Azure Container App dialog box.":::
 
-1. Select **OK**. The toolkit displays a status message when the app creation succeeds.
+1. Select **OK**. The toolkit displays a status message when the app deployment succeeds.
 
-## Deploy the container app
+1. After the deployment finishes, the Azure Toolkit for IntelliJ displays a notification. Select **Browse** to open the deployed app in a browser.
+
+   :::image type="content" source="media/create-container-apps-intellij/deploy-to-container-apps.png" alt-text="Screenshot of the deployed app in a browser window.":::
+
+In the browser's address bar, append the `/albums` path to the end of the app URL to view data from a sample API request.
+
+### [Artifact](#tab/artifact)
+
+1. Right-click on the container apps environment you created and select **Create** > **Container App** in Azure Explorer. Enter the following information:
+
+   - **Subscription**: Specifies the Azure subscription that you want to use.
+   - **Resource Group**: Specifies the resource group for your container apps. Select one of the following options:
+      - **Create New**: Specifies that you want to create a new resource group.
+      - **Use Existing**: Specifies that you must select from a list of resource groups that are associated with your Azure account.
+   - **Environment**: Specifies the Container Apps Environment you want to use.
+   - **Name**: Specifies the name for a new container app.
+   - **Deployment**: 
+      - **Source**:  Choose the "Artifact" option. 
+      - **Artifact**: Select the artifact file from your local machine by clicking the folder button.
+   - **Container Resource Allocation**: 
+      - **Workload Profile**: Choose the appropriate workload profile based on your application's requirements.
+      - **CPU and Memory**: Allocate the necessary CPU and memory resources for your container app.
+   - **Ingress Settings**: 
+      - **Ingress**: Enable or disable ingress based on your application's needs. Here you can accept the default settings.
+      - **External Traffic**: Specifies whether the container app should accept external traffic. Here you can accept the default settings.
+      - **Target Port**: Enable or disable ingress based on your application's needs. Configure the target port to 8080.  
+   - **Other**: 
+      - **Env Variables**: Set any environment variables required by your application.
+      - **Min Replicas**: Specifies the minimum number of replicas for your container app. Here you can accept the default settings.
+      - **Max Replicas**: Specifies the maximum number of replicas for your container app. Here you can accept the default settings.
+
+   :::image type="content" source="media/create-container-apps-intellij/create-azure-container-apps.png" alt-text="Screenshot of Intelli J that shows the Create Azure Container App dialog box.":::
+
+1. Select **OK**. The toolkit displays a status message when the app deployment succeeds.
+
+1. After the deployment finishes, the Azure Toolkit for IntelliJ displays a notification. Select **Browse** to open the deployed app in a browser.
+
+   :::image type="content" source="media/create-container-apps-intellij/deploy-to-container-apps.png" alt-text="Screenshot of the deployed app in a browser window.":::
+
+In the browser's address bar, append the `/albums` path to the end of the app URL to view data from a sample API request.
+
+### [Image](#tab/Image)
 
 1. On the **Project** tab, navigate to your project and open **Dockerfile**.
 
@@ -121,22 +152,33 @@ Use the following steps to set up your environment and deploy a container app in
 
 1. On the **Deploy Image to Azure Container Apps** page, enter the following information, and then select **Run**.
 
-   - **Dockerfile/Image**: Specifies the path of the Dockerfile or accept the default.
-   - **Container Registry**: Specifies the Container Registry you want to use.
-   - **Repository Name**: Specifies the repository name you want to use under your Container Registry.
-   - **Tag Name**: Specifies the tag name you want to use under your Container Registry.
+   - **Module**: Specify the module you want to deploy.
    - **Container App**: Specifies the Container App you want to deploy to.
-   - **Ingress**:  Enable ingress for applications that require an HTTP or TCP endpoint. Select **Enable**.
-   - **External Traffic**: Enable external traffic for applications that need an HTTP or TCP endpoint. Select **Enable**.
-   - **Target Port**: Set this value to the port number that your container uses. Open port 8080 in this step.
+   - **Deployment**: 
+      - **Source**: Choose the "Container Image" option. 
+      - **Docker Host**: Specifies the Docker host you want to use or accept the default.
+      - **Dockerfile/Image**: Specifies the path of the Dockerfile or accept the default.
+      - **Container Registry**:  Specifies the Container Registry you want to use.
+      - **Repository Name**: Specifies the repository name you want to use under your Container Registry.
+      - **Tag Name**: Specifies the tag name you want to use under your Container Registry.
+  - **Ingress Settings**: 
+      - **Ingress**: Enable or disable ingress based on your application's needs. Here you can accept the default settings.
+      - **External Traffic**: Specifies whether the container app should accept external traffic. Here you can accept the default settings.
+      - **Target Port**: Enable or disable ingress based on your application's needs. Open port 8080 in this step.
+   - **Other**: 
+      - **Env Variables**: Set any environment variables required by your application.
+
 
    :::image type="content" source="media/create-container-apps-intellij/deploy-to-container-apps-settings.png" alt-text="Screenshot of Intelli J that shows the Deploy Image to Azure Container Apps dialog box.":::
+
 
 1. After the deployment finishes, the Azure Toolkit for IntelliJ displays a notification. Select **Browse** to open the deployed app in a browser.
 
    :::image type="content" source="media/create-container-apps-intellij/deploy-to-container-apps.png" alt-text="Screenshot of the deployed app in a browser window.":::
 
 In the browser's address bar, append the `/albums` path to the end of the app URL to view data from a sample API request.
+
+
 
 ## Clean up resources
 
