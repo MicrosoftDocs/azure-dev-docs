@@ -30,7 +30,7 @@ landingContent:
           - text: Load a secret from Azure Key Vault
             url: ./configure-spring-boot-starter-java-app-with-azure-key-vault.md
           - text: Enable OIDC sign-in for Spring with Azure AD B2C
-            url: ./configure-spring-boot-starter-java-app-with-entra-b2c-oidc.md
+            url: ./configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md
           - text: Enable HTTPS in Spring Boot with Azure Key Vault certificates
             url: ./configure-spring-boot-starter-java-app-with-azure-key-vault-certificates.md
   - title: Database

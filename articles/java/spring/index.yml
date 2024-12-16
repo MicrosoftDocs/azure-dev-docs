@@ -84,7 +84,7 @@ conceptualContent:
             - url: ../spring-framework/configure-spring-boot-starter-java-app-with-entra.md
               itemType: tutorial
               text: Secure a Spring app by using Microsoft Entra ID
-            - url: ../spring-framework/configure-spring-boot-starter-java-app-with-entra-b2c-oidc.md
+            - url: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md
               itemType: tutorial
               text: Secure a Spring app by using Azure Active Directory B2C
         - title: Distributed apps
