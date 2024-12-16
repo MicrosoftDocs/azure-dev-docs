@@ -40,7 +40,7 @@ If none of these types of credentials are found, the `DefaultAzureCredential` cr
 
 The following high-level diagram summarizes how authentication works using OAuth credential authentication with Azure Database for MySQL. The arrows indicate communication pathways.
 
-:::image type="content" source="media/spring-cloud-azure/authentication-mysql-azure-active-directory.png" alt-text="Diagram showing Microsoft Entra authentication for MySQL." border="false":::
+:::image type="content" source="media/spring-cloud-azure/authentication-mysql-entra-id.png" alt-text="Diagram showing Microsoft Entra authentication for MySQL." border="false":::
 
 ## Configuration
 

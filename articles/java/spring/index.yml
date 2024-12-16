@@ -35,7 +35,7 @@ highlightedContent:
     # Card
     - title: Secure your app using the Spring Boot Starter for Microsoft Entra ID
       itemType: tutorial
-      url: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory.md
+      url: ../spring-framework/configure-spring-boot-starter-java-app-with-entra.md
 
 
 # conceptualContent section (optional)
@@ -78,13 +78,13 @@ conceptualContent:
             - url: /azure/active-directory/fundamentals/active-directory-whatis
               itemType: overview
               text: Microsoft Entra overview
-            - url: ../spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide.md
+            - url: ../spring-framework/spring-boot-starter-for-entra-developer-guide.md
               itemType: overview
               text: Spring developer's guide to Microsoft Entra ID
-            - url: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory.md
+            - url: ../spring-framework/configure-spring-boot-starter-java-app-with-entra.md
               itemType: tutorial
               text: Secure a Spring app by using Microsoft Entra ID
-            - url: ../spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md
+            - url: ../spring-framework/configure-spring-boot-starter-java-app-with-entra-b2c-oidc.md
               itemType: tutorial
               text: Secure a Spring app by using Azure Active Directory B2C
         - title: Distributed apps

@@ -27,13 +27,13 @@ items:
       - name: Authentication and authorization
         items:
         - name: Add sign-in with Microsoft Entra account to a Spring web app
-          href: configure-spring-boot-starter-java-app-with-azure-active-directory.md
+          href: configure-spring-boot-starter-java-app-with-entra.md
         - name: Secure your REST API using Spring Cloud Azure
           href: secure-your-restful-api-using-spring-cloud-azure.md
         - name: Add sign-in with Azure AD B2C to a Spring web app
-          href: configure-spring-boot-starter-java-app-with-azure-active-directory-b2c-oidc.md
+          href: configure-spring-boot-starter-java-app-with-entra-b2c-oidc.md
         - name: Microsoft Entra dev guide
-          href: spring-boot-starter-for-azure-active-directory-developer-guide.md
+          href: spring-boot-starter-for-entra-developer-guide.md
       - name: Passwordless connections
         items:
         - name: Access a database without passwords in Spring
@@ -183,7 +183,7 @@ items:
       - name: Common properties
         href: ./configuration-properties-global.md
       - name: Microsoft Entra properties
-        href: ./configuration-properties-azure-active-directory.md
+        href: ./configuration-properties-entra.md
       - name: Azure AD B2C properties
         href: ./configuration-properties-azure-active-directory-b2c.md
       - name: Azure App Configuration properties
