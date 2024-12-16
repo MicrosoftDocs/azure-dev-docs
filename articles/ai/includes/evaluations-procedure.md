@@ -7,7 +7,7 @@ author: ms-johnalex
 ms.service: azure
 ---
 
-## Open development environment
+## Open a development environment
 
 Begin now with a development environment that has all the dependencies installed to complete this article. Arrange your monitor workspace so that you can see this documentation and the development environment at the same time.
 
@@ -23,9 +23,7 @@ This article was tested with the `switzerlandnorth` region for the evaluation de
 1. Start the process to create a new GitHub codespace on the `main` branch of the [Azure-Samples/ai-rag-chat-evaluator](https://github.com/Azure-Samples/ai-rag-chat-evaluator) GitHub repository.
 1. To display the development environment and the documentation available at the same time, right-click the following button, and select **Open link in new window**.
 
-    ![Open in GitHub Codespaces.](https://github.com/codespaces/badge.svg)
-
-    ![Screenshot that shows the Create codespace pane.](https://codespaces.new/Azure-Samples/ai-rag-chat-evaluator)
+    ![Open in GitHub Codespaces.](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/ai-rag-chat-evaluator)
 
 1. On the **Create codespace** page, review the codespace configuration settings, and then select **Create new codespace**.
 
@@ -33,7 +31,7 @@ This article was tested with the `switzerlandnorth` region for the evaluation de
 
 1. Wait for the codespace to start. This startup process can take a few minutes.
 
-1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
+1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI:
 
     ```bash
     azd auth login --use-device-code
@@ -41,7 +39,7 @@ This article was tested with the `switzerlandnorth` region for the evaluation de
 
 1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
 
-1. Provision the required Azure resource, Azure OpenAI, for the evaluations app.
+1. Provision the required Azure resource, Azure OpenAI Service, for the evaluations app:
 
     ```bash
     azd up
@@ -332,7 +330,7 @@ To delete the Azure resources and remove the source code, run the following Azur
 azd down --purge
 ```
 
-### Clean up GitHub Codespaces
+### Clean up GitHub Codespaces and Visual Studio Code
 
 #### [GitHub Codespaces](#tab/github-codespaces)
 
@@ -355,11 +353,11 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
 
-1. Open **Command Palette**, and search for the **Dev Containers** commands.
+1. Open the **Command** palette, and search for the **Dev Containers** commands.
 
 1. Select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="../media/get-started-app-chat-evaluations/reopen-local-command-palette.png" alt-text="Screenshot that shows the Command Palette option to reopen the current folder within your local environment.":::
+    :::image type="content" source="../media/get-started-app-chat-evaluations/reopen-local-command-palette.png" alt-text="Screenshot that shows the Command palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You always have the option to delete the container instance, container image, and volumes from Docker to free up more space on your local machine.

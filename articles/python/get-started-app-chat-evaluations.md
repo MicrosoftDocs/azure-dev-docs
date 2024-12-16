@@ -1,12 +1,12 @@
 ---
 title: "Evaluating chat apps with Azure OpenAI"
-description: "Learn how to effectively evaluate answers in your RAG-based chat app by using Azure OpenAI. Generate sample prompts, run evaluations, and analyze results."
+description: "Learn how to effectively evaluate answers in your RAG-based chat app by using Azure OpenAI Service. Generate sample prompts, run evaluations, and analyze results."
 ms.date: 05/15/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
-# CustomerIntent: As a Python developer new to Azure OpenAI, I want to evaluate the answers of my chat app and determine the best prompt.
+# CustomerIntent: As a Python developer new to Azure OpenAI Service, I want to evaluate the answers of my chat app and determine the best prompt.
 ---
 # Get started with evaluating answers in a chat app in Python
 
@@ -15,7 +15,6 @@ ms.collection: ce-skilling-ai-copilot
 ## Prerequisites
 
 * An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
-* Access granted to Azure OpenAI in the Azure subscription that you want. For more information, see [Limited access for Azure OpenAI Service](https://aka.ms/oai/access).
 * Complete the [previous chat app procedure](get-started-app-chat-template.md) to deploy the chat app to Azure. This resource is required for the evaluations app to work. Don't complete the "Clean up resources" section of the previous procedure.
 
     You need the following Azure resource information from that deployment, which is referred to as the *chat app* in this article:
@@ -33,7 +32,7 @@ ms.collection: ce-skilling-ai-copilot
 
     #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
     
-    * A GitHub account.
+    A GitHub account
     
     #### [Visual Studio Code](#tab/visual-studio-code)
 
