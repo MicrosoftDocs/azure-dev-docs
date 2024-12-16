@@ -49,6 +49,7 @@ This article shows you how to deploy a containerized application to Azure Contai
    java -jar target\containerapps-albumapi-java-0.0.1-SNAPSHOT.jar
    ```
 
+
 ## Create an environment
 
 Use the following steps to set up your environment and deploy a container app in Azure:
@@ -171,12 +172,14 @@ In the browser's address bar, append the `/albums` path to the end of the app UR
 
    :::image type="content" source="media/create-container-apps-intellij/deploy-to-container-apps-settings.png" alt-text="Screenshot of Intelli J that shows the Deploy Image to Azure Container Apps dialog box.":::
 
+1. Select **OK**. The toolkit displays a status message when the app deployment succeeds.
 
 1. After the deployment finishes, the Azure Toolkit for IntelliJ displays a notification. Select **Browse** to open the deployed app in a browser.
 
    :::image type="content" source="media/create-container-apps-intellij/deploy-to-container-apps.png" alt-text="Screenshot of the deployed app in a browser window.":::
 
 In the browser's address bar, append the `/albums` path to the end of the app URL to view data from a sample API request.
+
 
 
 
