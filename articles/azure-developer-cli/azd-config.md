@@ -140,7 +140,9 @@ Sample output:
 
 ### Get and set configurations
 
-You can get, set, or unset values in the `config.json` file. Some specific configurations are used by other `azd` features and commands, such as when enabling alpha features or setting template sources, but you can also set your own custom values as well.
+You can get, set, or unset values in the `config.json` file using `azd config` commands. Some specific configurations are used by other `azd` features and commands, such as when enabling alpha features or setting template sources, but you can also set your own custom values as well.
+
+### Manage configurations used by `azd`
 
 Use the `azd config set` command to enable the `azd compose` alpha feature:
 
@@ -174,6 +176,8 @@ Sample output:
   "compose": "on"
 }
 ```
+
+### Manage custom configurations
 
 Set a custom configuration value:
 
