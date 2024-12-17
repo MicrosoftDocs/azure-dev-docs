@@ -7,7 +7,7 @@ author: diberry
 ms.service: azure
 ---
 
-## Open Container Apps local balancer sample app
+## Open the Container Apps load balancer sample app
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
@@ -26,21 +26,21 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ---
 
-## Deploy Azure Container Apps load balancer
+## Deploy the Azure Container Apps load balancer
 
-1. Sign in to the Azure Developer CLI to provide authentication to the provisioning and deployment steps.
+1. Sign in to the Azure Developer CLI to provide authentication to the provisioning and deployment steps:
 
     ```bash
     azd auth login --use-device-code
     ```
 
-1. Set an environment variable to use Azure CLI authentication to the post provision step.
+1. Set an environment variable to use Azure CLI authentication to the post provision step:
 
     ```bash
     azd config set auth.useAzCliAuth "true"
     ```
 
-1. Deploy the load balancer app.
+1. Deploy the load balancer app:
 
     ```bash
     azd up
@@ -52,7 +52,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ## Get the deployment endpoint
 
-1. Use the following command to display the deployed endpoint for the container app.
+1. Use the following command to display the deployed endpoint for the container app:
 
     ```bash
     azd env get-values
