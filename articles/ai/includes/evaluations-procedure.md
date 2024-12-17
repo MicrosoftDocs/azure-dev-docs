@@ -23,7 +23,7 @@ This article was tested with the `switzerlandnorth` region for the evaluation de
 1. Start the process to create a new GitHub codespace on the `main` branch of the [Azure-Samples/ai-rag-chat-evaluator](https://github.com/Azure-Samples/ai-rag-chat-evaluator) GitHub repository.
 1. To display the development environment and the documentation available at the same time, right-click the following button, and select **Open link in new window**.
 
-    ![Open in GitHub Codespaces.](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/ai-rag-chat-evaluator)
+    [![Open in GitHub Codespaces.](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/ai-rag-chat-evaluator)
 
 1. On the **Create codespace** page, review the codespace configuration settings, and then select **Create new codespace**.
 
@@ -374,6 +374,6 @@ Return to the chat app article to clean up those resources.
 * See the [evaluations repository](https://github.com/Azure-Samples/ai-rag-chat-evaluator).
 * See the [enterprise chat app GitHub repository](https://github.com/Azure-Samples/azure-search-openai-demo).
 * Build a [chat app with Azure OpenAI](https://aka.ms/azai/chat) best-practices solution architecture.
-* Learn about [access control in Generative AI apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408).
+* Learn about [access control in generative AI apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408).
 * Build an [enterprise-ready Azure OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-an-enterprise-ready-azure-openai-solution-with-azure-api/bc-p/3935407).
 * See [Azure AI Search: Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167).
