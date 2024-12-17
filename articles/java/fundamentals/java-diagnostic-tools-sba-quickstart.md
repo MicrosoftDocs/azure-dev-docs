@@ -1,7 +1,17 @@
-# Quick Start Guide: Java Diagnostic Tool (diag4j) on AKS
+---
+title: Get Started with Java Diagnostic Agent
+description: The quickstart guide for Java Diagnostic Agent
+author: 
+ms.author: xuycao
+ms.topic: article
+ms.date: 12/17/2024
+ms.custom: devx-track-java, devx-track-extended-java
+---
+
+# Get Started with Java Diagnostic Tool (diag4j) on AKS
 
 ## Introduction
-This guide provides step-by-step instructions to set up and start using the Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS). By following these steps, developers can monitor and diagnose their Java applications efficiently.
+This guide provides step-by-step instructions to set up and start using the Spring Boot Admin component of the Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS). By following these steps, developers can monitor and diagnose their Java applications efficiently.
 
 ## Prerequisites
 

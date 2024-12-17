@@ -1,4 +1,14 @@
-# Deploy an app on AKS
+---
+title: Tutorial: Deploy a Java application on AKS
+description: This guide shows how to deploy a Java application on Azure Kubernetes Service (AKS)
+author: 
+ms.author: xuycao
+ms.topic: article
+ms.date: 12/17/2024
+ms.custom: devx-track-java, devx-track-extended-java
+---
+
+# Tutorial: Deploy a Java application on AKS
 This guide will walk you through how to deploy a Java application on Azure Kubernetes Service (AKS). After deployment, 
 you can use Java Diagnostic Tool (diag4j) to do some troubleshooting and monitoring.
 

@@ -1,4 +1,14 @@
-# Quick Start Guide: Java Diagnostic Agent
+---
+title: Get Started with Java Diagnostic Agent
+description: The quickstart guide for Java Diagnostic Agent
+author: 
+ms.author: fenzho
+ms.topic: article
+ms.date: 12/17/2024
+ms.custom: devx-track-java, devx-track-extended-java
+---
+
+# Get Started with Java Diagnostic Agent
 Java Diagnostic Agent is a java agent for throubleshooting Java process. It doesn't need to rebuild, redeploy or restart the application. Currently, it support add logs around a function in Java class, once the function is called, the log will be printed and calculate the total time consumed.
 
 ## Prerequisites

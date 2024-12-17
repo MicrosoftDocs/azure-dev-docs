@@ -1,3 +1,13 @@
+---
+title: Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS)
+description: The overview of Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS)
+author: 
+ms.author: xuycao
+ms.topic: article
+ms.date: 12/17/2024
+ms.custom: devx-track-java, devx-track-extended-java
+---
+
 # Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS)
 
 ## Overview
