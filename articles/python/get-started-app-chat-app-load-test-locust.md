@@ -6,12 +6,12 @@ ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, build-2024-intelligent-apps
 ms.collection: ce-skilling-ai-copilot
-# CustomerIntent: As a Python developer new to Azure OpenAI, I want to load test my scaled app past rate limiting.
+# CustomerIntent: As a Python developer new to Azure OpenAI Service, I want to load test my scaled app past rate limiting.
 ---
 
-# Load testing Python chat app by using RAG with Locust
+# Load testing a Python chat app by using RAG with Locust
 
-This article provides the process to perform load testing on a Python chat application by using the Retrieval Augmented Generation (RAG) pattern with Locust, a popular open-source load testing tool. The primary objective of load testing is to ensure that the expected load on your chat application doesn't exceed the current Azure OpenAI transactions per minute (TPM) quota. By simulating user behavior under heavy load, you can identify potential bottlenecks and scalability issues in your application. This process is crucial for ensuring that your chat application remains responsive and reliable, even when faced with a high volume of user requests.
+This article provides the process to perform load testing on a Python chat application by using the Retrieval Augmented Generation (RAG) pattern with Locust, a popular open-source load testing tool. The primary objective of load testing is to ensure that the expected load on your chat application doesn't exceed the current Azure OpenAI Service transactions per minute (TPM) quota. By simulating user behavior under heavy load, you can identify potential bottlenecks and scalability issues in your application. This process is crucial for ensuring that your chat application remains responsive and reliable, even when faced with a high volume of user requests.
 
 To understand more about load testing the chat app, watch the [demonstration video](https://www.youtube.com/watch?v=-oMqb6kBdDw).
 
@@ -20,8 +20,7 @@ To understand more about load testing the chat app, watch the [demonstration vid
 
 ## Prerequisites
 
-* Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
-* Access granted to Azure OpenAI in the Azure subscription that you want. Currently, you must apply to gain access to this service. To apply for access to Azure OpenAI, use the links in [Limited access for Azure OpenAI Service](https://aka.ms/oai/access) to complete the form.
+* An Azure subscription. [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
 * [Dev containers](https://containers.dev/) are available for both samples with all the dependencies that are required to complete this article. You can run the dev containers in GitHub Codespaces (in a browser) or locally by using Visual Studio Code.
 
     #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
@@ -45,7 +44,7 @@ The load test is in the [Python chat app](get-started-app-chat-template.md) solu
 
 ## Run the test
 
-1. Install the dependencies for the load test.
+1. Install the dependencies for the load test:
 
     ```bash
     python3 -m pip install -r requirements-dev.txt
@@ -56,6 +55,7 @@ The load test is in the [Python chat app](get-started-app-chat-template.md) solu
     ```bash
     locust
     ```
+
 1. Open the running Locust website, such as `http://localhost:8089`.
 1. Enter the following values in the Locust website.
 
