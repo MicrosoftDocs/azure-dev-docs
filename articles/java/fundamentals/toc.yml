@@ -42,6 +42,15 @@ items:
           href: java-azure-keyvault-ssl-integration-jvm.md
         - name: Deliver certs to Tomcat
           href: java-azure-keyvault-tomcat-integration.md
+    - name: Java diagnostic tools
+      expanded: true
+      items:
+        - name: Java diagnostic tools on AKS
+          href: java-diagnostic-tools-on-aks-overview.md
+        - name: Get started with Spring Boot Admin of the Java diagnostic tools on AKS
+          href: java-diagnostic-tools-sba-quickstart.md
+        - name: Get started with Java Diagnostic Agent of the Java diagnostic tools on AKS
+          href: java-diagnostic-tools-jda-quickstart.md
     - name: Jenkins CI/CD
       href: /azure/jenkins/
     - name: Azure DevOps
