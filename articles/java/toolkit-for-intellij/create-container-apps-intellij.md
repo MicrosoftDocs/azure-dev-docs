@@ -62,8 +62,10 @@ Use the following steps to set up your environment and deploy a container app in
    - **Resource Group**: Specifies the resource group for your container apps. Select one of the following options:
       - **Create New**: Specifies that you want to create a new resource group.
       - **Use Existing**: Specifies that you must select from a list of resource groups that are associated with your Azure account.
+   - **Region**: Specifies the appropriate region (for example, **East US**).   
    - **Name**: Specifies the name for the new container apps environment.
-   - **Region**: Specifies the appropriate region (for example, **East US**).
+   - **Type**: Specifies the type of container apps environment or accept the default.
+   - **Workload Profiles**:Specifies the workload profiles for your container apps or accept the default.
    - **Log Analytics workspace**: Specifies the Log Analytics workspace you want to use or accept the default.
 
    :::image type="content" source="media/create-container-apps-intellij/create-container-apps-environment.png" alt-text="Screenshot of Intelli J that shows the Create Container Apps Environment dialog box.":::
