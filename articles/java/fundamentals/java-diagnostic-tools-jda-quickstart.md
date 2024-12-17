@@ -12,16 +12,18 @@ ms.custom: devx-track-java, devx-track-extended-java
 Java Diagnostic Agent is a java agent for throubleshooting Java process. It doesn't need to rebuild, redeploy or restart the application. Currently, it support add logs around a function in Java class, once the function is called, the log will be printed and calculate the total time consumed.
 
 ## Prerequisites
-- [install diag4j in Your Cluster](java-diagnostic-tools-on-aks-overview.md#steps)
+- [install diag4j in Your Cluster](java-diagnostic-tools-sba-quickstart.md#steps)
 - Support Java TLS version: 11,17,21
 
 ## Steps
 - Port Forwarding to the agent service
-  > kubectl port-forward svc/diag4j-agent-service -n <namespace> {port}:8080
+  ```
+    kubectl port-forward svc/diag4j-agent-service -n {namespace} {port}:8080
+  ```
 
 - Work with [Java Diagnostic Tool on AKS plugin](#java-diagnostic-tool-on-aks-plugin).
 
-# Java Diagnostic Tool on AKS plugin
+### Java Diagnostic Tool on AKS plugin
 This plugin is used to attach Java diagnostic agent to the Java application which running in a pod container on Azure Kubernetes Service (AKS) cluster.
  
 After Attach, it allows to do some troubleshooting like add logs around a class function, to test if the function is executed and calculate the total cost of the function

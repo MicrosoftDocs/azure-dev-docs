@@ -1,6 +1,6 @@
 ---
-title: Get Started with Java Diagnostic Agent
-description: The quickstart guide for Java Diagnostic Agent
+title: Get Started with Spring Boot Admin component of Java Diagnostic Tool (diag4j) on AKS
+description: The quickstart guide for Spring Boot Admin component of Java Diagnostic Tool (diag4j) on AKS
 author: 
 ms.author: xuycao
 ms.topic: article
@@ -8,7 +8,7 @@ ms.date: 12/17/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Get Started with Java Diagnostic Tool (diag4j) on AKS
+# Get Started with Spring Boot Admin component of Java Diagnostic Tool (diag4j) on AKS
 
 ## Introduction
 This guide provides step-by-step instructions to set up and start using the Spring Boot Admin component of the Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS). By following these steps, developers can monitor and diagnose their Java applications efficiently.
@@ -74,7 +74,7 @@ Before starting, ensure the following prerequisites are met:
 
 2. Navigate to http://localhost:8080 in your browser to view the SBA dashboard, all applications in the same namespace should be registered automatically.
 
-![sba-dashboard](images/sba-dashboard.png)
+![Spring-Boot-Admin-dashboard](media/java-diagnostic-tool/sba-dashboard.png)
 
 ### Step 4: Use Diagnostic Features
 
@@ -85,14 +85,14 @@ Before starting, ensure the following prerequisites are met:
   - Garbage collection (GC) status.
   - Active threads and environment variables.
 
-![sba-app-details](images/app-details.png)
+![sba-app-details](media/java-diagnostic-tool/app-details.png)
 
 2. Adjust Log Levels:
 
 - Navigate to the Loggers section.
 - Modify log levels dynamically for specific packages or classes to isolate issues.
 
-![sba-change-log-level](images/log-level-change.png)
+![sba-change-log-level](media/java-diagnostic-tool/log-level-change.png)
 
 3. Perform Advanced Diagnostics:
 
