@@ -7,7 +7,7 @@ author: diberry
 ms.service: azure
 ---
 
-## Open Azure API Management local balancer sample app
+## Open the Azure API Management local balancer sample app
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
@@ -26,7 +26,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ---
 
-## Deploy Azure API Management load balancer
+## Deploy the Azure API Management load balancer
 
 1. To deploy the load balancer to Azure, sign in to the Azure Developer CLI (`AZD`):
 
@@ -47,7 +47,7 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 
 ## Get the load balancer endpoint
 
-Run the following bash command to see the environment variables from the deployment. You need this information later.
+Run the following Bash command to see the environment variables from the deployment. You need this information later.
 
 ```bash
 azd env get-values | grep APIM_GATEWAY_URL
