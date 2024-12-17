@@ -100,7 +100,7 @@ You need more prerequisites depending on your preferred development environment.
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
-[GitHub account](https://github.com/login)
+* [GitHub account](https://github.com/login)
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -127,7 +127,7 @@ Begin now with a development environment that has all the dependencies installed
 
     [![Open in GitHub Codespaces.](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo)
 
-1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**
+1. On the **Create codespace** page, review the codespace configuration settings and then select **Create new codespace**.
 
     :::image type="content" source="./media/get-started-app-chat-document-security-trim/github-create-codespace.png" alt-text="Screenshot that shows the confirmation screen before you create a new codespace.":::
 
@@ -306,7 +306,7 @@ When this information is known, update the Azure AI Search index `oids` field fo
     |Parameter|Purpose|
     |--|--|
     |-v|Verbose output.|
-    |--acl-type|Group or user OIDs: `oids`|
+    |--acl-type|Group or user OIDs: `oids`.|
     |--acl-action|**Add** to a Search index field. Other options include `remove`, `remove_all`, and `list`. |
     |--acl|Group or user `USER_OBJECT_ID`.|
     |--url|The file's location in Azure Storage, such as `https://MYSTORAGENAME.blob.core.windows.net/content/role_library.pdf`. Don't surround the URL with quotation marks in the CLI command.|
@@ -336,7 +336,7 @@ When this information is known, update the Azure AI Search index `oids` field fo
     |Parameter|Purpose|
     |--|--|
     |-v|Verbose output.
-    |--acl-type|Group or user (oids): `oids`|
+    |--acl-type|Group or user OIDs: `oids`.|
     |--acl-action|List a Search index field `oids`. Other options include `remove`, `remove_all`, and `list`. |
     |--acl|Group or user's `USER_OBJECT_ID` parameter.|
     |--url|The file's location in that shows, such as `https://MYSTORAGENAME.blob.core.windows.net/content/role_library.pdf`. Don't surround the URL with quotation marks in the CLI command.|
@@ -465,6 +465,6 @@ When your authentication is in a separate tenant from your hosting application, 
 ## Related content
 
 * Build a [chat app with Azure OpenAI](https://aka.ms/azai/chat) best-practices solution architecture.
-* Learn about [access control in Generative AI apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408).
+* Learn about [access control in generative AI apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408).
 * Build an [enterprise-ready Azure OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-an-enterprise-ready-azure-openai-solution-with-azure-api/bc-p/3935407).
 * See [Azure AI Search: Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167).
