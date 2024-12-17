@@ -37,7 +37,7 @@ Other articles in the collection include:
 
 ## Architectural overview
 
-A simple architecture of the chat app is shown in the following diagram.
+The following diagram shows a simple architecture of the chat app.
 
 :::image type="content" source="./media/get-started-app-chat-template/simple-architecture-diagram.png" alt-text="Diagram that shows architecture from the client to the backend app.":::
 
@@ -310,6 +310,6 @@ If your issue isn't addressed, add your issue to the repository's [Issues](https
 
 * Get the [source code for the sample used in this article](https://github.com/Azure-Samples/azure-search-openai-demo).
 * Build a [chat app with Azure OpenAI](https://aka.ms/azai/chat) best-practices solution architecture.
-* Learn about [access control in Generative AI apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408).
+* Learn about [access control in generative AI apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408).
 * Build an [enterprise-ready Azure OpenAI solution with Azure API Management](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-an-enterprise-ready-azure-openai-solution-with-azure-api/bc-p/3935407).
 * See [Azure AI Search: Outperforming vector search with hybrid retrieval and ranking capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-outperforming-vector-search-with-hybrid/ba-p/3929167).
