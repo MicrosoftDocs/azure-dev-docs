@@ -36,7 +36,7 @@ Within the virtual network, there's a separate subnet for the Azure App Service 
 
 :::image type="content" source="media/get-started-app-chat-private-endpoints/diagram-subnets.png" lightbox="media/get-started-app-chat-private-endpoints/diagram-subnets.png" alt-text="Diagram that shows a chat app subnet and a back-end subnet within the virtual network.":::
 
-Within the virtual network, the services use private endpoints to communicate with each other. Each private endpoint is associated with a private domain name system (DNS) zone to resolve the private endpoint's name to an IP address within the virtual network.
+Within the virtual network, the services use private endpoints to communicate with each other. Each private endpoint is associated with a private Domain Name System (DNS) zone to resolve the private endpoint's name to an IP address within the virtual network.
 
 :::image type="content" source="media/get-started-app-chat-private-endpoints/diagram-private-endpoint-openai.png" lightbox="media/get-started-app-chat-private-endpoints/diagram-private-endpoint-openai.png" alt-text="Diagram that shows the private endpoint and private DNS zone for Azure OpenAI within the virtual network.":::
 
@@ -154,7 +154,7 @@ The first deployment creates the resources and provides a publicly accessible en
     azd env set AZURE_PUBLIC_NETWORK_ACCESS Enabled
     ```
 
-    When asked for an environment name, remember that the environment name is used to create the resource group. Enter a meaningful name. If you're on a team or in an organization, include your name, as in `morgan-chat-private-endpoints`. Make note of the environment name. You need it later to find the resources in the Azure portal.
+    When you're asked for an environment name, remember that the environment name is used to create the resource group. Enter a meaningful name. If you're on a team or in an organization, include your name, as in `morgan-chat-private-endpoints`. Make note of the environment name. You need it later to find the resources in the Azure portal.
 
 1. Run the following command to include provisioning the virtual network resources. Remember that the deployment doesn't restrict access until the second deployment.
 
@@ -241,4 +241,4 @@ If your issue isn't addressed, add your issue to the repository's [Issues](https
 
 * See the [enterprise chat app GitHub repository](https://github.com/Azure-Samples/azure-search-openai-demo).
 * Build a [chat app with Azure OpenAI](https://aka.ms/azai/chat) best-practices solution architecture.
-* Learn about [access control in Generative AI apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408).
+* Learn about [access control in generative AI apps with Azure AI Search](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/access-control-in-generative-ai-applications-with-azure/ba-p/3956408).
