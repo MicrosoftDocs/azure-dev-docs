@@ -405,8 +405,8 @@
 | tmlanguage-generator | npm [0.5.10](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.10) |  |  |
 | Unknown Display Name | npm [0.4.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.4.0) |  |  |
 | Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/events/v/0.63.0) |  |  |
-| Unknown Display Name | npm [0.1.4](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.4) |  |  |
-| Unknown Display Name | npm [0.4.3](https://www.npmjs.com/package/@typespec/http-client-python/v/0.4.3) |  |  |
+| Unknown Display Name | npm [0.1.5](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.5) |  |  |
+| Unknown Display Name | npm [0.4.4](https://www.npmjs.com/package/@typespec/http-client-python/v/0.4.4) |  |  |
 | Unknown Display Name | npm [0.1.0-alpha.5](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.5) |  |  |
 | Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/sse/v/0.63.0) |  |  |
 | Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/streams/v/0.63.0) |  |  |
@@ -541,7 +541,7 @@
 | @azure-tools/test-recorder | npm [3.5.2](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.5.2) |  |  |
 | @azure-tools/tmlanguage-generator | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/tmlanguage-generator/v/0.1.4) |  |  |
 | @azure-tools/yaml | npm [1.2.0](https://www.npmjs.com/package/@azure-tools/yaml/v/1.2.0) |  |  |
-| @azure/static-web-apps-cli | npm [2.0.1](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/2.0.1) |  |  |
+| @azure/static-web-apps-cli | npm [2.0.2](https://www.npmjs.com/package/@azure/static-web-apps-cli/v/2.0.2) |  |  |
 | @cadl-lang/compiler | npm [0.40.0](https://www.npmjs.com/package/@cadl-lang/compiler/v/0.40.0) |  |  |
 | @cadl-lang/eslint-config-cadl | npm [0.5.0](https://www.npmjs.com/package/@cadl-lang/eslint-config-cadl/v/0.5.0) |  |  |
 | @cadl-lang/eslint-plugin | npm [0.40.0](https://www.npmjs.com/package/@cadl-lang/eslint-plugin/v/0.40.0) |  |  |
