@@ -71,7 +71,7 @@ Use the following steps to set up your environment and deploy a container app in
 
 ## Deploy the container app
 
-### [SourceCode](#tab/sourcecode)
+# [SourceCode](#tab/sourcecode)
 
 1. Right-click on the container apps environment you created and select **Create** > **Container App** in Azure Explorer. Enter the following information:
 
@@ -106,7 +106,7 @@ Use the following steps to set up your environment and deploy a container app in
 
 In the browser's address bar, append the `/albums` path to the end of the app URL to view data from a sample API request.
 
-### [Artifact](#tab/artifact)
+# [Artifact](#tab/artifact)
 
 1. Right-click on the container apps environment you created and select **Create** > **Container App** in Azure Explorer. Enter the following information:
 
@@ -141,7 +141,7 @@ In the browser's address bar, append the `/albums` path to the end of the app UR
 
 In the browser's address bar, append the `/albums` path to the end of the app URL to view data from a sample API request.
 
-### [Image](#tab/image)
+# [Image](#tab/image)
 
 1. On the **Project** tab, navigate to your project and open **Dockerfile**.
 
