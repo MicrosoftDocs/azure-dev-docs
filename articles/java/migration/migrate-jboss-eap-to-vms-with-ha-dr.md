@@ -4,7 +4,7 @@ description: Shows how to deploy JBoss EAP Application Server to Azure Virtual M
 author: KarlErickson
 ms.author: zhihaoguo
 ms.topic: tutorial
-ms.date: 11/28/2024
+ms.date: 12/12/2024
 ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm, migration-java
 ---
 

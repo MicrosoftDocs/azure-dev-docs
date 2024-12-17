@@ -66,7 +66,7 @@ sections:
 
       - question: What is the behavior of the `secretOrRandomPassword` function?
         answer: |
-          The `secretOrRandomPassword` function retrieves a secret from Azure Key Vault if parameters for the key vault name and secret are provided. If these parameters aren't provided or a secret can't be retrieved, the function will instead return a randomly generated password to use instead.
+          The `secretOrRandomPassword` function retrieves a secret from Azure Key Vault if parameters for the key vault name and secret are provided. If these parameters aren't provided or a secret can't be retrieved, the function returns a randomly generated password to use instead.
           
           The following example demonstrates a common use case of the `secretOrRandomPassword` in a `main.parameters.json` file. The `${AZURE_KEY_VAULT_NAME}` and `sqlAdminPassword` variables are passed as parameters for the names of the Key Vault and secret. If the value can't be retrieved, a random password is generated instead. 
 
@@ -117,7 +117,7 @@ sections:
 
           You can select a different Azure location to fix the issue.
 
-      - question: My app hosted with Azure App Service is triggering a "Deceptive site ahead" warning, how can I fix it?
+      - question: My app hosted with Azure App Service is triggering a "Deceptive site ahead" warning. How can I fix it?
         answer: |
           This might happen because of our method for naming resources. 
 
@@ -128,7 +128,7 @@ sections:
           }
           ```
 
-          This entry creates a new resource named "my-unique-name" instead of a randomized value such as "app-web-aj84u2adj" the next time you provision your application. You can either manually remove the old resource group using the Azure Portal or run `azd down` to remove all previous deployments. After removing the resources, run `azd provision` to create them again with the new name.
+          This entry creates a new resource named "my-unique-name" instead of a randomized value such as "app-web-aj84u2adj" the next time you provision your application. You can either manually remove the old resource group using the Azure portal or run `azd down` to remove all previous deployments. After removing the resources, run `azd provision` to create them again with the new name.
 
           This name will need to be globally unique, otherwise you will receive an ARM error during `azd provision` when it tries to create the resource.
    
@@ -164,6 +164,12 @@ sections:
           During deploy, `azd` first discovers all the resource groups that make up your application by looking for groups tagged with `azd-env-name` and with a value that matches the name of your environment. Then, it enumerates all the resources in each of these resource groups, looking for a resource tagged with `azd-service-name` with a value that matches the name of your service from `azure.yaml`.
 
           While we recommend using tags on resources, you can also use the `resourceName` property in `azure.yaml` to provide an explicit resource name. In that case, the above logic isn't run.
+      - question: How do I deploy specific services in my project while skipping others?
+        answer: |
+          When deploying your project, you can choose to deploy specific services either by specifying the service name in the command (i.e. `azd deploy api`) or by navigating to a subfolder that contains just the service(s) you want to deploy. When doing so, all other services will be listed as `- Skipped`. 
+
+          If you don't want to skip any services, be sure to either run your command from the root folder or add the `--all` flag to your command. 
+
 
   - name: "Command: azd up"
     questions:
