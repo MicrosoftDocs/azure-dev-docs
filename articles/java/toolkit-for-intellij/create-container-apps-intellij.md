@@ -141,7 +141,7 @@ In the browser's address bar, append the `/albums` path to the end of the app UR
 
 In the browser's address bar, append the `/albums` path to the end of the app URL to view data from a sample API request.
 
-### [Image](#tab/Image)
+### [Image](#tab/image)
 
 1. On the **Project** tab, navigate to your project and open **Dockerfile**.
 
@@ -179,6 +179,7 @@ In the browser's address bar, append the `/albums` path to the end of the app UR
    :::image type="content" source="media/create-container-apps-intellij/deploy-to-container-apps.png" alt-text="Screenshot of the deployed app in a browser window.":::
 
 In the browser's address bar, append the `/albums` path to the end of the app URL to view data from a sample API request.
+
 
 
 
