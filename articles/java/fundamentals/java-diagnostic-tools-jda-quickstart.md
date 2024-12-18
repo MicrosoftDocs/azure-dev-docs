@@ -13,7 +13,7 @@ Java Diagnostic Agent is a java agent for throubleshooting Java process. It does
 
 ## Prerequisites
 - [install diag4j in Your Cluster](java-diagnostic-tools-sba-quickstart.md#steps)
-- Support Java TLS version: 11,17,21
+- Support Java LTS version: 11,17,21
 
 ## Steps
 - Port Forwarding to the agent service
