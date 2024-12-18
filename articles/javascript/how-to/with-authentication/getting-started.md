@@ -38,7 +38,7 @@ Before you create your app registration, determine tasks based on expected users
 
 To integrate user authentication to access Azure resources on behalf of your users, you need app registration information. 
 
-Collect required information for the app registration from the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to configure the [MSAL SDK](https://github.com/AzureAD/microsoft-authentication-library-for-js) :
+Collect required information for the app registration from the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to configure the [MSAL SDK](https://github.com/AzureAD/microsoft-authentication-library-for-js) :
 
 * Application (client) ID
 * Directory (tenant) ID
