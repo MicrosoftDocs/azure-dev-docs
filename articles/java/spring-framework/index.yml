@@ -24,9 +24,9 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Secure REST API using Spring Security and Microsoft Entra ID
-            url: ./configure-spring-boot-starter-java-app-with-azure-active-directory.md
+            url: ./configure-spring-boot-starter-java-app-with-entra.md
           - text: Spring Security support
-            url: ./spring-boot-starter-for-azure-active-directory-developer-guide.md
+            url: ./spring-boot-starter-for-entra-developer-guide.md
           - text: Load a secret from Azure Key Vault
             url: ./configure-spring-boot-starter-java-app-with-azure-key-vault.md
           - text: Enable OIDC sign-in for Spring with Azure AD B2C

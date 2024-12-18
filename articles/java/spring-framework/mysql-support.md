@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure MySQL support
 
-**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.18.0
+**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.19.0
 
 [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) is a relational database service powered by the MySQL community edition. You can use either Single Server or Flexible Server to host a MySQL database in Azure. It's a fully managed database-as-a-service offering that can handle mission-critical workloads with predictable performance and dynamic scalability.
 
@@ -40,7 +40,7 @@ If none of these types of credentials are found, the `DefaultAzureCredential` cr
 
 The following high-level diagram summarizes how authentication works using OAuth credential authentication with Azure Database for MySQL. The arrows indicate communication pathways.
 
-:::image type="content" source="media/spring-cloud-azure/authentication-mysql-azure-active-directory.png" alt-text="Diagram showing Microsoft Entra authentication for MySQL." border="false":::
+:::image type="content" source="media/spring-cloud-azure/authentication-mysql-entra-id.png" alt-text="Diagram showing Microsoft Entra authentication for MySQL." border="false":::
 
 ## Configuration
 

@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Spring Cloud Azure PostgreSQL support
 
-**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.18.0
+**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.19.0
 
 [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) is a relational database service based on the open-source Postgres database engine. It's a fully managed database-as-a-service that can handle mission-critical workloads with predictable performance, security, high availability, and dynamic scalability.
 
@@ -40,7 +40,7 @@ If none of these types of credentials are found, the `DefaultAzureCredential` cr
 
 The following high-level diagram summarizes how authentication works using OAuth credential authentication with Azure Database for PostgreSQL. The arrows indicate communication pathways.
 
-:::image type="content" source="media/spring-cloud-azure/authentication-postgresql-azure-active-directory.png" alt-text="Diagram showing Microsoft Entra authentication for PostgreSQL ." border="false":::
+:::image type="content" source="media/spring-cloud-azure/authentication-postgresql-entra-id.png" alt-text="Diagram showing Microsoft Entra authentication for PostgreSQL ." border="false":::
 
 ## Configuration
 

@@ -185,7 +185,7 @@ With Spring Cloud Azure, if you want to retrieve secrets stored in Azure Key Vau
        <dependency>
          <groupId>com.azure.spring</groupId>
          <artifactId>spring-cloud-azure-dependencies</artifactId>
-         <version>5.18.0</version>
+         <version>5.19.0</version>
          <type>pom</type>
          <scope>import</scope>
        </dependency>
@@ -288,5 +288,5 @@ If you need support for Spring Cloud Azure, you can ask for help in the followin
 ## Next steps
 
 - [Tutorial: Read a secret from Azure Key Vault in a Spring Boot application](configure-spring-boot-starter-java-app-with-azure-key-vault.md)
-- [Secure REST API using Spring Security 5 and Microsoft Entra ID](configure-spring-boot-starter-java-app-with-azure-active-directory.md)
+- [Secure REST API using Spring Security 5 and Microsoft Entra ID](configure-spring-boot-starter-java-app-with-entra.md)
 - [How to use the Spring Boot Starter with Azure Cosmos DB for NoSQL](configure-spring-boot-starter-java-app-with-cosmos-db.md)
