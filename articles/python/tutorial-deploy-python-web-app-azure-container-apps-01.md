@@ -8,9 +8,9 @@ ms.custom: devx-track-python
 
 # Overview: Deploy a Python web app on Azure Container Apps
 
-This tutorial shows you how to containerize a Python web app and deploy it to [Azure Container Apps][2]. A sample web app will be containerized and the Docker image stored in [Azure Container Registry][3]. Azure Container Apps is configured to pull the Docker image from Container Registry and create a container. The sample app connects to an [Azure Database for PostgreSQL][4] to demonstrate communication between Container Apps and other Azure resources.
+This tutorial shows you how to containerize a Python web app and deploy it to [Azure Container Apps][2]. A sample web app is containerized and the Docker image stored in [Azure Container Registry][3]. Azure Container Apps is configured to pull the Docker image from Container Registry and create a container. The sample app connects to an [Azure Database for PostgreSQL][4] to demonstrate communication between Container Apps and other Azure resources.
 
-There are several options to build and deploy cloud native and containerized Python web apps on Azure. This tutorial covers Azure Container Apps. Container Apps are good for running general purpose containers, especially for applications that span many microservices deployed in containers. In this tutorial, you'll create one container. To deploy a Python web app as a container to Azure App Service, see [Containerized Python web app on App Service](./tutorial-containerize-deploy-python-web-app-azure-01.md).
+There are several options to build and deploy cloud native and containerized Python web apps on Azure. This tutorial covers Azure Container Apps. Container Apps are good for running general purpose containers, especially for applications that span many microservices deployed in containers. In this tutorial, you create one container. To deploy a Python web app as a container to Azure App Service, see [Containerized Python web app on App Service](./tutorial-containerize-deploy-python-web-app-azure-01.md).
 
 In this tutorial you'll:
 
@@ -18,7 +18,7 @@ In this tutorial you'll:
 * Configure [Azure Container Apps][2] to host the Docker image.
 * Set up a [GitHub Action][6] that updates the container with a new Docker image triggered by changes to your GitHub repository. *This last step is optional.*
 
-Following this tutorial, you'll be set up for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
+Following this tutorial, you are set up for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
 
 ## Service overview
 
@@ -26,7 +26,7 @@ The service diagram supporting this tutorial shows how your local environment, G
 
 :::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps.png" alt-text="A screenshot of the environments and services used in the Tutorial - Deploy a Python App on Azure Container Apps." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps.png":::
 
-The components supporting this tutorial and shown in the diagram above are:
+The components supporting this tutorial and shown in the diagram are:
 
 * [Azure Container Apps][2]
   * Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. A serverless platform means that you enjoy the benefits of running containers with minimal configuration. With Azure Container Apps, your applications can dynamically scale based on characteristics such as HTTP traffic, event-driven processing, or CPU or memory load.
@@ -41,7 +41,7 @@ The components supporting this tutorial and shown in the diagram above are:
   * The container app connects to PostgreSQL with a [user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview). Connection information is stored in environment variables configured explicitly or with [Azure Service Connector][8].
 
 * [GitHub][1]
-  * The sample code for this tutorial is in a GitHub repo that you'll fork and clone locally. To set up a CI/CD workflow with [GitHub Actions][6], you'll need a GitHub account.
+  * The sample code for this tutorial is in a GitHub repo that you fork and clone locally. To set up a CI/CD workflow with [GitHub Actions][6], you need a GitHub account.
   * You can still follow along with this tutorial without a GitHub account, working locally or in the [Azure Cloud Shell][9] to build the container image from the sample code repo.
 
 ## Revisions and CI/CD
@@ -52,23 +52,23 @@ To automate this process, an optional step in the tutorial shows you how to buil
 
 ## Authentication and security
 
-In this tutorial, you'll build a Docker container image directly in Azure and deploy it to Azure Container Apps. Container Apps run in the context of an [*environment*][18], which is supported by an [Azure Virtual Networks (VNet)][19]. VNets are a fundamental building block for your private network in Azure. Container Apps allows you to expose your container app to the public web by enabling ingress.
+In this tutorial, you build a Docker container image directly in Azure and deploy it to Azure Container Apps. Container Apps run in the context of an [*environment*][18], which is supported by an [Azure Virtual Networks (VNet)][19]. VNets are a fundamental building block for your private network in Azure. Container Apps allows you to expose your container app to the public web by enabling ingress.
 
-To set up continuous integration and continuous delivery (CI/CD), you'll authorize Azure Container Apps as an [OAuth App][20] for your GitHub account. As an OAuth App, Container Apps writes a GitHub Actions workflow file to your repo with information about Azure resources and jobs to update them. The workflow updates Azure resources using credentials of a Microsoft Entra service principal (or existing one) with role-based access for Container Apps and username and password for Azure Container Registry. Credentials are stored securely in your GitHub repo.
+To set up continuous integration and continuous delivery (CI/CD), you authorize Azure Container Apps as an [OAuth App][20] for your GitHub account. As an OAuth App, Container Apps writes a GitHub Actions workflow file to your repo with information about Azure resources and jobs to update them. The workflow updates Azure resources using credentials of a Microsoft Entra service principal (or existing one) with role-based access for Container Apps and username and password for Azure Container Registry. Credentials are stored securely in your GitHub repo.
 
-Finally, the tutorial sample web app stores data in a PostgreSQL database. The sample code connects to PostgreSQL via a connection string. When running in Azure, the app connects to the PostgreSQL database with a user-assigned managed identity. The app code uses [DefaultAzureCredential](./sdk/authentication/overview.md#defaultazurecredential) to dynamically update the password in the connection string with a Microsoft Entra access token during runtime. This mechanism prevents having to hardcode the password in the connection string or an environment variable and provides an extra layer of security. The tutorial walks you through creating the managed identity and granting it an appropriate PostgreSQL ROLE and permissions for it to access and update the database. During the configuration of the Container App, the tutorial walks you through configuring the managed identity on the app and setting up environment variables containing connection information for the database. You can also use an Azure Service Connector to accomplish the same thing.
+Finally, the tutorial sample web app stores data in a PostgreSQL database. The sample code connects to PostgreSQL via a connection string. When running in Azure, the app connects to the PostgreSQL database with a user-assigned managed identity. The code uses [`DefaultAzureCredential`](./sdk/authentication/overview.md#defaultazurecredential) to dynamically update the password in the connection string with a Microsoft Entra access token during runtime. This mechanism prevents having to hardcode the password in the connection string or an environment variable and provides an extra layer of security. The tutorial walks you through creating the managed identity and granting it an appropriate PostgreSQL ROLE and permissions for it to access and update the database. During the configuration of the Container App, the tutorial walks you through configuring the managed identity on the app and setting up environment variables containing connection information for the database. You can also use an Azure Service Connector to accomplish the same thing.
 
 ## Prerequisites
 
-To complete this tutorial, you'll need:
+To complete this tutorial, you need:
 
 * An Azure account where you can create:
   * Azure Container Registry
   * Azure Container Apps environment
   * Azure Database for PostgreSQL
 
-* [Visual Studio Code][16] or [Azure CLI][17], depending on what tool you'll use
-  * For Visual Studio Code, you'll need the [Container Apps extension][13].
+* [Visual Studio Code][16] or [Azure CLI][17], depending on what tool you use
+  * For Visual Studio Code, you need the [Container Apps extension][13].
   * You can also use Azure CLI through the [Azure Cloud Shell][9].
 
 * Python packages:
@@ -77,7 +77,7 @@ To complete this tutorial, you'll need:
 
 ## Sample app
 
-The Python sample app is a restaurant review app that saves restaurant and review data in PostgreSQL. At the end of the tutorial, you'll have a restaurant review app deployed and running in Azure Container Apps that looks like the screenshot below.
+The Python sample app is a restaurant review app that saves restaurant and review data in PostgreSQL. At the end of the tutorial, you have a restaurant review app deployed and running in Azure Container Apps that looks like the following screenshot.
 
 :::image type="content" source="./media/tutorial-container-apps/containerization-of-python-web-app-sample-app-screenshot.png" alt-text="A screenshot of the sample app created from the Python containerized web app used in the Tutorial - Containerized Python App on Azure." lightbox="./media/tutorial-container-apps/containerization-of-python-web-app-sample-app-screenshot.png":::
 
