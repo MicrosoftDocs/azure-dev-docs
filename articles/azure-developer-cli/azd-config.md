@@ -11,11 +11,11 @@ ms.custom: devx-track-azdevcli, devx-track-bicep
 
 # Explore Azure Developer CLI configuration
 
-The Azure Developer CLI (`azd`) allows you to manage `azd` configurations using a set of `azd config` commands. These configuration settings include useful defaults such as your Azure subscription and location and settings used by other `azd` commands or features. You can also get and set your own custom values and use them in scripts or custom functionality.
+The Azure Developer CLI (`azd`) allows you to manage `azd` configurations using a set of `azd config` commands. These configuration settings include useful defaults such as your Azure subscription and location, as well as settings used by other `azd` commands or features. You can also get and set your own custom values and use them in scripts or custom functionality.
 
 In this article, you learn:
 
-- Key concepts about `azd config`
+- Key concepts about Azure Developer CLI configuration
 - How to work with `azd config` commands
 - How `azd config` integrates with other `azd` features
 
@@ -67,14 +67,14 @@ A simple `config.json` file might resemble the following:
 
 The Azure Developer CLI provides a set of commands to manage the settings in the `config.json` file manually:
 
-- `azd config get`: Gets a configuration.
+- `azd config get`: Get a configuration value.
 - `azd config list-alpha`: Display the list of available features in alpha stage.
-- `azd config reset`: Resets configuration to default.
-- `azd config set`: Sets a configuration.
-- `azd config show`: Show all the configuration values.
-- `azd config unset`: Unsets a configuration.
+- `azd config reset`: Reset configuration to default.
+- `azd config set`: Set a configuration.
+- `azd config show`: Show all of the configuration values.
+- `azd config unset`: Unset a configuration.
 
-These commands are explored in the following sections. You can also visit the [Azure Developer CLI commands](/azure/developer/azure-developer-cli/reference) reference page to learn more about `azd` commands.
+These commands are explored more in the following sections. You can also visit the [Azure Developer CLI commands](/azure/developer/azure-developer-cli/reference) reference page to learn more about `azd` commands.
 
 ### Display configurations
 
@@ -109,7 +109,7 @@ Sample output:
 }
 ```
 
-Display a specific configuration value using the `azd config get` command:
+Display a specific configuration value using the `azd config get <key>` command:
 
 ```azdeveloper
 azd config get defaults
