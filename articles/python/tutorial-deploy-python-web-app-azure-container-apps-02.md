@@ -439,7 +439,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
 1. On the **Networking** tab, enter the following values:
 
     * **Connectivity method**: Make sure **Public access (allowed IP addresses) and Private endpoint** is selected.
-    * **Allow public access to this resrouce through the internet using a public IP address**: Make sure the checkbox is selected.
+    * **Allow public access to this resource through the internet using a public IP address**: Make sure the checkbox is selected.
     * **Allow public access from any Azure service within Azure to this service**: Select the checkbox.
     * **Add current client IP address**: Select (add) if you plan on accessing the database from your local server.
 
