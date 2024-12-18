@@ -22,7 +22,7 @@ This command may take a few minutes.
 
 # [Azure portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups), filter by your resource group name.
+1. In the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups), filter by your resource group name.
 2. Select your resource group name.
 
     :::image type="content" source="../media/portal/azure-portal-resource-group-selected.png" alt-text="Partial screen shot of Azure portal, selecting resource group from list of resource groups.":::

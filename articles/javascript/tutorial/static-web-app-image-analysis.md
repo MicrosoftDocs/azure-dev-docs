@@ -117,7 +117,7 @@ Creating a resource group allows you to easily find the resources, and delete th
 
 If this is your first AI service, you must create the service through the portal and agree to the Responsible Use agreement, as part of that resource creation. If this isn't your first resource requiring the Responsible Use agreement, you can create the resource with the Azure CLI, found in the next section.
 
-Use the following table to help [create the resource within the Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
+Use the following table to help [create the resource within the Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
 
 |Setting|Value|
 |--|--|
