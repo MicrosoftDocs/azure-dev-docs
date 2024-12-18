@@ -56,7 +56,7 @@
 | Device Update | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/iot-device-update/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/iot-device-update_1.0.0/sdk/deviceupdate/iot-device-update-rest/) |
 | Digital Twins - Core | npm [1.1.0](https://www.npmjs.com/package/@azure/digital-twins-core/v/1.1.0) | [docs](/javascript/api/overview/azure/digital-twins-core-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/digital-twins-core_1.1.0/sdk/digitaltwins/digital-twins-core/) |
 | Digital Twins Definition Language Parser | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/dtdl-parser/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/dtdl-parser-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/dtdl-parser_1.0.0-beta.2/sdk/digitaltwins/dtdl-parser/) |
-| Document Intelligence | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure-rest/ai-document-intelligence/v/1.0.0-beta.3) |  | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-intelligence_1.0.0-beta.3/sdk/documentintelligence/ai-document-intelligence-rest/) |
+| Document Intelligence | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/ai-document-intelligence/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-intelligence_1.0.0/sdk/documentintelligence/ai-document-intelligence-rest/) |
 | Document Translation | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-document-translator/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-translator_1.0.0-beta.1/sdk/documenttranslator/ai-document-translator-rest/) |
 | Document Translation | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/ai-translation-document/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-translation-document_1.0.0/sdk/translation/ai-translation-document-rest/) |
 | Event Grid | npm [5.9.0](https://www.npmjs.com/package/@azure/eventgrid/v/5.9.0) | [docs](/javascript/api/overview/azure/eventgrid-readme) | GitHub [5.9.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.9.0/sdk/eventgrid/eventgrid/) |
@@ -191,7 +191,7 @@
 | Resource Management - Container Service Fleet | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-containerservicefleet/v/1.1.0)<br>npm [1.2.0-beta.1](https://www.npmjs.com/package/@azure/arm-containerservicefleet/v/1.2.0-beta.1) | [docs](/javascript/api/overview/azure/arm-containerservicefleet-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_1.1.0/sdk/containerservice/arm-containerservicefleet/)<br>GitHub [1.2.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerservicefleet_1.2.0-beta.1/sdk/containerservice/arm-containerservicefleet/) |
 | Resource Management - Containerorchestratorruntime | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-containerorchestratorruntime/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-containerorchestratorruntime-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-containerorchestratorruntime_1.0.0-beta.1/sdk/kubernetesruntime/arm-containerorchestratorruntime/) |
 | Resource Management - Content Delivery Network | npm [9.1.0](https://www.npmjs.com/package/@azure/arm-cdn/v/9.1.0) | [docs](/javascript/api/overview/azure/arm-cdn-readme) | GitHub [9.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn) |
-| Resource Management - Cosmos DB | npm [16.1.0](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/16.1.0)<br>npm [17.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/17.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-cosmosdb-readme) | GitHub [16.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb) |
+| Resource Management - Cosmos DB | npm [16.2.0](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/16.2.0)<br>npm [17.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-cosmosdb/v/17.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-cosmosdb-readme) | GitHub [16.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb) |
 | Resource Management - CosmosDB for PostgreSQL | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-cosmosdbforpostgresql/v/1.0.0)<br>npm [1.1.0-beta.1](https://www.npmjs.com/package/@azure/arm-cosmosdbforpostgresql/v/1.1.0-beta.1) | [docs](/javascript/api/overview/azure/arm-cosmosdbforpostgresql-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-cosmosdbforpostgresql_1.0.0/sdk/cosmosforpostgresql/arm-cosmosdbforpostgresql/)<br>GitHub [1.1.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-cosmosdbforpostgresql_1.1.0-beta.1/sdk/cosmosforpostgresql/arm-cosmosdbforpostgresql/) |
 | Resource Management - Cost Management | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-costmanagement/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-costmanagement-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-costmanagement_1.0.0-beta.1/sdk/cost-management/arm-costmanagement/) |
 | Resource Management - Customer Insights | npm [4.1.0](https://www.npmjs.com/package/@azure/arm-customerinsights/v/4.1.0) | [docs](/javascript/api/overview/azure/arm-customerinsights-readme) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/customer-insights/arm-customerinsights) |
@@ -379,7 +379,7 @@
 | @azure-tools/typespec-azure-portal-core | npm [0.49.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.49.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.49.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.49.0) |  |  |
 | @azure-tools/typespec-client-generator-cli | npm [0.14.2](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.14.2) |  |  |
-| @azure-tools/typespec-go | npm [0.3.4](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.4) |  |  |
+| @azure-tools/typespec-go | npm [0.3.5](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.5) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.6.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | @azure-tools/typespec-liftr-storage | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |
@@ -488,7 +488,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20241216.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20241216.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20241217.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20241217.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -569,7 +569,7 @@
 | AutoRest - Go | npm [4.0.0-preview.69](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.69) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.27.1](https://www.npmjs.com/package/@autorest/python/v/6.27.1) |  | GitHub [6.27.1](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.27.2](https://www.npmjs.com/package/@autorest/python/v/6.27.2) |  | GitHub [6.27.2](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
