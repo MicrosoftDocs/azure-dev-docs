@@ -7,23 +7,11 @@ ms.date: 9/14/2023
 ms.service: azure-dev-cli
 ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
-zone_pivot_group_filename: developer/azure-developer-cli/azd-zone-pivot-groups.json
-zone_pivot_groups: azd-devenv-set
 ---
 
 # Run and debug apps enabled for Azure Developer CLI
 
-::: zone pivot="ide-vs-code"
-
 [!INCLUDE [debug-visual-studio-code](includes/debug-visual-studio-code.md)]
-
-::: zone-end
-
-::: zone pivot="ide-vs"
-
-[!INCLUDE [debug-visual-studio](includes/debug-visual-studio.md)]
-
-::: zone-end
 
 [!INCLUDE [request-help](includes/request-help.md)]
 
