@@ -2,7 +2,7 @@
 title: Overview of how to deploy a Python web app in Azure Container Apps
 description: Overview of how to create a container from a Python web app and deploy it to Azure Container Apps, a serverless platform for hosting containerized applications.
 ms.topic: conceptual
-ms.date: 01/31/2024
+ms.date: 12/18/2024
 ms.custom: devx-track-python
 ---
 
@@ -18,7 +18,7 @@ In this tutorial you'll:
 * Configure [Azure Container Apps][2] to host the Docker image.
 * Set up a [GitHub Action][6] that updates the container with a new Docker image triggered by changes to your GitHub repository. *This last step is optional.*
 
-Following this tutorial, you are set up for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
+Following this tutorial, you're set up for Continuous Integration (CI) and Continuous Deployment (CD) of a Python web app to Azure.
 
 ## Service overview
 
