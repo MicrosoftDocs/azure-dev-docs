@@ -40,7 +40,7 @@ If none of these types of credentials are found, the `DefaultAzureCredential` cr
 
 The following high-level diagram summarizes how authentication works using OAuth credential authentication with Azure Database for PostgreSQL. The arrows indicate communication pathways.
 
-:::image type="content" source="media/spring-cloud-azure/authentication-postgresql-azure-active-directory.png" alt-text="Diagram showing Microsoft Entra authentication for PostgreSQL ." border="false":::
+:::image type="content" source="media/spring-cloud-azure/authentication-postgresql-entra-id.png" alt-text="Diagram showing Microsoft Entra authentication for PostgreSQL ." border="false":::
 
 ## Configuration
 
