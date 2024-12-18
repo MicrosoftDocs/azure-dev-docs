@@ -38,7 +38,7 @@ The components supporting this tutorial and shown in the diagram above are:
 
 * [Azure Database for PostgreSQL][4]
   * The sample code stores application data in a PostgreSQL database.
-  * The container app connects to PostgreSQL through environment variables configured explicitly or with [Azure Service Connector][8].
+  * The container app connects to PostgreSQL with a [user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview). Connection information is stored in environment variables configured explicitly or with [Azure Service Connector][8].
 
 * [GitHub][1]
   * The sample code for this tutorial is in a GitHub repo that you'll fork and clone locally. To set up a CI/CD workflow with [GitHub Actions][6], you'll need a GitHub account.
@@ -56,7 +56,7 @@ In this tutorial, you'll build a Docker container image directly in Azure and de
 
 To set up continuous integration and continuous delivery (CI/CD), you'll authorize Azure Container Apps as an [OAuth App][20] for your GitHub account. As an OAuth App, Container Apps writes a GitHub Actions workflow file to your repo with information about Azure resources and jobs to update them. The workflow updates Azure resources using credentials of a Microsoft Entra service principal (or existing one) with role-based access for Container Apps and username and password for Azure Container Registry. Credentials are stored securely in your GitHub repo.
 
-Finally, the tutorial sample web app stores data in a PostgreSQL database. The sample code connects to PostgreSQL via a connection string. During the configuration of the Container App, the tutorial walks you through setting up environment variables containing connection information. You can also use an Azure Service Connector to accomplish the same thing.
+Finally, the tutorial sample web app stores data in a PostgreSQL database. The sample code connects to PostgreSQL via a connection string. When running in Azure, the app connects to the PostgreSQL database with a user-assigned managed identity. The app code uses [DefaultAzureCredential](./sdk/authentication/overview#defaultazurecredential) to dynamically update the password in the connection string with a Microsoft Entra access token during runtime. This mechanism prevents having to hardcode the password in the connection string or an environment variable and provides an extra layer of security. The tutorial walks you through creating the managed identity and granting it an appropriate PostgreSQL ROLE and permissions for it to access and update the database. During the configuration of the Container App, the tutorial walks you through configuring the managed identity on the app and setting up environment variables containing connection information for the database. You can also use an Azure Service Connector to accomplish the same thing.
 
 ## Prerequisites
 
