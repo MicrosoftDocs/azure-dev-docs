@@ -20,7 +20,7 @@ ms.collection: ce-skilling-ai-copilot
 
     #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
     
-    A GitHub account
+    * GitHub account
     
     #### [Visual Studio Code](#tab/visual-studio-code)
 
