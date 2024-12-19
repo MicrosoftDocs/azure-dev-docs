@@ -39,7 +39,7 @@ For complete setup instructions, see the Get started article. Make sure that you
 
    To start a new chat session, select the plus icon (+) on the pane's title bar.
 
-1.	In the chat text box at the bottom of the pane, type the following prompt after @azure. Then select Send (paper airplane icon) or select Enter on your keyboard.
+1. In the chat text box at the bottom of the pane, type the following prompt after @azure. Then select Send (paper airplane icon) or select Enter on your keyboard.
 
    ```prompt
    @azure Please recommend Azure services for my project.
@@ -62,13 +62,13 @@ For complete setup instructions, see the Get started article. Make sure that you
    :::image type="content" source="media/quickstart-deploy-existing-app/use-app-service.png" alt-text="Screenshot of the GitHub Copilot chat pane with the Azure App Service highlighted as the recommended resource.":::
 
  
-1.	Once you’re satisfied with the recommendations, you can click on the “Generate” button and GitHub Copilot for Azure will generate Bicep files and an `azure.yaml` file in your workspace.
+1. Once you’re satisfied with the recommendations, you can click on the “Generate” button and GitHub Copilot for Azure will generate Bicep files and an `azure.yaml` file in your workspace.
 
    The generated files might look like the following example.
 
    :::image type="content" source="media/quickstart-deploy-existing-app/generate-bicep.png" alt-text="Screenshot that shows Visual Studio Code's Explorer view with a callout highlighting the new infra folder and files and the new azure.yaml file.":::
  
-1.	You can take the generated Bicep files and provision the infrastructure on Azure with your favorite tool like AZ CLI, or you can run `azd up` in the terminal to provision infrastructure and deploy your application.
+1. You can take the generated Bicep files and provision the infrastructure on Azure with your favorite tool like AZ CLI, or you can run `azd up` in the terminal to provision infrastructure and deploy your application.
 
 ## Related content
 
