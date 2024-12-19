@@ -74,8 +74,8 @@ export MSYS_NO_PATHCONV=1
     ```
 
     Where:
-    * *\<resource-group-name>* is the name of the resource group. If you are following this tutorial, it is "pythoncontainer-rg".
-    * *\<https://github.com/userid/repo>* is the URL of your GitHub repository. If you're following the steps in this tutorial, it will be either `https://github.com/userid/msdocs-python-django-azure-container-apps` or `https://github.com/userid/msdocs-python-flask-azure-container-apps`; where `userid` is your GitHub user ID.
+    * *\<resource-group-name>* is the name of the resource group. If you're following this tutorial, it is "pythoncontainer-rg".
+    * *\<https://github.com/userid/repo>* is the URL of your GitHub repository. If you're following the steps in this tutorial, it is either `https://github.com/userid/msdocs-python-django-azure-container-apps` or `https://github.com/userid/msdocs-python-flask-azure-container-apps`; where `userid` is your GitHub user ID.
     * *\<registry-name>* is the existing Container Registry you created for this tutorial, or one that you can use.
     * *\<client-id>* is the value of the `appId` property from the previous `az ad sp create-for-rbac` command. The ID is a GUID of the form 00000000-0000-0000-0000-00000000.
     * *\<tenant-id>* is the value of the `tenant` property from the previous `az ad sp create-for-rbac` command. The ID is also a GUID similar to the client ID.
@@ -90,9 +90,9 @@ export MSYS_NO_PATHCONV=1
 1. Authorize Azure Container Apps to access your GitHub account.
 
     * Select **Sign in with GitHub**.
-    * In the authorization pop up, select **AuthorizeAppService**.
+    * In the authorization pop-up, select **AuthorizeAppService**.
 
-    Container App access to the GitHub accont can be revoked by going to the your account's security section and revoking access.
+    Container App access to the GitHub account can be revoked by going to your account's security section and revoking access.
 
     :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-authorize-github.png" alt-text="Screenshot showing authorizing Container App to access your repo in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-authorize-github.png":::
 
@@ -103,7 +103,7 @@ export MSYS_NO_PATHCONV=1
     * **Branch** &rarr; Select *main*.
     * **Repository source** &rarr; Select **Azure Container Registry**.
     * **Registry** &rarr; Select the Azure Container Registry you created earlier in the tutorial.
-    * **Image** &rarr; Select the Docker image name. If you are following the tutorial, it's "python-container-app".
+    * **Image** &rarr; Select the Docker image name. If you're following the tutorial, it's "python-container-app".
     * **Service principal** &rarr; Leave **Create new** and let the creation process create a new service principal.
 
     Select **Start continuous deployment** to finish the configuration.
@@ -112,9 +112,9 @@ export MSYS_NO_PATHCONV=1
 
 1. Review the continuous deployment information.
 
-    After the continuous deployment is configured, you can find a link to the GitHub Actions workflow file created. Azure Container Apps checked the file in to your repo.
+    After continuous deployment is configured, you can find a link to the GitHub Actions workflow file created. Azure Container Apps checked in the file to your repo.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration-finish.png" alt-text="Screenshot showing the an Azure Container App configured for continuous deployment with GitHub Actions." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration-finish.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration-finish.png" alt-text="Screenshot showing the Azure Container App configured for continuous deployment with GitHub Actions." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration-finish.png":::
 
 ---
 
