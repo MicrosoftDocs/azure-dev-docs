@@ -132,10 +132,38 @@ azd config list-alpha
 
 Sample output:
 
-```json
-  "alpha": {
-    "compose": "on"
-  }
+```output
+Name: aca.persistDomains
+Description: Do not change custom domains when deploying Azure Container Apps.
+Status: Off
+
+Name: aca.persistIngressSessionAffinity
+Description: Do not change Ingress Session Affinity when deploying Azure Container Apps.
+Status: Off
+
+Name: aks.helm
+Description: Enable Helm support for AKS deployments.
+Status: On
+
+Name: aks.kustomize
+Description: Enable Kustomize support for AKS deployments.
+Status: Off
+
+Name: azd.operations
+Description: Extends provisioning providers with azd operations.
+Status: Off
+
+Name: compose
+Description: Enable simplified app-centric modeling. Run `azd add` to add Azure components to your project.
+Status: On
+
+Name: deployment.stacks
+Description: Enables Azure deployment stacks for ARM/Bicep based deployments.
+Status: Off
+
+Name: infraSynth
+Description: Enable the `infra synth` command to write generated infrastructure to disk.
+Status: Off
 ```
 
 ### Get and set configurations
