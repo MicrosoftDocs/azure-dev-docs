@@ -24,7 +24,7 @@ In this article, you learn:
 When you first install the Azure Developer CLI, a file named `config.json` is added in the following location:
 
 - `$HOME/.azd` on Linux and macOS
-- `%USERPROFILE%.azd` on Windows
+- `%USERPROFILE%\.azd` on Windows
 
 > [!TIP]
 > The configuration directory can be overridden by specifying a path in the `AZD_CONFIG_DIR` environment variable.
@@ -140,7 +140,7 @@ Sample output:
 
 ### Get and set configurations
 
-You can get, set, or unset values in the `config.json` file using `azd config` commands. Some specific configurations are used by other `azd` features and commands, such as when enabling alpha features or setting template sources, but you can also set your own custom values as well.
+You can get, set, or unset values in the `config.json` file using `azd config` commands. Some specific configurations are used by other `azd` features and commands, such as when enabling alpha features or setting template sources, but you can also set your own custom values.
 
 #### Manage configurations used by `azd`
 
@@ -164,7 +164,7 @@ azd config get alpha.compose
 Sample output:
 
 ```json
-on
+"on"
 ```
 
 In this scenario, you can also run `azd config get alpha` to view the entire JSON object in the `config.json` file:
@@ -211,7 +211,7 @@ You can reset the Azure Developer CLI `config.json` file back to its defaults us
 azd config reset
 ```
 
-When you run `azd config show` after a rest, you will simply see an empty object:
+When you run `azd config show` after a reset, you will simply see an empty object:
 
 ```json
 {}
