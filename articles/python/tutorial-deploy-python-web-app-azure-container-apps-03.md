@@ -83,7 +83,7 @@ export MSYS_NO_PATHCONV=1
 
 ### [Azure portal](#tab/azure-portal)
 
-1. In the [Azure portal][3], go to the Container App you want to configure continuous deployment for and select the **Continuous deployment** resource.
+1. In the [Azure portal][3], go to the Container App you want to configure continuous deployment for and select the **Continuous deployment** on the **service menu**.
 
     :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-signin-github.png" alt-text="Screenshot showing the continuous deployment resource of a Container App and where to sign in with GitHub in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-signin-github.png":::
 
@@ -260,7 +260,7 @@ What happens when I disconnect continuous deployment?
 
 * Stopping continuous deployment means disconnecting your container app from your repo. To disconnect:
 
-  * In Azure portal, go the container app, select the **Continuous deployment** resource, select **Disconnect**.
+  * In Azure portal, go the container app, select **Continuous deployment** on the **service menu**, then select **Disconnect**.
   * With the Azure CLI, use the [az container app github-action remove][6] command.
 
 * After disconnecting, in your GitHub repo:
