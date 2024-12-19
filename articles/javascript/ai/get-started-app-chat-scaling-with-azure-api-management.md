@@ -15,15 +15,16 @@ ms.collection: ce-skilling-ai-copilot
 
 ## Prerequisites
 
-* Azure subscription.  [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true) 
+* Azure subscription.  [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 
 * [Dev containers](https://containers.dev/) are available for both samples, with all dependencies required to complete this article. You can run the dev containers in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
 
     #### [Codespaces (recommended)](#tab/github-codespaces)
-    
+
     * Only a [GitHub account](https://www.github.com/login) is required to use Codespaces
-    
+
     #### [Visual Studio Code](#tab/visual-studio-code)
+
     * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
     * [Visual Studio Code](https://code.visualstudio.com/)
     * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
