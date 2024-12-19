@@ -33,13 +33,16 @@ For complete setup instructions, see the Get started article. Make sure that you
    git clone https://github.com/Azure-Samples/azure-sql-db-django
    ```
 
-1. In Visual Studio Code, on the Title Bar, select the Open Chat icon (the GitHub Copilot logo) to open the chat pane in the Secondary side bar. 
+1. In Visual Studio Code, on the Title Bar, select the **Open Chat** icon (the GitHub Copilot logo) to open the chat pane in the Secondary side bar. 
 
    :::image type="content" source="media/quickstart-deploy-existing-app/ask-copilot.png" alt-text="Screenshot that shows the GitHub Copilot chat pane.":::
 
-   To start a new chat session, select the plus icon (+) on the pane's title bar.
+   To start a new chat session, select the plus icon (**+**) on the pane's title bar.
 
-1. In the chat text box at the bottom of the pane, type the following prompt after @azure. Then select Send (paper airplane icon) or select Enter on your keyboard.
+   >[!IMPORTANT]
+   > If you get unexpected results, re-start using a new chat session.
+
+1. In the chat text box at the bottom of the pane, type the following prompt after `@azure`. Then select **Send** (paper airplane icon) or select Enter on your keyboard.
 
    ```prompt
    @azure Please recommend Azure services for my project.
@@ -47,9 +50,9 @@ For complete setup instructions, see the Get started article. Make sure that you
 
    After a moment, GitHub Copilot for Azure will recommend suitable Azure services, bindings, and environment variables based on your project. You might see a response like the following example.
 
-   :::image type="content" source="media/quickstart-deploy-existing-app/recommend-services.png" alt-text="Screenshot that shows the GitHub Copilot chat pane with detected services, recommended resources, bindings and environment variables.":::
+   :::image type="content" source="media/quickstart-deploy-existing-app/recommend-services.png" alt-text="Screenshot that shows the GitHub Copilot chat pane with detected services, recommended resources, bindings, and environment variables.":::
 
-   Under "Resource bindings" you can see a table with "Default Key" and "Custom key". GitHub Copilot for Azure	uses "Default Key" as necessary environment variable by default to make the bindings work. "Custom key" is the developer customized key in application code.
+   Under "Resource bindings", you can see a table with "Default Key" and "Custom key". GitHub Copilot for Azure	uses "Default Key" as necessary environment variable by default to make the bindings work. "Custom key" is the developer customized key in application code.
 
 1. If the recommendations don’t have the support you need, you can provide information to get new recommendations. For example, you can try the following prompt:
 
@@ -62,13 +65,13 @@ For complete setup instructions, see the Get started article. Make sure that you
    :::image type="content" source="media/quickstart-deploy-existing-app/use-app-service.png" alt-text="Screenshot of the GitHub Copilot chat pane with the Azure App Service highlighted as the recommended resource.":::
 
  
-1. Once you’re satisfied with the recommendations, you can click on the “Generate” button and GitHub Copilot for Azure will generate Bicep files and an `azure.yaml` file in your workspace.
+1. Once you’re satisfied with the recommendations, select the **Generate** button and GitHub Copilot for Azure generates Bicep files and an `azure.yaml` file in your workspace.
 
    The generated files might look like the following example.
 
    :::image type="content" source="media/quickstart-deploy-existing-app/generate-bicep.png" alt-text="Screenshot that shows Visual Studio Code's Explorer view with a callout highlighting the new infra folder and files and the new azure.yaml file.":::
  
-1. You can take the generated Bicep files and provision the infrastructure on Azure with your favorite tool like AZ CLI, or you can run `azd up` in the terminal to provision infrastructure and deploy your application.
+1. You can use the generated Bicep files to provision the infrastructure on Azure with your favorite tool like the Azure CLI, or you can run `azd up` in the terminal to provision infrastructure and deploy your application.
 
 ## Related content
 
