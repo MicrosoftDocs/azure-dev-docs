@@ -96,7 +96,7 @@ Update the environment values and configuration information with the information
     azd env get-value AZURE_OPENAI_SERVICE
     ```
 
-1. Add the following values from the chat app for its Azure AI Search instance to the `.env`, which you gathered in the [Prerequisites](#prerequisites) section.
+1. Add the following values from the chat app for its Azure AI Search instance to the `.env` file, which you gathered in the [Prerequisites](#prerequisites) section.
 
     ```bash
     AZURE_SEARCH_SERVICE="<service-name>"
@@ -163,7 +163,7 @@ The question-and-answer pairs are generated and stored in `my_input/qa.jsonl` (i
 
 ## Run the first evaluation with a refined prompt
 
-1. Edit the `my_config.json` config file properties.
+1. Edit the `my_config.json` configuration file properties.
 
     |Property|New value|
     |--|--|
@@ -199,7 +199,7 @@ The question-and-answer pairs are generated and stored in `my_input/qa.jsonl` (i
 
 ## Run the second evaluation with a weak prompt
 
-1. Edit the `my_config.json` config file properties.
+1. Edit the `my_config.json` configuration file properties.
 
     |Property|New value|
     |--|--|
@@ -222,7 +222,7 @@ The question-and-answer pairs are generated and stored in `my_input/qa.jsonl` (i
 
 Use a prompt that allows for more creativity.
 
-1. Edit the `my_config.json` config file properties.
+1. Edit the `my_config.json` configuration file properties.
 
     |Existing|Property|New value|
     |--|--|--|
@@ -238,7 +238,7 @@ Use a prompt that allows for more creativity.
     Your job is to answer questions to the best of your ability. You will be given sources but you should IGNORE them. Be creative!
     ```
 
-1. The config object should look like the following example, except that you replaced `results_dir` with your path:
+1. The configuration object should look like the following example, except that you replaced `results_dir` with your path:
 
     ```json
     {
@@ -265,7 +265,7 @@ Use a prompt that allows for more creativity.
 
 You performed three evaluations based on different prompts and app settings. The results are stored in the `my_results` folder. Review how the results differ based on the settings.
 
-1. Use the **review tool** to see the results of the evaluations.
+1. Use the review tool to see the results of the evaluations.
 
     ```bash
     python -m evaltools summary my_results
@@ -296,7 +296,7 @@ You performed three evaluations based on different prompts and app settings. The
 
 Compare the returned answers from the evaluations.
 
-1. Select two of the evaluations to compare, and then use the same **review tool** to compare the answers.
+1. Select two of the evaluations to compare, and then use the same review tool to compare the answers.
 
     ```bash
     python -m evaltools diff my_results/experiment_refined my_results/experiment_ignoresources_temp09
