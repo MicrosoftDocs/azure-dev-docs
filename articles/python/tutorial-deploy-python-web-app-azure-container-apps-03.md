@@ -83,7 +83,7 @@ export MSYS_NO_PATHCONV=1
 
 ### [Azure portal](#tab/azure-portal)
 
-1. In the [Azure portal][3], go to the Container App you want to configure continuous deployment for and select the **Continuous deployment** on the **service menu**.
+1. In the [Azure portal][3], go to the Container App you want to configure continuous deployment for and select **Continuous deployment** on the **service menu**.
 
     :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-signin-github.png" alt-text="Screenshot showing the continuous deployment resource of a Container App and where to sign in with GitHub in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-signin-github.png":::
 
