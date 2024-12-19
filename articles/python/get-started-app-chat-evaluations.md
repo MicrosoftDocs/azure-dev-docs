@@ -26,13 +26,13 @@ ms.collection: ce-skilling-ai-copilot
 
     The Chat API URL allows the evaluations to make requests through your backend application. The Azure AI Search information allows the evaluation scripts to use the same deployment as your backend, loaded with the documents.
 
-    After you have this information collected, you shouldn't need to use the chat app development environment again. It's referred to later in this article several times to indicate how the chat app is used by the evaluations app. Don't delete the chat app resources until you finish the entire procedure in this article.
+    After you have this information collected, you shouldn't need to use the chat app development environment again. This article refers to it later, several times, to indicate how the evaluations app uses the chat app. Don't delete the chat app resources until you finish the entire procedure in this article.
 
 * A [development container](https://containers.dev/) environment is available with all the dependencies that are required to complete this article. You can run the development container in GitHub Codespaces (in a browser) or locally by using Visual Studio Code.
 
     #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
     
-    A GitHub account
+    * GitHub account
     
     #### [Visual Studio Code](#tab/visual-studio-code)
 
