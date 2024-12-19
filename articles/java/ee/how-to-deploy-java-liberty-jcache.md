@@ -4,7 +4,7 @@ description: Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azu
 author: KarlErickson
 ms.author: jiangma
 ms.topic: how-to
-ms.date: 09/09/2024
+ms.date: 12/19/2024
 ms.custom: template-how-to, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, devx-track-azurecli, devx-track-extended-java
 #Customer intent: As a Java developer, I want to build a Java, Java EE, Jakarta EE, or MicroProfile application with JCache session enabled and deploy it on Azure Kubernetes Service cluster so that customers can store session data in the Azure Cache for Redis for session management.
 ---
@@ -183,7 +183,7 @@ kubectl apply --server-side -k overlays/watch-all-namespaces
 1. Follow the steps in [Quickstart: Use Azure Cache for Redis in Java](/azure/azure-cache-for-redis/cache-java-get-started) up to, but not including **Understanding the Java sample**.
 
    > [!NOTE]
-   > In step 6 of section [Create an Azure Cache for Redis](/azure/azure-cache-for-redis/cache-java-get-started#create-an-azure-cache-for-redis), select **Access Keys Authentication** for the **Authentication** option. This option is required for the sample application to connect to the Azure Cache for Redis instance using the **Redisson** client library. See [Redisson Configuration](https://github.com/redisson/redisson/wiki/2.-Configuration/) for more information.
+   > In step 7 of section [Create an Azure Cache for Redis](/azure/azure-cache-for-redis/cache-java-get-started#create-an-azure-cache-for-redis), select **Access Keys Authentication** for the **Authentication** option on the **Advanced** pane for this guide. For optimal security, you're recommended to use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization by using Microsoft Entra ID and managed identities provides superior security and ease of use over shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
 
 1. Copy **Host name** and **Primary access key** for your Azure Cache for Redis instance, and then run the following commands to add environment variables:
 
