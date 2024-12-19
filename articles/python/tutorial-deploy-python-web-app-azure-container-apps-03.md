@@ -89,8 +89,8 @@ export MSYS_NO_PATHCONV=1
 
 1. Authorize Azure Container Apps to access your GitHub account.
 
-    * Select **Sign in with GitHub**.
-    * In the authorization pop-up, select **AuthorizeAppService**.
+    1. Select **Sign in with GitHub**.
+    1. In the authorization pop-up, select **AuthorizeAppService**.
 
     Container App access to the GitHub account can be revoked by going to your account's security section and revoking access.
 
@@ -136,8 +136,8 @@ If you haven't already, make a [fork][13] of the sample repository ([Django][1] 
 
 1. Make a change.
 
-    * Go to the */templates/base.html* file. (For Django, the path is: *restaurant_review/templates/restaurant_review/base.html*.)
-    * Select **Edit** and change the phrase "Azure Restaurant Review" to "Azure Restaurant Review - Redeployed".
+    1. Go to the */templates/base.html* file. (For Django, the path is: *restaurant_review/templates/restaurant_review/base.html*.)
+    1. Select **Edit** and change the phrase "Azure Restaurant Review" to "Azure Restaurant Review - Redeployed".
 
     :::image type="content" source="media/tutorial-container-apps/github-edit-file.png" alt-text="Screenshot showing how to make a change in a template file in the fork of the sample repo." lightbox="media/tutorial-container-apps/github-edit-file.png":::
 
@@ -202,7 +202,7 @@ These steps use the [GitHub CLI][18].
     This command prompts you to select a workflow and then gives an overview of recent runs of that workflow.
 
     > [!NOTE]
-    > The first time using `gh` you may be prompted to authentication. Follow the GitHub CLI prompts to authenticate.
+    > The first time using `gh` you may be prompted to authenticate. Follow the GitHub CLI prompts to authenticate.
     >
     > If you have more than one remote configured, you might be asked to run `gh repo set-default` to select a default remote repository. Select your fork from the options presented.
     >
@@ -260,8 +260,8 @@ What happens when I disconnect continuous deployment?
 
 * Stopping continuous deployment means disconnecting your container app from your repo. To disconnect:
 
-  * In Azure portal, go the container app, select **Continuous deployment** on the **service menu**, then select **Disconnect**.
-  * With the Azure CLI, use the [az container app github-action remove][6] command.
+  1. In Azure portal, go the container app, select **Continuous deployment** on the **service menu**, then select **Disconnect**.
+  1. With the Azure CLI, use the [az container app github-action remove][6] command.
 
 * After disconnecting, in your GitHub repo:
   * The *.github/workflows/\<workflow-name>.yml* file is removed from your repo.
