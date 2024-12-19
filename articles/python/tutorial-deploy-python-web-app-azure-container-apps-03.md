@@ -42,107 +42,79 @@ If you're running commands in a Git Bash shell on a Windows computer, enter the 
 export MSYS_NO_PATHCONV=1
 ```
 
-:::row:::
-    :::column span="1":::
-        **Step 1.** Create a [*service principal*][21] with the [az ad sp create-for-rbac][10] command.
+1. Create a [*service principal*][21] with the [az ad sp create-for-rbac][10] command.
 
-        ```azurecli        
-        az ad sp create-for-rbac \
-        --name <app-name> \
-        --role Contributor \
-        --scopes "/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>"
-        ```
+    ```azurecli        
+    az ad sp create-for-rbac \
+    --name <app-name> \
+    --role Contributor \
+    --scopes "/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>"
+    ```
 
-        Where: 
-        * *\<app-name>* is an optional display name for the service principal. If you leave off the `--name` option, a GUID is generated as the display name.
-        * *\<subscription-ID>* is the GUID that uniquely identifies your subscription in Azure. If you don't know your subscription ID, you can run the [az account show](/cli/azure/account#az-account-show) command and copy it from the `id` property in the output.
-        * *\<resource-group-name>* is the name of a resource group that contains the Azure Container Apps container. Role-based access control (RBAC) is on the resource group level. If you followed the steps in the previous article in this tutorial, the resource group name is `pythoncontainer-rg`.
+    Where: 
+    * *\<app-name>* is an optional display name for the service principal. If you leave off the `--name` option, a GUID is generated as the display name.
+    * *\<subscription-ID>* is the GUID that uniquely identifies your subscription in Azure. If you don't know your subscription ID, you can run the [az account show](/cli/azure/account#az-account-show) command and copy it from the `id` property in the output.
+    * *\<resource-group-name>* is the name of a resource group that contains the Azure Container Apps container. Role-based access control (RBAC) is on the resource group level. If you followed the steps in the previous article in this tutorial, the resource group name is `pythoncontainer-rg`.
 
-        Save the output of this command for the next step, in  particular, the client ID (`appId` property), client secret (`password` property), and tenant ID (`tenant` property).
+    Save the output of this command for the next step, in  particular, the client ID (`appId` property), client secret (`password` property), and tenant ID (`tenant` property).
 
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="1":::
-        **Step 2.** Configure GitHub Actions with [az containerapp github-action add][11] command.
+1. Configure GitHub Actions with [az containerapp github-action add][11] command.
 
-        ```azurecli
-        az containerapp github-action add \
-        --resource-group <resource-group-name> \
-        --name python-container-app \
-        --repo-url <https://github.com/userid/repo> \
-        --branch main \
-        --registry-url <registry-name>.azurecr.io \
-        --service-principal-client-id <client-id> \
-        --service-principal-tenant-id <tenant-id> \
-        --service-principal-client-secret <client-secret> \
-        --login-with-github
-        ```
+    ```azurecli
+    az containerapp github-action add \
+    --resource-group <resource-group-name> \
+    --name python-container-app \
+    --repo-url <https://github.com/userid/repo> \
+    --branch main \
+    --registry-url <registry-name>.azurecr.io \
+    --service-principal-client-id <client-id> \
+    --service-principal-tenant-id <tenant-id> \
+    --service-principal-client-secret <client-secret> \
+    --login-with-github
+    ```
 
-        Where:
-        * *\<resource-group-name>* is the name of the resource group. If you are following this tutorial, it is "pythoncontainer-rg".
-        * *\<https://github.com/userid/repo>* is the URL of your GitHub repository. If you're following the steps in this tutorial, it will be either `https://github.com/userid/msdocs-python-django-azure-container-apps` or `https://github.com/userid/msdocs-python-flask-azure-container-apps`; where `userid` is your GitHub user ID.
-        * *\<registry-name>* is the existing Container Registry you created for this tutorial, or one that you can use.
-        * *\<client-id>* is the value of the `appId` property from the previous `az ad sp create-for-rbac` command. The ID is a GUID of the form 00000000-0000-0000-0000-00000000.
-        * *\<tenant-id>* is the value of the `tenant` property from the previous `az ad sp create-for-rbac` command. The ID is also a GUID similar to the client ID.
-        * *\<client-secret>* is the value of the `password` property from the previous `az ad sp create-for-rbac` command.
-
-    :::column-end:::
-:::row-end:::
+    Where:
+    * *\<resource-group-name>* is the name of the resource group. If you're following this tutorial, it is "pythoncontainer-rg".
+    * *\<https://github.com/userid/repo>* is the URL of your GitHub repository. If you're following the steps in this tutorial, it is either `https://github.com/userid/msdocs-python-django-azure-container-apps` or `https://github.com/userid/msdocs-python-flask-azure-container-apps`; where `userid` is your GitHub user ID.
+    * *\<registry-name>* is the existing Container Registry you created for this tutorial, or one that you can use.
+    * *\<client-id>* is the value of the `appId` property from the previous `az ad sp create-for-rbac` command. The ID is a GUID of the form 00000000-0000-0000-0000-00000000.
+    * *\<tenant-id>* is the value of the `tenant` property from the previous `az ad sp create-for-rbac` command. The ID is also a GUID similar to the client ID.
+    * *\<client-secret>* is the value of the `password` property from the previous `az ad sp create-for-rbac` command.
 
 ### [Azure portal](#tab/azure-portal)
 
-:::row:::
-    :::column span="2":::
-        **Step 1.** In the [Azure portal][3], go to the Container App you want to configure continuous deployment for and select the **Continuous deployment** resource.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-signin-github.png" alt-text="Screenshot showing the continuous deployment resource of a Container App and where to sign in with GitHub in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-signin-github.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2.** Authorize Azure Container Apps to access your GitHub account.
+1. In the [Azure portal][3], go to the Container App you want to configure continuous deployment for and select **Continuous deployment** on the **service menu**.
 
-        * Select **Sign in with GitHub**.
-        * In the authorization pop up, select **AuthorizeAppService**.
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-signin-github.png" alt-text="Screenshot showing the continuous deployment resource of a Container App and where to sign in with GitHub in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-signin-github.png":::
 
-        Container App access to the GitHub accont can be revoked by going to the your account's security section and revoking access.
+1. Authorize Azure Container Apps to access your GitHub account.
 
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-authorize-github.png" alt-text="Screenshot showing authorizing Container App to access your repo in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-authorize-github.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3.** After sign-in with GitHub, configure the continuous deployment details.
+    1. Select **Sign in with GitHub**.
+    1. In the authorization pop-up, select **AuthorizeAppService**.
 
-        * **Organization** &rarr; Use your GitHub user name.
-        * **Repository** &rarr; Select the fork of the sample app. (If you originally downloaded the sample code to your developer environment, push the repo to GitHub.)
-        * **Branch** &rarr; Select *main*.
-        * **Repository source** &rarr; Select **Azure Container Registry**.
-        * **Registry** &rarr; Select the Azure Container Registry you created earlier in the tutorial.
-        * **Image** &rarr; Select the Docker image name. If you are following the tutorial, it's "python-container-app".
-        * **Service principal** &rarr; Leave **Create new** and let the creation process create a new service principal.
+    Container App access to the GitHub account can be revoked by going to your account's security section and revoking access.
 
-        Select **Start continuous deployment** to finish the configuration.
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-authorize-github.png" alt-text="Screenshot showing authorizing Container App to access your repo in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-authorize-github.png":::
 
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration.png" alt-text="Screenshot showing the configuration of an Azure Container App in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 4.** Review the continuous deployment information.
+1. After sign-in with GitHub, configure the continuous deployment details.
 
-        After the continuous deployment is configured, you can find a link to the GitHub Actions workflow file created. Azure Container Apps checked the file in to your repo.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration-finish.png" alt-text="Screenshot showing the an Azure Container App configured for continuous deployment with GitHub Actions." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration-finish.png":::
-    :::column-end:::
-:::row-end:::
+    * **Organization** &rarr; Use your GitHub user name.
+    * **Repository** &rarr; Select the fork of the sample app. (If you originally downloaded the sample code to your developer environment, push the repo to GitHub.)
+    * **Branch** &rarr; Select *main*.
+    * **Repository source** &rarr; Select **Azure Container Registry**.
+    * **Registry** &rarr; Select the Azure Container Registry you created earlier in the tutorial.
+    * **Image** &rarr; Select the Docker image name. If you're following the tutorial, it's "python-container-app".
+    * **Service principal** &rarr; Leave **Create new** and let the creation process create a new service principal.
+
+    Select **Start continuous deployment** to finish the configuration.
+
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration.png" alt-text="Screenshot showing the configuration of an Azure Container App in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration.png":::
+
+1. Review the continuous deployment information.
+
+    After continuous deployment is configured, you can find a link to the GitHub Actions workflow file created. Azure Container Apps checked in the file to your repo.
+
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration-finish.png" alt-text="Screenshot showing the Azure Container App configured for continuous deployment with GitHub Actions." lightbox="media/tutorial-container-apps/azure-portal-continuous-deployment-configuration-finish.png":::
 
 ---
 
@@ -158,60 +130,45 @@ If you haven't already, make a [fork][13] of the sample repository ([Django][1] 
 
 ### [GitHub](#tab/git-github)
 
-:::row:::
-    :::column span="2":::
-        **Step 1.** Go to your fork of the sample repository and start in the *main* branch.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/github-view-repo.png" alt-text="Screenshot showing a fork of the sample repo and starting in the main branch." lightbox="media/tutorial-container-apps/github-view-repo.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2.** Make a change.
+1. Go to your fork of the sample repository and start in the *main* branch.
 
-        * Go to the */templates/base.html* file. (For Django, the path is: *restaurant_review/templates/restaurant_review/base.html*.)
-        * Select **Edit** and change the phrase "Azure Restaurant Review" to "Azure Restaurant Review - Redeployed".
+    :::image type="content" source="media/tutorial-container-apps/github-view-repo.png" alt-text="Screenshot showing a fork of the sample repo and starting in the main branch." lightbox="media/tutorial-container-apps/github-view-repo.png":::
 
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/github-edit-file.png" alt-text="Screenshot showing how to make a change in a template file in the fork of the sample repo." lightbox="media/tutorial-container-apps/github-edit-file.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3.** Commit the change directly to the *main* branch.
+1. Make a change.
 
-        * On the bottom of the page you editing, select the **Commit** button.
-        * The commit kicks off the GitHub Actions workflow.
+    1. Go to the */templates/base.html* file. (For Django, the path is: *restaurant_review/templates/restaurant_review/base.html*.)
+    1. Select **Edit** and change the phrase "Azure Restaurant Review" to "Azure Restaurant Review - Redeployed".
 
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/github-commit-change.png" alt-text="Screenshot showing how to commit a change in a template file in the fork of the sample repo." lightbox="media/tutorial-container-apps/github-commit-change.png":::
-    :::column-end:::
-:::row-end:::
+    :::image type="content" source="media/tutorial-container-apps/github-edit-file.png" alt-text="Screenshot showing how to make a change in a template file in the fork of the sample repo." lightbox="media/tutorial-container-apps/github-edit-file.png":::
+
+1. Commit the change directly to the *main* branch.
+
+    * On the bottom of the page you editing, select the **Commit** button.
+    * The commit kicks off the GitHub Actions workflow.
+
+    :::image type="content" source="media/tutorial-container-apps/github-commit-change.png" alt-text="Screenshot showing how to commit a change in a template file in the fork of the sample repo." lightbox="media/tutorial-container-apps/github-commit-change.png":::
 
 ### [Command line](#tab/git-commandline)
 
 If you haven't already, use `git clone` to pull your forked repository to your development environment and change directory to the repository.
 
-**Step 1.** Start in *main*.
+1. Start in *main*.
 
-```console
-git checkout main
-git pull
-```
+    ```console
+    git checkout main
+    git pull
+    ```
 
-**Step 2.** Make a change.
+1. Make a change.
 
-Go to the *./templates/base.html* file (*./restaurant_review/templates/restaruant_review/base.html* for Django) and change the phrase "Azure Restaurant Review" to "Azure Restaurant Review - Redeployed".
+    Go to the *./templates/base.html* file (*./restaurant_review/templates/restaruant_review/base.html* for Django) and change the phrase "Azure Restaurant Review" to "Azure Restaurant Review - Redeployed".
 
-**Step 3.** Commit and push the change to GitHub.
+1. Commit and push the change to GitHub.
 
-```console
-git commit -a -m "Redeploy with title change."
-git push
-```
+    ```console
+    git commit -a -m "Redeploy with title change."
+    git push
+    ```
 
 The first time using git, you might need to set global variables "user.name" and "user.email". For more information, see the help for [git-config][16].
 
@@ -228,39 +185,34 @@ The push of changes to the *main* branch kicks off the GitHub Actions workflow.
 
 ### [GitHub](#tab/git-github)
 
-:::row:::
-    :::column span="2":::
-        **Step 1.** On [GitHub][17], go to your fork of the sample repository and open the **Actions** tab.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="media/tutorial-container-apps/github-check-action.png" alt-text="Screenshot showing how to view GitHub Actions for a repo and look at workflows." lightbox="media/tutorial-container-apps/github-check-action.png":::
-    :::column-end:::
-:::row-end:::
+On [GitHub][17], go to your fork of the sample repository and open the **Actions** tab.
+
+:::image type="content" source="media/tutorial-container-apps/github-check-action.png" alt-text="Screenshot showing how to view GitHub Actions for a repo and look at workflows." lightbox="media/tutorial-container-apps/github-check-action.png":::
 
 ### [Command line](#tab/git-commandline)
 
 These steps use the [GitHub CLI][18].
 
-**Step 1.** Get a summary of your workflow. Run the following command in folder that contains your clone:
+1. Get a summary of your workflow. Run the following command in folder that contains your clone:
 
-```console
-gh workflow view
-```
+    ```console
+    gh workflow view
+    ```
 
-This command prompts you to select a workflow and then gives an overview of recent runs of that workflow.
+    This command prompts you to select a workflow and then gives an overview of recent runs of that workflow.
 
-> [!NOTE]
-> The first time using `gh` you may be prompted to authentication. Follow the GitHub CLI prompts to authenticate.
->
-> If you have more than one remote configured, you might be asked to run `gh repo set-default` to select a default remote repository. Select your fork from the options presented.
->
-> You can run the `gh workflow view` command from any folder without the need to set a default repository by adding the `--repo [HOST/]OWNER/REPO` parameter.
+    > [!NOTE]
+    > The first time using `gh` you may be prompted to authenticate. Follow the GitHub CLI prompts to authenticate.
+    >
+    > If you have more than one remote configured, you might be asked to run `gh repo set-default` to select a default remote repository. Select your fork from the options presented.
+    >
+    > You can run the `gh workflow view` command from any folder without the need to set a default repository by adding the `--repo [HOST/]OWNER/REPO` parameter.
 
-**Step 2.** Go to GitHub for details of run of workflow.
+1. Go to GitHub for details of run of workflow.
 
-```console
-gh workflow view --web
-```
+    ```console
+    gh workflow view --web
+    ```
 
 ---
 
@@ -308,8 +260,8 @@ What happens when I disconnect continuous deployment?
 
 * Stopping continuous deployment means disconnecting your container app from your repo. To disconnect:
 
-  * In Azure portal, go the container app, select the **Continuous deployment** resource, select **Disconnect**.
-  * With the Azure CLI, use the [az container app github-action remove][6] command.
+  1. In Azure portal, go the container app, select **Continuous deployment** on the **service menu**, then select **Disconnect**.
+  1. With the Azure CLI, use the [az container app github-action remove][6] command.
 
 * After disconnecting, in your GitHub repo:
   * The *.github/workflows/\<workflow-name>.yml* file is removed from your repo.
