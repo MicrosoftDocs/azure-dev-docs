@@ -12,7 +12,8 @@ ms.custom: devx-track-java, devx-track-extended-java
 Java Diagnostic Agent is a java agent for throubleshooting Java process. It doesn't need to rebuild, redeploy or restart the application. Currently, it support add logs around a function in Java class, once the function is called, the log will be printed and calculate the total time consumed.
 
 ## Prerequisites
-- [install diag4j in Your Cluster](java-diagnostic-tools-sba-quickstart.md#steps)
+- [Install diag4j in Your Cluster](java-diagnostic-tools-sba-quickstart.md#steps)
+- Install [intellij idea](https://www.jetbrains.com/idea/download) in your environment
 - Support Java LTS version: 11,17,21
 
 ## Steps
@@ -63,6 +64,8 @@ It's useful when locate the performance bottleneck of the Java application.
 
 ### Add log around a class function
 > The configured log will be removed after the 30 minutes automatically
+> 
+> It supports to add logs around a class function in your source code, not include interface, constructure, etc.
 
 - select the class and function you want to add log, then click the "Add AroundLog" button. In below example, after add log, then call "{host}/infor", you can see the log print before and after the function called
 
@@ -76,6 +79,14 @@ It's useful when locate the performance bottleneck of the Java application.
 
 ## Note
 - The backend Java agent is used by ephemeral container in the pod, Once the pod restart, the agent will be removed
+
+## Trouble Shooting
+- Attach agent timeout sometimes
+  - if you attach the agent to a pod which running on a node that never has a pod enable the feature before, 
+  it may take a longer time than others because it will pull the agent image to the node first. click the refresh button to see if it finally attached or try it again.
+- Attach failed
+  - if the attach operation failed, you can check detail logs in the ephemeral container, name as `diagnostic-container-{hashcode}`.
+- See more logs `diag4j-agent-service-{hashcode}` pod about the operations in the plugin
 
 ## Next Steps
 
