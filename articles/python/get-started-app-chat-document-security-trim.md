@@ -1,7 +1,7 @@
 ---
 title: "Get started with chat document security filtering"
 description: "Secure your chat app documents with user authentication and document security filtering to ensure that users receive answers based on their permissions."
-ms.date: 05/29/2024
+ms.date: 12/19/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-js-ai, devx-track-extended-azdevcli, build-2024-intelligent-apps, devx-track-azurecli, devx-track-python
@@ -113,7 +113,7 @@ You need more prerequisites depending on your preferred development environment.
 
 ## Open a development environment
 
-Begin now with a development environment that has all the dependencies installed to complete this article.
+Use the following instructions to deploy a preconfigured development environment containing all required dependencies to complete this article.
 
 #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
