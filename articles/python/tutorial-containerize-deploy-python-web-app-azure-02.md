@@ -65,7 +65,7 @@ These instructions require [Visual Studio Code](https://code.visualstudio.com/) 
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-open-docker-extension.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-open-docker-extension.png" alt-text="A screenshot that shows how to open the Docker extension in Visual Studio Code." :::
 
-    If the Docker extension reports an error "Failed to connect", make sure [Docker](https://docs.docker.com/get-docker/) is installed and running. If this is your first time working with Docker, you probably won't have any containers, images, or connected registries.
+    If the Docker extension reports an error "Failed to connect", make sure [Docker](https://docs.docker.com/get-docker/) is installed and running. If its your first time working with Docker, you probably won't have any containers, images, or connected registries.
 
 1. Build the image.
 
@@ -169,7 +169,7 @@ For this tutorial, you need a MongoDB database named *restaurants_reviews* and a
 
 1. Edit the *mongod.cfg* file to add your computer's IP address.
 
-    The [mongod configuration file](https://www.mongodb.com/docs/manual/reference/configuration-options/) has a `bindIp` key that defines hostnames and IP addresses that MongoDB listens for client connections. Add the current IP of your local development computer. The sample app running locally in a Docker container will communicate to the host machine with this address.
+    The [mongod configuration file](https://www.mongodb.com/docs/manual/reference/configuration-options/) has a `bindIp` key that defines hostnames and IP addresses that MongoDB listens for client connections. Add the current IP of your local development computer. The sample app running locally in a Docker container communicates to the host machine with this address.
 
     For example, part of the configuration file should look like this:
 
@@ -201,9 +201,9 @@ After finishing these steps, your local MongoDB connection string is "mongodb://
 
 You can use Azure CLI commands to create an Azure Cosmos DB for MongoDB account and then create the required database and collection for this tutorial. If you haven't used the Azure CLI before, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli) to learn how to download and install the Azure CLI locally or how to run Azure CLI commands in Azure Cloud Shell.
 
-Before running the following script, replace the location and Azure Cosmos DB for MongoDB account name with appropriate values. You can use the resource group name specified in the script or change it. Either way, we recommend using the same resource group for all the Azure resources created in the different articles of this tutorial. It makes them easier to delete when you're finished with the tutorial. If you've arrived here from part **4. Deploy container App Service**, use the resource group name and location that you've already been using for your resources.
+Before running the following script, replace the location and Azure Cosmos DB for MongoDB account name with appropriate values. You can use the resource group name specified in the script or change it. Either way, we recommend using the same resource group for all the Azure resources created in the different articles of this tutorial. It makes them easier to delete when you're finished with the tutorial. If you arrived here from part **4. Deploy container App Service**, use the resource group name and location that you've already been using for your resources.
 
-The script assumes that you're using a Bash shell. If you want to use a different shell, you'll need to change the variable declaration and substitution syntax. The script might take a few minutes to run.
+The script assumes that you're using a Bash shell. If you want to use a different shell, you need to change the variable declaration and substitution syntax. The script might take a few minutes to run.
 
 ```azurecli
 #!/bin/bash
@@ -296,7 +296,7 @@ With information on how to connect to a MongoDB, you're ready to run the contain
 
     * In the **IMAGES** section of the Docker extension, find the built image.
 
-    * Expand the image to find the **latest** tag, right-click and select **Run Interactive**.
+    * Expand the image to find the **latest** tag, right-click, and select **Run Interactive**.
 
     * You'll be prompted to select the task appropriate for your scenario, either "Interactive run configuration (MongoDB local)" or "Interactive run configuration (MongoDB Azure)".
 
@@ -313,7 +313,7 @@ With information on how to connect to a MongoDB, you're ready to run the contain
   
     * Expand the **Individual Containers** node and confirm that "msdocspythoncontainerwebapp" is running. You should see a green triangle symbol next to the container name if it's running.
 
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-confirm-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-confirm.png" alt-text="A screenshot showing how to confirm a Docker container is running in Visual Studio Code." :::
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-confirm.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-confirm.png" alt-text="A screenshot showing how to confirm a Docker container is running in Visual Studio Code." :::
 
 1. Test the web app by right-clicking the container name and selecting **Open in Browser**.
 
@@ -325,7 +325,7 @@ With information on how to connect to a MongoDB, you're ready to run the contain
 
     * In the **CONTAINERS** section of the Docker extension, find the running container.
 
-    * Right click the container and select **Stop**.
+    * Right-click the container and select **Stop**.
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-stop.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-stop.png" alt-text="A screenshot showing how to stop a running Docker container in Visual Studio Code." :::
 
@@ -350,7 +350,7 @@ With information on how to connect to a MongoDB, you're ready to run the contain
       msdocspythoncontainerwebapp:latest  
     ```
 
-    The command above is formatted for Bash shell. If you use PowerShell, Command Prompt, or another shell, you might need to adjust the line continuation and environment variable format accordingly.
+    The command is formatted for Bash shell. If you use PowerShell, Command Prompt, or another shell, you might need to adjust the line continuation and environment variable format accordingly.
 
     ### [Azure Cosmos DB MongoDB](#tab/mongodb-azure)
 
@@ -365,11 +365,11 @@ With information on how to connect to a MongoDB, you're ready to run the contain
       msdocspythoncontainerwebapp:latest  
     ```
 
-    The command above is formatted for Bash shell. If you use PowerShell, Command Prompt, or another shell, you might need to adjust the line continuation and environment variable format accordingly.
+    The command is formatted for Bash shell. If you use PowerShell, Command Prompt, or another shell, you might need to adjust the line continuation and environment variable format accordingly.
 
     ---
 
-    Passing in sensitive information as shown here is for demonstration purposes. The connection string information can be viewed by inspecting the container with the command [docker container inspect](https://docs.docker.com/engine/reference/commandline/container_inspect/). Another way to handle secrets is to use the [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) functionality of Docker.
+    Passing in sensitive information as shown here's for demonstration purposes. The connection string information can be viewed by inspecting the container with the command [docker container inspect](https://docs.docker.com/engine/reference/commandline/container_inspect/). Another way to handle secrets is to use the [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) functionality of Docker.
 
 1. Confirm that the container is running.
 
