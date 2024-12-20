@@ -177,7 +177,7 @@ For the steps ahead, you'll need to have Visual Studio Code installed on your de
 
 1. In the search field, enter `Azure Developer CLI`.
 
-1. Select **Install**.
+1. Select **Install** and wait for the installation process to complete.
 
 ### Initialize a new app
 
@@ -221,7 +221,9 @@ For the steps ahead, you'll need to have Visual Studio Code installed on your de
 
 ### Provision and deploy the app resources
 
-1. Open the Command Palette to search for the `Azure Developer CLI: up` command. Press enter to instruct `azd` to provision and deploy the app resources. `azd` uses the subscription and location settings you selected during the `init` process when deploying resources.
+1. Open the Command Palette and search for the `Azure Developer CLI: up` command. Press enter to instruct `azd` to provision and deploy the app resources.
+
+    Visual Studio Code opens a terminal window to display the progress of the provisioning and deployment process. `azd` uses the subscription and location settings you selected during the `init` process when deploying resources.
 
     > [!NOTE]
     > The provisioning and deployment process can take several minutes.
