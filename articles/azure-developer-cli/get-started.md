@@ -167,7 +167,7 @@ A local development environment is a great choice for traditional development wo
 
 ## [Visual Studio Code](#tab/visual-studio-code)
 
-For the steps ahead, you'll need to have Visual Studio Code installed on your device. You'll also need to install the Azure Developer CLI extension for Visual Studio Code.
+The Azure Developer CLI provides a Visual Studio Code extension to streamline working with `azd` commands and features. For example, you can use the command palette interface to run `azd` commands. You'll  need to install the Azure Developer CLI extension for Visual Studio Code to complete the steps ahead.
 
 ### Install the Azure Developer CLI extension
 
@@ -187,7 +187,7 @@ For the steps ahead, you'll need to have Visual Studio Code installed on your de
 
 2. From the **View** menu, select **Command Palette...**.
 
-3. Search for the `Azure Developer CLI: init` command and press enter.
+3. Search for the `Azure Developer CLI (azd): Initialize app (init)` command and press enter. The `azd up` command instructs `azd` to provision and deploy the app resources.` command and press enter.
 
     :::image type="content" source="media/debug/cmd-init.png" alt-text="Screenshot of the option to initialize a new app.":::
 
@@ -229,7 +229,7 @@ For the steps ahead, you'll need to have Visual Studio Code installed on your de
 
 ### Provision and deploy the app resources
 
-1. Open the Command Palette and search for the `Azure Developer CLI: up` command. Press enter to instruct `azd` to provision and deploy the app resources.
+1. Open the Command Palette and search for the `Azure Developer CLI (azd): Package, Provision and Deploy(up)` command and press enter. The `azd up` command instructs `azd` to provision and deploy the app resources.
 
     Visual Studio Code opens a terminal window to display the progress of the provisioning and deployment process. `azd` uses the subscription and location settings you selected during the `init` process when deploying resources.
 
