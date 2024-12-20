@@ -171,8 +171,6 @@ For the steps ahead, you'll need to have Visual Studio Code installed on your de
 
 ## Install the Visual Studio Code extension for Azure Developer CLI
 
-# [Visual Studio Code](#tab/vscode)
-
 1. Open Visual Studio Code.
 
 1. From the **View** menu, select **Extensions**.
@@ -180,14 +178,6 @@ For the steps ahead, you'll need to have Visual Studio Code installed on your de
 1. In the search field, enter `Azure Developer CLI`.
 
 1. Select **Install**.
-
-# [Marketplace](#tab/marketplace)
-
-1. Using your browser, go to the [Azure Developer CLI - VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) page.
-
-1. Select **Install**.
-
----
 
 ## Initialize a new app
 
@@ -205,21 +195,27 @@ For the steps ahead, you'll need to have Visual Studio Code installed on your de
 
 ::: zone pivot="programming-language-nodejs"
 1. Search for the [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo) template and press enter to select it.
+
+    Visual Studio Code clones down the `azd` template. The template includes infrastructure as code files in the `infra` folder and a sample app in the `src` folder. The infrastructure as code files provision the required resources on Azure required by the app when it is deployed.
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 1. Search for the [React Web App with Python API and MongoDB on Azure](https://github.com/azure-samples/todo-python-mongo) template and press enter to select it.
+
+    Visual Studio Code clones down the `azd` template. The template includes infrastructure as code files in the `infra` folder and a sample app in the `src` folder. The infrastructure as code files provision the required resources on Azure required by the app when it is deployed.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 1. Search for the [React Web App with C# API and MongoDB on Azure](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) template and press enter to select it.
+
+    Visual Studio Code clones down the `azd` template. The template includes infrastructure as code files in the `infra` folder and a sample app in the `src` folder. The infrastructure as code files provision the required resources on Azure required by the app when it is deployed.
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 1. Search for the [Containerized React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo-aca) template and press enter to select it.awesome-azd.
-::: zone-end
 
     Visual Studio Code clones down the `azd` template. The template includes infrastructure as code files in the `infra` folder and a sample app in the `src` folder. The infrastructure as code files provision the required resources on Azure required by the app when it is deployed.
+::: zone-end
 
 1. When the Visual Studio Code window prompts you for an environment name, enter a short name of your choosing and press enter. The environment name influences the naming of resources provisioned in Azure and creates a folder in the `.azure` template directory to store certain environment settings.
 
