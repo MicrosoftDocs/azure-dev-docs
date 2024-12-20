@@ -273,14 +273,61 @@ With information on how to connect to a MongoDB, you're ready to run the contain
 
 ### [VS Code](#tab/vscode-docker)
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [A screenshot showing how to add environment variables to a Docker container in Visual Studio Code](<./includes/tutorial-container-web-app/run-docker-image-visual-studio-code-0.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-settings-file-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-settings-file.png" alt-text="A screenshot showing the settings.json file Visual Studio Code." ::: |
-| [!INCLUDE [A screenshot showing how to run a Docker container in Visual Studio Code](<./includes/tutorial-container-web-app/run-docker-image-visual-studio-code-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-run-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-run.png" alt-text="A screenshot showing how to run a Docker container in Visual Studio Code." ::: |
-| [!INCLUDE [A screenshot showing how to confirm the Docker container is running in Visual Studio Code](<./includes/tutorial-container-web-app/run-docker-image-visual-studio-code-2.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-confirm-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-confirm.png" alt-text="A screenshot showing how to confirm a Docker container is running in Visual Studio Code." ::: |
-| [!INCLUDE [A screenshot showing how to browse the endpoint of the container in Visual Studio Code](<./includes/tutorial-container-web-app/run-docker-image-visual-studio-code-3.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-open-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-open.png" alt-text="A screenshot showing how to browse the endpoint of a Docker container in Visual Studio Code." ::: |
-| [!INCLUDE [A screenshot showing how to stop a container in Visual Studio Code](<./includes/tutorial-container-web-app/run-docker-image-visual-studio-code-4.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-stop-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-stop.png" alt-text="A screenshot showing how to stop a running Docker container in Visual Studio Code." ::: |
+1. In the *.vscode* folder of the sample app, the *settings.json* file defines what happens when you use the Docker extension and select **Run** or **Run Interactive** from the context menu of a Tag. The *settings.json* file contains two templates each for the `(MongoDB local)` and `(MongoDB Azure)` scenarios.
 
+    If you're using a local MongoDB database:
+
+    * Replace both instances of `<YOUR_IP_ADDRESS>` with your IP address.
+
+    * Replace both instances of `<CONNECTION_STRING>` with the connection string for your MongoDB database.
+
+    If you're using an Azure Cosmos DB for MongoDB database:
+
+    * Replace both instances of `<CONNECTION_STRING>` with the Azure Cosmos DB for MongoDB connection string.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-settings-file.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-settings-file.png" alt-text="A screenshot that shows the settings.json file in Visual Studio Code." :::
+
+    Set the `docker.dockerPath` configuration setting used by the templates. To set `docker.dockerPath`, open the VS Code **Command Palette** (**Ctrl+Shift+P**), enter "Preferences: Open Workspace Settings", then enter "docker.dockerPath" in the **Search settings** box. Enter "docker" (without the quotes) for the value of the setting.
+
+    > [!NOTE]
+    > Both the database name and collection name are assumed to be `restaurants_reviews`.
+
+1. Run the image.
+
+    * In the **IMAGES** section of the Docker extension, find the built image.
+
+    * Expand the image to find the **latest** tag, right-click and select **Run Interactive**.
+
+    * You'll be prompted to select the task appropriate for your scenario, either "Interactive run configuration (MongoDB local)" or "Interactive run configuration (MongoDB Azure)".
+
+    With interactive run, you'll see any print statements in the code, which can be useful for debugging. You can also select **Run** which is non-interactive and doesn't keep standard input open.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-run.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-run.png" alt-text="A screenshot that shows how to run a Docker container in Visual Studio Code." :::
+
+    > [!IMPORTANT]
+    > This step fails if the default terminal profile is set to (Windows) Command Prompt. To change the default profile, open the VS Code **Command Palette** (**Ctrl+Shift+P**), enter "Terminal: Select Default Profile", and then select a different profile from the dropdown menu; for example *Git Bash* or *PowerShell*.
+
+1. Confirm that the container is running.
+
+    * In the **CONTAINERS** section of the Docker extension, find the container.
+  
+    * Expand the **Individual Containers** node and confirm that "msdocspythoncontainerwebapp" is running. You should see a green triangle symbol next to the container name if it's running.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-confirm-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-confirm.png" alt-text="A screenshot showing how to confirm a Docker container is running in Visual Studio Code." :::
+
+1. Test the web app by right-clicking the container name and selecting **Open in Browser**.
+
+    The browser will open into your default browser as "http://127.0.0.1:8000" for Django or "http://127.0.0.1:5000/" for Flask.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-open.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-open.png" alt-text="A screenshot that shows how to browse the endpoint of a Docker container in Visual Studio Code." :::
+
+1. Stop the container.
+
+    * In the **CONTAINERS** section of the Docker extension, find the running container.
+
+    * Right click the container and select **Stop**.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-stop.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-stop.png" alt-text="A screenshot showing how to stop a running Docker container in Visual Studio Code." :::
 
 > [!TIP]
 > You can also run the container selecting a run or debug configuration. The Docker extension tasks in *tasks.json* are called when you run or debug. The task called depends on what launch configuration you select.  For the task "Docker: Python (MongoDB local)", specify \<YOUR-IP-ADDRESS>. For the task "Docker: Python (MongoDB Azure)", specify \<CONNECTION-STRING>.
