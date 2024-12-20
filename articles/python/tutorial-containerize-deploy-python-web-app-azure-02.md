@@ -16,7 +16,7 @@ The following service diagram highlights the components covered in this article.
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-run-local.png" alt-text="A screenshot of the Tutorial - Containerized Python App on Azure with local part highlighted." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-run-local.png":::
 
-## 1. Clone or download the sample app
+## Clone or download the sample app
 
 ### [Git clone](#tab/sample-app-git-clone)
 
@@ -50,7 +50,7 @@ Unpack the ZIP file into a folder and then open a terminal window in that folder
 
 ---
 
-## 2. Build a Docker image
+## Build a Docker image
 
 If you're using one of the framework sample apps available for [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) and [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app), you're set to proceed. If you're working with your own sample app, take a look to see how the sample apps are set up, in particular, the *Dockerfile* in the root directory.
 
@@ -73,7 +73,7 @@ These instructions require [Visual Studio Code](https://code.visualstudio.com/) 
   
     For more information about Dockerfile syntax, see the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
 
-1. Confirm the image was built. Expand the **IMAGES** section of the Docker extension and look for the recently built extension. The name of the container image is "msdocspythoncontainerwebapp", which is set in the *.vscode/tasks.json* file.
+1. Confirm the image was built. Expand the **IMAGES** section of the Docker extension and look for the recently built image. The name of the container image is "msdocspythoncontainerwebapp", which is set in the *.vscode/tasks.json* file.
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-view-images.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-view-images.png" alt-text="A screenshot that shows how to confirm the built image in Visual Studio Code." :::
   
@@ -98,7 +98,7 @@ Start in the root folder of the sample app you cloned or downloaded.
 
     The general form of the command is `docker build --rm --pull --file "<path-to-project-root>/Dockerfile" --label "com.microsoft.created-by=docker-cli" --tag "<container-name>:latest" "<path-to-project-root>"`.
   
-    For example, if you''re at the root folder of the project, you can use the command like this to build an image:
+    For example, if you're at the root folder of the project, you can use the command like this to build an image:
   
     ```Docker
     docker build --rm --pull \
@@ -124,7 +124,7 @@ At this point, you have built an image locally. The image you created has the na
 
 Images that are built from VS Code or from using the Docker CLI directly can also be viewed with the [Docker Desktop](https://www.docker.com/products/docker-desktop/) application.
 
-## 3. Set up MongoDB
+## Set up MongoDB
 
 For this tutorial, you need a MongoDB database named *restaurants_reviews* and a collection named *restaurants_reviews*. The steps in this section show you how to use a local installation of MongoDB or [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) to create and access the database and collection.
 
@@ -185,7 +185,7 @@ For this tutorial, you need a MongoDB database named *restaurants_reviews* and a
     > exit
     ```
 
-After finishing these steps, your local MongoDB connection string is "mongodb://127.0.0.1:27017/", the database name is "restaurants_reviews", and the collection name is "restaurants_reviews".
+After you complete these steps, your local MongoDB connection string is "mongodb://127.0.0.1:27017/", the database name is "restaurants_reviews", and the collection name is "restaurants_reviews".
 
 ### [Azure Cosmos DB for MongoDB](#tab/mongodb-azure)
 
@@ -254,7 +254,7 @@ For more detail about using the Azure CLI to create a Cosmos DB for MongoDB acco
 
 ---
 
-## 4. Run the image locally in a container
+## Run the image locally in a container
 
 With information on how to connect to a MongoDB, you're ready to run the container locally. The sample app expects MongoDB connection information to be passed in environment variables. There are several ways to get environment variables passed to container locally. Each has advantages and disadvantages in terms of security. You should avoid checking in any sensitive information or leaving sensitive information in code in the container.
 
@@ -265,6 +265,8 @@ With information on how to connect to a MongoDB, you're ready to run the contain
 
 1. In the *.vscode* folder of the sample app, the *settings.json* file defines what happens when you use the Docker extension and select **Run** or **Run Interactive** from the context menu of a Tag. The *settings.json* file contains two templates each for the `(MongoDB local)` and `(MongoDB Azure)` scenarios.
 
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-settings-file.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-settings-file.png" alt-text="A screenshot that shows the settings.json file in Visual Studio Code." :::
+
     If you're using a local MongoDB database:
 
     * Replace both instances of `<YOUR_IP_ADDRESS>` with your IP address.
@@ -274,8 +276,6 @@ With information on how to connect to a MongoDB, you're ready to run the contain
     If you're using an Azure Cosmos DB for MongoDB database:
 
     * Replace both instances of `<CONNECTION_STRING>` with the Azure Cosmos DB for MongoDB connection string.
-
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-settings-file.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-settings-file.png" alt-text="A screenshot that shows the settings.json file in Visual Studio Code." :::
 
     Set the `docker.dockerPath` configuration setting used by the templates. To set `docker.dockerPath`, open the VS Code **Command Palette** (**Ctrl+Shift+P**), enter "Preferences: Open Workspace Settings", then enter "docker.dockerPath" in the **Search settings** box. Enter "docker" (without the quotes) for the value of the setting.
 
@@ -307,9 +307,9 @@ With information on how to connect to a MongoDB, you're ready to run the contain
 
 1. Test the web app by right-clicking the container name and selecting **Open in Browser**.
 
-    The browser opens into your default browser as "http://127.0.0.1:8000" for Django or "http://127.0.0.1:5000/" for Flask.
-
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-open.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-open.png" alt-text="A screenshot that shows how to browse the endpoint of a Docker container in Visual Studio Code." :::
+
+    The browser opens into your default browser as "http://127.0.0.1:8000" for Django or "http://127.0.0.1:5000/" for Flask.
 
 1. Stop the container.
 
