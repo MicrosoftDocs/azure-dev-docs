@@ -167,7 +167,7 @@ A local development environment is a great choice for traditional development wo
 
 ## [Visual Studio Code](#tab/visual-studio-code)
 
-The Azure Developer CLI provides a Visual Studio Code extension to streamline working with `azd` commands and features. For example, you can use the command palette interface to run `azd` commands. You'll  need to install the Azure Developer CLI extension for Visual Studio Code to complete the steps ahead.
+The Azure Developer CLI provides a Visual Studio Code extension to streamline working with `azd` features. For example, you can use the command palette interface to run `azd` commands. You'll  need to install the Azure Developer CLI extension for Visual Studio Code to complete the steps ahead.
 
 ### Install the Azure Developer CLI extension
 
@@ -177,7 +177,7 @@ The Azure Developer CLI provides a Visual Studio Code extension to streamline wo
 
 1. In the search field, enter `Azure Developer CLI`.
 
-    :::image type="content" source="media/debug/cmd-init.png" alt-text="Screenshot of the option to initialize a new app.":::
+    :::image type="content" source="media/get-started/install-extension.png" alt-text="Screenshot of the extension installation.":::
 
 1. Select **Install** and wait for the installation process to complete.
 
