@@ -143,59 +143,59 @@ For this tutorial, you need a MongoDB database named *restaurants_reviews* and a
 
 ### [Local MongoDB](#tab/mongodb-local)
 
-**Step 1:** Install [MongoDB](https://www.mongodb.com/docs/manual/installation/) if it isn't already.
+1. Install [MongoDB](https://www.mongodb.com/docs/manual/installation/) if it isn't already.
 
-You can check for the installation of MongoDB by using the [MongoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/).
-
-- The following command enters the shell and gives you the version of both mongosh and mongoDB server installed on your system:
-
-  ```terminal
-  mongosh
-  ```
-
-- The following command gives you just the version of MongoDB server installed on your system:
+    You can check for the installation of MongoDB by using the [MongoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/).
   
-  ```terminal
-  mongosh --quiet --exec 'db.version()'
-  ```
+    * The following command enters the shell and gives you the version of both mongosh and mongoDB server installed on your system:
 
-If these commands don't work, you might need to explicitly [install mongosh](https://www.mongodb.com/docs/mongodb-shell/install/) or [connect mongosh to your MongoDB server](https://www.mongodb.com/docs/mongodb-shell/connect/).
-  
-An alternative in some installations is to directly invoke the Mongo daemon.
+      ```terminal
+      mongosh
+      ```
 
-```terminal
-mongod --version
-```
+    * The following command gives you just the version of MongoDB server installed on your system:
 
-**Step 2:** Edit the *mongod.cfg* file to add your computer's IP address.
+        ```terminal
+        mongosh --quiet --exec 'db.version()'
+        ```
 
-The [mongod configuration file](https://www.mongodb.com/docs/manual/reference/configuration-options/) has a `bindIp` key that defines hostnames and IP addresses that MongoDB listens for client connections. Add the current IP of your local development computer. The sample app running locally in a Docker container will communicate to the host machine with this address.
+    If these commands don't work, you might need to explicitly [install mongosh](https://www.mongodb.com/docs/mongodb-shell/install/) or [connect mongosh to your MongoDB server](https://www.mongodb.com/docs/mongodb-shell/connect/).
 
-For example, part of the configuration file should look like this:
+    An alternative in some installations is to directly invoke the Mongo daemon.
 
-```yml
-net:
-  port: 27017
-  bindIp: 127.0.0.1,<local-ip-address>
-```
+    ```terminal
+    mongod --version
+    ```
 
-Restart MongoDB to pick up changes to the configuration file.  
+1. Edit the *mongod.cfg* file to add your computer's IP address.
 
-**Step 3:** Create a database and collection in the local MongoDB database.
+    The [mongod configuration file](https://www.mongodb.com/docs/manual/reference/configuration-options/) has a `bindIp` key that defines hostnames and IP addresses that MongoDB listens for client connections. Add the current IP of your local development computer. The sample app running locally in a Docker container will communicate to the host machine with this address.
 
-Set the database name to "restaurants_reviews" and the collection name to "restaurants_reviews". You can create a database and collection with the VS Code [MongoDB extension](https://code.visualstudio.com/docs/azure/mongodb), the [MongoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/), or any other MondoDB-aware tool.
+    For example, part of the configuration file should look like this:
 
-For the MongoDB shell, here are example commands to create the database and collection:
+    ```yml
+    net:
+      port: 27017
+      bindIp: 127.0.0.1,<local-ip-address>
+    ```
 
-```mongosh
-> help
-> use restaurants_reviews
-> db.restaurants_reviews.insertOne({})
-> show dbs
-> exit
-```
+    Restart MongoDB to pick up changes to the configuration file.  
 
-At this point, your local MongoDB connection string is "mongodb://127.0.0.1:27017/", the database name is "restaurants_reviews", and the collection name is "restaurants_reviews".
+1. Create a database and collection in the local MongoDB database.
+
+    Set the database name to "restaurants_reviews" and the collection name to "restaurants_reviews". You can create a database and collection with the VS Code [MongoDB extension](https://code.visualstudio.com/docs/azure/mongodb), the [MongoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/), or any other MondoDB-aware tool.
+
+    For the MongoDB shell, here are example commands to create the database and collection:
+
+    ```mongosh
+    > help
+    > use restaurants_reviews
+    > db.restaurants_reviews.insertOne({})
+    > show dbs
+    > exit
+    ```
+
+After finishing these steps, your local MongoDB connection string is "mongodb://127.0.0.1:27017/", the database name is "restaurants_reviews", and the collection name is "restaurants_reviews".
 
 ### [Azure Cosmos DB for MongoDB](#tab/mongodb-azure)
 
@@ -262,7 +262,7 @@ For more detail about using the Azure CLI to create a Cosmos DB for MongoDB acco
 > [!TIP]
 > In the VS Code Azure Databases extension, you can right-click on the MongoDB server and get the connection string.
 
-----
+---
 
 ## 4. Run the image locally in a container
 
@@ -285,10 +285,64 @@ With information on how to connect to a MongoDB, you're ready to run the contain
 > [!TIP]
 > You can also run the container selecting a run or debug configuration. The Docker extension tasks in *tasks.json* are called when you run or debug. The task called depends on what launch configuration you select.  For the task "Docker: Python (MongoDB local)", specify \<YOUR-IP-ADDRESS>. For the task "Docker: Python (MongoDB Azure)", specify \<CONNECTION-STRING>.
 
-
 ### [Docker CLI](#tab/docker-cli)
 
-[!INCLUDE [Run an image with the Docker CLI](<./includes/tutorial-container-web-app/run-docker-image-docker-cli.md>)]
+1. Run the latest version of the image.
+
+    ### [Local MongoDB](#tab/mongodb-local)
+
+    ```Docker
+    # PORT=8000 for Django and 5000 for Flask
+    export PORT=<port-number>
+    export YOUR_IP_ADDRESS=<your-machine-ip-address>
+    
+    docker run --rm -it \
+      --publish $PORT:$PORT --publish 27017:27017 \
+      --add-host mongoservice:$YOUR_IP_ADDRESS \
+      --env CONNECTION_STRING=mongodb://mongoservice:27017 --env DB_NAME=restaurants_reviews --env COLLECTION_NAME=restaurants_reviews \
+      msdocspythoncontainerwebapp:latest  
+    ```
+
+    The command above is formatted for Bash shell. If you use PowerShell, Command Prompt, or another shell, you might need to adjust the line continuation and environment variable format accordingly.
+
+    ### [Azure Cosmos DB MongoDB](#tab/mongodb-azure)
+
+    ```Docker
+    # PORT=8000 for Django and 5000 for Flask
+    export PORT=<port-number>
+    export CONNECTION_STRING="<connection-string>"
+    
+    docker run --rm -it \
+      --publish $PORT:$PORT/tcp \
+      --env CONNECTION_STRING=$CONNECTION_STRING --env DB_NAME=restaurants_reviews --env COLLECTION_NAME=restaurants_reviews \
+      msdocspythoncontainerwebapp:latest  
+    ```
+
+    The command above is formatted for Bash shell. If you use PowerShell, Command Prompt, or another shell, you might need to adjust the line continuation and environment variable format accordingly.
+
+    ---
+
+    Passing in sensitive information as shown here is for demonstration purposes. The connection string information can be viewed by inspecting the container with the command [docker container inspect](https://docs.docker.com/engine/reference/commandline/container_inspect/). Another way to handle secrets is to use the [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) functionality of Docker.
+
+1. Confirm that the container is running.
+
+    Open a second shell and run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
+
+    ```Docker
+    docker container ls
+    ```
+
+    You should see your container "msdocspythoncontainerwebapp:latest:latest" in the list. Note the `NAMES` column of the output and the `PORTS` column. You can use the name to stop the container.
+
+1. Test the web app.
+
+    Go to "http://127.0.0.1:8000" for Django and "http://127.0.0.1:5000/" for Flask when running with local MongoDB.
+
+1. Shut down the container
+
+    ```Docker
+    docker container stop <container-name>
+    ```
 
 ---
 
