@@ -25,7 +25,7 @@ To understand more about load testing the chat app, watch the [demonstration vid
 
     #### [GitHub Codespaces (recommended)](#tab/github-codespaces)
         
-    You only need a [GitHub account](https://github.com/login).
+    * You need only a [GitHub account](https://github.com/login).
     
     #### [Visual Studio Code](#tab/visual-studio-code)
 
