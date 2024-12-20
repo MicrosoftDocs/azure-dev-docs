@@ -20,7 +20,7 @@ The following service diagram highlights the components covered in this article.
 
 ### [Git clone](#tab/sample-app-git-clone)
 
-Clone the repository:
+Clone the Django or Flask repository:
 
 ```terminal
 # Django
@@ -30,7 +30,7 @@ git clone https://github.com/Azure-Samples/msdocs-python-django-container-web-ap
 git clone https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.git
 ```
 
-Then navigate into that folder:
+Then navigate to the root folder:
 
 ```terminal
 # Django
@@ -52,7 +52,7 @@ Unpack the ZIP file into a folder and then open a terminal window in that folder
 
 ## 2. Build a Docker image
 
-If you're using one of the framework sample apps available for [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) and [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app), you're set to go. If you're working with your own sample app, take a look to see how the sample apps are set up, in particular the *Dockerfile* in the root directory.
+If you're using one of the framework sample apps available for [Django](https://github.com/Azure-Samples/msdocs-python-django-container-web-app) and [Flask](https://github.com/Azure-Samples/msdocs-python-flask-container-web-app), you're set to proceed. If you're working with your own sample app, take a look to see how the sample apps are set up, in particular, the *Dockerfile* in the root directory.
 
 ### [VS Code](#tab/vscode-docker)
 
@@ -61,27 +61,19 @@ These instructions require [Visual Studio Code](https://code.visualstudio.com/) 
 > [!NOTE]
 > The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/), which starts the daemon, before proceeding.
 
-1. Open the Docker extension.
+1. Open the Docker extension. Select the **Docker** extension on the Activity Bar.
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-open-docker-extension.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-open-docker-extension.png" alt-text="A screenshot that shows how to open the Docker extension in Visual Studio Code." :::
 
-    If the Docker extension reports an error "Failed to connect", make sure [Docker](https://docs.docker.com/get-docker/) is installed and running. If its your first time working with Docker, you probably won't have any containers, images, or connected registries.
+    If the Docker extension reports an error "Failed to connect", make sure [Docker](https://docs.docker.com/get-docker/) is installed and running. If it's your first time working with Docker, you probably won't have any containers, images, or connected registries.
 
-1. Build the image.
+1. Build the image. In the project Explorer, right-click the *Dockerfile* and select **Build Image...**.
 
-    * In the project Explorer, right-click the *Dockerfile* and select **Build Image...**.
-
-    * Alternately, you can use the Command Palette (**F1** or **Ctrl+Shift+P**) and type "Docker Images: Build Images" to invoke the command.
-
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-build-image.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-build-image.png" alt-text="A screenshot that shows how to build the Docker image in Visual Studio Code." :::
+    Alternately, you can use the Command Palette (**F1** or **Ctrl+Shift+P**) and type "Docker Images: Build Images" to invoke the command.
   
     For more information about Dockerfile syntax, see the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
 
-1. Confirm the image was built.
-
-    * Go to the **IMAGES** section of the Docker extension.
-
-    * Look for recently built image.  The name of the container image is "msdocspythoncontainerwebapp", which is set in the *.vscode/tasks.json* file.
+1. Confirm the image was built. Expand the **IMAGES** section of the Docker extension and look for the recently built extension. The name of the container image is "msdocspythoncontainerwebapp", which is set in the *.vscode/tasks.json* file.
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-view-images.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-view-images.png" alt-text="A screenshot that shows how to confirm the built image in Visual Studio Code." :::
   
@@ -92,21 +84,21 @@ These instructions require [Docker](https://docs.docker.com/get-docker/).
 > [!NOTE]
 > The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/), which starts the daemon, before proceeding.
 
-Start in the root of the sample app you cloned or downloaded.
+Start in the root folder of the sample app you cloned or downloaded.
 
-1. At a shell prompt, confirm that Docker is accessible.
+1. At a shell prompt, enter the following command to confirm that Docker is accessible.
 
     ```Docker
     docker
     ```
 
-    If after running this command, you see help for the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/), then continue. Otherwise, make sure Docker is installed or your shell has access to the Docker CLI.
+    If, after running this command, you see help for the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/), you can continue. Otherwise, make sure Docker is installed and that your shell has access to the Docker CLI.
   
-1. Build the image.
+1. Build the image with the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command.
 
-    The general form of the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command is `docker build --rm --pull --file "<path-to-project-root>/Dockerfile" --label "com.microsoft.created-by=docker-cli" --tag "<container-name>:latest" "<path-to-project-root>"`.
+    The general form of the command is `docker build --rm --pull --file "<path-to-project-root>/Dockerfile" --label "com.microsoft.created-by=docker-cli" --tag "<container-name>:latest" "<path-to-project-root>"`.
   
-    For example, if you are at the root of the project directory, you can use the command like this to build an image:
+    For example, if you''re at the root folder of the project, you can use the command like this to build an image:
   
     ```Docker
     docker build --rm --pull \
@@ -118,15 +110,13 @@ Start in the root of the sample app you cloned or downloaded.
   
     The dot (".") at the end of the command refers to the current directory in which the command runs. You can add `--no-cache` to force a rebuild.
   
-1. Confirm the image was built.
-
-    Use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to return a list of images.
+1. Confirm the image was built with the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command.
 
     ```Docker
     docker images
     ```
 
-    Images are listed by REPOSITORY name, TAG, and CREATED date among other image characteristics.
+    The command returns a list of images by REPOSITORY name, TAG, and CREATED date among other image characteristics.
 
 ---
 
@@ -143,7 +133,7 @@ For this tutorial, you need a MongoDB database named *restaurants_reviews* and a
 
 ### [Local MongoDB](#tab/mongodb-local)
 
-1. Install [MongoDB](https://www.mongodb.com/docs/manual/installation/) if it isn't already.
+1. Install [MongoDB](https://www.mongodb.com/docs/manual/installation/) if it isn't already installed.
 
     You can check for the installation of MongoDB by using the [MongoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/).
   
@@ -269,7 +259,7 @@ For more detail about using the Azure CLI to create a Cosmos DB for MongoDB acco
 With information on how to connect to a MongoDB, you're ready to run the container locally. The sample app expects MongoDB connection information to be passed in environment variables. There are several ways to get environment variables passed to container locally. Each has advantages and disadvantages in terms of security. You should avoid checking in any sensitive information or leaving sensitive information in code in the container.
 
 > [!NOTE]
-> When deployed to Azure, the web app will get connection info from environment values set as App Service configuration settings and none of the modifications for the local development environment scenario apply.
+> When deployed to Azure, the web app gets connection information from environment values set as App Service configuration settings and none of the modifications for the local development environment scenario apply.
 
 ### [VS Code](#tab/vscode-docker)
 
@@ -294,11 +284,11 @@ With information on how to connect to a MongoDB, you're ready to run the contain
 
 1. Run the image.
 
-    * In the **IMAGES** section of the Docker extension, find the built image.
+    1. In the **IMAGES** section of the Docker extension, find the built image.
 
-    * Expand the image to find the **latest** tag, right-click, and select **Run Interactive**.
+    1. Expand the image to find the **latest** tag, right-click, and select **Run Interactive**.
 
-    * You'll be prompted to select the task appropriate for your scenario, either "Interactive run configuration (MongoDB local)" or "Interactive run configuration (MongoDB Azure)".
+    1. You're prompted to select the task appropriate for your scenario, either "Interactive run configuration (MongoDB local)" or "Interactive run configuration (MongoDB Azure)".
 
     With interactive run, you'll see any print statements in the code, which can be useful for debugging. You can also select **Run** which is non-interactive and doesn't keep standard input open.
 
@@ -309,23 +299,23 @@ With information on how to connect to a MongoDB, you're ready to run the contain
 
 1. Confirm that the container is running.
 
-    * In the **CONTAINERS** section of the Docker extension, find the container.
+    1. In the **CONTAINERS** section of the Docker extension, find the container.
   
-    * Expand the **Individual Containers** node and confirm that "msdocspythoncontainerwebapp" is running. You should see a green triangle symbol next to the container name if it's running.
+    1. Expand the **Individual Containers** node and confirm that "msdocspythoncontainerwebapp" is running. You should see a green triangle symbol next to the container name if it's running.
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-confirm.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-confirm.png" alt-text="A screenshot showing how to confirm a Docker container is running in Visual Studio Code." :::
 
 1. Test the web app by right-clicking the container name and selecting **Open in Browser**.
 
-    The browser will open into your default browser as "http://127.0.0.1:8000" for Django or "http://127.0.0.1:5000/" for Flask.
+    The browser opens into your default browser as "http://127.0.0.1:8000" for Django or "http://127.0.0.1:5000/" for Flask.
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-open.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-open.png" alt-text="A screenshot that shows how to browse the endpoint of a Docker container in Visual Studio Code." :::
 
 1. Stop the container.
 
-    * In the **CONTAINERS** section of the Docker extension, find the running container.
+    1. In the **CONTAINERS** section of the Docker extension, find the running container.
 
-    * Right-click the container and select **Stop**.
+    1. Right-click the container and select **Stop**.
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-stop.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-container-stop.png" alt-text="A screenshot showing how to stop a running Docker container in Visual Studio Code." :::
 
@@ -350,8 +340,6 @@ With information on how to connect to a MongoDB, you're ready to run the contain
       msdocspythoncontainerwebapp:latest  
     ```
 
-    The command is formatted for Bash shell. If you use PowerShell, Command Prompt, or another shell, you might need to adjust the line continuation and environment variable format accordingly.
-
     ### [Azure Cosmos DB MongoDB](#tab/mongodb-azure)
 
     ```Docker
@@ -365,15 +353,13 @@ With information on how to connect to a MongoDB, you're ready to run the contain
       msdocspythoncontainerwebapp:latest  
     ```
 
-    The command is formatted for Bash shell. If you use PowerShell, Command Prompt, or another shell, you might need to adjust the line continuation and environment variable format accordingly.
-
     ---
 
-    Passing in sensitive information as shown here's for demonstration purposes. The connection string information can be viewed by inspecting the container with the command [docker container inspect](https://docs.docker.com/engine/reference/commandline/container_inspect/). Another way to handle secrets is to use the [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) functionality of Docker.
+    The docker command is formatted for Bash shell. If you use PowerShell, Command Prompt, or another shell, you might need to adjust the line continuation and environment variable format accordingly.
 
-1. Confirm that the container is running.
+    Passing in sensitive information as shown here is for demonstration purposes. The connection string information can be viewed by inspecting the container with the command [docker container inspect](https://docs.docker.com/engine/reference/commandline/container_inspect/). Another way to handle secrets is to use the [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) functionality of Docker.
 
-    Open a second shell and run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
+1. Confirm that the container is running. Open a second shell and run the [docker container ls](https://docs.docker.com/engine/reference/commandline/container_ls/) command.
 
     ```Docker
     docker container ls
@@ -385,7 +371,7 @@ With information on how to connect to a MongoDB, you're ready to run the contain
 
     Go to "http://127.0.0.1:8000" for Django and "http://127.0.0.1:5000/" for Flask when running with local MongoDB.
 
-1. Shut down the container
+1. Shut down the container.
 
     ```Docker
     docker container stop <container-name>
