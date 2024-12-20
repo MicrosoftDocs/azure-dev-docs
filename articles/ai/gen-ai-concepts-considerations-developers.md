@@ -14,17 +14,17 @@ Large Language Models (LLMs) are amazing, but even they have their limitations. 
 
 The most significant challenges or limitations to be aware of when working with LLMs:
 
-- **Knowledge cutoff** - Due to the high cost of training an LLM, their body of knowledge is limited to what they were trained on at a certain point in time. Without any plug-ins or other accommodations, they have no access to real-time information, nor do they have access to private data.
+- **Knowledge cutoff**: Due to the high cost of training an LLM, their body of knowledge is limited to what they were trained on at a certain point in time. Without any plug-ins or other accommodations, they have no access to real-time information, nor do they have access to private data.
 
-- **Hallucination** - An LLM uses statistical probabilities and a little randomness to generate information. There are mechanisms in place to keep generated responses aligned to the human's intent in the questions that are asked and the information they were trained on, but it's possible that they create replies that are not accurate.
+- **Hallucination**: An LLM uses statistical probabilities and a little randomness to generate information. There are mechanisms in place to keep generated responses aligned to the human's intent in the questions that are asked and the information they were trained on, but it's possible that they create replies that are not accurate.
 
-- **Transparency** - Again, due to the way the models are trained, they no longer have access to the foundational knowledge they were trained on. And even if they did, there's no guarantee that information was truthful and grounded in the first place. Furthermore, there's no verification step to ensure that the generated response is accurate.
+- **Transparency**: Again, due to the way the models are trained, they no longer have access to the foundational knowledge they were trained on. And even if they did, there's no guarantee that information was truthful and grounded in the first place. Furthermore, there's no verification step to ensure that the generated response is accurate.
 
-- **No domain specific knowledge** - Similar to "knowledge cutoff, if you have private information like internal-only company documents, the LLM wasn't trained on this information and therefore has no domain specific knowledge.
+- **No domain specific knowledge**: Similar to "knowledge cutoff, if you have private information like internal-only company documents, the LLM wasn't trained on this information and therefore has no domain specific knowledge.
 
 What can you do to mitigate the possible challenges or problems with LLMs and get the best possible results to help your users and your organization? Start by understanding the ways in which you can supplement where the LLM is getting its data from.
 
-### Understanding where LLMs get their information
+### Where LLMs get their information
 
 A good starting point to getting the best results from an LLM is to understand where or how LLMs get their information. The following categories represent different approaches to how LLMs interact with various sources of information to generate responses.
 
@@ -32,9 +32,9 @@ A good starting point to getting the best results from an LLM is to understand w
 
 - **Retrieval-Off Generation (ROG)** - This is the way traditional way LLMs operate, where the model generates responses based solely on the knowledge it was trained on, without accessing or retrieving any external information during the generation process. The model's knowledge is static, limited to what was included in its training data up to the cutoff date. In addition to creative writing, it can answer questions on information readily available at large on the internet.
 
-- **Retrieval-Augmented Generation (RAG)** - Combines the generative capabilities of LLMs with the ability to retrieve information from external databases or documents in real-time. The model queries an external source to find relevant information, which it then uses to inform its response. This approach allows the model to provide more accurate and up-to-date information than it could from its pre-trained knowledge alone. Use cases include fact checking, answering questions based on real-time data or private, domain-specific data.
+- **Retrieval-Augmented Generation (RAG)**: Combines the generative capabilities of LLMs with the ability to retrieve information from external databases or documents in real-time. The model queries an external source to find relevant information, which it then uses to inform its response. This approach allows the model to provide more accurate and up-to-date information than it could from its pre-trained knowledge alone. Use cases include fact checking, answering questions based on real-time data or private, domain-specific data.
 
-- **Retrieval-Centric Generation (RCG)** - Places even more emphasis on the externally retrieved content, often structuring responses around the information fetched from external sources. The model might directly incorporate large segments of retrieved text into its outputs, editing or annotating them to fit the user's query. This approach can be seen as a hybrid between retrieval-based and generative methods, where the balance might heavily favor the information retrieved over the model's own generative capabilities. Use cases include summarization of a longer document, research assistance to provide comparisons and thematic explorations across multiple similar documents, and compilation or collation of different sources of material into a combined output.
+- **Retrieval-Centric Generation (RCG)**: Places even more emphasis on the externally retrieved content, often structuring responses around the information fetched from external sources. The model might directly incorporate large segments of retrieved text into its outputs, editing or annotating them to fit the user's query. This approach can be seen as a hybrid between retrieval-based and generative methods, where the balance might heavily favor the information retrieved over the model's own generative capabilities. Use cases include summarization of a longer document, research assistance to provide comparisons and thematic explorations across multiple similar documents, and compilation or collation of different sources of material into a combined output.
 
 A good example of Retrieval-Off Generation (ROG) is ChatGPT. By contrast, if necessary, Copilot (via Bing) extends the LLM by using external sources from news sources (and providing links to those sources).
 
