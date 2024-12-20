@@ -187,7 +187,7 @@ The Azure Developer CLI provides a Visual Studio Code extension to streamline wo
 
 2. From the **View** menu, select **Command Palette...**.
 
-3. Search for the `Azure Developer CLI (azd): Initialize app (init)` command and press enter. The `azd up` command instructs `azd` to provision and deploy the app resources.` command and press enter.
+3. Search for the `Azure Developer CLI (azd): Initialize app (init)` command and press enter. The `azd up` command instructs `azd` to provision and deploy the app resources.
 
     :::image type="content" source="media/debug/cmd-init.png" alt-text="Screenshot of the option to initialize a new app.":::
 
