@@ -76,7 +76,7 @@ To install the Spring Cloud Azure Starter Data Redis with Lettuce module, add th
 
 To use a Redis cache to store and retrieve data, configure the application by using the following steps:
 
-#### [Passwordless (Recommended)](#tab/passwordless)
+#### [Microsoft Entra ID authentication (recommended)](#tab/entraid)
 
 1. Configure Redis cache credentials in the *application.properties* configuration file, as shown in the following example.
 
@@ -129,7 +129,7 @@ To use a Redis cache to store and retrieve data, configure the application by us
    }
    ```
 
-#### [Password](#tab/Password)
+#### [Access key authentication](#tab/accesskey)
 
 1. Configure Redis cache credentials in the *application.properties* configuration file, as shown in the following example.
 
