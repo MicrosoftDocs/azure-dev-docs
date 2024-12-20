@@ -1,7 +1,7 @@
 ---
 title: Scale Azure OpenAI for Python with Azure API Management
 description: Learn how to add load balancing with Azure API Management to your application to extend the chat app beyond the Azure OpenAI token and model quota limits. 
-ms.date: 05/16/2024
+ms.date: 12/20/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, build-2024-intelligent-apps
