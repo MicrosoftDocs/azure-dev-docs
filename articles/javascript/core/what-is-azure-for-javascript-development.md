@@ -37,7 +37,7 @@ Top service types for JavaScript developers include:
 
 ## Create Azure services in the Quickstart Center
 
-When you begin learning the Azure cloud,  [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), then start in the [Quickstart Center](https://ms.portal.azure.com/#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) in the Azure portal.
+When you begin learning the Azure cloud,  [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), then start in the [Quickstart Center](https://portal.azure.com/#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) in the Azure portal.
 
 Each service's page on the Azure portal includes connection information you'll need to access your resource outside of the portal. 
 

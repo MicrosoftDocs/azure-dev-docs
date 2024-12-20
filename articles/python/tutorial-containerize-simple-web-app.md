@@ -68,49 +68,11 @@ Check the *requirements.txt* file to make sure it contains `gunicorn`.
 
 :::code language="python" source="~/../msdocs-python-flask-webapp-quickstart/requirements.txt" highlight="2" :::
 
-### [FastAPI](#tab/web-app-fastapi)
-
-```dockerfile
-# syntax=docker/dockerfile:1
-
-FROM python:3.11
-
-WORKDIR /code
-
-COPY requirements.txt .
-
-RUN pip install --no-cache-dir --upgrade -r requirements.txt
-
-COPY . .
-
-EXPOSE 3100
-
-CMD ["gunicorn", "main:app"]
-```
-
-`3100` is used for the container port (internal) in this example, but you can use any free port.
-
-Check the *requirements.txt* file to make sure it contains `gunicorn` and `uvicorn`.
-
-:::code language="python" source="~/../msdocs-python-fastapi-webapp-quickstart/requirements.txt" highlight="2-3" :::
-
----
-
-Add a *\.dockerignore* file to exclude unnecessary files from the image.
-
-```dockerignore
-.git*
-**/*.pyc
-.venv/
-```
-
 ## Configure gunicorn
 
 Gunicorn can be configured with a *gunicorn.conf.py* file. When the *gunicorn.conf.py* file is located in the same directory where `gunicorn` is run, you don't need to specify its location in the `ENTRYPOINT` or `CMD` instruction of the *Dockerfile*. For more information about specifying the configuration file, see [Gunicorn settings][22].
 
 In this tutorial, the suggested configuration file configures GUnicorn to increase its number of workers based on the number of CPU cores available. For more information about *gunicorn.conf.py* file settings, see [Gunicorn configuration][23].
-
-### [Flask](#tab/web-app-flask)
 
 ```text
 # Gunicorn configuration file
@@ -129,26 +91,47 @@ threads = workers
 timeout = 120
 ```
 
+
 ### [FastAPI](#tab/web-app-fastapi)
 
-```text
-# Gunicorn configuration file
-import multiprocessing
+```dockerfile
+FROM python:3.11
 
-max_requests = 1000
-max_requests_jitter = 50
+# Set the working directory in the container
+WORKDIR /code
 
-log_file = "-"
+# Copy the requirements file into the container
+COPY requirements.txt .
 
-bind = "0.0.0.0:3100"
+# Install the dependencies
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
-worker_class = "uvicorn.workers.UvicornWorker"
-workers = (multiprocessing.cpu_count() * 2) + 1
+# Copy the rest of the application code into the container
+COPY . .
+
+# Expose the port that the app will run on
+EXPOSE 3100
+
+# Command to run the application using Uvicorn
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "3100", "--workers", "4"]
 ```
 
-With the `uvicorn.workers.UvicornWorker` worker class, you can use `gunicorn` to run `FastAPI` apps. For more information, see [Running uvicorn with gunicorn][25].
+`3100` is used for the container port (internal) in this example, but you can use any free port.
+
+Check the *requirements.txt* file to make sure it contains `uvicorn`.
+
+:::code language="python" source="~/../msdocs-python-fastapi-webapp-quickstart/requirements.txt" highlight="2-3" :::
 
 ---
+
+Add a *\.dockerignore* file to exclude unnecessary files from the image.
+
+```dockerignore
+.git*
+**/*.pyc
+.venv/
+```
+
 
 ## Build and run the image locally
 

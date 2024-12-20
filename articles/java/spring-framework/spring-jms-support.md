@@ -10,7 +10,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Use Azure Service Bus with JMS
 
-**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.18.0
+**This article applies to:** ✅ Version 4.19.0 ✅ Version 5.19.0
 
 This article describes how to use Azure Service Bus with the JMS API integrated into the Spring JMS framework.
 
@@ -144,7 +144,7 @@ Spring Cloud Azure provides the following three Connection Factory options for c
 For optimal performance and load distribution, we recommend using `JmsPoolConnectionFactory` by setting `spring.jms.servicebus.pool.enabled=true`. Avoid wrapping a `JmsPoolConnectionFactory` with a `CachingConnectionFactory` or `ServiceBusJmsConnectionFactory` because this can negate pooling benefits and might result in holding inactive connections after they're evicted from the pool.
 
 > [!NOTE]
-> Starting with Spring Cloud Azure 5.18.0, the default `ConnectionFactory` has been updated to `JmsPoolConnectionFactory` to better use Service Bus server load balancing. If you prefer to continue using the `CachingConnectionFactory` for caching both `Session` and `MessageProducer`, set `spring.jms.cache.enabled` to `true`.
+> Starting with Spring Cloud Azure 5.19.0, the default `ConnectionFactory` has been updated to `JmsPoolConnectionFactory` to better use Service Bus server load balancing. If you prefer to continue using the `CachingConnectionFactory` for caching both `Session` and `MessageProducer`, set `spring.jms.cache.enabled` to `true`.
 
 ## Samples
 
