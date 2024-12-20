@@ -61,12 +61,30 @@ These instructions require [Visual Studio Code](https://code.visualstudio.com/) 
 > [!NOTE]
 > The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/), which starts the daemon, before proceeding.
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [A screenshot showing how to open the Docker extension in Visual Studio Code](<./includes/tutorial-container-web-app/build-docker-image-visual-studio-code-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-open-docker-extension-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-open-docker-extension.png" alt-text="A screenshot showing how to open the Docker extension in Visual Studio Code." ::: |
-| [!INCLUDE [A screenshot showing how to build the Docker image in Visual Studio Code](<./includes/tutorial-container-web-app/build-docker-image-visual-studio-code-2.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-build-image-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-build-image.png" alt-text="A screenshot showing how to build the Docker image in Visual Studio Code." ::: |
-| [!INCLUDE [A screenshot showing how to confirm the built image in Visual Studio Code](<./includes/tutorial-container-web-app/build-docker-image-visual-studio-code-3.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-view-images-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-view-images.png" alt-text="A screenshot showing how to confirm the built image in Visual Studio Code." ::: |
+1. Open the Docker extension.
 
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-open-docker-extension.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-open-docker-extension.png" alt-text="A screenshot that shows how to open the Docker extension in Visual Studio Code." :::
+
+    If the Docker extension reports an error "Failed to connect", make sure [Docker](https://docs.docker.com/get-docker/) is installed and running. If this is your first time working with Docker, you probably won't have any containers, images, or connected registries.
+
+1. Build the image.
+
+    * In the project Explorer, right-click the *Dockerfile* and select **Build Image...**.
+
+    * Alternately, you can use the Command Palette (**F1** or **Ctrl+Shift+P**) and type "Docker Images: Build Images" to invoke the command.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-build-image.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-build-image.png" alt-text="A screenshot that shows how to build the Docker image in Visual Studio Code." :::
+  
+    For more information about Dockerfile syntax, see the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
+
+1. Confirm the image was built.
+
+    * Go to the **IMAGES** section of the Docker extension.
+
+    * Look for recently built image.  The name of the container image is "msdocspythoncontainerwebapp", which is set in the *.vscode/tasks.json* file.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-extension-view-images.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-extension-view-images.png" alt-text="A screenshot that shows how to confirm the built image in Visual Studio Code." :::
+  
 ### [Docker CLI](#tab/docker-cli)
 
 These instructions require [Docker](https://docs.docker.com/get-docker/).
@@ -74,7 +92,41 @@ These instructions require [Docker](https://docs.docker.com/get-docker/).
 > [!NOTE]
 > The steps in this section require the Docker daemon to be running. In some installations, for example on Windows, you need to open [Docker Desktop](https://www.docker.com/products/docker-desktop/), which starts the daemon, before proceeding.
 
-[!INCLUDE [Build an image with the Docker CLI](<./includes/tutorial-container-web-app/build-docker-image-docker-cli.md>)]
+Start in the root of the sample app you cloned or downloaded.
+
+1. At a shell prompt, confirm that Docker is accessible.
+
+    ```Docker
+    docker
+    ```
+
+    If after running this command, you see help for the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/), then continue. Otherwise, make sure Docker is installed or your shell has access to the Docker CLI.
+  
+1. Build the image.
+
+    The general form of the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command is `docker build --rm --pull --file "<path-to-project-root>/Dockerfile" --label "com.microsoft.created-by=docker-cli" --tag "<container-name>:latest" "<path-to-project-root>"`.
+  
+    For example, if you are at the root of the project directory, you can use the command like this to build an image:
+  
+    ```Docker
+    docker build --rm --pull \
+      --file "Dockerfile" \
+      --label "com.microsoft.create-by=docker-cli" \
+      --tag "msdocspythoncontainerwebapp:latest" \
+      .
+    ```
+  
+    The dot (".") at the end of the command refers to the current directory in which the command runs. You can add `--no-cache` to force a rebuild.
+  
+1. Confirm the image was built.
+
+    Use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to return a list of images.
+
+    ```Docker
+    docker images
+    ```
+
+    Images are listed by REPOSITORY name, TAG, and CREATED date among other image characteristics.
 
 ---
 
