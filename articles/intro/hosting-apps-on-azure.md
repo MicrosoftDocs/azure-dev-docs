@@ -29,7 +29,7 @@ The services you choose will often come down to two considerations:
 
 The following video explains the first consideration: simplicity versus control:
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE50vLy title="Azure hosting services" /]
+> [!VIDEO c3791642-781c-49cc-8319-8798e9b3659f]
 
 ## Simplicity and control
 
