@@ -165,6 +165,71 @@ A local development environment is a great choice for traditional development wo
     > You can call `azd up` as many times as you like to both provision and deploy updates to your application.
     > The deployment may fail due to a resource being undeployable in the selected region. Because this is a quick start, it is safe to delete the `.azure` directory and try `azd up` again. When asked, select a different region. In a more advanced scenario you could selectively edit files within the `.azure` directory to change the region.
 
+## [Visual Studio Code](#tab/visual-studio-code)
+
+For the steps ahead, you'll need to have Visual Studio Code installed on your device. You'll also need to install the Azure Developer CLI extension for Visual Studio Code.
+
+## Install the Visual Studio Code extension for Azure Developer CLI
+
+# [Visual Studio Code](#tab/vscode)
+
+1. Open Visual Studio Code.
+
+1. From the **View** menu, select **Extensions**.
+
+1. In the search field, enter `Azure Developer CLI`.
+
+1. Select **Install**.
+
+# [Marketplace](#tab/marketplace)
+
+1. Using your browser, go to the [Azure Developer CLI - VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) page.
+
+1. Select **Install**.
+
+---
+
+## Initialize a new app
+
+1. Create and open a new directory in Visual Studio Code.
+
+1. From the **View** menu, select **Command Palette...**.
+
+1. Search for the `Azure Developer CLI: init` command and press enter.
+
+   :::image type="content" source="../media/debug/cmd-init.png" alt-text="Screenshot of the option to initialize a new app.":::
+
+1. Choose the **Select a template** workflow.
+
+   :::image type="content" source="../media/debug/cmd-select-workflow.png" alt-text="Screenshot of the option to initialize a new app.":::
+
+::: zone pivot="programming-language-nodejs"
+1. Search for the [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo) template and press enter to select it.
+::: zone-end
+
+::: zone pivot="programming-language-python"
+1. Search for the [React Web App with Python API and MongoDB on Azure](https://github.com/azure-samples/todo-python-mongo) template and press enter to select it.
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+1. Search for the [React Web App with C# API and MongoDB on Azure](https://github.com/Azure-Samples/todo-csharp-cosmos-sql) template and press enter to select it.
+::: zone-end
+
+::: zone pivot="programming-language-java"
+1. Search for the [Containerized React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo-aca) template and press enter to select it.awesome-azd/))
+::: zone-end
+
+   :::image type="content" source="../media/debug/sample-template.png" alt-text="Screenshot of selecting the todo-nodejs-mongo sample template.":::
+
+    Visual Studio Code clones down the `azd` template. The template includes infrastructure as code files in the `infra` folder and a sample app in the `src` folder. The infrastructure as code files provision the required resources on Azure required by the app when it is deployed.
+
+1. When the Visual Studio Code window prompts you for an environment name, enter a short name of your choosing and press enter. The environment name influences the naming of resources provisioned in Azure and creates a folder in the `.azure` template directory to store certain environment settings.
+
+1. Open the Command Palette to search for the `Azure Developer CLI: up` command. Press enter to instruct `azd` to provision and deploy the app resources.
+
+    > [!NOTE]
+    > The provisioning and deployment process can take several minutes.
+
 ## [Codespaces](#tab/codespaces)
 
 Codespaces are a great option for developers who prefer to work in containerized cloud environments and avoid installing tools or dependencies locally.
