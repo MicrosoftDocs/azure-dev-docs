@@ -197,11 +197,11 @@ For the steps ahead, you'll need to have Visual Studio Code installed on your de
 
 1. Search for the `Azure Developer CLI: init` command and press enter.
 
-   :::image type="content" source="../media/debug/cmd-init.png" alt-text="Screenshot of the option to initialize a new app.":::
+    :::image type="content" source="media/debug/cmd-init.png" alt-text="Screenshot of the option to initialize a new app.":::
 
 1. Choose the **Select a template** workflow.
 
-   :::image type="content" source="../media/debug/cmd-select-workflow.png" alt-text="Screenshot of the option to initialize a new app.":::
+   :::image type="content" source="media/debug/cmd-select-workflow.png" alt-text="Screenshot of the option to select a workflow.":::
 
 ::: zone pivot="programming-language-nodejs"
 1. Search for the [React Web App with Node.js API and MongoDB on Azure](https://github.com/azure-samples/todo-nodejs-mongo) template and press enter to select it.
@@ -216,10 +216,8 @@ For the steps ahead, you'll need to have Visual Studio Code installed on your de
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-1. Search for the [Containerized React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo-aca) template and press enter to select it.awesome-azd/))
+1. Search for the [Containerized React Web App with Java API and MongoDB on Azure](https://github.com/azure-samples/todo-java-mongo-aca) template and press enter to select it.awesome-azd.
 ::: zone-end
-
-   :::image type="content" source="../media/debug/sample-template.png" alt-text="Screenshot of selecting the todo-nodejs-mongo sample template.":::
 
     Visual Studio Code clones down the `azd` template. The template includes infrastructure as code files in the `infra` folder and a sample app in the `src` folder. The infrastructure as code files provision the required resources on Azure required by the app when it is deployed.
 
