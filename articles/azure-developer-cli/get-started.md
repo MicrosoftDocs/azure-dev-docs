@@ -169,13 +169,15 @@ A local development environment is a great choice for traditional development wo
 
 For the steps ahead, you'll need to have Visual Studio Code installed on your device. You'll also need to install the Azure Developer CLI extension for Visual Studio Code.
 
-### Install the Visual Studio Code extension for Azure Developer CLI
+### Install the Azure Developer CLI extension
 
 1. Open Visual Studio Code.
 
 1. From the **View** menu, select **Extensions**.
 
 1. In the search field, enter `Azure Developer CLI`.
+
+    :::image type="content" source="media/debug/cmd-init.png" alt-text="Screenshot of the option to initialize a new app.":::
 
 1. Select **Install** and wait for the installation process to complete.
 
@@ -217,7 +219,13 @@ For the steps ahead, you'll need to have Visual Studio Code installed on your de
     Visual Studio Code clones down the `azd` template. The template includes infrastructure as code files in the `infra` folder and a sample app in the `src` folder. The infrastructure as code files provision the required resources on Azure required by the app when it is deployed.
 ::: zone-end
 
-6. When the Visual Studio Code window prompts you for an environment name, enter a short name of your choosing and press enter. The environment name influences the naming of resources provisioned in Azure and creates a folder in the `.azure` template directory to store certain environment settings.
+6. After the template is cloned, Visual Studio Code opens a terminal to prompt you for an environment name. Enter a short name of your choosing such as *azdvscode* and press enter.
+
+    ```output
+    Enter a new environment name: [? for help] azdvscode
+    ```
+
+    The environment name influences the naming of resources provisioned in Azure and creates a folder in the `.azure` template directory to store certain environment settings.
 
 ### Provision and deploy the app resources
 
