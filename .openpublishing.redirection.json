@@ -1762,6 +1762,10 @@
     {
       "source_path": "articles/javascript/sdk/credential-chains.md",
       "redirect_url": "/azure/developer/javascript/sdk/authentication/credential-chains"
-    }    
+    },
+    {
+      "source_path": "articles/azure-developer-cli/debug.md",
+      "redirect_url": "/azure/developer/azure-developer-cli/get-started"
+    }       
   ]
 }

@@ -1,7 +1,7 @@
 ---
 title: Get started load testing Python enterprise chat sample using RAG
 description: Get started load testing your Python chat app. 
-ms.date: 12/19/2024
+ms.date: 12/20/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai, build-2024-intelligent-apps
@@ -12,8 +12,6 @@ ms.collection: ce-skilling-ai-copilot
 # Load testing a Python chat app by using RAG with Locust
 
 This article provides the process to perform load testing on a Python chat application by using the Retrieval Augmented Generation (RAG) pattern with Locust, a popular open-source load testing tool. The primary objective of load testing is to ensure that the expected load on your chat application doesn't exceed the current Azure OpenAI Service transactions per minute (TPM) quota. By simulating user behavior under heavy load, you can identify potential bottlenecks and scalability issues in your application. This process is crucial for ensuring that your chat application remains responsive and reliable, even when faced with a high volume of user requests.
-
-To understand more about load testing the chat app, watch the [demonstration video](https://www.youtube.com/watch?v=-oMqb6kBdDw).
 
 > [!NOTE]
 > This article uses one or more [AI app templates](../ai/intelligent-app-templates.md) as the basis for the examples and guidance in the article. AI app templates provide you with well-maintained reference implementations that are easy to deploy. They help to ensure a high-quality starting point for your AI apps.

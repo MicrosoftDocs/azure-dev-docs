@@ -73,8 +73,6 @@
       href: sovereign-clouds.md
   - name: Monitor and debug
     items:
-    - name: Run and debug
-      href: debug.md
     - name: Troubleshoot
       href: troubleshoot.md
     - name: Monitor your project
