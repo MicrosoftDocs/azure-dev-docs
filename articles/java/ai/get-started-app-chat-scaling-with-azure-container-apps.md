@@ -13,18 +13,17 @@ ms.custom: devx-track-java, devx-track-java-ai, devx-track-extended-java, build-
 
 ## Prerequisites
 
-* Azure subscription.  [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true) 
-* Access granted to Azure OpenAI in the desired Azure subscription.
+* Azure subscription.  [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
+* Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
 
-* [Dev containers](https://containers.dev/) are available for both samples, with all dependencies required to complete this article. You can run the dev containers in GitHub Codespaces (in a browser) or locally using Visual Studio Code.
+* [Dev containers](https://containers.dev/) are available for both samples, with all dependencies required to complete this article. You can run the dev containers in GitHub Codespaces in a browser, or locally using Visual Studio Code.
 
-    #### [Codespaces (recommended)](#tab/github-codespaces)
+    ### [Codespaces (recommended)](#tab/github-codespaces)
     
     * GitHub account
     
-    #### [Visual Studio Code](#tab/visual-studio-code)
+    ### [Visual Studio Code](#tab/visual-studio-code)
     * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
     * [Visual Studio Code](https://code.visualstudio.com/)
     * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
@@ -43,11 +42,11 @@ ms.custom: devx-track-java, devx-track-java-ai, devx-track-extended-java, build-
 
 ## Sample code
 
-Samples used in this article include: 
+The following samples are used in this article:
 
 * [Java chat app with RAG](https://github.com/Azure-Samples/azure-search-openai-demo-java)
 * [Load Balancer with Azure Container Apps](https://github.com/Azure-Samples/openai-aca-lb)
 
 ## Next step
 
-* Use [Azure Load Testing](/azure/load-testing/) to load test your chat app with 
+* Use [Azure Load Testing](/azure/load-testing/) to load test your chat app.
