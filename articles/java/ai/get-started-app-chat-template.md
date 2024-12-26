@@ -1,5 +1,5 @@
 ---
-title: Get started with the chat using your own data sample for Java
+title: Get started with the Chat Using your Own Data Sample for Java
 description: Get started with Java and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
 ms.date: 05/11/2024
 ms.topic: get-started

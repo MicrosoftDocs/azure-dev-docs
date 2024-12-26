@@ -1,5 +1,5 @@
 ---
-title: Scale Azure OpenAI for Java chat sample using RAG
+title: Scale Azure OpenAI for Java Chat Sample Using RAG
 description: Learn how to add load balancing to your Java solution to extend the chat app beyond the Azure OpenAI token and model quota limits. 
 ms.date: 05/13/2024
 ms.topic: get-started
