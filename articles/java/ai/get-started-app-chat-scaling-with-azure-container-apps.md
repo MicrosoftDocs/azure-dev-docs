@@ -15,7 +15,7 @@ ms.custom: devx-track-java, devx-track-java-ai, devx-track-extended-java, build-
 
 * Azure subscription.  [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 
-* Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
+* Access granted to Azure OpenAI in the desired Azure subscription. Currently, only the application grants access to this service. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access.
 
 * [Dev containers](https://containers.dev/) are available for both samples, with all dependencies required to complete this article. You can run the dev containers in GitHub Codespaces in a browser, or locally using Visual Studio Code.
 
