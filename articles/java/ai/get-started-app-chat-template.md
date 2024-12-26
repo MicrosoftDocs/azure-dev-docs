@@ -13,7 +13,7 @@ This article shows you how to deploy and run the [Chat with your data sample for
 
 * [Demo video](https://aka.ms/azai/java/video)
 
-By following the instructions in this article, you will:
+By following the instructions in this article, you develop the following|:
 
 - Deploy a chat app to Azure.
 - Get answers about employee benefits.
@@ -45,7 +45,7 @@ Key components of the architecture include:
     * Answers from the OpenAI model.
     * Embeddings from the ada model
 
-## Cost 
+## Cost
 
 Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you only pay for what you use. To complete this article, there will be a charge but it will be minimal. When you're done with the article, you can delete the resources to stop incurring charges.
 
@@ -79,16 +79,16 @@ To use this article, you need the following prerequisites:
 
 ## Open development environment
 
-
 Begin now with a development environment that has all the dependencies installed to complete this article. 
 
-#### [GitHub Codespaces (recommended)](#tab/github-codespaces)
+### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
 [GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
 
 > [!IMPORTANT]
 > All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
-1. Right-click on the following button, and select _Open link in new windows_ in order to have both the development environment and the documentation available at the same time. 
+
+1. Right-click on the following button, and select **Open link in new windows** in order to have both the development environment and the documentation available at the same time. 
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/azure-search-openai-demo-java)
 
@@ -100,125 +100,146 @@ Begin now with a development environment that has all the dependencies installed
 
 1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
 
-    ```bash
-    azd auth login
+    ```azurecli
+       azd auth login
     ```
 
 1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
 
 1. The remaining tasks in this article take place in the context of this development container.
 
-#### [Visual Studio Code](#tab/visual-studio-code)
+### [Visual Studio Code](#tab/visual-studio-code)
 
 The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code requires [Docker](https://docs.docker.com/) to be installed on your local machine. The extension hosts the development container locally using the Docker host with the correct developer tools and dependencies preinstalled to complete this article.
 
-1. Create a new local directory on your computer for the project. 
+1. Create a new local directory on your computer for the project.
 
     ```bash
-    mkdir my-intelligent-app && cd my-intelligent-app
+       mkdir my-intelligent-app && cd my-intelligent-app
     ```
 
 1. Open Visual Studio Code in that directory:
 
     ```bash
-    code .
+       code .
     ```
 
 1. Open a new terminal in Visual Studio Code.
+
 1. Run the following AZD command to bring the GitHub repository to your local computer.
 
-    ```bash
-    azd init -t azure-search-openai-demo-java
+    ```azurecli
+       azd init -t azure-search-openai-demo-java
     ```
 
-1. Open the Command Palette, search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing. 
+1. Open the Command Palette, search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing.
+
 1. Sign in to Azure with the Azure Developer CLI.
 
-    ```bash
-    azd auth login
-    ```
-    Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
-1. The remaining exercises in this project take place in the context of this development container.
----
-## Deploy and run
-The sample repository contains all the code and configuration files you need to deploy a chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
-### Deploy chat app to Azure
-> [!IMPORTANT]
-> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
-1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
-    ```bash
-    azd up
+    ```azurecli
+       azd auth login
     ```
 
-1. If you're prompted to enter an environment name, keep it short and lowercase. For example, `myenv`. It's used as part of the resource group name. 
-1. When prompted, select a subscription to create the resources in. 
+    Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
+
+1. The remaining exercises in this project take place in the context of this development container.
+
+---
+
+## Deploy and run
+
+The sample repository contains all the code and configuration files you need to deploy a chat app to Azure. The following steps walk you through the process of deploying the sample to Azure.
+
+### Deploy chat app to Azure
+
+> [!IMPORTANT]
+> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
+
+1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
+
+   ```azurecli
+      azd up
+   ```
+
+1. If you're prompted to enter an environment name, keep it short and lowercase, for example, `myenv`. It's used as part of the resource group name.
+
+1. When prompted, select a subscription to create the resources in.
+
 1. When you're prompted to select a location the first time, select a location near you. This location is used for most the resources including hosting.
+
 1. If you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
+
 1. Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
-1. After the application has been successfully deployed, you see a URL displayed in the terminal. 
+
+1. After the application has been successfully deployed, you see a URL displayed in the terminal.
+
 1. Select that URL labeled `Deploying service web` to open the chat application in a browser.
-    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+
+   :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+
 ### Use chat app to get answers from PDF files
 
 The chat app is preloaded with employee benefits information from [PDF files](https://github.com/Azure-Samples/azure-search-openai-demo-java/tree/main/data). You can use the chat app to ask questions about the benefits. The following steps walk you through the process of using the chat app.
 
-1. In the browser, select or enter "What is included in my Northwind Health Plus plan that is not in standard?" in the chat text box. 
+1. In the browser, select or enter **What is included in my Northwind Health Plus plan that is not in standard?** in the chat text box.
 
     :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer.png" alt-text="Screenshot of chat app's first answer.":::
 
 1. From the answer, select one of the citations.
 
-    :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with its citation highlighted in a red box.":::
+   :::image type="content" source="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" lightbox="./media/get-started-app-chat-template/browser-chat-initial-answer-citation-highlighted.png" alt-text="Screenshot of chat app's first answer with its citation highlighted in a red box.":::
 
 1. In the right-pane, use the tabs to understand how the answer was generated.
 
-    |Tab|Description|
-    |---|---|
-    |**Thought process**|This is a script of the interactions in chat.|
-    |**Supporting content**|This includes the information to answer your question and the source material.|
-    |**Citation**|This displays the PDF page that contains the citation.|
+   | Tab                    | Description                                                                    |
+   |------------------------|--------------------------------------------------------------------------------|
+   | **Thought process**    | This is a script of the interactions in chat.                                  |
+   | **Supporting content** | This includes the information to answer your question and the source material. |
+   | **Citation**           | This displays the PDF page that contains the citation.                         |
 
 1. When you're done, select the selected tab again to close the pane.
 
 ### Use chat app settings to change behavior of responses
 
-The intelligence of the chat app is determined by the OpenAI model and the settings that are used to interact with the model. 
+The intelligence of the chat app is determined by the OpenAI model and the settings that are used to interact with the model.
 
 :::image type="content" source="./media/get-started-app-chat-template/browser-chat-developer-settings-chat-pane.png" alt-text="Screenshot of chat developer settings.":::
 
-|Setting|Description|
-|---|---|
-|Override prompt template|This is the prompt that is used to generate the answer.|
-|Retrieve this many search results|This is the number of search results that are used to generate the answer. You can see these sources returned in the _Thought process_ and _Supporting content_ tabs of the citation. |
-|Exclude category|This is the category of documents that are excluded from the search results.|
-|Use semantic ranker for retrieval|This is a feature of [Azure AI Search](/azure/search/semantic-search-overview#what-is-semantic-search) that uses machine learning to improve the relevance of search results.|
-|Use query-contextual summaries instead of whole documents|When both `Use semantic ranker` and `Use query-contextual summaries` are checked, the LLM uses captions extracted from key passages, instead of all the passages, in the highest ranked documents.|
-|Suggest follow-up questions|Have the chat app suggest follow-up questions based on the answer.|
-|Retrieval mode|**Vectors + Text** means that the search results are based on the text of the documents and the embeddings of the documents. **Vectors** means that the search results are based on the embeddings of the documents. **Text** means that the search results are based on the text of the documents.|
-|Stream chat completion responses|Stream response instead of waiting until the complete answer is available for a response.|
+| Setting                                                   | Description                                                                                                                                                                                                                                                                                         |
+|-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Override prompt template                                  | This is the prompt that is used to generate the answer.                                                                                                                                                                                                                                             |
+| Retrieve this many search results                         | This is the number of search results that are used to generate the answer. You can see these sources returned in the **Thought process** and **Supporting content** tabs of the citation.                                                                                                               |
+| Exclude category                                          | This is the category of documents that are excluded from the search results.                                                                                                                                                                                                                        |
+| Use semantic ranker for retrieval                         | This is a feature of [Azure AI Search](/azure/search/semantic-search-overview#what-is-semantic-search) that uses machine learning to improve the relevance of search results.                                                                                                                       |
+| Use query-contextual summaries instead of whole documents | When both `Use semantic ranker` and `Use query-contextual summaries` are checked, the LLM uses captions extracted from key passages, instead of all the passages, in the highest ranked documents.                                                                                                  |
+| Suggest follow-up questions                               | Have the chat app suggest follow-up questions based on the answer.                                                                                                                                                                                                                                  |
+| Retrieval mode                                            | **Vectors + Text** means that the search results are based on the text of the documents and the embeddings of the documents. **Vectors** means that the search results are based on the embeddings of the documents. **Text** means that the search results are based on the text of the documents. |
+| Stream chat completion responses                          | Stream response instead of waiting until the complete answer is available for a response.                                                                                                                                                                                                           |
 
 The following steps walk you through the process of changing the settings.
 
 1. In the browser, select the **Developer Settings** tab.
+
 1. Check the **Suggest follow-up questions** checkbox and ask the same question again.
 
     ```
-    What is my deductible?
+       What is my deductible?
     ```
 
     The chat returned suggested follow-up questions such as the following:
 
     ```
-    1. What is the cost sharing for out-of-network services?
-    2. Are preventive care services subject to the deductible?
-    3. How does the prescription drug deductible work?
+       1. What is the cost sharing for out-of-network services?
+       2. Are preventive care services subject to the deductible?
+       3. How does the prescription drug deductible work?
     ```
 
-1. In the **Settings** tab, deselect **Use semantic ranker for retrieval**. 
-1. Ask the same question again? 
+1. In the **Settings** tab, deselect **Use semantic ranker for retrieval**.
+
+1. Ask the same question again?
 
     ```
-    What is my deductible?
+       What is my deductible?
     ```
 
 1. What is the difference in the answers?
@@ -235,48 +256,61 @@ The Azure resources created in this article are billed to your Azure subscriptio
 
 Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
 
-```bash
-azd down --purge
+```azurecli
+   azd down --purge
 ```
 
 ### Clean up GitHub Codespaces
 
 #### [GitHub Codespaces](#tab/github-codespaces)
+
 Deleting the GitHub Codespaces environment ensures that you can maximize the amount of free per-core hours entitlement you get for your account.
+
 > [!IMPORTANT]
 > For more information about your GitHub account's entitlements, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
-1. Sign into the GitHub Codespaces dashboard (<https://github.com/codespaces>).
-1. Locate your currently running Codespaces sourced from the [`Azure-Samples/azure-search-openai-demo-java`](https://github.com/Azure-Samples/azure-search-openai-demo-java) GitHub repository.
+
+1. Sign into the [GitHub Codespaces dashboard](https://github.com/codespaces).
+
+1. Locate your currently running Codespaces sourced from the [Azure-Samples/azure-search-openai-demo-java](https://github.com/Azure-Samples/azure-search-openai-demo-java) GitHub repository.
+
     :::image type="content" source="./media/get-started-app-chat-template/github-codespace-dashboard.png" alt-text="Screenshot of all the running Codespaces including their status and templates.":::
+
 1. Open the context menu for the codespace and then select **Delete**.
+
     :::image type="content" source="./media/get-started-app-chat-template/github-codespace-delete.png" alt-text="Screenshot of the context menu for a single codespace with the delete option highlighted.":::
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
 You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
+
 1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
+
     :::image type="content" source="./media/get-started-app-chat-template/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+
 > [!TIP]
 > Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
 
-----
+---
 
-## How is the question answered? 
+## How is the question answered?
 
 The app is separated out into 2 apps:
+
 * A front-end JavaScript application using the React framework with the Vite build tool.
+
 * A back-end Java application answers the question.
 
 The backend `/chat` API steps through the process of getting the answer:
+
 * Build RAG options: Create a set of options that will be used to generate an answer.
+
 * Create approach using RAG options: Use a combination of retrieval-based and generative-based models to create an approach for generating an accurate and natural-sounding response.
+
 * Run the approach with RAG options and previous conversation: Use the approach and RAG options to generate an answer based on the previous conversation. The answer includes information about which documents were used to generate the response.
 
 ## Get help
 
-This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-demo-java/tree/main#troubleshooting).
-
-If your issued isn't addressed, log your issue to the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-demo-java/issues).
+This sample repository offers [troubleshooting information](https://github.com/Azure-Samples/azure-search-openai-demo-java/tree/main#troubleshooting). If your issue isn't addressed, log it in the repository's [Issues](https://github.com/Azure-Samples/azure-search-openai-demo-java/issues).
 
 ## Next steps
 
