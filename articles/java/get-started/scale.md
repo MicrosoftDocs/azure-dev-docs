@@ -55,7 +55,7 @@ Many Java applications connect to supporting services using URLs and credentials
 
 ## End-user authentication and authorization
 
-Most enterprise Java applications require user authentication and authorization, which you can implement using [Microsoft Entra ID](/entra/identity) - a complete identity and access management solution with integrated security. End-user accounts can be organizational identities or social identities from Facebook, Twitter, or Gmail using Microsoft Entra ID and Azure Active Directory B2C. You can implement Microsoft Entra ID based solutions using the [Microsoft Authentication Library for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java) or [Spring Boot Starter for Microsoft Entra](../spring-framework/spring-boot-starter-for-azure-active-directory-developer-guide.md). You can also use any identity provider of your choice - such as ForgeRock, Auth0, Ping, or Okta.
+Most enterprise Java applications require user authentication and authorization, which you can implement using [Microsoft Entra ID](/entra/identity) - a complete identity and access management solution with integrated security. End-user accounts can be organizational identities or social identities from Facebook, Twitter, or Gmail using Microsoft Entra ID and Azure Active Directory B2C. You can implement Microsoft Entra ID based solutions using the [Microsoft Authentication Library for Java](https://github.com/AzureAD/microsoft-authentication-library-for-java) or [Spring Boot Starter for Microsoft Entra](../spring-framework/spring-boot-starter-for-entra-developer-guide.md). You can also use any identity provider of your choice - such as ForgeRock, Auth0, Ping, or Okta.
 
 ## Monitor end-to-end
 

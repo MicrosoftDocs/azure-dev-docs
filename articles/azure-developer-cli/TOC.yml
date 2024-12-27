@@ -31,6 +31,8 @@
       href: manage-environment-variables.md
     - name: Environment variables FAQ
       href: environment-variables-faq.md
+    - name: Manage config settings
+      href: azd-config.md
     - name: Customize workflows using command and event hooks
       href: azd-extensibility.md
     - name: Switch to Terraform as IaC provider
@@ -71,8 +73,6 @@
       href: sovereign-clouds.md
   - name: Monitor and debug
     items:
-    - name: Run and debug
-      href: debug.md
     - name: Troubleshoot
       href: troubleshoot.md
     - name: Monitor your project

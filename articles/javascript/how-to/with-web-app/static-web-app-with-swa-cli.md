@@ -131,7 +131,7 @@ The previous section of running the static web app with the API was optional. Th
 
 To use the **preview version of the Azure Functions v4 runtime**, you need to create a new Azure Functions app. Your static web app also needs to be rebuilt and redeployed to use the Azure Functions app URI in the **Fetch** requests to the API instead of using a proxied and managed API.
 
-1. In a web browser, open the Azure portal to create a new Azure Functions app: [Create new app](https://ms.portal.azure.com/#create/Microsoft.FunctionApp)
+1. In a web browser, open the Azure portal to create a new Azure Functions app: [Create new app](https://portal.azure.com/#create/Microsoft.FunctionApp)
 
 1. Use the following information to create the Function App::
 
@@ -218,7 +218,7 @@ To use the **preview version of the Azure Functions v4 runtime**, you need to cr
 
 This creation process deploys the same forked GitHub sample repository to Azure. You configure the deployment to use only the front-end app. 
 
-1. Open the Azure portal and sign in with your Azure account: [Azure portal](https://ms.portal.azure.com/#create/Microsoft.StaticApp).
+1. Open the Azure portal and sign in with your Azure account: [Azure portal](https://portal.azure.com/#create/Microsoft.StaticApp).
 1. Use the following information to complete the creation steps:
 
     |Prompt|Setting|

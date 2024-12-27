@@ -13,7 +13,7 @@ adobe-target: true
 
 This article shows you how to develop a Spring web app that supports sign-in by [Microsoft Entra account](/azure/active-directory/fundamentals/active-directory-whatis#terminology). After finishing all steps in this article, the web app will redirect to the Microsoft Entra sign-in page when it's been accessed anonymously. The following screenshot shows the Microsoft Entra sign-in page:
 
-:::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/application-login.png" alt-text="Screenshot of application 'Sign in' dialog.":::
+:::image type="content" source="media/configure-spring-boot-starter-java-app-with-entra/application-login.png" alt-text="Screenshot of application 'Sign in' dialog.":::
 
 ## Prerequisites
 
@@ -67,13 +67,13 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. Select **Certificates & secrets** in the navigation pane. Then, select **New client secret**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-client-secret.png" alt-text="Screenshot of application 'Certificates & secrets' screen with 'New client secret' highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-client-secret.png":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-entra/create-client-secret.png" alt-text="Screenshot of application 'Certificates & secrets' screen with 'New client secret' highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-entra/create-client-secret.png":::
 
 1. Add a **Description** and select duration in the **Expires** list. Select **Add**. The value for the key will be automatically filled in.
 
 1. Copy and save the value of the client secret to configure your *application.properties* file later in this tutorial. (You won't be able to retrieve this value later.)
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/copy-client-secret.png" alt-text="Screenshot of application with new client secret highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/copy-client-secret.png":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-entra/copy-client-secret.png" alt-text="Screenshot of application with new client secret highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-entra/copy-client-secret.png":::
 
 1. From the main page for your app registration, select **Authentication**, and select **Add a platform**.  Then select **Web applications**.
 
@@ -87,7 +87,7 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. When the **User** panel is displayed, enter the **User name** and **Name**.  Then select **Create**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-user-with-name.png" alt-text="Screenshot of 'New user' dialog.":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-entra/create-user-with-name.png" alt-text="Screenshot of 'New user' dialog.":::
 
    > [!NOTE]
    > You need to specify your directory URL from earlier in this tutorial when you enter the user name. For example:
@@ -96,7 +96,7 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. From the main page for your app registration, select **App roles**, then select **Create app role**. Provide values for the form fields, select **Do you want to enable this app role?**, then select **Apply**.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-role-for-application.png" alt-text="Screenshot of application 'App roles' screen with 'Create app role' pane showing." lightbox="media/configure-spring-boot-starter-java-app-with-azure-active-directory/create-app-role-for-application.png":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-entra/create-app-role-for-application.png" alt-text="Screenshot of application 'App roles' screen with 'Create app role' pane showing." lightbox="media/configure-spring-boot-starter-java-app-with-entra/create-app-role-for-application.png":::
 
 1. From the **Overview** page of your Microsoft Entra directory, select **Enterprise applications**.
 
@@ -178,16 +178,16 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. After your application is built and started by Maven, open `http://localhost:8080/Admin` in a web browser. You should be prompted for a user name and password.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/application-login.png" alt-text="Screenshot of application 'Sign in' dialog.":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-entra/application-login.png" alt-text="Screenshot of application 'Sign in' dialog.":::
 
    > [!NOTE]
    > You may be prompted to change your password if this is the first login for a new user account.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/update-password.png" alt-text="Screenshot of application 'Update your password' dialog.":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-entra/update-password.png" alt-text="Screenshot of application 'Update your password' dialog.":::
 
 1. After you've logged in successfully, you should see the sample "Admin message" text from the controller.
 
-   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-azure-active-directory/hello-admin.png" alt-text="Screenshot of application admin message.":::
+   :::image type="content" source="media/configure-spring-boot-starter-java-app-with-entra/hello-admin.png" alt-text="Screenshot of application admin message.":::
 
 ## Summary
 
