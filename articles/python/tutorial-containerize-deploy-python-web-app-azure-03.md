@@ -96,13 +96,34 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create an Azure Container Registry.
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Include showing how to find container registries in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-search-container-registries-240px.png" lightbox="./media/tutorial-container-web-app/portal-search-container-registries.png" alt-text="A screenshot showing how to search for container registries in Azure portal." :::  |
-| [!INCLUDE [Include showing how to start create of registry in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-2.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-create-new-registry-240px.png" lightbox="./media/tutorial-container-web-app/portal-create-new-registry.png" alt-text="A screenshot showing how to create a new registry in Azure portal." ::: |
-| [!INCLUDE [Include showing how to review and create registry in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-3.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-form-240px.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-form.png" alt-text="A screenshot showing how to specify a new registry in Azure portal." ::: |
-| [!INCLUDE [Include showing how to get qualified name of registry in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-4.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-login-server-240px.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-login-server.png" alt-text="A screenshot showing how to find the login server value  for a registry in Azure portal." :::|
-| [!INCLUDE [Include showing how to enable admin user for the registry in Azure portal](<./includes/tutorial-container-web-app/container-registry-create-portal-5.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-enable-admin-user-240px.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-enable-admin-user.png" alt-text="A screenshot showing how to enable the admin user for the registry in Azure portal." :::|
+1. Search for "container registry" and select **Container Registry** under **Marketplace** in the results.
+
+1. Fill out the **Create container registry** form and specify:
+
+    * **Resource group**: Use an existing group or create a new one.
+    * **Registry name**: The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
+    * **Location**: If you are using an existing resource group, select the location to match. Otherwise, the location is where the resource group is created that contains the registry.
+    * **SKU**: Select **Standard**.
+
+    :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-form.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-form.png" alt-text="A screenshot showing how to specify a new registry in Azure portal." ::: |
+
+    When you're finished, select **Review + create**. After the validation is complete, select **Create**.
+
+1. After the deployment is complete, go to the new registry and find the fully qualified name.
+
+    * Go to the **Overview** resource of the registry.
+    * Find the **Login server**. It should be a fully qualified name with "azurecr.io".
+
+    :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-login-server.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-login-server.png" alt-text="A screenshot showing how to find the login server value  for a registry in Azure portal." :::
+
+1. The admin account is required to deploy a container image from a registry to Azure Web Apps for Containers. Enable the admin user:
+
+    * Got to the **Access Keys** resource of the registry.
+    * Select **Enabled** for the **Admin User**.
+
+    The registry [admin account](/azure/container-registry/container-registry-authentication#admin-account) is needed when you use the Azure portal to deploy a container image as is shown in this tutorial. The admin account is only used during the creation of the App Service. After the App Service is created, managed identity is used to pull images from the registry and the admin account can be disabled.
+
+    :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-enable-admin-user.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-enable-admin-user.png" alt-text="A screenshot showing how to enable the admin user for the registry in Azure portal." :::|
 
 ---
 
@@ -181,7 +202,27 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
 Sign in to the [Azure portal](https://portal.azure.com/) to complete these steps.
 
-[!INCLUDE [Include showing how build an image in Azure with the Azure Cloud Shell](<./includes/tutorial-container-web-app/container-image-build-in-azure-cloud-shell.md>)]
+1. Open [Azure Cloud Shell](/azure/cloud-shell/overview).
+
+    :::image type="content" source="./media/tutorial-container-web-app/portal-cloud-shell-icon.png" alt-text="A screenshot of the Azure portal showing the Cloud Shell icon." :::
+
+1. Build the image with the [az acr build](/cli/azure/acr#az-acr-build) command.
+
+    ```azurecli
+    az acr build \
+      -r <registry-name> \
+      -g <resource-group> \
+      -t msdocspythoncontainerwebapp:latest \
+      <repo-path>
+    ```
+
+    The last argument in the command is the fully qualified path to the repo. Use https://github.com/Azure-Samples/msdocs-python-django-container-web-app.git for the Django sample app and https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.git for the Flask sample app.
+
+1. Confirm the container image was created with the [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) command.
+
+    ```azurecli
+    az acr repository list -n <registry-name>
+    ```
 
 ---
 
