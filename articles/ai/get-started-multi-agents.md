@@ -1,7 +1,7 @@
 ---
 title: "Get Started with Multi-agent Applications Using Azure OpenAI"
 description: "Learn how to effectively use Azure OpenAI models with multiple agents to perform tasks and create results based on user instructions. Easily deploy with the Azure Developer CLI."
-ms.date: 12/05/2024
+ms.date: 12/20/2024
 ms.topic: get-started
 ms.subservice: intelligent-apps
 ms.custom: devx-track-python, devx-track-python-ai
