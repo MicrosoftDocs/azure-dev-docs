@@ -64,11 +64,33 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 These steps require the [Docker extension](https://code.visualstudio.com/docs/containers/overview) for VS Code.
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Include showing how to open command palette in VS Code](<./includes/tutorial-container-web-app/container-registry-create-vscode-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-registry-tasks-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-registry-tasks.png" alt-text="A screenshot showing how to search for show registries tasks in Visual Studio Code." ::: |
-| [!INCLUDE [Include showing how to start create of registry in VS Code](<./includes/tutorial-container-web-app/container-registry-create-vscode-2.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-create-registry-240px.gif" lightbox="./media/tutorial-container-web-app/visual-studio-code-create-registry.gif" alt-text="An animated GIF showing how to create a registry in Visual Studio Code." ::: |
-| [!INCLUDE [Include showing how to review and create registry in VS Code](<./includes/tutorial-container-web-app/container-registry-create-vscode-3.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-registry-get-properties-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-registry-get-properties.png" alt-text="A screenshot showing how to get the properties of a registry in Visual Studio Code." ::: |
+1. Select **F1** or **CTRL+SHIFT+P** to open the command palette.
+
+    * Type "registry".
+
+    * Select the task **Azure Container Registry: Create Registry...**
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-registry-tasks.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-registry-tasks.png" alt-text="A screenshot that shows how to search for show registries tasks in Visual Studio Code." :::
+
+    Alternatively, in the Docker extension **REGISTRIES** section, right-click your subscription and select **Create Registry**. This UI action starts the same create registry task.
+
+1. Select the task and enter values following the prompts, which include:
+
+    * **Registry name**: The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
+
+    * **SKU**: Select **Standard**.
+
+    * **Resource group**: Use an existing group or create a new one.
+
+    * **Location**: If you're using an existing resource group, select the location to match. Otherwise, the location is where the resource group is created that contains the registry.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-create-registry.gif" lightbox="./media/tutorial-container-web-app/visual-studio-code-create-registry.gif" alt-text="An animated GIF showing how to create a registry in Visual Studio Code." :::
+
+1. In the Docker extension, in the **REGISTRIES** section, find the registry you created, right-click and select **View Properties**.
+
+    Look for the `loginServer` key value pair in the output. The value is the fully qualified name of the registry.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-registry-get-properties.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-registry-get-properties.png" alt-text="A screenshot showing how to get the properties of a registry in Visual Studio Code." :::
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -123,12 +145,37 @@ Azure CLI commands can be run on a workstation with the [Azure CLI installed](/c
 
 These steps require the [Docker extension](https://code.visualstudio.com/docs/containers/overview) for VS Code. VS Code needs to be opened in the working folder of your web app.
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Include showing how to check that Azure is connected to Docker extension in VS Code](<./includes/tutorial-container-web-app/container-image-build-in-azure-vscode-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-registries-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-registries.png" alt-text="A screenshot showing how to check that Azure is signed into Docker Extension in Visual Studio Code." ::: |
-| [!INCLUDE [Include showing how to invoke the build container image in Azure task in VS Code](<./includes/tutorial-container-web-app/container-image-build-in-azure-vscode-2.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-task-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-task.png" alt-text="A screenshot showing how to invoke build container in Azure task in Visual Studio Code." ::: |
-| [!INCLUDE [Include showing how to build the container image in Azure in VS Code](<./includes/tutorial-container-web-app/container-image-build-in-azure-vscode-3.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-prompts-240px.gif" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-prompts.gif" alt-text="A screenshot showing how to provide information to  build container in Azure in Visual Studio Code." ::: |
-| [!INCLUDE [Include showing how to confirm the container image in the registry in VS Code](<./includes/tutorial-container-web-app/container-image-build-in-azure-vscode-4.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" alt-text="A screenshot showing how to confirm the  information to  build container in Azure in Visual Studio Code." ::: |
+1. In the Docker extension, go to **REGISTRIES** and connect to Azure.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-registries.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-registries.png" alt-text="A screenshot showing how to check that Azure is signed into Docker Extension in Visual Studio Code." :::
+
+1. Select **F1** or **CTRL+SHIFT+P** to open the command palette.
+
+    * Type "registry".
+
+    * Select the task **Azure Container Registry: Build Image in Azure...**
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-task.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-task.png" alt-text="A screenshot showing how to invoke build container in Azure task in Visual Studio Code." :::
+
+    If you don't see the task, check that **Azure** appears under **REGISTRIES** in the Docker extension. You can also right-click the *Dockerfile* and select **Build Image in Azure...** to run the task.
+
+1. Fill out the information to build the image.
+
+    * **Tag image**  &rarr; Use the image name "msdocspythoncontainerwebapp:latest".
+    * **Registry** &rarr; Select the registry you created above or one you have access to.
+    * **Base OS image** &rarr; Select **Linux**.
+
+    Check the **OUTPUT** window for progress and information on the build. If the get a credentials error, right-click the registry in the **REGISTRIES** section of the Docker extension and select **Refresh**.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-prompts.gif" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-prompts.gif" alt-text="A screenshot showing how to provide information to  build container in Azure in Visual Studio Code." :::
+
+1. Confirm the image in the Azure Container Registry.
+
+    * In the Docker extension, in the **REGISTRIES** section, find the container image created.
+
+    * Confirm the name and tag "latest".
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" alt-text="A screenshot showing how to confirm the  information to  build container in Azure in Visual Studio Code." :::
 
 ### [Azure portal](#tab/azure-portal)
 
