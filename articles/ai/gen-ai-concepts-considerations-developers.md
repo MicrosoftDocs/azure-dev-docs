@@ -165,9 +165,11 @@ Then, you can use Azure AI Content Safety to help with text moderation, image mo
 
 ## Final considerations for application design
 
-Understanding tokenization, pricing, context windows, and implementing programmatic improvements to enhance the users' text generation experience affects how you design your generative AI system. Here's a short list of things to consider and other takeaways from this article that can shape your application design decisions:
+Understanding tokenization, pricing, context windows, and implementing programmatic improvements to enhance the users' text generation experience affects how you design your generative AI system.
 
-- Evaluate the necessity of using the latest AI model against cost considerations. Models that are less expensive might suffice for your application's needs. You can balance performance with budget constraints.
+Here's a short list of things to consider and other takeaways from this article that might affect your application design decisions:
+
+- Evaluate the necessity of using the latest AI model against cost considerations. Models that are less expensive might suffice for your application's needs. Balance performance with budget constraints.
 - Consider optimizing the context window length to manage costs without significantly affecting the user experience. Trimming unnecessary parts of the conversation might reduce processing fees while maintaining quality interactions.
 - Assess how tokenization and the granularity of your inputs and outputs affect performance. Understanding how your chosen LLM handles tokenization can help you optimize the efficiency of your API calls, potentially reducing costs and improving response times.
 

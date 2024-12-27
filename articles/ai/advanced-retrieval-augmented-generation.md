@@ -63,7 +63,7 @@ Some of this information (like metadata for example) might be useful to be kept 
 
 ### Chunking strategy
 
-Developers must decide how to break up a longer document into smaller chunks. This can improve the relevance of the supplemental content sent into the LLM to answer the user's query accurately. Furthermore, developers need to consider how to utilize the chunks upon retrieval. This is an area where system designers should do some research on techniques used in the industry, and do some experimentation, even testing it in a limited capacity in their organization. 
+Developers must decide how to break up a longer document into smaller chunks. This can improve the relevance of the supplemental content sent into the LLM to answer the user's query accurately. Furthermore, developers need to consider how to utilize the chunks upon retrieval. This is an area where system designers should do some research on techniques used in the industry, and do some experimentation, even testing it in a limited capacity in their organization.
 
 Developers must consider:
 
@@ -77,8 +77,8 @@ In a RAG system, the organization of data in the vector database is crucial for 
 
 - **Hierarchical Indexes** - This approach involves creating multiple layers of indexes, where a top-level index (summary index) quickly narrows down the search space to a subset of potentially relevant chunks, and a second-level index (chunks index) provides more detailed pointers to the actual data. This method can significantly speed up the retrieval process as it reduces the number of entries to scan in the detailed index by filtering through the summary index first.
 - **Specialized Indexes** - Specialized indexes like graph-based or relational databases can be used depending on the nature of the data and the relationships between chunks. For instance:
-	- **Graph-based indexes** are useful when the chunks have interconnected information or relationships that can enhance retrieval, such as citation networks or knowledge graphs.
-	- **Relational databases** can be effective if the chunks are structured in a tabular format where SQL queries could be used to filter and retrieve data based on specific attributes or relationships.
+ 	- **Graph-based indexes** are useful when the chunks have interconnected information or relationships that can enhance retrieval, such as citation networks or knowledge graphs.
+ 	- **Relational databases** can be effective if the chunks are structured in a tabular format where SQL queries could be used to filter and retrieve data based on specific attributes or relationships.
 - **Hybrid Indexes** - A hybrid approach combines multiple indexing strategies to apply the strengths of each. For example, developers might use a hierarchical index for initial filtering and a graph-based index to explore relationships between chunks dynamically during retrieval.
 
 ### Alignment optimization
@@ -96,24 +96,24 @@ Each chunk's hypothetical question acts like a "label" that guides the retrieval
 If your organization needs to index documents that are frequently updated, it's essential to maintain an updated corpus to ensure the retriever component (the logic in the system responsible for performing the query against the vector database and returning the results) can access the most current information. Here are some  strategies for updating the vector database in such systems:
 
 - **Incremental updates**:
-    - **Regular intervals**: Schedule updates at regular intervals (for example, daily, weekly) depending on the frequency of document changes. This method ensures that the database is periodically refreshed.
-    - **Trigger-based updates**: Implement a system where updates trigger reindexing. For instance, any modification or addition of a document could automatically initiate a reindexing of the affected sections.
-- **Partial updates**:    
-    - **Selective re-indexing**: Instead of entire database reindexing, selectively update only the changed corpus parts. This approach can be more efficient than full reindexing, especially for large datasets.
-    - **Delta encoding**: Store only the differences between the existing documents and their updated versions. This approach reduces the data processing load by avoiding the need to process unchanged data.
-- **Versioning**:    
-    - **Snapshotting**: Maintain document corpus versions at different points in time. This technique provides a backup mechanism and allows the system to revert or refer to previous versions.
-    - **Document version control**: Use a version control system to systematically track document changes for maintaining the change history and simplifying the update process.
-- **Real-time updates**:   
-    - **Stream processing**: When information timeliness is critical, utilize stream processing technologies for real-time vector database updates as document changes are made. 
-    - **Live querying**: Instead of relying solely on preindexed vectors, implement a live data query mechanism for up-to-date responses, possibly combining with cached results for efficiency.
+  - **Regular intervals**: Schedule updates at regular intervals (for example, daily, weekly) depending on the frequency of document changes. This method ensures that the database is periodically refreshed.
+  - **Trigger-based updates**: Implement a system where updates trigger reindexing. For instance, any modification or addition of a document could automatically initiate a reindexing of the affected sections.
+- **Partial updates**:
+  - **Selective re-indexing**: Instead of entire database reindexing, selectively update only the changed corpus parts. This approach can be more efficient than full reindexing, especially for large datasets.
+  - **Delta encoding**: Store only the differences between the existing documents and their updated versions. This approach reduces the data processing load by avoiding the need to process unchanged data.
+- **Versioning**:
+  - **Snapshotting**: Maintain document corpus versions at different points in time. This technique provides a backup mechanism and allows the system to revert or refer to previous versions.
+  - **Document version control**: Use a version control system to systematically track document changes for maintaining the change history and simplifying the update process.
+- **Real-time updates**:
+  - **Stream processing**: When information timeliness is critical, utilize stream processing technologies for real-time vector database updates as document changes are made.
+  - **Live querying**: Instead of relying solely on preindexed vectors, implement a live data query mechanism for up-to-date responses, possibly combining with cached results for efficiency.
 - **Optimization techniques**:
-    - **Batch processing**: Batch process accumulated changes for resource optimization and overhead reduction instead of frequent updates.
-    - **Hybrid approaches**: Combine various strategies, such as:
+  - **Batch processing**: Batch process accumulated changes for resource optimization and overhead reduction instead of frequent updates.
+  - **Hybrid approaches**: Combine various strategies, such as:
 
-        - Using incremental updates for minor changes.
-        - Full reindexing for major updates.
-        - Document corpus structural changes.
+    - Using incremental updates for minor changes.
+    - Full reindexing for major updates.
+    - Document corpus structural changes.
 
 Choosing the right update strategy or a combination depends on specific requirements such as:
 
@@ -153,12 +153,11 @@ Query preprocessing occurs immediately after your user submits their query, as d
 
 The goal of these steps is to make sure the user is asking questions within the scope of our system (and not trying to "jailbreak" the system to make it do something unintended) and prepare the user's query to increase the likelihood that it locates the best possible article chunks using the cosine similarity / "nearest neighbor" search.
 
-**Policy check** - This step involves logic that identifies, removes, flags, or rejects certain content. Some examples might include removing personal data, removing expletives, and identifying "jailbreak" attempts. **Jailbreaking** refers to the methods that users might employ to circumvent or manipulate the built-in safety, ethical, or operational guidelines of the model. 
+**Policy check** - This step involves logic that identifies, removes, flags, or rejects certain content. Some examples might include removing personal data, removing expletives, and identifying "jailbreak" attempts. **Jailbreaking** refers to the methods that users might employ to circumvent or manipulate the built-in safety, ethical, or operational guidelines of the model.
 
 **Query re-writing** - This step might be anything from expanding acronyms and removing slang to rephrasing the question to ask it more abstractly to extract high-level concepts and principles ("step-back prompting").
 
 A variation on step-back prompting is **hypothetical document embeddings** (HyDE) which uses the LLM to answer the user's question, creates an embedding for that response (the hypothetical document embedding), and uses that embedding to perform a search against the vector database.
-
 
 ### Subqueries
 
@@ -251,7 +250,7 @@ Post-completion processing occurs after the user's query and all content chunks 
 
 ## Evaluation
 
-Evaluating the results of a nondeterministic system isn't as simple as, say, unit or integration tests that most developers are familiar with. There are several factors to consider:
+Evaluating the results of a nondeterministic system isn't as simple as the unit or integration tests that most developers are familiar with. You need to consider several factors:
 
 - Are users satisfied with the results they're getting?
 - Are users getting accurate responses to their questions?
@@ -261,60 +260,59 @@ Evaluating the results of a nondeterministic system isn't as simple as, say, uni
 
 ### Capturing and acting on feedback from users
 
-As mentioned earlier, developers may need to work with their organization's privacy team to design feedback capture mechanisms and telemetry, logging, etc. to enable forensics and root cause analysis on a given query session.
+As mentioned earlier, developers might need to work with their organization's privacy team to design feedback capture mechanisms and telemetry, and logging, to enable forensics and root-cause analysis of a query session.
 
-The next step is to develop an **assessment pipeline**. The need for an assessment pipeline arises from the complexity and time-intensive nature of analyzing verbatim feedback and the root causes of the responses provided by an AI system. This analysis is crucial as it involves investigating every response to understand how the AI query produced the results, checking the appropriateness of the content chunks used from documentation, and the strategies employed in dividing up these documents. 
+The next step is to develop an *assessment pipeline*. The need for an assessment pipeline arises from the complexity and time-intensive nature of analyzing verbatim feedback and the root causes of the responses provided by an AI system. This analysis is crucial because it involves investigating every response to understand how the AI query produced the results, checking the appropriateness of the content chunks used from documentation, and the strategies employed in dividing up these documents.
 
 Furthermore, it involves considering any extra pre- or post-processing steps that could enhance the results. This detailed examination often uncovers content gaps, particularly when no suitable documentation exists in response to a user's query.
 
-Building an assessment pipeline, therefore, becomes essential to manage the scale of these tasks effectively. An efficient pipeline would utilize custom tooling to evaluate metrics that approximate the quality of answers provided by the AI. This system would streamline the process of determining why a specific answer was given to a user's question, which documents were used to generate that answer, and the effectiveness of the inference pipeline that processes the queries.
+Building an assessment pipeline becomes essential to manage the scale of these tasks effectively. An efficient pipeline uses custom tooling to evaluate metrics that approximate the quality of answers provided by AI. This system streamlines the process of determining why a specific answer was given to a user's question, which documents were used to generate that answer, and the effectiveness of the inference pipeline that processes the queries.
 
 ### Golden dataset
 
-One strategy to evaluating the results of a nondeterministic system like a RAG-chat system is to implement a "golden dataset". A **golden dataset** is a curated set of questions with approved answers, metadata (like topic and type of question), references to source documents that can serve as ground truth for answers, and even variations (different phrasings to capture the diversity of how users might ask the same questions). 
+One strategy to evaluating the results of a nondeterministic system like a RAG-chat system is to implement a *golden dataset*. A golden dataset is a curated set of questions and approved answers, metadata (like topic and type of question), references to source documents that can serve as ground truth for answers, and even variations (different phrasings to capture the diversity of how users might ask the same questions).
 
-The "golden dataset" represents the "best case scenario" and enables developers to evaluate the system to see how well it performs, and perform regression tests when implementing new features or updates.
+The golden dataset represents the "best case scenario" and enables developers to evaluate the system to see how well it performs, and perform regression tests when implementing new features or updates.
 
 ### Assessing harm
   
-Harms modeling is a methodology aimed at foreseeing potential harms, spotting deficiencies in a product that might pose risks to individuals, and developing proactive strategies to mitigate such risks. 
+Harms modeling is a methodology aimed at foreseeing potential harms, spotting deficiencies in a product that might pose risks to individuals, and developing proactive strategies to mitigate such risks.
 
-To tool designed for assessing the impact of technology, particularly AI systems, would feature several key components based on the principles of harms modeling as outlined in the provided resources.
+A tool designed for assessing the impact of technology, particularly AI systems, would feature several key components based on the principles of harms modeling as outlined in the provided resources.
 
 Key features of a harms evaluation tool might include:
 
-1. **Stakeholder Identification**: The tool would help users identify and categorize various stakeholders affected by the technology, including direct users, indirectly affected parties, and other entities like future generations or nonhuman factors such as environmental concerns​ (.
-    
-2. **Harm Categories and Descriptions**: It would include a comprehensive list of potential harms, such as privacy loss, emotional distress, or economic exploitation. The tool could guide the user through various scenarios illustrating how the technology might cause these harms, helping to evaluate both intended and unintended consequences​.
-    
-3. **Severity and Probability Assessments**: The tool would enable users to assess the severity and probability of each identified harm, allowing them to prioritize which issues to address first. Examples include qualitative assessments supported by data where available.
-    
-4. **Mitigation Strategies**: The tool suggests potential mitigation strategies after identifying and evaluating harms. Examples include changes to the system design, more safeguards, or alternative technological solutions that minimize identified risks.
-    
-5. **Feedback Mechanisms**: The tool should incorporate mechanisms for gathering feedback from stakeholders, ensuring that the harms evaluation process is dynamic and responsive to new information and perspectives​​.
-    
-6. **Documentation and Reporting**: For transparency and accountability, the tool might facilitate detailed reports that document the harms assessment process, findings, and potential risk mitigation actions taken​.
-    
+- **Stakeholder identification**: The tool would help users identify and categorize various stakeholders affected by the technology, including direct users, indirectly affected parties, and other entities like future generations or nonhuman factors such as environmental concerns​ (.
 
-These features wouldn't only help identify and mitigate risks, but also help in designing more ethical and responsible AI systems by considering a broad spectrum of impacts from the outset.
+- **Harm categories and descriptions**: The tool would include a comprehensive list of potential harms, such as privacy loss, emotional distress, or economic exploitation. The tool could guide the user through various scenarios illustrating how the technology might cause these harms, helping to evaluate both intended and unintended consequences​.
 
-For more information, see:
+- **Severity and probability assessments**: The tool helps users assess the severity and probability of each identified harm. The user can prioritize the issues to address first. Examples include qualitative assessments supported by data where available.
+
+- **Mitigation strategies**: The tool suggests potential mitigation strategies after identifying and evaluating harms. Examples include changes to the system design, more safeguards, or alternative technological solutions that minimize identified risks.
+
+- **Feedback mechanisms**: The tool should incorporate mechanisms for gathering feedback from stakeholders. that the harms evaluation process is dynamic and responsive to new information and perspectives​​.
+
+- **Documentation and reporting**: For transparency and accountability, the tool might facilitate detailed reports that document the harms assessment process, findings, and potential risk mitigation actions taken​.
+
+These features can help you identify and mitigate risks, but they also help you design more ethical and responsible AI systems by considering a broad spectrum of impacts from the start.
+
+For more information, see these articles:
 
 - [Foundations of assessing harm](/azure/architecture/guide/responsible-innovation/harms-modeling/)
 - [Types of harm](/azure/architecture/guide/responsible-innovation/harms-modeling/type-of-harm)
 
 ### Testing and verifying the safeguards
 
-This article outlined several processes aimed at mitigating the possibility that the RAG-based chat system could be exploited or compromised. **Red-teaming** plays a crucial role in ensuring the mitigations are effective. Red-teaming involves simulating an adversary's actions aimed at the application to uncover potential weaknesses or vulnerabilities. This approach is especially vital in addressing the significant risk of jailbreaking. 
+This article outlines several processes that are aimed at mitigating the possibility of an RAG-based chat system being exploited or compromised. *Red-teaming* plays a crucial role in ensuring that the mitigations are effective. Red-teaming involves simulating the actions of a potential adversary to uncover potential weaknesses or vulnerabilities in the application. This approach is especially vital in addressing the significant risk of jailbreaking.
 
- Developers need to rigorously assess RAG-based chat system safeguards under various guideline scenarios to effectively test and verify them. This not only ensures robustness but also helps in fine-tuning the system’s responses to adhere strictly to defined ethical standards and operational procedures.
+Developers need to rigorously assess RAG-based chat system safeguards under various guideline scenarios to effectively test and verify them. This not only ensures robustness but also helps you fine-tune the system’s responses to adhere strictly to defined ethical standards and operational procedures.
 
-## Final considerations that might influence your application design decisions
+## Final considerations for application design
 
-Here's a short list of things to consider and other takeaways from this article that affect your application design decisions:
+Here's a short list of things to consider and other takeaways from this article that might affect your application design decisions:
 
 - Acknowledge the non-deterministic nature of generative AI in your design, planning for variability in outputs and setting up mechanisms to ensure consistency and relevance in responses.
 - Assess the benefits of preprocessing user prompts against the potential increase in latency and costs. Simplifying or modifying prompts before submission might improve response quality but could add complexity and time to the response cycle.
 - Investigate strategies for parallelizing LLM requests to enhance performance. This approach might reduce latency but requires careful management to avoid increased complexity and potential cost implications.
 
-If you want to start experimenting with building a generative AI solution immediately, we recommend taking a look at [Get started with the chat using your own data sample for Python](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces). There are versions of the tutorial also available in [.NET](/dotnet/ai/get-started-app-chat-template?tabs=github-codespaces), [Java](/azure/developer/java/ai/get-started-app-chat-template?tabs=github-codespaces), and [JavaScript](/azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces).
+If you want to start experimenting with building a generative AI solution immediately, we recommend that you take a look at [Get started with chat by using your own data sample for Python](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces). The tutorial is also available for [.NET](/dotnet/ai/get-started-app-chat-template?tabs=github-codespaces), [Java](/azure/developer/java/ai/get-started-app-chat-template?tabs=github-codespaces), and [JavaScript](/azure/developer/javascript/get-started-app-chat-template?tabs=github-codespaces).
