@@ -175,7 +175,7 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
     * Confirm the name and tag "latest".
 
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" alt-text="A screenshot showing how to confirm the  information to  build container in Azure in Visual Studio Code." :::
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" alt-text="A screenshot showing how to confirm the  information to  build container in Azure in Visual Studio Code." :::
 
 ### [Azure portal](#tab/azure-portal)
 
