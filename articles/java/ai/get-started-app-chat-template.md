@@ -9,7 +9,7 @@ ms.custom: devx-track-java, devx-track-java-ai, devx-track-extended-java, devx-t
 
 # Get started with the chat using your own data sample for Java
 
-This article shows you how to deploy and run the [Chat with your data sample for Java](https://github.com/Azure-Samples/azure-search-openai-demo-java). This sample implements a chat app using Java, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about employee benefits at a fictitious company. The app is seeded with PDF files including the employee handbook, a benefits document and a list of company roles and expectations.
+This article shows you how to deploy and run the [Chat with your data sample for Java](https://github.com/Azure-Samples/azure-search-openai-demo-java). This sample implements a chat app using Java, Azure OpenAI Service, and [Retrieval Augmented Generation (RAG)](/azure/search/retrieval-augmented-generation-overview) in Azure AI Search to get answers about employee benefits at a fictitious company. The app is seeded with PDF files including the employee handbook, a benefits document, and a list of company roles and expectations.
 
 * [Demo video](https://aka.ms/azai/java/video)
 
@@ -47,7 +47,7 @@ Key components of the architecture include:
 
 ## Cost
 
-Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you only pay for what you use. To complete this article, there will be a charge but it will be minimal. When you're done with the article, you can delete the resources to stop incurring charges.
+Most resources in this architecture use a basic or consumption pricing tier. Consumption pricing is based on usage, which means you only pay for what you use. To complete this article, there's a charge but it's minimal. When you're done with the article, you can delete the resources to stop incurring charges.
 
 Learn more about [cost in the sample repo](https://github.com/Azure-Samples/azure-search-openai-demo-java#cost-estimation).
 
@@ -60,26 +60,33 @@ To use this article, you need the following prerequisites:
 #### [Codespaces (recommended)](#tab/github-codespaces)
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
+
 * Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-* Access granted to Azure OpenAI in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
+
+* Access granted to Azure OpenAI in the desired Azure subscription. Currently, only the application grants access to this service. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
+
 * GitHub account
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
+
 * Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-* Access granted to Azure OpenAI in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
+
+* Access granted to Azure OpenAI in the desired Azure subscription. Currently, only the application grants access to this service. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
+
 * [Azure Developer CLI](/azure/developer/azure-developer-cli)
+
 * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
+
 * [Visual Studio Code](https://code.visualstudio.com/)
+
 * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ---
 
 ## Open development environment
 
-Begin now with a development environment that has all the dependencies installed to complete this article. 
+Begin now with a development environment that has all the dependencies installed to complete this article.
 
 ### [GitHub Codespaces (recommended)](#tab/github-codespaces)
 
@@ -155,7 +162,7 @@ The sample repository contains all the code and configuration files you need to 
 > [!IMPORTANT]
 > Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
 
-1. Run the following Azure Developer CLI command to provision the Azure resources and deploy the source code:
+1. Provision the Azure resources and deploy the source code by running the following command:
 
    ```azurecli
       azd up
@@ -169,13 +176,13 @@ The sample repository contains all the code and configuration files you need to 
 
 1. If you're prompted for a location for the OpenAI model, select a location that is near you. If the same location is available as your first location, select that.
 
-1. Wait until app is deployed. It may take 5-10 minutes for the deployment to complete.
+1. Wait until app is deployed, which can take 5-10 minutes to complete.
 
-1. After the application has been successfully deployed, you see a URL displayed in the terminal.
+1. After the application successfully deploys, you see a URL displayed in the terminal.
 
 1. Select that URL labeled `Deploying service web` to open the chat application in a browser.
 
-   :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input and the chat text box to enter a question.":::
+   :::image type="content" source="./media/get-started-app-chat-template/browser-chat-with-your-data.png" alt-text="Screenshot of chat app in browser showing several suggestions for chat input, as well as the chat box where you enter a question.":::
 
 ### Use chat app to get answers from PDF files
 
@@ -193,24 +200,24 @@ The chat app is preloaded with employee benefits information from [PDF files](ht
 
    | Tab                    | Description                                                                    |
    |------------------------|--------------------------------------------------------------------------------|
-   | **Thought process**    | This is a script of the interactions in chat.                                  |
-   | **Supporting content** | This includes the information to answer your question and the source material. |
-   | **Citation**           | This displays the PDF page that contains the citation.                         |
+   | **Thought process**    | Script of the interactions in chat.                                  |
+   | **Supporting content** | Includes the information to answer your question and the source material. |
+   | **Citation**           | Displays the PDF page that contains the citation.                         |
 
 1. When you're done, select the selected tab again to close the pane.
 
 ### Use chat app settings to change behavior of responses
 
-The intelligence of the chat app is determined by the OpenAI model and the settings that are used to interact with the model.
+The OpenAI model and the settings that are used to interact with the model determine the intelligence of the chat app.
 
 :::image type="content" source="./media/get-started-app-chat-template/browser-chat-developer-settings-chat-pane.png" alt-text="Screenshot of chat developer settings.":::
 
 | Setting                                                   | Description                                                                                                                                                                                                                                                                                         |
 |-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Override prompt template                                  | This is the prompt that is used to generate the answer.                                                                                                                                                                                                                                             |
-| Retrieve this many search results                         | This is the number of search results that are used to generate the answer. You can see these sources returned in the **Thought process** and **Supporting content** tabs of the citation.                                                                                                               |
-| Exclude category                                          | This is the category of documents that are excluded from the search results.                                                                                                                                                                                                                        |
-| Use semantic ranker for retrieval                         | This is a feature of [Azure AI Search](/azure/search/semantic-search-overview#what-is-semantic-search) that uses machine learning to improve the relevance of search results.                                                                                                                       |
+| Override prompt template                                  | Prompt that is used to generate the answer.                                                                                                                                                                                                                                             |
+| Retrieve this many search results                         | Number of search results that are used to generate the answer. You can see these sources returned in the **Thought process** and **Supporting content** tabs of the citation.                                                                                                               |
+| Exclude category                                          | Category of documents that are excluded from the search results.                                                                                                                                                                                                                        |
+| Use semantic ranker for retrieval                         | Feature of [Azure AI Search](/azure/search/semantic-search-overview#what-is-semantic-search) that uses machine learning to improve the relevance of search results.                                                                                                                       |
 | Use query-contextual summaries instead of whole documents | When both `Use semantic ranker` and `Use query-contextual summaries` are checked, the LLM uses captions extracted from key passages, instead of all the passages, in the highest ranked documents.                                                                                                  |
 | Suggest follow-up questions                               | Have the chat app suggest follow-up questions based on the answer.                                                                                                                                                                                                                                  |
 | Retrieval mode                                            | **Vectors + Text** means that the search results are based on the text of the documents and the embeddings of the documents. **Vectors** means that the search results are based on the embeddings of the documents. **Text** means that the search results are based on the text of the documents. |
@@ -220,13 +227,13 @@ The following steps walk you through the process of changing the settings.
 
 1. In the browser, select the **Developer Settings** tab.
 
-1. Check the **Suggest follow-up questions** checkbox and ask the same question again.
+1. Select the **Suggest follow-up questions** checkbox and ask the same question again.
 
     ```
        What is my deductible?
     ```
 
-    The chat returned suggested follow-up questions such as the following:
+    The chat returns suggested follow-up questions such as these:
 
     ```
        1. What is the cost sharing for out-of-network services?
@@ -252,9 +259,7 @@ The following steps walk you through the process of changing the settings.
 
 ### Clean up Azure resources
 
-The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges.
-
-Run the following Azure Developer CLI command to delete the Azure resources and remove the source code:
+The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges. Use the following command to delete the Azure resources and remove the source code:
 
 ```azurecli
    azd down --purge
@@ -294,7 +299,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 ## How is the question answered?
 
-The app is separated out into 2 apps:
+The app is separated out into two apps:
 
 * A front-end JavaScript application using the React framework with the Vite build tool.
 
@@ -302,7 +307,7 @@ The app is separated out into 2 apps:
 
 The backend `/chat` API steps through the process of getting the answer:
 
-* Build RAG options: Create a set of options that will be used to generate an answer.
+* Build RAG options: Create a set of options used to generate an answer.
 
 * Create approach using RAG options: Use a combination of retrieval-based and generative-based models to create an approach for generating an accurate and natural-sounding response.
 
