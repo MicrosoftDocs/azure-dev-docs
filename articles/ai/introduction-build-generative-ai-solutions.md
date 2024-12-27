@@ -10,52 +10,54 @@ ms.custom: build-2024-intelligent-apps, ai-learning-hub
 
 Generative AI, enabled by Large Language Models (LLMs), opens exciting new possibilities for software developers and organizations. Services like Azure OpenAI democratize AI development by offering easy-to-use APIs, allowing developers of any skill level to integrate advanced AI functionality into their applications without needing specialized knowledge or requiring organizations to invest in  hardware.
 
-As an application developer, you might struggle to understand what role you can play and where you fit in. For example, perhaps you're wondering at what level in the "AI stack" should you focus your learning? Or you might wonder what you are capable of building given the existing technologies?
+As an application developer, you might struggle to understand what role you can play and where you fit in. For example, perhaps you wonder at what level in the "AI stack" to focus your learning. Or you might wonder what you are capable of building given existing technologies?
 
-To answer these questions, it's important that you first develop a mental model that maps how all the new terminology and technologies fit into what you already understand. Developing a mental model helps you design and build generative AI features into your applications. To that end, the purpose of this series of articles is to show you how your current software development experience applies to generative AI. The articles also provide a level-set on keywords and concepts as you begin developing your first generative AI solutions.
+To answer these questions, it's important that you first develop a mental model that maps how new terminology and technologies fit into what you already understand. Developing a mental model helps you design and build generative AI features into your applications.
 
-## What do businesses hope to achieve with generative AI?
+The purpose of this series of articles is to show you how your current software development experience applies to generative AI. The articles also set a basis of keywords and concepts to build on as you begin to develop your first generative AI solutions.
 
-To understand how your current software development experience applies to generative AI, it's important to start by understanding how businesses intend to benefit from it.
+## How businesses benefit from using generative AI
 
-Businesses view generative AI as a means to improve customer engagement, increase operational efficiency, and enhance problem-solving and creativity. Integrating generative AI into existing systems opens opportunities for businesses to enhance their software ecosystems. It can complement traditional software functionalities with advanced AI capabilities, such as personalized recommendations for users or an intelligent agent that can answer organization or product specific questions.
+To understand how your current software development experience applies to generative AI, it's important to understand how businesses intend to benefit from using generative AI.
+
+Businesses view generative AI as a means to improve customer engagement, increase operational efficiency, and enhance problem-solving and creativity. Integrating generative AI into existing systems opens opportunities for businesses to enhance their software ecosystems. It can complement traditional software functionalities with advanced AI capabilities, such as personalized recommendations for users or an intelligent agent that can answer specific questions about an organization or its products or services.
 
 Here are a few common scenarios where generative AI can help businesses:
 
-- **Content Generation**
-  - Generate text, code, images, and sound. This could be useful for marketing, sales, IT, internal communications, and more.
-- **Natural Language Processing**
+- **Content generation**:
+  - Generate text, code, images, and sound. This can be useful for marketing, sales, IT, internal communications, and more.
+- **Natural language processing**:
   - Compose or improve business communications through suggestions or complete generation of messages.
-  - "Chat with your data," or in other words, enabling a user to ask questions in a chat experience using data stored in databases or in documents as the basis for answers.
-  - Summarization, organization, and simplification of large bodies of content to make the content more accessible.
-  - "Semantic search," or rather, allowing users to search over documents and data without using exact keyword matches.
-  - Translating language to increase the reach and accessibility of content.
-- **Data analysis**
+  - "Chat with your data." That is, enable a user to ask questions in a chat experience by using data that's stored in the organization's databases or documents as the basis for answers.
+  - Summarization, organization, and simplification of large bodies of content to make content more accessible.
+  - "Semantic search." That is, allowing users to search documents and data without using exact keyword matches.
+  - Translate language to increase the reach and accessibility of content.
+- **Data analysis**:
   - Analyze markets and identify trends in data.
   - Model "what if" scenarios to help companies plan for possible changes or challenges in every area of the business.
   - Analyze code to suggest improvements, fix bugs, and generate documentation.
 
-As you can see, software developers have an opportunity to dramatically increase their impact by integrating generative AI applications and functionality into the software their organizations rely on.
+So, software developers have an opportunity to dramatically increase their impact by integrating generative AI applications and functionality into the software their organizations rely on.
 
-## How do you build these types of applications?
+## How to build these types of applications
 
-While the Large Language Model (LLM) does the heavy lifting, you build systems that integrate, orchestrate, and monitor the results. While there's much to learn, you can apply the skills you already know:
+Although the large language model (LLM) does the heavy lifting, you build systems that integrate, orchestrate, and monitor the results. There's much to learn, but you can apply the skills you already have, including how to:
 
-- Making calls to APIs using REST, JSON or language-specific Software Development Kits (SDKs)
-- Orchestrating calls to APIs and performing business logic
-- Storing to and retrieving from data stores
-- Integrating input and results into the user experience
-- Creating APIs that can be called from LLMs
+- Make calls to APIs by using REST, JSON, or language-specific software development kits (SDKs)
+- Orchestrate calls to APIs and perform business logic
+- Store to and retrieve from data stores
+- Integrate input and results into the user experience
+- Create APIs that can be called from LLMs
 
-In this way, developing generative AI solutions builds on your existing skills.
+Developing generative AI solutions build on your existing skills.
 
-## What tools and services are available?
+## What tools and services are available
 
 Microsoft invests in developing tools, services, APIs, samples, and learning resources to help you as you begin your generative AI development journey. Each highlights some major concern or responsibility that are needed to construct a generative AI solution. To utilize a given service, API or resource effectively, the challenge is making sure you:
 
 - Understand the typical functions, roles, and responsibilities in a given type of generative AI feature? For example, as we discuss at length in conceptual articles describing Retrieval-Augmented Generation (RAG) based chat systems, there are many architectural responsibilities in the system. It's important that you understand the problem domain and constraints intimately before designing a system that addresses the problem.
 - Understand the APIs, services, and tools exist for a given function, role, or responsibility? Now that you understand the problem domain and constraints, you can choose to build that aspect of the system yourself with custom code or use existing low-code / no-code tools, or call into APIs for existing services.
-- Understand the options including code-centric and no-code / low-code solutions. You could build everything yourself, but is that an efficient use of your time and skill? Depending on your requirements, you can usually stitch together a combination of technologies and approaches (code, no-code, low-code, tools).
+- Understand the options including code-centric and no-code or low-code solutions. You could build everything yourself, but is that an efficient use of your time and skill? Depending on your requirements, you can usually stitch together a combination of technologies and approaches (code, no-code, low-code, tools).
 
 The point here's that there's no single right way to build generative AI features into your applications. Many tools and approaches exist. It's important to evaluate the trade-offs.
 
@@ -67,11 +69,11 @@ For example, you don't need to train your own LLM from scratch. Training an LLM 
 
 Researching how LLMs are trained or how they work might satisfy your intellectual curiosity, but truly understanding how LLMs work requires deep understanding of data science and the math background to support it. This might include graduate level courses on statistics, probabilities, and information theory.
 
-If you come from a computer science background, you can appreciate that most application development happens at a "higher layer in the stack" of research and technologies. You might have some understanding of each layer, but you likely specialize in the application development layer, with a focus on a specific programming language and platform (available APIs, tooling, patterns, and so on).
+If you come from a computer science background, you can appreciate that most application development happens at a higher 'layer in the stack" of research and technologies. You might have some understanding of each layer, but you likely specialize in the application development layer, with a focus on a specific programming language and platform (available APIs, tooling, patterns, and so on).
 
-The same is true for the field of AI. You can understand and appreciate the theory that goes into building on top of LLMs, but you'll likely focus your attention on the application layer or help to implement patterns or processes to enable a generative AI effort in your company.
+The same is true for the field of AI. You can understand and appreciate the theory that goes into building on top of LLMs, but you likely focus your attention on the application layer or help implement patterns or processes to enable a generative AI effort in your company.
 
-Here's an over-simplified representation of the layers of knowledge required to implement generative AI features in a new or existing application:
+Here's an oversimplified representation of the layers of knowledge that are required to implement generative AI features in a new or existing application:
 
 :::image type="content" source="./media/ai-stack-developers.png" alt-text="Diagram of layers of knowledge. At the bottom, a box containing the words foundational data science, artificial intelligent research, statistics, and probability theory. The next level up, the words training large language models. The next level up, building services, tooling, and developing APIs. And at the highest level, application layer, patterns, and processes.":::
 
