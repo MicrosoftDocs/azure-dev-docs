@@ -60,8 +60,6 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     > [!NOTE]
     > The `az acr login` command isn't needed or supported in Cloud Shell.
 
-[!INCLUDE [Include showing how create registry with Azure CLI](<./includes/tutorial-container-web-app/container-registry-create-cli.md>)]
-
 ### [VS Code](#tab/vscode-aztools)
 
 These steps require the [Docker extension](https://code.visualstudio.com/docs/containers/overview) for VS Code.
