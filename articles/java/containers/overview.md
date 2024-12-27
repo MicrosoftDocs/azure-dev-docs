@@ -98,7 +98,7 @@ Previously, you determined the amount of JVM heap memory to start with. The next
 For any GC other than SerialGC, we recommend two or more vCPU cores - or at least `2000m` for `cpu_limit` on Kubernetes. We don't recommend selecting anything less than one vCPU core on containerized environments.
 
 > [!TIP]
-> If you don't know how many cores to start with, a good choice is 2 vCPU cores.
+> If you don't know how many cores to start with, a good choice is two vCPU cores.
 
 ### Pick a starting point
 
@@ -114,15 +114,15 @@ Use the following JVM parameters:
    -XX:+UseParallelGC -XX:MaxRAMPercentage=75
 ```
 
-## Containerize an existing (on premises) application
+## Containerize an existing on premises application
 
 If your application is already running on premises or on a VM in the cloud, then we recommend that you start with the following configuration:
 
 * The same amount of memory that the application currently has access to.
-* The same number of CPUs (vCPU cores) the application currently has available.
+* The same number of CPUs or vCPU cores the application currently has available.
 * The same JVM parameters that you currently use.
 
-If the vCPU cores and/or container memory combination isn't available, then pick the closest one, rounding up the vCPU cores and container memory.
+If the vCPU cores or container memory combination isn't available, then pick the closest one, rounding up the vCPU cores and container memory.
 
 ## Next steps
 
