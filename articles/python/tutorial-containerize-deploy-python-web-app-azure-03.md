@@ -18,13 +18,47 @@ The service diagram shown below highlights the components covered in this articl
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-build-cloud.png" alt-text="A screenshot of the services using in the Tutorial - Containerized Python App on Azure with the build-in-cloud path highlighted." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-build-cloud.png":::
 
-## 1. Create an Azure Container Registry
+## Create an Azure Container Registry
 
 If you already have an Azure Container Registry you can use, go to the next step. If you don't, create one.
 
 ### [Azure CLI](#tab/azure-cli)
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli). When running in Cloud Shell, skip **Step 3**.
+
+1. Create a resource group if needed with the [az group create](/cli/azure/group#az-group-create) command. If you've already set up an Azure Cosmos DB for MongoDB account in part **2. Build and test container locally** of this tutorial, set RESOURCE_GROUP_NAME to the name of the resource group you used for that account and move on to Step 2.
+
+    ```azurecli
+    RESOURCE_GROUP_NAME='msdocs-web-app-rg'
+    LOCATION='eastus'
+    
+    az group create -n $RESOURCE_GROUP_NAME -l $LOCATION
+    ```
+
+    LOCATION should be an Azure location value. Choose a location near you. You can list Azure location values with the following command: `az account list-locations -o table`.
+
+1. Create a container registry with the [az acr create](/cli/azure/acr#az-acr-create) command.
+
+    ```azurecli
+    REGISTRY_NAME='<your Azure Container Registry name>'
+    
+    az acr create -g $RESOURCE_GROUP_NAME -n $REGISTRY_NAME --sku Basic
+    ```
+
+    REGISTRY_NAME must be unique within Azure and contain 5-50 alphanumeric characters.
+
+    In the JSON output of the command look for the `loginServer` value, which is the fully qualified registry name (all lowercase) and which should include the registry name you specified.
+
+1. If you're running the Azure CLI locally, log in to the registry using the [az acr login](/cli/azure/acr#az-acr-login) command.
+
+    ```azurecli
+    az acr login -n $REGISTRY_NAME
+    ```
+
+    The command adds "azurecr.io" to the name to create the fully qualified registry name. If successful, you'll see the message "Login Succeeded".
+
+    > [!NOTE]
+    > The `az acr login` command isn't needed or supported in Cloud Shell.
 
 [!INCLUDE [Include showing how create registry with Azure CLI](<./includes/tutorial-container-web-app/container-registry-create-cli.md>)]
 
@@ -52,7 +86,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ---
 
-## 2. Build an image in Azure Container Registry
+## Build an image in Azure Container Registry
 
 You can build the container image directly in Azure in a few ways. First, you can use the Azure Cloud Shell, which builds the image without using your local environment at all. You can also build the container image in Azure from your local environment using VS Code or the Azure CLI. Building the image in the cloud doesn't require Docker to be running in your local environment. If you need to, you can follow the instructions in [Clone or download the sample app](tutorial-containerize-deploy-python-web-app-azure-02.md) in part 2 of this tutorial to get the sample Flask or Django web app.
 
@@ -60,7 +94,32 @@ You can build the container image directly in Azure in a few ways. First, you ca
 
 Azure CLI commands can be run on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli) or in [Azure Cloud Shell](https://shell.azure.com/). When running in Cloud Shell, skip **Step 1**.
 
-[!INCLUDE [Include showing how build an image in Azure with the Azure CLI](<./includes/tutorial-container-web-app/container-image-build-in-azure-cli.md>)]
+1. If you're running the Azure CLI locally, sign in to the registry if you haven't done so already with the [az acr login](/cli/azure/acr#az-acr-login) command.
+
+    ```azurecli
+    az acr login -n $REGISTRY_NAME
+    ```
+
+    If you're accessing the registry from a subscription different from the one in which the registry was created, use the `--suffix` switch.
+
+    > [!NOTE]
+    > The `az acr login` command isn't needed and isn't supported in Cloud Shell.
+
+1. Build the image with the [az acr build](/cli/azure/acr#az-acr-build) command.
+
+    ```azurecli
+    az acr build -r $REGISTRY_NAME -g $RESOURCE_GROUP_NAME -t msdocspythoncontainerwebapp:latest .
+    ```
+
+    In this command:
+
+    * The dot (".") at the end of the command indicates the location of the source code to build. If you aren't running this command in the sample app root directory, specify the path to the code.
+
+       Rather than a path to the code in your environment, you can, optionally, specify a path to the sample GitHub repo: https://github.com/Azure-Samples/msdocs-python-django-container-web-app or https://github.com/Azure-Samples/msdocs-python-flask-container-web-app.
+
+    * If you leave out the `-t` (same as `--image`) option, the command queues a local context build without pushing it to the registry. Building without pushing can be useful to check that the image builds.
+
+1. Confirm the container image was created with the [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) command.
 
 ### [VS Code](#tab/vscode-aztools)
 
