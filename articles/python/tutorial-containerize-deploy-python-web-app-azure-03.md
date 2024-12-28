@@ -14,7 +14,7 @@ In the previous *optional* part of this tutorial, a container image was build an
 
 Once the Docker image is in Azure Container Registry, it can be deployed to Azure App service.
 
-The service diagram shown below highlights the components covered in this article.
+This service diagram highlights the components covered in this article.
 
 :::image type="content" source="./media/tutorial-container-web-app/containerization-of-python-apps-build-cloud.png" alt-text="A screenshot of the services using in the Tutorial - Containerized Python App on Azure with the build-in-cloud path highlighted." lightbox="./media/tutorial-container-web-app/containerization-of-python-apps-build-cloud.png":::
 
@@ -26,7 +26,7 @@ If you already have an Azure Container Registry you can use, go to the next step
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com/) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli). When running in Cloud Shell, skip **Step 3**.
 
-1. Create a resource group if needed with the [az group create](/cli/azure/group#az-group-create) command. If you've already set up an Azure Cosmos DB for MongoDB account in part **2. Build and test container locally** of this tutorial, set RESOURCE_GROUP_NAME to the name of the resource group you used for that account and move on to Step 2.
+1. Create a resource group if needed with the [az group create](/cli/azure/group#az-group-create) command. If you've already set up an Azure Cosmos DB for MongoDB account in part **2. Build and test container locally** of this tutorial, set the RESOURCE_GROUP_NAME environment variable to the name of the resource group you used for that account and move on to the next step.
 
     ```azurecli
     RESOURCE_GROUP_NAME='msdocs-web-app-rg'
@@ -64,17 +64,11 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 These steps require the [Docker extension](https://code.visualstudio.com/docs/containers/overview) for VS Code.
 
-1. Select **F1** or **CTRL+SHIFT+P** to open the command palette.
-
-    * Type "registry".
-
-    * Select the task **Azure Container Registry: Create Registry...**
-
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-registry-tasks.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-registry-tasks.png" alt-text="A screenshot that shows how to search for show registries tasks in Visual Studio Code." :::
+1. Select **F1** or **CTRL+SHIFT+P** to open the command palette. Then type "registry" and select the **Azure Container Registry: Create Registry...** task.
 
     Alternatively, in the Docker extension **REGISTRIES** section, right-click your subscription and select **Create Registry**. This UI action starts the same create registry task.
 
-1. Select the task and enter values following the prompts, which include:
+1. Follow the prompts and enter the following values:
 
     * **Registry name**: The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
 
@@ -98,32 +92,32 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 1. Search for "container registry" and select **Container Registry** under **Marketplace** in the results.
 
-1. Fill out the **Create container registry** form and specify:
+1. Under the **Basics** tab on the **Create container registry** form, enter the following values:
 
     * **Resource group**: Use an existing group or create a new one.
     * **Registry name**: The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
     * **Location**: If you are using an existing resource group, select the location to match. Otherwise, the location is where the resource group is created that contains the registry.
     * **SKU**: Select **Standard**.
 
-    :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-form.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-form.png" alt-text="A screenshot showing how to specify a new registry in Azure portal." ::: |
+    :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-form.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-form.png" alt-text="A screenshot showing how to specify a new registry in Azure portal." :::
 
     When you're finished, select **Review + create**. After the validation is complete, select **Create**.
 
 1. After the deployment is complete, go to the new registry and find the fully qualified name.
 
-    * Go to the **Overview** resource of the registry.
-    * Find the **Login server**. It should be a fully qualified name with "azurecr.io".
+    * On the **service menu**, select **Overview**.
+    * Copy the **Login server** value. It should be a fully qualified name with "azurecr.io".
 
     :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-login-server.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-login-server.png" alt-text="A screenshot showing how to find the login server value  for a registry in Azure portal." :::
 
 1. The admin account is required to deploy a container image from a registry to Azure Web Apps for Containers. Enable the admin user:
 
-    * Got to the **Access Keys** resource of the registry.
-    * Select **Enabled** for the **Admin User**.
+    1. On the **service menu**, select **Access Keys**.
+    1. Select **Enabled** for the **Admin User**.
+
+    :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-enable-admin-user.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-enable-admin-user.png" alt-text="A screenshot showing how to enable the admin user for the registry in Azure portal." :::
 
     The registry [admin account](/azure/container-registry/container-registry-authentication#admin-account) is needed when you use the Azure portal to deploy a container image as is shown in this tutorial. The admin account is only used during the creation of the App Service. After the App Service is created, managed identity is used to pull images from the registry and the admin account can be disabled.
-
-    :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-enable-admin-user.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-enable-admin-user.png" alt-text="A screenshot showing how to enable the admin user for the registry in Azure portal." :::|
 
 ---
 
@@ -162,6 +156,10 @@ Azure CLI commands can be run on a workstation with the [Azure CLI installed](/c
 
 1. Confirm the container image was created with the [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) command.
 
+    ```azurecli
+    az acr repository list -n $REGISTRY_NAME
+    ```
+
 ### [VS Code](#tab/vscode-aztools)
 
 These steps require the [Docker extension](https://code.visualstudio.com/docs/containers/overview) for VS Code. VS Code needs to be opened in the working folder of your web app.
@@ -170,31 +168,27 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-registries.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-registries.png" alt-text="A screenshot showing how to check that Azure is signed into Docker Extension in Visual Studio Code." :::
 
-1. Select **F1** or **CTRL+SHIFT+P** to open the command palette.
-
-    * Type "registry".
-
-    * Select the task **Azure Container Registry: Build Image in Azure...**
+1. Select **F1** or **CTRL+SHIFT+P** to open the command palette, type "registry", and select the **Azure Container Registry: Build Image in Azure...** task.
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-task.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-task.png" alt-text="A screenshot showing how to invoke build container in Azure task in Visual Studio Code." :::
 
-    If you don't see the task, check that **Azure** appears under **REGISTRIES** in the Docker extension. You can also right-click the *Dockerfile* and select **Build Image in Azure...** to run the task.
+    If you don't see the task, make sure that **Azure** appears under **REGISTRIES** in the Docker extension. You can also right-click the *Dockerfile* and select **Build Image in Azure...** to run the task.
 
-1. Fill out the information to build the image.
+1. Follow the prompts and enter the following values to build the image.
 
-    * **Tag image**  &rarr; Use the image name "msdocspythoncontainerwebapp:latest".
-    * **Registry** &rarr; Select the registry you created above or one you have access to.
-    * **Base OS image** &rarr; Select **Linux**.
-
-    Check the **OUTPUT** window for progress and information on the build. If the get a credentials error, right-click the registry in the **REGISTRIES** section of the Docker extension and select **Refresh**.
+    * **Tag image**: Use the image name "msdocspythoncontainerwebapp:latest".
+    * **Registry**: Select the registry you created above or one you have access to.
+    * **Base OS image**: Select **Linux**.
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-prompts.gif" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-prompts.gif" alt-text="A screenshot showing how to provide information to  build container in Azure in Visual Studio Code." :::
 
+    Check the **OUTPUT** window for progress and information on the build. If the get a credentials error, right-click the registry in the **REGISTRIES** section of the Docker extension and select **Refresh**.
+
 1. Confirm the image in the Azure Container Registry.
 
-    * In the Docker extension, in the **REGISTRIES** section, find the container image created.
+    1. In the Docker extension, in the **REGISTRIES** section, find the container image created.
 
-    * Confirm the name and tag "latest".
+    1. Confirm the name and tag "latest".
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-confirm.png" alt-text="A screenshot showing how to confirm the  information to  build container in Azure in Visual Studio Code." :::
 
