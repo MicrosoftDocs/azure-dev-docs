@@ -1,16 +1,16 @@
 ---
-title: Building advanced Retrieval-Augmented Generation systems
-description: Conceptual article for developers discussing real-world considerations and patterns for  RAG-based chat systems.
+title: Build advanced retrieval-augmented generation systems
+description: A conceptual article for developers to learn about real-world considerations and patterns for retrieval-augmented generation (RAG)-based chat systems.
 ms.date: 11/19/2024
 ms.topic: conceptual
 ms.custom: build-2024-intelligent-apps
 ---
 
-# Building advanced Retrieval-Augmented Generation systems
+# Build advanced retrieval-augmented generation systems
 
-The [previous article](./augment-llm-rag-fine-tuning.md) discussed two options for building a "chat over your data" application, one of the top use cases for generative AI in businesses:
+The [previous article](./augment-llm-rag-fine-tuning.md) discusses two options for building a "chat over your data" application, one of the top use cases for generative AI in businesses:
 
-- Retrieval augmented generation (RAG), which supplements large language model (LLM) training with a database of searchable articles that can be retrieved based on similarity to the users' queries. The articles are passed to the LLM for completion.
+- Retrieval-augmented generation (RAG), which supplements large language model (LLM) training with a database of searchable articles that can be retrieved based on similarity to the users' queries. The articles are passed to the LLM for completion.
 - Fine-tuning, which expands the LLM's training to understand more about the problem domain.
 
 The previous article also discusses when to use each approach, the pros and cons of each approach, and several other considerations.
@@ -48,7 +48,7 @@ For ingestion, developers need to consider the following steps:
 
 ### Content preprocessing and extraction
 
-Clean and accurate content is one of the best ways to improve the overall quality of an RAG-based chat system. To accomplish this, start by analyzing the shape and form of the documents to be indexed. Do the documents conform to specified content patterns like documentation? If not, what types of questions might the documents answer?
+Clean and accurate content is one of the best ways to improve the overall quality of an RAG-based chat system. To get clean, accurate content, start by analyzing the shape and form of the documents to be indexed. Do the documents conform to specified content patterns like documentation? If not, what types of questions might the documents answer?
 
 At a minimum, create steps in the ingestion pipeline to:
 
@@ -59,7 +59,7 @@ At a minimum, create steps in the ingestion pipeline to:
 - Account for content experience (tabs, images, tables)
 - Extract metadata
 
-Some of this information (like metadata, for example) might be useful kept with the document in the vector database for use during the retrieval and evaluation process in the inference pipeline, or combined with the text chunk to persuade the chunk's vector embedding.
+Some of this information (like metadata, for example) might be useful if it's kept with the document in the vector database to use during the retrieval and evaluation process in the inference pipeline. It also can be combined with the text chunk to persuade the chunk's vector embedding.
 
 ### Chunking strategy
 
@@ -69,7 +69,7 @@ Developers must consider:
 
 - **Chunk size optimization**: Determine what is the ideal size of the chunk, and how to designate a chunk. By section? By paragraph? By sentence?
 - **Overlapping and sliding window chunks**: Determine how to divide the content into discrete chunks. Or will the chunks overlap? Or both (a sliding window)?
-- **Small2Big**: When chunking at a granular level like a single sentence, will the content be organized in such a way that it's easy to find the neighboring sentences or containing paragraph? Retrieving this additional information and supplying it to the LLM might provide it with more context when answering the user's query. For more information, see the next section.
+- **Small2Big**: When chunking is done at a granular level like a single sentence, is the content organized so that it's easy to find the neighboring sentences or containing paragraph? Retrieving this additional information and supplying it to the LLM might provide it with more context when answering the user's query. For more information, see the next section.
 
 ### Chunking organization
 
@@ -138,7 +138,7 @@ There are many tasks that developers must take into account, mostly in the form 
 - How do we evaluate the LLM's response to ensure that the LLM's completion answers the user's original query?
 - How do we ensure that the LLM's response complies with our policies?
 
-The entire inference pipeline is running in real time. Although there's no one right way for the preprocessing and post-processing step design, it's likely a combination of programming logic and other LLM calls. One of the most important considerations, then, is the trade-off between building the most accurate and compliant pipeline possible and the cost and latency required to make it happen.
+The entire inference pipeline is running in real time. Although there's no one right way for the preprocessing and post-processing step design, it's likely a combination of programming logic and other LLM calls. One of the most important considerations then is the trade-off between building the most accurate and compliant pipeline possible and the cost and latency required to make it happen.
 
 Let's identify specific strategies in each stage.
 
@@ -170,7 +170,7 @@ Breaking down complex queries into subqueries make them more manageable:
 The results of these subqueries would detail the major theories and discoveries by each physicist. For example:
 
 - For Einstein, contributions might include the theory of relativity, the photoelectric effect, and E=mc^2.
-- For Bohr, contributions might include his model of the hydrogen atom, his work on quantum mechanics, and his principle of complementarity.
+- For Bohr, contributions might include Bohr's model of the hydrogen atom, Bohr's work on quantum mechanics, and Bohr's principle of complementarity.
 
 When these contributions are outlined, they can be assessed to determine:
 
@@ -229,7 +229,7 @@ Finally, the LLM's maximum context window length and the number of tokens requir
 
 To deal with these issues, a post-retrieval processing pipeline might include the following steps:
 
-- **Filtering results**: In this step, developers ensure that the article chunks that are returned by the vector database are relevant to the query. If they are not, the result is ignored when the LLM prompt is composed.
+- **Filtering results**: In this step, developers ensure that the article chunks that are returned by the vector database are relevant to the query. If they aren't, the result is ignored when the LLM prompt is composed.
 - **Re-ranking**: Rank the article chunks that are retrieved from the vector store to ensure that relevant details are near the edges (the beginning and the end) of the prompt.
 - **Prompt compression**: Use a small, inexpensive model to compress and summarize multiple article chunks into a single compressed prompt before sending the prompt to the LLM.
 
@@ -301,13 +301,13 @@ For more information, see these articles:
 
 This article outlines several processes that are aimed at mitigating the possibility of an RAG-based chat system being exploited or compromised. _Red-teaming_ plays a crucial role in ensuring that the mitigations are effective. Red-teaming involves simulating the actions of a potential adversary to uncover potential weaknesses or vulnerabilities in the application. This approach is especially vital in addressing the significant risk of jailbreaking.
 
-Developers need to rigorously assess RAG-based chat system safeguards under various guideline scenarios to effectively test and verify them. This not only ensures robustness but also helps you fine-tune the system’s responses to adhere strictly to defined ethical standards and operational procedures.
+Developers need to rigorously assess RAG-based chat system safeguards under various guideline scenarios to effectively test and verify them. This approach not only ensures robustness, but also helps you fine-tune the system’s responses to strictly adhere to defined ethical standards and operational procedures.
 
 ## Final considerations for application design
 
 Here's a short list of things to consider and other takeaways from this article that might affect your application design decisions:
 
-- Acknowledge the non-deterministic nature of generative AI in your design, planning for variability in outputs and setting up mechanisms to ensure consistency and relevance in responses.
+- Acknowledge the nondeterministic nature of generative AI in your design, planning for variability in outputs and setting up mechanisms to ensure consistency and relevance in responses.
 - Assess the benefits of preprocessing user prompts against the potential increase in latency and costs. Simplifying or modifying prompts before submission might improve response quality but could add complexity and time to the response cycle.
 - Investigate strategies for parallelizing LLM requests to enhance performance. This approach might reduce latency but requires careful management to avoid increased complexity and potential cost implications.
 

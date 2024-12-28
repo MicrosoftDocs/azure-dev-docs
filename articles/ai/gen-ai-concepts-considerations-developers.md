@@ -1,6 +1,6 @@
 ---
-title: Important concepts and considerations for developers building generative AI solutions
-description: Conceptual article for developers building generative AI applications explaining the limitations of LLMs and how to get the best results by modifying prompts, implementing an inference pipeline and tweaking optional API call parameters.
+title: Key concepts and considerations in generative AI
+description: A conceptual article for developers who build generative AI applications. Learn about the limitations of large language models (LLMs) and how to get the best results by modifying prompts, implementing an inference pipeline, and modifying optional API call parameters.
 ms.date: 4/12/2024
 ms.topic: conceptual
 ms.custom: build-2024-intelligent-apps
@@ -8,7 +8,7 @@ ms.custom: build-2024-intelligent-apps
 
 # Key concepts and considerations for building generative AI solutions
 
-Large-language models (LLMs) are amazing, but they have limitations. As a developer, you need to understand those limitations, what LLMs are capable of "out of the box," and how to modify them to get the best results for the generative AI solutions you build. This article identifies several challenges and limiting factors of LLMs. It explains common ways to overcome the challenges and take control of the content generation process regardless of the type of generative AI features you build into your application.
+Large language models (LLMs) are amazing, but they have limitations. As a developer, you need to understand those limitations, what LLMs are capable of "out of the box," and how to modify them to get the best results for the generative AI solutions you build. This article identifies several challenges and limiting factors of LLMs. It explains common ways to overcome the challenges and take control of the content generation process regardless of the type of generative AI features you build into your application.
 
 ## Engineering challenges when working with LLMs
 
@@ -32,7 +32,7 @@ A good starting point to getting the best results from an LLM is to understand w
 
 - **Retrieval-off generation (ROG)**:  Traditional LLMs use this model. The model generates responses based solely on the knowledge it was trained on, without accessing or retrieving any external information during the generation process. The model's knowledge is static and limited to what was included in its training data up to the cutoff date. In addition to creative writing, it can answer questions about information that's readily available on the internet.
 
-- **Retrieval-augmented generation (RAG)**: Combines the generative capabilities of LLMs with the ability to retrieve information from external databases or documents in real time. The model queries an external source to find relevant information. It then uses the information to form its response. This approach allows the model to provide more accurate and up-to-date information than it provide by using its pretrained knowledge alone. Use cases include fact checking, answering questions based on real-time data, or answering questions based on private, domain-specific data.
+- **Retrieval-augmented generation (RAG)**: Combines the generative capabilities of LLMs with the ability to retrieve information from external databases or documents in real time. The model queries an external source to find relevant information. It then uses the information to form its response. This approach allows the model to provide more accurate and up-to-date information than it provides by using its pretrained knowledge alone. Use cases include fact checking, answering questions based on real-time data, or answering questions based on private, domain-specific data.
 
 - **Retrieval-centric generation (RCG)**: Places even more emphasis on the externally retrieved content, often structuring responses around the information fetched from external sources. The model might directly incorporate large segments of retrieved text into its outputs, editing or annotating them to fit the user's query. This approach can be seen as a hybrid between retrieval-based and generative methods, where the balance might heavily favor the information retrieved over the model's own generative capabilities. Use cases include summarization of a longer document, research assistance to provide comparisons and thematic explorations across multiple similar documents, and compilation or collation of different sources of material into a combined output.
 
@@ -83,7 +83,7 @@ Each Azure OpenAI API has a different billing methodology. For processing and ge
 
 Each LLM model (for example, GPT-3.5, GPT-3.5 Turbo, or GPT-4) usually has a different price, which reflects the amount of computation required to process and generate tokens. Many times, price is presented as "price per 1,000 tokens" or "price per 1 million tokens."
 
-This pricing model has a significant impact on how you design the user interactions and the amount of preprocessing and post-processing you add.
+This pricing model has a significant effect on how you design the user interactions and the amount of preprocessing and post-processing you add.
 
 ## System prompts vs. user prompts
 

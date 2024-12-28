@@ -1,6 +1,6 @@
 ---
-title: Introduction to developing generative AI applications for experienced developers
-description: Conceptual overview about integrating generative AI into applications, exploring its business benefits, operational fundamentals, and the potential of large language models (LLMs).
+title: Generative AI applications for developers
+description: A conceptual overview about integrating generative AI into applications, exploring its business benefits, operational fundamentals, and the potential of large language models (LLMs).
 ms.date: 11/05/2024
 ms.topic: conceptual
 ms.custom: build-2024-intelligent-apps, ai-learning-hub
@@ -25,7 +25,7 @@ Businesses view generative AI as a means to improve customer engagement, increas
 Here are a few common scenarios where generative AI can help businesses:
 
 - **Content generation**:
-  - Generate text, code, images, and sound. This can be useful for marketing, sales, IT, internal communications, and more.
+  - Generate text, code, images, and sound. This scenario can be useful for marketing, sales, IT, internal communications, and more.
 - **Natural language processing**:
   - Compose or improve business communications through suggestions or complete generation of messages.
   - "Chat with your data." That is, enable a user to ask questions in a chat experience by using data that's stored in the organization's databases or documents as the basis for answers.
@@ -94,7 +94,7 @@ In this stack of concerns or layers, if you're an application developer who is r
 - Understanding available APIs and SDKs, what is available, and what the various endpoints produce.
 - Understanding related tools and services to help you build all the features that are required for a production-ready generative AI solution.
 - Understanding prompt engineering, like how to achieve the best results by asking or rephrasing questions.
-- Understanding where bottlenecks emerge and how to scale a solution. This includes understanding what is involved in logging or obtaining telemetry without violating customer privacy concerns.
+- Understanding where bottlenecks emerge and how to scale a solution. This area includes understanding what is involved in logging or obtaining telemetry without violating customer privacy concerns.
 - Understanding the characteristics of the various LLMs (their strengths, use cases, benchmarks and what they measure, key differentiations between vendors and models produced by each vendor) to choose the right model for your company's needs.
 - Understand the latest patterns, workflows, and processes used to build effective and resilient generative AI features in your applications.
 
@@ -102,7 +102,7 @@ In this stack of concerns or layers, if you're an application developer who is r
 
 You can use low-code and no-code generative AI tools and services from Microsoft to help you build some or all of your solution. Various Azure services can play pivotal roles. Each contributes to the efficiency, scalability, and robustness of the solution.
 
-### API and SDKs for code-centric approach
+### API and SDKs for a code-centric approach
 
 At the heart of every generative AI solution is an LLM model. Azure OpenAI provides access to all the features that are available in models like GPT-4.
 

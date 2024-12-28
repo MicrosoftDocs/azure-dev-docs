@@ -1,6 +1,6 @@
 ---
 title: Augment a large language model
-description: Conceptual article detailing the creation of a Retrieval-Augmented Generation (RAG)-based chat system, emphasizing integration, optimization, and ethical considerations for delivering contextually relevant responses.
+description: A conceptual article that describes how to create a retrieval-augmented generation (RAG)-based chat system, emphasizing integration, optimization, and ethical considerations for delivering contextually relevant responses.
 ms.date: 11/05/2024
 ms.topic: conceptual
 ms.custom: build-2024-intelligent-apps
@@ -12,7 +12,7 @@ ms.subservice: intelligent-apps
 
 The articles in this series discuss the knowledge retrieval models that large language models (LLMs) use to generate their responses. By default, an LLM has access only to its training data. But you can augment the model to include real-time data or private data.
 
-The first mechanism is *retrieval-augmented generation (RAG)*. RAG is a form of preprocessing that combines semantic search with contextual priming. *Contextual priming* is discussed in more detail in [another article](./gen-ai-concepts-considerations-developers.md)).
+The first mechanism is *retrieval-augmented generation (RAG)*. RAG is a form of preprocessing that combines semantic search with contextual priming. *Contextual priming* is discussed in more detail in [another article](./gen-ai-concepts-considerations-developers.md).
 
 The second mechanism is *fine-tuning*. In fine-tuning, an LLM is further trained on a specific dataset after its initial, broad training. The goal is to adapt the LLM to perform better on tasks or to understand concepts that are related to that dataset. This process helps the model specialize or improve its accuracy and efficiency in handling specific types of input or domains.
 
@@ -33,7 +33,7 @@ The first step to creating an RAG-based chat system is to create a vector data s
 
 :::image type="content" source="./media/vector-embedding-pipeline-highres.png" alt-text="Diagram depicting the different stages of ingestion of documents, starting with chunking, then post-chunking process steps, then calls to the embedding API, then saving the document chunks as vectorized embeddings into the vector database." :::
 
-The diagram represents a *data pipeline*. The pipeline is responsible for the ingestion, processing, and management of data that the system uses. This includes preprocessing data to be stored in the vector database and ensuring that the data that's fed into the LLM is in the correct format.
+The diagram represents a *data pipeline*. The pipeline is responsible for the ingestion, processing, and management of data that the system uses. The pipeline includes preprocessing data to be stored in the vector database and ensuring that the data that's fed into the LLM is in the correct format.
 
 The entire process is driven by the notion of an embedding, which is a numerical representation of data (typically words, phrases, sentences, or even entire documents) that captures the semantic properties of the input in a way that can be processed by machine learning models.
 
@@ -64,7 +64,7 @@ You take the best results from that search and send the matching content with th
 
 ### Challenges and considerations
 
-An RAG system has its set of implementation challenges. Data privacy is paramount. The system must handle user data responsibly, especially when it retrieves and processes information from external sources. Computational requirements can also be significan. Both the retrieval process and the generative processes are resource intensive. Ensuring accuracy and relevance of responses while managing biases in the data or model is another critical consideration. Developers must navigate these challenges carefully to create efficient, ethical, and valuable RAG systems.
+An RAG system has its set of implementation challenges. Data privacy is paramount. The system must handle user data responsibly, especially when it retrieves and processes information from external sources. Computational requirements can also be significant. Both the retrieval process and the generative processes are resource intensive. Ensuring accuracy and relevance of responses while managing biases in the data or model is another critical consideration. Developers must navigate these challenges carefully to create efficient, ethical, and valuable RAG systems.
 
 The next article in this series gives you more information about building data and inference pipelines to enable a production-ready RAG system.
 
@@ -78,11 +78,11 @@ LLMs are trained (pretrained) on a broad dataset, grasping language structure, c
 
 A few considerations:
 
-- **Specialization**: Fine-tuning tailors the model to specific tasks, such as legal document analysis, medical text interpretation, or customer service interactions. This makes the model more effective in those areas.
+- **Specialization**: Fine-tuning tailors the model to specific tasks, such as legal document analysis, medical text interpretation, or customer service interactions. This specialization makes the model more effective in those areas.
 - **Efficiency**: It's more efficient to fine-tune a pretrained model for a specific task than to train a model from scratch. Fine-tuning requires less data and fewer computational resources.
-- **Adaptability**: Fine-tuning allows for adaptation to new tasks or domains that weren't part of the original training data. The adaptability of LLMs make them versatile tools for various applications.
+- **Adaptability**: Fine-tuning allows for adaptation to new tasks or domains that weren't part of the original training data. The adaptability of LLMs makes them versatile tools for various applications.
 - **Improved performance**: For tasks that are different from the data the model was originally trained on, fine-tuning can lead to better performance. Fine-tuning adjusts the model to understand the specific language, style, or terminology that's used in the new domain.
-- **Personalization**: In some applications, fine-tuning can help personalize the model's responses or predictions to fit the specific needs or preferences of a user or organization. However, fine-tuning has specific downsides and limitations. Understanding these can help you decide when to opt for fine-tuning versus alternatives like RAG.
+- **Personalization**: In some applications, fine-tuning can help personalize the model's responses or predictions to fit the specific needs or preferences of a user or organization. However, fine-tuning has specific downsides and limitations. Understanding these factors can help you decide when to opt for fine-tuning versus alternatives like RAG.
 - **Data requirement**: Fine-tuning requires a sufficiently large and high-quality dataset that is specific to the target task or domain. Gathering and curating this dataset can be challenging and resource intensive.
 - **Risk of overfitting**: Overfitting is a risk, especially with a small dataset. Overfitting makes the model perform well on the training data but poorly on new, unseen data. Generalizability is reduced when overfitting occurs.
 - **Cost and resources**: Although less resource intensive than training from scratch, fine-tuning still requires computational resources, especially for large models and datasets. The cost might be prohibitive for some users or projects.
