@@ -1,20 +1,26 @@
 ---
 title: Build and deploy a Python web app with Azure Container Apps
-description: Describes how to create a container from a Python web app and deploy it to Azure Container Apps, a serverless platform for hosting containerized applications.
-ms.topic: conceptual
+description: This tutorial describes how to create a container from a Python web app and deploy it to Azure Container Apps, a serverless platform for hosting containerized applications.
+ms.topic: tutorial
 ms.date: 12/15/2024
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
-# Build and deploy a Python web app with Azure Container Apps and PostgreSQL
+# Tutorial: Build and deploy a Python web app with Azure Container Apps and PostgreSQL
 
-This article is part of a tutorial about how to containerize and deploy a Python web app to [Azure Container Apps][8]. Container Apps enables you to deploy containerized apps without managing complex infrastructure.
+This article is part of a tutorial series about how to containerize and deploy a Python web app to [Azure Container Apps][8]. Container Apps enables you to deploy containerized apps without managing complex infrastructure.
 
-In this part of the tutorial, you learn how to containerize and deploy a Python sample web app (Django or Flask). Specifically, you build the container image in the cloud and deploy it to Azure Container Apps. You define environment variables that enable the container app to connect to an [Azure Database for PostgreSQL - Flexible Server][10] instance, where the sample app stores data.
+In this tutorial, you:
 
-This service diagram highlights the components covered in this article: building and deploying a container image.
+> [!div class="checklist"]
+>
+> * Containerize a Python sample web app (Django or Flask) by building a container image in the cloud.
+> * Deploy the container image to Azure Container Apps.
+> * Define environment variables that enable the container app to connect to an [Azure Database for PostgreSQL - Flexible Server][10] instance, where the sample app stores data.
 
-:::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png" alt-text="A screenshot of the services in the Tutorial - Deploy a Python App on Azure Container Apps. Section highlighted is what is covered in this article." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png":::
+This diagram highlights the tasks in this tutorial: building and deploying a container image.
+
+:::image type="content" source="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png" alt-text="Diagram of services involved in deploying a Python app on Azure Container Apps, with the section about building an image manually highlighted." lightbox="./media/tutorial-container-apps/service-diagram-overview-for-tutorial-deploy-python-azure-container-apps-deploy.png":::
 
 ## Prerequisites
 
@@ -22,11 +28,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### [Azure CLI](#tab/azure-cli)
 
-Azure CLI commands can be run in the [Azure Cloud Shell][4] or on a workstation with the [Azure CLI][7] installed.
+You can run Azure CLI commands in [Azure Cloud Shell][4] or on a workstation with the [Azure CLI][7] installed.
 
-If you're running locally, follow these steps to sign in and install the necessary modules for this tutorial.
+If you're running locally, follow these steps to sign in and install the necessary modules for this tutorial:
 
-1. Sign in to Azure and authenticate, if needed:
+1. Sign in to Azure and authenticate, if necessary:
 
     ```azurecli
     az login
@@ -38,15 +44,15 @@ If you're running locally, follow these steps to sign in and install the necessa
     az upgrade
     ```
 
-1. Install or upgrade the *containerapp* and *rdbms-connect* Azure CLI extensions with the [az extension add][14] command.
+1. Install or upgrade the *containerapp* and *rdbms-connect* Azure CLI extensions by using the [az extension add][14] command:
 
     ```azurecli
     az extension add --name containerapp --upgrade
     az extension add --name rdbms-connect --upgrade
     ```
 
-    > [!Note]
-    > To list the extensions installed on your system, you can use the [az extension list](/cli/azure/extension#az-extension-list) command. For example,
+    > [!NOTE]
+    > To list the extensions installed on your system, you can use the [az extension list](/cli/azure/extension#az-extension-list) command. For example:
     >
     > ```azurecli
     > az extension list --query [].name --output tsv
@@ -54,11 +60,11 @@ If you're running locally, follow these steps to sign in and install the necessa
 
 ### [VS Code](#tab/vscode-aztools)
 
-Make sure the following extensions are installed:
+Make sure the following extensions are installed in Visual Studio Code (VS Code):
 
-* [Docker extension][6] for VS Code.
-* [Azure Databases extension][26] for VS Code.
-* [Azure Container Apps extension][11] for VS Code.
+* [Docker extension][6]
+* [Azure Databases extension][26]
+* [Azure Container Apps extension][11]
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -72,7 +78,7 @@ Fork and clone the sample code to your developer environment.
 
 1. Go to the GitHub repository of the sample app ([Django][1] or [Flask][2]) and select **Fork**.
 
-    Follow the steps to fork the directory to your GitHub account. You can also download the code repo directly to your local machine without forking or a GitHub account, however, you won't be able to set up CI/CD discussed later in the tutorial.
+    Follow the steps to fork the repo to your GitHub account. You can also download the code repo directly to your local machine without forking or a GitHub account. But if you use the download method, you won't be able to set up CI/CD as discussed later in the tutorial.
 
 1. Use the [git clone][21] command to clone the forked repo into the *python-container* folder:
 
@@ -84,7 +90,7 @@ Fork and clone the sample code to your developer environment.
     # git clone https://github.com/$USERNAME/msdocs-python-flask-azure-container-apps.git python-container
     ```
 
-1. Change directory.
+1. Change the directory:
 
     ```console
     cd python-container
@@ -92,11 +98,11 @@ Fork and clone the sample code to your developer environment.
 
 ## Build a container image from web app code
 
-After following these steps, you'll have an Azure Container Registry that contains a Docker container image built from the sample code.
+After you follow these steps, you'll have an Azure Container Registry instance that contains a Docker container image built from the sample code.
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Create a resource group with the [az group create][17] command.
+1. Create a resource group by using the [az group create][17] command:
 
     ```azurecli
     az group create \
@@ -104,9 +110,9 @@ After following these steps, you'll have an Azure Container Registry that contai
         --location <location>
     ```
 
-    *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
+    Replace *\<location>* with one of the Azure location `Name` values from the output of the command `az account list-locations -o table`.
 
-1. Create a container registry with the [az acr create][18] command.
+1. Create a container registry by using the [az acr create][18] command:
 
     ```azurecli
     az acr create \
@@ -116,9 +122,9 @@ After following these steps, you'll have an Azure Container Registry that contai
         --admin-enabled
     ```
 
-    *\<registry-name>* must be unique within Azure, and contain 5-50 alphanumeric characters.
+    The name that you use for *\<registry-name>* must be unique within Azure, and it must contain 5 to 50 alphanumeric characters.
 
-1. Sign in to the registry using the [az acr login][19] command.
+1. Sign in to the registry by using the [az acr login][19] command:
 
     ```azurecli
     az acr login --name <registry-name>
