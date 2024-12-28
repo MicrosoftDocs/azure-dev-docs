@@ -10,7 +10,7 @@ ms.custom: devx-track-python, py-fresh-zinc, devx-track-azurecli
 
 This article is part of a tutorial about how to containerize and deploy a Python web app to Azure App Service. App Service enables you to run containerized web apps and deploy through continuous integration/continuous deployment (CI/CD) capabilities with Docker Hub, Azure Container Registry, and Visual Studio Team Services. In this part of the tutorial, you learn how to build the containerized Python web app in the cloud.
 
-In the previous *optional* part of this tutorial, a container image was build and run locally. In contrast, in this part of the tutorial, you build (containerize) a Python web app into a Docker image directly in [Azure Container Registry](/azure/container-registry/container-registry-intro). Building the image in Azure is typically faster and easier than building locally and then pushing the image to a registry. Also, building in the cloud doesn't require Docker to be running in your dev environment.
+In the previous *optional* part of this tutorial, a container image was built and run locally. In contrast, in this part of the tutorial, you build (containerize) a Python web app into a Docker image directly in [Azure Container Registry](/azure/container-registry/container-registry-intro). Building the image in Azure is typically faster and easier than building locally and then pushing the image to a registry. Also, building in the cloud doesn't require Docker to be running in your dev environment.
 
 Once the Docker image is in Azure Container Registry, it can be deployed to Azure App service.
 
@@ -64,9 +64,9 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 These steps require the [Docker extension](https://code.visualstudio.com/docs/containers/overview) for VS Code.
 
-1. Select **F1** or **CTRL+SHIFT+P** to open the command palette. Then type "registry" and select the **Azure Container Registry: Create Registry...** task.
+1. Select **F1** or **CTRL+SHIFT+P** to open the command palette. Then type "registry" and select the **Azure Container Registry: Create Registry** task.
 
-    Alternatively, in the Docker extension **REGISTRIES** section, right-click your subscription and select **Create Registry**. This UI action starts the same create registry task.
+    Alternatively, in the Docker extension **REGISTRIES** section, right-click your subscription, and select **Create Registry**. This UI action starts the same create registry task.
 
 1. Follow the prompts and enter the following values:
 
@@ -80,7 +80,7 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-create-registry.gif" lightbox="./media/tutorial-container-web-app/visual-studio-code-create-registry.gif" alt-text="An animated GIF showing how to create a registry in Visual Studio Code." :::
 
-1. In the Docker extension, in the **REGISTRIES** section, find the registry you created, right-click and select **View Properties**.
+1. In the Docker extension, in the **REGISTRIES** section, find the registry you created, right-click, and select **View Properties**.
 
     Look for the `loginServer` key value pair in the output. The value is the fully qualified name of the registry.
 
@@ -103,19 +103,19 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
     When you're finished, select **Review + create**. After the validation is complete, select **Create**.
 
-1. After the deployment is complete, go to the new registry and find the fully qualified name.
+1. After the deployment completes, go to the new registry, and find the fully qualified name.
 
-    * On the **service menu**, select **Overview**.
-    * Copy the **Login server** value. It should be a fully qualified name with "azurecr.io".
+    1. On the **service menu**, select **Overview**.
+    1. Copy the **Login server** value. It should be a fully qualified name with "azurecr.io".
 
-    :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-login-server.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-login-server.png" alt-text="A screenshot showing how to find the login server value  for a registry in Azure portal." :::
+    :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-login-server.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-login-server.png" alt-text="A screenshot that shows how to find the login server value for the registry in Azure portal." :::
 
-1. The admin account is required to deploy a container image from a registry to Azure Web Apps for Containers. Enable the admin user:
+1. The admin account is required to deploy a container image from a registry to Azure Web Apps for Containers.
 
     1. On the **service menu**, select **Access Keys**.
     1. Select **Enabled** for the **Admin User**.
 
-    :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-enable-admin-user.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-enable-admin-user.png" alt-text="A screenshot showing how to enable the admin user for the registry in Azure portal." :::
+    :::image type="content" source="./media/tutorial-container-web-app/portal-create-registry-enable-admin-user.png" lightbox="./media/tutorial-container-web-app/portal-create-registry-enable-admin-user.png" alt-text="A screenshot that shows how to enable the admin user for the registry in Azure portal." :::
 
     The registry [admin account](/azure/container-registry/container-registry-authentication#admin-account) is needed when you use the Azure portal to deploy a container image as is shown in this tutorial. The admin account is only used during the creation of the App Service. After the App Service is created, managed identity is used to pull images from the registry and the admin account can be disabled.
 
@@ -168,9 +168,9 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-registries.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-registries.png" alt-text="A screenshot showing how to check that Azure is signed into Docker Extension in Visual Studio Code." :::
 
-1. Select **F1** or **CTRL+SHIFT+P** to open the command palette, type "registry", and select the **Azure Container Registry: Build Image in Azure...** task.
+1. Select **F1** or **CTRL+SHIFT+P** to open the command palette, type "registry", and select the **Azure Container Registry: Build Image in Azure** task.
 
-    If you don't see the task, make sure that **Azure** appears under **REGISTRIES** in the Docker extension. You can also right-click the *Dockerfile* and select **Build Image in Azure...** to run the task.
+    If you don't see the task, make sure that **Azure** appears under **REGISTRIES** in the Docker extension. You can also right-click the *Dockerfile* and select **Build Image in Azure** to run the task.
 
 1. Follow the prompts and enter the following values to build the image.
 
@@ -180,7 +180,7 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
     :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-prompts.gif" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-prompts.gif" alt-text="A screenshot showing how to provide information to  build container in Azure in Visual Studio Code." :::
 
-    Check the **OUTPUT** window for progress and information on the build. If the get a credentials error, right-click the registry in the **REGISTRIES** section of the Docker extension and select **Refresh**.
+    Check the **OUTPUT** window for progress and information on the build. If you get a credentials error, right-click the registry in the **REGISTRIES** section of the Docker extension and select **Refresh**.
 
 1. Confirm the image in the Azure Container Registry.
 
