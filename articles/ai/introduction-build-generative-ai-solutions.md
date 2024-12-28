@@ -75,7 +75,7 @@ The same is true for the field of AI. You can understand and appreciate the theo
 
 Here's an oversimplified representation of the layers of knowledge that are required to implement generative AI features in a new or existing application:
 
-:::image type="content" source="./media/ai-stack-developers.png" alt-text="Diagram of layers of knowledge. At the bottom, a box containing the words foundational data science, artificial intelligent research, statistics, and probability theory. The next level up, the words training large language models. The next level up, building services, tooling, and developing APIs. And at the highest level, application layer, patterns, and processes.":::
+:::image type="content" source="./media/ai-stack-developers.png" alt-text="Diagram that depicts the layers of knowledge that are required to implement generative AI features in an application.":::
 
 At the lowest level, data scientists are doing data science research to solve or improve AI based on a deep mathematical understanding of statistics, probability theory, and so on.
 
