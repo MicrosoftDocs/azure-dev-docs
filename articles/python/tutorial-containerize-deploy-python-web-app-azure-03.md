@@ -170,8 +170,6 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
 1. Select **F1** or **CTRL+SHIFT+P** to open the command palette, type "registry", and select the **Azure Container Registry: Build Image in Azure...** task.
 
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-build-image-task.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-build-image-task.png" alt-text="A screenshot showing how to invoke build container in Azure task in Visual Studio Code." :::
-
     If you don't see the task, make sure that **Azure** appears under **REGISTRIES** in the Docker extension. You can also right-click the *Dockerfile* and select **Build Image in Azure...** to run the task.
 
 1. Follow the prompts and enter the following values to build the image.
