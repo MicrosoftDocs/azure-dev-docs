@@ -94,7 +94,7 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
     Confirm that the container you built appears under the **REGISTRIES** section of the Docker extension. If it doesn't, right-click the registry name and select **Refresh**.
 
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-refresh-registries.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-refresh-registries.png" alt-text="A screenshot showing how to fresh registries in the Docker extension for Visual Studio Code." ::: |
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-refresh-registries.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-refresh-registries.png" alt-text="A screenshot showing how to fresh registries in the Docker extension for Visual Studio Code." :::
 
 1. Select **F1** or **CTRL+SHIFT+P** to open the command palette, type "Docker Registries", and select the **Docker Registries: Deploy Image to Azure App Service...** task.
 
@@ -109,7 +109,7 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
     * Select a location: Use the same location as the resource group.
     * Select a Linux App Service plan: Use an existing or create a new one.
 
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-deploy-task-prompts.gif" lightbox="./media/tutorial-container-web-app/visual-studio-code-deploy-task-prompts.gif" alt-text="A screenshot showing how to specify the information to deploy Docker image to App Service in Visual Studio Code." ::: |
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-deploy-task-prompts.gif" lightbox="./media/tutorial-container-web-app/visual-studio-code-deploy-task-prompts.gif" alt-text="A screenshot showing how to specify the information to deploy Docker image to App Service in Visual Studio Code." :::
 
 1. View the **OUTPUT** window for details of the deployment. One of the output lines is "Granting permission for App Service to pull image from ACR...", which the App Service accesses the registry using managed identity.
 
@@ -198,7 +198,7 @@ Go to the [Azure portal](https://portal.azure.com/) to follow these steps.
 
 ---
 
-## 3. Configure connection to MongoDB
+## Configure connection to MongoDB
 
 In this step, you specify environment variables needed to connect to MongoDB.
 
@@ -241,14 +241,14 @@ To configure environment variables for the web app from VS Code, you must have t
 
     1. Select **Add new setting...**.
 
-    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-create-app-settings.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-create-app-settings.png" alt-text="A screenshot showing how to add a setting to the App Service in VS Code." ::: |
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-create-app-settings.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-create-app-settings.png" alt-text="A screenshot showing how to add a setting to the App Service in VS Code." :::
 
 1. Each time you add a new setting, a dialog box appears at the top of the VS Code window where you can add the setting name followed by its value. Add the following settings:
 
-    * CONNECTION_STRING &rarr; A connection string that starts with "mongodb://".
-    * DB_NAME &rarr; Use "restaurants_reviews".
-    * COLLECTION_NAME &rarr; Use "restaurants_reviews".
-    * WEBSITES_PORT &rarr; Use "8000" for Django and "5000" for Flask. This environment variable specifies the port on which the container is listening.
+    * CONNECTION_STRING: A connection string that starts with "mongodb://".
+    * DB_NAME: Use "restaurants_reviews".
+    * COLLECTION_NAME: Use "restaurants_reviews".
+    * WEBSITES_PORT: Use "8000" for Django and "5000" for Flask. This environment variable specifies the port on which the container is listening.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -259,7 +259,7 @@ To configure environment variables for the web app from VS Code, you must have t
 
 ---
 
-## 4. Browse the site
+## Browse the site
 
 To verify the site is running, go to `https://<website-name>.azurewebsites.net`; where website name is your app service name. If successful, you should see the restaurant review sample app. It can take a few moments for the site to start the first time. When the site appears, add a restaurant and a review for that restaurant to confirm the sample app is functioning.
 
@@ -292,7 +292,7 @@ In the Azure Tools extension for Visual Studio Code:
 
 ---
 
-## 5. Troubleshoot deployment
+## Troubleshoot deployment
 
 If you don't see the sample app, try the following steps.
 
