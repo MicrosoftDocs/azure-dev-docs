@@ -90,12 +90,32 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
 These steps require the [Docker extension](https://code.visualstudio.com/docs/containers/overview) for VS Code.
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Include showing how refresh registries in Docker extension in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-refresh-registries-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-refresh-registries.png" alt-text="A screenshot showing how to fresh registries in the Docker extension for Visual Studio Code." ::: |
-| [!INCLUDE [Include showing how call up deploy image command in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-2.md>)] |  :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-docker-registries-build-command-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-docker-registries-build-command.png" alt-text="A screenshot showing how to find the deploy Docker image to App Service task in Visual Studio Code." ::: |
-| [!INCLUDE [Include showing how to specify the deployment in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-3.md>)] |  :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-deploy-task-prompts-240px.gif" lightbox="./media/tutorial-container-web-app/visual-studio-code-deploy-task-prompts.gif" alt-text="A screenshot showing how to specify the information to deploy Docker image to App Service in Visual Studio Code." ::: |
-| [!INCLUDE [Include showing how to verify the deployment in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-4.md>)] |  :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-site-deployed-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-site-deployed.png" alt-text="A screenshot showing prompt when Docker image is deployed App Service in Visual Studio Code." ::: |
+1. Refresh the Azure Container Registry in the Docker extension.
+
+    Confirm that the container you built appears under the **REGISTRIES** section of the Docker extension. If it doesn't, right-click the registry name and select **Refresh**.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-refresh-registries.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-refresh-registries.png" alt-text="A screenshot showing how to fresh registries in the Docker extension for Visual Studio Code." ::: |
+
+1. Select **F1** or **CTRL+SHIFT+P** to open the command palette, type "Docker Registries", and select the **Docker Registries: Deploy Image to Azure App Service...** task.
+
+1. Follow the prompts and enter the following values to deploy the image:
+
+    * Select registry provider: "Azure"
+    * Select registry: Enter the name of the registry you created earlier in this tutorial.
+    * Select repository: Enter the repository name "msdocspythoncontainerwebapp". If you don't see this repo, refresh the Docker extension **REGISTRIES** section.
+    * Select tag: "latest"
+    * Enter a globally unique name for the web app: Enter a name that is globally unique to Azure App Service. For example, if you use "msdocs-python-container-web-app", the web app URL would be `http://msdocs-python-container-web-app.azurewebsites.net`.
+    * Select a resource group: Use the resource group that contains the Azure Container Registry you created earlier.
+    * Select a location: Use the same location as the resource group.
+    * Select a Linux App Service plan: Use an existing or create a new one.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-deploy-task-prompts.gif" lightbox="./media/tutorial-container-web-app/visual-studio-code-deploy-task-prompts.gif" alt-text="A screenshot showing how to specify the information to deploy Docker image to App Service in Visual Studio Code." ::: |
+
+1. View the **OUTPUT** window for details of the deployment. One of the output lines is "Granting permission for App Service to pull image from ACR...", which the App Service accesses the registry using managed identity.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-site-deployed.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-site-deployed.png" alt-text="A screenshot showing prompt when Docker image is deployed App Service in Visual Studio Code." :::
+
+    The final site `https://<app-name>.azurewebsites.net` isn't ready yet because you need to specify MongoDB info.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -153,10 +173,16 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ### [VS Code](#tab/vscode-aztools)
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Include showing how to confirm managed identity for an App Service in VS Code](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-5.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-create-app-output-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-create-app-output.png" alt-text="A screenshot showing how to confirm managed identity was set for an App Service in the Visual Studio Code output window." ::: |
-| [!INCLUDE [Include showing how to check webhook configuration in Azure portal](<./includes/tutorial-container-web-app/app-service-create-visual-studio-code-6.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-create-app-webhook-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" alt-text="A screenshot showing how to check a webhook configuration." ::: |
+1. When you deploy with Visual Studio Code, managed identity is already set for the App Service to pull images from the registry. You can confirm managed identity is enabled by viewing logs in the **OUTPUT** window and looking for the message "Granting permission for App Service to pull image from ACR...".
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-create-app-output.png" lightbox="./media/tutorial-container-web-app/visual-studio-create-app-output.png" alt-text="A screenshot showing how to confirm managed identity was set for an App Service in the Visual Studio Code output window." :::
+
+1. During the deploy with VS Code, a webhook is created that enables the web app to pull new images from the Azure Container Registry.
+
+    > [!IMPORTANT]
+    > Review the webhooks configuration in the Azure Portal to confirm the **Service URI** ends with "/api/registry/webhook". To review the service URI, open the Docker extension in VS Code and find the registry you created. Right-click the registry and select **Open in Portal**. The registry opens in the Azure portal. Select **Webhooks** on the **service menu** of the registry.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" lightbox="./media/tutorial-container-web-app/visual-studio-create-app-webhook.png" alt-text="A screenshot showing how to check a webhook configuration." :::
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -205,10 +231,24 @@ az webapp config appsettings set \
 
 To configure environment variables for the web app from VS Code, you must have the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) installed and be signed into Azure from VS Code.
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Create app settings in VS Code 1](<./includes/tutorial-container-web-app/connect-mongodb-visual-studio-code-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-create-app-settings-240px.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-create-app-settings.png" alt-text="A screenshot showing how to add a setting to the App Service in VS Code." ::: |
-| [!INCLUDE [Create app settings in VS Code 2](<./includes/tutorial-container-web-app/connect-mongodb-visual-studio-code-2.md>)] |  |
+1. In the Azure Tools extension for Visual Studio Code:
+
+    1. Expand **RESOURCES** and find **App Services** under your subscription. (Make sure you viewing resources by **Group by Resource Type**.)
+
+    1. Expand **App Services** and find the web app you just created.
+
+    1. Expand your web app and right-click on **Application Settings**.
+
+    1. Select **Add new setting...**.
+
+    :::image type="content" source="./media/tutorial-container-web-app/visual-studio-code-create-app-settings.png" lightbox="./media/tutorial-container-web-app/visual-studio-code-create-app-settings.png" alt-text="A screenshot showing how to add a setting to the App Service in VS Code." ::: |
+
+1. Each time you add a new setting, a dialog box appears at the top of the VS Code window where you can add the setting name followed by its value. Add the following settings:
+
+    * CONNECTION_STRING &rarr; A connection string that starts with "mongodb://".
+    * DB_NAME &rarr; Use "restaurants_reviews".
+    * COLLECTION_NAME &rarr; Use "restaurants_reviews".
+    * WEBSITES_PORT &rarr; Use "8000" for Django and "5000" for Flask. This environment variable specifies the port on which the container is listening.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -236,9 +276,13 @@ az webapp browse  --name $APP_SERVICE_NAME --resource-group $RESOURCE_GROUP_NAME
 
 ### [VS Code](#tab/vscode-aztools)
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Browse website in VS Code](<./includes/tutorial-container-web-app/app-service-browse-vs-code.md>)] | :::image type="content" source="./media/tutorial-container-web-app/app-service-vs-code-browse-240px.png" lightbox="./media/tutorial-container-web-app/app-service-vs-code-browse.png" alt-text="A screenshot showing how to browse an App Service in VS Code." ::: |
+In the Azure Tools extension for Visual Studio Code:
+
+1. Expand **RESOURCES** and find **App Services** under your subscription. (Make sure you viewing resources by **Group by Resource Type**.)
+
+1. Right-click the App Service and select **Browse Website**.
+
+    :::image type="content" source="./media/tutorial-container-web-app/app-service-vs-code-browse.png" lightbox="./media/tutorial-container-web-app/app-service-vs-code-browse.png" alt-text="A screenshot showing how to browse an App Service in VS Code." :::
 
 ### [Azure portal](#tab/azure-portal)
 
