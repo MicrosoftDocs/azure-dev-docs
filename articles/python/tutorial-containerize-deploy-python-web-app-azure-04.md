@@ -121,12 +121,39 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create the web app.
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Include showing how to start create process of app service in Azure portal](<./includes/tutorial-container-web-app/app-service-create-azure-portal-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/azure-portal-create-web-app-start-create-240px.png" lightbox="./media/tutorial-container-web-app/azure-portal-create-web-app-start-create.png" alt-text="A screenshot showing how to start the creation of a web app in the Azure portal." ::: |
-| [!INCLUDE [Include showing how to specify basics of app service in Azure portal](<./includes/tutorial-container-web-app/app-service-create-azure-portal-2.md>)] | :::image type="content" source="./media/tutorial-container-web-app/azure-portal-create-web-app-basics-240px.png" lightbox="./media/tutorial-container-web-app/azure-portal-create-web-app-basics.png" alt-text="A screenshot showing how to fill out the basic deployment information about a web app in the Azure portal." ::: |
-| [!INCLUDE [Include showing how to specify Docker container of app service info in Azure portal](<./includes/tutorial-container-web-app/app-service-create-azure-portal-3.md>)] | :::image type="content" source="./media/tutorial-container-web-app/azure-portal-create-web-app-docker-240px.png" lightbox="./media/tutorial-container-web-app/azure-portal-create-web-app-docker.png" alt-text="A screenshot showing how to fill out the Docker deployment information about a web app in the Azure portal." ::: |
-| [!INCLUDE [Include showing how to finish the create process of app service in Azure portal](<./includes/tutorial-container-web-app/app-service-create-azure-portal-4.md>)] |  |
+1. Create a new App Service:
+
+    * In the Azure portal search, search for "App Services", and select **App Services**.
+    * Select **+ Create** to start the create process.
+
+1. On the basic settings of the App Service, specify:
+
+    * **Resource Group**: Use the same resource group that the Azure Container Registry is in.
+    * **Name**: Use a unique name that will be `http://<app-name>.azurewebsites.net`.
+    * **Publish**: Use **Docker container** so that the registry image you build is used.
+    * **Operating System**: **Linux**
+    * **Region**: Use the same region as the resource group and Azure Container Registry.
+    * **Linux Plan**: Select an existing Linux plan or use a new one.
+    * **Sku and size**: Select **Basic B1**. Select the **Change size** link to access more options.
+    * **Zone redundancy**: Select **Disabled** if this option is available for the SKU selected.
+
+    Select **Next: Docker** to continue.
+
+    :::image type="content" source="./media/tutorial-container-web-app/azure-portal-create-web-app-basics.png" lightbox="./media/tutorial-container-web-app/azure-portal-create-web-app-basics.png" alt-text="A screenshot showing how to fill out the basic deployment information about a web app in the Azure portal." :::
+
+1. Specify Docker information of the App Service, including:
+
+    * **Options**: Select **Single Container**.
+    * **Image Source**: Select **Azure Container Registry**.
+    * **Registry**: The registry you created for this tutorial.
+    * **Image**: An image in the registry.
+    * **Tag**: "latest"
+
+    :::image type="content" source="./media/tutorial-container-web-app/azure-portal-create-web-app-docker.png" lightbox="./media/tutorial-container-web-app/azure-portal-create-web-app-docker.png" alt-text="A screenshot showing how to fill out the Docker deployment information about a web app in the Azure portal." :::
+
+    The registry [admin account](/azure/container-registry/container-registry-authentication#admin-account) is needed when you use the Azure portal to deploy a container image. If the admin account is not enabled, you'll see an error when specifying the **Image**.  After the App Service is created, managed identity is used to pull images from the registry and the admin account can be disabled.
+
+1. Go to **Review + Create** page and select **Create**.
 
 ---
 
@@ -188,13 +215,65 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 Go to the [Azure portal](https://portal.azure.com/) to follow these steps.
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Include showing how to enable managed identity for an App Service in Azure portal](<./includes/tutorial-container-web-app/app-service-create-azure-portal-5.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-managed-identity-enable-240px.png" lightbox="./media/tutorial-container-web-app/portal-web-app-managed-identity-enable.png" alt-text="A screenshot showing how to enable managed identity for an App Service in Azure portal." ::: |
-| [!INCLUDE [Include showing how to add an Azure role assignment for an app service in Azure portal](<./includes/tutorial-container-web-app/app-service-create-azure-portal-6.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-managed-identity-role-assignments-button-240px.png" lightbox="./media/tutorial-container-web-app/portal-web-app-managed-identity-role-assignments-button.png" alt-text="A screenshot showing how to add an Azure role assignment for an App Service in Azure portal." ::: |
-| [!INCLUDE [Include showing how to add an Azure role assignment for an app service in Azure portal](<./includes/tutorial-container-web-app/app-service-create-azure-portal-7.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-managed-identity-add-role-240px.png" lightbox="./media/tutorial-container-web-app/portal-web-app-managed-identity-add-role.png" alt-text="A screenshot showing an AcrPull role assignment for an App Service in Azure portal." ::: |
-| [!INCLUDE [Include showing how to specify Docker container deployment with managed identity of app service in Azure portal](<./includes/tutorial-container-web-app/app-service-create-azure-portal-8.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-managed-identity-in-deployment-240px.png" lightbox="./media/tutorial-container-web-app/portal-web-app-managed-identity-in-deployment.png" alt-text="A screenshot showing how to enable managed identity and container deployment for an App Service in Azure portal." :::  |
-| [!INCLUDE [Include showing how to specify an Azure Container Registry webhook in Azure portal](<./includes/tutorial-container-web-app/app-service-create-azure-portal-9.md>)] | :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-registry-webhook-240px.png" lightbox="./media/tutorial-container-web-app/portal-web-app-registry-webhook.png" alt-text="A screenshot showing how to create a webhook for Azure Container Registry in Azure portal." ::: |
+1. Enabled managed identity.
+
+    * Go to the **Identity** resource of the App Service.
+    * Select status **On** under **System assigned**.
+    * Select **Save**.
+    * Select **Yes** in the prompt to continue.
+
+    :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-managed-identity-enable.png" lightbox="./media/tutorial-container-web-app/portal-web-app-managed-identity-enable.png" alt-text="A screenshot showing how to enable managed identity for an App Service in Azure portal." :::
+
+1. In the **Identity** resource of the App Service and where you just enabled managed identity, select **Azure role assignments**.
+
+    :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-managed-identity-role-assignments-button.png" lightbox="./media/tutorial-container-web-app/portal-web-app-managed-identity-role-assignments-button.png" alt-text="A screenshot showing how to add an Azure role assignment for an App Service in Azure portal." :::
+
+1. Add the "AcrPull" role for the system assigned managed identity. The AcrPull role allows the App Service to pull images from the Azure Container Registry.
+
+    In "Azure role assignments", select **+ Add role assignment** and follow the prompts to add:
+
+    * **Scope**: "Resource group"
+    * **Subscription**: Your subscription.
+    * **Resource group**: The group with the Azure Container Registry and App Service.
+    * **Role**: "AcrPull"
+
+    Select **Save** to save the role.
+
+    :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-managed-identity-add-role.png" lightbox="./media/tutorial-container-web-app/portal-web-app-managed-identity-add-role.png" alt-text="A screenshot showing an AcrPull role assignment for an App Service in Azure portal." :::
+
+    For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+
+1. Configure App Service deployment to use managed identity.
+
+    * Go to the **Deployment Center** resource of the App Service.
+    * In the **Settings** tab, set **Authentication** to **Managed Identity**.
+    * Select **Save** to save the changes.
+
+    :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-managed-identity-in-deployment.png" lightbox="./media/tutorial-container-web-app/portal-web-app-managed-identity-in-deployment.png" alt-text="A screenshot showing how to enable managed identity and container deployment for an App Service in Azure portal." :::
+
+1. Create a webhook that triggers updates to App Service when new images are pushed to the Azure Container Registry.
+
+    First, get the application scope credential:
+
+    * Go to the **Deployment Center** resource of the App Service.
+    * In the **FTPS credentials** tab, get the **Password** value under **Application Scope**.
+
+    Then, create the webhook using the credential value and App Service name:
+
+    * Go to the Azure Container Registry that has the repo and container image and select the **Webhooks** resource page.
+    * On the webhooks page, select **+ Add**.
+    * Specify the parameters as follows:
+
+       * **Webhook name**: Enter "webhookforwebapp".
+       * **Location**: Use the location of the registry.
+       * **Service URI**: A string that is combination of App Service name and credential. See below.
+       * **Actions**: Select **push**.
+       * **Status**: Select **On**.
+       * **Scope**: Enter "msdocspythoncontainerwebapp:*".
+
+        :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-registry-webhook.png" lightbox="./media/tutorial-container-web-app/portal-web-app-registry-webhook.png" alt-text="A screenshot showing how to create a webhook for Azure Container Registry in Azure portal." :::
+
+        The service URI is formatted as "https://$" + APP_SERVICE_NAME + ":" + CREDENTIAL + "@" + APP_SERVICE_NAME + ".scm.azurewebsites.net/api/registry/webhook". For example: "https://$msdocs-python-container-web-app:credential@msdocs-python-container-web-app.scm.azurewebsites.net/api/registry/webhook".
 
 ---
 
@@ -252,10 +331,27 @@ To configure environment variables for the web app from VS Code, you must have t
 
 ### [Azure portal](#tab/azure-portal)
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Create app settings in Azure portal 1](<./includes/tutorial-container-web-app/connect-mongodb-portal-1.md>)] | :::image type="content" source="./media/tutorial-container-web-app/azure-portal-create-app-settings-panel-240px.png" lightbox="./media/tutorial-container-web-app/azure-portal-create-app-settings-panel.png" alt-text="A screenshot showing how to add a setting to the App Service in Azure portal." ::: |
-| [!INCLUDE [Create app settings in Azure portal 2](<./includes/tutorial-container-web-app/connect-mongodb-portal-2.md>)] | :::image type="content" source="./media/tutorial-container-web-app/azure-portal-app-settings-confirm-240px.png" lightbox="./media/tutorial-container-web-app/azure-portal-app-settings-confirm.png" alt-text="A screenshot showing how to confirm settings of the App Service in Azure portal." ::: |
+1. Go to the App Service page for the web app.
+
+    * Select **Configuration** under **Settings** on the left resource menu.
+
+    * Select **Application settings** at the top of the page.
+
+    :::image type="content" source="./media/tutorial-container-web-app/azure-portal-create-app-settings-panel.png" lightbox="./media/tutorial-container-web-app/azure-portal-create-app-settings-panel.png" alt-text="A screenshot showing how to add a setting to the App Service in Azure portal." :::
+
+1. Create application settings:
+
+    1. Select **+ New application setting** to create settings for each of the following values:
+
+        * CONNECTION_STRING: A connection string that starts with "mongodb://".
+        * DB_NAME: Use "restaurants_reviews".
+        * COLLECTION_NAME: Use "restaurants_reviews".
+
+    1. Confirm you have three settings with the correct values.
+
+        :::image type="content" source="./media/tutorial-container-web-app/azure-portal-app-settings-confirm.png" lightbox="./media/tutorial-container-web-app/azure-portal-app-settings-confirm.png" alt-text="A screenshot showing how to confirm settings of the App Service in Azure portal." :::
+
+    1. Select **Save** to apply the settings.
 
 ---
 
@@ -286,9 +382,9 @@ In the Azure Tools extension for Visual Studio Code:
 
 ### [Azure portal](#tab/azure-portal)
 
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Browse website in Azure portal](<./includes/tutorial-container-web-app/app-service-browse-portal.md>)] | :::image type="content" source="./media/tutorial-container-web-app/app-service-portal-browse-240px.png" lightbox="./media/tutorial-container-web-app/app-service-portal-browse.png" alt-text="A screenshot showing how to browse an App Service in Azure portal." ::: |
+On the **Overview** resource page of the App Service page select **Browse**.
+
+:::image type="content" source="./media/tutorial-container-web-app/app-service-portal-browse.png" lightbox="./media/tutorial-container-web-app/app-service-portal-browse.png" alt-text="A screenshot showing how to browse an App Service in Azure portal." :::
 
 ---
 
