@@ -13,7 +13,7 @@ This article is part of a tutorial about how to containerize and deploy a Python
 
 In this part of the tutorial, you learn how to deploy the containerized Python web app to App Service using the [App Service Web App for Containers](https://azure.microsoft.com/services/app-service/containers/). Web App for Containers allows you to focus on composing your containers without worrying about managing and maintaining an underlying container orchestrator.
 
-Following the steps in this article, you'll end up with an App Service website using a Docker container image. The App Service pulls the initial image from Azure Container Registry using managed identity for authentication.
+After following the steps in this article, you finish with an App Service website using a Docker container image. The App Service pulls the initial image from Azure Container Registry using managed identity for authentication.
 
 This service diagram highlights the components covered in this article.
 
@@ -37,7 +37,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
     echo $RESOURCE_ID
     ```
 
-    RESOURCE_GROUP_NAME should still be set in your environment to the resource group name you used in part **3. Build container in Azure** of this tutorial. If it isn't, uncomment the first line and make sure it's set to the name you used.
+    RESOURCE_GROUP_NAME should still be set in your environment to the resource group name you used in part **3. Build container in Azure** of this tutorial. If it isn't, uncomment the first line and set it to the name you used.
 
 1. Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) command.
 
@@ -74,7 +74,7 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 
     * APP_SERVICE_NAME must be globally unique as it becomes the website name in the URL `https://<website-name>.azurewebsites.net`.
     * CONTAINER_NAME is of the form "yourregistryname.azurecr.io/repo_name:tag".
-    * REGISTRY_NAME should still be set in your environment to the registry name you used in part **3. Build container in Azure** of this tutorial. If it isn't, uncomment the line where it's set above and make sure it's set to the name you used.
+    * REGISTRY_NAME should still be set in your environment to the registry name you used in part **3. Build container in Azure** of this tutorial. If it isn't, uncomment the line where it's set in the code snippet and set it to the name you used.
 
     > [!NOTE]
     > You may see an error similar to the following when running the command:
@@ -121,10 +121,7 @@ These steps require the [Docker extension](https://code.visualstudio.com/docs/co
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create the web app.
 
-1. Create a new App Service:
-
-    * In the Azure portal search, search for "App Services", and select **App Services**.
-    * Select **+ Create** to start the create process.
+1. Search for "App Services" and select **App Services** under **Services** in the search results. Then select **++ Create** at the top of the page to start the create process.
 
 1. On the basic settings of the App Service, specify:
 
@@ -151,9 +148,9 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
     :::image type="content" source="./media/tutorial-container-web-app/azure-portal-create-web-app-docker.png" lightbox="./media/tutorial-container-web-app/azure-portal-create-web-app-docker.png" alt-text="A screenshot showing how to fill out the Docker deployment information about a web app in the Azure portal." :::
 
-    The registry [admin account](/azure/container-registry/container-registry-authentication#admin-account) is needed when you use the Azure portal to deploy a container image. If the admin account is not enabled, you'll see an error when specifying the **Image**.  After the App Service is created, managed identity is used to pull images from the registry and the admin account can be disabled.
+    The registry [admin account](/azure/container-registry/container-registry-authentication#admin-account) is needed when you use the Azure portal to deploy a container image. If the admin account isn't enabled, you'll see an error when specifying the **Image**. After the App Service is created, managed identity is used to pull images from the registry, and the admin account can be disabled.
 
-1. Go to **Review + Create** page and select **Create**.
+1. Select **Review + Create**. When validation completes, select **Create**.
 
 ---
 
@@ -215,20 +212,21 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 Go to the [Azure portal](https://portal.azure.com/) to follow these steps.
 
-1. Enabled managed identity.
+1. Go to your App service. For example, you can search for the name of your app service and select it under **Resources** in the results.
 
-    * Go to the **Identity** resource of the App Service.
-    * Select status **On** under **System assigned**.
-    * Select **Save**.
-    * Select **Yes** in the prompt to continue.
+1. Enable managed identity.
+
+    1. Under **Settings** on the **service menu**, select **Identity**.
+    1. On the **System assigned** tab, set **Status** to **On**.
+    1. Select **Save** and then select **Yes** in the prompt to continue.
 
     :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-managed-identity-enable.png" lightbox="./media/tutorial-container-web-app/portal-web-app-managed-identity-enable.png" alt-text="A screenshot showing how to enable managed identity for an App Service in Azure portal." :::
 
-1. In the **Identity** resource of the App Service and where you just enabled managed identity, select **Azure role assignments**.
+1. On the **System assigned** tab on the **Identity** page where you just enabled managed identity, select **Azure role assignments**.
 
     :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-managed-identity-role-assignments-button.png" lightbox="./media/tutorial-container-web-app/portal-web-app-managed-identity-role-assignments-button.png" alt-text="A screenshot showing how to add an Azure role assignment for an App Service in Azure portal." :::
 
-1. Add the "AcrPull" role for the system assigned managed identity. The AcrPull role allows the App Service to pull images from the Azure Container Registry.
+1. Add the "AcrPull" role for the system-assigned managed identity. The AcrPull role allows the App Service to pull images from the Azure Container Registry.
 
     In "Azure role assignments", select **+ Add role assignment** and follow the prompts to add:
 
@@ -237,7 +235,7 @@ Go to the [Azure portal](https://portal.azure.com/) to follow these steps.
     * **Resource group**: The group with the Azure Container Registry and App Service.
     * **Role**: "AcrPull"
 
-    Select **Save** to save the role.
+    Select **Save** to save the role assignment.
 
     :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-managed-identity-add-role.png" lightbox="./media/tutorial-container-web-app/portal-web-app-managed-identity-add-role.png" alt-text="A screenshot showing an AcrPull role assignment for an App Service in Azure portal." :::
 
@@ -245,9 +243,9 @@ Go to the [Azure portal](https://portal.azure.com/) to follow these steps.
 
 1. Configure App Service deployment to use managed identity.
 
-    * Go to the **Deployment Center** resource of the App Service.
-    * In the **Settings** tab, set **Authentication** to **Managed Identity**.
-    * Select **Save** to save the changes.
+    1. Under **Deployment** on the **service menu**, select **Deployment Center**.
+    1. On the **Settings** tab, set **Authentication** to **Managed Identity**.
+    1. Select **Save** to save the changes.
 
     :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-managed-identity-in-deployment.png" lightbox="./media/tutorial-container-web-app/portal-web-app-managed-identity-in-deployment.png" alt-text="A screenshot showing how to enable managed identity and container deployment for an App Service in Azure portal." :::
 
@@ -255,18 +253,18 @@ Go to the [Azure portal](https://portal.azure.com/) to follow these steps.
 
     First, get the application scope credential:
 
-    * Go to the **Deployment Center** resource of the App Service.
-    * In the **FTPS credentials** tab, get the **Password** value under **Application Scope**.
+    1. Under **Deployment** on the **service menu**, select **Deployment Center**.
+    1. In the **FTPS credentials** tab, get the **Password** value under **Application Scope**.
 
     Then, create the webhook using the credential value and App Service name:
 
-    * Go to the Azure Container Registry that has the repo and container image and select the **Webhooks** resource page.
-    * On the webhooks page, select **+ Add**.
-    * Specify the parameters as follows:
+    1. Go to your Azure Container Registry that you're using in this tutorial. On the service menu, select **Webhooks**.
+    1. On the **Webhooks** page, select **+ Add**.
+    1. On the **Create webhook** page, specify the fields as follows:
 
        * **Webhook name**: Enter "webhookforwebapp".
        * **Location**: Use the location of the registry.
-       * **Service URI**: A string that is combination of App Service name and credential. See below.
+       * **Service URI**: A string that is combination of App Service name and credential. See the paragraph following the image for details.
        * **Actions**: Select **push**.
        * **Status**: Select **On**.
        * **Scope**: Enter "msdocspythoncontainerwebapp:*".
@@ -283,7 +281,7 @@ In this step, you specify environment variables needed to connect to MongoDB.
 
 If you need to create an Azure Cosmos DB for MongoDB, we recommend you follow the steps to [set up Cosmos DB for MangoDB](tutorial-containerize-deploy-python-web-app-azure-02.md?tabs=mongodb-azure#tabpanel_3_mongodb-azure) in part **2. Build and test container locally** of this tutorial. When you're finished, you should have an Azure Cosmos DB for MongoDB connection string of the form `mongodb://<server-name>:<password>@<server-name>.mongo.cosmos.azure.com:10255/?ssl=true&<other-parameters>`.
 
-You need the MongoDB connection string info to follow the steps below.
+You need the MongoDB connection string to follow the steps below.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -331,15 +329,11 @@ To configure environment variables for the web app from VS Code, you must have t
 
 ### [Azure portal](#tab/azure-portal)
 
-1. Go to the App Service page for the web app.
-
-    * Select **Configuration** under **Settings** on the left resource menu.
-
-    * Select **Application settings** at the top of the page.
+1. On the App Service in Azure portal, select **Configuration** under **Settings** on the **service menu**. Then select **Application settings** on the top menu.
 
     :::image type="content" source="./media/tutorial-container-web-app/azure-portal-create-app-settings-panel.png" lightbox="./media/tutorial-container-web-app/azure-portal-create-app-settings-panel.png" alt-text="A screenshot showing how to add a setting to the App Service in Azure portal." :::
 
-1. Create application settings:
+1. Create application settings.
 
     1. Select **+ New application setting** to create settings for each of the following values:
 
@@ -364,7 +358,7 @@ To verify the site is running, go to `https://<website-name>.azurewebsites.net`;
 If you're running the Azure CLI locally, you can use the [az webapp browse](/cli/azure/webapp#az-webapp-browse) command to browse to the web site. If you're using Cloud Shell, open a browser window and navigate to the website URL.
 
 ```azurecli
-az webapp browse  --name $APP_SERVICE_NAME --resource-group $RESOURCE_GROUP_NAME 
+az webapp browse --name $APP_SERVICE_NAME --resource-group $RESOURCE_GROUP_NAME 
 ```
 
 > [!NOTE]
@@ -382,7 +376,7 @@ In the Azure Tools extension for Visual Studio Code:
 
 ### [Azure portal](#tab/azure-portal)
 
-On the **Overview** resource page of the App Service page select **Browse**.
+On the App service in the portal, select **Overview** on the **service menu**. Then select **Browse**.
 
 :::image type="content" source="./media/tutorial-container-web-app/app-service-portal-browse.png" lightbox="./media/tutorial-container-web-app/app-service-portal-browse.png" alt-text="A screenshot showing how to browse an App Service in Azure portal." :::
 
@@ -394,7 +388,7 @@ If you don't see the sample app, try the following steps.
 
 * With container deployment and App Service, always check the **Deployment Center** / **Logs** page in the Azure portal. Confirm that the container was pulled and is running. The initial pull and running of the container can take a few moments.
 * Try to restart the App Service and see if that resolves your issue.
-* If there are programming errors, those errors will show up in the application logs. On the Azure portal page for the App Service, select **Diagnose and solve problems**/**Application logs**. 
+* If there are programming errors, those errors show up in the application logs. On the Azure portal page for the App Service, select **Diagnose and solve problems**/**Application logs**. 
 * The sample app relies on a connection to MongoDB. Confirm that the App Service has application settings with the correct connection info.
 * Confirm that managed identity is enabled for the App Service and is used in the Deployment Center. On the Azure portal page for the App Service, go to the App Service **Deployment Center** resource and confirm that **Authentication** is set to **Managed Identity**.
 * Check that the webhook is defined in the Azure Container Registry. The webhook enables the App Service to pull the container image. In particular, check that Service URI ends with "/api/registry/webhook".
