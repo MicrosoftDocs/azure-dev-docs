@@ -222,7 +222,7 @@ Go to the [Azure portal](https://portal.azure.com/) to follow these steps.
 
     :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-managed-identity-enable.png" lightbox="./media/tutorial-container-web-app/portal-web-app-managed-identity-enable.png" alt-text="A screenshot showing how to enable managed identity for an App Service in Azure portal." :::
 
-1. On the **System assigned** tab on the **Identity** page where you just enabled managed identity, select **Azure role assignments**.
+1. On the **System assigned** tab on the **Identity** page, select **Azure role assignments**.
 
     :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-managed-identity-role-assignments-button.png" lightbox="./media/tutorial-container-web-app/portal-web-app-managed-identity-role-assignments-button.png" alt-text="A screenshot showing how to add an Azure role assignment for an App Service in Azure portal." :::
 
@@ -249,7 +249,7 @@ Go to the [Azure portal](https://portal.azure.com/) to follow these steps.
 
     :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-managed-identity-in-deployment.png" lightbox="./media/tutorial-container-web-app/portal-web-app-managed-identity-in-deployment.png" alt-text="A screenshot showing how to enable managed identity and container deployment for an App Service in Azure portal." :::
 
-1. First, get the application scope credential. You use this credential in the next step.
+1. Get the application scope credential. You use this credential in the next step.
 
     1. Under **Deployment** on the **service menu**, select **Deployment Center**.
     1. In the **FTPS credentials** tab, get the **Password** value under **Application Scope**.
