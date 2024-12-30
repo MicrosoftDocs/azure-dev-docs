@@ -213,7 +213,7 @@
 | Resource Management - Dev Spaces | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-devspaces/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-devspaces-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/devspaces/arm-devspaces) |
 | Resource Management - DevHub | npm [1.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-devhub/v/1.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-devhub-readme) | GitHub [1.0.0-beta.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-devhub_1.0.0-beta.3/sdk/devhub/arm-devhub/) |
 | Resource Management - Device Provisioning Services | npm [5.1.0](https://www.npmjs.com/package/@azure/arm-deviceprovisioningservices/v/5.1.0)<br>npm [6.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-deviceprovisioningservices/v/6.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-deviceprovisioningservices-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/deviceprovisioningservices/arm-deviceprovisioningservices) |
-| Resource Management - Device Registry | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-deviceregistry/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-deviceregistry-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-deviceregistry_1.0.0-beta.1/sdk/deviceregistry/arm-deviceregistry/) |
+| Resource Management - Device Registry | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-deviceregistry/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-deviceregistry-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-deviceregistry_1.0.0-beta.2/sdk/deviceregistry/arm-deviceregistry/) |
 | Resource Management - Device Update | npm [1.2.0](https://www.npmjs.com/package/@azure/arm-deviceupdate/v/1.2.0) | [docs](/javascript/api/overview/azure/arm-deviceupdate-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-deviceupdate_1.2.0/sdk/deviceupdate/arm-deviceupdate/) |
 | Resource Management - DevOps Infrastructure | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-devopsinfrastructure/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-devopsinfrastructure-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-devopsinfrastructure_1.0.0/sdk/devopsinfrastructure/arm-devopsinfrastructure/) |
 | Resource Management - DevTest Labs | npm [4.1.0](https://www.npmjs.com/package/@azure/arm-devtestlabs/v/4.1.0) | [docs](/javascript/api/overview/azure/arm-devtestlabs-readme) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/devtestlabs/arm-devtestlabs) |
@@ -409,7 +409,7 @@
 | Unknown Display Name | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/ai-projects/v/1.0.0-beta.2) |  |  |
 | Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/events/v/0.63.0) |  |  |
 | Unknown Display Name | npm [0.1.5](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.5) |  |  |
-| Unknown Display Name | npm [0.4.4](https://www.npmjs.com/package/@typespec/http-client-python/v/0.4.4) |  |  |
+| Unknown Display Name | npm [0.5.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.5.0) |  |  |
 | Unknown Display Name | npm [0.1.0-alpha.5](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.5) |  |  |
 | Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/sse/v/0.63.0) |  |  |
 | Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/streams/v/0.63.0) |  |  |
@@ -491,7 +491,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20241222.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20241222.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20241230.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20241230.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -501,7 +501,7 @@
 | @autorest/system-requirements | npm [1.1.0](https://www.npmjs.com/package/@autorest/system-requirements/v/1.1.0) |  |  |
 | @autorest/test-utils | npm [0.6.0](https://www.npmjs.com/package/@autorest/test-utils/v/0.6.0) |  |  |
 | @autorest/testmodeler | npm [2.6.2](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.2)<br>npm [2.6.3-ci.9c24a33e6.0](https://www.npmjs.com/package/@autorest/testmodeler/v/2.6.3-ci.9c24a33e6.0) |  |  |
-| @autorest/typescript | npm [6.0.30](https://www.npmjs.com/package/@autorest/typescript/v/6.0.30) |  |  |
+| @autorest/typescript | npm [6.0.31](https://www.npmjs.com/package/@autorest/typescript/v/6.0.31) |  |  |
 | @azure-tools/adl-openapi | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-openapi/v/0.3.2) |  |  |
 | @azure-tools/adl-rest | npm [0.3.2](https://www.npmjs.com/package/@azure-tools/adl-rest/v/0.3.2) |  |  |
 | @azure-tools/adl-rpaas | npm [0.4.2](https://www.npmjs.com/package/@azure-tools/adl-rpaas/v/0.4.2) |  |  |
@@ -530,7 +530,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.7.16](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.16) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.7.17](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.17) |  |  |
 | @azure-tools/json | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/json/v/1.3.0) |  |  |
 | @azure-tools/jsonschema | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.0) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
@@ -538,7 +538,7 @@
 | @azure-tools/prettier-plugin-adl | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/prettier-plugin-adl/v/0.1.4) |  |  |
 | @azure-tools/prettier-plugin-cadl | npm [0.2.1](https://www.npmjs.com/package/@azure-tools/prettier-plugin-cadl/v/0.2.1) |  |  |
 | @azure-tools/python-generator-core | npm [0.1.0](https://www.npmjs.com/package/@azure-tools/python-generator-core/v/0.1.0) |  |  |
-| @azure-tools/rlc-common | npm [0.36.0](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.36.0) |  |  |
+| @azure-tools/rlc-common | npm [0.37.0](https://www.npmjs.com/package/@azure-tools/rlc-common/v/0.37.0) |  |  |
 | @azure-tools/sdk-generation-lib | npm [1.0.5](https://www.npmjs.com/package/@azure-tools/sdk-generation-lib/v/1.0.5) |  |  |
 | @azure-tools/test-credential | npm [1.3.1](https://www.npmjs.com/package/@azure-tools/test-credential/v/1.3.1) |  |  |
 | @azure-tools/test-recorder | npm [3.5.2](https://www.npmjs.com/package/@azure-tools/test-recorder/v/3.5.2) |  |  |
