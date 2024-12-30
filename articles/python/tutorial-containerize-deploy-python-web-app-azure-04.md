@@ -249,29 +249,28 @@ Go to the [Azure portal](https://portal.azure.com/) to follow these steps.
 
     :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-managed-identity-in-deployment.png" lightbox="./media/tutorial-container-web-app/portal-web-app-managed-identity-in-deployment.png" alt-text="A screenshot showing how to enable managed identity and container deployment for an App Service in Azure portal." :::
 
-1. Create a webhook that triggers updates to App Service when new images are pushed to the Azure Container Registry.
-
-    First, get the application scope credential:
+1. First, get the application scope credential. You use this credential in the next step.
 
     1. Under **Deployment** on the **service menu**, select **Deployment Center**.
     1. In the **FTPS credentials** tab, get the **Password** value under **Application Scope**.
 
-    Then, create the webhook using the credential value and App Service name:
+1. Create a webhook that triggers updates to App Service when new images are pushed to the Azure Container Registry.
 
-    1. Go to your Azure Container Registry that you're using in this tutorial. On the service menu, select **Webhooks**.
+    1. Go to the Azure Container Registry that you're using in this tutorial. On the **service menu**, select **Webhooks**.
     1. On the **Webhooks** page, select **+ Add**.
     1. On the **Create webhook** page, specify the fields as follows:
 
        * **Webhook name**: Enter "webhookforwebapp".
        * **Location**: Use the location of the registry.
-       * **Service URI**: A string that is combination of App Service name and credential. See the paragraph following the image for details.
+       * **Service URI**: A string that is a combination of the App Service name and the credential copied in the previous step.
+
+            The service URI is formatted as "https://$" + APP_SERVICE_NAME + ":" + CREDENTIAL + "@" + APP_SERVICE_NAME + ".scm.azurewebsites.net/api/registry/webhook". For example: "https://$msdocs-python-container-web-app:credential@msdocs-python-container-web-app.scm.azurewebsites.net/api/registry/webhook".
+
        * **Actions**: Select **push**.
        * **Status**: Select **On**.
        * **Scope**: Enter "msdocspythoncontainerwebapp:*".
 
         :::image type="content" source="./media/tutorial-container-web-app/portal-web-app-registry-webhook.png" lightbox="./media/tutorial-container-web-app/portal-web-app-registry-webhook.png" alt-text="A screenshot showing how to create a webhook for Azure Container Registry in Azure portal." :::
-
-        The service URI is formatted as "https://$" + APP_SERVICE_NAME + ":" + CREDENTIAL + "@" + APP_SERVICE_NAME + ".scm.azurewebsites.net/api/registry/webhook". For example: "https://$msdocs-python-container-web-app:credential@msdocs-python-container-web-app.scm.azurewebsites.net/api/registry/webhook".
 
 ---
 
