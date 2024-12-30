@@ -241,11 +241,11 @@ Maven deploys your web app to Azure. If the web app or web app plan doesn't alre
 
 After your web app is deployed, you can manage it through the [Azure portal]. Your web app is listed in the **microprofile** resource group.
 
-You can access to your web app by selecting **Browse** on the **Overview** page for your web app. Verify that the deployment was successful and Running. 
+You can access to your web app by selecting **Browse** on the **Overview** page for your web app. Verify that the deployment was successful and Running.
 
 ## Confirm the log stream from the running App Service
 
-You can view the logs in their entirety, use `tail` to view the ending lines of the logs, or view the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
+You can view the logs in their entirety or use `tail` to view the ending lines of the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 
 ```azurecli
    az webapp log tail \
