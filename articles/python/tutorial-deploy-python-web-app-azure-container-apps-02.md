@@ -130,11 +130,11 @@ After you follow these steps, you'll have an Azure Container Registry instance t
     az acr login --name <registry-name>
     ```
 
-    The command adds "azurecr.io" to the name to create the fully qualified registry name. If successful, you'll see the message "Login Succeeded". If you're accessing the registry from a subscription different from the one in which the registry was created, use the `--suffix` switch.
+    The command adds "azurecr.io" to the name to create the fully qualified registry name. If the sign-in is successful, the message "Login Succeeded" appears. If you're accessing the registry from a subscription that's different from the one in which you created the registry, use the `--suffix` switch.
 
     If sign-in fails, make sure the Docker daemon is running on your system.
 
-1. Build the image with the [az acr build][5] command.
+1. Build the image by using the [az acr build][5] command:
 
     ```azurecli
     az acr build \
@@ -143,15 +143,15 @@ After you follow these steps, you'll have an Azure Container Registry instance t
         --image pythoncontainer:latest .
     ```
 
-    Note that:
+    These considerations apply:
 
-    * The dot (".") at the end of the command indicates the location of the source code to build. If you aren't running this command in the sample app root directory, specify the path to the code.
+    * The dot (".") at the end of the command indicates the location of the source code to build. If you aren't running this command in the sample app's root directory, specify the path to the code.
 
-    * If you're running the command in Azure Cloud Shell, use `git clone` to first pull the repo into the Cloud Shell environment first and change directory into the root of the project so that dot (".") is interpreted correctly.
+    * If you're running the command in Azure Cloud Shell, use `git clone` to first pull the repo into the Cloud Shell environment first. Then change directory into the root of the project so that the dot (".") is interpreted correctly.
 
     * If you leave out the `-t` (same as `--image`) option, the command queues a local context build without pushing it to the registry. Building without pushing can be useful to check that the image builds.
 
-1. Confirm the container image was created with the [az acr repository list][20] command.
+1. Confirm that the container image was created by using the [az acr repository list][20] command:
 
     ```azurecli
     az acr repository list --name <registry-name>
@@ -161,54 +161,54 @@ After you follow these steps, you'll have an Azure Container Registry instance t
 
 These steps require the [Docker extension][6] for VS Code.
 
-1. Create an Azure Container Registry.
+1. Create an Azure Container Registry instance.
 
     Start the Create Registry task:
 
-    * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
-    * Type "Azure Container Registry".
-    * Select the task **Azure Container Registry: Create Registry**.
+    1. Select the F1 key or CtrlL+Shift+P to open the command palette.
+    1. Type **Azure Container Registry**.
+    1. Select the task **Azure Container Registry: Create Registry**.
 
-    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-registry.png" alt-text="Screenshot showing how to start creating a new Azure Container Registry in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
+    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-registry.png" alt-text="Screenshot that shows how to search for the task to create a new Azure Container Registry instance in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
 
     Follow the prompts to create a registry and a resource group:
 
-    * If you're prompted, select the subscription you want to create resources in for this tutorial.
-    * **Registry name**: The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
+    * If you're prompted, select the subscription where you want to create resources for this tutorial.
+    * **Registry name**: The registry name must be unique within Azure and contain 5 to 50 alphanumeric characters.
     * **Select a SKU**: Select **Basic**.
     * **Create a new resource group**: Select this option to create the resource group.
-    * **Resource group**: Create a new resource group named *pythoncontainer-rg*.
-    * **Location**: Select a location and wait until the notification that indicates the registry has been created.
+    * **Resource group**: Create a new resource group named **pythoncontainer-rg**.
+    * **Location**: Select a location and wait for the notification that indicates the registry was created.
 
 1. Build the image.
 
-    Start the Build Image in Azure task:
+    Start the **Build Image in Azure** task:
 
-    * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
-    * Type "Azure Container Registry".
+    * Select the F1 key or Ctrl+Shift+P to open the command palette.
+    * Type **Azure Container Registry**.
     * Select the task **Azure Container Registry: Build Image in Azure**.
 
-    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-01.png" alt-text="Screenshot showing how to start building a new container image in an Azure Container Registry with Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
+    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-01.png" alt-text="Screenshot that shows how to search for the task to build a new Azure Container Registry container image in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
 
-    Alternatively, you can right-click the *Dockerfile* and select **Build Image in Azure** to start the same task to build the image. If you don't see the **Build Image Azure** task, make sure you're signed into Azure.
+    Alternatively, you can right-click the Dockerfile and select **Build Image in Azure** to start the same task to build the image. If the **Build Image Azure** task doesn't appear, make sure you're signed in to Azure.
 
-    Follow the prompts to build the image.
+    Follow the prompts to build the image:
 
     * **Tag image as**: Enter *pythoncontainer:latest*.
     * **Registry provider**: Select **Azure**.
     * If you're prompted, select your subscription.
-    * **Registry**: Select the Container registry from the list.
+    * **Registry**: Select the container registry from the list.
     * **Select OS**: Select **Linux**.
 
-    Monitor progress in the **Output** window and confirm that the image builds successfully. If an error occurs, see the [Troubleshooting section](#troubleshoot-deployment).
+    Monitor progress in the **Output** window and confirm that the image builds successfully. If an error occurs, see the [troubleshooting section](#troubleshoot-deployment).
 
-1. Confirm the registry was created.
+1. Confirm that the registry was created.
 
-    Select the Docker extension and to the **Registries** section. Expand the Azure node to find the new Azure Container Registry.  
+    Select the Docker extension and go to the **REGISTRIES** section. Expand the Azure node to find the new Azure Container Registry instance.  
 
-    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-03.png" alt-text="Screenshot showing how to confirm the Azure Container Registry was created in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-03.png":::
+    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-03.png" alt-text="Screenshot that shows an example Azure Container Registry instance in the area for registries in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-03.png":::
 
-1. Use the [az acr update][29] command to enable the administrator user account for the registry. You can run the command in Visual Studio Code terminal window or the Azure [Cloud Shell][4].
+1. Use the [az acr update][29] command to enable the administrator user account for the registry. You can run the command in the VS Code terminal window or [Azure Cloud Shell][4].
 
     ```azurecli
     az acr update --name <registry-name> \
@@ -216,9 +216,9 @@ These steps require the [Docker extension][6] for VS Code.
         --admin-enabled true
     ```
 
-    Alternatively, you can select the registry in the Docker extension, right-click, and select **Open in Portal**. Then you can follow the instructions in the Azure portal tab of this article to enable the administrator user account.
+    Alternatively, you can select the registry in the Docker extension, right-click, and then select **Open in Portal**. Then you can follow the instructions on the **Azure portal** tab of this article to enable the administrator user account.
 
-    You can view the credentials created for admin with:
+    You can view the credentials created for the admin account by using these commands:
 
     ```azurecli
     az acr credential show \
@@ -230,30 +230,30 @@ These steps require the [Docker extension][6] for VS Code.
 
 1. In the [Azure portal][3], search for **container registry**. Under **Marketplace** in the results, select **Container Registry**.
 
-1. On the **Basics** tab, enter the following fields:
+1. On the **Basics** tab, enter the following values:
 
     * **Resource group**: Select **Create new** and enter **pythoncontainer-rg**.
-    * **Registry name**: The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
+    * **Registry name**: The registry name must be unique within Azure and contain 5 to 50 alphanumeric characters.
     * **Location**: Select a location near you.
     * **SKU**: Select **Basic**.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-01.png" alt-text="Screenshot showing how to specify a new Azure Container Registry in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-01.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-01.png" alt-text="Screenshot that shows basic information for specifying a new Azure Container Registry instance in the Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-01.png":::
 
-    When finished, select **Review + create**. After  validation is complete, select **Create**.
+    When you finish, select **Review + create**. After  validation is complete, select **Create**.
 
-1. When deployment completes, select **Go to resource**. If you miss this notification, you can search **container registry** and select your registry under **Resources** in the results.
+1. When deployment finishes, select **Go to resource**. If you miss this notification, you can search for **container registry** and select your registry under **Resources** in the results.
 
 1. Enable the administrator user account.
-    1. Under **Settings** on the **service menu**, select **Access Keys**.
+    1. On the service menu, under **Settings**, select **Access Keys**.
     1. Select the **Admin user** checkbox.
 
-1. Select the Azure Cloud Shell icon in the top menu bar to finish configuration and build an image.
+1. To finish the configuration and build an image, select the Azure Cloud Shell icon on the top menu bar.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-02.png" alt-text="Screenshot showing how to access Azure Cloud Shell in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-02.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-build-image-02.png" alt-text="Screenshot that shows the Azure Cloud Shell icon in the Azure portal." lightbox="media/tutorial-container-apps/azure-portal-build-image-02.png":::
 
-    You can also go directly to [Azure Cloud Shell][4].
+    You can also [go directly to Azure Cloud Shell][4].
 
-1. Use the [az acr build][5] command to build the image from the repo.
+1. Use the [az acr build][5] command to build the image from the repo:
 
     ```azurecli
     az acr build --registry <registry-name> \
@@ -261,14 +261,16 @@ These steps require the [Docker extension][6] for VS Code.
         --image pythoncontainer:latest <repo-path>
     ```
 
-    Specify *\<registry-name>* as the name of the registry you created. For *\<repo-path>*, choose either the [Django][1] or [Flask][2] repo path.
+    Specify *\<registry-name>* as the name of the registry that you created. For *\<repo-path>*, choose either the [Django][1] or [Flask][2] repo path.
 
-1. After the command completes, under **Services**, select **Repositories** and confirm the image shows up.
+1. After the command finishes, under **Services**, select **Repositories** and confirm that the image appears.
 
 ---
 
 > [!NOTE]
-> The steps in this section create a container registry in the Basic service tier. This tier is cost-optimized, with a feature set and throughput targeted for developer scenarios, and is suitable for the requirements of this tutorial. In production scenarios, you would most likely use either the Standard or Premium service tier. These tiers provide enhanced levels of storage and throughput. To learn more, see [Azure Container Registry service tiers](/azure/container-registry/container-registry-skus). For information about pricing, see [Azure Container Registry pricing](https://azure.microsoft.com/pricing/details/container-registry/).
+> The steps in this section create a container registry in the Basic service tier. This tier is cost-optimized, with a feature set and throughput targeted for developer scenarios, and is suitable for the requirements of this tutorial. In production scenarios, you would most likely use either the Standard or Premium service tier. These tiers provide enhanced levels of storage and throughput.
+>
+> To learn more, see [Azure Container Registry service tiers](/azure/container-registry/container-registry-skus). For information about pricing, see [Azure Container Registry pricing](https://azure.microsoft.com/pricing/details/container-registry/).
 
 ## Create a PostgreSQL Flexible Server instance
 
@@ -276,7 +278,7 @@ The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a Po
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Use the [az postgres flexible-server create][22] command to create the PostgreSQL server in Azure. It isn't uncommon for this command to run for a few minutes to complete.
+1. Use the [az postgres flexible-server create][22] command to create the PostgreSQL server in Azure. It isn't uncommon for this command to run for a few minutes before it finishes.
 
     ```azurecli
     az postgres flexible-server create \
@@ -291,35 +293,37 @@ The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a Po
        --public-access 0.0.0.0 
     ```
 
-    * "pythoncontainer-rg": The resource group name used in this tutorial. If you used a different name, change this value.
+    In the command, use these values:
 
-    * *\<postgres-server-name>*: The PostgreSQL database server name. This name must be **unique across all Azure**. The server endpoint is "https://\<postgres-server-name>.postgres.database.azure.com". Allowed characters are "A"-"Z", "0"-"9", and "-".
+    * `pythoncontainer-rg`: The resource group name that this tutorial uses. If you used a different name, change this value.
 
-    * *\<location>*: Use the same location used for the web app. *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
+    * *\<postgres-server-name>*: The PostgreSQL database server name. This name must be unique across all Azure. The server endpoint is `https://<postgres-server-name>.postgres.database.azure.com`. Allowed characters are `A` to `Z`, `0` to `9`, and hyphen (`-`).
 
-    * *\<admin-username>*: Username for the administrator account. It can't be "azure_superuser", "admin", "administrator", "root", "guest", or "public". Use "demoadmin" for this tutorial.
+    * *\<location>*: Use the same location that you used for the web app. *\<location>* is one of the Azure location `Name` values from the output of the command `az account list-locations -o table`.
+
+    * *\<admin-username>*: Username for the administrator account. It can't be `azure_superuser`, `admin`, `administrator`, `root`, `guest`, or `public`. Use `demoadmin` for this tutorial.
 
     * *\<admin-password>*: Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
         > [!IMPORTANT]
-        > When creating usernames or passwords **do not** use the "$" character. Later you create environment variables with these values where the "$" character has special meaning within the Linux container used to run Python apps.
+        > When you're creating usernames or passwords, *do not* use the dollar sign ($) character. Later, when you create environment variables with these values, that character has a special meaning within the Linux container that you use to run Python apps.
 
-    * *--active-directory-auth*: Specifies whether Microsoft Entra ID authentication is enabled on the PostreSQL server. Set to `Enabled`.
+    * `--active-directory-auth`: Specifies whether Microsoft Entra authentication is enabled on the PostreSQL server. Set it to `Enabled`.
 
-    * *--sku-name*: The name of the pricing tier and compute configuration, for example "Standard_B1ms". For more information, see [Azure Database for PostgreSQL pricing][24]. To list available SKUs, use `az postgres flexible-server list-skus --location <location>`.
+    * `--sku-name`: The name of the pricing tier and compute configuration; for example, `Standard_B1ms`. For more information, see [Azure Database for PostgreSQL pricing][24]. To list available tiers, use `az postgres flexible-server list-skus --location <location>`.
 
-    * *--public-access*: Use "0.0.0.0", which allows public access to the server from any Azure service, such as Container Apps.
+    * `--public-access`: Use `0.0.0.0`. It allows public access to the server from any Azure service, such as Container Apps.
 
     > [!NOTE]
-    > If you plan on working the PostgreSQL server from your local workstation with tools, you'll need to add a firewall rule for your workstation's IP address with the [az postgres flexible-server firewall-rule create][28] command.
+    > If you plan to work with the PostgreSQL server from your local workstation by using tools, you need to add a firewall rule for your workstation's IP address by using the [az postgres flexible-server firewall-rule create][28] command.
 
-1. Use the [az ad signed-in-user show](/cli/azure/ad/signed-in-user#az-ad-signed-in-user-show) command to get the object ID of your user account to use in the next command.
+1. Use the [az ad signed-in-user show](/cli/azure/ad/signed-in-user#az-ad-signed-in-user-show) command to get the object ID of your user account. You'll use this ID in the next command.
 
     ```azurecli
     az ad signed-in-user show --query id --output tsv
     ```
 
-1. Use the [az postgres flexible-server ad-admin create](/cli/azure/postgres/flexible-server/ad-admin#az-postgres-flexible-server-ad-admin-create) command to add your user account as a Microsoft Entra administrator on the PostgreSQL server.
+1. Use the [az postgres flexible-server ad-admin create](/cli/azure/postgres/flexible-server/ad-admin#az-postgres-flexible-server-ad-admin-create) command to add your user account as a Microsoft Entra administrator on the PostgreSQL server:
 
     ```azurecli
     az postgres flexible-server ad-admin create \
@@ -329,63 +333,62 @@ The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a Po
        --object-id <your-account-object-id>
     ```
 
-    For your account object ID, use the value you got in the previous step.
+    For your account object ID, use the value that you got in the previous step.
 
 ### [VS Code](#tab/vscode-aztools)
 
 These steps require the [Azure Databases extension][26] for VS Code.
 
-1. Start the PostgreSQL create task.
+1. Start the PostgreSQL **Create Server** task:
 
-    * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
-    * Type "Azure Databases".
-    * Select the task **Azure Databases: Create Server**.
+    1. Select the F1 or Ctrl+Shift+P to open the command palette.
+    1. Type **Azure Databases**.
+    1. Select the task **Azure Databases: Create Server**.
 
-    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-01.png" alt-text="Screenshot showing how to search for the task to create an Azure PostgreSQL Flexible Server instance in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-01.png":::
+    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-01.png" alt-text="Screenshot that shows how to search for the task to create an Azure Database for PostgreSQL flexible server in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-01.png":::
 
-    Alternatively, you can select the **Azure** extension, **RESOURCES**, and expand your subscription. (Make sure you viewing resources by **Group by Resource Type**.). Then,
-    right-click **PostgreSQL servers** and select  **Create server** to start the same create server task.
+    Alternatively, you can select the **Azure** extension, go to **RESOURCES**, and expand your subscription. (Make sure you're viewing resources by **Group by Resource Type**). Then,
+    right-click **PostgreSQL servers** and select  **Create server** to start the same task.
 
-1. A series of prompts guides you through the process of creating the server. Fill in the information as follows.
+1. A series of prompts guides you through the process of creating the server. Fill in the information as follows:
 
-    * If you're asked  to select a subscription, select the subscription you're using for this tutorial.
+    * If you're asked to select a subscription, select the subscription that you're using for this tutorial.
 
     * **Select an Azure Database Server**: Select **PostgreSQL Flexible Server**.
 
-    * **Server name**: Specify a **name** for the server.
-        Enter a name for the database server that's unique across all Azure (the database server's URL becomes `https://<server-name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
+    * **Server name**: Specify a name for the database server. The name must be unique across all Azure. The database server's URL becomes `https://<server-name>.postgres.database.azure.com`. Allowed characters are **A** to **Z**, **0** to **9**, and hyphen (**-**). For example: *postgres-db-\<unique-id>*.
 
-    * **Select the Postgres SKU and options**: Select the **B1ms Basic** SKU (1 vCore, 2 GiB Memory, 5-GB storage).
+    * **Select the Postgres SKU and options**: Select the **B1ms Basic** tier (1 vCore, 2-GiB memory, 5-GB storage).
 
-    * **Administrator Username**: Create an administrator user name. This name for an administrator account on the database server. Use *demoadmin* for this tutorial.
+    * **Administrator Username**: Create a username for an administrator account on the database server. Use **demoadmin** for this tutorial.
 
     * **Administrator Password**: Create a password for the administrator and confirm it.
 
-    * **Select a resource group for new resources**: Select a resource group to put the server in. Use the same resource group that you created the container registry in, **pythoncontainer-rg**.
+    * **Select a resource group for new resources**: Select a resource group to put the server in. Use the same resource group where you created the container registry **pythoncontainer-rg**.
 
     * **Select a location for new resources**: Select the same location as the resource group and container registry.
 
-    Monitor progress in the **Azure** window and confirm that the server is created successfully. If an error occurs, see the [Troubleshooting section](#troubleshoot-deployment).
+    Monitor progress in the **Azure** window and confirm that the server is created successfully. If an error occurs, see the [troubleshooting section](#troubleshoot-deployment).
 
-    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-02.gif" alt-text="Screenshot showing how to complete the task to create an Azure PostgreSQL Flexible Server instance in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-02.gif":::
+    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-02.gif" alt-text="Screenshot that shows selections for completing the task of creating an Azure Database for PostgreSQL flexible server in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-02.gif":::
 
-1. After the server is created, configure access from your local environment to the Azure Database for PostgreSQL server.
+1. After the server is created, configure access from your local environment to the Azure Database for PostgreSQL server:
 
-    First, confirm that the server was created by checking the **Azure: Activity Log** window. When you're sure the server exists then:
+    1. Confirm that the server was created by checking the **Azure: Activity Log** window.
 
-    * Open the Command Palette (**F1** or **Ctrl** + **Shift** + **P**).
+    1. Open the command palette (select the F1 key or Ctrl+Shift+P).
 
-    * Search for and select **PostgreSQL: Configure Firewall**. (Select a subscription if prompted.)
+    1. Search for and select **PostgreSQL: Configure Firewall**. Select a subscription if you're prompted.
 
-    * Select **PostgreSQL servers (Flexible)**, then select the server you created in the previous step. If the server doesn't appear in the list, it's likely it hasn't finished being created.
+    1. Select **PostgreSQL servers (Flexible)**, and then select the server that you created in the previous step. If the server doesn't appear in the list, it's likely still being created.
 
-    * Select **Yes** in the dialog box to add your IP address to the firewall rules of the PostgreSQL server.
+    1. Select **Yes** in the dialog to add your IP address to the firewall rules of the PostgreSQL server.
 
-    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-04.png" alt-text="Screenshot showing how to Confirm adding local workstation IP as firewall rule for Azure PostgreSQL Flexible Server instance in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-04.png":::
+       :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-04.png" alt-text="Screenshot that shows the confirmation dialog for adding a local workstation IP as a firewall rule for an Azure Database for PostgreSQL flexible server in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-04.png":::
 
-1. The following steps require the Azure CLI. If you have the Azure CLI installed locally, you can run them in a terminal prompt; otherwise, open the [Azure Cloud Shell][4] in a browser.
+1. The following steps require the Azure CLI. If you have the Azure CLI installed locally, you can run them in a terminal prompt. Otherwise, open [Azure Cloud Shell][4] in a browser.
 
-1. Use the [az postgres flexible-server firewall-rule create](/cli/azure/postgres/flexible-server/firewall-rule#az-postgres-flexible-server-firewall-rule-create) command to add a rule to allow your web app to access the PostgreSQL Flexible server. In the following command, you configure the server's firewall to accept connections from all Azure resources.
+1. Use the [az postgres flexible-server firewall-rule create](/cli/azure/postgres/flexible-server/firewall-rule#az-postgres-flexible-server-firewall-rule-create) command to add a rule to allow your web app to access the PostgreSQL flexible server. In the following command, you configure the server's firewall to accept connections from all Azure resources:
 
     ```azurecli
     az postgres flexible-server firewall-rule create \
@@ -396,7 +399,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
         --end-ip-address 0.0.0.0
     ```
 
-1. Use the [az postgres flexible-server update](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-update) command to enable Microsoft Entra authentication on the server.
+1. Use the [az postgres flexible-server update](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-update) command to enable Microsoft Entra authentication on the server:
 
     ```azurecli
     az postgres flexible-server update \
@@ -405,13 +408,13 @@ These steps require the [Azure Databases extension][26] for VS Code.
         --active-directory-auth Enabled
     ```
 
-1. Use the [az ad signed-in-user show](/cli/azure/ad/signed-in-user#az-ad-signed-in-user-show) command to get the object ID of your user account to use in the next command.
+1. Use the [az ad signed-in-user show](/cli/azure/ad/signed-in-user#az-ad-signed-in-user-show) command to get the object ID of your user account. You'll use this ID in the next command.
 
     ```azurecli
     az ad signed-in-user show --query id --output tsv
     ```
 
-1. Use the [az postgres flexible-server ad-admin create](/cli/azure/postgres/flexible-server/ad-admin#az-postgres-flexible-server-ad-admin-create) command to add your user account as a Microsoft Entra administrator on the PostgreSQL server.
+1. Use the [az postgres flexible-server ad-admin create](/cli/azure/postgres/flexible-server/ad-admin#az-postgres-flexible-server-ad-admin-create) command to add your user account as a Microsoft Entra administrator on the PostgreSQL server:
 
     ```azurecli
     az postgres flexible-server ad-admin create \
@@ -421,7 +424,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
        --object-id <your-account-object-id>
     ```
 
-    For your account object ID, use the value you got in the previous step.
+    For your account object ID, use the value that you got in the previous step.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -429,36 +432,38 @@ These steps require the [Azure Databases extension][26] for VS Code.
 
 1. On the **Basics** tab, enter the following values:
 
-    * **Resource group**: The resource group used in this tutorial "pythoncontainer-rg".
-    * **Server name**: Enter a name for the database server that's unique across Azure. The database server's URL becomes `https://<server-name>.postgres.database.azure.com`. Allowed characters are `A`-`Z`, `0`-`9`, and `-`. For example: *postgres-db-\<unique-id>*.
-    * **Region**: The same region you used for the resource group.
+    * **Resource group**: Enter the resource group used in this tutorial, **pythoncontainer-rg**.
+    * **Server name**: Enter a name for the database server that's unique across Azure. The database server's URL becomes `https://<server-name>.postgres.database.azure.com`. Allowed characters are **A** to **Z**, **0** to **9**, and hyphe (**-**). For example: *postgres-db-\<unique-id>*.
+    * **Region**: Select the same region that you used for the resource group.
     * **Workload Type**: Select **Development**.
     * **Authentication Method**: Select **PostgreSQL and Microsoft Entra authentication**.
-    * **Set Microsoft Entra admin**: Select **Set admin**. On the **Select Microsoft Entra Admins** page, search for your Azure user account, select it in the results, and then click **Select**.
-    * **Admin username**: Use *demoadmin*.
-    * **Password** and **Confirm password**: A password for the admin account.
+    * **Set Microsoft Entra admin**: Select **Set admin**. On the **Select Microsoft Entra Admins** pane, search for your Azure user account, select it in the results, and then click **Select**.
+    * **Admin username**: Use **demoadmin**.
+    * **Password** and **Confirm password**: Enter a password for the admin account.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-basics-tab.png" alt-text="Screenshot showing how to specify basic settings of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-basics-tab.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-basics-tab.png" alt-text="Screenshot that shows basic settings of an Azure Database for PostgreSQL flexible server in the Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-basics-tab.png":::
 
-    For all other settings, leave the defaults. When done, select **Next: Networking**.
+    For all other settings, leave the defaults. When you finish, select **Next: Networking**.
 
 1. On the **Networking** tab, enter the following values:
 
     * **Connectivity method**: Make sure **Public access (allowed IP addresses) and Private endpoint** is selected.
     * **Allow public access to this resource through the internet using a public IP address**: Make sure the checkbox is selected.
     * **Allow public access from any Azure service within Azure to this service**: Select the checkbox.
-    * **Add current client IP address**: Select (add) if you plan on accessing the database from your local server.
+    * **Add current client IP address**: Select (add) if you plan to access the database from your local server.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-networking-tab.png" alt-text="Screenshot showing how to specify networking settings of an Azure PostgreSQL Flexible Server instance in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-networking-tab.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-postgres-server-networking-tab.png" alt-text="Screenshot that shows networking settings of an Azure Database for PostgreSQL flexible server in the Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-postgres-server-networking-tab.png":::
 
     For all other settings, leave the defaults. Select **Review + Create** to continue.
 
-1. Review the settings and, when satisfied, select **Create**.
+1. Review the settings. When you're satisfied, select **Create**.
 
 ---
 
 > [!NOTE]
-> The steps in this section create a PostgreSQL server with a single vCore and limited memory in the Burstable pricing tier. The Burstable tier is a lower cost option for workloads that don't need the full CPU continuously, and is suitable for the requirements of this tutorial. For production workloads, you might upgrade to either the General Purpose or Memory Optimized pricing tier. These tiers provide higher performance, but increase costs. To learn more, see [Compute options in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-compute). For information about pricing, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/).
+> The steps in this section create a PostgreSQL server with a single vCore and limited memory in the Burstable pricing tier. The Burstable tier is a lower-cost option for workloads that don't need the full CPU continuously, and is suitable for the requirements of this tutorial. For production workloads, you might upgrade to either the General Purpose or Memory Optimized pricing tier. These tiers provide higher performance but increase costs.
+>
+> To learn more, see [Compute options in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-compute). For information about pricing, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/).
 
 ## Create a database on the server
 
@@ -466,7 +471,7 @@ At this point, you have a PostgreSQL server. In this section, you create a datab
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the [az postgres flexible-server db create][27] command to create a database named *restaurants_reviews*.
+Use the [az postgres flexible-server db create][27] command to create a database named *restaurants_reviews*:
 
 ```azurecli
 az postgres flexible-server db create \
@@ -475,34 +480,38 @@ az postgres flexible-server db create \
    --database-name restaurants_reviews
 ```
 
-Where:
+In the commmand, use these values:
 
-* "pythoncontainer-rg": The resource group name used in this tutorial. If you used a different name, change this value.
+* `pythoncontainer-rg`: The resource group name that this tutorial uses. If you used a different name, change this value.
 * `<postgres-server-name>`: The name of the PostgreSQL server.
 
-You could also use the [az postgres flexible-server connect][16] command to connect to the database and then work with [psql][15] commands. When working with psql, it's often easier to use the Azure [Cloud Shell][4] because all the dependencies are included for you in the shell.
+You could also use the [az postgres flexible-server connect][16] command to connect to the database and then work with [psql][15] commands. When you're working with psql, it's often easier to use [Azure Cloud Shell][4] because the shell includes all the dependencies for you.
 
 ### [VS Code](#tab/vscode-aztools)
 
 These steps require the [Azure Databases extension][26] for VS Code.
 
-1. In the **Azure** extension, find the PostgreSQL Server you created, right-click it, and select **Create Database**.
+1. In the Azure Databases extension, find the PostgreSQL server that you created, right-click it, and then select **Create Database**.
 
-1. At the prompt, enter **restaurants_reviews** as the **Database Name**.
+1. At the prompt, enter **restaurants_reviews** as the **Database Name** value.
 
-If you have trouble creating the database, the server might still be processing the firewall rule from the previous step. Wait a moment and try again. If you're prompted to enter credentials to access the database, use the "demoadmin" username, and password you entered when you created the database.
+If you have trouble creating the database, the server might still be processing the firewall rule from the previous step. Wait a moment and try again. If you're prompted to enter credentials to access the database, use the **demoadmin** username and the password that you entered when you created the database.
 
 ### [Azure portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your PostgreSQL server. For example, you can enter the name of your PostgreSQL server in the search bar and select it under **Resources** in the results.
-1. Under **Settings** on the **service menu**, select **Databases**.
-1. Select **Add** on the top menu of the **Databases** page.
-1. On the  **Create Database** page, enter **restaurants_reviews** for the **Name**, then select **Save**.
-1. When the operation completes, you're returned to the **Databases** page. Verify that **restaurants_reviews** appears in the list of databases. You might need to refresh the page for it to appear.
+1. In the [Azure portal](https://portal.azure.com), go to your PostgreSQL server. For example, you can enter the name of your PostgreSQL server in the search bar and select it under **Resources** in the results.
+
+1. On the service menu, under **Settings**, select **Databases**.
+
+1. On the top menu of the **Databases** pane, select **Add**.
+
+1. On the **Create Database** pane, enter **restaurants_reviews** for **Name**, and then select **Save**.
+
+1. When the operation finishes, you return to the **Databases** pane. Verify that **restaurants_reviews** appears in the list of databases. You might need to refresh the pane for it to appear.
 
 ---
 
-You can also connect to Azure PostgreSQL Flexible server and create a database using [psql][15] or an IDE that supports PostgreSQL like [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio). For steps using psql, see [Configure the managed identity on the postgresql database](#configure-the-managed-identity-on-the-postgresql-database).
+You can also connect to the Azure Database for PostgreSQL flexible server and create a database by using [psql][15] or an IDE that supports PostgreSQL, like [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio). For steps using psql, see [Configure the managed identity on the PostgreSQL database](#configure-the-managed-identity-on-the-postgresql-database) later in this article.
 
 ## Create a user-assigned managed identity
 
