@@ -163,7 +163,7 @@ These steps require the [Docker extension][6] for VS Code.
 
 1. Create an Azure Container Registry instance.
 
-    Start the Create Registry task:
+    Start the **Create Registry** task:
 
     1. Select the F1 key or CtrlL+Shift+P to open the command palette.
     1. Type **Azure Container Registry**.
@@ -184,9 +184,9 @@ These steps require the [Docker extension][6] for VS Code.
 
     Start the **Build Image in Azure** task:
 
-    * Select the F1 key or Ctrl+Shift+P to open the command palette.
-    * Type **Azure Container Registry**.
-    * Select the task **Azure Container Registry: Build Image in Azure**.
+    1. Select the F1 key or Ctrl+Shift+P to open the command palette.
+    1. Type **Azure Container Registry**.
+    1. Select the task **Azure Container Registry: Build Image in Azure**.
 
     :::image type="content" source="media/tutorial-container-apps/visual-studio-code-build-image-01.png" alt-text="Screenshot that shows how to search for the task to build a new Azure Container Registry container image in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-build-image-01.png":::
 
@@ -293,7 +293,7 @@ The sample app ([Django][1] or [Flask][2]) stores restaurant review data in a Po
        --public-access 0.0.0.0 
     ```
 
-    In the command, use these values:
+    Use these values:
 
     * `pythoncontainer-rg`: The resource group name that this tutorial uses. If you used a different name, change this value.
 
@@ -370,7 +370,7 @@ These steps require the [Azure Databases extension][26] for VS Code.
 
     Monitor progress in the **Azure** window and confirm that the server is created successfully. If an error occurs, see the [troubleshooting section](#troubleshoot-deployment).
 
-    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-02.gif" alt-text="Screenshot that shows selections for completing the task of creating an Azure Database for PostgreSQL flexible server in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-02.gif":::
+    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-postgres-server-02.gif" alt-text="Animated screenshot that shows selections for completing the task of creating an Azure Database for PostgreSQL flexible server in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-postgres-server-02.gif":::
 
 1. After the server is created, configure access from your local environment to the Azure Database for PostgreSQL server:
 
@@ -480,7 +480,7 @@ az postgres flexible-server db create \
    --database-name restaurants_reviews
 ```
 
-In the commmand, use these values:
+Use these values:
 
 * `pythoncontainer-rg`: The resource group name that this tutorial uses. If you used a different name, change this value.
 * `<postgres-server-name>`: The name of the PostgreSQL server.
@@ -515,14 +515,14 @@ You can also connect to the Azure Database for PostgreSQL flexible server and cr
 
 ## Create a user-assigned managed identity
 
-Create a user-assigned managed identity. This managed identity will be used as the identity for the container app when running in Azure.
+Create a user-assigned managed identity to use as the identity for the container app when it's running in Azure.
 
 > [!NOTE]
 > To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity.
+Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity:
 
 ```azurecli
 az identity create --name my-ua-managed-id --resource-group pythoncontainer-rg
@@ -530,19 +530,19 @@ az identity create --name my-ua-managed-id --resource-group pythoncontainer-rg
 
 ### [VS Code](#tab/vscode-aztools)
 
-There isn't currently a VS Code extension that supports creating user-assigned managed identities.  Follow the steps for Azure CLI or the Azure portal.
+There isn't currently a VS Code extension that supports creating user-assigned managed identities. Follow the steps for Azure CLI or the Azure portal.
 
 ### [Azure portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), search for **managed identity**. Under **Marketplace** in the results, select **User Assigned Managed Identity**.
 1. On the **Basics** tab, enter the following values:
 
-    * **Subscription**: Choose the subscription you're using for the resources in this tutorial.
-    * **Resource group**: Enter the resource group for this tutorial; **pythoncontainer-rg**.
-    * **Region**: Choose the region you're using for the resources in this tutorial.
-    * **Name**: Enter the name for your user-assigned managed identity. For this tutorial, use: **my-ua-managed-id**. You can use a different name, but the commands in this tutorial assume **my-ua-managed-id**. If you use a different name, you'll have to change it in other commands.
+    * **Subscription**: Choose the subscription that you're using for the resources in this tutorial.
+    * **Resource group**: Enter the resource group for this tutorial, **pythoncontainer-rg**.
+    * **Region**: Choose the region that you're using for the resources in this tutorial.
+    * **Name**: Enter the name for your user-assigned managed identity. For this tutorial, use **my-ua-managed-id**. You can use a different name, but the commands in this tutorial assume **my-ua-managed-id**. If you use a different name, you'll have to change it in other commands.
 
-    :::image type="content" source="media/tutorial-container-apps/create-user-assigned-managed-identity-portal.png" alt-text="Screenshot that shows the Create User Assigned Managed Identity pane." lightbox="media/tutorial-container-apps/create-user-assigned-managed-identity-portal.png":::
+    :::image type="content" source="media/tutorial-container-apps/create-user-assigned-managed-identity-portal.png" alt-text="Screenshot that shows the pane for creating a user-assigned managed identity." lightbox="media/tutorial-container-apps/create-user-assigned-managed-identity-portal.png":::
 
 1. Select **Review + create** to review the changes.
 1. Select **Create**.
@@ -551,23 +551,23 @@ There isn't currently a VS Code extension that supports creating user-assigned m
 
 ## Configure the managed identity on the PostgreSQL database
 
-Configure the managed identity as a role on the PostgreSQL server and then grant it necessary permissions for the *restaurants_reviews* database. Whether using the Azure CLI or psql, you must connect to the Azure PostgreSQL server with a user that is configured as a Microsoft Entra admin on your server instance. Only Microsoft Entra accounts configured as a PostreSQL admin can configure managed identities and other Microsoft Admin roles on your server.
+Configure the managed identity as a role on the PostgreSQL server and then grant it necessary permissions for the *restaurants_reviews* database. Whether you're using the Azure CLI or psql, you must connect to the Azure PostgreSQL server with a user who's configured as a Microsoft Entra admin on your server instance. Only Microsoft Entra accounts configured as a PostreSQL admin can configure managed identities and other Microsoft admin roles on your server.
 
 ### [Azure CLI](#tab/configure-database-azure-cli)
 
-1. Get an access token for your Azure account with the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command. You use the access token in the following steps.
+1. Get an access token for your Azure account by using the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command. You use the access token in the next steps.
 
     ```azurecli
     az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken
     ```
 
-    The returned token is long. Set its value in an environment variable to use in the commands in the following step:
+    The returned token is long. Set its value in an environment variable to use in the commands in the next step:
 
     ```bash
     MY_ACCESS_TOKEN=<your-access-token>
     ```
 
-1. Add the user-assigned managed identity as database role on your PostgreSQL server with the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
+1. Add the user-assigned managed identity as database role on your PostgreSQL server by using the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command:
 
     ```azurecli
     az postgres flexible-server execute \
@@ -578,18 +578,20 @@ Configure the managed identity as a role on the PostgreSQL server and then grant
         --admin-password $MY_ACCESS_TOKEN
     ```
 
+    Use these values:
+
     * If you used a different name for your managed identity, replace `my-ua-managed-id` in the `pgaadauth_create_principal` command with the name of your managed identity.
 
-    * For the `--admin-user` value, use your Azure account email address.
+    * For the `--admin-user` value, use the email address for your Azure account.
 
-    * For the `--admin-password` value, use the access token output by the previous command, unquoted.
+    * For the `--admin-password` value, use the access token from the output of the previous command, without quotation marks.
 
     * Make sure the database name is `postgres`.
 
     > [!NOTE]
-    > If you're running the *az postgres flexible-server execute* command on your local workstation, make sure you've added a firewall rule for your workstation's IP address. You can add a rule with the [az postgres flexible-server firewall-rule create][28] command. The same requirement also exists for the command in the next step.
+    > If you're running the `az postgres flexible-server execute` command on your local workstation, make sure that you added a firewall rule for your workstation's IP address. You can add a rule by using the [az postgres flexible-server firewall-rule create][28] command. The same requirement also exists for the command in the next step.
 
-1. Grant the user-assigned managed identity necessary permissions on the *restaurants_reviews* database with the following [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
+1. Grant the user-assigned managed identity the necessary permissions on the *restaurants_reviews* database by using the following [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command:
 
     ```azurecli
     az postgres flexible-server execute \
@@ -600,15 +602,17 @@ Configure the managed identity as a role on the PostgreSQL server and then grant
         --admin-password $MY_ACCESS_TOKEN
     ```
 
+    Use these values:
+
     * If you used a different name for your managed identity, replace all instances of `my-ua-managed-id` in the command with the name of your managed identity. There are five instances in the query string.
 
-    * For the `--admin-user` value, use your Azure account email address.
+    * For the `--admin-user` value, use the email address of your Azure account.
 
-    * For the `--admin-password` value, use the access token output previously, unquoted.
+    * For the `--admin-password` value, use the access token from the previous output, without quotation marks.
 
     * Make sure the database name is `restaurants_reviews`.
 
-    The Azure CLI command above connects to the restaurants_reviews database on the server and issues the following SQL commands:
+    This Azure CLI command connects to the restaurants_reviews database on the server and issues the following SQL commands:
 
     ```sql
     GRANT CONNECT ON DATABASE restaurants_reviews TO "my-ua-managed-id";
@@ -621,9 +625,9 @@ Configure the managed identity as a role on the PostgreSQL server and then grant
 
 ### [psql](#tab/configure-database-psql)
 
-You can use the PostgreSQL interactive terminal [psql][15] in your local environment, or in the [Azure Cloud Shell][4], which is also accessible in the [Azure portal][3]. When working with psql, it's often easier to use the [Cloud Shell][4] because all the dependencies are included for you in the shell.
+You can use the PostgreSQL interactive terminal [psql][15] in your local environment or in [Azure Cloud Shell][4], which is also accessible in the [Azure portal][3]. When you're working with psql, it's often easier to use Cloud Shell because the shell includes all the dependencies for you.
 
-1. Connect to the database with psql with an Azure account previously configured as a Microsoft Entra admin on your server. If you've been following the steps in this tutorial, your Azure account is already configured as an admin on the server.
+1. Connect to the database with psql by using the Azure account that you previously configured as a Microsoft Entra admin on your server:
 
     ```bash
     psql --host=<postgres-server-name>.postgres.database.azure.com \
@@ -633,9 +637,9 @@ You can use the PostgreSQL interactive terminal [psql][15] in your local environ
          --set sslmode=require
     ```
 
-    Where *\<postgres-server-name>* is the name of the PostgreSQL server and *\<your-azure-email-address>* is the email address of your Azure account. The command prompts you for your Azure account password.
+    In the command, *\<postgres-server-name>* is the name of the PostgreSQL server, and *\<your-azure-email-address>* is the email address of your Azure account. The command prompts you for your Azure account password.
 
-    If you're working in Azure Cloud Shell or if you have the Azure CLI installed on your local system, you can use the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command to get an access token that you can copy and enter as the password.
+    If you're working in Azure Cloud Shell or if you have the Azure CLI installed on your local system, you can use the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command to get an access token that you can copy and enter as the password:
 
     ```azurecli
     az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken
@@ -653,28 +657,28 @@ You can use the PostgreSQL interactive terminal [psql][15] in your local environ
 
 1. Add the user-assigned managed identity as database role on your PostgreSQL server.
 
-    At the `postgres=>` prompt enter:
+    At the `postgres=>` prompt, enter:
 
     ```sql
     SELECT * FROM pgaadauth_create_principal('my-ua-managed-id', false, false);SELECT * FROM pgaadauth_list_principals(false);
     ```
 
-    The semicolon (";") at the end of each command is necessary. To verify that the database was successfully created, use the command `\c restaurants_reviews`. Type `\?` to show help or `\q` to quit.
+    The semicolon (`;`) at the end of each command is necessary. To verify that the database was successfully created, use the command `\c restaurants_reviews`. Enter `\?` to show help or `\q` to quit.
 
-1. Connect to the *restaurants_reviews* database using the `\c` (Connect) command.
+1. Connect to the *restaurants_reviews* database by using the `\c` (Connect) command:
 
     ```SQL
     \c restaurants_reviews
     ```
 
     > [!NOTE]
-    > If you haven't yet created the *restaurants_reviews* database, you can do so with the following command:
+    > If you haven't yet created the *restaurants_reviews* database, you can do so by using the following command:
     >
     > ```sql
     > CREATE DATABASE resaurants_reviews
     > ```
 
-1. Grant the user-assigned managed identity necessary permissions on the *restaurants_reviews* database.
+1. Grant the user-assigned managed identity the necessary permissions on the *restaurants_reviews* database.
 
     At the `restaurants_reviews_=>` prompt, enter the following commands:
 
@@ -687,7 +691,7 @@ You can use the PostgreSQL interactive terminal [psql][15] in your local environ
     GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO "my-ua-managed-id";
     ```
 
-1. Quit psql using the `\q` command:
+1. Quit psql by using the `\q` command:
 
     ```SQL
     \q
@@ -697,13 +701,13 @@ You can use the PostgreSQL interactive terminal [psql][15] in your local environ
 
 ## Deploy the web app to Container Apps
 
-Container apps are deployed to Container Apps [*environments*][30], which act as a secure boundary. In the following steps, you create the environment, a container inside the environment, and configure the container so that the website is visible externally.
+Container apps are deployed to Azure Container Apps [*environments*][30], which act as a secure boundary. In the following steps, you create the environment and a container inside the environment. You then configure the container so that the website is visible externally.
 
 ### [Azure CLI](#tab/azure-cli)
 
 These steps require the Azure Container Apps extension, *containerapp*.
 
-1. Create a Container Apps environment with the [az containerapp env create][13] command.
+1. Create a Container Apps environment by the [az containerapp env create][13] command:
 
     ```azurecli
     az containerapp env create \
@@ -712,25 +716,25 @@ These steps require the Azure Container Apps extension, *containerapp*.
     --location <location>
     ```
 
-    *\<location>* is one of the Azure location *Name* values from the output of the command `az account list-locations -o table`.
+    *\<location>* is one of the Azure location `Name` values from the output of the command `az account list-locations -o table`.
 
-1. Get the sign-in credentials for the Azure Container Registry with the [az acr credential show](/cli/azure/acr/credential#az-acr-credential-show) command.
+1. Get the sign-in credentials for the Azure Container Registry instance by using the [az acr credential show](/cli/azure/acr/credential#az-acr-credential-show) command:
 
     ```azurecli
     az acr credential show -n <registry-name>
     ```
 
-    You use the username and one of the passwords returned from the output of the command when you create the container app in step 5.
+    You use the username and one of the passwords returned from the command's output when you create the container app in step 5.
 
-1. Use the [az identity show](/cli/azure/identity#az-identity-show) command to get the client ID and resource ID of the user-assigned managed identity.
+1. Use the [az identity show](/cli/azure/identity#az-identity-show) command to get the client ID and resource ID of the user-assigned managed identity:
 
     ```azurecli
     az identity show --name my-ua-managed-id --resource-group pythoncontainer-rg --query "[clientId, id]" --output tsv
     ```
 
-    You use the value of the client ID (GUID) and the resource ID output by the command when you create the container app in step 5. The resource ID has the following form: `/subscriptions/<subscription-id>/resourcegroups/pythoncontainer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-ua-managed-id`
+    You use the value of the client ID (GUID) and the resource ID from the command's output when you create the container app in step 5. The resource ID has the following form: `/subscriptions/<subscription-id>/resourcegroups/pythoncontainer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-ua-managed-id`.
 
-1. Run the following command to generate a secret key value.
+1. Run the following command to generate a secret key value:
 
     ```bash
     python -c 'import secrets; print(secrets.token_hex())'
@@ -739,9 +743,9 @@ These steps require the Azure Container Apps extension, *containerapp*.
     You use the secret key value to set an environment variable when you create the container app in step 5.
 
     > [!NOTE]
-    > The command shown is for a bash shell. Depending on your environment, you might need to invoke python using  `python3`. On Windows, you need to enclose the command in the `-c` parameter in double quotes, rather than single quotes. You also might need to invoke python using `py` or `py -3` depending on your environment.
+    > The command that this step shows is for a Bash shell. Depending on your environment, you might need to invoke Python by using  `python3`. On Windows, you need to enclose the command in the `-c` parameter in double quotation marks, rather than single quotation marks. You also might need to invoke Python by using `py` or `py -3`, depending on your environment.
 
-1. Create a container app in the environment with the [az containerapp create][12] command.
+1. Create a container app in the environment by using the [az containerapp create][12] command:
 
     ```azurecli
     az containerapp create \
@@ -764,26 +768,26 @@ These steps require the Azure Container Apps extension, *containerapp*.
     AZURE_SECRET_KEY="<your-secret-key>"
     ```
 
-    Make sure you replace all of the values in angle brackets with values you're using in this tutorial. Be aware that the name of your container app must be unique across Azure.
+    Be sure to replace all of the values in angle brackets with values that you're using in this tutorial. Be aware that the name of your container app must be unique across Azure.
 
-    The value of the `--env-vars` parameter is a string composed of space-separated values in the key="value" format with the following values:
+    The value of the `--env-vars` parameter is a string composed of space-separated values in the *key="value"* format with the following values:
 
-    * DBHOST="\<postgres-server-name>"
-    * DBNAME="restaurants_reviews"
-    * DBUSER="my-ua-managed-id"
-    * RUNNING_IN_PRODUCTION="1"
-    * AZURE_CLIENT_ID="\<managed-identity-client-id>"
-    * AZURE_SECRET_KEY="\<your-secret-key>"
+    * `DBHOST="\<postgres-server-name>"`
+    * `DBNAME="restaurants_reviews"`
+    * `DBUSER="my-ua-managed-id"`
+    * `RUNNING_IN_PRODUCTION="1"`
+    * `AZURE_CLIENT_ID="\<managed-identity-client-id>"`
+    * `AZURE_SECRET_KEY="\<your-secret-key>"`
 
     The value for `DBUSER` is the name of your user-assigned managed identity.
 
     The value for `AZURE_CLIENT_ID` is the client ID of your user-assigned managed identity. You got this value in a previous step.
 
-    The value for `AZURE_SECRET_KEY` is the secret key value you generated in a previous step.
+    The value for `AZURE_SECRET_KEY` is the secret key value that you generated in a previous step.
 
-1. For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
+1. For Django only, migrate and create a database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
 
-    Connect with the [az containerapp exec][31] command:
+    Connect by using the [az containerapp exec][31] command:
 
     ```azurecli
         az containerapp exec \
@@ -791,23 +795,23 @@ These steps require the Azure Container Apps extension, *containerapp*.
             --resource-group pythoncontainer-rg
     ```
 
-    Then, at the shell command prompt type `python manage.py migrate`.
+    Then, at the shell command prompt, enter `python manage.py migrate`.
 
     You don't need to migrate for revisions of the container.
 
 1. Test the website.
 
-    The `az containerapp create` command you entered previously outputs an application URL you can use to browse to the app. The URL ends in "azurecontainerapps.io". Navigate to the URL in a browser. Alternatively, you can use the [az containerapp browse](/cli/azure/containerapp#az-containerapp-browse) command.
+    The `az containerapp create` command that you entered previously outputs an application URL you can use to browse to the app. The URL ends in `azurecontainerapps.io`. Go to the URL in a browser. Alternatively, you can use the [az containerapp browse](/cli/azure/containerapp#az-containerapp-browse) command.
 
 ### [VS Code](#tab/vscode-aztools)
 
 These steps require the [Azure Container Apps extension][11] for VS Code.
 
-1. Get values you need for environment variables:
+1. Get values that you need for environment variables:
 
-    * Open a terminal in VS Code and enter the following commands. You can also enter the commands from Azure Cloud Shell.
+    1. Open a terminal in VS Code for the following Azure CLI commands. You can also enter the commands from Azure Cloud Shell.
 
-    * Get the client ID of the managed identity with the [az identity show](/cli/azure/identity#az-identity-show) command.
+    1. Get the client ID of the managed identity by using the [az identity show](/cli/azure/identity#az-identity-show) command:
 
         ```azurecli
         az identity show --name my-ua-managed-id --resource-group pythoncontainer-rg --query clientId -o tsv
@@ -815,7 +819,7 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
         The client ID is a GUID. You use it to set an environment variable in the next step.
 
-    * Generate a secret key value:
+    1. Generate a secret key value:
 
         ```bash
         python -c 'import secrets; print(secrets.token_hex())'
@@ -824,11 +828,11 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
         You use the secret key value to set an environment variable in the next step.
 
         > [!NOTE]
-        > The command shown is for a bash shell. Depending on your environment, you might need to invoke python using  `python3`. On Windows, you need to enclose the command in the `-c` parameter in double quotes, rather than single quotes. You also might need to invoke python using `py` or `py -3`.
+        > The command shown here is for a Bash shell. Depending on your environment, you might need to invoke Python by using  `python3`. On Windows, you need to enclose the command in the `-c` parameter in double quotation marks, rather than single quotation marks. You also might need to invoke Python by using `py` or `py -3`.
 
 1. Create an *.env* file that you'll reference during the creation of the container app.
 
-    In the sample repo, there's an *.env.example* file you can start from. Create the *.env* file with the following values:
+    The sample repo includes an *.env.example* file that you can start from. Create the *.env* file with the following values:
 
     ```python
     DBHOST="<postgres-server-name>"
@@ -843,70 +847,70 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
     The `AZURE_CLIENT_ID` value is the client ID of your user-assigned managed identity. You got it in the previous step.
 
-    The `AZURE_SECRET_KEY` value is the secret key value you generated in the previous step.
+    The `AZURE_SECRET_KEY` value is the secret key value that you generated in the previous step.
 
-1. Create a container apps environment.
+1. Create a Container Apps environment.
 
-    Start the container apps environment create task:
+    Start the **Create Container Apps Environment** task:
 
-    * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
-    * Type "container apps".
-    * Select the task **Azure Container Apps: Create Container Apps Environment**
+    1. Select the F1 key or Ctrl+Shift+P to open the command palette.
+    1. Type **container apps**.
+    1. Select the task **Azure Container Apps: Create Container Apps Environment**.
 
-    Alternatively, you can open the Azure extension and select **+** icon in the **Resources** section. 
+    Alternatively, you can open the Azure extension and select the plus (**+**) icon in the **Resources** section.
 
-    Follow the prompts to create the container app environment:
+    Follow the prompts to create the Container Apps environment:
 
     * If you're prompted, select your subscription.
-    * **Enter a container apps environment name**: Enter "python-container-env".
-    * **Select a location for new resources**: Choose the same location that resource group you created previously.
+    * **Enter a container apps environment name**: Enter **python-container-env**.
+    * **Select a location for new resources**: Choose the same location as the resource group that you created previously.
 
-    It takes several minutes to create the environment. A notification shows the progress of the operation. Look for "Successfully created new Container Apps environment" before going to the next step. The environment is created in a resource group of the same name "python-container-env".
+    Creating the environment takes several minutes. A notification shows the progress of the operation. Look for "Successfully created new Container Apps environment" before you go to the next step. The environment is created in a resource group of the same name, *python-container-env*.
 
-    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-02.gif" alt-text="Screenshot showing how to create an environment for Azure Container Apps in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-02.gif":::
+    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-02.gif" alt-text="Animated screenshot that shows selections for creating an Azure Container Apps environment in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-02.gif":::
 
-1. After the environment is created, create a container app in it. by finding the **Azure Container Apps: Create Container App** task in the command palette.
+1. Create a container app in the new environment by finding the **Azure Container Apps: Create Container App** task in the command palette.
 
-    Start the container app create task:
+    Start the **Create Container App** task:
 
-    * Select **F1** or **CTRL+SHIFT+P** to open the command palette.
-    * Type "container apps".
-    * Select the task **Azure Container Apps: Create Container App**
+    1. Select the F1 key or Ctrl+Shift+P to open the command palette.
+    1. Type **container apps**.
+    1. Select the task **Azure Container Apps: Create Container App**.
 
-    Alternatively, you can go to the Azure extension, Container Apps section, select the environment, right-click, and select **Create Container App** to start the create container app task.
+    Alternatively, you can open the Azure extension and go to the **Container Apps** section. Select the environment, right-click, and then select **Create Container App** to start the task.
 
     Follow the prompts to create the container app:
 
-    * **Select subscription**: Select the subscription you're using for this tutorial.
-    * **Select a container apps environment**: Select the environment created in the previous step.
-    * **Enter a container app name**: Enter *python-container-app*.
+    * **Select subscription**: Select the subscription that you're using for this tutorial.
+    * **Select a container apps environment**: Select the environment that you created in the previous step.
+    * **Enter a container app name**: Enter **python-container-app**.
     * **Select an image source for the container app**: Select **Container Registry**.
     * **Select a container registry**: Select **Azure Container Registry**.
-    * **Select an Azure Container Registry**: Select the name of the registry you created previously.
+    * **Select an Azure Container Registry**: Select the name of the registry that you created previously.
     * **Select a repository**: Select **pythoncontainer**.
     * **Select a tag**: Select **latest**.
-    * **Select a .env file to set the environment variables for the container instance**: Select the *.env* file you created in step two.
+    * **Select a .env file to set the environment variables for the container instance**: Select the *.env* file that you created in step 2.
     * **Enable ingress for applications that need an HTTP endpoint**: Select **Enable**.
     * **Select the HTTP traffic that the endpoint will accept**: Select **External**.
-    * **Port the container is listening on**: Set to 8000 (Django) or 5000 (Flask).
+    * **Port the container is listening on**: Set to **8000** for Django or **5000** for Flask.
 
-    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-03.gif" alt-text="Screenshot showing how to create an Azure Container app in an environment in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-03.gif":::
+    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-03.gif" alt-text="Animated screenshot that shows selections for creating an Azure container app in an environment in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-03.gif":::
 
-    A notification shows the progress of the operation. Look for "Successfully created new Container App environment" before going to the next step. The container app is created in the same resource group as the container app environment "python-container-env".
+    A notification shows the progress of the operation. Look for "Successfully created new Container Apps environment" before you go to the next step. The container app is created in the same resource group as the Container Apps environment *python-container-env*.
 
-1. After the container app is created, configure the user-assigned managed identity on it.
+1. Configure the user-assigned managed identity on the newly created container app:
 
-    * Open a terminal in VS Code and enter the following Azure CLI commands. You can also enter the commands from Azure Cloud Shell.
+    1. Open a terminal in VS Code for the following Azure CLI commands. You can also enter the commands from Azure Cloud Shell.
 
-    * Get the resource ID of the managed identity.
+    * Get the resource ID of the managed identity:
 
         ```azurecli
         az identity show --name my-ua-managed-id --resource-group pythoncontainer-rg --query id -o tsv
         ```
 
-        The resource ID has the following form: */subscriptions/\<subscription ID>/resourcegroups/pythoncontainer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-ua-managed-id*
+        The resource ID has the following form: */subscriptions/\<subscription ID>/resourcegroups/pythoncontainer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-ua-managed-id*.
 
-    * Assign the managed identity to the container app with the [az containerapp identity assign](/cli/azure/containerapp/identity#az-containerapp-identity-assign) command.
+    * Assign the managed identity to the container app by using the [az containerapp identity assign](/cli/azure/containerapp/identity#az-containerapp-identity-assign) command:
 
         ```azurecli
         az containerapp identity assign  \
@@ -915,36 +919,36 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
             --user-assigned <managed-identity-resource-id>      
         ```
 
-        Replace the `<managed-identity-resource-id>` placeholder with the resource ID output by the previous command.
+        Replace the `<managed-identity-resource-id>` placeholder with the resource ID from the output of the previous command.
 
-        The resource group in this commmand is the same resource group that the container apps environment and container app were created in, *python-container-app*.
+        The resource group in this commmand is the same resource group in which you created the Container Apps environment and the container app, *python-container-app*.
 
-1. For Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
+1. For Django only, migrate and create a database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
 
-    * Go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container app you created and select **Open Console in Portal**.
+    1. Go to the **Azure** extension and expand the **Container Apps** section. Find and expand your container environment, right-click the container app that you created, and then select **Open Console in Portal**.
     * Choose a startup command and select **Connect**.
-    * At the shell prompt, type `python manage.py migrate`.
+    * At the shell prompt, enter `python manage.py migrate`.
 
     You don't need to migrate for revisions of the container.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-11.png" alt-text="Screenshot showing how to connect to an Azure Container Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-11.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-11.png" alt-text="Screenshot that shows selections for connecting to an Azure Container Apps container in the Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-11.png":::
 
 1. Test the website.
 
-    After the create container task completes, you'll see a notification with a **Browse** button to go to the website.
+    After the **Create Container App** task finishes, a notification appears with a **Browse** button to go to the website.
 
-    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-04.png" alt-text="Screenshot showing how to browse to an Azure Container app after it's created in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-04.png":::
+    :::image type="content" source="media/tutorial-container-apps/visual-studio-code-create-container-app-04.png" alt-text="Screenshot that shows the button for browsing to an Azure container app after it's created in Visual Studio Code." lightbox="media/tutorial-container-apps/visual-studio-code-create-container-app-04.png":::
 
-    If you miss the notification, go to the **Azure** extension, expand the **Container Apps** section, find and expand your container environment, and right-click the container app and select **Browse**. You can also enter the **Azure Container Apps: Browse** task in the command palette and follow the prompts.
+    If you miss the notification, go to the **Azure** extension and expand the **Container Apps** section. Find and expand your container environment, right-click the container app, and then select **Browse**. You can also enter the **Azure Container Apps: Browse** task in the command palette and follow the prompts.
 
 ### [Azure portal](#tab/azure-portal)
 
 1. Get the client ID for the user-assigned managed identity. You use it in a later step.
 
     1. In the [Azure portal](https://portal.azure.com), search for **my-ua-managed-id** and select it under **Resources** in the results.
-    1. Select **Overview** on the **service menu** and note down the **Client ID** value.
+    1. On the service menu, select **Overview** and note down the **Client ID** value.
 
-1. Open Azure Cloud Shell and enter the following command to get a secret key value.
+1. Open Azure Cloud Shell and enter the following command to get a secret key value:
 
     ```python
     python -c 'import secrets; print(secrets.token_hex())'
@@ -956,120 +960,129 @@ These steps require the [Azure Container Apps extension][11] for VS Code.
 
 1. On the **Basics** tab, enter the following values:
 
-    * **Resource group**: Use the group created previously that contains the Azure Container Registry.
-    * **Container app name**: *python-container-app*.
+    * **Resource group**: Use the previously created group that contains the Azure Container Registry instance.
+    * **Container app name**: Enter **python-container-app**.
     * **Deployment source**: Make sure that **Container image** is selected.
     * **Region**: Use the same region/location as the resource group.
     * **Container Apps Environment**: Select **Create new** to create a new environment named *python-container-env*.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-containerapp-basics-tab.png" alt-text="Screenshot showing how to configure basic settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-containerapp-basics-tab.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-containerapp-basics-tab.png" alt-text="Screenshot that shows basic settings for an Azure Container Apps service in the Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-containerapp-basics-tab.png":::
 
     Select **Next: Container** to continue configuration.
 
-1. On the **Container** tab, continue configuring the container app.
+1. On the **Container** tab, continue configuring the container app:
 
     * **Use quickstart image**: Make sure the checkbox is not selected.
     * **Image source**: Make sure **Azure Container Registry** is selected.
-    * **Registry**: Select the name of registry you created earlier.
-    * **Image name**: Select *pythoncontainer* (the name of the image you built).
-    * **Image tag**: Select *latest*.
+    * **Registry**: Select the name of registry that you created earlier.
+    * **Image name**: Select **pythoncontainer** (the name of the image that you built).
+    * **Image tag**: Select **latest**.
 
     Under **Environment variables**, enter values for the following variables:
 
-    * DBHOST="\<postgres-server-name>"
-    * DBNAME="restaurants_reviews"
-    * DBUSER="my-ua-managed-id"
-    * RUNNING_IN_PRODUCTION="1"
-    * AZURE_CLIENT_ID="\<managed-identity-client-id>"
-    * AZURE_SECRET_KEY="\<your-secret-key>"
+    * **DBHOST**=*\<postgres-server-name>*
+    * **DBNAME**=**restaurants_reviews**
+    * **DBUSER**=**my-ua-managed-id**
+    * **RUNNING_IN_PRODUCTION**=**1**
+    * **AZURE_CLIENT_ID**=*\<managed-identity-client-id>*
+    * **AZURE_SECRET_KEY**=*\<your-secret-key>*
 
-    For `AZURE_CLIENT_ID`, use the client ID you copied for the user-assigned managed identity.
+    For `AZURE_CLIENT_ID`, use the client ID that you copied for the user-assigned managed identity.
 
-    For `AZURE_SECRET_KEY`, use the secret key value you generated in a previous step.
+    For `AZURE_SECRET_KEY`, use the secret key value that you generated in a previous step.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-containerapp-container-tab.png" alt-text="Screenshot showing how to the configure container settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-containerapp-container-tab.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-containerapp-container-tab.png" alt-text="Screenshot that shows how to the configure container settings for an Azure Container Apps service in the Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-containerapp-container-tab.png":::
 
     Select **Next: Ingress** to continue.
 
-1. Under the **Ingress** tab, continue configuring the container app.
+1. Under the **Ingress** tab, continue configuring the container app:
 
     * **Ingress**:  Select the **Enabled** checkbox. More selections appear.
     * **Ingress traffic**: Select **Accepting traffic from anywhere**.
-    * **Target port**: Set to 8000 for Django or 5000 for Flask.
+    * **Target port**: Set to **8000** for Django or **5000** for Flask.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-containerapp-ingress-tab.png" alt-text="Screenshot showing how to the configure ingress settings for an Azure Container Apps service in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-containerapp-ingress-tab.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-containerapp-ingress-tab.png" alt-text="Screenshot that shows ingress settings for an Azure Container Apps service in the Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-containerapp-ingress-tab.png":::
 
-    Select **Review and create** to go to review page. After reviewing the settings, select **Create** to kick off deployment.
+    Select **Review + create**. After you review the settings, select **Create** to start deployment.
 
 1. After the deployment finishes, select **Go to resource**.
 
-1. Add the user-assigned managed identity to the container app.
+1. Add the user-assigned managed identity to the container app:
 
-    1. Under **Settings** on the **service menu**, select **Identity**, then select the **User assigned** tab.
-    1. Under the **User assigned** tab, select **Add**.
-    1. On the **Add user assigned managed identity** page, select **my-ua-managed-identity** then select **Add**.
-    1. When the operation completes, you're returned to the **User assigned** tab. Verify that **my-ua-managed-id** appears in the list of identities.
+    1. On the service menu, under **Settings**, select **Identity**.
+    1. On the **User assigned** tab, select **Add**.
+    1. On the **Add user assigned managed identity** pane, select **my-ua-managed-identity**, and then select **Add**.
+    1. When the operation finishes, you return to the **User assigned** tab. Verify that **my-ua-managed-id** appears in the list of identities.
 
     > [!TIP]
-    > Instead of adding the managed identity and defining environment variables, you can use [Service Connector][9]. Service Connector helps you connect to Azure compute services to other backing services by configuring connection information and generating and storing environment variables for you. If you use a service connector, make sure you synchronize the environment variables in the sample code to the environment variables created with Service Connector.
+    > Instead of adding the managed identity and defining environment variables, you can use a [service connector][9]. A service connector helps you connect Azure compute services to other backing services by configuring connection information and generating and storing environment variables for you.
+    >
+    > If you use a service connector, be sure to synchronize the environment variables in the sample code to the environment variables created with the service connector.
 
-1. Django only, migrate and create database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
+1. For Django only, migrate and create a database schema. (In the Flask sample app, it's done automatically, and you can skip this step.)
 
-    1. Under **Monitoring** on the **service menu**, select **Console**.
+    1. On the service menu, under **Monitoring**, select **Console**.
     1. Choose a startup command and select **Connect**.
-    1. At the shell prompt, type `python manage.py migrate`.
+    1. At the shell prompt, enter `python manage.py migrate`.
 
     You don't need to migrate for revisions of the container.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-11.png" alt-text="Screenshot showing how to connect to an Azure Container Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-11.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-11.png" alt-text="Screenshot that shows selections for connecting to an Azure Container Apps container in the Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-11.png":::
 
 1. Test the website.
 
-    1. Select **Overview** on the **service menu**.
+    1. On the service menu, select **Overview**.
     1. Under **Essentials**, select **Application Url** to open the website in a browser.
 
-    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-10.png" alt-text="Screenshot showing how to find the website Url of an Azure Container Apps container in Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-10.png":::
+    :::image type="content" source="media/tutorial-container-apps/azure-portal-create-container-app-10.png" alt-text="Screenshot that shows selections for finding the website URL of an Azure Container Apps container in the Azure portal." lightbox="media/tutorial-container-apps/azure-portal-create-container-app-10.png":::
 
 ---
 
-Here's an example of the sample website after adding a restaurant and two reviews.
+Here's an example of the sample website after the addition of a restaurant and two reviews.
 
-:::image type="content" source="media/tutorial-container-apps/final-website-example-400px.png" alt-text="Screenshot showing an example of the sample website built in this tutorial." lightbox="media/tutorial-container-apps/final-website-example.png":::
+:::image type="content" source="media/tutorial-container-apps/final-website-example-400px.png" alt-text="Screenshot that shows an example of the sample website built in this tutorial." lightbox="media/tutorial-container-apps/final-website-example.png":::
 
 ## Troubleshoot deployment
 
-* You forgot the Application Url to access the website.
-  * In the Azure portal, go to the **Overview** page of the Container App and look for the **Application Url**.
-  * In VS Code, go to the **Azure view** (Ctrl+Shift+A) and expand the subscription that you're working in. Expand the **Container Apps** node, then expand the managed environment and right-click **python-container-app** and select **Browse**. It opens the browser with the **Application Url**.
-  * With Azure CLI, use the command `az containerapp show -g pythoncontainer-rg -n python-container-app --query properties.configuration.ingress.fqdn`.
+### You forgot the application URL to access the website
 
-* In VS Code, the **Build Image in Azure** task returns an error.
-  * If you see the message "Error: failed to download context. Please check if the URL is incorrect." in the VS Code **Output** window, then refresh the registry in the Docker extension. To refresh, select the Docker extension, go to the Registries section, find the registry, and select it.
-  * If you run the **Build Image in Azure** task again, check to see if your registry from a previous run exists and if so, use it.
+* In the Azure portal, go to the **Overview** page of the Container App and look for the **Application Url**.
+* In VS Code, go to the **Azure view** (Ctrl+Shift+A) and expand the subscription that you're working in. Expand the **Container Apps** node, then expand the managed environment and right-click **python-container-app** and select **Browse**. It opens the browser with the **Application Url**.
+* With Azure CLI, use the command `az containerapp show -g pythoncontainer-rg -n python-container-app --query properties.configuration.ingress.fqdn`.
 
-* In the Azure portal during the creation of a Container App, you see an access error that contains "Cannot access ACR '\<name>.azurecr.io'".
-  * This error occurs when admin credentials on the ACR are disabled. To check admin status in the portal, go to your Azure Container Registry, select the **Access keys** resource, and ensure that **Admin user** is enabled.
+### In VS Code, the Build Image in Azure task returns an error
 
-* Your container image doesn't appear in the Azure Container Registry.
-  * Check the output of the Azure CLI command or VS Code Output and look for messages to confirm success.
-  * Check that the name of the registry was specified correctly in your build command with the Azure CLI or in the VS Code task prompts.
-  * Make sure your credentials aren't expired. For example, in VS Code, find the target registry in the Docker extension and refresh. In Azure CLI, run `az login`.
+* If you see the message "Error: failed to download context. Please check if the URL is incorrect" in the VS Code **Output** window, then refresh the registry in the Docker extension. To refresh, select the Docker extension, go to the Registries section, find the registry, and select it.
+* If you run the **Build Image in Azure** task again, check to see if your registry from a previous run exists and if so, use it.
 
-* Website returns "Bad Request (400)".
-  * Check the PostgreSQL environment variables passed in to the container. The 400 error often indicates that the Python code can't connect to the PostgreSQL instance.
-  * The sample code used in this tutorial checks for the existence of  the container environment variable `RUNNING_IN_PRODUCTION`, which can be set to any value like "1".
+### In the Azure portal, an access error appears during the creation of a container app
 
-* Website returns "Not Found (404)".
-  * Check the **Application Url** on the **Overview** page for the container. If the Application Url contains the word "internal", then ingress isn't set correctly.
-  * Check the ingress of the container. For example, in Azure portal, go to the **Ingress** resource of the container and make sure **HTTP Ingress** is enabled and **Accepting traffic from anywhere** is selected.
+An access error that contains "Cannot access ACR '\<name>.azurecr.io'" occurs when admin credentials on the ACR are disabled. To check admin status in the portal, go to your Azure Container Registry, select the **Access keys** resource, and ensure that **Admin user** is enabled.
 
-* Website doesn't start, you see "stream timeout", or nothing is returned.
-  * Check the logs.
-    * In the Azure portal, go to the Container App's Revision management resource and check the **Provision Status** of the container.
-      * If "Provisioning", then wait until provisioning has completed.
-      * If "Failed", then select the revision and view the console logs. Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python *stderr* and *stdout* messages in the "Stream_s" column. Python 'print' output will be *stdout* messages.
-    * With the Azure CLI, use the [az containerapp logs show][32] command.
-  * If using the Django framework, check to see if the *restaurants_reviews* tables exist in the database. If not, use a console to access the container and run `python manage.py migrate`.
+### Your container image doesn't appear in the Azure Container Registry
+
+* Check the output of the Azure CLI command or VS Code Output and look for messages to confirm success.
+* Check that the name of the registry was specified correctly in your build command with the Azure CLI or in the VS Code task prompts.
+* Make sure your credentials aren't expired. For example, in VS Code, find the target registry in the Docker extension and refresh. In Azure CLI, run `az login`.
+
+### Website returns "Bad Request (400)"
+
+* Check the PostgreSQL environment variables passed in to the container. The 400 error often indicates that the Python code can't connect to the PostgreSQL instance.
+* The sample code used in this tutorial checks for the existence of  the container environment variable `RUNNING_IN_PRODUCTION`, which can be set to any value like "1".
+
+### Website returns "Not Found (404)"
+
+* Check the **Application Url** on the **Overview** page for the container. If the Application Url contains the word "internal", then ingress isn't set correctly.
+* Check the ingress of the container. For example, in Azure portal, go to the **Ingress** resource of the container and make sure **HTTP Ingress** is enabled and **Accepting traffic from anywhere** is selected.
+
+## Website doesn't start, you get "stream timeout", or nothing is returned
+
+* Check the logs.
+  * In the Azure portal, go to the Container App's Revision management resource and check the **Provision Status** of the container.
+    * If "Provisioning", then wait until provisioning has completed.
+    * If "Failed", then select the revision and view the console logs. Choose the order of the columns to show "Time Generated", "Stream_s", and "Log_s". Sort the logs by most-recent first and look for Python *stderr* and *stdout* messages in the "Stream_s" column. Python 'print' output will be *stdout* messages.
+  * With the Azure CLI, use the [az containerapp logs show][32] command.
+* If using the Django framework, check to see if the *restaurants_reviews* tables exist in the database. If not, use a console to access the container and run `python manage.py migrate`.
 
 ## Next step
 
