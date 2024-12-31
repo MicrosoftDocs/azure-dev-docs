@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * Apache [Maven](https://maven.apache.org/), version 3.
 
-## Sign in to Azure CLI
+## Sign into the Azure CLI
 
 The simplest and easiest way to get the Maven Plugin deploying your Payara Micro application is by using the [Azure CLI](/cli/azure/).
 
@@ -35,7 +35,7 @@ Sign into your Azure account by using the Azure CLI:
 
 Follow the instructions to complete the sign-in process.
 
-## Create sample app from MicroProfile Starter
+## Create a sample app from the MicroProfile Starter
 
 In this section, you create a Payara Micro application and test it locally.
 
@@ -62,7 +62,7 @@ In this section, you create a Payara Micro application and test it locally.
        unzip payaraMicro-hello-azure.zip
     ```
 
-### Run the application in Local environment
+### Run the application in a local environment
 
 1. Change the directory to the completed project by using the following command:
 
@@ -88,9 +88,9 @@ In this section, you create a Payara Micro application and test it locally.
        curl http://localhost:8080/data/hello
     ```
 
-5. You should see the following message displayed: **Hello World**
+5. You should see the following message displayed: **Hello World**.
 
-## Configure Maven Plugin for Azure App Service
+## Configure the Maven plugin for Azure App Service
 
 In this section, you configure the Payara Micro project **pom.xml** file so that Maven can deploy the app to Azure App Service on Linux.
 
@@ -248,7 +248,7 @@ Maven deploys your web app to Azure. If the web app or web app plan doesn't alre
 
 :::image type="content" source="media/payara-micro/payara-micro-front-page.png" alt-text="Screenshot of web browser showing front page of Payara Micro.":::
 
-After your web app is deployed, you can manage it through the [Azure portal].
+After your web app deploys, you can manage it through the [Azure portal].
 
 Your web app is listed in the **microprofile** resource group.
 
@@ -256,7 +256,7 @@ You can access to your web app by selecting **Browse** on the **Overview** page 
 
 ## Confirm the log stream from the running App Service
 
-You can view the logs in their entirety or use `tail` to view the end of the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
+You can view the logs in their entirety or use `tail` to view the end of the logs, from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 
 ```azurecli
    az webapp log tail \
@@ -270,10 +270,10 @@ You can view the logs in their entirety or use `tail` to view the end of the log
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
 
-* From the Azure portal, select Resource group from the left menu.
-* Enter **microprofile** in the **Filter by name** field, the resource group created in this tutorial should have this prefix.
-* Select the resource group created in this tutorial.
-* Select Delete resource group from the top menu.
+1. From the Azure portal, select **Resource group** from the menu.
+1. Enter **microprofile** in the **Filter by name** field. The resource group created in this tutorial should have this prefix.
+1. Select the resource group created in this tutorial.
+1. Select **Delete resource group** from the menu.
 
 ## Next steps
 
