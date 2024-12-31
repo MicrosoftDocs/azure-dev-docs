@@ -9,7 +9,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-kumuluzee, devx
 #Customer intent: As a Java developer, I want to deploy MicroProfile apps to Azure so that I don't have to deal with app server configuration and management.
 ---
 
-# Deploy a KumuluzEE Web App to Azure App Service with Maven
+# Deploy a KumuluzEE web app to Azure App Service with Maven
 
 In this quickstart, you use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a KumuluzEE application to [Azure App Service on Linux](/azure/app-service/containers/). You choose Java SE deployment over [Tomcat and WAR files](/azure/app-service/containers/quickstart-java) when you want to consolidate your app's dependencies, runtime, and configuration into a single deployable artifact.
 
@@ -33,70 +33,70 @@ The simplest and easiest way to get the Maven Plugin deploying your KumuluzEE ap
 
 Follow the instructions to complete the sign-in process.
 
-## Create sample app from MicroProfile Starter
+## Create a sample app from the MicroProfile Starter
 
 In this section, you create a KumuluzEE application and test it locally.
 
-### Create Java SE 8 base Project
+### Create Java SE 8 base project
 
 1. Open a web browser and navigate to the [MicroProfile Starter](https://start.microprofile.io/) site.
 
-   :::image type="content" source="media/kumuluzee/microprofile-starter-kumuluzee.png" alt-text="Screenshot showing MicroProfile Starter with KumuluzEE runtime selected.":::
+    :::image type="content" source="media/kumuluzee/microprofile-starter-kumuluzee.png" alt-text="Screenshot showing MicroProfile Starter with KumuluzEE runtime selected.":::
 
-2. Input or Select the field like follows.
+1. Input or select the field values according to those in the following table:
 
-    |  Field  |  Value  |
-    | ---- | ---- |
-    |  groupId  |  com.microsoft.azure.samples.kumuluzee  |
-    |  artifactId  |  kumuluzEE-hello-azure  |
-    |  MicroProfile Version  |  MP 3.2  |
-    |  Java SE Version  |  Java 8  |
-    |  MicroProfile Runtime  |  KumuluzEE  |
-    |  Examples for Specifications  |  Metrics, OpenAPI  |
+    | Field                       | Value                                 |
+    |-----------------------------|---------------------------------------|
+    | groupId                     | com.microsoft.azure.samples.kumuluzee |
+    | artifactId                  | kumuluzEE-hello-azure                 |
+    | MicroProfile Version        | MP 3.2                                |
+    | Java SE Version             | Java 8                                |
+    | MicroProfile Runtime        | KumuluzEE                             |
+    | Examples for Specifications | Metrics, OpenAPI                      |
 
-3. Select **DOWNLOAD** to download the project.
+1. Select **DOWNLOAD** to download the project.
 
-4. Unzip the archive file; for example:
+1. Unzip the archive file by using the following command:
 
     ```bash
        unzip kumuluzEE-hello-azure.zip
     ```
 
-### Run the application in Local environment
+### Run the application in a local environment
 
-1. Change directory to the completed project; for example:
+1. Change the directory to the completed project by using the following command:
 
     ```bash
        cd kumuluzEE-hello-azure/
     ```
 
-2. Build the project using Maven; for example:
+1. Build the project using Maven by using the following command:
 
     ```bash
       mvn clean package
     ```
 
-3. Run the Application using following command:
+1. Run the Application using following command:
 
     ```bash
        java -jar target/kumuluzEE-hello-azure.jar
     ```
 
-4. Test the web app by browsing to it locally using a web browser. For example, you could use the following command if you have curl available:
+1. Test the web app by browsing to it locally using a web browser. For example, you could use the following command if you have `curl` available:
 
     ```bash
        curl http://localhost:8080/data/hello
     ```
 
-5. You should see the following message displayed: **Hello World**.
+1. You should see the following message displayed: **Hello World**.
 
-## Configure Maven Plugin for Azure App Service
+## Configure the Maven plugin for Azure App Service
 
 In this section, you configure the KumuluzEE project **pom.xml** file so that Maven can deploy the app to Azure App Service on Linux.
 
 1. Open the **pom.xml** file in a code editor.
 
-2. In the `<build>` section of the **pom.xml** file, insert the following `<plugin>` entry inside the `<plugins>` tag.
+1. In the `<build>` section of the **pom.xml** file, insert the following `<plugin>` entry inside the `<plugins>` tag:
 
     ```xml
        <build>
@@ -111,7 +111,7 @@ In this section, you configure the KumuluzEE project **pom.xml** file so that Ma
        </build>
     ```
 
-3. Configure the deployment by running the following Maven command:
+1. Configure the deployment by running the following Maven command:
 
     ```bash
        mvn azure-webapp:config
@@ -119,11 +119,11 @@ In this section, you configure the KumuluzEE project **pom.xml** file so that Ma
 
     Select the following options when prompted:
 
-    |  Input Field  |  Input/Select Value  |
-    | ---- | ---- |
-    |  Define value for OS(Default: Linux):  | 1. linux  |
-    |  Define value for javaVersion(Default: Java 8):   | 2. Java 8  |
-    |  Confirm (Y/N) | y |
+    | Input Field                                    | Input/Select Value |
+    |------------------------------------------------|--------------------|
+    | Define value for OS(Default: Linux):           | 1. linux           |
+    | Define value for javaVersion(Default: Java 8): | 2. Java 8          |
+    | Confirm (Y/N)                                  | y                  ||  Confirm (Y/N) | y |
 
     This command produces output similar to the following example:
 
@@ -161,7 +161,7 @@ In this section, you configure the KumuluzEE project **pom.xml** file so that Ma
        [INFO] ------------------------------------------------------------------------
     ```
 
-4. Add the `<appSettings>` section to the `<configuration>` section of `PORT`,  `WEBSITES_PORT`, and `WEBSITES_CONTAINER_START_TIME_LIMIT`. Your XML entry for `azure-webapp-maven-plugin` should look similar to the following example:
+1. Add the `<appSettings>` section to the `<configuration>` section of `PORT`,  `WEBSITES_PORT`, and `WEBSITES_CONTAINER_START_TIME_LIMIT`. Your XML entry for `azure-webapp-maven-plugin` should look similar to the following example:
 
     ```xml
        <plugin>
@@ -211,13 +211,13 @@ In this section, you configure the KumuluzEE project **pom.xml** file so that Ma
 
 After configuring all of the settings in the preceding sections of this article, you're ready to deploy your web app to Azure. To do so, use the following steps:
 
-1. From the command prompt or terminal window that you were using earlier, rebuild the JAR file using Maven if you made any changes to the **pom.xml** file, as in the following example:
+1. From the command prompt or terminal window that you were using earlier, rebuild the JAR file using Maven if you made any changes to the **pom.xml** file, by using the following command:
 
     ```bash
        mvn clean package
     ```
 
-2. Deploy your web app to Azure by using Maven, as in the following example:
+1. Deploy your web app to Azure by using the following Maven command:
 
     ```bash
        mvn azure-webapp:deploy
