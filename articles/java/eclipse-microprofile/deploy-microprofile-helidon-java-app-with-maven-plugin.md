@@ -9,7 +9,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-helidon, devx-t
 #Customer intent: As a Java developer, I want to deploy MicroProfile apps to Azure so that I don't have to deal with app server configuration and management.
 ---
 
-# Deploy a Helidon Web App to Azure App Service with Maven
+# Deploy a Helidon web app to Azure App Service with Maven
 
 In this quickstart, you use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Helidon application to [Azure App Service on Linux](/azure/app-service/containers/). Choose Java SE deployment over [Tomcat and WAR files](/azure/app-service/containers/quickstart-java) when you want to consolidate your app's dependencies, runtime, and configuration into a single deployable artifact.
 
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * Apache [Maven](https://maven.apache.org/), Version 3.
 
-## Sign in to Azure CLI
+## Sign into Azure CLI
 
 The simplest and easiest way to get the Maven Plugin deploying your Helidon application is by using the [Azure CLI](/cli/azure/).
 
@@ -41,7 +41,7 @@ In this section, you create a Helidon application and test it locally.
 
 1. Open a web browser and navigate to the [MicroProfile Starter](https://start.microprofile.io/) site.
 
-   :::image type="content" source="media/helidon/microprofile-starter-helidon.png" alt-text="Screenshot showing MicroProfile Starter with Helidon runtime selected.":::
+    :::image type="content" source="media/helidon/microprofile-starter-helidon.png" alt-text="Screenshot showing MicroProfile Starter with Helidon runtime selected.":::
 
 1. Input or Select the field like follows.
 
@@ -100,7 +100,7 @@ In this section, you create a Helidon application and test it locally.
 
 1. You should see the following message displayed: **Hello World**
 
-## Configure Maven Plugin for Azure App Service
+## Configure the Maven plugin for Azure App Service
 
 In this section, you configure the Helidon project **pom.xml** file so that Maven can deploy the app to Azure App Service on Linux.
 
@@ -260,13 +260,13 @@ You can view the logs or use the `tail` command to view the logs from the runnin
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
 
-1. From the Azure portal, select Resource group from the left menu.
+1. From the Azure portal, select **Resource group** from the menu.
 
 1. Enter **microprofile** in the **Filter by name** field. The resource group created in this tutorial should have this prefix.
 
 1. Select the resource group created in this tutorial.
 
-1. Select **Delete resource group** from the top menu.
+1. Select **Delete resource group** from the menu.
 
 ## Next steps
 
