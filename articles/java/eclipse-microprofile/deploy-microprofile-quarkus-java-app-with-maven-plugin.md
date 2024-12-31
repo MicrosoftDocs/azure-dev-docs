@@ -35,11 +35,11 @@ Sign into your Azure account by using the Azure CLI:
 
 Follow the instructions to complete the sign-in process.
 
-## Create sample app from MicroProfile Starter
+## Create sample app from the MicroProfile Starter
 
 In this section, you create a Quarkus application and test it locally.
 
-### Create Java SE 8 base project
+### Create a Java SE 8 base project
 
 1. Open a web browser and navigate to the [MicroProfile Starter](https://start.microprofile.io/) site.
 
@@ -76,9 +76,9 @@ To create the Java 11 base project, use the following command:
      -Dpath="/hello"
 ```
 
-### Run the application in Local environment
+### Run the application in a local environment
 
-1. Change directory to the completed project by using the following command:
+1. Change the directory to the completed project by using the following command:
 
     ```bash
        cd quarkus-hello-azure/
@@ -92,13 +92,13 @@ To create the Java 11 base project, use the following command:
 
 1. Test the web application by browsing to it locally using a web browser. For example, you could use the following command if you have `curl` available:
 
-    For Java SE 8 Project:
+    For a Java SE 8 project:
 
     ```bash
        curl http://localhost:8080/data/hello
     ```
 
-    For Java SE 11 Project:
+    For a Java SE 11 project:
 
     ```bash
        curl http://localhost:8080/hello
@@ -106,7 +106,7 @@ To create the Java 11 base project, use the following command:
 
 1. You should see the following message displayed: **Hello World** or **hello**.
 
-## Configure Maven Plugin for Azure App Service
+## Configure the Maven plugin for Azure App Service
 
 In this section, you configure the Quarkus project **pom.xml** file so that Maven can deploy the app to Azure App Service on Linux.
 
@@ -262,7 +262,7 @@ In this section, you configure the Quarkus project **pom.xml** file so that Mave
 
 After configuring all of the settings in the preceding sections of this article, you're ready to deploy your web application to Azure. To do so, use the following steps:
 
-1. If you made any changes to the **pom.xml** file, rebuild the JAR file using the following command:
+1. If you made any changes to the **pom.xml** file, rebuild the JAR file by using the following command:
 
     ```bash
        mvn clean package
@@ -298,7 +298,7 @@ You can access to your web application by selecting **Browse** in the **Overview
 
 ## Confirm the log stream from the running App Service
 
-You can view the complete logs or use `tail` to view the end of the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
+You can view the complete logs or use `tail` to view the end of the logs, from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 
 ```azurecli
    az webapp log tail 
@@ -310,7 +310,7 @@ You can view the complete logs or use `tail` to view the end of the logs from th
 
 ## Clean up resources
 
-When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
+When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group. To do so, use the following steps:
 
 1. From the Azure portal, select **Resource group** from the menu.
 
