@@ -38,15 +38,15 @@ Sign into your Azure account by using the Azure CLI:
 
 Follow the instructions to complete the sign-in process.
 
-## Create sample app from MicroProfile Starter
+## Create a sample app from the MicroProfile Starter
 
 In this section, you create an Open Liberty application and test it locally.
 
 1. Open a web browser and navigate to the [MicroProfile Starter](https://start.microprofile.io/) site.
 
-   :::image type="content" source="media/open-liberty/microprofile-starter-open-liberty-micro.png" alt-text="Screenshot showing MicroProfile Starter with Open Liberty runtime selected.":::
+    :::image type="content" source="media/open-liberty/microprofile-starter-open-liberty-micro.png" alt-text="Screenshot showing MicroProfile Starter with Open Liberty runtime selected.":::
 
-2. Use the values in the following table to fill in the MicroProfile Starter.
+2. Use the values in the following table to populate the values in the MicroProfile Starter:
 
     | Field                       | Value                                   |
     |-----------------------------|-----------------------------------------|
@@ -59,7 +59,7 @@ In this section, you create an Open Liberty application and test it locally.
 
 3. Select **DOWNLOAD** to download the project.
 
-4. Unzip the archive file, as in the following example:
+4. Unzip the archive file by using the following command:
 
     ```bash
        unzip openliberty-hello-azure.zip
@@ -67,19 +67,19 @@ In this section, you create an Open Liberty application and test it locally.
 
 ### Run the application in a local environment
 
-1. Change directory to the completed project, as in the following example:
+1. Change directory to the completed project by using the following command:
 
     ```bash
        cd openliberty-hello-azure/
     ```
 
-2. Build the project using Maven, as in the following example:
+2. Build the project using Maven by using the following command:
 
     ```bash
        mvn clean package
     ```
 
-3. Run the project, as in the following example:
+3. Run the project by using the following command:
 
     ```bash
        java -jar target/openliberty-hello-azure.jar
@@ -245,13 +245,13 @@ In this section, you configure the Open Liberty project **pom.xml** file so that
 
 After you configure all of the settings in the preceding sections of this article, you're ready to deploy your web app to Azure. To do so, use the following steps:
 
-1. From the command prompt or terminal window that you were using earlier, rebuild the JAR file using Maven if you made any changes to the **pom.xml** file, as in the following example:
+1. From the command prompt or terminal window that you were using earlier, rebuild the JAR file using Maven if you made any changes to the **pom.xml** file by using the following command:
 
     ```bash
        mvn clean package
     ```
 
-2. Deploy your web app to Azure by using Maven, as in the following example:
+2. Deploy your web app to Azure by using Maven by using the following command:
 
     ```bash
        mvn azure-webapp:deploy
@@ -283,7 +283,7 @@ If the deployment succeeded, you see the following output:
        [INFO] ------------------------------------------------------------------------
     ```
 
-Maven deploys your web app to Azure. If the web app or web app plan doesn't already exist, it's created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser. You should see the following screen:
+Maven deploys your web app to Azure. If the web app or web app plan doesn't already exist, it's created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a web browser. You should see the following screen:
 
 :::image type="content" source="media/open-liberty/open-liberty-front-page.png" alt-text="Screenshot of web browser showing front page of Open Liberty.":::
 
