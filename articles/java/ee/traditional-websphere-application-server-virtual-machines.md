@@ -1,5 +1,5 @@
 ---
-title: "Deploy WebSphere Application Server Cluster on Azure VMs"
+title: Deploy WebSphere Application Server Cluster on Azure VMs
 description: Shows you how to deploy a traditional WebSphere Application Server cluster on Azure Virtual Machines using Azure Marketplace offer.
 author: KarlErickson
 ms.author: jiangma
@@ -9,7 +9,7 @@ ms.custom: devx-track-extended-java, devx-track-java, devx-track-javaee, devx-tr
 #customer intent: As a developer, I want to deploy a WebSphere Application Server cluster on Azure VMs so that I can run my applications in a scalable and reliable environment.
 ---
 
-# Quickstart: Deploy WebSphere Application Server Network Deployment Cluster on Azure Virtual Machines
+# Quickstart: Deploy WebSphere Application Server Network Deployment cluster on Azure Virtual Machines
 
 In this quickstart, you quickly deploy a cluster of traditional WebSphere Application Server (WAS) Network Deployment (ND) instances on Azure Virtual Machines (VMs). This article uses the Azure Marketplace offer for IBM WAS ND cluster to accelerate your journey to Azure VMs. The offer automatically provisions a number of resources including latest Red Hat Enterprise Linux (RHEL) VMs with fixes, latest WebSphere Application Server ND 9.0.5.x on each VM with fixes, latest IBM Java Development Kit (JDK) 8 with fixes on each VM, a Deployment Manager on one of the VMs with Administrative Console enabled, and optionally an IBM HTTP Server (IHS) or Azure Application Gateway as load balancer. Visit Azure portal to see the offer [IBM WAS ND cluster on Azure VMs](https://aka.ms/twas-cluster-portal). 
 

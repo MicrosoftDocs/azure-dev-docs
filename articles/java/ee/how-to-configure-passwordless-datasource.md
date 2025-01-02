@@ -1,5 +1,6 @@
 ---
-title: Configure passwordless database connections for Java apps on Oracle WebLogic Server
+title: Configure Passwordless Database Connections for Java Apps on Oracle WebLogic Server
+titleSuffix: Azure
 description: Configure passwordless datasource connection using marketplace offers.
 author: KarlErickson
 ms.author: haiche

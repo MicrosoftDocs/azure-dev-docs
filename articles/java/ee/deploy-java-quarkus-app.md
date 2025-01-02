@@ -1,5 +1,5 @@
 ---
-title: "Deploy Quarkus on Azure Container Apps"
+title: Deploy a Java application with Quarkus on Azure Container Apps
 description: Shows how to quickly stand up Quarkus on Azure Container Apps.
 author: KarlErickson
 ms.author: jiangma
@@ -8,7 +8,7 @@ ms.date: 12/16/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-aca, devx-track-extended-java, devx-track-azurecli
 ---
 
-# Deploy a Java application with Quarkus on an Azure Container Apps
+# Deploy a Java application with Quarkus on Azure Container Apps
 
 This article shows you how to quickly deploy Red Hat Quarkus on Microsoft Azure Container Apps with a simple CRUD application. The application is a "to do list" with a JavaScript front end and a REST endpoint. Azure Database for PostgreSQL Flexible Server provides the persistence layer for the app. The article shows you how to test your app locally and deploy it to Container Apps.
 
