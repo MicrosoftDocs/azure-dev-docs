@@ -21,7 +21,7 @@ For more information about Open Liberty, see [the Open Liberty project page](htt
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
-If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers promptly reply to initiate close collaboration.
 
 ## Prerequisites
 
@@ -185,9 +185,9 @@ After a short time, you should see a JSON output that contains the following lin
 "resourceGroup": "java-liberty-project",
 ```
 
-## Create an Azure SQL Database
+## Create a single database in Azure SQL Database
 
-In this section, you create an Azure SQL Database single database for use with your app.
+In this section, you create a single database in Azure SQL Database, for use with your app.
 
 ### [Bash](#tab/in-bash)
 
@@ -220,7 +220,7 @@ az sql db create \
     --capacity 2
 ```
 
-Then, use the following command to add the local IP address to the Azure SQL Database server firewall rules to allow your local machine to connect to the database for local testing later.
+Next, use the following commands to add the local IP address to the Azure SQL Database server firewall rules to allow your local machine to connect to the database for local testing later.
 
 ```azurecli
 export AZ_LOCAL_IP_ADDRESS=$(curl -s https://whatismyip.akamai.com)
@@ -263,7 +263,7 @@ az sql db create `
     --capacity 2
 ```
 
-Then, use the following command to add the local IP address to the Azure SQL Database server firewall rules to allow your local machine to connect to the database for local testing later.
+Next, use the following commands to add the local IP address to the Azure SQL Database server firewall rules to allow your local machine to connect to the database for local testing later.
 
 ```azurepowershell
 $Env:AZ_LOCAL_IP_ADDRESS = (Invoke-WebRequest https://whatismyip.akamai.com).Content
@@ -310,7 +310,7 @@ git checkout 20241118
 
 ---
 
-If you see a message about being in `detached HEAD` state, this message is safe to ignore. It just means you checked out a tag.
+If you see a message about being in a `detached HEAD` state, this message is safe to ignore. It just means you checked out a tag.
 
 This article uses **java-app**. Here's the file structure of the application's important files:
 
@@ -332,7 +332,7 @@ The directories **java**, **resources**, and **webapp** contain the source code 
 
 In the **java-app** root directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
 
-In directory **liberty/config**, the **server.xml** is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster. It defines a variable `azure.sql.connectionstring` that is used to connect to the Azure SQL Database.
+In the **liberty/config** directory, the **server.xml** file is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster. It defines a variable `azure.sql.connectionstring` that is used to connect to the Azure SQL Database.
 
 The **pom.xml** file is the Maven project object model (POM) file that contains the configuration information for the project. The **pom-azure-identity.xml** file declares the `azure-identity` dependency, which is used to authenticate to Azure services using Microsoft Entra ID.
 
@@ -379,7 +379,7 @@ If you don't see this output, troubleshoot and resolve the problem before contin
 You can now use the following steps to run and test the project locally before deploying to Azure. For convenience, use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism, such as your local IDE.
 
 > [!NOTE]
-> If you selected a "serverless" database deployment, verify that your SQL database hasn't entered pause mode. One way to perform the verification this is to sign into the database query editor as described in [Quickstart: Use the Azure portal query editor (preview) to query Azure SQL Database](/azure/azure-sql/database/connect-query-portal).
+> If you selected a "serverless" database deployment, verify that your SQL database did not enter pause mode. One way to perform the verification is to sign into the database query editor as described in [Quickstart: Use the Azure portal query editor (preview) to query Azure SQL Database](/azure/azure-sql/database/connect-query-portal).
 
 1. Start the application using `liberty:run`.
 
