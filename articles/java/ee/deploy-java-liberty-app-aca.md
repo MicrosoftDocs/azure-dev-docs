@@ -26,16 +26,24 @@ If you're interested in providing feedback or working closely on your migration 
 ## Prerequisites
 
 * An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 * Prepare a local machine with either Windows or Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
+
 * [Install the Azure CLI](/cli/azure/install-azure-cli) 2.62.0 or above to run Azure CLI commands.
-  * Sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
-  * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-  * Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
+
+    * Sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
+
+    * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+
+    * Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
+
 * Install a Java SE implementation version 17 - for example, [Microsoft build of OpenJDK](/java/openjdk).
+
 * Install [Maven](https://maven.apache.org/download.cgi) 3.9.8 or higher.
+
 * Ensure that [Git](https://git-scm.com) is installed.
 
-## Sign in to Azure
+## Sign into Azure
 
 Sign in to your Azure subscription by using the [az login](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
 
@@ -56,9 +64,9 @@ az login
 > [!NOTE]
 > You can run most Azure CLI commands in PowerShell the same as in Bash. The difference exists only when using variables. In the following sections, the difference is addressed in different tabs when needed.
 >
-> If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can do this with the `--tenant` option - for example, `az login --tenant contoso.onmicrosoft.com`.
+> If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign into. You can specify the tenant by using the `--tenant` option - for example, `az login --tenant contoso.onmicrosoft.com`.
 >
-> If you have multiple subscriptions within a single tenant, make sure you are signed in with the one you intend to use by using `az account set --subscription <subscription-id>`.
+> If you have multiple subscriptions within a single tenant, make sure you're signed in with the one you intend to use by using `az account set --subscription <subscription-id>`.
 
 ## Create a resource group
 
@@ -87,7 +95,7 @@ az group create --name $Env:RESOURCE_GROUP_NAME --location eastus2
 Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the ACR instance. The following example creates an ACR instance named `youruniqueacrname`. Make sure `youruniqueacrname` is unique within Azure.
 
 > [!NOTE]
-> This article uses the recommended passwordless authentication mechanism for Container Registry. It's still possible to use username and password with `docker login` after using `az acr credential show` to obtain the username and password. Using username and password is less secure than passwordless authentication.
+> This article uses the recommended passwordless authentication mechanism for Container Registry. It's still possible to use a username and password with `docker login` after using `az acr credential show` to obtain the username and password. Using a username and password is less secure than passwordless authentication.
 
 ### [Bash](#tab/in-bash)
 
@@ -114,9 +122,9 @@ az acr create `
 After a short time, you should see a JSON output that contains the following lines:
 
 ```output
-  "provisioningState": "Succeeded",
-  "publicNetworkAccess": "Enabled",
-  "resourceGroup": "java-liberty-project",
+"provisioningState": "Succeeded",
+"publicNetworkAccess": "Enabled",
+"resourceGroup": "java-liberty-project",
 ```
 
 Next, use the following command to retrieve the login server for the Container Registry instance. You need this value when you deploy the application image to the Azure Container Apps later.
@@ -172,9 +180,9 @@ If you're asked to install an extension, answer <kbd>Y</kbd>.
 After a short time, you should see a JSON output that contains the following lines:
 
 ```output
-  "provisioningState": "Succeeded",
-  "type": "Microsoft.App/managedEnvironments"
-  "resourceGroup": "java-liberty-project",
+"provisioningState": "Succeeded",
+"type": "Microsoft.App/managedEnvironments"
+"resourceGroup": "java-liberty-project",
 ```
 
 ## Create an Azure SQL Database
@@ -233,7 +241,7 @@ $Env:SQL_SERVER_NAME = "<your-unique-sql-server-name>"
 $Env:DB_NAME = "demodb"
 ```
 
-Next, use the following command to create a single database in Azure SQL Database and set the current signed-in user as Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-powershell).
+Next, use the following commands to create a single database in Azure SQL Database and set the current signed-in user as Microsoft Entra admin. For more information, see [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-powershell).
 
 ```azurepowershell
 $Env:ENTRA_ADMIN_NAME = $(az account show --query user.name --output tsv)
@@ -326,14 +334,14 @@ In the **java-app** root directory, there are two files to create the applicatio
 
 In directory **liberty/config**, the **server.xml** is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster. It defines a variable `azure.sql.connectionstring` that is used to connect to the Azure SQL Database.
 
-The **pom.xml** file is the Maven project object model (POM) file that contains the configuration information for the project. The **pom-azure-identity.xml** file declares `azure-identity` dependency, which is used to authenticate to Azure services using Microsoft Entra ID.
+The **pom.xml** file is the Maven project object model (POM) file that contains the configuration information for the project. The **pom-azure-identity.xml** file declares the `azure-identity` dependency, which is used to authenticate to Azure services using Microsoft Entra ID.
 
 > [!NOTE]
 > This sample uses `azure-identity` library to authenticate to Azure SQL Database using Microsoft Entra authentication, which is recommended for security considerations. If you need to use SQL authentication in your Liberty application, see [Relational database connections with JDBC](https://openliberty.io/docs/latest/relational-database-connections-JDBC.html).
 
 ### Build the project
 
-Use the following command to build the application:
+Use the following commands to build the application:
 
 #### [Bash](#tab/in-bash)
 
@@ -371,29 +379,29 @@ If you don't see this output, troubleshoot and resolve the problem before contin
 You can now use the following steps to run and test the project locally before deploying to Azure. For convenience, use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism, such as your local IDE.
 
 > [!NOTE]
-> If you selected a "serverless" database deployment, verify that your SQL database has not entered pause mode. One way to do this is to log in to the database query editor as described in [Quickstart: Use the Azure portal query editor (preview) to query Azure SQL Database](/azure/azure-sql/database/connect-query-portal).
+> If you selected a "serverless" database deployment, verify that your SQL database hasn't entered pause mode. One way to perform the verification this is to sign into the database query editor as described in [Quickstart: Use the Azure portal query editor (preview) to query Azure SQL Database](/azure/azure-sql/database/connect-query-portal).
 
 1. Start the application using `liberty:run`.
 
-   #### [Bash](#tab/in-bash)
+    #### [Bash](#tab/in-bash)
 
-   ```bash
-   cd $BASE_DIR/java-app
+    ```bash
+    cd $BASE_DIR/java-app
 
-   # The value of environment variable AZURE_SQL_CONNECTIONSTRING is read by configuration variable `azure.sql.connectionstring` in server.xml
-   export AZURE_SQL_CONNECTIONSTRING="jdbc:sqlserver://$SQL_SERVER_NAME.database.windows.net:1433;databaseName=$DB_NAME;authentication=ActiveDirectoryDefault"
-   mvn liberty:run
-   ```
+    # The value of environment variable AZURE_SQL_CONNECTIONSTRING is read by the configuration variable azure.sql.connectionstring in server.xml.
+    export AZURE_SQL_CONNECTIONSTRING="jdbc:sqlserver://$SQL_SERVER_NAME.database.windows.net:1433;databaseName=$DB_NAME;authentication=ActiveDirectoryDefault"
+    mvn liberty:run
+    ```
 
-   #### [PowerShell](#tab/in-powershell)
+    #### [PowerShell](#tab/in-powershell)
 
-   ```powershell
-   cd $Env:BASE_DIR/java-app
+    ```powershell
+    cd $Env:BASE_DIR/java-app
 
-   # The value of environment variable AZURE_SQL_CONNECTIONSTRING is read by configuration variable `azure.sql.connectionstring` in server.xml
-   $Env:AZURE_SQL_CONNECTIONSTRING = "jdbc:sqlserver://$Env:SQL_SERVER_NAME.database.windows.net:1433;databaseName=$Env:DB_NAME;authentication=ActiveDirectoryDefault"
-   mvn liberty:run
-   ```
+    # The value of environment variable AZURE_SQL_CONNECTIONSTRING is read by configuration variable azure.sql.connectionstring in server.xml.
+    $Env:AZURE_SQL_CONNECTIONSTRING = "jdbc:sqlserver://$Env:SQL_SERVER_NAME.database.windows.net:1433;databaseName=$Env:DB_NAME;authentication=ActiveDirectoryDefault"
+    mvn liberty:run
+    ```
 
 1. Verify that the application works as expected. If successful, you should see a message similar to `[INFO] [AUDIT   ] CWWKZ0001I: Application javaee-cafe started in 11.086 seconds.` in the command output. Go to `http://localhost:9080/` in your browser to verify that the application is accessible and all functions are working.
 
@@ -452,7 +460,7 @@ The `az acr build` command uploads the artifacts specified in the Dockerfile to 
 
 ## Deploy the application to Azure Container Apps
 
-Use the following commands to create an Azure Container Apps instance to run the app after pulling the image from the ACR. This example creates an Azure Container Apps instance named `youracainstancename`.
+Use the following commands to create an Azure Container Apps instance to run the app after pulling the image from the ACR. This example creates an Azure Container Apps instance named `youracainstancename`:
 
 ### [Bash](#tab/in-bash)
 
@@ -490,39 +498,39 @@ az containerapp create `
 
 Successful output is a JSON object including the property `"type": "Microsoft.App/containerApps"`.
 
-Then, connect the Azure SQL Database server to the container app using Service Connector by using the following steps:
+Next, connect the Azure SQL Database server to the container app using Service Connector by using the following steps:
 
 #### [Bash](#tab/in-bash)
 
 1. This sample uses Service Connector to facilitate connecting to the database. For more information about Service Connector, see [What is Service Connector?](/azure/service-connector/overview) Install the passwordless extension for the Azure CLI by using the following command:
 
-   ```azurecli
-   az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
-   ```
+    ```azurecli
+    az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
+    ```
 
 1. Connect the database to the container app with a system-assigned managed identity by using the following command:
 
-   ```azurecli
-   az containerapp connection create sql \
-       --resource-group $RESOURCE_GROUP_NAME \
-       --name $ACA_NAME \
-       --target-resource-group $RESOURCE_GROUP_NAME \
-       --server $SQL_SERVER_NAME \
-       --database $DB_NAME \
-       --system-identity \
-       --container $ACA_NAME \
-       --client-type java
+    ```azurecli
+    az containerapp connection create sql \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --name $ACA_NAME \
+        --target-resource-group $RESOURCE_GROUP_NAME \
+        --server $SQL_SERVER_NAME \
+        --database $DB_NAME \
+        --system-identity \
+        --container $ACA_NAME \
+        --client-type java
    ```
 
-   Successful output is a JSON object including the property `"type": "microsoft.servicelinker/linkers"`.
+Successful output is a JSON object including the property `"type": "microsoft.servicelinker/linkers"`.
 
 #### [PowerShell](#tab/in-powershell)
 
 1. Install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI by using the following command:
 
-   ```azurepowershell
-   az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
-   ```
+    ```azurepowershell
+    az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
+    ```
 
 1. Connect the database to the container app with a system-assigned managed identity by using the following command:
 
@@ -591,7 +599,7 @@ Write-Host https://$(az containerapp show `
 
 ---
 
-Open a web browser to the URL to access and test the application. The following screenshot shows the running application:
+To access and test the application, open a web browser to the URL. The following screenshot shows the running application:
 
 :::image type="content" source="./media/deploy-java-liberty-app-aca/deploy-succeeded.png" alt-text="Screenshot that shows the Java liberty application successfully deployed on Azure Container Apps.":::
 
