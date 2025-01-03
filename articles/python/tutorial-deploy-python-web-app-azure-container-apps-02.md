@@ -1081,7 +1081,7 @@ The sample code used in this tutorial checks for the existence of the container 
 * Check the **Application Url** value on the **Overview** page for the container. If the application URL contains the word "internal," ingress isn't set correctly.
 * Check the ingress of the container. For example, in the Azure portal, go to the **Ingress** resource of the container. Make sure that **HTTP Ingress** is enabled and **Accepting traffic from anywhere** is selected.
 
-## Website doesn't start, you get "stream timeout", or nothing is returned
+## Website doesn't start, you get "stream timeout," or nothing is returned
 
 * Check the logs:
   * In the Azure portal, go to the container app's revision management resource and check **Provision Status** for the container.

@@ -188,7 +188,7 @@ The push of changes to the *main* branch kicks off the GitHub Actions workflow.
 ---
 
 > [!NOTE]
-> This tutorial shows making a change directly in the *main* branch. In typical software workflows, you make a change in a branch other than *main* and then create a pull request to merge those change into *main*. Pull requests also kick off the workflow.
+> This tutorial shows making a change directly in the *main* branch. In typical software workflows, you make a change in a branch other than *main* and then create a pull request to merge the change into *main*. Pull requests also kick off the workflow.
 
 ## Understand GitHub Actions
 
