@@ -86,7 +86,7 @@ export MSYS_NO_PATHCONV=1
     In the command:
 
     * *\<resource-group-name>* is the name of the resource group. In this tutorial, it's `pythoncontainer-rg`.
-    * *\<https://github.com/userid/repo>* is the URL of your GitHub repository. If you're following the steps in this tutorial, it's either `https://github.com/userid/msdocs-python-django-azure-container-apps` or `https://github.com/userid/msdocs-python-flask-azure-container-apps`. In those URLs, `userid` is your GitHub user ID.
+    * *\<https://github.com/userid/repo>* is the URL of your GitHub repository. In this tutorial, it's either `https://github.com/userid/msdocs-python-django-azure-container-apps` or `https://github.com/userid/msdocs-python-flask-azure-container-apps`. In those URLs, `userid` is your GitHub user ID.
     * *\<registry-name>* is the existing Azure Container Registry instance that you created in the previous tutorial, or one that you can use.
     * *\<client-id>* is the value of the `appId` property from the previous `az ad sp create-for-rbac` command. The ID is a GUID of the form `00000000-0000-0000-0000-00000000`.
     * *\<tenant-id>* is the value of the `tenant` property from the previous `az ad sp create-for-rbac` command. The ID is also a GUID that's similar to the client ID.
@@ -108,7 +108,7 @@ export MSYS_NO_PATHCONV=1
     > [!TIP]
     > You can revoke Container Apps access to the GitHub account from your account's security section.
 
-1. After sign-in with GitHub, configure the continuous deployment details:
+1. Configure the details of the continuous deployment:
 
     * **Organization**: Use your GitHub username.
     * **Repository**: Select the fork of the sample app. (If you originally downloaded the sample code to your developer environment, push the repo to GitHub.)
@@ -153,7 +153,7 @@ If you haven't already, make a [fork][13] of the sample repository ([Django][1] 
 
     :::image type="content" source="media/tutorial-container-apps/github-edit-file.png" alt-text="Screenshot that shows how to make a change in a template file in the fork of the sample repo." lightbox="media/tutorial-container-apps/github-edit-file.png":::
 
-1. On the bottom of the page you're editing, make sure that **Commit the change directly to the main branch** is selected. Then select the **Commit changes** button.
+1. On the bottom of the page you're editing, make sure that **Commit directly to the main branch** is selected. Then select the **Commit changes** button.
 
     :::image type="content" source="media/tutorial-container-apps/github-commit-change.png" alt-text="Screenshot that shows selections for committing a change in a template file in the fork of the sample repo." lightbox="media/tutorial-container-apps/github-commit-change.png":::
 
@@ -239,7 +239,7 @@ If credential information changes, you can update it here. For example, if the A
 
 ### OAuth authorized apps
 
-When you set up continuous deployment, you designate Azure Container Apps as an authorized OAuth app for your GitHub account. Container Apps uses the authorized access to create a GitHub Actions YAML file: *.github/workflows/\<workflow-name>.yml*. You can view your authorized apps, and revoke permissions in your account, under **Integrations** > **Applications**.
+When you set up continuous deployment, you designate Azure Container Apps as an authorized OAuth app for your GitHub account. Container Apps uses the authorized access to create a GitHub Actions YAML file in *.github/workflows/\<workflow-name>.yml*. You can view your authorized apps, and revoke permissions in your account, under **Integrations** > **Applications**.
 
 :::image type="content" source="media/tutorial-container-apps/github-authorized-oauth-apps.png" alt-text="Screenshot that shows the location of authorized apps for a user in GitHub." lightbox="media/tutorial-container-apps/github-authorized-oauth-apps.png":::
 
