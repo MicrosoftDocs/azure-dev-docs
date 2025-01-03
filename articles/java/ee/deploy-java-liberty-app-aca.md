@@ -31,11 +31,11 @@ If you're interested in providing feedback or working closely on your migration 
 
 * [Install the Azure CLI](/cli/azure/install-azure-cli) 2.62.0 or above to run Azure CLI commands.
 
-    * Sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
+    * Sign in with Azure CLI by using the [`az login`](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
 
     * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-    * Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
+    * Run [`az version`](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [`az upgrade`](/cli/azure/reference-index?#az-upgrade).
 
 * Install a Java SE implementation version 17 - for example, [Microsoft build of OpenJDK](/java/openjdk).
 
@@ -43,9 +43,9 @@ If you're interested in providing feedback or working closely on your migration 
 
 * Ensure that [Git](https://git-scm.com) is installed.
 
-## Sign into Azure
+## Sign in to Azure
 
-Sign in to your Azure subscription by using the [az login](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
+Sign in to your Azure subscription by using the [`az login`](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
 
 ### [Bash](#tab/in-bash)
 
@@ -64,7 +64,7 @@ az login
 > [!NOTE]
 > You can run most Azure CLI commands in PowerShell the same as in Bash. The difference exists only when using variables. In the following sections, the difference is addressed in different tabs when needed.
 >
-> If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign into. You can specify the tenant by using the `--tenant` option - for example, `az login --tenant contoso.onmicrosoft.com`.
+> If you have multiple Azure tenants associated with your Azure credentials, you must specify which tenant you want to sign in to. You can specify the tenant by using the `--tenant` option - for example, `az login --tenant contoso.onmicrosoft.com`.
 >
 > If you have multiple subscriptions within a single tenant, make sure you're signed in with the one you intend to use by using `az account set --subscription <subscription-id>`.
 
@@ -72,7 +72,7 @@ az login
 
 An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-Create a resource group called `java-liberty-project` using the [az group create](/cli/azure/group#az-group-create) command in the `eastus2` location. This resource group is used later for creating the Azure Container Registry (ACR) instance and the Azure Container Apps instance.
+Create a resource group called `java-liberty-project` using the [`az group create`](/cli/azure/group#az-group-create) command in the `eastus2` location. This resource group is used later for creating the Azure Container Registry (ACR) instance and the Azure Container Apps instance.
 
 ### [Bash](#tab/in-bash)
 
@@ -92,7 +92,7 @@ az group create --name $Env:RESOURCE_GROUP_NAME --location eastus2
 
 ## Create an ACR instance
 
-Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the ACR instance. The following example creates an ACR instance named `youruniqueacrname`. Make sure `youruniqueacrname` is unique within Azure.
+Use the [`az acr create`](/cli/azure/acr#az-acr-create) command to create the ACR instance. The following example creates an ACR instance named `youruniqueacrname`. Make sure `youruniqueacrname` is unique within Azure.
 
 > [!NOTE]
 > This article uses the recommended passwordless authentication mechanism for Container Registry. It's still possible to use a username and password with `docker login` after using `az acr credential show` to obtain the username and password. Using a username and password is less secure than passwordless authentication.
@@ -153,7 +153,7 @@ $Env:ACR_LOGIN_SERVER = $(az acr show `
 
 ## Create an environment
 
-An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. Use the [az containerapp env create](/cli/azure/containerapp/env#az-containerapp-env-create) command to create an environment. The following example creates an environment named `youracaenvname`:
+An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. Use the [`az containerapp env create`](/cli/azure/containerapp/env#az-containerapp-env-create) command to create an environment. The following example creates an environment named `youracaenvname`:
 
 ### [Bash](#tab/in-bash)
 
@@ -278,7 +278,7 @@ az sql server firewall-rule create `
 ---
 
 > [!NOTE]
-> You create an Azure SQL server with SQL authentication disabled for security considerations. Only Microsoft Entra ID is used to authenticate to the server. If you need to enable SQL authentication, see [az sql server create](/cli/azure/sql/server#az-sql-server-create).
+> You create an Azure SQL server with SQL authentication disabled for security considerations. Only Microsoft Entra ID is used to authenticate to the server. If you need to enable SQL authentication, see [`az sql server create`](/cli/azure/sql/server#az-sql-server-create).
 
 ## Configure and build the application image
 
@@ -379,7 +379,7 @@ If you don't see this output, troubleshoot and resolve the problem before contin
 You can now use the following steps to run and test the project locally before deploying to Azure. For convenience, use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism, such as your local IDE.
 
 > [!NOTE]
-> If you selected a "serverless" database deployment, verify that your SQL database did not enter pause mode. One way to perform the verification is to sign into the database query editor as described in [Quickstart: Use the Azure portal query editor (preview) to query Azure SQL Database](/azure/azure-sql/database/connect-query-portal).
+> If you selected a "serverless" database deployment, verify that your SQL database did not enter pause mode. One way to perform the verification is to sign in to the database query editor as described in [Quickstart: Use the Azure portal query editor (preview) to query Azure SQL Database](/azure/azure-sql/database/connect-query-portal).
 
 1. Start the application using `liberty:run`.
 
@@ -431,7 +431,7 @@ az sql server firewall-rule delete `
 
 ### Build the image for Azure Container Apps deployment
 
-You can now run the [az acr build](/cli/azure/acr#az-acr-build) command to build the image, as shown in the following example:
+You can now run the [`az acr build`](/cli/azure/acr#az-acr-build) command to build the image, as shown in the following example:
 
 ### [Bash](#tab/in-bash)
 
@@ -605,7 +605,7 @@ To access and test the application, open a web browser to the URL. The following
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container registry, container apps, database server, and all related resources.
+To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [`az group delete`](/cli/azure/group#az-group-delete) command to remove the resource group, container registry, container apps, database server, and all related resources.
 
 ### [Bash](#tab/in-bash)
 
