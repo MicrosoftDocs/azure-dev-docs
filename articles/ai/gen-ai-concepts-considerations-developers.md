@@ -40,7 +40,7 @@ A good example of ROG is ChatGPT. By contrast, Copilot (via Bing) extends an LLM
 
 At first glance, RAG and RCG appear similar because both involve integrating external information into the language generation process. However, they differ in how they prioritize and use retrieved information in the generation process.
 
-In an RAG system, the external data retrieval is used to _augment_ the generative capabilities of a pretrained language model. The retrieved information provides more context or specific data that the model uses to inform its responses. In a RAG system, the generative aspect of the language model remains central to the response. Retrieved data acts as a _supportive element_ to enhance accuracy or depth.
+In a RAG system, the external data retrieval is used to _augment_ the generative capabilities of a pretrained language model. The retrieved information provides more context or specific data that the model uses to inform its responses. In a RAG system, the generative aspect of the language model remains central to the response. Retrieved data acts as a _supportive element_ to enhance accuracy or depth.
 
 An RCG system places a stronger emphasis on the retrieved information itself. In an RCG system, the retrieved data often is the _centerpiece_ of the response, and the generative model’s role primarily is to refine, format, or slightly enhance the retrieved text. This approach is used particularly when accuracy and direct relevance of the information are paramount, and less creative synthesis or extrapolation is required.
 
@@ -58,7 +58,7 @@ A context window has a length limit that varies by the version of ChatGPT you wo
 
 Long conversations might seem like a good idea at first, but long context windows can affect the amount of computation required to process the prompt and compose a completion. The size of the context windows affects the latency of the response and how much it costs for OpenAI to process the request.
 
-What is ChatGPT's context window limit? Or rather, how many words can ChatGPT work with?
+What is ChatGPT's context window limit? That is, how many words can ChatGPT work with?
 
 The context window limit depends on the LLM model, version, and edition you're working with. Furthermore, context lengths are measured in tokens, not in words. Tokens are the smallest units of text that the model can understand and generate. These units can be words, parts of words (like syllables or stems), or even individual characters. Tokens are at the heart of natural language processing (NLP).
 
@@ -71,11 +71,11 @@ The use of tokens impacts two important considerations for developers:
 
 _Tokenization_ is the process of converting text into tokens. It's a crucial step in preparing data for training or inference (the process of composing completions based on prompts) with an LLM. The process involves several steps, including breaking down complex text into manageable pieces (tokens), which the model can then process. This process can be simple, such as splitting text by spaces and punctuation, or more complex, involving sophisticated algorithms to handle different languages, morphologies (the structure of words), and syntaxes (the arrangement of words). LLM researchers and developers decide on the method of tokenization based on what they're trying to accomplish.
 
-OpenAI has a [helpful page](https://platform.openai.com/tokenizer) that explains more about tokenization. The page even has a calculator that illustrates how a sentence or paragraph breaks down into tokens.
+The OpenAI [tokenizer](https://platform.openai.com/tokenizer) page explains more about tokenization. The page even has a calculator that illustrates how a sentence or paragraph breaks down into tokens.
 
 As the note at the bottom of the OpenAI Tokenizer page states, in typical English texts, one token is equivalent to about four characters. On average, 100 tokens are approximately equal to 75 words or three-quarters of a word per token.
 
-The OpenAI Tokenizer page also talks about [tiktoken](https://github.com/openai/tiktoken), a package for Python and JavaScript that you can use to programmatically estimate how many tokens you use for a specific prompt that's sent to the OpenAI API.
+The OpenAI Tokenizer page also talks about [tiktoken](https://github.com/openai/tiktoken), a package for Python and JavaScript that you can use to programmatically estimate how many tokens are required to send a specific prompt to the OpenAI API.
 
 ### Token usage affects billing
 
@@ -112,7 +112,7 @@ To add a system prompt to a user conversation, you don't use a special API. You 
 
 But you can use a few techniques to improve user prompts:
 
-- **Contextual priming**: Craft system prompts that explicitly set the context of the conversation within the domain. This approach involves providing a brief description or a set of instructions at the beginning of each interaction. These instructions guide AI to stay within the problem domain.
+- **Contextual priming**: Craft system prompts that explicitly set the context of the conversation within the domain. This approach involves providing a brief description or a set of instructions at the beginning of each interaction. The instructions guide AI to stay within the problem domain.
 - **Example-based guidance**: In the initial prompt, include examples of the types of questions and answers that are relevant to your domain. This approach helps AI understand what kind of responses to expect.
 
 You can use any prompt-engineering technique. If you can accomplish it programmatically, you can improve the user prompt on their behalf.
