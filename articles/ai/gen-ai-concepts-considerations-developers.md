@@ -1,5 +1,5 @@
 ---
-title: Key concepts and considerations in generative AI
+title: Key Concepts and Considerations in Generative AI
 description: A conceptual article for developers who build generative AI applications. Learn about the limitations of large language models (LLMs) and how to get the best results by modifying prompts, implementing an inference pipeline, and modifying optional API call parameters.
 ms.date: 4/12/2024
 ms.topic: conceptual

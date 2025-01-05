@@ -1,5 +1,5 @@
 ---
-title: Build advanced retrieval-augmented generation systems
+title: Build Advanced Retrieval-Augmented Generation Systems
 description: A conceptual article for developers to learn about real-world considerations and patterns for retrieval-augmented generation (RAG)-based chat systems.
 ms.date: 11/19/2024
 ms.topic: conceptual
@@ -8,36 +8,29 @@ ms.custom: build-2024-intelligent-apps
 
 # Build advanced retrieval-augmented generation systems
 
-The [previous article](./augment-llm-rag-fine-tuning.md) discusses two options for building a "chat over your data" application, one of the top use cases for generative AI in businesses:
+This article explores retrieval-augmented generation (RAG) in depth. We describe the work and considerations that are required for developers to create a production-ready RAG solution.
 
-- Retrieval-augmented generation (RAG), which supplements large language model (LLM) training with a database of searchable articles that can be retrieved based on similarity to the users' queries. The articles are passed to the LLM for completion.
-- Fine-tuning, which expands the LLM's training to understand more about the problem domain.
+To learn about two options for building a "chat over your data" application, one of the top use cases for generative AI in businesses, see [Augment LLMs with RAG or fine-tuning](./augment-llm-rag-fine-tuning.md).
 
-The previous article also discusses when to use each approach, the pros and cons of each approach, and several other considerations.
-
-This article explores RAG in more depth. Specifically, in this article, we describe the work that's required to create a production-ready solution.
-
-The previous article depicted the steps or phases of RAG by using the following diagram.
+The following diagram depicts the steps or phases of RAG:
 
 :::image type="content" source="./media/naive-rag-inference-pipeline-highres.png" alt-text="Diagram that depicts a simple RAG flow, with boxes representing steps or processes and arrows connecting each box." :::
 
 This depiction is called _naive RAG_. It's a useful way to initially understand the mechanisms, roles, and responsibilities that are required to implement an RAG-based chat system.
 
-However, a real-world implementation has many more preprocessing and post-processing steps to prepare the articles, the queries, and the responses for use. The following diagram is a more realistic depiction of an RAG, sometimes called _advanced RAG_.
+But a real-world implementation has many more preprocessing and post-processing steps to prepare the articles, queries, and responses for use. The following diagram is a more realistic depiction of an RAG, sometimes called _advanced RAG_:
 
 :::image type="content" source="./media/advanced-rag-inference-pipeline-highres.png" alt-text="Diagram that displays the advanced RAG flow of logic as a series of boxes with arrows between them." :::
 
-This article provides a conceptual framework for understanding the types of preprocessing and post-processing concerns in a real-world RAG-based chat system, organized as follows:
+This article provides a conceptual framework for understanding the preprocessing and post-processing phases in a real-world RAG-based chat system:
 
 - Ingestion phase
 - Inference pipeline phase
 - Evaluation phase
 
-As a conceptual overview, the keywords and ideas are provided as context and as a starting point for more exploration and research.
-
 ## Ingestion
 
-Ingestion is primarily about storing your organization's documents in a way that they can be easily retrieved to answer a user's question. The challenge is ensuring that the portions of the documents that best match the user's query are located and used during inference. Matching is accomplished primarily through vectorized embeddings and a cosine similarity search. However, matching is facilitated by understanding the nature of the content (for example, patterns and form) and the data organization strategy (the structure of the data when it's stored in the vector database).
+Ingestion is primarily about storing your organization's documents so that they can be easily retrieved to answer a user's question. The challenge is ensuring that the portions of the documents that best match the user's query are located and used during inference. Matching is accomplished primarily through vectorized embeddings and a cosine similarity search. However, matching is facilitated by understanding the nature of the content (for example, patterns and form) and the data organization strategy (the structure of the data when it's stored in the vector database).
 
 For ingestion, developers need to consider the following steps:
 

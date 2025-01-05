@@ -1,5 +1,5 @@
 ---
-title: Augment a large language model
+title: Augment LLMs with RAGs or Fine-Tuning
 description: A conceptual article that describes how to create a retrieval-augmented generation (RAG)-based chat system, emphasizing integration, optimization, and ethical considerations for delivering contextually relevant responses.
 ms.date: 11/05/2024
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.collection: ce-skilling-ai-copilot
 ms.subservice: intelligent-apps
 ---
 
-# Augment a large language model with retrieval-augmented generation or fine-tuning
+# Augment large language models with retrieval-augmented generation or fine-tuning
 
-The articles in this series discuss the knowledge retrieval models that large language models (LLMs) use to generate their responses. By default, an LLM has access only to its training data. But you can augment the model to include real-time data or private data.
+In a series of articles we discuss the knowledge retrieval models that large language models (LLMs) use to generate responses. By default, an LLM has access only to its training data. But you can augment the model to include real-time data or private data.
 
-The first mechanism is *retrieval-augmented generation (RAG)*. RAG is a form of preprocessing that combines semantic search with contextual priming. *Contextual priming* is discussed in more detail in [another article](./gen-ai-concepts-considerations-developers.md).
+The first mechanism is *retrieval-augmented generation (RAG)*. RAG is a form of preprocessing that combines semantic search with contextual priming. *Contextual priming* is discussed in detail in [Key concepts and considerations for building generative AI solutions](./gen-ai-concepts-considerations-developers.md).
 
-The second mechanism is *fine-tuning*. In fine-tuning, an LLM is further trained on a specific dataset after its initial, broad training. The goal is to adapt the LLM to perform better on tasks or to understand concepts that are related to that dataset. This process helps the model specialize or improve its accuracy and efficiency in handling specific types of input or domains.
+The second mechanism is *fine-tuning*. In fine-tuning, an LLM is further trained on a specific dataset after its initial broad training. The goal is to adapt the LLM to perform better on tasks or to understand concepts that are related to the dataset. This process helps the model specialize or improve its accuracy and efficiency in handling specific types of input or domains.
 
 The following sections describe these two mechanisms in more detail.
 
