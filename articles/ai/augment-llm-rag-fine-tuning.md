@@ -66,7 +66,7 @@ You take the best results from that search and send the matching content with th
 
 A RAG system has its set of implementation challenges. Data privacy is paramount. The system must handle user data responsibly, especially when it retrieves and processes information from external sources. Computational requirements can also be significant. Both the retrieval process and the generative processes are resource intensive. Ensuring accuracy and relevance of responses while managing biases in the data or model is another critical consideration. Developers must navigate these challenges carefully to create efficient, ethical, and valuable RAG systems.
 
-[Build advanced retrieval-augmented generation systems](advanced-retrieval-augmented-generation) gives you more information about building data and inference pipelines to enable a production-ready RAG system.
+[Build advanced retrieval-augmented generation systems](advanced-retrieval-augmented-generation.md) gives you more information about building data and inference pipelines to enable a production-ready RAG system.
 
 If you want to start experimenting with building a generative AI solution immediately, we recommend taking a look at [Get started with the chat using your own data sample for Python](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces). The tutorial is also available for [.NET](/dotnet/ai/get-started-app-chat-template?tabs=github-codespaces), [Java](/azure/developer/java/ai/get-started-app-chat-template?tabs=github-codespaces), and [JavaScript](/azure/developer/javascript/ai/get-started-app-chat-template?tabs=github-codespaces).
 
