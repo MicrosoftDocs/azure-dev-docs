@@ -1,6 +1,6 @@
 ---
 title: Build Advanced Retrieval-Augmented Generation Systems
-description: A conceptual article for developers to learn about real-world considerations and patterns for retrieval-augmented generation (RAG)-based chat systems.
+description: As a developer, learn about real-world considerations and patterns for retrieval-augmented generation (RAG)-based chat systems.
 ms.date: 11/19/2024
 ms.topic: conceptual
 ms.custom: build-2024-intelligent-apps
@@ -14,13 +14,13 @@ To learn about two options for building a "chat over your data" application, one
 
 The following diagram depicts the steps or phases of RAG:
 
-:::image type="content" source="./media/naive-rag-inference-pipeline-highres.png" alt-text="Diagram that depicts a simple RAG flow, with boxes representing steps or processes and arrows connecting each box." :::
+:::image type="content" source="./media/naive-rag-inference-pipeline-highres.png" border="false" alt-text="Diagram that depicts a simple RAG flow, with boxes representing steps or processes and arrows connecting each box." :::
 
 This depiction is called _naive RAG_. It's a useful way to initially understand the mechanisms, roles, and responsibilities that are required to implement a RAG-based chat system.
 
 But a real-world implementation has many more preprocessing and post-processing steps to prepare the articles, queries, and responses for use. The following diagram is a more realistic depiction of a RAG, sometimes called _advanced RAG_:
 
-:::image type="content" source="./media/advanced-rag-inference-pipeline-highres.png" alt-text="Diagram that displays the advanced RAG flow of logic as a series of boxes with arrows between them." :::
+:::image type="content" source="./media/advanced-rag-inference-pipeline-highres.png" border="false" alt-text="Diagram that depicts the advanced RAG flow of logic as a series of boxes with arrows between them." :::
 
 This article provides a conceptual framework for understanding the preprocessing and post-processing phases in a real-world RAG-based chat system:
 
@@ -148,7 +148,7 @@ Let's identify specific strategies in each stage of the inference pipeline.
 
 Query preprocessing occurs immediately after the user submits their query:
 
-:::image type="content" source="./media/advanced-rag-query-processing-steps-highres.png" alt-text="Diagram that repeats the advanced RAG steps, with emphasis on the box labeled query processing steps." :::
+:::image type="content" source="./media/advanced-rag-query-processing-steps-highres.png" border="false" alt-text="Diagram that repeats the advanced RAG steps, with emphasis on the box labeled query processing steps." :::
 
 The goal of these steps is to make sure that the user asks questions that are within the scope of your system and to prepare the user's query to increase the likelihood that it locates the best possible article chunks by using the cosine similarity or "nearest neighbor" search.
 
@@ -218,7 +218,7 @@ If a user asks a technical question about the biochemical effects of a new drug,
 
 Post-retrieval processing occurs after the retriever component retrieves relevant content chunks from the vector database:
 
-:::image type="content" source="./media/advanced-rag-post-retrieval-processing-steps-highres.png" alt-text="Diagram that repeats the advanced RAG steps, with emphasis on the box labeled post-retrieval processing steps." :::
+:::image type="content" source="./media/advanced-rag-post-retrieval-processing-steps-highres.png" border="false"  alt-text="Diagram that repeats the advanced RAG steps, with emphasis on the box labeled post-retrieval processing steps." :::
 
 With candidate content chunks retrieved, the next step is to validate the article chunk usefulness when _augmenting_ the LLM prompt before preparing the prompt to be presented to the LLM.
 
@@ -241,7 +241,7 @@ To deal with these issues, a post-retrieval processing pipeline might include th
 
 Post-completion processing occurs after the user's query and all content chunks are sent to the LLM:
 
-:::image type="content" source="./media/advanced-rag-post-completion-processing-steps-highres.png" alt-text="Diagram that repeats the advanced RAG steps, with emphasis on the box labeled post-completion processing steps." :::
+:::image type="content" source="./media/advanced-rag-post-completion-processing-steps-highres.png" border="false" alt-text="Diagram that repeats the advanced RAG steps, with emphasis on the box labeled post-completion processing steps." :::
 
 Accuracy validation occurs after the LLM's prompt completion. A post-completion processing pipeline might include the following steps:
 

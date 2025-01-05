@@ -1,6 +1,6 @@
 ---
 title: Key Concepts and Considerations in Generative AI
-description: A conceptual article for developers who build generative AI applications. Learn about the limitations of large language models (LLMs) and how to get the best results by modifying prompts, implementing an inference pipeline, and modifying optional API call parameters.
+description: As a developer, learn about the limitations of large language models (LLMs) and how to get the best results by modifying prompts, implementing an inference pipeline, and modifying optional API call parameters.
 ms.date: 4/12/2024
 ms.topic: conceptual
 ms.custom: build-2024-intelligent-apps
@@ -48,7 +48,7 @@ The mechanisms for external retrieval of data that power both RAG and RCG are di
 
 Understanding the distinctions between retrieval models can help you choose the right approach for specific applications. It helps you balance the need for creative synthesis versus accuracy and fidelity to source material.
 
-## Understanding factors that influence how inference works
+## Factors that affect how inference works
 
 Because you're likely familiar with ChatGPT's web-based user interface, understanding how it works to answer questions can help you understand concepts that are vital when you build generative AI features in your own applications.
 
@@ -153,13 +153,13 @@ To review required and optional parameters to pass that can affect various aspec
 
 - **`Logit Bias`**: Allows you to modify the likelihood of specified tokens appearing in the completion. `Logit Bias` can be used to guide the completion in a certain direction or to suppress specific content.
 
-## Understanding Microsoft OpenAI safeguards
+## Microsoft OpenAI safeguards
 
 In addition to keeping the LLM's responses bound to specific subject matter or domains, you also likely are concern about the kinds of questions your users are asking of the LLM. It's important to consider the kinds of answers it's generating.
 
 First, API calls to Microsoft OpenAI Services automatically filter content that the API finds potentially offensive and reports this back to you in many filtering categories.
 
-You can directly use OpenAI's Moderation API directly to check any content for potentially harmful content.
+You can directly use the OpenAI Moderation API directly to check any content for potentially harmful content.
 
 Then, you can use Azure AI Content Safety to help with text moderation, image moderation, jailbreak risk detection, and protected material detection. This combines a portal setup, configuration, and reporting experience with code you can add to your application to identify harmful content.
 

@@ -1,6 +1,6 @@
 ---
-title: Generative AI applications for developers
-description: A conceptual overview about integrating generative AI into applications, exploring its business benefits, operational fundamentals, and the potential of large language models (LLMs).
+title: Generative AI Applications for Developers
+description: Get a conceptual overview about integrating generative AI into applications, exploring its business benefits, operational fundamentals, and the potential of large language models (LLMs).
 ms.date: 11/05/2024
 ms.topic: conceptual
 ms.custom: build-2024-intelligent-apps, ai-learning-hub
@@ -14,7 +14,7 @@ As an application developer, you might want to understand what role you can play
 
 To answer these questions, it's important that you first develop a mental model that maps how new terminology and technologies fit into what you already understand. Developing a mental model helps you design and build generative AI features into your applications.
 
-This series of articles shows you how your current software development experience applies to generative AI. The articles also set a basis of keywords and concepts to build on as you begin to develop your first generative AI solutions.
+In a series of articles, we show you how your current software development experience applies to generative AI. The articles also set a basis of keywords and concepts to build on as you begin to develop your first generative AI solutions.
 
 ## How businesses benefit from using generative AI
 
@@ -25,14 +25,19 @@ Businesses view generative AI as a means to improve customer engagement, increas
 Here are a few common scenarios where generative AI can help businesses:
 
 - **Content generation**:
+
   - Generate text, code, images, and sound. This scenario can be useful for marketing, sales, IT, internal communications, and more.
+
 - **Natural language processing**:
+
   - Compose or improve business communications through suggestions or complete generation of messages.
-  - "Chat with your data." That is, enable a user to ask questions in a chat experience by using data that's stored in the organization's databases or documents as the basis for answers.
+  - Use "chat with your data." That is, enable a user to ask questions in a chat experience by using data that's stored in the organization's databases or documents as the basis for answers.
   - Summarization, organization, and simplification of large bodies of content to make content more accessible.
-  - "Semantic search." That is, allowing users to search documents and data without using exact keyword matches.
+  - Use semantic search. That is, allowing users to search documents and data without using exact keyword matches.
   - Translate language to increase the reach and accessibility of content.
+
 - **Data analysis**:
+
   - Analyze markets and identify trends in data.
   - Model "what if" scenarios to help companies plan for possible changes or challenges in every area of the business.
   - Analyze code to suggest improvements, fix bugs, and generate documentation.
@@ -51,7 +56,7 @@ Although the LLM does the heavy lifting, you build systems that integrate, orche
 
 Developing generative AI solutions build on your existing skills.
 
-## What tools and services are available
+## Developer tools and services
 
 Microsoft invests in developing tools, services, APIs, samples, and learning resources to help you as you begin your generative AI development journey. Each highlights a major concern or responsibility that is needed to construct a generative AI solution. To use a given service, API, or resource effectively, the challenge is to make sure that you:
 
@@ -75,7 +80,7 @@ The same is true for the field of AI. You can understand and appreciate the theo
 
 Here's an oversimplified representation of the layers of knowledge that are required to implement generative AI features in a new or existing application:
 
-:::image type="content" source="./media/ai-stack-developers.png" alt-text="Diagram that depicts the layers of knowledge that are required to implement generative AI features in an application.":::
+:::image type="content" source="./media/ai-stack-developers.png" border="false" alt-text="Diagram that depicts the layers of knowledge that are required to implement generative AI features in an application.":::
 
 At the lowest level, data scientists are doing data science research to solve or improve AI based on a deep mathematical understanding of statistics, probability theory, and so on.
 
@@ -89,16 +94,18 @@ Application developers can make calls to these APIs to implement business functi
 
 Beyond prompting the models programmatically, patterns and processes are emerging to help organizations build reliable business functionality based on generative AI. For example, patterns are emerging that help businesses ensure that the generated text, code, images, and sound comply with ethical and safety standards and with commitments to privacy of customer data.
 
-In this stack of concerns or layers, if you're an application developer who is responsible for building business functionality, it's possible for you to push beyond the application layer into developing and training your own LLM. But this level of understanding requires a new set of skills that often is developed only through advanced education. If you can't commit to developing competence in data science academically to help build the next layer down in the stack, then focus on application layer topics like:
+In this stack of concerns or layers, if you're an application developer who is responsible for building business functionality, it's possible for you to push beyond the application layer into developing and training your own LLM. But this level of understanding requires a new set of skills that often is developed only through advanced education.
 
-- Understanding available APIs and SDKs, what is available, and what the various endpoints produce.
-- Understanding related tools and services to help you build all the features that are required for a production-ready generative AI solution.
-- Understanding prompt engineering, like how to achieve the best results by asking or rephrasing questions.
-- Understanding where bottlenecks emerge and how to scale a solution. This area includes understanding what is involved in logging or obtaining telemetry without violating customer privacy concerns.
-- Understanding the characteristics of the various LLMs (their strengths, use cases, benchmarks and what they measure, key differentiations between vendors and models produced by each vendor) to choose the right model for your company's needs.
-- Understand the latest patterns, workflows, and processes used to build effective and resilient generative AI features in your applications.
+If you can't commit to developing competence in data science academically to help build the next layer down in the stack, you can focus on developing your knowledge of application layer topics:
 
-## Available services and tools from Microsoft
+- APIs and SDKs: What is available, and what the various endpoints produce.
+- Related tools and services to help you build all the features that are required for a production-ready generative AI solution.
+- Prompt engineering: How to achieve the best results by asking or rephrasing questions.
+- Where bottlenecks emerge and how to scale a solution. This area includes understanding what is involved in logging or obtaining telemetry without violating customer privacy concerns.
+- The characteristics of the various LLMs: Their strengths, use cases, benchmarks and what they measure, and key differentiations between vendors and models produced by each vendor. This information helps you choose the right model for the needs of your organization.
+- The latest patterns, workflows, and processes that you can use to build effective and resilient generative AI features in your applications.
+
+## Tools and services from Microsoft
 
 You can use low-code and no-code generative AI tools and services from Microsoft to help you build some or all of your solution. Various Azure services can play pivotal roles. Each contributes to the efficiency, scalability, and robustness of the solution.
 
@@ -125,18 +132,18 @@ Some of the logic required by a solution can be built quickly and hosted reliabl
 
 |Product|Description|
 |---|---|
-|**Azure AI Foundry**|You can use Azure AI Foundry to train, test, and deploy custom machine learning models to enhance an RAG chat system. For example, use Azure AI Foundry to customize response generation or to improve the relevance of retrieved information.|
+|**Azure AI Foundry**|You can use Azure AI Foundry to train, test, and deploy custom machine learning models to enhance a RAG chat system. For example, use Azure AI Foundry to customize response generation or to improve the relevance of retrieved information.|
 
 ### Vector database
 
-Some generative AI solutions might require storage and retrieval of data used to augment generation. An example is an RAG-based chat system that allows users to chat with your organization's data. In this use case, you need a vector data store.
+Some generative AI solutions might require storage and retrieval of data used to augment generation. An example is a RAG-based chat system that allows users to chat with your organization's data. In this use case, you need a vector data store.
 
 |Product|Description|
 |---|---|
-|**Azure AI Search**|You can use this service to efficiently search through large datasets to find relevant information that informs the responses generated by the language model. It's useful for the retrieval component of an RAG system, so the generated responses are as informative and contextually relevant as possible.|
+|**Azure AI Search**|You can use this service to efficiently search through large datasets to find relevant information that informs the responses generated by the language model. It's useful for the retrieval component of a RAG system, so the generated responses are as informative and contextually relevant as possible.|
 |**Azure Cosmos DB**|This globally distributed, multi-model database service can store the vast amounts of structured and unstructured data that the RAG chat system needs to access. Its fast read and write capabilities make it ideal for serving real-time data to the language model and for storing user interactions for further analysis.|
 |**Azure Cache for Redis**|This fully managed in-memory data store can be used for caching frequently accessed information, reducing latency and improving the performance of the RAG chat system. It's especially useful for storing session data, user preferences, and common queries.|
-|**Azure Database for PostgreSQL - Flexible Server**|This managed database service can store application data, including logs, user profiles, and historical chat data. Its flexibility and scalability support the dynamic needs of an RAG chat system so that data is consistently available and secure.|
+|**Azure Database for PostgreSQL - Flexible Server**|This managed database service can store application data, including logs, user profiles, and historical chat data. Its flexibility and scalability support the dynamic needs of a RAG chat system so that data is consistently available and secure.|
 
 Each of these Azure services contributes to creating a comprehensive, scalable, and efficient architecture for a generative AI solution. They help developers access and use the best of Azure's cloud capabilities and AI technologies.
 
@@ -150,7 +157,7 @@ Here's the list of Azure OpenAI REST API wrappers:
 - [Azure OpenAI client library for Java](/java/api/overview/azure/ai-openai-readme)
 - [Azure OpenAI client library for JavaScript](/javascript/api/overview/azure/openai-readme)
 - [Azure OpenAI client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai)
-- Use the [OpenAI Python package](https://platform.openai.com/docs/api-reference) and change several options. Python has no Azure-specific client library.
+- Use the [OpenAI Python package](https://platform.openai.com/docs/api-reference) and change several options. Python doesn't offer an Azure-specific client library.
 
 If a language or platform SDK is unavailable, the worst-case scenario is that you must make REST calls directly to the web APIs:
 
@@ -176,17 +183,17 @@ As you get started, it's best to start small, promise little, iterate, and build
 
 As you get started, consider these tips.
 
-### Tip #1: Be clear about what you want to achieve
+### Tip 1: Be clear about what you want to achieve
 
 - Be specific about the problem you're trying to solve: Generative AI can solve a wide range of problems, but success comes from clearly defining the specific problem you aim to solve. Are you trying to generate text, images, code, or something else? The more specific you are, the better you can tailor the AI to meet your needs.
 - Understand your audience: Knowing your audience helps tailor the AI's output to match their expectations, whether it's casual users or experts in a particular field.
 
-### Tip #2: Use the strengths of LLMs
+### Tip 2: Use the strengths of LLMs
 
 - Understand the limitations and biases of LLMs: Although LLMs are powerful, they have limitations and inherent biases. Knowing the limitations and biases can help you design around them or incorporate mitigations.
 - Understand where LLMs excel: LLMs excel at tasks like content creation, summarization, and language translation. Although their decision-making capabilities and discriminative capabilities are getting stronger with each new version, there might be other types of AI that are more appropriate for your scenario or use case. Choose the right tool for the job.
 
-### Tip #3: For good results, use good prompts
+### Tip 3: For good results, use good prompts
 
 - Learn prompt engineering best practices: Crafting effective prompts is an art. Experiment with different prompts to see how they affect the output. Be concise but descriptive.
 - Commit to iterative refinement: Often, the first prompt might not yield the desired result. It's a process of trial and error. Use outputs to further refine your prompts.

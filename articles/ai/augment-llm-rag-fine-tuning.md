@@ -1,6 +1,6 @@
 ---
 title: Augment LLMs with RAGs or Fine-Tuning
-description: A conceptual article that describes how to create a retrieval-augmented generation (RAG)-based chat system, emphasizing integration, optimization, and ethical considerations for delivering contextually relevant responses.
+description: Get a conceptual introduction to creating retrieval-augmented generation (RAG)-based chat systems, with an emphasis on integration, optimization, and ethical considerations for delivering contextually relevant responses.
 ms.date: 11/05/2024
 ms.topic: conceptual
 ms.custom: build-2024-intelligent-apps
@@ -10,7 +10,7 @@ ms.subservice: intelligent-apps
 
 # Augment large language models with retrieval-augmented generation or fine-tuning
 
-In a series of articles we discuss the knowledge retrieval models that large language models (LLMs) use to generate responses. By default, an LLM has access only to its training data. But you can augment the model to include real-time data or private data.
+In a series of articles, we discuss the knowledge retrieval models that large language models (LLMs) use to generate responses. By default, an LLM has access only to its training data. But you can augment the model to include real-time data or private data.
 
 The first mechanism is *retrieval-augmented generation (RAG)*. RAG is a form of preprocessing that combines semantic search with contextual priming. *Contextual priming* is discussed in detail in [Key concepts and considerations for building generative AI solutions](./gen-ai-concepts-considerations-developers.md).
 
@@ -25,13 +25,13 @@ RAG is often used to enable the "chat over my data" scenario. In this scenario, 
 At a high level, you create a database entry for each document or for a portion of a document called a *chunk*. The chunk is indexed on its *embedding*, that is, a vector (*array*) of numbers that represent facets of the document. When a user submits a query, you search the database for similar documents, and then submit the query and the documents to the LLM to compose an answer.
 
 >[!NOTE]
-> We use the term retrieval-augmented generation (RAG) accommodatively. The process of implementing an RAG-based chat system as outlined in this article can be applied whether you want to use external data in a supportive capacity (RAG) or as the centerpiece of the response (RCG). The nuanced distinction is not addressed in most reading related to RAG.
+> We use the term retrieval-augmented generation (RAG) accommodatively. The process of implementing a RAG-based chat system as outlined in this article can be applied whether you want to use external data in a supportive capacity (RAG) or as the centerpiece of the response (RCG). The nuanced distinction is not addressed in most reading related to RAG.
 
 ### Creating an index of vectorized documents
 
-The first step to creating an RAG-based chat system is to create a vector data store that contains the vector embedding of the document or chunk. Consider the following diagram, which outlines the basic steps to creating a vectorized index of documents.
+The first step to creating a RAG-based chat system is to create a vector data store that contains the vector embedding of the document or chunk. Consider the following diagram, which outlines the basic steps to creating a vectorized index of documents.
 
-:::image type="content" source="./media/vector-embedding-pipeline-highres.png" alt-text="Diagram depicting the different stages of ingestion of documents, starting with chunking, then post-chunking process steps, then calls to the embedding API, then saving the document chunks as vectorized embeddings into the vector database." :::
+:::image type="content" source="./media/vector-embedding-pipeline-highres.png" border="false" alt-text="Diagram that depicts the different stages of document ingestion in a RAG-based chat system." :::
 
 The diagram represents a *data pipeline*. The pipeline is responsible for the ingestion, processing, and management of data that the system uses. The pipeline includes preprocessing data to be stored in the vector database and ensuring that the data that's fed into the LLM is in the correct format.
 
@@ -52,21 +52,21 @@ A RAG system first uses semantic search to find articles that might be helpful t
 
 Consider the following diagram as a simple RAG implementation (sometimes called *naive RAG*):
 
-:::image type="content" source="./media/naive-rag-inference-pipeline-highres.png" alt-text="Diagram depicting a simple RAG flow, with boxes representing steps or processes and arrows connecting each box. The flow begins with the user's query, which is sent to the Embedding API. The Embedding API returns results in a vectorized query, which is used to find the nearest matches (article chunks) in the vector database. The query and article chunks are sent to the Completion API, and the results are sent to the user." :::
+:::image type="content" source="./media/naive-rag-inference-pipeline-highres.png" border="false" alt-text="Diagram that depicts a simple RAG flow." :::
 
 In the diagram, a user submits a query. The first step is to create an embedding for the user's prompt to return a vector. The next step is to search the vector database for those documents (or portions of documents) that are a nearest neighbor match.
 
-*Cosine similarity* is a measure that helps determine how similar two vectors are. Essentially the metric assesses the cosine of the angle between them. A cosine similarity that's close to 1 indicates a high degree of similarity (a small angle). A similarity near -1 indicates dissimilarity (an angle of nearly 180 degrees). This metric is crucial for tasks like document similarity, where the goal is to find documents that have similar content or meaning.
+*Cosine similarity* is a measure that helps determine how similar two vectors are. Essentially the metric assesses the cosine of the angle between them. A cosine similarity that's close to *1* indicates a high degree of similarity (a small angle). A similarity near *-1* indicates dissimilarity (an angle of nearly 180 degrees). This metric is crucial for tasks like document similarity, where the goal is to find documents that have similar content or meaning.
 
-*Nearest neighbor algorithms* work by finding the closest vectors (neighbors) for a point in vector space. In the *k-nearest neighbors (KNN) algorithm*, *k* refers to the number of nearest neighbors to consider. This approach is widely used in classification and regression, where the algorithm predicts the label of a new data point based on the majority label of its 'k' nearest neighbors in the training set. KNN and cosine similarity are often used together in systems like recommendation engines, where the goal is to find items most similar to a user's preferences, represented as vectors in the embedding space.
+*Nearest neighbor algorithms* work by finding the closest vectors (neighbors) for a point in vector space. In the *k-nearest neighbors (KNN) algorithm*, *k* refers to the number of nearest neighbors to consider. This approach is widely used in classification and regression, where the algorithm predicts the label of a new data point based on the majority label of its *k* nearest neighbors in the training set. KNN and cosine similarity are often used together in systems like recommendation engines, where the goal is to find items most similar to a user's preferences, represented as vectors in the embedding space.
 
 You take the best results from that search and send the matching content with the user's prompt to generate a response that (hopefully) is informed by matching content.
 
 ### Challenges and considerations
 
-An RAG system has its set of implementation challenges. Data privacy is paramount. The system must handle user data responsibly, especially when it retrieves and processes information from external sources. Computational requirements can also be significant. Both the retrieval process and the generative processes are resource intensive. Ensuring accuracy and relevance of responses while managing biases in the data or model is another critical consideration. Developers must navigate these challenges carefully to create efficient, ethical, and valuable RAG systems.
+A RAG system has its set of implementation challenges. Data privacy is paramount. The system must handle user data responsibly, especially when it retrieves and processes information from external sources. Computational requirements can also be significant. Both the retrieval process and the generative processes are resource intensive. Ensuring accuracy and relevance of responses while managing biases in the data or model is another critical consideration. Developers must navigate these challenges carefully to create efficient, ethical, and valuable RAG systems.
 
-The next article in this series gives you more information about building data and inference pipelines to enable a production-ready RAG system.
+[Build advanced retrieval-augmented generation systems](advanced-retrieval-augmented-generation) gives you more information about building data and inference pipelines to enable a production-ready RAG system.
 
 If you want to start experimenting with building a generative AI solution immediately, we recommend taking a look at [Get started with the chat using your own data sample for Python](/azure/developer/python/get-started-app-chat-template?tabs=github-codespaces). The tutorial is also available for [.NET](/dotnet/ai/get-started-app-chat-template?tabs=github-codespaces), [Java](/azure/developer/java/ai/get-started-app-chat-template?tabs=github-codespaces), and [JavaScript](/azure/developer/javascript/ai/get-started-app-chat-template?tabs=github-codespaces).
 
