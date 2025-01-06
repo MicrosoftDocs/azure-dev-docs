@@ -108,3 +108,4 @@ View your HTTP endpoint from the service's Overview page on the Azure portal.
 ## Related content
 
 * [Deployment tutorials using Visual Studio Code](https://code.visualstudio.com/docs/azure/deployment)
+* [Hosting apps on Azure](/azure/developer/intro/hosting-apps-on-azure)
