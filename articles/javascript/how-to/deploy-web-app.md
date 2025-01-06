@@ -80,7 +80,7 @@ To deploy or redeploy your App service app with Visual Studio Code, complete the
 1. In the Resources group, select your subscription and service.
 1. Right-click your service then select **Deploy to Web App...**.
 
-:::image type="content" source="../media/azure-app-service-vscode-extensions/deploy-or-redeploy-app-service.png" alt-text="Deploy or redeploy to App service with Visual Studio Code":::
+    :::image type="content" source="../media/azure-app-service-vscode-extensions/deploy-or-redeploy-app-service.png" alt-text="Deploy or redeploy to App service with Visual Studio Code":::
 
 ## Connect to your Azure hosted environment
 
