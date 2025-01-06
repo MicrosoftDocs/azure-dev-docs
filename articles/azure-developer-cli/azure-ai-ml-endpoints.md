@@ -37,7 +37,7 @@ To work with Azure AI Foundry/ML studio online endpoints, you'll need the follow
 
 The [Azure AI Foundry Starter template](https://github.com/Azure-Samples/azd-aistudio-starter) can help create all the required infrastructure to get started with Azure AI Foundry endpoints.
 
-## Configure the AI/ML studio online endpoint
+## Configure the Azure AI Foundry/ML studio online endpoint
 
 Configure support for AI/ML online endpoints in the `services` section of the `azure.yaml` file:
 
