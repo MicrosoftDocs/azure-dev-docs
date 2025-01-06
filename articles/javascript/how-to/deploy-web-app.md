@@ -1,22 +1,32 @@
 ---
-title: Deployment options for Azure hosting
-description: Deploying your apps to Azure hosting services means moving a file or set of files to Azure to be served via an HTTP endpoint.
-ms.topic: how-to
-ms.date: 08/31/2022
+title: Deploy JavaScript apps on Azure
+description: Deploying your JavaScript applications to Azure allows you to leverage the power of cloud computing, ensuring scalability, reliability, and global reach. This guide will walk you through various methods to deploy your JavaScript apps to Azure, from manual deployments to automated CI/CD pipelines.
+ms.topic: concept-article
+ms.date: 01/06/2025
 ms.custom: vscode-azure-extension-update-completed
+#customer intent: As a JavaScript developer new to Azure, I want know all the ways to deploy code to Azure so that I can choose the best process for my application and situation.
 ---
 
-# Deployment choices for your web app to Azure
+# Deployment JavaScript app to Azure overview
 
-Deploying your apps to Azure hosting services means moving a file or set of files to Azure to be served via an HTTP endpoint. 
+To deploy your JavaScript-based app to Azure, you move a file or set of files to Azure to be served via an HTTP endpoint. The process of moving the files is called deployment. 
 
-Common methods of moving files to the Azure cloud include:
+## Prerequisites
+
+* Azure subscription - [create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
+* [Node.js LTS](https://nodejs.org/).
+* A GitHub account if you plan to deploy from a GitHub repository.
+
+## Deployment methods
+
+Azure offers various deployment methods to suit different needs. Here are some common methods:
 
 | Method | Details |
 |--|--|
-|[GitHub Actions](/azure/app-service/deploy-github-actions?tabs=applevel)|Use this for automated or triggered continuous deployments.|
-|[Visual Studio Code Extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance)|Use this for manual, testing, or seldom deployments. Requires that you have the extension for the service installed locally.|
-|[Azure CLI](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli)|Use this for manual or seldom deployments. Requires that you have the extension for the service installed locally.|
+|[Azure Developer CLI](/azure/developer/azure-developer-cli)|Ideal for developers who prefer command-line tools and need to automate the provisioning and deployment of resources.|
+|[Visual Studio Code Extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=All%20categories&sortBy=Relevance)|Suitable for manual, testing, or infrequent deployments. Requires the relevant Azure extensions installed locally.|
+|[Azure CLI](/azure/app-service/tutorial-nodejs-mongodb-app?tabs=azure-portal%2Cterminal-bash%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cdeploy-zip-linux-mac%2Cdeploy-instructions--zip-azcli)|Useful for manual or occasional deployments. Requires the Azure CLI installed locally.|
+|[GitHub Actions](/azure/app-service/deploy-github-actions?tabs=applevel)|Best for automated or continuous deployments triggered by changes in your GitHub repository.|
 
 Other deployment methods may exist, based on the specific service. For example, Azure app service supports a wide variety of deployment methods:
 * [From ZIP file](/azure/app-service/deploy-zip)
@@ -30,11 +40,34 @@ You can redeploy to your App service using any of the provided methods even if y
 
 <a name="deploy-or-redeploy-to-app-service-with-visual-studio-code"></a>
 
+## Build steps
+
+Depending on your application's complexity and deployment needs, you can choose to build your JavaScript app either before or during deployment:
+
+* **Build before deployment**: For complex or lengthy builds, package your application into a zip file and deploy it. This allows you to control and test the build before deployment.
+* **Build during deployment**: For simpler builds, use the Azure-provided environment variable SCM_DO_BUILD_DURING_DEPLOYMENT=true to build your app during deployment. This is useful for quick iterations and testing."
+
 ## Deployment slots
 
-Use [deployment slots](/azure/app-service/deploy-staging-slots) to deploy your source code to a staging environment and warm up the environment before deploying to your production slot. 
+[Deployment slots](/azure/app-service/deploy-staging-slots) in Azure App Service allow you to create separate environments for staging and production. This enables you to test your app in a staging environment before swapping it with the production slot, ensuring a smooth and error-free deployment. Learn more about deployment slots.
 
 Do not use deployment slots to mix deployment purposes. All deployment slots share the app service so you need to make sure the traffic patterns and intended use of all slots are the same. If you need to have a hosted test or stage environment, that should be a separate app service. 
+
+## Deploy with Azure Developer CLI
+
+The Azure Developer CLI (azd) simplifies the process of deploying your app to Azure. Follow these steps:
+
+1. [Install](/azure/developer/azure-developer-cli/install-azd) the Azure Developer CLI.
+1. [Find an existing project](https://azure.github.io/awesome-azd/) which uses many of the same resources your project uses.
+1. Initialize a local version of the project to use as an infrastructure template for your own project.
+
+    ```bash
+    azd init --template <template-name>
+    ```
+1. Create the resources and deploy the code to Azure.
+    ```bash
+    azd up
+    ```
 
 ## Deploy with Visual Studio Code
 
@@ -72,6 +105,6 @@ View your HTTP endpoint from the service's Overview page on the Azure portal.
 
 :::image type="content" source="../media/howto-deploy/azure-portal-hosting-url.png" alt-text="View your HTTP endpoint from the service's Overview page on the Azure portal.":::
 
-## Next steps
+## Related content
 
 * [Deployment tutorials using Visual Studio Code](https://code.visualstudio.com/docs/azure/deployment)
