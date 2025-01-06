@@ -183,7 +183,7 @@ In this section, you run and test the Quarkus app to see how it works with Micro
 
 Use the following steps to prepare the sample Quarkus app:
 
-1. Use the following commands to clone the sample Quarkus app from GitHub and navigate to the `entra-id-quarkus` directory:
+1. Use the following commands to clone the sample Quarkus app from GitHub and navigate to the **entra-id-quarkus** directory:
 
    ```bash
    git clone https://github.com/Azure-Samples/quarkus-azure
