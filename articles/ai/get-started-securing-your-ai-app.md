@@ -401,7 +401,7 @@ async def response_stream():
     ] + request_messages
 
     chat_coroutine = bp.openai_client.chat.completions.create(
-        # Azure Open AI takes the deployment name as the model name
+        # Azure OpenAI takes the deployment name as the model name
         model=bp.openai_model,
         messages=all_messages,
         stream=True,
