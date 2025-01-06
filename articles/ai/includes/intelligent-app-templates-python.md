@@ -52,9 +52,9 @@ This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
-|Azure Container Registry<br>Azure Kubernetes<br>|Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio|GPT 3.5 Turbo<br>GPT 4.0<br>DALL-E|
+|Azure Container Registry<br>Azure Kubernetes<br>|Azure OpenAI<br>Bing Search<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Foundry|GPT 3.5 Turbo<br>GPT 4.0<br>DALL-E|
 
-### Contoso Chat Retail Copilot with AI Studio
+### Contoso Chat Retail Copilot with AI Foundry portal
 
 This template implements _Contoso Chat_ - a retail copilot solution for Contoso Outdoor that uses a _retrieval augmented generation_ design pattern to ground chatbot responses in the retailer's product and customer data. Customers can ask questions from the website in natural language, and get relevant responses with potential recommendations based on their purchase history - with responsible AI practices to ensure response quality and safety.
 
@@ -83,9 +83,9 @@ This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
-|Azure Container Apps<br>|Azure OpenAI<br>Azure AI Search<br>Azure AI Studio<br>Prompty<br>Azure Cosmos DB|GPT 3.5 Turbo<br>GPT 4.0<br>Managed Integration Runtime (MIR)|
+|Azure Container Apps<br>|Azure OpenAI<br>Azure AI Search<br>Azure AI Foundry<br>Prompty<br>Azure Cosmos DB|GPT 3.5 Turbo<br>GPT 4.0<br>Managed Integration Runtime (MIR)|
 
-### Process automation with speech to text and summarization with AI Studio
+### Process automation with speech to text and summarization with AI Foundry portal
 
 This template creates a web-based app that allows workers at a company called Contoso Manufacturing to report issues via text or speech. Audio input is translated to text and then summarized to highlight important information and the report is sent to the appropriate department.
 
@@ -103,9 +103,9 @@ This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
-|Azure Container Apps|Azure AI Studio<br>Speech to Text Service<br>Prompty<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
+|Azure Container Apps|Azure AI Foundry<br>Speech to Text Service<br>Prompty<br>Managed Integration Runtime (MIR)|GPT 3.5 Turbo|
 
-### Assistant API Analytics Copilot with Python and Azure AI Studio
+### Assistant API Analytics Copilot with Python and Azure AI Foundry portal
 
 This template is an Assistant API to chat with tabular data and perform analytics in natural language.
 
@@ -123,4 +123,4 @@ This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
-|Machine Learning service|Azure AI Search<br>Azure AI Studio<br>Managed Integration Runtime (MIR)<br>Azure OpenAI|GPT 3.5 Turbo<br>GPT 4|
+|Machine Learning service|Azure AI Search<br>Azure AI Foundry<br>Managed Integration Runtime (MIR)<br>Azure OpenAI|GPT 3.5 Turbo<br>GPT 4|

@@ -122,7 +122,7 @@ Alternatively, some of the logic required by the solution could be built quickly
 
 |Product|Description|
 |---|---|
-|**Azure AI Studio**|Azure AI Studio could be used for training, testing, and deploying custom machine learning models that could enhance the RAG-chat system. For example, use Azure AI Studio to  customize response generation or improve the relevance of retrieved information.|
+|**Azure AI Foundry portal**|Azure AI Foundry portal could be used for training, testing, and deploying custom machine learning models that could enhance the RAG-chat system. For example, use Azure AI Foundry portal to  customize response generation or improve the relevance of retrieved information.|
 
 ### Vector database
 
