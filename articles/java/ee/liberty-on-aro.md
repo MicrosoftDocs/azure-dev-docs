@@ -41,7 +41,7 @@ If you're interested in providing feedback or working closely on your migration 
 - [Azure CLI](/cli/azure/install-azure-cli), version 2.61.0 or later.
 - An Azure Red Hat OpenShift 4 cluster. To create the cluster, follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster) while using the following instructions:
 
-  - Though the "Get a Red Hat pull secret" step is labeled as optional, it's required for this article. The pull secret enables your Azure Red Hat OpenShift cluster to find the Open Liberty Operator.
+  - Though the "Get a Red Hat pull secret" step is labeled as optional, the step is required for this article. The pull secret enables your Azure Red Hat OpenShift cluster to find the Open Liberty Operator.
 
   - The following environment variables defined in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster) are used later in this article:
 
@@ -113,7 +113,7 @@ az mysql flexible-server create \
 > [!NOTE]
 > This article guides you to create an Azure Database for MySQL Flexible Server with MySQL authentication. A more secure practice is to use [Microsoft Entra authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication) for authenticating the database server connection. Azure Red Hat OpenShift doesn't currently support [Microsoft Entra Workload ID](/entra/workload-id/workload-identities-overview), so MySQL authentication is the only available option.
 >
-> If you receive an error message **No available SKUs in this location**, specify a different location using the `--location` parameter and try again. Use the following command to list available SKUs in a specific location:
+> If you receive an error message `No available SKUs in this location`, specify a different location using the `--location` parameter and try again. Use the following command to list available SKUs in a specific location:
 >
 > ```azurecli
 > az mysql flexible-server list-skus --location <location>
@@ -161,9 +161,9 @@ git checkout 20240920
 cd ${BASE_DIR}/3-integration/connect-db/mysql
 ```
 
-If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you checked out a tag.
+If you see a message about being in `detached HEAD` state, this message is safe to ignore. It just means you checked out a tag.
 
-There are a few samples in the repository. We use *open-liberty-on-aro/3-integration/connect-db/mysql*. Here's the file structure of the application:
+There are a few samples in the repository. We use **open-liberty-on-aro/3-integration/connect-db/mysql**. Here's the file structure of the application:
 
 ```
 open-liberty-on-aro/3-integration/connect-db/mysql
@@ -181,13 +181,13 @@ open-liberty-on-aro/3-integration/connect-db/mysql
 ├─ pom.xml
 ```
 
-The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
+The directories **java**, **resources**, and **webapp** contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-In the *aro* directory, we placed two deployment files. *db-secret.xml* is used to create [Secrets](https://docs.openshift.com/container-platform/4.6/nodes/pods/nodes-pods-secrets.html) with database connection credentials. The file *openlibertyapplication.yaml* is used to deploy the application image.
+In the **aro** directory, we placed two deployment files. **db-secret.xml** is used to create [Secrets](https://docs.openshift.com/container-platform/4.6/nodes/pods/nodes-pods-secrets.html) with database connection credentials. The file **openlibertyapplication.yaml** is used to deploy the application image.
 
-In the root directory, we placed two Dockerfiles. *Dockerfile* and *Dockerfile-wlp* are used for local debugging and to build the image for an Azure Red Hat OpenShift deployment, working with Open Liberty and WebSphere Liberty, respectively.
+In the root directory, we placed two Dockerfiles. **Dockerfile** and **Dockerfile-wlp** are used for local debugging and to build the image for an Azure Red Hat OpenShift deployment, working with Open Liberty and WebSphere Liberty, respectively.
 
-In the *liberty/config* directory, the *server.xml* is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster.
+In the **liberty/config** directory, the **server.xml** is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster.
 
 #### Build the project
 
@@ -218,7 +218,7 @@ Optionally, you can run the application locally to verify that it works as expec
 
 Use the following steps to run the `liberty:devc` command to locally run and test the project and container image before dealing with any Azure complexity. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
 
-1. Start your local Docker environment if needed. The instructions for doing this vary depending on the host operating system.
+1. Start your local Docker environment if needed. The instructions for starting the environment vary depending on the host operating system.
 
 1. Use the following commands to start the application in `liberty:devc` mode:
 
@@ -257,7 +257,7 @@ Since you already successfully ran the app in the Liberty Docker container using
    # mv Dockerfile-wlp Dockerfile
    ```
 
-1. Use the following command to change project to *open-liberty-demo*:
+1. Use the following command to change the project to `open-liberty-demo`:
 
    ```bash
    oc project open-liberty-demo
@@ -289,14 +289,14 @@ Now you can deploy the sample Liberty application to the Azure Red Hat OpenShift
 
 ### Deploy the application from the web console
 
-Because we use the Open Liberty Operator to manage Liberty applications, we need to create an instance of its *Custom Resource Definition*, of type `OpenLibertyApplication`. The Operator takes care of all aspects of managing the OpenShift resources required for deployment. Use the following steps to create this instance:
+Because we use the Open Liberty Operator to manage Liberty applications, we need to create an instance of its Custom Resource Definition, of type `OpenLibertyApplication`. The Operator takes care of all aspects of managing the OpenShift resources required for deployment. Use the following steps to create this instance:
 
 1. Sign in to the OpenShift web console from your browser using the `kubeadmin` credentials.
 1. Select the project by visiting **Home** > **Projects** > **open-liberty-demo**.
 1. Navigate to **Workloads** > **Secrets**.
-1. Select **Create** > From YAML.
-1. Replace the generated yaml with yours, which is located at *\<path-to-repo\>/3-integration/connect-db/mysql/target/db-secret.yaml*.
-1. Select **Create**. You're returned to the Secret details page.
+1. Select **Create** > **From YAML**.
+1. Replace the generated YAML with yours, which is located at **\<path-to-repo\>/3-integration/connect-db/mysql/target/db-secret.yaml**.
+1. Select **Create**. This selection returns to the **Secret details** page.
 1. Navigate to **Operators** > **Installed Operators**.
 1. In the middle of the page, you see **Open Liberty**.
 1. From **Provided APIs**, select **OpenLibertyApplication**. The navigation of items in the user interface mirrors the actual containment hierarchy of technologies in use.
@@ -306,7 +306,7 @@ Because we use the Open Liberty Operator to manage Liberty applications, we need
 
 1. Select **Create OpenLibertyApplication**.
 1. Select **YAML view** for **Configure via**.
-1. Replace the generated yaml with yours, which is located at *\<path-to-repo\>/3-integration/connect-db/mysql/target/openlibertyapplication.yaml*.
+1. Replace the generated yaml with yours, which is located at **\<path-to-repo\>/3-integration/connect-db/mysql/target/openlibertyapplication.yaml**.
 1. Select **Create**. You're returned to the list of OpenLibertyApplications.
 1. Navigate to **Operators** > **Installed Operators** > **Open Liberty** > **OpenLibertyApplication**.
 1. Select **javaee-cafe-mysql**.
