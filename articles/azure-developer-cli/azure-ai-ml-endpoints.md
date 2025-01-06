@@ -1,6 +1,6 @@
 ---
-title: Deploy to an Azure AI Foundry portal/ML studio online endpoint using the Azure Developer CLI
-description: Learn how to deploy to an Azure AI Foundry portal/ML studio online endpoint using the Azure Developer CLI
+title: Deploy to an Azure AI Foundry/ML studio online endpoint using the Azure Developer CLI
+description: Learn how to deploy to an Azure AI Foundry/ML studio online endpoint using the Azure Developer CLI
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 05/06/2024
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
 ---
 
-# Deploy to an Azure AI Foundry portal/ML studio online endpoint using the Azure Developer CLI
+# Deploy to an Azure AI Foundry/ML studio online endpoint using the Azure Developer CLI
 
 The Azure Developer CLI enables you to quickly and easily deploy to an [Azure ML Studio](https://ml.azure.com) or [Azure AI Foundry](https://ai.azure.com) online endpoint. `azd` supports the following Azure AI Foundry/ML studio features, which you'll learn to configure in the sections ahead:
 
@@ -37,9 +37,9 @@ To work with Azure AI Foundry/ML studio online endpoints, you'll need the follow
 
 The [Azure AI Foundry Starter template](https://github.com/Azure-Samples/azd-aistudio-starter) can help create all the required infrastructure to get started with Azure AI Foundry endpoints.
 
-## Configure the Azure AI Foundry/ML studio online endpoint
+## Configure the AI/ML studio online endpoint
 
-Configure support for Azure AI Foundry/ML online endpoints in the `services` section of the `azure.yaml` file:
+Configure support for AI/ML online endpoints in the `services` section of the `azure.yaml` file:
 
 * Set the `host` value to `ai.endpoint`.
 * The `config` section for `ai.endpoint` supports the following configurations:
