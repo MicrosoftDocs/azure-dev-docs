@@ -1,5 +1,5 @@
 ---
-title: Manually Deploy a Java application with JBoss EAP on an Azure Red Hat OpenShift Cluster
+title: Manually Deploy a Java Application with JBoss EAP on an Azure Red Hat OpenShift Cluster
 description: Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift cluster.
 author: KarlErickson
 ms.author: edburns
@@ -82,7 +82,7 @@ Clone the sample application using the following command:
 git clone https://github.com/Azure-Samples/jboss-on-aro-jakartaee
 ```
 
-You cloned the `Todo-list` demo application and your local repository is on the **main** branch. The demo application is a simple Java app that creates, reads, updates, and deletes records on Azure SQL. You can deploy this application as it is on a JBoss EAP server installed in your local machine. You just need to configure the server with the required database driver and data source. You also need a database server accessible from your local environment.
+You cloned the **Todo-list** demo application and your local repository is on the **main** branch. The demo application is a simple Java app that creates, reads, updates, and deletes records on Azure SQL. You can deploy this application as it is on a JBoss EAP server installed in your local machine. You just need to configure the server with the required database driver and data source. You also need a database server accessible from your local environment.
 
 However, when you're targeting OpenShift, you might want to trim the capabilities of your JBoss EAP server. For example, you might want to reduce the security exposure of the provisioned server and reduce the overall footprint. You might also want to include some MicroProfile specs to make your application more suitable for running on an OpenShift environment. When you use JBoss EAP, one way to accomplish this task is by packaging your application and your server in a single deployment unit known as a Bootable JAR. Let's do that by adding the required changes to our demo application.
 
