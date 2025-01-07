@@ -1,6 +1,6 @@
 ---
 title: CDN changes impacting the Azure Developer CLI
-description: Information regarding CDN changes that impact the Azure Developer CLI
+description: Information regarding critical Content Delivery Network (CDN) changes for azd due to the CDN provider changing from Edgio to Azure Front Door.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 9/14/2024
@@ -11,9 +11,9 @@ ms.service: azure-dev-cli
 
 # CDN changes for the Azure Developer CLI installation endpoints
 
-The Edgio Content Delivery Network (CDN) endpoint for downloading and installing `azd` is changing due to the [Azure CDN from Edgio retirement](/azure/cdn/edgio-retirement-faq) effective January 15, 2025.
+The Edgio Content Delivery Network (CDN) endpoint used to download and install `azd` is changing due to the [Azure CDN from Edgio retirement](/azure/cdn/edgio-retirement-faq) effective January 15, 2025.During the transition to a new CND endpoint, it's recommended you install `azd` using the latest install scripts hosted at `https://aka.ms/install-azd.ps1` and `https://aka.ms/install-azd.sh`. Customers who use this approach will not be impacted by the CDN change.
 
-The following CDN endpoints will go offline as part of this retirement:
+The following CDN hostnames will go offline as part of this retirement:
 
 - `azdrelease.azureedge.net`
 - `azure-dev.azureedge.net` (legacy)
@@ -30,6 +30,7 @@ The CDN changes impact the following:
 - The `azure/setup-azd` GitHub Action
 - Older downloaded versions of `install-azd.ps1` and `install-azd.sh` scripts
 - Any hardcoded references in your system to the older CDN endpoints
+  - Users should instead use the latest `https://aka.ms/install-azd.ps1` and `https://aka.ms/install-azd.sh` scripts to install azd.
 - Firewall rules that enable traffic to the `*.azureedge.net` CDN hosts
 
 ### Unimpacted services and tools
@@ -39,9 +40,10 @@ The CDN changes do *not* impact the following:
 - The `azd` client and `Azure Developer CLI` VS Code extension functionality
 - WinGet, Choco, and brew installers
 - GitHub releases
-- The scripts available at:
-  - `https://aka.ms/install-azd.ps1`
-  - `https://aka.ms/install-azd.sh`
+- Normal usage of `https://aka.ms/install-azd.ps1` and `https://aka.ms/install-azd.sh` scripts
+
+  > [!NOTE]
+  > The scripts available at the `https://aka.ms/*` Microsoft short links are correctly updated and the supported way to run the install script.
 
 ### Recommended actions and resources
 
