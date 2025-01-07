@@ -33,7 +33,7 @@ The simplest and easiest way to get the Maven Plugin deploying your Open Liberty
 Sign into your Azure account by using the Azure CLI:
 
 ```azurecli
-   az login
+az login
 ```
 
 Follow the instructions to complete the sign-in process.
@@ -62,7 +62,7 @@ In this section, you create an Open Liberty application and test it locally.
 4. Unzip the archive file by using the following command:
 
     ```bash
-       unzip openliberty-hello-azure.zip
+    unzip openliberty-hello-azure.zip
     ```
 
 ### Run the application in a local environment
@@ -70,25 +70,25 @@ In this section, you create an Open Liberty application and test it locally.
 1. Change directory to the completed project by using the following command:
 
     ```bash
-       cd openliberty-hello-azure/
+    cd openliberty-hello-azure/
     ```
 
 2. Build the project using Maven by using the following command:
 
     ```bash
-       mvn clean package
+    mvn clean package
     ```
 
 3. Run the project by using the following command:
 
     ```bash
-       java -jar target/openliberty-hello-azure.jar
+    java -jar target/openliberty-hello-azure.jar
     ```
 
 4. Test the web app by browsing to it locally using a web browser. For example, you could use the following command if you have `curl` available:
 
     ```bash
-       curl http://localhost:9080/data/hello
+    curl http://localhost:9080/data/hello
     ```
 
 5. You should see the following message displayed: **Hello World**
@@ -100,145 +100,145 @@ In this section, you configure the Open Liberty project **pom.xml** file so that
 1. To configure the deployment, run the following Maven command:
 
     ```bash
-       mvn com.microsoft.azure:azure-webapp-maven-plugin:2.3.0:config
+    mvn com.microsoft.azure:azure-webapp-maven-plugin:2.3.0:config
     ```
 
     Select the following options when prompted:
 
-    |  Input Field  |  Input/Select Value  |
-    | ---- | ---- |
-    |  Define value for OS(Default: Linux):  | 1. linux  |
-    |  Define value for javaVersion(Default: Java 8):   | 2. Java 11  |
-    |  Define value for runtimeStack(Default: TOMCAT 8.5): | 2. TOMCAT 8.5 |
-    |  Confirm (Y/N) | y |
+    | Input Field                                         | Input/Select Value |
+    |-----------------------------------------------------|--------------------|
+    | Define value for OS(Default: Linux):                | 1. linux           |
+    | Define value for javaVersion(Default: Java 8):      | 2. Java 11         |
+    | Define value for runtimeStack(Default: TOMCAT 8.5): | 2. TOMCAT 8.5      |
+    | Confirm (Y/N)                                       | y                  |
 
-   > [!NOTE]
-   > Even though we don't use Tomcat, select `TOMCAT 8.5` at this time. During the detailed configuration, you modify the value from `TOMCAT 8.5` to `Java`.
-   > This example uses a specific version of the Azure App Service Maven plugin. You should consider using the latest version available. You can discover the number of the latest version by visiting a site such as [mvnrepository.com](https://mvnrepository.com/artifact/com.microsoft.azure/azure-webapp-maven-plugin).
+    > [!NOTE]
+    > Even though we don't use Tomcat, select `TOMCAT 8.5` at this time. During the detailed configuration, you modify the value from `TOMCAT 8.5` to `Java`.
+    > This example uses a specific version of the Azure App Service Maven plugin. You should consider using the latest version available. You can discover the number of the latest version by visiting a site such as [mvnrepository.com](https://mvnrepository.com/artifact/com.microsoft.azure/azure-webapp-maven-plugin).
 
     This command produces output similar to the following example:
 
     ```output
-       [INFO] Scanning for projects...
-       [INFO]
-       [INFO] ---< com.microsoft.azure.samples.openliberty:openliberty-hello-azure >----
-       [INFO] Building openliberty-hello-azure 1.0-SNAPSHOT
-       [INFO] --------------------------------[ war ]---------------------------------
-       [INFO]
-       [INFO] --- azure-webapp-maven-plugin:2.3.0:config (default-cli) @ openliberty-hello-azure ---
-       Auth type: AZURE_CLI
-       Default subscription:
-       Username:
-       [INFO] Subscription:
-       [INFO] It may take a few minutes to load all Java Web Apps, please be patient.
-       Define value for OS [Linux]:
-         1: Windows
-       * 2: Linux
-         3: Docker
-       Enter your choice:
-       Define value for javaVersion [Java 8]:
-       * 1: Java 8
-         2: Java 11
-       Enter your choice: 2
-       Define value for webContainer [Tomcat 8.5]:
-         1: Jbosseap 7
-       * 2: Tomcat 8.5
-         3: Tomcat 9.0
-       Enter your choice:
-       Define value for pricingTier [P1v2]:
-         1: B1
-         2: B2
-         3: B3
-         4: D1
-         5: EP1
-         6: EP2
-         7: EP3
-         8: F1
-       *  9: P1v2
-         10: P1v3
-         11: P2v2
-         12: P2v3
-         13: P3v2
-         14: P3v3
-         15: S1
-         16: S2
-         17: S3
-         18: Y1
-       Enter your choice:
-       Please confirm webapp properties
-       Subscription Id : ********-****-****-****-************
-       AppName : openliberty-hello-azure-1642075767899
-       ResourceGroup : openliberty-hello-azure-1642075767899-rg
-       Region : centralus
-       PricingTier : P1v2
-       OS : Linux
-       Java : Java 11
-       Web server stack: Tomcat 8.5
-       Deploy to slot : false
-       Confirm (Y/N) [Y]:
-       [INFO] Saving configuration to pom.
-       [INFO] ------------------------------------------------------------------------
-       [INFO] BUILD SUCCESS
-       [INFO] ------------------------------------------------------------------------
-       [INFO] Total time:  21.981 s
-       [INFO] Finished at: 2022-01-13T21:09:39+09:00
-       [INFO] ------------------------------------------------------------------------
+    [INFO] Scanning for projects...
+    [INFO]
+    [INFO] ---< com.microsoft.azure.samples.openliberty:openliberty-hello-azure >----
+    [INFO] Building openliberty-hello-azure 1.0-SNAPSHOT
+    [INFO] --------------------------------[ war ]---------------------------------
+    [INFO]
+    [INFO] --- azure-webapp-maven-plugin:2.3.0:config (default-cli) @ openliberty-hello-azure ---
+    Auth type: AZURE_CLI
+    Default subscription:
+    Username:
+    [INFO] Subscription:
+    [INFO] It may take a few minutes to load all Java Web Apps, please be patient.
+    Define value for OS [Linux]:
+      1: Windows
+    * 2: Linux
+      3: Docker
+    Enter your choice:
+    Define value for javaVersion [Java 8]:
+    * 1: Java 8
+      2: Java 11
+    Enter your choice: 2
+    Define value for webContainer [Tomcat 8.5]:
+      1: Jbosseap 7
+    * 2: Tomcat 8.5
+      3: Tomcat 9.0
+    Enter your choice:
+    Define value for pricingTier [P1v2]:
+      1: B1
+      2: B2
+      3: B3
+      4: D1
+      5: EP1
+      6: EP2
+      7: EP3
+      8: F1
+    *  9: P1v2
+      10: P1v3
+      11: P2v2
+      12: P2v3
+      13: P3v2
+      14: P3v3
+      15: S1
+      16: S2
+      17: S3
+      18: Y1
+    Enter your choice:
+    Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
+    AppName : openliberty-hello-azure-1642075767899
+    ResourceGroup : openliberty-hello-azure-1642075767899-rg
+    Region : centralus
+    PricingTier : P1v2
+    OS : Linux
+    Java : Java 11
+    Web server stack: Tomcat 8.5
+    Deploy to slot : false
+    Confirm (Y/N) [Y]:
+    [INFO] Saving configuration to pom.
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time:  21.981 s
+    [INFO] Finished at: 2022-01-13T21:09:39+09:00
+    [INFO] ------------------------------------------------------------------------
     ```
 
 1. Modify the **server.xml** file under the **/src/main/liberty/config/** directory for running the Application on Azure Web Apps. In the file, add the `host="*"` line in the `<httpEndpoint>` tag, as shown in the following example:
 
     ```xml
-       <httpEndpoint id="defaultHttpEndpoint"
-                     host="*"
-                     httpPort="9080"
-                     httpsPort="9443"/>
+    <httpEndpoint id="defaultHttpEndpoint"
+                  host="*"
+                  httpPort="9080"
+                  httpsPort="9443"/>
     ```
 
 1. Modify the `runtime` entry from `TOMCAT 8.5` to `java`, and the `deployment` from `*.war` to `*.jar` in the **pom.xml** file. Then add the `<appSettings>` section to the `<configuration>` section of `PORT`, `WEBSITES_PORT`, and `WEBSITES_CONTAINER_START_TIME_LIMIT`. Your XML entry for `azure-webapp-maven-plugin` should look similar to the following example:
 
     ```xml
-       <plugin>
-         <groupId>com.microsoft.azure</groupId>
-         <artifactId>azure-webapp-maven-plugin</artifactId>
-         <version>2.3.0</version>
-         <configuration>
-           <schemaVersion>v2</schemaVersion>
-           <subscriptionId>********-****-****-****-************</subscriptionId>
-           <resourceGroup>openliberty-hello-azure-1642075767899-rg</resourceGroup>
-           <appName>openliberty-hello-azure-1642075767899</appName>
-           <pricingTier>P1v2</pricingTier>
-           <region>japaneast</region>
-           <runtime>
-             <os>Linux</os>
-             <javaVersion>Java 11</javaVersion>
-             <webContainer>java</webContainer>
-           </runtime>
-         <appSettings>
-           <property>
-             <name>PORT</name>
-             <value>9080</value>
-           </property>
-             <property>
-             <name>WEBSITES_PORT</name>
-             <value>9080</value>
-           </property>
-           <property>
-             <name>WEBSITES_CONTAINER_START_TIME_LIMIT</name>
-             <value>600</value>
-           </property>
-         </appSettings>
-           <deployment>
-             <resources>
-               <resource>
-                 <directory>${project.basedir}/target</directory>
-                 <includes>
-                   <include>*.jar</include>
-                 </includes>
-               </resource>
-             </resources>
-           </deployment>
-         </configuration>
-       </plugin>
+    <plugin>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>azure-webapp-maven-plugin</artifactId>
+      <version>2.3.0</version>
+      <configuration>
+        <schemaVersion>v2</schemaVersion>
+        <subscriptionId>********-****-****-****-************</subscriptionId>
+        <resourceGroup>openliberty-hello-azure-1642075767899-rg</resourceGroup>
+        <appName>openliberty-hello-azure-1642075767899</appName>
+        <pricingTier>P1v2</pricingTier>
+        <region>japaneast</region>
+        <runtime>
+          <os>Linux</os>
+          <javaVersion>Java 11</javaVersion>
+          <webContainer>java</webContainer>
+        </runtime>
+      <appSettings>
+        <property>
+          <name>PORT</name>
+          <value>9080</value>
+        </property>
+          <property>
+          <name>WEBSITES_PORT</name>
+          <value>9080</value>
+        </property>
+        <property>
+          <name>WEBSITES_CONTAINER_START_TIME_LIMIT</name>
+          <value>600</value>
+        </property>
+      </appSettings>
+        <deployment>
+          <resources>
+            <resource>
+              <directory>${project.basedir}/target</directory>
+              <includes>
+                <include>*.jar</include>
+              </includes>
+            </resource>
+          </resources>
+        </deployment>
+      </configuration>
+    </plugin>
     ```
 
 ## Deploy the app to Azure
@@ -248,39 +248,39 @@ After you configure all of the settings in the preceding sections of this articl
 1. From the command prompt or terminal window that you were using earlier, rebuild the JAR file using Maven if you made any changes to the **pom.xml** file by using the following command:
 
     ```bash
-       mvn clean package
+    mvn clean package
     ```
 
 2. Deploy your web app to Azure by using Maven by using the following command:
 
     ```bash
-       mvn azure-webapp:deploy
+    mvn azure-webapp:deploy
     ```
 
 If the deployment succeeded, you see the following output:
 
     ```output
-       [INFO] Scanning for projects...
-       [INFO]
-       [INFO] ---< com.microsoft.azure.samples.openliberty:openliberty-hello-azure >----
-       [INFO] Building openliberty-hello-azure 1.0-SNAPSHOT
-       [INFO] --------------------------------[ war ]---------------------------------
-       [INFO]
-       [INFO] --- azure-webapp-maven-plugin:2.3.0:deploy (default-cli) @ openliberty-hello-azure ---
-       Auth type: AZURE_CLI
-       [INFO] Creating web app openliberty-hello-azure-1642075767899...
-       [INFO] Successfully created Web App openliberty-hello-azure-1642075767899.
-       [INFO] Trying to deploy external resources to openliberty-hello-azure-1642075767899...
-       [INFO] Successfully deployed the resources to openliberty-hello-azure-1642075767899
-       [INFO] Trying to deploy artifact to openliberty-hello-azure-1642075767899...
-       [INFO] Deploying (/Users/Downloads/openliberty-hello-azure/target/openliberty-hello-azure.jar)[jar]  ...
-       [INFO] Successfully deployed the artifact to https://openliberty-hello-azure-1642075767899.azurewebsites.net
-       [INFO] ------------------------------------------------------------------------
-       [INFO] BUILD SUCCESS
-       [INFO] ------------------------------------------------------------------------
-       [INFO] Total time:  01:11 min
-       [INFO] Finished at: 2022-01-13T21:29:50+09:00
-       [INFO] ------------------------------------------------------------------------
+    [INFO] Scanning for projects...
+    [INFO]
+    [INFO] ---< com.microsoft.azure.samples.openliberty:openliberty-hello-azure >----
+    [INFO] Building openliberty-hello-azure 1.0-SNAPSHOT
+    [INFO] --------------------------------[ war ]---------------------------------
+    [INFO]
+    [INFO] --- azure-webapp-maven-plugin:2.3.0:deploy (default-cli) @ openliberty-hello-azure ---
+    Auth type: AZURE_CLI
+    [INFO] Creating web app openliberty-hello-azure-1642075767899...
+    [INFO] Successfully created Web App openliberty-hello-azure-1642075767899.
+    [INFO] Trying to deploy external resources to openliberty-hello-azure-1642075767899...
+    [INFO] Successfully deployed the resources to openliberty-hello-azure-1642075767899
+    [INFO] Trying to deploy artifact to openliberty-hello-azure-1642075767899...
+    [INFO] Deploying (/Users/Downloads/openliberty-hello-azure/target/openliberty-hello-azure.jar)[jar]  ...
+    [INFO] Successfully deployed the artifact to https://openliberty-hello-azure-1642075767899.azurewebsites.net
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time:  01:11 min
+    [INFO] Finished at: 2022-01-13T21:29:50+09:00
+    [INFO] ------------------------------------------------------------------------
     ```
 
 Maven deploys your web app to Azure. If the web app or web app plan doesn't already exist, it's created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a web browser. You should see the following screen:
@@ -294,9 +294,9 @@ After your app is deployed, you can manage it through the [Azure portal]. Your w
 You can view the entire logs or use `tail` to view the end of the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 
 ```azurecli
-   az webapp log tail \
-       --resource-group openliberty-hello-azure-1642075767899-rg \
-       --name openliberty-hello-azure-1642075767899
+az webapp log tail \
+    --resource-group openliberty-hello-azure-1642075767899-rg \
+    --name openliberty-hello-azure-1642075767899
 ```
 
 :::image type="content" source="media/open-liberty/azure-cli-app-service-log-stream.png" alt-text="Screenshot of terminal window showing log stream." lightbox="media/open-liberty/azure-cli-app-service-log-stream.png":::

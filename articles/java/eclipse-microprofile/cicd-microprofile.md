@@ -13,9 +13,9 @@ ms.custom: devx-track-java, team=cloud_advocates, devx-track-extended-java, linu
 This tutorial shows you how to easily set up an Azure Pipelines continuous integration and continuous deployment (CI/CD) release cycle to deploy your [MicroProfile](http://microprofile.io) Java EE application to an Azure Web App for Containers. The MicroProfile app in this tutorial uses a [Payara Micro](https://www.payara.fish/products/payara-micro/) base image to create a WAR file.
 
 ```dockerfile
-   FROM payara/micro:5.182
-   COPY target/*.war $DEPLOY_DIR/ROOT.war
-   EXPOSE 8080
+FROM payara/micro:5.182
+COPY target/*.war $DEPLOY_DIR/ROOT.war
+EXPOSE 8080
 ```
 
 You start the Azure Pipelines containerization process by building a Docker image and pushing the container image to an Azure Container Registry (ACR). You complete the process by creating an Azure Pipelines release pipeline and deploying the container image to a web app.

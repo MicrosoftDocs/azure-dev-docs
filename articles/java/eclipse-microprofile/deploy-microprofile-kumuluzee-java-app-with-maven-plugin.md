@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 The simplest and easiest way to get the Maven Plugin deploying your KumuluzEE application is by using the [Azure CLI](/cli/azure/). Sign into your Azure account by using the Azure CLI:
 
 ```azurecli
-   az login
+az login
 ```
 
 Follow the instructions to complete the sign-in process.
@@ -59,7 +59,7 @@ In this section, you create a KumuluzEE application and test it locally.
 1. Unzip the archive file by using the following command:
 
     ```bash
-       unzip kumuluzEE-hello-azure.zip
+    unzip kumuluzEE-hello-azure.zip
     ```
 
 ### Run the application in a local environment
@@ -67,25 +67,25 @@ In this section, you create a KumuluzEE application and test it locally.
 1. Change the directory to the completed project by using the following command:
 
     ```bash
-       cd kumuluzEE-hello-azure/
+    cd kumuluzEE-hello-azure/
     ```
 
 1. Build the project using Maven by using the following command:
 
     ```bash
-      mvn clean package
+    mvn clean package
     ```
 
 1. Run the Application using following command:
 
     ```bash
-       java -jar target/kumuluzEE-hello-azure.jar
+    java -jar target/kumuluzEE-hello-azure.jar
     ```
 
 1. Test the web app by browsing to it locally using a web browser. For example, you could use the following command if you have `curl` available:
 
     ```bash
-       curl http://localhost:8080/data/hello
+    curl http://localhost:8080/data/hello
     ```
 
 1. You should see the following message displayed: **Hello World**.
@@ -99,22 +99,22 @@ In this section, you configure the KumuluzEE project **pom.xml** file so that Ma
 1. In the `<build>` section of the **pom.xml** file, insert the following `<plugin>` entry inside the `<plugins>` tag:
 
     ```xml
-       <build>
-         <finalName>kumuluzEE-hello-azure</finalName>
-         <plugins>
-           <plugin>
-             <groupId>com.microsoft.azure</groupId>
-             <artifactId>azure-webapp-maven-plugin</artifactId>
-             <version>1.10.0</version>
-           </plugin>
-         </plugins>
-       </build>
+    <build>
+      <finalName>kumuluzEE-hello-azure</finalName>
+      <plugins>
+        <plugin>
+          <groupId>com.microsoft.azure</groupId>
+          <artifactId>azure-webapp-maven-plugin</artifactId>
+          <version>1.10.0</version>
+        </plugin>
+      </plugins>
+    </build>
     ```
 
 1. Configure the deployment by running the following Maven command:
 
     ```bash
-       mvn azure-webapp:config
+    mvn azure-webapp:config
     ```
 
     Select the following options when prompted:
@@ -128,83 +128,83 @@ In this section, you configure the KumuluzEE project **pom.xml** file so that Ma
     This command produces output similar to the following example:
 
     ```output
-       [INFO] Scanning for projects...
-       [INFO]
-       [INFO] ----< com.microsoft.azure.samples.kumuluzee:kumuluzEE-hello-azure >-----
-       [INFO] Building kumuluzEE-hello-azure 1.0-SNAPSHOT
-       [INFO] --------------------------------[ jar ]---------------------------------
-       [INFO]
-       [INFO] --- azure-webapp-maven-plugin:1.10.0:config (default-cli) @ kumuluzEE-hello-azure ---
-       1. linux [*]
-       2. windows
-       3. docker
-       Enter index to use: 1
-       Define value for javaVersion(Default: Java 8):
-       1. Java 11
-       2. Java 8 [*]
-       Enter index to use: 2
-       Please confirm webapp properties
-       AppName : kumuluzEE-hello-azure-1601006602397
-       ResourceGroup : kumuluzEE-hello-azure-1601006602397-rg
-       Region : westeurope
-       PricingTier : PremiumV2_P1v2
-       OS : Linux
-       RuntimeStack : JAVA 8-jre8
-       Deploy to slot : false
-       Confirm (Y/N)? : y
-       [INFO] Saving configuration to pom.
-       [INFO] ------------------------------------------------------------------------
-       [INFO] BUILD SUCCESS
-       [INFO] ------------------------------------------------------------------------
-       [INFO] Total time:  44.223 s
-       [INFO] Finished at: 2020-09-25T13:04:02+09:00
-       [INFO] ------------------------------------------------------------------------
+    [INFO] Scanning for projects...
+    [INFO]
+    [INFO] ----< com.microsoft.azure.samples.kumuluzee:kumuluzEE-hello-azure >-----
+    [INFO] Building kumuluzEE-hello-azure 1.0-SNAPSHOT
+    [INFO] --------------------------------[ jar ]---------------------------------
+    [INFO]
+    [INFO] --- azure-webapp-maven-plugin:1.10.0:config (default-cli) @ kumuluzEE-hello-azure ---
+    1. linux [*]
+    2. windows
+    3. docker
+    Enter index to use: 1
+    Define value for javaVersion(Default: Java 8):
+    1. Java 11
+    2. Java 8 [*]
+    Enter index to use: 2
+    Please confirm webapp properties
+    AppName : kumuluzEE-hello-azure-1601006602397
+    ResourceGroup : kumuluzEE-hello-azure-1601006602397-rg
+    Region : westeurope
+    PricingTier : PremiumV2_P1v2
+    OS : Linux
+    RuntimeStack : JAVA 8-jre8
+    Deploy to slot : false
+    Confirm (Y/N)? : y
+    [INFO] Saving configuration to pom.
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time:  44.223 s
+    [INFO] Finished at: 2020-09-25T13:04:02+09:00
+    [INFO] ------------------------------------------------------------------------
     ```
 
 1. Add the `<appSettings>` section to the `<configuration>` section of `PORT`,  `WEBSITES_PORT`, and `WEBSITES_CONTAINER_START_TIME_LIMIT`. Your XML entry for `azure-webapp-maven-plugin` should look similar to the following example:
 
     ```xml
-       <plugin>
-         <groupId>com.microsoft.azure</groupId>
-         <artifactId>azure-webapp-maven-plugin</artifactId>
-         <version>1.10.0</version>
-         <configuration>
-           <schemaVersion>V2</schemaVersion>
-           <resourceGroup>microprofile</resourceGroup>
-           <appName>kumuluzEE-hello-azure-1601006602397</appName>
-           <pricingTier>P1v2</pricingTier>
-           <region>japaneast</region>
-           <runtime>
-             <os>linux</os>
-             <javaVersion>jre8</javaVersion>
-             <webContainer>jre8</webContainer>
-           </runtime>
-           <appSettings>
-             <property>
-               <name>PORT</name>
-               <value>8080</value>
-             </property>
-             <property>
-               <name>WEBSITES_PORT</name>
-               <value>8080</value>
-             </property>
-             <property>
-               <name>WEBSITES_CONTAINER_START_TIME_LIMIT</name>
-               <value>600</value>
-             </property>
-           </appSettings>
-           <deployment>
-             <resources>
-               <resource>
-                 <directory>${project.basedir}/target</directory>
-                 <includes>
-                   <include>*.jar</include>
-                 </includes>
-               </resource>
-             </resources>
-           </deployment>
-         </configuration>
-       </plugin>
+    <plugin>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>azure-webapp-maven-plugin</artifactId>
+      <version>1.10.0</version>
+      <configuration>
+        <schemaVersion>V2</schemaVersion>
+        <resourceGroup>microprofile</resourceGroup>
+        <appName>kumuluzEE-hello-azure-1601006602397</appName>
+        <pricingTier>P1v2</pricingTier>
+        <region>japaneast</region>
+        <runtime>
+          <os>linux</os>
+          <javaVersion>jre8</javaVersion>
+          <webContainer>jre8</webContainer>
+        </runtime>
+        <appSettings>
+          <property>
+            <name>PORT</name>
+            <value>8080</value>
+          </property>
+          <property>
+            <name>WEBSITES_PORT</name>
+            <value>8080</value>
+          </property>
+          <property>
+            <name>WEBSITES_CONTAINER_START_TIME_LIMIT</name>
+            <value>600</value>
+          </property>
+        </appSettings>
+        <deployment>
+          <resources>
+            <resource>
+              <directory>${project.basedir}/target</directory>
+              <includes>
+                <include>*.jar</include>
+              </includes>
+            </resource>
+          </resources>
+        </deployment>
+      </configuration>
+    </plugin>
     ```
 
 ## Deploy the app to Azure
@@ -214,25 +214,25 @@ After configuring all of the settings in the preceding sections of this article,
 1. From the command prompt or terminal window that you were using earlier, rebuild the JAR file using Maven if you made any changes to the **pom.xml** file, by using the following command:
 
     ```bash
-       mvn clean package
+    mvn clean package
     ```
 
 1. Deploy your web app to Azure by using the following Maven command:
 
     ```bash
-       mvn azure-webapp:deploy
+    mvn azure-webapp:deploy
     ```
 
 If the deployment succeeded, you see the following output:
 
 ```bash
-   [INFO] Successfully deployed the artifact to https://kumuluzee-hello-azure-1601006602397.azurewebsites.net
-   [INFO] ------------------------------------------------------------------------
-   [INFO] BUILD SUCCESS
-   [INFO] ------------------------------------------------------------------------
-   [INFO] Total time:  01:23 min
-   [INFO] Finished at: 2020-09-25T13:13:14+09:00
-   [INFO] ------------------------------------------------------------------------
+[INFO] Successfully deployed the artifact to https://kumuluzee-hello-azure-1601006602397.azurewebsites.net
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:23 min
+[INFO] Finished at: 2020-09-25T13:13:14+09:00
+[INFO] ------------------------------------------------------------------------
 ```
 
 Maven deploys your web app to Azure. If the web app or web app plan doesn't already exist, it's created for you. It might take a few minutes before the web app is visible at the URL shown in the output. Navigate to the URL in a Web browser. You should see the following screen:
@@ -248,9 +248,9 @@ You can access to your web app by selecting **Browse** on the **Overview** page 
 You can view the logs in their entirety or use `tail` to view the ending lines of the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 
 ```azurecli
-   az webapp log tail \
-       --resource-group microprofile \
-       --name kumuluzEE-hello-azure-1601006602397
+az webapp log tail \
+    --resource-group microprofile \
+    --name kumuluzEE-hello-azure-1601006602397
 ```
 
 :::image type="content" source="media/kumuluzee/azure-cli-app-service-log-stream.png" alt-text="Screenshot of terminal window showing the log stream." lightbox="media/kumuluzee/azure-cli-app-service-log-stream.png":::

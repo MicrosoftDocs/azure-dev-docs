@@ -33,18 +33,18 @@ Use the [Azure portal](https://portal.azure.com) for creating the Azure containe
 1. While you are in the **Access keys** area, note the `username` and `password` values. Copy these values into the global Maven **settings.xml** file. For more information on Maven settings, see the [Apache Maven Project](https://maven.apache.org/settings.html). Here's a sample of the **${user.home}/.m2/settings.xml** file:
 
     ```xml
-          <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                                https://maven.apache.org/xsd/settings-1.0.0.xsd">
-              <servers>
-                <server>
-                  <id>username.azurecr.io</id>
-                  <username>username</username>
-                  <password>your-password</password>
-                </server>
-              </servers>
-          </settings>
+    <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                          https://maven.apache.org/xsd/settings-1.0.0.xsd">
+        <servers>
+          <server>
+            <id>username.azurecr.io</id>
+            <username>username</username>
+            <password>your-password</password>
+          </server>
+        </servers>
+    </settings>
     ```
 
 ## Creating our MicroProfile application
@@ -52,8 +52,8 @@ Use the [Azure portal](https://portal.azure.com) for creating the Azure containe
 The next step is to build and run the MicroProfile application locally. This example is based on a sample application available on GitHub. Clone that and then step through the code. Follow these steps to get the code:
 
 ```cmd
-   git clone https://github.com/Azure-Samples/microprofile-docker-helloworld.git
-   cd microprofile-docker-helloworld
+git clone https://github.com/Azure-Samples/microprofile-docker-helloworld.git
+cd microprofile-docker-helloworld
 ```
 
 In this directory, there's a **pom.xml** file that specifies the project in the format used by the Maven build tool. You can edit this file to suit your needs. In particular, change the `docker.registry` and `docker.name` property values created when you set up the Azure container registry instance.
@@ -61,12 +61,12 @@ In this directory, there's a **pom.xml** file that specifies the project in the 
 Another file of note in this directory is the **dockerfile**, which is reproduced here:
 
 ```dockerfile
-   FROM payara/micro
-   
-   ARG WAR_FILE
-   COPY target/${WAR_FILE} $DEPLOY_DIR
-   
-   EXPOSE 8080
+FROM payara/micro
+
+ARG WAR_FILE
+COPY target/${WAR_FILE} $DEPLOY_DIR
+
+EXPOSE 8080
 ```
 
 This **dockerfile** creates a new Docker container based on the Payara Micro Docker container. It copies the WAR file that is created as part of the build process. It also exposes port 8080 so that you can access the service once it's up and running within a Docker container.
@@ -74,12 +74,12 @@ This **dockerfile** creates a new Docker container based on the Payara Micro Doc
 Looking at the **src** directory, you find the `Application` class reproduced here:
 
 ```java
-   package com.microsoft.azure.samples.microprofile.docker.helloworld;
-   
-   import javax.ws.rs.ApplicationPath;
-   
-   @ApplicationPath("/api")
-   public class Application extends javax.ws.rs.core.Application { }
+package com.microsoft.azure.samples.microprofile.docker.helloworld;
+
+import javax.ws.rs.ApplicationPath;
+
+@ApplicationPath("/api")
+public class Application extends javax.ws.rs.core.Application { }
 ```
 
 The `@ApplicationPath("/api")` annotation specifies the base endpoint for this microservice. All endpoints have `/api` precede the rest of the URL required to access any specific REST endpoint.
@@ -87,26 +87,26 @@ The `@ApplicationPath("/api")` annotation specifies the base endpoint for this m
 The `api` package contains a class named `API`, which contains the following code:
 
 ```java
-   package com.microsoft.azure.samples.microprofile.docker.helloworld.api;
-   
-   import javax.enterprise.context.ApplicationScoped;
-   import javax.ws.rs.GET;
-   import javax.ws.rs.Path;
-   import javax.ws.rs.Produces;
-   
-   import static javax.ws.rs.core.MediaType.TEXT_HTML;
-   
-   @ApplicationScoped
-   @Path("/")
-   public class API {
-   
-       @GET
-       @Path("/helloworld")
-       @Produces(TEXT_HTML)
-       public String info() {
-           return "Hello, world!";
-       }
-   }
+package com.microsoft.azure.samples.microprofile.docker.helloworld.api;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+import static javax.ws.rs.core.MediaType.TEXT_HTML;
+
+@ApplicationScoped
+@Path("/")
+public class API {
+
+    @GET
+    @Path("/helloworld")
+    @Produces(TEXT_HTML)
+    public String info() {
+        return "Hello, world!";
+    }
+}
 ```
 
 By using the `@Path("/helloworld")` annotation, you can see that this REST endpoint, when combined with the `/api` specified in the `Application` class, is `/api/helloworld`. When this endpoint is called using an HTTP GET request, the method produces `text/html`. It's a hard-coded `Hello, world!` string.
