@@ -24,7 +24,6 @@ Your application or system may be impacted and require updates due to the CDN ch
 - Older downloaded versions of `install-azd.ps1` and `install-azd.sh` scripts
   - The latest versions are available at `https://aka.ms/install-azd.ps1` and `https://aka.ms/install-azd.sh`
 - Any hardcoded references in your system to the older CDN endpoints
-- Firewall rules that enable traffic to the `*.azureedge.net` CDN hosts
 
 ## Actions if you're impacted by this change
 
@@ -33,10 +32,9 @@ Complete or verify the following to ensure your system is compatible with the CD
 - Ensure you're using the [latest GitHub Action](https://github.com/marketplace/actions/setup-azd) (`v2`) for `azure/setup-azd` in your workflows.
 - Ensure you're using the latest [Azure DevOps task version](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azd).
 - Ensure any custom install scripts reference the new host name. There's no change to file paths after the host name.
-- Update any firewall rules which allow traffic to `azdrelease.azureedge.net` to instead use the new hostname.
 
 ## Where to find more information
 
-For more on this change, follow [the issue in the azd repository](https://github.com/Azure/azure-dev/issues/4661) or read the [FAQs on Microsoft Learn documentation](/azure/cdn/edgio-retirement-faq). For related news, see [the issue in the .NET Core repository](https://github.com/dotnet/core/issues/9671).
+For more on this change, follow [the issue in the azd repository](https://github.com/Azure/azure-dev/issues/4661) or read the [FAQs on Microsoft Learn documentation](/azure/cdn/edgio-retirement-faq).
 
 If you run into any problems or have suggestions, file an issue or start a discussion in the [Azure Developer CLI repository](https://github.com/Azure/azure-dev). You can also explore the [troubleshooting documentation](https://aka.ms/azd-troubleshoot).
