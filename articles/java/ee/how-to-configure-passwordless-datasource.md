@@ -27,24 +27,19 @@ The offers support passwordless connections for PostgreSQL, MySQL, and Azure SQL
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- 
 - Use [Azure Cloud Shell](/azure/cloud-shell/quickstart) using the Bash environment. Make sure the Azure CLI version is 2.43.0 or higher.
 
     [![Launch Cloud Shell in a new window](../../includes/media/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 
 - If you prefer, [install the Azure CLI 2.43.0 or higher](/cli/azure/install-azure-cli) to run Azure CLI commands.
-
   - If you're using a local install, sign in with Azure CLI by using the [`az login`](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for other sign-in options.
-
   - When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
-
   - Run [`az version`](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [`az upgrade`](/cli/azure/reference-index?#az-upgrade).
-
 - Ensure the Azure identity you use to sign in and complete this article has either the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription or the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview) For details on the specific roles required by Oracle WebLogic marketplace offer, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 ## Create a resource group
 
-Create a resource group with [`az group create`](/cli/azure/group#az-group-create). Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, `abc1228rg`. This example creates a resource group named `abc1228rg` in the `eastus` location:
+Create a resource group with [`az group create`](/cli/azure/group#az-group-create). Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier - for example, `abc1228rg`. This example creates a resource group named `abc1228rg` in the `eastus` location:
 
 ```azurecli-interactive
 export RESOURCE_GROUP_NAME="abc1228rg"
@@ -180,7 +175,7 @@ Now that you created the database, you need to make it ready to support password
 
 ### [MySQL Flexible Server](#tab/mysql-flexible-server)
 
-For information on how MySQL Flexible Server interacts with managed identities, see [Azure Database for MySQL documentation](/azure/mysql).
+For information on how MySQL Flexible Server interacts with managed identities, see the [Azure Database for MySQL documentation](/azure/mysql).
 
 The following example configures the current Azure CLI user as a Microsoft Entra administrator account. To enable Azure authentication, it's necessary to assign an identity to MySQL Flexible Server.
 
@@ -201,7 +196,7 @@ az mysql flexible-server identity assign \
     --identity $MYSQL_UMI_NAME
 ```
 
-Next, set the current Azure CLI user as the Microsoft Entra administrator account with [`az mysql flexible-server ad-admin create`](/cli/azure/mysql/flexible-server/ad-admin#az-mysql-flexible-server-ad-admin-create).
+Then, set the current Azure CLI user as the Microsoft Entra administrator account with [`az mysql flexible-server ad-admin create`](/cli/azure/mysql/flexible-server/ad-admin#az-mysql-flexible-server-ad-admin-create).
 
 ```azurecli-interactive
 export CURRENT_USER=$(az account show --query user.name --output tsv)
@@ -235,7 +230,7 @@ If you want to sign in to a specific tenant, use the following command, instead:
 Connect-AzAccount -Tenant <your-tenant-name>.onmicrosoft.com
 ```
 
-In either case, you're directed to a browser to complete the sign in. Your `TenantId` should be output, as shown with redacted data in the following example.
+In either case, you're directed to a browser to complete the sign-in. Your `TenantId` should be output, as shown with redacted data in the following example.
 
 ```output
 Account                       SubscriptionName       TenantId                             Environment
@@ -280,15 +275,11 @@ New-AzureADServicePrincipal -AppId 5657e26c-cc92-45d9-bc47-9da6cfdb4ed9
 Use the following steps to continue the configuration in the Azure portal:
 
 1. Sign in to the Azure portal from your browser. Search for **postgresql20221223** and then select it.
-
 1. In the **Security** section, select **Authentication**, and select **PostgreSQL and Microsoft Entra authentication**.
 
 1. Select **Save**, then **Continue**. The deployment takes several minutes to finish. Wait for the deployment to complete before continuing.
-
 1. Go back to resource **postgresql20221223**, and then in the **Security** section, select **Authentication** again.
-
 1. You find **Microsoft Entra Administrators (Microsoft Entra Admins)** shown in the page. Select **Add Microsoft Entra Admins**, select the account you're currently using in the Azure portal, then select **Select**.
-
 1. Select **Save**. It takes several seconds to create the Microsoft Entra Admin.
 
 ### [Azure SQL Database](#tab/azure-sql-database)
@@ -300,11 +291,8 @@ The following example configures a Microsoft Entra administrator account to Azur
 1. In the [Azure portal](https://portal.azure.com/), open the Azure SQL server instance **myazuresql20130213**.
 
 1. Select **Settings**, then select **Microsoft Entra ID**. On the **Microsoft Entra ID** page, select **Set admin**.
-
 1. On the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**.
-
 1. At the top of the **Microsoft Entra ID** page, select **Save**. For Microsoft Entra users and groups, the **Object ID** is displayed next to the admin name.
-
 1. The process of changing the administrator might take several minutes. Next, the new administrator appears in the **Microsoft Entra ID** box.
 
 ---
@@ -498,12 +486,9 @@ Connect as the Microsoft Entra administrator user to your Azure SQL database fro
 First, create a firewall rule to access the Azure SQL server from portal, as shown in the following steps:
 
 1. In the [Azure portal](https://portal.azure.com/), open the Azure SQL server instance **myazuresql20130213**.
-
 1. Select **Security**, and then select **Networking**.
-
 1. Under **Firewall rules** select **Add your client IPV4 IP address**.
-
-1. Under  **Exceptions** select **Allow Azure services and resources to access this server**.
+1. Under **Exceptions** select **Allow Azure services and resources to access this server**.
 
 1. Select **Save**.
 
@@ -545,19 +530,12 @@ This section shows you how to configure the passwordless data source connection 
 First, begin the process of deploying an offer. The following offers support passwordless database connections:
 
 - [Oracle WebLogic Server on Azure Kubernetes Service (AKS)](https://aka.ms/wls-aks-portal)
-
     - [Quickstart](/azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/ee/breadcrumb/toc.json)
-
 - [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster)
-
     - [Quickstart](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
-
 - [Oracle WebLogic Server with Admin Server on VMs](https://aka.ms/wls-vm-admin)
-
     - [Quickstart](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
-
 - [Oracle WebLogic Server Dynamic Cluster on VMs](https://aka.ms/wls-vm-dynamic-cluster)
-
     - [Quickstart](/azure/virtual-machines/workloads/oracle/weblogic-server-azure-virtual-machine?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
 Enter the required information in the **Basics** pane and other panes if you want to enable the features. When you reach the **Database** pane, enter the passwordless configuration as shown in the following steps:
@@ -565,17 +543,11 @@ Enter the required information in the **Basics** pane and other panes if you wan
 ### [MySQL Flexible Server](#tab/mysql-flexible-server)
 
 1. For **Connect to database?**, select **Yes**.
-
 1. Under **Connection settings**, for **Choose database type**, from the dropdown menu select **MySQL (with support for passwordless connection)**.
-
 1. For **JNDI Name**, enter **testpasswordless** or your expected value.
-
 1. For **DataSource Connection String**, enter the connection string you obtained in the last section.
-
 1. For **Database username**, enter the database user name of your managed identity, which is the value of `${IDENTITY_LOGIN_NAME}`. In this example, the value is **identity-contoso**.
-
 1. Select **Use passwordless datasource connection**.
-
 1. For **User assigned managed identity**, select the managed identity you created previously. In this example, its name is **myManagedIdentity**.
 
 The **Connection settings** section should look like the following screenshot, which uses [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster) as an example.
@@ -585,19 +557,12 @@ The **Connection settings** section should look like the following screenshot, w
 ### [PostgreSQL Flexible Server](#tab/postgresql-flexible-server)
 
 1. For **Connect to database?**, select **Yes**.
-
 1. Under **Connection settings**, for **Choose database type**, open the dropdown menu and then select **Azure Database for PostgreSQL (with support for passwordless connection)**.
-
 1. For **JNDI Name**, enter **testpasswordless** or your expected value.
-
 1. For **DataSource Connection String**, enter the connection string you obtained in last section.
-
 1. For **Database username**, enter your managed identity name. In this example, the value is **myManagedIdentity**.
-
 1. Select **Use passwordless datasource connection**.
-
 1. For **User assigned managed identity**, select the managed identity you created in previous step. In this example, its name is **myManagedIdentity**.
-
 1. Select **Add**.
 
 The **Connection settings** section should look like the following screenshot, which uses [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster) as an example:
@@ -607,17 +572,11 @@ The **Connection settings** section should look like the following screenshot, w
 ### [Azure SQL Database](#tab/azure-sql-database)
 
 1. For **Connect to database?**, select **Yes**.
-
 1. Under **Connection settings**, for **Choose database type**, open the dropdown menu and then select **Azure SQL (with support for passwordless connection)**.
-
 1. For **JNDI Name**, enter **testpasswordless** or your expected value.
-
 1. For **DataSource Connection String**, input the connection string you obtained in last section.
-
 1. Select **Use passwordless datasource connection**.
-
 1. For **User assigned managed identity**, select the managed identity you created in previous step. In this example, its name is **myManagedIdentity**.
-
 1. Select **Add**.
 
 The **Connection settings** section should look like the following screenshot, which uses [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster) as an example.
@@ -635,25 +594,17 @@ The database connection is configured successfully if the offer deployment compl
 Continuing to take [Oracle WebLogic Server Cluster on VMs](https://aka.ms/wls-vm-cluster) as an example, after the deployment completes, follow these steps in the Azure portal to find the Admin console URL.
 
 1. Find the resource group in which you deployed WLS.
-
 1. Under **Settings**, select **Deployments**.
-
 1. Select the deployment with the longest **Duration**. This deployment should be at the bottom of the list.
-
 1. Select **Outputs**.
-
 1. The URL of the WebLogic Administration Console is the value of the **adminConsoleUrl** output.
-
 1. Copy the value of the output variable **adminConsoleUrl**.
-
 1. Paste the value into your browser address bar and press <kbd>Enter</kbd> to open the sign-in page of the WebLogic Administration Console.
 
 Use the following steps to verify the database connection:
 
 1. Sign in to the WebLogic Administration Console with the username and password you provided on the **Basics** pane.
-
 1. Under the **Domain Structure**, select **Services**, **Data Sources**, then **testpasswordless**.
-
 1. Select the **Monitoring** tab, where the state of the data source is **Running**, as shown in the following screenshot:
 
    ### [MySQL Flexible Server](#tab/mysql-flexible-server)
@@ -669,7 +620,6 @@ Use the following steps to verify the database connection:
    :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-sql-server-state.png" alt-text="Screenshot of the WebLogic Console portal showing the SQL Server datasource state." lightbox="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-sql-server-state.png":::
 
 1. Select the **Testing** tab, and then select the radio button next to the desired server.
-
 1. Select **Test Data Source**. You should see a message indicating a successful test, as shown in the following screenshot:
 
    :::image type="content" source="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-successful-database.png" alt-text="Screenshot of the WebLogic Console portal showing a successful test of the datasource." lightbox="media/how-to-configure-passwordless-datasource/screenshot-weblogic-console-successful-database.png":::

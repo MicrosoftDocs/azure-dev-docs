@@ -155,7 +155,7 @@ The steps in this section show you how to create the following Azure resources t
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the `<initials>`, `<sequence>`, `<date>`, `<suffix>` pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group." The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE` and `LOCATION` with your own values and run the commands in your terminal.
+Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE` and `LOCATION` with your own values and run the commands in your terminal.
 
 ```bash
 export UNIQUE_VALUE=<your unique value, such as mjg101424>
@@ -170,7 +170,7 @@ export ACA_NAME=${UNIQUE_VALUE}acapasswordless
 
 ### [Password](#tab/password)
 
-Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the `<initials>`, `<sequence>`, `<date>`, `<suffix>` pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group." The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE`, `LOCATION`, and `DB_PASSWORD` with your own values and run the commands in your terminal.
+Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE`, `LOCATION`, and `DB_PASSWORD` with your own values and run the commands in your terminal.
 
 ```bash
 export UNIQUE_VALUE=<your unique value, such as mjg101424>
@@ -345,7 +345,7 @@ To generate the container image, use the following command to add the `container
 quarkus ext add container-image-jib
 ```
 
-Quarkus modifies the POM to ensure the extension is included among the `<dependencies>`. If you're asked to install something called `JBang`, answer <kbd>yes</kbd> and allow it to be installed.
+Quarkus modifies the POM to ensure the extension is included among the `<dependencies>`. If you're asked to install something called `JBang`, answer yes and allow it to be installed.
 
 The output should look like the following example:
 
@@ -364,7 +364,7 @@ Open the **pom.xml** file and you should see the following dependencies added by
 </dependency>
 ```
 
-Next, add the following dependencies to the **pom.xml** file to support passwordless authentication with Azure Database for PostgreSQL Flexible Server:
+Then, add the following dependencies to the **pom.xml** file to support passwordless authentication with Azure Database for PostgreSQL Flexible Server:
 
 ```xml
 <dependency>
@@ -554,7 +554,7 @@ az containerapp create \
 
 Successful output is a JSON object including the property `"type": "Microsoft.App/containerApps"`.
 
-Next, connect the Azure Database for PostgreSQL Flexible Server instance to the container app using Service Connector by using the following steps:
+Then, connect the Azure Database for PostgreSQL Flexible Server instance to the container app using Service Connector by using the following steps:
 
 1. Install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI by using the following command:
 
@@ -619,7 +619,7 @@ echo $QUARKUS_URL
 
 Open a new web browser to the value of `${QUARKUS_URL}`. If the webpage doesn't render correctly, wait for a while and refresh the page.
 
-Next, add a new todo item with the text `Deployed the Todo app to Container Apps`. Select this item to mark it as completed.
+Then, add a new todo item with the text `Deployed the Todo app to Container Apps`. Select this item to mark it as completed.
 
 :::image type="content" source="media/deploy-java-quarkus-app/demo-updated.png" alt-text="Screenshot of the Todo sample app running in Container Apps." lightbox="media/deploy-java-quarkus-app/demo-updated.png":::
 
