@@ -514,7 +514,7 @@ Then, connect the Azure SQL Database server to the container app using Service C
         --client-type java
     ```
 
-Successful output is a JSON object including the property `"type": "microsoft.servicelinker/linkers"`.
+    Successful output is a JSON object including the property `"type": "microsoft.servicelinker/linkers"`.
 
 #### [PowerShell](#tab/in-powershell)
 

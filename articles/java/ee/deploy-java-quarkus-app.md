@@ -15,27 +15,16 @@ This article shows you how to quickly deploy Red Hat Quarkus on Microsoft Azure 
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 - Prepare a local machine with Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
-
 - Install a Java SE implementation version 17 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
-
 - Install [Maven](https://maven.apache.org/download.cgi), version 3.9.8 or higher.
-
 - Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-
 - Install [jq](https://jqlang.github.io/jq/download/).
-
 - Install [cURL](https://curl.se/download.html).
-
 - Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling), version 3.12.1 or higher.
-
 - Install the [Azure CLI](/cli/azure/install-azure-cli) to run Azure CLI commands.
-
     - Sign in to the Azure CLI by using the [`az login`](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli).
-
     - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-
     - Run [`az version`](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [`az upgrade`](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.61.0 of Azure CLI.
 
 ## Create the app project
@@ -49,13 +38,13 @@ git checkout 2024-10-14
 cd aca-quarkus
 ```
 
-If you see a message about being in a `detached HEAD` state, this message is safe to ignore. Because this article doesn't require any commits, a `detached HEAD` state is appropriate.
+If you see a message about being in `detached HEAD` state, this message is safe to ignore. Because this article doesn't require any commits, `detached HEAD` state is appropriate.
 
 ## Test your Quarkus app locally
 
 The steps in this section show you how to run the app locally.
 
-Quarkus supports the automatic provisioning of unconfigured services in development and test mode. Quarkus refers to this capability as dev services. Let's say you include a Quarkus feature such as connecting to a database service. You want to test the app, but haven't yet fully configured the connection to a real database. Quarkus automatically starts a stub version of the relevant service and connects your application to it. For more information, see [Dev Services Overview](https://quarkus.io/guides/dev-services#databases) in the Quarkus documentation.
+Quarkus supports the automatic provisioning of unconfigured services in development and test mode. Quarkus refers to this capability as dev services. Let's say you include a Quarkus feature, such as connecting to a database service. You want to test the app, but haven't yet fully configured the connection to a real database. Quarkus automatically starts a stub version of the relevant service and connects your application to it. For more information, see [Dev Services Overview](https://quarkus.io/guides/dev-services#databases) in the Quarkus documentation.
 
 Make sure your container environment is running and use the following command to enter Quarkus dev mode:
 
