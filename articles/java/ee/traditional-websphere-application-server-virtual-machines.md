@@ -57,7 +57,7 @@ The following steps show you how to fill out the **Basics** pane shown in the fo
 :::image type="content" source="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-basics-tab.png" alt-text="Screenshot of the Azure portal that shows the IBM WAS ND cluster on Azure VMs Basics pane." lightbox="media/traditional-websphere-application-server-virtual-machines/cluster-deployment-basics-tab.png":::
 
 1. On the **Basics** pane, ensure that the value shown in the **Subscription** field is the same one that has the roles listed in the prerequisites section.
-1. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier. For example, *jm070924wasndcluster*.
+1. In the **Resource group** field, select **Create new** and fill in a value for the resource group. Because resource groups must be unique within a subscription, pick a unique name. An easy way to have unique names is to use a combination of your initials, today's date, and some identifier - for example, *jm070924wasndcluster*.
 1. Under **Instance details**, select the region for the deployment.
 1. Leave the default option **Evaluation** for **Deploy with existing WebSphere entitlement or with evaluation license?**.
 
