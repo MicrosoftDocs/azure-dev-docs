@@ -9,9 +9,9 @@ ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
 ---
 
-## CDN changes for Azure Developer CLI installation endpoints
+# CDN changes for Azure Developer CLI installation endpoints
 
-The Edgio Content Delivery Network (CDN) endpoint for downloading and installing `azd` is changing due to the [Azure CDN from Edgio retirement effective January 15, 2025](https://learn.microsoft.com/en-us/azure/cdn/edgio-retirement-faq).
+The Edgio Content Delivery Network (CDN) endpoint for downloading and installing `azd` is changing due to the [Azure CDN from Edgio retirement effective January 15, 2025](/azure/cdn/edgio-retirement-faq).
 
 The following CDN endpoints will go offline as part of this retirement:
 
@@ -52,6 +52,6 @@ Additionally:
 - Ensure any custom install scripts reference the new host name. There's no change to file paths after the host name.
 - Update any firewall rules which allow traffic to `azdrelease.azureedge.net` to instead use the new hostname.
 
-For more on this change, follow [the issue in the azd repository](https://github.com/Azure/azure-dev/issues/4661) or read the [FAQs on Microsoft Learn documentation](https://learn.microsoft.com/en-us/azure/cdn/edgio-retirement-faq). For related news on the change, see [the issue in the .NET Core repository](https://github.com/dotnet/core/issues/9671).
+For more on this change, follow [the issue in the azd repository](https://github.com/Azure/azure-dev/issues/4661) or read the [FAQs on Microsoft Learn documentation](/azure/cdn/edgio-retirement-faq). For related news on the change, see [the issue in the .NET Core repository](https://github.com/dotnet/core/issues/9671).
 
 If you run into any problems or have suggestions, file an issue or start a discussion in the [Azure Developer CLI repository](https://github.com/Azure/azure-dev). You can also explore our [troubleshooting documentation](https://aka.ms/azd-troubleshoot).
