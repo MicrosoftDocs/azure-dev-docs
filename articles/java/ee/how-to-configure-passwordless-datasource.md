@@ -276,7 +276,6 @@ Use the following steps to continue the configuration in the Azure portal:
 
 1. Sign in to the Azure portal from your browser. Search for **postgresql20221223** and then select it.
 1. In the **Security** section, select **Authentication**, and select **PostgreSQL and Microsoft Entra authentication**.
-
 1. Select **Save**, then **Continue**. The deployment takes several minutes to finish. Wait for the deployment to complete before continuing.
 1. Go back to resource **postgresql20221223**, and then in the **Security** section, select **Authentication** again.
 1. You find **Microsoft Entra Administrators (Microsoft Entra Admins)** shown in the page. Select **Add Microsoft Entra Admins**, select the account you're currently using in the Azure portal, then select **Select**.
