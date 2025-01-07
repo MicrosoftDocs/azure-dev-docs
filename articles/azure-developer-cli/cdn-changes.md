@@ -9,9 +9,9 @@ ms.custom: devx-track-azdevcli
 ms.service: azure-dev-cli
 ---
 
-# CDN changes for Azure Developer CLI installation endpoints
+# CDN changes for the Azure Developer CLI installation endpoints
 
-The Edgio Content Delivery Network (CDN) endpoint for downloading and installing `azd` is changing due to the [Azure CDN from Edgio retirement effective January 15, 2025](/azure/cdn/edgio-retirement-faq).
+The Edgio Content Delivery Network (CDN) endpoint for downloading and installing `azd` is changing due to the [Azure CDN from Edgio retirement](/azure/cdn/edgio-retirement-faq) effective January 15, 2025.
 
 The following CDN endpoints will go offline as part of this retirement:
 
@@ -27,19 +27,21 @@ The new installation hostname is `azd-release-gfgac2cmf7b8cuay.b02.azurefd.net`.
 
 The CDN changes impact the following:
 
-- `azure/setup-azd` GitHub Action
+- The `azure/setup-azd` GitHub Action
 - Older downloaded versions of `install-azd.ps1` and `install-azd.sh` scripts
 - Any hardcoded references in your system to the older CDN endpoints
 - Firewall rules that enable traffic to the `*.azureedge.net` CDN hosts
 
 ### Unimpacted services and tools
 
-The following concerns are not impact by the CDN changes:
+The CDN changes do *not* impact the following:
 
-- The `azd` client and `Azure Developer CLI` VS Code extension aren't directly impacted
+- The `azd` client and `Azure Developer CLI` VS Code extension functionality
 - WinGet, Choco, and brew installers
 - GitHub releases
-- `https://aka.ms/install-azd.ps1` and `https://aka.ms/install-azd.sh` scripts
+- The scripts available at:
+  - `https://aka.ms/install-azd.ps1`
+  - `https://aka.ms/install-azd.sh`
 
 ### Recommended actions and resources
 
