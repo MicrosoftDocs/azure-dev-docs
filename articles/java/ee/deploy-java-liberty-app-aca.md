@@ -371,7 +371,7 @@ If you don't see this output, troubleshoot and resolve the problem before contin
 You can now use the following steps to run and test the project locally before deploying to Azure. For convenience, use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin`, see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism, such as your local IDE.
 
 > [!NOTE]
-> If you selected a "serverless" database deployment, verify that your SQL database did not enter pause mode. One way to perform the verification is to sign in to the database query editor as described in [Quickstart: Use the Azure portal query editor (preview) to query Azure SQL Database](/azure/azure-sql/database/connect-query-portal).
+> If you selected a "serverless" database deployment, verify that your SQL database didn't enter pause mode. One way to perform the verification is to sign in to the database query editor as described in [Quickstart: Use the Azure portal query editor (preview) to query Azure SQL Database](/azure/azure-sql/database/connect-query-portal).
 
 1. Start the application using `liberty:run`.
 
