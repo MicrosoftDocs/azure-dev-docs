@@ -24,7 +24,6 @@ Your application or system may be impacted and require updates due to the CDN ch
 - Older downloaded versions of `install-azd.ps1` and `install-azd.sh` scripts
   - The latest versions are available at `https://aka.ms/install-azd.ps1` and `https://aka.ms/install-azd.sh`
 - Any hardcoded references in your system to the older CDN endpoints
-  - Users should instead use the latest scripts at `https://aka.ms/install-azd.ps1` and `https://aka.ms/install-azd.sh` to install `azd`
 - Firewall rules that enable traffic to the `*.azureedge.net` CDN hosts
 
 ## Actions if you're impacted by this change

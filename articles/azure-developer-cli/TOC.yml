@@ -85,7 +85,7 @@
     items:
     - name: Release blog posts
       href: https://devblogs.microsoft.com/azure-sdk/tag/azure-developer-cli/
-    - name: Edgio CDN Retirement
+    - name: CDN changes
       href: cdn-changes.md
   - name: Reference
     items:
