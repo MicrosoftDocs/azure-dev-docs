@@ -36,7 +36,7 @@ If you're interested in providing feedback or working closely on your migration 
 > This article deploys an application by using JBoss EAP Helm Charts. At the time of writing, this feature is still offered as a [Technology Preview](https://access.redhat.com/articles/6290611). Before choosing to deploy applications with JBoss EAP Helm Charts on production environments, ensure that this feature is a supported feature for your JBoss EAP/XP product version.
 
 > [!IMPORTANT]
-> While Red Hat and Microsoft Azure jointly engineer, operate, and support Red Hat OpenShift to provide an integrated support experience, the software you run on top of Azure Red Hat OpenShift, including that described in this article, is subject to its own support and license terms. For details about support of Azure Red Hat OpenShift, see [Support lifecycle for Azure Red Hat OpenShift 4](/azure/openshift/support-lifecycle). For details about support of the software described in this article, see the main pages for that software as listed in the article.
+> While Red Hat and Microsoft Azure jointly engineer, operate, and support Azure Red Hat OpenShift to provide an integrated support experience, the software you run on top of Azure Red Hat OpenShift, including that described in this article, is subject to its own support and license terms. For details about support of Azure Red Hat OpenShift, see [Support lifecycle for Azure Red Hat OpenShift 4](/azure/openshift/support-lifecycle). For details about support of the software described in this article, see the main pages for that software as listed in the article.
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ If you're interested in providing feedback or working closely on your migration 
 1. Clone the code for this demo application (todo-list) to your local system. The demo application is at [GitHub](https://github.com/Azure-Samples/jboss-on-aro-jakartaee).
 1. Follow the instructions in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster).
 
-   Though the "Get a Red Hat pull secret" step is labeled as optional, its required for this article. The pull secret enables your Azure Red Hat OpenShift cluster to find the JBoss EAP application images.
+   Though the "Get a Red Hat pull secret" step is labeled as optional, it's required for this article. The pull secret enables your Azure Red Hat OpenShift cluster to find the JBoss EAP application images.
 
    If you plan to run memory-intensive applications on the cluster, specify the proper virtual machine size for the worker nodes using the `--worker-vm-size` parameter. For more information, see:
 
@@ -96,7 +96,7 @@ git checkout bootable-jar
 Let's do a quick review of what we changed in this branch:
 
 * We added the `wildfly-jar-maven` plugin to provision the server and the application in a single executable JAR file. The OpenShift deployment unit is our server with our application.
-* On the Maven plugin, we specified a set of Gall eon layers. This configuration enables us to trim the server capabilities to only what we need. For complete documentation on Galleon, see [the WildFly documentation](https://docs.wildfly.org/galleon/).
+* On the Maven plugin, we specified a set of Galleon layers. This configuration enables us to trim the server capabilities to only what we need. For complete documentation on Galleon, see [the WildFly documentation](https://docs.wildfly.org/galleon/).
 * Our application uses Jakarta Faces with Ajax requests, which means that there's information stored in the HTTP session. We don't want to lose such information if a pod is removed. We could save this information on the client and send it back on each request. However, there are cases where you might decide not to distribute certain information to the clients. For this demo, we chose to replicate the session across all pod replicas. To do it, we added `<distributable />` to the **web.xml**. That, together with the server clustering capabilities, makes the HTTP session distributable across all pods.
 * We added two MicroProfile Health Checks that enable you to identify when the application is live and ready to receive requests.
 
@@ -215,7 +215,7 @@ Follow the next steps to build and run the application locally.
     {"status":"UP","checks":[{"name":"deployments-status","status":"UP","data":{"todo-list.war":"OK"}},{"name":"server-state","status":"UP","data":{"value":"running"}},{"name":"boot-errors","status":"UP"},{"name":"DBConnectionHealthCheck","status":"UP"}]}
    ```
 
-1. Press <kbd>Ctrl</kbd><kbd>+</kbd><kbd>C</kbd> to stop the application.
+1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the application.
 
 ## Deploy to OpenShift
 
@@ -234,7 +234,7 @@ Let's do a quick review about what we changed in this branch:
 
 ### Deploy the application on OpenShift
 
-The next steps explain how you can deploy the application with a Helm chart using the OpenShift web console. Avoid hard coding sensitive values into your Helm chart using a feature called "secrets." A secret is simply a collection of `<name><=value>` pairs, where the values are specified in some known place before they're needed. In our case, the Helm chart uses two secrets, with the following `<name><=value>` pairs from each.
+The next steps explain how you can deploy the application with a Helm chart using the OpenShift web console. Avoid hard coding sensitive values into your Helm chart using a feature called "secrets." A secret is simply a collection of name-value pairs, where the values are specified in some known place before they're needed. In our case, the Helm chart uses two secrets, with the following name-value pairs from each.
 
 * `mssqlserver-secret`
 

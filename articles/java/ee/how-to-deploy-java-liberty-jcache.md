@@ -16,39 +16,26 @@ This article describes how to use Java EE JCache in a containerized application 
 In this guide, you'll:
 
 * Create the infrastructure to run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty or WebSphere Liberty runtime.
-
 * Use Java EE JCache backed by Azure Cache for Redis as session cache.
-
 * Build the application Docker image using Open Liberty or WebSphere Liberty container images.
-
 * Deploy the containerized application to an AKS cluster using the Open Liberty Operator.
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
-If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers promptly gets in touch with people to initiate collaboration.
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
 * An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 * Prepare a local machine with Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
-
 * [Install the Azure CLI](/cli/azure/install-azure-cli) to run Azure CLI commands.
-
     * Sign in with Azure CLI by using the [`az login`](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
-
     * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-
     * Run [`az version`](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [`az upgrade`](/cli/azure/reference-index?#az-upgrade).
-
 * Install a Java SE implementation version 17 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
-
 * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
-
 * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-
 * Ensure that [Git](https://git-scm.com) is installed.
-
 * Be sure you've been assigned either `Owner` role or `Contributor` and `User Access Administrator` roles for the subscription. You can verify your assignments by following steps in [List role assignments for a user or group](/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-or-group).
 
 ## Create the infrastructure
@@ -220,7 +207,7 @@ git checkout 20240909
 cd java-app-jcache
 ```
 
-If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you checked out a tag.
+If you see a message about being in `detached HEAD` state, this message is safe to ignore. It just means you checked out a tag.
 
 The application has the following file structure:
 
@@ -244,23 +231,23 @@ java-app-jcache/
         └── webapp
 ```
 
-The `java`, `resources`, and `webapp` directories contain the source code of the sample application.
+The **java**, **resources**, and **webapp** directories contain the source code of the sample application.
 
-In the `aks` directory, the deployment file `openlibertyapplication.yaml` is used to deploy the application image.
+In the **aks** directory, the deployment file **openlibertyapplication.yaml** is used to deploy the application image.
 
-In the `docker` directory, we place two Dockerfiles. `Dockerfile` is used to build image with Open Liberty and `Dockerfile-wlp` is used to build image with WebSphere Liberty.
+In the **docker** directory, we place two Dockerfiles. **Dockerfile** is used to build image with Open Liberty and **Dockerfile-wlp** is used to build image with WebSphere Liberty.
 
-In the `liberty/config` directory, the `server.xml` file is used to configure session cache for the Open Liberty and WebSphere Liberty cluster.
+In the **liberty/config** directory, the **server.xml** file is used to configure session cache for the Open Liberty and WebSphere Liberty cluster.
 
-In the `redisson` directory, the `redisson-config.yaml` file is used to configure the connection of the Azure Cache for Redis instance.
+In the **redisson** directory, the **redisson-config.yaml** file is used to configure the connection of the Azure Cache for Redis instance.
 
 ### Containerize the application
 
 To deploy and run your Liberty application on the AKS cluster, use the following steps to containerize your application as a Docker image. You can use [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
 
-1. Verify the current working directory is `java-app-jcache` in your local clone.
+1. Verify the current working directory is **java-app-jcache** in your local clone.
 1. Run `mvn clean package` to package the application.
-1. Run `mvn -Predisson validate` to copy the Redisson configuration file to the specified location. This step inserts the values of the environment variables `REDISCACHEHOSTNAME` and `REDISCACHEKEY` into the `redisson-config.yaml` file, which is referenced by the `server.xml` file.
+1. Run `mvn -Predisson validate` to copy the Redisson configuration file to the specified location. This step inserts the values of the environment variables `REDISCACHEHOSTNAME` and `REDISCACHEKEY` into the **redisson-config.yaml** file, which is referenced by the **server.xml** file.
 1. Run `mvn liberty:dev` to test the application. If the test is successful, you should see `The defaultServer server is ready to run a smarter planet.` in the command output.
    You should see output similar to the following if the Redis connection is successful.
 
@@ -272,7 +259,7 @@ To deploy and run your Liberty application on the AKS cluster, use the following
 
 1. You can visit `http://localhost:9080/` to see the application running, but the proof of Redis working is the output listed in the preceding step.
 1. Use <kbd>Ctrl</kbd><kbd>+</kbd><kbd>C</kbd> to stop the application.
-1. Use the following commands to retrieve values for properties `artifactId` and `version` defined in the `pom.xml` file:
+1. Use the following commands to retrieve values for properties `artifactId` and `version` defined in the **pom.xml** file:
 
    ```bash
    export artifactId=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
@@ -337,7 +324,7 @@ Follow the steps in this section to deploy the containerized sample application 
 
 When the application runs, a Kubernetes load balancer service exposes the application front end to the internet. This process can take a while to complete.
 
-To monitor progress, use the `[kubectl get service`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
+To monitor progress, use the [`kubectl get service`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
 
 ```bash
 kubectl get service ${artifactId}-cluster --watch
@@ -348,7 +335,7 @@ javaee-cafe-jcache-cluster         LoadBalancer   10.0.50.29     20.84.16.169   
 
 Once the `EXTERNAL-IP` address changes from `pending` to an actual public IP address, use <kbd>Ctrl</kbd><kbd>+</kbd><kbd>C</kbd> to stop the `kubectl` watch process.
 
-Open a web browser to the external IP address of your service (**20.84.16.169** for the previous example) to see the application home page. If the page isn't loaded correctly, that's because the app is starting. You can wait for a while and refresh the page later. You should see the pod name of your application replicas displayed at the top-left of the page (**javaee-cafe-jcache-cluster-77d54bccd4-5xnzx** for this case).
+Open a web browser to the external IP address of your service (`20.84.16.169` for the previous example) to see the application home page. If the page isn't loaded correctly, that's because the app is starting. You can wait for a while and refresh the page later. You should see the pod name of your application replicas displayed at the top-left of the page (**javaee-cafe-jcache-cluster-77d54bccd4-5xnzx** for this case).
 
 :::image type="content" source="media/how-to-deploy-java-liberty-jcache/deploy-succeeded.png" alt-text="Screenshot of Java liberty application successfully deployed on A K S.":::
 

@@ -29,7 +29,7 @@ The steps in this section direct you to deploy an IBM WAS ND cluster on Azure VM
 
 Use the following steps to find the IBM WAS ND cluster on Azure VMs offer:
 
-1. Sign in to the Azure portal by visiting `https://aka.ms/publicportal`.
+1. Sign in to the Azure portal.
 1. In the search bar at the top of the Azure portal, enter **IBM WAS ND**. In the search results, in the **Marketplace** section, select **IBM WAS ND cluster on Azure VMs**.
 
    :::image type="content" source="media/traditional-websphere-application-server-virtual-machines/marketplace-search-results.png" alt-text="Screenshot of the Azure portal that shows IBM WAS ND cluster on Azure VMs in the search results." lightbox="media/traditional-websphere-application-server-virtual-machines/marketplace-search-results.png":::
