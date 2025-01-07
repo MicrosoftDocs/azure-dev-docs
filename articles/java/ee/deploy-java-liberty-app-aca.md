@@ -338,7 +338,7 @@ Use the following commands to build the application:
 #### [Bash](#tab/in-bash)
 
 ```bash
-d $BASE_DIR/java-app
+cd $BASE_DIR/java-app
 mvn clean install
 mvn dependency:copy-dependencies -f pom-azure-identity.xml -DoutputDirectory=target/liberty/wlp/usr/shared/resources
 ```
