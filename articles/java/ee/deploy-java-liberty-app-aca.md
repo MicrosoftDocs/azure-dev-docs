@@ -21,26 +21,18 @@ For more information about Open Liberty, see [the Open Liberty project page](htt
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
-If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers promptly reply to initiate close collaboration.
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
 * An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 * Prepare a local machine with either Windows or Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
-
 * [Install the Azure CLI](/cli/azure/install-azure-cli) 2.62.0 or above to run Azure CLI commands.
-
     * Sign in with Azure CLI by using the [`az login`](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
-
     * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-
     * Run [`az version`](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [`az upgrade`](/cli/azure/reference-index?#az-upgrade).
-
 * Install a Java SE implementation version 17 - for example, [Microsoft build of OpenJDK](/java/openjdk).
-
 * Install [Maven](https://maven.apache.org/download.cgi) 3.9.8 or higher.
-
 * Ensure that [Git](https://git-scm.com) is installed.
 
 ## Sign in to Azure
@@ -220,7 +212,7 @@ az sql db create \
     --capacity 2
 ```
 
-Next, use the following commands to add the local IP address to the Azure SQL Database server firewall rules to allow your local machine to connect to the database for local testing later.
+Then, use the following commands to add the local IP address to the Azure SQL Database server firewall rules to allow your local machine to connect to the database for local testing later.
 
 ```azurecli
 export AZ_LOCAL_IP_ADDRESS=$(curl -s https://whatismyip.akamai.com)
@@ -263,7 +255,7 @@ az sql db create `
     --capacity 2
 ```
 
-Next, use the following commands to add the local IP address to the Azure SQL Database server firewall rules to allow your local machine to connect to the database for local testing later.
+Then, use the following commands to add the local IP address to the Azure SQL Database server firewall rules to allow your local machine to connect to the database for local testing later.
 
 ```azurepowershell
 $Env:AZ_LOCAL_IP_ADDRESS = (Invoke-WebRequest https://whatismyip.akamai.com).Content
@@ -310,7 +302,7 @@ git checkout 20241118
 
 ---
 
-If you see a message about being in a `detached HEAD` state, this message is safe to ignore. It just means you checked out a tag.
+If you see a message about being in `detached HEAD` state, this message is safe to ignore. It just means you checked out a tag.
 
 This article uses **java-app**. Here's the file structure of the application's important files:
 
@@ -498,7 +490,7 @@ az containerapp create `
 
 Successful output is a JSON object including the property `"type": "Microsoft.App/containerApps"`.
 
-Next, connect the Azure SQL Database server to the container app using Service Connector by using the following steps:
+Then, connect the Azure SQL Database server to the container app using Service Connector by using the following steps:
 
 #### [Bash](#tab/in-bash)
 
@@ -520,7 +512,7 @@ Next, connect the Azure SQL Database server to the container app using Service C
         --system-identity \
         --container $ACA_NAME \
         --client-type java
-   ```
+    ```
 
 Successful output is a JSON object including the property `"type": "microsoft.servicelinker/linkers"`.
 
