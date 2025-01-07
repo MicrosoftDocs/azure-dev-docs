@@ -409,7 +409,7 @@
 | Unknown Display Name | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/ai-projects/v/1.0.0-beta.2) |  |  |
 | Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/events/v/0.63.0) |  |  |
 | Unknown Display Name | npm [0.1.5](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.5) |  |  |
-| Unknown Display Name | npm [0.5.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.5.0) |  |  |
+| Unknown Display Name | npm [0.5.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.5.1) |  |  |
 | Unknown Display Name | npm [0.1.0-alpha.5](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.5) |  |  |
 | Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/sse/v/0.63.0) |  |  |
 | Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/streams/v/0.63.0) |  |  |
@@ -491,7 +491,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20241230.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20241230.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250104.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250104.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
@@ -530,7 +530,7 @@
 | @azure-tools/cadl-rpaas-controller | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/cadl-rpaas-controller/v/0.7.0) |  |  |
 | @azure-tools/cadl-typescript | npm [1.0.0-beta.10](https://www.npmjs.com/package/@azure-tools/cadl-typescript/v/1.0.0-beta.10) |  |  |
 | @azure-tools/cadl-vs | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/cadl-vs/v/0.3.0) |  |  |
-| @azure-tools/js-sdk-release-tools | npm [2.7.17](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.17) |  |  |
+| @azure-tools/js-sdk-release-tools | npm [2.7.18](https://www.npmjs.com/package/@azure-tools/js-sdk-release-tools/v/2.7.18) |  |  |
 | @azure-tools/json | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/json/v/1.3.0) |  |  |
 | @azure-tools/jsonschema | npm [1.3.0](https://www.npmjs.com/package/@azure-tools/jsonschema/v/1.3.0) |  |  |
 | @azure-tools/mock-service-host | npm [0.1.17](https://www.npmjs.com/package/@azure-tools/mock-service-host/v/0.1.17) |  |  |
@@ -572,7 +572,7 @@
 | AutoRest - Go | npm [4.0.0-preview.69](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.69) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.27.2](https://www.npmjs.com/package/@autorest/python/v/6.27.2) |  | GitHub [6.27.2](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.27.3](https://www.npmjs.com/package/@autorest/python/v/6.27.3) |  | GitHub [6.27.3](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |

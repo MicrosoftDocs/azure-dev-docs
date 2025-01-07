@@ -275,7 +275,7 @@ Next, `bp.openai_client.chat.completions` gets chat completions via an Azure Ope
 
 ```python
         chat_coroutine = bp.openai_client.chat.completions.create(
-            # Azure Open AI takes the deployment name as the model name
+            # Azure OpenAI takes the deployment name as the model name
             model=os.environ["OPENAI_MODEL"],
             messages=all_messages,
             stream=True,
