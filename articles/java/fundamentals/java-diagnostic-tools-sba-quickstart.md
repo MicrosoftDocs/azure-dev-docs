@@ -27,16 +27,10 @@ Before starting, ensure the following prerequisites are met:
 
 ### Step 1: Install diag4j in Your Cluster
 
-1. Add the diag4j Helm repository:
-    ```bash
-    helm repo add diag4j-repo https://microsoft.github.io/diag4j
-    helm repo update
-    ```
-
-2. Install diag4j in the desired namespace:
+1. Install diag4j in the desired namespace:
 
     ```bash
-    helm install diag4j diag4j-repo/diag4j --version 1.1.5 -n <namespace> --create-namespace
+    helm install my-diag4j oci://diag4j.azurecr.io/helm/diag4j --version 1.1.5 -n <namespace> --create-namespace 
     ```
 
 >  **Note:** If you need help to deploy your Java application to AKS, please refer to this guide to deploy a sample Java app to your AKS: [Deploy an app on AKS](../spring-framework/deploy-spring-boot-java-app-on-kubernetes.md)
