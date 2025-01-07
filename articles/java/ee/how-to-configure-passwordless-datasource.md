@@ -289,7 +289,6 @@ For information on how Azure SQL Server interacts with managed identities, see [
 The following example configures a Microsoft Entra administrator account to Azure SQL server from the portal:
 
 1. In the [Azure portal](https://portal.azure.com/), open the Azure SQL server instance **myazuresql20130213**.
-
 1. Select **Settings**, then select **Microsoft Entra ID**. On the **Microsoft Entra ID** page, select **Set admin**.
 1. On the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**.
 1. At the top of the **Microsoft Entra ID** page, select **Save**. For Microsoft Entra users and groups, the **Object ID** is displayed next to the admin name.
