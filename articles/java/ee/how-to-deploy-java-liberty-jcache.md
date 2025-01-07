@@ -258,7 +258,7 @@ To deploy and run your Liberty application on the AKS cluster, use the following
    ```
 
 1. You can visit `http://localhost:9080/` to see the application running, but the proof of Redis working is the output listed in the preceding step.
-1. Use <kbd>Ctrl</kbd><kbd>+</kbd><kbd>C</kbd> to stop the application.
+1. Use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the application.
 1. Use the following commands to retrieve values for properties `artifactId` and `version` defined in the **pom.xml** file:
 
    ```bash
@@ -333,7 +333,7 @@ NAME                               TYPE           CLUSTER-IP     EXTERNAL-IP    
 javaee-cafe-jcache-cluster         LoadBalancer   10.0.50.29     20.84.16.169    80:31732/TCP     68s
 ```
 
-Once the `EXTERNAL-IP` address changes from `pending` to an actual public IP address, use <kbd>Ctrl</kbd><kbd>+</kbd><kbd>C</kbd> to stop the `kubectl` watch process.
+After the `EXTERNAL-IP` address changes from `pending` to an actual public IP address, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the `kubectl` watch process.
 
 Open a web browser to the external IP address of your service (`20.84.16.169` for the previous example) to see the application home page. If the page isn't loaded correctly, that's because the app is starting. You can wait for a while and refresh the page later. You should see the pod name of your application replicas displayed at the top-left of the page (**javaee-cafe-jcache-cluster-77d54bccd4-5xnzx** for this case).
 

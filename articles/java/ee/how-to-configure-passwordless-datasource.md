@@ -291,7 +291,7 @@ The following example configures a Microsoft Entra administrator account to Azur
 1. Select **Settings**, then select **Microsoft Entra ID**. On the **Microsoft Entra ID** page, select **Set admin**.
 1. On the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**.
 1. At the top of the **Microsoft Entra ID** page, select **Save**. For Microsoft Entra users and groups, the **Object ID** is displayed next to the admin name.
-1. The process of changing the administrator might take several minutes. Next, the new administrator appears in the **Microsoft Entra ID** box.
+1. The process of changing the administrator might take several minutes. Then, the new administrator appears in the **Microsoft Entra ID** box.
 
 ---
 
@@ -487,7 +487,6 @@ First, create a firewall rule to access the Azure SQL server from portal, as sho
 1. Select **Security**, and then select **Networking**.
 1. Under **Firewall rules** select **Add your client IPV4 IP address**.
 1. Under **Exceptions** select **Allow Azure services and resources to access this server**.
-
 1. Select **Save**.
 
 After the firewall rule is created, you can access the Azure SQL server from the Azure portal. Use the following steps to create a database user:

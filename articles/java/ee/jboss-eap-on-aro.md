@@ -234,7 +234,7 @@ Let's do a quick review about what we changed in this branch:
 
 ### Deploy the application on OpenShift
 
-The next steps explain how you can deploy the application with a Helm chart using the OpenShift web console. Avoid hard coding sensitive values into your Helm chart using a feature called "secrets." A secret is simply a collection of name-value pairs, where the values are specified in some known place before they're needed. In our case, the Helm chart uses two secrets, with the following name-value pairs from each.
+The next steps explain how you can deploy the application with a Helm chart using the OpenShift web console. Avoid hard coding sensitive values into your Helm chart using a feature called "secrets". A secret is simply a collection of name-value pairs, where the values are specified in some known place before they're needed. In our case, the Helm chart uses two secrets, with the following name-value pairs from each.
 
 * `mssqlserver-secret`
 

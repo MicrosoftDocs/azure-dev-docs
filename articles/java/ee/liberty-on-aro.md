@@ -296,7 +296,7 @@ Because we use the Open Liberty Operator to manage Liberty applications, we need
 1. Navigate to **Workloads** > **Secrets**.
 1. Select **Create** > **From YAML**.
 1. Replace the generated YAML with yours, which is located at **\<path-to-repo\>/3-integration/connect-db/mysql/target/db-secret.yaml**.
-1. Select **Create**. This selection returns to the **Secret details** page.
+1. Select **Create**. This selection returns you to the **Secret details** page.
 1. Navigate to **Operators** > **Installed Operators**.
 1. In the middle of the page, you see **Open Liberty**.
 1. From **Provided APIs**, select **OpenLibertyApplication**. The navigation of items in the user interface mirrors the actual containment hierarchy of technologies in use.
