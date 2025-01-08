@@ -46,7 +46,7 @@ This template demonstrates the use of these features.
 
 | Azure hosting solution | Technologies | AI models |
 |--|--|--|
-|Azure Container Apps<br>|Azure OpenAI<br>Microsoft Entra ID<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Studio<br>Azure SQL<br>Azure Storage|GPT 3.5 Turbo<br>GPT 4.0|
+|Azure Container Apps<br>|Azure OpenAI<br>Microsoft Entra ID<br>Azure Managed Identity<br>Azure Monitor<br>Azure AI Search<br>Azure AI Foundry<br>Azure SQL<br>Azure Storage|GPT 3.5 Turbo<br>GPT 4.0|
 
 
 ### Process automation with speech to text and summarization with .NET and GPT 3.5 Turbo

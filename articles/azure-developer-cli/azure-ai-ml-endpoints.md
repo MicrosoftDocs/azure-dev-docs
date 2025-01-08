@@ -1,6 +1,6 @@
 ---
-title: Deploy to an AI/ML studio online endpoint using the Azure Developer CLI
-description: Learn how to deploy to an AI/ML studio online endpoint using the Azure Developer CLI
+title: Deploy to an Azure AI Foundry/ML studio online endpoint using the Azure Developer CLI
+description: Learn how to deploy to an Azure AI Foundry/ML studio online endpoint using the Azure Developer CLI
 author: alexwolfmsft
 ms.author: alexwolf
 ms.date: 05/06/2024
@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.custom: devx-track-azdevcli, build-2023
 ---
 
-# Deploy to an AI/ML studio online endpoint using the Azure Developer CLI
+# Deploy to an Azure AI Foundry/ML studio online endpoint using the Azure Developer CLI
 
-The Azure Developer CLI enables you to quickly and easily deploy to an [Azure ML Studio](https://ml.azure.com) or [Azure AI Studio](https://ai.azure.com) online endpoint. `azd` supports the following AI/ML studio features, which you'll learn to configure in the sections ahead:
+The Azure Developer CLI enables you to quickly and easily deploy to an [Azure ML Studio](https://ml.azure.com) or [Azure AI Foundry](https://ai.azure.com) online endpoint. `azd` supports the following Azure AI Foundry/ML studio features, which you'll learn to configure in the sections ahead:
 
 * Custom environments
   * Environments can be viewed with [Azure ML Studio](https://ml.azure.com/) under the `Environments` section.
@@ -19,14 +19,14 @@ The Azure Developer CLI enables you to quickly and easily deploy to an [Azure ML
   * Models can be viewed with [Azure ML Studio](https://ml.azure.com/) under the `models` section.
 * Prompt flows
   * Flows can be viewed with [Azure ML Studio](https://ml.azure.com/) under the `flows` section.
-  * Flows can be viewed with [Azure AI Studio](https://ai.azure.com/) under the `flows` section.
+  * Flows can be viewed with [Azure AI Foundry portal](https://ai.azure.com/) under the `flows` section.
 * Online deployments (within Online-Endpoint)
   * Deployments can be viewed with [Azure ML Studio](https://ml.azure.com/) under the `deployments` section.
-  * Deployments can be viewed with [Azure AI Studio](https://ai.azure.com/) under the `deployments` section.
+  * Deployments can be viewed with [Azure AI Foundry portal](https://ai.azure.com/) under the `deployments` section.
 
 ## Prerequisites
 
-To work with AI/ML studio online endpoints, you'll need the following:
+To work with Azure AI Foundry/ML studio online endpoints, you'll need the following:
 
 * [Azure Subscription](https://signup.azure.com/signup) with OpenAI access enabled
 * [AI Hub Resource](/azure/ai-studio/concepts/ai-resources)
@@ -35,15 +35,15 @@ To work with AI/ML studio online endpoints, you'll need the following:
 * [Online Endpoint](/azure/machine-learning/concept-endpoints-online)
 * [AI Search Service](/azure/search/) (Optional, enabled by default)
 
-The [AI Studio Starter template](https://github.com/Azure-Samples/azd-aistudio-starter) can help create all the required infrastructure to get started with AI Studio endpoints.
+The [Azure AI Foundry Starter template](https://github.com/Azure-Samples/azd-aistudio-starter) can help create all the required infrastructure to get started with Azure AI Foundry endpoints.
 
-## Configure the AI/ML studio online endpoint
+## Configure the Azure AI Foundry/ML studio online endpoint
 
 Configure support for AI/ML online endpoints in the `services` section of the `azure.yaml` file:
 
 * Set the `host` value to `ai.endpoint`.
 * The `config` section for `ai.endpoint` supports the following configurations:
-  * **workspace**: The name of the AI studio workspace. Supports `azd` environment variable substitutions and syntax.
+  * **workspace**: The name of the Azure AI Foundry workspace. Supports `azd` environment variable substitutions and syntax.
     * If not specified, `azd` will look for environment variable with name `AZUREAI_PROJECT_NAME`.
   * **environment**: Optional custom configuration for ML environments. `azd` creates a new  environment version from the referenced YAML file definition.
   * **flow**: Optional custom configuration for flows. `azd` creates a new prompt flow from the specified file path.
@@ -62,7 +62,7 @@ services:
     host: ai.endpoint
     # New config flow for AI project configuration
     config:
-      # The name of the AI studio workspace
+      # The name of the Azure AI Foundry workspace
       workspace: ${AZUREAI_PROJECT_NAME}
       # Optional: Path to custom ML environment manifest
       environment:
