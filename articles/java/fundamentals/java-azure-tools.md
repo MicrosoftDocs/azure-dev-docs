@@ -1,5 +1,5 @@
 ---
-title: Azure tools for Java developers
+title: Azure Tools for Java Developers
 description: IDE integrations, emulators, resource explorers, and command-line interfaces for Java developers working on Azure.
 author: KarlErickson
 ms.author: karler
