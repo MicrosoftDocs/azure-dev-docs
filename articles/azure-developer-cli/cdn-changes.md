@@ -25,7 +25,7 @@ Your application or system may be impacted and require updates due to the CDN ch
   - The latest versions are available at `https://aka.ms/install-azd.ps1` and `https://aka.ms/install-azd.sh`
 - Any hardcoded references in your system to the older CDN endpoints
 
-## Actions if you're impacted by this change
+## Recommended actions
 
 Complete or verify the following to ensure your system is compatible with the CDN changes:
 
@@ -33,7 +33,7 @@ Complete or verify the following to ensure your system is compatible with the CD
 - Ensure you're using the latest [Azure DevOps task version](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azd).
 - Ensure any custom install scripts reference the new host name. There's no change to file paths after the host name.
 
-## Where to find more information
+## Additional information and resources
 
 For more on this change, follow [the issue in the azd repository](https://github.com/Azure/azure-dev/issues/4661) or read the [FAQs on Microsoft Learn documentation](/azure/cdn/edgio-retirement-faq).
 
