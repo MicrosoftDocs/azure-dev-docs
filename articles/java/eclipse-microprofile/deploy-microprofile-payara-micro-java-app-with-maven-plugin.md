@@ -18,16 +18,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 * The [Azure CLI](/cli/azure/), either locally or through [Azure Cloud Shell](https://shell.azure.com).
-
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
-
 * Apache [Maven](https://maven.apache.org/), version 3.
 
-## Sign into the Azure CLI
+## Sign in to the Azure CLI
 
 The simplest and easiest way to get the Maven Plugin deploying your Payara Micro application is by using the [Azure CLI](/cli/azure/).
 
-Sign into your Azure account by using the Azure CLI:
+Sign in to your Azure account by using the Azure CLI:
 
 ```azurecli
 az login
@@ -287,9 +285,7 @@ To learn more about MicroProfile and Azure, continue to the MicroProfile on Azur
 For more information about the various technologies discussed in this article, see the following articles:
 
 * [Maven Plugin for Azure Web Apps]
-
 * [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli)
-
 * [Maven Settings Reference](https://maven.apache.org/settings.html)
 
 <!-- URL List -->

@@ -18,16 +18,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 * The [Azure CLI](/cli/azure/), either locally or through [Azure Cloud Shell](https://shell.azure.com).
-
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
-
 * Apache [Maven](https://maven.apache.org/), version 3.
 
-## Sign into the Azure CLI
+## Sign in to the Azure CLI
 
 The simplest and easiest way to get the Maven Plugin deploying your Quarkus application is by using the [Azure CLI](/cli/azure/).
 
-Sign into your Azure account by using the Azure CLI:
+Sign in to your Azure account by using the Azure CLI:
 
 ```azurecli
 az login
@@ -298,7 +296,7 @@ You can access to your web application by selecting **Browse** in the **Overview
 
 ## Confirm the log stream from the running App Service
 
-You can view the complete logs or use `tail` to view the end of the logs, from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
+You can use the following command to view - or *tail* - the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 
 ```azurecli
 az webapp log tail 
@@ -313,11 +311,8 @@ az webapp log tail
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group. To do so, use the following steps:
 
 1. From the Azure portal, select **Resource group** from the menu.
-
 1. Enter **microprofile** in the **Filter by name** field. The resource group created in this tutorial should have this prefix.
-
 1. Select the resource group created in this tutorial.
-
 1. Select **Delete resource group** from the menu.
 
 ## Next steps
@@ -332,9 +327,7 @@ To learn more about MicroProfile and Azure, continue to the MicroProfile on Azur
 For more information about the various technologies discussed in this article, see the following articles:
 
 * [Maven Plugin for Azure Web Apps]
-
 * [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli)
-
 * [Maven Settings Reference](https://maven.apache.org/settings.html)
 
 <!-- URL List -->

@@ -11,7 +11,9 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 # Deploy an Open Liberty micro web app to Azure App Service with Maven
 
-In this quickstart, you use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy an Open Liberty application to [Azure App Service on Linux](/azure/app-service/containers/). Choose Java SE deployment over [Tomcat and WAR files](/azure/app-service/containers/quickstart-java) when you want to consolidate your app's dependencies, runtime, and configuration into a single deployable artifact. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+In this quickstart, you use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy an Open Liberty application to [Azure App Service on Linux](/azure/app-service/containers/). Choose Java SE deployment over [Tomcat and WAR files](/azure/app-service/containers/quickstart-java) when you want to consolidate your app's dependencies, runtime, and configuration into a single deployable artifact.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!IMPORTANT]
 > While Azure App Service is engineered, operated, and supported by Microsoft, the software you run on top of it is subject to its own support plan support and license terms. For details about support of the software described in this article, see the main pages for that software as listed in the article.
@@ -21,16 +23,14 @@ In this quickstart, you use the [Maven Plugin for Azure App Service Web Apps](ht
 ## Prerequisites
 
 * The [Azure CLI](/cli/azure/), either locally or through [Azure Cloud Shell](https://shell.azure.com).
-
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
-
 * Apache [Maven](https://maven.apache.org/), version 3.
 
-## Sign into Azure CLI
+## Sign in to the Azure CLI
 
 The simplest and easiest way to get the Maven Plugin deploying your Open Liberty application is by using the [Azure CLI](/cli/azure/).
 
-Sign into your Azure account by using the Azure CLI:
+Sign in to your Azure account by using the Azure CLI:
 
 ```azurecli
 az login
@@ -46,7 +46,7 @@ In this section, you create an Open Liberty application and test it locally.
 
     :::image type="content" source="media/open-liberty/microprofile-starter-open-liberty-micro.png" alt-text="Screenshot showing MicroProfile Starter with Open Liberty runtime selected.":::
 
-2. Use the values in the following table to populate the values in the MicroProfile Starter:
+1. Use the values in the following table to populate the values in the MicroProfile Starter:
 
     | Field                       | Value                                   |
     |-----------------------------|-----------------------------------------|
@@ -57,9 +57,9 @@ In this section, you create an Open Liberty application and test it locally.
     | MicroProfile Runtime        | Open Liberty                            |
     | Examples for Specifications | Metrics, OpenAPI                        |
 
-3. Select **DOWNLOAD** to download the project.
+1. Select **DOWNLOAD** to download the project.
 
-4. Unzip the archive file by using the following command:
+1. Unzip the archive file by using the following command:
 
     ```bash
     unzip openliberty-hello-azure.zip
@@ -73,25 +73,25 @@ In this section, you create an Open Liberty application and test it locally.
     cd openliberty-hello-azure/
     ```
 
-2. Build the project using Maven by using the following command:
+1. Build the project using Maven by using the following command:
 
     ```bash
     mvn clean package
     ```
 
-3. Run the project by using the following command:
+1. Run the project by using the following command:
 
     ```bash
     java -jar target/openliberty-hello-azure.jar
     ```
 
-4. Test the web app by browsing to it locally using a web browser. For example, you could use the following command if you have `curl` available:
+1. Test the web app by browsing to it locally using a web browser. For example, you could use the following command if you have `curl` available:
 
     ```bash
     curl http://localhost:9080/data/hello
     ```
 
-5. You should see the following message displayed: **Hello World**
+1. You should see the following message displayed: **Hello World**
 
 ## Configure Maven plugin for Azure App Service
 
@@ -114,6 +114,7 @@ In this section, you configure the Open Liberty project **pom.xml** file so that
 
     > [!NOTE]
     > Even though we don't use Tomcat, select `TOMCAT 8.5` at this time. During the detailed configuration, you modify the value from `TOMCAT 8.5` to `Java`.
+    >
     > This example uses a specific version of the Azure App Service Maven plugin. You should consider using the latest version available. You can discover the number of the latest version by visiting a site such as [mvnrepository.com](https://mvnrepository.com/artifact/com.microsoft.azure/azure-webapp-maven-plugin).
 
     This command produces output similar to the following example:
@@ -251,13 +252,13 @@ After you configure all of the settings in the preceding sections of this articl
     mvn clean package
     ```
 
-2. Deploy your web app to Azure by using Maven by using the following command:
+1. Deploy your web app to Azure by using Maven by using the following command:
 
     ```bash
     mvn azure-webapp:deploy
     ```
 
-If the deployment succeeded, you see the following output:
+    If the deployment succeeded, you see the following output:
 
     ```output
     [INFO] Scanning for projects...
@@ -306,11 +307,8 @@ az webapp log tail \
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group by using the following steps:
 
 1. From the Azure portal, select `Resource group` from the menu.
-
 1. Enter **microprofile** in the **Filter by name** field. The resource group created in this tutorial should have this prefix.
-
 1. Select the resource group created in this tutorial.
-
 1. Select **Delete resource group** from the menu.
 
 ## Next steps
@@ -325,9 +323,7 @@ To learn more about MicroProfile and Azure, continue to the MicroProfile on Azur
 For more information about the various technologies discussed in this article, see the following articles:
 
 * [Maven Plugin for Azure Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
-
 * [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli).
-
 * [Maven Settings Reference](https://maven.apache.org/settings.html).
 
 <!-- URL List -->

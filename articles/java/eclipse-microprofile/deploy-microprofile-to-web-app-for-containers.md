@@ -14,9 +14,9 @@ ms.custom: devx-track-java, kr2b-contr-experiment, devx-track-extended-java
 MicroProfile is a great way to build tiny Java applications that can be quickly and easily deployed to services such as [Azure Web App for Containers](https://azure.microsoft.com/services/app-service/containers/). In this article, you create a MicroProfile-based microservice. Then, you containerize it into a Docker container, deploy it into [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), and host it using Azure Web App for Containers.
 
 > [!NOTE]
-> This procedure works with any implementation of MicroProfile as long the Docker container image is self-executable—that is, includes the runtime.
+> This procedure works with any implementation of MicroProfile as long the Docker container image is self-executable - that is, includes the runtime.
 
-This sample uses [Payara Micro](https://www.payara.fish/products/payara-micro/) and [MicroProfile 1.3](https://microprofile.io/) to create a tiny Java WAR file that is only 5,085 bytes large. You then page it into a Docker image, which is approximately 174 megabytes large. This Docker image contains everything needed for a fully containerized deployment of this webapp.
+This sample uses [Payara Micro](https://www.payara.fish/products/payara-micro/) and [MicroProfile 1.3](https://microprofile.io/) to create a tiny Java WAR file that is only 5,085 bytes in size. You then page it into a Docker image, which is approximately 174 megabytes in size. This Docker image contains everything needed for a fully containerized deployment of this webapp.
 
 The entire 174-megabyte Docker image often doesn't need to be redeployed whenever the application source code is changed. Docker only uploads the differences. Therefore, the process of running a new release of a MicroProfile application by using a CI/CD pipeline is efficient and quick, reducing friction and enabling rapid development iteration.
 
@@ -26,9 +26,9 @@ Start by creating and running the code locally. Then deploy it as a web app on A
 
 Use the [Azure portal](https://portal.azure.com) for creating the Azure container registry instance. There are alternate choices, such as the Azure CLI. Use the following steps to create a new Azure container registry instance:
 
-1. Sign into the [Azure portal](https://portal.azure.com) and create a new Azure container registry instance resource. Provide a registry name. This name is the one that should be set as the `docker.registry` property in the **pom.xml** file. Customize the defaults, and then select **Create**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and create a new Azure container registry instance resource. Provide a registry name. This name is the one that should be set as the `docker.registry` property in the **pom.xml** file. Customize the defaults, and then select **Create**.
 
-1. Once the container registry is live, which takes about 30 seconds, select the container registry. Select **Access keys** in the menu. Enable the **admin user** setting, so that this container registry can be accessed from your computer. This setting also enables access from the Azure Web Apps for the Containers instance you set up.
+1. Once the container registry is live, which takes about 30 seconds, select the container registry. Select **Access keys** in the navigation menu. Enable the **admin user** setting, so that this container registry can be accessed from your computer. This setting also enables access from the Azure Web Apps for the Containers instance you set up.
 
 1. While you are in the **Access keys** area, note the `username` and `password` values. Copy these values into the global Maven **settings.xml** file. For more information on Maven settings, see the [Apache Maven Project](https://maven.apache.org/settings.html). Here's a sample of the **${user.home}/.m2/settings.xml** file:
 
@@ -49,7 +49,7 @@ Use the [Azure portal](https://portal.azure.com) for creating the Azure containe
 
 ## Creating our MicroProfile application
 
-The next step is to build and run the MicroProfile application locally. This example is based on a sample application available on GitHub. Clone that and then step through the code. Follow these steps to get the code:
+Next, build and run the MicroProfile application locally. This example is based on a sample application available on GitHub. Clone that and then step through the code. Follow these steps to get the code:
 
 ```cmd
 git clone https://github.com/Azure-Samples/microprofile-docker-helloworld.git

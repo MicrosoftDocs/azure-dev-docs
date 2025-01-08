@@ -28,7 +28,7 @@ You start the Azure Pipelines containerization process by building a Docker imag
 
 1. Copy and save the clone URL from the sample GitHub repository at [https://github.com/Azure-Samples/microprofile-hello-azure](https://github.com/Azure-Samples/microprofile-hello-azure).
 
-1. Register or sign into your [Azure DevOps](https://azure.microsoft.com/products/devops) organization, and create a new [project](/vsts/organizations/projects/create-project).
+1. Register or sign in to your [Azure DevOps](https://azure.microsoft.com/products/devops) organization, and create a new [project](/vsts/organizations/projects/create-project).
 
 1. Import the sample GitHub repository into Azure Repos by using the following steps:
 
@@ -82,7 +82,7 @@ Azure Pipelines uses a Dockerfile with a base image from Payara Micro to create 
     | **Registry type**            | Select **Azure Container Registry**.                                                      |
     | **Connection Name**          | Enter a name for the connection.                                                          |
     | **Azure subscription**       | Select your Azure subscription from the dropdown, and if necessary, select **Authorize**. |
-    | **Azure container registry** | Select your Azure Container Registry name from the dropdown.                              |  |
+    | **Azure container registry** | Select your Azure Container Registry name from the dropdown.                              |
 
 1. Select **OK**.
 
@@ -161,11 +161,11 @@ Add and define environment variables to connect to the container registry during
 
 1. Select the **Variables** tab, and then select **Add** to add the following variables for your container registry URL, username, and password.
 
-| Name                | Value                                                                                                              |
-|---------------------|--------------------------------------------------------------------------------------------------------------------|
-| `registry.url`      | Enter your container registry URL. For example: *https:\//mymicroprofileregistry.azure.io*                         |
-| `registry.username` | Enter the username for the registry.                                                                               |
-| `registry.password` | Enter\s{3}\n1 the password for the registry. For security, select the lock icon to keep the password value hidden. |
+    | Name                | Value                                                                                                              |
+    |---------------------|--------------------------------------------------------------------------------------------------------------------|
+    | `registry.url`      | Enter your container registry URL. For example: *https:\//mymicroprofileregistry.azure.io*                         |
+    | `registry.username` | Enter the username for the registry.                                                                               |
+    | `registry.password` | Enter the password for the registry. For security, select the lock icon to keep the password value hidden.         |
 
     ![Add variables](media/cicd-microprofile/addvariables.png)
 
@@ -217,6 +217,6 @@ After deployment completes successfully, test your web app.
 
     ![App Service app in the Azure portal](media/cicd-microprofile/portalurl.png)
 
-1. To run your app, enter the URL in your web browser. The webpage should say **Hello Azure!**
+1. To run your app, enter the URL in your web browser. The web page should say **Hello Azure!**
 
     ![Java web app page](media/cicd-microprofile/webapp.png)

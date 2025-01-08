@@ -18,14 +18,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 * The [Azure CLI](/cli/azure/), either locally or through [Azure Cloud Shell](https://shell.azure.com).
-
 * A supported Java Development Kit (JDK). For more information about the JDKs available for use when developing on Azure, see [Java support on Azure and Azure Stack](../fundamentals/java-support-on-azure.md).
-
 * Apache [Maven](https://maven.apache.org/), version 3.
 
-## Sign into Azure CLI
+## Sign in to the Azure CLI
 
-The simplest and easiest way to get the Maven Plugin deploying your KumuluzEE application is by using the [Azure CLI](/cli/azure/). Sign into your Azure account by using the Azure CLI:
+The simplest and easiest way to get the Maven Plugin deploying your KumuluzEE application is by using the [Azure CLI](/cli/azure/). Sign in to your Azure account by using the Azure CLI:
 
 ```azurecli
 az login
@@ -123,7 +121,7 @@ In this section, you configure the KumuluzEE project **pom.xml** file so that Ma
     |------------------------------------------------|--------------------|
     | Define value for OS(Default: Linux):           | 1. linux           |
     | Define value for javaVersion(Default: Java 8): | 2. Java 8          |
-    | Confirm (Y/N)                                  | y                  ||  Confirm (Y/N) | y |
+    | Confirm (Y/N)                                  | y                  |
 
     This command produces output similar to the following example:
 
@@ -211,7 +209,7 @@ In this section, you configure the KumuluzEE project **pom.xml** file so that Ma
 
 After configuring all of the settings in the preceding sections of this article, you're ready to deploy your web app to Azure. To do so, use the following steps:
 
-1. From the command prompt or terminal window that you were using earlier, rebuild the JAR file using Maven if you made any changes to the **pom.xml** file, by using the following command:
+1. From the command prompt or terminal window that you were using earlier, rebuild the JAR file using Maven, if you made any changes to the **pom.xml** file, by using the following command:
 
     ```bash
     mvn clean package
@@ -245,7 +243,7 @@ You can access to your web app by selecting **Browse** on the **Overview** page 
 
 ## Confirm the log stream from the running App Service
 
-You can view the logs in their entirety or use `tail` to view the ending lines of the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
+You can use the following command to view - or *tail* - the logs from the running App Service. Any calls to `console.log` in the site code are displayed in the terminal.
 
 ```azurecli
 az webapp log tail \
@@ -260,11 +258,8 @@ az webapp log tail \
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
 
 1. From the Azure portal, select **Resource group** from the menu.
-
 1. Enter **microprofile** in the **Filter by name** field. The resource group created in this tutorial should have this prefix.
-
 1. Select the resource group created in this tutorial.
-
 1. Select **Delete resource group** from the menu.
 
 ## Next steps
