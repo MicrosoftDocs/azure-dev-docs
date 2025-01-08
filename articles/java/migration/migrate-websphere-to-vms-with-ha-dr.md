@@ -121,7 +121,7 @@ First, open the [IBM WebSphere Application Server Cluster on Azure VMs](https://
 Use the following steps to fill out the **Basics** pane:
 
 1. Ensure that the value shown for **Subscription** is the same one that has the roles listed in the prerequisites section.
-1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, `was-cluster-eastus-mjg022624`.
+1. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, `was-cluster-eastus-mjg022624`.
 1. Under **Instance details**, for **Region**, select **East US**.
 1. For **Deploy with existing WebSphere entitlement or with evaluation license?**, select **Evaluation** for this tutorial. You can also select **Entitled** and provide your IBMid credential.
 1. Select **I have read and accept the IBM License Agreement.**.

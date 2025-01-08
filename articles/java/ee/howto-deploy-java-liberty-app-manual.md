@@ -1,5 +1,5 @@
 ---
-title: Manually Deploy a Java Application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
+title: Manually Deploy a Java Application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) Cluster
 recommendations: false
 description: Shows you how to manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster.
 author: KarlErickson
@@ -34,9 +34,9 @@ If you're interested in providing feedback or working closely on your migration 
 * An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 * Prepare a local machine with Windows, macOS, or Linux installed.
 - [Install the Azure CLI](/cli/azure/install-azure-cli) 2.61.0 or above to run Azure CLI commands.
-  - Sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
+  - Sign in with Azure CLI by using the [`az login`](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. See [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli) for other sign-in options.
   - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-  - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
+  - Run [`az version`](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [`az upgrade`](/cli/azure/reference-index?#az-upgrade).
 * Install a Java Standard Edition (SE) implementation, version 17 (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
 * Install [Maven](https://maven.apache.org/download.cgi) version 3.5.0 or later.
 * Ensure that [Git](https://git-scm.com) is installed.
@@ -44,7 +44,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Sign in to Azure
 
-If you didn't do so already, sign in to your Azure subscription by using the [az login](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
+If you didn't do so already, sign in to your Azure subscription by using the [`az login`](/cli/azure/authenticate-azure-cli) command and follow the on-screen directions.
 
 ### [Bash](#tab/in-bash)
 
@@ -69,7 +69,7 @@ az login
 
 An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-Create a resource group called `java-liberty-project` using the [az group create](/cli/azure/group#az-group-create) command in the `eastus2` location. This resource group is used later for creating the Azure Container Registry instance and the AKS cluster.
+Create a resource group called `java-liberty-project` using the [`az group create`](/cli/azure/group#az-group-create) command in the `eastus2` location. This resource group is used later for creating the Azure Container Registry instance and the AKS cluster.
 
 ### [Bash](#tab/in-bash)
 
@@ -89,7 +89,7 @@ az group create --name $Env:RESOURCE_GROUP_NAME --location eastus2
 
 ## Create a Container Registry instance
 
-Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the Container Registry instance. The following example creates a Container Registry instance named `youruniqueacrname`. Make sure `youruniqueacrname` is unique within Azure.
+Use the [`az acr create`](/cli/azure/acr#az-acr-create) command to create the Container Registry instance. The following example creates a Container Registry instance named `youruniqueacrname`. Make sure `youruniqueacrname` is unique within Azure.
 
 > [!NOTE]
 > This article uses the recommended passwordless authentication mechanism for Container Registry. It's still possible to use username and password with `docker login` after using `az acr credential show` to obtain the username and password. Using username and password is less secure than passwordless authentication.
@@ -116,9 +116,9 @@ az acr create --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:REGISTRY_NAM
 After a short time, you should see a JSON output that contains the following lines:
 
 ```output
-  "provisioningState": "Succeeded",
-  "publicNetworkAccess": "Enabled",
-  "resourceGroup": "java-liberty-project",
+"provisioningState": "Succeeded",
+"publicNetworkAccess": "Enabled",
+"resourceGroup": "java-liberty-project",
 ```
 
 Next, retrieve the login server for the Container Registry instance. You need this value when you deploy the application image to the AKS cluster later.
@@ -142,7 +142,7 @@ $Env:LOGIN_SERVER = $(az acr show --name $Env:REGISTRY_NAME --query 'loginServer
 
 ## Create an AKS cluster
 
-Use the [az aks create](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named `myAKSCluster` with one node. This command takes several minutes to complete.
+Use the [`az aks create`](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named `myAKSCluster` with one node. This command takes several minutes to complete.
 
 ### [Bash](#tab/in-bash)
 
@@ -176,7 +176,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ### Attach the Container Registry instance to the AKS cluster
 
-Run the [az aks update](/cli/azure/aks#az-aks-update) command to attach the Container Registry instance to the AKS cluster so that the AKS cluster is authenticated to pull images from the Container Registry instance, as shown in the following example:
+Run the [`az aks update`](/cli/azure/aks#az-aks-update) command to attach the Container Registry instance to the AKS cluster so that the AKS cluster is authenticated to pull images from the Container Registry instance, as shown in the following example:
 
 ### [Bash](#tab/in-bash)
 
@@ -197,7 +197,7 @@ az aks update --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:CLUSTER_NAME
 
 ### Connect to the AKS cluster
 
-To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command, as shown in the following example:
+To manage a Kubernetes cluster, you use [`kubectl`](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. To install `kubectl` locally, use the [`az aks install-cli`](/cli/azure/aks#az-aks-install-cli) command, as shown in the following example:
 
 ### [Bash](#tab/in-bash)
 
@@ -213,7 +213,7 @@ az aks install-cli
 
 ---
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
+To configure `kubectl` to connect to your Kubernetes cluster, use the [`az aks get-credentials`](/cli/azure/aks#az-aks-get-credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
 ### [Bash](#tab/in-bash)
 
@@ -234,9 +234,9 @@ az aks get-credentials --resource-group $Env:RESOURCE_GROUP_NAME --name $Env:CLU
 ---
 
 > [!NOTE]
-> The above command uses the default location for the [Kubernetes configuration file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/), which is `~/.kube/config`. You can specify a different location for your Kubernetes configuration file using `--file`.
+> The above command uses the default location for the [Kubernetes configuration file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/), which is **~/.kube/config**. You can specify a different location for your Kubernetes configuration file using `--file`.
 
-To verify the connection to your cluster, use the [kubectl get]( https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command to return a list of the cluster nodes.
+To verify the connection to your cluster, use the [`kubectl get`]( https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command to return a list of the cluster nodes.
 
 ### [Bash](#tab/in-bash)
 
@@ -334,7 +334,7 @@ az sql server firewall-rule create --resource-group $Env:RESOURCE_GROUP_NAME --s
 ---
 
 > [!NOTE]
-> You create an Azure SQL server with SQL authentication disabled for security considerations. Only Microsoft Entra ID is used to authenticate to the server. If you need to enable SQL authentication, see [az sql server create](/cli/azure/sql/server#az-sql-server-create) for more information.
+> You create an Azure SQL server with SQL authentication disabled for security considerations. Only Microsoft Entra ID is used to authenticate to the server. If you need to enable SQL authentication, see [`az sql server create`](/cli/azure/sql/server#az-sql-server-create) for more information.
 
 ## Create a service connection in AKS with Service Connector
 
@@ -534,7 +534,7 @@ git checkout 20241029
 
 ---
 
-If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you checked out a tag.
+If you see a message about being in `detached HEAD` state, this message is safe to ignore. It just means you checked out a tag.
 
 ```
 java-app
@@ -553,20 +553,20 @@ java-app
 ├─ pom-azure-identity.xml
 ```
 
-The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
+The directories **java**, **resources**, and **webapp** contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-In the *aks* directory, the file *openlibertyapplication-passwordless-db.yaml* is used to deploy the application image. In the *docker* directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
+In the **aks** directory, the file **openlibertyapplication-passwordless-db.yaml** is used to deploy the application image. In the **docker** directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
 
-In directory *liberty/config*, the *server.xml* is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster. It defines a variable `azure.sql.connectionstring` that is used to connect to the Azure SQL Database.
+In directory **liberty/config**, the **server.xml** file is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster. It defines a variable `azure.sql.connectionstring` that is used to connect to the Azure SQL Database.
 
-The *pom.xml* file is the Maven project object model (POM) file that contains the configuration information for the project. The *pom-azure-identity.xml* file declares `azure-identity` dependency, which is used to authenticate to Azure services using Microsoft Entra ID.
+The **pom.xml** file is the Maven project object model (POM) file that contains the configuration information for the project. The **pom-azure-identity.xml** file declares `azure-identity` dependency, which is used to authenticate to Azure services using Microsoft Entra ID.
 
 > [!NOTE]
-> This sample uses `azure-identity` library to authenticate to Azure SQL Database using Microsoft Entra authentication, which is recommended for security considerations. If you need to use SQL authentication in your Liberty application, see [Relational database connections with JDBC](https://openliberty.io/docs/latest/relational-database-connections-JDBC.html) for more information.
+> This sample uses the `azure-identity` library to authenticate to Azure SQL Database using Microsoft Entra authentication, which is recommended for security considerations. If you need to use SQL authentication in your Liberty application, see [Relational database connections with JDBC](https://openliberty.io/docs/latest/relational-database-connections-JDBC.html) for more information.
 
 ### Build the project
 
-Now that you gathered the necessary properties, you can build the application. The POM file for the project reads many variables from the environment. As part of the Maven build, these variables are used to populate values in the YAML files located in *src/main/aks*. You can do something similar for your application outside Maven if you prefer.
+Now that you gathered the necessary properties, you can build the application. The POM file for the project reads many variables from the environment. As part of the Maven build, these variables are used to populate values in the YAML files located in **src/main/aks**. You can do something similar for your application outside Maven if you prefer.
 
 #### [Bash](#tab/in-bash)
 
@@ -631,7 +631,7 @@ You can now run and test the project locally before deploying to Azure. For conv
 
 1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser to verify the application is accessible and all functions are working.
 
-1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop. Select `Y` if you're asked to terminate batch job.
+1. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop. Select <kbd>Y</kbd> if you're asked to terminate the batch job.
 
 When you're finished, delete the firewall rule that allows your local IP address to access the Azure SQL Database by using the following command:
 
@@ -654,7 +654,7 @@ az sql server firewall-rule delete --resource-group $Env:RESOURCE_GROUP_NAME --s
 
 ### Build the image for AKS deployment
 
-You can now run the [az acr build](/cli/azure/acr#az-acr-build) command to build the image, as shown in the following example:
+You can now run the [`az acr build`](/cli/azure/acr#az-acr-build) command to build the image, as shown in the following example:
 
 ### [Bash](#tab/in-bash)
 
@@ -759,7 +759,7 @@ Use the following steps to deploy the Liberty application on the AKS cluster:
 
 When the application runs, a Kubernetes load balancer service exposes the application front end to the internet. This process can take a while to complete.
 
-To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument, as shown in the following example:
+To monitor progress, use the [`kubectl get service`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument, as shown in the following example:
 
 ### [Bash](#tab/in-bash)
 
@@ -782,7 +782,7 @@ NAME                        TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S
 javaee-cafe-cluster         LoadBalancer   10.0.251.169   52.152.189.57   80:31732/TCP     68s
 ```
 
-After the **EXTERNAL-IP** address changes from **pending** to an actual public IP address, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the `kubectl` watch process.
+After the `EXTERNAL-IP` address changes from `pending` to an actual public IP address, use <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the `kubectl` watch process.
 
 If some time passed between executing the steps in this section and the preceding one, ensure the database is active, if necessary. See the previous note regarding database pause.
 
@@ -795,7 +795,7 @@ Open a web browser to the external IP address of your service (`52.152.189.57` f
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, database, and all related resources.
+To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [`az group delete`](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, database, and all related resources.
 
 ### [Bash](#tab/in-bash)
 
