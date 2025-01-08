@@ -1,5 +1,5 @@
 ---
-title: Develop Java apps that use Azure AI services
+title: Develop Java Apps that Use Azure AI Services
 description: This article provides an organized list of resources about Azure AI scenarios for Java developers, including documentation and code samples.
 ms.topic: overview
 ms.date: 11/19/2024
