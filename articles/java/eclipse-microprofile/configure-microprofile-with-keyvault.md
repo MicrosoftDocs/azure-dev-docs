@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: jialuogan
 ms.date: 10/09/2024
 ms.topic: article
-ms.custom: devx-track-java, devx-track-azurecli-interactive, devx-track-extended-java, devx-track-javaee, devx-track-javaee-mp, devx-track-javaee-mp-aca
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, devx-track-javaee, devx-track-javaee-mp, devx-track-javaee-mp-aca
 ---
 
 # Configure MicroProfile with Azure Key Vault
