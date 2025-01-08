@@ -27,14 +27,14 @@ If you must limit the CPU, ensure that you apply the same value for both `limits
 > Set same value for CPU requests and CPU limits.
 
 ```yaml
-   containers:
-   - image: myimage
-     name: myapp
-     resources:
-       limits:
-         cpu: "2"
-       requests:
-         cpu: "2"
+containers:
+- image: myimage
+  name: myapp
+  resources:
+    limits:
+      cpu: "2"
+    requests:
+      cpu: "2"
 ```
 
 ### Understand JVM available processors
@@ -45,8 +45,8 @@ Kubernetes CPU quotas are related to the amount of time a process spends in the 
 
 To inform the JVM of the exact number of processors it should be seeing in a Kubernetes environment, use the following JVM flag:
 
-```Java
-   -XX:ActiveProcessorCount=N
+```java
+-XX:ActiveProcessorCount=N
 ```
 
 ## Set memory request and limits
@@ -57,14 +57,14 @@ Set the memory limits to the amount that you previously determined. Be sure the 
 > Set the memory requests equal to the memory limits.
 
 ```yaml
-   containers:
-     - name: myimage
-       image: myapp
-       resources:
-         limits:
-           memory: "4Gi"
-         requests:
-           memory: "4Gi"
+containers:
+  - name: myimage
+    image: myapp
+    resources:
+      limits:
+        memory: "4Gi"
+      requests:
+        memory: "4Gi"
 ```
 
 ## Set the JVM arguments in the deployment file
@@ -72,12 +72,12 @@ Set the memory limits to the amount that you previously determined. Be sure the 
 Remember to set the JVM heap memory to the amount you previously determined. We recommend that you pass this value as an environment variable so you can easily change it without needing to rebuild the container image.
 
 ```yaml
-   containers:
-     - name: myimage
-       image: myapp
-       env:
-       - name: JAVA_OPTS
-         value: "-XX:+UseParallelGC -XX:MaxRAMPercentage=75"
+containers:
+  - name: myimage
+    image: myapp
+    env:
+    - name: JAVA_OPTS
+      value: "-XX:+UseParallelGC -XX:MaxRAMPercentage=75"
 ```
 
 ## Next steps

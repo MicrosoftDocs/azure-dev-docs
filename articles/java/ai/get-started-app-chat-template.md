@@ -13,7 +13,7 @@ This article shows you how to deploy and run the [Chat with your data sample for
 
 * [Demo video](https://aka.ms/azai/java/video)
 
-By following the instructions in this article, you develop the following|:
+In this article, you accomplish the following tasks:
 
 - Deploy a chat app to Azure.
 - Get answers about employee benefits.
@@ -59,27 +59,19 @@ To use this article, you need the following prerequisites:
 
 #### [Codespaces (recommended)](#tab/github-codespaces)
 
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
-
-* Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-
-* Access granted to Azure OpenAI in the desired Azure subscription. Currently, only the application grants access to this service. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
-
-* GitHub account
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
+* Azure account permissions - your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+* Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
+* A GitHub account.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
+
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
-
-* Azure account permissions - Your Azure Account must have Microsoft.Authorization/roleAssignments/write permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-
-* Access granted to Azure OpenAI in the desired Azure subscription. Currently, only the application grants access to this service. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
-
+* Azure account permissions - Your Azure Account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+* Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
 * [Azure Developer CLI](/azure/developer/azure-developer-cli)
-
 * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
-
 * [Visual Studio Code](https://code.visualstudio.com/)
-
 * [Dev Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ---
@@ -107,8 +99,8 @@ Begin now with a development environment that has all the dependencies installed
 
 1. In the terminal at the bottom of the screen, sign in to Azure with the Azure Developer CLI.
 
-    ```azurecli
-       azd auth login
+    ```bash
+    azd auth login
     ```
 
 1. Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
@@ -122,29 +114,29 @@ The [Dev Containers extension](https://marketplace.visualstudio.com/items?itemNa
 1. Create a new local directory on your computer for the project.
 
     ```bash
-       mkdir my-intelligent-app && cd my-intelligent-app
+    mkdir my-intelligent-app && cd my-intelligent-app
     ```
 
 1. Open Visual Studio Code in that directory:
 
     ```bash
-       code .
+    code .
     ```
 
 1. Open a new terminal in Visual Studio Code.
 
 1. Run the following AZD command to bring the GitHub repository to your local computer.
 
-    ```azurecli
-       azd init -t azure-search-openai-demo-java
+    ```bash
+    azd init -t azure-search-openai-demo-java
     ```
 
 1. Open the Command Palette, search for and select **Dev Containers: Open Folder in Container** to open the project in a dev container. Wait until the dev container opens before continuing.
 
 1. Sign in to Azure with the Azure Developer CLI.
 
-    ```azurecli
-       azd auth login
+    ```bash
+    azd auth login
     ```
 
     Copy the code from the terminal and then paste it into a browser. Follow the instructions to authenticate with your Azure account.
@@ -164,8 +156,8 @@ The sample repository contains all the code and configuration files you need to 
 
 1. Provision the Azure resources and deploy the source code by running the following command:
 
-   ```azurecli
-      azd up
+   ```bash
+   azd up
    ```
 
 1. If you're prompted to enter an environment name, keep it short and lowercase, for example, `myenv`. It's used as part of the resource group name.
@@ -230,15 +222,15 @@ The following steps walk you through the process of changing the settings.
 1. Select the **Suggest follow-up questions** checkbox and ask the same question again.
 
     ```
-       What is my deductible?
+    What is my deductible?
     ```
 
     The chat returns suggested follow-up questions such as these:
 
     ```
-       1. What is the cost sharing for out-of-network services?
-       2. Are preventive care services subject to the deductible?
-       3. How does the prescription drug deductible work?
+    1. What is the cost sharing for out-of-network services?
+    2. Are preventive care services subject to the deductible?
+    3. How does the prescription drug deductible work?
     ```
 
 1. In the **Settings** tab, deselect **Use semantic ranker for retrieval**.
@@ -246,7 +238,7 @@ The following steps walk you through the process of changing the settings.
 1. Ask the same question again?
 
     ```
-       What is my deductible?
+    What is my deductible?
     ```
 
 1. What is the difference in the answers?
@@ -261,8 +253,8 @@ The following steps walk you through the process of changing the settings.
 
 The Azure resources created in this article are billed to your Azure subscription. If you don't expect to need these resources in the future, delete them to avoid incurring more charges. Use the following command to delete the Azure resources and remove the source code:
 
-```azurecli
-   azd down --purge
+```bash
+azd down --purge
 ```
 
 ### Clean up GitHub Codespaces
@@ -288,9 +280,9 @@ Deleting the GitHub Codespaces environment ensures that you can maximize the amo
 
 You aren't necessarily required to clean up your local environment, but you can stop the running development container and return to running Visual Studio Code in the context of a local workspace.
 
-1. Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
+Open the **Command Palette**, search for the **Dev Containers** commands, and then select **Dev Containers: Reopen Folder Locally**.
 
-    :::image type="content" source="./media/get-started-app-chat-template/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
+:::image type="content" source="./media/get-started-app-chat-template/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
 > Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
@@ -302,15 +294,12 @@ You aren't necessarily required to clean up your local environment, but you can 
 The app is separated out into two apps:
 
 * A front-end JavaScript application using the React framework with the Vite build tool.
-
 * A back-end Java application answers the question.
 
 The backend `/chat` API steps through the process of getting the answer:
 
 * Build RAG options: Create a set of options used to generate an answer.
-
 * Create approach using RAG options: Use a combination of retrieval-based and generative-based models to create an approach for generating an accurate and natural-sounding response.
-
 * Run the approach with RAG options and previous conversation: Use the approach and RAG options to generate an answer based on the previous conversation. The answer includes information about which documents were used to generate the response.
 
 ## Get help

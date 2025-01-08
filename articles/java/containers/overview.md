@@ -111,7 +111,7 @@ We recommend starting with two replicas or instances in container orchestration 
 Use the following JVM parameters:
 
 ```java
-   -XX:+UseParallelGC -XX:MaxRAMPercentage=75
+-XX:+UseParallelGC -XX:MaxRAMPercentage=75
 ```
 
 ## Containerize an existing on premises application
