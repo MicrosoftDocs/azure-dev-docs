@@ -83,4 +83,4 @@ AI app templates provide you with well-maintained, easy to deploy reference impl
 
 There are two categories of AI app templates, **building blocks** and **end-to-end solutions**. Building blocks are smaller-scale samples that focus on specific scenarios and tasks. End-to-end solutions are comprehensive reference samples including documentation, source code, and deployment to allow you to take and extend for your own purposes.
 
-To review a list of key templates available for each programming language, see [AI app templates](/azure/developer/ai/intelligent-app-templates&pivots=javascript). To browse all available templates, see the AI app templates on the [AI App Template gallery](https://azure.github.io/ai-app-templates?tags=azureopenai&tags=javascript).
+To review a list of key templates available for each programming language, see [AI app templates](/azure/developer/ai/intelligent-app-templates?pivots=javascript). To browse all available templates, see the AI app templates on the [AI App Template gallery](https://azure.github.io/ai-app-templates?tags=azureopenai&tags=javascript).
