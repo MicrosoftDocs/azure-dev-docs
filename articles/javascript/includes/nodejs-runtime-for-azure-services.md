@@ -9,13 +9,6 @@ When using Azure hosting services, you can select either to deploy a container t
 
 To find runtime information, use the following table:
 
-|Service|Version information|
-|--|--|
-|[Azure App Service](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/node_support.md)|For Linux runtimes. You can also run the following Azure CLI command to see all supported versions.|
-|[Azure Functions](/azure/azure-functions/functions-reference-node?tabs=javascript%2Cwindows%2Cazure-cli&pivots=nodejs-model-v4#supported-versions)|New projects should use the most recent programming model.|
-|[Azure Static Web Apps (SWA)](/azure/static-web-apps/languages-runtimes)|There are two different runtimes to consider: the front end and the API if you are hosting your API in Static Web Apps.|
-|[SWA CLI](https://github.com/Azure/static-web-apps-cli/blob/main/package.json#L138)|The SWA CLI provides development environment functionality including proxy, authentication, and other configurations.|
-
 :::row:::
    :::column span="1":::
       **Service**
