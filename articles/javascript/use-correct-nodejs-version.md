@@ -41,7 +41,7 @@ To find runtime information, use the following table:
 
 ## Azure SDKs
 
-The Azure SDKs also work with Node.js LTS versions, however there may be a period of time where the list of LTS versions for the hosting environment and the SDKs do not exactly match because it takes time to move verify each continues to run correctly on the next LTS version. Because there are usually 3 versions of Node.js marked as Long Term Support versions, you can usually target the middle version. This target allows you some time to test and verify your application can move to the next LTS version. 
+The Azure SDKs also work with Node.js LTS versions as stated in the [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md#microsoft-support-policy), however there may be a period of time where the list of LTS versions for the hosting environment and the rumtime versions of the SDKs do not exactly match because it takes time to move verify each continues to run correctly on the next LTS version. Because there are usually 3 versions of Node.js marked as Long Term Support versions, you can usually target the middle version. This target allows you some time to test and verify your application can move to the next LTS version. 
 
 ## Compatibility issues
 
@@ -72,6 +72,5 @@ By ensuring that all environments use the same version of Node.js, you can mitig
 
 ## Related content
 
-- [Related article title](link.md)
-- [Related article title](link.md)
-- [Related article title](link.md)
+- [App Service runtime support](/Azure/app-service-linux-docs/blob/master/Runtime_Support/node_support)
+- [Azure SDK support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md#microsoft-support-policy)
