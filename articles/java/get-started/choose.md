@@ -128,7 +128,7 @@ Like anything else, there are exceptions to A+B. The following list isn't exhaus
 
 - Too far down the line with execution. You might have chosen a solution before going through the A+B analysis. If you're already deep into execution of your solution, continue with it, but for the next application, use the principles of the A+B mindset to choose the right solution for your use case.
 
-- Large scale data center migrations. To accelerate their journey to the cloud, enterprises commonly use a lift and shift strategy that involves migrating servers (hosting their applications) in bulk to Azure using tools like Azure Migrate. Some use this approach to migrate data centers to Azure and shut them down in an efficient and cost-effective manner. In this scenario, we recommend using the A+B mindset to modernize applications after migrating to Azure.
+- Large scale data center migrations. To accelerate their journey to the cloud, enterprises commonly use a lift and shift strategy, which involves migrating servers (hosting their applications) in bulk to Azure using tools like Azure Migrate. Some use this approach to migrate data centers to Azure and shut them down in an efficient and cost-effective manner. In this scenario, we recommend using the A+B mindset to modernize applications after migrating to Azure.
 
 ### Key considerations
 
