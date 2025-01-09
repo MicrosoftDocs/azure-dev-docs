@@ -1,23 +1,56 @@
 ---
 ms.custom: devx-track-js
-ms.topic: include
-ms.date: 08/09/2022
+ms.topic: include01/09/2025
 ---
 
-In order to host your JavaScript apps in an Azure hosting environment, make sure your local development environment Node.js runtime mimics the Azure hosting runtime you intend to use. 
 
-* Azure [App service](/azure/app-service/) uses the Node.js runtime engine. To show all supported Node.js versions, run the following command in the [Cloud Shell](https://shell.azure.com):
+When using Azure hosting services, you can select either to deploy a container to the host or select a Node.js version as the runtime for the host. In both cases, you need to align the version of the runtime, the application code, and the dependencies such as the Azure SDKs. 
 
-    ```azurecli-interactive
-    az webapp list-runtimes | grep node
-    ```
+To find runtime information, use the following table:
 
-* Azure [Static Web App run times](/azure/static-web-apps/apis) are only relevant to the Function APIs. 
+|Service|Version information|
+|--|--|
+|[Azure App Service](/Azure/app-service-linux-docs/blob/master/Runtime_Support/node_support.md#support-timeline)|For Linux runtimes. You can also run the following Azure CLI command to see all supported versions.|
+|[Azure Functions](/azure/azure-functions/functions-reference-node?tabs=javascript%2Cwindows%2Cazure-cli&pivots=nodejs-model-v4#supported-versions)|New projects should use the most recent programming model.|
+|[Azure Static Web Apps (SWA)](/azure/static-web-apps/languages-runtimes)|There are two different runtimes to consider: the front end and the API if you are hosting your API in Static Web Apps.|
+|[SWA CLI](https://github.com/Azure/static-web-apps-cli/blob/main/package.json#L138)|The SWA CLI provides development environment functionality including proxy, authentication, and other configurations.|
 
-* Azure [Functions supported Node.js versions](/azure/azure-functions/functions-reference-node?tabs=v2#node-version) are based on which version of Functions you use. 
+:::row:::
+   :::column span="1":::
+      **Service**
+   :::column-end:::
+   :::column span="2":::
+      **Version information**
+   :::column-end:::
+:::row-end:::
 
-* Custom run times - a custom runtime is supported in the following ways:
+:::row:::
+   :::column span="1":::
+      [Azure App Service](/Azure/app-service-linux-docs/blob/master/Runtime_Support/node_support.md#support-timeline)
+   :::column-end:::
+   :::column span="2":::
+      For Linux runtimes. You can also run the following Azure CLI command to see all supported versions.<br>
+          
+        ```azurecli-interactive
+        az webapp list-runtimes | grep node
+        ```
+   :::column-end:::
+:::row-end:::
 
-    * [Virtual machines](/azure/virtual-machines/)
-    * Containers - [single](/azure/container-instances/), [web app](/azure/app-service/), [Kubernetes](/azure/aks/)
-    * (serverless) Functions - use [custom handlers](/azure/azure-functions/functions-custom-handlers)
+:::row:::
+   :::column span="1":::
+      [Azure Functions](/azure/azure-functions/functions-reference-node?tabs=javascript%2Cwindows%2Cazure-cli&pivots=nodejs-model-v4#supported-versions)
+   :::column-end:::
+   :::column span="2":::
+      New projects should use the most recent programming model.
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="1":::
+      [Azure Static Web Apps (SWA)](/azure/static-web-apps/languages-runtimes)
+   :::column-end:::
+   :::column span="2":::
+      There are two different runtimes to consider: the front end and the API if you are hosting your API in Static Web Apps.
+   :::column-end:::
+:::row-end:::

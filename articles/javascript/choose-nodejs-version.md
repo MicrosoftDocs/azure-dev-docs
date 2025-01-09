@@ -11,7 +11,7 @@ When developing JavaScript applications for deployment on Azure, it's crucial to
 
 ## Prerequisites
 
-All Azure SDKS and hosting services use LTS versions of Node.js. If your application code has been running in a prior version of Node.js, no longer available for Long Term Support (LTS), you should update your application source code to run in an LTS runtime. 
+All Azure SDKS and hosting services use [LTS versions of Node.js](https://nodejs.org/). If your application code has been running in a prior version of Node.js, no longer available for Long Term Support (LTS), you should update your application source code to run in an LTS runtime. 
 
 You should also know which hosting service you intend to deploy to and any Azure services your deployed application uses.
 
@@ -28,20 +28,25 @@ For an explanation of issues related to using different versions across your env
 
 ## Hosting services
 
-When using Azure hosting services, you can select either to deploy a container to the host or select a Node.js version as the runtime for the host. In both cases, you need to align the version of the runtime, the application code, and the dependencies such as the Azure SDKs. 
-
-To find runtime information, use the following table:
-
-|Service|Version information|
-|--|--|
-|[Azure App Service](/Azure/app-service-linux-docs/blob/master/Runtime_Support/node_support.md#support-timeline)|For Linux runtimes|
-|[Azure Functions](/azure/azure-functions/functions-reference-node?tabs=javascript%2Cwindows%2Cazure-cli&pivots=nodejs-model-v4#supported-versions)|New projects should use the most recent programming model.|
-|[Azure Static Web Apps (SWA)](/azure/static-web-apps/languages-runtimes)|There are two different runtimes to consider: the front end and the API if you are hosting your API in Static Web Apps.|
-|[SWA CLI](https://github.com/Azure/static-web-apps-cli/blob/main/package.json#L138)|The SWA CLI provides development environment functionality including proxy, authentication, and other configurations.|
+[!INCLUDE [Azure services Node.js minimum version](../includes/nodejs-runtime-for-azure-services.md)]
 
 ## Azure SDKs
 
 The Azure SDKs also work with Node.js LTS versions as stated in the [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md#microsoft-support-policy), however there may be a period of time where the list of LTS versions for the hosting environment and the rumtime versions of the SDKs do not exactly match because it takes time to move verify each continues to run correctly on the next LTS version. Because there are usually 3 versions of Node.js marked as Long Term Support versions, you can usually target the middle version. This target allows you some time to test and verify your application can move to the next LTS version. 
+
+### Manage multiple versions of Node.js
+
+When you need to manage more than one version of Node.js across your local and remote environments, we recommend:
+
+* [**Development Containers**](https://containers.dev/): Use a container with a specific Node.js version. You can manage the version of Node.js across several environments using containers. Visual Studio Code's [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) simplifies this process.
+* **NVM (Node Version Manager)**: A command-line interface to set or switch your local version of Node.js.
+
+### Download and install Node.js based on your intended use
+
+You can download and install Node.js based on your requirements.
+
+* [Node.js Download page](https://nodejs.org/)
+* [Official Docker image](https://hub.docker.com/_/node/)
 
 ## Compatibility issues
 

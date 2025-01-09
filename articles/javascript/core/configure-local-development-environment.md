@@ -82,25 +82,7 @@ The following common local workstation installations are recommended to help wit
 
 ## Install Node.js
 
-The Azure SDK supports the [Node.js Long Term Support (LTS) version](https://nodejs.org/). Read the [Azure SDK Support Policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md#microsoft-support-policy) for more details.
-
-### Azure services Node.js minimum version
-
-[!INCLUDE [Azure services Node.js minimum version](../includes/nodejs-runtime-for-azure-services.md)]
-
-### Manage multiple versions of Node.js
-
-When you need to manage more than one version of Node.js across your local and remote environments, we recommend:
-
-* [**Development Containers**](https://containers.dev/): Use a container with a specific Node.js version. You can manage the version of Node.js across several environments using containers. Visual Studio Code's [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) simplifies this process.
-* **NVM (Node Version Manager)**: A command-line interface to set or switch your local version of Node.js.
-
-### Download and install Node.js based on your intended use
-
-You can download and install Node.js based on your requirements.
-
-* [Node.js Download page](https://nodejs.org/)
-* [Official Docker image](https://hub.docker.com/_/node/)
+Azure supports [LTS versions of Node.js](https://nodejs.org/). Learn more about [selecting a version of Node.js for Azure](../choose-nodejs-version.md).
 
 ## One-time configuration for authentication
 
