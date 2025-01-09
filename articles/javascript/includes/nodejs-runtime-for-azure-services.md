@@ -23,7 +23,7 @@ To find runtime information, use the following table:
       [Azure App Service](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/node_support.md)
    :::column-end:::
    :::column span="2":::
-      For Linux runtimes. You can also run the following Azure CLI command to see all supported versions.<br>
+      For Linux runtimes. You can also run the following Azure CLI command to see all supported versions.
           
         ```azurecli-interactive
         az webapp list-runtimes | grep node

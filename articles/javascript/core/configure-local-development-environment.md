@@ -17,26 +17,26 @@ This article provides setup instructions to create and validate a local developm
 [Azure resources](/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources?tabs=AzureManagementGroupsAndHierarchy) are created within a subscription and resource group. 
 
 :::row:::
-    :::column:::
+    :::column span="1":::
         **Type**
     :::column-end:::
-    :::column:::
+    :::column span="2":::
         **Description**
     :::column-end:::
 :::row-end:::
 :::row:::
-    :::column:::
+    :::column span="1":::
         Trial subscription
     :::column-end:::
-    :::column:::
+    :::column span="2":::
         Create a _free_ [trial subscription](https://azure.microsoft.com/free/).
     :::column-end:::
 :::row-end:::
 :::row:::
-    :::column:::
+    :::column span="1":::
         Existing subscription
     :::column-end:::
-    :::column:::
+    :::column span="2":::
         If you already have a subscription, access your existing subscription with:
 * [Azure portal](https://portal.azure.com)
 * [Azure CLI](/cli/azure/install-azure-cli)
@@ -45,10 +45,10 @@ This article provides setup instructions to create and validate a local developm
     :::column-end:::
 :::row-end:::
 :::row:::
-    :::column:::
+    :::column span="1":::
         Across multiple subscriptions
     :::column-end:::
-    :::column:::
+    :::column span="2" :::
         If you need to manage multiple subscriptions, [learn how](/azure/governance/management-groups/create-management-group-javascript) to create a management group with JavaScript.
     :::column-end:::
 :::row-end:::
