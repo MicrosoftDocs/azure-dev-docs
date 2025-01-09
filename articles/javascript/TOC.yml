@@ -7,6 +7,8 @@
       href: core/what-is-azure-for-javascript-development.md
     - name: Development environment
       href: core/configure-local-development-environment.md
+    - name: Choose Node.js version
+      href: choose-nodejs-version.md
     - name: Recommended Tools
       href: node-azure-tools.md
   - name: Host and build web apps
