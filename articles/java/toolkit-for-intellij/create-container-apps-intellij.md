@@ -77,7 +77,7 @@ To deploy the container app, use the following steps:
 
 #### [SourceCode](#tab/sourcecode)
 
-1. Right-click the container apps environment you created, and select **Create** > **Container App** in Azure Explorer. Then, enter the following information:
+1. Right-click the Container Apps environment you created, and select **Create** > **Container App** in Azure Explorer. Then, enter the following information:
 
     - **Subscription**: The Azure subscription to use.
     - **Resource Group**: The resource group for your container apps. Select one of the following options:
