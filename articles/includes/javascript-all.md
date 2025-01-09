@@ -39,13 +39,13 @@
 | Core - Client - Auth | npm [1.9.0](https://www.npmjs.com/package/@azure/core-auth/v/1.9.0) | [docs](/javascript/api/overview/azure/core-auth-readme) | GitHub [1.9.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-auth_1.9.0/sdk/core/core-auth/) |
 | Core - Client - Client | npm [1.9.2](https://www.npmjs.com/package/@azure/core-client/v/1.9.2) | [docs](/javascript/api/overview/azure/core-client-readme) | GitHub [1.9.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.9.2/sdk/core/core-client/) |
 | Core - Client - Client Paging | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-paging/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client-paging_1.0.0-beta.1/sdk/core/core-client-paging-rest/) |
-| Core - Client - Core Rest Pipeline | npm [1.18.1](https://www.npmjs.com/package/@azure/core-rest-pipeline/v/1.18.1) | [docs](/javascript/api/overview/azure/core-rest-pipeline-readme) | GitHub [1.18.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.18.1/sdk/core/core-rest-pipeline/) |
+| Core - Client - Core Rest Pipeline | npm [1.18.2](https://www.npmjs.com/package/@azure/core-rest-pipeline/v/1.18.2) | [docs](/javascript/api/overview/azure/core-rest-pipeline-readme) | GitHub [1.18.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.18.2/sdk/core/core-rest-pipeline/) |
 | Core - Client - Core Utils | npm [1.11.0](https://www.npmjs.com/package/@azure/core-util/v/1.11.0) | [docs](/javascript/api/overview/azure/core-util-readme) | GitHub [1.11.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.11.0/sdk/core/core-util/) |
 | Core - Client - HTTP | npm [3.0.5](https://www.npmjs.com/package/@azure/core-http/v/3.0.5) | [docs](/javascript/api/overview/azure/core-http-readme) | GitHub [3.0.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_3.0.5/sdk/core/core-http/) |
 | Core - Client - Http Compat | npm [2.1.2](https://www.npmjs.com/package/@azure/core-http-compat/v/2.1.2) | [docs](/javascript/api/overview/azure/core-http-compat-readme) | GitHub [2.1.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http-compat_2.1.2/sdk/core/core-http-compat/) |
 | Core - Client - Logger | npm [1.1.4](https://www.npmjs.com/package/@azure/logger/v/1.1.4) | [docs](/javascript/api/overview/azure/logger-readme) | GitHub [1.1.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/logger_1.1.4/sdk/core/logger/) |
 | Core - Client - LRO | npm [3.1.0](https://www.npmjs.com/package/@azure/core-lro/v/3.1.0) | [docs](/javascript/api/overview/azure/core-lro-readme) | GitHub [3.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_3.1.0/sdk/core/core-lro/) |
-| Core - Client - Rest | npm [2.3.1](https://www.npmjs.com/package/@azure-rest/core-client/v/2.3.1) |  | GitHub [2.3.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.3.1/sdk/core/core-client-rest/) |
+| Core - Client - Rest | npm [2.3.2](https://www.npmjs.com/package/@azure-rest/core-client/v/2.3.2) |  | GitHub [2.3.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_2.3.2/sdk/core/core-client-rest/) |
 | Core - Client - Tracing | npm [1.2.0](https://www.npmjs.com/package/@azure/core-tracing/v/1.2.0) | [docs](/javascript/api/overview/azure/core-tracing-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.2.0/sdk/core/core-tracing/) |
 | Core - Client - XML | npm [1.4.4](https://www.npmjs.com/package/@azure/core-xml/v/1.4.4) | [docs](/javascript/api/overview/azure/core-xml-readme) | GitHub [1.4.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.4.4/sdk/core/core-xml/) |
 | Core - Paging | npm [1.6.2](https://www.npmjs.com/package/@azure/core-paging/v/1.6.2) | [docs](/javascript/api/overview/azure/core-paging-readme) | GitHub [1.6.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-paging_1.6.2/sdk/core/core-paging/) |
@@ -307,7 +307,7 @@
 | Resource Management - Policy Insights | npm [5.0.0](https://www.npmjs.com/package/@azure/arm-policyinsights/v/5.0.0)<br>npm [6.0.0-beta.3](https://www.npmjs.com/package/@azure/arm-policyinsights/v/6.0.0-beta.3) | [docs](/javascript/api/overview/azure/arm-policyinsights-readme) | GitHub [5.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policyinsights/arm-policyinsights) |
 | Resource Management - Portal | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/arm-portal/v/1.0.0-beta.5) | [docs](/javascript/api/overview/azure/arm-portal-readme) | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-portal_1.0.0-beta.5/sdk/portal/arm-portal/) |
 | Resource Management - PostgreSQL | npm [6.1.0](https://www.npmjs.com/package/@azure/arm-postgresql/v/6.1.0) | [docs](/javascript/api/overview/azure/arm-postgresql-readme) | GitHub [6.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/postgresql/arm-postgresql) |
-| Resource Management - Postgresql | npm [7.1.0](https://www.npmjs.com/package/@azure/arm-postgresql-flexible/v/7.1.0)<br>npm [8.0.0-beta.6](https://www.npmjs.com/package/@azure/arm-postgresql-flexible/v/8.0.0-beta.6) | [docs](/javascript/api/overview/azure/arm-postgresql-flexible-readme) | GitHub [7.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-postgresql-flexible_7.1.0/sdk/postgresql/arm-postgresql-flexible/)<br>GitHub [8.0.0-beta.6](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-postgresql-flexible_8.0.0-beta.6/sdk/postgresql/arm-postgresql-flexible/) |
+| Resource Management - Postgresql | npm [8.0.0](https://www.npmjs.com/package/@azure/arm-postgresql-flexible/v/8.0.0) | [docs](/javascript/api/overview/azure/arm-postgresql-flexible-readme) | GitHub [8.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-postgresql-flexible_8.0.0/sdk/postgresql/arm-postgresql-flexible/) |
 | Resource Management - Power BI Dedicated | npm [4.0.1](https://www.npmjs.com/package/@azure/arm-powerbidedicated/v/4.0.1) | [docs](/javascript/api/overview/azure/arm-powerbidedicated-readme) | GitHub [4.0.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/powerbidedicated/arm-powerbidedicated) |
 | Resource Management - Power BI Embedded | npm [2.0.2](https://www.npmjs.com/package/@azure/arm-powerbiembedded/v/2.0.2) | [docs](/javascript/api/overview/azure/arm-powerbiembedded-readme) | GitHub [2.0.2](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/powerbiembedded/arm-powerbiembedded) |
 | Resource Management - Private DNS | npm [3.3.0](https://www.npmjs.com/package/@azure/arm-privatedns/v/3.3.0) | [docs](/javascript/api/overview/azure/arm-privatedns-readme) | GitHub [3.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/privatedns/arm-privatedns) |
@@ -372,7 +372,7 @@
 | Resource Management - Template Specs | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-templatespecs/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-templatespecs-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-templatespecs_2.1.0/sdk/templatespecs/arm-templatespecs/) |
 | @autorest/openapi-to-typespec | npm [0.10.6](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.10.6) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
-| @azure-tools/rest-api-diff | npm [0.1.7](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.1.7) |  |  |
+| @azure-tools/rest-api-diff | npm [0.1.8](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.1.8) |  |  |
 | @azure-tools/test-perf | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
 | @azure-tools/test-utils | npm [1.0.1](https://www.npmjs.com/package/@azure-tools/test-utils/v/1.0.1) |  |  |
 | @azure-tools/typespec-autorest-canonical | npm [0.10.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.10.0) |  |  |
@@ -405,11 +405,11 @@
 | tmlanguage-generator | npm [0.5.10](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.10) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/maps-timezone/v/1.0.0-beta.1) |  |  |
 | Unknown Display Name | npm [0.1.2](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.1.2) |  |  |
-| Unknown Display Name | npm [0.5.1](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.5.1) |  |  |
+| Unknown Display Name | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.6.0) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/ai-projects/v/1.0.0-beta.2) |  |  |
 | Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/events/v/0.63.0) |  |  |
 | Unknown Display Name | npm [0.1.5](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.5) |  |  |
-| Unknown Display Name | npm [0.5.1](https://www.npmjs.com/package/@typespec/http-client-python/v/0.5.1) |  |  |
+| Unknown Display Name | npm [0.6.0](https://www.npmjs.com/package/@typespec/http-client-python/v/0.6.0) |  |  |
 | Unknown Display Name | npm [0.1.0-alpha.5](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.5) |  |  |
 | Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/sse/v/0.63.0) |  |  |
 | Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/streams/v/0.63.0) |  |  |
@@ -491,7 +491,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250104.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250104.1) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250109.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250109.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
