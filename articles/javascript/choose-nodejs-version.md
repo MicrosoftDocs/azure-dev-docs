@@ -28,7 +28,7 @@ For an explanation of issues related to using different versions across your env
 
 ## Hosting services
 
-[!INCLUDE [Azure services Node.js minimum version](../includes/nodejs-runtime-for-azure-services.md)]
+[!INCLUDE [Azure services Node.js minimum version](./includes/nodejs-runtime-for-azure-services.md)]
 
 ## Azure SDKs
 
@@ -77,5 +77,5 @@ By ensuring that all environments use the same version of Node.js, you can mitig
 
 ## Related content
 
-- [App Service runtime support](/Azure/app-service-linux-docs/blob/master/Runtime_Support/node_support)
+- [App Service runtime support](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/node_support.md)
 - [Azure SDK support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md#microsoft-support-policy)
