@@ -324,7 +324,16 @@ If you signed in to the container registry instance successfully, you should see
 
 ### Create an environment
 
-An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. Use the [`az containerapp env create`](/cli/azure/containerapp/env#az-containerapp-env-create) command to create an environment, as shown in the following example:
+An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
+
+If this is your first time to create an Azure Container Apps environment, you probably need to register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces. Use the following commands to register the namespaces:
+
+```azurecli
+az provider register --namespace Microsoft.App --wait
+az provider register --namespace Microsoft.OperationalInsights --wait
+```
+
+Now, use the [`az containerapp env create`](/cli/azure/containerapp/env#az-containerapp-env-create) command to create an environment, as shown in the following example:
 
 ```azurecli
 az containerapp env create \
