@@ -1,7 +1,7 @@
 ---
 title: "Credential chains in the Azure library for JavaScript"
 description: This article describes the DefaultAzureCredential and ChainedTokenCredential classes in the Azure Identity client library for JavaScript.
-ms.date: 12/04/2024
+ms.date: 01/10/2025
 ms.topic: concept-article
 ms.custom: devx-track-js
 #customer intent: As a JavaScript developer new to Azure, I want understand credential chains so that select the appropriate chain and understand how to configure and debug it.
@@ -95,9 +95,9 @@ import {
     AzureCliCredential 
 } from "@azure/identity";
 
-const credential = ChainedTokenCredential(
-    ManagedIdentityCredential({ clientId: "<YOUR_CLIENT_ID>" }),
-    AzureCliCredential()
+const credential = new ChainedTokenCredential(
+    new ManagedIdentityCredential({ clientId: "<YOUR_CLIENT_ID>" }),
+    new AzureCliCredential()
 );
 ```
 
