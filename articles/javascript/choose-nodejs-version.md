@@ -7,7 +7,7 @@ ms.date: 01/07/2025
 ---
 # Choose the right Node.js Version for Azure
 
-When developing JavaScript applications for Azure, it's crucial to the versions of Node.js in your local development environment and host runtime environment. This version alignment ensures compatibility, reduces the likelihood of runtime errors, and uses the full capabilities of the Azure platform. In this article, you learn how to select the appropriate Node.js version for your Azure-hosted applications and services.
+When developing JavaScript applications for Azure, it's crucial to align the versions of Node.js in your local development environment and host runtime environment. This version alignment ensures compatibility, reduces the likelihood of runtime errors, and uses the full capabilities of the Azure platform. In this article, you learn how to select the appropriate Node.js version for your Azure-hosted applications and services.
 
 ## Prerequisites
 
@@ -52,10 +52,11 @@ You can download and install Node.js based on your requirements.
 
 Here are some common categories of compatibility issues that can arise when Node.js versions don't match across environments:
 
+- **Security Vulnerabilities**: Using an outdated version with known security vulnerabilities can expose your application to security risks.
 - **Syntax Errors**: Applications which use the latest JavaScript syntax, not supported by older Node.js versions, can cause syntax errors. These errors prevent the application from running.
 - **Deprecated APIs**: APIs which are deprecated in newer Node.js versions can still be present in older versions, leading to unexpected behavior or runtime errors if the versions aren't aligned.
 - **Performance Degradation**: Newer Node.js versions often include performance improvements. Running your application on an older version can result in slower execution times and reduced performance.
-- **Security Vulnerabilities**: Using an outdated version with known security vulnerabilities can expose your application to security risks.
+
 - **Inconsistent Behavior**: Differences in how Node.js versions handle certain operations, such as buffer handling, event loop behavior, or module resolution, can lead to inconsistent behavior across environments.
 - **Dependency Conflicts**: Node.js modules or packages that are compatible with one version of Node.js may not be compatible with another, causing dependency conflicts and runtime errors.
 - **Build Failures**: CI/CD pipelines using a different Node.js version than the local development environment can lead to build failures, causing delays in the development and release process.
