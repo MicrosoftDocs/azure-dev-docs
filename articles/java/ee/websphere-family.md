@@ -1,5 +1,5 @@
 ---
-title: "What are solutions to run the WebSphere family of products on Azure"
+title: What are Solutions to Run the WebSphere Family of Products on Azure
 description: WebSphere products are key components in enabling enterprise Java workloads on Azure. IBM and Microsoft collaborate on a complete set of jointly developed and supported solutions for the product family.
 recommendations: false
 author: KarlErickson

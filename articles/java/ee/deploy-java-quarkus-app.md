@@ -1,5 +1,5 @@
 ---
-title: "Deploy Quarkus on Azure Container Apps"
+title: Deploy a Java Application with Quarkus on Azure Container Apps
 description: Shows how to quickly stand up Quarkus on Azure Container Apps.
 author: KarlErickson
 ms.author: jiangma
@@ -8,9 +8,9 @@ ms.date: 12/16/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-aca, devx-track-extended-java, devx-track-azurecli
 ---
 
-# Deploy a Java application with Quarkus on an Azure Container Apps
+# Deploy a Java application with Quarkus on Azure Container Apps
 
-This article shows you how to quickly deploy Red Hat Quarkus on Microsoft Azure Container Apps with a simple CRUD application. The application is a "to do list" with a JavaScript front end and a REST endpoint. Azure Database for PostgreSQL Flexible Server provides the persistence layer for the app. The article shows you how to test your app locally and deploy it to Container Apps.
+This article shows you how to quickly deploy Red Hat Quarkus on Microsoft Azure Container Apps with a simple CRUD application. The application is a "to do list" with a JavaScript front end and a REST endpoint. Azure Database for PostgreSQL flexible server provides the persistence layer for the app. The article shows you how to test your app locally and deploy it to Container Apps.
 
 ## Prerequisites
 
@@ -23,13 +23,13 @@ This article shows you how to quickly deploy Red Hat Quarkus on Microsoft Azure 
 - Install [cURL](https://curl.se/download.html).
 - Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling), version 3.12.1 or higher.
 - Install the [Azure CLI](/cli/azure/install-azure-cli) to run Azure CLI commands.
-  - Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli).
-  - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-  - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.61.0 of Azure CLI.
+    - Sign in to the Azure CLI by using the [`az login`](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign into Azure with Azure CLI](/cli/azure/authenticate-azure-cli#sign-into-azure-with-azure-cli).
+    - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+    - Run [`az version`](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [`az upgrade`](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.61.0 of Azure CLI.
 
 ## Create the app project
 
-Use the following command to clone the sample Java project for this article. The sample is on [GitHub](https://github.com/Azure-Samples/quarkus-azure).
+Use the following commands to clone the sample Java project for this article. The sample is on [GitHub](https://github.com/Azure-Samples/quarkus-azure).
 
 ```bash
 git clone https://github.com/Azure-Samples/quarkus-azure
@@ -38,7 +38,7 @@ git checkout 2024-10-14
 cd aca-quarkus
 ```
 
-If you see a message about being in *detached HEAD* state, this message is safe to ignore. Because this article doesn't require any commits, detached HEAD state is appropriate.
+If you see a message about being in `detached HEAD` state, this message is safe to ignore. Because this article doesn't require any commits, `detached HEAD` state is appropriate.
 
 ## Test your Quarkus app locally
 
@@ -78,7 +78,7 @@ Press <kbd>w</kbd> on the terminal where Quarkus dev mode is running. The <kbd>w
 
 :::image type="content" source="media/deploy-java-quarkus-app/demo.png" alt-text="Screenshot of the Todo sample app." lightbox="media/deploy-java-quarkus-app/demo.png":::
 
-Try selecting a few todo items in the todo list. The UI indicates selection with a strikethrough text style. You can also add a new todo item to the todo list by typing *Verify Todo apps* and pressing <kbd>ENTER</kbd>, as shown in the following screenshot:
+Try selecting a few todo items in the todo list. The UI indicates selection with a strikethrough text style. You can also add a new todo item to the todo list by typing **Verify Todo apps** and pressing <kbd>ENTER</kbd>, as shown in the following screenshot:
 
 :::image type="content" source="media/deploy-java-quarkus-app/demo-local.png" alt-text="Screenshot of the Todo sample app with new items added." lightbox="media/deploy-java-quarkus-app/demo-local.png":::
 
@@ -170,7 +170,7 @@ export ACA_NAME=${UNIQUE_VALUE}acapasswordless
 
 ### [Password](#tab/password)
 
-Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE`, `LOCATION` and `DB_PASSWORD` with your own values and run the commands in your terminal.
+Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE`, `LOCATION`, and `DB_PASSWORD` with your own values and run the commands in your terminal.
 
 ```bash
 export UNIQUE_VALUE=<your unique value, such as mjg101424>
@@ -195,9 +195,9 @@ az group create \
     --location $LOCATION
 ```
 
-### Create an Azure Database for PostgreSQL Flexible Server
+### Create an Azure Database for PostgreSQL flexible server instance
 
-Azure Database for PostgreSQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. This section shows you how to create an Azure Database for PostgreSQL Flexible Server instance using the Azure CLI. For more information, see [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server instance using Azure CLI](/azure/postgresql/flexible-server/quickstart-create-server-cli).
+Azure Database for PostgreSQL flexible server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. This section shows you how to create an Azure Database for PostgreSQL flexible server instance using the Azure CLI. For more information, see [Quickstart: Create an instance of Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/quickstart-create-server).
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -284,7 +284,7 @@ It takes a few minutes to create the server, database, admin user, and firewall 
 
 Because Quarkus is a cloud native technology, it has built-in support for creating containers that run in Container Apps. Container Apps is entirely dependent on having a container registry from which it finds the container images to run. Container Apps has built-in support for Azure Container Registry.
 
-Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the Container Registry instance. The following example creates n Container Registry instance named with the value of your environment variable `${REGISTRY_NAME}`:
+Use the [`az acr create`](/cli/azure/acr#az-acr-create) command to create the Container Registry instance. The following example creates n Container Registry instance named with the value of your environment variable `${REGISTRY_NAME}`:
 
 ```azurecli
 az acr create \
@@ -302,7 +302,7 @@ After a short time, you should see JSON output that contains the following lines
   "resourceGroup": "<YOUR_RESOURCE_GROUP>",
 ```
 
-Get the login server for the Container Registry instance by using the following command:
+Get the login server for the container registry instance by using the following command:
 
 ```azurecli
 export LOGIN_SERVER=$(az acr show \
@@ -312,19 +312,28 @@ export LOGIN_SERVER=$(az acr show \
 echo $LOGIN_SERVER
 ```
 
-### Connect your docker to the Container Registry instance
+### Connect your Docker to the Azure Container Registry instance
 
-Sign in to the Container Registry instance. Signing in lets you push an image. Use the following command to sign in to the registry:
+Sign in to the container registry instance. Signing in lets you push an image. Use the following command to sign in to the registry:
 
 ```azurecli
 az acr login --name $REGISTRY_NAME
 ```
 
-If you've signed into the Container Registry instance successfully, you should see `Login Succeeded` at the end of command output.
+If you signed in to the container registry instance successfully, you should see `Login Succeeded` at the end of command output.
 
 ### Create an environment
 
-An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace. Use the [az containerapp env create](/cli/azure/containerapp/env#az-containerapp-env-create) command to create an environment, as shown in the following example:
+An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
+
+If this is your first time to create an Azure Container Apps environment, you probably need to register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces. Use the following commands to register the namespaces:
+
+```azurecli
+az provider register --namespace Microsoft.App --wait
+az provider register --namespace Microsoft.OperationalInsights --wait
+```
+
+Now, use the [`az containerapp env create`](/cli/azure/containerapp/env#az-containerapp-env-create) command to create an environment, as shown in the following example:
 
 ```azurecli
 az containerapp env create \
@@ -345,7 +354,7 @@ To generate the container image, use the following command to add the `container
 quarkus ext add container-image-jib
 ```
 
-Quarkus modifies the POM to ensure the extension is included among the `<dependencies>`. If you're asked to install something called `JBang`, answer *yes* and allow it to be installed.
+Quarkus modifies the POM to ensure the extension is included among the `<dependencies>`. If you're asked to install something called `JBang`, answer yes and allow it to be installed.
 
 The output should look like the following example:
 
@@ -355,7 +364,7 @@ The output should look like the following example:
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-Open the *pom.xml* file and you should see the following dependencies added by the `container-image-jib` extension:
+Open the **pom.xml** file and you should see the following dependencies added by the `container-image-jib` extension:
 
 ```xml
 <dependency>
@@ -364,7 +373,7 @@ Open the *pom.xml* file and you should see the following dependencies added by t
 </dependency>
 ```
 
-Then, add the following dependencies to the *pom.xml* file to support passwordless authentication with Azure Database for PostgreSQL Flexible Server:
+Then, add the following dependencies to the **pom.xml** file to support passwordless authentication with Azure Database for PostgreSQL Flexible Server:
 
 ```xml
 <dependency>
@@ -376,7 +385,7 @@ Then, add the following dependencies to the *pom.xml* file to support passwordle
 
 ### [Password](#tab/password)
 
-Open the *pom.xml* file and you should see the following dependencies added by the `container-image-jib` extension:
+Open the **pom.xml** file and you should see the following dependencies added by the `container-image-jib` extension:
 
 ```xml
 <dependency>
@@ -395,13 +404,13 @@ As a cloud native technology, Quarkus supports the notion of configuration profi
 
 Quarkus supports any number of named profiles, as needed.
 
-The remaining steps in this section direct you to uncomment and customize values in the *src/main/resources/application.properties* file. Ensure that all lines starting with `# %prod.` are uncommented by removing the leading `#`.
+The remaining steps in this section direct you to uncomment and customize values in the **src/main/resources/application.properties** file. Ensure that all lines starting with `# %prod.` are uncommented by removing the leading `#` character.
 
 The `%prod.` prefix indicates that these properties are active when running in the `prod` profile. For more information on configuration profiles, see the [Quarkus documentation](https://access.redhat.com/search/?q=Quarkus+Using+configuration+profiles).
 
 ### Examine the database configuration
 
-After uncommenting the properties, the database configuration in the *src/main/resources/application.properties* file should look like the following example:
+After you uncomment the properties, the database configuration in the **src/main/resources/application.properties** file should look like the following example:
 
 ```properties
 # Database configurations
@@ -415,7 +424,7 @@ After uncommenting the properties, the database configuration in the *src/main/r
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-Remove property `%prod.quarkus.datasource.password` because it's not required when using passwordless authentication with Azure Database for PostgreSQL Flexible Server. Update the other database connection related properties `%prod.quarkus.datasource.jdbc.url` and `%prod.quarkus.datasource.username` with the values as shown in the following example. The final configuration should look like the following example:
+Remove the `%prod.quarkus.datasource.password` property because it's not required when using passwordless authentication with Azure Database for PostgreSQL flexible server. Update the other database connection related properties `%prod.quarkus.datasource.jdbc.url` and `%prod.quarkus.datasource.username` with the values as shown in the following example. The final configuration should look like the following example:
 
 ```properties
 # Database configurations
@@ -436,13 +445,13 @@ The database connection related properties `%prod.quarkus.datasource.jdbc.url`, 
 
 ---
 
-Generally, you don't expect that the data persisted in the database is dropped and repopulated with the sample data in a production environment. That's why you can see that the schema for `quarkus.hibernate-orm.database.generation` is specified as `create` so that the app only creates the schema when it doesn't exist at the initial startup. Besides, the database isn't pre-populated with any sample data because `hibernate-orm.sql-load-script` is specified as `no-file`. This setting is different than when you ran the app locally in development mode previously. The default values in development mode for `quarkus.hibernate-orm.database.generation` and `hibernate-orm.sql-load-script` are `drop-and-create` and `import.sql` respectively, which means the app always drops and recreates the database schema and loads the data defined in *import.sql*. The *import.sql* file is a convenience facility from Quarkus. If the *src/main/resources/import.sql* file exists in the Quarkus jar, and the value of the `hibernate-orm.sql-load-script` property is `import.sql`, the SQL DML statements in this file are executed at startup time for the app.
+Generally, you don't expect that the data persisted in the database is dropped and repopulated with the sample data in a production environment. That's why you can see that the schema for `quarkus.hibernate-orm.database.generation` is specified as `create` so that the app only creates the schema when it doesn't exist at the initial startup. Besides, the database isn't populated beforehand with any sample data because `hibernate-orm.sql-load-script` is specified as `no-file`. This setting is different than when you ran the app locally in development mode previously. The default values in development mode for `quarkus.hibernate-orm.database.generation` and `hibernate-orm.sql-load-script` are `drop-and-create` and `import.sql` respectively, which means the app always drops and recreates the database schema and loads the data defined in **import.sql**. The **import.sql** file is a convenience facility from Quarkus. If the **src/main/resources/import.sql** file exists in the Quarkus jar, and the value of the `hibernate-orm.sql-load-script` property is `import.sql`, the SQL DML statements in this file are executed at startup time for the app.
 
-### Test your Quarkus app locally with Azure Database for PostgreSQL Flexible Server
+### Test your Quarkus app locally with Azure Database for PostgreSQL flexible server
 
-Before deploying the Quarkus app to Azure Container Apps, test the connection to the Azure Database for PostgreSQL Flexible Server instance locally.
+Before deploying the Quarkus app to Azure Container Apps, test the connection to the Azure Database for PostgreSQL flexible server instance locally.
 
-First, add the local IP address to the Azure Database for PostgreSQL Flexible Server instance firewall rules by using the following commands:
+First, add the local IP address to the Azure Database for PostgreSQL flexible server instance firewall rules by using the following commands:
 
 ```azurecli
 export AZ_LOCAL_IP_ADDRESS=$(curl -s https://whatismyip.akamai.com)
@@ -455,7 +464,7 @@ az postgres flexible-server firewall-rule create \
     --end-ip-address $AZ_LOCAL_IP_ADDRESS
 ```
 
-Next, set the following environment variables in your previous terminal. These environment variables are used to connect to the Azure Database for PostgreSQL Flexible Server instance from the Quarkus app running locally:
+Next, set the following environment variables in your previous terminal. These environment variables are used to connect to the Azure Database for PostgreSQL flexible server instance from the Quarkus app running locally:
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -474,22 +483,22 @@ export QUARKUS_DATASOURCE_USERNAME=${DB_ADMIN}
 export QUARKUS_DATASOURCE_PASSWORD=${DB_PASSWORD}
 ```
 
-The values of these environment variables are passed to properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username`, and `%prod.quarkus.datasource.password`. Quarkus knows to look up values from corresponding environment variables if there's no value in the *application.properties* file.
+The values of these environment variables are passed to properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username`, and `%prod.quarkus.datasource.password`. Quarkus knows to look up values from corresponding environment variables if there's no value in the **application.properties** file.
 
 ---
 
-Run the Quarkus app locally to test the connection to the Azure Database for PostgreSQL Flexible Server instance. Use the following command to start the app in production mode:
+Run the Quarkus app locally to test the connection to the Azure Database for PostgreSQL flexible server instance. Use the following commands to start the app in production mode:
 
 ```bash
 mvn clean package -DskipTests
 java -jar target/quarkus-app/quarkus-run.jar
 ```
 
-Open a new web browser to `http://localhost:8080` to access the Todo application. You should see the same Todo app as you saw when you ran the app locally in development mode, without any Todo items.
+To access the Todo application, open a new web browser to `http://localhost:8080`. You should see the same Todo app as you saw when you ran the app locally in development mode, without any Todo items.
 
-Press <kbd>Control</kbd>+<kbd>C</kbd> to stop the app.
+To stop the app, press <kbd>Control</kbd>+<kbd>C</kbd>.
 
-## Build the container image and push it to Container Registry
+## Build the container image and push it to the container registry
 
 Now, use the following command to build the application itself. This command uses the Jib extension to build the container image.
 
@@ -513,7 +522,7 @@ The output looks similar to the following example:
 <LOGIN_SERVER_VALUE>/todo-quarkus-aca   1.0       0804dfd834fd   2 minutes ago   407MB
 ```
 
-Push the container images to Container Registry by using the following command:
+Push the container images to container registry by using the following command:
 
 ```bash
 docker push ${TODO_QUARKUS_IMAGE_TAG}
@@ -535,7 +544,7 @@ e0bac91f0f10: Pushed
 
 ## Deploy the Quarkus app to Azure Container Apps
 
-Now that you pushed the app image to Container Registry, use the following command to create a Container Apps instance to run the app after pulling the image from the Container Registry:
+Now that you pushed the app image to the container registry, use the following command to create an Azure Container Apps instance to run the app after pulling the image from the container registry:
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -558,22 +567,22 @@ Then, connect the Azure Database for PostgreSQL Flexible Server instance to the 
 
 1. Install the [Service Connector](/azure/service-connector/overview) passwordless extension for the Azure CLI by using the following command:
 
-   ```azurecli
-   az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
-   ```
+    ```azurecli
+    az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
+    ```
 
 1. Connect the database to the container app with a system-assigned managed identity by using the following command:
 
-   ```azurecli
-   az containerapp connection create postgres-flexible \
-       --resource-group $RESOURCE_GROUP_NAME \
-       --name $ACA_NAME \
-       --target-resource-group $RESOURCE_GROUP_NAME \
-       --server $DB_SERVER_NAME \
-       --database $DB_NAME \
-       --system-identity \
-       --container $ACA_NAME
-   ```
+    ```azurecli
+    az containerapp connection create postgres-flexible \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --name $ACA_NAME \
+        --target-resource-group $RESOURCE_GROUP_NAME \
+        --server $DB_SERVER_NAME \
+        --database $DB_NAME \
+        --system-identity \
+        --container $ACA_NAME
+    ```
 
    Successful output is a JSON object including the property `"type": "microsoft.servicelinker/linkers"`.
 
@@ -601,13 +610,13 @@ az containerapp create \
     --min-replicas 1
 ```
 
-The `--secrets` option is used to create secrets that're referenced by database connection related environment variables `QUARKUS_DATASOURCE_JDBC_URL`, `QUARKUS_DATASOURCE_USERNAME` and `QUARKUS_DATASOURCE_PASSWORD`. The values of these environment variables are passed to properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username`, and `%prod.quarkus.datasource.password`. Quarkus knows to look up values from corresponding environment variables if there's no value in the *application.properties* file.
+The `--secrets` option is used to create secrets referenced by database connection related environment variables `QUARKUS_DATASOURCE_JDBC_URL`, `QUARKUS_DATASOURCE_USERNAME`, and `QUARKUS_DATASOURCE_PASSWORD`. The values of these environment variables are passed to properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username`, and `%prod.quarkus.datasource.password`. Quarkus looks up values from corresponding environment variables if there's no value in the **application.properties** file.
 
 Successful output is a JSON object including the property `"type": "Microsoft.App/containerApps"`.
 
 ---
 
-Get a fully qualified url to access the Todo application by using the following command:
+Get a fully qualified URL to access the Todo application by using the following command:
 
 ```azurecli
 export QUARKUS_URL=https://$(az containerapp show \
@@ -653,9 +662,9 @@ The output should look like the following example:
 ]
 ```
 
-### Verify that the database has been updated
+### Verify that the database is updated
 
-Run the following command to verify that the database has been updated with the new todo item:
+Use the following command to verify that the database was updated with the new todo item:
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -702,7 +711,7 @@ Closed the connection to <DB_SERVER_NAME>
 ]
 ```
 
-When you're finished, delete the firewall rule that allows your local IP address to access the Azure Database for PostgreSQL Flexible Server instance by using the following command:
+When you're finished, delete the firewall rule that allows your local IP address to access the Azure Database for PostgreSQL flexible server instance by using the following command:
 
 ```azurecli
 az postgres flexible-server firewall-rule delete \
@@ -714,7 +723,7 @@ az postgres flexible-server firewall-rule delete \
 
 ## Clean up resources
 
-To avoid Azure charges, you should clean up unneeded resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
+To avoid Azure charges, you should clean up unneeded resources. When the cluster is no longer needed, use the [`az group delete`](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
 
 ```azurecli
 git reset --hard

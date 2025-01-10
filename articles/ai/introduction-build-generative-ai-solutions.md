@@ -134,6 +134,7 @@ Some of the logic required by a solution can be built quickly and hosted reliabl
 |---|---|
 |**Azure AI Foundry**|You can use Azure AI Foundry to train, test, and deploy custom machine learning models to enhance a RAG chat system. For example, use Azure AI Foundry to customize response generation or to improve the relevance of retrieved information.|
 
+
 ### Vector database
 
 Some generative AI solutions might require storage and retrieval of data used to augment generation. An example is a RAG-based chat system that allows users to chat with your organization's data. In this use case, you need a vector data store.

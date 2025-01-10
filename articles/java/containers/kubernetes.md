@@ -1,5 +1,5 @@
 ---
-title: Containerize your Java applications for Kubernetes
+title: Containerize your Java Applications for Kubernetes
 description: This article describes how to containerize your Java applications for Kubernetes deployment
 author: KarlErickson
 ms.author: brborges
@@ -11,9 +11,7 @@ recommendations: false
 
 # Containerize your Java applications for Kubernetes
 
-This article describes how to containerize your Java applications for deployment on Kubernetes.
-
-For guidance on container memory, JVM heap memory, garbage collectors (GCs), and vCPU cores, see [Containerize your Java applications](overview.md).
+This article describes how to containerize your Java applications for deployment on Kubernetes. For guidance on container memory, JVM heap memory, garbage collectors (GCs), and vCPU cores, see [Containerize your Java applications](overview.md).
 
 ## Determine the appropriate VM SKU for the Kubernetes node pool
 
@@ -41,13 +39,13 @@ containers:
 
 ### Understand JVM available processors
 
-When the HotSpot JVM in OpenJDK identifies that it's running inside a container, it uses values such as `cpu_quota` and `cpu_period` to determine how many processors are available to it. In general, any value up to `1000m` millicores are identified as a single processor machine. Any value between `1001m` and `2000m` is identified as a dual processor machine, and so forth. This information is available through the API [Runtime.getRuntime().availableProcessors()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Runtime.html#availableProcessors()). This value may also be used by some of the concurrent GCs to configure their threads. Other APIs, libraries, and frameworks may also use this information to configure thread pools.
+When the HotSpot JVM in OpenJDK identifies that it's running inside a container, it uses values such as `cpu_quota` and `cpu_period` to determine how many processors are available to it. In general, any value up to `1000m` millicores are identified as a single processor machine. Any value between `1001m` and `2000m` is identified as a dual processor machine, and so forth. This information is available through the API [Runtime.getRuntime().availableProcessors()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Runtime.html#availableProcessors()). Some of the concurrent GCs might also use this value to configure their threads. Other APIs, libraries, and frameworks might also use this information to configure thread pools.
 
-Kubernetes CPU quotas are related to the amount of time a process spends in the CPU, and not the number of CPUs available to the process. Multi-threaded runtimes such as the JVM may still use multiple processors concurrently, with multiple threads. Even if a container has a limit of one vCPU, the JVM may be instructed to see two or more available processors.
+Kubernetes CPU quotas are related to the amount of time a process spends in the CPU, and not the number of CPUs available to the process. Multi-threaded runtimes such as the JVM might still use multiple processors concurrently, with multiple threads. Even if a container has a limit of one vCPU, the JVM might be instructed to see two or more available processors.
 
 To inform the JVM of the exact number of processors it should be seeing in a Kubernetes environment, use the following JVM flag:
 
-```JVM flag
+```java
 -XX:ActiveProcessorCount=N
 ```
 
@@ -71,7 +69,7 @@ containers:
 
 ## Set the JVM arguments in the deployment file
 
-Remember to set the JVM heap memory to the amount you've previously determined. We recommend that you pass this value as an environment variable so you can easily change it without needing to rebuild the container image.
+Remember to set the JVM heap memory to the amount you previously determined. We recommend that you pass this value as an environment variable so you can easily change it without needing to rebuild the container image.
 
 ```yaml
 containers:
