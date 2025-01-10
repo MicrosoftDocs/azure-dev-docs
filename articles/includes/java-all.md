@@ -573,19 +573,19 @@
 | Storage - Java | Maven [10](https://search.maven.org/artifact/com.microsoft.azure/azure-storage-java/10/jar/) |  |  |
 | Support | Maven [0.1.8](https://search.maven.org/artifact/com.microsoft.azure/azure-support/0.1.8/jar/) |  |  |
 | synapseml | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml/0.9.3/jar/) |  |  |
-| synapseml_2.12 | Maven [1.0.8](https://search.maven.org/artifact/com.microsoft.azure/synapseml_2.12/1.0.8/jar/) |  |  |
+| synapseml_2.12 | Maven [1.0.9](https://search.maven.org/artifact/com.microsoft.azure/synapseml_2.12/1.0.9/jar/) |  |  |
 | synapseml-cognitive | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-cognitive/0.9.3/jar/) |  |  |
-| synapseml-cognitive_2.12 | Maven [1.0.8](https://search.maven.org/artifact/com.microsoft.azure/synapseml-cognitive_2.12/1.0.8/jar/) |  |  |
+| synapseml-cognitive_2.12 | Maven [1.0.9](https://search.maven.org/artifact/com.microsoft.azure/synapseml-cognitive_2.12/1.0.9/jar/) |  |  |
 | synapseml-core | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-core/0.9.3/jar/) |  |  |
-| synapseml-core_2.12 | Maven [1.0.8](https://search.maven.org/artifact/com.microsoft.azure/synapseml-core_2.12/1.0.8/jar/) |  |  |
+| synapseml-core_2.12 | Maven [1.0.9](https://search.maven.org/artifact/com.microsoft.azure/synapseml-core_2.12/1.0.9/jar/) |  |  |
 | synapseml-deep-learning | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-deep-learning/0.9.3/jar/) |  |  |
-| synapseml-deep-learning_2.12 | Maven [1.0.8](https://search.maven.org/artifact/com.microsoft.azure/synapseml-deep-learning_2.12/1.0.8/jar/) |  |  |
+| synapseml-deep-learning_2.12 | Maven [1.0.9](https://search.maven.org/artifact/com.microsoft.azure/synapseml-deep-learning_2.12/1.0.9/jar/) |  |  |
 | synapseml-lightgbm | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-lightgbm/0.9.3/jar/) |  |  |
-| synapseml-lightgbm_2.12 | Maven [1.0.8](https://search.maven.org/artifact/com.microsoft.azure/synapseml-lightgbm_2.12/1.0.8/jar/) |  |  |
+| synapseml-lightgbm_2.12 | Maven [1.0.9](https://search.maven.org/artifact/com.microsoft.azure/synapseml-lightgbm_2.12/1.0.9/jar/) |  |  |
 | synapseml-opencv | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-opencv/0.9.3/jar/) |  |  |
-| synapseml-opencv_2.12 | Maven [1.0.8](https://search.maven.org/artifact/com.microsoft.azure/synapseml-opencv_2.12/1.0.8/jar/) |  |  |
+| synapseml-opencv_2.12 | Maven [1.0.9](https://search.maven.org/artifact/com.microsoft.azure/synapseml-opencv_2.12/1.0.9/jar/) |  |  |
 | synapseml-vw | Maven [0.9.3](https://search.maven.org/artifact/com.microsoft.azure/synapseml-vw/0.9.3/jar/) |  |  |
-| synapseml-vw_2.12 | Maven [1.0.8](https://search.maven.org/artifact/com.microsoft.azure/synapseml-vw_2.12/1.0.8/jar/) |  |  |
+| synapseml-vw_2.12 | Maven [1.0.9](https://search.maven.org/artifact/com.microsoft.azure/synapseml-vw_2.12/1.0.9/jar/) |  |  |
 | synapseutils | Maven [1.1](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils/1.1/jar/) |  |  |
 | synapseutils_2.11 | Maven [1.5.3](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.11/1.5.3/jar/) |  |  |
 | synapseutils_2.12 | Maven [1.5.3](https://search.maven.org/artifact/com.microsoft.azure.synapse/synapseutils_2.12/1.5.3/jar/) |  |  |
