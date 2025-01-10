@@ -132,7 +132,12 @@ Some of the logic required by a solution can be built quickly and hosted reliabl
 
 |Product|Description|
 |---|---|
+<<<<<<< HEAD
 |**Azure AI Foundry**| You can use Azure AI Foundry to train, test, and deploy custom machine learning models to enhance a RAG chat system. For example, use Azure AI Foundry to customize response generation or to improve the relevance of retrieved information.|
+=======
+|**Azure AI Foundry**|You can use Azure AI Foundry to train, test, and deploy custom machine learning models to enhance a RAG chat system. For example, use Azure AI Foundry to customize response generation or to improve the relevance of retrieved information.|
+
+>>>>>>> 893511b44fd0d4b71ad02acbe82fefbdd1921c31
 
 ### Vector database
 
