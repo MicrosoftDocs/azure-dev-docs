@@ -10,7 +10,7 @@ ms.subservice: intelligent-apps
 
 # Augment large language models with retrieval-augmented generation or fine-tuning
 
-In a series of articles, we discuss the knowledge retrieval models that large language models (LLMs) use to generate responses. By default, an LLM has access only to its training data. But you can augment the model to include real-time data or private data.
+In a series of articles, we discuss the knowledge retrieval mechanisms that large language models (LLMs) use to generate responses. By default, an LLM has access only to its training data. But you can augment the model to include real-time data or private data.
 
 The first mechanism is *retrieval-augmented generation (RAG)*. RAG is a form of preprocessing that combines semantic search with contextual priming. *Contextual priming* is discussed in detail in [Key concepts and considerations for building generative AI solutions](./gen-ai-concepts-considerations-developers.md).
 
@@ -20,7 +20,7 @@ The following sections describe these two mechanisms in more detail.
 
 ## Understanding RAG
 
-RAG is often used to enable the "chat over my data" scenario. In this scenario, an organization has a potentially large corpus of textual content, like documents, documentation, and other proprietary data. It wants to use this corpus as the basis for answers to user prompts.
+RAG is often used to enable the "chat over my data" scenario. In this scenario, an organization has a potentially large corpus of textual content, like documents, documentation, and other proprietary data. It uses this corpus as the basis for answers to user prompts.
 
 At a high level, you create a database entry for each document or for a portion of a document called a *chunk*. The chunk is indexed on its *embedding*, that is, a vector (*array*) of numbers that represent facets of the document. When a user submits a query, you search the database for similar documents, and then submit the query and the documents to the LLM to compose an answer.
 
@@ -72,7 +72,7 @@ If you want to start experimenting with building a generative AI solution immedi
 
 ## Fine-tuning a model
 
-In the context of an LLM, *fine-tuning* is the process of adjusting the model's parameters in a domain-specific dataset after the LLM was initially trained on a large, diverse dataset.
+In the context of an LLM, fine-tuning is the process of adjusting the model's parameters by training it on a domain-specific dataset after the LLM was initially trained on a large, diverse dataset.
 
 LLMs are trained (pretrained) on a broad dataset, grasping language structure, context, and a wide array of knowledge. This stage involves learning general language patterns. Fine-tuning is adding more training to the pretrained model based on a smaller, specific dataset. This secondary training phase aims to adapt the model to perform better on particular tasks or understand specific domains, enhancing its accuracy and relevance for those specialized applications. During fine-tuning, the model's weights are adjusted to better predict or understand the nuances of this smaller dataset.
 
@@ -101,9 +101,9 @@ When to use fine-tuning instead of RAG:
 - **Control over data**: If you have proprietary or highly specialized data that significantly differs from the data the base model was trained on, fine-tuning allows you to incorporate this unique knowledge into the model.
 - **Limited need for real-time updates**: If the task doesn't require the model to be constantly updated with the latest information, fine-tuning can be more efficient since RAG models typically need access to up-to-date external databases or the internet to pull in recent data.
 
-When to prefer Retrieval-Augmented Generation over fine-tuning:
+When to prefer RAG over fine-tuning:
 
-- **Dynamic content or evolving content**: RAG is more suitable for tasks where having the most current information is critical. Since RAG models can pull in data from external sources in real-time, they're better suited for applications like news generation or answering questions on recent events.
+- **Dynamic content or evolving content**: RAG is more suitable for tasks where having the most current information is critical. Because RAG models can pull in data from external sources in real-time, they're better suited for applications like news generation or answering questions on recent events.
 - **Generalization over specialization**: If the goal is to maintain strong performance across a wide range of topics rather than excelling in a narrow domain, RAG might be preferable. It uses external knowledge bases, allowing it to generate responses across diverse domains without the risk of overfitting to a specific dataset.
 - **Resource constraints**: For organizations with limited resources for data collection and model training, using a RAG approach might offer a cost-effective alternative to fine-tuning, especially if the base model already performs reasonably well on the desired tasks.
 

@@ -4,7 +4,7 @@ description: Shows how to deploy WebLogic Server to Azure Virtual Machines with 
 author: KarlErickson
 ms.author: jiangma
 ms.topic: tutorial
-ms.date: 12/10/2024
+ms.date: 12/23/2024
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-vm, migration-java, devx-track-extended-java
 ---
 
@@ -60,7 +60,7 @@ First, open the [Oracle WebLogic Server Cluster on Azure VMs](https://aka.ms/wls
 Use the following steps to fill out the **Basics** pane:
 
 1. Ensure that the value shown for **Subscription** is the same one that has the roles listed in the prerequisites section.
-1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, *wls-cluster-eastus-ejb120623*.
+1. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, *wls-cluster-eastus-ejb120623*.
 1. Under **Instance details**, for **Region**, select **East US**.
 1. Under **Credentials for Virtual Machines and WebLogic**, provide a password for **admin account of VM** and **WebLogic Administrator**, respectively. Save aside the username and password for **WebLogic Administrator**. For better security, consider using **SSH Public Key** as the VM authentication type.
 1. Leave the defaults for other fields.

@@ -1,5 +1,5 @@
 ---
-title: Scale with end-to-end security, monitoring, and automation
+title: Scale with End-to-End Security, Monitoring, and Automation
 titleSuffix: Azure
 description: This article provides an overview of some key Azure services and features that you can use to build scalable Java applications.
 author: KarlErickson
@@ -27,13 +27,13 @@ Azure Service Bus Premium tier supports JMS, the Java Messaging Service programm
 
 :::image type="content" source="media/extend-capabilities.png" alt-text="Diagram that shows the feature categories and associated Azure platform services supported by various Java libraries, drivers, and Spring modules." border="false" lightbox="media/extend-capabilities.png":::
 
-## Zero-Trust - Secure network
+## Zero Trust - secure network
 
 You can secure your Java applications by deploying them in an Azure Virtual Network - the fundamental building block for your own private networks in Azure. Virtual networks enable many types of Azure resources to securely communicate with each other, with the internet, and with your on-premises networks and systems. You can use a virtual network to isolate your applications and supporting backend services from the Internet and place them on your private networks. You can assume full control of ingress and egress for your applications and backend systems.
 
 :::image type="content" source="media/azure-container-apps-landing-zone-accelerator.png" alt-text="Diagram of the Azure Container Apps Landing Zone Accelerator." border="false" lightbox="media/azure-container-apps-landing-zone-accelerator.png":::
 
-## Zero-Trust - Secure communications end-to-end
+## Zero Trust - secure communications end-to-end
 
 Implementing secure communications as part of a solution architecture can be challenging. Many companies manually rotate their certificates or build their own solutions to automate provisioning and configuration. Even then, there are still data exfiltration risks, such as unauthorized copying or data transfer.
 
@@ -45,7 +45,7 @@ Java or Spring Boot apps can securely load certificates from [Azure Key Vault](/
 
 :::image type="content" source="media/secure-communications.png" alt-text="Diagram of the architecture for secure end-to-end communications for Spring Boot apps." border="false" lightbox="media/secure-communications.png":::
 
-## Zero-Trust - Manage secrets
+## Zero Trust - manage secrets
 
 Many Java applications connect to supporting services using URLs and credentials - information that, if exposed, could be used to gain unauthorized access to sensitive data. Embedding such information in an app itself presents a huge security risk for many reasons, including discovery via a code repository. Many developers externalize such credentials using environment variables, so that multiple applications can load them, but this only shifts the risk from the code itself to the execution environment.
 
@@ -77,7 +77,7 @@ As the workloads for your Java applications grow, you can increase performance b
 
 ## Automatic scaling
 
-All Azure "compute" services for running Java applications support automatic scaling (auto-scaling), which can help you maximize cost-efficiency and adapt to changing workloads without paying for more capacity than you need. Once enabled, you can rest assured that auto-scale takes care of your underlying infrastructure and your application workloads.
+All Azure compute services for running Java applications support automatic scaling (auto-scaling), which can help you maximize cost-efficiency and adapt to changing workloads without paying for more capacity than you need. Once enabled, you can rest assured that auto-scale takes care of your underlying infrastructure and your application workloads.
 
 :::image type="content" source="media/drive-higher-utilization.png" alt-text="Diagram with the heading 'Drive higher utilization of apps with Autoscale' and including a summary of the features described in this section." border="false" lightbox="media/drive-higher-utilization.png":::
 
@@ -116,7 +116,7 @@ As you migrate or build and then scale your Java applications on Azure, you can 
 
 The [Azure Architecture Center](/azure/architecture) provides guidance for building solutions on Azure using established patterns and practices, including how to put these capabilities to use. These reference architectures are based on what we learned from customer engagements, taking into consideration cost optimization, operational excellence, performance efficiency, reliability, scalability, security, monitoring, smoke-testing, and more. They also address solution design components such as Azure landing zones - environments for hosting your workloads that are pre-provisioned through infrastructure-as-code, as needed to enable Java application migrations and greenfield development at enterprise scale.
 
-For example, here's a [landing zone accelerator for Azure Container Apps](/azure/cloud-adoption-framework/scenarios/app-platform/container-apps/landing-zone-accelerator), showing how to implement a hub-and-spoke design in which Azure Container Apps is deployed in a single spoke that's dependent on shared services hosted in the hub. This project is built with components to achieve the tenets in the [Microsoft Azure Well-Architected Framework](/azure/well-architected). To explore an implementation of this architecture, see the [Azure Container Apps Landing Zone Accelerator](https://github.com/Azure/ACA-Landing-Zone-Accelerator) repository on GitHub. You can apply the same approach to any Java applications deployed to any Azure "compute" destination - such as Azure App Service or Azure Kubernetes Service. In addition, if you're looking at migrating existing Java applications to Azure, we have a comprehensive set of migration guides and recommended strategies.
+For example, here's a [landing zone accelerator for Azure Container Apps](/azure/cloud-adoption-framework/scenarios/app-platform/container-apps/landing-zone-accelerator), showing how to implement a hub-and-spoke design in which Azure Container Apps is deployed in a single spoke that's dependent on shared services hosted in the hub. This project is built with components to achieve the tenets in the [Microsoft Azure Well-Architected Framework](/azure/well-architected). To explore an implementation of this architecture, see the [Azure Container Apps Landing Zone Accelerator](https://github.com/Azure/ACA-Landing-Zone-Accelerator) repository on GitHub. You can apply the same approach to any Java applications deployed to any Azure compute destination - such as Azure App Service or Azure Kubernetes Service. In addition, if you're looking at migrating existing Java applications to Azure, we have a comprehensive set of migration guides and recommended strategies.
 
 :::image type="content" source="media/scale-end-to-end.png" alt-text="Diagram with the heading 'Scale with end-to-end security, monitoring and automation' and logos for the tools described in this article." border="false" lightbox="media/scale-end-to-end.png":::
 

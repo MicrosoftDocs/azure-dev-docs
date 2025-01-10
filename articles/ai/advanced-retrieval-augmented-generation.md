@@ -62,11 +62,11 @@ Developers must consider:
 
 - **Chunk size optimization**: Determine the ideal chunk size, and how to designate a chunk. By section? By paragraph? By sentence?
 - **Overlapping and sliding window chunks**: Determine whether to divide the content into discrete chunks, or will the chunks overlap? You can even do both, in a sliding window design.
-- **Small to big**: When chunking is done at a granular level like a single sentence, is the content organized so that it's easy to find the neighboring sentences or the paragraph that contains the sentence? Retrieving this information and supplying it to the LLM might provide it with more context to answer user queries. For more information, see the next section.
+- **Small2Big**: When chunking is done at a granular level like a single sentence, is the content organized so that it's easy to find the neighboring sentences or the paragraph that contains the sentence? Retrieving this information and supplying it to the LLM might provide it with more context to answer user queries. For more information, see the next section.
 
 ### Chunking organization
 
-In a RAG system, strategically organizing your data in the vector database is the key to efficient retrieval of relevant information to augment the generation process. Here are the types of indexing and retrieval strategies you might consider:
+In a RAG system, strategically organizing your data in the vector database is a key to efficient retrieval of relevant information to augment the generation process. Here are the types of indexing and retrieval strategies you might consider:
 
 - **Hierarchical indexes**: This approach involves creating multiple layers of indexes. A top-level index (a summary index) quickly narrows down the search space to a subset of potentially relevant chunks. A second-level index (a chunks index) provides more detailed pointers to the actual data. This method can significantly speed up the retrieval process because it reduces the number of entries to scan in the detailed index by first filtering through the summary index.
 - **Specialized indexes**: Depending on the nature of the data and the relationships between chunks, you might use specialized indexes like graph-based or relational databases:
@@ -79,7 +79,7 @@ In a RAG system, strategically organizing your data in the vector database is th
 To enhance the relevance and accuracy of the retrieved chunks, align them closely with the question or query types they answer. One strategy is to generate and insert a hypothetical question for each chunk that represents the question the chunk is best suited to answer. This helps in several ways:
 
 - **Improved matching**: During retrieval, the system can compare the incoming query with these hypothetical questions to find the best match to improve the relevance of chunks that are fetched.
-- **Training data for machine learning models**: These pairings of questions and chunks can be training data to improve the machine learning models that are the basis of the RAG system. The RAG system learns which types of questions are best answered by each chunk.
+- **Training data for machine learning models**: These pairings of questions and chunks can be training data to improve the machine learning models that are the underlying components of the RAG system. The RAG system learns which types of questions are best answered by each chunk.
 - **Direct query handling**: If a real user query closely matches a hypothetical question, the system can quickly retrieve and use the corresponding chunk and speed up the response time.
 
 Each chunk's hypothetical question acts like a label that guides the retrieval algorithm, so it's more focused and contextually aware. This kind of optimization is useful when the chunks cover a wide range of information topics or types.
@@ -160,7 +160,7 @@ A variation on step-back prompting is _Hypothetical Document Embeddings (HyDE)_.
 
 ### Subqueries
 
-Theh subqueries processing step is based on the original query. If the original query is long and complex, it can be useful to programmatically break it into several smaller queries, and then combine all the responses.
+The subqueries processing step is based on the original query. If the original query is long and complex, it can be useful to programmatically break it into several smaller queries, and then combine all the responses.
 
 For example, a question about scientific discoveries in physics might be: "Who made more significant contributions to modern physics, Albert Einstein or Niels Bohr?"
 
@@ -194,7 +194,7 @@ A query router typically works at a point after the user formulates the query, b
 
 Here's a simplified workflow for a query router:
 
-1. **Query analysis**: The LLM or another component analyzes the incoming query to understand its content, context, and the type of information that likely is needed.
+1. **Query analysis**: The LLM or another component analyzes the incoming query to understand its content, context, and the type of information that is likely needed.
 1. **Index selection**: Based on the analysis, the query router selects one or more indexes from potentially several available indexes. Each index might be optimized for different types of data or queries. For example, some indexes might be more suited to factual queries. Other indexes might excel in providing opinions or subjective content.
 1. **Query dispatch**: The query is dispatched to the selected index.
 1. **Results aggregation**: Responses from the selected indexes are retrieved and possibly aggregated or further processed to form a comprehensive answer.

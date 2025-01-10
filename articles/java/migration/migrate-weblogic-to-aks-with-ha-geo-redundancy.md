@@ -4,7 +4,7 @@ description: Shows how to deploy WebLogic Server to Azure Kubernetes Service (AK
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
-ms.date: 04/29/2024
+ms.date: 12/23/2024
 recommendations: false
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track-javaee-wls-aks, migration-java,, devx-track-azurecli, devx-track-extended-java
 ---
@@ -150,7 +150,7 @@ Use the following steps to deploy WLS on AKS:
 1. Use the following steps to fill out the **Basics** pane:
 
    1. Ensure that the value shown for **Subscription** is the same one that has the roles listed in the prerequisites section.
-   1. You must deploy the offer in an empty resource group. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, **wlsaks-eastus-20240109**.
+   1. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, **wlsaks-eastus-20240109**.
    1. Under **Instance details**, for **Region**, select **East US**.
    1. Under **Credentials WebLogic**, provide a password for **WebLogic Administrator** and **WebLogic Model encryption**, respectively. Save aside the username and password for **WebLogic Administrator**.
    1. Under **Optional Basic Configuration**, for **Accept defaults for optional configuration?**, select **No**. The optional configuration shows.

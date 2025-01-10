@@ -8,7 +8,7 @@ ms.custom: build-2024-intelligent-apps, ai-learning-hub
 
 # Generative AI solutions for developers
 
-Generative AI goes builds on large language models (LLMs) to open up exciting new possibilities for software developers and organizations. Services like Azure OpenAI Service make AI development accessible with easy-to-use APIs. Developers at all skill levels can integrate advanced AI functionality into their applications without specialized knowledge or hardware investment.
+Generative AI, enabled by large language models (LLMs), opens exciting new possibilities for software developers and organizations. Services like Azure OpenAI Service make AI development accessible with easy-to-use APIs. Developers at all skill levels can integrate advanced AI functionality into their applications without specialized knowledge or hardware investment.
 
 As an application developer, you might want to understand what role you can play and where you fit in. For example, perhaps you wonder on what level in the "AI stack" to focus your learning. Or you might wonder what you are capable of building given existing technologies.
 
@@ -132,7 +132,7 @@ Some of the logic required by a solution can be built quickly and hosted reliabl
 
 |Product|Description|
 |---|---|
-|**Azure AI Foundry**|You can use Azure AI Foundry to train, test, and deploy custom machine learning models to enhance a RAG chat system. For example, use Azure AI Foundry to customize response generation or to improve the relevance of retrieved information.|
+|**Azure AI Foundry**| You can use Azure AI Foundry to train, test, and deploy custom machine learning models to enhance a RAG chat system. For example, use Azure AI Foundry to customize response generation or to improve the relevance of retrieved information.|
 
 ### Vector database
 

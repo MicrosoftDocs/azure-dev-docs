@@ -1,5 +1,5 @@
 ---
-title: Code using the Java tools you know and love
+title: Code Using the Java tools you Know and Love
 titleSuffix: Azure
 description: This article provides an overview of the tools you can use for Java code development with Azure.
 author: KarlErickson
@@ -71,7 +71,7 @@ Maven plugins for Azure services let you extend your Maven development workflows
 
 :::image type="content" source="media/maven.png" alt-text="Diagram that shows a laptop screen with the text 'mvn azure-webapp:deploy' and the heading Deploy Java Web App and Dependencies in One Step." border="false":::
 
-## Gradle Plugins for Azure Services
+## Gradle plugins for Azure services
 
 Gradle plugins for Azure services are similar to those for Maven. They let you deploy your Java applications to Azure services in a single step - in a way that integrates with Azure authentication methods and Azure Role-Based Access Control. The [Gradle plugin for Azure App Service](https://github.com/microsoft/azure-gradle-plugins/blob/master/azure-webapp-gradle-plugin/README.md) helps you deploy Gradle Java Web application projects to Azure App Service and to custom containers in App Service, and the [Gradle plugin for Azure Functions](https://github.com/microsoft/azure-gradle-plugins/blob/master/azure-functions-gradle-plugin/README.md) helps you deploy Gradle serverless Java application projects to Azure Functions.
 
@@ -81,13 +81,13 @@ Gradle plugins for Azure services are similar to those for Maven. They let you d
 
 GitHub is a popular repository for Java applications, providing a DevOps environment for more than 3.5 million Java applications. Using [GitHub Actions for Java](https://github.com/actions/setup-java), you can accomplish tasks like the following ones:
 
-* Download and setup a requested version of Java.
+* Download and set up a requested version of Java.
 * Extract and cache a custom version of Java from a local file.
 * Configure runners for publishing using Maven, Gradle, or a GPG private key.
 * Register problem matchers for error output.
 * Cache dependencies managed by Maven or Gradle.
 
-GitHub Actions makes it easy to automate all your Java software workflow using world-class CI/CD. You can build, test and deploy your code to Azure right from GitHub. Make code reviews, branch management, and issue triaging work the way you want. You can deploy to any of the Azure services for running your Java applications.
+GitHub Actions makes it easy to automate all of your Java software workflow using world-class CI/CD. You can build, test and deploy your code to Azure right from GitHub. Make code reviews, branch management, and issue triaging work the way you want. You can deploy to any of the Azure services for running your Java applications.
 
 GitHub also supports [development containers for Java](https://github.com/Microsoft/vscode-remote-try-java), which you can access via GitHub Codespaces or VS Code Remote - Containers.
 

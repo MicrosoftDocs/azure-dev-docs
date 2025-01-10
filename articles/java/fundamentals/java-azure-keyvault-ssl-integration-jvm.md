@@ -1,5 +1,5 @@
 ---
-title: Use Azure Key Vault to deliver TLS/SSL certificates to the JVM
+title: Use Azure Key Vault to Deliver TLS/SSL Certificates to the JVM
 description: Use Azure Key Vault to deliver TLS/SSL certificates to the JVM
 author: KarlErickson
 ms.author: manriem
@@ -16,7 +16,7 @@ This article describes how to integrate Azure Key Vault into the JVM to deliver 
 
 To register the JCA provider, the JVM needs to know about it. To accomplish this task, use the following steps:
 
-1. Make a copy of the *java.security* file inside your JVM installation, and name the file *my.java.security*.
+1. Make a copy of the **java.security** file inside your JVM installation, and name the file **my.java.security**.
 1. Inside the file, look for the line `security.provider.<maximum-value>`. Replace the `<maximum-value>` placeholder with the maximum value at this position among all entries. For example: `security.provider.13=SunPKCS11`.
 1. Increment the number of this entry by 1. For example, `security.provider.13` should become `security.provider.14`.
 1. Add the following line:
@@ -30,9 +30,9 @@ To register the JCA provider, the JVM needs to know about it. To accomplish this
 
 ## How to run your application
 
-To run your application, use the following steps and replace the *`<...>`* placeholders with your own values:
+To run your application, use the following steps and replace the `<...>` placeholders with your own values:
 
-1. Add the *azure-security-keyvault-jca-X.Y.Z.jar* file to the classpath. For example, if you want to integrate with Tomcat 9, then you should add the full path of the file *azure-security-keyvault-jca-X.Y.Z.jar* to the Java classpath by using *tomcat9w.exe*.
+1. Add the **azure-security-keyvault-jca-X.Y.Z.jar** file to the classpath. For example, if you want to integrate with Tomcat 9, then you should add the full path of the file **azure-security-keyvault-jca-X.Y.Z.jar** to the Java classpath by using **tomcat9w.exe**.
 1. Add `-Djava.security.properties==my.java.security` to the command line.
 1. Add `-Dazure.keyvault.uri=<your-keyvault-uri>` to the command line to indicate which Azure Key Vault to use. For example: `-Dazure.keyvault.uri=https://some.vault.azure.net/`.
 1. Add the arguments indicated in the following list, depending on your scenario:
@@ -53,7 +53,7 @@ For more information about these authentication scenarios, see [Application and 
 
 ### Use a service principal
 
-To create an Azure client ID and an Azure client secret, use the following command, replacing the *`<...>`* placeholders with your own values. Be sure to store the values returned, such as `appId`, `password`, `tenant`.
+To create an Azure client ID and an Azure client secret, use the following command, replacing the `<...>` placeholders with your own values. Be sure to store the values returned, such as `appId`, `password`, and `tenant`.
 
 ```azurecli
 export CLIENT_NAME=<your-client-name>
@@ -64,7 +64,7 @@ az ad app credential reset --id ${CLIENT_ID}
 
 Store the values returned so you can use them later.
 
-Be sure the client specified by `CLIENT_ID` can access the target Key Vault. To grant access, use the following command, replacing the *`<your-key-vault-name>`* placeholder:
+Be sure the client specified by `CLIENT_ID` can access the target Key Vault. To grant access, use the following command, replacing the `<your-key-vault-name>` placeholder:
 
 ```azurecli
 az keyvault set-policy \
