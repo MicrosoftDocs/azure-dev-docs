@@ -9,6 +9,12 @@ ms.date: 01/07/2025
 
 When developing JavaScript applications for Azure, it's crucial to align the versions of Node.js in your local development environment and host runtime environment. This version alignment ensures compatibility, reduces the likelihood of runtime errors, and uses the full capabilities of the Azure platform. In this article, you learn how to select the appropriate Node.js version for your Azure-hosted applications and services.
 
+## Node.js versions
+
+Node.js follows a predictable release schedule that includes both Long Term Support (LTS) and Current releases. LTS versions are designated for long-term maintenance and stability, making them ideal for production environments. These versions receive critical bug fixes, security updates, and performance improvements for an extended period, typically 30 months. Node.js uses an even/odd numbering system to distinguish between LTS and Current releases: even-numbered versions (e.g., 18, 20) are LTS releases, while odd-numbered versions (e.g., 19, 21) are Current releases. Current releases include the latest features and improvements but are only supported for six months, after which they transition to an LTS release if they're even-numbered. 
+
+You shouldn't use Current releases in production because the six month window can misalign with Azure hosting platform runtimes and SDKs. You will notice that the [development containers for Node.js](https://github.com/devcontainers/images/tree/main/src/javascript-node) do not offer odd-numbered/Current versions.
+
 ## Prerequisites
 
 All Azure SDKS and hosting services use [LTS versions of Node.js](https://nodejs.org/). If your application code has been running in a prior version of Node.js, no longer available for Long Term Support (LTS), you should update your application source code to run in an LTS runtime. 
@@ -47,6 +53,7 @@ You can download and install Node.js based on your requirements.
 
 * [Node.js Download page](https://nodejs.org/)
 * [Official Docker image](https://hub.docker.com/_/node/)
+* [Development containers](https://github.com/devcontainers/images/tree/main/src/javascript-node)
 
 ## Compatibility issues
 
