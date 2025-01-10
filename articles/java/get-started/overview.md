@@ -1,5 +1,5 @@
 ---
-title: Code, deploy, and scale Java your way
+title: Code, deploy, and Scale Java your Way
 titleSuffix: Azure
 description: This article provides an overview to a collection of articles that describe the tooling options for coding, deploying, and scaling Java applications with Azure.
 author: KarlErickson
@@ -27,8 +27,7 @@ Microsoft Azure supports all these needs. As a company, Microsoft is committed t
 
 Moving your Java applications to Azure is simple and intuitive, allowing you to benefit from all the cloud has to offer without having to learn new skills or adopt new tools or frameworks. You can continue using familiar tools like IntelliJ, Eclipse, VS Code, GitHub, Maven, and Gradle, and have more time for coding since you don't have to deploy or manage infrastructure.
 
-You can also continue using the same Java application servers and other open-source
-software you already know and trust. These tools aren't proprietary Microsoft implementations. Rather, they're the "real thing" from trusted names in the open-source ecosystem, like Spring Boot, JBoss EAP, OpenShift, WebLogic, WebSphere, Kafka, Grafana, and Redis.
+You can also continue using the same Java application servers and other open-source software you already know and trust. These tools aren't proprietary Microsoft implementations. Rather, they're the real thing from trusted names in the open-source ecosystem, like Spring Boot, JBoss EAP, OpenShift, WebLogic, WebSphere, Kafka, Grafana, and Redis.
 
 Azure also provides everything you need to scale your applications with confidence and ease, starting with proven reference architectures that are designed for cost control, scalability, high availability, security, and more. You also have access to state-of-the-art security features, built-in auto-scaling, tools for end-to-end monitoring and automation, and supporting services for data, messaging, and caching. With Azure, you have everything needed to code, deploy, and scale your Java applications in the cloud - and can start benefiting from all it has to offer without having to change how you work.
 
