@@ -30,7 +30,7 @@ Typically, you want all of the resources for a solution to be in the same region
 Not every Azure service is available in every region.  The [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all) page can help you find a region where the Azure services needed by your app are available.
 
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50C5F]
+> [!VIDEO a46cc039-9c20-411c-9829-a92dd96c1bf1]
 
 
 ## Azure resource group
@@ -44,7 +44,7 @@ Resource groups are most often used to group together all of the Azure resources
 This makes it easier to tell what resources are needed for the application to run and what resources are related to each other.  As such, the first step in creating resources for an app in Azure is usually creating the resource group that will serve as a container for the app's resources.
 
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50C5E]
+> [!VIDEO ec777d71-6067-4f03-bf19-8dd5189125c6]
 
 
 ## Environments
@@ -56,7 +56,7 @@ If you've developed on-premises, you are familiar with promoting your code throu
 Since it's important that each environment be an exact copy, it's recommended to either [script the creation of resources](./azure-developer-create-resources.md#command-line-tools) needed for an environment or use [Infrastructure as Code (IaC) tools](./azure-developer-create-resources.md#infrastructure-as-code-tools) to declaratively specify the configuration of each environment.  This makes sure that the environment creation process is repeatable and also give you the ability to spin up new environments on demand, for example for performance or security testing of your application.
 
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50C5M]
+> [!VIDEO 11847e6e-3424-4284-ba49-f7358fc8c8c9]
 
 
 ## DevOps Support
