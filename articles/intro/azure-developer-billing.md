@@ -40,7 +40,7 @@ Organizations often create multiple Azure subscriptions for billing and manageme
 If you have an individual Azure account tied to your Microsoft account, it's also possible to have multiple subscriptions.  For example, a user might have both a Visual Studio Enterprise subscription that provides monthly Azure credits and a Pay-as-you-go subscription which bills to their credit card.  In this scenario, you again want to be sure and choose the right subscription when creating Azure resources to avoid an unexpected bill for Azure services.
 
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50ydI]
+> [!VIDEO 05835149-e242-48c6-b041-7d70918ae6c6]
 
 
 ## What factors influence the cost of a service on Azure?
