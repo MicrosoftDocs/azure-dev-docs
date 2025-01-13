@@ -97,7 +97,7 @@ The Python sample app is a restaurant review app that saves restaurant and revie
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build and deploy a Python web app with Azure Container Apps and PostgreSQL](tutorial-deploy-python-web-app-azure-container-apps-02.md)
+> [Build and deploy a Python web app with Azure Container Apps and PostgreSQL](tutorial-deploy-python-web-app-azure-container-apps-02.md)
 
 [1]: https://www.docker.com/
 [2]: /azure/container-apps/
