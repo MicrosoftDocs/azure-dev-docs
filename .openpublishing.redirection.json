@@ -1403,6 +1403,10 @@
       "redirect_url": "/azure/developer/go/management-libraries"
     },
     {
+      "source_path": "articles/go/azure-sdk-qs-vm.md",
+      "redirect_url": "/azure/developer/go"
+    },
+    {
       "source_path": "articles/go/azure-sdk-containers-samples.md",
       "redirect_url": "/azure/developer/go"
     },
