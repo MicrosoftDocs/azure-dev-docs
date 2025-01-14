@@ -115,7 +115,7 @@ At the heart of every generative AI solution is an LLM model. Azure OpenAI provi
 
 |Product|Description|
 |---|---|
-|**Azure OpenAI**|A hosted service that provides access to powerful language models like GPT-4. There are several different APIs that allow you to perform all of the typical functions of an LLM, like creating embeddings, creating a chat experience, etc. with full access to settings and tweaks to customize the results as needed.|
+|**Azure OpenAI**|A hosted service that provides access to powerful language models like GPT-4. You can use several APIs to perform all the typical functions of an LLM, including creating embeddings and creating a chat experience. You have full access to settings and customizations to get the results you want.|
 
 ### Execution environments
 
@@ -128,7 +128,7 @@ Because you're building business logic, presentation logic, or APIs to integrate
 
 ### Low-code and no-code solutions
 
-Some of the logic required by a solution can be built quickly and hosted reliably by low-code or no-code solutions.
+Some of the logic that you need to implement your generative AI vision can be built quickly and be hosted reliably by using a low-code or no-code solution.
 
 |Product|Description|
 |---|---|
@@ -145,9 +145,9 @@ Some generative AI solutions might require storage and retrieval of data used to
 |**Azure Cache for Redis**|This fully managed in-memory data store can be used for caching frequently accessed information, reducing latency and improving the performance of the RAG chat system. It's especially useful for storing session data, user preferences, and common queries.|
 |**Azure Database for PostgreSQL - Flexible Server**|This managed database service can store application data, including logs, user profiles, and historical chat data. Its flexibility and scalability support the dynamic needs of a RAG chat system so that data is consistently available and secure.|
 
-Each of these Azure services contributes to creating a comprehensive, scalable, and efficient architecture for a generative AI solution. They help developers access and use the best of Azure's cloud capabilities and AI technologies.
+Each of these Azure services contributes to creating a comprehensive, scalable, and efficient architecture for a generative AI solution. They help developers access and use the best of Azure cloud capabilities and AI technologies.
 
-## Code-centric generative AI development with the Azure OpenAI API
+## Code-centric generative AI development by using the Azure OpenAI API
 
 In this section, we focus on the Azure OpenAI API. As stated earlier, you access LLM functionality programmatically through a RESTful web API. You can use literally any modern programming language to call into these APIs. In many cases, language-specific or platform-specific SDKs operate as wrappers around the REST API calls to make the experience more idiomatic.
 
@@ -173,7 +173,7 @@ Azure OpenAI offers a range of APIs that are designed to facilitate different ty
 - **Image Generation API**: Use this API to generate original, high-quality images and art from textual descriptions. It's based on OpenAI's DALL·E model, which can create images that match a wide variety of styles and subjects based on the prompts it receives.
 - **Audio API**: This API provides access to OpenAI's audio model and is designed for automatic speech recognition. It can transcribe spoken language into text, or text into speech, supporting various languages and dialects. It's useful for applications that require voice commands, audio content transcription, and more.
 
-Although generative AI can be used to work with many different modalities of media, in the rest of this article, we focus on text-based generative AI solutions. This covers scenarios like chat and summarization.
+Although you can use generative AI to work with many different media modalities, in the rest of this article, we focus on text-based generative AI solutions. These solutions include scenarios like chat and summarization.
 
 ## Get started developing with generative AI
 
