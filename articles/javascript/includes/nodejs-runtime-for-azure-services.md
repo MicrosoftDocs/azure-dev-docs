@@ -1,6 +1,6 @@
 ---
 ms.custom: devx-track-js
-ms.topic: include01/09/2025
+ms.topic: include
 ms.date: 01/07/2025
 ---
 
@@ -23,17 +23,14 @@ To find runtime information, use the following table:
       [Azure App Service](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/node_support.md)
    :::column-end:::
    :::column span="2":::
-      For Linux runtimes. You can also run the following Azure CLI command to see all supported versions.
-          
-        ```azurecli-interactive
-        az webapp list-runtimes | grep node
-        ```
+      For Linux runtimes. You can also run the following Azure CLI command to see all supported versions.<br>
+      <pre><code>az webapp list-runtimes | grep node</code></pre>
    :::column-end:::
 :::row-end:::
 
 :::row:::
    :::column span="1":::
-      [Azure Functions](/azure/azure-functions/functions-reference-node?tabs=javascript%2Cwindows%2Cazure-cli&pivots=nodejs-model-v4#supported-versions)
+      [Azure Functions](/azure/azure-functions/functions-reference-node#supported-version)
    :::column-end:::
    :::column span="2":::
       New projects should use the most recent programming model.
@@ -46,5 +43,14 @@ To find runtime information, use the following table:
    :::column-end:::
    :::column span="2":::
       There are two different runtimes to consider: the front end and the API if you are hosting your API in Static Web Apps.
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="1":::
+      [SWA CLI](https://github.com/Azure/static-web-apps-cli)
+   :::column-end:::
+   :::column span="2":::
+      The SWA CLI provides development environment functionality including proxy, authentication, and other configurations.
    :::column-end:::
 :::row-end:::

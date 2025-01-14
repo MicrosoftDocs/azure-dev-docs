@@ -1,6 +1,6 @@
 ---
 title: Use correct version of Node.js for Azure
-description: "[Article description]."
+description: Learn how to choose the right Node.js version for developing and deploying JavaScript applications on Azure. Understand the importance of aligning Node.js versions across local and hosting environments to ensure compatibility, stability, and optimal performance.
 ms.topic: concept-article #Don't change.
 ms.date: 01/07/2025
 #customer intent: As a JavaScript developer new to Azure, I want understand which version of Node.js to use for a hosting service or Azure sdk.
