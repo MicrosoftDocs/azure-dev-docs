@@ -1,7 +1,7 @@
 ---
 title: Configure your local JavaScript environment for Azure development
 description: How to set up a local JavaScript dev environment for working with Azure, including an editor, the Azure SDK libraries, optional tools, and the necessary credentials for library authentication.
-ms.date: 08/22/2024
+ms.date: 01/07/2025
 ms.topic: how-to
 ms.custom: devx-track-js, azure-sdk-javascript-ai-text-analytics-5.0.0
 ---
@@ -17,26 +17,26 @@ This article provides setup instructions to create and validate a local developm
 [Azure resources](/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources?tabs=AzureManagementGroupsAndHierarchy) are created within a subscription and resource group. 
 
 :::row:::
-    :::column:::
+    :::column span="1":::
         **Type**
     :::column-end:::
-    :::column:::
+    :::column span="2":::
         **Description**
     :::column-end:::
 :::row-end:::
 :::row:::
-    :::column:::
+    :::column span="1":::
         Trial subscription
     :::column-end:::
-    :::column:::
+    :::column span="2":::
         Create a _free_ [trial subscription](https://azure.microsoft.com/free/).
     :::column-end:::
 :::row-end:::
 :::row:::
-    :::column:::
+    :::column span="1":::
         Existing subscription
     :::column-end:::
-    :::column:::
+    :::column span="2":::
         If you already have a subscription, access your existing subscription with:
 * [Azure portal](https://portal.azure.com)
 * [Azure CLI](/cli/azure/install-azure-cli)
@@ -45,10 +45,10 @@ This article provides setup instructions to create and validate a local developm
     :::column-end:::
 :::row-end:::
 :::row:::
-    :::column:::
+    :::column span="1":::
         Across multiple subscriptions
     :::column-end:::
-    :::column:::
+    :::column span="2" :::
         If you need to manage multiple subscriptions, [learn how](/azure/governance/management-groups/create-management-group-javascript) to create a management group with JavaScript.
     :::column-end:::
 :::row-end:::
@@ -59,7 +59,7 @@ Azure development with JavaScript on your local workstation, we suggest you inst
 
 |Name/Installer|Description|
 |--|--|
-|[Node.js LTS](https://nodejs.org/)|Install latest long-term support (LTS) runtime environment for local workstation development.|
+|[Node.js LTS](https://nodejs.org/)|Install latest long-term support (LTS) runtime environment for local workstation development. Learn more about [selecting a version of Node.js for Azure](../choose-nodejs-version.md).|
 |[Visual Studio Code](https://code.visualstudio.com/)| Visual Studio Code gives you a great JavaScript integration and coding experience but it isn't required. You can use any code editor.|
 |[Visual Studio Code extensions](https://marketplace.visualstudio.com/search?term=azure&target=VSCode&category=Azure&sortBy=Relevance)|Install any relevant extensions for Azure services you intend to use.|
 
@@ -82,25 +82,7 @@ The following common local workstation installations are recommended to help wit
 
 ## Install Node.js
 
-The Azure SDK supports the [Node.js Long Term Support (LTS) version](https://nodejs.org/). Read the [Azure SDK Support Policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md#microsoft-support-policy) for more details.
-
-### Azure services Node.js minimum version
-
-[!INCLUDE [Azure services Node.js minimum version](../includes/nodejs-runtime-for-azure-services.md)]
-
-### Manage multiple versions of Node.js
-
-When you need to manage more than one version of Node.js across your local and remote environments, we recommend:
-
-* [**Development Containers**](https://containers.dev/): Use a container with a specific Node.js version. You can manage the version of Node.js across several environments using containers. Visual Studio Code's [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) simplifies this process.
-* **NVM (Node Version Manager)**: A command-line interface to set or switch your local version of Node.js.
-
-### Download and install Node.js based on your intended use
-
-You can download and install Node.js based on your requirements.
-
-* [Node.js Download page](https://nodejs.org/)
-* [Official Docker image](https://hub.docker.com/_/node/)
+Azure supports [LTS versions of Node.js](https://nodejs.org/). Learn more about [selecting a version of Node.js for Azure](../choose-nodejs-version.md).
 
 ## One-time configuration for authentication
 
