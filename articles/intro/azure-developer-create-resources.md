@@ -23,7 +23,7 @@ This is part five in a series of 7 articles to help developers get started with 
 Azure provides a variety of tools to create and manage the Azure resources used by your application. 
 
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE50C5I]
+> [!VIDEO e45eb362-8ff4-4fe3-8f83-24797f73202a]
 
 
 Different tools are designed to support different use cases, and most Azure developers use a combination of different tools depending on the job they need to perform. For example, you might:
