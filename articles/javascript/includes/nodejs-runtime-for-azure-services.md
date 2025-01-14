@@ -30,7 +30,7 @@ To find runtime information, use the following table:
 
 :::row:::
    :::column span="1":::
-      [Azure Functions](/azure/azure-functions/functions-reference-node#supported-version)
+      [Azure Functions](/azure/azure-functions/functions-reference-node?branch=main&tabs=javascript%2Cwindows%2Cazure-cli&pivots=nodejs-model-v4#supported-version)
    :::column-end:::
    :::column span="2":::
       New projects should use the most recent programming model.
