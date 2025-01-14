@@ -303,7 +303,7 @@
 | Resource Management - Palo Alto Networks - Next Generation Firewall | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-paloaltonetworksngfw/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-paloaltonetworksngfw-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-paloaltonetworksngfw_1.1.0/sdk/paloaltonetworksngfw/arm-paloaltonetworksngfw/) |
 | Resource Management - Peering | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-peering/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-peering-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/peering/arm-peering) |
 | Resource Management - Playwright Testing | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-playwrighttesting/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-playwrighttesting-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-playwrighttesting_1.0.0/sdk/playwrighttesting/arm-playwrighttesting/) |
-| Resource Management - Policy | npm [5.1.0](https://www.npmjs.com/package/@azure/arm-policy/v/5.1.0) | [docs](/javascript/api/overview/azure/arm-policy-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy) |
+| Resource Management - Policy | npm [5.1.0](https://www.npmjs.com/package/@azure/arm-policy/v/5.1.0)<br>npm [5.2.0-beta.1](https://www.npmjs.com/package/@azure/arm-policy/v/5.2.0-beta.1) | [docs](/javascript/api/overview/azure/arm-policy-readme) | GitHub [5.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy) |
 | Resource Management - Policy Insights | npm [6.0.0](https://www.npmjs.com/package/@azure/arm-policyinsights/v/6.0.0) | [docs](/javascript/api/overview/azure/arm-policyinsights-readme) | GitHub [6.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policyinsights/arm-policyinsights) |
 | Resource Management - Portal | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/arm-portal/v/1.0.0-beta.5) | [docs](/javascript/api/overview/azure/arm-portal-readme) | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-portal_1.0.0-beta.5/sdk/portal/arm-portal/) |
 | Resource Management - PostgreSQL | npm [6.1.0](https://www.npmjs.com/package/@azure/arm-postgresql/v/6.1.0) | [docs](/javascript/api/overview/azure/arm-postgresql-readme) | GitHub [6.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/postgresql/arm-postgresql) |
@@ -408,7 +408,7 @@
 | Unknown Display Name | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.6.0) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/ai-projects/v/1.0.0-beta.2) |  |  |
 | Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/events/v/0.63.0) |  |  |
-| Unknown Display Name | npm [0.1.5](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.5) |  |  |
+| Unknown Display Name | npm [0.1.6](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.6) |  |  |
 | Unknown Display Name | npm [0.6.2](https://www.npmjs.com/package/@typespec/http-client-python/v/0.6.2) |  |  |
 | Unknown Display Name | npm [0.1.0-alpha.5](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.5) |  |  |
 | Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/sse/v/0.63.0) |  |  |
@@ -491,7 +491,7 @@
 | @autorest/codemodel | npm [4.20.0](https://www.npmjs.com/package/@autorest/codemodel/v/4.20.0) |  |  |
 | @autorest/common | npm [1.6.0](https://www.npmjs.com/package/@autorest/common/v/1.6.0) |  |  |
 | @autorest/configuration | npm [1.12.1](https://www.npmjs.com/package/@autorest/configuration/v/1.12.1) |  |  |
-| @autorest/csharp | npm [3.0.0-beta.20250112.2](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250112.2) |  |  |
+| @autorest/csharp | npm [3.0.0-beta.20250113.1](https://www.npmjs.com/package/@autorest/csharp/v/3.0.0-beta.20250113.1) |  |  |
 | @autorest/csharp-v3 | npm [3.0.0-beta.20201217.1](https://www.npmjs.com/package/@autorest/csharp-v3/v/3.0.0-beta.20201217.1) |  |  |
 | @autorest/extension-base | npm [3.6.0](https://www.npmjs.com/package/@autorest/extension-base/v/3.6.0) |  |  |
 | @autorest/fixer | npm [1.2.0](https://www.npmjs.com/package/@autorest/fixer/v/1.2.0) |  |  |
