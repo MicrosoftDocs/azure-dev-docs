@@ -32,7 +32,7 @@ The following table shows the contents of the sample project folder:
 |-----------------------------------------------------------------|---------------------------------------------------------------------------------------------|
 | **src/main/java/com/microsoft/azuresamples/msal4j/roles/**        | This directory contains the classes that define the app's backend business logic.           |
 | **src/main/java/com/microsoft/azuresamples/msal4j/authservlets/** | This directory contains the classes that are used for sign in and sign out endpoints.       |
-| **____Servlet.java**                                              | All of the endpoints available are defined in `.java` classes ending in `____Servlet.java`. |
+| **\*Servlet.java**                                              | All of the endpoints available are defined in Java classes with names ending in `Servlet`. |
 | **src/main/java/com/microsoft/azuresamples/msal4j/helpers/**      | Helper classes for authentication.                                                          |
 | **AuthenticationFilter.java**                                     | Redirects unauthenticated requests to protected endpoints to a 401 page.                    |
 | **src/main/resources/authentication.properties**                  | Microsoft Entra ID and program configuration.                                               |

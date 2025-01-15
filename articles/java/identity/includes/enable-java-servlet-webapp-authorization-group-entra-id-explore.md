@@ -36,7 +36,7 @@ The following table shows the contents of the sample project folder:
 |-----------------------------------------------------------------|---------------------------------------------------------------------------------------------|
 | **src/main/java/com/microsoft/azuresamples/msal4j/groupswebapp/** | This directory contains the classes that define the app's backend business logic.           |
 | **src/main/java/com/microsoft/azuresamples/msal4j/authservlets/** | This directory contains the classes that are used for sign in and sign out endpoints.       |
-| **Servlet.java**                                              | All of the endpoints available are defined in Java class names ending in `Servlet`. |
+| **\*Servlet.java**                                              | All of the endpoints available are defined in Java class names ending in `Servlet`. |
 | **src/main/java/com/microsoft/azuresamples/msal4j/helpers/**      | Helper classes for authentication.                                                          |
 | **AuthenticationFilter.java**                                     | Redirects unauthenticated requests to protected endpoints to a 401 page.                    |
 | **src/main/resources/authentication.properties**                  | Microsoft Entra ID and program configuration.                                               |
@@ -91,14 +91,14 @@ To create the overage scenario, you can use the following steps:
 
 1. You can use the **BulkCreateGroups.ps1** file provided in the **AppCreationScripts** folder to create a large number of groups and assign users to them. This file helps test overage scenarios during development. Remember to change the user's `objectId` provided in the **BulkCreateGroups.ps1** script.
 
-1. When you run this sample and an overage occurs, you see the `_claim_names` in the home page after the user signs in.
+1. When you run this sample and an overage occurs, you see the **_claim_names** in the home page after the user signs in.
 
 1. We strongly advise that you use the group filtering feature, if possible, to avoid running into group overages. For more information, see the section [Configure your application to receive the groups claim values from a filtered set of groups a user might be assigned to](#configure-your-application-to-receive-the-groups-claim-values-from-a-filtered-set-of-groups-a-user-might-be-assigned-to).
 
 1. In case you can't avoid running into group overage, we suggest you use the following steps to process the groups claim in your token:
 
-   1. Check for the claim `_claim_names` with one of the values being **groups**. This claim indicates overage.
-   1. If found, make a call to the endpoint specified in `_claim_sources` to fetch user's groups.
+   1. Check for the claim **_claim_names** with one of the values being **groups**. This claim indicates overage.
+   1. If found, make a call to the endpoint specified in **_claim_sources** to fetch user's groups.
    1. If none found, look into the **groups**  claim for user's groups.
 
 > [!NOTE]
@@ -192,7 +192,7 @@ The following steps provide a walkthrough of the app's functionality:
 
 1. After previous step, you can extract group memberships by calling `context.getGroups()` using an instance of `IdentityContextData`.
 
-1. If the user is a member of too many groups - more than 200 - a call to `context.getGroups()` might be empty if not for the call to `handleGroupsOverage()`. Meanwhile, `context.getGroupsOverage()` returns `true`, signaling that an overage occurred, and that getting the full list of groups requires a call to Microsoft Graph. See the `handleGroupsOverage()` method in `AuthHelper.java` to see how this application uses `context.setGroups()` when there's an overage.
+1. If the user is a member of too many groups - more than 200 - a call to `context.getGroups()` might be empty if not for the call to `handleGroupsOverage()`. Meanwhile, `context.getGroupsOverage()` returns `true`, signaling that an overage occurred, and that getting the full list of groups requires a call to Microsoft Graph. See the `handleGroupsOverage()` method in **AuthHelper.java** to see how this application uses `context.setGroups()` when there's an overage.
 
 ### Protect the routes
 
