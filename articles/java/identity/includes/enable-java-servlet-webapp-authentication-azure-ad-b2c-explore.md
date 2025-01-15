@@ -27,19 +27,19 @@ The following table shows the contents of the sample project folder:
 
 | File/folder                 | Description                                                                                          |
 |-----------------------------|------------------------------------------------------------------------------------------------------|
-| *AuthHelper.java*           | Helper functions for authentication.                                                                 |
-| *Config.java*               | Runs on startup and configures properties reader and logger.                                         |
-| *authentication.properties* | Microsoft Entra ID and program configuration.                                                        |
-| *AuthenticationFilter.java* | Redirects unauthenticated requests to protected resources to a 401 page.                             |
-| *MsalAuthSession*           | Instantiated with an `HttpSession`. Stores all MSAL related session attributes in session attribute. |
-| *____Servlet.java*          | All of the endpoints available are defined in *.java* classes ending in *____Servlet.java*.          |
-| *CHANGELOG.md*              | List of changes to the sample.                                                                       |
-| *CONTRIBUTING.md*           | Guidelines for contributing to the sample.                                                           |
-| *LICENSE*                   | The license for the sample.                                                                          |
+| **AuthHelper.java**           | Helper functions for authentication.                                                                 |
+| **Config.java**               | Runs on startup and configures properties reader and logger.                                         |
+| **authentication.properties** | Microsoft Entra ID and program configuration.                                                        |
+| **AuthenticationFilter.java** | Redirects unauthenticated requests to protected resources to a 401 page.                             |
+| **MsalAuthSession**           | Instantiated with an `HttpSession`. Stores all MSAL related session attributes in session attribute. |
+| **____Servlet.java**          | All of the endpoints available are defined in **.java** classes ending in **____Servlet.java**.          |
+| **CHANGELOG.md**              | List of changes to the sample.                                                                       |
+| **CONTRIBUTING.md**           | Guidelines for contributing to the sample.                                                           |
+| **LICENSE**                   | The license for the sample.                                                                          |
 
 ### ConfidentialClientApplication
 
-A `ConfidentialClientApplication` instance is created in the *AuthHelper.java* file, as shown in the following example. This object helps craft the Azure AD B2C authorization URL and also helps exchange the authentication token for an access token.
+A `ConfidentialClientApplication` instance is created in the **AuthHelper.java** file, as shown in the following example. This object helps craft the Azure AD B2C authorization URL and also helps exchange the authentication token for an access token.
 
 ```java
 IClientSecret secret = ClientCredentialFactory.createFromSecret(SECRET);
@@ -55,7 +55,7 @@ The following parameters are used for instantiation:
 - The client secret, which is a requirement for Confidential Client Applications.
 - The Azure AD B2C Authority concatenated with the appropriate `UserFlowPolicy` for sign-up, sign-in, profile-edit, or password-reset.
 
-In this sample, these values are read from the *authentication.properties* file using a properties reader in the *Config.java* file.
+In this sample, these values are read from the **authentication.properties** file using a properties reader in the **Config.java** file.
 
 ### Step-by-step walkthrough
 
@@ -87,13 +87,13 @@ The following steps provide a walkthrough of the app's functionality:
 
      In order for Azure AD B2C to dispense an access token as well as an ID token, the request must include an additional resource scope. Because this app doesn't actually require an external resource scope, it adds its own client ID as a fourth scope in order to receive an access token.
 
-     You can find a full list of scopes requested by the app in the *authentication.properties* file.
+     You can find a full list of scopes requested by the app in the **authentication.properties** file.
 
    - `ResponseMode.QUERY`: Azure AD B2C can return the response as form params in an HTTP POST request or as query string params in an HTTP GET request.
 
    - `Prompt.SELECT_ACCOUNT`: Azure AD B2C should ask the user to select the account that they intend to authenticate against.
 
-   - `state`: A unique variable set by the app into the session on each token request and destroyed after receiving the corresponding Azure AD B2C redirect callback. The state variable ensures that Azure AD B2C requests to the `/auth_redirect endpoint` are actually from Azure AD B2C authorization requests originating from this app and this session, thereby preventing CSRF attacks. This is done in the *AADRedirectServlet.java* file.
+   - `state`: A unique variable set by the app into the session on each token request and destroyed after receiving the corresponding Azure AD B2C redirect callback. The state variable ensures that Azure AD B2C requests to the `/auth_redirect endpoint` are actually from Azure AD B2C authorization requests originating from this app and this session, thereby preventing CSRF attacks. This is done in the **AADRedirectServlet.java** file.
 
    - `nonce`: A unique variable set by the app into the session on each token request, and destroyed after receiving the corresponding token. This nonce is transcribed to the resulting tokens dispensed Azure AD B2C, thereby ensuring that there's no token-replay attack occurring.
 

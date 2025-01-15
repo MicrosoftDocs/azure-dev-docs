@@ -18,7 +18,7 @@ This sample first uses the MSAL for Java (MSAL4J) to sign in the user. On the ho
 
 This kind of authorization is implemented using RBAC. With RBAC, an administrator grants permissions to roles, not to individual users or groups. The administrator can then assign roles to different users and groups to control who has access to certain content and functionality.
 
-This sample application defines the following two *Application Roles*:
+This sample application defines the following two Application Roles*:
 
 - `PrivilegedAdmin`: Authorized to access the **Admins Only** and the **Regular Users** pages.
 - `RegularUser`: Authorized to access the **Regular Users** page.
