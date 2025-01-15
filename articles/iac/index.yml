@@ -37,22 +37,22 @@ productDirectory:
   summary: Azure provides flexibility around IaC through third-party providers.
   items:
     - title: Terraform
-      imageSrc: ./media/logos/logo_azure.svg
+      imageSrc: /media/logos/logo_azure.svg
       summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure.
       url: https://www.terraform.io
     - title: Chef
-      imageSrc: ./media/logos/logo_azure.svg
+      imageSrc: /media/logos/logo_azure.svg
       summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure.
       url: https://www.terraform.io
     - title: Jenkins
-      imageSrc: ./media/logos/logo_azure.svg
+      imageSrc: /media/logos/logo_azure.svg
       summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure.
       url: https://www.terraform.io
     - title: Ansible
-      imageSrc: ./media/logos/logo_azure.svg
+      imageSrc: /media/logos/logo_azure.svg
       summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure.
       url: https://www.terraform.io
     - title: Pulumi
-      imageSrc: ./media/logos/logo_azure.svg
+      imageSrc: /media/logos/logo_azure.svg
       summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure.
       url: https://www.terraform.io
