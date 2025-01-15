@@ -42,9 +42,9 @@ After you enter this command, a series of prompts asks for details about your pr
 | `artifactId`     | (Required) The Maven `artifactId` to use in the POM file created for the generated project.  |
 | `package`        | (Optional) The package name to put the generated code into. Inferred from the `groupId` if it's not specified. |
 | `azureLibraries` | (Optional) A comma-separated list of Azure SDK for Java libraries, using their Maven artifact IDs. For a list of such artifact IDs, see [Azure SDK Releases](https://azure.github.io/azure-sdk/releases/latest/java.html). |
-| `enableGraalVM`  | (Optional) *false* to indicate that the generated Maven POM file shouldn't include support for compiling your application to a native image using GraalVM; otherwise, *true*. The default value is *true*. |
-| `javaVersion`    | (Optional) The minimum version of the JDK to target when building the generated project, such as *8*, *11*, or *17*. The default value is the latest LTS release (currently *17*). The minimum value is *8*. |
-| `junitVersion`   | (Optional) The version of JUnit to include as a dependency. The default value is *5*. Valid values *4* and *5*. |
+| `enableGraalVM`  | (Optional) `false` to indicate that the generated Maven POM file shouldn't include support for compiling your application to a native image using GraalVM; otherwise, `true`. The default value is `true`. |
+| `javaVersion`    | (Optional) The minimum version of the JDK to target when building the generated project, such as `8`, `11`, or `17`. The default value is the latest LTS release (currently `17`). The minimum value is `8`. |
+| `junitVersion`   | (Optional) The version of JUnit to include as a dependency. The default value is `5`. Valid values `4` and `5`. |
 
 Alternately, you can provide these values when you call the archetype command shown earlier. This approach is useful, for example, for automation purposes. You can specify the values as parameters using the standard Maven syntax of appending `-D` to the parameter name, for example:
 
@@ -65,7 +65,7 @@ The Azure SDK for Java project ships a Maven build tool that you can include in 
 
 The report also provides insight into usage of beta APIs.
 
-You can configure the build tool in a project Maven POM file as shown in the following example. Be sure to replace the *`{latest_version}`* placeholder with the [latest version listed online](https://central.sonatype.com/artifact/com.azure.tools/azure-sdk-build-tool).
+You can configure the build tool in a project Maven POM file as shown in the following example. Be sure to replace the `<{latest_version}>` placeholder with the [latest version listed online](https://central.sonatype.com/artifact/com.azure.tools/azure-sdk-build-tool).
 
 ```xml
 <build>
@@ -92,7 +92,7 @@ It's possible to configure the build tool to enable or disable particular featur
 | `validateNoBetaLibraryUsed`                | false         | Some Azure SDK for Java client libraries have beta releases, with version strings in the form `x.y.z-beta.n`. Enabling this feature ensures that no beta libraries are being used. |
 | `validateNoBetaApiUsed`                    | true          | Azure SDK for Java client libraries sometimes have GA releases with methods annotated with `@Beta`. This check looks to see if any such methods are being used. |
 | `sendToMicrosoft`                          | true          | Specifies whether to send the build report to Microsoft for telemetry purposes. This helps guide the development team on where to prioritize documentation, samples, and improved convenience APIs. No user-identifiable content is submitted. |
-| `reportFile`                               | -             | *(Optional)* Specifies the location to write the build report out to, in JSON format. If not specified, no report is written, and a summary of the build, or the appropriate build failures, is shown in the terminal. |
+| `reportFile`                               | -             | (Optional) Specifies the location to write the build report out to, in JSON format. If not specified, no report is written, and a summary of the build, or the appropriate build failures, is shown in the terminal. |
 
 [azure-sdk-bom]: #add-azure-sdk-for-java-to-an-existing-project
 
@@ -100,7 +100,7 @@ It's possible to configure the build tool to enable or disable particular featur
 
 To make dependency version management simpler, the Azure SDK for Java team publishes the [Azure SDK for Java client BOM](https://central.sonatype.com/artifact/com.azure/azure-sdk-bom/1.2.10/versions) each month. This BOM file includes all Generally Available (GA) Azure SDK for Java client packages with their compatible dependency version.
 
-To use dependency versions for an Azure SDK for Java client library that is in the BOM, include the following snippet in the project *pom.xml* file. Replace the *`{bom_version_to_target}`* placeholder with the [latest release of the Azure SDK for Java BOM](https://central.sonatype.com/artifact/com.azure/azure-sdk-bom/1.2.10/versions). Replace the *`{artifactId}`* placeholder with the Azure service SDK package name.
+To use dependency versions for an Azure SDK for Java client library that is in the BOM, include the following snippet in the project **pom.xml** file. Replace the `<{bom_version_to_target}>` placeholder with the [latest release of the Azure SDK for Java BOM](https://central.sonatype.com/artifact/com.azure/azure-sdk-bom/1.2.10/versions). Replace the `<{artifactId}>` placeholder with the Azure service SDK package name.
 
 ```xml
 <dependencyManagement>
@@ -151,7 +151,7 @@ If you use this approach and specify versions directly in your project, you migh
 
 ## Build a native image with GraalVM
 
-You can use GraalVM to create a *native image* of a Java application. GraalVM compiles the Java code ahead of time into native machine code, which can yield drastic performance gains in certain situations. The Azure SDK for Java provides the necessary metadata in each of its client libraries to support GraalVM native image compilation.
+You can use GraalVM to create a native image of a Java application. GraalVM compiles the Java code ahead of time into native machine code, which can yield drastic performance gains in certain situations. The Azure SDK for Java provides the necessary metadata in each of its client libraries to support GraalVM native image compilation.
 
 To get started, you need to install GraalVM and prepare your development system for compiling native images. The installation process for GraalVM is straightforward, and the GraalVM documentation provides step-by-step instructions for [installing GraalVM](https://www.graalvm.org/latest/docs/getting-started/) and [using GraalVM to install native-image](https://www.graalvm.org/latest/reference-manual/native-image/). Follow the [prerequisites](https://www.graalvm.org/latest/reference-manual/native-image/#prerequisites) section carefully to install the necessary native compilers for your operating system.
 
@@ -163,7 +163,7 @@ Next, you're ready to run a native image build. You can use standard Maven tooli
 mvn clean package -Pnative
 ```
 
-After you run this command, GraalVM outputs a native executable for the platform it's running on. The executable appears in the Maven */target* directory of your project. You can now run your application with this executable file, and it should perform similarly to a standard Java application.
+After you run this command, GraalVM outputs a native executable for the platform it's running on. The executable appears in the Maven **/target** directory of your project. You can now run your application with this executable file, and it should perform similarly to a standard Java application.
 
 ## Next steps
 

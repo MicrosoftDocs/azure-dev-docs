@@ -35,7 +35,7 @@ Follow these links to learn more about the specifics of each of these authentica
 
 ## Add the Maven dependencies
 
-To add the Maven dependency, include the following XML in the project's *pom.xml* file. Replace `{version_number}` with the latest stable release's version number, as shown on the [Azure Identity library page](https://search.maven.org/artifact/com.azure/azure-identity).
+To add the Maven dependency, include the following XML in the project's **pom.xml** file. Replace `{version_number}` with the latest stable release's version number, as shown on the [Azure Identity library page](https://search.maven.org/artifact/com.azure/azure-identity).
 
 ```xml
 <dependency>
@@ -57,7 +57,7 @@ The Azure Identity library focuses on OAuth authentication with Microsoft Entra 
 
 ## Examples
 
-As noted in [Use the Azure SDK for Java](../overview.md#provision-and-manage-azure-resources-with-management-libraries), the management libraries differ slightly. One of the ways they differ is that there are libraries for *consuming* Azure services, called client libraries, and libraries for *managing* Azure services, called management libraries. In the following sections, there's a quick overview of authenticating in both client and management libraries.
+As noted in [Use the Azure SDK for Java](../overview.md#provision-and-manage-azure-resources-with-management-libraries), the management libraries differ slightly. One of the ways they differ is that there are libraries for consuming Azure services, called *client libraries*, and libraries for managing Azure services, called *management libraries*. In the following sections, there's a quick overview of authenticating in both client and management libraries.
 
 ### Authenticate Azure client libraries
 

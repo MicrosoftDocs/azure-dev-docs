@@ -40,7 +40,7 @@ These steps enable the application to authenticate, but it still doesn't have pe
 
 You also need to be the admin of your tenant to grant consent to your application when you sign in for the first time.
 
-If you can't configure the device code flow option on your Microsoft Entra ID, then it may require your app to be multi- tenant. To make your app multi-tenant, navigate to the **Authentication** panel, then select **Accounts in any organizational directory**. Then, select *yes* for **Treat application as Public Client**.
+If you can't configure the device code flow option on your Microsoft Entra ID, then it may require your app to be multi- tenant. To make your app multi-tenant, navigate to the **Authentication** panel, then select **Accounts in any organizational directory**. Then, select **yes** for **Treat application as Public Client**.
 
 ### Authenticate a user account with device code flow
 

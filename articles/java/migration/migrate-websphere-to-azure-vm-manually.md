@@ -270,7 +270,7 @@ Use the following steps to create a basic VM, ensure the installation of require
 
 ### Create a Windows VM and set up an X server
 
-This tutorial uses the graphical interface of WAS to complete the installation and configuration. You use a Windows VM as a *jump box* and run an [X Window System server](https://sourceforge.net/projects/vcxsrv/) to view the graphical installers on the three VMs of the WAS cluster.
+This tutorial uses the graphical interface of WAS to complete the installation and configuration. You use a Windows VM as a jump box and run an [X Window System server](https://sourceforge.net/projects/vcxsrv/) to view the graphical installers on the three VMs of the WAS cluster.
 
 Use the following steps to provision a Windows 10 machine and install an X server. If you already have a Windows machine within the same network as the Red Hat Enterprise Linux machine, you don't need to provision a new one from Azure. You can go directly to the section that installs the X server.
 
@@ -296,7 +296,7 @@ Use the following steps to install the required dependencies to allow the connec
    ssh azureuser@%ADMINVM_IP%
    ```
 
-1. Enter the password *Secret123456*.
+1. Enter the password **Secret123456**.
 
 1. Use the following command to switch to the `root` user. This tutorial installs all the tools with the `root` user.
 
@@ -384,7 +384,7 @@ You store all the installation files and configurations to the data disk. Use th
    mount /dev/sdc1 /datadrive
    ```
 
-1. Use the following command to add the mount to the */etc/fstab* file:
+1. Use the following command to add the mount to the **/etc/fstab** file:
 
    ```bash
    echo "UUID=$(blkid | grep -Po "(?<=\/dev\/sdc1\: UUID=\")[^\"]*(?=\".*)")   /datadrive   xfs   defaults,nofail   1   2" >> /etc/fstab
@@ -407,7 +407,7 @@ Later, you continue to install IBM Installation Manager on `adminVM`, so keep th
 
 Use the following steps to download and install IBM Installation Manager by using the X server on `myWindowsVM`:
 
-1. Download IBM Installation Manager by using the `curl` command, as shown in the following example. Save the installer file to */datadrive/tmp*, and then unzip the file to */datadrive/installer*.
+1. Download IBM Installation Manager by using the `curl` command, as shown in the following example. Save the installer file to **/datadrive/tmp**, and then unzip the file to **/datadrive/installer**.
 
    ```bash
    yum install -y unzip
@@ -446,7 +446,7 @@ Use the following steps to download and install IBM Installation Manager by usin
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-accept-license.png" alt-text="Screenshot of the IBM Installation Manager license agreement." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-accept-license.png":::
 
-1. Set the Installation Manager directory to */datadrive/IBM/InstallationManager/V1.9*, and then select **Next**.
+1. Set the Installation Manager directory to **/datadrive/IBM/InstallationManager/V1.9**, and then select **Next**.
 
    > [!NOTE]
    > Many of the steps in this guidance require you to copy values from this text and paste them directly into the installer UI. A typo in one of these values can cause the process to fail completely. We strongly recommend that you open a Notepad instance within the Windows jump box VM and use that as an intermediate place to paste values from this guidance. Then, inside the VM, do a separate copy/paste operation from Notepad to the installer UI. This action minimizes the chances of a simple typo causing the guidance to fail.
@@ -461,7 +461,7 @@ Use the following steps to download and install IBM Installation Manager by usin
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-install-complete.png" alt-text="Screenshot that shows successful installation of IBM Installation Manager." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-installation-manager-install-complete.png":::
 
-1. Close the installer. IBM Installation Manager is now installed in the directory */datadrive/IBM/InstallationManager/V1.9*.
+1. Close the installer. IBM Installation Manager is now installed in the directory **/datadrive/IBM/InstallationManager/V1.9**.
 
 Next, you continue to install WebSphere Application Server on `adminVM`, so keep this terminal open.
 
@@ -471,7 +471,7 @@ Next, you continue to install WebSphere Application Server on `adminVM`, so keep
 
 ### [WAS ND V9](#tab/was-nd-v9)
 
-When you use the base image, WebSphere Application Server Network Deployment is already installed in the directory */datadrive/IBM/WebSphere/ND/V9*.
+When you use the base image, WebSphere Application Server Network Deployment is already installed in the directory **/datadrive/IBM/WebSphere/ND/V9**.
 
 ### [WAS ND V85](#tab/was-nd-v85)
 
@@ -521,11 +521,11 @@ In this section, you use the X server on `myWindowsVM` to view the graphical ins
 
 1. Accept the license agreement by selecting **I accept the terms in the license agreement**, and then select **Next**.
 
-1. Set **Shared Resources Directory** to */datadrive/IBM/IMShared*, and then select **Next**.
+1. Set **Shared Resources Directory** to **/datadrive/IBM/IMShared**, and then select **Next**.
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-shared-resources-directory.png" alt-text="Screenshot of the Shared Resources Directory box for IBM WebSphere Application Server." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-shared-resources-directory.png":::
 
-1. Set **Installation Directory** to */datadrive/IBM/WebSphere/ND/V85*, and then select **Next**.
+1. Set **Installation Directory** to **/datadrive/IBM/WebSphere/ND/V85**, and then select **Next**.
 
    :::image type="content" source="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation-directory.png" alt-text="Screenshot of the Installation Directory box for IBM WebSphere Application Server." lightbox="media/migrate-websphere-to-azure-vm-manually/ibm-websphere-application-server-installation-was855-installation-directory.png":::
 
@@ -551,7 +551,7 @@ In this section, you use the X server on `myWindowsVM` to view the graphical ins
 
    If this file doesn't exist, correct the problem before proceeding.
 
-You finished installing WebSphere Application Server Network Deployment in the directory */datadrive/IBM/WebSphere/ND/V85*.
+You finished installing WebSphere Application Server Network Deployment in the directory **/datadrive/IBM/WebSphere/ND/V85**.
 
 ---
 
@@ -1220,8 +1220,8 @@ Use the following steps to create and configure the management profile:
 
 1. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Dmgr01`. The location depends on your WAS version:
 
-   - In WAS V9, the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Dmgr01*.
-   - In WAS V8.5, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01*.
+   - In WAS V9, the location is **/datadrive/IBM/WebSphere/ND/V9/profiles/Dmgr01**.
+   - In WAS V8.5, the location is **/datadrive/IBM/WebSphere/ND/V85/profiles/Dmgr01**.
 
    When you finish, select **Next**.
 
@@ -1432,8 +1432,8 @@ Use the following steps to configure a custom profile for `mspVM1`:
 
 1. On the **Profile Name and Location** pane, enter your profile name and location. In this example, the profile name is `Custom01`. The location depends on your WAS version:
 
-   - In WAS V9, the location is */datadrive/IBM/WebSphere/ND/V9/profiles/Custom01*.
-   - In WAS V8.5, the location is */datadrive/IBM/WebSphere/ND/V85/profiles/Custom01*.
+   - In WAS V9, the location is **/datadrive/IBM/WebSphere/ND/V9/profiles/Custom01**.
+   - In WAS V8.5, the location is **/datadrive/IBM/WebSphere/ND/V85/profiles/Custom01**.
 
    When you finish, select **Next**.
 

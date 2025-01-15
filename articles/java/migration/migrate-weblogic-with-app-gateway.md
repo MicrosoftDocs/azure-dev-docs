@@ -93,7 +93,7 @@ To create an Azure DNS Zone to use with the App Gateway, use the following steps
 1. Next to **Use an existing Azure DNS Zone** select **No**.
 1. Enter the name of the Azure DNS Zone next to **DNS Zone Name**. A new DNS Zone will be created in the same resource group as WLS.
 
-Finally, specify the names for the child DNS zones. The deployment will create two child DNS zones for use with WLS: one for the admin console, and one for the App Gateway. For example, if your DNS Zone Name was 'contoso.net', you could enter *admin* and *app* as the values. The admin console would be available at 'admin.contoso.net' and the app gateway would be available at 'app.contoso.net'. Don't forget set up DNS delegation as described in [Delegation of DNS zones with Azure DNS](/azure/dns/dns-domain-delegation).
+Finally, specify the names for the child DNS zones. The deployment will create two child DNS zones for use with WLS: one for the admin console, and one for the App Gateway. For example, if your DNS Zone Name was 'contoso.net', you could enter **admin** and **app** as the values. The admin console would be available at 'admin.contoso.net' and the app gateway would be available at 'app.contoso.net'. Don't forget set up DNS delegation as described in [Delegation of DNS zones with Azure DNS](/azure/dns/dns-domain-delegation).
 
 :::image type="content" source="media/migrate-weblogic-with-app-gateway/child-dns-zones.png" alt-text="Azure portal screenshot showing fields for child DNS zones.":::
 
@@ -113,8 +113,8 @@ This section shows how to use the Azure portal to create an Azure Key Vault.
 1. On the Key Vault section, choose **Create**.
 1. On the **Create key vault** section provide the following information:
     * **Subscription**: Choose a subscription.
-    * Under **Resource group**, choose **Create new** and enter a resource group name.  Take note of the key vault name.  *You'll need it later when deploying WLS.*
-    * **Key Vault Name**: A unique name is required.  Take note of the key vault name.  *You'll need it later when deploying WLS.*
+    * Under **Resource group**, choose **Create new** and enter a resource group name.  Take note of the key vault name. You'll need it later when deploying WLS.
+    * **Key Vault Name**: A unique name is required.  Take note of the key vault name.  You'll need it later when deploying WLS.
     > [!NOTE]
     > You may use the same name for both **Resource group** and **Key vault name**.
     * In the **Location** pull-down menu, choose a location.
@@ -128,7 +128,7 @@ Key vault creation is fairly lightweight, typically completing in less than two 
 
 #### Create a TLS/SSL certificate
 
-This section shows how to create a self-signed TLS/SSL certificate in a format suitable for use by Application Gateway deployed with WebLogic Server on Azure.  The certificate must have a non-empty password.  If you already have a valid, non-empty password TLS/SSL certificate in *.pfx* format, you can skip this section and move on to the next.  If your existing, valid, non-empty password TLS/SSL certificate is not in the *.pfx* format, first convert it to a *.pfx* file before skipping to the next section.  Otherwise, open a command shell and enter the following commands.
+This section shows how to create a self-signed TLS/SSL certificate in a format suitable for use by Application Gateway deployed with WebLogic Server on Azure.  The certificate must have a non-empty password.  If you already have a valid, non-empty password TLS/SSL certificate in **.pfx** format, you can skip this section and move on to the next.  If your existing, valid, non-empty password TLS/SSL certificate is not in the **.pfx** format, first convert it to a **.pfx** file before skipping to the next section.  Otherwise, open a command shell and enter the following commands.
 
 > [!NOTE]
 > This section shows how to base 64 encode the certificate before storing it as a secret in the Key Vault.  This is required by the underlying Azure deployment that creates the WebLogic Server and Application Gateway.
@@ -154,15 +154,15 @@ Follow these steps to create and base 64 encode the certificate:
      1. For **Common Name**, enter Contoso.
      1. For **Email Address**, enter billing@contoso.com.
 
-1. Export the certificate as a *.pfx* file
+1. Export the certificate as a **.pfx** file
 
    ```bash
    openssl pkcs12 -export -in public.pem -inkey private.pem -out mycert.pfx
    ```
 
-   Enter the password twice.  Take note of the password.  *You'll need it later when deploying WLS.*
+   Enter the password twice.  Take note of the password. You'll need it later when deploying WLS.
 
-1. Base 64 encode the *mycert.pfx* file
+1. Base 64 encode the **mycert.pfx** file
 
    ```bash
    base64 mycert.pfx > mycert.txt
@@ -182,7 +182,7 @@ To store the certificate, follow these steps:
 1. Select **Generate/Import**.
 1. Under **Upload options**, leave the default value.
 1. Under **Name**, enter `myCertSecretData`, or whatever name you like.
-1. Under **Value**, enter the content of the *mycert.txt* file.  The length of the value, and the presence of newlines, aren't a problem for the text field.
+1. Under **Value**, enter the content of the **mycert.txt** file.  The length of the value, and the presence of newlines, aren't a problem for the text field.
 1. Leave the remaining values at their defaults and select **Create**.
 
 To store the password for the certificate, follow these steps:
