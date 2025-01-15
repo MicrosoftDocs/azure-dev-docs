@@ -9,13 +9,13 @@ In this section, you create an Azure SQL Database failover group in paired regio
 First, create the primary Azure SQL Database by following the Azure portal steps in [Quickstart: Create a single database - Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal). Follow the steps up to, but not including, the "Clean up resources" section. Use the following directions as you go through the article, then return to this article after you create and configure the Azure SQL Database:
 
 1. When you reach the section [Create a single database](/azure/azure-sql/database/single-database-create-quickstart?view=azuresql-db&preserve-view=true&tabs=azure-portal#create-a-single-database), use the following steps:
-   1. In step 4 for creating new resource group, save aside the **Resource group name** value - for example, *myResourceGroup*.
-   1. In step 5 for database name, save aside the **Database name** value - for example, *mySampleDatabase*.
+   1. In step 4 for creating new resource group, save aside the **Resource group name** value - for example, **myResourceGroup**.
+   1. In step 5 for database name, save aside the **Database name** value - for example, **mySampleDatabase**.
    1. In step 6 for creating the server, use the following steps:
-      1. Save aside the unique server name - for example, *sqlserverprimary-ejb120623*.
+      1. Save aside the unique server name - for example, **sqlserverprimary-ejb120623**.
       1. For **Location**, select **(US) East US**.
       1. For **Authentication method**, select **Use SQL authentication**.
-      1. Save aside the **Server admin login** value - for example, *azureuser*.
+      1. Save aside the **Server admin login** value - for example, **azureuser**.
       1. Save aside the **Password** value.
    1. In step 8, for **Workload environment**, select **Development**. Look at the description and consider other options for your workload.
    1. In step 11, for **Backup storage redundancy**, select **Locally-redundant backup storage**. Consider other options for your backups. For more information, see the [Backup storage redundancy](/azure/azure-sql/database/automated-backups-overview?view=azuresql-db&preserve-view=true#backup-storage-redundancy) section of [Automated backups in Azure SQL Database](/azure/azure-sql/database/automated-backups-overview?view=azuresql-db&preserve-view=true).
