@@ -404,13 +404,13 @@
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | tmlanguage-generator | npm [0.5.10](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.10) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/maps-timezone/v/1.0.0-beta.1) |  |  |
-| Unknown Display Name | npm [0.1.2](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.1.2) |  |  |
+| Unknown Display Name | npm [0.1.3](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.1.3) |  |  |
 | Unknown Display Name | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.6.0) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/ai-projects/v/1.0.0-beta.2) |  |  |
 | Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/events/v/0.63.0) |  |  |
 | Unknown Display Name | npm [0.1.6](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.6) |  |  |
-| Unknown Display Name | npm [0.6.2](https://www.npmjs.com/package/@typespec/http-client-python/v/0.6.2) |  |  |
-| Unknown Display Name | npm [0.1.0-alpha.5](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.5) |  |  |
+| Unknown Display Name | npm [0.6.4](https://www.npmjs.com/package/@typespec/http-client-python/v/0.6.4) |  |  |
+| Unknown Display Name | npm [0.1.0-alpha.6](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.6) |  |  |
 | Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/sse/v/0.63.0) |  |  |
 | Unknown Display Name | npm [0.63.0](https://www.npmjs.com/package/@typespec/streams/v/0.63.0) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/ts-http-runtime/v/0.1.0) |  |  |
