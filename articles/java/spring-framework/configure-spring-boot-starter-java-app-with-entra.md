@@ -55,7 +55,7 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. When complete, select the displayed link to access the new directory.
 
-1. Copy the **Tenant ID**. You'll use the ID value to configure your *application.properties* file later in this tutorial.
+1. Copy the **Tenant ID**. You'll use the ID value to configure your **application.properties** file later in this tutorial.
 
 ### Add an application registration for your Spring Boot app
 
@@ -63,7 +63,7 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. Specify your application, and then select **Register**.
 
-1. When the page for your app registration appears, copy your **Application (client) ID** and the **Directory (tenant) ID**. You'll use these values to configure your *application.properties* file later in this tutorial.
+1. When the page for your app registration appears, copy your **Application (client) ID** and the **Directory (tenant) ID**. You'll use these values to configure your **application.properties** file later in this tutorial.
 
 1. Select **Certificates & secrets** in the navigation pane. Then, select **New client secret**.
 
@@ -71,15 +71,15 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. Add a **Description** and select duration in the **Expires** list. Select **Add**. The value for the key will be automatically filled in.
 
-1. Copy and save the value of the client secret to configure your *application.properties* file later in this tutorial. (You won't be able to retrieve this value later.)
+1. Copy and save the value of the client secret to configure your **application.properties** file later in this tutorial. (You won't be able to retrieve this value later.)
 
    :::image type="content" source="media/configure-spring-boot-starter-java-app-with-entra/copy-client-secret.png" alt-text="Screenshot of application with new client secret highlighted." lightbox="media/configure-spring-boot-starter-java-app-with-entra/copy-client-secret.png":::
 
 1. From the main page for your app registration, select **Authentication**, and select **Add a platform**.  Then select **Web applications**.
 
-1. Enter *http://localhost:8080/login/oauth2/code/* as a new **Redirect URI**, and then select **Configure**.
+1. For a new **Redirect URI**, enter **http://localhost:8080/login/oauth2/code/** , and then select **Configure**.
 
-1. If you've modified the *pom.xml* file to use a Microsoft Entra starter version earlier than 3.0.0: under **Implicit grant and hybrid flows**, select **ID tokens (used for implicit and hybrid flows)**, then select **Save**.
+1. If you've modified the **pom.xml** file to use a Microsoft Entra starter version earlier than 3.0.0: under **Implicit grant and hybrid flows**, select **ID tokens (used for implicit and hybrid flows)**, then select **Save**.
 
 ### Add a user account to your directory, and add that account to an appRole
 
@@ -112,7 +112,7 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. Extract the files from the project archive you created and downloaded earlier in this tutorial into a directory.
 
-1. Navigate to the *src/main/resources* folder in your project, then open the *application.properties* file in a text editor.
+1. Navigate to the **src/main/resources** folder in your project, then open the **application.properties** file in a text editor.
 
 1. Specify the settings for your app registration using the values you created earlier. For example:
 
@@ -137,11 +137,11 @@ If you're the administrator of an existing instance, you can skip this process.
    | `spring.cloud.azure.active-directory.credential.client-secret` | Contains the **Value** from your app registration key that you completed earlier. |
    
 
-1. Save and close the *application.properties* file.
+1. Save and close the **application.properties** file.
 
-1. Create a folder named *controller* in the Java source folder for your application. For example: *src/main/java/com/wingtiptoys/security/controller*.
+1. Create a folder named **controller** in the Java source folder for your application. For example: **src/main/java/com/wingtiptoys/security/controller**.
 
-1. Create a new Java file named *HelloController.java* in the *controller* folder and open it in a text editor.
+1. Create a new Java file named **HelloController.java** in the **controller** folder and open it in a text editor.
 
 1. Enter the following code, then save and close the file:
 
@@ -167,7 +167,7 @@ If you're the administrator of an existing instance, you can skip this process.
 
 ## Build and test your app
 
-1. Open a command prompt and change directory to the folder where your app's *pom.xml* file is located.
+1. Open a command prompt and change directory to the folder where your app's **pom.xml** file is located.
 
 1. Build your Spring Boot application with Maven and run it. For example:
 
