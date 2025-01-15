@@ -78,11 +78,11 @@ If you want to run this sample locally with Microsoft Entra authentication, be s
 
    :::image type="content" source="media/migrate-kafka-to-passwordless-connection/migration-role-eventhubs.png" alt-text="Screenshot of Azure portal Access Control (IAM) page of Event Hubs Namespace resource with Add role assignment highlighted." lightbox="media/migrate-kafka-to-passwordless-connection/migration-role-eventhubs.png":::
 
-1. Use the search box to filter the results to the desired role. For this example, search for *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* and select the matching result and then choose **Next**.
+1. Use the search box to filter the results to the desired role. For this example, search for **Azure Event Hubs Data Sender** and **Azure Event Hubs Data Receiver** and select the matching result and then choose **Next**.
 
 1. Under **Assign access to**, select **User, group, or service principal**, and then choose **Select members**.
 
-1. In the dialog, search for your Microsoft Entra username (usually your *user@domain* email address) and then choose **Select** at the bottom of the dialog.
+1. In the dialog, search for your Microsoft Entra username (usually your **user@domain** email address) and then choose **Select** at the bottom of the dialog.
 
 1. Select **Review + assign** to go to the final page, and then **Review + assign** again to complete the process.
 
@@ -120,7 +120,7 @@ To authenticate using the Azure CLI, use the following steps:
        --query "id" --output tsv)
    ```
 
-1. Use the following commands to assign *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* roles to your account.
+1. Use the following commands to assign `Azure Event Hubs Data Sender` and `Azure Event Hubs Data Receiver` roles to your account.
 
    ```azurecli
    az role assignment create \
@@ -147,7 +147,7 @@ Next, use the following steps to update your Spring Kafka application to use pas
 
 #### [Java](#tab/java-kafka)
 
-1. Inside your project, open the *pom.xml* file and add the following reference:
+1. Inside your project, open the **pom.xml** file and add the following reference:
 
    ```xml
    <dependency>
@@ -367,7 +367,7 @@ The following steps show you how to assign a system-assigned managed identity fo
 
 ##### [Service Connector](#tab/service-connector)
 
-When you use Service Connector, it can help to assign the system-assigned managed identity to your Azure hosting environment, and then configure the *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* roles for the managed identity.
+When you use Service Connector, it can help to assign the system-assigned managed identity to your Azure hosting environment, and then configure the `Azure Event Hubs Data Sender` and `Azure Event Hubs Data Receiver` roles for the managed identity.
 
 The following compute services are currently supported:
 
@@ -386,7 +386,7 @@ For this migration guide, you'll use App Service, but the steps are similar for 
 
    - **Service type**: Choose **Event Hubs**.
    - **Subscription**: Select the subscription you'd like to use.
-   - **Connection Name**: Enter a name for your connection, such as *connector_appservice_eventhub*.
+   - **Connection Name**: Enter a name for your connection, such as **connector_appservice_eventhub**.
    - **Namespace**: Select the Event Hubs namespace you'd like to use.
    - **Client type**: Leave the default value selected or choose the specific client you'd like to use.
 
@@ -398,7 +398,7 @@ For this migration guide, you'll use App Service, but the steps are similar for 
 1. Leave the default values selected, and then select **Next: Review + Create**.
 1. After Azure validates your settings, select **Create**.
 
-The Service Connector will automatically assign a system-assigned managed identity for the app service. The connector will also assign the managed identity roles of *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* for the Event Hubs instance you selected.
+The Service Connector will automatically assign a system-assigned managed identity for the app service. The connector will also assign the managed identity roles of `Azure Event Hubs Data Sender` and `Azure Event Hubs Data Receiver` for the Event Hubs instance you selected.
 
 ##### [Container Apps](#tab/container-apps)
 
@@ -551,7 +551,7 @@ Next, grant permissions to the managed identity you created to access your Event
 
 If you connected your services using the Service Connector, you don't need to complete this step. The following necessary configurations were handled for you:
 
-- If you selected a managed identity when you created the connection, a system-assigned managed identity was created for your app and assigned the *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver* roles on the Event Hubs.
+- If you selected a managed identity when you created the connection, a system-assigned managed identity was created for your app and assigned the `Azure Event Hubs Data Sender` and `Azure Event Hubs Data Receiver` roles on the Event Hubs.
 
 - If you chose to use a connection string, the connection string was added as an app environment variable.
 
@@ -562,7 +562,7 @@ If you connected your services using the Service Connector, you don't need to co
 >
 > 1. In the Azure portal, navigate to **Azure Spring Apps**, then choose the app you use.
 > 2. Select **Identity** on the navigation menu, and on the **System assigned** tab, select **Azure role assignments**.
-> 3. Select **Add role assignments**, search for *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver*, select the matching result, and then select **Save**.
+> 3. Select **Add role assignments**, search for **Azure Event Hubs Data Sender** and **Azure Event Hubs Data Receiver**, select the matching result, and then select **Save**.
 
 1. In the Azure portal, locate your Event Hubs namespace using the main search bar or the navigation pane.
 
@@ -574,11 +574,11 @@ If you connected your services using the Service Connector, you don't need to co
 
    :::image type="content" source="media/migrate-kafka-to-passwordless-connection/migration-role-eventhubs.png" alt-text="Screenshot of Azure portal Access control (IAM) page of Event Hubs Namespace resource with Add role assignment menu option highlighted." lightbox="media/migrate-kafka-to-passwordless-connection/migration-role-eventhubs.png":::
 
-1. Use the search box to filter the results to the desired role. For this example, search for *Azure Event Hubs Data Sender* and *Azure Event Hubs Data Receiver*, select the matching result, and then select **Next**.
+1. Use the search box to filter the results to the desired role. For this example, search for **Azure Event Hubs Data Sender** and **Azure Event Hubs Data Receiver**, select the matching result, and then select **Next**.
 
 1. Under **Assign access to**, select **Managed identity**, and then select **Select members**.
 
-1. In the flyout, search for the subscription where hosting service is located. Then, select *All system-assigned managed identities*, and select the managed identity of your hosting service. Select the system assigned identity, and then select **Select** to close the flyout menu.
+1. In the flyout, search for the subscription where hosting service is located. Then, select **All system-assigned managed identities**, and select the managed identity of your hosting service. Select the system assigned identity, and then select **Select** to close the flyout menu.
 
    > [!NOTE]
    > If you use Azure Kubernetes Service, select **User-assigned managed identities** and then select the managed identity of the Kubernetes cluster, which has a name with the following structure: `<your-kubernetes-cluster-name>-agentpool`.

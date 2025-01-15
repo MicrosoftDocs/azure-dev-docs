@@ -33,7 +33,7 @@ ms.author: hangwan
 > [!IMPORTANT]
 > To use passwordless connections, configure the Microsoft Entra admin user for your Azure Database for PostgreSQL Single Server instance. For more information, see [Use Microsoft Entra ID for authentication with PostgreSQL](/azure/postgresql/single-server/how-to-configure-sign-in-azure-ad-authentication).
 
-Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
+Create a SQL script called **create_ad_user.sql** for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
 cat << EOF > create_ad_user.sql

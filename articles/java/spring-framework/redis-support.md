@@ -93,7 +93,7 @@ The following sections show the classic Spring Boot application usage scenarios.
    >
    > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
-1. Configure the following properties in your *application.yml* file:
+1. Configure the following properties in your **application.yml** file:
 
    ```yaml
    spring:
@@ -129,7 +129,7 @@ The following sections show the classic Spring Boot application usage scenarios.
    >
    > Remember to add the BOM `spring-cloud-azure-dependencies` along with the above dependency. For more information, see the [Getting started](developer-guide-overview.md#getting-started) section of the [Spring Cloud Azure developer guide](developer-guide-overview.md).
 
-1. Configure the following properties in your *application.yml* file:
+1. Configure the following properties in your **application.yml** file:
 
    ```yaml
    spring:
@@ -153,7 +153,7 @@ The following sections show the classic Spring Boot application usage scenarios.
 
 1. To use the managed identity, you need enable the managed identity for your service and [enable Microsoft Entra authentication on your cache](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication#enable-microsoft-entra-authentication-on-your-cache).
 
-1. Then, add the following properties in your *application.yml* file:
+1. Then, add the following properties in your **application.yml** file:
 
    ```yaml
    spring:
@@ -218,7 +218,7 @@ Use the following steps to connect to Azure Cache for Redis:
 
 ---
 
-2. Configure the following properties in your *application.yml* file:
+2. Configure the following properties in your **application.yml** file:
 
    ```yaml
    spring:

@@ -36,4 +36,4 @@ public class DemoApplication {
 }
 ```
 
-This Spring bean uses a file called *schema.sql*, so create that file in the *src/main/resources* folder, and add the following text:
+This Spring bean uses a file called **schema.sql**, so create that file in the **src/main/resources** folder, and add the following text:
