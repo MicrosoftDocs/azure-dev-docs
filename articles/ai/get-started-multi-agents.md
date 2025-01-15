@@ -761,6 +761,6 @@ Log your issue to the repository's [issues page](https://github.com/Azure-Sample
 
 ## Resources for further study
 
-- [Using C#: Creative Writing Assistant - Working with Agents using Semantic Kernel and .NET Aspire](https://learn.microsoft.com/en-us/samples/azure-samples/aspire-semantic-kernel-creative-writer/aspire-semantic-kernel-creative-writer/)
+- [Using C#: Creative Writing Assistant - Working with Agents using Semantic Kernel and .NET Aspire](/samples/azure-samples/aspire-semantic-kernel-creative-writer/aspire-semantic-kernel-creative-writer/)
 - [Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks](https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/?msockid=077b8d5b355a6b170bba999334d46aa3)
 - [AutoGen - An Open-Source Programming Framework for Agentic AI](https://www.microsoft.com/research/project/autogen/)
