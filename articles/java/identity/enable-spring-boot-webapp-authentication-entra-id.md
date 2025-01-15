@@ -38,7 +38,7 @@ git clone https://github.com/Azure-Samples/ms-identity-msal-java-samples.git
 cd 4-spring-web-app/1-Authentication/sign-in
 ```
 
-Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a *.zip* file and extract it to your hard drive.
+Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a **.zip** file and extract it to your hard drive.
 
 > [!IMPORTANT]
 > To avoid path length limitations on Windows, we recommend cloning into a directory near the root of your drive.
@@ -77,7 +77,7 @@ To register the app, use the following steps:
 
 1. In the **Client secrets** section, select **New client secret**.
 
-1. Type a description - for example, *app secret*.
+1. Type a description - for example, **app secret**.
 
 1. Select one of the available durations: **In 1 year**, **In 2 years**, or **Never Expires**.
 
@@ -96,7 +96,7 @@ Use the following steps to configure the app:
 
 1. Open the project in your IDE.
 
-1. Open the *src\main\resources\application.yml* file.
+1. Open the **src\main\resources\application.yml** file.
 
 1. Find the placeholder `Enter_Your_Tenant_ID_Here` and replace the existing value with your Microsoft Entra tenant ID.
 
@@ -185,17 +185,17 @@ The following table shows the contents of the sample project folder:
 
 | File/folder                                                                   | Description                                                                               |
 |-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| *pom.xml*                                                                     | Application dependencies.                                                                 |
-| *src/main/resources/templates/*                                               | Thymeleaf Templates for UI.                                                               |
-| *src/main/resources/application.yml*                                          | Application and Microsoft Entra ID Boot Starter Library Configuration.                    |
-| *src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/* | This directory contains the main application entry point, controller, and config classes. |
-| *.../MsIdentitySpringBootWebappApplication.java*                              | Main class.                                                                               |
-| *.../SampleController.java*                                                   | Controller with endpoint mappings.                                                        |
-| *.../SecurityConfig.java*                                                     | Security configuration - for example, which routes require authentication.                |
-| *.../Utilities.java*                                                          | Utility class - for example, filter ID token claims.                                      |
-| *CHANGELOG.md*                                                                | List of changes to the sample.                                                            |
-| *CONTRIBUTING.md*                                                             | Guidelines for contributing to the sample.                                                |
-| *LICENSE*                                                                     | The license for the sample.                                                               |
+| **pom.xml**                                                                     | Application dependencies.                                                                 |
+| **src/main/resources/templates/**                                               | Thymeleaf Templates for UI.                                                               |
+| **src/main/resources/application.yml**                                          | Application and Microsoft Entra ID Boot Starter Library Configuration.                    |
+| **src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/** | This directory contains the main application entry point, controller, and config classes. |
+| **.../MsIdentitySpringBootWebappApplication.java**                              | Main class.                                                                               |
+| **.../SampleController.java**                                                   | Controller with endpoint mappings.                                                        |
+| **.../SecurityConfig.java**                                                     | Security configuration - for example, which routes require authentication.                |
+| **.../Utilities.java**                                                          | Utility class - for example, filter ID token claims.                                      |
+| **CHANGELOG.md**                                                                | List of changes to the sample.                                                            |
+| **CONTRIBUTING.md**                                                             | Guidelines for contributing to the sample.                                                |
+| **LICENSE**                                                                     | The license for the sample.                                                               |
 
 ### ID token claims
 
@@ -242,7 +242,7 @@ The app has some simple logic in the UI template pages for determining content t
 
 ### Protect routes with AADWebSecurityConfigurerAdapter
 
-By default, the app protects the **ID Token Details** page so that only signed-in users can access it. The app configures these routes by using the `app.protect.authenticated` property from the *application.yml* file. To configure your app's specific requirements, apply the `AadWebApplicationHttpSecurityConfigurer#aadWebApplication` method to the `HttpSecurity` instance. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-msal-java-samples/blob/main/4-spring-web-app/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
+By default, the app protects the **ID Token Details** page so that only signed-in users can access it. The app configures these routes by using the `app.protect.authenticated` property from the **application.yml** file. To configure your app's specific requirements, apply the `AadWebApplicationHttpSecurityConfigurer#aadWebApplication` method to the `HttpSecurity` instance. For an example, see this app's [SecurityConfig](https://github.com/Azure-Samples/ms-identity-msal-java-samples/blob/main/4-spring-web-app/1-Authentication/sign-in/src/main/java/com/microsoft/azuresamples/msal4j/msidentityspringbootwebapp/SecurityConfig.java) class, shown in the following code:
 
 ```java
 @Configuration
