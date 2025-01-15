@@ -26,14 +26,14 @@ The Azure Explorer, which is part of the Azure Toolkit for Eclipse, provides Jav
 
 1. In the **Choose a Subscription** window, select your subscription, and then click **Next**.
 
-1. In the **Select a Virtual Machine Image** window, select your **Location** (e.g. *West US*). You'll have the option to proceed with a recommended image or select a custom image. For this quickstart, we will proceed with the recommended image. 
+1. In the **Select a Virtual Machine Image** window, select your **Location**, for example, **West US**. You'll have the option to proceed with a recommended image or select a custom image. For this quickstart, we will proceed with the recommended image. 
 
    If you choose to select a custom image, enter the following information:
-   * **Publisher**: Specifies the publisher that created the image you'll use to create your virtual machine (for example, *Microsoft*).
+   * **Publisher**: Specifies the publisher that created the image you'll use to create your virtual machine (for example, **Microsoft**).
 
-   * **Offer**: Specifies the virtual machine offering to use from the selected publisher (for example, *JDK*).
+   * **Offer**: Specifies the virtual machine offering to use from the selected publisher (for example, **JDK**).
 
-   * **Sku**: Specifies the stockkeeping unit (SKU) to use from the selected offering (for example, *JDK_8*).
+   * **Sku**: Specifies the stockkeeping unit (SKU) to use from the selected offering (for example, **JDK_8**).
 
    * **Version #**: Specifies which version of the selected SKU to use.
 

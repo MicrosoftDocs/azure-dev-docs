@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article describes how to integrate Spring Cloud Azure with [Testcontainers](https://testcontainers.com/) to write effective integration tests for your applications.
 
-*Testcontainers* is an open-source framework for providing throwaway, lightweight instances of databases, message brokers, web browsers, or just about anything that can run in a Docker container. It integrates with JUnit, enabling you to write a test class that can start up a container before any of the tests run. Testcontainers is especially useful for writing integration tests that talk to a real backend service.
+Testcontainers is an open-source framework for providing throwaway, lightweight instances of databases, message brokers, web browsers, or just about anything that can run in a Docker container. It integrates with JUnit, enabling you to write a test class that can start up a container before any of the tests run. Testcontainers is especially useful for writing integration tests that talk to a real backend service.
 
 The `spring-cloud-azure-testcontainers` library now supports integration testing for the following Azure services:
 

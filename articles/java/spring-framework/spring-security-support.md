@@ -238,7 +238,7 @@ Developers can customize the redirect-uri.
 
 :::image type="content" source="media/spring-cloud-azure/system-diagram-redirect-uri.png" alt-text="System diagram for redirect URIs." border="false":::
 
-Add `redirect-uri-template` properties in your *application.yml* file.
+Add `redirect-uri-template` properties in your **application.yml** file.
 
 ```yaml
 spring:
@@ -642,8 +642,8 @@ By doing this, when access `/app-role1` endpoint, the following claims in access
 To use a JSON Web Token (JWT) for client authentication, use the following steps:
 
 1. See the [Register your certificate with Microsoft identity platform](/azure/active-directory/develop/active-directory-certificate-credentials#register-your-certificate-with-microsoft-identity-platform) section of [Microsoft identity platform application authentication certificate credentials](/azure/active-directory/develop/active-directory-certificate-credentials).
-1. Upload a *.pem* certificate to the application registered in the Azure portal.
-1. Configure the certificate path and password of a *.PFX* or *.P12* certificate.
+1. Upload a **.pem** certificate to the application registered in the Azure portal.
+1. Configure the certificate path and password of a **.PFX** or **.P12** certificate.
 1. Add the property `spring.cloud.azure.active-directory.authorization-clients.azure.client-authentication-method=private_key_jwt` configuration to the client to be authenticated through JWT client authentication.
 
 The following example configuration file is for a web application scenario. The certificate information is configured in the global properties.
@@ -1055,7 +1055,7 @@ Grant admin consent for ***Graph*** permissions.
 
 :::image type="content" source="media/spring-cloud-azure/add-graph-permissions.png" alt-text="Azure portal screenshot showing API permissions screen for an app, with graph permissions highlighted." lightbox="media/spring-cloud-azure/add-graph-permissions.png":::
 
-Add the following dependencies to your *pom.xml* file.
+Add the following dependencies to your **pom.xml** file.
 
 ##### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
 
@@ -1113,7 +1113,7 @@ Add the following dependencies to your *pom.xml* file.
 
 ---
 
-Add properties to your *application.yml* file using the values you created earlier, as shown in the following example:
+Add properties to your **application.yml** file using the values you created earlier, as shown in the following example:
 
 ```yaml
 spring:
@@ -1216,9 +1216,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 ---
 
-Copy the *home.html* from [aad-b2c-web-application sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates/home.html), and replace the `PROFILE_EDIT_USER_FLOW` and `PASSWORD_RESET_USER_FLOW` with your user flow names that you used previously.
+Copy the **home.html** from [aad-b2c-web-application sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates/home.html), and replace the `PROFILE_EDIT_USER_FLOW` and `PASSWORD_RESET_USER_FLOW` with your user flow names that you used previously.
 
-Build and test your app. Let `Webapp` run on port *8080*.
+Build and test your app. Let `Webapp` run on port `8080`.
 
 After your application is built and started by Maven, open `http://localhost:8080/` in a web browser. You should be redirected to the login page.
 
@@ -1334,7 +1334,7 @@ public class SampleConfiguration {
 
 To write your `WebApiA` Java code, see the **Accessing a resource server** section.
 
-Build and test your app. Let `Webapp` and `WebApiA` run on port *8080* and *8081* respectively. Start the `Webapp` and `WebApiA` applications. Return to the home page after logging in successfully. You can then access `http://localhost:8080/webapp/webApiA` to get the `WebApiA` resource response.
+Build and test your app. Let `Webapp` and `WebApiA` run on port `8080` and `8081` respectively. Start the `Webapp` and `WebApiA` applications. Return to the home page after logging in successfully. You can then access `http://localhost:8080/webapp/webApiA` to get the `WebApiA` resource response.
 
 #### Usage 3: Accessing a resource server
 
@@ -1344,7 +1344,7 @@ To build your `WebApiA` permission, see [Usage 2: Web Application Accessing Reso
 
 Add `WebApiA` permission and grant admin consent for your web application.
 
-Add the following dependencies to your *pom.xml* file.
+Add the following dependencies to your **pom.xml** file.
 
 ```xml
 <dependencies>
@@ -1446,7 +1446,7 @@ public class ResourceServerConfiguration extends WebSecurityConfigurerAdapter {
 
 ---
 
-Build and test your app. Let `WebApiA` run on port *8081*. Get the access token for the `webApiA` resource and then access `http://localhost:8081/webApiA/sample` as the Bearer authorization header.
+Build and test your app. Let `WebApiA` run on port `8081`. Get the access token for the `webApiA` resource and then access `http://localhost:8081/webApiA/sample` as the Bearer authorization header.
 
 #### Usage 4: Resource server accessing other resource servers
 
@@ -1473,7 +1473,7 @@ Grant admin consent for `WebApiB` permissions.
 
 :::image type="content" source="media/spring-cloud-azure/application-api-permissions-web-api-a.png" alt-text="Azure portal screenshot showing application WebApiA API permissions screen." lightbox="media/spring-cloud-azure/application-api-permissions-web-api-a.png":::
 
-On the basis of **Accessing a resource server**, add the following dependency to your *pom.xml* file.
+On the basis of **Accessing a resource server**, add the following dependency to your **pom.xml** file.
 
 ```xml
 <dependency>
@@ -1560,7 +1560,7 @@ public class SampleConfiguration {
 }
 ```
 
-Build and test your app. Let `WebApiA` and `WebApiB` run on port *8081* and *8082* respectively. Start the `WebApiA` and `WebApiB` applications, get the access token for `webApiA` resource, and access `http://localhost:8081/webApiA/webApiB/sample` as the Bearer authorization header.
+Build and test your app. Let `WebApiA` and `WebApiB` run on port `8081` and `8082` respectively. Start the `WebApiA` and `WebApiB` applications, get the access token for `webApiA` resource, and access `http://localhost:8081/webApiA/webApiB/sample` as the Bearer authorization header.
 
 ### Samples
 

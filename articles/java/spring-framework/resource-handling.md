@@ -41,7 +41,7 @@ The `spring-cloud-azure-starter-storage-blob` dependency is only required when y
 The `spring-cloud-azure-starter-storage-file-share` dependency is only required when you're using Azure Storage File Share.
 
 > [!TIP]
-> We also provide `spring-cloud-azure-starter-storage` to support all the features of Storage. If you choose to use it, `spring.cloud.azure.storage.enable` is the property to configure and the default value is *true*. You can then use `spring.cloud.azure.storage.<storage-service>.enable` to disable unneeded services.
+> We also provide `spring-cloud-azure-starter-storage` to support all the features of Storage. If you choose to use it, `spring.cloud.azure.storage.enable` is the property to configure and the default value is `true`. You can then use `spring.cloud.azure.storage.<storage-service>.enable` to disable unneeded services.
 
 ## Configuration
 
@@ -53,24 +53,24 @@ The following table lists the configurable properties of `spring-cloud-azure-sta
 > [!div class="mx-tdBreakAll"]
 > | Property                                       | Default | Description                                                              |
 > |------------------------------------------------|---------|--------------------------------------------------------------------------|
-> | *spring.cloud.azure.storage.blob*.enabled      | true    | A value that indicates whether an Azure Blob Storage service is enabled. |
-> | *spring.cloud.azure.storage.blob*.endpoint     |         | The URI to connect to Azure Blob Storage.                                |
-> | *spring.cloud.azure.storage.blob*.account-key  |         | The private key to connect to Azure Blob Storage.                        |
-> | *spring.cloud.azure.storage.blob*.account-name |         | The Azure Storage Blob account name.
+> | `*spring.cloud.azure.storage.blob*.enabled`      | true    | A value that indicates whether an Azure Blob Storage service is enabled. |
+> | `*spring.cloud.azure.storage.blob*.endpoint`     |         | The URI to connect to Azure Blob Storage.                                |
+> | `*spring.cloud.azure.storage.blob*.account-key`  |         | The private key to connect to Azure Blob Storage.                        |
+> | `*spring.cloud.azure.storage.blob*.account-name` |         | The Azure Storage Blob account name.
 
 The following table lists the configurable properties of `spring-cloud-azure-starter-storage-file-share`:
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                            | Default | Description                                                           |
 > |-----------------------------------------------------|---------|-----------------------------------------------------------------------|
-> | *spring.cloud.azure.storage.fileshare*.enabled      | true    | A value that indicates whether Azure File Storage service is enabled. |
-> | *spring.cloud.azure.storage.fileshare*.endpoint     |         | The URI to connect to Azure File Storage.                             |
-> | *spring.cloud.azure.storage.fileshare*.account-key  |         | The private key to connect to Azure File Storage.                     |
-> | *spring.cloud.azure.storage.fileshare*.account-name |         | The Azure Storage File Share account name.                                       |
+> | `*spring.cloud.azure.storage.fileshare*.enabled`      | true    | A value that indicates whether Azure File Storage service is enabled. |
+> | `*spring.cloud.azure.storage.fileshare*.endpoint`     |         | The URI to connect to Azure File Storage.                             |
+> | `*spring.cloud.azure.storage.fileshare*.account-key`  |         | The private key to connect to Azure File Storage.                     |
+> | `*spring.cloud.azure.storage.fileshare*.account-name` |         | The Azure Storage File Share account name.                                       |
 
 ## Basic usage
 
-Add the following properties to your *application.yml* file:
+Add the following properties to your **application.yml** file:
 
 ```yaml
 spring:

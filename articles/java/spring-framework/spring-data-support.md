@@ -37,19 +37,19 @@ The following table lists the configurable properties of `spring-cloud-azure-sta
 > [!div class="mx-tdBreakAll"]
 > | Property                                                           | Description                                                                                                     |
 > |--------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-> | *spring.cloud.azure.cosmos*.enabled                                | A value that indicates whether Azure Cosmos DB Service is enabled. The default value is *true*.                    |
-> | *spring.cloud.azure.cosmos*.database                               | The Azure Cosmos DB database ID.                                                                                      |
-> | *spring.cloud.azure.cosmos*.endpoint                               | The URI to connect Azure Cosmos DB.                                                                                   |
-> | *spring.cloud.azure.cosmos*.key                                    | The PrivateKey to connect Azure Cosmos DB.                                                                            |
-> | *spring.cloud.azure.cosmos*.credential.client-certificate-password | The password of the certificate file.                                                                           |
-> | *spring.cloud.azure.cosmos*.credential.client-certificate-path     | The path of a PEM certificate file to use when performing service principal authentication with Azure.          |
-> | *spring.cloud.azure.cosmos*.credential.client-id                   | The client ID to use when performing service principal authentication with Azure.                               |
-> | *spring.cloud.azure.cosmos*.credential.client-secret               | The client secret to use when performing service principal authentication with Azure.                           |
-> | *spring.cloud.azure.cosmos*.credential.managed-identity-enabled    | Whether to enable managed identity. The default value is *false*.                                                                             |
-> | *spring.cloud.azure.cosmos*.credential.password                    | The password to use when performing username/password authentication with Azure.                                |
-> | *spring.cloud.azure.cosmos*.credential.username                    | The username to use when performing username/password authentication with Azure.                                |
-> | *spring.cloud.azure.cosmos*.populate-query-metrics                 | A value that indicates whether to populate diagnostics strings and query metrics. The default value is *false*. |
-> | *spring.cloud.azure.cosmos*.consistency-level                      | A [consistency level](/azure/cosmos-db/consistency-levels) for Azure Cosmos DB.                                 |
+> | `*spring.cloud.azure.cosmos*.enabled`                                | A value that indicates whether Azure Cosmos DB Service is enabled. The default value is `true`.                    |
+> | `*spring.cloud.azure.cosmos*.database`                               | The Azure Cosmos DB database ID.                                                                                      |
+> | `*spring.cloud.azure.cosmos*.endpoint`                               | The URI to connect Azure Cosmos DB.                                                                                   |
+> | `*spring.cloud.azure.cosmos*.key`                                    | The PrivateKey to connect Azure Cosmos DB.                                                                            |
+> | `*spring.cloud.azure.cosmos*.credential.client-certificate-password` | The password of the certificate file.                                                                           |
+> | `*spring.cloud.azure.cosmos*.credential.client-certificate-path`     | The path of a PEM certificate file to use when performing service principal authentication with Azure.          |
+> | `*spring.cloud.azure.cosmos*.credential.client-id`                   | The client ID to use when performing service principal authentication with Azure.                               |
+> | `*spring.cloud.azure.cosmos*.credential.client-secret`               | The client secret to use when performing service principal authentication with Azure.                           |
+> | `*spring.cloud.azure.cosmos*.credential.managed-identity-enabled`    | Whether to enable managed identity. The default value is `false`.                                                                             |
+> | `*spring.cloud.azure.cosmos*.credential.password`                    | The password to use when performing username/password authentication with Azure.                                |
+> | `*spring.cloud.azure.cosmos*.credential.username`                    | The username to use when performing username/password authentication with Azure.                                |
+> | `*spring.cloud.azure.cosmos*.populate-query-metrics`                 | A value that indicates whether to populate diagnostics strings and query metrics. The default value is `false`. |
+> | `*spring.cloud.azure.cosmos*.consistency-level`                      | A [consistency level](/azure/cosmos-db/consistency-levels) for Azure Cosmos DB.                                 |
 
 ### Key concepts
 
@@ -67,7 +67,7 @@ The following list shows the key concepts of the Spring Data support:
 * The Spring Data [@Id](https://github.com/spring-projects/spring-data-commons/blob/db62390de90c93a78743c97cc2cc9ccd964994a5/src/main/java/org/springframework/data/annotation/Id.java) annotation. There are two ways to map a field in a domain class to the `id` of an Azure Cosmos DB document:
 
     * Annotate a field in domain class with `@Id`. This field will be mapped to document `id` in Azure Cosmos DB.
-    * Set the name of this field to `id`. This field will be mapped to document `id` in Azure Cosmos DB.
+    `*` Set the name of this field to `id`. This field will be mapped to document `id` in Azure Cosmos DB.
 
   > [!NOTE]
   > If both ways are applied, the `@Id` annotation has higher priority.

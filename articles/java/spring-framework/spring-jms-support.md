@@ -54,7 +54,7 @@ The following table describes the configurable properties when using the Spring 
 > | **spring.jms.servicebus**.enabled                                | A value that indicates whether to enable Service Bus JMS autoconfiguration. The default value is `true`.                                                                          |
 > | **spring.jms.servicebus**.idle-timeout                           | The connection idle timeout duration that indicates how long the client expects Service Bus to keep a connection alive when no messages are delivered. The default value is `2m`. |
 > | **spring.jms.servicebus**.passwordless-enabled                   | Whether to enable passwordless for Azure Service Bus JMS. The default value is `false`. |
-> | **spring.jms.servicebus**.pricing-tier                           | The Azure Service Bus Price Tier. Supported values are *premium* and *standard*. Premium tier uses Java Message Service (JMS) 2.0, while standard tier use JMS 1.1 to interact with Azure Service Bus. |
+> | **spring.jms.servicebus**.pricing-tier                           | The Azure Service Bus Price Tier. Supported values are `premium and `standard`. Premium tier uses Java Message Service (JMS) 2.0, while standard tier use JMS 1.1 to interact with Azure Service Bus. |
 > | **spring.jms.servicebus**.listener.reply-pub-sub-domain          | A value that indicates whether the reply destination type is a topic. Only works for the `topicJmsListenerContainerFactory` bean.                                                 |
 > | **spring.jms.servicebus**.listener.phase                         | The phase in which this container should be started and stopped.                                                                                                                  |
 > | **spring.jms.servicebus**.listener.reply-qos-settings            | Configures the `QosSettings` to use when sending a reply.                                                                                                                         |
@@ -83,7 +83,7 @@ For more information, see [Spring JMS Document](https://docs.spring.io/spring-fr
 
 ### Connect to Azure Service Bus JMS using passwordless
 
-Configure the following properties in your *application.yml* file:
+Configure the following properties in your **application.yml** file:
 
 ```yaml
 spring:
@@ -101,7 +101,7 @@ spring:
 
 1. To use the managed identity, enable the managed identity for your service and assign the `Azure Service Bus Data Owner` role. For more information, see [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](/azure/service-bus-messaging/service-bus-managed-service-identity).
 
-1. Configure the following properties in your *application.yml* file:
+1. Configure the following properties in your **application.yml** file:
 
    ```yaml
    spring:

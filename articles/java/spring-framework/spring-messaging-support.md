@@ -22,7 +22,7 @@ This article describes how you can use Spring Cloud Azure and Spring Messaging t
 
 ### Key concepts
 
-Azure Event Hubs is a native data-streaming service in the cloud that can stream millions of events per second, with low latency, from any source to any destination. The Spring Messaging for Azure Event Hubs project applies core Spring concepts to the development of event hubs-based messaging solutions. It provides a *template* as a high-level abstraction for sending messages. It also provides support for message-driven plain old Java objects (      ) with `@EventHubsListener` annotations and a *listener container*. These libraries promote the use of dependency injection and declarative configuration. In all of these cases, you can see similarities to the JMS support in the Spring Framework and RabbitMQ support in Spring AMQP.
+Azure Event Hubs is a native data-streaming service in the cloud that can stream millions of events per second, with low latency, from any source to any destination. The Spring Messaging for Azure Event Hubs project applies core Spring concepts to the development of event hubs-based messaging solutions. It provides a template as a high-level abstraction for sending messages. It also provides support for message-driven plain old Java objects (      ) with `@EventHubsListener` annotations and a listener container. These libraries promote the use of dependency injection and declarative configuration. In all of these cases, you can see similarities to the JMS support in the Spring Framework and RabbitMQ support in Spring AMQP.
 
 ### Dependency setup
 
@@ -63,7 +63,7 @@ Use the following steps to send messages:
 
 1. Fill in the credential configuration options using one of the following approaches:
 
-   * For credentials as `DefaultAzureCredential`, configure the following properties in your *application.yml* file:
+   * For credentials as `DefaultAzureCredential`, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -77,7 +77,7 @@ Use the following steps to send messages:
                  account-name: ${CHECKPOINT-STORAGE-ACCOUNT}
      ```
 
-   * For credentials as connection string, configure the following properties in your *application.yml* file:
+   * For credentials as connection string, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -92,7 +92,7 @@ Use the following steps to send messages:
                  account-key: ${CHECKPOINT-ACCESS-KEY}
      ```
 
-   * For credentials as managed identities, configure the following properties in your *application.yml* file:
+   * For credentials as managed identities, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -109,7 +109,7 @@ Use the following steps to send messages:
                  account-name: ${ACCOUNT_NAME}
      ```
 
-   * For credentials as service principal, configure the following properties in your *application.yml* file:
+   * For credentials as service principal, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -190,7 +190,7 @@ For more information, see the [azure-spring-boot-samples](https://github.com/Azu
 
 ### Key concepts
 
-Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. The Spring Messaging for Azure Service Bus project applies core Spring concepts to the development of service bus-based messaging solutions. It provides a *template* as a high-level abstraction for sending messages. It also provides support for message-driven POJOs with `@ServiceBusListener` annotations and a *listener container*. These libraries promote the use of dependency injection and declarative configuration. In all of these cases, you can see similarities to the JMS support in the Spring Framework and RabbitMQ support in Spring AMQP.
+Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. The Spring Messaging for Azure Service Bus project applies core Spring concepts to the development of service bus-based messaging solutions. It provides a template as a high-level abstraction for sending messages. It also provides support for message-driven POJOs with `@ServiceBusListener` annotations and a listener container. These libraries promote the use of dependency injection and declarative configuration. In all of these cases, you can see similarities to the JMS support in the Spring Framework and RabbitMQ support in Spring AMQP.
 
 ### Dependency setup
 
@@ -226,7 +226,7 @@ Use the following steps to send messages:
 
 1. Fill in the credential configuration options using one of the following approaches:
 
-   * For credentials as `DefaultAzureCredential`, configure the following properties in your *application.yml* file:
+   * For credentials as `DefaultAzureCredential`, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -237,7 +237,7 @@ Use the following steps to send messages:
              entity-type: ${AZURE_SERVICE_BUS_ENTITY_TYPE}
      ```
 
-   * For credentials as connection string, configure the following properties in your *application.yml* file:
+   * For credentials as connection string, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -248,7 +248,7 @@ Use the following steps to send messages:
              entity-type: ${AZURE_SERVICE_BUS_ENTITY_TYPE}
      ```
 
-   * For credentials as managed identities, configure the following properties in your *application.yml* file:
+   * For credentials as managed identities, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -267,7 +267,7 @@ Use the following steps to send messages:
 > [!NOTE]
 > The following values are allowed for `tenant-id`: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
-   * For credentials as service principal, configure the following properties in your *application.yml* file:
+   * For credentials as service principal, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -356,7 +356,7 @@ For more information, see the [azure-spring-boot-samples](https://github.com/Azu
 
 ### Key concepts
 
-Azure Queue Storage is a service for storing large numbers of messages. You access messages from anywhere in the world via authenticated calls using HTTP or HTTPS. A queue message can be up to 64 KB in size. A queue can contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. The Spring Messaging for Azure Queue Storage project applies core Spring concepts to the development of service bus-based messaging solutions. It provides a *template* as a high-level abstraction for sending and receiving messages. These libraries promote the use of dependency injection and declarative configuration.
+Azure Queue Storage is a service for storing large numbers of messages. You access messages from anywhere in the world via authenticated calls using HTTP or HTTPS. A queue message can be up to 64 KB in size. A queue can contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. The Spring Messaging for Azure Queue Storage project applies core Spring concepts to the development of service bus-based messaging solutions. It provides a template as a high-level abstraction for sending and receiving messages. These libraries promote the use of dependency injection and declarative configuration.
 
 ### Dependency setup
 
@@ -391,7 +391,7 @@ Use the following steps to send and receive messages:
 
 1. Fill in the credential configuration options using one of the following approaches:
 
-   * For credentials as `DefaultAzureCredential`, configure the following properties in your *application.yml* file:
+   * For credentials as `DefaultAzureCredential`, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -402,7 +402,7 @@ Use the following steps to send and receive messages:
                account-name: ${AZURE_STORAGE_QUEUE_ACCOUNT_NAME}
      ```
 
-   * For credentials as connection string, configure the following properties in your *application.yml* file:
+   * For credentials as connection string, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -413,7 +413,7 @@ Use the following steps to send and receive messages:
                connection-string: ${AZURE_STORAGE_QUEUE_CONNECTION_STRING}
      ```
 
-   * For credentials as managed identities, configure the following properties in your *application.yml* file:
+   * For credentials as managed identities, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -432,7 +432,7 @@ Use the following steps to send and receive messages:
 > [!NOTE]
 > The following values are allowed for `tenant-id`: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
-   * For credentials as service principal, configure the following properties in your *application.yml* file:
+   * For credentials as service principal, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
