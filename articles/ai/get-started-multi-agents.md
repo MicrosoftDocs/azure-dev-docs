@@ -13,7 +13,7 @@ ms.collection: ce-skilling-ai-copilot
 ---
 # Quickstart: Get started with multi-agent applications by using Azure OpenAI
 
-In this quickstart, you explore a multi-agent app for a creative writing assistant. The app shows how to orchestrate multiple models together by using Prompty and Azure OpenAI Service.
+In this quickstart, you explore a multi-agent app for a creative writing assistant. The app shows how to orchestrate multiple models together by using Python, Prompty and Azure OpenAI Service.
 
 The sample in the quickstart includes the full generative AI operations (GenAIOps): continuous integration and continuous delivery (CI/CD), evaluation, tracing, monitoring, and experimentation. The sample also includes all the infrastructure and configuration needed to provision Azure OpenAI resources and deploy the app to Azure Container Apps by using the Azure Developer CLI.
 
@@ -761,5 +761,6 @@ Log your issue to the repository's [issues page](https://github.com/Azure-Sample
 
 ## Resources for further study
 
+- [Using C#: Creative Writing Assistant - Working with Agents using Semantic Kernel and .NET Aspire](https://learn.microsoft.com/en-us/samples/azure-samples/aspire-semantic-kernel-creative-writer/aspire-semantic-kernel-creative-writer/)
 - [Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks](https://www.microsoft.com/research/articles/magentic-one-a-generalist-multi-agent-system-for-solving-complex-tasks/?msockid=077b8d5b355a6b170bba999334d46aa3)
 - [AutoGen - An Open-Source Programming Framework for Agentic AI](https://www.microsoft.com/research/project/autogen/)
