@@ -201,7 +201,7 @@ export AZ_IDENTITY_RESOURCE_ID=$(az identity create \
 ```
 
 > [!IMPORTANT]
-> After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](/azure/mysql/flexible-server/concepts-azure-ad-authentication#permissions) section of [Active Directory authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication).
+> After creating the user-assigned identity, ask your Global Administrator or Privileged Role Administrator to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](/azure/mysql/flexible-server/concepts-azure-ad-authentication#permissions) section of [Active Directory authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication).
 
 Next, use the following command to create a passwordless connection to the database.
 
@@ -307,7 +307,7 @@ The following steps describe how to download, configure, build, and deploy the s
    git clone https://github.com/Azure-Samples/quickstart-spring-data-jdbc-sql-server passwordless-sample
    ```
 
-1. Add the following dependency to your *pom.xml* file:
+1. Add the following dependency to your **pom.xml** file:
 
    ### [Azure Database for MySQL](#tab/mysql)
 
@@ -349,7 +349,7 @@ The following steps describe how to download, configure, build, and deploy the s
 
    There's currently no Spring Cloud Azure starter for Azure SQL Database, but the `azure-identity` dependency is required.
 
-1. Use the following command to update the *application.properties* file:
+1. Use the following command to update the **application.properties** file:
 
    ### [Azure Database for MySQL](#tab/mysql)
 
@@ -393,7 +393,7 @@ The following steps describe how to download, configure, build, and deploy the s
    ./mvnw clean package -DskipTests
    ```
 
-1. Use the following command to deploy the *target/demo-0.0.1-SNAPSHOT.jar* file for the app:
+1. Use the following command to deploy the **target/demo-0.0.1-SNAPSHOT.jar** file for the app:
 
    ```azurecli
    az spring app deploy \
