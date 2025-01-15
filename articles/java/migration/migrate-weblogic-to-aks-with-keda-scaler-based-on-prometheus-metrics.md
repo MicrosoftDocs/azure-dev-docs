@@ -85,7 +85,7 @@ unzip -d testwebapp testwebapp.war
 
 This article uses the metric `openSessionsCurrentCount` to scale up and scale down the WLS cluster. By default, the session timeout on WebLogic Server is 60 minutes. To observe the scaling down capability quickly, use the following steps to set a short timeout:
 
-1. Use the following command to specify a session timeout of 150 seconds using `wls:timeout-secs`. The `HEREDOC` format is used to overwrite the file at *testwebapp/WEB-INF/weblogic.xml* with the desired content.
+1. Use the following command to specify a session timeout of 150 seconds using `wls:timeout-secs`. The `HEREDOC` format is used to overwrite the file at **testwebapp/WEB-INF/weblogic.xml** with the desired content.
 
    ```xml
    cat <<EOF > testwebapp/WEB-INF/weblogic.xml
@@ -124,7 +124,7 @@ Use the following steps to create a storage account and container. Some of these
    - The remaining tabs need no specializations.
 1. Proceed to validate and create the account, then return to this article.
 1. Create a storage container within the account by following the steps in the [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) section of [Quickstart: Upload, download, and list blobs with the Azure portal](/azure/storage/blobs/storage-quickstart-blobs-portal).
-1. In the same article, follow the steps in the [Upload a block blob](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob) section to upload the *testwebapp.war* file. Then, return to this article.
+1. In the same article, follow the steps in the [Upload a block blob](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob) section to upload the **testwebapp.war** file. Then, return to this article.
 
 ## Deploy WLS on AKS using the Azure Marketplace offer
 
@@ -145,7 +145,7 @@ This article describes the second option. Use the following steps to to complete
 1. Use the following steps to fill out the **Basics** pane:
 
    1. Ensure that the value shown for **Subscription** is the same one that has the roles listed in the prerequisites section.
-   1. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, *wlsaks-eastus-20240109*.
+   1. In the **Resource group** field, select **Create new** and fill in a unique value for the resource group - for example, **wlsaks-eastus-20240109**.
    1. Under **Instance details**, for **Region**, select **East US**.
    1. Under **Credentials WebLogic**, provide a password for **WebLogic Administrator** and **WebLogic Model encryption**, respectively. Save aside the username and password for **WebLogic Administrator**.
    1. Next to **Optional Basic Configuration**, select **No**.
@@ -273,9 +273,9 @@ Because you selected **WebLogic Monitoring Exporter** at deployment time, a KEDA
    echo -e YXBpVm...XV0aAo= | base64 -d > scaler.yaml
    ```
 
-   This command produces a *scaler.yaml* file in the current directory.
+   This command produces a **scaler.yaml**  file in the current directory.
 
-1. Modify the `metric:` and `query:` lines in *scaler.yaml* as shown in the following example:
+1. Modify the `metric:` and `query:` lines in **scaler.yaml**  as shown in the following example:
 
    ```yaml
    metricName: webapp_config_open_sessions_current_count
@@ -292,13 +292,13 @@ Because you selected **WebLogic Monitoring Exporter** at deployment time, a KEDA
    > 1. Under **Domain Structure**, select **Deployments**. You find **app1** listed.
    > 1. Select **app1** to find that the **Name** value for the application is `app1`. Use `app1` as the application name in the query.
 
-1. If desired, modify the `maxReplicaCount:` line in *scaler.yaml* as shown in the following example. It's an error to set this value higher than what you specified at deployment time on the **AKS** tab.
+1. If desired, modify the `maxReplicaCount:` line in **scaler.yaml**  as shown in the following example. It's an error to set this value higher than what you specified at deployment time on the **AKS** tab.
 
    ```yaml
    maxReplicaCount: 10
    ```
 
-1. Use the following command to create the KEDA scaler rule by applying *scaler.yaml*:
+1. Use the following command to create the KEDA scaler rule by applying **scaler.yaml** :
 
    ```bash
    kubectl apply -f scaler.yaml
@@ -326,7 +326,7 @@ Now, you're ready to observe the autoscaling capability. This article opens new 
 
    1. Use the preceding steps to view the deployment outputs.
    1. The **clusterExternalUrl** value is the fully qualified, public, internet-visible link to the sample app deployed in WLS on this AKS cluster. To copy the link to your clipboard, select the copy icon next to the field value.
-   1. The URL to access *testwebapp.war* is `${clusterExternalUrl}testwebapp` - for example, `http://wlsgw202403-wlsaks0314-domain1.eastus.cloudapp.azure.com/testwebapp/`.
+   1. The URL to access **testwebapp.war** is `${clusterExternalUrl}testwebapp` - for example, `http://wlsgw202403-wlsaks0314-domain1.eastus.cloudapp.azure.com/testwebapp/`.
 
 1. Run the `curl` command to access the application and cause new sessions. The following example opens 22 new sessions. The sessions are expired after 150 seconds. Replace the **WLS_CLUSTER_EXTERNAL_URL** value with yours.
 

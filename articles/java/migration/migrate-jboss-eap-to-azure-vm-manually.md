@@ -40,8 +40,8 @@ If you're interested in providing feedback or working closely on your migration 
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for Red Hat JBoss EAP. This entitlement lets the fully automated solution (in [Quickstart: Deploy a JBoss EAP cluster on Azure Virtual Machines (VMs)](/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)) install the Red Hat tested and certified JBoss EAP version.
   > [!NOTE]
-  > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Save aside the account details, which is used as the *RHSM username* and *RHSM password* in the next section.
-- If you're already registered, or after you complete registration, you can locate the necessary credentials (*Pool IDs*) by using the following steps. These *Pool IDs* are also used as the *RHSM Pool ID with EAP entitlement* in subsequent steps.
+  > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Save aside the account details, which is used as the **RHSM username** and **RHSM password** in the next section.
+- If you're already registered, or after you complete registration, you can locate the necessary credentials (**Pool IDs**) by using the following steps. These **Pool IDs** are also used as the **RHSM Pool ID with EAP entitlement** in subsequent steps.
   1. Sign in to your [Red Hat account](https://sso.redhat.com).
   1. The first time you sign in, you're prompted to complete your profile. Depending on your usage, select either **Personal** or **Corporate** for **Account Type**, as shown in the following screenshot:
 
@@ -410,7 +410,7 @@ Use the following steps to install:
 
     ---
 
-1. Exit from the SSH connection by typing *exit*.
+1. Exit from the SSH connection by typing **exit**.
 
 ### Create machines for managed servers
 
@@ -730,7 +730,7 @@ The output should look similar to the following example:
 Mar 30 02:11:44 adminVM systemd[1]: Started JBoss EAP (domain mode).
 ```
 
-Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exit*.
+Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing **exit**.
 
 ### [JBOSS EAP 8](#tab/jboss-eap-8)
 
@@ -846,7 +846,7 @@ The output should look similar to the following example:
 Sep 23 15:52:06 adminVM systemd[1]: Started JBoss EAP (domain mode).
 ```
 
-Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exit*.
+Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing **exit**.
 
 ---
 
@@ -976,7 +976,7 @@ The output should look similar to the following example:
 Mar 30 03:02:15 mspVM1 systemd[1]: Started JBoss EAP (domain mode).
 ```
 
-Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exit*.
+Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing **exit**.
 
 ### [JBOSS EAP 8](#tab/jboss-eap-8)
 
@@ -1050,7 +1050,7 @@ The output should look similar to the following example:
 Sep 30 03:02:15 mspVM1 systemd[1]: Started JBoss EAP (domain mode).
 ```
 
-Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing *exit*.
+Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing **exit**.
 
 ---
 
@@ -1064,7 +1064,7 @@ az vm show \
     --query publicIps | tr -d '"'
 ```
 
-Repeat the previous steps on `mspVM2`, and then exit the SSH connection by typing *exit*.
+Repeat the previous steps on `mspVM2`, and then exit the SSH connection by typing **exit**.
 
 After two host controllers are connected to `adminVM`, you should be able to see the cluster topology, as shown in the following screenshot:
 
@@ -1347,27 +1347,27 @@ Use the following steps to deploy Java EE Cafe sample application to the Red Hat
       mvn clean install --file rhel-jboss-templates/eap-coffee-app/pom.xml
       ```
 
-      This command creates the file *eap-coffee-app/target/javaee-cafe.war*. You upload this file in the next step.
+      This command creates the file **eap-coffee-app/target/javaee-cafe.war**. You upload this file in the next step.
 
 1. Open a web browser and go to the management console at `http://<adminVM-public-IP>:9990`, then sign in with username `jbossadmin` and password `Secret123456`.
 
-1. Use the following steps to upload the *javaee-cafe.war* to the **Content Repository**:
+1. Use the following steps to upload the **javaee-cafe.war** to the **Content Repository**:
 
    1. From the **Deployments** tab of the Red Hat JBoss EAP management console, select **Content Repository** in the navigation pane.
    1. Select the **Add** button and then select **Upload Content**.
 
       :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/upload-content.png" alt-text="Screenshot of the Red Hat JBoss Enterprise Application Platform Deployments tab with the Upload Content menu option highlighted." lightbox="media/migrate-jboss-eap-to-vm-manually/upload-content.png":::
 
-   1. Use the browser file chooser to select the *javaee-cafe.war* file.
+   1. Use the browser file chooser to select the **javaee-cafe.war** file.
    1. Select **Next**.
    1. Accept the defaults on the next screen and then select **Finish**.
    1. Select **View content**.
 
 1. Use the following steps to deploy an application to `main-server-group`:
 
-   1. From **Content Repository**, select *javaee-cafe.war*.
+   1. From **Content Repository**, select **javaee-cafe.war**.
    1. On the drop-down menu, select **Deploy**.
-   1. Select `main-server-group` as the server group for deploying *javaee-cafe.war*.
+   1. Select `main-server-group` as the server group for deploying **javaee-cafe.war**.
    1. Select **Deploy** to start the deployment. You should see a notice similar to the following screenshot:
 
       :::image type="content" source="media/migrate-jboss-eap-to-vm-manually/successfully-deployed.png" alt-text="Screenshot of the notice of successful deployment." lightbox="media/migrate-jboss-eap-to-vm-manually/successfully-deployed.png":::

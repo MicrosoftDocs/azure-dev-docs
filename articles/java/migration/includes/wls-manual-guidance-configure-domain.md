@@ -10,7 +10,7 @@ The foundation of high availability in WebLogic Server is the cluster. A WebLogi
 
 There are two kinds of cluster, as described in the following list. For more information, see [About Dynamic Clusters](https://docs.oracle.com/en/middleware/standalone/weblogic-server/14.1.1.0/intro/clustering.html#GUID-2C32CF86-D1F8-464D-AF62-E27C9DDF4459).
 
-- *Dynamic cluster*: A cluster that contains one or more generated (dynamic) server instances that are based on a single shared server template. When you create a dynamic cluster, the dynamic servers are preconfigured and automatically generated for you, enabling you to easily scale up the number of server instances in your dynamic cluster when you need another server capacity. You can start the dynamic servers without having to first manually configure and add them to the cluster.
-- *Configured cluster*: A cluster in which you manually configure and add each server instance. You have to configure and add new server instance to increase server capacity.
+- Dynamic cluster: A cluster that contains one or more generated (dynamic) server instances that are based on a single shared server template. When you create a dynamic cluster, the dynamic servers are preconfigured and automatically generated for you, enabling you to easily scale up the number of server instances in your dynamic cluster when you need another server capacity. You can start the dynamic servers without having to first manually configure and add them to the cluster.
+- Configured cluster: A cluster in which you manually configure and add each server instance. You have to configure and add new server instance to increase server capacity.
 
 To show you how to form a WebLogic cluster, this tutorial guides you through the process of creating a configured cluster.

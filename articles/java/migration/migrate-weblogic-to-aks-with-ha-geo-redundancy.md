@@ -33,7 +33,7 @@ Azure Traffic Manager checks the health of your regions and routes the traffic a
 
 Azure Traffic Manager uses the health check feature of the Azure Application Gateway and the WebLogic Kubernetes Operator (WKO) to implement this conditional routing. WKO deeply integrates with AKS health checks, enabling Azure Traffic Manager to have a high level of awareness of the health of your Java workload. The primary WLS cluster is running and the secondary cluster is shut down.
 
-The geo-failover recovery time objective (RTO) of the application tier depends on the time for starting AKS and running the secondary WLS cluster, which is typically less than an hour. The application data is persisted and replicated in the Azure SQL Database failover group, with an RTO of minutes or hours and a recovery point objective (RPO) of minutes or hours. In this architecture, Azure backup has only one *Vault-standard* backup for the WLS configuration every day. For more information, see [What is Azure Kubernetes Service (AKS) backup?](/azure/backup/azure-kubernetes-service-backup-overview)
+The geo-failover recovery time objective (RTO) of the application tier depends on the time for starting AKS and running the secondary WLS cluster, which is typically less than an hour. The application data is persisted and replicated in the Azure SQL Database failover group, with an RTO of minutes or hours and a recovery point objective (RPO) of minutes or hours. In this architecture, Azure backup has only one **Vault-standard** backup for the WLS configuration every day. For more information, see [What is Azure Kubernetes Service (AKS) backup?](/azure/backup/azure-kubernetes-service-backup-overview)
 
 [!INCLUDE [ha-dr-for-wls-overview](includes/ha-dr-for-wls-overview.md)]
 
@@ -576,7 +576,7 @@ Before you continue, use the following steps to install the AKS Backup Extension
 
 ### Wait for a Vault-standard backup to happen
 
-In AKS, the **Vault-standard Tier** is the only tier that supports *Geo-redundancy* and *Cross Region Restore*. As stated in [Which backup storage tier does AKS backup support?](/azure/backup/azure-kubernetes-service-backup-overview#which-backup-storage-tier-does-aks-backup-support), "Only one scheduled recovery point per day is moved to Vault Tier." You must wait for a **Vault-standard** backup to happen. A good lower bound is to wait 24 hours after completing the previous step before continuing.
+In AKS, the **Vault-standard Tier** is the only tier that supports Geo-redundancy and Cross Region Restore. As stated in [Which backup storage tier does AKS backup support?](/azure/backup/azure-kubernetes-service-backup-overview#which-backup-storage-tier-does-aks-backup-support), "Only one scheduled recovery point per day is moved to Vault Tier." You must wait for a **Vault-standard** backup to happen. A good lower bound is to wait 24 hours after completing the previous step before continuing.
 
 ### Stop the primary cluster
 
