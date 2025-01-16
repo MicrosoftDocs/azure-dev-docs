@@ -296,7 +296,7 @@ Use the following steps to install the required dependencies to allow the connec
    ssh azureuser@%ADMINVM_IP%
    ```
 
-1. Enter the password **Secret123456**.
+1. Enter the password `Secret123456`.
 
 1. Use the following command to switch to the `root` user. This tutorial installs all the tools with the `root` user.
 

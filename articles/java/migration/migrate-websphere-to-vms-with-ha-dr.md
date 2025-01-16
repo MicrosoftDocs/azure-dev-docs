@@ -251,13 +251,13 @@ mvn clean package
 
 If you see a message about being in a `Detached HEAD` state, this message is safe to ignore.
 
-The package should be successfully generated and located at **\<parent-path-to-your-local-clone>/websphere-cafe/websphere-cafe-application/target/websphere-cafe.ear**. If you don't see the package, you must troubleshoot and resolve the issue before you continue.
+The package should be successfully generated and located at **\<parent-path-to-your-local-clone\>/websphere-cafe/websphere-cafe-application/target/websphere-cafe.ear**. If you don't see the package, you must troubleshoot and resolve the issue before you continue.
 
 Then, use the following steps to deploy the sample app to the cluster:
 
 1. Switch back to the WebSphere Integrated Solutions Console and sign in again if you're signed out.
 1. In the navigation pane, select **Applications** > **Application Types** > **WebSphere enterprise applications**.
-1. In the **Enterprise Applications** pane, select **Install** > **Choose File**. Then, find the package located at **\<parent-path-to-your-local-clone>/websphere-cafe/websphere-cafe-application/target/websphere-cafe.ear** and select **Open**. Select **Next** > **Next** > **Next**.
+1. In the **Enterprise Applications** pane, select **Install** > **Choose File**. Then, find the package located at **\<parent-path-to-your-local-clone\>/websphere-cafe/websphere-cafe-application/target/websphere-cafe.ear** and select **Open**. Select **Next** > **Next** > **Next**.
 1. In the **Map modules to servers** pane, press <kbd>Ctrl</kbd> and select all the items listed under **Clusters and servers**. Select the checkbox next to **websphere-cafe.war**. Select **Apply**. Select **Next** until you see the **Finish** button.
 1. Select **Finish** > **Save**, then wait until completion. Select **OK**.
 1. Select the installed application `websphere-cafe`, and then select **Start**. Wait until you see messages indicating application successfully started. If you aren't able to see the successful message, you must troubleshoot and resolve the issue before you continue.

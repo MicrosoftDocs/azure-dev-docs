@@ -21,7 +21,7 @@ For more information related to configuring log4j, see [Welcome to Log4j 2](http
 
 ## Add the Maven dependency
 
-To add the Maven dependency, include the following XML in the project's **pom.xml** file. Replace the **2.16.0** version number with the latest released version number shown on the [Apache Log4j SLF4J Binding page](https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl).
+To add the Maven dependency, include the following XML in the project's **pom.xml** file. Replace the `2.16.0` version number with the latest released version number shown on the [Apache Log4j SLF4J Binding page](https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl).
 
 ```xml
 <dependency>

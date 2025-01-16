@@ -236,7 +236,7 @@ Now use the following steps to deploy the sample app to the clusters, starting f
 1. Locate **Domain structure** > **wlsd** > **Deployments** in the navigation pane. Select **Deployments**.
 1. Select **Lock & Edit** > **Install** > **Upload your file(s)** > **Choose File**. Select the **weblogic-cafe.war** file that you prepared previously.
 1. Select **Next** > **Next** > **Next**. Select `cluster1` with option **All servers in the cluster** for the deployment targets. Select **Next** > **Finish**. Select **Activate Changes**.
-1. Switch to the **Control** tab and select `weblogic-cafe` from the deployments table. Select **Start** with the option **Servicing all requests** > **Yes**. Wait for a while and refresh the page until you see that the state of the deployment `weblogic-cafe` is **Active**. Switch to the **Monitoring** tab and verify that the context root of the deployed application is **/weblogic-cafe**. Keep the WLS admin console open so you can use it later for further configuration.
+1. Switch to the **Control** tab and select **weblogic-cafe** from the deployments table. Select **Start** with the option **Servicing all requests** > **Yes**. Wait for a while and refresh the page until you see that the state of the deployment **weblogic-cafe** is **Active**. Switch to the **Monitoring** tab and verify that the context root of the deployed application is **/weblogic-cafe**. Keep the WLS admin console open so you can use it later for further configuration.
 
 Repeat the same steps in WebLogic Server Administration Console, but for the secondary cluster in the West US region.
 
@@ -247,7 +247,7 @@ Use the following steps to make your WLS clusters aware of the Azure Traffic Man
 1. Make sure you're signed in to WebLogic Server Administration Console.
 1. Navigate to **Domain structure** > **wlsd** > **Environment** > **Clusters** in the navigation pane. Select **Clusters**.
 1. Select `cluster1` from the clusters table.
-1. Select **Lock & Edit** > **HTTP**. Remove the current value for **Frontend Host**, and enter the DNS name of the Traffic Manager profile you saved aside previously, without the leading `http://` - for example, **tmprofile-ejb120623.trafficmanager.net**. Select **Save** > **Activate Changes**.
+1. Select **Lock & Edit** > **HTTP**. Remove the current value for **Frontend Host**, and enter the DNS name of the Traffic Manager profile you saved aside previously, without the leading **http://** - for example, **tmprofile-ejb120623.trafficmanager.net**. Select **Save** > **Activate Changes**.
 
 Repeat the same steps in the WebLogic Server Administration Console, but for the secondary cluster in the West US region.
 
@@ -259,13 +259,13 @@ Use the following steps on the primary WLS cluster in the US East region:
 
 1. Make sure you're signed in to the WebLogic Server Administration Console.
 1. Navigate to **Domain structure** > **wlsd** > **Environment** > **Servers** in the navigation pane. Select **Servers**.
-1. You should see servers `msp1`, `msp2`, and `msp3` listed in the servers table.
+1. You should see servers **msp1**, **msp2**, and **msp3** listed in the servers table.
 1. Select `msp1` > **Services** > **Lock & Edit**. Under **Transaction Log Store**, select **JDBC**.
-1. For **Type** > **Data Source**, select `jdbc/WebLogicCafeDB`.
+1. For **Type** > **Data Source**, select **jdbc/WebLogicCafeDB**.
 1. Confirm that the value for **Prefix Name** is **TLOG_msp1_**, which is the default value. If the value is different, change it to **TLOG_msp1_**.
 1. Select **Save**.
-1. Select **Servers** > `msp2`, and repeat the same steps, except that the default value for **Prefix Name** is **TLOG_msp2_**.
-1. Select **Servers** > `msp3`, and repeat the same steps, except that the default value for **Prefix Name** is **TLOG_msp3_**.
+1. Select **Servers** > **msp2**, and repeat the same steps, except that the default value for **Prefix Name** is **TLOG_msp2_**.
+1. Select **Servers** > **msp3**, and repeat the same steps, except that the default value for **Prefix Name** is **TLOG_msp3_**.
 1. Select **Activate Changes**.
 
 Repeat the same steps in WebLogic Server Administration Console, but for the secondary cluster in the West US region.
@@ -276,20 +276,20 @@ Then, use the following steps to restart all the managed servers of the primary 
 
 1. Ensure that you're signed in to WebLogic Server Administration Console.
 1. Navigate to **Domain structure** > **wlsd** > **Environment** > **Servers** in the navigation pane. Select **Servers**.
-1. Select the **Control** tab. Select `msp1`, `msp2`, and `msp3`. Select **Shutdown** with the option **When work completes** > **Yes**. Select the refresh icon. Wait until the **Status of Last Action** value is **TASK COMPLETED**. You should see that the **State** value for the selected servers is **SHUTDOWN**. Select the refresh icon again to stop status monitoring.
-1. Select `msp1`, `msp2`, and `msp3` again. Select **Start** > **Yes**. Select the refresh icon. Wait until the **Status of Last Action** value is **TASK COMPLETED**. You should see that the **State** value for the selected servers is **RUNNING**. Select the refresh icon again to stop status monitoring.
+1. Select the **Control** tab. Select **msp1**, **msp2**, and **msp3**. Select **Shutdown** with the option **When work completes** > **Yes**. Select the refresh icon. Wait until the **Status of Last Action** value is **TASK COMPLETED**. You should see that the **State** value for the selected servers is **SHUTDOWN**. Select the refresh icon again to stop status monitoring.
+1. Select **msp1**, **msp2**, and **msp3** again. Select **Start** > **Yes**. Select the refresh icon. Wait until the **Status of Last Action** value is **TASK COMPLETED**. You should see that the **State** value for the selected servers is **RUNNING**. Select the refresh icon again to stop status monitoring.
 
 ### Stop the VMs in the secondary cluster
 
 Now, use the following steps to stop all VMs in the secondary cluster to make it passive:
 
 1. Open the Azure portal home in a new tab of your browser, then select **All resources**. In the **Filter for any field...** box, enter the resource group name where the secondary cluster is deployed - for example, **wls-cluster-westus-ejb120623**.
-1. Select **Type equals all** to open the **Type** filter. For **Value**, enter **Virtual machine**. You should see one entry matched. Select it for **Value**. Select **Apply**. You should see 4 VMs listed, including `adminVM`, `mspVM1`, `mspVM2`, and `mspVM3`.
+1. Select **Type equals all** to open the **Type** filter. For **Value**, enter **Virtual machine**. You should see one entry matched. Select it for **Value**. Select **Apply**. You should see 4 VMs listed, including **adminVM**, **mspVM1**, **mspVM2**, and **mspVM3**.
 1. Select to open each of the VMs. Select **Stop** and confirm for each VM.
 1. Select the notifications icon from the Azure portal to open the **Notifications** pane.
 1. Monitor the event **Stopping virtual machine** for each VM until the value becomes **Successfully stopped virtual machine**. Keep the page open so you can use it for the failover test later.
 
-Now, switch to the browser tab where you monitor the endpoints' status of the Traffic Manager. Refresh the page until you see that the endpoint `myFailoverEndpoint` is **Degraded** and the endpoint `myPrimaryEndpoint` is **Online**.
+Now, switch to the browser tab where you monitor the endpoints' status of the Traffic Manager. Refresh the page until you see that the endpoint **myFailoverEndpoint** is **Degraded** and the endpoint **myPrimaryEndpoint** is **Online**.
 
 > [!NOTE]
 > A production-ready HA/DR solution would probably want to achieve a lower RTO by leaving the VMs running but only stopping the WLS software running on the VMs. Then, in the event of failover, the VMs would already be running and the WLS software would take less time to start. This article chose to stop the VMs because the software deployed by [Oracle WebLogic Server Cluster on Azure VMs](https://aka.ms/wls-vm-cluster) automatically starts the WLS software when the VMs start.
@@ -331,10 +331,10 @@ Then, use the following steps to start all servers in the secondary cluster:
 
 Use the same steps in the [Failover to the secondary site](#failover-to-the-secondary-site) section to fail back to the primary site including database server and cluster, except for the following differences:
 
-1. First, shut down the VMs in the secondary cluster. You should see that endpoint `myFailoverEndpoint` becomes **Degraded**.
+1. First, shut down the VMs in the secondary cluster. You should see that endpoint **myFailoverEndpoint** becomes **Degraded**.
 1. Next, failover the Azure SQL Database from the secondary server to the primary server.
 1. Then, start all servers in the primary cluster.
-1. Finally, verify the sample app after the endpoint `myPrimaryEndpoint` is **Online**.
+1. Finally, verify the sample app after the endpoint **myPrimaryEndpoint** is **Online**.
 
 ## Clean up resources
 

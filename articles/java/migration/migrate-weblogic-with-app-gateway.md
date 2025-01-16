@@ -93,7 +93,7 @@ To create an Azure DNS Zone to use with the App Gateway, use the following steps
 1. Next to **Use an existing Azure DNS Zone** select **No**.
 1. Enter the name of the Azure DNS Zone next to **DNS Zone Name**. A new DNS Zone will be created in the same resource group as WLS.
 
-Finally, specify the names for the child DNS zones. The deployment will create two child DNS zones for use with WLS: one for the admin console, and one for the App Gateway. For example, if your DNS Zone Name was 'contoso.net', you could enter **admin** and **app** as the values. The admin console would be available at 'admin.contoso.net' and the app gateway would be available at 'app.contoso.net'. Don't forget set up DNS delegation as described in [Delegation of DNS zones with Azure DNS](/azure/dns/dns-domain-delegation).
+Finally, specify the names for the child DNS zones. The deployment will create two child DNS zones for use with WLS: one for the admin console, and one for the App Gateway. For example, if **DNS Zone Name** was **contoso.net**, you could enter **admin** and **app** as the values. The admin console would be available at `admin.contoso.net` and the app gateway would be available at `app.contoso.net`. Don't forget to set up DNS delegation as described in [Delegation of DNS zones with Azure DNS](/azure/dns/dns-domain-delegation).
 
 :::image type="content" source="media/migrate-weblogic-with-app-gateway/child-dns-zones.png" alt-text="Azure portal screenshot showing fields for child DNS zones.":::
 
