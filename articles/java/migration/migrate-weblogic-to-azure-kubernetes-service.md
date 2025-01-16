@@ -23,7 +23,7 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 Once you've decided that AKS is the appropriate deployment target, you must accept that the Oracle WLS Kubernetes operator (the operator) is the only way to run WLS on Kubernetes. After accepting this fact, you must decide whether or not the prebuilt [Azure Marketplace offer](https://aka.ms/wlsaks) is a good starting point. Here are some things to consider about the prebuilt Azure Marketplace offer.
 
-- Oracle and Microsoft created this offer to allow you to quickly provision WLS on AKS using the Model in Image domain home source type. This concept is explained in more detail later in this article.
+- Oracle and Microsoft created this offer to allow you to quickly provision WLS on AKS using the *Model in Image* domain home source type. This concept is explained in more detail later in this article.
 - At a high level, the offer automates the following steps for you.
   - Take an existing WAR or EAR deployment, if desired.
   - Wrap it in a container using the WebLogic Image Tool (WIT). For more information, see [WebLogic Image Tool](https://aka.ms/wls-wit) in the Oracle documentation.

@@ -188,17 +188,17 @@ Use the following steps to verify these key components before you move to the ne
 Use the following steps to get the name and DNS name of the public IP address of the Azure Application Gateway. You use them for app deployment and the Azure Traffic Manager setup later.
 
 1. In the Azure portal, in the search box, enter **Resource groups** and select **Resource groups** from the search results.
-1. Select the name of resource group for your primary region - for example, `liberty-aks-eastus-mjg032524`.
-1. Find the **Public IP address** resource prefixed with `gwip`, then copy and save aside its name.
-1. Select the **Public IP address** resource, then copy and save aside the **DNS name** - for example, `olgw3984d1.eastus.cloudapp.azure.com`.
+1. Select the name of resource group for your primary region - for example, **liberty-aks-eastus-mjg032524**.
+1. Find the **Public IP address** resource prefixed with **gwip**, then copy and save aside its name.
+1. Select the **Public IP address** resource, then copy and save aside the **DNS name** - for example, **olgw3984d1.eastus.cloudapp.azure.com**.
 
 ### Enable geo-replications for the ACR instance
 
 The ACR instance is designed to store application images for both primary and secondary clusters. Use the following steps to enable geo-replications for the ACR instance:
 
 1. In the Azure portal, in the search box, enter **Resource groups** and select **Resource groups** from the search results.
-1. Select the name of resource group for your primary region - for example, `liberty-aks-eastus-mjg032524`.
-1. Find the **Container registry** resource prefixed with `acr`, then select it to open it.
+1. Select the name of resource group for your primary region - for example, **liberty-aks-eastus-mjg032524**.
+1. Find the **Container registry** resource prefixed with **acr**, then select it to open it.
 1. Select **Properties**. For **Pricing plan**, select **Premium**, then select **Save**. Wait until completion.
 1. Select **Geo-replications**, then select **Add**. For **Location**, select **West US**, then select **Create**. Wait until completion.
 1. Wait for a while, select **Refresh**. Repeat the operation until you see two locations are listed and **Status** is **Ready**.
@@ -397,7 +397,7 @@ Use the following steps to back up the AKS cluster:
 
 ### Wait for a Vault-standard backup to happen
 
-In AKS, the Vault-standard Tier is the only tier that supports Geo-redundancy and Cross Region Restore. As stated in [Which backup storage tier does AKS backup support?](/azure/backup/azure-kubernetes-service-backup-overview#which-backup-storage-tier-does-aks-backup-support), "Only one scheduled recovery point per day is moved to Vault Tier." You must wait for a Vault-standard backup to happen. A good lower bound is to wait at most 24 hours after completing the previous step before you restore.
+In AKS, the Vault-standard Tier is the only tier that supports *Geo-redundancy* and *Cross Region Restore*. As stated in [Which backup storage tier does AKS backup support?](/azure/backup/azure-kubernetes-service-backup-overview#which-backup-storage-tier-does-aks-backup-support), "Only one scheduled recovery point per day is moved to Vault Tier." You must wait for a Vault-standard backup to happen. A good lower bound is to wait at most 24 hours after completing the previous step before you restore.
 
 Use the following steps to verify that a Vault-standard backup is available:
 
@@ -461,7 +461,7 @@ Create an Azure Traffic Manager profile by following the steps in [Quickstart: C
          - For **Tolerated number of failures**, enter **3**.
          - For **Probe timeout**, enter **5**.
       1. Select **Save**. Wait until it completes.
-   1. In step 4 for adding the primary endpoint `myPrimaryEndpoint`, use the following steps:
+   1. In step 4 for adding the primary endpoint **myPrimaryEndpoint**, use the following steps:
       1. For **Target resource type**, select **Public IP address**.
       1. Select the **Choose public IP address** dropdown and enter the name of the public IP address of the Azure Application Gateway in the East US region that you saved aside previously. You should see one entry matched. Select it for **Public IP address**.
    1. In step 6 for adding a failover/secondary endpoint `myFailoverEndpoint`, use the following steps:
@@ -519,7 +519,7 @@ Now, use the following steps to failover the Azure SQL Database from the primary
 Next, use the following steps to restore the backup of the primary AKS cluster to the secondary AKS cluster:
 
 1. In the Azure portal, in the search box, enter **Backup center** and select **Backup center** from the search results.
-1. Under **Manage**, select **Backup instances**. Filter on the datasource type **Kubernetes Services**. Find the backup instance you created in the previous section - for example, `<aks-cluster-name>\akseastusmjg032524`.
+1. Under **Manage**, select **Backup instances**. Filter on the datasource type **Kubernetes Services**. Find the backup instance you created in the previous section - for example, **\<aks-cluster-name\>\akseastusmjg032524**.
 1. Select the backup instance.
 1. Select **Restore**.
 1. On the **Restore** page, the default pane is **Restore point**. Select **Previous** to change to the **Basics** pane. For **Restore Region**, select **Secondary Region**, then select **Next: Restore point**.
