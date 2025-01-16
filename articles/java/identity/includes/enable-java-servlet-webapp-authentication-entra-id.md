@@ -39,8 +39,8 @@ Then, use the following steps to complete the registration:
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-servlet-webapp-authentication`.
    - Under **Supported account types**, select one of the following options:
 
-     - Select **Accounts in this organizational directory only** if you're building an application for use only by users in your tenant - that is, a **single-tenant** application.
-     - Select **Accounts in any organizational directory** if you'd like users in any Microsoft Entra ID tenant to be able to use your application - that is, a **multitenant** application.
+     - Select **Accounts in this organizational directory only** if you're building an application for use only by users in your tenant - that is, a *single-tenant* application.
+     - Select **Accounts in any organizational directory** if you'd like users in any Microsoft Entra ID tenant to be able to use your application - that is, a *multitenant* application.
      - Select **Accounts in any organizational directory and personal Microsoft accounts** for the widest set of customers - that is, a multitenant application that also supports Microsoft personal accounts.
      - Select **Personal Microsoft accounts** for use only by users of personal Microsoft accounts - for example, Hotmail, Live, Skype, and Xbox accounts.
 

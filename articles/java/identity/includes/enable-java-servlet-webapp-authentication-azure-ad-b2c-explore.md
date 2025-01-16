@@ -32,7 +32,7 @@ The following table shows the contents of the sample project folder:
 | **authentication.properties** | Microsoft Entra ID and program configuration.                                                        |
 | **AuthenticationFilter.java** | Redirects unauthenticated requests to protected resources to a 401 page.                             |
 | **MsalAuthSession**           | Instantiated with an `HttpSession`. Stores all MSAL related session attributes in session attribute. |
-| **____Servlet.java**          | All of the endpoints available are defined in **.java** classes ending in **____Servlet.java**.          |
+| **\*Servlet.java**            | All of the endpoints available are defined in Java classes with names ending in `Servlet.`.          |
 | **CHANGELOG.md**              | List of changes to the sample.                                                                       |
 | **CONTRIBUTING.md**           | Guidelines for contributing to the sample.                                                           |
 | **LICENSE**                   | The license for the sample.                                                                          |

@@ -49,7 +49,7 @@ Then, use the following steps to complete the registration:
    - In the **Name** section, enter a meaningful application name for display to users of the app - for example, `java-servlet-webapp-roles`.
    - Under **Supported account types**, select one of the following options:
 
-     - Select **Accounts in this organizational directory only** if you're building an application for use only by users in your tenant - that is, a **single-tenant** application.
+     - Select **Accounts in this organizational directory only** if you're building an application for use only by users in your tenant - that is, a *single-tenant* application.
    - In the **Redirect URI** section, select **Web** in the combo-box and enter the following redirect URI: `http://localhost:8080/msal4j-servlet-roles/auth/redirect`.
 1. Select **Register** to create the application.
 
