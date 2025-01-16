@@ -639,7 +639,7 @@ If you're not going to continue to use the WebSphere Liberty/Open Liberty cluste
 1. In **Enter resource group name to confirm deletion**, enter the resource group name.
 1. Select **Delete**.
 1. Repeat steps 1-4 for the resource group of the Traffic Manager - for example, `myResourceGroupTM1`.
-1. In the Azure portal, in the search box, enter **Backup vaults** and select **Backup vaults** from the search results. You should see two Backup vaults listed - for example, `aks-backup-vault-eastus-mjg032524` and `aks-backup-vault-westus-mjg032524`. For each of them, use the following steps:
+1. In the Azure portal, in the search box, enter **Backup vaults** and select **Backup vaults** from the search results. You should see two Backup vaults listed - for example, **aks-backup-vault-eastus-mjg032524** and **aks-backup-vault-westus-mjg032524**. For each of them, use the following steps:
    1. Select to open the Backup vault.
    1. Select **Manage** > **Properties** > **Soft delete** > **Update**. Next to **Enable soft Delete**, unselect the checkbox, and then select **Update**.
    1. Select **Manage** > **Backup instances**. Filter on the datasource type **Kubernetes Services**. Select the instance you created and then delete it.

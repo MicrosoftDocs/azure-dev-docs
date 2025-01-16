@@ -374,7 +374,7 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    >>  succeed: close template
    ```
 
-   Use the following commands to copy **/tmp/cluster.jar** to `mspVM1` and `mspVM2` using `scp`. If prompted for key fingerprint, type `yes`. Enter the password **Secret123456** when prompted.
+   Use the following commands to copy **/tmp/cluster.jar** to `mspVM1` and `mspVM2` using `scp`. If prompted for key fingerprint, type `yes`. Enter the password `Secret123456` when prompted.
 
    ```bash
    scp /tmp/cluster.jar azureuser@<mspvm1-private-ip>:/tmp/cluster.jar
@@ -393,7 +393,7 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    ssh -i %SSH_KEY% azureuser@%MSPVM1_IP%
    ```
 
-   Enter the password for the connection. For this example, the password is **Secret123456**.
+   Enter the password for the connection. For this example, the password is `Secret123456`.
 
    You logged into `mspVM1` with user `azureuser`. Next, use the following commands to become the root user and update file ownership of **/tmp/cluster.jar** to `oracle`:
 
@@ -443,7 +443,7 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    ssh -i %SSH_KEY% azureuser@%MSPVM2_IP%
    ```
 
-   Enter the password for the connection. For this example, the password is **Secret123456**.
+   Enter the password for the connection. For this example, the password is `Secret123456`.
 
    You logged into `mspVM2` with user `azureuser`. Use the following commands to change to the root user and update the file ownership of **/tmp/cluster.jar** and initialize the folder for domain configuration:
 
@@ -893,7 +893,7 @@ To download the Oracle JDK 11 and Oracle WebLogic 14c Windows installer, follow 
 
 This section shows you how to install Oracle JDK 11 on Windows Server.
 
-Open the download folder that contains JDK installer. Here the installer name is **jdk-11.0.16_windows-x64_bin.exe**. Right click the file and select **Run as administrator**. Install the JDK to the default folder **C:\Program Files\Java\jdk-11.0.16\\**.
+Open the download folder that contains JDK installer. Here the installer name is **jdk-11.0.16_windows-x64_bin.exe**. Right click the file and select **Run as administrator**. Install the JDK to the default folder **C:\Program Files\Java\jdk-11.0.16\**.
 
 After the installation finishes, you can validate its version in a command prompt by running the command `java -version`, with output similar to the following example:
 

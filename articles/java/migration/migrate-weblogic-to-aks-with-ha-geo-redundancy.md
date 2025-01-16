@@ -576,7 +576,7 @@ Before you continue, use the following steps to install the AKS Backup Extension
 
 ### Wait for a Vault-standard backup to happen
 
-In AKS, the **Vault-standard Tier** is the only tier that supports Geo-redundancy and Cross Region Restore. As stated in [Which backup storage tier does AKS backup support?](/azure/backup/azure-kubernetes-service-backup-overview#which-backup-storage-tier-does-aks-backup-support), "Only one scheduled recovery point per day is moved to Vault Tier." You must wait for a **Vault-standard** backup to happen. A good lower bound is to wait 24 hours after completing the previous step before continuing.
+In AKS, the **Vault-standard Tier** is the only tier that supports *Geo-redundancy* and *Cross Region Restore*. As stated in [Which backup storage tier does AKS backup support?](/azure/backup/azure-kubernetes-service-backup-overview#which-backup-storage-tier-does-aks-backup-support), "Only one scheduled recovery point per day is moved to Vault Tier." You must wait for a **Vault-standard** backup to happen. A good lower bound is to wait 24 hours after completing the previous step before continuing.
 
 ### Stop the primary cluster
 

@@ -236,7 +236,7 @@ Include [externalized parameters as environment variables](https://kubernetes.io
 
 If your application requires non-volatile storage, configure one or more [Persistent Volumes](/azure/aks/azure-disks-dynamic-pv).
 
-You might want to create a Persistent Volume using Azure Files mounted to the Tomcat logs directory (**/tomcat_logs**) to retain logs centrally. For more information, see [Dynamically create and use a persistent volume with Azure Files in Azure Kubernetes Service (AKS)](/azure/aks/azure-files-dynamic-pv).
+You might want to create a Persistent Volume using Azure Files mounted to the Tomcat logs directory **/tomcat_logs** to retain logs centrally. For more information, see [Dynamically create and use a persistent volume with Azure Files in Azure Kubernetes Service (AKS)](/azure/aks/azure-files-dynamic-pv).
 
 ### Configure KeyVault FlexVolume
 
