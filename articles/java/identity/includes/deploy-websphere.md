@@ -10,7 +10,7 @@ These instructions assume that you installed WebSphere and set up a server. You 
 
 Before you can deploy to WebSphere, use the following steps to make some configuration changes in the sample itself and then build or rebuild the package:
 
-1. Navigate to your app's *authentication.properties* file and change the value of `app.homePage` to your server URL and port number you're planning to use, as shown in the following example:
+1. Navigate to your app's **authentication.properties** file and change the value of `app.homePage` to your server URL and port number you're planning to use, as shown in the following example:
 
    ```ini
    # app.homePage is by default set to dev server address and app context path on the server
@@ -24,7 +24,7 @@ Before you can deploy to WebSphere, use the following steps to make some configu
    mvn clean package
    ```
 
-1. After the code finishes building, copy the *.war* file over to your target server's file system.
+1. After the code finishes building, copy the **.war** file over to your target server's file system.
 
 You also need to make the same change in the Azure app registration, where you set it in the Azure portal as the **Redirect URI** value on the **Authentication** tab.
 
@@ -46,7 +46,7 @@ Use the following steps to deploy the sample using the WebSphere's Integrated So
 
 1. On the **Applications** tab, select **New Application**, then **New Enterprise Application**.
 
-1. Choose the *.war* file you built, then select **Next** until you get to the **Map context roots for Web modules** installation step. The other default settings should be fine.
+1. Choose the **.war** file you built, then select **Next** until you get to the **Map context roots for Web modules** installation step. The other default settings should be fine.
 
 1. For the context root, set it to the same value as after the port number in the 'Redirect URI' you set in sample configuration/Azure app registration. That is, if the redirect URI is `http://<server-url>:9080/msal4j-servlet-auth/`, then the context root should be `msal4j-servlet-auth`.
 
@@ -54,6 +54,6 @@ Use the following steps to deploy the sample using the WebSphere's Integrated So
 
 1. After the application finishes installing, go to the **WebSphere enterprise applications** section of the **Applications** tab.
 
-1. Select the *.war* file you installed from the list of applications and then select **Start** to deploy.
+1. Select the **.war** file you installed from the list of applications and then select **Start** to deploy.
 
 1. After it finishes deploying, navigate to `http://<server-url>:9080/{whatever you set as the context root}` and you should be able to see the application.

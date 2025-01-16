@@ -17,7 +17,7 @@ git clone https://github.com/Azure-Samples/ms-identity-msal-java-samples.git
 cd 3-java-servlet-web-app/3-Authorization-II/roles
 ```
 
-Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a *.zip* file and extract it to your hard drive.
+Alternatively, navigate to the [ms-identity-msal-java-samples](https://github.com/Azure-Samples/ms-identity-msal-java-samples) repository, then download it as a **.zip** file and extract it to your hard drive.
 
 > [!IMPORTANT]
 > To avoid file path length limitations on Windows, clone or extract the repository into a directory near the root of your hard drive.
@@ -61,7 +61,7 @@ Then, use the following steps to complete the registration:
 
 1. In the **Client secrets** section, select **New client secret**.
 
-1. Type a description - for example, *app secret*.
+1. Type a description - for example, **app secret**.
 
 1. Select one of the available durations: **In 1 year**, **In 2 years**, or **Never Expires**.
 
@@ -77,17 +77,17 @@ To define the app roles, use the following steps:
 
 1. Select **Create app role**, then enter the following values:
 
-   - For **Display name**, enter a suitable name - for example, *PrivilegedAdmin*.
+   - For **Display name**, enter a suitable name - for example, **PrivilegedAdmin**.
    - For **Allowed member types**, choose **User**.
-   - For **Value**, enter *PrivilegedAdmin*.
-   - For **Description**, enter *PrivilegedAdmins who can view the Admin Page*.
+   - For **Value**, enter **PrivilegedAdmin**.
+   - For **Description**, enter **PrivilegedAdmins who can view the Admin Page**.
 
 1. Select **Create app role**, then enter the following values:
 
-   - For **Display name**, enter a suitable name - for example, *RegularUser*.
+   - For **Display name**, enter a suitable name - for example, **RegularUser**.
    - For **Allowed member types**, choose **User**.
-   - For **Value**, enter *RegularUser*.
-   - For **Description**, enter *RegularUsers who can view the User Page*.
+   - For **Value**, enter **RegularUser**.
+   - For **Description**, enter **RegularUsers who can view the User Page**.
 
 1. Select **Apply** to save your changes.
 
@@ -118,10 +118,10 @@ Use the following steps to configure the app:
 
 ## Build the sample
 
-To build the sample using Maven, navigate to the directory containing the *pom.xml* file for the sample, and then run the following command:
+To build the sample using Maven, navigate to the directory containing the **pom.xml** file for the sample, and then run the following command:
 
 ```bash
 mvn clean package
 ```
 
-This command generates a *.war* file that you can run on various application servers.
+This command generates a **.war** file that you can run on various application servers.

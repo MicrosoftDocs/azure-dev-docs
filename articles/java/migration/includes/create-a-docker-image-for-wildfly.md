@@ -148,7 +148,7 @@ For more info on configuring database connectivity with WildFly, see [PostgreSQL
 To set up each JNDI resource you need to configure on WildFly, you will generally use the following steps:
 
 1. Download the necessary JAR files and copy them into the Docker image.
-1. Create a WildFly *module.xml* file referencing those JAR files.
+1. Create a WildFly **module.xml** file referencing those JAR files.
 1. Create any configuration needed by the specific JNDI resource.
 1. Create JBoss CLI script to be used during Docker build to register the JNDI resource.
 1. Add everything to Dockerfile.
