@@ -8,13 +8,13 @@ ms.date: 06/21/2024
 
    1. Open the resource group you created before in the Azure portal.
    1. Select **Create** to create the resource.
-   1. Select **Compute**, search for *windows 10*, and then select **Microsoft Windows 10**.
+   1. Select **Compute**, search for **windows 10**, and then select **Microsoft Windows 10**.
    1. Select the plan that you want, and then select **Create**.
    1. Use the following values to configure the VM:
-      - **Virtual machine name**: *myWindowsVM*
+      - **Virtual machine name**: **myWindowsVM**
       - **Image**: **Windows 10 Pro**
-      - **Username**: *azureuser*
-      - **Password**: *Secret123456*
+      - **Username**: **azureuser**
+      - **Password**: **Secret123456**
    1. Select the checkbox under **Licensing**.
    1. Select **Review + create**, and then select **Create**.
 
@@ -32,7 +32,7 @@ ms.date: 06/21/2024
       1. Select **OK**.
       1. Close the **Windows Defender Firewall** settings panel.
    1. Select **X-launch** from the desktop.
-   1. For display settings, set the display number to *-1* to use multiple windows, and then select **Next**.
+   1. For display settings, set the display number to **-1** to use multiple windows, and then select **Next**.
    1. For **Select how to start clients**, select  **Start no client**, and then select **Next**.
    1. For extra settings, select **Clipboard and Primary Selection**, **Native opengl**, and **Disable access control**.
    1. Select **Next** to finish.
