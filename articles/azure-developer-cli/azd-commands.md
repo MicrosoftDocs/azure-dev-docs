@@ -1,11 +1,11 @@
 ---
-title: Understanding Azure Developer CLI Commands
-description: This article provides an in-depth conceptual overview of Azure Developer CLI commands, explores commonly used commands, and explains their relationship with Azure Developer CLI templates.
+title: Azure Developer CLI commands overview
+description: This article provides a conceptual overview of key concepts for Azure Developer CLI commands
 ms.topic: conceptual
 ms.date: 01/15/2025
 ---
 
-# Explore Azure Developer CLI commands overview
+# Azure Developer CLI commands overview
 
 Azure Developer CLI (`azd`) commands are a set of tools designed to simplify and streamline the development, deployment, and management of applications on Azure. In this article you'll learn the following:
 
@@ -34,7 +34,7 @@ The emphasis on high level development stages is what differentiates `azd` comma
 - **`src` folder** - Contains all of the deployable app source code.
 - **`azure.yaml` file** - A configuration file that defines one or more services in your project and maps them to Azure resources defined in the `infra` folder for deployment.
 
-    :::image type="content" source="media/make-azd-compatible/azd-template-structure.png" alt-text="A screenshot showing an Azure Developer CLI template structure.":::
+:::image type="content" source="media/make-azd-compatible/azd-template-structure.png" alt-text="A screenshot showing an Azure Developer CLI template structure.":::
 
 Without `azd` commands, these templates are just standard code repositories. `azd` templates serve as foundational blueprints, while CLI commands act as the engine driving deployment, management, and monitoring of your applications:
 
@@ -51,10 +51,10 @@ Without `azd` commands, these templates are just standard code repositories. `az
 
 `azd` commands provide a wide variety of features and functionality. Visit the [Azure Developer CLI commands](/azure/developer/azure-developer-cli/reference) reference page for a complete list of `azd` commands, parameters and their functionality. Some of the most commonly used commands include:
 
-- **`azd init`**: Initializes a new Azure Developer CLI project with a predefined structure and configuration. This command sets up the necessary files and directories to start a new project.
+- **`azd init`**: Initializes an existing or new `azd` template.
 - **`azd up`**: Provisions the necessary Azure resources and deploys the application in one step. This command combines `azd package`, `azd provision` and `azd deploy` to quickly get your application running on Azure.
-- **`azd provision`**: Provisions the required Azure infrastructure based on infrastructure-as-code templates. This command creates the necessary Azure resources such as VMs, databases, and storage accounts.
-- **`azd deploy`**: Deploys the application code to the provisioned Azure infrastructure. This command handles the deployment of your application code to the resources created by the `azd provision` command.
+- **`azd provision`**: Provisions the required Azure infrastructure based on infrastructure-as-code templates. 
+- **`azd deploy`**: Deploys the application code to the Azure resources created by `azd provision`.
 - **`azd monitor`**: Monitors the health and performance of the deployed application. This command provides insights into the application's performance and helps identify any issues.
 - **`azd pipeline config`**: Configures a CI/CD pipeline for the project. This command sets up continuous integration and continuous deployment pipelines to automate the build and deployment processes.
 - **`azd down`**: De-provisions the Azure resources created by the project. This command removes the Azure resources that were provisioned, helping to clean up and avoid unnecessary costs.
