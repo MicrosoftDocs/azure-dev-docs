@@ -28,6 +28,17 @@ conceptualContent:
           - text: Deploy to Azure with IaC
             url: /devops/deliver/iac-github-actions
             itemType: concept
+      - title: ARM and Bicep
+        links:
+          - text: What is Azure Resource Manager (ARM)?
+            url: /azure/azure-resource-manager/management/overview
+            itemType: concept
+          - text: What is Bicep?
+            url: /azure/azure-resource-manager/bicep/overview?tabs=bicep
+            itemType: concept
+          - text: ARM template reference
+            url: /azure/templates/
+            itemType: reference
 
 productDirectory:
   title: Third-party Azure IaC providers
@@ -35,21 +46,21 @@ productDirectory:
   items:
     - title: Terraform
       imageSrc: /media/logos/logo_azure.svg
-      summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure.
+      summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure. It codifies infrastructure in configuration files that describe the desired state for your topology.
       url: /azure/developer/terraform/overview
     - title: Chef
       imageSrc: /media/logos/logo_azure.svg
-      summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure.
+      summary: Chef Automate is an enterprise platform that allows developers, operations, and security engineers to collaborate on application and infrastructure changes with speed and at scale.
       url: https://docs.chef.io/azure_marketplace/
     - title: Jenkins
       imageSrc: /media/logos/logo_azure.svg
-      summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure.
+      summary: Jenkins is an open-source automation server used to set up continuous integration and delivery (CI/CD) for software projects.
       url: https://www.jenkins.io/
     - title: Ansible
       imageSrc: /media/logos/logo_azure.svg
-      summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure.
+      summary: Ansible is an open source IT automation engine that automates provisioning, configuration management, application deployment, orchestration, and many other IT processes.
       url: https://www.redhat.com/en/ansible-collaborative
     - title: Pulumi
       imageSrc: /media/logos/logo_azure.svg
-      summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure.
+      summary: Build infrastructure on Azure using TypeScript, Python, Go, C#, Java or YAML. The Azure Native provider is always up-to-date and covers 100% of the resources in Azure Resource Manager (ARM).
       url: https://www.pulumi.com/docs/iac/clouds/azure/
