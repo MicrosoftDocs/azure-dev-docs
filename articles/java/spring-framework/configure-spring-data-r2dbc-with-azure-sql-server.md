@@ -133,7 +133,7 @@ az sql db create \
 
 This step will create a non-admin user and grant all permissions on the `demo` database to it.
 
-Create a SQL script called *create_user.sql* for creating a non-admin user. Add the following contents and save it locally:
+Create a SQL script called **create_user.sql** for creating a non-admin user. Add the following contents and save it locally:
 
 [!INCLUDE [security-note](../includes/security-note.md)]
 
@@ -171,7 +171,7 @@ curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d b
 
 ## Add the reactive Azure SQL Database driver implementation
 
-Open the generated project's *pom.xml* file to add the reactive Azure SQL Database driver from the [r2dbc-mssql GitHub repository](https://github.com/r2dbc/r2dbc-mssql).
+Open the generated project's **pom.xml** file to add the reactive Azure SQL Database driver from the [r2dbc-mssql GitHub repository](https://github.com/r2dbc/r2dbc-mssql).
 
 After the `spring-boot-starter-webflux` dependency, add the following text:
 
@@ -185,7 +185,7 @@ After the `spring-boot-starter-webflux` dependency, add the following text:
 
 ### Configure Spring Boot to use Azure SQL Database
 
-Open the *src/main/resources/application.properties* file, and add the following text:
+Open the **src/main/resources/application.properties** file, and add the following text:
 
 ```properties
 logging.level.org.springframework.data.r2dbc=DEBUG

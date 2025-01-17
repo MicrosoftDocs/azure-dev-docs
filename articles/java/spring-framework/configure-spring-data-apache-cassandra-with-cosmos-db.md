@@ -38,8 +38,8 @@ The following procedure creates and configures an Azure Cosmos DB account in the
 
    - **Subscription**: Specify your Azure subscription to use.
    - **Resource group**: Specify whether to create a new resource group, or choose an existing resource group.
-   - **Account name**: Choose a unique name for your Azure Cosmos DB account; this name will be used to create a fully qualified domain name like *wingtiptoyscassandra.documents.azure.com*.
-   - **API**: Specify *Cassandra* for this tutorial.
+   - **Account name**: Choose a unique name for your Azure Cosmos DB account; this name will be used to create a fully qualified domain name like **wingtiptoyscassandra.documents.azure.com**.
+   - **API**: Specify **Cassandra** for this tutorial.
    - **Location**: Specify the closest geographic region for your database.
 
    >[!div class="mx-imgBorder"]
@@ -86,9 +86,9 @@ The following procedure configures the test application.
    git clone https://github.com/Azure-Samples/spring-data-cassandra-on-azure.git
    ```
 
-1. Locate the *application.properties* file in the *resources* directory of the sample project, or create the file if it doesn't already exist.
+1. Locate the **application.properties** file in the **resources** directory of the sample project, or create the file if it doesn't already exist.
 
-1. Open the *application.properties* file in a text editor, and add or configure the following lines in the file, and replace the sample values with the appropriate values from earlier:
+1. Open the **application.properties** file in a text editor, and add or configure the following lines in the file, and replace the sample values with the appropriate values from earlier:
 
    ```yaml
    spring.data.cassandra.contact-points=wingtiptoyscassandra.cassandra.cosmos.azure.com
@@ -106,11 +106,11 @@ The following procedure configures the test application.
    | `spring.data.cassandra.username` | Specifies your **Username** from earlier in this article. |
    | `spring.data.cassandra.password` | Specifies your **Primary Password** from earlier in this article. |
 
-1. Save and close the *application.properties* file.
+1. Save and close the **application.properties** file.
 
 ## Package and test the sample application
 
-Browse to the directory that contains the *pom.xml* file to build and test the application.
+Browse to the directory that contains the **pom.xml** file to build and test the application.
 
 1. Build the sample application with Maven; for example:
 
