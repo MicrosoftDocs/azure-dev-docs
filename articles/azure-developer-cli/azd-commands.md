@@ -7,16 +7,7 @@ ms.date: 01/15/2025
 
 # Azure Developer CLI commands overview
 
-Azure Developer CLI (`azd`) commands are a set of tools designed to simplify and streamline the development, deployment, and management of applications on Azure. In this article you'll learn the following:
-
-- Key concepts about `azd` commands
-- How `azd` commands compare to other command-line tools
-- Commonly used `azd` commands
-- How `azd` commands and templates are related
-
-## What are Azure Developer CLI commands?
-
-The Azure Developer CLI provides a set of commands such as and `azd provision` and `azd deploy` that map to common development workflow stages and streamline tasks such as provisioning, deployment, pipeline configuration, and management of applications on Azure. Some commands are also used to manage certain `azd` configurations and environment settings.
+The Azure Developer CLI provides a set of commands such as and `azd provision` and `azd deploy` that map to common development workflow stages and streamline tasks such as provisioning, deployment, pipeline configuration, and management of applications on Azure. Some commands are also used to manage `azd` configurations and environment settings.
 
 > [!NOTE]
 > Explore a simple `azd` command workflow in more detail using the [Deploy an Azure Developer CLI template](/azure/developer/azure-developer-cli/get-started) quickstart.
