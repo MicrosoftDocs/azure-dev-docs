@@ -82,7 +82,7 @@ The processor client often continually runs in a host application for days on en
 
 ## Duplicate EventData received when processor is restarted
 
-The `EventProcessorClient` and Event Hubs service guarantees an at-least-once delivery. You can add metadata to discern duplicate events. For more information, see [Does Azure Event Hubs guarantee an at-least once delivery?](https://stackoverflow.com/questions/33220685/does-azure-event-hub-guarantees-at-least-once-delivery/33577018#33577018) on Stack Overflow. If you require only-once delivery, you should consider Service Bus, which waits for an acknowledgment from the client. For a comparison of the messaging services, see [Choosing between Azure messaging services](/azure/event-grid/compare-messaging-services).
+The `EventProcessorClient` and Event Hubs service guarantees an *at-least-once* delivery. You can add metadata to discern duplicate events. For more information, see [Does Azure Event Hubs guarantee an at-least once delivery?](https://stackoverflow.com/questions/33220685/does-azure-event-hub-guarantees-at-least-once-delivery/33577018#33577018) on Stack Overflow. If you require *only-once* delivery, you should consider Service Bus, which waits for an acknowledgment from the client. For a comparison of the messaging services, see [Choosing between Azure messaging services](/azure/event-grid/compare-messaging-services).
 
 ## Migrate from legacy to new client library
 

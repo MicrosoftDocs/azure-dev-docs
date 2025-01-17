@@ -77,7 +77,7 @@ If you're the administrator of an existing instance, you can skip this process.
 
 1. From the main page for your app registration, select **Authentication**, and select **Add a platform**.  Then select **Web applications**.
 
-1. For a new **Redirect URI**, enter **http://localhost:8080/login/oauth2/code/** , and then select **Configure**.
+1. For a new **Redirect URI**, enter `http://localhost:8080/login/oauth2/code/` , and then select **Configure**.
 
 1. If you've modified the **pom.xml** file to use a Microsoft Entra starter version earlier than 3.0.0: under **Implicit grant and hybrid flows**, select **ID tokens (used for implicit and hybrid flows)**, then select **Save**.
 

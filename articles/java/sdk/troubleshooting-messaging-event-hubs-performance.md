@@ -39,7 +39,7 @@ The default prefetch value is 500. When the AMQP receive link is opened, it plac
 
 Configuring `prefetchCount` may have performance implications if the number is too low. Each time the AMQP receive link places credits, the remote service sends an ACK. For high throughput scenarios, the overhead of making thousands of client requests and service ACKs may hinder performance.
 
-Configuring `prefetchCount` may have performance implications if the number is too high. When `x` credits are placed on the line, the Event Hubs service knows that it can send at most `x` messages. When each `EventData` instance is received, it's placed in an in-memory queue, waiting to be processed. A high number of `EventData` instances in the queue can result in very high memory usage.
+Configuring `prefetchCount` may have performance implications if the number is too high. When *x* credits are placed on the line, the Event Hubs service knows that it can send at most *x* messages. When each `EventData` instance is received, it's placed in an in-memory queue, waiting to be processed. A high number of `EventData` instances in the queue can result in very high memory usage.
 
 ## Next steps
 
