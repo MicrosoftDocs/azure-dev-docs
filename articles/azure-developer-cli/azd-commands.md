@@ -9,10 +9,10 @@ ms.date: 01/15/2025
 
 The Azure Developer CLI (`azd`) is designed to streamline the end-to-end developer workflow on Azure. `azd` provides high-level commands that act as abstractions to simplify common developer tasks such as project initialization, infrastructure provisioning, code deployment, and monitoring. `azd` commands are available in the terminal, an integrated development environment (IDE), or through CI/CD (continuous integration/continuous deployment) pipelines. In this article, you'll learn about the following:
 
-- Key `azd` command concepts
+- Essential `azd` command concepts
 - How `azd` commands compare to other tools
 - The relationship between `azd` commands and templates
-- Common `azd` commands and which development tasks they map to
+- Common `azd` commands and which development tasks they accelerate
 
 > [!NOTE]
 > Visit the [Deploy an Azure Developer CLI template](/azure/developer/azure-developer-cli/get-started) quickstart to explore a sample `azd` command workflow in more detail.
@@ -83,11 +83,6 @@ The following sections provide an overview of some of the most common `azd` comm
 
 - **`azd env list`**: Lists all the different environments (e.g., development, staging, production) that have been set up for the template.
 - **`azd env new`**: Creates a new environment with its own configuration and resources, allowing you to manage multiple environments for different stages of development.
-
-### Configuration Management
-
-- **`azd config list`**: Lists the settings configured for `azd`.
-- **`azd config set`**: Allows you to update or add a new configuration setting for `azd`.
 
 ### Resource Cleanup
 
