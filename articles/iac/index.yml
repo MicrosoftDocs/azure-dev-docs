@@ -26,6 +26,26 @@ highlightedContent:
       url: /azure/developer/terraform/comparing-terraform-and-bicep?tabs=comparing-bicep-terraform-integration-features
       itemType: overview
 
+conceptualContent:
+  sections:
+    - title: Get started with IaC
+      summary: Learn how IaC allows you to deploy your infrastructure multiple times using the same code.
+      items:
+      - title: Deploying with IaC
+        links:
+        - text: What is IaC?
+          url: /devops/deliver/what-is-infrastructure-as-code
+          itemType: concept
+        - text: Deploy with ARM templates
+          url: /azure/azure-resource-manager/management/overview
+          itemType: get-started
+        - text: Deploy with Bicep
+          url: /azure/azure-resource-manager/bicep/overview?tabs=bicep
+          itemType: get-started
+        - text: Deploy with Terraform providers
+          url: /azure/developer/terraform/overview
+          itemType: get-started
+
 additionalContent:
   sections:
   - title: Third-party Azure IaC providers
