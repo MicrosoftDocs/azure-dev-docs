@@ -7,18 +7,16 @@ ms.date: 01/15/2025
 
 # Azure Developer CLI commands overview
 
-The Azure Developer CLI provides a set of commands such as and `azd provision` and `azd deploy` that map to common development workflow stages and streamline tasks such as provisioning, deployment, pipeline configuration, and management of applications on Azure. Some commands are also used to manage `azd` configurations and environment settings.
+The Azure Developer CLI (`azd`) is designed to streamline the end-to-end developer workflow on Azure. `azd` provides high-level commands that act as abstractions to simplify common developer tasks such as project initialization, infrastructure provisioning, code deployment, and monitoring. `azd` commands are available in the terminal, an integrated development environment (IDE), or through CI/CD (continuous integration/continuous deployment) pipelines.
 
 > [!NOTE]
-> Explore a simple `azd` command workflow in more detail using the [Deploy an Azure Developer CLI template](/azure/developer/azure-developer-cli/get-started) quickstart.
-
-Most `azd` commands also accept parameters you can use to customize their behavior. Visit the [Azure Developer CLI commands](/azure/developer/azure-developer-cli/reference) reference page for a complete list of `azd` commands, parameters and their functionality.
+> Visit the [Deploy an Azure Developer CLI template](/azure/developer/azure-developer-cli/get-started) quickstart to explore a sample `azd` command workflow in more detail.
 
 ## Compare Azure Developer CLI commands to other tools
 
-The emphasis on high-level development stages is what differentiates `azd` commands from other command-line tools such as the Azure CLI or Azure PowerShell. Whereas those tools provide numerous commands that focus on granular control over individual Azure resources and configurations, `azd` provides fewer, broader commands to automate development tasks such as provisioning an entire set of resources or deploying multiple services at once.
+The emphasis on high-level development stages is what differentiates `azd` commands from other command-line tools such as the Azure CLI or Azure PowerShell. Whereas those tools provide numerous commands for granular control over individual Azure resources and configurations, `azd` provides fewer, broader commands to automate higher-level development tasks such as provisioning multiple resources or deploying multiple services at once.
 
-The following table highlights the differences between a sample `azd` command and other Azure command-line tools. Note that the `azd provision` command performs numerous tasks at once and does not have a direct equivalent in these other tools. Many Azure CLI or PowerShell commands would be required to accomplish the same task.
+The following table highlights the differences between a sample `azd` command and other Azure command-line tools. Note that the `azd provision` command performs numerous tasks at once, and does not have a direct equivalent in these other tools. Many Azure CLI or PowerShell commands would be required to accomplish the same task.
 
 | Tool                | Sample Command                                                                 | Outcome                                                                                   |
 |---------------------|------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
@@ -26,7 +24,7 @@ The following table highlights the differences between a sample `azd` command an
 | Azure PowerShell    | `New-AzWebApp -ResourceGroupName "myResourceGroup" -Name "myWebApp" -AppServicePlan "myAppServicePlan"` | Provisions a new web app in the specified resource group and app service plan.            |
 | Azure Developer CLI | `azd provision`                                                               | Provisions multiple Azure resources required for an app based on project resources and configurations, such as an Azure resource group, an Azure App Service web app and app service plan, an Azure Storage account, and an Azure Key Vault. |
 
-## The relationship between commands and templates
+## The relationship between Azure Developer CLI commands and templates
 
 `azd` commands are able to perform broader workflow tasks due in-part to their integration with the `azd` template system. [Azure Developer CLI templates](/azure/developer/azure-developer-cli/azd-templates) are code projects that adhere to `azd` structural conventions and include sample application code, infrastructure files, and configuration files. Most `azd` templates include the following:
 
@@ -37,16 +35,60 @@ The following table highlights the differences between a sample `azd` command an
 
 :::image type="content" source="media/make-azd-compatible/azd-template-structure.png" alt-text="A screenshot showing an Azure Developer CLI template structure.":::
 
-Without `azd` commands, these templates are just standard code repositories. Essentially, `azd` templates serve as foundational blueprints, while CLI commands act as the engine driving deployment, management, and monitoring of your applications:
+Without `azd` commands, these templates are just standard code repositories. Essentially, `azd` templates serve as foundational blueprints, while CLI commands act as the engine driving deployment, management, and monitoring of your applications. `azd` commands use the assets in these templates to perform various tasks.
 
-- **Template Initialization**: `azd init` sets up a new or existing template with a predefined structure and configuration.
-- **Infrastructure Provisioning**: `azd up` or `azd provision` uses infrastructure-as-code templates in the `infra` folder to automate the creation of Azure resources.
-- **Code Deployment**: `azd up` or `azd deploy` handle the deployment of application code in the `src` folder (configurable) to the provisioned infrastructure.
-- **Pipeline configuration**: `azd pipelie config` uses workflow configuration files in the `.github` or `.ado` folders to create a CI/CD pipeline for your app via GitHub Actions or Azure Pipelines with a single command.
-- **Monitoring and Management**: `azd monitor` assists with monitoring the health and performance of the deployed application by hooking into Azure monitoring features.
+Using the preceding template as an example:
+
+- The `azd provision` command creates resources in Azure using the infrastructure-as-code files in the `infra` folder of a template.
+- The `azd deploy` command deploys an app or service defined in the `src` folder.
 
 > [!NOTE]
 > `azd` can also create and manage some Azure resources without the need to define infrastructure-as-code templates manually using the new [`azd compose`](/azure/developer/azure-developer-cli/azd-compose) feature, which is currently in alpha.
+
+## Explore common commands
+
+The following sections provide an overview of some of the most common `azd` commands to provide examples of working with templates and different development tasks. 
+
+> [!NOTE]
+> For a complete list of `azd` commands and their parameters, visit the [Azure Developer CLI reference](/azure/developer/azure-developer-cli/reference) page.
+
+### Initialize and run a template
+
+- **`azd init`**: Initializes an existing `azd` template or creates and initializes a new template. This command essentially sets up the necessary files and directories to start working with `azd`.
+
+- **`azd up`**: A convenience command to provision, package, and deploy all of your app resources in one command. This command is the equivalent of running `azd provision`, `azd package`, and `azd deploy` individually.
+
+### Infrastructure Provisioning
+
+- **`azd provision`**: Provisions the required Azure resources such as Azure Container App instances or Azure Storage accounts based on infrastructure-as-code templates or resources defined in `azure.yaml`.
+
+### Code Deployment
+
+- **`azd package`**: Packages the application's code to be deployed to Azure.
+
+- **`azd deploy`**: Deploys your application code to the resources created by the `azd provision` command.
+
+### Monitoring and Management
+
+- **`azd monitor`**: Provides insights into the health and performance of the deployed application
+
+### CI/CD Pipeline Configuration
+
+- **`azd pipeline config`**: Configures a CI/CD pipeline for the project. This command sets up continuous integration and continuous deployment pipelines to automate the build and deployment processes.
+
+### Environment Management
+
+- **`azd env list`**: Lists all the different environments (e.g., development, staging, production) that have been set up for the template.
+- **`azd env new`**: Creates a new environment with its own configuration and resources, allowing you to manage multiple environments for different stages of development.
+
+### Configuration Management
+
+- **`azd config list`**: Lists the settings configured for `azd`.
+- **`azd config set`**: Allows you to update or add a new configuration setting for `azd`.
+
+### Resource Cleanup
+
+- **`azd down`**: Deletes the Azure resources created by the project to clean up your environment and avoid unnecessary costs.
 
 ## Next steps
 
