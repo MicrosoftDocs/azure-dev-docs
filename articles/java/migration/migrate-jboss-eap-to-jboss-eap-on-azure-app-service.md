@@ -21,7 +21,7 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 ### Inventory all secrets
 
-Check all properties and configuration files on the production server(s) for any secrets and passwords. Be sure to check *jboss-web.xml* in your WARs. Configuration files that contain passwords or credentials may also be found inside your application.
+Check all properties and configuration files on the production server(s) for any secrets and passwords. Be sure to check **jboss-web.xml** in your WARs. Configuration files that contain passwords or credentials may also be found inside your application.
 
 Consider storing those secrets in Azure KeyVault. For more information, see [Azure Key Vault basic concepts](/azure/key-vault/basic-concepts).
 
@@ -63,7 +63,7 @@ If your application uses JCA connectors, validate that you can use the JCA conne
 
 ### Determine whether your application is packaged as an EAR
 
-If your application is packaged as an EAR file, be sure to examine the *application.xml* file and capture the configuration.
+If your application is packaged as an EAR file, be sure to examine the **application.xml** file and capture the configuration.
 
 > [!NOTE]
 > If you want to be able to scale each of your web applications independently for better use of your App Service resources you should break up the EAR into separate web applications.

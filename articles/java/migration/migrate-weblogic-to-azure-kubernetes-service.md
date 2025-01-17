@@ -37,16 +37,16 @@ The remainder of this section provides some considerations for deciding to use t
 
 #### Decide whether to use the prebuilt Azure Marketplace offer
 
-First, you have to understand the concept of the WLS "domain". A domain is a logically related group of WLS resources. For the canonical definition of WLS domain, see [the Oracle documentation](https://aka.ms/javaee/wls/domains). Running WLS on AKS requires deciding how AKS deals with domains. The various choices are referred to as "domain home source type". The WLS Kubernetes operator supports three choices of domain home source type. The prebuilt Azure Marketplace offer uses the first one in this table.
+First, you have to understand the concept of the WLS *domain*. A domain is a logically related group of WLS resources. For the canonical definition of WLS domain, see [the Oracle documentation](https://aka.ms/javaee/wls/domains). Running WLS on AKS requires deciding how AKS deals with domains. The various choices are referred to as "domain home source type". The WLS Kubernetes operator supports three choices of domain home source type. The prebuilt Azure Marketplace offer uses the first one in this table.
 
 | Domain home source type | Description                                                                                                                   | Positive aspects                                                                                                                                                                                                            | Negative aspects                                                                                                                                                                                                                          |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| *Model in Image*        | WLS and applications are in the container image, and everything else is kept outside of that image.                           | **Supported by prebuilt offer.** Documented as an official sample; see [Oracle](https://aka.ms/wls-aks-model-in-image). Most heavily uses WDT. Most "cloud-native" option. Simplest CI/CD integration.                     | Biggest learning curve.                                                                                                                                                                                                                   |
-| *Domain in PV*          | The domain resides on a Kubernetes persistent volume.                                                                         | Conceptually similar to running on VMs. You can use the WLS console to make changes and those changes persist across AKS pod restarts. Documented as an official sample; see [Oracle](https://aka.ms/wls-aks-domain-on-pv). | Some challenges related to NFS must be mitigated. For more information, see [Oracle](https://aka.ms/wls-aks-persistent-storage). This approach is the least "cloud-native" technique; the state resides entirely outside the AKS cluster. |
-| *Domain in Image*       | The domain resides in a container image. Applications are contained in a container image that's overlaid on the domain image. | More "cloud-native" than *Domain in PV*. Easier for CI/CD.                                                                                                                                                                  | Can't use WLS console. Must maintain more container images.                                                                                                                                                                               |
+| Model in Image        | WLS and applications are in the container image, and everything else is kept outside of that image.                           | **Supported by prebuilt offer.** Documented as an official sample; see [Oracle](https://aka.ms/wls-aks-model-in-image). Most heavily uses WDT. Most "cloud-native" option. Simplest CI/CD integration.                     | Biggest learning curve.                                                                                                                                                                                                                   |
+| Domain in PV          | The domain resides on a Kubernetes persistent volume.                                                                         | Conceptually similar to running on VMs. You can use the WLS console to make changes and those changes persist across AKS pod restarts. Documented as an official sample; see [Oracle](https://aka.ms/wls-aks-domain-on-pv). | Some challenges related to NFS must be mitigated. For more information, see [Oracle](https://aka.ms/wls-aks-persistent-storage). This approach is the least "cloud-native" technique; the state resides entirely outside the AKS cluster. |
+| Domain in Image       | The domain resides in a container image. Applications are contained in a container image that's overlaid on the domain image. | More "cloud-native" than Domain in PV. Easier for CI/CD.                                                                                                                                                                  | Can't use WLS console. Must maintain more container images.                                                                                                                                                                               |
 
 > [!IMPORTANT]
-> If you choose the *Domain in PV* source type, we strongly recommend NFS instead of SMB. NFS evolved from the UNIX operating system, and other variants such as GNU/Linux. For this reason, when using NFS with container technologies such as Docker, it's less likely to have problems for concurrent reads and file locking. 
+> If you choose the Domain in PV source type, we strongly recommend NFS instead of SMB. NFS evolved from the UNIX operating system, and other variants such as GNU/Linux. For this reason, when using NFS with container technologies such as Docker, it's less likely to have problems for concurrent reads and file locking. 
 >
 > Be sure to enable NFS v4.1. Versions lower than v4.1 will have problems.
 
@@ -63,8 +63,8 @@ Now that you've been introduced to the various ways to handle WLS domains on AKS
 Your existing WLS version must be one of the versions supported by the operator. Oracle maintains these versions in the Oracle Container Registry (OCR). Use the following steps to see the list of supported versions.
 
 1. Visit the Oracle Container Registry website and sign in. For more information, see [https://container-registry.oracle.com/](https://container-registry.oracle.com/).
-1. If you have a support entitlement, select **Middleware**, then search for *weblogic_cpu*. Select **weblogic_cpu**.
-1. If you don't have a support entitlement from Oracle, select **Middleware**, then search for *weblogic*. Select **weblogic**.
+1. If you have a support entitlement, select **Middleware**, then search for **weblogic_cpu**. Select **weblogic_cpu**.
+1. If you don't have a support entitlement from Oracle, select **Middleware**, then search for **weblogic**. Select **weblogic**.
 
 > [!NOTE]
 > Get a support entitlement from Oracle before going to production. Failure to do so results in running insecure images that are not patched for critical security flaws. For more information on Oracle's critical patch updates, see [Critical Patch Updates, Security Alerts and Bulletins](https://www.oracle.com/security-alerts/).
@@ -85,7 +85,7 @@ Once you have a solid inventory of certificates, you can install them directly w
 
 [!INCLUDE [inventory-jndi-resources](includes/inventory-jndi-resources.md)]
 
-If you're using the prebuilt Azure Marketplace offer, the set of JNDI resources you can customize at deployment time is limited to what the offer supports. Search for *JNDI* in the [offer documentation](https://aka.ms/wls-aks-docs). If you're using the operator directly, the JDNI resources can be defined depending on your chosen domain home source type. For *Domain in PV*, you can set them the usual way, with WLST or with the admin console. For *Domain in Image* or *Model in Image*, see [Typical overrides](https://aka.ms/wlsoperator-configoverrides#typical-overrides).
+If you're using the prebuilt Azure Marketplace offer, the set of JNDI resources you can customize at deployment time is limited to what the offer supports. Search for **JNDI** in the [offer documentation](https://aka.ms/wls-aks-docs). If you're using the operator directly, the JDNI resources can be defined depending on your chosen domain home source type. For Domain in PV, you can set them the usual way, with WLST or with the admin console. For Domain in Image or Model in Image, see [Typical overrides](https://aka.ms/wlsoperator-configoverrides#typical-overrides).
 
 [!INCLUDE [inspect-your-domain-configuration](includes/inspect-your-domain-configuration.md)]
 
@@ -97,7 +97,7 @@ The prebuilt Azure Marketplace offer supports session affinity via the Applicati
 
 [!INCLUDE [document-datasources](includes/document-datasources.md)]
 
-The prebuilt Azure Marketplace offer has support for most popular databases. For more information, see [Database](https://aka.ms/wls-aks-docs#database). For *Domain in PV*, you can set them the usual way, with WLST or with the admin console. For *Domain in Image* or *Model in Image*, see [Typical overrides](https://aka.ms/wlsoperator-configoverrides#typical-overrides).
+The prebuilt Azure Marketplace offer has support for most popular databases. For more information, see [Database](https://aka.ms/wls-aks-docs#database). For Domain in PV, you can set them the usual way, with WLST or with the admin console. For Domain in Image or Model in Image, see [Typical overrides](https://aka.ms/wlsoperator-configoverrides#typical-overrides).
 
 [!INCLUDE [determine-whether-weblogic-has-been-customized](includes/determine-whether-weblogic-has-been-customized.md)]
 
@@ -105,7 +105,7 @@ You need to capture these customizations in the container image run by AKS. For 
 
 [!INCLUDE [determine-whether-management-over-rest-is-used](includes/determine-whether-management-over-rest-is-used.md)]
 
-The only domain home source type where it makes sense to continue to use management over REST is *Domain in PV*. It's possible to use it with the other domain home source types, but changes made are ephemeral and don't persist across pod restarts.
+The only domain home source type where it makes sense to continue to use management over REST is Domain in PV. It's possible to use it with the other domain home source types, but changes made are ephemeral and don't persist across pod restarts.
 
 [!INCLUDE [determine-whether-a-connection-to-on-premises-is-needed](includes/determine-whether-a-connection-to-on-premises-is-needed.md)]
 
@@ -137,11 +137,11 @@ The prebuilt Azure Marketplace offer supports WARs and EARs. Using the operator 
 
 [!INCLUDE [determine-whether-wlst-is-used](includes/determine-whether-wlst-is-used.md)]
 
-The only domain home source type that's compatible with use of WLST is *Domain in PV*. For more information, see [Domain home on a PV](https://aka.ms/wls-aks-domain-on-pv).
+The only domain home source type that's compatible with use of WLST is Domain in PV. For more information, see [Domain home on a PV](https://aka.ms/wls-aks-domain-on-pv).
 
 ### Determine whether and how the file system is used
 
-Kubernetes deals with filesystems with persistent volumes (PV). Mounting persistent volumes is supported in the prebuilt Azure Marketplace offer, and when using the operator directly. If you're using *Domain in PV*, the filesystem is a central aspect of configuration.
+Kubernetes deals with filesystems with persistent volumes (PV). Mounting persistent volumes is supported in the prebuilt Azure Marketplace offer, and when using the operator directly. If you're using Domain in PV, the filesystem is a central aspect of configuration.
 
 [!INCLUDE [static-content](includes/static-content.md)]
 
@@ -173,7 +173,7 @@ If your deployment relies on Java EE application clients, it's best to use the o
 
 ### Determine whether multiple container images are needed
 
-A WebLogic Server domain can contain multiple clusters. For example, a multi-tiered application can be represented in a single domain, but have two clusters, say "frontend" and "backend".  It's useful to be able to update the frontend, without updating the backend, and vice versa. However, with the *Model in Image* domain home source type, the entire domain is represented in one container image. To accommodate this use case, you must separate the clusters into their own domains, each with their own container image. The operator can manage multiple domains in multiple namespaces. For more information, see [Choose a domain namespace selection strategy](https://aka.ms/wlsoperator-namespaces#choose-a-domain-namespace-selection-strategy)
+A WebLogic Server domain can contain multiple clusters. For example, a multi-tiered application can be represented in a single domain, but have two clusters, say "frontend" and "backend".  It's useful to be able to update the frontend, without updating the backend, and vice versa. However, with the Model in Image domain home source type, the entire domain is represented in one container image. To accommodate this use case, you must separate the clusters into their own domains, each with their own container image. The operator can manage multiple domains in multiple namespaces. For more information, see [Choose a domain namespace selection strategy](https://aka.ms/wlsoperator-namespaces#choose-a-domain-namespace-selection-strategy)
 
 Adopting multiple domains may introduce T3 access problems between domains. To resolve these problems, enable a custom channel as described in [Determine whether enabling unknown host access is needed](#determine-whether-enabling-unknown-host-access-is-needed).
 

@@ -51,7 +51,7 @@ For files that are frequently written and read by your application (such as temp
 
 ### Identify session persistence mechanism
 
-To identify the session persistence manager in use, inspect the *context.xml* files in your application and Tomcat configuration. Look for the `<Manager>` element, and then note the value of the `className` attribute.
+To identify the session persistence manager in use, inspect the **context.xml** files in your application and Tomcat configuration. Look for the `<Manager>` element, and then note the value of the `className` attribute.
 
 Tomcat's built-in [PersistentManager](https://tomcat.apache.org/tomcat-9.0-doc/config/manager.html) implementations, such as [StandardManager](https://tomcat.apache.org/tomcat-9.0-doc/config/manager.html#Standard_Implementation) or [FileStore](https://tomcat.apache.org/tomcat-9.0-doc/config/manager.html#Nested_Components) aren't designed for use with a distributed, scaled platform such as App Service. Because App Service may load balance among several instances and transparently restart any instance at any time, persisting mutable state to a file system isn't recommended.
 
@@ -77,19 +77,19 @@ Inventory any scheduled jobs, inside or outside the application server.
 
 [Tomcat clustering](https://tomcat.apache.org/tomcat-9.0-doc/cluster-howto.html) isn't supported on Azure App Service. Instead, you can configure and manage scaling and load balancing through Azure App Service without Tomcat-specific functionality. You can persist session state to an alternate location to make it available across replicas. For more information, see [Identify session persistence mechanism](#identify-session-persistence-mechanism).
 
-To determine whether your application uses clustering, look for the `<Cluster>` element inside the `<Host>` or `<Engine>` elements in the *server.xml* file.
+To determine whether your application uses clustering, look for the `<Cluster>` element inside the `<Host>` or `<Engine>` elements in the **server.xml** file.
 
 #### Determine whether non-HTTP connectors are used
 
 App Service supports only a single HTTP connector. If your application requires additional connectors, such as the AJP connector, don't use App Service.
 
-To identify HTTP connectors used by your application, look for `<Connector>` elements inside the *server.xml* file in your Tomcat configuration.
+To identify HTTP connectors used by your application, look for `<Connector>` elements inside the **server.xml** file in your Tomcat configuration.
 
 #### Determine whether MemoryRealm is used
 
-[MemoryRealm](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/realm/MemoryRealm.html) requires a persisted XML file. On Azure AppService, you'll need to upload this file to the */home* directory or one of its subdirectories, or to mounted storage. You'll then need to modify the `pathName` parameter accordingly.
+[MemoryRealm](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/realm/MemoryRealm.html) requires a persisted XML file. On Azure AppService, you'll need to upload this file to the **/home**  directory or one of its subdirectories, or to mounted storage. You'll then need to modify the `pathName` parameter accordingly.
 
-To determine whether `MemoryRealm` is currently used, inspect your *server.xml* and *context.xml* files and search for `<Realm>` elements where the `className` attribute is set to `org.apache.catalina.realm.MemoryRealm`.
+To determine whether `MemoryRealm` is currently used, inspect your **server.xml** and **context.xml** files and search for `<Realm>` elements where the `className` attribute is set to `org.apache.catalina.realm.MemoryRealm`.
 
 #### Determine whether SSL session tracking is used
 
@@ -103,11 +103,11 @@ If you use [AccessLogValve](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apa
 
 ### Parameterize the configuration
 
-In the pre-migration steps, you likely identified some secrets and external dependencies, such as datasources, in *server.xml* and *context.xml* files. For each item you identified, replace any username, password, connection string, or URL with an environment variable.
+In the pre-migration steps, you likely identified some secrets and external dependencies, such as datasources, in **server.xml** and **context.xml** files. For each item you identified, replace any username, password, connection string, or URL with an environment variable.
 
 [!INCLUDE [security-note](../includes/security-note.md)]
 
-For example, suppose the *context.xml* file contains the following element:
+For example, suppose the **context.xml** file contains the following element:
 
 ```xml
 <Resource
@@ -133,7 +133,7 @@ In this case, you could change it as shown in the following example:
 />
 ```
 
-To ensure that parameter substitution occurs for any *context.xml* file within the *META-INF* folder inside a deployed *.war* file, be sure to set the `CATALINA_OPTS` environment variable as shown in the following example:
+To ensure that parameter substitution occurs for any **context.xml** file within the **META-INF** folder inside a deployed **.war** file, be sure to set the `CATALINA_OPTS` environment variable as shown in the following example:
 
 ```bash
 export CATALINA_OPTS="-Dorg.apache.tomcat.util.digester.PROPERTY_SOURCE=org.apache.tomcat.util.digester.EnvironmentPropertySource"
@@ -196,7 +196,7 @@ Migrate any additional [Shared server-level JDNI resources](/azure/app-service/c
 
 ### Migrate remaining configuration
 
-Upon completing the preceding section, you should have your customizable server configuration in */home/tomcat/conf*.
+Upon completing the preceding section, you should have your customizable server configuration in **/home/tomcat/conf**.
 
 Complete the migration by copying any additional configuration (such as [realms](https://tomcat.apache.org/tomcat-9.0-doc/config/realm.html) and [JASPIC](https://tomcat.apache.org/tomcat-9.0-doc/config/jaspic.html))
 
@@ -212,9 +212,9 @@ Now that you have your application migrated to Azure App Service you should veri
 
 ### Recommendations
 
-* If you opted to use the */home* directory for file storage, consider [replacing it with Azure Storage](/azure/app-service/configure-connect-to-azure-storage).
+* If you opted to use the **/home**  directory for file storage, consider [replacing it with Azure Storage](/azure/app-service/configure-connect-to-azure-storage).
 
-* If you have configuration in the */home* directory that contains connection strings, SSL keys, and other secret information, consider using a combination of [Azure Key Vault](/azure/app-service/app-service-key-vault-references) and/or [parameter injection with application settings](/azure/app-service/configure-common#configure-app-settings) where possible.
+* If you have configuration in the **/home**  directory that contains connection strings, SSL keys, and other secret information, consider using a combination of [Azure Key Vault](/azure/app-service/app-service-key-vault-references) and/or [parameter injection with application settings](/azure/app-service/configure-common#configure-app-settings) where possible.
 
   [!INCLUDE [security-note](../includes/security-note.md)]
 
