@@ -16,20 +16,17 @@ metadata:
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   sections:
-    - title: Linux in the Microsoft Ecosystem
-      summary: Linux is an open source, customizable, operating system with many different versions, called distributions. We can help you choose one and get started.
+    - title: What is infrastructure as code (IaC)?
+      summary: Infrastructure as code (IaC) is a key component of continuous delivery. With IaC, DevOps teams can work together with a unified set of practices and tools to deliver applications and their supporting infrastructure rapidly and reliably at scale.
       items:
       # Card
-      - title: How to download and install Linux
+      - title: IaC overview
         links:
-          - text: Step 1 - Choose a method to install Linux
-            url: /linux/install#step-1---choose-a-method-to-install-linux
-            itemType: tutorial
-          - text: Windows Subsystem for Linux (WSL)
-            url: /linux/install#windows-subsystem-for-linux-wsl
+          - text: What is IaC?
+            url: /devops/deliver/what-is-infrastructure-as-code
             itemType: concept
-          - text: Create a Virtual Machine (VM)
-            url: /linux/install#create-a-virtual-machine-vm
+          - text: Deploy to Azure with IaC
+            url: /devops/deliver/iac-github-actions
             itemType: concept
 
 productDirectory:
@@ -39,20 +36,20 @@ productDirectory:
     - title: Terraform
       imageSrc: /media/logos/logo_azure.svg
       summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure.
-      url: https://www.terraform.io
+      url: /azure/developer/terraform/overview
     - title: Chef
       imageSrc: /media/logos/logo_azure.svg
       summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure.
-      url: https://www.terraform.io
+      url: https://docs.chef.io/azure_marketplace/
     - title: Jenkins
       imageSrc: /media/logos/logo_azure.svg
       summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure.
-      url: https://www.terraform.io
+      url: https://www.jenkins.io/
     - title: Ansible
       imageSrc: /media/logos/logo_azure.svg
       summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure.
-      url: https://www.terraform.io
+      url: https://www.redhat.com/en/ansible-collaborative
     - title: Pulumi
       imageSrc: /media/logos/logo_azure.svg
       summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure.
-      url: https://www.terraform.io
+      url: https://www.pulumi.com/docs/iac/clouds/azure/
