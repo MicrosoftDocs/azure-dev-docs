@@ -9,12 +9,12 @@
     items:
     - name: Install or update azd
       href: install-azd.md
+    - name: Quickstart - Deploy an azd template
+      href: get-started.md
     - name: What are Azure Developer CLI commands?
       href: azd-commands.md
     - name: What are Azure Developer CLI templates?
       href: azd-templates.md
-    - name: Quickstart - Deploy an azd template
-      href: get-started.md
     - name: Supported languages and environments
       href: supported-languages-environments.md
   - name: Deployment
