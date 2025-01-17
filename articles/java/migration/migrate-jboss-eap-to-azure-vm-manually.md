@@ -410,7 +410,7 @@ Use the following steps to install:
 
     ---
 
-1. Exit from the SSH connection by typing `exit`.
+1. Exit from the SSH connection by typing **exit**.
 
 ### Create machines for managed servers
 
@@ -730,7 +730,7 @@ The output should look similar to the following example:
 Mar 30 02:11:44 adminVM systemd[1]: Started JBoss EAP (domain mode).
 ```
 
-Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing `exit`.
+Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing **exit**.
 
 ### [JBOSS EAP 8](#tab/jboss-eap-8)
 
@@ -846,7 +846,7 @@ The output should look similar to the following example:
 Sep 23 15:52:06 adminVM systemd[1]: Started JBoss EAP (domain mode).
 ```
 
-Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing `exit`.
+Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing **exit**.
 
 ---
 
@@ -976,7 +976,7 @@ The output should look similar to the following example:
 Mar 30 03:02:15 mspVM1 systemd[1]: Started JBoss EAP (domain mode).
 ```
 
-Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing `exit`.
+Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing **exit**.
 
 ### [JBOSS EAP 8](#tab/jboss-eap-8)
 
@@ -1050,7 +1050,7 @@ The output should look similar to the following example:
 Sep 30 03:02:15 mspVM1 systemd[1]: Started JBoss EAP (domain mode).
 ```
 
-Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing `exit`.
+Type <kbd>q</kbd> to exit the pager. Exit from the SSH connection by typing **exit**.
 
 ---
 
@@ -1064,7 +1064,7 @@ az vm show \
     --query publicIps | tr -d '"'
 ```
 
-Repeat the previous steps on `mspVM2`, and then exit the SSH connection by typing `exit`.
+Repeat the previous steps on `mspVM2`, and then exit the SSH connection by typing **exit**.
 
 After two host controllers are connected to `adminVM`, you should be able to see the cluster topology, as shown in the following screenshot:
 

@@ -374,7 +374,7 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    >>  succeed: close template
    ```
 
-   Use the following commands to copy **/tmp/cluster.jar** to `mspVM1` and `mspVM2` using `scp`. If prompted for key fingerprint, type `yes`. Enter the password `Secret123456` when prompted.
+   Use the following commands to copy **/tmp/cluster.jar** to `mspVM1` and `mspVM2` using `scp`. If prompted for key fingerprint, type `yes`. Enter the password **Secret123456** when prompted.
 
    ```bash
    scp /tmp/cluster.jar azureuser@<mspvm1-private-ip>:/tmp/cluster.jar
@@ -443,7 +443,7 @@ This tutorial uses the WebLogic Server pack and unpack command to extend the dom
    ssh -i %SSH_KEY% azureuser@%MSPVM2_IP%
    ```
 
-   Enter the password for the connection. For this example, the password is `Secret123456`.
+   Enter the password for the connection. For this example, the password is **Secret123456**.
 
    You logged into `mspVM2` with user `azureuser`. Use the following commands to change to the root user and update the file ownership of **/tmp/cluster.jar** and initialize the folder for domain configuration:
 
@@ -887,7 +887,7 @@ To download the Oracle JDK 11 and Oracle WebLogic 14c Windows installer, follow 
 
 1. Navigate to the [Oracle JDK 11 downloads page](https://www.oracle.com/in/java/technologies/javase/jdk11-archive-downloads.html). Select the **Windows x64 Installer**, accept the Oracle License Agreement, and download EXE file. You get a file name similar to **jdk-11.\*_windows-x64_bin.exe**.
 
-1. Navigate to the [Oracle Fusion Middleware Software downloads page](http://www.oracle.com/technetwork/middleware/weblogic/downloads/index.html). Select the **Generic Installer**, and accept the Oracle License Agreement and download the ZIP archive. You get a file name similar to **fmw_14.\**_wls_lite_Disk1_1of1.zip*. Pay attention to the support lifetime of the WebLogic Server version you download. For more information, see the [Oracle Support Lifetime Policy](https://www.oracle.com/us/support/library/lsp-middleware-chart-069287.pdf).
+1. Navigate to the [Oracle Fusion Middleware Software downloads page](http://www.oracle.com/technetwork/middleware/weblogic/downloads/index.html). Select the **Generic Installer**, and accept the Oracle License Agreement and download the ZIP archive. You get a file name similar to **fmw_14.\*_wls_lite_Disk1_1of1.zip**. Pay attention to the support lifetime of the WebLogic Server version you download. For more information, see the [Oracle Support Lifetime Policy](https://www.oracle.com/us/support/library/lsp-middleware-chart-069287.pdf).
 
 ### Install Oracle JDK 11
 

@@ -190,7 +190,7 @@ Use the following steps to get the name and DNS name of the public IP address of
 1. In the Azure portal, in the search box, enter **Resource groups** and select **Resource groups** from the search results.
 1. Select the name of resource group for your primary region - for example, **liberty-aks-eastus-mjg032524**.
 1. Find the **Public IP address** resource prefixed with **gwip**, then copy and save aside its name.
-1. Select the **Public IP address** resource, then copy and save aside the **DNS name** - for example, **olgw3984d1.eastus.cloudapp.azure.com**.
+1. Select the **Public IP address** resource, then copy and save aside the **DNS name** value - for example, **olgw3984d1.eastus.cloudapp.azure.com**.
 
 ### Enable geo-replications for the ACR instance
 
