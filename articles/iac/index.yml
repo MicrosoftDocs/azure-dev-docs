@@ -13,7 +13,7 @@ metadata:
   ms.topic: hub-page
   ms.date: 01/15/2025
 
-conceptualContent:
+highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   sections:
     - title: What is infrastructure as code (IaC)?
@@ -28,7 +28,7 @@ conceptualContent:
           - text: Deploy to Azure with IaC
             url: /devops/deliver/iac-github-actions
             itemType: concept
-      - title: ARM and Bicep
+      - title: IaC tools
         links:
           - text: What is Azure Resource Manager (ARM)?
             url: /azure/azure-resource-manager/management/overview
