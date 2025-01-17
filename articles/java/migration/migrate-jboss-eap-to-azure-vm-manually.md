@@ -41,7 +41,7 @@ If you're interested in providing feedback or working closely on your migration 
 - Ensure you have the necessary Red Hat licenses. You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for Red Hat JBoss EAP. This entitlement lets the fully automated solution (in [Quickstart: Deploy a JBoss EAP cluster on Azure Virtual Machines (VMs)](/azure/virtual-machines/workloads/redhat/jboss-eap-azure-vm?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)) install the Red Hat tested and certified JBoss EAP version.
   > [!NOTE]
   > If you don't have an EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Save aside the account details, which is used as the **RHSM username** and **RHSM password** in the next section.
-- If you're already registered, or after you complete registration, you can locate the necessary credentials (**Pool IDs**) by using the following steps. These **Pool IDs** are also used as the **RHSM Pool ID with EAP entitlement** in subsequent steps.
+- If you're already registered, or after you complete registration, you can locate the necessary credentials (*Pool IDs*) by using the following steps. These Pool IDs are also used as the **RHSM Pool ID with EAP entitlement** value in subsequent steps.
   1. Sign in to your [Red Hat account](https://sso.redhat.com).
   1. The first time you sign in, you're prompted to complete your profile. Depending on your usage, select either **Personal** or **Corporate** for **Account Type**, as shown in the following screenshot:
 
