@@ -15,13 +15,13 @@ This article provides an overview of how to add logging using Log4j to applicati
 This article provides guidance to use the Log4J 2.x releases, but Log4J 1.x is equally supported by the Azure SDK for Java. To enable log4j logging, you must do two things:
 
 1. Include the log4j library as a dependency,
-2. Create a configuration file (either *log4j2.properties* or *log4j2.xml*) under the */src/main/resources* project directory.
+2. Create a configuration file (either **log4j2.properties** or **log4j2.xml**) under the **/src/main/resources** project directory.
 
 For more information related to configuring log4j, see [Welcome to Log4j 2](https://logging.apache.org/log4j/2.x/manual/index.html).
 
 ## Add the Maven dependency
 
-To add the Maven dependency, include the following XML in the project's *pom.xml* file. Replace the *2.16.0* version number with the latest released version number shown on the [Apache Log4j SLF4J Binding page](https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl).
+To add the Maven dependency, include the following XML in the project's **pom.xml** file. Replace the `2.16.0` version number with the latest released version number shown on the [Apache Log4j SLF4J Binding page](https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl).
 
 ```xml
 <dependency>
@@ -40,7 +40,7 @@ There are two common ways to configure Log4j: through an external properties fil
 
 ### Using a property file
 
-You can place a flat properties file named *log4j2.properties* in the */src/main/resources* directory of the project. This file should take the following form:
+You can place a flat properties file named **log4j2.properties** in the **/src/main/resources** directory of the project. This file should take the following form:
 
 ```properties
 appender.console.type = Console
@@ -58,7 +58,7 @@ rootLogger.appenderRef.stdout.ref = STDOUT
 
 ### Using an XML file
 
-You can place an XML file named *log4j2.xml* in the */src/main/resources* directory of the project. This file should take the following form:
+You can place an XML file named **log4j2.xml** in the **/src/main/resources** directory of the project. This file should take the following form:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -27,7 +27,7 @@ Although Netty is the default HTTP client, the SDK provides three client impleme
 
 ### Replace the default HTTP client
 
-If you prefer another implementation, you can remove the dependency on Netty by excluding it in the build configuration files. In a Maven *pom.xml* file, you exclude the Netty dependency and include another dependency.
+If you prefer another implementation, you can remove the dependency on Netty by excluding it in the build configuration files. In a Maven **pom.xml** file, you exclude the Netty dependency and include another dependency.
 
 The following example shows you how to exclude the Netty dependency from a real dependency on the `azure-security-keyvault-secrets` library. Be sure to exclude Netty from all appropriate `com.azure` libraries, as shown here:
 
@@ -58,7 +58,7 @@ The following example shows you how to exclude the Netty dependency from a real 
 
 When you build a service client, it defaults to using `HttpClient.createDefault()`. This method returns a basic `HttpClient` instance based on the provided HTTP client implementation. In case you require a more complex HTTP client, such as a proxy, each implementation offers a builder that allows you to construct a configured `HttpClient` instance. The builders are `NettyAsyncHttpClientBuilder`, `OkHttpAsyncHttpClientBuilder`, and `JdkAsyncHttpClientBuilder`.
 
-The following examples show how to build `HttpClient` instances using Netty, OkHttp, and the JDK 11 HTTP client. These instances proxy through `http://localhost:3128` and authenticate with user *example* with password *weakPassword*.
+The following examples show how to build `HttpClient` instances using Netty, OkHttp, and the JDK 11 HTTP client. These instances proxy through `http://localhost:3128` and authenticate with user `example` with password `weakPassword`.
 
 ```java
 // Netty
