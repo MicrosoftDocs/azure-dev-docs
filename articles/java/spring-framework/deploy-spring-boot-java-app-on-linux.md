@@ -141,7 +141,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 > [!NOTE]
 > 1. The command `az acr login ...` will try to login to Azure Container Registry, otherwise you need to provide `<username>` and `<password>` for jib-maven-plugin, see [Authentication Methods](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#authentication-methods)  in jib.
-> 1. When you're using Jib to push your image to the Azure Container Registry, the image won't use the **Dockerfile**, see [this](https://cloudplatform.googleblog.com/2018/07/introducing-jib-build-java-docker-images-better.html) document for details.
+> 1. When you're using Jib to push your image to the Azure Container Registry, the image won't use the Dockerfile. See [this](https://cloudplatform.googleblog.com/2018/07/introducing-jib-build-java-docker-images-better.html) document for details.
 >
 
 ## Create a web app on Linux on Azure App Service using your container image
@@ -162,7 +162,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
    * Specify `Docker Container` to **Publish**.
 
-   * For the **Operating System**, choose **Linux**.
+   * For the **Operating System** field, choose **Linux**.
 
    * Select **Region**.
 

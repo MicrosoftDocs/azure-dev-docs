@@ -163,7 +163,7 @@ The following steps walk you through building a Spring Boot web application and 
 
 ## Create a Kubernetes Cluster on AKS using the Azure CLI
 
-1. Create a Kubernetes cluster in Azure Kubernetes Service. The following command creates a `kubernetes` cluster in the `wingtiptoys-kubernetes` resource group, with `wingtiptoys-akscluster` as the cluster name, with Azure Container Registry (ACR) `wingtiptoysregistry` attached, and `wingtiptoys-kubernetes` as the DNS prefix:
+1. Create a Kubernetes cluster in Azure Kubernetes Service. The following command creates a kubernetes cluster in the `wingtiptoys-kubernetes` resource group, with `wingtiptoys-akscluster` as the cluster name, with Azure Container Registry (ACR) `wingtiptoysregistry` attached, and `wingtiptoys-kubernetes` as the DNS prefix:
 
    ```azurecli
    az aks create --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-akscluster \
