@@ -270,7 +270,7 @@ Use the following steps to create a basic VM, ensure the installation of require
 
 ### Create a Windows VM and set up an X server
 
-This tutorial uses the graphical interface of WAS to complete the installation and configuration. You use a Windows VM as a jump box and run an [X Window System server](https://sourceforge.net/projects/vcxsrv/) to view the graphical installers on the three VMs of the WAS cluster.
+This tutorial uses the graphical interface of WAS to complete the installation and configuration. You use a Windows VM as a *jump box* and run an [X Window System server](https://sourceforge.net/projects/vcxsrv/) to view the graphical installers on the three VMs of the WAS cluster.
 
 Use the following steps to provision a Windows 10 machine and install an X server. If you already have a Windows machine within the same network as the Red Hat Enterprise Linux machine, you don't need to provision a new one from Azure. You can go directly to the section that installs the X server.
 
@@ -296,7 +296,7 @@ Use the following steps to install the required dependencies to allow the connec
    ssh azureuser@%ADMINVM_IP%
    ```
 
-1. Enter the password `Secret123456`.
+1. Enter the password **Secret123456**.
 
 1. Use the following command to switch to the `root` user. This tutorial installs all the tools with the `root` user.
 

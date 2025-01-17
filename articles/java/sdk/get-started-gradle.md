@@ -33,7 +33,7 @@ gradle clean assemble test
 
 You can now move on to editing the **build.gradle** file located in the app directory. For starters, to make dependency version management simpler, the Azure SDK for Java team publishes the [Azure SDK for Java client BOM](https://central.sonatype.com/artifact/com.azure/azure-sdk-bom/1.2.10/versions) each month. This BOM file includes all Generally Available (GA) Azure SDK for Java client packages with their compatible dependency version.
 
-To use dependency versions for an Azure SDK for Java client library that is in the BOM, include the following snippet in the project **build.gradle** file. Replace the `<{bom_version_to_target}>` placeholder with the [latest release of the Azure SDK for Java BOM](https://central.sonatype.com/artifact/com.azure/azure-sdk-bom/1.2.10/versions).
+To use dependency versions for an Azure SDK for Java client library that is in the BOM, include the following snippet in the project **build.gradle** file. Replace the `{bom_version_to_target}` placeholder with the [latest release of the Azure SDK for Java BOM](https://central.sonatype.com/artifact/com.azure/azure-sdk-bom/1.2.10/versions).
 
 ```groovy
 dependencies {

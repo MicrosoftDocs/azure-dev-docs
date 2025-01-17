@@ -65,7 +65,7 @@ The Azure SDK for Java project ships a Maven build tool that you can include in 
 
 The report also provides insight into usage of beta APIs.
 
-You can configure the build tool in a project Maven POM file as shown in the following example. Be sure to replace the `<{latest_version}>` placeholder with the [latest version listed online](https://central.sonatype.com/artifact/com.azure.tools/azure-sdk-build-tool).
+You can configure the build tool in a project Maven POM file as shown in the following example. Be sure to replace the `{latest_version}` placeholder with the [latest version listed online](https://central.sonatype.com/artifact/com.azure.tools/azure-sdk-build-tool).
 
 ```xml
 <build>
@@ -100,7 +100,7 @@ It's possible to configure the build tool to enable or disable particular featur
 
 To make dependency version management simpler, the Azure SDK for Java team publishes the [Azure SDK for Java client BOM](https://central.sonatype.com/artifact/com.azure/azure-sdk-bom/1.2.10/versions) each month. This BOM file includes all Generally Available (GA) Azure SDK for Java client packages with their compatible dependency version.
 
-To use dependency versions for an Azure SDK for Java client library that is in the BOM, include the following snippet in the project **pom.xml** file. Replace the `<{bom_version_to_target}>` placeholder with the [latest release of the Azure SDK for Java BOM](https://central.sonatype.com/artifact/com.azure/azure-sdk-bom/1.2.10/versions). Replace the `<{artifactId}>` placeholder with the Azure service SDK package name.
+To use dependency versions for an Azure SDK for Java client library that is in the BOM, include the following snippet in the project **pom.xml** file. Replace the `{bom_version_to_target}` placeholder with the [latest release of the Azure SDK for Java BOM](https://central.sonatype.com/artifact/com.azure/azure-sdk-bom/1.2.10/versions). Replace the `{artifactId}` placeholder with the Azure service SDK package name.
 
 ```xml
 <dependencyManagement>
