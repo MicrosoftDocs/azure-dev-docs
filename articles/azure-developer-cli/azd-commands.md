@@ -15,9 +15,9 @@ Azure Developer CLI (`azd`) commands are a set of tools designed to simplify and
 
 ## What are Azure Developer CLI commands?
 
-The Azure Developer CLI provides a set of commands such as `azd up` and `azd init` that leverage the `azd` template system to automate developer workflows and perform other tasks. Conceptually, `azd` commands are designed to streamline the end-to-end developer workflow and provide abstractions that map to common developer tasks or workflow stages.
+The Azure Developer CLI provides a set of commands such as `azd up` and `azd init` that map to common development tasks or workflow stages. They provide abstractions to streamline the development, deployment, and management of applications on Azure.
 
-The emphasis on high level development stages is what differentiates `azd` commands from other command-line tools such as the Azure CLI or Azure PowerShell. Whereas those tools provide commands that focus on granular control over individual Azure resources and configurations, `azd` commands automate broader development tasks such as provisioning an entire set of resources at once, or deploying multiple services at once. The following table provides an example of the differences between `azd` commands and other Azure command-line tools:
+The emphasis on high-level development stages is what differentiates `azd` commands from other command-line tools such as the Azure CLI or Azure PowerShell. Whereas those tools provide commands that focus on granular control over individual Azure resources and configurations, `azd` commands automate broader development tasks such as provisioning an entire set of resources at once, or deploying multiple services at once. The following table provides an example of the differences between `azd` commands and other Azure command-line tools:
 
 | Tool                | Sample Command                                                                 | Outcome                                                                                   |
 |---------------------|------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
@@ -27,7 +27,7 @@ The emphasis on high level development stages is what differentiates `azd` comma
 
 ## The relationship between Azure Developer CLI commands and templates
 
-`azd` commands can perform broader workflow tasks due in-part to their integration with the `azd` template system. [Azure Developer CLI templates](/azure/developer/azure-developer-cli/azd-templates) are code projects that adhere to `azd` structural conventions and include sample application code, infrastructure files, and configuration files. Most `azd` templates include the following:
+`azd` commands are able to perform broader workflow tasks due in-part to their integration with the `azd` template system. [Azure Developer CLI templates](/azure/developer/azure-developer-cli/azd-templates) are code projects that adhere to `azd` structural conventions and include sample application code, infrastructure files, and configuration files. Most `azd` templates include the following:
 
 - **`.azure` folder** - Contains essential Azure configurations and environment variables, such as the location to deploy resources or other subscription information.
 - **`infra` folder** - Contains all of the Bicep or Terraform infrastructure-as-code files for the `azd` template.
@@ -36,7 +36,7 @@ The emphasis on high level development stages is what differentiates `azd` comma
 
 :::image type="content" source="media/make-azd-compatible/azd-template-structure.png" alt-text="A screenshot showing an Azure Developer CLI template structure.":::
 
-Without `azd` commands, these templates are just standard code repositories. `azd` templates serve as foundational blueprints, while CLI commands act as the engine driving deployment, management, and monitoring of your applications:
+Without `azd` commands, these templates are just standard code repositories. Essentially, `azd` templates serve as foundational blueprints, while CLI commands act as the engine driving deployment, management, and monitoring of your applications:
 
 - **Template Initialization**: `azd init` sets up a new or existing template with a predefined structure and configuration.
 - **Infrastructure Provisioning**: `azd up` or `azd provision` uses infrastructure-as-code templates in the `infra` folder to automate the creation of Azure resources.
@@ -49,7 +49,7 @@ Without `azd` commands, these templates are just standard code repositories. `az
 
 ## Commonly used commands
 
-`azd` commands provide a wide variety of features and functionality. Visit the [Azure Developer CLI commands](/azure/developer/azure-developer-cli/reference) reference page for a complete list of `azd` commands, parameters and their functionality. Some of the most commonly used commands include:
+`azd` commands provide a variety of features and functionality. Visit the [Azure Developer CLI commands](/azure/developer/azure-developer-cli/reference) reference page for a complete list of `azd` commands, parameters and their functionality. Some of the most commonly used commands include:
 
 - **`azd init`**: Initializes an existing or new `azd` template.
 - **`azd up`**: Provisions the necessary Azure resources and deploys the application in one step. This command combines `azd package`, `azd provision` and `azd deploy` to quickly get your application running on Azure.
