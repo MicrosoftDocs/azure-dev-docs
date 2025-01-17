@@ -15,52 +15,33 @@ metadata:
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
-  sections:
-    - title: What is infrastructure as code (IaC)?
-      summary: Infrastructure as code (IaC) is a key component of continuous delivery. With IaC, DevOps teams can work together with a unified set of practices and tools to deliver applications and their supporting infrastructure rapidly and reliably at scale.
-      items:
-      # Card
-      - title: IaC overview
-        links:
-          - text: What is IaC?
-            url: /devops/deliver/what-is-infrastructure-as-code
-            itemType: concept
-          - text: Deploy to Azure with IaC
-            url: /devops/deliver/iac-github-actions
-            itemType: concept
-      - title: IaC tools
-        links:
-          - text: What is Azure Resource Manager (ARM)?
-            url: /azure/azure-resource-manager/management/overview
-            itemType: concept
-          - text: What is Bicep?
-            url: /azure/azure-resource-manager/bicep/overview?tabs=bicep
-            itemType: concept
-          - text: ARM template reference
-            url: /azure/templates/
-            itemType: reference
-
-productDirectory:
-  title: Third-party Azure IaC providers
-  summary: Azure provides flexibility around IaC through third-party providers.
   items:
-    - title: Terraform
-      imageSrc: /media/logos/logo_azure.svg
-      summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure. It codifies infrastructure in configuration files that describe the desired state for your topology.
-      url: /azure/developer/terraform/overview
-    - title: Chef
-      imageSrc: /media/logos/logo_azure.svg
-      summary: Chef Automate is an enterprise platform that allows developers, operations, and security engineers to collaborate on application and infrastructure changes with speed and at scale.
-      url: https://docs.chef.io/azure_marketplace/
-    - title: Jenkins
-      imageSrc: /media/logos/logo_azure.svg
-      summary: Jenkins is an open-source automation server used to set up continuous integration and delivery (CI/CD) for software projects.
-      url: https://www.jenkins.io/
-    - title: Ansible
-      imageSrc: /media/logos/logo_azure.svg
-      summary: Ansible is an open source IT automation engine that automates provisioning, configuration management, application deployment, orchestration, and many other IT processes.
-      url: https://www.redhat.com/en/ansible-collaborative
-    - title: Pulumi
-      imageSrc: /media/logos/logo_azure.svg
-      summary: Build infrastructure on Azure using TypeScript, Python, Go, C#, Java or YAML. The Azure Native provider is always up-to-date and covers 100% of the resources in Azure Resource Manager (ARM).
-      url: https://www.pulumi.com/docs/iac/clouds/azure/
+    - title: What is infrastructure as code (IaC)?
+      url: /devops/deliver/what-is-infrastructure-as-code
+      itemType: concept
+    - title: Deploy to Azure with IaC
+      url: /devops/deliver/iac-github-actions
+      itemType: concept
+    - title: Comparing Bicep and Terraform
+      url: /azure/developer/terraform/comparing-terraform-and-bicep?tabs=comparing-bicep-terraform-integration-features
+      itemType: overview
+
+additionalContent:
+  sections:
+  - title: Third-party Azure IaC providers
+    items:
+      - title: Terraform
+        summary: Hashicorp Terraform is an open-source IaC tool for configuring and deploying cloud infrastructure. It codifies infrastructure in configuration files that describe the desired state for your topology.
+        url: /azure/developer/terraform/overview
+      - title: Chef
+        summary: Chef Automate is an enterprise platform that allows developers, operations, and security engineers to collaborate on application and infrastructure changes with speed and at scale.
+        url: https://docs.chef.io/azure_marketplace/
+      - title: Jenkins
+        summary: Jenkins is an open-source automation server used to set up continuous integration and delivery (CI/CD) for software projects.
+        url: https://www.jenkins.io/
+      - title: Ansible
+        summary: Ansible is an open source IT automation engine that automates provisioning, configuration management, application deployment, orchestration, and many other IT processes.
+        url: https://www.redhat.com/en/ansible-collaborative
+      - title: Pulumi
+        summary: Build infrastructure on Azure using TypeScript, Python, Go, C#, Java or YAML. The Azure Native provider is always up-to-date and covers 100% of the resources in Azure Resource Manager (ARM).
+        url: https://www.pulumi.com/docs/iac/clouds/azure/
