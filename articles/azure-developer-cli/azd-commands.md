@@ -17,7 +17,7 @@ The Azure Developer CLI (`azd`) is designed to streamline the end-to-end develop
 > [!NOTE]
 > Visit the [Deploy an Azure Developer CLI template](/azure/developer/azure-developer-cli/get-started) quickstart to explore a sample `azd` command workflow in more detail.
 
-## Compare Azure Developer CLI commands to other tools
+## Compare Azure Developer CLI commands
 
 The emphasis on high-level development stages differentiates `azd` commands from other command-line tools such as the Azure CLI or Azure PowerShell. Whereas those tools provide numerous commands for granular control over individual Azure resources and configurations, `azd` provides fewer, broader commands to automate higher-level development tasks such as provisioning multiple resources or deploying multiple services at once.
 
@@ -29,7 +29,7 @@ The following table highlights the differences between a sample `azd` command an
 | Azure CLI           | `az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name myWebApp` | Provisions a new web app in the specified resource group and app service plan.            |
 | Azure PowerShell    | `New-AzWebApp -ResourceGroupName "myResourceGroup" -Name "myWebApp" -AppServicePlan "myAppServicePlan"` | Provisions a new web app in the specified resource group and app service plan.            |
 
-## The relationship between Azure Developer CLI commands and templates
+## Azure Developer CLI commands and templates
 
 `azd` commands are able to perform broader workflow tasks due in-part to their integration with the `azd` template system. [Azure Developer CLI templates](/azure/developer/azure-developer-cli/azd-templates) are code projects that adhere to `azd` structural conventions and include sample application code, infrastructure files, and configuration files. Most `azd` templates include the following:
 
