@@ -53,20 +53,20 @@ The following table lists the configurable properties of `spring-cloud-azure-sta
 > [!div class="mx-tdBreakAll"]
 > | Property                                       | Default | Description                                                              |
 > |------------------------------------------------|---------|--------------------------------------------------------------------------|
-> | `*spring.cloud.azure.storage.blob*.enabled`      | true    | A value that indicates whether an Azure Blob Storage service is enabled. |
-> | `*spring.cloud.azure.storage.blob*.endpoint`     |         | The URI to connect to Azure Blob Storage.                                |
-> | `*spring.cloud.azure.storage.blob*.account-key`  |         | The private key to connect to Azure Blob Storage.                        |
-> | `*spring.cloud.azure.storage.blob*.account-name` |         | The Azure Storage Blob account name.
+> | *spring.cloud.azure.storage.blob*.enabled      | true    | A value that indicates whether an Azure Blob Storage service is enabled. |
+> | *spring.cloud.azure.storage.blob*.endpoint     |         | The URI to connect to Azure Blob Storage.                                |
+> | *spring.cloud.azure.storage.blob*.account-key  |         | The private key to connect to Azure Blob Storage.                        |
+> | *spring.cloud.azure.storage.blob*.account-name |         | The Azure Storage Blob account name.
 
 The following table lists the configurable properties of `spring-cloud-azure-starter-storage-file-share`:
 
 > [!div class="mx-tdBreakAll"]
 > | Property                                            | Default | Description                                                           |
 > |-----------------------------------------------------|---------|-----------------------------------------------------------------------|
-> | `*spring.cloud.azure.storage.fileshare*.enabled`      | true    | A value that indicates whether Azure File Storage service is enabled. |
-> | `*spring.cloud.azure.storage.fileshare*.endpoint`     |         | The URI to connect to Azure File Storage.                             |
-> | `*spring.cloud.azure.storage.fileshare*.account-key`  |         | The private key to connect to Azure File Storage.                     |
-> | `*spring.cloud.azure.storage.fileshare*.account-name` |         | The Azure Storage File Share account name.                                       |
+> | *spring.cloud.azure.storage.fileshare*.enabled      | true    | A value that indicates whether Azure File Storage service is enabled. |
+> | *spring.cloud.azure.storage.fileshare*.endpoint     |         | The URI to connect to Azure File Storage.                             |
+> | *spring.cloud.azure.storage.fileshare*.account-key  |         | The private key to connect to Azure File Storage.                     |
+> | *spring.cloud.azure.storage.fileshare*.account-name |         | The Azure Storage File Share account name.                                       |
 
 ## Basic usage
 

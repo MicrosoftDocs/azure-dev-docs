@@ -136,18 +136,18 @@ public static void main(String[] args) {
 > [!div class="mx-tdBreakAll"]
 > | Property                                                                 | Default value | Description                                                                                            |
 > |--------------------------------------------------------------------------|---------------|--------------------------------------------------------------------------------------------------------|
-> | `*spring.cloud.azure.keyvault.secret*.property-source-enabled`             | true          | Whether to enable the Key Vault property source.                                                       |
-> | `*spring.cloud.azure.keyvault.secret*.property-sources[].name`             |               | Name of this property source.                                                                          |
-> | `*spring.cloud.azure.keyvault.secret*.property-sources[].endpoint`         |               | Azure Key Vault endpoint.                                                                              |
-> | `*spring.cloud.azure.keyvault.secret*.property-sources[].case-sensitive`   | false         | Whether the secret keys are case-sensitive.                                                            |
-> | `*spring.cloud.azure.keyvault.secret*.property-sources[].secret-keys`      |               | The secret keys supported for this property source. All keys be retrieved if this property is missing. |
-> | `*spring.cloud.azure.keyvault.secret*.property-sources[].refresh-interval` | 30m           | Time interval to refresh all Key Vault secrets.                                                        |
-> | `*spring.cloud.azure.keyvault.secret*.property-sources[].service-version`  |               | Secret service version used when making API requests.                                                  |
-> | `*spring.cloud.azure.keyvault.secret*.property-sources[].client`           |               | Client related properties.                                                                             |
-> | `*spring.cloud.azure.keyvault.secret*.property-sources[].credential`       |               | Credential related properties.                                                                         |
-> | `*spring.cloud.azure.keyvault.secret*.property-sources[].profile`          |               | Profile related properties.                                                                            |
-> | `*spring.cloud.azure.keyvault.secret*.property-sources[].proxy`            |               | Proxy related properties.                                                                              |
-> | `*spring.cloud.azure.keyvault.secret*.property-sources[].retry`            |               | Retry related properties.                                                                              |
+> | *spring.cloud.azure.keyvault.secret*.property-source-enabled             | true          | Whether to enable the Key Vault property source.                                                       |
+> | *spring.cloud.azure.keyvault.secret*.property-sources[].name             |               | Name of this property source.                                                                          |
+> | *spring.cloud.azure.keyvault.secret*.property-sources[].endpoint         |               | Azure Key Vault endpoint.                                                                              |
+> | *spring.cloud.azure.keyvault.secret*.property-sources[].case-sensitive   | false         | Whether the secret keys are case-sensitive.                                                            |
+> | *spring.cloud.azure.keyvault.secret*.property-sources[].secret-keys      |               | The secret keys supported for this property source. All keys be retrieved if this property is missing. |
+> | *spring.cloud.azure.keyvault.secret*.property-sources[].refresh-interval | 30m           | Time interval to refresh all Key Vault secrets.                                                        |
+> | *spring.cloud.azure.keyvault.secret*.property-sources[].service-version  |               | Secret service version used when making API requests.                                                  |
+> | *spring.cloud.azure.keyvault.secret*.property-sources[].client           |               | Client related properties.                                                                             |
+> | *spring.cloud.azure.keyvault.secret*.property-sources[].credential       |               | Credential related properties.                                                                         |
+> | *spring.cloud.azure.keyvault.secret*.property-sources[].profile          |               | Profile related properties.                                                                            |
+> | *spring.cloud.azure.keyvault.secret*.property-sources[].proxy            |               | Proxy related properties.                                                                              |
+> | *spring.cloud.azure.keyvault.secret*.property-sources[].retry            |               | Retry related properties.                                                                              |
 
 * See [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the [security principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) has been granted the sufficient permission to access the Azure Key Vault Secrets.
 * If common properties like `client`, `credential`, `profile`, `proxy`, `retry` aren't configured in `spring.cloud.azure.keyvault.secret.property-sources[].xxx`, `spring.cloud.azure.xxx` will be used. See [Spring Cloud Azure configuration](configuration-properties-global.md) to get more information about these common properties.
