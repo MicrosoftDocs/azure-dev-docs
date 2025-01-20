@@ -27,8 +27,8 @@ To enable the health indicators, add the Spring Cloud Azure Actuator Starter dep
 
 The following table lists configurable properties to enable or disable health indicators for each Azure service:
 
-| Azure Service         | Property                                                |
-|-----------------------|---------------------------------------------------------|
+| Azure Service         | Property                                               |
+|-----------------------|--------------------------------------------------------|
 | App Configuration     | *management.health.azure*-appconfiguration.enabled     |
 | Azure Cosmos DB       | *management.health.azure*-cosmos.enabled               |
 | Event Hubs            | *management.health.azure*-eventhubs.enabled            |
