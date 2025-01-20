@@ -181,11 +181,11 @@ The modern `spring-cloud-azure-starter` enables you to define properties that ap
 
 | Prefix                          | Description                                                   |
 |---------------------------------|---------------------------------------------------------------|
-| `*spring.cloud.azure*.client`     | Configures the transport clients underneath each Azure SDK.   |
-| `*spring.cloud.azure*.credential` | Configures how to authenticate with Microsoft Entra ID.   |
-| `*spring.cloud.azure*.profile`    | Configures the Azure cloud environment.                       |
-| `*spring.cloud.azure*.proxy`      | Configures the proxy options, apply to all Azure SDK clients. |
-| `*spring.cloud.azure*.retry`      | Configures the retry options, apply to all Azure SDK clients. The retry options have supported part of the SDKs, there's no `spring.cloud.azure.cosmos.retry`. |
+| *spring.cloud.azure*.client     | Configures the transport clients underneath each Azure SDK.   |
+| *spring.cloud.azure*.credential | Configures how to authenticate with Microsoft Entra ID.   |
+| *spring.cloud.azure*.profile    | Configures the Azure cloud environment.                       |
+| *spring.cloud.azure*.proxy      | Configures the proxy options, apply to all Azure SDK clients. |
+| *spring.cloud.azure*.retry      | Configures the retry options, apply to all Azure SDK clients. The retry options have supported part of the SDKs, there's no `spring.cloud.azure.cosmos.retry`. |
 
 For a full list of configurations, see [Spring Cloud Azure configuration properties](./configuration-properties-all.md).
 
