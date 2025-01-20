@@ -35,19 +35,19 @@ These types are described in the following sections.
 
 Many newer applications are invoked directly from the command line. These applications still handle web requests, but instead of relying on an application server to provide HTTP request handling, they incorporate HTTP communication and all other dependencies directly into the application package. Such applications are frequently built with frameworks such as Spring Boot, Dropwizard, Micronaut, MicroProfile, Vert.x, and others.
 
-These applications are packaged into archives with the *.jar* extension (JAR files).
+These applications are packaged into archives with the **.jar** extension (JAR files).
 
 ### Spring applications that use Spring Cloud middleware modules
 
 The microservice architectural style is an approach to developing a single application as a suite of small services. Each service runs in its own process and communicates by using lightweight mechanisms, often an HTTP resource API. These services are built around business capabilities and are independently deployable by fully automated deployment machinery. There's a bare minimum of centralized management of these services, which may be written in different programming languages and use different data storage technologies. Such services are frequently built with frameworks such as Spring Cloud.
 
-These services are packaged into multiple applications with the *.jar* extension (JAR files).
+These services are packaged into multiple applications with the **.jar** extension (JAR files).
 
 ### Java EE applications
 
 Java EE applications (also referred to as J2EE applications or, more recently, Jakarta EE applications) can contain some, all, or none of the elements of web applications. These applications can also contain and consume many more components as defined by the [Jakarta EE specification](https://jakarta.ee/specifications/platform/).
 
-Java EE applications can be packaged as archives with the *.ear* extension (EAR files) or as archives with the *.war* extension (WAR files).
+Java EE applications can be packaged as archives with the **.ear** extension (EAR files) or as archives with the **.war** extension (WAR files).
 
 Java EE applications must be deployed onto Java EE-compliant application servers (such as Oracle WebLogic Server, IBM WebSphere, JBoss EAP, GlassFish, Payara, and others).
 
@@ -57,13 +57,13 @@ Applications that rely only on features provided by the Java EE specification (t
 
 Web applications run inside a [Servlet](https://jakarta.ee/specifications/servlet/) container. Some of these applications use servlet APIs directly, while many use other frameworks that encapsulate servlet APIs, such as Apache Struts, Spring MVC, JavaServer Faces (JSF), and others.
 
-Web applications are packaged into archives with the *.war* extension (WAR files).
+Web applications are packaged into archives with the **.war** extension (WAR files).
 
 ### Batch / scheduled jobs
 
 Some applications are intended to run briefly, execute a particular workload, and then exit rather than wait for requests or user input. Sometimes such jobs need to run once or at regular, scheduled intervals. On premises, such jobs are often invoked from a server's crontab.
 
-These applications are packaged into archives with the *.jar* extension (JAR files).
+These applications are packaged into archives with the **.jar** extension (JAR files).
 
 > [!NOTE]
 > If your application uses a scheduler (such as Spring Batch or Quartz) to run scheduled tasks, we strongly recommend that you factor such tasks to run outside of the application. If your application scales to multiple instances in the cloud, the same job will run more than once. Furthermore, if your scheduling mechanism uses the host's local time zone, you may experience undesirable behavior when scaling your application across regions.

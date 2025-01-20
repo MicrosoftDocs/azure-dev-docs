@@ -121,7 +121,7 @@ This step will create a non-admin user and grant all permissions on the `demo` d
 > [!NOTE]
 > You can read more detailed information about creating MySQL users in [Create users in Azure Database for MySQL](/azure/mysql/single-server/how-to-create-users).
 
-First, create a SQL script called *create_user.sql* for creating a non-admin user. Add the following contents and save it locally:
+First, create a SQL script called **create_user.sql** for creating a non-admin user. Add the following contents and save it locally:
 
 [!INCLUDE [security-note](../includes/security-note.md)]
 
@@ -157,7 +157,7 @@ curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d b
 
 ## Add the reactive MySQL driver implementation
 
-Open the generated project's *pom.xml* file to add the reactive MySQL driver from the [r2dbc-mysql repository on GitHub](https://github.com/asyncer-io/r2dbc-mysql).
+Open the generated project's **pom.xml** file to add the reactive MySQL driver from the [r2dbc-mysql repository on GitHub](https://github.com/asyncer-io/r2dbc-mysql).
 
 After the `spring-boot-starter-webflux` dependency, add the following snippet:
 
@@ -171,7 +171,7 @@ After the `spring-boot-starter-webflux` dependency, add the following snippet:
 
 ## Configure Spring Boot to use Azure Database for MySQL
 
-Open the *src/main/resources/application.properties* file, and add:
+Open the **src/main/resources/application.properties** file, and add:
 
 ```properties
 logging.level.org.springframework.data.r2dbc=DEBUG

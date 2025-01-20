@@ -137,7 +137,7 @@ Next, create a non-admin user and grant all permissions to the database.
 > [!NOTE]
 > You can read more detailed information about creating PostgreSQL users in [Create users in Azure Database for PostgreSQL](/azure/PostgreSQL/flexible-server/how-to-create-users).
 
-Create a SQL script called *create_user.sql* for creating a non-admin user. Add the following contents and save it locally:
+Create a SQL script called **create_user.sql** for creating a non-admin user. Add the following contents and save it locally:
 
 [!INCLUDE [security-note](../includes/security-note.md)]
 
@@ -172,7 +172,7 @@ curl https://start.spring.io/starter.tgz -d dependencies=webflux,data-r2dbc -d b
 
 ## Add the reactive PostgreSQL driver implementation
 
-Open the generated project's *pom.xml* file, and then add the reactive PostgreSQL driver from the [r2dbc-postgresql repository on GitHub](https://github.com/pgjdbc/r2dbc-postgresql). After the `spring-boot-starter-webflux` dependency, add the following text:
+Open the generated project's **pom.xml** file, and then add the reactive PostgreSQL driver from the [r2dbc-postgresql repository on GitHub](https://github.com/pgjdbc/r2dbc-postgresql). After the `spring-boot-starter-webflux` dependency, add the following text:
 
 ```xml
 <dependency>
@@ -185,7 +185,7 @@ Open the generated project's *pom.xml* file, and then add the reactive PostgreSQ
 
 ## Configure Spring Boot to use Azure Database for PostgreSQL
 
-Open the *src/main/resources/application.properties* file, and add the following text:
+Open the **src/main/resources/application.properties** file, and add the following text:
 
 ```properties
 logging.level.org.springframework.data.r2dbc=DEBUG

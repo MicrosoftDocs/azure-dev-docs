@@ -38,7 +38,7 @@ Redis authentication uses passwords in Redis. If you choose to use passwords as 
 
 With an Azure Cache for Redis instance, you can cache data using Spring Cloud Azure.
 
-To install the Spring Cloud Azure Starter Data Redis with Lettuce module, add the following dependencies to your *pom.xml* file:
+To install the Spring Cloud Azure Starter Data Redis with Lettuce module, add the following dependencies to your **pom.xml** file:
 
   ```xml
   <dependencies>
@@ -70,7 +70,7 @@ To install the Spring Cloud Azure Starter Data Redis with Lettuce module, add th
   ```
 
   > [!NOTE]
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This configuration ensures that all Spring Cloud Azure dependencies are using the same version. For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
+  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This configuration ensures that all Spring Cloud Azure dependencies are using the same version. For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 ### Code the application
 
@@ -78,7 +78,7 @@ To use a Redis cache to store and retrieve data, configure the application by us
 
 #### [Microsoft Entra ID authentication (recommended)](#tab/entraid)
 
-1. Configure Redis cache credentials in the *application.properties* configuration file, as shown in the following example.
+1. Configure Redis cache credentials in the **application.properties** configuration file, as shown in the following example.
 
    ```properties
    spring.data.redis.host=<your-redis-name>.redis.cache.windows.net
@@ -131,7 +131,7 @@ To use a Redis cache to store and retrieve data, configure the application by us
 
 #### [Access key authentication](#tab/accesskey)
 
-1. Configure Redis cache credentials in the *application.properties* configuration file, as shown in the following example.
+1. Configure Redis cache credentials in the **application.properties** configuration file, as shown in the following example.
 
    ```properties
    spring.data.redis.host=<your-redis-name>.redis.cache.windows.net
