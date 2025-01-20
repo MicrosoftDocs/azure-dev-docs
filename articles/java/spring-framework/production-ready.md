@@ -27,16 +27,16 @@ To enable the health indicators, add the Spring Cloud Azure Actuator Starter dep
 
 The following table lists configurable properties to enable or disable health indicators for each Azure service:
 
-| Azure Service         | Property                                               |
-|-----------------------|--------------------------------------------------------|
-| App Configuration     | `**management.health.azure**-appconfiguration.enabled`     |
-| Azure Cosmos DB             | `**management.health.azure**-cosmos.enabled`               |
-| Event Hubs            | `**management.health.azure**-eventhubs.enabled`            |
-| Key Vault Certificate | `**management.health.azure**-keyvault-certificate.enabled` |
-| Key Vault Secret      | `**management.health.azure**-keyvault-secret.enabled`      |
-| Storage Blob          | `**management.health.azure**-storage-blob.enabled`         |
-| Storage File Share    | `**management.health.azure**-storage-fileshare.enabled`    |
-| Storage Queue         | `**management.health.azure**-storage-queue.enabled`        |
+| Azure Service         | Property                                                |
+|-----------------------|---------------------------------------------------------|
+| App Configuration     | *management.health.azure**-appconfiguration.enabled     |
+| Azure Cosmos DB       | *management.health.azure**-cosmos.enabled               |
+| Event Hubs            | *management.health.azure**-eventhubs.enabled            |
+| Key Vault Certificate | *management.health.azure**-keyvault-certificate.enabled |
+| Key Vault Secret      | *management.health.azure**-keyvault-secret.enabled      |
+| Storage Blob          | *management.health.azure**-storage-blob.enabled         |
+| Storage File Share    | *management.health.azure**-storage-fileshare.enabled    |
+| Storage Queue         | *management.health.azure**-storage-queue.enabled        |
 
 > [!IMPORTANT]
 > Calling the health endpoint of Azure services may cause extra charges. For example, if you call `http://HOST_NAME:{port}/actuator/health/cosmos` to get Azure Cosmos DB health info, it will calculate Request Units (RUs). For more information, see [Request Units in Azure Cosmos DB](/azure/cosmos-db/request-units).
