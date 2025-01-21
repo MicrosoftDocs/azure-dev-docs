@@ -271,7 +271,7 @@ export CLIENT_ID=$(az identity show \
     --name myManagedIdentity \
     --query clientId \
     --output tsv)
-echo "Cient id: ${CLIENT_ID}"
+echo "Client id: ${CLIENT_ID}"
 ```
 
 ## Create a database user for your managed identity
@@ -395,7 +395,11 @@ Connect as the Microsoft Entra administrator user to your PostgreSQL database, a
     The output is similar to the following content:
 
     ```output
-    Command ran in 133.131 seconds (init: 0.202, invoke: 132.929)
+    Connecting to postgres database by default.
+    Running sql file 'dbuser.sql'...
+    Successfully executed the file.
+    Closed the connection to postgresql20221223
+    Command ran in 2.752 seconds (init: 0.144, invoke: 2.609)
     ```
 
 1. Use the following command to get the connection string that you use in the next section:
