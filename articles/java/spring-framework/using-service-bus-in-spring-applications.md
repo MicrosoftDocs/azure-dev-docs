@@ -14,7 +14,7 @@ This article shows you how to use Azure Service Bus in Java applications built w
 
 Azure provides an asynchronous messaging platform called [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) (Service Bus), which is based on the [Advanced Message Queueing Protocol 1.0](http://www.amqp.org/) (AMQP 1.0) standard. You can use Service Bus across the range of supported Azure platforms.
 
-Spring Cloud Azure provides various modules for sending messages to and receiving messages from Service Bus queues and topics/subscriptions using Spring frameworks.
+Spring Cloud Azure provides various modules for sending messages to and receiving messages from Service Bus *queues* and *topics*/*subscriptions* using Spring frameworks.
 
 You can use the following modules independently or combine them for different use cases:
 

@@ -22,7 +22,7 @@ This article describes how you can use Spring Cloud Azure and Spring Messaging t
 
 ### Key concepts
 
-Azure Event Hubs is a native data-streaming service in the cloud that can stream millions of events per second, with low latency, from any source to any destination. The Spring Messaging for Azure Event Hubs project applies core Spring concepts to the development of event hubs-based messaging solutions. It provides a template as a high-level abstraction for sending messages. It also provides support for message-driven plain old Java objects (      ) with `@EventHubsListener` annotations and a listener container. These libraries promote the use of dependency injection and declarative configuration. In all of these cases, you can see similarities to the JMS support in the Spring Framework and RabbitMQ support in Spring AMQP.
+Azure Event Hubs is a native data-streaming service in the cloud that can stream millions of events per second, with low latency, from any source to any destination. The Spring Messaging for Azure Event Hubs project applies core Spring concepts to the development of event hubs-based messaging solutions. It provides a *template* as a high-level abstraction for sending messages. It also provides support for message-driven plain old Java objects (      ) with `@EventHubsListener` annotations and a *listener container*. These libraries promote the use of dependency injection and declarative configuration. In all of these cases, you can see similarities to the JMS support in the Spring Framework and RabbitMQ support in Spring AMQP.
 
 ### Dependency setup
 
@@ -190,7 +190,7 @@ For more information, see the [azure-spring-boot-samples](https://github.com/Azu
 
 ### Key concepts
 
-Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. The Spring Messaging for Azure Service Bus project applies core Spring concepts to the development of service bus-based messaging solutions. It provides a template as a high-level abstraction for sending messages. It also provides support for message-driven POJOs with `@ServiceBusListener` annotations and a listener container. These libraries promote the use of dependency injection and declarative configuration. In all of these cases, you can see similarities to the JMS support in the Spring Framework and RabbitMQ support in Spring AMQP.
+Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. The Spring Messaging for Azure Service Bus project applies core Spring concepts to the development of service bus-based messaging solutions. It provides a *template* as a high-level abstraction for sending messages. It also provides support for message-driven POJOs with `@ServiceBusListener` annotations and a *listener container*. These libraries promote the use of dependency injection and declarative configuration. In all of these cases, you can see similarities to the JMS support in the Spring Framework and RabbitMQ support in Spring AMQP.
 
 ### Dependency setup
 
@@ -356,7 +356,7 @@ For more information, see the [azure-spring-boot-samples](https://github.com/Azu
 
 ### Key concepts
 
-Azure Queue Storage is a service for storing large numbers of messages. You access messages from anywhere in the world via authenticated calls using HTTP or HTTPS. A queue message can be up to 64 KB in size. A queue can contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. The Spring Messaging for Azure Queue Storage project applies core Spring concepts to the development of service bus-based messaging solutions. It provides a template as a high-level abstraction for sending and receiving messages. These libraries promote the use of dependency injection and declarative configuration.
+Azure Queue Storage is a service for storing large numbers of messages. You access messages from anywhere in the world via authenticated calls using HTTP or HTTPS. A queue message can be up to 64 KB in size. A queue can contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. The Spring Messaging for Azure Queue Storage project applies core Spring concepts to the development of service bus-based messaging solutions. It provides a *template* as a high-level abstraction for sending and receiving messages. These libraries promote the use of dependency injection and declarative configuration.
 
 ### Dependency setup
 

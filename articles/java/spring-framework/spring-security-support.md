@@ -1216,7 +1216,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 ---
 
-Copy the **home.html** from [aad-b2c-web-application sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates/home.html), and replace the `PROFILE_EDIT_USER_FLOW` and `PASSWORD_RESET_USER_FLOW` with your user flow names that you used previously.
+Copy the **home.html** from [`aad-b2c-web-application` sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/aad/spring-cloud-azure-starter-active-directory-b2c/aad-b2c-web-application/src/main/resources/templates/home.html), and replace the `PROFILE_EDIT_USER_FLOW` and `PASSWORD_RESET_USER_FLOW` with your user flow names that you used previously.
 
 Build and test your app. Let `Webapp` run on port `8080`.
 

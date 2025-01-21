@@ -30,7 +30,7 @@ The following steps walk you through the steps to create a redis cache using the
 
    ![Create New Redis Cache Dialog Box][CR02]
 
-   a. **DNS Name**: Specifies the DNS subdomain for the new redis cache, which is prepended to ".redis.cache.windows.net"; for example: **wingtiptoys.redis.cache.windows.net**.
+   a. **DNS Name**: Specifies the DNS subdomain for the new redis cache, which is prepended to **.redis.cache.windows.net**, for example, **wingtiptoys.redis.cache.windows.net**.
 
    b. **Subscription**: Specifies the Azure subscription you want to use for the new redis cache.
 

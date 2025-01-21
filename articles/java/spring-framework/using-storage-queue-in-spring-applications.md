@@ -155,7 +155,7 @@ To send messages to and receive messages from Azure Storage queues, use the foll
 
 You can build the client beans by yourself, but the process is complicated. In Spring Boot applications, you have to manage properties, learn the builder pattern, and register the clients to your Spring application context. The following steps show you how to do that.
 
-1. Build the client programmatically in your Spring application, as shown in the following example. Be sure to replace the **`<storage-account-name>`** placeholder with your own value.
+1. Build the client programmatically in your Spring application, as shown in the following example. Be sure to replace the `<storage-account-name>` placeholder with your own value.
 
    ```java
    import com.azure.identity.DefaultAzureCredentialBuilder;
@@ -419,7 +419,7 @@ Use the following steps to configure and code your application:
    }
    ```
 
-1. Create a new `QueueSendConfiguration` Java class as shown in the following example. This class is used to define a message sender. Be sure to replace the **`<storage-queue-name>`** placeholder with your own value.
+1. Create a new `QueueSendConfiguration` Java class as shown in the following example. This class is used to define a message sender. Be sure to replace the `<storage-queue-name>` placeholder with your own value.
 
    ```java
    import com.azure.spring.integration.core.handler.DefaultMessageHandler;

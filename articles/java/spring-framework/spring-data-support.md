@@ -67,7 +67,7 @@ The following list shows the key concepts of the Spring Data support:
 * The Spring Data [@Id](https://github.com/spring-projects/spring-data-commons/blob/db62390de90c93a78743c97cc2cc9ccd964994a5/src/main/java/org/springframework/data/annotation/Id.java) annotation. There are two ways to map a field in a domain class to the `id` of an Azure Cosmos DB document:
 
     * Annotate a field in domain class with `@Id`. This field will be mapped to document `id` in Azure Cosmos DB.
-    `*` Set the name of this field to `id`. This field will be mapped to document `id` in Azure Cosmos DB.
+    * Set the name of this field to `id`. This field will be mapped to document `id` in Azure Cosmos DB.
 
   > [!NOTE]
   > If both ways are applied, the `@Id` annotation has higher priority.
