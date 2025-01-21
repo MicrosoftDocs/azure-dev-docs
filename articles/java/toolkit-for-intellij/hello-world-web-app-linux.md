@@ -56,7 +56,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 1. Expand the **Artifact Coordinates** dropdown to view all input fields and specify the following information for your new web app and click **Next**:
 
    * **Name**: The name of your web app. This will automatically fill in the web app's **ArtifactId** field.
-   * **GroupId**: The name of the artifact group, usually a company domain, for example **com.microsoft.azure**.
+   * **GroupId**: The name of the artifact group, usually a company domain (for example, **com.microsoft.azure**).
    * **Version**: We'll keep the default version **1.0-SNAPSHOT**.
 
 1. Customize any Maven settings or accept the defaults, and then click **Finish**.
@@ -97,7 +97,7 @@ The following steps walk you through using the Azure portal to create an Azure C
 
    * **Registry Name**: Specifies the name for the new container registry.
 
-   * **Location**: Specifies the region where your container registry will be created, for example, **West US**.
+   * **Location**: Specifies the region where your container registry will be created (for example, **West US**).
 
    * **SKU**: Specifies the service tier for your container registry. For this tutorial, select **Basic**. For more information, see [Azure Container Registry service tiers](/azure/container-registry/container-registry-skus).
 
@@ -121,7 +121,7 @@ The following steps walk you through configuring Docker support for your web app
 
    * **Container Registry**: Create a new one or choose the container registry from the drop-down menu that you created in the previous section of this article. The fields for **Server URL**, **Username**, and **Password** will be automatically populated.
 
-   * **Image and tag**: Specifies the container image name; typically this will use the following syntax: **registry*.azurecr.io/*appname*:latest**, where:
+   * **Image and tag**: Specifies the container image name; typically this will use the following syntax: **\*registry\*.azurecr.io/\*appname\*:latest**, where:
       * **registry** is your container registry from the previous section of this article
       * **appname** is the name of your web app
 
