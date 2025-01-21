@@ -130,19 +130,6 @@ az postgres flexible-server db create \
     --database-name $DATABASE_NAME
 ```
 
-Allow access from the local IP address.
-
-```azurecli-interactive
-export AZ_LOCAL_IP_ADDRESS=$(curl -s https://whatismyip.akamai.com)
-
-az postgres flexible-server firewall-rule create \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $POSTGRESQL_NAME \
-    --rule-name $POSTGRESQL_NAME-database-allow-local-ip \
-    --start-ip-address $AZ_LOCAL_IP_ADDRESS \
-    --end-ip-address $AZ_LOCAL_IP_ADDRESS
-```
-
 ### [Azure SQL Database](#tab/azure-sql-database)
 
 <!-- Part of Azure SQL Database content is used in azure-aks-docs-pr/blob/wls-aks-quickstart-pswless/articles/aks/includes/jakartaee/create-azure-sql-database-passwordless.md. Ensure any changes made here are also applied to that file.-->
@@ -276,17 +263,17 @@ echo "Client id: ${CLIENT_ID}"
 
 ## Create a database user for your managed identity
 
-### [MySQL Flexible Server](#tab/mysql-flexible-server)
-
-Connect as the Microsoft Entra administrator user to your MySQL database, and create a MySQL user for your managed identity.
-
 First, you're required to create a firewall rule to access the MySQL server from your CLI client. Run the following commands to get your current IP address:
 
 ```bash
 export MY_IP=$(curl http://whatismyip.akamai.com)
 ```
 
-If you're working on Windows Subsystem for Linux (WSL) with VPN enabled, the following command might return an incorrect IPv4 address. One way to get your IPv4 address is by visiting [whatismyipaddress.com](https://whatismyipaddress.com/). Set the environment variable `MY_IP` as the IPv4 address from which you want to connect to the database.
+If you're working on Windows Subsystem for Linux (WSL) with VPN enabled, the following command might return an incorrect IPv4 address. One way to get your IPv4 address is by visiting [whatismyipaddress.com](https://whatismyipaddress.com/). Set the environment variable `MY_IP` as the IPv4 address from which you want to connect to the database. You will configure the database firewall with this IP address later.
+
+### [MySQL Flexible Server](#tab/mysql-flexible-server)
+
+Connect as the Microsoft Entra administrator user to your MySQL database, and create a MySQL user for your managed identity.
 
 Create a temporary firewall rule with [`az mysql flexible-server firewall-rule create`](/cli/azure/mysql/flexible-server/firewall-rule#az-mysql-flexible-server-firewall-rule-create).
 
@@ -368,46 +355,63 @@ echo ${CONNECTION_STRING}
 
 Connect as the Microsoft Entra administrator user to your PostgreSQL database, and create a PostgreSQL user for your managed identity.
 
-1. In the Azure CLI shell you've been using, obtain a token for connection. 
+Create a temporary firewall rule with [`az postgres flexible-server firewall-rule create`](/cli/azure/postgres/flexible-server/firewall-rule#az-postgres-flexible-server-firewall-rule-create).
 
-    ```bash
-    export RDBMS_ACCESS_TOKEN=$(az account get-access-token --resource-type oss-rdbms --query accessToken --output tsv)
-    ```
-1. Prepare SQL script to create database user and grant permissions to the user.
+```azurecli-interactive
+az postgres flexible-server firewall-rule create \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name $POSTGRESQL_NAME \
+    --rule-name $POSTGRESQL_NAME-database-allow-local-ip \
+    --start-ip-address $MY_IP \
+    --end-ip-address $MY_IP
+```
 
-    ```bash
-    cat <<EOF >dbuser.sql
-    select * from pgaadauth_create_principal('myManagedIdentity', false, false);
-    select * from pgaadauth_list_principals(false);
-    GRANT ALL PRIVILEGES ON DATABASE "contoso" TO "myManagedIdentity";
-    GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "myManagedIdentity";
-    GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO "myManagedIdentity";
-    EOF
-    ```
-1. Run `az postgres flexible-server execute` to execute the SQL satement.
+In the same Azure CLI shell you've been using, obtain a token for connection. 
+
+```bash
+export RDBMS_ACCESS_TOKEN=$(az account get-access-token --resource-type oss-rdbms --query accessToken --output tsv)
+```
+
+Next, prepare an SQL file to create a database user for the managed identity. The following example adds a user with login name `myManagedIdentity` and grants the user privileges to access database `contoso`:
+
+```bash
+cat <<EOF >createuser.sql
+select * from pgaadauth_create_principal('myManagedIdentity', false, false);
+select * from pgaadauth_list_principals(false);
+GRANT ALL PRIVILEGES ON DATABASE "contoso" TO "myManagedIdentity";
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "myManagedIdentity";
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO "myManagedIdentity";
+EOF
+```
+
+Run `az postgres flexible-server execute` to execute the SQL file.
    
-    ```bash
-    az config set extension.use_dynamic_install=yes_without_prompt
+```bash
+az config set extension.use_dynamic_install=yes_without_prompt
 
-    az postgres flexible-server execute --verbose --name ${POSTGRESQL_NAME} --admin-user ${CURRENT_USER} --admin-password ${RDBMS_ACCESS_TOKEN} -f dbuser.sql
-    ```
+az postgres flexible-server execute --verbose \
+    --name ${POSTGRESQL_NAME} \
+    --admin-user ${CURRENT_USER} \
+    --admin-password ${RDBMS_ACCESS_TOKEN} \
+    -f createuser.sql
+```
 
-    The output is similar to the following content:
+The output is similar to the following content:
 
-    ```output
-    Connecting to postgres database by default.
-    Running sql file 'dbuser.sql'...
-    Successfully executed the file.
-    Closed the connection to postgresql20221223
-    Command ran in 2.752 seconds (init: 0.144, invoke: 2.609)
-    ```
+```output
+Connecting to postgres database by default.
+Running sql file 'dbuser.sql'...
+Successfully executed the file.
+Closed the connection to postgresql20221223
+Command ran in 2.752 seconds (init: 0.144, invoke: 2.609)
+```
 
-1. Use the following command to get the connection string that you use in the next section:
+Use the following command to get the connection string that you use in the next section:
 
-    ```azurecli-interactive
-    export CONNECTION_STRING="jdbc:postgresql://${POSTGRESQL_NAME}.postgres.database.azure.com:5432/${DATABASE_NAME}?sslmode=require"
-    echo ${CONNECTION_STRING}
-    ```
+```azurecli-interactive
+export CONNECTION_STRING="jdbc:postgresql://${POSTGRESQL_NAME}.postgres.database.azure.com:5432/${DATABASE_NAME}?sslmode=require"
+echo ${CONNECTION_STRING}
+```
 
 ### [Azure SQL Database](#tab/azure-sql-database)
 
