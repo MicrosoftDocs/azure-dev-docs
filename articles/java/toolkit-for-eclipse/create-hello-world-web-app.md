@@ -49,7 +49,7 @@ To ensure you have required components to work with web app projects, follow the
 
 1. Click the **Help** menu, and then click **Install New Software**.
 
-1. In the **Available Software** dialog, click **Manage**, and make sure the latest Eclipse version is selected (e.g. **2020-06**).
+1. In the **Available Software** dialog, click **Manage**, and make sure the latest Eclipse version is selected - for example, **2020-06**.
 
 1. Click **Apply and Close**. Expand the **Work with:** dropdown menu to show suggested sites. Select the latest Eclipse version site to query available software.
 
