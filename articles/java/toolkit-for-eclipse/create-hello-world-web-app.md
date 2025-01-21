@@ -43,15 +43,15 @@ The following steps walk you through the Azure sign in process in your Eclipse d
 
 1. Once signed in, close your browser and switch back to your Eclipse IDE. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, then click **Select**.
 
-### Install required software *(optional)*
+### Install required software (optional)
 
 To ensure you have required components to work with web app projects, follow these steps:
 
 1. Click the **Help** menu, and then click **Install New Software**.
 
-1. In the **Available Software** dialog, click **Manage**, and make sure the latest Eclipse version is selected (e.g. *2020-06*).
+1. In the **Available Software** dialog, click **Manage**, and make sure the latest Eclipse version is selected (e.g. **2020-06**).
 
-1. Click **Apply and Close**. Expand the *Work with:* dropdown menu to show suggested sites. Select the latest Eclipse version site to query available software.
+1. Click **Apply and Close**. Expand the **Work with:** dropdown menu to show suggested sites. Select the latest Eclipse version site to query available software.
 
 1. Scroll down the list and select the **Web, XML, Java EE and OSGi Enterprise Development** item. Click **Next**.
 
