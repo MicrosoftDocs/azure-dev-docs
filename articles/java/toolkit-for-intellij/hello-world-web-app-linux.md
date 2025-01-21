@@ -56,7 +56,7 @@ The following steps walk you through the Azure sign in process in your IntelliJ 
 1. Expand the **Artifact Coordinates** dropdown to view all input fields and specify the following information for your new web app and click **Next**:
 
    * **Name**: The name of your web app. This will automatically fill in the web app's **ArtifactId** field.
-   * **GroupId**: The name of the artifact group, usually a company domain (for example, **com.microsoft.azure**).
+   * **GroupId**: The name of the artifact group, usually a company domain. - for example, **com.microsoft.azure**.
    * **Version**: We'll keep the default version **1.0-SNAPSHOT**.
 
 1. Customize any Maven settings or accept the defaults, and then click **Finish**.

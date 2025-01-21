@@ -429,23 +429,23 @@ The following table shows the property mappings from `azure-spring-boot-starter-
 > [!div class="mx-tdBreakAll"]
 > | Legacy properties                                                                             | Modern properties                                                                                            |
 > |-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-> |  *azure.activedirectory.b2c*.authenticate-additional-parameters                                |  *spring.cloud.azure.active-directory.b2c*.authenticate-additional-parameters                                 |
-> |  *azure.activedirectory.b2c*.authorization-clients                                             |  *spring.cloud.azure.active-directory.b2c*.authorization-clients                                              |
-> | *azure.activedirectory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.authorization-grant-type |  *spring.cloud.azure.active-directory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.authorization-grant-type |
-> |  *azure.activedirectory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.scopes                  |  *spring.cloud.azure.active-directory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.scopes                   |
-> |  *azure.activedirectory.b2c*.app-id-uri                                                        |  *spring.cloud.azure.active-directory.b2c*.app-id-uri                                                         |
-> |  *azure.activedirectory.b2c*.base-uri                                                          |  *spring.cloud.azure.active-directory.b2c*.base-uri                                                           |
-> |  *azure.activedirectory.b2c*.client-id                                                         |  *spring.cloud.azure.active-directory.b2c*.credential.client-id                                               |
-> |  *azure.activedirectory.b2c*.client-secret                                                     |  *spring.cloud.azure.active-directory.b2c*.credential.client-secret                                           |
-> |  *azure.activedirectory.b2c*.jwt-connect-timeout                                               |  *spring.cloud.azure.active-directory.b2c*.jwt-connect-timeout                                                |
-> |  *azure.activedirectory.b2c*.jwt-read-timeout                                                  |  *spring.cloud.azure.active-directory.b2c*.jwt-read-timeout                                                   |
-> |  *azure.activedirectory.b2c*.jwt-size-limit                                                    |  *spring.cloud.azure.active-directory.b2c*.jwt-size-limit                                                     |
-> |  *azure.activedirectory.b2c*.login-flow                                                        |  *spring.cloud.azure.active-directory.b2c*.login-flow                                                         |
-> |  *azure.activedirectory.b2c*.logout-success-url                                                |  *spring.cloud.azure.active-directory.b2c*.logout-success-url                                                 |
-> |  *azure.activedirectory.b2c*.reply-url                                                         |  *spring.cloud.azure.active-directory.b2c*.reply-url                                                          |
-> |  *azure.activedirectory.b2c*.tenant-id                                                         |  *spring.cloud.azure.active-directory.b2c*.profile.tenant-id                                                  |
-> |  *azure.activedirectory.b2c*.user-flows                                                        |  *spring.cloud.azure.active-directory.b2c*.user-flows                                                         |
-> |  *azure.activedirectory.b2c*.user-name-attribute-name                                          |  *spring.cloud.azure.active-directory.b2c*.user-name-attribute-name                                           |
+> | *azure.activedirectory.b2c*.authenticate-additional-parameters                                | *spring.cloud.azure.active-directory.b2c*.authenticate-additional-parameters                                 |
+> | *azure.activedirectory.b2c*.authorization-clients                                             | *spring.cloud.azure.active-directory.b2c*.authorization-clients                                              |
+> | *azure.activedirectory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.authorization-grant-type | *spring.cloud.azure.active-directory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.authorization-grant-type |
+> | *azure.activedirectory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.scopes                  | *spring.cloud.azure.active-directory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.scopes                   |
+> | *azure.activedirectory.b2c*.app-id-uri                                                        | *spring.cloud.azure.active-directory.b2c*.app-id-uri                                                         |
+> | *azure.activedirectory.b2c*.base-uri                                                          | *spring.cloud.azure.active-directory.b2c*.base-uri                                                           |
+> | *azure.activedirectory.b2c*.client-id                                                         | *spring.cloud.azure.active-directory.b2c*.credential.client-id                                               |
+> | *azure.activedirectory.b2c*.client-secret                                                     | *spring.cloud.azure.active-directory.b2c*.credential.client-secret                                           |
+> | *azure.activedirectory.b2c*.jwt-connect-timeout                                               | *spring.cloud.azure.active-directory.b2c*.jwt-connect-timeout                                                |
+> | *azure.activedirectory.b2c*.jwt-read-timeout                                                  | *spring.cloud.azure.active-directory.b2c*.jwt-read-timeout                                                   |
+> | *azure.activedirectory.b2c*.jwt-size-limit                                                    | *spring.cloud.azure.active-directory.b2c*.jwt-size-limit                                                     |
+> | *azure.activedirectory.b2c*.login-flow                                                        | *spring.cloud.azure.active-directory.b2c*.login-flow                                                         |
+> | *azure.activedirectory.b2c*.logout-success-url                                                | *spring.cloud.azure.active-directory.b2c*.logout-success-url                                                 |
+> | *azure.activedirectory.b2c*.reply-url                                                         | *spring.cloud.azure.active-directory.b2c*.reply-url                                                          |
+> | *azure.activedirectory.b2c*.tenant-id                                                         | *spring.cloud.azure.active-directory.b2c*.profile.tenant-id                                                  |
+> | *azure.activedirectory.b2c*.user-flows                                                        | *spring.cloud.azure.active-directory.b2c*.user-flows                                                         |
+> | *azure.activedirectory.b2c*.user-name-attribute-name                                          | *spring.cloud.azure.active-directory.b2c*.user-name-attribute-name                                           |
 
 * Removed properties from azure-spring-boot-starter-active-directory-b2c:
 
@@ -523,17 +523,17 @@ The following table shows the property mappings from `azure-spring-boot-starter-
 > [!div class="mx-tdBreakAll"]
 > | Legacy properties                     | Modern properties                                                                                                             |
 > |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-> |  *azure.keyvault*.case-sensitive-keys  |  *spring.cloud.azure.keyvault.secret*.property-source[n].case-sensitive                                                        |
-> |  *azure.keyvault*.certificate-password |  *spring.cloud.azure.keyvault.secret*.property-source[n].credential.client-certificate-password                                |
-> |  *azure.keyvault*.certificate-path     |  *spring.cloud.azure.keyvault.secret*.property-source[n].credential.client-certificate-path                                    |
-> |  *azure.keyvault*.client-id            |  *spring.cloud.azure.keyvault.secret*.property-source[n].credential.client-id                                                  |
-> |  *azure.keyvault*.client-key           |  *spring.cloud.azure.keyvault.secret*.property-source[n].credential.client-secret                                              |
-> |  *azure.keyvault*.enabled              |  *spring.cloud.azure.keyvault.secret*.property-source-enabled and  *spring.cloud.azure.keyvault.secret*.property-source-enabled |
-> |  *azure.keyvault*.order                | No longer supported. Use the order in property-source[n] instead.                                                             |
-> |  *azure.keyvault*.refresh-interval     |  *spring.cloud.azure.keyvault.secret*.property-source[n].refresh-interval                                                      |
-> |  *azure.keyvault*.secret-keys          |  *spring.cloud.azure.keyvault.secret*.property-source[n].secret-keys                                                           |
-> |  *azure.keyvault*.tenant-id            |  *spring.cloud.azure.keyvault.secret*.property-source[n].profile.tenant-id                                                     |
-> |  *azure.keyvault*.uri                  |  *spring.cloud.azure.keyvault.secret*.property-source[n].endpoint                                                              |
+> | *azure.keyvault*.case-sensitive-keys  | *spring.cloud.azure.keyvault.secret*.property-source[n].case-sensitive                                                        |
+> | *azure.keyvault*.certificate-password | *spring.cloud.azure.keyvault.secret*.property-source[n].credential.client-certificate-password                                |
+> | *azure.keyvault*.certificate-path     | *spring.cloud.azure.keyvault.secret*.property-source[n].credential.client-certificate-path                                    |
+> | *azure.keyvault*.client-id            | *spring.cloud.azure.keyvault.secret*.property-source[n].credential.client-id                                                  |
+> | *azure.keyvault*.client-key           | *spring.cloud.azure.keyvault.secret*.property-source[n].credential.client-secret                                              |
+> | *azure.keyvault*.enabled              | *spring.cloud.azure.keyvault.secret*.property-source-enabled and  *spring.cloud.azure.keyvault.secret*.property-source-enabled |
+> | *azure.keyvault*.order                | No longer supported. Use the order in property-source[n] instead.                                                             |
+> | *azure.keyvault*.refresh-interval     | *spring.cloud.azure.keyvault.secret*.property-source[n].refresh-interval                                                      |
+> | *azure.keyvault*.secret-keys          | *spring.cloud.azure.keyvault.secret*.property-source[n].secret-keys                                                           |
+> | *azure.keyvault*.tenant-id            | *spring.cloud.azure.keyvault.secret*.property-source[n].profile.tenant-id                                                     |
+> | *azure.keyvault*.uri                  | *spring.cloud.azure.keyvault.secret*.property-source[n].endpoint                                                              |
 
 * Removed properties from spring-cloud-azure-starter-keyvault-secrets
 
@@ -586,9 +586,9 @@ The following table shows the property mappings from `azure-spring-boot-starter-
 
 | Legacy properties             | Modern properties                              |
 |-------------------------------|------------------------------------------------|
-|  *azure.storage*.account-name  |  *spring.cloud.azure.storage.blob*.account-name |
-|  *azure.storage*.account-key   |  *spring.cloud.azure.storage.blob*.account-key  |
-|  *azure.storage*.blob-endpoint |  *spring.cloud.azure.storage.blob*.endpoint     |
+| *azure.storage*.account-name  | *spring.cloud.azure.storage.blob*.account-name |
+| *azure.storage*.account-key   | *spring.cloud.azure.storage.blob*.account-key  |
+| *azure.storage*.blob-endpoint | *spring.cloud.azure.storage.blob*.endpoint     |
 
 #### API changes
 
@@ -622,9 +622,9 @@ The following table shows the property mappings from `azure-spring-boot-starter-
 
 | Legacy properties             | Modern properties                                   |
 |-------------------------------|-----------------------------------------------------|
-|  *azure.storage*.account-name  |  *spring.cloud.azure.storage.fileshare*.account-name |
-|  *azure.storage*.account-key   |  *spring.cloud.azure.storage.fileshare*.account-key  |
-|  *azure.storage*.file-endpoint |  *spring.cloud.azure.storage.fileshare*.endpoint     |
+| *azure.storage*.account-name  | *spring.cloud.azure.storage.fileshare*.account-name |
+| *azure.storage*.account-key   | *spring.cloud.azure.storage.fileshare*.account-key  |
+| *azure.storage*.file-endpoint | *spring.cloud.azure.storage.fileshare*.endpoint     |
 
 #### API changes
 
@@ -662,12 +662,12 @@ The following table shows property mappings from `azure-spring-cloud-starter-eve
 > [!div class="mx-tdBreakAll"]
 > | Legacy properties                                        | Modern properties                                                        |
 > |----------------------------------------------------------|--------------------------------------------------------------------------|
-> |  *spring.cloud.azure*.resource-group                      |  *spring.cloud.azure.eventhubs*.resource.resource-group                   |
-> |  *spring.cloud.azure.eventhub*.namespace                  |  *spring.cloud.azure.eventhubs*.namespace                                 |
-> |  *spring.cloud.azure.eventhub*.connection-string          |  *spring.cloud.azure.eventhubs*.connection-string                         |
-> |  *spring.cloud.azure.eventhub*.checkpoint-storage-account |  *spring.cloud.azure.eventhubs.processor*.checkpoint-store.account-name   |
-> |  *spring.cloud.azure.eventhub*.checkpoint-access-key      |  *spring.cloud.azure.eventhubs.processor*.checkpoint-store.account-key    |
-> |  *spring.cloud.azure.eventhub*.checkpoint-container       |  *spring.cloud.azure.eventhubs.processor*.checkpoint-store.container-name |
+> | *spring.cloud.azure*.resource-group                      | *spring.cloud.azure.eventhubs*.resource.resource-group                   |
+> | *spring.cloud.azure.eventhub*.namespace                  | *spring.cloud.azure.eventhubs*.namespace                                 |
+> | *spring.cloud.azure.eventhub*.connection-string          | *spring.cloud.azure.eventhubs*.connection-string                         |
+> | *spring.cloud.azure.eventhub*.checkpoint-storage-account | *spring.cloud.azure.eventhubs.processor*.checkpoint-store.account-name   |
+> | *spring.cloud.azure.eventhub*.checkpoint-access-key      | *spring.cloud.azure.eventhubs.processor*.checkpoint-store.account-key    |
+> | *spring.cloud.azure.eventhub*.checkpoint-container       | *spring.cloud.azure.eventhubs.processor*.checkpoint-store.container-name |
 
 For example, change from:
 
@@ -1104,9 +1104,9 @@ The following table shows the property mappings from `azure-spring-cloud-starter
 > [!div class="mx-tdBreakAll"]
 > | Legacy properties                           | Modern properties                                          |
 > |---------------------------------------------|------------------------------------------------------------|
-> |  *spring.cloud.azure.storage*.account        |  *spring.cloud.azure.storage.queue*.account-name            |
-> |  *spring.cloud.azure.storage*.access-key     |  *spring.cloud.azure.storage.queue*.account-key             |
-> |  *spring.cloud.azure.storage*.resource-group |  *spring.cloud.azure.storage.queue*.resource.resource-group |
+> | *spring.cloud.azure.storage*.account        | *spring.cloud.azure.storage.queue*.account-name            |
+> | *spring.cloud.azure.storage*.access-key     | *spring.cloud.azure.storage.queue*.account-key             |
+> | *spring.cloud.azure.storage*.resource-group | *spring.cloud.azure.storage.queue*.resource.resource-group |
 
 #### API changes
 
@@ -1178,18 +1178,18 @@ The following table shows property mappings from `azure-spring-cloud-stream-bind
 > [!div class="mx-tdBreakAll"]
 > | Legacy properties                                                                   | Modern properties                                                                                 |
 > |-------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-> |  *spring.cloud.azure*.resource-group                                                 |  *spring.cloud.azure.eventhubs*.resource.resource-group                                            |
-> |  *spring.cloud.azure.eventhub*.namespace                                             |  *spring.cloud.azure.eventhubs*.namespace                                                          |
-> |  *spring.cloud.azure.eventhub*.connection-string                                     |  *spring.cloud.azure.eventhubs*.connection-string                                                  |
-> |  *spring.cloud.azure.eventhub*.checkpoint-storage-account                            |  *spring.cloud.azure.eventhubs.processor*.checkpoint-store.account-name                            |
-> |  *spring.cloud.azure.eventhub*.checkpoint-access-key                                 |  *spring.cloud.azure.eventhubs.processor*.checkpoint-store.account-key                             |
-> |  *spring.cloud.azure.eventhub*.checkpoint-container                                  |  *spring.cloud.azure.eventhubs.processor*.checkpoint-store.container-name                          |
-> |  *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.max-batch-size      |  *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.batch.max-size                   |
-> |  *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.max-wait-time       |  *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.batch.max-wait-time              |
-> |  *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.checkpoint-mode     |  *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.checkpoint.mode                  |
-> |  *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.checkpoint-count    |  *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.checkpoint.count                 |
-> |  *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.checkpoint-interval |  *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.checkpoint.interval              |
-> | *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.start-position       |  *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.initial-partition-event-position |
+> | *spring.cloud.azure*.resource-group                                                 | *spring.cloud.azure.eventhubs*.resource.resource-group                                            |
+> | *spring.cloud.azure.eventhub*.namespace                                             | *spring.cloud.azure.eventhubs*.namespace                                                          |
+> | *spring.cloud.azure.eventhub*.connection-string                                     | *spring.cloud.azure.eventhubs*.connection-string                                                  |
+> | *spring.cloud.azure.eventhub*.checkpoint-storage-account                            | *spring.cloud.azure.eventhubs.processor*.checkpoint-store.account-name                            |
+> | *spring.cloud.azure.eventhub*.checkpoint-access-key                                 | *spring.cloud.azure.eventhubs.processor*.checkpoint-store.account-key                             |
+> | *spring.cloud.azure.eventhub*.checkpoint-container                                  | *spring.cloud.azure.eventhubs.processor*.checkpoint-store.container-name                          |
+> | *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.max-batch-size      | *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.batch.max-size                   |
+> | *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.max-wait-time       | *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.batch.max-wait-time              |
+> | *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.checkpoint-mode     | *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.checkpoint.mode                  |
+> | *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.checkpoint-count    | *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.checkpoint.count                 |
+> | *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.checkpoint-interval | *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.checkpoint.interval              |
+> | *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.start-position       | *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.initial-partition-event-position |
 
 > [!NOTE]
 > The value type of the `start-position` configuration is also changed from an enum of `com.azure.spring.integration.core.api.StartPosition` to a `map` of `StartPositionProperties` for each partition. Thus, the key is the partition ID, and the value is of `com.azure.spring.cloud.service.eventhubs.properties.StartPositionProperties` which includes properties of offset, sequence number, enqueued date time and whether inclusive.
@@ -1372,7 +1372,7 @@ The following table lists the new configuration properties of `spring-cloud-azur
 > [!div class="mx-tdBreakAll"]
 > | Modern properties                                                             | Description                                                                                            |
 > |-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-> |  *spring.cloud.stream.servicebus*.bindings.binding-name.producer.entity-type | If you use the sending function, you need to set the entity-type, which you can set to topic or queue. |
+> | *spring.cloud.stream.servicebus*.bindings.binding-name.producer.entity-type | If you use the sending function, you need to set the entity-type, which you can set to topic or queue. |
 
 The following table shows the property mappings from `azure-spring-cloud-stream-binder-servicebus-*` to `spring-cloud-azure-stream-binder-servicebus`:
 
@@ -1386,10 +1386,10 @@ The following table shows the property mappings from `azure-spring-cloud-stream-
 > | *spring.cloud.azure.servicebus*.retry-options.delay                                       | *spring.cloud.azure.servicebus*.retry.exponential.base-delay or  *spring.cloud.azure.servicebus*.retry.fixed.delay, should be configured depending on  *spring.cloud.azure.servicebus*.retry.mode=*fixed* or  *exponential*        |
 > | *spring.cloud.azure.servicebus*.retry-options.max-delay                                   | *spring.cloud.azure.servicebus*.retry.exponential.max-delay                                                                                                                                                                      |
 > | *spring.cloud.azure.servicebus*.retry-options.try-timeout                                 | *spring.cloud.azure.servicebus*.retry.try-timeout                                                                                                                                                                                |
-> |  *spring.cloud.stream.servicebus*.queue.bindings.*                                        |  *spring.cloud.stream.servicebus.bindings*.*                                                                                                                                                                                     |
+> | *spring.cloud.stream.servicebus*.queue.bindings.*                                        | *spring.cloud.stream.servicebus.bindings*.*                                                                                                                                                                                     |
 > | *spring.cloud.stream.servicebus.queue*.bindings.binding-name.consumer.*concurrency*     | *spring.cloud.stream.servicebus*.bindings.binding-name.consumer.max-concurrent-sessions/max-concurrent-calls                                                                                                                   |
 > | *spring.cloud.stream.servicebus.queue*.bindings.binding-name.consumer.*checkpoint-mode* | *spring.cloud.stream.servicebus*.bindings.binding-name.consumer.*auto-complete*                                                                                                                                                |
-> |  *spring.cloud.stream.servicebus*.topic.bindings.*                                        |  *spring.cloud.stream.servicebus.bindings*.*                                                                                                                                                                                     |
+> | *spring.cloud.stream.servicebus*.topic.bindings.*                                        | *spring.cloud.stream.servicebus.bindings*.*                                                                                                                                                                                     |
 > | *spring.cloud.stream.servicebus.topic*.bindings.binding-name.consumer.*concurrency*     | *spring.cloud.stream.servicebus*.bindings.binding-name.consumer.max-concurrent-sessions/max-concurrent-calls                                                                                                                   |
 > | *spring.cloud.stream.servicebus.topic*.bindings.binding-name.consumer.*checkpoint-mode* | *spring.cloud.stream.servicebus*.bindings.binding-name.consumer.*auto-complete*                                                                                                                                                |
 
