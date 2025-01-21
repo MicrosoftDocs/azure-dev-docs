@@ -81,29 +81,29 @@ To use a Redis cache to store and retrieve data, configure the application by us
 
 1. Configure Redis cache credentials in the **application.properties** configuration file, as shown in the following example.
 
-::: zone pivot="azure-managed-redis"
+   ::: zone pivot="azure-managed-redis"
 
-   ```properties
-   spring.data.redis.host=<your-redis-name>.redis.cache.windows.net
-   spring.data.redis.port=10000
-   spring.data.redis.username=<your-redis-username>
-   spring.data.redis.ssl.enabled=true
-   spring.data.redis.azure.passwordless-enabled=true
-   ```
+     ```properties
+     spring.data.redis.host=<your-redis-name>.redis.cache.windows.net
+     spring.data.redis.port=10000
+     spring.data.redis.username=<your-redis-username>
+     spring.data.redis.ssl.enabled=true
+     spring.data.redis.azure.passwordless-enabled=true
+     ```
 
-::: zone-end
+   ::: zone-end
 
-::: zone pivot="azure-cache-redis"
+   ::: zone pivot="azure-cache-redis"
 
-   ```properties
-   spring.data.redis.host=<your-redis-name>.redis.cache.windows.net
-   spring.data.redis.port=6380
-   spring.data.redis.username=<your-redis-username>
-   spring.data.redis.ssl.enabled=true
-   spring.data.redis.azure.passwordless-enabled=true
-   ```
+     ```properties
+     spring.data.redis.host=<your-redis-name>.redis.cache.windows.net
+     spring.data.redis.port=6380
+     spring.data.redis.username=<your-redis-username>
+     spring.data.redis.ssl.enabled=true
+     spring.data.redis.azure.passwordless-enabled=true
+     ```
 
-::: zone-end
+   ::: zone-end
 
    > [!NOTE]
    > To get the value for `username`, follow the instructions in the [Enable Microsoft Entra ID authentication on your cache](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication#enable-microsoft-entra-id-authentication-on-your-cache) section of [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication), and copy the **username** value.
