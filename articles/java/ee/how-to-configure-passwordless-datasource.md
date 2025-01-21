@@ -263,7 +263,7 @@ echo "Client id: ${CLIENT_ID}"
 
 ## Create a database user for your managed identity
 
-First, you're required to create a firewall rule to access the MySQL server from your CLI client. Run the following commands to get your current IP address:
+First, you're required to create a firewall rule to access the database server from your CLI client. Run the following commands to get your current IP address:
 
 ```bash
 export MY_IP=$(curl http://whatismyip.akamai.com)
