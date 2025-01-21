@@ -258,7 +258,6 @@ export CLIENT_ID=$(az identity show \
     --name myManagedIdentity \
     --query clientId \
     --output tsv)
-echo "Client id: ${CLIENT_ID}"
 ```
 
 ## Create a database user for your managed identity
