@@ -14,7 +14,7 @@ This guide helps with migration to Spring Cloud Azure 4.0 from legacy Azure Spri
 
 ## Introduction
 
-We'll call libraries whose group ID and artifact ID follow the pattern `com.azure.spring:spring-cloud-azure-*` the **modern** libraries, and those with pattern `com.azure.spring:azure-spring-boot-*`, `com.azure.spring:azure-spring-cloud-*`, or `com.azure.spring:azure-spring-integration-*` the *legacy* libraries.
+We'll call libraries whose group ID and artifact ID follow the pattern `com.azure.spring:spring-cloud-azure-*` the *modern* libraries, and those with pattern `com.azure.spring:azure-spring-boot-*`, `com.azure.spring:azure-spring-cloud-*`, or `com.azure.spring:azure-spring-integration-*` the *legacy* libraries.
 
 This guide will focus on side-by-side comparisons for similar configurations between the modern and legacy libraries.
 
@@ -152,7 +152,7 @@ A chained credential, the `DefaultAzureCredential` bean is auto-configured by de
 
 ### Properties migration
 
-We've created an *additional-spring-configuration-metadata.json* file to smooth the property migration when using with `spring-boot-properties-migrator`. First, add the following property migrator to your application:
+We've created an **additional-spring-configuration-metadata.json** file to smooth the property migration when using with `spring-boot-properties-migrator`. First, add the following property migrator to your application:
 
 ```xml
 <dependency>
@@ -162,15 +162,15 @@ We've created an *additional-spring-configuration-metadata.json* file to smooth 
 </dependency>
 ```
 
-Or, if you’re using Gradle:
+Or, if you're using Gradle:
 
 ```shell
 runtime("org.springframework.boot:spring-boot-properties-migrator")
 ```
 
-If you run the app, it will identify the properties that are no longer managed by Spring Cloud Azure. If there's a replacement, it will temporarily remap the property for you with a warning. If there isn’t a replacement, an error report will give you more information. Either way, the configuration has to be updated and the dependency removed once you've updated the configuration.
+If you run the app, it will identify the properties that are no longer managed by Spring Cloud Azure. If there's a replacement, it will temporarily remap the property for you with a warning. If there isn't a replacement, an error report will give you more information. Either way, the configuration has to be updated and the dependency removed once you've updated the configuration.
 
-Before you move on, it's a good idea to use the search feature of your IDE to double-check that you aren’t using one of the properties you’ve migrated in an integration test.
+Before you move on, it's a good idea to use the search feature of your IDE to double-check that you aren't using one of the properties you've migrated in an integration test.
 
 > [!NOTE]
 > We've changed many configuration properties in this change. Using the `spring-boot-properties-migrator` will help smooth your migration.
@@ -185,7 +185,7 @@ The modern `spring-cloud-azure-starter` enables you to define properties that ap
 | *spring.cloud.azure*.credential | Configures how to authenticate with Microsoft Entra ID.   |
 | *spring.cloud.azure*.profile    | Configures the Azure cloud environment.                       |
 | *spring.cloud.azure*.proxy      | Configures the proxy options, apply to all Azure SDK clients. |
-| *spring.cloud.azure*.retry      | Configures the retry options, apply to all Azure SDK clients. The retry options have supported part of the SDKs, there’s no `spring.cloud.azure.cosmos.retry`. |
+| *spring.cloud.azure*.retry      | Configures the retry options, apply to all Azure SDK clients. The retry options have supported part of the SDKs, there's no `spring.cloud.azure.cosmos.retry`. |
 
 For a full list of configurations, see [Spring Cloud Azure configuration properties](./configuration-properties-all.md).
 
@@ -282,7 +282,7 @@ The following table shows the Removed dependencies:
 
 This section includes the changes about the properties added, removed and changed.
 
-* *The following two points are the main to pay your attention to*:
+* The following two points are the main to pay your attention to:
 1. All configuration property names' prefix changed from `azure.activedirectory` to `spring.cloud.azure.active-directory`.
 1. New property `spring.cloud.azure.active-directory.enabled` is added to enable/disable Microsoft Entra related features. The default value is `false`.
 
@@ -317,21 +317,21 @@ The following table shows the property mappings between `azure-spring-boot-start
 > | azure.activedirectory.user-group.allowed-group-names                                   | spring.cloud.azure.active-directory.user-group.allowed-group-names                                   |
 > | azure.activedirectory.user-name-attribute                                              | spring.cloud.azure.active-directory.user-name-attribute                                              |
 
-* *The value type of the following properties is changed from `long` to `Duration`*:
+* The value type of the following properties is changed from `long` to `Duration`:
 
     * `jwt-connect-timeout`
     * `jwt-read-timeout`
     * `jwk-set-cache-lifespan`
     * `jwk-set-cache-refresh-time`.
 
-* *The following properties are removed*:
+* The following properties are removed:
 
     * azure.activedirectory.allow-telemetry
     * azure.activedirectory.user-group.enable-full-list
     * azure.activedirectory.graph-base-uri
     * azure.activedirectory.graph-membership-uri
 
-* *The following properties are added*:
+* The following properties are added:
 
     * spring.cloud.azure.active-directory.enabled
     * spring.cloud.azure.active-directory.profile.environment.microsoft-graph-endpoint
@@ -342,7 +342,7 @@ The following table shows the property mappings between `azure-spring-boot-start
 
 Here are some examples of migration:
 
-* *Example 1. Case 1*
+* Example 1. Case 1
 
   * For legacy:
     azure.activedirectory.graph-membership-uri=https://graph.microsoft.com/v1.0/me/memberOf
@@ -351,7 +351,7 @@ Here are some examples of migration:
     spring.cloud.azure.active-directory.profile.environment.microsoft-graph-endpoint=`https://graph.microsoft.com/` +
     spring.cloud.azure.active-directory.user-group.use-transitive-members=`false`
 
-* *Example 2. Case 2*
+* Example 2. Case 2
 
   * For legacy:
     azure.activedirectory.graph-membership-uri=https://graph.microsoft.com/v1.0/me/transitiveMemberOf
@@ -385,7 +385,7 @@ The following table shows the class mappings from `azure-spring-boot-starter-act
 
 This section lists the removed classes from azure-spring-boot-starter-active-directory.
 
-* *Removed legacy class*
+* Removed legacy class
 
   * com.azure.spring.aad.webapp.AADHandleConditionalAccessFilter
   * com.azure.spring.aad.webapi.validator.AADJwtAudienceValidator
@@ -431,7 +431,7 @@ The following table shows the property mappings from `azure-spring-boot-starter-
 > |-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 > | *azure.activedirectory.b2c*.authenticate-additional-parameters                                | *spring.cloud.azure.active-directory.b2c*.authenticate-additional-parameters                                 |
 > | *azure.activedirectory.b2c*.authorization-clients                                             | *spring.cloud.azure.active-directory.b2c*.authorization-clients                                              |
-> |*azure.activedirectory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.authorization-grant-type | *spring.cloud.azure.active-directory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.authorization-grant-type |
+> | *azure.activedirectory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.authorization-grant-type | *spring.cloud.azure.active-directory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.authorization-grant-type |
 > | *azure.activedirectory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.scopes                  | *spring.cloud.azure.active-directory.b2c*.authorization-clients.<AZURE_CLIENT_NAME>.scopes                   |
 > | *azure.activedirectory.b2c*.app-id-uri                                                        | *spring.cloud.azure.active-directory.b2c*.app-id-uri                                                         |
 > | *azure.activedirectory.b2c*.base-uri                                                          | *spring.cloud.azure.active-directory.b2c*.base-uri                                                           |
@@ -494,12 +494,12 @@ The following table shows the class mappings from `azure-spring-boot-starter-cos
 > [!div class="mx-tdBreakAll"]
 > | Legacy properties                    | Modern properties                                 |
 > |--------------------------------------|---------------------------------------------------|
-> |*azure.cosmos*.connection-mode        |*spring.cloud.azure.cosmos*.connection-mode        |
-> |*azure.cosmos*.consistency-level      |*spring.cloud.azure.cosmos*.consistency-level      |
-> |*azure.cosmos*.database               |*spring.cloud.azure.cosmos*.database               |
-> |*azure.cosmos*.key                    |*spring.cloud.azure.cosmos*.key                    |
-> |*azure.cosmos*.populate-query-metrics |*spring.cloud.azure.cosmos*.populate-query-metrics |
-> |*azure.cosmos*.uri                    |*spring.cloud.azure.cosmos*.endpoint               |
+> | *azure.cosmos*.connection-mode        | *spring.cloud.azure.cosmos*.connection-mode        |
+> | *azure.cosmos*.consistency-level      | *spring.cloud.azure.cosmos*.consistency-level      |
+> | *azure.cosmos*.database               | *spring.cloud.azure.cosmos*.database               |
+> | *azure.cosmos*.key                    | *spring.cloud.azure.cosmos*.key                    |
+> | *azure.cosmos*.populate-query-metrics | *spring.cloud.azure.cosmos*.populate-query-metrics |
+> | *azure.cosmos*.uri                    | *spring.cloud.azure.cosmos*.endpoint               |
 
 ### From azure-spring-boot-starter-keyvault-secrets to spring-cloud-azure-starter-keyvault-secrets
 
@@ -528,7 +528,7 @@ The following table shows the property mappings from `azure-spring-boot-starter-
 > | *azure.keyvault*.certificate-path     | *spring.cloud.azure.keyvault.secret*.property-source[n].credential.client-certificate-path                                    |
 > | *azure.keyvault*.client-id            | *spring.cloud.azure.keyvault.secret*.property-source[n].credential.client-id                                                  |
 > | *azure.keyvault*.client-key           | *spring.cloud.azure.keyvault.secret*.property-source[n].credential.client-secret                                              |
-> | *azure.keyvault*.enabled              | *spring.cloud.azure.keyvault.secret*.property-source-enabled and *spring.cloud.azure.keyvault.secret*.property-source-enabled |
+> | *azure.keyvault*.enabled              | *spring.cloud.azure.keyvault.secret*.property-source-enabled and  *spring.cloud.azure.keyvault.secret*.property-source-enabled |
 > | *azure.keyvault*.order                | No longer supported. Use the order in property-source[n] instead.                                                             |
 > | *azure.keyvault*.refresh-interval     | *spring.cloud.azure.keyvault.secret*.property-source[n].refresh-interval                                                      |
 > | *azure.keyvault*.secret-keys          | *spring.cloud.azure.keyvault.secret*.property-source[n].secret-keys                                                           |
@@ -894,13 +894,13 @@ The following table shows the property mappings from `azure-spring-cloud-starter
 > [!div class="mx-tdBreakAll"]
 > | Legacy properties                                        | Modern properties                                                                                                                                                                                                              |
 > |----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> |*spring.cloud.azure*.resource-group                       |*spring.cloud.azure.servicebus*.resource.resource-group                                                                                                                                                                         |
-> |*spring.cloud.azure.servicebus*.transport-type            |*spring.cloud.azure.servicebus*.client.transport-type                                                                                                                                                                           |
-> |*spring.cloud.azure.servicebus*.retry-options.retry-mode  |*spring.cloud.azure.servicebus*.retry.mode                                                                                                                                                                                      |
-> |*spring.cloud.azure.servicebus*.retry-options.max-retries |*spring.cloud.azure.servicebus*.retry.exponential.max-retries or *spring.cloud.azure.servicebus*.retry.fixed.max-retries, should be configured depending on *spring.cloud.azure.servicebus*.retry.mode=*fixed* or *exponential* |
-> |*spring.cloud.azure.servicebus*.retry-options.delay       |*spring.cloud.azure.servicebus*.retry.exponential.base-delay or *spring.cloud.azure.servicebus*.retry.fixed.delay, should be configured depending on *spring.cloud.azure.servicebus*.retry.mode=*fixed* or *exponential*  |
-> |*spring.cloud.azure.servicebus*.retry-options.max-delay   |*spring.cloud.azure.servicebus*.retry.exponential.max-delay                                                                                                                                                                     |
-> |*spring.cloud.azure.servicebus*.retry-options.try-timeout |*spring.cloud.azure.servicebus*.retry.try-timeout                                                                                                                                                                               |
+> | *spring.cloud.azure*.resource-group                       | *spring.cloud.azure.servicebus*.resource.resource-group                                                                                                                                                                         |
+> | *spring.cloud.azure.servicebus*.transport-type            | *spring.cloud.azure.servicebus*.client.transport-type                                                                                                                                                                           |
+> | *spring.cloud.azure.servicebus*.retry-options.retry-mode  | *spring.cloud.azure.servicebus*.retry.mode                                                                                                                                                                                      |
+> | *spring.cloud.azure.servicebus*.retry-options.max-retries | *spring.cloud.azure.servicebus*.retry.exponential.max-retries or  *spring.cloud.azure.servicebus*.retry.fixed.max-retries, should be configured depending on  *spring.cloud.azure.servicebus*.retry.mode=*fixed* or  *exponential* |
+> | *spring.cloud.azure.servicebus*.retry-options.delay       | *spring.cloud.azure.servicebus*.retry.exponential.base-delay or  *spring.cloud.azure.servicebus*.retry.fixed.delay, should be configured depending on  *spring.cloud.azure.servicebus*.retry.mode=*fixed* or  *exponential*  |
+> | *spring.cloud.azure.servicebus*.retry-options.max-delay   | *spring.cloud.azure.servicebus*.retry.exponential.max-delay                                                                                                                                                                     |
+> | *spring.cloud.azure.servicebus*.retry-options.try-timeout | *spring.cloud.azure.servicebus*.retry.try-timeout                                                                                                                                                                               |
 
 #### API changes
 
@@ -1189,12 +1189,12 @@ The following table shows property mappings from `azure-spring-cloud-stream-bind
 > | *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.checkpoint-mode     | *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.checkpoint.mode                  |
 > | *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.checkpoint-count    | *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.checkpoint.count                 |
 > | *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.checkpoint-interval | *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.checkpoint.interval              |
-> |*spring.cloud.stream.eventhub.bindings.binding-name.consumer*.start-position       | *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.initial-partition-event-position |
+> | *spring.cloud.stream.eventhub.bindings.binding-name.consumer*.start-position       | *spring.cloud.stream.eventhubs.bindings.binding-name.consumer*.initial-partition-event-position |
 
 > [!NOTE]
 > The value type of the `start-position` configuration is also changed from an enum of `com.azure.spring.integration.core.api.StartPosition` to a `map` of `StartPositionProperties` for each partition. Thus, the key is the partition ID, and the value is of `com.azure.spring.cloud.service.eventhubs.properties.StartPositionProperties` which includes properties of offset, sequence number, enqueued date time and whether inclusive.
 
-*Configuration migration examples*
+Configuration migration examples
 
 To use the connection string for authentication and migrate the above mentioned properties, configuration changes are listed the follows:
 
@@ -1379,19 +1379,19 @@ The following table shows the property mappings from `azure-spring-cloud-stream-
 > [!div class="mx-tdBreakAll"]
 > | Legacy properties                                 | Modern properties                                                                                                                                                                                                                                                      |
 > |---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> |*spring.cloud.azure*.resource-group                                                       |*spring.cloud.azure.servicebus*.resource.resource-group                                                                                                                                                                          |
-> |*spring.cloud.azure.servicebus*.transport-type                                            |*spring.cloud.azure.servicebus*.client.transport-type                                                                                                                                                                            |
-> |*spring.cloud.azure.servicebus*.retry-options.retry-mode                                  |*spring.cloud.azure.servicebus*.retry.mode                                                                                                                                                                                       |
-> |*spring.cloud.azure.servicebus*.retry-options.max-retries                                 |*spring.cloud.azure.servicebus*.retry.exponential.max-retries or *spring.cloud.azure.servicebus*.retry.fixed.max-retries, should be configured depending on *spring.cloud.azure.servicebus*.retry.mode=*fixed* or *exponential* |
-> |*spring.cloud.azure.servicebus*.retry-options.delay                                       |*spring.cloud.azure.servicebus*.retry.exponential.base-delay or *spring.cloud.azure.servicebus*.retry.fixed.delay, should be configured depending on *spring.cloud.azure.servicebus*.retry.mode=*fixed* or *exponential*        |
-> |*spring.cloud.azure.servicebus*.retry-options.max-delay                                   |*spring.cloud.azure.servicebus*.retry.exponential.max-delay                                                                                                                                                                      |
-> |*spring.cloud.azure.servicebus*.retry-options.try-timeout                                 |*spring.cloud.azure.servicebus*.retry.try-timeout                                                                                                                                                                                |
+> | *spring.cloud.azure*.resource-group                                                       | *spring.cloud.azure.servicebus*.resource.resource-group                                                                                                                                                                          |
+> | *spring.cloud.azure.servicebus*.transport-type                                            | *spring.cloud.azure.servicebus*.client.transport-type                                                                                                                                                                            |
+> | *spring.cloud.azure.servicebus*.retry-options.retry-mode                                  | *spring.cloud.azure.servicebus*.retry.mode                                                                                                                                                                                       |
+> | *spring.cloud.azure.servicebus*.retry-options.max-retries                                 | *spring.cloud.azure.servicebus*.retry.exponential.max-retries or  *spring.cloud.azure.servicebus*.retry.fixed.max-retries, should be configured depending on  *spring.cloud.azure.servicebus*.retry.mode=*fixed* or  *exponential* |
+> | *spring.cloud.azure.servicebus*.retry-options.delay                                       | *spring.cloud.azure.servicebus*.retry.exponential.base-delay or  *spring.cloud.azure.servicebus*.retry.fixed.delay, should be configured depending on  *spring.cloud.azure.servicebus*.retry.mode=*fixed* or  *exponential*        |
+> | *spring.cloud.azure.servicebus*.retry-options.max-delay                                   | *spring.cloud.azure.servicebus*.retry.exponential.max-delay                                                                                                                                                                      |
+> | *spring.cloud.azure.servicebus*.retry-options.try-timeout                                 | *spring.cloud.azure.servicebus*.retry.try-timeout                                                                                                                                                                                |
 > | *spring.cloud.stream.servicebus*.queue.bindings.*                                        | *spring.cloud.stream.servicebus.bindings*.*                                                                                                                                                                                     |
-> |*spring.cloud.stream.servicebus.queue*.bindings.binding-name.consumer.*concurrency*     |*spring.cloud.stream.servicebus*.bindings.binding-name.consumer.max-concurrent-sessions/max-concurrent-calls                                                                                                                   |
-> |*spring.cloud.stream.servicebus.queue*.bindings.binding-name.consumer.*checkpoint-mode* |*spring.cloud.stream.servicebus*.bindings.binding-name.consumer.*auto-complete*                                                                                                                                                |
+> | *spring.cloud.stream.servicebus.queue*.bindings.binding-name.consumer.*concurrency*     | *spring.cloud.stream.servicebus*.bindings.binding-name.consumer.max-concurrent-sessions/max-concurrent-calls                                                                                                                   |
+> | *spring.cloud.stream.servicebus.queue*.bindings.binding-name.consumer.*checkpoint-mode* | *spring.cloud.stream.servicebus*.bindings.binding-name.consumer.*auto-complete*                                                                                                                                                |
 > | *spring.cloud.stream.servicebus*.topic.bindings.*                                        | *spring.cloud.stream.servicebus.bindings*.*                                                                                                                                                                                     |
-> |*spring.cloud.stream.servicebus.topic*.bindings.binding-name.consumer.*concurrency*     |*spring.cloud.stream.servicebus*.bindings.binding-name.consumer.max-concurrent-sessions/max-concurrent-calls                                                                                                                   |
-> |*spring.cloud.stream.servicebus.topic*.bindings.binding-name.consumer.*checkpoint-mode* |*spring.cloud.stream.servicebus*.bindings.binding-name.consumer.*auto-complete*                                                                                                                                                |
+> | *spring.cloud.stream.servicebus.topic*.bindings.binding-name.consumer.*concurrency*     | *spring.cloud.stream.servicebus*.bindings.binding-name.consumer.max-concurrent-sessions/max-concurrent-calls                                                                                                                   |
+> | *spring.cloud.stream.servicebus.topic*.bindings.binding-name.consumer.*checkpoint-mode* | *spring.cloud.stream.servicebus*.bindings.binding-name.consumer.*auto-complete*                                                                                                                                                |
 
 > [!NOTE]
 > The concurrency property will be replaced by the maxConcurrentSessions when sessionsEnabled is `true` and the maxConcurrentCalls when sessionsEnabled is `false`.
@@ -1399,7 +1399,7 @@ The following table shows the property mappings from `azure-spring-cloud-stream-
 > [!NOTE]
 > Enabling auto-complete is equal to `RECORD` checkpoint mode, and oppositely the `MANUAL` mode.
 
-*Configuration migration examples*
+Configuration migration examples
 
 Legacy configuration, taking queue as example:
 

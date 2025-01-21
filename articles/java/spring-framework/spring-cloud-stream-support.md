@@ -197,7 +197,7 @@ The above [connection](#connection-configuration-properties) and [common Azure S
 
 1. Fill the configuration options with credential information.
 
-   * For credentials as connection string, configure the following properties in your *application.yml* file:
+   * For credentials as connection string, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -227,7 +227,7 @@ The above [connection](#connection-configuration-properties) and [common Azure S
                      mode: MANUAL
      ```
 
-   * For credentials as service principal, configure the following properties in your *application.yml* file:
+   * For credentials as service principal, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -264,7 +264,7 @@ The above [connection](#connection-configuration-properties) and [common Azure S
 > [!NOTE]
 > The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
-   * For credentials as managed identities, configure the following properties in your *application.yml* file:
+   * For credentials as managed identities, configure the following properties in your **application.yml** file:
 
      ```yaml
      spring:
@@ -572,7 +572,7 @@ For the basic message headers supported, see the [Event Hubs message headers](sp
 
 Connection to multiple Event Hubs namespaces is also supported by using multiple binders. This sample takes a connection string as example. Credentials of service principals and managed identities are also supported. You can set related properties in each binder's environment settings.
 
-1. To use multiple binders with Event Hubs, configure the following properties in your *application.yml* file:
+1. To use multiple binders with Event Hubs, configure the following properties in your **application.yml** file:
 
    ```yaml
    spring:
@@ -837,7 +837,7 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
 
 1. Fill the configuration options with credential information.
 
-   * For credentials as connection string, configure the following properties in your *application.yml* file:
+   * For credentials as connection string, configure the following properties in your **application.yml** file:
 
      ```yaml
          spring:
@@ -865,7 +865,7 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
                        entity-type: queue # set as "topic" if you use Service Bus Topic
      ```
 
-   * For credentials as service principal, configure the following properties in your *application.yml* file:
+   * For credentials as service principal, configure the following properties in your **application.yml** file:
 
      ```yaml
          spring:
@@ -901,7 +901,7 @@ The above [connection](#connection-configuration-properties-1) and [common Azure
 > [!NOTE]
 > The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
-   * For credentials as managed identities, configure the following properties in your *application.yml* file:
+   * For credentials as managed identities, configure the following properties in your **application.yml** file:
 
      ```yaml
          spring:
@@ -1153,7 +1153,7 @@ For the basic message headers supported, see the [Service Bus message headers](s
 
 Connection to multiple Service Bus namespaces is also supported by using multiple binders. This sample takes connection string as example. Credentials of service principals and managed identities are also supported, users can set related properties in each binder's environment settings.
 
-1. To use multiple binders of ServiceBus, configure the following properties in your *application.yml* file:
+1. To use multiple binders of ServiceBus, configure the following properties in your **application.yml** file:
 
    ```yaml
    spring:

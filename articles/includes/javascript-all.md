@@ -79,7 +79,7 @@
 | Key Vault - Keys | npm [4.9.0](https://www.npmjs.com/package/@azure/keyvault-keys/v/4.9.0) | [docs](/javascript/api/overview/azure/keyvault-keys-readme) | GitHub [4.9.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.9.0/sdk/keyvault/keyvault-keys/) |
 | Key Vault - Secrets | npm [4.9.0](https://www.npmjs.com/package/@azure/keyvault-secrets/v/4.9.0) | [docs](/javascript/api/overview/azure/keyvault-secrets-readme) | GitHub [4.9.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.9.0/sdk/keyvault/keyvault-secrets/) |
 | Language Text | npm [1.1.0](https://www.npmjs.com/package/@azure/ai-language-text/v/1.1.0) | [docs](/javascript/api/overview/azure/ai-language-text-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-language-text_1.1.0/sdk/cognitivelanguage/ai-language-text/) |
-| Load Testing | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/load-testing/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/load-testing_1.0.0/sdk/loadtesting/load-testing-rest/) |
+| Load Testing | npm [1.0.1](https://www.npmjs.com/package/@azure-rest/load-testing/v/1.0.1) |  | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/load-testing_1.0.1/sdk/loadtesting/load-testing-rest/) |
 | Managed Private Endpoints | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/synapse-managed-private-endpoints/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/synapse-managed-private-endpoints-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-managed-private-endpoints_1.0.0-beta.4/sdk/synapse/synapse-managed-private-endpoints/) |
 | Maps Common | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/maps-common/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/maps-common-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/maps-common_1.0.0-beta.2/sdk/maps/maps-common/) |
 | Maps Geolocation | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure-rest/maps-geolocation/v/1.0.0-beta.4) |  | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-geolocation_1.0.0-beta.4/sdk/maps/maps-geolocation-rest/) |
@@ -370,7 +370,7 @@
 | Resource Management - Workloads SAP Virtual Instance | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-workloadssapvirtualinstance/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-workloadssapvirtualinstance-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-workloadssapvirtualinstance_1.0.0-beta.1/sdk/workloads/arm-workloadssapvirtualinstance/) |
 | Resource Management - Workspaces | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-workspaces/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-workspaces-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-workspaces) |
 | Resource Management - Template Specs | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-templatespecs/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-templatespecs-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-templatespecs_2.1.0/sdk/templatespecs/arm-templatespecs/) |
-| @autorest/openapi-to-typespec | npm [0.10.6](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.10.6) |  |  |
+| @autorest/openapi-to-typespec | npm [0.10.7](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.10.7) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
 | @azure-tools/rest-api-diff | npm [0.1.8](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.1.8) |  |  |
 | @azure-tools/test-perf | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
@@ -378,7 +378,7 @@
 | @azure-tools/typespec-autorest-canonical | npm [0.11.0](https://www.npmjs.com/package/@azure-tools/typespec-autorest-canonical/v/0.11.0) |  |  |
 | @azure-tools/typespec-azure-portal-core | npm [0.50.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.50.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.50.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.50.0) |  |  |
-| @azure-tools/typespec-client-generator-cli | npm [0.15.1](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.15.1) |  |  |
+| @azure-tools/typespec-client-generator-cli | npm [0.15.3](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.15.3) |  |  |
 | @azure-tools/typespec-go | npm [0.3.5](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.5) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.7.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
@@ -405,10 +405,10 @@
 | tmlanguage-generator | npm [0.5.10](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.10) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/maps-timezone/v/1.0.0-beta.1) |  |  |
 | Unknown Display Name | npm [0.1.3](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.1.3) |  |  |
-| Unknown Display Name | npm [0.6.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.6.0) |  |  |
+| Unknown Display Name | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.7.0) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/ai-projects/v/1.0.0-beta.2) |  |  |
 | Unknown Display Name | npm [0.64.0](https://www.npmjs.com/package/@typespec/events/v/0.64.0) |  |  |
-| Unknown Display Name | npm [0.1.7](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.7) |  |  |
+| Unknown Display Name | npm [0.1.9](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.9) |  |  |
 | Unknown Display Name | npm [0.6.6](https://www.npmjs.com/package/@typespec/http-client-python/v/0.6.6) |  |  |
 | Unknown Display Name | npm [0.1.0-alpha.7](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.7) |  |  |
 | Unknown Display Name | npm [0.64.0](https://www.npmjs.com/package/@typespec/sse/v/0.64.0) |  |  |

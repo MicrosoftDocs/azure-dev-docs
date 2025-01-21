@@ -127,7 +127,7 @@ The following table shows the Spring Boot Kafka common configuration options:
 > | spring.kafka.properties.azure.credential.client-certificate-path                                             | Path of a PEM certificate file to use when performing service principal authentication with Azure.                                                                                                     |
 > | spring.kafka.properties.azure.credential.client-id                                                           | Client ID to use when performing service principal authentication with Azure. This is a legacy property.                                                                                               |
 > | spring.kafka.properties.azure.credential.client-secret                                                       | Client secret to use when performing service principal authentication with Azure. This is a legacy property.                                                                                           |
-> | spring.kafka.properties.azure.credential.managed-identity-enabled                                            | Whether to enable managed identity to authenticate with Azure. If *true* and the `client-id` is set, will use the client ID as user assigned managed identity client ID. The default value is *false*. |
+> | spring.kafka.properties.azure.credential.managed-identity-enabled                                            | Whether to enable managed identity to authenticate with Azure. If `true` and the `client-id` is set, will use the client ID as user assigned managed identity client ID. The default value is `false`. |
 > | spring.kafka.properties.azure.credential.password                                                            | Password to use when performing username/password authentication with Azure.                                                                                                                           |
 > | spring.kafka.properties.azure.credential.username                                                            | Username to use when performing username/password authentication with Azure.                                                                                                                           |
 > | spring.kafka.properties.azure.profile.environment.active-directory-endpoint                                  | The Microsoft Entra endpoint to connect to.                                                                                                                                                     |
@@ -149,7 +149,7 @@ The following table shows the Spring Boot Event Hubs for Kafka common configurat
 > [!div class="mx-tdBreakAll"]
 > | Property                                                 | Description                                                                                                                                               |
 > |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | **spring.cloud.azure.eventhubs**.kafka.enabled           | Whether to enable the Azure Event Hubs Kafka support. The default value is *true*.                                                                        |
+> | **spring.cloud.azure.eventhubs**.kafka.enabled           | Whether to enable the Azure Event Hubs Kafka support. The default value is `true`.                                                                        |
 > | **spring.cloud.azure.eventhubs**.connection-string       | Azure Event Hubs connection string. Provide this value when you want to provide the connection string directly.                                           |
 > | **spring.cloud.azure.eventhubs**.namespace               | Azure Event Hubs namespace. Provide this value when you want to retrieve the connection information through Azure Resource Manager.                       |
 > | **spring.cloud.azure.eventhubs**.resource.resource-group | The resource group of Azure Event Hubs namespace. Provide this value when you want to retrieve the connection information through Azure Resource Manager. |
@@ -251,7 +251,7 @@ spring.cloud.stream.kafka.binder.brokers=<NAMESPACENAME>.servicebus.windows.net:
 
 1. To use the managed identity, you need enable the managed identity for your service and assign the `Azure Event Hubs Data Receiver` and `Azure Event Hubs Data Sender` roles. For more information, see [Assign Azure roles for access rights](/azure/event-hubs/authorize-access-azure-active-directory#assign-azure-roles-for-access-rights).
 
-1. Configure the following properties in your *application.yml* file:
+1. Configure the following properties in your **application.yml** file:
 
    ```yaml
    spring:
