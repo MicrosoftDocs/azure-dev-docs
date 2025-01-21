@@ -150,12 +150,29 @@ To use a Redis cache to store and retrieve data, configure the application by us
 
 1. Configure Redis cache credentials in the **application.properties** configuration file, as shown in the following example.
 
-   ```properties
-   spring.data.redis.host=<your-redis-name>.redis.cache.windows.net
-   spring.data.redis.port=6380
-   spring.data.redis.password=<your-redis-password>
-   spring.data.redis.ssl.enabled=true
-   ```
+
+::: zone pivot="azure-managed-redis"
+
+     ```properties
+     spring.data.redis.host=<your-redis-name>.redis.cache.windows.net
+     spring.data.redis.port=10000
+     spring.data.redis.password=<your-redis-password>
+     spring.data.redis.ssl.enabled=true
+     ```
+
+   ::: zone-end
+
+   ::: zone pivot="azure-cache-redis"
+
+     ```properties
+     spring.data.redis.host=<your-redis-name>.redis.cache.windows.net
+     spring.data.redis.port=6380
+     spring.data.redis.password=<your-redis-password>
+     spring.data.redis.ssl.enabled=true
+     ```
+
+   ::: zone-end
+
 
 1. Edit the startup class file to show the following content. This code stores and retrieves data.
 
