@@ -681,7 +681,7 @@ If you're not going to continue to use the WLS clusters and other components, us
 1. In the search box at the top of the Azure portal, enter **Backup vaults** and select the backup vaults from the search results.
 1. Select **Manage** > **Properties** > **Soft delete** > **Update**. Next to **Enable soft Delete**, unselect the checkbox.
 1. Select **Manage** > **Backup instances**. Select the instance you created and delete it.
-1. Enter the resource group name of Azure SQL Database servers (for example, `myResourceGroup`) in the search box at the top of the Azure portal, and select the matched resource group from the search results.
+1. Enter the resource group name of Azure SQL Database servers - for example, `myResourceGroup` - in the search box at the top of the Azure portal, and select the matched resource group from the search results.
 1. Select **Delete resource group**.
 1. In **Enter resource group name to confirm deletion**, enter the resource group name.
 1. Select **Delete**.
