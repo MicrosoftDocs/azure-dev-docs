@@ -97,7 +97,7 @@ The following steps walk you through using the Azure portal to create an Azure C
 
    * **Registry Name**: Specifies the name for the new container registry.
 
-   * **Location**: Specifies the region where your container registry will be created (for example, **West US**).
+   * **Location**: Specifies the region where your container registry will be created - for example, **West US**.
 
    * **SKU**: Specifies the service tier for your container registry. For this tutorial, select **Basic**. For more information, see [Azure Container Registry service tiers](/azure/container-registry/container-registry-skus).
 
@@ -121,9 +121,9 @@ The following steps walk you through configuring Docker support for your web app
 
    * **Container Registry**: Create a new one or choose the container registry from the drop-down menu that you created in the previous section of this article. The fields for **Server URL**, **Username**, and **Password** will be automatically populated.
 
-   * **Image and tag**: Specifies the container image name; typically this will use the following syntax: **\*registry\*.azurecr.io/\*appname\*:latest**, where:
-      * **registry** is your container registry from the previous section of this article
-      * **appname** is the name of your web app
+   * **Image and tag**: Specifies the container image name; typically this will use the following syntax: **\<registry>.azurecr.io/\<appname>:latest**, where:
+      * **\<registry>** is your container registry from the previous section of this article
+      * **\<appname>** is the name of your web app
 
    * **Use Existing Web App** or **Create New Web App**: Specifies whether you will deploy your container to an existing web app or create a new web app. The **App name** that you specify will create the URL for your web app; for example: **wingtiptoys.azurewebsites.net**.
 

@@ -758,7 +758,7 @@ The Azure SDKs for Java offer a consistent logging story to help troubleshoot an
 
 ### Enable Spring logging
 
-Spring enables all the supported logging systems to set logger levels in the Spring environment (for example, in **application.properties**) by using `logging.level.<logger-name>=<level>` where `<level>` is one of `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`, or `OFF`. You can configure the root logger by using `logging.level.root`.
+Spring enables all the supported logging systems to set logger levels in the Spring environment - for example, in **application.properties** - by using `logging.level.<logger-name>=<level>` where `<level>` is one of `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`, or `OFF`. You can configure the root logger by using `logging.level.root`.
 
 The following example shows potential logging settings in the **application.properties** file:
 

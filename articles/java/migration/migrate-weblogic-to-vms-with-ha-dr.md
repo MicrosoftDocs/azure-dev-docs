@@ -37,7 +37,7 @@ Azure Traffic Manager checks the health of your regions and routes the traffic a
 * Make sure you have either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify the assignment by following the steps in [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
 * Prepare a local machine with Windows, Linux, or macOS installed.
 * Install and set up [Git](/devops/develop/git/install-and-set-up-git).
-* Install a Java SE implementation, version 17 or later (for example, [the Microsoft build of OpenJDK](/java/openjdk)).
+* Install a Java SE implementation, version 17 or later - for example, [the Microsoft build of OpenJDK](/java/openjdk).
 * Install [Maven](https://maven.apache.org/download.cgi), version 3.9.3 or later.
 
 ## Set up an Azure SQL Database failover group in paired regions
@@ -340,7 +340,7 @@ Use the same steps in the [Failover to the secondary site](#failover-to-the-seco
 
 If you're not going to continue to use the WLS clusters and other components, use the following steps to delete the resource groups to clean up the resources used in this tutorial:
 
-1. Enter the resource group name of Azure SQL Database servers (for example, `myResourceGroup`) in the search box at the top of the Azure portal, and select the matched resource group from the search results.
+1. Enter the resource group name of Azure SQL Database servers - for example, `myResourceGroup` - in the search box at the top of the Azure portal, and select the matched resource group from the search results.
 1. Select **Delete resource group**.
 1. In **Enter resource group name to confirm deletion**, enter the resource group name.
 1. Select **Delete**.
