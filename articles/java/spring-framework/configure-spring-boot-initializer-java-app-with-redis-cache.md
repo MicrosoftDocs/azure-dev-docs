@@ -35,18 +35,6 @@ Redis authentication uses passwords in Redis. If you choose to use passwords as 
 
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**  and **Spring Data Reactive Redis** dependencies, and then select Java version 8 or higher.
 
-::: zone pivot="azure-managed-redis"
-
-azure-managed-redis
-
-::: zone-end
-
-::: zone pivot="azure-cache-redis"
-
-azure-cache-redis
-
-::: zone-end
-
 ## Caching Data to Azure Cache for Redis
 
 With an Azure Cache for Redis instance, you can cache data using Spring Cloud Azure.
@@ -95,7 +83,12 @@ To use a Redis cache to store and retrieve data, configure the application by us
 
    ```properties
    spring.data.redis.host=<your-redis-name>.redis.cache.windows.net
+   ::: zone pivot="azure-managed-redis"
+   spring.data.redis.port=10000
+   ::: zone-end
+   ::: zone pivot="azure-cache-redis"
    spring.data.redis.port=6380
+   ::: zone-end
    spring.data.redis.username=<your-redis-username>
    spring.data.redis.ssl.enabled=true
    spring.data.redis.azure.passwordless-enabled=true
