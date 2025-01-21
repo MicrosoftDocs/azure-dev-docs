@@ -24,7 +24,7 @@ You can use the following method to create a non-admin user that uses a password
 
 ### [Password](#tab/password)
 
-Create a SQL script called *create_user.sql* for creating a non-admin user. Add the following contents and save it locally:
+Create a SQL script called **create_user.sql** for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
 cat << EOF > create_user.sql
@@ -48,7 +48,7 @@ psql "host=postgresqlsingletest.postgres.database.azure.com user=<your_postgresq
 
 Now that you have an Azure Database for PostgreSQL Single server instance, you can store data by using Spring Cloud Azure.
 
-To install the Spring Cloud Azure Starter JDBC PostgreSQL module, add the following dependencies to your *pom.xml* file:
+To install the Spring Cloud Azure Starter JDBC PostgreSQL module, add the following dependencies to your **pom.xml** file:
 
 - The Spring Cloud Azure Bill of Materials (BOM):
 
@@ -68,7 +68,7 @@ To install the Spring Cloud Azure Starter JDBC PostgreSQL module, add the follow
 
   > [!NOTE]
   > If you're using Spring Boot 2.x, be sure to set the `spring-cloud-azure-dependencies` version to `4.19.0`.
-  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your *pom.xml* file. This ensures that all Spring Cloud Azure dependencies are using the same version.
+  > This Bill of Material (BOM) should be configured in the `<dependencyManagement>` section of your **pom.xml** file. This ensures that all Spring Cloud Azure dependencies are using the same version.
   > For more information about the version used for this BOM, see [Which Version of Spring Cloud Azure Should I Use](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
 
 - The Spring Cloud Azure Starter JDBC PostgreSQL artifact:
