@@ -6,6 +6,7 @@ ms.author: hangwan
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: devx-track-java, spring-cloud-azure, devx-track-extended-java
+zone_pivot_groups: redis-type
 ---
 
 # Use Azure Redis Cache in Spring
@@ -33,6 +34,18 @@ Redis authentication uses passwords in Redis. If you choose to use passwords as 
 - A Redis cache instance. If you don't have one, see [Quickstart: Create an open-source Redis cache](/azure/azure-cache-for-redis/quickstart-create-redis).
 
 - A Spring Boot application. If you don't have one, create a Maven project with the [Spring Initializr](https://start.spring.io/). Be sure to select **Maven Project** and, under **Dependencies**, add the **Spring Web**  and **Spring Data Reactive Redis** dependencies, and then select Java version 8 or higher.
+
+::: zone pivot="azure-managed-redis"
+
+azure-managed-redis
+
+::: zone-end
+
+::: zone pivot="azure-cache-redis"
+
+azure-cache-redis
+
+::: zone-end
 
 ## Caching Data to Azure Cache for Redis
 
