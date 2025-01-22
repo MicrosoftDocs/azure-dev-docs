@@ -40,6 +40,7 @@ The `DefaultAzureCredential` attempts to authenticate via the following mechanis
 
 * Environment - The `DefaultAzureCredential` tries to read account information specified via environment variables and use it to authenticate.
 * Managed Identity - If the application is deployed to an Azure host with Managed Identity enabled, the `DefaultAzureCredential` tries to authenticate with that account.
+* Workload Identity - If the application is deployed to a virtual machines (VMs), the `DefaultAzureCredential` tries to authenticate with that account.
 * Shared Token Cache - If you authenticated via Visual Studio, the `DefaultAzureCredential` tries to authenticate with that account.
 * IntelliJ - If you authenticated via Azure Toolkit for IntelliJ, the `DefaultAzureCredential` tries to authenticate with that account.
 * Azure CLI - If you authenticated an account via the Azure CLI `az login` command, the `DefaultAzureCredential` tries to authenticate with that account.
@@ -47,7 +48,7 @@ The `DefaultAzureCredential` attempts to authenticate via the following mechanis
 * Azure Developer CLI - If you authenticated via the Azure Developer CLI, the `DefaultAzureCredential` tries to authenticate with that account.
 
 > [!TIP]
-> Be sure the security principal has sufficient permission to access the Azure resource. For more information, see [Authorize access with Microsoft Entra ID](#authorize-access-with-azure-active-directory).
+> Be sure the security principal has sufficient permission to access the Azure resource. For more information, see [Authorize access with Microsoft Entra ID](#authorize-access-with-microsoft-entra-id).
 
 > [!NOTE]
 > Since Spring Cloud Azure AutoConfigure 4.1.0, register a `ThreadPoolTaskExecutor` bean named `springCloudAzureCredentialTaskExecutor` to manage all threads created by Azure Identity. The name of each thread managed by this thread pool is prefixed with `az-identity-`. This `ThreadPoolTaskExecutor` bean is independent of the `Executor` bean provided by Spring Boot.
@@ -69,15 +70,15 @@ There are two types of managed identities:
 > When using a user-assigned managed identity, you can specify the client ID via `spring.cloud.azure.credential.client-id` or `spring.cloud.azure.<azure-service>.credential.client-id`. You don't need credential configuration if you use a system-assigned managed identity.
 
 > [!TIP]
-> In order to access the Azure resource, be sure the security principal has sufficient permission. For more information, see [Authorize access with Microsoft Entra ID](#authorize-access-with-azure-active-directory).
+> In order to access the Azure resource, be sure the security principal has sufficient permission. For more information, see [Authorize access with Microsoft Entra ID](#authorize-access-with-microsoft-entra-id).
 
 For more information about managed identity, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
 
 #### Other credential types
 
-If you want more control, the `DefaultAzureCredential` or the default settings doesn't meet your scenario, you should use other credential types. For more information about how to configuring the properties, see [Authenticate with Microsoft Entra ID](#authenticate-with-azure-active-directory). 
+If you want more control, the `DefaultAzureCredential` or the default settings doesn't meet your scenario, you should use other credential types.
 
-<a name='authenticate-with-azure-active-directory'></a>
+<a name='authenticate-with-microsoft-entra-id'></a>
 
 ### Authenticate with Microsoft Entra ID
 
@@ -99,9 +100,9 @@ The following table lists authentication properties:
 > [!TIP]
 > For the list of all Spring Cloud Azure configuration properties, see [Spring Cloud Azure configuration properties](configuration-properties-all.md).
 
-#### Authenticate using a customized TokenCredential bean
+The application looks in several places to find an available credential, each Azure SDK client builder factory adopts a custom bean of type `TokenCredential` first if the property `token-credential-bean-name` is specified, and fall back to use `DefaultAzureCredential` if no credential properties are configured.
 
-The application looks in several places to find an available credential, each Azure SDK client builder factory adopts a custom bean of type `TokenCredential` first if the property `token-credential-bean-name` is specified, and fall back to use `DefaultAzureCredential` if no credential properties are configured. If you want to use specific credential, see the following examples for guidance.
+#### Authenticate using a customized TokenCredential bean
 
 The following example shows you how to define a custom `TokenCredential` bean to do the authentication:
 
@@ -217,7 +218,7 @@ spring.cloud.azure:
 > [!NOTE]
 > The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider doesn't exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
-<a name='authorize-access-with-azure-active-directory'></a>
+<a name='authorize-access-with-microsoft-entra-id'></a>
 
 ### Authorize access with Microsoft Entra ID
 
