@@ -59,9 +59,9 @@
 | Document Intelligence | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/ai-document-intelligence/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-intelligence_1.0.0/sdk/documentintelligence/ai-document-intelligence-rest/) |
 | Document Translation | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/ai-document-translator/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-document-translator_1.0.0-beta.1/sdk/documenttranslator/ai-document-translator-rest/) |
 | Document Translation | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/ai-translation-document/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-translation-document_1.0.0/sdk/translation/ai-translation-document-rest/) |
-| Event Grid | npm [5.9.0](https://www.npmjs.com/package/@azure/eventgrid/v/5.9.0) | [docs](/javascript/api/overview/azure/eventgrid-readme) | GitHub [5.9.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.9.0/sdk/eventgrid/eventgrid/) |
+| Event Grid | npm [5.10.0](https://www.npmjs.com/package/@azure/eventgrid/v/5.10.0) | [docs](/javascript/api/overview/azure/eventgrid-readme) | GitHub [5.10.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_5.10.0/sdk/eventgrid/eventgrid/) |
 | Event Grid Namespaces | npm [1.0.0](https://www.npmjs.com/package/@azure/eventgrid-namespaces/v/1.0.0) | [docs](/javascript/api/overview/azure/eventgrid-namespaces-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-namespaces_1.0.0/sdk/eventgrid/eventgrid-namespaces/) |
-| Event Grid System Events | npm [1.0.0-beta.4](https://www.npmjs.com/package/@azure/eventgrid-system-events/v/1.0.0-beta.4) | [docs](/javascript/api/overview/azure/eventgrid-system-events-readme) | GitHub [1.0.0-beta.4](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-system-events_1.0.0-beta.4/sdk/eventgrid/eventgrid-system-events/) |
+| Event Grid System Events | npm [1.0.0-beta.5](https://www.npmjs.com/package/@azure/eventgrid-system-events/v/1.0.0-beta.5) | [docs](/javascript/api/overview/azure/eventgrid-system-events-readme) | GitHub [1.0.0-beta.5](https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid-system-events_1.0.0-beta.5/sdk/eventgrid/eventgrid-system-events/) |
 | Event Hubs | npm [5.12.2](https://www.npmjs.com/package/@azure/event-hubs/v/5.12.2)<br>npm [5.13.0-beta.2](https://www.npmjs.com/package/@azure/event-hubs/v/5.13.0-beta.2) | [docs](/javascript/api/overview/azure/event-hubs-readme) | GitHub [5.12.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.12.2/sdk/eventhub/event-hubs/)<br>GitHub [5.13.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.13.0-beta.2/sdk/eventhub/event-hubs/) |
 | Face | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/ai-vision-face/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-vision-face_1.0.0-beta.2/sdk/face/ai-vision-face-rest/) |
 | farmbeats | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure-rest/agrifood-farming/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/agrifood-farming_1.0.0-beta.2/sdk/agrifood/agrifood-farming-rest/) |
@@ -370,7 +370,7 @@
 | Resource Management - Workloads SAP Virtual Instance | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-workloadssapvirtualinstance/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-workloadssapvirtualinstance-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-workloadssapvirtualinstance_1.0.0-beta.1/sdk/workloads/arm-workloadssapvirtualinstance/) |
 | Resource Management - Workspaces | npm [1.1.0](https://www.npmjs.com/package/@azure/arm-workspaces/v/1.1.0) | [docs](/javascript/api/overview/azure/arm-workspaces-readme) | GitHub [1.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-workspaces) |
 | Resource Management - Template Specs | npm [2.1.0](https://www.npmjs.com/package/@azure/arm-templatespecs/v/2.1.0) | [docs](/javascript/api/overview/azure/arm-templatespecs-readme) | GitHub [2.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-templatespecs_2.1.0/sdk/templatespecs/arm-templatespecs/) |
-| @autorest/openapi-to-typespec | npm [0.10.7](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.10.7) |  |  |
+| @autorest/openapi-to-typespec | npm [0.10.8](https://www.npmjs.com/package/@autorest/openapi-to-typespec/v/0.10.8) |  |  |
 | @azure-rest/core-client-lro | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/core-client-lro/v/1.0.0-beta.1) |  |  |
 | @azure-tools/rest-api-diff | npm [0.1.8](https://www.npmjs.com/package/@azure-tools/rest-api-diff/v/0.1.8) |  |  |
 | @azure-tools/test-perf | npm [1.0.0](https://www.npmjs.com/package/@azure-tools/test-perf/v/1.0.0) |  |  |
@@ -390,7 +390,7 @@
 | @microsoft.azure/autorest-core | npm [2.0.4429](https://www.npmjs.com/package/@microsoft.azure/autorest-core/v/2.0.4429) |  |  |
 | @microsoft.azure/autorest.testserver | npm [3.3.50](https://www.npmjs.com/package/@microsoft.azure/autorest.testserver/v/3.3.50) |  |  |
 | @microsoft.azure/openapi-validator | npm [2.2.3](https://www.npmjs.com/package/@microsoft.azure/openapi-validator/v/2.2.3) |  |  |
-| @microsoft.azure/openapi-validator-rulesets | npm [2.1.4](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-rulesets/v/2.1.4) |  |  |
+| @microsoft.azure/openapi-validator-rulesets | npm [2.1.5](https://www.npmjs.com/package/@microsoft.azure/openapi-validator-rulesets/v/2.1.5) |  |  |
 | @typespec/best-practices | npm [0.46.0-dev.0](https://www.npmjs.com/package/@typespec/best-practices/v/0.46.0-dev.0) |  |  |
 | @typespec/bundler | npm [0.1.11](https://www.npmjs.com/package/@typespec/bundler/v/0.1.11) |  |  |
 | @typespec/http-server-javascript | npm [0.58.0-alpha.7](https://www.npmjs.com/package/@typespec/http-server-javascript/v/0.58.0-alpha.7) |  |  |
@@ -409,7 +409,7 @@
 | Unknown Display Name | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/ai-projects/v/1.0.0-beta.2) |  |  |
 | Unknown Display Name | npm [0.64.0](https://www.npmjs.com/package/@typespec/events/v/0.64.0) |  |  |
 | Unknown Display Name | npm [0.1.9](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.9) |  |  |
-| Unknown Display Name | npm [0.6.6](https://www.npmjs.com/package/@typespec/http-client-python/v/0.6.6) |  |  |
+| Unknown Display Name | npm [0.6.7](https://www.npmjs.com/package/@typespec/http-client-python/v/0.6.7) |  |  |
 | Unknown Display Name | npm [0.1.0-alpha.7](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.7) |  |  |
 | Unknown Display Name | npm [0.64.0](https://www.npmjs.com/package/@typespec/sse/v/0.64.0) |  |  |
 | Unknown Display Name | npm [0.64.0](https://www.npmjs.com/package/@typespec/streams/v/0.64.0) |  |  |
@@ -425,7 +425,7 @@
 | Batch | npm [12.0.0](https://www.npmjs.com/package/@azure/batch/v/12.0.0) |  | GitHub [12.0.0](https://github.com/azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | Code Model | npm [3.0.137](https://www.npmjs.com/package/@azure/autorest.codemodel-v3/v/3.0.137) |  |  |
 | Communication Calling | npm [1.32.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.32.1) |  | GitHub [1.32.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
-| Communication Signaling | npm [1.0.0-beta.29](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.29) |  | GitHub [1.0.0-beta.29](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
+| Communication Signaling | npm [1.0.0-beta.31](https://www.npmjs.com/package/@azure/communication-signaling/v/1.0.0-beta.31) |  | GitHub [1.0.0-beta.31](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication) |
 | Computer Vision | npm [8.2.0](https://www.npmjs.com/package/@azure/cognitiveservices-computervision/v/8.2.0) |  |  |
 | Content Safety | npm [5.0.1](https://www.npmjs.com/package/@azure/cognitiveservices-contentmoderator/v/5.0.1) |  |  |
 | Core - Client - AMQP Common | npm [1.0.0-preview.17](https://www.npmjs.com/package/@azure/amqp-common/v/1.0.0-preview.17) |  | GitHub [1.0.0-preview.17](https://github.com/Azure/azure-sdk-for-js/tree/@azure/amqp-common_1.0.0-preview.17/sdk/core/amqp-common/) |
