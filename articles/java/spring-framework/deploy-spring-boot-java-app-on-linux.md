@@ -99,7 +99,7 @@ The following steps walk through using the Azure portal to create an Azure Conta
 
 ## Configure Maven to build image to your Azure Container Registry
 
-1. Navigate to the completed project directory for your Spring Boot application, (for example: **C:\SpringBoot\gs-spring-boot-docker\complete** or **/users/robert/SpringBoot/gs-spring-boot-docker/complete**), and open the **pom.xml** file with a text editor.
+1. Navigate to the completed project directory for your Spring Boot application - for example, **C:\SpringBoot\gs-spring-boot-docker\complete** or **/users/robert/SpringBoot/gs-spring-boot-docker/complete** - and open the **pom.xml** file with a text editor.
 
 1. Update the `<properties>` collection in the **pom.xml** file with the latest version of [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin), login server value, and access settings for your Azure Container Registry from the previous section of this tutorial. For example:
 

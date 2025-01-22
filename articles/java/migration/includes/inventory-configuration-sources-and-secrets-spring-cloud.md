@@ -14,7 +14,7 @@ Check all properties and configuration files and all environment variables on th
 
 #### Determine whether Spring Cloud Vault is used
 
-If you use Spring Cloud Vault to store and access secrets, identify the backing secret store (for example, HashiCorp Vault or CredHub). Then identify all the secrets used by the application code.
+If you use Spring Cloud Vault to store and access secrets, identify the backing secret store - for example, HashiCorp Vault or CredHub. Then identify all the secrets used by the application code.
 
 #### Locate the configuration server source
 
