@@ -1,20 +1,14 @@
 ---
-title: Serverless Node.js code with Azure Functions
-description: Azure Functions provides Node.js serverless code infrastructure with JavaScript and TypeScript, allowing you to create responsive, on-demand HTTP endpoints.
-ms.topic: how-to
-ms.date: 05/02/2023
+title: Introduction to Developing Serverless Node.js Apps with Azure Functions
+description: Learn how to develop serverless Node.js applications using Azure Functions. This guide introduces Azure's serverless technologies, enabling you to create scalable, on-demand HTTP endpoints with JavaScript and TypeScript.
+ms.topic: concept-article
+ms.date: 01/22/2025
 ms.custom: devx-track-js, engagement-fy23, devx-track-ts
 ---
 
-# Use Azure Functions to develop Node.js serverless solutions
+# Developing Serverless Node.js Apps with Azure Functions
 
-Azure Functions provides serverless code infrastructure, allowing you to create responsive, on-demand HTTP endpoints. Serverless apps are composed of JavaScript or TypeScript code that runs in response to various events. 
-
-Functions provide you with:
-
-* Abstraction of web service - you focus on code, not infrastructure.
-* Integration with Azure services - trigger work into or out of an Azure service with events
-* Integrate with JavaScript packages - use your favorite npm packages with your serverless code
+Azure Functions provides a powerful serverless infrastructure, enabling you to develop scalable, on-demand HTTP endpoints with ease. By using JavaScript or TypeScript, you can create serverless applications that respond to various events, allowing you to focus on writing code without worrying about managing servers. This guide helps you get started with developing serverless Node.js apps using Azure Functions, integrating seamlessly with other Azure services.
 
 * [Azure serverless community library of samples](https://serverlesslibrary.net/)
 
@@ -30,12 +24,12 @@ The function resource settings include typical serverless configurations includi
 
 ## Static web apps include functions 
 
-When developing a static front-end client application (such as Angular, React, or Vue), which also need serverless APIs, use [Static Web apps](/azure/static-web-apps/getting-started?tabs=react) with functions to bundle both together. 
+When you develop a static front-end client application (such as Angular, React, or Vue), which also need serverless APIs, use [Static Web apps](/azure/static-web-apps/getting-started?tabs=react) with functions to bundle both together. 
 
 ### Proxy from client app to the API
-If you intend to deploy your API with your Static web app, you don't need to proxy your client application's API calls. The proxy is established for you, including local and remote development.
+If you intend to deploy your API with your Static web app, you don't need to proxy your client application's API calls. The proxy is established for you when you deploy the Azure Functions app as a managed app.
 
-When developing locally with a Static Web App and Azure Functions, the [Azure Static Web App CLI](https://github.com/Azure/static-web-apps-cli) provides the local proxy. 
+When you develop locally with a Static Web App and Azure Functions, the [Azure Static Web App CLI](https://github.com/Azure/static-web-apps-cli) provides the local proxy. 
 
 ## Common security settings you need to configure for your Azure Function
 
@@ -45,7 +39,7 @@ The following common settings should be configured to keep your Azure Function s
   * Configuration settings - create Application settings for settings that don't impact security. 
   * Secrets and keys - for any settings that impact security, create an [Azure Key Vault](/azure/key-vault/) and [pull in those settings from your Key Vault](/azure/app-service/app-service-key-vault-references?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=azure-cli).
   * FTP state on Platform settings - by default, all are allowed. You need to select **FTPS only** or disable FTP entirely to improve security. 
-* API CORS - configure your client domains. Don't use `*`, indicating all domains. 
+* CORS - configure your client domains. Don't use `*`, indicating all domains. 
 * TLS/SSL setting for HTTPS - by default, your API accepts HTTP and HTTPS requests. Enable **HTTPS only** in the **TLS/SSL settings**. Because your Function app is hosted on a secure subdomain, you can use it immediately (with `https`) and delay purchasing a domain name, and using a certificate for the domain until you're ready. 
 * Deployment Slots - create a deployment slot, such as `stage` or `preflight` and push to that slot. Swap this stage slot to production when you're ready. Don't get in the habit of manually pushing to production. Your code base should be able to indicate the version or commit that is on a slot. 
 
@@ -121,20 +115,10 @@ This extension helps you create JavaScript and TypeScript functions with common 
 
 Serverless functions remove much of the server configuration and management so you can focus on just the code you need. 
 
-* Low-code functions: With Azure Functions, you can create functions that are triggered by other Azure services or that output to other Azure service using [trigger bindings](/azure/azure-functions/functions-triggers-bindings). 
+* Low-code functions: With Azure Functions, you create functions triggered by other Azure services or that output to other Azure service using [trigger bindings](/azure/azure-functions/functions-triggers-bindings). 
 * High-code functions: For more control, use the Azure SDKs to coordinate and control other Azure services.
 
-## Next steps
-
-Use the following table to learn more about Azure Functions with Node.js
-
-| To Learn | Sample |
-| -- | -- |
-|[What is Contoso Real Estate](../end-to-end/contoso-real-estate-get-started.md)|[Contoso Real Estate](https://github.com/azure-Samples/contoso-real-estate)|
-|[Build Serverless APIs with Azure Functions](/training/modules/build-api-azure-functions/)|[MicrosoftDocs/mslearn-build-api-azure-functions](https://github.com/MicrosoftDocs/mslearn-build-api-azure-functions)|
-|[Refactor Node.js Express APIs into serverless Azure Functions APIs](/training/modules/shift-nodejs-express-apis-serverless/)|[MicrosoftDocs/mslearn-module-shifting-nodejs-express-apis-to-serverless](https://github.com/MicrosoftDocs/mslearn-module-shifting-nodejs-express-apis-to-serverless)|
-|[ Upload and analyze a file with Azure Functions and Blob Storage](/azure/storage/blobs/blob-upload-function-trigger-javascript)|[Azure-Samples/msdocs-storage-bind-function-service](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/tree/main/javascript-v4)|
-
+## Related content
 
 * [Store unstructured data using Azure Functions and Azure Cosmos DB](/azure/azure-functions/functions-integrate-store-unstructured-data-cosmosdb?tabs=javascript)
 * [Node.js + Azure Functions samples](/samples/browse/?languages=javascript%2Cnodejs&products=azure-functions)
