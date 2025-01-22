@@ -19,7 +19,7 @@ This article describes all the Spring Cloud Azure authentication methods.
 The `DefaultAzureCredential` is appropriate for most scenarios where the application is intended to be run in the Azure Cloud. This is because the `DefaultAzureCredential` combines credentials commonly used to authenticate when deployed with credentials used to authenticate in a development environment.
 
 > [!NOTE]
-> `DefaultAzureCredential` is intended to simplify getting started with the SDK by handling common scenarios with reasonable default behaviors. If you want more control or your scenario isn't served by the default settings, you should use other credential types.
+> `DefaultAzureCredential` is intended to simplify getting started with the Azure SDK by handling common scenarios with reasonable default behaviors. If you want more control or your scenario isn't served by the default settings, you should use other credential types.
 
 The `DefaultAzureCredential` will attempt to authenticate via the following mechanisms in order:
 
@@ -27,9 +27,11 @@ The `DefaultAzureCredential` will attempt to authenticate via the following mech
 
 * Environment - The `DefaultAzureCredential` will read account information specified via environment variables and use it to authenticate.
 * Managed Identity - If the application is deployed to an Azure host with Managed Identity enabled, the `DefaultAzureCredential` will authenticate with that account.
+* Shared Token Cache - If you've authenticated via Visual Studio, the `DefaultAzureCredential` will authenticate with that account.
 * IntelliJ - If you've authenticated via Azure Toolkit for IntelliJ, the `DefaultAzureCredential` will authenticate with that account.
-* Visual Studio Code - If you've authenticated via the Visual Studio Code Azure Account plugin, the `DefaultAzureCredential` will authenticate with that account.
 * Azure CLI - If you've authenticated an account via the Azure CLI `az login` command, the `DefaultAzureCredential` will authenticate with that account.
+* Azure PowerShell - If you've authenticated via the Azure Powershell, the `DefaultAzureCredential` will authenticate with that account.
+* Azure Developer CLI - If you've authenticated via the Azure Developer CLI, the `DefaultAzureCredential` will authenticate with that account.
 
 > [!TIP]
 > Be sure the security principal has been granted sufficient permission to access the Azure resource. For more information, see [Authorize access with Microsoft Entra ID](#authorize-access-with-azure-active-directory).
@@ -88,11 +90,27 @@ The following table lists authentication properties:
 | username                    | The username to use when performing username/password authentication with Azure.                   |
 | password                    | The password to use when performing username/password authentication with Azure.                   |
 | managed-identity-enabled    | Whether to enable managed identity.                                                                |
+| token-credential-bean-name  | The name of a bean of type TokenCredential to be used for authentication.                          |
 
 > [!TIP]
 > For the list of all Spring Cloud Azure configuration properties, see [Spring Cloud Azure configuration properties](configuration-properties-all.md).
 
-The application will look in several places to find an available credential, and will use `DefaultAzureCredential` if no credential properties are configured. If you want to use specific credential, see the following examples for guidance.
+The application will look in several places to find an available credential, a custom bean of type `TokenCredential` will be used first if the property `token-credential-bean-name` is specified, and will use `DefaultAzureCredential` if no credential properties are configured. If you want to use specific credential, see the following examples for guidance.
+
+The following example shows you how to define a custom token credential bean, then authenticate with the token credential bean name:
+
+```java
+@Bean
+TokenCredential myTokenCredential() {
+    // Your concrete TokenCredential instance
+}
+```
+
+```yaml
+spring.cloud.azure:
+  credential:
+    token-credential-bean-name: myTokenCredential
+```
 
 The following example shows you how to authenticate using a system-assigned managed identity:
 
