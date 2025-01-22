@@ -178,7 +178,7 @@ The following sections show the classic Spring Boot application usage scenarios.
 When you use the OAuth authentication provided by Spring Cloud Azure for Kafka, you can configure the specific credentials using the above configurations. Alternatively, you can choose to configure nothing about credentials, in which case Spring Cloud Azure will load the credentials from the environment. This section describes the usages that load the credentials from the Azure CLI environment or the Azure Spring Apps hosting environment.
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see the [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) section to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see the [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) section to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 The following section describes the scenarios using different Spring ecosystem libraries with OAuth authentication.
 
@@ -324,7 +324,7 @@ spring.cloud.azure.eventhubs.connection-string=${AZURE_EVENTHUBS_CONNECTION_STRI
 If you don't want to configure the connection string in your application, you can use Azure Resource Manager to retrieve the connection string. To authenticate with Azure Resource Manager, you can also use credentials stored in Azure CLI or another local development tool such as Visual Studio Code or Intellij IDEA. Alternately, you can use Managed Identity if your application is deployed to Azure Cloud. Just be sure the principal has sufficient permission to read resource metadata.
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see the [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) section to be sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see the [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) section to be sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 To use Azure Resource Manager to retrieve the connection string, just add the following property.
 

@@ -80,7 +80,7 @@ The binder provides the following three parts of configuration options:
 This section contains the configuration options used for connecting to Azure Event Hubs.
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 Connection configurable properties of spring-cloud-azure-stream-binder-eventhubs:
 
@@ -752,7 +752,7 @@ The binder provides the following two parts of configuration options:
 This section contains the configuration options used for connecting to Azure Service Bus.
 
 > [!NOTE]
-> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-azure-active-directory) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
+> If you choose to use a security principal to authenticate and authorize with Microsoft Entra ID for accessing an Azure resource, see [Authorize access with Microsoft Entra ID](authentication.md#authorize-access-with-microsoft-entra-id) to make sure the security principal has been granted the sufficient permission to access the Azure resource.
 
 Connection configurable properties of spring-cloud-azure-stream-binder-servicebus:
 
