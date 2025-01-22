@@ -116,8 +116,6 @@
       href: how-to/with-visual-studio-code/create-azure-database.md
   - name: Authentication and identity
     items: 
-    - name: Getting started
-      href: how-to/with-authentication/getting-started.md
     - name: Electron
       href: /azure/active-directory/develop/tutorial-v2-nodejs-desktop?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Node.js console daemon
