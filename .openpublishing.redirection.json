@@ -310,7 +310,13 @@
       "redirect_url": "/previous-versions/azure/developer/mobile-apps/azure-search",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/javascript/how-to/with-authentication/getting-started.md",
+      "redirect_url": "/azure/developer/javascript",
+      "redirect_document_id": false
+  },
 
+    
     {
         "source_path": "articles/javascript/end-to-end/contoso-real-estate-developer-solutions.md",
         "redirect_url": "/azure/developer/javascript",
