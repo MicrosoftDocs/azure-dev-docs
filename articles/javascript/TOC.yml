@@ -108,12 +108,10 @@
     items:
     - name: "Express.js VM"
       href: tutorial/run-nodejs-virtual-machine.md
-  - name: Development with Visual Studio Code
+  - name: Develop with Visual Studio Code
     items:
     - name: Clone a GitHub repo for changes
       href: how-to/with-visual-studio-code/clone-github-repository.md
-    - name: Create an Azure database
-      href: how-to/with-visual-studio-code/create-azure-database.md
   - name: Authentication and identity
     items: 
     - name: Electron

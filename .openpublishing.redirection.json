@@ -318,6 +318,11 @@
 
     
     {
+      "source_path": "articles/javascript/how-to/with-visual-studio-code/create-azure-database.md",
+      "redirect_url": "/azure/developer/javascript",
+      "redirect_document_id": false
+  },
+    {
         "source_path": "articles/javascript/end-to-end/contoso-real-estate-developer-solutions.md",
         "redirect_url": "/azure/developer/javascript",
         "redirect_document_id": false
