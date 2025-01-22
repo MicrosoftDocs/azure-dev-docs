@@ -19,7 +19,7 @@ This article describes all the Spring Cloud Azure authentication methods.
 The `DefaultAzureCredential` is appropriate for most scenarios where the application is intended to be run in the Azure Cloud, which is because the `DefaultAzureCredential` combines credentials commonly used to authenticate when deployed with credentials used to authenticate in a development environment.
 
 > [!NOTE]
-> `DefaultAzureCredential` is intended to simplify getting started with the Azure SDK by handling common scenarios with reasonable default behaviors. If you want more control or the default settings does not meet your scenario, you should use other credential types.
+> `DefaultAzureCredential` is intended to simplify getting started with the Azure SDK by handling common scenarios with reasonable default behaviors. If you want more control or the default settings doesn't meet your scenario, you should use other credential types.
 
 The `DefaultAzureCredential` attempts to authenticate via the following mechanisms in order:
 
