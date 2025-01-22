@@ -14,7 +14,20 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 This article describes all the Spring Cloud Azure authentication methods.
 
-## DefaultAzureCredential
+<a name='authentication-and-authorization-with-azure-active-directory'></a>
+
+## Authentication and authorization with Microsoft Entra ID
+
+With Microsoft Entra ID, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user or an application service principal. When a security principal (a user or an application) attempts to access an Azure resource, for example an Event Hubs resource, the request must be authorized. With Microsoft Entra ID, access to a resource is a two-step process:
+
+1. First, the security principal's identity is authenticated, and an OAuth 2.0 token is returned.
+1. Next, the token is passed as part of a request to the Azure service to authorize access to the specified resource.
+
+### Credential Types
+
+Spring Cloud Azure allows you to configure different credential types to authenticate, including `DefaultAzureCredential`, `ManagedIdentityCredential`, `ClientSecretCredential`, `AzureCliCredential`, etc.
+
+#### DefaultAzureCredential
 
 The `DefaultAzureCredential` is appropriate for most scenarios where the application is intended to be run in the Azure Cloud, which is because the `DefaultAzureCredential` combines credentials commonly used to authenticate when deployed with credentials used to authenticate in a development environment.
 
@@ -39,13 +52,13 @@ The `DefaultAzureCredential` attempts to authenticate via the following mechanis
 > [!NOTE]
 > Since Spring Cloud Azure AutoConfigure 4.1.0, register a `ThreadPoolTaskExecutor` bean named `springCloudAzureCredentialTaskExecutor` to manage all threads created by Azure Identity. The name of each thread managed by this thread pool is prefixed with `az-identity-`. This `ThreadPoolTaskExecutor` bean is independent of the `Executor` bean provided by Spring Boot.
 
-## Managed identities
+#### Managed identities
 
 A common challenge is the management of secrets and credentials used to secure communication between different components making up a solution. Managed identities eliminate the need to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication. Applications may use the managed identity to obtain Microsoft Entra tokens. For example, an application may use a managed identity to access resources like Azure Key Vault where you can store credentials in a secure manner or to access storage accounts.
 
 We encourage using managed identity instead of using connection string or key in your application because it's more secure and saves the trouble of managing secrets and credentials. In this case, `DefaultAzureCredential` could better serve the scenario of developing locally using account information stored locally, then deploying the application to Azure Cloud and using managed identity.
 
-### Managed identity types
+##### Managed identity types
 
 There are two types of managed identities:
 
@@ -60,22 +73,13 @@ There are two types of managed identities:
 
 For more information about managed identity, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
 
-## Other credential types
+#### Other credential types
 
-If you want more control, the `DefaultAzureCredential` or the default settings doesn't meet your scenario, you should use other credential types.
-
-<a name='authentication-and-authorization-with-azure-active-directory'></a>
-
-### Authentication and authorization with Microsoft Entra ID
-
-With Microsoft Entra ID, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user or an application service principal. When a security principal (a user or an application) attempts to access an Azure resource, for example an Event Hubs resource, the request must be authorized. With Microsoft Entra ID, access to a resource is a two-step process:
-
-1. First, the security principal's identity is authenticated, and an OAuth 2.0 token is returned.
-1. Next, the token is passed as part of a request to the Azure service to authorize access to the specified resource.
+If you want more control, the `DefaultAzureCredential` or the default settings doesn't meet your scenario, you should use other credential types. For more information about how to configuring the properties, see [Authenticate with Microsoft Entra ID](#authenticate-with-azure-active-directory). 
 
 <a name='authenticate-with-azure-active-directory'></a>
 
-#### Authenticate with Microsoft Entra ID
+### Authenticate with Microsoft Entra ID
 
 To connect applications to resources that support Microsoft Entra authentication, you can set the following configurations with the prefix `spring.cloud.azure.credential` or `spring.cloud.azure.<azure-service>.credential`
 
@@ -90,14 +94,16 @@ The following table lists authentication properties:
 | username                    | The username to use when performing username/password authentication with Azure.                   |
 | password                    | The password to use when performing username/password authentication with Azure.                   |
 | managed-identity-enabled    | Whether to enable managed identity.                                                                |
-| token-credential-bean-name  | The name of a bean of type TokenCredential to be used for authentication.                          |
+| token-credential-bean-name  | The bean name of type `TokenCredential` to use when performing authentication with Azure.          |
 
 > [!TIP]
 > For the list of all Spring Cloud Azure configuration properties, see [Spring Cloud Azure configuration properties](configuration-properties-all.md).
 
+#### Authenticate using a customized TokenCredential bean
+
 The application looks in several places to find an available credential, each Azure SDK client builder factory adopts a custom bean of type `TokenCredential` first if the property `token-credential-bean-name` is specified, and fall back to use `DefaultAzureCredential` if no credential properties are configured. If you want to use specific credential, see the following examples for guidance.
 
-The following example shows you how to define a custom token credential bean, then authenticate with the token credential bean name:
+The following example shows you how to define a custom `TokenCredential` bean to do the authentication:
 
 ```java
 @Bean
@@ -112,6 +118,8 @@ spring.cloud.azure:
     token-credential-bean-name: myTokenCredential
 ```
 
+#### Authenticate using a system-assigned managed identity
+
 The following example shows you how to authenticate using a system-assigned managed identity:
 
 ```yaml
@@ -119,6 +127,8 @@ spring.cloud.azure:
   credential:
     managed-identity-enabled: true
 ```
+
+#### Authenticate using a user-assigned managed identity
 
 The following example shows you how to authenticate using a user-assigned managed identity:
 
@@ -128,6 +138,8 @@ spring.cloud.azure:
     managed-identity-enabled: true
     client-id: ${AZURE_CLIENT_ID}
 ```
+
+#### Authenticate using a service principal with client secret
 
 The following example shows you how to authenticate using a service principal with a client secret:
 
@@ -142,6 +154,8 @@ spring.cloud.azure:
 
 > [!NOTE]
 > The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider doesn't exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
+
+#### Authenticate using a service principal with client certificate
 
 The following example shows you how to authenticate using a service principal with a client PFX certificate:
 
@@ -172,6 +186,8 @@ spring.cloud.azure:
 > [!NOTE]
 > The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider doesn't exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
+#### Authenticate using a user credential
+
 The following example shows you how to authenticate using a user credential:
 
 ```yaml
@@ -181,6 +197,8 @@ spring.cloud.azure:
     username: ${AZURE_USER_USERNAME}
     password: ${AZURE_USER_PASSWORD}
 ```
+
+#### Authenticate a service using a different credential from others
 
 The following example shows you how to authenticate with Key Vault using a different service principal. This example configures the application with two credentials: one system-assigned managed identity and one service principal. The Key Vault Secret client uses the service principal, but any other components use managed identity instead.
 
@@ -201,7 +219,7 @@ spring.cloud.azure:
 
 <a name='authorize-access-with-azure-active-directory'></a>
 
-#### Authorize access with Microsoft Entra ID
+### Authorize access with Microsoft Entra ID
 
 The authorization step requires that one or more Azure roles be assigned to the security principal. The roles that are assigned to a security principal determine the permissions that the principal has.
 
@@ -234,10 +252,10 @@ The following table lists the Azure built-in roles for authorizing access to Azu
 > [!IMPORTANT]
 > Azure Cosmos DB exposes two built-in role definitions: `Cosmos DB Built-in Data Reader` and `Cosmos DB Built-in Data Contributor`. However, Azure portal support for role management isn't available yet. For more information about the permission model, role definitions, and role assignment, see [Configure role-based access control with Microsoft Entra ID for your Azure Cosmos DB account](/azure/cosmos-db/how-to-setup-rbac).
 
-### SAS tokens
+## Authenticate using SAS tokens
 
 You can also configure services for authentication with Shared Access Signature (SAS). `spring.cloud.azure.<azure-service>.sas-token` is the property to configure. For example, use `spring.cloud.azure.storage.blob.sas-token` to authenticate to Storage Blob service.
 
-### Connection strings
+## Authenticate using connection strings
 
 Some Azure services support connection string to provide connection information and credentials. To connect to those Azure services using connection string, just configure `spring.cloud.azure.<azure-service>.connection-string`. For example, configure `spring.cloud.azure.eventhubs.connection-string` to connect to the Event Hubs service.
