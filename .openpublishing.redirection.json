@@ -311,10 +311,15 @@
       "redirect_document_id": false
     },
     {
+
       "source_path": "articles/javascript/how-to/with-web-app/static-web-app-with-swa-cli.md",
       "redirect_url": "/azure/static-web-apps/add-api",
       "redirect_document_id": false
     },
+      "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management.md",
+      "redirect_url": "/azure/developer/javascript",
+      "redirect_document_id": false
+  },    
     {
       "source_path": "articles/javascript/how-to/with-authentication/getting-started.md",
       "redirect_url": "/azure/developer/javascript",
