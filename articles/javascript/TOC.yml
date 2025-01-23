@@ -66,8 +66,6 @@
     items: 
     - name: Getting started
       href: how-to/create-static-web-app.md
-    - name: Create Static web app
-      href: how-to/with-web-app/static-web-app-with-swa-cli.md
     - name: Add search to website
       href: /azure/search/tutorial-javascript-overview?toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: "Upload image to Storage"
