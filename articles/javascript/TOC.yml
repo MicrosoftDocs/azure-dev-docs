@@ -75,15 +75,8 @@
     - name: Add image analysis
       href: tutorial/static-web-app-image-analysis.md  
   - name: Serverless apps
-    items: 
-    - name: Develop Azure Functions
-      href: how-to/develop-serverless-apps.md
-    - name: Upload file to Storage - model v3
-      items: 
-      - name: with trigger and bindings
-        href: /azure/storage/blobs/blob-upload-function-trigger-javascript?tabs=storage-resource-visual-studio-code%2Ccomputer-vision-azure-portal&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-    - name: Resource management API
-      href: how-to/with-web-app/azure-function-resource-group-management.md
+    href: how-to/develop-serverless-apps.md
+
   - name: Monolithic apps
     items:
     - name: "Express.js with MongoDB"
