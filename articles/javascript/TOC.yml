@@ -104,10 +104,6 @@
       href: /azure/container-apps/communicate-between-microservices?tabs=bash&pivots=acr-remote&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
     - name: Microservice with DAPR
       href: /azure/container-apps/microservices-dapr?tabs=bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
-  - name: Virtual machine web apps
-    items:
-    - name: "Express.js VM"
-      href: tutorial/run-nodejs-virtual-machine.md
   - name: Develop with Visual Studio Code
     items:
     - name: Clone a GitHub repo for changes
