@@ -315,8 +315,11 @@
       "redirect_url": "/azure/developer/javascript",
       "redirect_document_id": false
   },
-
-    
+  {
+    "source_path": "articles/javascript/tutorial/run-nodejs-virtual-machine.md",
+    "redirect_url": "/azure/virtual-machines/linux/quick-create-cli",
+    "redirect_document_id": false
+},
     {
       "source_path": "articles/javascript/how-to/with-visual-studio-code/create-azure-database.md",
       "redirect_url": "/azure/developer/javascript",

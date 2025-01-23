@@ -189,9 +189,6 @@ conceptualContent:
           - itemType: how-to-guide
             text: Express.js convert text to speech
             url: ./tutorial/convert-text-to-speech-cognitive-services.md
-          - itemType: how-to-guide
-            text: Express.js VM
-            url: ./tutorial/run-nodejs-virtual-machine.md
 # --------------------------------------------------------------
 additionalContent:
   sections:
