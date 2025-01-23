@@ -25,7 +25,7 @@ With Microsoft Entra ID, you can use Azure role-based access control (Azure RBAC
 
 ### Credential Types
 
-Spring Cloud Azure allows you to configure different credential types to authenticate, including `DefaultAzureCredential`, `ManagedIdentityCredential`, `ClientSecretCredential`, `AzureCliCredential`, etc.
+Spring Cloud Azure allows you to configure different credential types to authenticate, including `DefaultAzureCredential`, `WorkloadIdentityCredential`, `ManagedIdentityCredential`, `ClientSecretCredential`, `AzureCliCredential`, etc.
 
 #### DefaultAzureCredential
 
