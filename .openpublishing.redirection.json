@@ -311,7 +311,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/how-to/with-web-app/azure-function-resource-group-management.md",
+      "source_path": "articles/javascript/how-to/with-web-app/azure-function-resource-group-management.md",
       "redirect_url": "/azure/developer/javascript",
       "redirect_document_id": false
   },    
