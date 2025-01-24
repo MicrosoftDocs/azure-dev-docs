@@ -66,12 +66,6 @@
       href: /azure/container-apps/microservices-dapr?tabs=bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
   - name: Develop serverless apps
     href: how-to/develop-serverless-apps.md
-  - name: Deployment
-    items:
-    - name: Select hosting service
-      href: /azure/developer/intro/hosting-apps-on-azure
-    - name: Select deployment process
-      href: how-to/deploy-web-app.md
   - name: Developer Guides
     items: 
     - name: GraphQL
@@ -92,6 +86,14 @@
         href: /azure/key-vault/keys/javascript-developer-guide-get-started?tabs=developer-auth%2Caz-login-terminal-bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
       - name: Secrets
         href: /azure/key-vault/secrets/javascript-developer-guide-get-started?tabs=developer-auth%2Caz-login-terminal-bash&toc=/azure/developer/javascript/toc.json&bc=/azure/developer/javascript/breadcrumb/toc.json
+  - name: Deployment
+    items:
+    - name: Select hosting service
+      href: /azure/developer/intro/hosting-apps-on-azure
+    - name: Select deployment process
+      href: how-to/deploy-web-app.md
+    - name: Azure Developer CLI
+      href: /azure/developer/azure-developer-cli
   - name: Azure SDK for JavaScript
     items:
     - name: Getting started  
