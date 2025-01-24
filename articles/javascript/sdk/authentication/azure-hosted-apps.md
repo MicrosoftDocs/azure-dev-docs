@@ -1,16 +1,16 @@
 ---
-title: Authenticating Azure-hosted JavaScript apps to Azure resources with the Azure SDK for JavaScript
-description: This article covers how to configure authentication for JavaScript apps to Azure services when the app is hosted in an Azure service like Azure App Service, Azure Functions, or Azure Virtual Machines.
-ms.date: 10/11/2022
+title: Authenticate Azure-Hosted JavaScript Apps to Azure Resources Using the Azure SDK
+description: Learn to securely authenticate JavaScript apps on Azure hosting services like App Service, Functions, or VMs using the Azure SDK and managed identities.
+ms.date: 01/24/2025
 ms.topic: how-to
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
-# Authenticating Azure-hosted apps to Azure resources with the Azure SDK for JavaScript
+# How to Authenticate Azure-Hosted JavaScript Apps to Azure resources using the Azure SDK
 
-When an app is hosted in Azure (using a service like Azure App Service, Azure Virtual Machines, or Azure Container Instances), the recommended approach to authenticating an app to Azure resources is to use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
+When an app is hosted in Azure (using a service like Azure App Service, Azure Functions, or Azure Container Apps), you can use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) to securely authenticate your app to Azure resources.
 
-A managed identity provides an identity for your app so that your app connects to other Azure resources without the need to use a secret (such as a connection string of key). Internally, Azure knows the identity of your app and what resources it's allowed to connect to. Azure uses this information to automatically obtain Microsoft Entra tokens for the app to allow it to connect to other Azure resources, all without you having to manage (create or rotate) the authentication secrets.
+A managed identity provides an identity for your app, allowing it to connect to other Azure resources without needing to use a secret (such as a connection string or key). Internally, Azure recognizes the identity of your app and knows which resources it is permitted to access. Azure uses this information to automatically obtain Microsoft Entra tokens for the app, enabling it to connect to other Azure resources without requiring you to manage (create or rotate) authentication secrets.
 
 ## Managed identity types
 
@@ -27,12 +27,12 @@ System-assigned managed identities are provided by and tied directly to an Azure
 
 ### User-assigned managed identities for multiple resources
 
-Conceptually this identity is a standalone Azure resource. This is most frequently used when your solution has multiple workloads that run on multiple Azure resources that all need to share the same identity and same permissions. For example, if your solution had components that ran on multiple App Service and virtual machine instances and they all needed access to the same set of Azure resources, creating and using a user-assigned managed identity across those resources would make sense.
+A User-assigned managed identity is a standalone Azure resource. This is most frequently used when your solution has multiple workloads that run on multiple Azure resources that all need to share the same identity and same permissions. For example, if your solution had components that ran on multiple App Service and virtual machine instances and they all needed access to the same set of Azure resources, creating and using a user-assigned managed identity across those resources would make sense.
 
 
-## 1 - System-assigned: Enable in hosted app
+## 1 - Enable system-assigned managed identity in hosted app
 
-The first step is to enable managed identity on the Azure resource hosting your app. For example, if you're hosting a Django application using Azure App Service, you need to enable managed identity for that App Service web app.  If you were using a virtual machine to host your app, you would enable your VM to use managed identity.
+The first step is to enable managed identity on the Azure resource hosting your app. For example, if you're hosting a Express.js application using Azure App Service, you need to enable managed identity for that App Service web app.  If you were using a virtual machine to host your app, you would enable your VM to use managed identity.
 
 You can enable managed identity to be used for an Azure resource using either the Azure portal or the Azure CLI.
 
@@ -147,4 +147,12 @@ const blobServiceClient = new BlobServiceClient(
 );
 ```
 
-When the above code is run on your local workstation during local development, the SDK method, _DefaultAzureCredential()_, look in the environment variables for an application service principal or at VS Code, the Azure CLI, or Azure PowerShell for a set of developer credentials, either of which can be used to authenticate the app to Azure resources during local development.  In this way, this same code can be used to authenticate your app to Azure resources during both local development and when deployed to Azure.
+When the code is run on the **Azure hosting resource**, the SDK method, _DefaultAzureCredential()_, looks for the green credential types in the order displayed in the image below: the environment, the Workload identity, then the Managed Identity.
+
+When the above code is run on your local workstation during **local development**, the SDK method, _DefaultAzureCredential()_, looks in the orange credential typesin the order displayed in the image below: the Azure CLI, Azure PowerShell, then Azure Developer CLI for a set of developer credentials. These tools can be used to authenticate the app to Azure resources during local development. In this way, this same code can be used to authenticate your app to Azure resources during both local development and when deployed to Azure.
+
+:::image type="content" source="../media/mermaidjs/default-azure-credential-auth-flow-inline.svg" alt-text="Diagram that shows DefaultAzureCredential authentication flow." lightbox="../media/mermaidjs/default-azure-credential-auth-flow-expanded.png":::
+
+## More resources
+
+* [Azure credential chains](credential-chains.md)
