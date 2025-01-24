@@ -72,7 +72,7 @@ At some point, you might want to [install and reference](./sdk/azure-sdk-install
 
 ### Authenticate your app to Azure
 
-When you use the Azure SDK for Python, your app must authenticate itself. How your app authenticates depends on whether you're running your app locally during development and testing, hosting the app on your own servers, or hosting the app in Azure. Read [Authenticate Python apps to Azure services by using the Azure SDK for Python](./sdk/authentication-overview.md) to understand more about authentication on Azure.
+When you use the Azure SDK for Python, you must add authentication logic to your app. How your app authenticates depends on whether you're running your app locally during development and testing, hosting the app on your own servers, or hosting the app in Azure. Read [Authenticate Python apps to Azure services by using the Azure SDK for Python](./sdk/authentication-overview.md) to understand more about authentication on Azure.
 
 You'll also need to set up access policies that control what identities (service principals and/or application IDs) are able to access those resources. Access policies are managed through Azure [Role-Based Access Control (RBAC)](/azure/role-based-access-control/overview); some services have more specific access controls as well. As a cloud developer working with Azure, make sure to familiarize yourself with Azure RBAC because you use it with just about any resource that has security concerns.
 
