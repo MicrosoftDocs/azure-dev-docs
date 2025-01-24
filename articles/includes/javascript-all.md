@@ -175,9 +175,9 @@
 | Resource Management - Commitment Plans | npm [1.3.1](https://www.npmjs.com/package/@azure/arm-commitmentplans/v/1.3.1)<br>npm [2.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-commitmentplans/v/2.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-commitmentplans-readme) | GitHub [1.3.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/machinelearning/arm-commitmentplans) |
 | Resource Management - Communication | npm [4.1.0](https://www.npmjs.com/package/@azure/arm-communication/v/4.1.0) | [docs](/javascript/api/overview/azure/arm-communication-readme) | GitHub [4.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-communication_4.1.0/sdk/communication/arm-communication/) |
 | Resource Management - Compute | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/arm-compute/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute-rest) |
-| Resource Management - Compute | npm [22.2.0](https://www.npmjs.com/package/@azure/arm-compute/v/22.2.0) | [docs](/javascript/api/overview/azure/arm-compute-readme) | GitHub [22.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute) |
+| Resource Management - Compute | npm [22.3.0](https://www.npmjs.com/package/@azure/arm-compute/v/22.3.0) | [docs](/javascript/api/overview/azure/arm-compute-readme) | GitHub [22.3.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute) |
 | Resource Management - Compute Fleet | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-computefleet/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-computefleet-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computefleet_1.0.0/sdk/computefleet/arm-computefleet/) |
-| Resource Management - Computeschedule | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/arm-computeschedule/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/arm-computeschedule-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computeschedule_1.0.0-beta.2/sdk/computeschedule/arm-computeschedule/) |
+| Resource Management - Computeschedule | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-computeschedule/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-computeschedule-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-computeschedule_1.0.0/sdk/computeschedule/arm-computeschedule/) |
 | Resource Management - Confidential Ledger | npm [1.2.0](https://www.npmjs.com/package/@azure/arm-confidentialledger/v/1.2.0)<br>npm [1.3.0-beta.2](https://www.npmjs.com/package/@azure/arm-confidentialledger/v/1.3.0-beta.2) | [docs](/javascript/api/overview/azure/arm-confidentialledger-readme) | GitHub [1.2.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-confidentialledger_1.2.0/sdk/confidentialledger/arm-confidentialledger/)<br>GitHub [1.3.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-confidentialledger_1.3.0-beta.2/sdk/confidentialledger/arm-confidentialledger/) |
 | Resource Management - Confluent | npm [3.1.0](https://www.npmjs.com/package/@azure/arm-confluent/v/3.1.0) | [docs](/javascript/api/overview/azure/arm-confluent-readme) | GitHub [3.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/confluent/arm-confluent) |
 | Resource Management - Connected VMware | npm [1.0.0](https://www.npmjs.com/package/@azure/arm-connectedvmware/v/1.0.0) | [docs](/javascript/api/overview/azure/arm-connectedvmware-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-connectedvmware_1.0.0/sdk/connectedvmware/arm-connectedvmware/) |
@@ -320,7 +320,7 @@
 | Resource Management - Recovery Services Data Replication | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-recoveryservicesdatareplication/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-recoveryservicesdatareplication-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-recoveryservicesdatareplication_1.0.0-beta.1/sdk/recoveryservicesdatareplication/arm-recoveryservicesdatareplication/) |
 | Resource Management - Recovery Services Site Recovery | npm [5.2.0](https://www.npmjs.com/package/@azure/arm-recoveryservices-siterecovery/v/5.2.0) | [docs](/javascript/api/overview/azure/arm-recoveryservices-siterecovery-readme) | GitHub [5.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/recoveryservicessiterecovery/arm-recoveryservices-siterecovery) |
 | Resource Management - Red Hat OpenShift | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure/arm-redhatopenshift/v/1.0.0-beta.1) | [docs](/javascript/api/overview/azure/arm-redhatopenshift-readme) | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-redhatopenshift_1.0.0-beta.1/sdk/redhatopenshift/arm-redhatopenshift/) |
-| Resource Management - Redis | npm [8.1.0](https://www.npmjs.com/package/@azure/arm-rediscache/v/8.1.0) | [docs](/javascript/api/overview/azure/arm-rediscache-readme) | GitHub [8.1.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/redis/arm-rediscache) |
+| Resource Management - Redis | npm [8.2.0](https://www.npmjs.com/package/@azure/arm-rediscache/v/8.2.0) | [docs](/javascript/api/overview/azure/arm-rediscache-readme) | GitHub [8.2.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/redis/arm-rediscache) |
 | Resource Management - Redis Enterprise Cache | npm [3.0.0](https://www.npmjs.com/package/@azure/arm-redisenterprisecache/v/3.0.0)<br>npm [3.1.0-beta.2](https://www.npmjs.com/package/@azure/arm-redisenterprisecache/v/3.1.0-beta.2) | [docs](/javascript/api/overview/azure/arm-redisenterprisecache-readme) | GitHub [3.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-redisenterprisecache_3.0.0/sdk/redisenterprise/arm-redisenterprisecache/)<br>GitHub [3.1.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-redisenterprisecache_3.1.0-beta.2/sdk/redisenterprise/arm-redisenterprisecache/) |
 | Resource Management - Relay | npm [3.1.1](https://www.npmjs.com/package/@azure/arm-relay/v/3.1.1) | [docs](/javascript/api/overview/azure/arm-relay-readme) | GitHub [3.1.1](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/relay/arm-relay) |
 | Resource Management - Reservations | npm [9.0.0](https://www.npmjs.com/package/@azure/arm-reservations/v/9.0.0) | [docs](/javascript/api/overview/azure/arm-reservations-readme) | GitHub [9.0.0](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/reservations/arm-reservations) |
@@ -379,7 +379,7 @@
 | @azure-tools/typespec-azure-portal-core | npm [0.50.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-portal-core/v/0.50.0) |  |  |
 | @azure-tools/typespec-azure-rulesets | npm [0.50.0](https://www.npmjs.com/package/@azure-tools/typespec-azure-rulesets/v/0.50.0) |  |  |
 | @azure-tools/typespec-client-generator-cli | npm [0.15.3](https://www.npmjs.com/package/@azure-tools/typespec-client-generator-cli/v/0.15.3) |  |  |
-| @azure-tools/typespec-go | npm [0.3.5](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.5) |  |  |
+| @azure-tools/typespec-go | npm [0.3.6](https://www.npmjs.com/package/@azure-tools/typespec-go/v/0.3.6) |  |  |
 | @azure-tools/typespec-liftr-base | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-base/v/0.7.0) |  |  |
 | @azure-tools/typespec-liftr-data | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-data/v/0.3.0) |  |  |
 | @azure-tools/typespec-liftr-storage | npm [0.3.0](https://www.npmjs.com/package/@azure-tools/typespec-liftr-storage/v/0.3.0) |  |  |
@@ -404,13 +404,13 @@
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | tmlanguage-generator | npm [0.5.10](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.10) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/maps-timezone/v/1.0.0-beta.1) |  |  |
-| Unknown Display Name | npm [0.1.3](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.1.3) |  |  |
+| Unknown Display Name | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.1.4) |  |  |
 | Unknown Display Name | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.7.0) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/ai-projects/v/1.0.0-beta.2) |  |  |
 | Unknown Display Name | npm [0.64.0](https://www.npmjs.com/package/@typespec/events/v/0.64.0) |  |  |
 | Unknown Display Name | npm [0.1.9](https://www.npmjs.com/package/@typespec/http-client-java/v/0.1.9) |  |  |
-| Unknown Display Name | npm [0.6.7](https://www.npmjs.com/package/@typespec/http-client-python/v/0.6.7) |  |  |
-| Unknown Display Name | npm [0.1.0-alpha.7](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.7) |  |  |
+| Unknown Display Name | npm [0.6.9](https://www.npmjs.com/package/@typespec/http-client-python/v/0.6.9) |  |  |
+| Unknown Display Name | npm [0.1.0-alpha.8](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.8) |  |  |
 | Unknown Display Name | npm [0.64.0](https://www.npmjs.com/package/@typespec/sse/v/0.64.0) |  |  |
 | Unknown Display Name | npm [0.64.0](https://www.npmjs.com/package/@typespec/streams/v/0.64.0) |  |  |
 | Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/ts-http-runtime/v/0.1.0) |  |  |
@@ -572,7 +572,7 @@
 | AutoRest - Go | npm [4.0.0-preview.69](https://www.npmjs.com/package/@autorest/go/v/4.0.0-preview.69) |  |  |
 | AutoRest - Modeler Four | npm [4.27.0](https://www.npmjs.com/package/@autorest/modelerfour/v/4.27.0) |  | GitHub [4.27.0](https://github.com/Azure/autorest.modelerfour) |
 | AutoRest - PowerShell | npm [4.0.699](https://www.npmjs.com/package/@autorest/powershell/v/4.0.699) |  | GitHub [4.0.699](https://github.com/Azure/autorest.powershell) |
-| AutoRest - Python | npm [6.28.1](https://www.npmjs.com/package/@autorest/python/v/6.28.1) |  | GitHub [6.28.1](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
+| AutoRest - Python | npm [6.28.2](https://www.npmjs.com/package/@autorest/python/v/6.28.2) |  | GitHub [6.28.2](https://github.com/Azure/autorest.python/tree/v5.1.0-preview.7) |
 | AutoRest - Remodeler | npm [2.1.27](https://www.npmjs.com/package/@autorest/remodeler/v/2.1.27) |  | GitHub [2.1.27](https://github.com/Azure/autorest.remodeler) |
 | AutoRest - Test | npm [0.1.76](https://www.npmjs.com/package/@autorest/test/v/0.1.76) |  | GitHub [0.1.76](https://github.com/Azure/autorest.test) |
 | AutoRest - Test Server | npm [3.0.27](https://www.npmjs.com/package/@autorest/test-server/v/3.0.27) |  |  |
