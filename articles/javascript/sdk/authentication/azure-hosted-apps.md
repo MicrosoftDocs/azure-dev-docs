@@ -1,5 +1,5 @@
 ---
-title: Authenticate Azure-Hosted JavaScript Apps to Azure Resources Using the Azure SDK
+title: Authenticate Azure-hosted JavaScript Apps to Azure resources using the Azure SDK
 description: Learn to securely authenticate JavaScript apps on Azure hosting services like App Service, Functions, or VMs using the Azure SDK and managed identities.
 ms.date: 01/24/2025
 ms.topic: how-to
