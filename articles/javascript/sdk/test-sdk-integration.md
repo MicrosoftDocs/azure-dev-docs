@@ -1,18 +1,18 @@
 ---
-title: "Testing code depending on Azure SDK in JavaScript"
-description: "Learn to test Azure SDK integration in JavaScript apps. Understand when to use live dependencies, doubles, and mocks with client libraries (SDKs)."
-ms.date: 08/29/2022
+title: "How to Test Azure SDK Integration in JavaScript Applications"
+description: "Learn how to test Azure SDK integration in JavaScript apps using Jest. Discover best practices for using live dependencies, doubles, and mocks with Azure client libraries."
+ms.date: 01/27/2025
 ms.topic: concept-article
 ms.custom: devx-track-js
 ai-usage: ai-assisted
 #customer intent: As a JavaScript or TypeScript developer new to Azure, I want understand how to test my code which depends on the Azure SDKs so that only test what is needed.
 ---
 
-# Testing Azure SDK integration in JavaScript applications
+# How to Test Azure SDK Integration in JavaScript Applications Using Jest
 
-Testing your integration code for the Azure SDK for JavaScript is essential to ensure your applications interact correctly with Azure services. 
+Testing your integration code for the Azure SDK for JavaScript is essential to ensure your applications interact correctly with Azure services. This guide will show you how to effectively test Azure SDK integration in your JavaScript applications a testing framework. 
 
-When deciding whether to mock out cloud service SDK calls or use a live service for testing purposes, it's important to consider the trade-offs between speed, reliability, and cost.
+When deciding whether to mock out cloud service SDK calls or use a live service for testing purposes, it's important to consider the trade-offs between speed, reliability, and cost. This article demonstrates how to use Jest as the test framework for testing SDK integration. Other comparable test frameworks can also be used.
 
 ## Prerequisites
 
@@ -130,7 +130,7 @@ The functions in this application above are:
 | **inputVerified**       | Verifies the input data against a schema. Ensures data is in the correct format (for example, valid email addresses, correctly formatted URLs).|
 | **cosmos.items.create** | SDK function for Azure Cosmos DB using the [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos). **This is what we want to mock**. It already has its own tests maintained by the package owners. We need to verify that the Cosmos DB function call was made and returned data if the incoming data passed verification. |
 
-## Install test framework dependency
+### Install test framework dependency
 
 This article uses [Jest](https://jestjs.io/) as the test framework. There are other test frameworks, which are comparable you can also use. 
 
@@ -140,7 +140,7 @@ In the root of the application directory, install Jest with the following comman
 npm install jest
 ```
 
-## Configure package to run test
+### Configure package to run test
 
 Update the `package.json` for the application with a new script to test our source code files. Source code files are defined by matching on partial file name and extension. Jest looks for files following the common naming convention for test files: `<file-name>.spec.[jt]s`.  This pattern means files named like the following examples will be interpreted as test files and run by Jest:
 
@@ -158,7 +158,7 @@ Add a script to the *package.json* to support that test file pattern with Jest:
 
 The TypeScript source code is generated into the `dist` subfolder. Jest runs the `.spec.js` files found in the `dist` subfolder.
 
-## Set up unit test for Azure SDK 
+### Set up unit test for Azure SDK 
 
 How can we use mocks, stubs, and fakes to test the **insertDocument** function? 
 
