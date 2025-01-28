@@ -1,18 +1,18 @@
 ---
-title: "Testing code depending on Azure SDK in JavaScript"
-description: "Learn to test Azure SDK integration in JavaScript apps. Understand when to use live dependencies, doubles, and mocks with client libraries (SDKs)."
-ms.date: 08/29/2022
+title: "How to Test Azure SDK Integration in JavaScript Applications"
+description: "Learn how to test Azure SDK integration in JavaScript apps using Jest. Discover best practices for using live dependencies, doubles, and mocks with Azure client libraries."
+ms.date: 01/27/2025
 ms.topic: concept-article
 ms.custom: devx-track-js
 ai-usage: ai-assisted
 #customer intent: As a JavaScript or TypeScript developer new to Azure, I want understand how to test my code which depends on the Azure SDKs so that only test what is needed.
 ---
 
-# Testing Azure SDK integration in JavaScript applications
+# How to Test Azure SDK Integration in JavaScript Applications Using Jest
 
-Testing your integration code for the Azure SDK for JavaScript is essential to ensure your applications interact correctly with Azure services. 
+Testing your integration code for the Azure SDK for JavaScript is essential to ensure your applications interact correctly with Azure services. This guide shows you how to effectively test Azure SDK integration in your JavaScript applications a testing framework. 
 
-When deciding whether to mock out cloud service SDK calls or use a live service for testing purposes, it's important to consider the trade-offs between speed, reliability, and cost.
+When deciding whether to mock out cloud service SDK calls or use a live service for testing purposes, it's important to consider the trade-offs between speed, reliability, and cost. This article demonstrates how to use Jest as the test framework for testing SDK integration. Other comparable test frameworks can also be used.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ When deciding whether to mock out cloud service SDK calls or use a live service 
 
 **Cons:**
 
-- Mocks may drift from the actual SDK, leading to discrepancies.
+- Mocks can drift from the actual SDK, leading to discrepancies.
 - Might ignore certain features or behaviors of the live service.
 - Less realistic environment compared to production.
 
@@ -37,15 +37,15 @@ When deciding whether to mock out cloud service SDK calls or use a live service 
 
 **Pros:**
 
-- Provides a realistic environment that closely mirrors production.
-- Useful for integration tests to ensure different parts of the system work together.
-- Helps identify issues related to network reliability, service availability, and actual data handling.
+- Is a realistic environment that closely mirrors production.
+- Is useful for integration tests to ensure different parts of the system work together.
+- Is helpful to identify issues related to network reliability, service availability, and actual data handling.
 
 **Cons:**
 
-- Slower due to network calls.
-- More expensive due to potential service usage costs.
-- Complex and time-consuming to set up and maintain a live service environment that matches production.
+- Is slower due to network calls.
+- Is more expensive due to potential service usage costs.
+- Is complex and time-consuming to set up and maintain a live service environment that matches production.
 
 The choice between mocking and using live services depends on your testing strategy. For unit tests where speed and control are paramount, mocking is often the better choice. For integration tests where realism is crucial, using a live service can provide more accurate results. Balancing these approaches helps achieve comprehensive test coverage while managing costs and maintaining test efficiency.
 
@@ -59,8 +59,8 @@ Mocks (also called _spies_): Substitute in a function and be able to control and
 
 In the following examples, you have 2 functions: 
 
-- **someTestFunction**: This is the function you need to test. It calls a dependency, `dependencyFunction`, which you didn't write and don't need to test.
-- **dependencyFunctionMock**: This is a mock of the dependency.
+- **someTestFunction**: The function you need to test. It calls a dependency, `dependencyFunction`, which you didn't write and don't need to test.
+- **dependencyFunctionMock**: Mock of the dependency.
 
 ```javascript
 // setup
@@ -85,7 +85,7 @@ When you decide to mock a dependency, you can choose to mock just what you need 
 
 ### Stubs
 
-The purpose of stubs is to replace a function's return data to simulate different scenarios. This allows your code to call the function and receive various states, including successful results, failures, exceptions, and edge cases. **State verification** ensures your code handles these scenarios correctly.
+The purpose of a stub is to replace a function's return data to simulate different scenarios. You use a stub to allow your code to call the function and receive various states, including successful results, failures, exceptions, and edge cases. **State verification** ensures your code handles these scenarios correctly.
 
 ```javascript
 // ARRANGE
@@ -111,7 +111,7 @@ Fakes substitute a functionality that you wouldn't normally use in production, s
 
 The purpose of the preceding test is to ensure that `someTestFunction` correctly interacts with the database. By using a fake in-memory database, you can test the function's logic without relying on a real database, making the tests faster and more reliable.
 
-## Scenario: Inserting a document into Cosmos DB using Azure SDK
+## Scenario: Insert document into Cosmos DB using Azure SDK
 
 Imagine you have an application that needs to write a new document to Cosmos DB _if_ all the information is submitted and verified. If an empty form is submitted or the information doesn't match the expected format, the application shouldn't enter the data.
 
@@ -120,9 +120,9 @@ Cosmos DB is used as an example, however the concepts apply to most of the Azure
 :::code language="TypeScript" source="~/../node-essentials/unit-testing/src/mock-function/lib/insert.ts":::
 
 > [!NOTE]
-> TypeScript types help define the kinds of data a function uses. While you don't need TypeScript to use Jest or other JavaScript testing frameworks, it is essential for writing type-safe JavaScript.
+> TypeScript types help define the kinds of data a function uses. While you don't need TypeScript to use Jest or other JavaScript testing frameworks, it's essential for writing type-safe JavaScript.
 
-The functions in this application above are:
+The functions in this application are:
 
 | Function | Description  |
 |--|--|
@@ -130,7 +130,7 @@ The functions in this application above are:
 | **inputVerified**       | Verifies the input data against a schema. Ensures data is in the correct format (for example, valid email addresses, correctly formatted URLs).|
 | **cosmos.items.create** | SDK function for Azure Cosmos DB using the [@azure/cosmos](https://www.npmjs.com/package/@azure/cosmos). **This is what we want to mock**. It already has its own tests maintained by the package owners. We need to verify that the Cosmos DB function call was made and returned data if the incoming data passed verification. |
 
-## Install test framework dependency
+### Install test framework dependency
 
 This article uses [Jest](https://jestjs.io/) as the test framework. There are other test frameworks, which are comparable you can also use. 
 
@@ -140,9 +140,9 @@ In the root of the application directory, install Jest with the following comman
 npm install jest
 ```
 
-## Configure package to run test
+### Configure package to run test
 
-Update the `package.json` for the application with a new script to test our source code files. Source code files are defined by matching on partial file name and extension. Jest looks for files following the common naming convention for test files: `<file-name>.spec.[jt]s`.  This pattern means files named like the following examples will be interpreted as test files and run by Jest:
+Update the `package.json` for the application with a new script to test our source code files. Source code files are defined by matching on partial file name and extension. Jest looks for files following the common naming convention for test files: `<file-name>.spec.[jt]s`. This pattern means files named like the following examples are interpreted as test files and run by Jest:
 
 - ***.test.js**: For example, math.test.js
 - ***.spec.js**: For example, math.spec.js
@@ -158,7 +158,7 @@ Add a script to the *package.json* to support that test file pattern with Jest:
 
 The TypeScript source code is generated into the `dist` subfolder. Jest runs the `.spec.js` files found in the `dist` subfolder.
 
-## Set up unit test for Azure SDK 
+### Set up unit test for Azure SDK 
 
 How can we use mocks, stubs, and fakes to test the **insertDocument** function? 
 
@@ -168,7 +168,7 @@ How can we use mocks, stubs, and fakes to test the **insertDocument** function?
 - Stubs:
   - The data passed in matches the new document returned by the function.
 
-When testing, think in terms of the test setup, the test itself, and the verification. In terms of test vernacular, this is known as:
+When testing, think in terms of the test setup, the test itself, and the verification. In terms of test vernacular, this functionality uses the following terms:
 
 * Arrange: set up your test conditions
 * Act: call your function to test, also known as the _system under test_ or SUT
@@ -176,15 +176,15 @@ When testing, think in terms of the test setup, the test itself, and the verific
     * Behavior indicates functionality in your test function, which can be verified. One example is that some dependency was called.
     * State indicates the data returned from the function.  
 
-Jest, similar with other test frameworks, has test file boilerplate to define your test file. 
+Jest, similar with other test frameworks, has test file template to define your test file. 
 
 :::code language="TypeScript" source="~/../node-essentials/unit-testing/src/test-boilerplate/boilerplate.spec.ts":::
 
-When using mocks, that boiler place needs to use mocking to test the function without calling the underlying dependency used in the function, such as the Azure client libraries. 
+When you use mocks in your tests, that template code needs to use mocking to test the function without calling the underlying dependency used in the function, such as the Azure client libraries. 
 
 ## Create the test file
 
-The test file with mocks to simulate a call to a dependency has some extra setup in additional to the common test boilerplate code. There are several parts to the test file below:
+The test file with mocks, to simulate a call to a dependency, has extra setup. There are several parts to the test file:
 
 - `import`: The import statements allow you to use or mock out any of your test.
 - `jest.mock`: Create the default mock behavior you want. Each test can alter as needed. 
