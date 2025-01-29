@@ -16,7 +16,7 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 > [!div class="checklist"]
 
 > * Define and configure the AzureRM and AzAPI providers
-> * Use the AzureRM provider to create an Azure resource group
+> * Use the AzureRM provider to create an Azure resource group with a unique name
 > * Use the AzureRM provider to register the "Microsoft.ContainerRegistry" provider in your subscription
 > * Use the AzAPI provider to create the Azure Container Registry resource
 
