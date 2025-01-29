@@ -21,7 +21,7 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 > * Use the AzAPI provider to create the Azure Container Registry resource
 
 > [!NOTE]
-> The example code in this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/101-azapi-lab-services/quickstart/101-azapi-lab-services).
+> The example code in this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azapi-lab-services).
 
 ## Prerequisites
 
@@ -35,19 +35,19 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[101-azapi-lab-services](../../terraform_samples/quickstart/101-azapi-lab-services/providers.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/providers.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[101-azapi-lab-services](../../terraform_samples/quickstart/101-azapi-lab-services/variables.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/variables.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[101-azapi-lab-services](../../terraform_samples/quickstart/101-azapi-lab-services/main.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/main.tf)]
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[101-azapi-lab-services](../../terraform_samples/quickstart/101-azapi-lab-services/outputs.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/outputs.tf)]
 
 ## Initialize Terraform
 
