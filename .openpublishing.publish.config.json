@@ -37,7 +37,7 @@
     {
       "path_to_root": "terraform_samples",
       "url": "https://github.com/azure/terraform",
-      "branch": "master",
+      "branch": "101-azapi-lab-services",
       "branch_mapping": {}
     },
     {
