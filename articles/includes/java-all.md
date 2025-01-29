@@ -465,9 +465,9 @@
 | Unknown Display Name | Maven [1.0.2](https://search.maven.org/artifact/com.microsoft.azure.hdinsight/hdi-oauth-token-utils-shaded/1.0.2/jar/) |  |  |
 | Active Directory Authentication Library | Maven [1.6.7](https://search.maven.org/artifact/com.microsoft.azure/adal4j/1.6.7/jar/) | [docs](/java/api/overview/azure/activedirectory) |  |
 | Actors | Maven [1.0.0](https://search.maven.org/artifact/com.microsoft.azure.servicefabric/actors-preview/1.0.0/jar/) |  |  |
-| Application Insights - Agent | Maven [3.6.2](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-agent/3.6.2/jar/) |  |  |
+| Application Insights - Agent | Maven [3.7.0](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-agent/3.7.0/jar/) |  |  |
 | Application Insights - Collectd | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-collectd/2.6.4/jar/)<br>Maven [2.6.3-BETA-HEYA-TEST](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-collectd/2.6.3-BETA-HEYA-TEST/jar/) |  |  |
-| Application Insights - Core | Maven [3.6.2](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-core/3.6.2/jar/) |  |  |
+| Application Insights - Core | Maven [3.7.0](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-core/3.7.0/jar/) |  |  |
 | Application Insights - Logging Log4j1_2 | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-logging-log4j1_2/2.6.4/jar/) |  |  |
 | Application Insights - Logging Log4j2 | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-logging-log4j2/2.6.4/jar/) |  |  |
 | Application Insights - Logging Logback | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-logging-logback/2.6.4/jar/) |  |  |
@@ -476,7 +476,7 @@
 | Application Insights - Profiler Telemetrymodule | Maven [0.2.1](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-profiler-telemetrymodule/0.2.1/jar/) |  |  |
 | Application Insights - Profiler Uploader | Maven [0.2.0](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-profiler-uploader/0.2.0/jar/) |  |  |
 | Application Insights - Spring Boot Starter | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-spring-boot-starter/2.6.4/jar/)<br>Maven [2.6.3-BETA-HEYA-TEST](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-spring-boot-starter/2.6.3-BETA-HEYA-TEST/jar/) |  |  |
-| Application Insights - Web | Maven [3.6.2](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-web/3.6.2/jar/) |  |  |
+| Application Insights - Web | Maven [3.7.0](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-web/3.7.0/jar/) |  |  |
 | Application Insights - Web Auto | Maven [2.6.4](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-web-auto/2.6.4/jar/)<br>Maven [2.6.3-BETA-HEYA-TEST](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-web-auto/2.6.3-BETA-HEYA-TEST/jar/) |  |  |
 | Auto Suggest | Maven [1.0.2-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-autosuggest/1.0.2-beta/jar/) |  | GitHub [1.0.2-beta](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-autosuggest) |
 | AutoRest Build Tools | Maven [1.7.14](https://search.maven.org/artifact/com.microsoft.azure/autorest-build-tools/1.7.14/jar/) |  |  |
@@ -542,7 +542,7 @@
 | IoT Service Client | Maven [2.1.9](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-service-client/2.1.9/jar/)<br>Maven [2.0.0-preview-002](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot/iot-service-client/2.0.0-preview-002/jar/) | [docs](/java/api/overview/azure/iot) |  |
 | Kusto Data | Maven [6.0.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-data/6.0.0/jar/) |  |  |
 | Kusto Ingest | Maven [6.0.0](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-ingest/6.0.0/jar/) |  |  |
-| Kusto Spark | Maven [5.2.5](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-spark_3.0_2.12/5.2.5/jar/) |  |  |
+| Kusto Spark | Maven [5.2.6](https://search.maven.org/artifact/com.microsoft.azure.kusto/kusto-spark_3.0_2.12/5.2.6/jar/) |  |  |
 | LUIS Authoring | Maven [1.0.4-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring/1.0.4-beta/jar/) |  | GitHub [1.0.4-beta](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-luis-authoring) |
 | LUIS Runtime | Maven [1.0.2-beta](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime/1.0.2-beta/jar/) |  | GitHub [1.0.2-beta](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cognitiveservices/ms-azure-cs-luis-runtime) |
 | Media Services | Maven [0.9.8](https://search.maven.org/artifact/com.microsoft.azure/azure-media/0.9.8/jar/) |  | GitHub [0.9.8](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/mediaservices/microsoft-azure-media) |
@@ -595,7 +595,7 @@
 | Websocket Transport Layer | Maven [0.1.3](https://search.maven.org/artifact/com.microsoft.azure.sdk.iot.deps/websocket-transport-layer/0.1.3/jar/) |  |  |
 | Annotations | Maven [1.10.0](https://search.maven.org/artifact/com.microsoft.azure/azure-annotations/1.10.0/jar/) |  |  |
 | Apache Spark Archetype | Maven [0.1.0](https://search.maven.org/artifact/com.microsoft.azure/apache-spark-archetype/0.1.0/jar/) |  |  |
-| applicationinsights-runtime-attach | Maven [3.6.2](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-runtime-attach/3.6.2/jar/) |  |  |
+| applicationinsights-runtime-attach | Maven [3.7.0](https://search.maven.org/artifact/com.microsoft.azure/applicationinsights-runtime-attach/3.7.0/jar/) |  |  |
 | azure-cosmos-cassandra-driver-3 | Maven [1.0.3](https://search.maven.org/artifact/com.azure/azure-cosmos-cassandra-driver-3/1.0.3/jar/) |  |  |
 | azure-cosmos-cassandra-driver-3 | Maven [0.14.0](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmos-cassandra-driver-3/0.14.0/jar/) |  |  |
 | azure-cosmos-cassandra-driver-3-extensions | Maven [1.0.3](https://search.maven.org/artifact/com.azure/azure-cosmos-cassandra-driver-3-extensions/1.0.3/jar/) |  |  |
