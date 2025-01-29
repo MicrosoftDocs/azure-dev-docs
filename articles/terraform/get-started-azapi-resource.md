@@ -3,25 +3,18 @@ title: Quickstart - Deploy your first Azure resource with the AzAPI Terraform pr
 description: Learn how to use the AzAPI Terraform provider to manage an Azure Lab Service
 keywords: azure devops terraform lab azapi resource
 ms.topic: quickstart
-ms.date: 03/18/2023
+ms.date: 01/29/2025
 ms.custom: devx-track-terraform
-author: grayzu
-ms.author: markgray
 ---
 
 # Quickstart: Deploy your first Azure resource with the AzAPI Terraform provider
-
-Article tested with the following Terraform and Terraform provider versions:
-
-- [Terraform v1.1.8](https://releases.hashicorp.com/terraform/)
-- [AzureRM Provider v.3.0.2](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
-- [AzAPI Provider v.0.1.0](https://registry.terraform.io/providers/azure/azapi/latest/docs)
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
 In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage an Azure service that is not currently supported by the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). The `azapi_resource` will be used to manage an [Azure Lab Services](/azure/lab-services/lab-services-overview) account as well as a lab.
 
 > [!div class="checklist"]
+
 > * Define and configure the AzureRM and AzAPI providers.
 > * Use the AzureRM provider to create an Azure resource group
 > * Use the AzureRM provider to register the "Microsoft.LabServices" provider in your subscription
@@ -44,13 +37,17 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/providers.tf)]
 
+1. Create a file named `variables.tf` and insert the following code:
+
+    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/variables.tf)]
+
 1. Create a file named `main.tf` and insert the following code:
 
     [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/main.tf)]
 
-1. Create a file named `main-generic.tf` and insert the following code:
+1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/main-generic.tf)]
+    [!code-terraform[master](../../terraform_samples/quickstart/101-azapi-lab-services/outputs.tf)]
 
 ## Initialize Terraform
 
@@ -66,7 +63,7 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
 
 ## Verify the results
 
-1. Verify your keys have been listed as a result of the terraform apply.
+Verify your keys have been listed as a result of the `terraform apply` command.
 
 ## Clean up resources
 
