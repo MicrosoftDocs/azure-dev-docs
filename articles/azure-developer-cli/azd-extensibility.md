@@ -40,7 +40,7 @@ The following service lifecycle event hooks are available:
 
 Hooks can be registered in your `azure.yaml` file at the root or within a specific service configuration. All types of hooks support the following configuration options:
 
-* `shell`: `sh` | `pwsh` (automatically inferred from run if not specified).
+* `shell`: `sh` | `pwsh`
   * *Note*: PowerShell 7 is required for `pwsh`.
 * `run`: Define an inline script or a path to a file.
 * `continueOnError`: When set will continue to execute even after a script error occurred during a command hook (default false).
