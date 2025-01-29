@@ -404,7 +404,7 @@
 | azure-common | npm [0.9.27](https://www.npmjs.com/package/azure-common/v/0.9.27) |  |  |
 | tmlanguage-generator | npm [0.5.10](https://www.npmjs.com/package/tmlanguage-generator/v/0.5.10) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/maps-timezone/v/1.0.0-beta.1) |  |  |
-| Unknown Display Name | npm [0.1.4](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.1.4) |  |  |
+| Unknown Display Name | npm [0.1.5](https://www.npmjs.com/package/@azure-tools/spec-gen-sdk/v/0.1.5) |  |  |
 | Unknown Display Name | npm [0.7.0](https://www.npmjs.com/package/@azure-tools/typespec-rust/v/0.7.0) |  |  |
 | Unknown Display Name | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/ai-projects/v/1.0.0-beta.2) |  |  |
 | Unknown Display Name | npm [0.64.0](https://www.npmjs.com/package/@typespec/events/v/0.64.0) |  |  |
