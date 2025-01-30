@@ -146,11 +146,3 @@ const blobServiceClient = new BlobServiceClient(
   new DefaultAzureCredential()
 );
 ```
-
-When the code is run on the **Azure hosting resource**, the SDK method, _DefaultAzureCredential()_, looks for the production (green) credential types in the order displayed in the following diagram: the environment, the Workload identity, then the Managed Identity.
-
-When the preceding code is run on your local workstation during **local development**, the SDK method, _DefaultAzureCredential()_, looks in the local development (orange) credential types in the order displayed in the following diagram: the Azure CLI, Azure PowerShell, then Azure Developer CLI for a set of developer credentials. These tools can be used to authenticate the app to Azure resources during local development. In this way, this same code can be used to authenticate your app to Azure resources during both local development and when deployed to Azure.
-
-## More resources
-
-* [Azure credential chains](credential-chains.md)
