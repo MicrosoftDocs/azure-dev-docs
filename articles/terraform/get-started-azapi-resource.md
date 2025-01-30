@@ -11,7 +11,7 @@ ms.custom: devx-track-terraform
 
 [!INCLUDE [Terraform abstract](./includes/abstract.md)]
 
-In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage an Azure service that isn't currently supported by the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). In the example code, the `azapi_resource` is used to manage an [Azure Container Registry](/azure/container-registry/) resource.
+In this article, you learn how to use the [AzAPI Terraform provider](https://registry.terraform.io/providers/azure/azapi/latest/docs) to manage an Azure service that the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) currently doesn't support. In the example code, the `azapi_resource` is used to manage an [Azure Container Registry](/azure/container-registry/) resource.
 
 > [!div class="checklist"]
 
