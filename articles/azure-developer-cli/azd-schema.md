@@ -210,25 +210,13 @@ pipeline:
 
 | Element Name | Type   | Required | Description |
 |--------------|--------|----------|-------------|
-| workflow     | object | No       | The workflow configuration. |
-
-#### `workflow` properties
-
-| Element Name | Type   | Required | Description |
-|--------------|--------|----------|-------------|
 | steps        | array  | Yes      | The steps to execute in the workflow. |
 
-#### `workflowStep` properties
+#### `steps` properties
 
 | Element Name | Type   | Required | Description |
 |--------------|--------|----------|-------------|
-| azd          | object | Yes      | The azd command configuration. |
-
-#### `azd` properties
-
-| Element Name | Type   | Required | Description |
-|--------------|--------|----------|-------------|
-| azdCommand   | anyOf  | Yes      | The azd command to execute. |
+| azdCommand          | object | Yes      | The azd command configuration. |
 
 #### `azdCommand` properties
 
