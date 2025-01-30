@@ -200,6 +200,58 @@ pipeline:
   provider: azdo
 ```
 
+### `workflows` properties
+
+| Element Name | Type   | Required | Description |
+|--------------|--------|----------|-------------|
+| up           | object | No       | When specified will override the default behavior for the azd up workflow. |
+
+#### `up` properties
+
+| Element Name | Type   | Required | Description |
+|--------------|--------|----------|-------------|
+| workflow     | object | No       | The workflow configuration. |
+
+#### `workflow` properties
+
+| Element Name | Type   | Required | Description |
+|--------------|--------|----------|-------------|
+| steps        | array  | Yes      | The steps to execute in the workflow. |
+
+#### `workflowStep` properties
+
+| Element Name | Type   | Required | Description |
+|--------------|--------|----------|-------------|
+| azd          | object | Yes      | The azd command configuration. |
+
+#### `azd` properties
+
+| Element Name | Type   | Required | Description |
+|--------------|--------|----------|-------------|
+| azdCommand   | anyOf  | Yes      | The azd command to execute. |
+
+#### `azdCommand` properties
+
+| Element Name           | Type   | Required | Description |
+|------------------------|--------|----------|-------------|
+| title        | string | Yes      | The azd command to execute. |
+| description  | string | No       | The name and args of the azd command to execute. (Example: deploy --all) |
+
+#### Sample workflow
+
+The following `azure.yaml` file changes the default behavior of `azd up` to move the `azd package` step after the `azd provision` step using workflows:
+
+```yml
+name: todo-nodejs-mongo
+metadata:
+  template: todo-nodejs-mongo@0.0.1-beta
+workflows:
+  up: 
+    steps:
+      - azd: provision
+      - azd: deploy --all
+```
+
 [!INCLUDE [request-help](includes/request-help.md)]
 
 ## Next steps
