@@ -216,14 +216,7 @@ pipeline:
 
 | Element Name | Type   | Required | Description |
 |--------------|--------|----------|-------------|
-| azdCommand          | object | Yes      | The azd command configuration. |
-
-#### `azdCommand` properties
-
-| Element Name           | Type   | Required | Description |
-|------------------------|--------|----------|-------------|
-| title        | string | Yes      | The azd command to execute. |
-| description  | string | No       | The name and args of the azd command to execute. (Example: deploy --all) |
+| azd          | string | Yes      | The name and args of the azd command to execute. |
 
 #### Sample workflow
 
