@@ -1,14 +1,14 @@
 ---
-title: Authenticate Azure-hosted JavaScript Apps to Azure resources using the Azure SDK
-description: Learn to securely authenticate JavaScript apps on Azure hosting services like App Service, Functions, or VMs using the Azure SDK and managed identities.
+title: Authenticate Azure-hosted JavaScript apps to Azure resources using the Azure SDK
+description: Learn to securely authenticate JavaScript apps on Azure hosting services like App Service, Functions, or VMs using the Azure Identity library and managed identities.
 ms.date: 01/24/2025
 ms.topic: how-to
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
-# How to Authenticate Azure-Hosted JavaScript Apps to Azure resources using the Azure SDK
+# How to authenticate Azure-hosted JavaScript apps to Azure resources using the Azure Identity library
 
-When an app is hosted in Azure (using a service like Azure App Service, Azure Functions, or Azure Container Apps), you can use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) to securely authenticate your app to Azure resources.
+When an app is hosted in Azure (using a service like Azure App Service, Azure Functions, or Azure Container Apps), you can use a [managed identity](/entra/identity/managed-identities-azure-resources/overview) to securely authenticate your app to Azure resources.
 
 A managed identity provides an identity for your app, allowing it to connect to other Azure resources without needing to use a secret (such as a connection string or key). Internally, Azure recognizes the identity of your app and knows which resources the app is authorized to access. Azure uses this information to automatically obtain Microsoft Entra tokens for the app, enabling it to connect to other Azure resources without requiring you to manage (create or rotate) authentication secrets.
 
@@ -19,7 +19,7 @@ There are two types of managed identities:
 * **System-assigned managed identities** - single Azure resource
 * **User-assigned managed identities** - multiple Azure resources
 
-This article covers the steps to enable and use a system-assigned managed identity for an app. If you need to use a user-assigned managed identity, see the article [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to see how to create a user-assigned managed identity.
+This article covers the steps to enable and use a system-assigned managed identity for an app. If you need to use a user-assigned managed identity, see the article [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to see how to create a user-assigned managed identity.
 
 ### System-assigned managed identities for single resource
 
@@ -27,12 +27,12 @@ System-assigned managed identities are provided by and tied directly to an Azure
 
 ### User-assigned managed identities for multiple resources
 
-A User-assigned managed identity is a standalone Azure resource. This identity type is most frequently used when your solution has multiple workloads that run on multiple Azure resources that all need to share the same identity and same permissions. For example, suppose your solution includes applications that run on multiple App Service and virtual machine instances. The applications all need access to the same set of Azure resources. Creating and using a user-assigned managed identity across those resources is the best design choice.
+A user-assigned managed identity is a standalone Azure resource. This identity type is most frequently used when your solution has multiple workloads that run on multiple Azure resources that all need to share the same identity and same permissions. For example, suppose your solution includes applications that run on multiple App Service and virtual machine instances. The applications all need access to the same set of Azure resources. Creating and using a user-assigned managed identity across those resources is the best design choice.
 
 
 ## 1 - Enable system-assigned managed identity in hosted app
 
-The first step is to enable managed identity on the Azure resource hosting your app. For example, if you're hosting a Express.js application using Azure App Service, you need to enable managed identity for that App Service web app. If you're using a virtual machine to host your app, you enable your VM to use managed identity.
+The first step is to enable managed identity on the Azure resource hosting your app. For example, if you're hosting an Express.js application using Azure App Service, you need to enable managed identity for that App Service web app. If you're using a VM to host your app, you enable your VM to use managed identity.
 
 You can enable managed identity to be used for an Azure resource using either the Azure portal or the Azure CLI.
 
@@ -116,7 +116,7 @@ For information on assigning permissions at the resource or subscription level u
 
 ## 3 - Implement DefaultAzureCredential in your application
 
-The `DefaultAzureCredential` class automatically detects that a managed identity is being used and use the managed identity to authenticate to other Azure resources. As discussed in the [Azure SDK for JavaScript authentication overview](./overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime. In this way, your app can use different authentication methods in different environments without implementing environment specific code.
+The `DefaultAzureCredential` class automatically detects that a managed identity is being used and uses the managed identity to authenticate to other Azure resources. As discussed in the [Azure SDK for JavaScript authentication overview](./overview.md) article, `DefaultAzureCredential` supports multiple authentication methods and determines the authentication method being used at runtime. In this way, your app can use different authentication methods in different environments without implementing environment-specific code.
 
 First, add the [@azure/identity](https://www.npmjs.com/package/@azure/identity) package to your application.
 
