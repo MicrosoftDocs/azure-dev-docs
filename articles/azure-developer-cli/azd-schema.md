@@ -220,7 +220,7 @@ pipeline:
 
 #### Sample workflow
 
-The following `azure.yaml` file changes the default behavior of `azd up` to move the `azd package` step after the `azd provision` step using workflows:
+The following `azure.yaml` file changes the default behavior of `azd up` to move the `azd package` step after the `azd provision` step using a workflow. This example could be used in scenarios where you need to know the URLs of resources during the build or packaging process.
 
 ```yml
 name: todo-nodejs-mongo
