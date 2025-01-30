@@ -151,8 +151,6 @@ When the code is run on the **Azure hosting resource**, the SDK method, _Default
 
 When the preceding code is run on your local workstation during **local development**, the SDK method, _DefaultAzureCredential()_, looks in the local development (orange) credential types in the order displayed in the following diagram: the Azure CLI, Azure PowerShell, then Azure Developer CLI for a set of developer credentials. These tools can be used to authenticate the app to Azure resources during local development. In this way, this same code can be used to authenticate your app to Azure resources during both local development and when deployed to Azure.
 
-:::image type="content" source="../media/mermaidjs/default-azure-credential-auth-flow-inline.svg" alt-text="Diagram that shows DefaultAzureCredential authentication flow." lightbox="../media/mermaidjs/default-azure-credential-auth-flow-expanded.png":::
-
 ## More resources
 
 * [Azure credential chains](credential-chains.md)
