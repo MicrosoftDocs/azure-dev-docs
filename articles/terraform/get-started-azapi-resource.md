@@ -3,7 +3,7 @@ title: Quickstart - Deploy your first Azure resource with the AzAPI Terraform pr
 description: Learn how to use the AzAPI Terraform provider to manage an Azure Container Registry resource
 keywords: azure devops terraform acr azapi resource
 ms.topic: quickstart
-ms.date: 01/29/2025
+ms.date: 01/30/2025
 ms.custom: devx-track-terraform
 ---
 
