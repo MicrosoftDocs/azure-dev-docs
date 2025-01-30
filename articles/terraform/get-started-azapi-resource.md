@@ -97,7 +97,7 @@ In this article, you learn how to use the [AzAPI Terraform provider](https://reg
     $azure_container_registry_name=$(terraform output -raw azure_container_registry_name)
     ```
 
-1. Run [az acr show](/cli/azure/acr#az-acr-show) to view the container registry.
+1. Run [Get-AzContainerRegistry](/powershell/module/az.containerregistry/get-azcontainerregistry) to view the container registry.
 
     ```azurepowershell
     Get-AzContainerRegistry -ResourceGroupName $resource_group_name -Name $azure_container_registry_name
