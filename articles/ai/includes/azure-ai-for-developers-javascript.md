@@ -1,7 +1,7 @@
 ---
 ms.custom: overview
 ms.topic: include
-ms.date: 01/17/2025
+ms.date: 01/30/2025
 ms.author: johalexander
 author: ms-johnalex
 ms.service: azure
@@ -22,6 +22,7 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 
 |Link|Description|
 |---|---|
+|[DeepSeek on Azure](https://github.com/Azure-Samples/deepseek-azure-javascript)|Demonstrates how to use DeepSeek with JavaScript/TypeScript via the OpenAI Node.js client library or LangChain.js. DeepSeek excels at tasks requiring deep context understanding and complex reasoning. You may experience longer response times compared to other models, because it simulates a thought process (under the `<think>` tag) before providing an actual answer.|
 |[Completions](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v2-beta/javascript/completions.js)|A simple example demonstrating how to get completions for the provided prompt.|
 |[Streaming Chat Completions](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v2-beta/javascript/streamChatCompletions.js)|A simple example demonstrating how to use  streaming chat completions.|
 |[Switch from OpenAI to Azure OpenAI](https://aka.ms/azai/oai-to-aoai)|Article with guidance on the small changes you need to make to your code in order to swap back and forth between OpenAI and the Azure OpenAI Service.|
