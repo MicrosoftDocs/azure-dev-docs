@@ -22,6 +22,7 @@
 
 # Tools
 /articles/azure-cli/ @alexwolfmsft
+/articles/typespect/ @diberry
 
 # Azure SDK authentication topics
 /articles/java/sdk/authentication/ @scottaddie @g2vinay @billwert

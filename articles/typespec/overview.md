@@ -9,38 +9,36 @@ ms.custom: devx-track-typespec
 
 # What is TypeSpec?
 
-<!-- Required: Article headline - H1
+[TypeSpec](https://typespec.io/) is a language to define and design APIs at scale. It provides a structured way to describe the shape and behavior of data and services, ensuring consistency and reducing errors in API development. With TypeSpec, you can generate code, documentation, and other artifacts from your API definitions, making it easier to maintain and evolve your services. Microsoft uses TypeSpec internally to define APIs for various products and services, including Azure.
 
-Identify the product or service and the feature area
-you are providing overview information about.
+## API management, governance, consistency at scale
 
--->
+Write TypeSpec once, emit to multiple specification formats such as OpenAPI, JSON or Protobuf. By separating out the design language from the API specification language, TypeSpec closes the gap between API design and the downstream tool chains such as REST service generation, SDK generation per programming language, reference documentation, and testing.
 
-[Introduce and explain the purpose of the article.]
+TypeSpec allows you to implement API guidance at design time so APIs across your system can easily conform instead of duplicating efforts or exposing anti-patterns. 
 
-<!-- Required: Introductory paragraphs (no heading)
+## Reuse and modularity
 
-Write a brief introduction that can help the user
-determine whether the article is relevant for them
-and to describe how the article might benefit them.
+Transform API patterns into reusable elements to enhance both the quality and uniformity of your API interface. 
 
--->
+Remove need for multiple teams to define same functionality. Examples include:
+    - Parameters
+    - Authentication
+    - Error handling
+    - Versioning
+    - Responses
 
-## [Feature section]
+## Interoperablility
 
-[Introduce a section that describes a feature.]
+Benefit from a huge ecosystem of OpenAPI tools for configuring API gateways, generating code, and validating your data.
 
-<!-- Required: Feature sections - H2
+## Multiple protocols Provide API management regardless of implementation protocol.
 
-In two or more H2 sections, describe key features of
-the product or service. Consider sections for basic
-requirements, dependencies, limitations, and overhead.
 
--->
 
 ## Related content
 
-- [Related article title](link.md)
+- [TypeSpec 101 on YouTube](https://www.youtube.com/playlist?list=PLYWCCsom5Txglkl_I1XvwzrzM5G3SuVsR)
 - [Related article title](link.md)
 - [Related article title](link.md)
 
