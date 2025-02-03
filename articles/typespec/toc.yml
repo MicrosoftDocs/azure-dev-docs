@@ -4,10 +4,6 @@
   items:
     - name: About TypeSpec
       href: overview.md
-- name: Quickstart
-  items:
-    - name: Using TypeSpec
-      href: quickstart.md
 - name: Resources
   items:
     - name: Getting started

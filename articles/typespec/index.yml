@@ -21,10 +21,6 @@ landingContent:
         links:
           - text: About TypeSpec
             url: overview.md
-      - linkListType: quickstart
-        links:
-          - text: Deploy with IP Groups - Terraform
-            url: /azure/firewall/quick-create-ipgroup-terraform
 
   # Card
   - title: Resources
