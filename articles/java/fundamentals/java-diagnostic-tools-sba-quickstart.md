@@ -1,7 +1,7 @@
 ---
 title: Get Started with Spring Boot Admin component of Java Diagnostic Tool (diag4j) on AKS
 description: The quickstart guide for Spring Boot Admin component of Java Diagnostic Tool (diag4j) on AKS
-author: 
+author: KarlErickson
 ms.author: xuycao
 ms.topic: article
 ms.date: 12/17/2024
@@ -11,6 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 # Get Started with Spring Boot Admin component of Java Diagnostic Tool (diag4j) on AKS
 
 ## Introduction
+
 This guide provides step-by-step instructions to set up and start using the Spring Boot Admin component of the Java Diagnostic Tool (diag4j) on Azure Kubernetes Service (AKS). By following these steps, developers can monitor and diagnose their Java applications efficiently.
 
 ## Prerequisites
@@ -30,7 +31,7 @@ Before starting, ensure the following prerequisites are met:
 1. Install diag4j in the desired namespace:
 
     ```bash
-    helm install my-diag4j oci://diag4j.azurecr.io/helm/diag4j --version 1.1.5 -n <namespace> --create-namespace 
+    helm install my-diag4j oci://diag4j.azurecr.io/helm/diag4j --version 1.1.5 -n <namespace> --create-namespace
     ```
 
 >  **Note:** If you need help to deploy your Java application to AKS, please refer to this guide to deploy a sample Java app to your AKS: [Deploy an app on AKS](../spring-framework/deploy-spring-boot-java-app-on-kubernetes.md)
@@ -59,7 +60,7 @@ Before starting, ensure the following prerequisites are met:
 ### Step 3: Access the diag4j Dashboard
 
 1. Port Forwarding
-    
+ 
     Access the Spring Boot Admin (SBA) server locally by forwarding its port:
 
     ```bash
