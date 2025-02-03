@@ -1,0 +1,20 @@
+- name: TypeSpec documentation
+  href: index.yml
+- name: Overview
+  items:
+    - name: About TypeSpec
+      href: overview.md
+- name: Quickstart
+  items:
+    - name: Using TypeSpec
+      href: quickstart.md
+- name: Resources
+  items:
+    - name: Getting started
+      href: resources.md
+    - name: Playground
+      href: https://typespec.io/playground/
+    - name: Blog
+      href: https://typespec.io/blog/
+    - name: Community
+      href: https://typespec.io/community/
