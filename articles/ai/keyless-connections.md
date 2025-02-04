@@ -350,13 +350,12 @@ using Azure.Identity;
 using System;
 using static System.Environment;
 
-string userAssignedClientId = "<your managed identity client ID>";
 string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
 
 var credential = new DefaultAzureCredential(
     new DefaultAzureCredentialOptions
     {
-        ManagedIdentityClientId = userAssignedClientId
+        ManagedIdentityClientId = "<user_assigned_client_id>"
     });
 
 OpenAIClient client = new(new Uri(endpoint), credential);
