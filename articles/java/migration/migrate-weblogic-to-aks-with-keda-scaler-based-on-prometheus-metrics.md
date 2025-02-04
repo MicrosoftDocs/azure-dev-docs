@@ -423,7 +423,7 @@ Continue to explore the following references for more options to build autoscali
 > [!div class="nextstepaction"]
 > [Scaling options for applications in Azure Kubernetes Service (AKS)](/azure/aks/concepts-scale)
 > [!div class="nextstepaction"]
-> [What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service?](/azure/virtual-machines/workloads/oracle/weblogic-aks)
+> [What are solutions for running Oracle WebLogic Server on Azure Kubernetes Service?](/azure/virtual-machines/workloads/oracle/weblogic-aks)
 > [!div class="nextstepaction"]
 > [WebLogic Kubernetes Operator Scaling](https://aka.ms/wlsoperator-scaling)
 > [!div class="nextstepaction"]
