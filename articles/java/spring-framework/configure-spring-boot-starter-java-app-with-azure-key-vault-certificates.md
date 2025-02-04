@@ -311,4 +311,4 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 
 > [!div class="nextstepaction"]
 > [Azure for Spring developers](../spring/index.yml)
-> [Spring Cloud Azure Key Vault certificates samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/keyvault/azure-spring-boot-starter-keyvault-certificates)
+> [Spring Cloud Azure Key Vault certificates samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-boot-2.x/keyvault/azure-spring-boot-starter-keyvault-certificates)
