@@ -339,7 +339,9 @@ OpenAIClient client = new(new Uri(endpoint), new DefaultAzureCredential());
 
 ### Specify a user-assigned managed identity with DefaultAzureCredential
 
-You can also assign a specific user-assigned managed identity with `DefaultAzureCredential` by using the `DefaultAzureCredentialOptions` `ManagedIdentityClientId` parameter to configure it with a client ID.
+Take one of the following approaches to set the user-assigned managed identity's client ID:
+- Set environment variable `AZURE_CLIENT_ID`. `DefaultAzureCredential` will use the value of this environment variable, if present.
+- Set property [ManagedIdentityClientId](/dotnet/api/azure.identity.defaultazurecredentialoptions.managedidentityclientid?view=azure-dotnet) on `DefaultAzureCredentialOptions`:
 
 ```csharp
 using Azure;
