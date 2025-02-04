@@ -148,7 +148,7 @@ conceptualContent:
             - url: https://github.com/Azure-Samples/azure-spring-boot-samples
               itemType: sample
               text: Spring Cloud Azure samples
-            - url: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/spring-petclinic-microservices
+            - url: https://github.com/Azure-Samples/azure-spring-boot-samples
               itemType: sample
               text: Spring Petclinic Microservices sample
             - url: https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples

@@ -234,12 +234,4 @@ Use the following steps to connect to Azure Cache for Redis:
 
 ### Samples
 
-#### [Spring Cloud Azure 5.x](#tab/SpringCloudAzure5x)
-
-See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cache/spring3-sample) repository on GitHub.
-
-#### [Spring Cloud Azure 4.x](#tab/SpringCloudAzure4x)
-
-See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/cache/spring2-sample/spring-cloud-azure-starter) repository on GitHub.
-
----
+See the [azure-spring-boot-samples](https://github.com/Azure-Samples/azure-spring-boot-samples) repository on GitHub.
