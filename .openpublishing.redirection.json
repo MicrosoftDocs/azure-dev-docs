@@ -1794,6 +1794,10 @@
     {
       "source_path": "articles/azure-developer-cli/debug.md",
       "redirect_url": "/azure/developer/azure-developer-cli/get-started"
-    }       
+    },
+    {
+      "source_path": "articles/terraform/get-started-export-resources-portal.md",
+      "redirect_url": "/azure/developer/terraform/azure-terraform-resource-provider/resource-provider-overview"
+    }
   ]
 }
