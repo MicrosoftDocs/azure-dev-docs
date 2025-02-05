@@ -21,7 +21,25 @@ landingContent:
         links:
           - text: About TypeSpec
             url: overview.md
-
+          - text: Installation
+            url: https://typespec.io/docs/
+  
+  - title: API language
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Basics
+            url: https://typespec.io/docs/language-basics/overview/
+          - text: Directives
+            url: https://typespec.io/docs/language-basics/directives/
+          - text: Decorators
+            url: https://typespec.io/docs/language-basics/decorators/
+          - text: Type relations
+            url: https://typespec.io/docs/language-basics/type-relations/
+          - text: Linters
+            url: https://typespec.io/docs/extending-typespec/linters/
+          - text: OpenAPI3 emitter
+            url: https://typespec.io/docs/emitters/openapi3/reference/
   # Card
   - title: Resources
     linkLists:
