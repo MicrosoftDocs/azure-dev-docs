@@ -2,7 +2,7 @@
 title: Use keyless connections with Azure OpenAI
 description: Use keyless connections for authentication and authorization to Azure OpenAI.
 ms.topic: how-to
-ms.date: 11/13/2024
+ms.date: 02/05/2025
 ms.reviewer: scaddie
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python, passwordless-go, build-2024-intelligent-apps
 #customer intent: As a developer, I want to use keyless connections so that I don't leak secrets.
@@ -412,7 +412,7 @@ Take one of the following approaches to set the user-assigned managed identity's
         .buildClient();
     ```
 
-- Assign a specific user-assigned managed identity with `DefaultAzureCredential` by using the `DefaultAzureCredentialBuilder` to configure it with a client ID.
+- Assign a specific user-assigned managed identity with `DefaultAzureCredential` by using the `DefaultAzureCredentialBuilder` to configure it with a client ID:
 
     ```java
     import com.azure.identity.DefaultAzureCredentialBuilder;
@@ -454,7 +454,7 @@ Take one of the following approaches to set the user-assigned managed identity's
     const client = new AzureOpenAI(options);
     ```
 
-- Assign a specific user-assigned managed identity with `DefaultAzureCredential` by using the `managedIdentityClientId` parameter to configure it with a client ID.
+- Assign a specific user-assigned managed identity with `DefaultAzureCredential` by using the `managedIdentityClientId` parameter to configure it with a client ID:
 
     ```javascript
     import { DefaultAzureCredential, getBearerTokenProvider } from "@azure/identity";
