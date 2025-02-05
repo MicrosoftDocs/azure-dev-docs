@@ -323,7 +323,7 @@ The Azure Identity library's `DefaultAzureCredential` allows the customer to run
 
 ### [.NET](#tab/csharp)
 
-For more information on `DefaultAzureCredential` for .NET, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme#defaultazurecredential).
+For more information on `DefaultAzureCredential` for .NET, see the [`DefaultAzureCredential` overview](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#defaultazurecredential-overview).
 
 ```csharp
 using Azure;
@@ -363,7 +363,7 @@ OpenAIClient client = new(new Uri(endpoint), credential);
 
 ### [Go](#tab/go)
 
-For more information on `DefaultAzureCredential` for Go, see [Azure Identity client library for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#readme-defaultazurecredential).
+For more information on `DefaultAzureCredential` for Go, see the [`DefaultAzureCredential` overview](/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).
 
 ```go
 import (
@@ -392,8 +392,7 @@ func main() {
 
 ### [Java](#tab/java)
 
-For more information on `DefaultAzureCredential` for Java, see [Azure Identity client library for Java](/java/api/overview/azure/identity-readme#defaultazurecredential).
-
+For more information on `DefaultAzureCredential` for Java,  see the [`DefaultAzureCredential` overview](/azure/developer/java/sdk/authentication/credential-chains#defaultazurecredential-overview).
 ```java
 import com.azure.identity.DefaultAzureCredentialBuilder;
 import com.azure.ai.openai.OpenAIClient;
@@ -430,7 +429,7 @@ OpenAIClient client = new OpenAIClientBuilder()
 
 ### [JavaScript](#tab/javascript)
 
-For more information on `DefaultAzureCredential` for JavaScript, see [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme#defaultazurecredential).
+For more information on `DefaultAzureCredential` for JavaScript, see the [`DefaultAzureCredential` overview](/azure/developer/javascript/sdk/authentication/credential-chains#use-defaultazurecredential-for-flexibility).
 
 ```javascript
 import { DefaultAzureCredential, getBearerTokenProvider } from "@azure/identity";
@@ -474,8 +473,7 @@ const client = new AzureOpenAI(options);
 
 ### [Python](#tab/python)
 
-For more information on `DefaultAzureCredential` for Python, see [Azure Identity client library for Python](/python/api/overview/azure/identity-readme#defaultazurecredential).
-
+For more information on `DefaultAzureCredential` for Python, see the [`DefaultAzureCredential` overview](/azure/developer/python/sdk/authentication/credential-chains?tabs=dac#defaultazurecredential-overview).
 ```python
 import openai
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
