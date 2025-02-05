@@ -1,7 +1,7 @@
 ---
 title: Get started with the Chat Using your Own Data Sample for Java
 description: Get started with Java and search across your own data using a chat app sample implemented using Azure OpenAI Service and Retrieval Augmented Generation (RAG) in Azure AI Search. Easily deploy with Azure Developer CLI. This article uses the Azure AI Reference Template sample.
-ms.date: 05/11/2024
+ms.date: 02/05/2025
 ms.topic: get-started
 ms.custom: devx-track-java, devx-track-java-ai, devx-track-extended-java, devx-track-extended-azdevcli, build-2024-intelligent-apps
 # CustomerIntent: As a Java developer new to Azure OpenAI, I want deploy and use sample code to interact with app infused with my own business data so that learn from the sample code.
@@ -61,14 +61,12 @@ To use this article, you need the following prerequisites:
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true).
 * Azure account permissions - your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-* Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
 * A GitHub account.
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/ai-services?azure-portal=true)
 * Azure account permissions - Your Azure Account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
-* Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
 * [Azure Developer CLI](/azure/developer/azure-developer-cli)
 * [Docker Desktop](https://www.docker.com/products/docker-desktop/) - start Docker Desktop if it's not already running
 * [Visual Studio Code](https://code.visualstudio.com/)
@@ -85,7 +83,7 @@ Begin now with a development environment that has all the dependencies installed
 [GitHub Codespaces](https://docs.github.com/codespaces) runs a development container managed by GitHub with [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web) as the user interface. For the most straightforward development environment, use GitHub Codespaces so that you have the correct developer tools and dependencies preinstalled to complete this article.
 
 > [!IMPORTANT]
-> All GitHub accounts can use Codespaces for up to 60 hours free each month with 2 core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+> All GitHub accounts can use Codespaces for up to 60 hours free each month with two core instances. For more information, see [GitHub Codespaces monthly included storage and core hours](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
 
 1. Right-click on the following button, and select **Open link in new windows** in order to have both the development environment and the documentation available at the same time. 
 
@@ -152,7 +150,7 @@ The sample repository contains all the code and configuration files you need to 
 ### Deploy chat app to Azure
 
 > [!IMPORTANT]
-> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources may accrue costs even if you interrupt the command before it is fully executed. 
+> Azure resources created in this section incur immediate costs, primarily from the Azure AI Search resource. These resources might accrue costs even if you interrupt the command before it's fully executed. 
 
 1. Provision the Azure resources and deploy the source code by running the following command:
 
@@ -285,7 +283,7 @@ Open the **Command Palette**, search for the **Dev Containers** commands, and th
 :::image type="content" source="./media/get-started-app-chat-template/reopen-local-command-palette.png" alt-text="Screenshot of the Command Palette option to reopen the current folder within your local environment.":::
 
 > [!TIP]
-> Visual Studio Code will stop the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
+> Visual Studio Code stops the running development container, but the container still exists in Docker in a stopped state. You always have the option to deleting the container instance, container image, and volumes from Docker to free up more space on your local machine.
 
 ---
 
