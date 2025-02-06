@@ -119,8 +119,7 @@
 | Text Translation | npm [1.0.0](https://www.npmjs.com/package/@azure-rest/ai-translation-text/v/1.0.0) |  | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/ai-translation-text_1.0.0/sdk/translation/ai-translation-text-rest/) |
 | Timezone | npm [1.0.0-beta.1](https://www.npmjs.com/package/@azure-rest/maps-timezone/v/1.0.0-beta.1) |  | GitHub [1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/maps-timezone_1.0.0-beta.1/sdk/maps/maps-timezone-rest/) |
 | Token Cache Persistence Plugin | npm [1.1.1](https://www.npmjs.com/package/@azure/identity-cache-persistence/v/1.1.1) | [docs](/javascript/api/overview/azure/identity-cache-persistence-readme) | GitHub [1.1.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.1.1/sdk/identity/identity-cache-persistence/) |
-| unknown | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/ai-projects/v/1.0.0-beta.2) |  | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.0-beta.2/sdk/ai/ai-projects/) |
-| unknown | npm [0.1.0](https://www.npmjs.com/package/@typespec/ts-http-runtime/v/0.1.0) |  | GitHub [0.1.0](https://github.com/Azure/azure-sdk-for-js/tree/@typespec/ts-http-runtime_0.1.0/sdk/core/@typespec/ts-http-runtime/) |
+| unknown | npm [1.0.0-beta.2](https://www.npmjs.com/package/@azure/ai-projects/v/1.0.0-beta.2) | [docs](/javascript/api/overview/azure/ai-projects-readme) | GitHub [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-projects_1.0.0-beta.2/sdk/ai/ai-projects/) |
 | VS Code Authentication Plugin | npm [1.0.0](https://www.npmjs.com/package/@azure/identity-vscode/v/1.0.0) | [docs](/javascript/api/overview/azure/identity-vscode-readme) | GitHub [1.0.0](https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_1.0.0/sdk/identity/identity-vscode/) |
 | Web PubSub | npm [1.1.3](https://www.npmjs.com/package/@azure/web-pubsub/v/1.1.3) | [docs](/javascript/api/overview/azure/web-pubsub-readme) | GitHub [1.1.3](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub_1.1.3/sdk/web-pubsub/web-pubsub/) |
 | Web PubSub Client | npm [1.0.1](https://www.npmjs.com/package/@azure/web-pubsub-client/v/1.0.1) | [docs](/javascript/api/overview/azure/web-pubsub-client-readme) | GitHub [1.0.1](https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-client_1.0.1/sdk/web-pubsub/web-pubsub-client/) |
@@ -414,6 +413,7 @@
 | Unknown Display Name | npm [0.1.0-alpha.8](https://www.npmjs.com/package/@typespec/http-specs/v/0.1.0-alpha.8) |  |  |
 | Unknown Display Name | npm [0.64.0](https://www.npmjs.com/package/@typespec/sse/v/0.64.0) |  |  |
 | Unknown Display Name | npm [0.64.0](https://www.npmjs.com/package/@typespec/streams/v/0.64.0) |  |  |
+| Unknown Display Name | npm [0.1.0](https://www.npmjs.com/package/@typespec/ts-http-runtime/v/0.1.0) |  |  |
 | Web PubSub Tunnel Tool | npm [1.0.0-beta.11](https://www.npmjs.com/package/@azure/web-pubsub-tunnel-tool/v/1.0.0-beta.11) |  |  |
 | @azure/media-stream-library | npm [1.1.0-beta.4](https://www.npmjs.com/package/@azure/media-stream-library/v/1.1.0-beta.4) |  |  |
 | @azure/video-analyzer-player | npm [1.0.4](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.0.4)<br>npm [1.1.0-beta.8](https://www.npmjs.com/package/@azure/video-analyzer-player/v/1.1.0-beta.8) |  |  |
